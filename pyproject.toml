@@ -1,0 +1,73 @@
+[project]
+name = "communitymech"
+version = "0.1.0"
+description = "Microbial Community Mechanisms Knowledge Base - LinkML-based modeling with evidence validation"
+authors = [
+    {name = "CultureBotAI", email = "info@culturebot.ai"}
+]
+license = {text = "BSD-3-Clause"}
+readme = "README.md"
+requires-python = ">=3.9"
+
+dependencies = [
+    "linkml>=1.7.0",
+    "linkml-runtime>=1.7.0",
+    "pydantic>=2.0.0",
+    "pyyaml>=6.0",
+    "click>=8.0.0",
+    "jinja2>=3.0.0",
+    "oaklib>=0.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+koza = [
+    "koza>=0.5.0",
+    "biolink-model>=3.0.0",
+]
+
+validation = [
+    "linkml-validator>=0.4.0",
+]
+
+[project.scripts]
+communitymech = "communitymech.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ["py39", "py310", "py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "N", "S", "B", "A", "C4", "T20", "SIM"]
+ignore = ["S101", "S603", "S607"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
