@@ -33,7 +33,7 @@ This plan adapts the dismech (Disorder Mechanisms Knowledge Base) architecture f
 
 ### 1.1 Core Classes
 
-Adapt dismech classes for microbial ecology:
+Define core classes for microbial ecology (based on dismech's Disease/Pathophysiology model):
 
 ```yaml
 classes:
@@ -121,7 +121,7 @@ classes:
   EcologicalInteraction:
     description: >
       Interaction between taxa or between taxa and environment.
-      Follows causal graph pattern from dismech pathophysiology.
+      Uses causal graph pattern with downstream edges (similar to dismech pathophysiology).
     attributes:
       name:
         required: true
@@ -647,7 +647,7 @@ just validate kb/communities/Human_Gut_Healthy_Adult.yaml
 
 ### 3.2 Reference Validation
 
-Adapt dismech's reference validator to validate evidence snippets against PubMed abstracts:
+Implement reference validation to validate evidence snippets against PubMed abstracts (following dismech's approach):
 
 ```bash
 just validate-references kb/communities/Human_Gut_Healthy_Adult.yaml
@@ -702,7 +702,7 @@ adapters:
 
 ### 4.1 Koza Script Design
 
-Adapt `src/dismech/export/kgx_export.py` to transform YAML → KG edges.
+Create `src/communitymech/export/kgx_export.py` to transform YAML → KG edges (based on dismech's `src/dismech/export/kgx_export.py` pattern).
 
 **Key transformations** (lossy but preserves core facts):
 
@@ -794,7 +794,7 @@ This can then be loaded into any KG stack (KGX, Neo4j, SPARQL endpoint, etc.).
 
 ### 5.1 Browser Export
 
-Adapt `src/dismech/export/browser_export.py` to aggregate community data for faceted search.
+Create `src/communitymech/export/browser_export.py` to aggregate community data for faceted search (based on dismech's browser_export.py).
 
 **Facets for communities:**
 - Environment (ENVO categories: soil, marine, gut, etc.)
@@ -807,7 +807,7 @@ Adapt `src/dismech/export/browser_export.py` to aggregate community data for fac
 
 ### 5.2 Browser UI
 
-Adapt `app/index.html` for microbial communities:
+Create `app/index.html` for microbial communities (based on dismech's faceted browser):
 
 ```html
 <div class="facets">
@@ -859,7 +859,7 @@ just deploy
 
 ### 6.1 Template Design
 
-Adapt `src/dismech/templates/disorder.html.jinja` → `community.html.jinja`:
+Create `src/communitymech/templates/community.html.jinja` (based on dismech's disorder.html.jinja):
 
 **Sections:**
 1. **Overview** - Description, environment, host
@@ -904,13 +904,12 @@ From the PR list, Kevin's open PRs are:
 
 Let me check for koza-related PRs or branches in the repo history.
 
-**Action:** Review git history and branches for koza work:
+**Action:** Review the cloned dismech repository for koza implementation patterns:
 
 ```bash
-cd dismech
-git log --all --grep="koza" --oneline
-git branch -a | grep koza
-gh pr list --state all --search "koza"
+cd dismech  # The locally cloned reference repo
+cat src/dismech/export/kgx_export.py
+# Study the pattern for our implementation
 ```
 
 ### 7.2 Koza Transform Pattern
@@ -1067,7 +1066,7 @@ just deploy
    - Curation guide
    - Ontology term guidelines
    - Evidence validation SOP
-3. **CLAUDE.md** - Agent-facing guidance (like dismech)
+3. **CLAUDE.md** - Agent-facing guidance (like the dismech project)
 4. **Skills README** - How to use curation skills
 
 ### 10.3 CI/CD
@@ -1134,10 +1133,11 @@ temporal_dynamics:
 ## Implementation Roadmap
 
 ### Sprint 1: Foundation (Week 1-2)
-- [ ] Clone and adapt dismech repo structure
+- [x] Repository structure created
+- [x] Seed data added (35 communities)
 - [ ] Design core schema (MicrobialCommunity, TaxonomicComposition, EcologicalInteraction)
 - [ ] Set up OAK adapters for NCBITaxon, ENVO, CHEBI
-- [ ] Create first example: `Human_Gut_Healthy_Adult.yaml`
+- [ ] Create first example from seed data (e.g., Synechococcus-E.coli SPC)
 - [ ] Implement schema validation
 
 ### Sprint 2: Validation (Week 3)

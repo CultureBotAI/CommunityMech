@@ -159,7 +159,7 @@ NCBITaxon:853 --[produces]--> CHEBI:30089
 
 ## Integration with Kevin's Koza Work
 
-Kevin's pattern from dismech (see `src/dismech/export/kgx_export.py`):
+Kevin's pattern from dismech (reference: `dismech/src/dismech/export/kgx_export.py`):
 
 1. **Pure transform function** - testable without Koza
 ```python
@@ -182,7 +182,7 @@ def koza_transform(ctx, record):
 
 ## Faceted Browser
 
-Adapted from dismech's `app/index.html`:
+Adapted from dismech's faceted browser (`dismech/app/index.html`):
 
 **Facets:**
 - Environment (gut, soil, marine)
@@ -219,5 +219,5 @@ Adapted from dismech's `app/index.html`:
 ## Questions?
 
 - Read `COMMUNITY_MECH_PLAN.md` for details
-- Check dismech repo for reference implementation
+- Reference the cloned dismech repo in `./dismech/` for implementation patterns
 - See dismech's `CLAUDE.md` for agent curation patterns

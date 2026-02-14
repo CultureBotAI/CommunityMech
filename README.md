@@ -80,6 +80,8 @@ just gen-browser
 just gen-html-all
 ```
 
+> **Note**: Commands above are planned for implementation. See [COMMUNITY_MECH_PLAN.md](COMMUNITY_MECH_PLAN.md) for development roadmap.
+
 ---
 
 ## 📁 Repository Structure
@@ -211,7 +213,8 @@ ecological_interactions:
 
 - [x] Repository created
 - [x] Implementation plan documented
-- [x] Reference implementation analyzed (dismech)
+- [x] Reference implementation analyzed (Monarch dismech)
+- [x] Seed data added (35 communities)
 - [ ] Schema design
 - [ ] First example community YAML
 - [ ] Validation stack setup
@@ -266,7 +269,7 @@ Based on the dismech framework:
 
 ## 📝 License
 
-(TBD - likely BSD-3-Clause to match dismech)
+BSD-3-Clause (matching the dismech framework)
 
 ---
 
