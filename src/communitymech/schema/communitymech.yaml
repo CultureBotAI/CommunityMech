@@ -1,0 +1,305 @@
+id: https://w3id.org/culturebot-ai/communitymech
+name: communitymech
+title: Microbial Community Mechanisms Knowledge Base Schema
+description: Schema for modeling microbial community structure, function, and ecological interactions
+license: BSD-3-Clause
+see_also:
+  - https://github.com/CultureBotAI/CommunityMech
+
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  communitymech: https://w3id.org/culturebot-ai/communitymech/
+  NCBITaxon: http://purl.obolibrary.org/obo/NCBITaxon_
+  ENVO: http://purl.obolibrary.org/obo/ENVO_
+  CHEBI: http://purl.obolibrary.org/obo/CHEBI_
+  GO: http://purl.obolibrary.org/obo/GO_
+  UBERON: http://purl.obolibrary.org/obo/UBERON_
+  CL: http://purl.obolibrary.org/obo/CL_
+  PMID: http://www.ncbi.nlm.nih.gov/pubmed/
+  doi: https://doi.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+
+default_prefix: communitymech
+
+types:
+  PMID:
+    base: str
+    uri: xsd:string
+
+enums:
+  EvidenceItemSupportEnum:
+    description: The level of support for an evidence item
+    permissible_values:
+      SUPPORT:
+        description: Evidence supports the claim
+      REFUTE:
+        description: Evidence refutes the claim
+      PARTIAL:
+        description: Evidence partially supports the claim
+      NO_EVIDENCE:
+        description: No evidence found
+      WRONG_STATEMENT:
+        description: Statement is incorrect
+
+  EvidenceSourceEnum:
+    description: The provenance/source of the evidence
+    permissible_values:
+      IN_VITRO:
+        description: In vitro experiments (batch culture, bioreactor, etc.)
+      IN_VIVO:
+        description: In vivo experiments (field studies, host-associated, etc.)
+      COMPUTATIONAL:
+        description: In silico modeling, simulation, or prediction
+      REVIEW:
+        description: Review article or meta-analysis
+      OTHER:
+        description: Other evidence type
+
+  EcologicalStateEnum:
+    description: The ecological or health state of the community
+    permissible_values:
+      STABLE:
+        description: Stable, equilibrium community
+      PERTURBED:
+        description: Recently perturbed (e.g., antibiotic treatment)
+      ENGINEERED:
+        description: Synthetic or engineered community
+      TRANSIENT:
+        description: Transient or developing community
+
+  InteractionTypeEnum:
+    description: Type of ecological interaction between organisms
+    permissible_values:
+      MUTUALISM:
+        description: Both organisms benefit (+/+)
+      COMMENSALISM:
+        description: One benefits, other unaffected (+/0)
+      CROSS_FEEDING:
+        description: Metabolite exchange between organisms
+      COMPETITION:
+        description: Both negatively affected (-/-)
+      PREDATION:
+        description: One benefits, other harmed (+/-)
+      SYNTROPHY:
+        description: Obligate metabolic cooperation
+
+  AbundanceEnum:
+    description: Relative abundance categories
+    permissible_values:
+      DOMINANT:
+        description: Greater than 1% relative abundance
+      ABUNDANT:
+        description: 0.1-1% relative abundance
+      COMMON:
+        description: 0.01-0.1% relative abundance
+      RARE:
+        description: Less than 0.01% relative abundance
+
+  FunctionalRoleEnum:
+    description: Functional role in the community
+    permissible_values:
+      PRIMARY_PRODUCER:
+        description: Fixes carbon (autotroph)
+      PRIMARY_DEGRADER:
+        description: Degrades complex substrates
+      SECONDARY_FERMENTER:
+        description: Ferments products from primary degraders
+      SYNTROPHIC_PARTNER:
+        description: Engages in syntrophic metabolism
+      CROSS_FEEDER:
+        description: Utilizes metabolites from other taxa
+
+classes:
+  Term:
+    description: An ontology term with ID and label
+    attributes:
+      id:
+        description: The ontology term ID (e.g., NCBITaxon:1140, CHEBI:17992)
+        required: true
+      label:
+        description: The human-readable label for the term
+        required: true
+
+  EvidenceItem:
+    description: An evidence item linking a claim to a publication
+    attributes:
+      reference:
+        description: The publication reference (e.g., PMID:12345678, doi:10.1038/...)
+        required: true
+      supports:
+        description: Level of support this evidence provides
+        range: EvidenceItemSupportEnum
+        required: true
+      evidence_source:
+        description: Type of evidence (in vitro, computational, etc.)
+        range: EvidenceSourceEnum
+      snippet:
+        description: Exact quote from the publication supporting the claim
+      explanation:
+        description: How this evidence supports or refutes the claim
+
+  TaxonDescriptor:
+    description: Describes an organism with NCBITaxon term
+    attributes:
+      preferred_term:
+        description: Human-readable organism name
+        required: true
+      term:
+        description: NCBITaxon ontology term
+        range: Term
+        required: true
+      notes:
+        description: Additional notes about this organism
+
+  MetaboliteDescriptor:
+    description: Describes a metabolite with CHEBI term
+    attributes:
+      preferred_term:
+        description: Human-readable metabolite name
+        required: true
+      term:
+        description: CHEBI ontology term
+        range: Term
+        required: true
+      concentration:
+        description: Measured concentration or amount
+      notes:
+        description: Additional notes
+
+  BiologicalProcessDescriptor:
+    description: Describes a biological process with GO term
+    attributes:
+      preferred_term:
+        description: Human-readable process name
+        required: true
+      term:
+        description: GO biological process term
+        range: Term
+        required: true
+      notes:
+        description: Additional notes
+
+  EnvironmentDescriptor:
+    description: Describes an environment with ENVO term
+    attributes:
+      preferred_term:
+        description: Human-readable environment name
+        required: true
+      term:
+        description: ENVO ontology term
+        range: Term
+        required: true
+      notes:
+        description: Additional notes
+
+  TaxonomicComposition:
+    description: A taxon present in the community with abundance and role
+    attributes:
+      taxon_term:
+        description: The organism
+        range: TaxonDescriptor
+        required: true
+      abundance_level:
+        description: Relative abundance category
+        range: AbundanceEnum
+      abundance_value:
+        description: Quantitative abundance (%, cell count, etc.)
+      functional_role:
+        description: Role(s) in the community
+        range: FunctionalRoleEnum
+        multivalued: true
+      evidence:
+        description: Evidence for this organism's presence and role
+        range: EvidenceItem
+        multivalued: true
+
+  InteractionDownstream:
+    description: A downstream target in a causal interaction graph
+    attributes:
+      target:
+        description: Name of the downstream interaction
+        required: true
+      description:
+        description: Description of the causal link
+
+  EcologicalInteraction:
+    description: An interaction between organisms or metabolic processes
+    attributes:
+      name:
+        description: Name of this interaction
+        required: true
+      description:
+        description: Detailed description of the interaction
+      interaction_type:
+        description: Type of ecological interaction
+        range: InteractionTypeEnum
+      source_taxon:
+        description: Source organism (if applicable)
+        range: TaxonDescriptor
+      target_taxon:
+        description: Target organism (if applicable)
+        range: TaxonDescriptor
+      metabolites:
+        description: Metabolites involved in the interaction
+        range: MetaboliteDescriptor
+        multivalued: true
+      biological_processes:
+        description: Biological processes involved
+        range: BiologicalProcessDescriptor
+        multivalued: true
+      downstream:
+        description: Downstream effects in causal graph
+        range: InteractionDownstream
+        multivalued: true
+      evidence:
+        description: Evidence for this interaction
+        range: EvidenceItem
+        multivalued: true
+
+  EnvironmentalFactor:
+    description: An environmental condition or parameter
+    attributes:
+      name:
+        description: Name of the environmental factor
+        required: true
+      value:
+        description: Measured or specified value
+      unit:
+        description: Unit of measurement
+      description:
+        description: Description of this factor
+      evidence:
+        description: Evidence for this condition
+        range: EvidenceItem
+        multivalued: true
+
+  MicrobialCommunity:
+    tree_root: true
+    description: A microbial community with composition and interactions
+    attributes:
+      name:
+        description: Community name
+        required: true
+      description:
+        description: Overview of the community
+      ecological_state:
+        description: State of the community (stable, engineered, etc.)
+        range: EcologicalStateEnum
+      environment_term:
+        description: Environment where community exists
+        range: EnvironmentDescriptor
+      taxonomy:
+        description: Organisms present in the community
+        range: TaxonomicComposition
+        multivalued: true
+      ecological_interactions:
+        description: Interactions between organisms and processes
+        range: EcologicalInteraction
+        multivalued: true
+      environmental_factors:
+        description: Environmental conditions
+        range: EnvironmentalFactor
+        multivalued: true

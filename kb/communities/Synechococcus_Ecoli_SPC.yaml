@@ -1,0 +1,157 @@
+name: Synechococcus-E.coli Synthetic Photosynthetic Consortium
+description: >
+  A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus
+  PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with Escherichia coli.
+  The cyanobacterium fixes CO2 and exports up to 85% of fixed carbon as sucrose, which
+  supports heterotrophic growth of E. coli. This modular platform enables stable,
+  long-term photosynthetic co-culture for biofuel precursor production and demonstrates
+  a synthetic cross-feeding interaction that persists over days to months.
+
+ecological_state: ENGINEERED
+
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Grown in liquid culture under continuous illumination with osmotic pressure
+    (NaCl) and IPTG induction for sucrose secretion.
+
+# Taxonomic composition - 2 organisms
+taxonomy:
+  - taxon_term:
+      preferred_term: Synechococcus elongatus PCC 7942 cscB+
+      term:
+        id: NCBITaxon:1140
+        label: Synechococcus elongatus PCC 7942
+      notes: >
+        Engineered strain expressing E. coli H+/sucrose symporter CscB to enable
+        sucrose export. Wild-type strain does not secrete significant sucrose.
+    functional_role:
+      - PRIMARY_PRODUCER
+    abundance_value: "Primary autotroph - fixes CO2"
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Synechococcus elongatus PCC 7942 engineered to express the Escherichia coli H+/sucrose symporter CscB is capable of continuously exporting up to ~85% of fixed carbon as sucrose"
+        explanation: Establishes the engineered cyanobacterium as the primary producer secreting sucrose
+
+  - taxon_term:
+      preferred_term: Escherichia coli K-12
+      term:
+        id: NCBITaxon:83333
+        label: Escherichia coli str. K-12
+      notes: >
+        Heterotrophic partner that utilizes secreted sucrose from the cyanobacterium.
+    functional_role:
+      - CROSS_FEEDER
+    abundance_value: "Heterotroph supported by cyanobacterial sucrose"
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "tested sucrose-secreting cyanobacteria as a platform for constructing synthetic, light-driven consortia by pairing them with three disparate heterotrophs"
+        explanation: E. coli is one of the heterotrophic partners that can be supported by the sucrose-secreting platform
+
+# Ecological interactions - causal graph
+ecological_interactions:
+  - name: CO2 Fixation and Sucrose Production
+    description: >
+      Synechococcus elongatus fixes atmospheric CO2 through photosynthesis and converts
+      the fixed carbon into sucrose. The CscB transporter enables export of sucrose to
+      the extracellular environment when induced with IPTG in the presence of osmotic
+      pressure (NaCl).
+    interaction_type: CROSS_FEEDING
+    source_taxon:
+      preferred_term: Synechococcus elongatus PCC 7942 cscB+
+      term:
+        id: NCBITaxon:1140
+        label: Synechococcus elongatus PCC 7942
+    metabolites:
+      - preferred_term: sucrose
+        term:
+          id: CHEBI:17992
+          label: sucrose
+        concentration: "Up to 85% of fixed carbon"
+    biological_processes:
+      - preferred_term: photosynthesis
+        term:
+          id: GO:0015979
+          label: photosynthesis
+      - preferred_term: sucrose biosynthetic process
+        term:
+          id: GO:0005986
+          label: sucrose biosynthetic process
+    downstream:
+      - target: Sucrose Uptake and Heterotrophic Growth
+        description: Secreted sucrose supports E. coli growth
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Fixed carbon is secreted as sucrose when induced with IPTG in the presence of osmotic pressure (NaCl), and this secreted carbon then supports the growth of E. coli"
+        explanation: Demonstrates the core cross-feeding interaction
+
+  - name: Sucrose Uptake and Heterotrophic Growth
+    description: >
+      E. coli utilizes the sucrose secreted by Synechococcus elongatus as its carbon
+      and energy source for heterotrophic growth. This establishes a stable syntrophic
+      relationship where the phototroph provides fixed carbon and the heterotroph
+      benefits without needing to fix CO2.
+    interaction_type: CROSS_FEEDING
+    source_taxon:
+      preferred_term: Escherichia coli K-12
+      term:
+        id: NCBITaxon:83333
+        label: Escherichia coli str. K-12
+    metabolites:
+      - preferred_term: sucrose
+        term:
+          id: CHEBI:17992
+          label: sucrose
+    biological_processes:
+      - preferred_term: sucrose catabolic process
+        term:
+          id: GO:0005987
+          label: sucrose catabolic process
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Each co-culture can persist over the long-term (days to months), an important feature that is often missing in synthetic cross-feeding consortia"
+        explanation: Demonstrates stable, long-term growth of the consortium
+
+# Environmental factors
+environmental_factors:
+  - name: Light
+    value: "Continuous illumination"
+    description: Required for cyanobacterial photosynthesis
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "synthetic, light-driven consortia"
+        explanation: Light is essential for the photosynthetic partner
+
+  - name: NaCl (Osmotic Pressure)
+    value: "Required for sucrose secretion"
+    unit: "mM (concentration not specified in abstract)"
+    description: Osmotic pressure induces sucrose export via CscB transporter
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Fixed carbon is secreted as sucrose when induced with IPTG in the presence of osmotic pressure (NaCl)"
+        explanation: NaCl provides osmotic pressure required for sucrose export
+
+  - name: IPTG (Isopropyl β-D-1-thiogalactopyranoside)
+    value: "Inducer concentration not specified"
+    description: Induces expression of CscB sucrose transporter
+    evidence:
+      - reference: PMID:32753581
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Fixed carbon is secreted as sucrose when induced with IPTG"
+        explanation: IPTG induction is required for CscB expression and sucrose export

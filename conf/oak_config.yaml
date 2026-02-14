@@ -1,0 +1,33 @@
+# OAK (Ontology Access Kit) Configuration
+# Maps ontology prefixes to OAK adapters for term validation
+
+adapters:
+  # Taxonomy - for microbial organisms
+  NCBITaxon:
+    selector: sqlite:obo:ncbitaxon
+    description: NCBI Taxonomy - organisms
+
+  # Environment - for habitats and environmental conditions
+  ENVO:
+    selector: sqlite:obo:envo
+    description: Environment Ontology - habitats, biomes, environmental features
+
+  # Chemical entities - for metabolites, compounds
+  CHEBI:
+    selector: sqlite:obo:chebi
+    description: Chemical Entities of Biological Interest - metabolites, compounds
+
+  # Biological processes - for pathways, cellular processes
+  GO:
+    selector: sqlite:obo:go
+    description: Gene Ontology - biological processes, molecular functions, cellular components
+
+  # Anatomy - for host anatomy if needed
+  UBERON:
+    selector: sqlite:obo:uberon
+    description: Uberon - anatomy across species
+
+  # Cell types - for host cells if needed
+  CL:
+    selector: sqlite:obo:cl
+    description: Cell Ontology - cell types
