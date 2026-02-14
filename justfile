@@ -21,6 +21,18 @@ validate-all:
         uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file"
     done
 
+# Validate evidence references in a community file
+validate-references FILE:
+    uv run python -m communitymech.validators.reference_validator {{FILE}}
+
+# Validate references in all community files
+validate-references-all:
+    #!/usr/bin/env bash
+    for file in kb/communities/*.yaml; do
+        echo "\\nValidating references in $file..."
+        uv run python -m communitymech.validators.reference_validator "$file"
+    done
+
 # Run tests
 test:
     uv run pytest tests/ -v
