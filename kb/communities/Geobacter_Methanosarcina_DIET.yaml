@@ -1,0 +1,222 @@
+name: Geobacter-Methanosarcina DIET Community
+description: 'A syntrophic two-member consortium consisting of Geobacter metallireducens and Methanosarcina barkeri that performs
+  direct interspecies electron transfer (DIET) during ethanol oxidation. G. metallireducens oxidizes ethanol and transfers
+  electrons directly to M. barkeri via electrically conductive pili (e-pili), bypassing the need for diffusible electron carriers
+  like H2 or formate. M. barkeri uses these electrons to reduce CO2 to methane. This coculture forms aggregates and achieves
+  stoichiometric conversion of ethanol to methane via DIET. Unlike hydrogen-mediated syntrophy, DIET relies on biological
+  electrical connections between cells, with pili serving as conduits for long-range electron transfer. M. barkeri is unique
+  as a methanogen capable of using either H2 or electrons from DIET for CO2 reduction, making it a model organism for studying
+  electrical connections in microbial communities.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: DIET
+environment_term:
+  preferred_term: sediment
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: 'Isolated from anaerobic sediments and biofilms. DIET is an important process in anaerobic soils and sediments generating
+    methane. Cocultures form aggregates under strict anaerobic conditions, with direct cell-to-cell electron transfer mediated
+    by conductive pili.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+    notes: 'Anaerobic bacterium capable of oxidizing organic compounds (including ethanol) and transferring electrons to metal
+      oxides or other microorganisms. In DIET cocultures, G. metallireducens uses electrically conductive pili (e-pili) to
+      transfer electrons directly to M. barkeri. The pilin protein is essential for DIET - pilin-deficient mutants cannot
+      form cocultures unless conductive materials like granular activated carbon are provided as electron conduits. G. metallireducens
+      serves as the electron donor, oxidizing ethanol to acetate and CO2.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Ethanol oxidizer - electron donor via DIET
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The ability of Methanosarcina barkeri to participate in DIET was evaluated in coculture with Geobacter metallireducens
+    explanation: Establishes G. metallireducens as the primary ethanol oxidizer in DIET coculture
+- taxon_term:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+    notes: 'Methanogenic archaeon capable of accepting electrons via DIET and using them for CO2 reduction to methane. M.
+      barkeri is unique as the first methanogen known to be capable of using either H2 or electrons derived from DIET for
+      CO2 reduction. It is genetically tractable, making it a model organism for elucidating mechanisms by which methanogens
+      make biological electrical connections with other cells. Serves as the electron acceptor in the DIET partnership with
+      G. metallireducens.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: Methanogen - electron acceptor via DIET
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The ability of Methanosarcina barkeri to participate in DIET was evaluated in coculture with Geobacter metallireducens
+    explanation: Establishes M. barkeri as a DIET-capable methanogen with dual electron transfer capabilities
+ecological_interactions:
+- name: Ethanol Oxidation and Direct Electron Transfer
+  description: 'Geobacter metallireducens oxidizes ethanol to acetate and CO2, transferring electrons directly to Methanosarcina
+    barkeri via electrically conductive pili (e-pili). This direct interspecies electron transfer (DIET) bypasses the need
+    for diffusible electron carriers like H2 or formate. The pili serve as biological electrical conduits for long-range electron
+    transfer between cells. Pilin-deficient G. metallireducens mutants cannot initiate cocultures, demonstrating the essential
+    role of pili in DIET. However, conductive materials like granular activated carbon can substitute for pili, showing that
+    DIET can be mediated by abiotic conductors.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+    concentration: Substrate for oxidation
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product of ethanol oxidation
+  biological_processes:
+  - preferred_term: ethanol catabolic process
+    term:
+      id: GO:0006068
+      label: ethanol catabolic process
+  - preferred_term: ethanol oxidation
+    term:
+      id: GO:0006069
+      label: ethanol oxidation
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Direct Electron Acceptance and Methanogenesis
+    description: Electrons transferred via DIET are accepted by M. barkeri for methanogenesis
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amendments of granular activated carbon permitted the pilin-deficient G
+    explanation: Demonstrates ethanol oxidation coupled to direct electron transfer in aggregates
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures could not be initiated with a pilin-deficient G. metallireducens strain, suggesting that long-range
+      electron transfer along pili was important for DIET
+    explanation: Establishes the essential role of conductive pili in mediating DIET
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amendments of granular activated carbon permitted the pilin-deficient G. metallireducens isolates to share electrons
+      with M. barkeri
+    explanation: Demonstrates that conductive materials can substitute for pili in DIET
+- name: Direct Electron Acceptance and Methanogenesis
+  description: 'Methanosarcina barkeri accepts electrons directly from G. metallireducens via DIET and uses them to reduce
+    CO2 to methane. Unlike traditional hydrogen-mediated syntrophy, this process involves direct biological electrical connections
+    between cells rather than diffusible intermediates. M. barkeri is unique as a methanogen capable of using either H2 or
+    electrons from DIET for CO2 reduction, demonstrating metabolic flexibility. The electron transfer enables stoichiometric
+    conversion of ethanol to methane in the coculture.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: End product of methanogenesis
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Electron acceptor for methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: barkeri is genetically tractable,making it a model organism for elucidating mechanisms by which methanogens make
+      biological electrical connections with other cells.
+    explanation: Establishes M. barkeri's ability to use DIET-derived electrons for methanogenesis
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Direct interspecies electron transfer (DIET) is potentially an effective form of syntrophy in methanogenic communities, but little is known about the"
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: Both organisms are obligate anaerobes requiring anoxic conditions for DIET
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures formed aggregates that shared electrons via DIET during the stoichiometric conversion of ethanol to
+      methane
+    explanation: Establishes strict anaerobic requirement for DIET
+- name: Cell Aggregation
+  value: Required for DIET
+  description: 'Cocultures form aggregates that enable direct cell-to-cell contact necessary for electron transfer via conductive
+    pili. Aggregate formation is essential for establishing biological electrical connections.
+
+    '
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures formed aggregates that shared electrons via DIET during the stoichiometric conversion of ethanol to
+      methane
+    explanation: Demonstrates aggregate formation as a requirement for DIET
+- name: Pili Expression
+  value: Essential for DIET initiation
+  description: 'Expression of electrically conductive pili by G. metallireducens is critical for initiating DIET cocultures.
+    Pilin-deficient strains cannot form cocultures without conductive carbon amendments.
+
+    '
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures could not be initiated with a pilin-deficient G
+    explanation: Establishes pili as essential for DIET
+- name: Conductive Material Substitution
+  value: Granular activated carbon can replace pili
+  description: 'Conductive materials like granular activated carbon can substitute for biological pili in mediating electron
+    transfer, allowing pilin-deficient G. metallireducens to engage in DIET with M. barkeri.
+
+    '
+  evidence:
+  - reference: PMID:24837373
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amendments of granular activated carbon permitted the pilin-deficient G
+    explanation: Demonstrates abiotic conductors can mediate DIET

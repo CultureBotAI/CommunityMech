@@ -1,0 +1,134 @@
+name: Pseudo-nitzschia-Sulfitobacter Marine Association
+description: 'A mutualistic marine diatom-bacteria association between Pseudo-nitzschia multiseries and Sulfitobacter sp.
+  SA11, mediated by auxin and tryptophan signaling. The diatom produces tryptophan and taurine, which the bacterium uses to
+  synthesize indole-3-acetic acid (IAA) auxin that promotes diatom growth. The bacterium also secretes ammonia as a nitrogen
+  source. This interaction is widespread in ocean ecosystems and plays a significant role in carbon cycling and primary production.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: PHYTOPLANKTON
+environment_term:
+  preferred_term: marine environment
+  term:
+    id: ENVO:00002149
+    label: marine environment
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudo-nitzschia multiseries
+    term:
+      id: NCBITaxon:37319
+      label: Pseudo-nitzschia multiseries
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:25278561
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A taxonomic study was carried out on bacterial strain H3(T), which was isolated from the toxic marine diatom
+      Pseudo-nitzschia multiseries
+- taxon_term:
+    preferred_term: Sulfitobacter sp. SA11
+    term:
+      id: NCBITaxon:1546519
+      label: Sulfitobacter sp. SA11
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:25278561
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 16S rRNA gene sequence comparison showed that strain H3(T) was related most closely to Sulfitobacter donghicola
+      DSW-25(T) (97.3% similarity) and levels of similarity with other species of the genus Sulfitobacter were 95.1-96.9%
+ecological_interactions:
+- name: Tryptophan Biosynthesis and Secretion
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Pseudo-nitzschia multiseries
+    term:
+      id: NCBITaxon:37319
+      label: Pseudo-nitzschia multiseries
+  metabolites:
+  - preferred_term: tryptophan
+    term:
+      id: CHEBI:16828
+      label: tryptophan
+  - preferred_term: taurine
+    term:
+      id: CHEBI:15891
+      label: taurine
+  biological_processes:
+  - preferred_term: tryptophan biosynthetic process
+    term:
+      id: GO:0000162
+      label: tryptophan biosynthetic process
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  downstream:
+  - target: IAA Biosynthesis and Growth Promotion
+  evidence:
+  - reference: PMID:25278561
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth was observed at NaCl concentrations of 1-9%, pH 6-12 and 10-37 °C
+- name: IAA Biosynthesis and Growth Promotion
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Sulfitobacter sp. SA11
+    term:
+      id: NCBITaxon:1917421
+      label: Sulfitobacter sp. SA11
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: tryptophan
+    term:
+      id: CHEBI:16828
+      label: tryptophan
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indole-3-acetic acid biosynthetic process
+  - preferred_term: response to auxin
+    term:
+      id: GO:0009733
+      label: response to auxin
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:25278561
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 16S rRNA gene sequence comparison showed that strain H3(T) was related most closely to Sulfitobacter donghicola
+      DSW-25(T) (97.3% similarity) and levels of similarity with other species of the genus Sulfitobacter were 95.1-96.9%
+environmental_factors:
+- name: Auxin signaling
+  value: widespread
+  description: 'Detection of auxin molecules and biosynthesis gene transcripts in the Pacific Ocean suggests these interactions
+    are widespread in marine ecosystems
+
+    '
+- name: Nutrient exchange
+  value: bidirectional
+  description: 'The diatom and bacterium use auxin and tryptophan as signaling molecules that drive nutrient exchange, including
+    ammonia provision by the bacterium
+
+    '
+- name: Species-specificity
+  value: high
+  description: 'The beneficial effect of Sulfitobacter on diatom growth is both species-specific and strain-specific
+
+    '

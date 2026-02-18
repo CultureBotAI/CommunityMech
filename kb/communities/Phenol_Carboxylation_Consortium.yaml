@@ -1,0 +1,161 @@
+name: Phenol Carboxylation Consortium
+description: 'An obligate syntrophic 4-member consortium for anaerobic degradation of phenol via carboxylation to benzoate.
+  The consortium consists of a short motile rod, a long non-motile rod, Desulfovibrio sp., and Methanospirillum sp. (methanogen).
+  Under methanogenic conditions (N2/CO2), phenol is carboxylated to benzoate, which is then degraded to acetate, CH4, and
+  CO2. The three bacterial types exhibit obligate syntrophic interdependence with the methanogen for complete aromatic pollutant
+  mineralization.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anaerobic environment
+  term:
+    id: ENVO:00002229
+    label: anaerobic environment
+taxonomy:
+- taxon_term:
+    preferred_term: Short motile rod bacterium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading organism capable of
+      oxidizing phenol in association with an H(2)-scavenging methanogen partner
+- taxon_term:
+    preferred_term: Long non-motile rod bacterium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phenol degradation under methanogenic conditions has long been studied, but the anaerobes responsible for the
+      degradation reaction are still largely unknown
+- taxon_term:
+    preferred_term: Desulfovibrio sp.
+    term:
+      id: NCBITaxon:885
+      label: Desulfovibrio sp.
+  abundance_level: RARE
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading organism capable of
+      oxidizing phenol in association with an H(2)-scavenging methanogen partner
+- taxon_term:
+    preferred_term: Methanospirillum sp.
+    term:
+      id: NCBITaxon:45200
+      label: Methanospirillum sp.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Syntrophorhabdus aromaticivorans gen. nov., sp. nov., is proposed for strain UI(T), and the novel family Syntrophorhabdaceae fam. nov. is described."
+ecological_interactions:
+- name: Phenol Carboxylation to Benzoate
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: phenol-containing compound catabolic process
+    term:
+      id: GO:0018958
+      label: phenol-containing compound catabolic process
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  downstream:
+  - target: Benzoate Degradation to Acetate and Methane
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When 4-hydroxybenzoate was used as the substrate, phenol (maximum, 20 microM) and benzoate (maximum, 92 microM)
+      were detected as intermediates, which were then further degraded to acetate and methane by the coculture
+- name: Benzoate Degradation to Acetate and Methane
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanospirillum sp.
+    term:
+      id: NCBITaxon:2201
+      label: Methanospirillum
+  metabolites:
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  - preferred_term: methane biosynthetic process
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When 4-hydroxybenzoate was used as the substrate, phenol (maximum, 20 microM) and benzoate (maximum, 92 microM)
+      were detected as intermediates, which were then further degraded to acetate and methane by the coculture
+environmental_factors:
+- name: Gas phase
+  value: N2/CO2
+  description: 'Under N2/CO2 atmosphere, complete degradation occurs; under H2/CO2, benzoate forms but is not further degraded
+
+    '
+- name: Syntrophic dependence
+  value: obligate
+  description: 'Microscopic observations showed obligate syntrophic interdependence among the two rod-shaped bacteria and
+    the methanogen
+
+    '
+- name: Substrate
+  value: phenol (aromatic pollutant)
+  description: 'Phenol serves as the sole carbon source, representing a major aromatic pollutant target for bioremediation
+
+    '

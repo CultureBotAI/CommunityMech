@@ -33,6 +33,18 @@ validate-references-all:
         uv run python -m communitymech.validators.reference_validator "$file"
     done
 
+# Validate ontology terms in a community file
+validate-terms FILE:
+    uv run python -m communitymech.validators.term_validator {{FILE}}
+
+# Validate terms in all community files
+validate-terms-all:
+    #!/usr/bin/env bash
+    for file in kb/communities/*.yaml; do
+        echo "\\nValidating terms in $file..."
+        uv run python -m communitymech.validators.term_validator "$file"
+    done
+
 # Run tests
 test:
     uv run pytest tests/ -v
@@ -44,6 +56,14 @@ gen-python:
 # Generate schema documentation
 gen-doc:
     uv run gen-doc src/communitymech/schema/communitymech.yaml -d docs/
+
+# Generate browser data for faceted search
+gen-browser:
+    uv run python -m communitymech.export.browser_export
+
+# Generate HTML pages for communities
+gen-html:
+    uv run python -m communitymech.render
 
 # Clean generated files
 clean:

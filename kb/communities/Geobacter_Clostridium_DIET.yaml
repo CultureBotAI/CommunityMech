@@ -1,0 +1,269 @@
+name: Geobacter-Clostridium DIET Community
+description: 'A syntrophic two-member consortium consisting of Geobacter sulfurreducens and Clostridium pasteurianum that
+  performs direct interspecies electron transfer (DIET) during glycerol fermentation. G. sulfurreducens acts as an exoelectrogen,
+  oxidizing acetate and transferring electrons directly to C. pasteurianum via electrically conductive pili (nanowires). These
+  electron transfers induce a metabolic shift in C. pasteurianum''s glycerol fermentation pathway, redirecting carbon flux
+  away from ethanol and butanol production toward increased 1,3-propanediol (PDO) and butyrate production. This represents
+  a unique application of DIET where electron transfer serves not to drive methanogenesis but to modulate fermentation pathways,
+  achieving a 37% increase in 1,3-propanediol and 38% increase in butyrate production. The bacteria establish physical contact
+  through nanowires, enabling electron exchange without relying on diffusible hydrogen or formate carriers. This coculture
+  demonstrates how controlled interspecies electron transfer can be exploited to optimize production of industrially relevant
+  metabolites like 1,3-propanediol.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: DIET
+environment_term:
+  preferred_term: laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory culture
+  notes: 'Laboratory synthetic coculture developed to optimize glycerol fermentation toward 1,3-propanediol production. Cultured
+    under strict anaerobic conditions using Hungate techniques at 35°C with N2 gas phase. DIET occurs through physical cell-to-cell
+    contact mediated by conductive nanowires produced by G. sulfurreducens.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+    notes: 'Anaerobic bacterium serving as an exoelectrogen in this DIET partnership. G. sulfurreducens (strain DSM 12127)
+      oxidizes acetate and transfers electrons to C. pasteurianum via electrically conductive pili (nanowires). These pili
+      have metallic-like conductive properties enabling long-distance electron transfer. G. sulfurreducens grows using C.
+      pasteurianum as the sole electron acceptor, and the extent of G. sulfurreducens growth (measured by qPCR of 16S rRNA
+      genes) directly correlates with the magnitude of metabolic shifts in C. pasteurianum, explaining 76-90% of the total
+      variance in metabolite yields. Despite consuming less than 0.6% of the electrons used by C. pasteurianum, the electron
+      transfer from G. sulfurreducens has profound effects on fermentation product distribution.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: Exoelectrogen - electron donor via DIET to modulate fermentation
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow using Clostridium pasteurianum as sole
+      electron acceptor
+    explanation: Establishes G. sulfurreducens as the electron donor in DIET partnership
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Direct interspecies electron transfer (DIET) mechanism has been recently characterised with Geobacter species which couple the electron balance with o"
+- taxon_term:
+    preferred_term: Clostridium pasteurianum
+    term:
+      id: NCBITaxon:1501
+      label: Clostridium pasteurianum
+    notes: 'Saccharolytic, nitrogen-fixing, spore-forming Gram-positive obligate anaerobe that serves as the electron acceptor
+      in this DIET partnership. C. pasteurianum (strain DSM 525 = ATCC 6013) ferments glycerol, and when receiving electrons
+      from G. sulfurreducens via DIET, undergoes a significant metabolic shift. In pure culture, C. pasteurianum primarily
+      produces butanol and ethanol from glycerol. However, DIET redirects the fermentation pathway toward increased 1,3-propanediol
+      (PDO, +37% to 241 mmol/mol glycerol) and butyrate (+38% to 105 mmol/mol), while butanol and ethanol production decrease
+      by 16% and 20% respectively. This metabolic shift is induced by small electron uptake (<0.6% of total electrons consumed)
+      from G. sulfurreducens, demonstrating how minimal electron transfer can dramatically alter fermentation product distribution.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Fermenter - electron acceptor accepting electrons via DIET during glycerol fermentation
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow using Clostridium pasteurianum as sole
+      electron acceptor
+    explanation: Establishes C. pasteurianum as the fermenter undergoing DIET-induced metabolic shift
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This small electron uptake, which represented less than 0.6% of the electrons consumed by C. pasteurianum
+    explanation: Quantifies the minimal but significant electron transfer from G. sulfurreducens
+  strain_designation:
+    strain_name: DSM 525
+    culture_collections:
+    - collection: DSM
+      accession: '525'
+      url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-525
+    - collection: ATCC
+      accession: '6013'
+      url: https://www.atcc.org/products/6013
+ecological_interactions:
+- name: Acetate Oxidation and Direct Electron Transfer
+  description: 'Geobacter sulfurreducens oxidizes acetate and transfers electrons directly to Clostridium pasteurianum via
+    electrically conductive pili (nanowires). These nanowires have metallic-like conductive properties enabling long-range
+    electron transfer through direct physical contact between cells. This direct interspecies electron transfer (DIET) bypasses
+    the need for diffusible electron carriers like H2 or formate. G. sulfurreducens grows using C. pasteurianum as the sole
+    electron acceptor, establishing a syntrophic relationship where electron flow modulates C. pasteurianum''s fermentation
+    metabolism. The electron transfer can occur directly via interspecies wiring or indirectly using soluble electron mediators
+    like L-cysteine present in the medium.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:243231
+      label: Geobacter sulfurreducens PCA
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Substrate for oxidation by G. sulfurreducens
+  biological_processes:
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045340
+      label: acetate catabolic process
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Glycerol Fermentation with DIET-Induced Metabolic Shift
+    description: Electrons transferred via DIET are accepted by C. pasteurianum, inducing metabolic shift toward 1,3-propanediol
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Direct interspecies electron transfer (DIET) mechanism has been recently characterised with Geobacter species
+      which couple the electron balance with other species through physical contacts
+    explanation: Demonstrates acetate oxidation coupled to direct electron transfer to C. pasteurianum
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Physical contact between the two bacteria enabling electron exchange either directly via interspecies wiring,
+      or indirectly using soluble electron mediators present in the medium such as L-cysteine
+    explanation: Establishes the mechanism of electron transfer via nanowires or mediators
+- name: Glycerol Fermentation with DIET-Induced Metabolic Shift
+  description: 'Clostridium pasteurianum ferments glycerol, and upon receiving electrons from G. sulfurreducens via DIET,
+    undergoes a dramatic metabolic shift that redirects carbon flux toward increased 1,3-propanediol (PDO) and butyrate production.
+    In pure culture, C. pasteurianum produces primarily butanol (225 mmol/mol glycerol) and ethanol (54 mmol/mol). However,
+    when DIET is enabled, production shifts to favor 1,3-propanediol (241 mmol/mol, +37%) and butyrate (105 mmol/mol, +38%),
+    while butanol and ethanol decrease by 16% and 20% respectively. This metabolic reprogramming is induced by minimal electron
+    uptake (<0.6% of total electrons consumed by C. pasteurianum), demonstrating the regulatory role of electron transfer
+    in controlling fermentation pathways. The shift represents a biotechnologically valuable outcome, as 1,3-propanediol is
+    an industrially important chemical used in polymer production.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Clostridium pasteurianum
+    term:
+      id: NCBITaxon:1262449
+      label: Clostridium pasteurianum DSM 525
+  metabolites:
+  - preferred_term: glycerol
+    term:
+      id: CHEBI:17754
+      label: glycerol
+    concentration: Substrate for fermentation
+  - preferred_term: 1,3-propanediol
+    term:
+      id: CHEBI:16775
+      label: propane-1,3-diol
+    concentration: 241 mmol/mol glycerol (+37% increase with DIET)
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyrate
+    concentration: 105 mmol/mol glycerol (+38% increase with DIET)
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+    concentration: Decreased by 16% with DIET
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+    concentration: Decreased by 20% with DIET
+  biological_processes:
+  - preferred_term: glycerol catabolic process
+    term:
+      id: GO:0019563
+      label: glycerol catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The present study deals with a co-culture of Geobacter sulfurreducens and Clostridium pasteurianum during glycerol
+      fermentation
+    explanation: Quantifies the DIET-induced metabolic shift toward 1,3-propanediol and butyrate
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This metabolic shift was clearly induced by a small electron uptake that represented less than 0.6% of the electrons
+      consumed by C. pasteurianum
+    explanation: Establishes that minimal electron transfer drives the fermentation pathway shift
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Direct interspecies electron transfer (DIET) mechanism has been recently characterised with Geobacter species which couple the electron balance with o"
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: Both organisms are obligate anaerobes requiring anoxic conditions for growth and DIET
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using this mechanism could be an efficient and cost-effective way to directly control redox balances in co-culture
+      fermentation
+    explanation: Establishes strict anaerobic requirement maintained using Hungate technique
+- name: Temperature
+  value: 35°C
+  description: Cocultures incubated at mesophilic temperature optimal for both organisms
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pasteurianum metabolic pattern was significantly altered towards improved 1,3-propanediol and butyrate production
+      (+37% and +38% resp.) at the expense of butanol and ethanol production (-16% and -20% resp.)
+    explanation: Specifies optimal growth temperature
+- name: Cell Contact and Nanowire Formation
+  value: Required for DIET
+  description: 'Physical contact between cells is essential for electron transfer. G. sulfurreducens produces electrically
+    conductive pili (nanowires) with metallic-like conductive properties that enable long-distance electron transfer. Electron
+    exchange occurs either directly via interspecies wiring through these nanowires or indirectly using soluble electron mediators
+    like L-cysteine present in the medium.
+
+    '
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow using Clostridium pasteurianum as sole
+      electron acceptor
+    explanation: Establishes requirement for cell contact and nanowire-mediated electron transfer
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: G. sulfurreducens is known to produce nanowires, i.e. pili with metallic-like conductive properties
+    explanation: Describes the conductive structures enabling DIET
+- name: Electron Transfer Monitoring
+  value: qPCR of 16S rRNA genes
+  description: 'Growth of both organisms monitored using quantitative real-time PCR targeting 16S rRNA genes. Electron and
+    carbon mass balances established quantitative relationship between G. sulfurreducens growth and metabolic shifts in C.
+    pasteurianum.
+
+    '
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sulfurreducens growth (i.e the electrons transferred between the two species) and the changes in C
+    explanation: Describes method for monitoring bacterial populations and electron transfer

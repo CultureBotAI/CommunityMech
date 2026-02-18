@@ -70,6 +70,48 @@ enums:
       TRANSIENT:
         description: Transient or developing community
 
+  CommunityOriginEnum:
+    description: The origin or source of the community
+    permissible_values:
+      NATURAL:
+        description: Naturally occurring community from environment
+      ENGINEERED:
+        description: Deliberately engineered or synthetic community
+      SYNTHETIC:
+        description: Fully synthetic community designed in laboratory
+
+  CommunityCategoryEnum:
+    description: Broad functional/ecological category of the community
+    permissible_values:
+      BIOMINING:
+        description: Metal extraction and bioleaching systems
+      AMD:
+        description: Acid mine drainage communities
+      SYNTROPHY:
+        description: Syntrophic metabolic cooperation
+      PHYTOPLANKTON:
+        description: Algae-bacteria associations
+      RHIZOSPHERE:
+        description: Plant root-associated communities
+      LIGNOCELLULOSE:
+        description: Lignocellulose degradation systems
+      METHANOGENESIS:
+        description: Methane-producing communities
+      DIET:
+        description: Direct interspecies electron transfer
+      METAL_REDUCTION:
+        description: Metal-reducing communities
+      BIOREMEDIATION:
+        description: Pollutant degradation and remediation
+      CARBON_SEQUESTRATION:
+        description: Carbon fixation and storage
+      EXTREME_ENVIRONMENT:
+        description: Communities from extreme conditions
+      BIOTECHNOLOGY:
+        description: Industrial biotechnology applications
+      OTHER:
+        description: Other or uncategorized communities
+
   InteractionTypeEnum:
     description: Type of ecological interaction between organisms
     permissible_values:
@@ -112,6 +154,42 @@ enums:
       CROSS_FEEDER:
         description: Utilizes metabolites from other taxa
 
+  CultureCollectionEnum:
+    description: Major microbial culture collections worldwide
+    permissible_values:
+      ATCC:
+        description: American Type Culture Collection (USA)
+      DSM:
+        description: Deutsche Sammlung von Mikroorganismen (DSMZ, Germany)
+      JCM:
+        description: Japan Collection of Microorganisms (Japan)
+      NCTC:
+        description: National Collection of Type Cultures (UK)
+      CCUG:
+        description: Culture Collection University of Gothenburg (Sweden)
+      PCC:
+        description: Pasteur Culture Collection of Cyanobacteria (France)
+      NCIMB:
+        description: National Collection of Industrial Marine Bacteria (UK)
+      LMG:
+        description: BCCM/LMG Bacteria Collection (Belgium)
+      KCTC:
+        description: Korean Collection for Type Cultures (Korea)
+      CIP:
+        description: Collection de l'Institut Pasteur (France)
+      NBRC:
+        description: NITE Biological Resource Center (Japan)
+      VKM:
+        description: All-Russian Collection of Microorganisms (Russia)
+      CGMCC:
+        description: China General Microbiological Culture Collection (China)
+      BCRC:
+        description: Bioresource Collection and Research Center (Taiwan)
+      CBS:
+        description: Westerdijk Fungal Biodiversity Institute (Netherlands)
+      OTHER:
+        description: Other culture collection not listed
+
 classes:
   Term:
     description: An ontology term with ID and label
@@ -127,8 +205,9 @@ classes:
     description: An evidence item linking a claim to a publication
     attributes:
       reference:
-        description: The publication reference (e.g., PMID:12345678, doi:10.1038/...)
+        description: The publication reference (PMID:12345678 or doi:10.1038/... format required)
         required: true
+        pattern: "^(PMID:|doi:|bioproject:).*"
       supports:
         description: Level of support this evidence provides
         range: EvidenceItemSupportEnum
@@ -136,10 +215,18 @@ classes:
       evidence_source:
         description: Type of evidence (in vitro, computational, etc.)
         range: EvidenceSourceEnum
+        required: true
       snippet:
-        description: Exact quote from the publication supporting the claim
+        description: Exact quote from the publication supporting the claim (required for proper evidence)
+        required: true
+        minimum_value: 10
       explanation:
         description: How this evidence supports or refutes the claim
+      confidence_score:
+        description: Confidence in this evidence (0.0-1.0), based on snippet validation
+        range: float
+        minimum_value: 0.0
+        maximum_value: 1.0
 
   TaxonDescriptor:
     description: Describes an organism with NCBITaxon term
@@ -195,6 +282,44 @@ classes:
       notes:
         description: Additional notes
 
+  CultureCollectionID:
+    description: A culture collection identifier with accession number
+    attributes:
+      collection:
+        description: The culture collection name
+        range: CultureCollectionEnum
+        required: true
+      accession:
+        description: The accession number in this collection
+        required: true
+      url:
+        description: Direct URL to the strain in the collection catalog
+      notes:
+        description: Additional information about this collection entry
+
+  StrainDesignation:
+    description: Detailed strain-level information for reproducibility
+    attributes:
+      strain_name:
+        description: The formal strain designation (e.g., "DSM 8584", "PCC 7942", "ATCC 12345")
+      culture_collections:
+        description: Culture collection identifiers for this strain
+        range: CultureCollectionID
+        multivalued: true
+      type_strain:
+        description: Whether this is the nomenclatural type strain for the species
+        range: boolean
+      genome_accession:
+        description: NCBI Assembly accession (e.g., GCF_000203695.1)
+      genome_url:
+        description: Direct URL to NCBI Assembly
+      genetic_modification:
+        description: Description of genetic modifications (for engineered strains)
+      isolation_source:
+        description: Original isolation source of the strain
+      notes:
+        description: Additional strain-specific information
+
   TaxonomicComposition:
     description: A taxon present in the community with abundance and role
     attributes:
@@ -202,6 +327,9 @@ classes:
         description: The organism
         range: TaxonDescriptor
         required: true
+      strain_designation:
+        description: Strain-level identification and culture collection info
+        range: StrainDesignation
       abundance_level:
         description: Relative abundance category
         range: AbundanceEnum
@@ -288,6 +416,12 @@ classes:
       ecological_state:
         description: State of the community (stable, engineered, etc.)
         range: EcologicalStateEnum
+      community_origin:
+        description: Origin of the community (natural, engineered, or synthetic)
+        range: CommunityOriginEnum
+      community_category:
+        description: Broad functional or ecological category
+        range: CommunityCategoryEnum
       environment_term:
         description: Environment where community exists
         range: EnvironmentDescriptor

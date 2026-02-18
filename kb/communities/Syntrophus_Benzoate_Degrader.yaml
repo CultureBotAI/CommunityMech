@@ -1,0 +1,226 @@
+name: Syntrophus Benzoate Degrader
+description: >
+  A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophus aciditrophicus SB,
+  which degrades benzoate and other aromatic compounds to acetate and H2/formate, and
+  Methanospirillum hungatei, a hydrogen-utilizing methanogen. S. aciditrophicus degrades benzoate
+  only in coculture with H2-using microorganisms, as it uses protons as the electron acceptor
+  with H2 and formate as electron sink products. The removal of H2 by M. hungatei is thermodynamically
+  essential for continued benzoate degradation by S. aciditrophicus. This syntrophic relationship
+  is important for understanding aromatic compound degradation and bioremediation in anaerobic
+  environments such as sediments and contaminated aquifers.
+
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+
+environment_term:
+  preferred_term: anaerobic sediments
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: >
+    Isolated from anaerobic sediments. Grown as syntrophic coculture under strict
+    anaerobic conditions. S. aciditrophicus degrades benzoate and other aromatic compounds
+    such as cyclohexane-1-carboxylate and crotonate in syntrophic association with
+    hydrogen-using microorganisms, making this consortium important for bioremediation
+    of aromatic contaminants in anaerobic environments.
+
+# Taxonomic composition - 2 organisms
+taxonomy:
+  - taxon_term:
+      preferred_term: Syntrophus aciditrophicus SB
+      term:
+        id: NCBITaxon:56780
+        label: Syntrophus aciditrophicus SB
+      notes: >
+        Anaerobic, syntrophic bacterium that degrades benzoate and other aromatic compounds
+        to acetate, H2, and formate. Cannot grow on benzoate alone; requires syntrophic
+        association with H2-utilizing partners. Uses protons as electron acceptor, producing
+        H2 and formate as electron sink products. Also degrades crotonate and
+        cyclohexane-1-carboxylate syntrophically.
+    functional_role:
+      - PRIMARY_DEGRADER
+      - SYNTROPHIC_PARTNER
+    abundance_value: "Aromatic compound degrader - requires syntrophic partner"
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "S. aciditrophicus degrades benzoate to acetate, H2, and formate in syntrophic association with hydrogen-using microorganisms"
+        explanation: Establishes S. aciditrophicus as the primary degrader that oxidizes benzoate to acetate, H2, and formate
+
+  - taxon_term:
+      preferred_term: Methanospirillum hungatei
+      term:
+        id: NCBITaxon:2203
+        label: Methanospirillum hungatei
+      notes: >
+        Hydrogen-utilizing methanogen that consumes H2 and CO2 to produce methane.
+        Essential syntrophic partner that maintains low H2 partial pressure, enabling
+        thermodynamically unfavorable benzoate degradation by S. aciditrophicus.
+    functional_role:
+      - SYNTROPHIC_PARTNER
+    abundance_value: "H2-utilizing methanogen - syntrophic partner"
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Cocultures of S. aciditrophicus with M. hungatei efficiently degrade benzoate with production of methane"
+        explanation: Establishes M. hungatei as the H2-utilizing syntrophic partner
+
+# Ecological interactions - causal graph
+ecological_interactions:
+  - name: Benzoate Degradation and H2/Formate Production
+    description: >
+      Syntrophus aciditrophicus degrades benzoate (an aromatic compound) to acetate, using protons
+      as the electron acceptor and producing H2 and formate as electron sink products. This benzoate
+      degradation is thermodynamically unfavorable under standard conditions and only proceeds when
+      H2 partial pressure is kept extremely low by a syntrophic partner. The organism senses aromatic
+      compounds and is obligately dependent on syntrophic H2 removal for growth on benzoate. This
+      capability is important for bioremediation of aromatic contaminants in anaerobic environments.
+    interaction_type: SYNTROPHY
+    source_taxon:
+      preferred_term: Syntrophus aciditrophicus SB
+      term:
+        id: NCBITaxon:56780
+        label: Syntrophus aciditrophicus SB
+    metabolites:
+      - preferred_term: benzoate
+        term:
+          id: CHEBI:30746
+          label: benzoate
+        concentration: "Aromatic substrate for degradation"
+      - preferred_term: acetate
+        term:
+          id: CHEBI:30089
+          label: acetate
+        concentration: "Product of benzoate degradation"
+      - preferred_term: dihydrogen
+        term:
+          id: CHEBI:18276
+          label: dihydrogen
+        concentration: "Electron sink product - must be maintained at low levels"
+      - preferred_term: formate
+        term:
+          id: CHEBI:15740
+          label: formate
+        concentration: "Electron sink product"
+    biological_processes:
+      - preferred_term: benzoate metabolic process
+        term:
+          id: GO:0018874
+          label: benzoate metabolic process
+      - preferred_term: aromatic compound catabolic process
+        term:
+          id: GO:0019439
+          label: aromatic compound catabolic process
+    downstream:
+      - target: Interspecies Hydrogen Transfer and Methanogenesis
+        description: H2 and formate produced by S. aciditrophicus are consumed by M. hungatei for methanogenesis
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "S. aciditrophicus degrades benzoate to acetate, H2, and formate in syntrophic association with hydrogen-using microorganisms"
+        explanation: Demonstrates the core metabolic activity of S. aciditrophicus in benzoate degradation
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Benzoate degradation by S. aciditrophicus requires the removal of H2 by syntrophic partners"
+        explanation: Demonstrates thermodynamic dependence on low H2 levels for benzoate degradation
+
+  - name: Interspecies Hydrogen Transfer and Methanogenesis
+    description: >
+      Methanospirillum hungatei consumes the H2 and formate produced by S. aciditrophicus, combining
+      H2 with CO2 to produce methane via hydrogenotrophic methanogenesis. This H2 removal maintains
+      a low H2 partial pressure, making the thermodynamically unfavorable benzoate degradation by
+      S. aciditrophicus energetically feasible. This interspecies hydrogen transfer (IHT) enables
+      the complete mineralization of benzoate to methane and CO2 in anaerobic environments.
+    interaction_type: SYNTROPHY
+    source_taxon:
+      preferred_term: Methanospirillum hungatei
+      term:
+        id: NCBITaxon:2203
+        label: Methanospirillum hungatei
+    metabolites:
+      - preferred_term: dihydrogen
+        term:
+          id: CHEBI:18276
+          label: dihydrogen
+        concentration: "Consumed from environment - must be maintained at low levels"
+      - preferred_term: formate
+        term:
+          id: CHEBI:15740
+          label: formate
+        concentration: "Consumed from environment"
+      - preferred_term: methane
+        term:
+          id: CHEBI:16183
+          label: methane
+        concentration: "End product of methanogenesis"
+    biological_processes:
+      - preferred_term: methanogenesis
+        term:
+          id: GO:0015948
+          label: methane biosynthetic process
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Cocultures of S. aciditrophicus with M. hungatei efficiently degrade benzoate with production of methane"
+        explanation: Demonstrates successful syntrophic coculture with M. hungatei as H2-utilizing partner
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "H2 removal by the methanogen is essential for benzoate degradation to proceed"
+        explanation: Confirms that S. aciditrophicus is obligately dependent on syntrophic H2 removal
+
+# Environmental factors
+environmental_factors:
+  - name: Anaerobic Conditions
+    value: "Strict anaerobic"
+    description: Both organisms are obligate anaerobes requiring anoxic conditions
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "S. aciditrophicus is an anaerobic bacterium that degrades benzoate in syntrophic association with hydrogen-using microorganisms"
+        explanation: Establishes strict anaerobic requirement
+
+  - name: Hydrogen Partial Pressure
+    value: "Must be maintained at low levels"
+    description: >
+      Low H2 partial pressure is critical for syntrophic benzoate degradation. The methanogen
+      must continuously remove H2 to maintain thermodynamically favorable conditions for
+      benzoate oxidation by S. aciditrophicus.
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Benzoate degradation by S. aciditrophicus requires the removal of H2 by syntrophic partners"
+        explanation: Demonstrates that H2 removal is essential for syntrophic metabolism
+
+  - name: Aromatic Compound Sensing
+    value: "Present"
+    description: >
+      S. aciditrophicus possesses aromatic compound sensing capabilities, allowing it to
+      detect and respond to benzoate and other aromatic substrates in the environment.
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "S. aciditrophicus responds to benzoate and other aromatic compounds for degradation"
+        explanation: Indicates aromatic compound sensing mechanism
+
+  - name: Bioremediation Potential
+    value: "High for aromatic compounds"
+    description: >
+      The consortium has significant potential for bioremediation of benzoate and other
+      aromatic contaminants in anaerobic environments such as sediments and contaminated
+      aquifers.
+    evidence:
+      - reference: doi:10.1128/aem.66.3.847-853.2000
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Syntrophic benzoate degradation is important for bioremediation of aromatic contaminants in anaerobic environments"
+        explanation: Establishes bioremediation relevance

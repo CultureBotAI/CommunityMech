@@ -1,0 +1,110 @@
+name: Synechococcus-Yarrowia Synthetic Photosynthetic Consortium
+description: 'A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus PCC 7942 (engineered
+  to secrete sucrose via the cscB+ transporter) with the oleaginous yeast Yarrowia lipolytica Po1g. The cyanobacterium fixes
+  CO2 and exports sucrose, which Y. lipolytica converts to lipids for biofuel production. This system demonstrates photosynthetic
+  carbon capture coupled to lipid biosynthesis in a modular platform.
+
+  '
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: OTHER
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We previously engineered a model cyanobacterium, Synechococcus elongatus PCC 7942, to secrete the bulk of the
+      carbon it fixes as sucrose, a carbohydrate that can be utilized by many other microbes
+  strain_designation:
+    strain_name: PCC 7942
+    culture_collections:
+    - collection: PCC
+      accession: '7942'
+      url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
+- taxon_term:
+    preferred_term: Yarrowia lipolytica Po1g
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'RESULTS: We observed heterotrophic growth dependent upon cyanobacterial photosynthate in each co-culture pair'
+ecological_interactions:
+- name: CO2 Fixation and Sucrose Production
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: sucrose biosynthetic process
+    term:
+      id: GO:0005986
+      label: sucrose biosynthetic process
+  downstream:
+  - target: Sucrose to Lipid Conversion
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We previously engineered a model cyanobacterium, Synechococcus elongatus PCC 7942, to secrete the bulk of the
+      carbon it fixes as sucrose, a carbohydrate that can be utilized by many other microbes
+- name: Sucrose to Lipid Conversion
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Yarrowia lipolytica Po1g
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  - preferred_term: triacylglycerol
+    term:
+      id: CHEBI:17855
+      label: triglyceride
+  biological_processes:
+  - preferred_term: sucrose catabolic process
+    term:
+      id: GO:0005987
+      label: sucrose catabolic process
+  - preferred_term: lipid biosynthetic process
+    term:
+      id: GO:0008610
+      label: lipid biosynthetic process
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Stability and productivity of autotroph/heterotroph co-cultures was dependent on heterotroph sucrose utilization,
+      as well as other species-independent interactions that we observed across all dyads

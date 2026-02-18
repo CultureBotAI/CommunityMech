@@ -1,0 +1,181 @@
+name: Cinnamate β-Oxidation Consortium
+description: 'A syntrophic 3-member anaerobic consortium for degradation of cinnamate via β-oxidation to benzoate, consisting
+  of Papillibacter cinnamivorans, Syntrophus sp., and Methanobacterium formicicum. P. cinnamivorans performs β-oxidation of
+  cinnamate to benzoate, followed by syntrophic benzoate degradation by Syntrophus sp. to acetate, H2, and CO2, with the methanogen
+  consuming H2 to produce methane. This stepwise aromatic compound degradation pathway is important for anaerobic bioremediation.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anaerobic environment
+  term:
+    id: ENVO:00002229
+    label: anaerobic environment
+taxonomy:
+- taxon_term:
+    preferred_term: Papillibacter cinnamivorans
+    term:
+      id: NCBITaxon:100176
+      label: Papillibacter cinnamivorans
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It was found to consist of three morphologically distinct microbes, viz., a short, rod-shaped, non-motile bacterium
+      with distinctly pointed ends, Papillibacter cinnamivorans; a rod-shaped, motile bacterium with rounded ends, Syntrophus
+      sp.; and a methanoarchaeon, Methanobacterium sp. This methanogen was then replaced by a collection strain of Methanobacterium
+      formicicum
+- taxon_term:
+    preferred_term: Syntrophus sp.
+    term:
+      id: NCBITaxon:2426
+      label: Syntrophus
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It was found to consist of three morphologically distinct microbes, viz., a short, rod-shaped, non-motile bacterium
+      with distinctly pointed ends, Papillibacter cinnamivorans; a rod-shaped, motile bacterium with rounded ends, Syntrophus
+      sp.; and a methanoarchaeon, Methanobacterium sp. This methanogen was then replaced by a collection strain of Methanobacterium
+      formicicum
+- taxon_term:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It was found to consist of three morphologically distinct microbes, viz., a short, rod-shaped, non-motile bacterium
+      with distinctly pointed ends, Papillibacter cinnamivorans; a rod-shaped, motile bacterium with rounded ends, Syntrophus
+      sp.; and a methanoarchaeon, Methanobacterium sp. This methanogen was then replaced by a collection strain of Methanobacterium
+      formicicum
+ecological_interactions:
+- name: Cinnamate β-Oxidation to Benzoate
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Papillibacter cinnamivorans
+    term:
+      id: NCBITaxon:100142
+      label: Papillibacter cinnamivorans
+  metabolites:
+  - preferred_term: cinnamate
+    term:
+      id: CHEBI:23252
+      label: cinnamate
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  downstream:
+  - target: Syntrophic Benzoate Degradation
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the presence of bromoethanesulfonic acid (BESA), cinnamate was transformed to benzoate, whereas under methanogenic
+      conditions without BESA, cinnamate was first transformed to benzoate via beta-oxidation and subsequently completely
+      degraded into acetate, CH(4), and CO(2)
+- name: Syntrophic Benzoate Degradation
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophus sp.
+    term:
+      id: NCBITaxon:2426
+      label: Syntrophus
+  metabolites:
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:49637
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  downstream:
+  - target: Methanogenesis
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Papillibacter cinnamivorans was responsible for benzoate production from cinnamate, whereas a syntrophic association
+      between Syntrophus sp. and the methanogen degraded benzoate to acetate, CH(4), and CO(2)
+- name: Methanogenesis
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:49637
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methane biosynthetic process
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:12432464
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the presence of bromoethanesulfonic acid (BESA), cinnamate was transformed to benzoate, whereas under methanogenic
+      conditions without BESA, cinnamate was first transformed to benzoate via beta-oxidation and subsequently completely
+      degraded into acetate, CH(4), and CO(2)
+environmental_factors:
+- name: Anaerobic conditions
+  value: strict
+  description: Required for syntrophic degradation pathway
+- name: Substrate
+  value: cinnamate
+  description: Aromatic plant-derived compound degraded via β-oxidation
+- name: Degradation pathway
+  value: stepwise (cinnamate → benzoate → acetate/CH4/CO2)
+  description: 'Novel anaerobic pathway converting cinnamate to benzoate via β-oxidation, followed by complete mineralization
+    to methane
+
+    '

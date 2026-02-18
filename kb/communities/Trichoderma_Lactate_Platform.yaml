@@ -1,0 +1,192 @@
+name: Trichoderma Lactate Platform for SCFA Production
+description: 'A heterogeneous 3-member consortium for direct conversion of lignocellulose to short-chain fatty acids (SCFAs),
+  specifically butyric acid. The platform consists of Trichoderma reesei Rut-C30 (aerobic fungus producing cellulases), Lactobacillus
+  pentosus (facultative anaerobic lactic acid bacterium), and Clostridium tyrobutyricum (obligate anaerobic butyrate producer).
+  Sequential inoculation creates an oxygen gradient allowing coexistence of all members. T. reesei degrades cellulose to sugars,
+  LAB converts sugars to lactate and creates anaerobic conditions, and C. tyrobutyricum ferments lactate to butyrate, achieving
+  196 kg butyric acid per metric ton of beechwood.
+
+  '
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: LIGNOCELLULOSE
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+taxonomy:
+- taxon_term:
+    preferred_term: Trichoderma reesei Rut-C30
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic
+      lactic acid bacteria and the product-forming anaerobes
+- taxon_term:
+    preferred_term: Lactobacillus pentosus
+    term:
+      id: NCBITaxon:1589
+      label: Lactobacillus pentosus
+  abundance_level: ABUNDANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic
+      lactic acid bacteria and the product-forming anaerobes
+- taxon_term:
+    preferred_term: Clostridium tyrobutyricum
+    term:
+      id: NCBITaxon:1519
+      label: Clostridium tyrobutyricum
+  abundance_level: ABUNDANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium tyrobutyricum, Veillonella criceti, or Megasphaera elsdenii were integrated into the lactate platform
+      to produce 196 kilograms of butyric acid per metric ton of beechwood
+ecological_interactions:
+- name: Cellulose Hydrolysis to Soluble Sugars
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Trichoderma reesei Rut-C30
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: cellulase activity
+    term:
+      id: GO:0008810
+      label: cellulase activity
+  downstream:
+  - target: Lactic Acid Fermentation and Oxygen Depletion
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We developed a versatile consortium-based strategy for the direct conversion of lignocellulose to short-chain
+      fatty acids, which included the funneling of the lignocellulosic carbohydrates to lactate as a central intermediate
+      in engineered food chains
+- name: Lactic Acid Fermentation and Oxygen Depletion
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Lactobacillus pentosus
+    term:
+      id: NCBITaxon:1589
+      label: Lactobacillus pentosus
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: lactate biosynthetic process
+    term:
+      id: GO:0019249
+      label: lactate biosynthetic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Butyric Acid Production from Lactate
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic
+      lactic acid bacteria and the product-forming anaerobes
+- name: Butyric Acid Production from Lactate
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium tyrobutyricum
+    term:
+      id: NCBITaxon:1508
+      label: Clostridium tyrobutyricum
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  biological_processes:
+  - preferred_term: butyrate biosynthetic process
+    term:
+      id: GO:0019605
+      label: butyrate biosynthetic process
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:1903457
+      label: lactate catabolic process
+  evidence:
+  - reference: PMID:32855308
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium tyrobutyricum, Veillonella criceti, or Megasphaera elsdenii were integrated into the lactate platform
+      to produce 196 kilograms of butyric acid per metric ton of beechwood
+environmental_factors:
+- name: Oxygen gradient
+  value: aerobic to anaerobic
+  description: 'Sequential inoculation (fungus → LAB → Clostridium) creates oxygen gradient allowing coexistence of aerobic,
+    facultative, and obligate anaerobic members
+
+    '
+- name: Inoculation scheme
+  value: sequential (T. reesei → L. pentosus → C. tyrobutyricum)
+  description: 'Timed inoculation ensures proper oxygen gradient formation and metabolite availability for each subsequent
+    member
+
+    '
+- name: Substrate
+  value: lignocellulosic biomass (beechwood)
+  description: Direct conversion of lignocellulose without pretreatment
+- name: Product yield
+  value: 196 kg butyric acid per metric ton beechwood
+  description: 'High-value SCFA production from waste lignocellulosic biomass through engineered metabolic food chain
+
+    '

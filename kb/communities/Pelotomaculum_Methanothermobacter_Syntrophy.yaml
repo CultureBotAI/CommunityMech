@@ -1,0 +1,233 @@
+name: Pelotomaculum-Methanothermobacter Syntrophic Consortium
+description: 'A thermophilic syntrophic, obligate two-member anaerobic consortium consisting of Pelotomaculum thermopropionicum,
+  which oxidizes propionate and other organic acids (ethanol, lactate, alcohols) to acetate, CO2, and H2, and Methanothermobacter
+  thermautotrophicus, a hydrogen-utilizing thermophilic methanogen. P. thermopropionicum oxidizes propionate only in coculture
+  with H2-using methanogens, as it uses protons as the electron acceptor with H2 as the electron sink product. The removal
+  of H2 by M. thermautotrophicus is thermodynamically essential for continued propionate oxidation by P. thermopropionicum.
+  This thermophilic syntrophic relationship is fundamental to understanding propionate degradation and methane production
+  at elevated temperatures (55°C) in anaerobic environments such as thermophilic digesters and hot springs.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: thermophilic anaerobic digester
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: 'Enriched from thermophilic anaerobic digesters. Grown as syntrophic coculture under strict anaerobic conditions
+    at 55°C and pH 7.0. The organism requires coaggregation with hydrogenotrophic methanogens and demonstrates obligate dependence
+    on interspecies hydrogen transfer. Optimal growth temperature is 55°C, making this a thermophilic syntrophic system.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+    notes: 'Thermophilic, anaerobic, syntrophic, propionate-oxidizing bacterium that oxidizes propionate, ethanol, lactate,
+      and various alcohols (1-butanol, 1-pentanol, 1-propanol, 1,3-propanediol, ethylene glycol) to acetate, CO2, and H2 in
+      co-culture with hydrogenotrophic methanogens. Cannot grow on these substrates alone; requires syntrophic association
+      with H2-utilizing partners. In pure culture, it ferments pyruvate and fumarate to succinate. Uses protons as electron
+      acceptor, producing H2 as electron sink product. Optimal growth at 55°C and pH 7.0. Forms coaggregates with methanogenic
+      partners.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Propionate oxidizer - requires syntrophic partner
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These phenotypic and genetic properties support the formation of a novel species of a new genus, for which the
+      name Pelotomaculum thermopropionicum gen
+    explanation: Establishes P. thermopropionicum as the primary degrader that oxidizes propionate and other organic acids
+      to acetate, CO2, and H2 in syntrophic association
+- taxon_term:
+    preferred_term: Methanothermobacter thermautotrophicus
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+    notes: 'Thermophilic hydrogen-utilizing methanogen that consumes H2 and CO2 to produce methane. Essential syntrophic partner
+      that maintains low H2 partial pressure, enabling thermodynamically unfavorable propionate oxidation by P. thermopropionicum.
+      Operates optimally at thermophilic temperatures (55-65°C). Forms coaggregates with P. thermopropionicum.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: H2-utilizing thermophilic methanogen - syntrophic partner
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strain grew on propionate, ethanol, lactate, 1-butanol, 1-pentanol, 1,3-propanediol, 1-propanol and ethylene
+      glycol in co-culture with the hydrogenotrophic methanogen Methanothermobacter thermautotrophicus strain deltaH(T)
+    explanation: Establishes M. thermautotrophicus as the compatible thermophilic H2-utilizing syntrophic partner
+ecological_interactions:
+- name: Propionate Oxidation and H2 Production
+  description: 'Pelotomaculum thermopropionicum oxidizes propionate (C3) to acetate, CO2, and H2, using protons as the electron
+    acceptor and producing H2 as the electron sink product. This propionate oxidation is thermodynamically unfavorable under
+    standard conditions and only proceeds when H2 partial pressure is kept extremely low by a syntrophic partner. The organism
+    cannot utilize common electron acceptors (nitrate, sulfate, etc.) and is therefore obligately dependent on syntrophic
+    H2 removal. The coaggregation of P. thermopropionicum with M. thermautotrophicus facilitates efficient interspecies H2
+    transfer at thermophilic temperatures (55°C).
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:370438
+      label: Pelotomaculum thermopropionicum
+  metabolites:
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+    concentration: Substrate for syntrophic oxidation
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product of propionate oxidation
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Product of propionate oxidation
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Electron sink product - must be maintained at low levels
+  biological_processes:
+  - preferred_term: propionate catabolic process
+    term:
+      id: GO:0019543
+      label: propionate catabolic process
+  - preferred_term: propionate metabolic process
+    term:
+      id: GO:0019541
+      label: propionate metabolic process
+  downstream:
+  - target: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+    description: H2 produced by P. thermopropionicum is consumed by M. thermautotrophicus for methanogenesis at 55°C
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The optimum temperature for growth was 55 degrees C and the pH optimum was 7.0
+    explanation: Demonstrates the core metabolic activity of P. thermopropionicum in propionate degradation requiring syntrophic
+      partnership
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "An anaerobic, thermophilic, syntrophic propionate-oxidizing bacterium, strain SI(T), isolated previously from granular sludge in a thermophilic upflow"
+- name: Interspecies Hydrogen Transfer and Thermophilic Methanogenesis
+  description: 'Methanothermobacter thermautotrophicus consumes the H2 produced by P. thermopropionicum, combining it with
+    CO2 to produce methane via hydrogenotrophic methanogenesis at thermophilic temperatures (55°C). This H2 removal maintains
+    a low H2 partial pressure, making the thermodynamically unfavorable propionate oxidation by P. thermopropionicum energetically
+    feasible. This interspecies hydrogen transfer (IHT) is enhanced by coaggregation between the two organisms, which reduces
+    diffusion distances and improves syntrophic efficiency at elevated temperatures. This represents a classic example of
+    thermophilic syntrophic metabolism in anaerobic environments.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanothermobacter thermautotrophicus
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Consumed from environment - must be maintained at low levels
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Substrate for methanogenesis
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: End product of methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strain grew on propionate, ethanol, lactate, 1-butanol, 1-pentanol, 1,3-propanediol, 1-propanol and ethylene
+      glycol in co-culture with the hydrogenotrophic methanogen Methanothermobacter thermautotrophicus strain deltaH(T)
+    explanation: Demonstrates successful thermophilic syntrophic coculture with M. thermautotrophicus as H2-utilizing partner
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: Both organisms are obligate anaerobes requiring anoxic conditions
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An anaerobic, thermophilic, syntrophic propionate-oxidizing bacterium, strain SI(T), isolated previously from
+      granular sludge in a thermophilic upflow anaerobic sludge blanket (UASB) reactor, was characterized
+    explanation: Establishes strict anaerobic requirement
+- name: Temperature
+  value: 55°C
+  unit: degrees Celsius
+  description: 'Optimal growth temperature for the thermophilic syntrophic consortium. Both organisms are thermophilic and
+    operate efficiently at elevated temperatures typical of thermophilic anaerobic digesters.
+
+    '
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The optimum temperature for growth was 55 degrees C and the pH optimum was 7.0
+    explanation: Establishes optimal thermophilic temperature for syntrophic metabolism
+- name: pH
+  value: '7.0'
+  description: Optimal pH for growth and syntrophic propionate degradation
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The optimum temperature for growth was 55 degrees C and the pH optimum was 7.0
+    explanation: Establishes neutral pH requirement
+- name: Hydrogen Partial Pressure
+  value: Must be maintained at low levels
+  description: 'Low H2 partial pressure is critical for syntrophic propionate oxidation. The thermodynamically unfavorable
+    oxidation of propionate only proceeds when H2 is efficiently removed by the methanogenic partner. Coaggregation between
+    the two organisms facilitates this efficient H2 transfer.
+
+    '
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strain grew on propionate, ethanol, lactate, 1-butanol, 1-pentanol, 1,3-propanediol, 1-propanol and ethylene
+      glycol in co-culture with the hydrogenotrophic methanogen Methanothermobacter thermautotrophicus strain deltaH(T)
+    explanation: Demonstrates obligate dependence on H2-consuming partner for growth on propionate and other substrates
+- name: Coaggregation
+  value: Present
+  description: 'Physical association between P. thermopropionicum and M. thermautotrophicus through coaggregation, which enhances
+    interspecies H2 transfer efficiency by reducing diffusion distances. This spatial organization is critical for maintaining
+    the low H2 partial pressure required for syntrophic propionate oxidation at thermophilic temperatures.
+
+    '
+  evidence:
+  - reference: doi:10.1099/00207713-52-5-1729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An anaerobic, thermophilic, syntrophic propionate-oxidizing bacterium, strain SI(T), isolated previously from
+      granular sludge in a thermophilic upflow anaerobic sludge blanket (UASB) reactor, was characterized
+    explanation: Establishes syntrophic nature of the organism requiring close association with methanogenic partner

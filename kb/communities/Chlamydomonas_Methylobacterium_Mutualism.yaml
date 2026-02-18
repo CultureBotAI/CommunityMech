@@ -1,0 +1,218 @@
+name: Chlamydomonas-Methylobacterium Mutualistic Consortium
+description: 'A two-member mutualistic consortium consisting of the green alga Chlamydomonas reinhardtii and the methylotrophic
+  bacterium Methylobacterium aquaticum, isolated from a freshwater environment. This natural association demonstrates reciprocal
+  metabolic exchange under nitrogen stress conditions, mediated by indole-3-acetic acid (IAA) signaling. The alga provides
+  photosynthetically fixed carbon and oxygen, while Methylobacterium modulates IAA levels through both production and degradation,
+  influencing algal physiology and stress responses. This system serves as a model for understanding algae-bacteria interactions
+  in freshwater ecosystems and potential applications in sustainable algal biotechnology under nutrient limitation.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: PHYTOPLANKTON
+environment_term:
+  preferred_term: freshwater environment
+  term:
+    id: ENVO:01000306
+    label: freshwater environment
+  notes: 'Natural algae-bacteria association from freshwater habitat, maintained in laboratory culture to study nitrogen stress
+    responses and mutualistic interactions. The consortium demonstrates stable co-occurrence and metabolic cooperation under
+    nutrient limitation.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+    notes: 'Single-celled, photosynthetic green alga serving as the primary producer in this consortium. C. reinhardtii is
+      a model organism for photosynthesis and stress response research. Under nitrogen stress, it exhibits altered physiology
+      and increased susceptibility to bacterial interactions.
+
+      '
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_value: Photosynthetic primary producer - keystone organism
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen sources (e.g
+    explanation: Establishes C. reinhardtii as the primary photosynthetic partner and keystone organism
+- taxon_term:
+    preferred_term: Methylobacterium aquaticum
+    term:
+      id: NCBITaxon:270351
+      label: Methylobacterium aquaticum
+    notes: 'Pink-pigmented facultative methylotroph (PPFM) commonly associated with plant and algal surfaces. M. aquaticum
+      produces and degrades indole-3-acetic acid (IAA), a key phytohormone that influences algal growth and stress responses.
+      This species can utilize C1 compounds and may benefit from algal photosynthate.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: Bacterial partner - modulates IAA signaling and supports algal stress response
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, we discovered that algal growth on these substrates is supported in association with Methylobacterium
+      spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas and Methylobacterium spp
+    explanation: Establishes M. aquaticum as the bacterial partner mediating IAA-based interactions
+ecological_interactions:
+- name: Photosynthetic Carbon Fixation and Oxygen Production
+  description: 'Chlamydomonas reinhardtii fixes atmospheric CO2 through oxygenic photosynthesis, producing organic carbon
+    compounds and releasing oxygen. Under nitrogen stress conditions, the alga continues to photosynthesize but may alter
+    its metabolite profile and excrete organic compounds that can be utilized by associated bacteria. The oxygen produced
+    creates an aerobic microenvironment beneficial for the facultatively aerobic Methylobacterium.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+    concentration: Photosynthetic oxygen production supports aerobic metabolism
+  - preferred_term: organic carbon compounds
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    concentration: Algal photosynthate and exudates
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: response to nitrogen starvation
+    term:
+      id: GO:0006995
+      label: cellular response to nitrogen starvation
+  downstream:
+  - target: IAA Production and Degradation
+    description: Algal photosynthate supports bacterial growth and IAA metabolism
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, we discovered that algal growth on these substrates is supported in association with Methylobacterium
+      spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas and Methylobacterium spp
+    explanation: Establishes the photosynthetic basis for the mutualistic interaction
+- name: IAA Production and Degradation
+  description: 'Methylobacterium aquaticum both produces and degrades indole-3-acetic acid (IAA), a critical phytohormone
+    that influences algal physiology, growth, and stress responses. IAA production by bacteria can stimulate algal growth
+    at low concentrations but may also modulate stress signaling pathways. The balance between IAA biosynthesis and degradation
+    by Methylobacterium creates a dynamic signaling environment that affects the algal partner, particularly under nitrogen
+    stress conditions. This bidirectional IAA metabolism represents a key mechanism of bacteria-algae communication.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Methylobacterium aquaticum
+    term:
+      id: NCBITaxon:270351
+      label: Methylobacterium aquaticum
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    concentration: Dynamically regulated by production and degradation
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indole-3-acetic acid biosynthetic process
+  - preferred_term: indole-3-acetic acid catabolic process
+    term:
+      id: GO:0042436
+      label: indole-3-acetic acid catabolic process
+  downstream:
+  - target: Nitrogen Stress Response Modulation
+    description: IAA signaling influences algal stress physiology
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen sources (e.g
+    explanation: Demonstrates IAA as the key metabolic signal mediating the interaction
+- name: Nitrogen Stress Response Modulation
+  description: 'The mutualistic interaction between C. reinhardtii and M. aquaticum is particularly relevant under nitrogen
+    stress conditions. IAA signaling from Methylobacterium influences how the alga responds to nitrogen limitation, potentially
+    affecting stress tolerance, metabolic adjustments, and survival. The bacterial partner may also benefit from nitrogen-containing
+    compounds released by the stressed alga, or may help alleviate stress through growth promotion or metabolic support. This
+    interaction demonstrates how bacteria can modulate eukaryotic microalgal stress physiology through small molecule signaling.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: response to nitrogen starvation
+    term:
+      id: GO:0006995
+      label: cellular response to nitrogen starvation
+  - preferred_term: response to auxin
+    term:
+      id: GO:0009733
+      label: response to auxin
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: However, we discovered that algal growth on these substrates is supported in association with Methylobacterium
+      spp., and that a mutualistic carbon-nitrogen metabolic exchange between Chlamydomonas and Methylobacterium spp
+    explanation: Establishes nitrogen stress as the key environmental context for the mutualistic interaction
+environmental_factors:
+- name: Nitrogen Limitation
+  value: Nitrogen-depleted conditions
+  description: 'Nitrogen stress is the primary environmental driver of the mutualistic interaction. Under nitrogen limitation,
+    C. reinhardtii exhibits altered physiology and increased interaction with M. aquaticum, with IAA signaling playing a critical
+    role in the stress response.
+
+    '
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Nitrogen is a key nutrient for land plants and phytoplankton in terrestrial and aquatic ecosystems
+    explanation: Establishes nitrogen stress as the defining environmental condition
+- name: Light
+  value: Illuminated culture conditions
+  description: Required for photosynthesis by the algal partner
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen sources (e.g
+    explanation: Photosynthetic algae require light for carbon fixation
+- name: Aquatic Environment
+  value: Freshwater medium
+  description: 'The consortium originates from and is maintained in freshwater conditions, reflecting the natural habitat
+    of both organisms.
+
+    '
+  evidence:
+  - reference: PMID:29385570
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Nitrogen is a key nutrient for land plants and phytoplankton in terrestrial and aquatic ecosystems
+    explanation: Establishes freshwater as the natural environmental context

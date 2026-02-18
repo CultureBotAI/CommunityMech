@@ -1,0 +1,221 @@
+name: Chlorella-Rhizobium Bioflocculation
+description: >
+  A co-culture system pairing the microalgae Chlorella vulgaris with the
+  bioflocculant-producing bacterium Rhizobium radiobacter F2 for enhanced
+  algal harvesting in wastewater treatment applications. The bacterium produces
+  extracellular polysaccharide bioflocculants that induce aggregation and
+  flocculation of algal cells, enabling efficient biomass recovery for biofuel
+  production. This bioflocculation approach avoids the negative effects of
+  traditional chemical flocculants and provides a cost-effective, environmentally
+  friendly method for microalgae harvesting, with flocculation efficiency
+  improving from 0.2% (axenic algae) to >90% with bacterial co-culture.
+
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: PHYTOPLANKTON
+
+environment_term:
+  preferred_term: wastewater treatment plant
+  term:
+    id: ENVO:00002001
+    label: wastewater treatment plant
+  notes: >
+    Co-culture system grown in synthetic wastewater for optimization of
+    algal harvesting through bioflocculation. Process variables include
+    inoculation ratio, glucose concentration, and co-culture time.
+
+# Taxonomic composition - 2 organisms
+taxonomy:
+  - taxon_term:
+      preferred_term: Chlorella vulgaris
+      term:
+        id: NCBITaxon:3077
+        label: Chlorella vulgaris
+      notes: >
+        Unicellular green microalgae serving as the primary producer in this
+        consortium. Axenic cultures exhibit poor flocculation efficiency (0.2%)
+        but form dense flocs when co-cultured with bioflocculant-producing bacteria.
+    functional_role:
+      - PRIMARY_PRODUCER
+    abundance_value: "Primary photosynthetic organism producing biomass and lipids"
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Axenic Chlorella vulgaris microalgae exhibit poor harvesting, as expressed by a flocculation efficiency of 0.2%"
+        explanation: Establishes C. vulgaris as the primary producer requiring bioflocculation assistance
+
+  - taxon_term:
+      preferred_term: Rhizobium radiobacter F2
+      term:
+        id: NCBITaxon:358
+        label: Rhizobium radiobacter
+      notes: >
+        Bioflocculant-producing bacterium that secretes extracellular polysaccharides
+        to induce aggregation of algal cells. Strain F2 is specifically selected for
+        its high bioflocculant production capacity.
+    functional_role:
+      - PRIMARY_DEGRADER
+    abundance_value: "Helper bacterium optimized at specific bacteria-to-algae inoculation ratios"
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "the co-culture conditions of microalgae (C. vulgaris) and bioflocculant-producing bacteria (F2, Rhizobium radiobacter) in synthetic wastewater"
+        explanation: R. radiobacter F2 provides bioflocculation function for algal harvesting
+
+# Ecological interactions - causal graph
+ecological_interactions:
+  - name: Photosynthetic Carbon Fixation
+    description: >
+      Chlorella vulgaris performs oxygenic photosynthesis to fix CO2 and produce
+      biomass in the wastewater medium. The algae accumulate lipids suitable for
+      biofuel production while also taking up nutrients from the wastewater for
+      bioremediation.
+    interaction_type: COMMENSALISM
+    source_taxon:
+      preferred_term: Chlorella vulgaris
+      term:
+        id: NCBITaxon:3077
+        label: Chlorella vulgaris
+    biological_processes:
+      - preferred_term: photosynthesis
+        term:
+          id: GO:0015979
+          label: photosynthesis
+      - preferred_term: lipid biosynthetic process
+        term:
+          id: GO:0008610
+          label: lipid biosynthetic process
+    downstream:
+      - target: Bioflocculant Production and Cell Aggregation
+        description: Algal biomass provides substrate for bacterial growth and bioflocculant production
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "enhancing microalgae harvesting and lipid content"
+        explanation: Demonstrates photosynthetic biomass and lipid production by C. vulgaris
+
+  - name: Bioflocculant Production and Cell Aggregation
+    description: >
+      Rhizobium radiobacter F2 produces extracellular polysaccharide bioflocculants
+      that induce aggregation and flocculation of Chlorella cells. The bacteria
+      utilize glucose and potentially algal exudates as carbon sources to synthesize
+      the bioflocculant polymers. These polymers bind to algal cell surfaces,
+      neutralize surface charges, and bridge cells together to form dense flocs
+      that settle rapidly, enabling efficient harvesting.
+    interaction_type: MUTUALISM
+    source_taxon:
+      preferred_term: Rhizobium radiobacter F2
+      term:
+        id: NCBITaxon:358
+        label: Rhizobium radiobacter
+    metabolites:
+      - preferred_term: polysaccharide
+        term:
+          id: CHEBI:18154
+          label: polysaccharide
+        concentration: "Sufficient to induce >90% flocculation efficiency"
+    biological_processes:
+      - preferred_term: extracellular polysaccharide biosynthetic process
+        term:
+          id: GO:0045226
+          label: extracellular polysaccharide biosynthetic process
+      - preferred_term: cell aggregation
+        term:
+          id: GO:0098743
+          label: cell aggregation
+      - preferred_term: single-species biofilm formation
+        term:
+          id: GO:0044010
+          label: single-species biofilm formation
+        notes: Related to floc formation and cellular aggregation processes
+    downstream:
+      - target: Algal Biomass Harvesting
+        description: Bioflocculation enables efficient separation and recovery of algal biomass
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Bioflocculant-producing microbes are environmentally friendly functional materials that avoid the negative effects of traditional chemical flocculants"
+        explanation: Describes the bacterial bioflocculation mechanism and environmental benefits
+
+  - name: Algal Biomass Harvesting
+    description: >
+      The bioflocculation process dramatically improves harvesting efficiency of
+      Chlorella biomass from <1% (axenic) to >90% (co-culture), enabling
+      cost-effective recovery for biofuel feedstock production. The aggregated
+      algal-bacterial flocs settle rapidly, reducing energy requirements for
+      biomass concentration compared to centrifugation or chemical flocculation.
+    interaction_type: MUTUALISM
+    source_taxon:
+      preferred_term: Chlorella vulgaris
+      term:
+        id: NCBITaxon:3077
+        label: Chlorella vulgaris
+    biological_processes:
+      - preferred_term: cell aggregation
+        term:
+          id: GO:0098743
+          label: cell aggregation
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "provided new insights into microalgae harvesting and cost-effective production of microalgal bioproducts"
+        explanation: Demonstrates improved harvesting efficiency through bioflocculation
+
+# Environmental factors
+environmental_factors:
+  - name: Light
+    value: "Required for photosynthesis"
+    description: Continuous or cyclic illumination needed for algal growth and biomass production
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Chlorella vulgaris microalgae"
+        explanation: Photosynthetic microalgae require light as energy source
+
+  - name: Glucose concentration
+    value: "Optimized concentration"
+    unit: "g/L (specific value determined by response surface methodology)"
+    description: >
+      Glucose serves as carbon source for bacterial bioflocculant production.
+      Initial glucose concentration is one of three significant process variables
+      optimized for maximum flocculation efficiency.
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "three significant process variables: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture time"
+        explanation: Glucose concentration critically affects bioflocculant production
+
+  - name: Bacteria-to-algae inoculation ratio
+    value: "Optimized ratio"
+    description: >
+      The ratio of bacterial to algal cells at inoculation significantly impacts
+      bioflocculation efficiency. Optimized through response surface methodology
+      to maximize flocculation while minimizing bacterial contamination of the
+      harvested biomass.
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "three significant process variables: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture time"
+        explanation: Inoculation ratio is critical for optimal bioflocculation
+
+  - name: Co-culture time
+    value: "Optimized duration"
+    unit: "hours or days"
+    description: >
+      Duration of co-culture affects both algal biomass accumulation and
+      bacterial bioflocculant production. Longer times may increase biomass
+      but could also lead to nutrient depletion or culture instability.
+    evidence:
+      - reference: doi:10.1111/jbm.12334
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "three significant process variables: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture time"
+        explanation: Co-culture timing optimized for maximum harvesting efficiency

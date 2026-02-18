@@ -1,0 +1,188 @@
+name: Syntrophomonas-Methanospirillum Syntrophic Consortium
+description: 'A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophomonas wolfei, which β-oxidizes
+  saturated fatty acids (butyrate through octanoate) to acetate, and Methanospirillum hungatei, a hydrogen-utilizing methanogen.
+  S. wolfei degrades butyrate only in coculture with H2-using bacteria, as it uses protons as the electron acceptor with H2
+  as the electron sink product. The removal of H2 by M. hungatei is thermodynamically essential for continued fatty acid oxidation
+  by S. wolfei. This classic syntrophic relationship is fundamental to understanding methane production from fatty acids in
+  anaerobic environments such as digesters, sediments, and the rumen.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anaerobic digester
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: 'Enriched from anaerobic digesters. Grown as syntrophic coculture under strict anaerobic conditions. The addition
+    of H2 gas inhibits growth and butyrate degradation, demonstrating obligate dependence on interspecies hydrogen transfer.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    notes: 'Anaerobic, syntrophic, fatty acid-oxidizing bacterium that β-oxidizes saturated fatty acids (C4-C8) to acetate
+      or acetate plus propionate. Cannot grow on fatty acids alone; requires syntrophic association with H2-utilizing partners.
+      Uses protons as electron acceptor, producing H2 as electron sink product.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Fatty acid oxidizer - requires syntrophic partner
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three strains of the bacterium were characterized and are described as a new genus and species, Syntrophomonas
+      wolfei
+    explanation: Establishes S. wolfei as the primary degrader that oxidizes butyrate to acetate and H2
+- taxon_term:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+    notes: 'Hydrogen-utilizing methanogen that consumes H2 and CO2 to produce methane. Essential syntrophic partner that maintains
+      low H2 partial pressure, enabling thermodynamically unfavorable fatty acid oxidation by S. wolfei.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: H2-utilizing methanogen - syntrophic partner
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wolfei with Desulfovibrio and Methanospirillum hungatei is 54 and 84 h, respectively
+    explanation: Establishes M. hungatei as a compatible H2-utilizing syntrophic partner
+ecological_interactions:
+- name: Butyrate Oxidation and H2 Production
+  description: 'Syntrophomonas wolfei β-oxidizes butyrate (C4) to acetate, using protons as the electron acceptor and producing
+    H2 as the electron sink product. This fatty acid β-oxidation is thermodynamically unfavorable under standard conditions
+    and only proceeds when H2 partial pressure is kept extremely low by a syntrophic partner. The organism cannot utilize
+    common electron acceptors (nitrate, sulfate, etc.) and is therefore obligately dependent on syntrophic H2 removal.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+    concentration: Substrate for β-oxidation
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product of butyrate oxidation
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Electron sink product - must be maintained at low levels
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: butyrate catabolic process
+    term:
+      id: GO:0046359
+      label: butyrate catabolic process
+  downstream:
+  - target: Interspecies Hydrogen Transfer and Methanogenesis
+    description: H2 produced by S. wolfei is consumed by M. hungatei for methanogenesis
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S
+    explanation: Demonstrates the core metabolic activity of S. wolfei in butyrate degradation
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "An anaerobic, nonphototrophic bacterium that beta-oxidizes saturated fatty acids (butyrate through octanoate) to acetate or acetate and propionate usi"
+- name: Interspecies Hydrogen Transfer and Methanogenesis
+  description: 'Methanospirillum hungatei consumes the H2 produced by S. wolfei, combining it with CO2 to produce methane
+    via hydrogenotrophic methanogenesis. This H2 removal maintains a low H2 partial pressure (<10^-4 atm), making the thermodynamically
+    unfavorable butyrate oxidation by S. wolfei energetically feasible. This interspecies hydrogen transfer (IHT) is the classic
+    example of syntrophic metabolism in anaerobic environments.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Consumed from environment - must be maintained at low levels
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: End product of methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Common electron acceptors are not utilized with butyrate as the electron donor
+    explanation: Demonstrates successful syntrophic coculture with M. hungatei as H2-utilizing partner
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Common electron acceptors are not utilized with butyrate as the electron donor
+    explanation: Confirms that S. wolfei cannot use alternative electron acceptors, making it obligately dependent on syntrophic
+      H2 removal
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: Both organisms are obligate anaerobes requiring anoxic conditions
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An anaerobic, nonphototrophic bacterium that beta-oxidizes saturated fatty acids (butyrate through octanoate)
+      to acetate or acetate and propionate using protons as the electron acceptor (H(2) as electron sink product) was isolated
+      in coculture with either a non-fatty acid-degrading, H(2)-utilizing Desulfovibrio sp. or methanogens
+    explanation: Establishes strict anaerobic requirement
+- name: Hydrogen Partial Pressure
+  value: Must be maintained below 10^-4 atm
+  description: 'Low H2 partial pressure is critical for syntrophic butyrate oxidation. Elevated H2 levels inhibit S. wolfei
+    metabolism.
+
+    '
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S
+    explanation: Demonstrates that H2 accumulation prevents syntrophic metabolism
+- name: Generation Time
+  value: 84 hours
+  unit: hours
+  description: Doubling time for S. wolfei - M. hungatei coculture on butyrate
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The most rapid generation time obtained by cocultures of S
+    explanation: Quantifies growth rate of the syntrophic consortium

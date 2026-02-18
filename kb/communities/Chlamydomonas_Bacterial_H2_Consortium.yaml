@@ -1,0 +1,139 @@
+name: Chlamydomonas-Bacterial Hydrogen Production Consortium
+description: 'A synthetic algae-bacteria consortium for sustainable hydrogen production, composed of the green alga Chlamydomonas
+  reinhardtii and three bacterial species: Microbacterium forte sp. nov., Bacillus cereus, and Stenotrophomonas goyi sp. nov.
+  This mutualistic association produces up to 313 mL H2/L over 17 days in high-cell density cultures. M. forte is the primary
+  bacterial species responsible for improving algal hydrogen production, while the complete bacterial community enhances and
+  sustains photobiological H2 generation through metabolic cooperation.
+
+  '
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: PHYTOPLANKTON
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+taxonomy:
+- taxon_term:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop"
+- taxon_term:
+    preferred_term: Microbacterium forte
+    term:
+      id: NCBITaxon:2982533
+      label: Microbacterium forte
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop"
+- taxon_term:
+    preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop"
+- taxon_term:
+    preferred_term: Stenotrophomonas goyi
+    term:
+      id: NCBITaxon:3050471
+      label: Stenotrophomonas goyi
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop"
+ecological_interactions:
+- name: Photosynthetic Hydrogen Production
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:49637
+      label: dihydrogen
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: hydrogen biosynthetic process
+    term:
+      id: GO:0033318
+      label: hydrogen biosynthetic process
+  downstream:
+  - target: Bacterial Enhancement of Algal H2 Production
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Still, under non‑hydrogen producing conditions (aerobiosis) the Chlamydomonas-M
+- name: Bacterial Enhancement of Algal H2 Production
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Microbacterium forte
+    term:
+      id: NCBITaxon:3050470
+      label: Microbacterium forte
+  metabolites:
+  - preferred_term: mannitol
+    term:
+      id: CHEBI:16899
+      label: mannitol
+  biological_processes:
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community can promote and sustain
+      algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7 μg·mL-1
+      of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial chlorophyll) algal cultures, respectively
+environmental_factors:
+- name: Light
+  value: continuous illumination
+  description: Required for photosynthesis and hydrogen production
+- name: Cell density
+  value: 76.7 μg/mL chlorophyll (high) or 10 μg/mL (low)
+  description: High-cell density produces 313 mL H2/L over 17 days; low-cell density produces 163.5 mL H2/L over 25 days
+- name: Medium composition
+  value: mannitol and yeast extract
+  description: Carbon and nutrient sources supporting bacterial growth and algal-bacterial mutualism
+- name: Anaerobic conditions
+  value: required for H2 production
+  description: Hydrogen production occurs under anaerobic conditions after initial aerobic growth phase

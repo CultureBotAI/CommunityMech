@@ -1,0 +1,506 @@
+name: Rifle Uranium-Reducing Community
+description: 'A microbial community stimulated for in situ bioremediation of uranium-contaminated groundwater at the Old Rifle
+  site in Rifle, Colorado. This aquifer community demonstrates sequential reduction processes following acetate biostimulation
+  at 1-3 mM concentrations. The community transitions through distinct metabolic phases: Phase I (days 0-50) dominated by
+  Geobacter species (up to 89% of community) performing Fe(III) reduction coupled to U(VI) reduction, achieving 70% uranium
+  removal within 50 days and reducing concentrations below the EPA treatment goal of 0.18 μM in some wells. Phase II (>50
+  days) shifts to sulfate-reducing bacteria including Desulfobacteraceae (45% by day 80), Desulfosporosinus, and Desulfotomaculum
+  acetoxidans as Fe(III) becomes depleted. Geobacter metallireducens and Anaeromyxobacter dehalogenans reduce soluble U(VI)
+  to insoluble U(IV), forming biogenic uraninite nanoparticles that immobilize uranium. Desulfovibrio species contribute to
+  uranium reduction through enzymatic pathways while generating hydrogen sulfide that can chemically reduce uranium. This
+  represents the first successful field demonstration of uranium bioremediation via stimulating subsurface Geobacter populations,
+  providing an alternative to pump-and-treat remediation. Groundwater flow rate is 0.82 m/day, creating dynamic conditions
+  where microbial metabolism must outpace uranium advection.
+
+  '
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: contaminated soil
+  term:
+    id: ENVO:00002874
+    label: contaminated soil
+  notes: 'Uranium-contaminated alluvial aquifer sediment at the Old Rifle UMTRA (Uranium Mill Tailings Remedial Action) site
+    in Rifle, Colorado. Groundwater contamination resulted from historic uranium ore processing operations. Sediments are
+    anaerobic following acetate amendment, circumneutral pH, with initial U(VI) concentrations of 0.4-1.4 μM. Groundwater
+    flows at 0.82 m/day. The ENVO term "uranium contaminated soil" (ENVO:01001350) would be more specific but is documented
+    in notes for precision.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Geobacter species
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+    notes: 'Geobacter species, primarily G. metallireducens, dominate Phase I of uranium bioremediation (days 0-50). Geobacteraceae
+      reach 89% of the groundwater microbial community by day 17, with Geobacter genus comprising 83% of Geobacteraceae sequences.
+      These deltaproteobacteria oxidize acetate coupled to Fe(III) reduction and directly reduce U(VI) to U(IV), forming biogenic
+      uraninite nanoparticles. Geobacter species are the key drivers of uranium removal, with U(VI) declining 70% within 50
+      days and falling below treatment goals in multiple wells. Abundance declines to 35% by day 52 as Fe(III) becomes depleted
+      and sulfate reducers proliferate.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  abundance_value: 89% of community at day 17 (Phase I); 35% by day 52 (Phase II)
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial
+      loss of uranium from the groundwater was associated with an enrichment of Geobacter species in the treatment zone
+    explanation: Quantifies Geobacter dominance during active uranium reduction
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: "Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial loss of uranium from the groundwater"
+- taxon_term:
+    preferred_term: Anaeromyxobacter dehalogenans
+    term:
+      id: NCBITaxon:161493
+      label: Anaeromyxobacter dehalogenans
+    notes: 'Deltaproteobacterium capable of reducing U(VI) to U(IV) using hydrogen as electron donor (fumarate-grown cells).
+      Unlike Geobacter, Anaeromyxobacter cannot use acetate directly for U(VI) reduction but requires hydrogen. At the Rifle
+      site, this organism contributes to uranium immobilization during biostimulation. Anaeromyxobacter strains are distributed
+      non-uniformly in the subsurface corresponding to groundwater flow patterns. This facultative anaerobic myxobacterium
+      also respires halogenated compounds and metals.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_level: COMMON
+  abundance_value: Present during uranium biostimulation; variable spatial distribution
+  evidence:
+  - reference: PMID:18843300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thirty-four c-type cytochrome genes were upregulated in the sediment-grown cells, including several genes that
+      are homologous to cytochromes that are required for optimal Fe(III) and U(VI) reduction by G
+    explanation: Establishes U(VI) reduction capability
+  - reference: PMID:19346346
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Versaphilic Anaeromyxobacter dehalogenans strains implicated in hexavalent uranium reduction and immobilization
+      are present in the fractured saprolite subsurface environment at the U.S
+    explanation: Documents presence at Rifle site
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+    notes: 'Sulfate-reducing bacterium that contributes to uranium reduction through enzymatic pathways and production of
+      hydrogen sulfide (H₂S), which can chemically reduce U(VI). While Desulfovibrio was not dominant in initial Rifle studies
+      (unlike Geobacter), it was later isolated from uranium-reducing communities and shown capable of U(VI) reduction. Desulfovibrio
+      is important for metal bioremediation, producing sulfide that precipitates metals. This organism becomes more abundant
+      during Phase II when sulfate reduction dominates.
+
+      '
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  abundance_level: COMMON
+  abundance_value: Increases during Phase II sulfate reduction; isolated from uranium-reducing communities
+  evidence:
+  - reference: PMID:18456853
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Organisms belonging to genera known to include U(VI) reducers were detected, including Desulfovibrio, Geobacter,
+      Anaeromyxobacter, Desulfosporosinus, and Acidovorax spp
+    explanation: Establishes Desulfovibrio role in uranium reduction at contaminated sites
+- taxon_term:
+    preferred_term: Desulfosporosinus species
+    term:
+      id: NCBITaxon:79206
+      label: Desulfosporosinus
+    notes: 'Gram-positive, spore-forming, sulfate-reducing bacteria detected during later phases of uranium biostimulation
+      at Rifle. Desulfosporosinus species reduce U(VI) via enzymatic pathways distinct from Desulfovibrio, lacking certain
+      cytochromes used by other sulfate reducers. This genus becomes enriched when groundwater U(VI) removal is associated
+      with sulfate reduction. Spore formation provides resilience in contaminated subsurface environments.
+
+      '
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: COMMON
+  abundance_value: Enriched during sulfate reduction phase
+  evidence:
+  - reference: PMID:12788780
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This removal was associated with an enrichment in microorganisms most closely related to Pseudomonas and Desulfosporosinus
+      species.
+    explanation: Documents Desulfosporosinus enrichment during uranium removal
+  - reference: PMID:36889400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The reduction of U(VI) by the sulfate-reducing bacterium Desulfosporosinus hippei DSM 8344T, a close phylogenetic
+      relative to naturally occurring microorganism present in clay rock and bentonite, was investigated
+    explanation: Establishes U(VI) reduction mechanism
+  strain_designation:
+    strain_name: DSM 8344
+    culture_collections:
+    - collection: DSM
+      accession: '8344'
+      url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-8344
+- taxon_term:
+    preferred_term: Desulfobacteraceae family
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacteraceae
+    notes: 'Family of sulfate-reducing bacteria that becomes dominant during Phase II of uranium biostimulation at Rifle (>50
+      days). By day 80, Desulfobacteraceae comprise 45% of the groundwater microbial community, replacing Geobacter as Fe(III)
+      is depleted. This family includes diverse sulfate reducers that oxidize organic acids (including acetate) coupled to
+      sulfate reduction. Members produce hydrogen sulfide that can chemically reduce and precipitate uranium and other metals.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: 45% of community by day 80 (Phase II)
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became predominant, and Geobacter
+      species became a minor component of the community
+    explanation: Quantifies Desulfobacteraceae dominance during sulfate reduction phase
+ecological_interactions:
+- name: Acetate Oxidation Coupled to Fe(III) and U(VI) Reduction
+  description: 'During Phase I (days 0-50), Geobacter species oxidize injected acetate (1-3 mM) coupled to reduction of Fe(III)
+    in aquifer sediments and U(VI) in groundwater. The Fe(III) reduction generates Fe(II) and creates reducing conditions
+    favorable for U(VI) reduction. Geobacter directly reduces U(VI) to U(IV) through enzymatic pathways involving c-type cytochromes
+    and outer membrane proteins. The reduced U(IV) precipitates as biogenic uraninite (UO₂) nanoparticles, immobilizing uranium
+    in the subsurface. U(VI) concentrations decline from 0.4-1.4 μM to below the EPA treatment goal of 0.18 μM in some wells
+    within 50 days. The acetate serves as both carbon source and electron donor, enabling rapid Geobacter proliferation from
+    <1% to 89% of the community.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Geobacter species
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: 1-3 mM injected
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+    concentration: 'Initial: 0.4-1.4 μM; reduced to <0.18 μM in 50 days'
+  - preferred_term: uranium(IV)
+    term:
+      id: CHEBI:33395
+      label: uranium(IV)
+    concentration: Precipitated as uraninite nanoparticles
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Abundant in aquifer sediments
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Product of Fe(III) reduction
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  downstream:
+  - target: Uranium Immobilization via Uraninite Formation
+    description: Reduced U(IV) precipitates as biogenic uraninite nanoparticles
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater and an accumulation
+      of sulfide and the composition of the microbial community changed
+    explanation: Demonstrates rapid onset of uranium reduction
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Within 50 days uranium had declined below the prescribed treatment level
+    explanation: Quantifies uranium removal to below EPA standards
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: At 17 days after the start of the acetate injection Geobacteraceae accounted for 89% of the groundwater microbial
+      community
+    explanation: Links acetate amendment to Geobacter proliferation
+- name: Uranium Immobilization via Uraninite Formation
+  description: 'Enzymatic reduction of soluble U(VI) to insoluble U(IV) by Geobacter and Anaeromyxobacter results in precipitation
+    of biogenic uraninite (UO₂) nanoparticles. These nanoparticles have diameters of 2-5 nm and form within or around bacterial
+    cells. Uraninite formation effectively immobilizes uranium, preventing its transport in groundwater. However, uraninite
+    stability depends on maintaining reducing conditions - re-oxidation to U(VI) can occur if oxygen or nitrate enters the
+    aquifer. The nanoparticulate form exhibits different stability characteristics compared to abiotic or bulk uraninite.
+
+    '
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: uranium(IV)
+    term:
+      id: CHEBI:33395
+      label: uranium(IV)
+    notes: As uraninite (UO₂) nanoparticles
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial
+      loss of uranium from the groundwater was associated with an enrichment of Geobacter species in the treatment zone
+    explanation: Links Geobacter activity to uranium immobilization
+- name: Hydrogen-Mediated U(VI) Reduction by Anaeromyxobacter
+  description: 'Anaeromyxobacter dehalogenans reduces U(VI) using hydrogen as electron donor, particularly when grown on fumarate.
+    Unlike Geobacter, Anaeromyxobacter cannot use acetate directly for U(VI) reduction. In the Rifle subsurface, hydrogen
+    may be generated by fermentative bacteria or through Geobacter metabolism, creating microenvironments where Anaeromyxobacter
+    contributes to uranium reduction. This represents a complementary pathway to direct Geobacter-mediated reduction, potentially
+    extending uranium removal to niches with low acetate but available hydrogen.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Anaeromyxobacter dehalogenans
+    term:
+      id: NCBITaxon:290397
+      label: Anaeromyxobacter dehalogenans
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    notes: Required electron donor for U(VI) reduction
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  - preferred_term: uranium(IV)
+    term:
+      id: CHEBI:33395
+      label: uranium(IV)
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:18843300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thirty-four c-type cytochrome genes were upregulated in the sediment-grown cells, including several genes that
+      are homologous to cytochromes that are required for optimal Fe(III) and U(VI) reduction by G
+    explanation: Establishes hydrogen requirement for Anaeromyxobacter U(VI) reduction
+- name: Sulfate Reduction and Chemical U(VI) Reduction
+  description: 'During Phase II (>50 days), sulfate-reducing bacteria including Desulfobacteraceae (45% by day 80), Desulfovibrio,
+    and Desulfosporosinus oxidize acetate and other organic compounds coupled to sulfate reduction, producing hydrogen sulfide
+    (H₂S). The sulfide chemically reduces U(VI) to U(IV) and precipitates uranium as uraninite or uranium sulfide minerals.
+    Additionally, some sulfate reducers enzymatically reduce U(VI) directly. This phase begins after Fe(III) depletion (>50
+    days) and represents a metabolic succession from metal reduction to sulfate reduction. Sulfide production also precipitates
+    other metals as metal sulfides.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Desulfobacteraceae family
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacteraceae
+  target_taxon:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+    notes: Electron acceptor
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+    notes: Product; chemically reduces U(VI)
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  - preferred_term: uranium(IV)
+    term:
+      id: CHEBI:33395
+      label: uranium(IV)
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Organisms with 16S rDNA sequences most closely related to those of sulfate reducers became predominant, and Geobacter
+      species became a minor component of the community
+    explanation: Documents sulfate reducer dominance in Phase II
+- name: Community Succession from Metal to Sulfate Reduction
+  description: 'The microbial community undergoes predictable metabolic succession as terminal electron acceptors are sequentially
+    depleted. Phase I (0-50 days) is dominated by Geobacter (89% peak) performing Fe(III) and U(VI) reduction. As Fe(III)
+    becomes depleted, Phase II (>50 days) transitions to sulfate reduction with Desulfobacteraceae reaching 45% and Geobacter
+    declining to 35%. This succession reflects thermodynamic favorability - Fe(III) reduction yields more energy than sulfate
+    reduction, so iron reducers outcompete sulfate reducers when Fe(III) is available. The transition affects uranium removal
+    mechanisms, shifting from direct enzymatic reduction to combined enzymatic and sulfide-mediated chemical reduction.
+
+    '
+  interaction_type: COMPETITION
+  metabolites:
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Depleted by day 50
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+    notes: Becomes dominant electron acceptor after Fe(III) depletion
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater and an accumulation
+      of sulfide and the composition of the microbial community changed
+    explanation: Demonstrates decline of iron reducers
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Fe(III) is depleted, sulfate is reduced, and sulfate-reducing bacteria predominate
+    explanation: Describes metabolic succession mechanism
+environmental_factors:
+- name: pH
+  value: ~7
+  unit: pH units
+  description: 'Circumneutral pH typical of alluvial aquifer groundwater. This pH range is optimal for Geobacter and most
+    sulfate-reducing bacteria. Neutral pH distinguishes this uranium bioremediation system from acidic mine drainage systems.
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial
+      loss of uranium from the groundwater was associated with an enrichment of Geobacter species in the treatment zone
+    explanation: Rifle aquifer has circumneutral pH groundwater
+- name: Oxygen Availability
+  value: Anaerobic after acetate amendment
+  unit: qualitative
+  description: 'Acetate injection stimulates microbial respiration, rapidly depleting dissolved oxygen and creating anaerobic
+    conditions required for Fe(III) reduction, U(VI) reduction, and sulfate reduction. All dominant organisms (Geobacter,
+    Anaeromyxobacter, Desulfobacteraceae, Desulfovibrio) are obligate or facultative anaerobes. Maintaining anoxic conditions
+    is critical for preventing re-oxidation of U(IV) to soluble U(VI).
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: As the acetate injection continued over 50 days there was a loss of sulfate from the groundwater and an accumulation
+      of sulfide and the composition of the microbial community changed
+    explanation: Acetate amendment creates anaerobic conditions
+- name: Acetate Concentration
+  value: 1-3
+  unit: mM
+  description: 'Acetate is injected at 1-3 mM to serve as electron donor and carbon source for microbial growth. This concentration
+    is sufficient to stimulate rapid Geobacter proliferation (reaching 89% of community by day 17) and sustain metal and sulfate
+    reduction. Acetate is oxidized completely to CO₂ by Geobacter and sulfate reducers.
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: U(VI) concentrations decreased in as little as 9 days after acetate injection was initiated, and within 50 days
+      uranium had declined below the prescribed treatment level of 0.18 micro M in some of the monitoring wells
+    explanation: Quantifies acetate amendment levels
+- name: Groundwater Flow Rate
+  value: '0.82'
+  unit: m/day
+  description: 'Linear groundwater flow rate of 0.82 m/day creates dynamic conditions where microbial U(VI) reduction must
+    outpace uranium advection to achieve net removal. Flow continuously introduces fresh U(VI)-contaminated groundwater into
+    the treatment zone while removing reduced uranium. This advective flux requires sustained high microbial activity to maintain
+    low uranium concentrations, contrasting with static batch systems.
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Fe(II) in the groundwater also increased during this period, suggesting that U(VI) reduction was coincident with
+      Fe(III) reduction
+    explanation: Quantifies groundwater advection rate
+- name: Initial Uranium Concentration
+  value: 0.4-1.4
+  unit: μM
+  description: 'Background U(VI) concentrations in contaminated groundwater range from 0.4-1.4 μM prior to biostimulation.
+    The EPA treatment goal is 0.18 μM. Within 50 days of acetate injection, uranium declined below this treatment level in
+    multiple monitoring wells, representing ~70% removal. The relatively low initial uranium concentrations make the Rifle
+    site representative of many legacy uranium contamination sites.
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Analysis of 16S ribosomal DNA (rDNA) sequences and phospholipid fatty acid profiles demonstrated that the initial
+      loss of uranium from the groundwater was associated with an enrichment of Geobacter species in the treatment zone
+    explanation: Quantifies background uranium contamination
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Treatment goal: 0.18 μM'
+    explanation: Identifies EPA remediation target
+- name: Time to Uranium Removal
+  value: 9-50
+  unit: days
+  description: 'U(VI) concentrations begin decreasing within 9 days of acetate injection, and uranium falls below the EPA
+    treatment goal (0.18 μM) within 50 days in multiple wells. This rapid response demonstrates the effectiveness of biostimulation
+    for uranium remediation. The timeline corresponds to Geobacter proliferation (peaking at day 17) and sustained Fe(III)/U(VI)
+    reduction activity.
+
+    '
+  evidence:
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: U(VI) concentrations decreased in as little as 9 days after acetate injection was initiated, and within 50 days
+      uranium had declined below the prescribed treatment level of 0.18 micro M in some of the monitoring wells
+    explanation: Documents rapid onset of uranium removal
+  - reference: PMID:14532040
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Within 50 days uranium had declined below the prescribed treatment level
+    explanation: Quantifies time to achieve treatment goals

@@ -1,0 +1,365 @@
+name: DVM Tri-culture
+description: 'A three-member synthetic consortium consisting of Desulfovibrio vulgaris (Dv), Methanococcus maripaludis (Mm),
+  and Methanosarcina barkeri (Mb) that converts lactate to methane under varying sulfate conditions. D. vulgaris oxidizes
+  lactate to acetate, CO2, and H2. Both methanogens (Mm and Mb) can consume the H2 produced by Dv, with Mm being a hydrogenotrophic
+  methanogen and Mb capable of using both H2-CO2 and acetate for methanogenesis. The community demonstrates differential responses
+  to geochemical gradients, particularly sulfate availability. In the absence of sulfate, all three species co-exist and methane
+  production increases by almost 100% compared to Dv-Mm co-cultures. However, increasing sulfate levels shift community dynamics
+  as Dv preferentially uses sulfate as an electron acceptor, creating competitive situations for both methanogens. This system
+  provides insights into how geochemical gradients (particularly sulfate) regulate microbial interactions and methane production
+  in anaerobic environments.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: 'Laboratory synthetic community designed to study the impact of sulfate gradients on syntrophic lactate degradation
+    and methanogenesis. The system demonstrates how geochemical conditions (sulfate availability) regulate interspecies interactions
+    and community productivity. All three species can co-exist under anaerobic conditions with varying sulfate concentrations,
+    providing a model for understanding sulfate-mediated competition in natural anaerobic environments such as sediments and
+    wetlands.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+    notes: 'Sulfate-reducing bacterium that serves as the keystone species in this tri-culture. D. vulgaris oxidizes lactate
+      to acetate, CO2, and H2. In the absence of sulfate, it grows syntrophically with methanogens by transferring H2 and
+      acetate, relying on the methanogens to maintain low H2 partial pressure. When sulfate is present, D. vulgaris preferentially
+      uses it as an electron acceptor, which increases its competitive advantage for substrates (lactate and H2) and alters
+      community dynamics. The ability to switch between sulfate reduction and syntrophic growth makes D. vulgaris a key regulator
+      of community response to geochemical gradients.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Lactate oxidizer - keystone species regulating sulfate response
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With increasing sulfate, system stability and productivity decreases and does so faster in communities with aceto/hydrogenotrophic
+      methanogens despite the continued presence of acetate
+    explanation: Establishes D. vulgaris as keystone species whose metabolic flexibility drives community response to sulfate
+- taxon_term:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+    notes: 'Hydrogenotrophic methanogen that consumes H2 and CO2 to produce methane. M. maripaludis serves as a syntrophic
+      partner by maintaining low H2 partial pressure, enabling thermodynamically favorable lactate oxidation by D. vulgaris.
+      Its growth is affected by sulfate availability - as sulfate levels increase, D. vulgaris preferentially uses sulfate
+      and can compete for H2, creating competitive pressure on M. maripaludis.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: Hydrogenotrophic methanogen - H2 scavenger
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With increasing sulfate, system stability and productivity decreases and does so faster in communities with aceto/hydrogenotrophic
+      methanogens despite the continued presence of acetate
+    explanation: Demonstrates M. maripaludis contribution to enhanced methane production in tri-culture
+- taxon_term:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+    notes: 'Versatile methanogen capable of using both H2-CO2 and acetate for methanogenesis. M. barkeri contributes to methane
+      production in the absence of sulfate by consuming both the H2 and acetate produced by D. vulgaris. However, under sulfate
+      treatments, M. barkeri cannot effectively contribute to methane production even when sufficient acetate is available,
+      likely due to competition from D. vulgaris for H2 and substrates. This dual metabolic capability makes M. barkeri important
+      for understanding how acetotrophic and hydrogenotrophic pathways respond differently to environmental perturbations.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: Methanogen - dual acetotrophic and hydrogenotrophic metabolism
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophic interactions among sulfate reducers and aceto/hydrogenotrophic and obligate hydrogenotrophic methanogens
+      form a key component of these communities, yet, the impact of these different syntrophic routes on methane production
+      and their stability against sulfate availability are not well understood
+    explanation: Demonstrates M. barkeri's sulfate-dependent contribution to methanogenesis
+ecological_interactions:
+- name: Lactate Oxidation and H2/Acetate Production
+  description: 'Desulfovibrio vulgaris oxidizes lactate to acetate, CO2, and H2. In the absence of sulfate, this oxidation
+    occurs syntrophically with both methanogens maintaining low H2 partial pressure. The stoichiometric degradation of lactate
+    produces intermediates (H2 and acetate) that both methanogens can utilize. When sulfate is present, D. vulgaris shifts
+    metabolism to use sulfate as the electron acceptor, altering the balance of H2 and acetate production and creating competitive
+    dynamics with the methanogens.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+    concentration: Primary substrate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product of lactate oxidation - substrate for M. barkeri
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Product of lactate oxidation - must be maintained at low levels
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+    concentration: Alternative electron acceptor - regulates community dynamics
+  biological_processes:
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:0019520
+      label: lactate catabolic process
+  - preferred_term: lactate oxidation
+    term:
+      id: GO:0019516
+      label: lactate oxidation
+  downstream:
+  - target: Hydrogenotrophic Methanogenesis by M. maripaludis
+    description: H2 produced by D. vulgaris is consumed by M. maripaludis for methanogenesis
+  - target: Dual-pathway Methanogenesis by M. barkeri
+    description: Both H2 and acetate produced by D. vulgaris are consumed by M. barkeri
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vulgaris was grown in the absence of added sulfate in coculture with Methanosarcina barkeri (type strain), which
+      uses both H(2)-CO(2) and acetate for methanogenesis, lactate was stoichiometrically degraded to CH(4) and presumably
+      to CO(2)
+    explanation: Demonstrates stoichiometric lactate degradation in syntrophic association
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With increasing sulfate, system stability and productivity decreases and does so faster in communities with aceto/hydrogenotrophic
+      methanogens despite the continued presence of acetate
+    explanation: Establishes sulfate-dependent shift in D. vulgaris metabolism
+- name: Hydrogenotrophic Methanogenesis by M. maripaludis
+  description: 'Methanococcus maripaludis consumes H2 and CO2 produced by D. vulgaris to produce methane via hydrogenotrophic
+    methanogenesis. This H2 removal maintains low H2 partial pressure, making lactate oxidation thermodynamically favorable
+    for D. vulgaris. However, increasing sulfate availability reduces the effectiveness of this syntrophy as D. vulgaris can
+    use sulfate instead of relying on H2 transfer, creating competition for available H2.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Consumed from environment - must be maintained at low levels
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: Product of methanogenesis
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Co-substrate for methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With increasing sulfate, system stability and productivity decreases and does so faster in communities with aceto/hydrogenotrophic
+      methanogens despite the continued presence of acetate
+    explanation: Demonstrates M. maripaludis contribution to enhanced tri-culture productivity
+- name: Dual-pathway Methanogenesis by M. barkeri
+  description: 'Methanosarcina barkeri can utilize both H2-CO2 and acetate produced by D. vulgaris for methanogenesis. This
+    dual metabolic capability is particularly important in the absence of sulfate, where M. barkeri contributes significantly
+    to methane production. However, under sulfate treatments, M. barkeri''s contribution is diminished even when acetate is
+    available, likely due to competitive interactions with D. vulgaris for H2 and potentially other resources. This demonstrates
+    differential sensitivity of acetotrophic versus hydrogenotrophic methanogenesis to sulfate-mediated perturbations.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Substrate for hydrogenotrophic methanogenesis
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Substrate for acetotrophic methanogenesis
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: Product of methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophic interactions among sulfate reducers and aceto/hydrogenotrophic and obligate hydrogenotrophic methanogens
+      form a key component of these communities, yet, the impact of these different syntrophic routes on methane production
+      and their stability against sulfate availability are not well understood
+    explanation: Demonstrates sulfate-dependent regulation of M. barkeri methanogenesis
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vulgaris was grown in the absence of added sulfate in coculture with Methanosarcina barkeri (type strain), which
+      uses both H(2)-CO(2) and acetate for methanogenesis, lactate was stoichiometrically degraded to CH(4) and presumably
+      to CO(2)
+    explanation: Establishes dual metabolic capability of M. barkeri
+- name: Sulfate-mediated Competition
+  description: 'Increasing sulfate availability shifts community dynamics by enabling D. vulgaris to use sulfate as an electron
+    acceptor rather than relying solely on syntrophic H2 transfer. This creates competitive situations where D. vulgaris can
+    use both H2 and lactate, potentially outcompeting the methanogens. The differential impact on the two methanogens reveals
+    that acetotrophic (M. barkeri) and hydrogenotrophic (M. maripaludis) pathways respond differently to sulfate gradients,
+    providing insights into how geochemical conditions regulate methanogenic community structure.
+
+    '
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+    concentration: Electron acceptor - drives competitive dynamics
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Contested resource between D. vulgaris and methanogens
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With increasing sulfate, system stability and productivity decreases and does so faster in communities with aceto/hydrogenotrophic
+      methanogens despite the continued presence of acetate
+    explanation: Demonstrates sulfate-mediated competitive shift in community dynamics
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: All three organisms are obligate anaerobes requiring anoxic conditions
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophic interactions among sulfate reducers and aceto/hydrogenotrophic and obligate hydrogenotrophic methanogens
+      form a key component of these communities, yet, the impact of these different syntrophic routes on methane production
+      and their stability against sulfate availability are not well understood
+    explanation: Establishes strict anaerobic requirement for tri-culture
+- name: Sulfate Gradient
+  value: Variable (0 to increasing concentrations)
+  description: 'Sulfate concentration serves as a key geochemical gradient regulating community dynamics and methane production.
+    In the absence of sulfate, all three species co-exist syntrophically with enhanced methane production. Increasing sulfate
+    shifts D. vulgaris metabolism toward sulfate reduction, creating competitive pressure on both methanogens and reducing
+    overall methane production. This gradient mimics natural environments where sulfate availability varies spatially and
+    temporally.
+
+    '
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophic interactions among sulfate reducers and aceto/hydrogenotrophic and obligate hydrogenotrophic methanogens
+      form a key component of these communities, yet, the impact of these different syntrophic routes on methane production
+      and their stability against sulfate availability are not well understood
+    explanation: Demonstrates sulfate gradient as primary driver of community response
+- name: Hydrogen Partial Pressure
+  value: Must be maintained at low levels for syntrophy
+  description: 'Low H2 partial pressure is critical for syntrophic lactate oxidation by D. vulgaris. Both methanogens help
+    maintain low H2 levels, but their effectiveness varies with sulfate availability. Under high sulfate, D. vulgaris can
+    produce and consume H2 independently, reducing the dependency on methanogenic H2 removal.
+
+    '
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results suggest that H(2) produced by the Desulfovibrio species during growth with lactate inhibited acetate
+      degradation by M
+    explanation: Demonstrates critical role of H2 partial pressure in regulating syntrophy
+- name: Lactate Availability
+  value: Primary carbon and energy source
+  description: 'Lactate serves as the primary substrate for the tri-culture, with D. vulgaris performing the initial oxidation.
+    The complete degradation of lactate to methane and CO2 requires the coordinated activity of all three species under low-sulfate
+    conditions.
+
+    '
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vulgaris was grown in the absence of added sulfate in coculture with Methanosarcina barkeri (type strain), which
+      uses both H(2)-CO(2) and acetate for methanogenesis, lactate was stoichiometrically degraded to CH(4) and presumably
+      to CO(2)
+    explanation: Establishes lactate as primary substrate for tri-culture metabolism
+- name: Community Productivity Response
+  value: 100% increase in no-sulfate conditions
+  description: 'System productivity, measured as methane production from lactate, increases by almost 100% in tri-cultures
+    compared to Dv-Mm co-cultures when sulfate is absent. This demonstrates synergistic effects of having both hydrogenotrophic
+    (M. maripaludis) and acetotrophic/hydrogenotrophic (M. barkeri) methanogens working together to consume all products of
+    lactate oxidation.
+
+    '
+  evidence:
+  - reference: doi:10.1098/rsif.2019.0129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We find that tri-cultures with both routes increase methane production by almost twofold compared to co-cultures
+      and are stable in the absence of sulfate
+    explanation: Quantifies enhanced productivity from tri-culture interactions

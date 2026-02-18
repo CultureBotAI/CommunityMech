@@ -1,0 +1,120 @@
+name: Wheat Synthetic Consortium C6
+description: 'A synthetic 4-member rhizosphere consortium (C6) for biocontrol of Rhizoctonia solani in wheat. The consortium
+  includes Janthinobacterium lividum BJ, Pseudomonas sp. P25, and two additional rhizosphere bacteria. Together, they provide
+  effective suppression of R. solani AG8, a major soilborne pathogen causing root disease in wheat, through synergistic antimicrobial
+  activity and plant growth promotion.
+
+  '
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+taxonomy:
+- taxon_term:
+    preferred_term: Janthinobacterium lividum BJ
+    term:
+      id: NCBITaxon:29581
+      label: Janthinobacterium lividum
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Nine bacteria and four SynComs significantly inhibited the growth of AG8 by producing volatiles
+- taxon_term:
+    preferred_term: Pseudomonas sp. P25
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere, for their antifungal
+      activity against soilborne fungal pathogens
+- taxon_term:
+    preferred_term: Triticum aestivum
+    term:
+      id: NCBITaxon:4565
+      label: Triticum aestivum
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere, for their antifungal
+      activity against soilborne fungal pathogens
+ecological_interactions:
+- name: Antimicrobial Compound Production
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Janthinobacterium lividum BJ
+    term:
+      id: NCBITaxon:29581
+      label: Janthinobacterium lividum
+  metabolites:
+  - preferred_term: violacein
+    term:
+      id: CHEBI:27740
+      label: violacein
+  biological_processes:
+  - preferred_term: antibiotic biosynthetic process
+    term:
+      id: GO:0017000
+      label: antibiotic biosynthetic process
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further, the mechanisms of interaction of the tested bacteria with each other and plants were explored
+- name: Synergistic Pathogen Suppression
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pseudomonas sp. P25
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere, for their antifungal
+      activity against soilborne fungal pathogens
+environmental_factors:
+- name: Target pathogen
+  value: Rhizoctonia solani AG8
+  description: Major soilborne fungal pathogen causing root rot and damping-off in wheat
+- name: Biocontrol mechanism
+  value: antimicrobial and induced resistance
+  description: 'Multiple mechanisms including violacein production, volatile organic compounds, and induced systemic resistance
+    in wheat plants
+
+    '
+- name: Agricultural application
+  value: sustainable crop protection
+  description: 'Biological alternative to chemical fungicides for wheat disease management in sustainable agriculture systems
+
+    '

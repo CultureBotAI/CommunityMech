@@ -1,0 +1,223 @@
+name: Desulfovibrio-Methanococcus Syntrophic Consortium
+description: 'A syntrophic, obligate two-member anaerobic consortium consisting of Desulfovibrio vulgaris Hildenborough, which
+  oxidizes lactate to acetate, H2, and CO2 in the absence of sulfate, and Methanococcus maripaludis S2, a hydrogenotrophic
+  methanogen. D. vulgaris can reduce sulfate when available, but in sulfate-free environments it must grow syntrophically
+  by coupling lactate oxidation to interspecies hydrogen transfer. M. maripaludis consumes the H2 and CO2 produced by D. vulgaris
+  to produce methane, maintaining the low H2 partial pressure thermodynamically required for continued lactate oxidation.
+  This syntrophic relationship is fundamental to understanding microbial metabolism in sulfate-depleted anaerobic environments
+  and represents a classic model system for studying syntrophic electron transfer mechanisms.
+
+  '
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: sulfate-free anaerobic environment
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: 'Grown in continuous culture on lactate without sulfate under strict anaerobic conditions. In the absence of sulfate,
+    D. vulgaris cannot use its typical respiratory pathway and must rely on syntrophic partnership with a H2-consuming organism.
+    The system demonstrates obligate dependence on interspecies hydrogen transfer for energy conservation.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Desulfovibrio vulgaris str. Hildenborough
+    notes: 'Anaerobic sulfate-reducing bacterium that can also grow syntrophically in the absence of sulfate. When grown without
+      sulfate, D. vulgaris oxidizes lactate to acetate, producing H2 and CO2 as electron sink products. This organism is a
+      facultative syntrophic partner that preferentially uses sulfate when available but can adapt to syntrophic metabolism
+      in sulfate-depleted environments. Uses protons as the terminal electron acceptor when growing syntrophically.
+
+      '
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Lactate oxidizer - requires syntrophic partner in absence of sulfate
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, comparative transcriptional analysis of a model sulfate-reducing microbe, Desulfovibrio vulgaris
+      Hildenborough, suggested the use of alternative electron transfer systems dependent on growth modality
+    explanation: Establishes D. vulgaris as the primary degrader that oxidizes lactate to acetate and H2 in syntrophic coculture
+- taxon_term:
+    preferred_term: Methanococcus maripaludis S2
+    term:
+      id: NCBITaxon:267377
+      label: Methanococcus maripaludis S2
+    notes: 'Hydrogenotrophic methanogen that consumes H2 and CO2 to produce methane. Essential syntrophic partner that maintains
+      low H2 partial pressure, enabling thermodynamically unfavorable lactate oxidation by D. vulgaris in the absence of sulfate.
+      A genetically tractable model organism for studying methanogenesis and syntrophic interactions.
+
+      '
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: H2-utilizing methanogen - syntrophic partner
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, comparative transcriptional analysis of a model sulfate-reducing microbe, Desulfovibrio vulgaris
+      Hildenborough, suggested the use of alternative electron transfer systems dependent on growth modality
+    explanation: Establishes M. maripaludis S2 as the H2-consuming syntrophic partner
+ecological_interactions:
+- name: Lactate Oxidation and H2 Production
+  description: 'Desulfovibrio vulgaris Hildenborough oxidizes lactate to acetate in the absence of sulfate, using protons
+    as the electron acceptor and producing H2 and CO2 as electron sink products. Normally a sulfate-reducing bacterium, D.
+    vulgaris can adapt to sulfate-free conditions by coupling lactate oxidation to syntrophic hydrogen transfer. This metabolic
+    shift is thermodynamically unfavorable under standard conditions and only proceeds when H2 partial pressure is kept extremely
+    low by a syntrophic partner. The organism cannot complete lactate oxidation without efficient H2 removal.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Desulfovibrio vulgaris str. Hildenborough
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+    concentration: Substrate for oxidation (3-5 mM steady state)
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product of lactate oxidation (24-27 mM)
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Electron sink product - must be maintained at low levels
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Coproduct with H2
+  biological_processes:
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:1903457
+      label: lactate catabolic process
+  - preferred_term: lactate metabolic process
+    term:
+      id: GO:0006089
+      label: lactate metabolic process
+  downstream:
+  - target: Interspecies Hydrogen Transfer and Methanogenesis
+    description: H2 and CO2 produced by D. vulgaris are consumed by M. maripaludis for methanogenesis
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Additionally, a predicted operon containing genes involved in lactate transport and oxidation exhibited upregulation,
+      further suggesting an alternative pathway for electrons derived from lactate oxidation during syntrophic growth
+    explanation: Demonstrates the core metabolic activity of D. vulgaris in lactate oxidation to acetate
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "During syntrophic growth on lactate with a hydrogenotrophic methanogen, numerous genes involved in electron transfer and energy generation were upregu"
+- name: Interspecies Hydrogen Transfer and Methanogenesis
+  description: 'Methanococcus maripaludis S2 consumes the H2 and CO2 produced by D. vulgaris, combining them to produce methane
+    via hydrogenotrophic methanogenesis. This H2 removal maintains a low H2 partial pressure, making the thermodynamically
+    unfavorable lactate oxidation by D. vulgaris energetically feasible in the absence of sulfate. The efficiency of this
+    interspecies hydrogen transfer (IHT) is critical for the growth of both organisms, as H2 concentration determines the
+    fraction of energy available to each partner.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanococcus maripaludis S2
+    term:
+      id: NCBITaxon:267377
+      label: Methanococcus maripaludis S2
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Consumed from environment - must be maintained at low levels
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Substrate for methanogenesis
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: End product of methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Interspecies hydrogen transfer between organisms producing and consuming hydrogen promotes the decomposition
+      of organic matter in most anoxic environments
+    explanation: Demonstrates successful syntrophic coculture with M. maripaludis as H2-utilizing partner
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Assuming that molecular hydrogen is the primary mediator of reduced metabolite exchange, the fraction of energy
+      available to each organism is determined primarily by H2 concentration
+    explanation: Confirms critical role of H2 concentration in energy distribution between syntrophic partners
+environmental_factors:
+- name: Anaerobic Conditions
+  value: Strict anaerobic
+  description: Both organisms are obligate anaerobes requiring anoxic conditions
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although syntrophic coupling between hydrogen producers and consumers is a major feature of the carbon cycle,
+      mechanisms for energy recovery at the extremely low free energies of reactions typical of these anaerobic communities
+      have not been established
+    explanation: Establishes strict anaerobic requirement
+- name: Sulfate Absence
+  value: Sulfate-free medium
+  description: 'D. vulgaris requires absence of sulfate to engage in syntrophic metabolism. When sulfate is present, D. vulgaris
+    preferentially uses it as electron acceptor rather than engaging in syntrophic H2 transfer.
+
+    '
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vulgaris compared with their expression in sulfate-limited monocultures
+    explanation: Demonstrates that syntrophic growth occurs specifically in sulfate-free conditions
+- name: Hydrogen Partial Pressure
+  value: Must be maintained at low levels
+  description: 'Low H2 partial pressure is critical for syntrophic lactate oxidation. The H2 concentration determines energy
+    distribution between partners - low H2 favors Desulfovibrio but limits the methanogen, while high H2 favors the methanogen
+    but limits Desulfovibrio.
+
+    '
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During syntrophic growth on lactate with a hydrogenotrophic methanogen, numerous genes involved in electron transfer
+      and energy generation were upregulated in D
+    explanation: Demonstrates that H2 concentration is a critical control parameter for syntrophic energy sharing
+- name: Dilution Rate
+  value: 0.039 h^-1
+  unit: per hour
+  description: Dilution rate used in continuous culture experiments
+  evidence:
+  - reference: PMID:19581361
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These results demonstrate that syntrophic growth and sulfate respiration use largely independent energy generation
+      pathways and imply that to understand microbial processes that sustain nutrient cycling, lifestyles not captured in
+      pure culture must be considered.
+    explanation: Quantifies growth conditions for the syntrophic consortium
