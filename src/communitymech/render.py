@@ -70,7 +70,7 @@ class CommunityRenderer:
     def render_all(
         self,
         communities_dir: Path = Path("kb/communities"),
-        output_dir: Path = Path("app/communities"),
+        output_dir: Path = Path("docs/communities"),
     ) -> None:
         """
         Render all community YAML files to HTML.
@@ -275,7 +275,7 @@ class CommunityRenderer:
 </html>
 """
 
-        index_path = output_dir.parent / "index.html"
+        index_path = output_dir.parent / "index.html"  # docs/index.html
         index_path.parent.mkdir(parents=True, exist_ok=True)
         with open(index_path, "w") as f:
             f.write(index_html)
@@ -301,7 +301,7 @@ def main():
     )
     parser.add_argument(
         "--output-dir",
-        default="app/communities",
+        default="docs/communities",
         help="Output directory for HTML files",
     )
     parser.add_argument(
