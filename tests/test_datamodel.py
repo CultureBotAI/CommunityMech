@@ -27,7 +27,7 @@ def test_load_synechococcus_ecoli():
     # Check first organism (Synechococcus)
     synecho = community["taxonomy"][0]
     assert synecho["taxon_term"]["preferred_term"] == "Synechococcus elongatus PCC 7942 cscB+"
-    assert synecho["taxon_term"]["term"]["id"] == "NCBITaxon:1140"
+    assert synecho["taxon_term"]["term"]["id"] == "NCBITaxon:32046"
     assert "PRIMARY_PRODUCER" in synecho["functional_role"]
 
     # Check second organism (E. coli)
@@ -53,7 +53,7 @@ def test_load_synechococcus_ecoli():
     # Verify evidence
     assert len(interaction1["evidence"]) == 1
     evidence = interaction1["evidence"][0]
-    assert evidence["reference"] == "PMID:32753581"
+    assert evidence["reference"] == "PMID:28127397"
     assert evidence["supports"] == "SUPPORT"
     assert evidence["evidence_source"] == "IN_VITRO"
 

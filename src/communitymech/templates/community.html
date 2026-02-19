@@ -238,6 +238,11 @@
             font-weight: 500;
         }
 
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
         footer {
             margin-top: 3rem;
             padding-top: 2rem;
@@ -287,7 +292,7 @@
                         {{ community.environment_term.preferred_term or community.environment_term.term.label }}
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/{{ community.environment_term.term.id.replace(':', '_') }}"
-                           class="term-link" target="_blank">
+                           class="term-link" target="_blank" rel="noopener noreferrer">
                             {{ community.environment_term.term.id }}
                         </a>
                     </span>
@@ -329,7 +334,7 @@
                         </td>
                         <td>
                             <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ taxon.taxon_term.term.id.split(':')[1] }}"
-                               class="term-link" target="_blank">
+                               class="term-link" target="_blank" rel="noopener noreferrer">
                                 {{ taxon.taxon_term.term.id }}
                             </a>
                         </td>
@@ -370,7 +375,7 @@
                     {% for metabolite in interaction.metabolites %}
                     {{ metabolite.preferred_term or metabolite.term.label }}
                     (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId={{ metabolite.term.id.split(':')[1] }}"
-                        class="term-link" target="_blank">{{ metabolite.term.id }}</a>){% if not loop.last %}, {% endif %}
+                        class="term-link" target="_blank" rel="noopener noreferrer">{{ metabolite.term.id }}</a>){% if not loop.last %}, {% endif %}
                     {% endfor %}
                 </p>
                 {% endif %}
@@ -382,7 +387,7 @@
                     <li>
                         {{ process.preferred_term or process.term.label }}
                         (<a href="http://amigo.geneontology.org/amigo/term/{{ process.term.id }}"
-                            class="term-link" target="_blank">{{ process.term.id }}</a>)
+                            class="term-link" target="_blank" rel="noopener noreferrer">{{ process.term.id }}</a>)
                     </li>
                     {% endfor %}
                 </ul>
@@ -407,10 +412,10 @@
                         <div>
                             {% if ev.reference.startswith('PMID:') %}
                             <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.split(':')[1] }}/"
-                               class="pmid-link" target="_blank">{{ ev.reference }}</a>
-                            {% elif ev.reference.startswith('DOI:') %}
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                            {% elif ev.reference.lower().startswith('doi:') %}
                             <a href="https://doi.org/{{ ev.reference.split(':', 1)[1] }}"
-                               class="pmid-link" target="_blank">{{ ev.reference }}</a>
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
                             {% else %}
                             <strong>{{ ev.reference }}</strong>
                             {% endif %}
@@ -425,6 +430,44 @@
                 {% endif %}
             </div>
             {% endfor %}
+        </section>
+        {% endif %}
+
+        <!-- Associated Datasets -->
+        {% if community.associated_datasets %}
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ds in community.associated_datasets %}
+                    <tr>
+                        <td>
+                            <strong>{{ ds.name }}</strong>
+                            {% if ds.description %}
+                            <br><span class="dataset-description">{{ ds.description }}</span>
+                            {% endif %}
+                        </td>
+                        <td><span class="role-badge">{{ ds.dataset_type }}</span></td>
+                        <td>{% if ds.repository %}{{ ds.repository }}{% endif %}</td>
+                        <td>
+                            {% if ds.url %}
+                            <a href="{{ ds.url }}" class="term-link" target="_blank" rel="noopener noreferrer">{{ ds.accession }}</a>
+                            {% else %}
+                            {{ ds.accession }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </section>
         {% endif %}
 

@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-02-13T19:42:01
+# Generation date: 2026-02-18T16:02:21
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -56,7 +56,8 @@ from rdflib import (
     URIRef
 )
 
-from linkml_runtime.linkml_model.types import String
+from linkml_runtime.linkml_model.types import Boolean, Float, String
+from linkml_runtime.utils.metamodelcore import Bool
 
 metamodel_version = "1.7.0"
 version = None
@@ -131,9 +132,10 @@ class EvidenceItem(YAMLRoot):
 
     reference: str = None
     supports: Union[str, "EvidenceItemSupportEnum"] = None
-    evidence_source: Optional[Union[str, "EvidenceSourceEnum"]] = None
-    snippet: Optional[str] = None
+    evidence_source: Union[str, "EvidenceSourceEnum"] = None
+    snippet: str = None
     explanation: Optional[str] = None
+    confidence_score: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.reference):
@@ -146,14 +148,21 @@ class EvidenceItem(YAMLRoot):
         if not isinstance(self.supports, EvidenceItemSupportEnum):
             self.supports = EvidenceItemSupportEnum(self.supports)
 
-        if self.evidence_source is not None and not isinstance(self.evidence_source, EvidenceSourceEnum):
+        if self._is_empty(self.evidence_source):
+            self.MissingRequiredField("evidence_source")
+        if not isinstance(self.evidence_source, EvidenceSourceEnum):
             self.evidence_source = EvidenceSourceEnum(self.evidence_source)
 
-        if self.snippet is not None and not isinstance(self.snippet, str):
+        if self._is_empty(self.snippet):
+            self.MissingRequiredField("snippet")
+        if not isinstance(self.snippet, str):
             self.snippet = str(self.snippet)
 
         if self.explanation is not None and not isinstance(self.explanation, str):
             self.explanation = str(self.explanation)
+
+        if self.confidence_score is not None and not isinstance(self.confidence_score, float):
+            self.confidence_score = float(self.confidence_score)
 
         super().__post_init__(**kwargs)
 
@@ -295,6 +304,91 @@ class EnvironmentDescriptor(YAMLRoot):
 
 
 @dataclass(repr=False)
+class CultureCollectionID(YAMLRoot):
+    """
+    A culture collection identifier with accession number
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["CultureCollectionID"]
+    class_class_curie: ClassVar[str] = "communitymech:CultureCollectionID"
+    class_name: ClassVar[str] = "CultureCollectionID"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CultureCollectionID
+
+    collection: Union[str, "CultureCollectionEnum"] = None
+    accession: str = None
+    url: Optional[str] = None
+    notes: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.collection):
+            self.MissingRequiredField("collection")
+        if not isinstance(self.collection, CultureCollectionEnum):
+            self.collection = CultureCollectionEnum(self.collection)
+
+        if self._is_empty(self.accession):
+            self.MissingRequiredField("accession")
+        if not isinstance(self.accession, str):
+            self.accession = str(self.accession)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class StrainDesignation(YAMLRoot):
+    """
+    Detailed strain-level information for reproducibility
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["StrainDesignation"]
+    class_class_curie: ClassVar[str] = "communitymech:StrainDesignation"
+    class_name: ClassVar[str] = "StrainDesignation"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.StrainDesignation
+
+    strain_name: Optional[str] = None
+    culture_collections: Optional[Union[Union[dict, CultureCollectionID], list[Union[dict, CultureCollectionID]]]] = empty_list()
+    type_strain: Optional[Union[bool, Bool]] = None
+    genome_accession: Optional[str] = None
+    genome_url: Optional[str] = None
+    genetic_modification: Optional[str] = None
+    isolation_source: Optional[str] = None
+    notes: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.strain_name is not None and not isinstance(self.strain_name, str):
+            self.strain_name = str(self.strain_name)
+
+        self._normalize_inlined_as_dict(slot_name="culture_collections", slot_type=CultureCollectionID, key_name="collection", keyed=False)
+
+        if self.type_strain is not None and not isinstance(self.type_strain, Bool):
+            self.type_strain = Bool(self.type_strain)
+
+        if self.genome_accession is not None and not isinstance(self.genome_accession, str):
+            self.genome_accession = str(self.genome_accession)
+
+        if self.genome_url is not None and not isinstance(self.genome_url, str):
+            self.genome_url = str(self.genome_url)
+
+        if self.genetic_modification is not None and not isinstance(self.genetic_modification, str):
+            self.genetic_modification = str(self.genetic_modification)
+
+        if self.isolation_source is not None and not isinstance(self.isolation_source, str):
+            self.isolation_source = str(self.isolation_source)
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class TaxonomicComposition(YAMLRoot):
     """
     A taxon present in the community with abundance and role
@@ -307,6 +401,7 @@ class TaxonomicComposition(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TaxonomicComposition
 
     taxon_term: Union[dict, TaxonDescriptor] = None
+    strain_designation: Optional[Union[dict, StrainDesignation]] = None
     abundance_level: Optional[Union[str, "AbundanceEnum"]] = None
     abundance_value: Optional[str] = None
     functional_role: Optional[Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]] = empty_list()
@@ -317,6 +412,9 @@ class TaxonomicComposition(YAMLRoot):
             self.MissingRequiredField("taxon_term")
         if not isinstance(self.taxon_term, TaxonDescriptor):
             self.taxon_term = TaxonDescriptor(**as_dict(self.taxon_term))
+
+        if self.strain_designation is not None and not isinstance(self.strain_designation, StrainDesignation):
+            self.strain_designation = StrainDesignation(**as_dict(self.strain_designation))
 
         if self.abundance_level is not None and not isinstance(self.abundance_level, AbundanceEnum):
             self.abundance_level = AbundanceEnum(self.abundance_level)
@@ -450,6 +548,56 @@ class EnvironmentalFactor(YAMLRoot):
 
 
 @dataclass(repr=False)
+class AssociatedDataset(YAMLRoot):
+    """
+    An omics or other dataset associated with the community
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["AssociatedDataset"]
+    class_class_curie: ClassVar[str] = "communitymech:AssociatedDataset"
+    class_name: ClassVar[str] = "AssociatedDataset"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.AssociatedDataset
+
+    name: str = None
+    dataset_type: Union[str, "DatasetTypeEnum"] = None
+    accession: str = None
+    repository: Optional[Union[str, "DatasetRepositoryEnum"]] = None
+    url: Optional[str] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self._is_empty(self.dataset_type):
+            self.MissingRequiredField("dataset_type")
+        if not isinstance(self.dataset_type, DatasetTypeEnum):
+            self.dataset_type = DatasetTypeEnum(self.dataset_type)
+
+        if self._is_empty(self.accession):
+            self.MissingRequiredField("accession")
+        if not isinstance(self.accession, str):
+            self.accession = str(self.accession)
+
+        if self.repository is not None and not isinstance(self.repository, DatasetRepositoryEnum):
+            self.repository = DatasetRepositoryEnum(self.repository)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class MicrobialCommunity(YAMLRoot):
     """
     A microbial community with composition and interactions
@@ -464,10 +612,13 @@ class MicrobialCommunity(YAMLRoot):
     name: str = None
     description: Optional[str] = None
     ecological_state: Optional[Union[str, "EcologicalStateEnum"]] = None
+    community_origin: Optional[Union[str, "CommunityOriginEnum"]] = None
+    community_category: Optional[Union[str, "CommunityCategoryEnum"]] = None
     environment_term: Optional[Union[dict, EnvironmentDescriptor]] = None
     taxonomy: Optional[Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]] = empty_list()
     ecological_interactions: Optional[Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]] = empty_list()
     environmental_factors: Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]] = empty_list()
+    associated_datasets: Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -481,6 +632,12 @@ class MicrobialCommunity(YAMLRoot):
         if self.ecological_state is not None and not isinstance(self.ecological_state, EcologicalStateEnum):
             self.ecological_state = EcologicalStateEnum(self.ecological_state)
 
+        if self.community_origin is not None and not isinstance(self.community_origin, CommunityOriginEnum):
+            self.community_origin = CommunityOriginEnum(self.community_origin)
+
+        if self.community_category is not None and not isinstance(self.community_category, CommunityCategoryEnum):
+            self.community_category = CommunityCategoryEnum(self.community_category)
+
         if self.environment_term is not None and not isinstance(self.environment_term, EnvironmentDescriptor):
             self.environment_term = EnvironmentDescriptor(**as_dict(self.environment_term))
 
@@ -489,6 +646,8 @@ class MicrobialCommunity(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="ecological_interactions", slot_type=EcologicalInteraction, key_name="name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="environmental_factors", slot_type=EnvironmentalFactor, key_name="name", keyed=False)
+
+        self._normalize_inlined_as_dict(slot_name="associated_datasets", slot_type=AssociatedDataset, key_name="name", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -566,6 +725,77 @@ class EcologicalStateEnum(EnumDefinitionImpl):
         description="The ecological or health state of the community",
     )
 
+class CommunityOriginEnum(EnumDefinitionImpl):
+    """
+    The origin or source of the community
+    """
+    NATURAL = PermissibleValue(
+        text="NATURAL",
+        description="Naturally occurring community from environment")
+    ENGINEERED = PermissibleValue(
+        text="ENGINEERED",
+        description="Deliberately engineered or synthetic community")
+    SYNTHETIC = PermissibleValue(
+        text="SYNTHETIC",
+        description="Fully synthetic community designed in laboratory")
+
+    _defn = EnumDefinition(
+        name="CommunityOriginEnum",
+        description="The origin or source of the community",
+    )
+
+class CommunityCategoryEnum(EnumDefinitionImpl):
+    """
+    Broad functional/ecological category of the community
+    """
+    BIOMINING = PermissibleValue(
+        text="BIOMINING",
+        description="Metal extraction and bioleaching systems")
+    AMD = PermissibleValue(
+        text="AMD",
+        description="Acid mine drainage communities")
+    SYNTROPHY = PermissibleValue(
+        text="SYNTROPHY",
+        description="Syntrophic metabolic cooperation")
+    PHYTOPLANKTON = PermissibleValue(
+        text="PHYTOPLANKTON",
+        description="Algae-bacteria associations")
+    RHIZOSPHERE = PermissibleValue(
+        text="RHIZOSPHERE",
+        description="Plant root-associated communities")
+    LIGNOCELLULOSE = PermissibleValue(
+        text="LIGNOCELLULOSE",
+        description="Lignocellulose degradation systems")
+    METHANOGENESIS = PermissibleValue(
+        text="METHANOGENESIS",
+        description="Methane-producing communities")
+    DIET = PermissibleValue(
+        text="DIET",
+        description="Direct interspecies electron transfer")
+    METAL_REDUCTION = PermissibleValue(
+        text="METAL_REDUCTION",
+        description="Metal-reducing communities")
+    BIOREMEDIATION = PermissibleValue(
+        text="BIOREMEDIATION",
+        description="Pollutant degradation and remediation")
+    CARBON_SEQUESTRATION = PermissibleValue(
+        text="CARBON_SEQUESTRATION",
+        description="Carbon fixation and storage")
+    EXTREME_ENVIRONMENT = PermissibleValue(
+        text="EXTREME_ENVIRONMENT",
+        description="Communities from extreme conditions")
+    BIOTECHNOLOGY = PermissibleValue(
+        text="BIOTECHNOLOGY",
+        description="Industrial biotechnology applications")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other or uncategorized communities")
+
+    _defn = EnumDefinition(
+        name="CommunityCategoryEnum",
+        description="Broad functional/ecological category of the community",
+    )
+
 class InteractionTypeEnum(EnumDefinitionImpl):
     """
     Type of ecological interaction between organisms
@@ -641,6 +871,147 @@ class FunctionalRoleEnum(EnumDefinitionImpl):
         description="Functional role in the community",
     )
 
+class DatasetTypeEnum(EnumDefinitionImpl):
+    """
+    Type of omics or other dataset associated with a community
+    """
+    METAGENOME = PermissibleValue(
+        text="METAGENOME",
+        description="Shotgun metagenomic sequencing")
+    AMPLICON_16S = PermissibleValue(
+        text="AMPLICON_16S",
+        description="16S rRNA amplicon sequencing")
+    AMPLICON_ITS = PermissibleValue(
+        text="AMPLICON_ITS",
+        description="ITS amplicon sequencing (fungal)")
+    METATRANSCRIPTOME = PermissibleValue(
+        text="METATRANSCRIPTOME",
+        description="Metatranscriptomic sequencing")
+    METAPROTEOME = PermissibleValue(
+        text="METAPROTEOME",
+        description="Metaproteomic analysis")
+    METABOLOMICS = PermissibleValue(
+        text="METABOLOMICS",
+        description="Metabolomics (LC-MS, GC-MS, etc.)")
+    GENOME = PermissibleValue(
+        text="GENOME",
+        description="Isolate whole genome sequencing")
+    PHENOTYPE = PermissibleValue(
+        text="PHENOTYPE",
+        description="Phenotypic measurements (growth, imaging, etc.)")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other dataset type")
+
+    _defn = EnumDefinition(
+        name="DatasetTypeEnum",
+        description="Type of omics or other dataset associated with a community",
+    )
+
+class DatasetRepositoryEnum(EnumDefinitionImpl):
+    """
+    Data repositories for omics and related datasets
+    """
+    NCBI_SRA = PermissibleValue(
+        text="NCBI_SRA",
+        description="NCBI Sequence Read Archive")
+    NCBI_BIOPROJECT = PermissibleValue(
+        text="NCBI_BIOPROJECT",
+        description="NCBI BioProject")
+    NMDC = PermissibleValue(
+        text="NMDC",
+        description="National Microbiome Data Collaborative")
+    JGI_GOLD = PermissibleValue(
+        text="JGI_GOLD",
+        description="JGI Genomes OnLine Database")
+    JGI_IMG = PermissibleValue(
+        text="JGI_IMG",
+        description="JGI Integrated Microbial Genomes")
+    MGNIFY = PermissibleValue(
+        text="MGNIFY",
+        description="MGnify (EBI metagenomics)")
+    METABOLOMICS_WORKBENCH = PermissibleValue(
+        text="METABOLOMICS_WORKBENCH",
+        description="Metabolomics Workbench")
+    MASSIVE = PermissibleValue(
+        text="MASSIVE",
+        description="MassIVE mass spectrometry data")
+    GNPS = PermissibleValue(
+        text="GNPS",
+        description="Global Natural Products Social Molecular Networking")
+    FIGSHARE = PermissibleValue(
+        text="FIGSHARE",
+        description="Figshare data repository")
+    ZENODO = PermissibleValue(
+        text="ZENODO",
+        description="Zenodo data repository")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other data repository")
+
+    _defn = EnumDefinition(
+        name="DatasetRepositoryEnum",
+        description="Data repositories for omics and related datasets",
+    )
+
+class CultureCollectionEnum(EnumDefinitionImpl):
+    """
+    Major microbial culture collections worldwide
+    """
+    ATCC = PermissibleValue(
+        text="ATCC",
+        description="American Type Culture Collection (USA)")
+    DSM = PermissibleValue(
+        text="DSM",
+        description="Deutsche Sammlung von Mikroorganismen (DSMZ, Germany)")
+    JCM = PermissibleValue(
+        text="JCM",
+        description="Japan Collection of Microorganisms (Japan)")
+    NCTC = PermissibleValue(
+        text="NCTC",
+        description="National Collection of Type Cultures (UK)")
+    CCUG = PermissibleValue(
+        text="CCUG",
+        description="Culture Collection University of Gothenburg (Sweden)")
+    PCC = PermissibleValue(
+        text="PCC",
+        description="Pasteur Culture Collection of Cyanobacteria (France)")
+    NCIMB = PermissibleValue(
+        text="NCIMB",
+        description="National Collection of Industrial Marine Bacteria (UK)")
+    LMG = PermissibleValue(
+        text="LMG",
+        description="BCCM/LMG Bacteria Collection (Belgium)")
+    KCTC = PermissibleValue(
+        text="KCTC",
+        description="Korean Collection for Type Cultures (Korea)")
+    CIP = PermissibleValue(
+        text="CIP",
+        description="Collection de l'Institut Pasteur (France)")
+    NBRC = PermissibleValue(
+        text="NBRC",
+        description="NITE Biological Resource Center (Japan)")
+    VKM = PermissibleValue(
+        text="VKM",
+        description="All-Russian Collection of Microorganisms (Russia)")
+    CGMCC = PermissibleValue(
+        text="CGMCC",
+        description="China General Microbiological Culture Collection (China)")
+    BCRC = PermissibleValue(
+        text="BCRC",
+        description="Bioresource Collection and Research Center (Taiwan)")
+    CBS = PermissibleValue(
+        text="CBS",
+        description="Westerdijk Fungal Biodiversity Institute (Netherlands)")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other culture collection not listed")
+
+    _defn = EnumDefinition(
+        name="CultureCollectionEnum",
+        description="Major microbial culture collections worldwide",
+    )
+
 # Slots
 class slots:
     pass
@@ -652,19 +1023,23 @@ slots.term__label = Slot(uri=COMMUNITYMECH.label, name="term__label", curie=COMM
                    model_uri=COMMUNITYMECH.term__label, domain=None, range=str)
 
 slots.evidenceItem__reference = Slot(uri=COMMUNITYMECH.reference, name="evidenceItem__reference", curie=COMMUNITYMECH.curie('reference'),
-                   model_uri=COMMUNITYMECH.evidenceItem__reference, domain=None, range=str)
+                   model_uri=COMMUNITYMECH.evidenceItem__reference, domain=None, range=str,
+                   pattern=re.compile(r'^(PMID:|doi:|bioproject:).*'))
 
 slots.evidenceItem__supports = Slot(uri=COMMUNITYMECH.supports, name="evidenceItem__supports", curie=COMMUNITYMECH.curie('supports'),
                    model_uri=COMMUNITYMECH.evidenceItem__supports, domain=None, range=Union[str, "EvidenceItemSupportEnum"])
 
 slots.evidenceItem__evidence_source = Slot(uri=COMMUNITYMECH.evidence_source, name="evidenceItem__evidence_source", curie=COMMUNITYMECH.curie('evidence_source'),
-                   model_uri=COMMUNITYMECH.evidenceItem__evidence_source, domain=None, range=Optional[Union[str, "EvidenceSourceEnum"]])
+                   model_uri=COMMUNITYMECH.evidenceItem__evidence_source, domain=None, range=Union[str, "EvidenceSourceEnum"])
 
 slots.evidenceItem__snippet = Slot(uri=COMMUNITYMECH.snippet, name="evidenceItem__snippet", curie=COMMUNITYMECH.curie('snippet'),
-                   model_uri=COMMUNITYMECH.evidenceItem__snippet, domain=None, range=Optional[str])
+                   model_uri=COMMUNITYMECH.evidenceItem__snippet, domain=None, range=str)
 
 slots.evidenceItem__explanation = Slot(uri=COMMUNITYMECH.explanation, name="evidenceItem__explanation", curie=COMMUNITYMECH.curie('explanation'),
                    model_uri=COMMUNITYMECH.evidenceItem__explanation, domain=None, range=Optional[str])
+
+slots.evidenceItem__confidence_score = Slot(uri=COMMUNITYMECH.confidence_score, name="evidenceItem__confidence_score", curie=COMMUNITYMECH.curie('confidence_score'),
+                   model_uri=COMMUNITYMECH.evidenceItem__confidence_score, domain=None, range=Optional[float])
 
 slots.taxonDescriptor__preferred_term = Slot(uri=COMMUNITYMECH.preferred_term, name="taxonDescriptor__preferred_term", curie=COMMUNITYMECH.curie('preferred_term'),
                    model_uri=COMMUNITYMECH.taxonDescriptor__preferred_term, domain=None, range=str)
@@ -705,8 +1080,47 @@ slots.environmentDescriptor__term = Slot(uri=COMMUNITYMECH.term, name="environme
 slots.environmentDescriptor__notes = Slot(uri=COMMUNITYMECH.notes, name="environmentDescriptor__notes", curie=COMMUNITYMECH.curie('notes'),
                    model_uri=COMMUNITYMECH.environmentDescriptor__notes, domain=None, range=Optional[str])
 
+slots.cultureCollectionID__collection = Slot(uri=COMMUNITYMECH.collection, name="cultureCollectionID__collection", curie=COMMUNITYMECH.curie('collection'),
+                   model_uri=COMMUNITYMECH.cultureCollectionID__collection, domain=None, range=Union[str, "CultureCollectionEnum"])
+
+slots.cultureCollectionID__accession = Slot(uri=COMMUNITYMECH.accession, name="cultureCollectionID__accession", curie=COMMUNITYMECH.curie('accession'),
+                   model_uri=COMMUNITYMECH.cultureCollectionID__accession, domain=None, range=str)
+
+slots.cultureCollectionID__url = Slot(uri=COMMUNITYMECH.url, name="cultureCollectionID__url", curie=COMMUNITYMECH.curie('url'),
+                   model_uri=COMMUNITYMECH.cultureCollectionID__url, domain=None, range=Optional[str])
+
+slots.cultureCollectionID__notes = Slot(uri=COMMUNITYMECH.notes, name="cultureCollectionID__notes", curie=COMMUNITYMECH.curie('notes'),
+                   model_uri=COMMUNITYMECH.cultureCollectionID__notes, domain=None, range=Optional[str])
+
+slots.strainDesignation__strain_name = Slot(uri=COMMUNITYMECH.strain_name, name="strainDesignation__strain_name", curie=COMMUNITYMECH.curie('strain_name'),
+                   model_uri=COMMUNITYMECH.strainDesignation__strain_name, domain=None, range=Optional[str])
+
+slots.strainDesignation__culture_collections = Slot(uri=COMMUNITYMECH.culture_collections, name="strainDesignation__culture_collections", curie=COMMUNITYMECH.curie('culture_collections'),
+                   model_uri=COMMUNITYMECH.strainDesignation__culture_collections, domain=None, range=Optional[Union[Union[dict, CultureCollectionID], list[Union[dict, CultureCollectionID]]]])
+
+slots.strainDesignation__type_strain = Slot(uri=COMMUNITYMECH.type_strain, name="strainDesignation__type_strain", curie=COMMUNITYMECH.curie('type_strain'),
+                   model_uri=COMMUNITYMECH.strainDesignation__type_strain, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.strainDesignation__genome_accession = Slot(uri=COMMUNITYMECH.genome_accession, name="strainDesignation__genome_accession", curie=COMMUNITYMECH.curie('genome_accession'),
+                   model_uri=COMMUNITYMECH.strainDesignation__genome_accession, domain=None, range=Optional[str])
+
+slots.strainDesignation__genome_url = Slot(uri=COMMUNITYMECH.genome_url, name="strainDesignation__genome_url", curie=COMMUNITYMECH.curie('genome_url'),
+                   model_uri=COMMUNITYMECH.strainDesignation__genome_url, domain=None, range=Optional[str])
+
+slots.strainDesignation__genetic_modification = Slot(uri=COMMUNITYMECH.genetic_modification, name="strainDesignation__genetic_modification", curie=COMMUNITYMECH.curie('genetic_modification'),
+                   model_uri=COMMUNITYMECH.strainDesignation__genetic_modification, domain=None, range=Optional[str])
+
+slots.strainDesignation__isolation_source = Slot(uri=COMMUNITYMECH.isolation_source, name="strainDesignation__isolation_source", curie=COMMUNITYMECH.curie('isolation_source'),
+                   model_uri=COMMUNITYMECH.strainDesignation__isolation_source, domain=None, range=Optional[str])
+
+slots.strainDesignation__notes = Slot(uri=COMMUNITYMECH.notes, name="strainDesignation__notes", curie=COMMUNITYMECH.curie('notes'),
+                   model_uri=COMMUNITYMECH.strainDesignation__notes, domain=None, range=Optional[str])
+
 slots.taxonomicComposition__taxon_term = Slot(uri=COMMUNITYMECH.taxon_term, name="taxonomicComposition__taxon_term", curie=COMMUNITYMECH.curie('taxon_term'),
                    model_uri=COMMUNITYMECH.taxonomicComposition__taxon_term, domain=None, range=Union[dict, TaxonDescriptor])
+
+slots.taxonomicComposition__strain_designation = Slot(uri=COMMUNITYMECH.strain_designation, name="taxonomicComposition__strain_designation", curie=COMMUNITYMECH.curie('strain_designation'),
+                   model_uri=COMMUNITYMECH.taxonomicComposition__strain_designation, domain=None, range=Optional[Union[dict, StrainDesignation]])
 
 slots.taxonomicComposition__abundance_level = Slot(uri=COMMUNITYMECH.abundance_level, name="taxonomicComposition__abundance_level", curie=COMMUNITYMECH.curie('abundance_level'),
                    model_uri=COMMUNITYMECH.taxonomicComposition__abundance_level, domain=None, range=Optional[Union[str, "AbundanceEnum"]])
@@ -768,6 +1182,27 @@ slots.environmentalFactor__description = Slot(uri=COMMUNITYMECH.description, nam
 slots.environmentalFactor__evidence = Slot(uri=COMMUNITYMECH.evidence, name="environmentalFactor__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.environmentalFactor__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
 
+slots.associatedDataset__name = Slot(uri=COMMUNITYMECH.name, name="associatedDataset__name", curie=COMMUNITYMECH.curie('name'),
+                   model_uri=COMMUNITYMECH.associatedDataset__name, domain=None, range=str)
+
+slots.associatedDataset__dataset_type = Slot(uri=COMMUNITYMECH.dataset_type, name="associatedDataset__dataset_type", curie=COMMUNITYMECH.curie('dataset_type'),
+                   model_uri=COMMUNITYMECH.associatedDataset__dataset_type, domain=None, range=Union[str, "DatasetTypeEnum"])
+
+slots.associatedDataset__repository = Slot(uri=COMMUNITYMECH.repository, name="associatedDataset__repository", curie=COMMUNITYMECH.curie('repository'),
+                   model_uri=COMMUNITYMECH.associatedDataset__repository, domain=None, range=Optional[Union[str, "DatasetRepositoryEnum"]])
+
+slots.associatedDataset__accession = Slot(uri=COMMUNITYMECH.accession, name="associatedDataset__accession", curie=COMMUNITYMECH.curie('accession'),
+                   model_uri=COMMUNITYMECH.associatedDataset__accession, domain=None, range=str)
+
+slots.associatedDataset__url = Slot(uri=COMMUNITYMECH.url, name="associatedDataset__url", curie=COMMUNITYMECH.curie('url'),
+                   model_uri=COMMUNITYMECH.associatedDataset__url, domain=None, range=Optional[str])
+
+slots.associatedDataset__description = Slot(uri=COMMUNITYMECH.description, name="associatedDataset__description", curie=COMMUNITYMECH.curie('description'),
+                   model_uri=COMMUNITYMECH.associatedDataset__description, domain=None, range=Optional[str])
+
+slots.associatedDataset__evidence = Slot(uri=COMMUNITYMECH.evidence, name="associatedDataset__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.associatedDataset__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
 slots.microbialCommunity__name = Slot(uri=COMMUNITYMECH.name, name="microbialCommunity__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.microbialCommunity__name, domain=None, range=str)
 
@@ -776,6 +1211,12 @@ slots.microbialCommunity__description = Slot(uri=COMMUNITYMECH.description, name
 
 slots.microbialCommunity__ecological_state = Slot(uri=COMMUNITYMECH.ecological_state, name="microbialCommunity__ecological_state", curie=COMMUNITYMECH.curie('ecological_state'),
                    model_uri=COMMUNITYMECH.microbialCommunity__ecological_state, domain=None, range=Optional[Union[str, "EcologicalStateEnum"]])
+
+slots.microbialCommunity__community_origin = Slot(uri=COMMUNITYMECH.community_origin, name="microbialCommunity__community_origin", curie=COMMUNITYMECH.curie('community_origin'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__community_origin, domain=None, range=Optional[Union[str, "CommunityOriginEnum"]])
+
+slots.microbialCommunity__community_category = Slot(uri=COMMUNITYMECH.community_category, name="microbialCommunity__community_category", curie=COMMUNITYMECH.curie('community_category'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__community_category, domain=None, range=Optional[Union[str, "CommunityCategoryEnum"]])
 
 slots.microbialCommunity__environment_term = Slot(uri=COMMUNITYMECH.environment_term, name="microbialCommunity__environment_term", curie=COMMUNITYMECH.curie('environment_term'),
                    model_uri=COMMUNITYMECH.microbialCommunity__environment_term, domain=None, range=Optional[Union[dict, EnvironmentDescriptor]])
@@ -788,4 +1229,7 @@ slots.microbialCommunity__ecological_interactions = Slot(uri=COMMUNITYMECH.ecolo
 
 slots.microbialCommunity__environmental_factors = Slot(uri=COMMUNITYMECH.environmental_factors, name="microbialCommunity__environmental_factors", curie=COMMUNITYMECH.curie('environmental_factors'),
                    model_uri=COMMUNITYMECH.microbialCommunity__environmental_factors, domain=None, range=Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]])
+
+slots.microbialCommunity__associated_datasets = Slot(uri=COMMUNITYMECH.associated_datasets, name="microbialCommunity__associated_datasets", curie=COMMUNITYMECH.curie('associated_datasets'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__associated_datasets, domain=None, range=Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]])
 
