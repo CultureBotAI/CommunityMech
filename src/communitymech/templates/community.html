@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ community.name }} - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>{{ community.name }}</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge {% if community.ecological_state == 'ENGINEERED' %}badge-engineered{% else %}badge-natural{% endif %}">
+                            {{ community.ecological_state }}
+                        </span>
+                    </span>
+                </div>
+
+                {% if community.environment_term %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        {{ community.environment_term.preferred_term or community.environment_term.term.label }}
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/{{ community.environment_term.term.id.replace(':', '_') }}"
+                           class="term-link" target="_blank">
+                            {{ community.environment_term.term.id }}
+                        </a>
+                    </span>
+                </div>
+                {% endif %}
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">{{ source_file }}</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        {% if community.description %}
+        <section class="description">
+            <p>{{ community.description }}</p>
+        </section>
+        {% endif %}
+
+        <!-- Taxonomy -->
+        {% if community.taxonomy %}
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for taxon in community.taxonomy %}
+                    <tr>
+                        <td>
+                            <strong>{{ taxon.taxon_term.preferred_term or taxon.taxon_term.term.label }}</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id={{ taxon.taxon_term.term.id.split(':')[1] }}"
+                               class="term-link" target="_blank">
+                                {{ taxon.taxon_term.term.id }}
+                            </a>
+                        </td>
+                        <td>
+                            {% if taxon.functional_role %}
+                            <div class="roles-list">
+                                {% for role in taxon.functional_role %}
+                                <span class="role-badge">{{ role }}</span>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td>{{ taxon.abundance_level or 'N/A' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
+        <!-- Ecological Interactions -->
+        {% if community.ecological_interactions %}
+        <section>
+            <h2>Ecological Interactions</h2>
+            {% for interaction in community.ecological_interactions %}
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>{{ interaction.name }}</h3>
+                    <span class="interaction-type">{{ interaction.interaction_type }}</span>
+                </div>
+
+                {% if interaction.source_taxon %}
+                <p><strong>Source Taxon:</strong> {{ interaction.source_taxon.preferred_term or interaction.source_taxon.term.label }}</p>
+                {% endif %}
+
+                {% if interaction.metabolites %}
+                <p><strong>Metabolites:</strong>
+                    {% for metabolite in interaction.metabolites %}
+                    {{ metabolite.preferred_term or metabolite.term.label }}
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId={{ metabolite.term.id.split(':')[1] }}"
+                        class="term-link" target="_blank">{{ metabolite.term.id }}</a>){% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                {% endif %}
+
+                {% if interaction.biological_processes %}
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    {% for process in interaction.biological_processes %}
+                    <li>
+                        {{ process.preferred_term or process.term.label }}
+                        (<a href="http://amigo.geneontology.org/amigo/term/{{ process.term.id }}"
+                            class="term-link" target="_blank">{{ process.term.id }}</a>)
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% if interaction.downstream %}
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    {% for down in interaction.downstream %}
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> {{ down.target }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if interaction.evidence %}
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    {% for ev in interaction.evidence %}
+                    <li class="evidence-item">
+                        <div>
+                            {% if ev.reference.startswith('PMID:') %}
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.split(':')[1] }}/"
+                               class="pmid-link" target="_blank">{{ ev.reference }}</a>
+                            {% elif ev.reference.startswith('DOI:') %}
+                            <a href="https://doi.org/{{ ev.reference.split(':', 1)[1] }}"
+                               class="pmid-link" target="_blank">{{ ev.reference }}</a>
+                            {% else %}
+                            <strong>{{ ev.reference }}</strong>
+                            {% endif %}
+                            - {{ ev.supports }} ({{ ev.evidence_source }})
+                        </div>
+                        {% if ev.snippet %}
+                        <div class="snippet">"{{ ev.snippet }}"</div>
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        <!-- Environmental Factors -->
+        {% if community.environmental_factors %}
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factor in community.environmental_factors %}
+                    <tr>
+                        <td><strong>{{ factor.name }}</strong></td>
+                        <td>{{ factor.value }}</td>
+                        <td>{{ factor.unit or 'N/A' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>
