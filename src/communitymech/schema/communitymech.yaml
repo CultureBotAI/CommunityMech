@@ -208,6 +208,8 @@ classes:
         description: The publication reference (PMID:12345678 or doi:10.1038/... format required)
         required: true
         pattern: "^(PMID:|doi:|bioproject:).*"
+        implements:
+          - linkml:authoritative_reference
       supports:
         description: Level of support this evidence provides
         range: EvidenceItemSupportEnum
@@ -220,6 +222,8 @@ classes:
         description: Exact quote from the publication supporting the claim (required for proper evidence)
         required: true
         minimum_value: 10
+        implements:
+          - linkml:excerpt
       explanation:
         description: How this evidence supports or refutes the claim
       confidence_score:

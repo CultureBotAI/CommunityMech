@@ -1,6 +1,11 @@
-"""Validators for CommunityMech knowledge base."""
+"""
+Validators for CommunityMech knowledge base.
 
-from communitymech.validators.reference_validator import ReferenceValidator
-from communitymech.validators.term_validator import TermValidator
+Validation is now handled by official LinkML validators:
+- linkml-reference-validator: validates evidence references and snippets
+- linkml-term-validator: validates ontology term IDs and labels
 
-__all__ = ["ReferenceValidator", "TermValidator"]
+See justfile for validation targets (validate-references, validate-terms, etc.)
+"""
+
+__all__ = []

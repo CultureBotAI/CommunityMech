@@ -23,27 +23,35 @@ validate-all:
 
 # Validate evidence references in a community file
 validate-references FILE:
-    uv run python -m communitymech.validators.reference_validator {{FILE}}
+    uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml
 
 # Validate references in all community files
 validate-references-all:
     #!/usr/bin/env bash
     for file in kb/communities/*.yaml; do
         echo "\\nValidating references in $file..."
-        uv run python -m communitymech.validators.reference_validator "$file"
+        uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml
     done
 
 # Validate ontology terms in a community file
 validate-terms FILE:
-    uv run python -m communitymech.validators.term_validator {{FILE}}
+    uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels
 
 # Validate terms in all community files
 validate-terms-all:
     #!/usr/bin/env bash
     for file in kb/communities/*.yaml; do
         echo "\\nValidating terms in $file..."
-        uv run python -m communitymech.validators.term_validator "$file"
+        uv run linkml-term-validator validate-data "$file" -s src/communitymech/schema/communitymech.yaml --labels
     done
+
+# Validate schema-level ontology term meanings
+validate-schema-terms:
+    uv run linkml-term-validator validate-schema src/communitymech/schema/communitymech.yaml
+
+# Repair references with suggested fixes (dry-run)
+repair-references FILE:
+    uv run linkml-reference-validator repair data {{FILE}} -s src/communitymech/schema/communitymech.yaml --dry-run
 
 # Run tests
 test:
@@ -83,5 +91,5 @@ lint:
     uv run mypy src/
 
 # Full QC (validate + lint + test)
-qc: validate-all lint test
+qc: validate-all validate-terms-all validate-references-all lint test
     @echo "✅ All QC checks passed!"
