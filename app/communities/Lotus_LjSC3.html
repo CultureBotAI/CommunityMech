@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Lj-SC3 Synthetic Community - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Lotus Lj-SC3 Synthetic Community</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        rhizosphere
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00005801"
+                           class="term-link" target="_blank">
+                            ENVO:00005801
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Lotus_LjSC3.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A 16-member synthetic community (Lj-SC3) derived from Lotus japonicus roots and nodules, designed to study host preference and community assembly dynamics in legume-microbe interactions. The community represents bacterial families from the Lj-SPHERE culture collection, including nitrogen-fixing symbionts from Rhizobiaceae and Phyllobacteriaceae families, as well as commensal bacteria from Burkholderiaceae, Oxalobacteriaceae, Pseudomonadaceae, and Microbacteriaceae. This community exhibits host preference when co-inoculated with Arabidopsis-derived strains, preferentially colonizing Lotus roots in a community context. The SC3 community enables investigation of nitrogen fixation, nodulation, priority effects during microbiota assembly, and bacterial invasiveness in the rhizosphere.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Mesorhizobium sp. LjNodule210</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
+                               class="term-link" target="_blank">
+                                NCBITaxon:68287
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Mesorhizobium sp. LjNodule215</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
+                               class="term-link" target="_blank">
+                                NCBITaxon:68287
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Mesorhizobium sp. LjNodule218</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=68287"
+                               class="term-link" target="_blank">
+                                NCBITaxon:68287
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Phyllobacteriaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1871068"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1871068
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Rhizobiaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1913961"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1913961
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Burkholderiaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2030806"
+                               class="term-link" target="_blank">
+                                NCBITaxon:2030806
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Oxalobacteriaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=75682"
+                               class="term-link" target="_blank">
+                                NCBITaxon:75682
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Pseudomonadaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1914538"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1914538
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Microbacteriaceae bacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1873462"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1873462
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Lotus japonicus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34305"
+                               class="term-link" target="_blank">
+                                NCBITaxon:34305
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Symbiotic Nitrogen Fixation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Mesorhizobium sp.</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    dinitrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
+                        class="term-link" target="_blank">CHEBI:17997</a>), 
+                    
+                    ammonia
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
+                        class="term-link" target="_blank">CHEBI:16134</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        nitrogen fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
+                            class="term-link" target="_blank">GO:0009399</a>)
+                    </li>
+                    
+                    <li>
+                        nodulation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009877"
+                            class="term-link" target="_blank">GO:0009877</a>)
+                    </li>
+                    
+                    <li>
+                        symbiotic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank">GO:0044403</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
+                               class="pmid-link" target="_blank">PMID:34312531</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Sequential inoculation experiments revealed priority effects during root microbiota assembly, where established communities are resilient to invasion by latecomers, and that host preference of commensal bacteria confers a competitive advantage in their cognate host"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Host Preference and Selective Colonization</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Phyllobacteriaceae bacterium</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        symbiotic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank">GO:0044403</a>)
+                    </li>
+                    
+                    <li>
+                        root colonization
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044409"
+                            class="term-link" target="_blank">GO:0044409</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
+                               class="pmid-link" target="_blank">PMID:34312531</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Sequential inoculation experiments revealed priority effects during root microbiota assembly, where established communities are resilient to invasion by latecomers, and that host preference of commensal bacteria confers a competitive advantage in their cognate host"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Priority Effects and Community Assembly</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank">GO:0044419</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
+                               class="pmid-link" target="_blank">PMID:34312531</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Sequential inoculation experiments revealed priority effects during root microbiota assembly, where established communities are resilient to invasion by latecomers, and that host preference of commensal bacteria confers a competitive advantage in their cognate host"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Plant Growth Promotion</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        regulation of plant growth
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0080001"
+                            class="term-link" target="_blank">GO:0080001</a>)
+                    </li>
+                    
+                    <li>
+                        response to nitrogen compound
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901698"
+                            class="term-link" target="_blank">GO:1901698</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34312531/"
+                               class="pmid-link" target="_blank">PMID:34312531</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"It remains unclear to what extent the host actively selects these communities and whether commensals are adapted to a specific plant species"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Host plant species</strong></td>
+                        <td>Lotus japonicus</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Nodulation status</strong></td>
+                        <td>nitrogen-fixing nodules present</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Community context dependence</strong></td>
+                        <td>host preference requires multi-species community</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Priority effects</strong></td>
+                        <td>invasion resistance</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Taxonomic diversity</strong></td>
+                        <td>16 bacterial families</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Agricultural relevance</strong></td>
+                        <td>legume-microbe symbiosis model</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salar de Atacama Lithium Brine Community - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Salar de Atacama Lithium Brine Community</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-natural">
+                            STABLE
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        hypersaline brine
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002019"
+                           class="term-link" target="_blank">
+                            ENVO:00002019
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Salar_Atacama_Lithium_Brine_Community.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A halophilic archaeal-bacterial consortium from the world&#39;s largest lithium reserve in the Salar de Atacama, Chile. This community thrives in extreme hypersaline brines with lithium concentrations up to 1,500 ppm (1.5 g/L) and total salinity ranging from 34.7% (natural brine) to 55.6% (concentrated brine during industrial processing). The community is strongly dominated by halophilic archaea of the family Halobacteriaceae, with natural brines showing higher archaeal diversity (Halovenus 26.8%, Natronomonas 20.1%, Haloarcula 14%, Halobacterium 13%) compared to concentrated brines where Halovenus becomes even more dominant (41%). Bacterial diversity is phylogenetically richer in concentrated brines, with Rhodothermaceae (represented solely by Salinibacter, 56% in natural brine) being the most abundant bacterial family. The community demonstrates remarkable lithium tolerance and adaptation to chaotropic stress, making it highly relevant for understanding microbial ecology in extreme saline environments and potential biotechnological applications in lithium extraction and critical mineral bioprocessing. Lithium acts as a modulator of microbial richness and diversity, with bacterial diversity increasing and archaeal diversity decreasing as lithium concentration rises during industrial processing.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Halovenus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1377992"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1377992
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Natronomonas</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=63743"
+                               class="term-link" target="_blank">
+                                NCBITaxon:63743
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Haloarcula</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2237"
+                               class="term-link" target="_blank">
+                                NCBITaxon:2237
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Halobacterium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2239"
+                               class="term-link" target="_blank">
+                                NCBITaxon:2239
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Salinibacter</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=146918"
+                               class="term-link" target="_blank">
+                                NCBITaxon:146918
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Staphylococcaceae members</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=90964"
+                               class="term-link" target="_blank">
+                                NCBITaxon:90964
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Lithium Tolerance and Osmoadaptation</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    lithium
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49713"
+                        class="term-link" target="_blank">CHEBI:49713</a>), 
+                    
+                    potassium(1+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29103"
+                        class="term-link" target="_blank">CHEBI:29103</a>), 
+                    
+                    sodium chloride
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26710"
+                        class="term-link" target="_blank">CHEBI:26710</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        response to osmotic stress
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006970"
+                            class="term-link" target="_blank">GO:0006970</a>)
+                    </li>
+                    
+                    <li>
+                        cellular response to salt stress
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1902074"
+                            class="term-link" target="_blank">GO:1902074</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Organic Matter Degradation in Hypersaline Brine
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1029/2018JG004621</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Further, our results showed that Bacteria were phylogenetically more diverse and rich in the concentrated brine, while archaeal diversity was maximized in the natural brine"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1029/2018JG004621</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Bacteria were phylogenetically more diverse and rich in the concentrated brine, while archaeal diversity was maximized in the natural brine"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Matter Degradation in Hypersaline Brine</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Halovenus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank">CHEBI:50860</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
+                            class="term-link" target="_blank">GO:1901575</a>)
+                    </li>
+                    
+                    <li>
+                        aerobic respiration
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009060"
+                            class="term-link" target="_blank">GO:0009060</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Nutrient Remineralization in Lithium Brine
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1029/2018JG004621</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Brines only supported a single archaeal family (Halobacteriaceae): natural brines included the archaeal genera Halovenus , Natronomonas , Haloarcula , and Halobacterium"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Nutrient Remineralization in Lithium Brine</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    inorganic nutrient
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33284"
+                        class="term-link" target="_blank">CHEBI:33284</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        nitrogen cycle metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0071941"
+                            class="term-link" target="_blank">GO:0071941</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1029/2018JG004621</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"The concentrated lithium brines of the Salar de Atacama represent one of the most saline environments described to date (dominated by LiCl)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Bacteriorhodopsin-Mediated Phototrophy</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Halobacterium</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    photon
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30212"
+                        class="term-link" target="_blank">CHEBI:30212</a>), 
+                    
+                    ATP
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15422"
+                        class="term-link" target="_blank">CHEBI:15422</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        photosynthesis, light reaction
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019684"
+                            class="term-link" target="_blank">GO:0019684</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1029/2018JG004621</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"The concentrated lithium brines of the Salar de Atacama represent one of the most saline environments described to date (dominated by LiCl)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Lithium Concentration</strong></td>
+                        <td>1,500</td>
+                        <td>mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Total Salinity</strong></td>
+                        <td>34.7-55.6</td>
+                        <td>% (w/v)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>37</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>5-6</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Altitude and Solar Radiation</strong></td>
+                        <td>2,300</td>
+                        <td>m above sea level</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Salar Size and Lithium Reserve Status</strong></td>
+                        <td>3,000</td>
+                        <td>km²</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

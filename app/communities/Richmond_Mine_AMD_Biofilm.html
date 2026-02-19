@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richmond Mine AMD Biofilm - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Richmond Mine AMD Biofilm</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-natural">
+                            STABLE
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        acid mine drainage
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002186"
+                           class="term-link" target="_blank">
+                            ENVO:00002186
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Richmond_Mine_AMD_Biofilm.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A thick, subaerial biofilm community from the Richmond Mine at Iron Mountain, California, representing one of the most extreme acid mine drainage (AMD) environments on Earth. This predominantly lithotrophic biofilm thrives at extraordinarily low pH (0.5-1.0) with temperatures ranging from 30-50°C and metal ion concentrations in the decagrams per liter range. The community is dominated by iron-oxidizing bacteria (Leptospirillum spp.) and archaea (Ferroplasma acidarmanus) that drive pyrite dissolution through ferric iron generation. Leptospirillum group II comprises 71% of detected clones, with Ferroplasma reaching up to 85% of cells in highly acidic microniches. The biofilm also contains nitrogen-fixing Leptospirillum group III (L. ferrodiazotrophum), making it a keystone species in this nitrogen-limited ecosystem. Ultra-small ARMAN archaea (Micrarchaeota and Parvarchaeota) with genome sizes ~1 Mb represent novel lineages found at 5-25% relative abundance. The community oxidizes approximately 1-2 × 10⁵ moles of pyrite per day, generating extreme acidity and solubilizing metals including iron (up to 24 g/L), zinc (several g/L), and copper (hundreds mg/L). This natural biofilm serves as a model system for understanding microbial life at pH extremes and has implications for biomining, bioremediation, and astrobiology.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Leptospirillum group II</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=419541"
+                               class="term-link" target="_blank">
+                                NCBITaxon:419541
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Ferroplasma acidarmanus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=97393"
+                               class="term-link" target="_blank">
+                                NCBITaxon:97393
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Leptospirillum ferrodiazotrophum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=412449"
+                               class="term-link" target="_blank">
+                                NCBITaxon:412449
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidithiobacillus ferrooxidans</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=920"
+                               class="term-link" target="_blank">
+                                NCBITaxon:920
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>RARE</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Micrarchaeota (ARMAN-1/2)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1801631"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1801631
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Parvarchaeota (ARMAN-4/5)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1462422"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1462422
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Ferrous Iron Oxidation by Leptospirillum</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Leptospirillum group II</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank">GO:0015977</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Pyrite Dissolution
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/10966399/"
+                               class="pmid-link" target="_blank">PMID:10966399</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Nearest relatives to the majority of sequences came from iron-oxidizing acidophiles, and it appears that iron oxidation is the predominant metabolic characteristic of the organisms in the slime"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1186/1467-4866-5-13</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"The detachment of thiosulfate () as a leaving group in pyrite oxidation should result in the formation and persistence of tetrathionate in low pH ferric iron-rich AMD solutions"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Ferrous Iron Oxidation by Ferroplasma</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Ferroplasma acidarmanus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank">GO:0015977</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Pyrite Dissolution
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/15066799/"
+                               class="pmid-link" target="_blank">PMID:15066799</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"All four Ferroplasma isolates were capable of growing chemoorganotrophically on yeast extract or a range of sugars and chemomixotrophically on ferrous iron and yeast extract or sugars, and isolate &#34;Ferroplasma acidarmanus&#34; Fer1(T) required much higher levels of organic carbon"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1111/j.1462-2920.2005.00861.x</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"However, during the last few years, new studies of a number of acidic environments, particularly mining waste waters, acidic pools, etc., in diverse geographical locations have revealed the presence of new cell wall‐lacking archaea related to the recently described, acidophilic, ferrous‐iron oxidizing Ferroplasma acidiphilum"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Pyrite Dissolution</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    pyrite
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=51905"
+                        class="term-link" target="_blank">CHEBI:51905</a>), 
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank">CHEBI:16189</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Ferrous Iron Oxidation by Leptospirillum
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1186/1467-4866-5-13</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"The detachment of thiosulfate () as a leaving group in pyrite oxidation should result in the formation and persistence of tetrathionate in low pH ferric iron-rich AMD solutions"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1186/1467-4866-5-13</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"they ensure a continual supply of ferric iron essential for pyrite dissolution"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Nitrogen Fixation by Leptospirillum Group III</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Leptospirillum ferrodiazotrophum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    dinitrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17997"
+                        class="term-link" target="_blank">CHEBI:17997</a>), 
+                    
+                    ammonia
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
+                        class="term-link" target="_blank">CHEBI:16134</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        nitrogen fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
+                            class="term-link" target="_blank">GO:0009399</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/16204553/"
+                               class="pmid-link" target="_blank">PMID:16204553</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Based on the prediction that this organism is solely responsible for nitrogen fixation in the community, we pursued a selective isolation strategy to obtain the organism in pure culture"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/19429552/"
+                               class="pmid-link" target="_blank">PMID:19429552</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Although only Leptospirillum group III can fix nitrogen, these proteins were not identified by proteomics"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Carbon Scavenging by ARMAN</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Micrarchaeota (ARMAN-1/2)</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank">CHEBI:50860</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
+                            class="term-link" target="_blank">GO:1901575</a>)
+                    </li>
+                    
+                    <li>
+                        tricarboxylic acid cycle
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006099"
+                            class="term-link" target="_blank">GO:0006099</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1073/pnas.0914294107</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"complete or near complete tricarboxylic acid (TCA) cycles"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1073/pnas.0914294107</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"the ARMAN cell wall is penetrated by cell wall-less Archaea"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Extreme Acidity</strong></td>
+                        <td>0.5-1.0</td>
+                        <td>pH</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>30-50</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Metal Concentrations</strong></td>
+                        <td>Fe: 24 g/L; Zn: several g/L; Cu: hundreds mg/L</td>
+                        <td>g/L or mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Pyrite Oxidation Rate</strong></td>
+                        <td>1-2 × 10⁵</td>
+                        <td>moles pyrite/day</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Oxygen Availability</strong></td>
+                        <td>Aerobic to microaerobic</td>
+                        <td>qualitative</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

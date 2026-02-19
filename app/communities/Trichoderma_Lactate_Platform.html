@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trichoderma Lactate Platform for SCFA Production - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Trichoderma Lactate Platform for SCFA Production</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        laboratory bioreactor
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Trichoderma_Lactate_Platform.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A heterogeneous 3-member consortium for direct conversion of lignocellulose to short-chain fatty acids (SCFAs), specifically butyric acid. The platform consists of Trichoderma reesei Rut-C30 (aerobic fungus producing cellulases), Lactobacillus pentosus (facultative anaerobic lactic acid bacterium), and Clostridium tyrobutyricum (obligate anaerobic butyrate producer). Sequential inoculation creates an oxygen gradient allowing coexistence of all members. T. reesei degrades cellulose to sugars, LAB converts sugars to lactate and creates anaerobic conditions, and C. tyrobutyricum ferments lactate to butyrate, achieving 196 kg butyric acid per metric ton of beechwood.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Trichoderma reesei Rut-C30</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=51453"
+                               class="term-link" target="_blank">
+                                NCBITaxon:51453
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Lactobacillus pentosus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1589"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1589
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Clostridium tyrobutyricum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1519"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1519
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Cellulose Hydrolysis to Soluble Sugars</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Trichoderma reesei Rut-C30</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    cellulose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18246"
+                        class="term-link" target="_blank">CHEBI:18246</a>), 
+                    
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank">CHEBI:17234</a>), 
+                    
+                    xylose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18222"
+                        class="term-link" target="_blank">CHEBI:18222</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        cellulose catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030245"
+                            class="term-link" target="_blank">GO:0030245</a>)
+                    </li>
+                    
+                    <li>
+                        cellulase activity
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0008810"
+                            class="term-link" target="_blank">GO:0008810</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Lactic Acid Fermentation and Oxygen Depletion
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/"
+                               class="pmid-link" target="_blank">PMID:32855308</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"We developed a versatile consortium-based strategy for the direct conversion of lignocellulose to short-chain fatty acids, which included the funneling of the lignocellulosic carbohydrates to lactate as a central intermediate in engineered food chains"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Lactic Acid Fermentation and Oxygen Depletion</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Lactobacillus pentosus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank">CHEBI:17234</a>), 
+                    
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank">CHEBI:24996</a>), 
+                    
+                    acetate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                        class="term-link" target="_blank">CHEBI:30089</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        lactate biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019249"
+                            class="term-link" target="_blank">GO:0019249</a>)
+                    </li>
+                    
+                    <li>
+                        fermentation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006113"
+                            class="term-link" target="_blank">GO:0006113</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Butyric Acid Production from Lactate
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/"
+                               class="pmid-link" target="_blank">PMID:32855308</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next to facultative anaerobic lactic acid bacteria and the product-forming anaerobes"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Butyric Acid Production from Lactate</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium tyrobutyricum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank">CHEBI:24996</a>), 
+                    
+                    acetate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                        class="term-link" target="_blank">CHEBI:30089</a>), 
+                    
+                    butyrate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank">CHEBI:17968</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        butyrate biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019605"
+                            class="term-link" target="_blank">GO:0019605</a>)
+                    </li>
+                    
+                    <li>
+                        lactate catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1903457"
+                            class="term-link" target="_blank">GO:1903457</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32855308/"
+                               class="pmid-link" target="_blank">PMID:32855308</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Clostridium tyrobutyricum, Veillonella criceti, or Megasphaera elsdenii were integrated into the lactate platform to produce 196 kilograms of butyric acid per metric ton of beechwood"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Oxygen gradient</strong></td>
+                        <td>aerobic to anaerobic</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Inoculation scheme</strong></td>
+                        <td>sequential (T. reesei → L. pentosus → C. tyrobutyricum)</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Substrate</strong></td>
+                        <td>lignocellulosic biomass (beechwood)</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Product yield</strong></td>
+                        <td>196 kg butyric acid per metric ton beechwood</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

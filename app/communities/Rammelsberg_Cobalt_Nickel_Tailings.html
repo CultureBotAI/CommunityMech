@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rammelsberg Cobalt-Nickel Tailings Consortium - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Rammelsberg Cobalt-Nickel Tailings Consortium</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mine tailing
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000072"
+                           class="term-link" target="_blank">
+                            ENVO:00000072
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Rammelsberg_Cobalt_Nickel_Tailings.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A mesophilic acidophilic bacterial consortium applied to bioleach cobalt, copper, and other valuable metals from sulfidic mine tailings at the Rammelsberg polymetallic massive sulfide deposit in the Harz Mountains, Germany. This consortium represents one of the only industrial-scale cobalt bioleaching processes globally and demonstrates exceptional efficiency in recovering critical battery materials from low-grade mine tailings. The adapted microbial community consists mainly of Acidithiobacillus ferrooxidans (iron-oxidizing) and Acidithiobacillus thiooxidans (sulfur-oxidizing), achieving 91% cobalt and 57% copper extraction from bulk tailings (Co 0.02%, Cu 0.12%) after 13 days in stirred tank reactors at 10% pulp density. The consortium exhibits synergistic cooperation between iron and sulfur oxidizers, where iron oxidation by At. ferrooxidans generates ferric iron that chemically oxidizes sulfide minerals, while sulfur oxidation by At. thiooxidans prevents elemental sulfur passivation and maintains low pH through sulfuric acid production. Mineralogical analysis revealed that cobalt occurs on the surface of framboidal pyrite and is mobilized through microbial attack. This system demonstrates the biotechnological potential for recovering critical materials (cobalt, copper, nickel) from mine waste through environmentally sustainable bioprocessing, addressing both resource recovery and mine tailings remediation challenges relevant to the circular economy and battery supply chains.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidithiobacillus ferrooxidans</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=920"
+                               class="term-link" target="_blank">
+                                NCBITaxon:920
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidithiobacillus thiooxidans</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=930"
+                               class="term-link" target="_blank">
+                                NCBITaxon:930
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Iron Oxidation and Ferric Iron Generation</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    oxygen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
+                        class="term-link" target="_blank">CHEBI:15379</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Cobalt and Copper Mobilization from Sulfide Minerals
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
+                               class="pmid-link" target="_blank">PMID:39770610</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"It has emerged as a key player in biomining and bioleaching technologies thanks to its unique ability to mobilize a wide spectrum of elements, such as Li, P, V, Cr, Fe, Ni, Cu, Zn, Ga, As, Mo, W, Pb, U, and its role in ferrous iron oxidation and reduction"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Cobalt and Copper Mobilization from Sulfide Minerals</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    cobalt(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48828"
+                        class="term-link" target="_blank">CHEBI:48828</a>), 
+                    
+                    copper(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29036"
+                        class="term-link" target="_blank">CHEBI:29036</a>), 
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank">CHEBI:16189</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Iron Oxidation and Ferric Iron Generation
+                    </div>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Sulfur Oxidation and Acid Generation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.hydromet.2020.105484</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"This material still contains several sulfide minerals (pyrrhotite, pyrite, sphalerite, pentlandite, violarite, chalcopyrite) and significant amounts of metals (Zn, Ni, Cu, Co, rare earth elements)"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.hydromet.2020.105484</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Mineralogical analysis showed that cobalt occurred on the surface of framboidal pyrite and was mainly leached by microbial attack"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfur Oxidation and Acid Generation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus thiooxidans</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    elemental sulfur
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=27568"
+                        class="term-link" target="_blank">CHEBI:27568</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>), 
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank">CHEBI:16189</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        sulfur compound metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006790"
+                            class="term-link" target="_blank">GO:0006790</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Iron Oxidation and Ferric Iron Generation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
+                               class="pmid-link" target="_blank">PMID:39770610</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"However, its use in biometallurgical applications poses environmental issues through its effect on the pH levels in bioleaching systems, which produce acid mine drainage in rivers and lakes adjacent to mines"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.hydromet.2020.105484</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"In the framework of the European project NEMO (Near-zero-waste recycling of low-grade sulfidic mining waste for critical-metal, mineral and construction raw-material production in a circular economy), new ways to valorize sulfidic tailings are being developed through the recovery of valuable metals and critical raw materials and the transformation of the residual in clean mineral fraction to be used for the mass production of cement, concrete and construction products"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Autotrophic Carbon Fixation in Acidic Environment</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    carbon dioxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
+                        class="term-link" target="_blank">CHEBI:16526</a>), 
+                    
+                    ATP
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15422"
+                        class="term-link" target="_blank">CHEBI:15422</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank">GO:0015977</a>)
+                    </li>
+                    
+                    <li>
+                        reductive pentose-phosphate cycle
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019253"
+                            class="term-link" target="_blank">GO:0019253</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/39770610/"
+                               class="pmid-link" target="_blank">PMID:39770610</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"ferrooxidans catalyzes the extraction of elements by generating iron (III) ions in oxic conditions, which are able to react with metal sulfides"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>1.5-2.5</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>30-35</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Pulp Density</strong></td>
+                        <td>10</td>
+                        <td>% (w/v)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Reactor Configuration</strong></td>
+                        <td>2 L stirred tank reactors</td>
+                        <td>liters</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Bioleaching Duration and Metal Recovery</strong></td>
+                        <td>13</td>
+                        <td>days</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Oxygen Supply</strong></td>
+                        <td>Aerobic</td>
+                        <td>condition</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Tailings Mineralogy and Metal Grades</strong></td>
+                        <td>Framboidal pyrite with surface-associated cobalt</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

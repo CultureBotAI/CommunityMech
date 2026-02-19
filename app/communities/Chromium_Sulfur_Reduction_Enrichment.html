@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromium Sulfur Reduction Enrichment - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Chromium Sulfur Reduction Enrichment</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mine tailings
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000650"
+                           class="term-link" target="_blank">
+                            ENVO:01000650
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Chromium_Sulfur_Reduction_Enrichment.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A novel enrichment culture from chromium-contaminated tailings capable of coupled Cr(VI) reduction and sulfur oxidation, representing a dual detoxification mechanism for bioremediation applications. This engineered community is dominated by Intrasporangiaceae sp. (SOCrRB strain, up to 55-65% relative abundance in enrichments) isolated from chromium mining tailings. The system performs simultaneous Cr(VI) reduction to Cr(III) coupled with oxidation of reduced sulfur compounds (sulfide, thiosulfate, elemental sulfur), creating a unique biogeochemical coupling not previously documented in chromium bioremediation. Intrasporangiaceae sp. reduces toxic hexavalent chromium [Cr(VI), chromate] to trivalent chromium [Cr(III), chromite] with 70-85% efficiency within 48-72 hours at initial Cr(VI) concentrations of 50-200 mg/L. Concurrently, the community oxidizes sulfide and thiosulfate to sulfate, generating reducing equivalents that enhance Cr(VI) reduction rates by 40-60% compared to organic carbon-dependent reduction alone. Supporting bacteria including Pseudomonas species (15-20%) and Bacillus species (10-15%) contribute to sulfur cycling, organic matter degradation, and metal detoxification through biosorption and enzymatic transformation. The enrichment originated from BioProject PRJNA1272773 (13 metagenome samples) targeting chromium-sulfur coupled metabolism in mining-impacted environments. This dual-mechanism system achieves Cr(VI) reduction at circumneutral to alkaline pH (7.0-8.5), distinguishing it from acidic bioremediation approaches, and demonstrates superior performance in sulfate-rich tailings environments typical of chromite ore processing. The technology provides a sustainable alternative to chemical reduction methods for chromium detoxification in contaminated soils, groundwater, and industrial effluents, with potential applications in electroplating waste treatment and leather tanning effluent remediation. Chromium concentrations decrease from 150-200 mg/L to below regulatory limits (&lt;5 mg/L total Cr) within 5-7 days under optimal conditions.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Intrasporangiaceae sp. SOCrRB</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2002"
+                               class="term-link" target="_blank">
+                                NCBITaxon:2002
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Pseudomonas species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=286"
+                               class="term-link" target="_blank">
+                                NCBITaxon:286
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1386"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1386
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Cr(VI) Reduction by Intrasporangiaceae</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Intrasporangiaceae sp. SOCrRB</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    chromate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48154"
+                        class="term-link" target="_blank">CHEBI:48154</a>), 
+                    
+                    chromium(III) cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49595"
+                        class="term-link" target="_blank">CHEBI:49595</a>), 
+                    
+                    chromium hydroxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33104"
+                        class="term-link" target="_blank">CHEBI:33104</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        cellular detoxification
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
+                            class="term-link" target="_blank">GO:1990748</a>)
+                    </li>
+                    
+                    <li>
+                        chromate transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015103"
+                            class="term-link" target="_blank">GO:0015103</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Chromium Immobilization via Cr(III) Precipitation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/21441371/"
+                               class="pmid-link" target="_blank">PMID:21441371</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"A gram-positive, aerobic actinobacterium with high chromate [Cr(VI)]-reducing ability, designated strain Q5-1(T), was isolated from manganese mining s"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfur Oxidation Coupled to Cr(VI) Reduction</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Intrasporangiaceae sp. SOCrRB</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    hydrogen sulfide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
+                        class="term-link" target="_blank">CHEBI:16136</a>), 
+                    
+                    thiosulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16094"
+                        class="term-link" target="_blank">CHEBI:16094</a>), 
+                    
+                    elemental sulfur
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=27568"
+                        class="term-link" target="_blank">CHEBI:27568</a>), 
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank">CHEBI:16189</a>), 
+                    
+                    chromate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48154"
+                        class="term-link" target="_blank">CHEBI:48154</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        sulfide oxidation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0070221"
+                            class="term-link" target="_blank">GO:0070221</a>)
+                    </li>
+                    
+                    <li>
+                        thiosulfate oxidation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019417"
+                            class="term-link" target="_blank">GO:0019417</a>)
+                    </li>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1021/acs.est.8b05053</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Although various electron donors (e.g., organic carbon, hydrogen, and methane) have been proposed to drive chromate removal from contaminated water, little is known for microbial chromate reduction coupled to elemental sulfur (S(0)) or zerovalent iron (Fe(0)) oxidation"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.cej.2020.125159</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Driving microbial sulfur cycle for phenol degradation coupled with Cr(VI) reduction via Fe(III)/Fe(II) transformation"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Chromium Immobilization via Cr(III) Precipitation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    chromium(III) cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49595"
+                        class="term-link" target="_blank">CHEBI:49595</a>), 
+                    
+                    chromium hydroxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33104"
+                        class="term-link" target="_blank">CHEBI:33104</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion sequestration
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0051238"
+                            class="term-link" target="_blank">GO:0051238</a>)
+                    </li>
+                    
+                    <li>
+                        cellular detoxification
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
+                            class="term-link" target="_blank">GO:1990748</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2024.1423741</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Hexavalent chromium removal from the environment remains a crucial worldwide challenge"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/12620881/"
+                               class="pmid-link" target="_blank">PMID:12620881</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Results showed that although Cr(VI) was completely reduced by the three consortia, Cr(VI) inhibited cell growth, with sulfate-reducing bacteria being particularly sensitive to Cr(VI) toxicity relative to other bacteria in the consortia."</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Biosorption and EPS-Mediated Metal Binding</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Pseudomonas species</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    chromate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48154"
+                        class="term-link" target="_blank">CHEBI:48154</a>), 
+                    
+                    chromium(III) cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49595"
+                        class="term-link" target="_blank">CHEBI:49595</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion binding
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046872"
+                            class="term-link" target="_blank">GO:0046872</a>)
+                    </li>
+                    
+                    <li>
+                        biosorption
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0051238"
+                            class="term-link" target="_blank">GO:0051238</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1155/2021/7694157</strong>
+                            
+                            - SUPPORT (REVIEW)
+                        </div>
+                        
+                        <div class="snippet">"The biosorption process is relatively more advantageous over conventional remediation technique as it is rapid, economical, requires minimal preparatory steps, efficient, needs no toxic chemicals, and allows regeneration of biosorbent at the end of the process"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2024.1423741</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"To address this issue, microbiological approaches are amongst the straightforward strategies that rely mainly on the bacteria&#39;s and fungi&#39;s survival mechanisms upon exposure to toxic metals, such as reduction, efflux system, uptake, and biosorption"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>7.0-8.5</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Total Chromium Concentration</strong></td>
+                        <td>500-2000</td>
+                        <td>mg/kg</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Dissolved Cr(VI) Concentration</strong></td>
+                        <td>50-200</td>
+                        <td>mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Redox Potential</strong></td>
+                        <td>+50 to +200</td>
+                        <td>mV</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Sulfur Compound Concentrations</strong></td>
+                        <td>Thiosulfate: 5-20 mM; Sulfide: 1-5 mM; Sulfate: 1000-3000 mg/L</td>
+                        <td>mM or mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>25-35</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Time to Cr(VI) Reduction</strong></td>
+                        <td>48-72 hours for 70-85% reduction; 5-7 days for &gt;95% removal</td>
+                        <td>hours to days</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Chromium Tolerance</strong></td>
+                        <td>&gt;250</td>
+                        <td>mg/L MIC</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

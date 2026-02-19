@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayan Obo REE Tailings Consortium - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Bayan Obo REE Tailings Consortium</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mine tailing
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000072"
+                           class="term-link" target="_blank">
+                            ENVO:00000072
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Bayan_Obo_REE_Tailings_Consortium.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>An acid-producing bacterial consortium engineered to extract rare earth elements (REE) from tailings at the Bayan Obo mine in Inner Mongolia, China, the world&#39;s largest rare earth deposit. This functional bacterial consortium achieves exceptional REE recovery rates of 82-83% for the five main light rare earth elements (La, Ce, Pr, Nd, Sm) after 18 days of bioleaching using one-step or two-step processes. The tailings are iron extraction residues from medium-poor oxidized ores containing bastnaesite (REE(CO₃)F) and monazite as primary REE minerals. The consortium employs acid-producing bacteria including actinomycetes (Streptomyces sp.), autotrophic acidophiles (Acidithiobacillus ferrooxidans), and heterotrophic acidophiles (Acidiphilium cryptum) that work synergistically to mobilize REE through acidolysis and organic acid complexation. Key mechanisms include production of organic acids (citric, oxalic, lactic, pyruvic), siderophores, and complexing ligands that solubilize REE from carbonate-fluoride minerals. The two-step process (sequential inoculation with heterotrophs followed by autotrophs) achieves 83.51% recovery versus 82.78% for one-step (simultaneous inoculation), demonstrating synergistic enhancement through pH control and organic acid accumulation. This system represents a critical sustainable biotechnology for recovering strategic REE materials essential for clean energy technologies, permanent magnets, and electronics while remediating millions of tons of existing Bayan Obo tailings.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidithiobacillus ferrooxidans</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=920"
+                               class="term-link" target="_blank">
+                                NCBITaxon:920
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidiphilium cryptum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=524"
+                               class="term-link" target="_blank">
+                                NCBITaxon:524
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Streptomyces</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1883"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1883
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfuric Acid Generation and pH Reduction</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>), 
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        sulfur compound metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006790"
+                            class="term-link" target="_blank">GO:0006790</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> REE Dissolution from Bastnaesite and Monazite
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.cej.2024.153492</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The development of efficient environmental cleanup materials is a crucial scientific and technological concern"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Acid Production and REE Complexation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidiphilium cryptum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    citric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30769"
+                        class="term-link" target="_blank">CHEBI:30769</a>), 
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    lactic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28358"
+                        class="term-link" target="_blank">CHEBI:28358</a>), 
+                    
+                    pyruvic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32816"
+                        class="term-link" target="_blank">CHEBI:32816</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic acid metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006082"
+                            class="term-link" target="_blank">GO:0006082</a>)
+                    </li>
+                    
+                    <li>
+                        carboxylic acid biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0046394"
+                            class="term-link" target="_blank">GO:0046394</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> REE Dissolution from Bastnaesite and Monazite
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.chemogeo.2018.03.018</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"actinobacterial strains secreted various organic acids, complexing ligands, and siderophores as dominant agents"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>REE Dissolution from Bastnaesite and Monazite</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    lanthanum(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32359"
+                        class="term-link" target="_blank">CHEBI:32359</a>), 
+                    
+                    cerium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32998"
+                        class="term-link" target="_blank">CHEBI:32998</a>), 
+                    
+                    praseodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49648"
+                        class="term-link" target="_blank">CHEBI:49648</a>), 
+                    
+                    neodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33372"
+                        class="term-link" target="_blank">CHEBI:33372</a>), 
+                    
+                    samarium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33376"
+                        class="term-link" target="_blank">CHEBI:33376</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Sulfuric Acid Generation and pH Reduction
+                    </div>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Organic Acid Production and REE Complexation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.cej.2024.153492</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Since the groundbreaking work on Ti3C2Tx in 2011, there has been a huge growing interest in MXene-based composites developed through heterointerface engineering due to its high surface area, hydrophilicity, eco-friendliness, biocompatibility, easy functionalization, excellent thermal/mechanical properties, metal conductivity and rich electronic density"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.cej.2024.153492</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"rare earth elements in Bayan Obo RERT could be high-efficiently bioleached by acid bioleaching functional bacteria consortium"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Synergistic Two-Step Process Enhancement</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidiphilium cryptum</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        mutualism
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank">GO:0044403</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.cej.2024.153492</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"In the area of environmental remediation, MXene-based composites obtained through heterointerface engineering strategies have the ability to effectively remove and systematically monitor contaminants in comparison to virgin MXene, thanks to the synergistic effects and complementary benefits"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>1.5-2.5</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Bioleaching Duration</strong></td>
+                        <td>18</td>
+                        <td>days</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Tailings Source and Composition</strong></td>
+                        <td>15 million tons</td>
+                        <td>metric tons</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Target REE Elements</strong></td>
+                        <td>La, Ce, Pr, Nd, Sm</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>~30</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Process Configuration</strong></td>
+                        <td>One-step vs. two-step</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Mineral Targets</strong></td>
+                        <td>Bastnaesite and monazite</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

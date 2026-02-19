@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thermophilic Pyrite Quorum Sensing Consortium - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Thermophilic Pyrite Quorum Sensing Consortium</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mine tailing
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00000072"
+                           class="term-link" target="_blank">
+                            ENVO:00000072
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Thermophilic_Pyrite_QS_Consortium.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A moderately thermophilic three-species bioleaching consortium used to study the effects of quorum sensing (QS) signaling on pyrite and chalcopyrite dissolution. This acidophilic community consists of Leptospirillum ferriphilum DSM 14647, Acidithiobacillus caldus DSM 8584, and Sulfobacillus thermosulfidooxidans DSM 9293, operating at pH 2.0-2.5 and 40°C. The consortium demonstrates coordinated microbial behavior mediated by diffusible signal factor (DSF) and N-acyl-homoserine lactone (AHL) quorum sensing systems. Treatment with DSF-family compounds (DSF and BDSF at 2 μM each) reduced pyrite and chalcopyrite dissolution via inhibitory effects on iron oxidation and mineral colonization. DSF compounds induced A. caldus motility and dispersion from pyrite with concomitant expansion of L. ferriphilum on mineral surfaces, while AHL-mediated signaling (C12-AHL, C14-AHL, 3-OH-C12-AHL, 3-OH-C14-AHL at 5 μM each) repressed L. ferriphilum motility. The consortium was subjected to RNA-seq transcriptomics (12 samples, 271 Gbases) to elucidate gene expression changes in response to QS molecules (NCBI BioProject PRJNA1259591). This system represents the first comprehensive study of quorum sensing regulation in moderately thermophilic biomining bacteria, revealing that QS molecules change planktonic/mineral subpopulation distributions and modulate leaching efficiency through control of cell attachment and iron oxidation rates.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Leptospirillum ferriphilum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=178606"
+                               class="term-link" target="_blank">
+                                NCBITaxon:178606
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidithiobacillus caldus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33059"
+                               class="term-link" target="_blank">
+                                NCBITaxon:33059
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Sulfobacillus thermosulfidooxidans</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28034"
+                               class="term-link" target="_blank">
+                                NCBITaxon:28034
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Ferrous Iron Oxidation by Leptospirillum</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank">GO:0015977</a>)
+                    </li>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Pyrite and Chalcopyrite Dissolution
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in contrast, the acyl-homoserine lactone mediated QS system repressed L"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"DSF compounds induced concomitant expansion of Leptospirillum ferriphilum on the mineral surface"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1038/s41598-021-95324-9</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Bioleaching of metal sulfide ores involves acidophilic microbes that catalyze the chemical dissolution of the metal sulfide bond that is enhanced by attached and planktonic cell mediated oxidation of iron(II)-ions and inorganic sulfur compounds"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfur Oxidation by Acidithiobacillus caldus</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus caldus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    sulfur
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26833"
+                        class="term-link" target="_blank">CHEBI:26833</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        sulfur compound metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006790"
+                            class="term-link" target="_blank">GO:0006790</a>)
+                    </li>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in contrast, the acyl-homoserine lactone mediated QS system repressed L"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"A decrease in mineral-attached populations of A. caldus was demonstrated after DSF addition"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Dual Iron and Sulfur Oxidation by Sulfobacillus</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Sulfobacillus thermosulfidooxidans</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    sulfur
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26833"
+                        class="term-link" target="_blank">CHEBI:26833</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        sulfur compound metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006790"
+                            class="term-link" target="_blank">GO:0006790</a>)
+                    </li>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In this study, treatment of a moderately thermophilic biomining consortium with QS compounds, termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory effect on iron oxidation and mineral colonization by the mixed culture"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2020.00044</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"ferriphilum occurs during the dual-species biofilm formation, but different effects on bioleaching were noted, if the preculture of L"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Pyrite and Chalcopyrite Dissolution</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    pyrite
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=51905"
+                        class="term-link" target="_blank">CHEBI:51905</a>), 
+                    
+                    chalcopyrite
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50885"
+                        class="term-link" target="_blank">CHEBI:50885</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    copper(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29036"
+                        class="term-link" target="_blank">CHEBI:29036</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank">CHEBI:26836</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        biofilm formation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
+                            class="term-link" target="_blank">GO:0042710</a>)
+                    </li>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Ferrous Iron Oxidation by Leptospirillum
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In this study, treatment of a moderately thermophilic biomining consortium with QS compounds, termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory effect on iron oxidation and mineral colonization by the mixed culture"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"QS molecules change the planktonic/mineral subpopulations distribution of moderately thermophilic leaching bacteria"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>DSF Quorum Sensing Signaling</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    cis-11-methyl-2-dodecenoic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=71190"
+                        class="term-link" target="_blank">CHEBI:71190</a>), 
+                    
+                    (2Z)-2-dodecenoic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=87659"
+                        class="term-link" target="_blank">CHEBI:87659</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                    <li>
+                        regulation of biofilm formation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901725"
+                            class="term-link" target="_blank">GO:1901725</a>)
+                    </li>
+                    
+                    <li>
+                        regulation of cell motility
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:2000145"
+                            class="term-link" target="_blank">GO:2000145</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In this study, treatment of a moderately thermophilic biomining consortium with QS compounds, termed diffusible signal factors (DSF), reduced pyrite and chalcopyrite dissolution via an inhibitory effect on iron oxidation and mineral colonization by the mixed culture"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"treatment of a moderately thermophilic biomining consortium with QS compounds called diffusible signal factors (DSF) reduced pyrite and chalcopyrite dissolution"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1038/s41598-021-95324-9</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In this study, we demonstrated a functional diffusible signal factor interspecies quorum sensing signaling mechanism in Leptospirillum ferriphilum and Leptospirillum ferrooxidans that produces (Z)-11-methyl-2-dodecenoic acid when grown with pyrite as energy source"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>AHL Quorum Sensing Regulation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus caldus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    N-dodecanoyl-L-homoserine lactone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=75314"
+                        class="term-link" target="_blank">CHEBI:75314</a>), 
+                    
+                    N-tetradecanoyl-L-homoserine lactone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=75315"
+                        class="term-link" target="_blank">CHEBI:75315</a>), 
+                    
+                    N-(3-hydroxy-dodecanoyl)-L-homoserine lactone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=75317"
+                        class="term-link" target="_blank">CHEBI:75317</a>), 
+                    
+                    N-(3-hydroxy-tetradecanoyl)-L-homoserine lactone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=75318"
+                        class="term-link" target="_blank">CHEBI:75318</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank">GO:0009372</a>)
+                    </li>
+                    
+                    <li>
+                        negative regulation of cell motility
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0051271"
+                            class="term-link" target="_blank">GO:0051271</a>)
+                    </li>
+                    
+                    <li>
+                        regulation of biofilm formation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901725"
+                            class="term-link" target="_blank">GO:1901725</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"In addition, DSF compounds induced Acidithiobacillus caldus motility and dispersion from pyrite with a concomitant expansion of Leptospirillum ferriphilum on the mineral surface while in contrast, the acyl-homoserine lactone mediated QS system repressed L"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2025.1592588</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Some Acidithiobacillus species, including Acidithiobacillus caldus, possess a QS system mediated by acyl-homoserine lactones (AHLs)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>40</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>2.0-2.5</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>DSF Quorum Sensing Signals</strong></td>
+                        <td>2</td>
+                        <td>μM</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>AHL Quorum Sensing Signals</strong></td>
+                        <td>5</td>
+                        <td>μM</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Mineral Substrates</strong></td>
+                        <td>Pyrite and Chalcopyrite</td>
+                        <td>qualitative</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>RNA-Seq Transcriptomics</strong></td>
+                        <td>12 samples, 271 Gbases</td>
+                        <td>sequencing data</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Oxygen Availability</strong></td>
+                        <td>Aerobic</td>
+                        <td>qualitative</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

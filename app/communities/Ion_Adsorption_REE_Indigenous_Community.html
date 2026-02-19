@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ion-Adsorption REE Indigenous Community - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Ion-Adsorption REE Indigenous Community</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-natural">
+                            STABLE
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        weathering crust
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002230"
+                           class="term-link" target="_blank">
+                            ENVO:00002230
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Ion_Adsorption_REE_Indigenous_Community.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A highly diverse indigenous microbial community in ion-adsorption rare earth element (REE) deposits in weathering profiles of South China, demonstrating remarkable selectivity for heavy rare earth elements (HREE) through bacterial teichoic acid binding. This natural community comprises over 700 genera spanning bacterial (84.2% dominated by Proteobacteria 46.9%, Acidobacteria 14.6%, Actinobacteria 9.0%, Firmicutes 6.3%) and fungal (Ascomycota 47.8%, Basidiomycota 40.4%) lineages distributed through weathering profiles up to 40 meters depth. The community exhibits unique HREE vs LREE fractionation capability, with Gram-positive bacteria (Bacillus, Micrococcus) preferentially adsorbing HREE (82-85% efficiency) compared to LREE (70-78%), driven by teichoic acids in cell walls that provide selective phosphate binding sites for heavier lanthanides. Removal of teichoic acids reduces REE adsorption from 65.5% to 17.8%, confirming their critical role. The community accelerates REE mineralization in supergene weathering environments through bioweathering of granite, dissolution of REE-bearing minerals, and biosorption-mediated HREE enrichment. Ion-adsorption deposits represent the world&#39;s main source of strategically critical HREE (Dy, Y, Tb, Eu) used in permanent magnets and phosphors, with over 40 deposit sites in South China. The indigenous microbial community functions across pH gradients (4.3-7.0), exhibits oligotrophic K-strategist adaptations (Acidobacteria), and demonstrates co-localization of ytterbium with phosphate-rich cell walls. This natural HREE fractionation system offers a sustainable model for selective REE recovery and explains the geological genesis of commercially valuable HREE-enriched clay deposits.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Proteobacteria</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1224"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1224
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidobacteria</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=57723"
+                               class="term-link" target="_blank">
+                                NCBITaxon:57723
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Actinobacteria</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=201174"
+                               class="term-link" target="_blank">
+                                NCBITaxon:201174
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1386"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1386
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Micrococcus</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1269"
+                               class="term-link" target="_blank">
+                                NCBITaxon:1269
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Ascomycota</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=4890"
+                               class="term-link" target="_blank">
+                                NCBITaxon:4890
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Basidiomycota</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=5204"
+                               class="term-link" target="_blank">
+                                NCBITaxon:5204
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Teichoic Acid-Mediated HREE Selective Biosorption</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Bacillus</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    dysprosium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49782"
+                        class="term-link" target="_blank">CHEBI:49782</a>), 
+                    
+                    yttrium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49976"
+                        class="term-link" target="_blank">CHEBI:49976</a>), 
+                    
+                    ytterbium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33342"
+                        class="term-link" target="_blank">CHEBI:33342</a>), 
+                    
+                    phosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                        class="term-link" target="_blank">CHEBI:18367</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                    <li>
+                        cellular response to metal ion
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0071248"
+                            class="term-link" target="_blank">GO:0071248</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> HREE Enrichment in B Horizon
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Taking advantage of bacteria strains isolated from the profile, Gram-positive bacteria affiliated with Bacillus and Micrococcus preferentially adsorbed HREEs, and teichoic acids in the cell wall served as the main sites for HREE adsorption, leading to an enrichment of HREEs in the deposit"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"teichoic acids in the cell walls of G+ bacteria lead to REE fractionation; removal of teichoic acid decreased REE adsorption from 65.5% to only 17.8%"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Yb is colocalized with P, where both elements are relatively rich along the cell wall"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Bioweathering and REE Mineral Dissolution</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Proteobacteria</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    citric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30769"
+                        class="term-link" target="_blank">CHEBI:30769</a>), 
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank">CHEBI:50860</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
+                            class="term-link" target="_blank">GO:1901575</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Teichoic Acid-Mediated HREE Selective Biosorption
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene REE mineralization but also provide insights into efficient utilization of mineral resources via a biological pathway"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Both fungi and bacteria can contribute to the REE mineralization in regolith-hosted deposits"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>HREE Enrichment in B Horizon</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    dysprosium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49782"
+                        class="term-link" target="_blank">CHEBI:49782</a>), 
+                    
+                    yttrium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49976"
+                        class="term-link" target="_blank">CHEBI:49976</a>), 
+                    
+                    terbium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33375"
+                        class="term-link" target="_blank">CHEBI:33375</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Taking advantage of bacteria strains isolated from the profile, Gram-positive bacteria affiliated with Bacillus and Micrococcus preferentially adsorbed HREEs, and teichoic acids in the cell wall served as the main sites for HREE adsorption, leading to an enrichment of HREEs in the deposit"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/35708325/"
+                               class="pmid-link" target="_blank">PMID:35708325</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"selective adsorption of REEs by teichoic acids in the cell walls of Gram-positive bacteria can contribute to the fractionation between HREEs and LREEs"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Weathering Profile Depth</strong></td>
+                        <td>0-40</td>
+                        <td>meters</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>pH Gradient</strong></td>
+                        <td>4.3-7.0</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>REE Concentration and HREE Enrichment</strong></td>
+                        <td>776</td>
+                        <td>ppm total REE</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Geographic Distribution</strong></td>
+                        <td>40+</td>
+                        <td>deposit sites</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Microbial Diversity</strong></td>
+                        <td>700+</td>
+                        <td>genera</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>15-25</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Economic Significance</strong></td>
+                        <td>80-90%</td>
+                        <td>% global HREE supply</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

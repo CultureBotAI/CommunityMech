@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityMech - Microbial Community Knowledge Base</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: white;
+            border-bottom: 2px solid #2563eb;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #2563eb;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.125rem;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .community-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .community-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-card h2 {
+            color: #2563eb;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-card .description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.75rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .badge-category {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CommunityMech</h1>
+            <p class="subtitle">Microbial Community Knowledge Base</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="community-grid">
+
+            <a href="communities/AMD_Acidophile_Heterotroph_Network.html" class="community-card">
+                <h2>AMD Acidophile Heterotroph Network</h2>
+                <p class="description">A heterotrophic microbial network in acid mine drainage (AMD) systems dominated by Acidiphilium species and related acidophilic heterotrophs. This community plays a crucial role in coupling carbon and iron cycles in extremely acidic environments, supporting autotrophic iron oxidizers through organic matter processing and nutrient remineralization. The network thrives at pH 2-4 in AMD sites globally, where heterotrophs metabolize organic compounds produced by autotrophs or released from lysed cells, preventing organic carbon accumulation that would inhibit autotrophic iron oxidizers. Key members include Acidiphilium multivorum (facultative Fe(III) reducer and organic carbon degrader), Ferrimicrobium acidiphilum (iron-oxidizing heterotroph and dissolved organic carbon remover), Acidocella facilis (obligate aerobic heterotroph), Acidisphaera rubrifaciens (photoheterotrophic bacteriochlorophyll producer), and Acidobacterium capsulatum (chemoorganotrophic acidophile). These organisms collectively perform organic matter degradation, ferric iron reduction, biofilm formation, and nutrient cycling. The heterotroph-autotroph coupling maintains community stability by removing inhibitory organic carbon, recycling nutrients (nitrogen, phosphorus), generating ferrous iron for autotrophic energy generation, and facilitating metal tolerance through extracellular polymeric substances (EPS) production. This network represents a critical functional guild in AMD ecosystems, enabling the persistence of autotrophic iron-oxidizing communities through metabolic cooperation and resource partitioning.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/AMD_Nitrososphaerota_Archaeal.html" class="community-card">
+                <h2>AMD Nitrososphaerota Archaeal Community</h2>
+                <p class="description">A novel archaeal community from acid mine drainage environments dominated by ammonia-oxidizing archaea (AOA) of the phylum Nitrososphaerota (formerly Thaumarchaeota). This community represents a unique nitrogen-cycling system operating at extremely low pH (2.5-4.5) where archaeal nitrifiers outcompete bacterial ammonia oxidizers. The dominant members include acidophilic AOA such as Candidatus Nitrosotalea devanaterra and Nitrososphaera-like archaea that possess extraordinary substrate affinity (Km 0.6-2.8 nM for NH3) and specialized adaptations for acidophily. These archaea oxidize ammonia to nitrite through the copper-containing ammonia monooxygenase (AMO) enzyme while maintaining cytoplasmic pH homeostasis in extremely acidic environments. The community also includes supporting acidophilic archaea from Thermoplasmata (Ferroplasma, Acidiplasma) that provide ecosystem services including organic matter processing and metal tolerance. Unique features include: (1) Amt-type ammonium transporters enabling NH4+ uptake rather than NH3 diffusion, (2) urea hydrolysis pathways providing localized ammonia generation, (3) extensive cell surface glycosylation reducing proton permeability, and (4) metabolic cooperation with nitrite-oxidizing bacteria (Nitrospira, Leptospirillum) completing the nitrification pathway. This system demonstrates how archaeal nitrifiers dominate nitrogen cycling in acidic environments where bacterial counterparts cannot function, with AOA abundance 3-10 fold higher than AOB in AMD sediments. The community thrives in acid sulfate soils, acid mine drainage sediments, and acidic tailings, representing a critical component of nitrogen cycling in the 30% of Earth's soils with pH <5.5. Based on genomic data from NCBI BioProject PRJNA1261802 and related AMD archaeal community studies.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/Aspergillus_Indium_LED_Recovery.html" class="community-card">
+                <h2>Aspergillus Indium LED Recovery Platform</h2>
+                <p class="description">An engineered fungal monoculture bioplatform based on Aspergillus niger for sustainable recovery of indium from waste liquid crystal display (LCD) and light-emitting diode (LED) panels through indirect bioleaching. This system represents a green alternative to conventional harsh chemical extraction methods (concentrated acids at high temperatures), utilizing fungal organic acid production to mobilize and recover critical materials from electronic waste. A. niger produces a cocktail of organic acids including oxalic acid (14.9 g/L), gluconic acid (1.2 g/L), citric acid (0.9 g/L), and malic acid (0.39 g/L) during growth on glucose-based medium. The spent culture filtrate achieves remarkable indium recovery performance: 100% indium yield from waste LCD/LED panels in just 1.5 hours at 70°C, with final indium concentration of 145.6 mg/L. The bioleaching mechanism involves H+ ions from acidic functional groups (-COOH) of organic acids and secreted proteins, which dissolve indium-tin oxide (ITO) coatings and indium-bearing components. The process operates at low pH (1.96) due to organic acid accumulation, creating optimal conditions for indium mobilization while avoiding the corrosivity, energy intensity, and hazardous waste generation of conventional acid leaching. This biotechnological approach addresses the critical need for indium recycling, as this element is essential for touchscreens, flat-panel displays, and optoelectronics, yet faces supply constraints due to limited primary resources and increasing demand from electronics manufacturing.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/At_RSPHERE_SynCom.html" class="community-card">
+                <h2>At-RSPHERE SynCom</h2>
+                <p class="description">A synthetic bacterial community derived from the Arabidopsis root microbiota culture collection (At-RSPHERE), representing 16 bacterial families isolated from Arabidopsis thaliana roots grown in natural soil. This community was established to study plant-microbe interactions and their effects on plant productivity and carbon cycling in the rhizosphere. The consortium members were selected to represent a broad taxonomic range covering the major bacterial phyla (Proteobacteria, Actinobacteria, and Bacteroidetes) found in the Arabidopsis root microbiome. Assembly sizes vary from 5-20 members depending on experimental design, enabling reductionist studies of root microbiota assembly and function.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Australian_Lead_Zinc_Polymetallic.html" class="community-card">
+                <h2>Australian Lead Zinc Polymetallic Tailings Consortium</h2>
+                <p class="description">A stratified microbial community from abandoned polymetallic mine tailings in Western Australia, characterized by vertical zonation of acidophilic and anaerobic organisms across steep pH and redox gradients. This system represents a naturally acidifying sulfidic tailings dump where oxidative weathering of Pb-Zn sulfide minerals drives extreme environmental heterogeneity and microhabitat specialization. The upper oxidized layer (pH 1.5-3.0) is dominated by iron- and sulfur-oxidizing acidophiles including Acidithiobacillus ferrooxidans (dual Fe/S oxidation) and Leptospirillum ferriphilum (specialized Fe oxidation), which generate ferric iron and sulfuric acid that mobilize lead, zinc, copper, and iron from sulfide minerals including galena (PbS), sphalerite (ZnS), and chalcopyrite (CuFeS₂). The intermediate chemocline exhibits dramatic pH transitions (pH 3-5) where Ferroplasma acidarmanus thrives in highly acidic microniches while facultative acidophiles transition to neutral conditions. The deeper sediment layer (pH 5-7) harbors anaerobic metal-reducing bacteria including Geobacter metallireducens that reduce ferric iron to ferrous iron using organic carbon, creating redox cycling between oxic and anoxic zones. Metagenome-assembled genomes (MAGs) reveal extensive microhabitat partitioning, with distinct populations specializing in surface oxidation, chemocline transitions, or deep anaerobic processes. Metal concentrations reach toxic levels (Pb: hundreds mg/kg, Zn: thousands mg/kg, Cu: hundreds mg/kg, Fe: up to 30% w/w), selecting for metal-resistant populations. This abandoned tailings system demonstrates natural biogeochemical cycling without active mining, with microbial communities driving ongoing metal mobilization (upper layers) and potential natural attenuation (deeper layers). The MAG-resolved metagenomics approach reveals cryptic microbial diversity including novel acidophilic lineages adapted to polymetallic stress, providing insights into bioremediation strategies and microbial evolution in extreme anthropogenic environments.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">PERTURBED</span>
+                    <span class="badge badge-category">BIOREMEDIATION</span>
+                </div>
+            </a>
+
+            <a href="communities/Bayan_Obo_REE_Tailings_Consortium.html" class="community-card">
+                <h2>Bayan Obo REE Tailings Consortium</h2>
+                <p class="description">An acid-producing bacterial consortium engineered to extract rare earth elements (REE) from tailings at the Bayan Obo mine in Inner Mongolia, China, the world's largest rare earth deposit. This functional bacterial consortium achieves exceptional REE recovery rates of 82-83% for the five main light rare earth elements (La, Ce, Pr, Nd, Sm) after 18 days of bioleaching using one-step or two-step processes. The tailings are iron extraction residues from medium-poor oxidized ores containing bastnaesite (REE(CO₃)F) and monazite as primary REE minerals. The consortium employs acid-producing bacteria including actinomycetes (Streptomyces sp.), autotrophic acidophiles (Acidithiobacillus ferrooxidans), and heterotrophic acidophiles (Acidiphilium cryptum) that work synergistically to mobilize REE through acidolysis and organic acid complexation. Key mechanisms include production of organic acids (citric, oxalic, lactic, pyruvic), siderophores, and complexing ligands that solubilize REE from carbonate-fluoride minerals. The two-step process (sequential inoculation with heterotrophs followed by autotrophs) achieves 83.51% recovery versus 82.78% for one-step (simultaneous inoculation), demonstrating synergistic enhancement through pH control and organic acid accumulation. This system represents a critical sustainable biotechnology for recovering strategic REE materials essential for clean energy technologies, permanent magnets, and electronics while remediating millions of tons of existing Bayan Obo tailings.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Chlamydomonas_Bacterial_H2_Consortium.html" class="community-card">
+                <h2>Chlamydomonas-Bacterial Hydrogen Production Consortium</h2>
+                <p class="description">A synthetic algae-bacteria consortium for sustainable hydrogen production, composed of the green alga Chlamydomonas reinhardtii and three bacterial species: Microbacterium forte sp. nov., Bacillus cereus, and Stenotrophomonas goyi sp. nov. This mutualistic association produces up to 313 mL H2/L over 17 days in high-cell density cultures. M. forte is the primary bacterial species responsible for improving algal hydrogen production, while the complete bacterial community enhances and sustains photobiological H2 generation through metabolic cooperation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">PHYTOPLANKTON</span>
+                </div>
+            </a>
+
+            <a href="communities/Chlamydomonas_Methylobacterium_Mutualism.html" class="community-card">
+                <h2>Chlamydomonas-Methylobacterium Mutualistic Consortium</h2>
+                <p class="description">A two-member mutualistic consortium consisting of the green alga Chlamydomonas reinhardtii and the methylotrophic bacterium Methylobacterium aquaticum, isolated from a freshwater environment. This natural association demonstrates reciprocal metabolic exchange under nitrogen stress conditions, mediated by indole-3-acetic acid (IAA) signaling. The alga provides photosynthetically fixed carbon and oxygen, while Methylobacterium modulates IAA levels through both production and degradation, influencing algal physiology and stress responses. This system serves as a model for understanding algae-bacteria interactions in freshwater ecosystems and potential applications in sustainable algal biotechnology under nutrient limitation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">PHYTOPLANKTON</span>
+                </div>
+            </a>
+
+            <a href="communities/Chlorella_Rhizobium_Bioflocculation.html" class="community-card">
+                <h2>Chlorella-Rhizobium Bioflocculation</h2>
+                <p class="description">A co-culture system pairing the microalgae Chlorella vulgaris with the bioflocculant-producing bacterium Rhizobium radiobacter F2 for enhanced algal harvesting in wastewater treatment applications. The bacterium produces extracellular polysaccharide bioflocculants that induce aggregation and flocculation of algal cells, enabling efficient biomass recovery for biofuel production. This bioflocculation approach avoids the negative effects of traditional chemical flocculants and provides a cost-effective, environmentally friendly method for microalgae harvesting, with flocculation efficiency improving from 0.2% (axenic algae) to >90% with bacterial co-culture.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">PHYTOPLANKTON</span>
+                </div>
+            </a>
+
+            <a href="communities/Chromium_Sulfur_Reduction_Enrichment.html" class="community-card">
+                <h2>Chromium Sulfur Reduction Enrichment</h2>
+                <p class="description">A novel enrichment culture from chromium-contaminated tailings capable of coupled Cr(VI) reduction and sulfur oxidation, representing a dual detoxification mechanism for bioremediation applications. This engineered community is dominated by Intrasporangiaceae sp. (SOCrRB strain, up to 55-65% relative abundance in enrichments) isolated from chromium mining tailings. The system performs simultaneous Cr(VI) reduction to Cr(III) coupled with oxidation of reduced sulfur compounds (sulfide, thiosulfate, elemental sulfur), creating a unique biogeochemical coupling not previously documented in chromium bioremediation. Intrasporangiaceae sp. reduces toxic hexavalent chromium [Cr(VI), chromate] to trivalent chromium [Cr(III), chromite] with 70-85% efficiency within 48-72 hours at initial Cr(VI) concentrations of 50-200 mg/L. Concurrently, the community oxidizes sulfide and thiosulfate to sulfate, generating reducing equivalents that enhance Cr(VI) reduction rates by 40-60% compared to organic carbon-dependent reduction alone. Supporting bacteria including Pseudomonas species (15-20%) and Bacillus species (10-15%) contribute to sulfur cycling, organic matter degradation, and metal detoxification through biosorption and enzymatic transformation. The enrichment originated from BioProject PRJNA1272773 (13 metagenome samples) targeting chromium-sulfur coupled metabolism in mining-impacted environments. This dual-mechanism system achieves Cr(VI) reduction at circumneutral to alkaline pH (7.0-8.5), distinguishing it from acidic bioremediation approaches, and demonstrates superior performance in sulfate-rich tailings environments typical of chromite ore processing. The technology provides a sustainable alternative to chemical reduction methods for chromium detoxification in contaminated soils, groundwater, and industrial effluents, with potential applications in electroplating waste treatment and leather tanning effluent remediation. Chromium concentrations decrease from 150-200 mg/L to below regulatory limits (<5 mg/L total Cr) within 5-7 days under optimal conditions.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">METAL_REDUCTION</span>
+                </div>
+            </a>
+
+            <a href="communities/Chromobacterium_Gold_Biocyanidation.html" class="community-card">
+                <h2>Chromobacterium Gold Biocyanidation Platform</h2>
+                <p class="description">An engineered bioplatform utilizing the purple pigmented bacterium Chromobacterium violaceum for sustainable gold extraction from refractory ores and electronic waste through biological cyanide production (biocyanidation). This system represents an environmentally-friendly alternative to conventional chemical cyanide leaching, producing controlled amounts of biogenic cyanide that complexes gold as soluble Au(CN)₂⁻ while simultaneously metabolizing excess cyanide to prevent environmental toxicity. C. violaceum is a versatile heterotrophic bacterium that produces the purple pigment violacein and synthesizes cyanide through hydrogen cyanide (HCN) biosynthesis pathways. The bacterium is pre-grown in nutrient medium to stationary phase, then activated for cyanide production upon exposure to ground refractory gold ores or electronic scrap (PCBs, connectors). Operating at near-neutral pH (6.5-7.5) and mesophilic temperature (28-32°C), the system achieves gold extraction efficiencies comparable to chemical cyanidation (70-85% recovery) from refractory sulfide ores and precious metal-bearing e-waste. The process requires ore grinding pretreatment to liberate gold particles and operates in aerated bioreactors with glycerol or glucose as carbon source. Biocyanidation kinetics are slower than chemical leaching (7-14 days vs. 24-48 hours) but offer significant advantages: lower cyanide concentrations (50-200 ppm vs. 500-2000 ppm), ambient temperature operation, biological cyanide detoxification, and reduced environmental liability. The platform enables decentralized gold recovery from low-grade ores and artisanal mining operations while avoiding hazardous chemical transport. Gold is recovered from pregnant leach solution by activated carbon adsorption followed by elution and electrowinning or zinc cementation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOTECHNOLOGY</span>
+                </div>
+            </a>
+
+            <a href="communities/Cinnamate_Degradation_Consortium.html" class="community-card">
+                <h2>Cinnamate β-Oxidation Consortium</h2>
+                <p class="description">A syntrophic 3-member anaerobic consortium for degradation of cinnamate via β-oxidation to benzoate, consisting of Papillibacter cinnamivorans, Syntrophus sp., and Methanobacterium formicicum. P. cinnamivorans performs β-oxidation of cinnamate to benzoate, followed by syntrophic benzoate degradation by Syntrophus sp. to acetate, H2, and CO2, with the methanogen consuming H2 to produce methane. This stepwise aromatic compound degradation pathway is important for anaerobic bioremediation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Copper_Biomining_Heap_Leach.html" class="community-card">
+                <h2>Copper Biomining Heap Leach Consortium</h2>
+                <p class="description">An industrial microbial consortium used for commercial copper bioleaching from low-grade sulfide ores in heap leach operations. This acidophilic community oxidizes ferrous iron and reduced sulfur compounds, generating ferric iron (Fe³⁺) and sulfuric acid that solubilize copper from chalcopyrite (CuFeS₂) and other copper sulfide minerals. The consortium demonstrates temporal succession over the 200-300 day leaching cycle, with Acidithiobacillus ferrooxidans dominating early stages (pH >2, low Fe, ~10⁷ copies/ml at 200 days), followed by Leptospirillum ferriphilum and Ferroplasma acidiphilum in aged heaps (pH 1.67-1.83, high Fe³⁺ ~1.9 g/L, ~10⁵ copies/ml at >250 days). Acidithiobacillus thiooxidans maintains constant sulfur oxidation activity (10⁵ copies/ml) throughout the cycle. Sulfobacillus species contribute at low abundance (10³-10⁴ copies/ml) with increased activity in older heaps. The community operates at pH 1.5-2.5, temperatures 20-60°C depending on thermophilic strains, and produces the Fe³⁺ oxidant critical for copper dissolution (reaching 1.86-1.9 g/L Fe³⁺). This biohydrometallurgical process extracts copper from ores uneconomical for conventional smelting, with industrial operations achieving commercial-scale metal recovery through percolation of acidic leach solutions through heaps of crushed ore.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Coscinodiscus_Synthetic_Community.html" class="community-card">
+                <h2>Coscinodiscus Synthetic Community</h2>
+                <p class="description">A synthetic marine phytoplankton community consisting of the large centric diatom Coscinodiscus radiatus and four phylogenetically distinct bacterial isolates from different marine bacterial lineages. This model system was established to examine species-specific diatom-bacteria interactions and community dynamics. The bacteria include two Roseobacteraceae members (Mameliella CS4 and Roseovarius Rose1), a gammaproteobacterium (Marinobacter CS1), and a Flavobacterium (Croceibacter Crocei1). The consortium demonstrates context-dependent bacterial effects on diatom growth that vary with algal fitness state, growth phase, and community composition, with no universal algicidal or growth-promoting bacteria observed. This system is relevant to understanding carbon cycling and primary production in marine ecosystems.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">PHYTOPLANKTON</span>
+                </div>
+            </a>
+
+            <a href="communities/DVM_Triculture.html" class="community-card">
+                <h2>DVM Tri-culture</h2>
+                <p class="description">A three-member synthetic consortium consisting of Desulfovibrio vulgaris (Dv), Methanococcus maripaludis (Mm), and Methanosarcina barkeri (Mb) that converts lactate to methane under varying sulfate conditions. D. vulgaris oxidizes lactate to acetate, CO2, and H2. Both methanogens (Mm and Mb) can consume the H2 produced by Dv, with Mm being a hydrogenotrophic methanogen and Mb capable of using both H2-CO2 and acetate for methanogenesis. The community demonstrates differential responses to geochemical gradients, particularly sulfate availability. In the absence of sulfate, all three species co-exist and methane production increases by almost 100% compared to Dv-Mm co-cultures. However, increasing sulfate levels shift community dynamics as Dv preferentially uses sulfate as an electron acceptor, creating competitive situations for both methanogens. This system provides insights into how geochemical gradients (particularly sulfate) regulate microbial interactions and methane production in anaerobic environments.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">METHANOGENESIS</span>
+                </div>
+            </a>
+
+            <a href="communities/Dangl_SynComm_35.html" class="community-card">
+                <h2>Jeff Dangl's SynComm 35</h2>
+                <p class="description">A 35-member synthetic community (SynComm 35) composed of genome-sequenced bacterial strains representing typical taxonomic diversity of Arabidopsis root commensals. This community was designed to interrogate plant immune responses, particularly pattern-triggered immunity (PTI/MTI). Of the 35 members, 10 are robust suppressors of MAMP-triggered immunity (flg22 response), 13 are partial suppressors, and 11 are non-suppressors. The community includes 32 strains isolated from Brassicaceae roots (mainly Arabidopsis), 2 strains from unplanted soil, and E. coli DH5α as a control. SynComm 35 collectively suppresses specific transcriptional sectors of plant immunity, particularly WRKY transcription factors, receptor-like kinases, and secondary metabolite biosynthesis genes, while suppressors achieve enhanced colonization capacity.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Desulfovibrio_Methanococcus_Syntrophy.html" class="community-card">
+                <h2>Desulfovibrio-Methanococcus Syntrophic Consortium</h2>
+                <p class="description">A syntrophic, obligate two-member anaerobic consortium consisting of Desulfovibrio vulgaris Hildenborough, which oxidizes lactate to acetate, H2, and CO2 in the absence of sulfate, and Methanococcus maripaludis S2, a hydrogenotrophic methanogen. D. vulgaris can reduce sulfate when available, but in sulfate-free environments it must grow syntrophically by coupling lactate oxidation to interspecies hydrogen transfer. M. maripaludis consumes the H2 and CO2 produced by D. vulgaris to produce methane, maintaining the low H2 partial pressure thermodynamically required for continued lactate oxidation. This syntrophic relationship is fundamental to understanding microbial metabolism in sulfate-depleted anaerobic environments and represents a classic model system for studying syntrophic electron transfer mechanisms.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Ewaste_Bioleaching_Consortium.html" class="community-card">
+                <h2>E-waste Bioleaching Consortium</h2>
+                <p class="description">An engineered acidophilic microbial consortium adapted for recovering valuable metals from electronic waste, particularly printed circuit boards (PCBs). This consortium consists primarily of iron-oxidizing bacteria dominated by Leptospirillum ferriphilum with Sulfobacillus benefaciens, Acidithiobacillus ferrooxidans, and Acidithiobacillus thiooxidans contributing to metal solubilization. The community operates at extremely low pH (1.2 ± 0.1) and moderate temperature (35°C), oxidizing ferrous iron to generate ferric iron (Fe³⁺) that dissolves base metals (copper, zinc, nickel) and mobilizes precious metals (gold, silver, palladium) from PCB components. Metal recovery is exceptional: 100% copper dissolution (2.6-4.2 g/L), 100% zinc (303-543 mg/L), and 70% nickel (30-52 mg/L). However, PCB materials are toxic to the consortium, delaying the pre-oxidation phase from 11 days at 1% PCB load to 18 days at 2% load, with no growth above 8% PCB. Successive subculturing adapts the consortium to PCB toxicity, reducing lag phase by 2.6-fold. This biotechnological approach offers an environmentally-friendly alternative to pyrometallurgical e-waste processing (smelting), avoiding toxic emissions while recovering critical materials including copper for electrical applications and precious metals for electronics manufacturing. The two-step process may include subsequent cyanide-producing heterotrophs (Pseudomonas fluorescens, P. putida) for enhanced gold and silver extraction.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Ferroplasma_Leptospirillum_Syntrophy.html" class="community-card">
+                <h2>Ferroplasma-Leptospirillum Iron-Cycling Syntrophy</h2>
+                <p class="description">A synergistic two-member consortium consisting of the cell wall-lacking archaeon Ferroplasma acidiphilum and the iron-oxidizing bacterium Leptospirillum ferriphilum, found in extremely acidic, metal-rich environments including acid mine drainage and biomining operations. This partnership demonstrates mutualistic metabolic cooperation where both organisms oxidize ferrous iron but occupy complementary ecological niches. Ferroplasma grows chemomixotrophically, oxidizing Fe²⁺ while consuming organic matter secreted by Leptospirillum, thereby maintaining low organic compound concentrations that would otherwise inhibit Leptospirillum through toxic effects. In return, Leptospirillum provides organic carbon that Ferroplasma requires for mixotrophic growth. Recent transcriptomic studies show F. acidiphilum upregulates energy and stress resistance genes in L. ferriphilum under organic matter stress. The co-culture outperforms pure cultures in chalcopyrite and pyrite bioleaching, achieving 31.5% higher copper extraction and 31.7% higher ferric iron generation compared to monocultures under yeast extract stress (0.5 g/L). Cell growth is favorably affected by filtered medium from the partner organism, confirming synergistic interaction. This archaeal-bacterial partnership thrives at extremely low pH (pH <2), temperatures 30-50°C, and high metal concentrations, representing a model system for understanding cross-domain syntrophy in extreme environments. The consortium plays major roles in biogeochemical cycling of sulfur and sulfide metals in highly acidic habitats.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/GOM_Oil_Degrading_Consortium.html" class="community-card">
+                <h2>Gulf of Mexico Oil-Degrading Consortium</h2>
+                <p class="description">A marine bacterial consortium from the Gulf of Mexico designed for bioremediation of oil-contaminated seawater. The consortium consists of four bacteria: Pseudomonas sp., Halopseudomonas aestusnigri GOM5, Paenarthrobacter sp. GOM3, and Alcanivorax sp. Together, they achieve 62% oil removal over 75 days, degrading both n-alkanes and 12 polyaromatic hydrocarbons (PAHs) including fluorene, dibenzothiophene, phenanthrenes, and pyrene. The consortium exhibits stable population dynamics with distributed metabolic loads across members.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">BIOREMEDIATION</span>
+                </div>
+            </a>
+
+            <a href="communities/Geobacter_Clostridium_DIET.html" class="community-card">
+                <h2>Geobacter-Clostridium DIET Community</h2>
+                <p class="description">A syntrophic two-member consortium consisting of Geobacter sulfurreducens and Clostridium pasteurianum that performs direct interspecies electron transfer (DIET) during glycerol fermentation. G. sulfurreducens acts as an exoelectrogen, oxidizing acetate and transferring electrons directly to C. pasteurianum via electrically conductive pili (nanowires). These electron transfers induce a metabolic shift in C. pasteurianum's glycerol fermentation pathway, redirecting carbon flux away from ethanol and butanol production toward increased 1,3-propanediol (PDO) and butyrate production. This represents a unique application of DIET where electron transfer serves not to drive methanogenesis but to modulate fermentation pathways, achieving a 37% increase in 1,3-propanediol and 38% increase in butyrate production. The bacteria establish physical contact through nanowires, enabling electron exchange without relying on diffusible hydrogen or formate carriers. This coculture demonstrates how controlled interspecies electron transfer can be exploited to optimize production of industrially relevant metabolites like 1,3-propanediol.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">DIET</span>
+                </div>
+            </a>
+
+            <a href="communities/Geobacter_Methanosaeta_DIET.html" class="community-card">
+                <h2>Geobacter-Methanosaeta DIET Community</h2>
+                <p class="description">A syntrophic two-member consortium consisting of Geobacter metallireducens and Methanosaeta harundinacea that performs direct interspecies electron transfer (DIET) during ethanol oxidation. G. metallireducens oxidizes ethanol and transfers electrons directly to M. harundinacea via electrically conductive pili and aggregates, bypassing the need for diffusible electron carriers like H2 or formate. M. harundinacea uses these electrons to reduce CO2 to methane. This coculture forms conductive aggregates and achieves stoichiometric conversion of ethanol to methane via DIET. Unlike hydrogen-mediated syntrophy, DIET relies on biological electrical connections between cells, with conductive aggregates serving as conduits for long-range electron transfer. M. harundinacea is an obligate acetoclastic methanogen that can also accept electrons via DIET for CO2 reduction, making it unique among acetoclastic methanogens in supporting direct electron transfer mechanisms.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">DIET</span>
+                </div>
+            </a>
+
+            <a href="communities/Geobacter_Methanosarcina_DIET.html" class="community-card">
+                <h2>Geobacter-Methanosarcina DIET Community</h2>
+                <p class="description">A syntrophic two-member consortium consisting of Geobacter metallireducens and Methanosarcina barkeri that performs direct interspecies electron transfer (DIET) during ethanol oxidation. G. metallireducens oxidizes ethanol and transfers electrons directly to M. barkeri via electrically conductive pili (e-pili), bypassing the need for diffusible electron carriers like H2 or formate. M. barkeri uses these electrons to reduce CO2 to methane. This coculture forms aggregates and achieves stoichiometric conversion of ethanol to methane via DIET. Unlike hydrogen-mediated syntrophy, DIET relies on biological electrical connections between cells, with pili serving as conduits for long-range electron transfer. M. barkeri is unique as a methanogen capable of using either H2 or electrons from DIET for CO2 reduction, making it a model organism for studying electrical connections in microbial communities.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">DIET</span>
+                </div>
+            </a>
+
+            <a href="communities/Iberian_Pit_Lake_Stratified_Community.html" class="community-card">
+                <h2>Iberian Pit Lake Stratified Community</h2>
+                <p class="description">A permanently stratified (meromictic) acidic pit lake community from the Iberian Pyrite Belt in southwestern Spain/Portugal, distinguished by dramatic vertical metabolic zonation and subsurface anaerobic processes in an extreme acid mine drainage environment. The pit lake ecosystem exhibits three distinct layers: an upper oxic mixolimnion (pH 2.2-3.1, 0-3m depth), a chemocline transition zone (11m), and an anoxic monimolimnion (pH 3.0-4.5, 35m depth). The upper layer is dominated by acidophilic green algae (Coccomyxa onubensis) and heterotrophic bacteria (Acidiphilium), while the chemocline hosts intense sulfate reduction and iron cycling by specialized Proteobacteria (Desulfomonile, Candidatus Acidulodesulfobacterium). The deep anoxic layer harbors archaeal heterotrophs (Thermoplasmatales, 46% of sequences) that scavenge organic carbon and perform sulfide oxidation using trace oxygen, along with iron-reducing bacteria (Geobacter) and subsurface methanogens (Methanobrevibacter, Methanospirillum). The permanent stratification creates steep geochemical gradients with iron concentrations increasing from 2 mM Fe³⁺ in surface waters to 113 mM Fe²⁺ at depth, sulfate ranging from 26-126 mM, and oxygen transitioning from oxic to completely anoxic conditions. This system represents a natural laboratory for studying coupled aerobic-anaerobic metabolism, metal cycling, biosulfidogenesis, and subsurface methanogenesis under polyextreme conditions (acidity, metals, anoxia). The Iberian Pyrite Belt pit lakes demonstrate how microbial stratification can support complex biogeochemical cycling and potential natural attenuation of toxic metals through sulfide precipitation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/Industrial_Bioreactor_Consortium.html" class="community-card">
+                <h2>Industrial Bioleaching Reactor Consortium</h2>
+                <p class="description">An industrial-scale moderately thermophilic acidophilic microbial consortium operating in continuous and batch bioreactors for metal extraction from sulfide ores and concentrates. This consortium represents a unique system with complete genomic characterization of six key organisms: Acidiplasma sp., Acidithiobacillus caldus, Cuniculiplasma divulgatum, Ferroplasma acidiphilum, Ferroplasma sp., and Thermoplasmatales archaeon. The community operates at moderate thermophilic temperatures (40-50°C) and extremely low pH (1.5-2.0), oxidizing ferrous iron and reduced sulfur compounds to generate ferric iron (Fe³⁺) and sulfuric acid for dissolving chalcopyrite (CuFeS₂) and other metal sulfides. Comparative analysis across batch versus continuous reactor modes reveals distinct population dynamics, with Acidithiobacillus caldus dominating early stages (up to 60% at pH >2), Sulfobacillus benefaciens in mid-stages (62-66%), and Ferroplasma thermophilum in late stages (66% under acidic, metal-rich conditions). The adapted consortium achieves exceptional copper extraction of 60.4% from 20% pulp density chalcopyrite concentrate in 25 days, producing 22.90 g/L dissolved copper. Operating under controlled carbon sources (CO₂, molasses) and temperature gradients (40-50°C), this system demonstrates how operational parameters shape microbial community structure and metal recovery efficiency. The availability of six complete reference genomes (PRJNA976529) enables genomic-level investigation of biooxidation mechanisms, making this the most comprehensively characterized industrial bioleaching consortium for biotechnological applications in extractive metallurgy.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Ion_Adsorption_REE_Indigenous_Community.html" class="community-card">
+                <h2>Ion-Adsorption REE Indigenous Community</h2>
+                <p class="description">A highly diverse indigenous microbial community in ion-adsorption rare earth element (REE) deposits in weathering profiles of South China, demonstrating remarkable selectivity for heavy rare earth elements (HREE) through bacterial teichoic acid binding. This natural community comprises over 700 genera spanning bacterial (84.2% dominated by Proteobacteria 46.9%, Acidobacteria 14.6%, Actinobacteria 9.0%, Firmicutes 6.3%) and fungal (Ascomycota 47.8%, Basidiomycota 40.4%) lineages distributed through weathering profiles up to 40 meters depth. The community exhibits unique HREE vs LREE fractionation capability, with Gram-positive bacteria (Bacillus, Micrococcus) preferentially adsorbing HREE (82-85% efficiency) compared to LREE (70-78%), driven by teichoic acids in cell walls that provide selective phosphate binding sites for heavier lanthanides. Removal of teichoic acids reduces REE adsorption from 65.5% to 17.8%, confirming their critical role. The community accelerates REE mineralization in supergene weathering environments through bioweathering of granite, dissolution of REE-bearing minerals, and biosorption-mediated HREE enrichment. Ion-adsorption deposits represent the world's main source of strategically critical HREE (Dy, Y, Tb, Eu) used in permanent magnets and phosphors, with over 40 deposit sites in South China. The indigenous microbial community functions across pH gradients (4.3-7.0), exhibits oligotrophic K-strategist adaptations (Acidobacteria), and demonstrates co-localization of ytterbium with phosphate-rich cell walls. This natural HREE fractionation system offers a sustainable model for selective REE recovery and explains the geological genesis of commercially valuable HREE-enriched clay deposits.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">BIOTECHNOLOGY</span>
+                </div>
+            </a>
+
+            <a href="communities/Lotus_LjSC3.html" class="community-card">
+                <h2>Lotus Lj-SC3 Synthetic Community</h2>
+                <p class="description">A 16-member synthetic community (Lj-SC3) derived from Lotus japonicus roots and nodules, designed to study host preference and community assembly dynamics in legume-microbe interactions. The community represents bacterial families from the Lj-SPHERE culture collection, including nitrogen-fixing symbionts from Rhizobiaceae and Phyllobacteriaceae families, as well as commensal bacteria from Burkholderiaceae, Oxalobacteriaceae, Pseudomonadaceae, and Microbacteriaceae. This community exhibits host preference when co-inoculated with Arabidopsis-derived strains, preferentially colonizing Lotus roots in a community context. The SC3 community enables investigation of nitrogen fixation, nodulation, priority effects during microbiota assembly, and bacterial invasiveness in the rhizosphere.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/MAMC_M48_Lignocellulose.html" class="community-card">
+                <h2>MAMC-M48 Lignocellulose-Degrading Consortium</h2>
+                <p class="description">A minimal active microbial consortium (MAMC-M48) for lignocellulose degradation, optimized through reductive screening from 18 candidate strains. The 5-member consortium consists of Stenotrophomonas maltophilia JN40, Paenibacillus sp. PALXIL05, Microbacterium sp. UYFA68, Chryseobacterium taiwanense DUCC3723, and Brevundimonas sp. R3. Enriched from soil bacteria on sugarcane waste, this synthetic community achieves 50.6% degradation of all lignocellulose fractions, reaching 96.5% of the degradation rate observed with the full 18-species pool, demonstrating high efficiency with minimal complexity.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">LIGNOCELLULOSE</span>
+                </div>
+            </a>
+
+            <a href="communities/MSC1_Dominant_Core.html" class="community-card">
+                <h2>MSC-1 Dominant Core</h2>
+                <p class="description">A naturally evolved dominant core subset of the Model Soil Consortium-1 (MSC-1) containing 13 bacterial species from arid grassland soil. This stable consortium was enriched through serial dilution and passaging on chitin as the primary carbon source. The core members include representatives from Actinobacteria, Bacteroidetes, and Proteobacteria, with key species including Rhodococcus sp., Dyadobacter sp., Taibaiella sp., Bosea sp., and Streptomyces sp. The consortium exhibits cooperative chitin degradation and nitrogen mineralization functions essential for soil carbon and nitrogen cycling.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">BIOREMEDIATION</span>
+                </div>
+            </a>
+
+            <a href="communities/Maize_Root_Simplified_Community.html" class="community-card">
+                <h2>Maize Root Simplified Bacterial Community</h2>
+                <p class="description">A representative 7-member bacterial community from maize rhizosphere, developed through selective iterations to model root-associated microbiome function. The community consists of Enterobacter cloacae AA4, Stenotrophomonas maltophilia AA1, Ochrobactrum pituitosum AA2, Herbaspirillum frisingense, Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes. This simplified community reproducibly assembles on root surfaces and provides biocontrol against Fusarium verticillioides, a phytopathogenic fungus. E. cloacae AA4 plays a keystone role, as its removal causes dramatic community composition changes.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Methylobacterium_REE_Ewaste_Platform.html" class="community-card">
+                <h2>Methylobacterium REE E-waste Platform</h2>
+                <p class="description">An engineered monoculture bioplatform based on the mesophilic methylotrophic bacterium Methylobacterium extorquens AM1 for sustainable recovery of rare earth elements (REE) from electronic waste. This system represents a paradigm shift in critical materials recovery through non-acidic, green bioprocessing that eliminates the harsh chemical leaching typical of conventional REE extraction. M. extorquens naturally accumulates REE in intracellular polyphosphate granules during methanol metabolism, achieving baseline bioaccumulation of 3.2 mg Nd/g dry cell weight. Through metabolic engineering—overexpression of lanthanophore biosynthesis genes (mll operon under lac promoter control) and deletion of exopolyphosphatase (ppx)—REE bioaccumulation was enhanced to 202 mg Nd/g DCW (63-fold improvement), representing one of the highest microbial REE loading capacities reported. The platform achieves remarkable selectivity with 98% of accumulated metal being REE and 96.8% of that being neodymium, critical for permanent magnet recycling. The system operates at near-neutral pH (6.9), mesophilic temperature (29-30°C), and scales to 10-liter bioreactors with controlled organic acid supplementation (5-15 mM citrate). After bioleaching with citrate, 58.7 ppm REE are mobilized from electronic waste (magnet swarf), followed by cellular bioaccumulation and recovery. This consolidated platform integrates leaching, bioaccumulation, and recovery in a single organism, offering environmental advantages over acidic chemical processing while addressing circular economy needs for critical materials in clean energy technologies.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Mixed_Gallium_LED_Recovery_Consortium.html" class="community-card">
+                <h2>Mixed Gallium LED Recovery Consortium</h2>
+                <p class="description">An engineered acidophilic microbial consortium specifically designed for recovering gallium from waste light-emitting diodes (LEDs) through non-contact bioleaching. This mixed community consists of three iron- and sulfur-oxidizing bacteria in equal proportions (1:1:1 ratio): Acidithiobacillus thiooxidans, Acidithiobacillus ferrooxidans, and Leptospirillum ferrooxidans. The consortium produces biogenic lixiviants - primarily sulfuric acid (H₂SO₄) from sulfur oxidation and ferric iron (Fe³⁺) from iron oxidation - that solubilize gallium from GaN-based LED materials without direct contact between microbes and solid waste. Operating at pH 1.0-1.5 and 15 g/L pulp density, the system achieves exceptional 99.5% gallium leaching efficiency within just 3 days. The non-contact bioleaching approach separates the bioreactor (where microbes generate lixiviants) from the leaching reactor (where acids attack LED waste), preventing microbial inhibition by toxic LED components while enabling gallium recovery. In addition to gallium, the process recovers copper and nickel from LED substrates and interconnects. This biotechnological platform offers a sustainable alternative to harsh chemical leaching methods, utilizing microbial metabolism to extract critical materials from electronic waste while avoiding toxic emissions and reducing environmental impact.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Naica_Deep_Subsurface_Thermophilic.html" class="community-card">
+                <h2>Naica Deep Subsurface Thermophilic Community</h2>
+                <p class="description">A deep subsurface thermophilic microbial community from the Naica Mine crystal cave system in Chihuahua, Mexico, representing one of Earth's most extreme oligotrophic deep biosphere habitats. This community thrives in hydrothermal waters at 700-760 m depth with temperatures of 54-60°C, extremely low nutrient availability, and isolation from surface inputs. The prokaryotic community is dominated by chemolithoautotrophic archaea, particularly basal Thaumarchaeota (performing ammonia oxidation) and environmental Thermoplasmatales lineages (Euryarchaeota), with bacterial diversity limited to Candidate Division OP3, Firmicutes, and Alpha/Beta-proteobacteria. High GC content of archaeal and OP3 16S rRNA genes confirms thermophilic adaptation to 50-70°C. Genes encoding archaeal ammonia monooxygenase (amoA) demonstrate that Naica Thaumarchaeota are thermophilic chemolithoautotrophic nitrifiers adapted to extreme energy limitation. The system exhibits astrobiology significance as an analog for subsurface life on Mars and icy moons, with fluid inclusions in giant gypsum crystals potentially harboring ancient microbes for up to 50,000-60,000 years. The absence of detectable eukaryotes reflects the extreme oligotrophy and thermal stress. This natural deep biosphere community provides insights into minimal energy requirements for life, thermophilic adaptation, and survival strategies in isolated subsurface aquifers with extremely limited carbon and nitrogen availability.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">EXTREME_ENVIRONMENT</span>
+                </div>
+            </a>
+
+            <a href="communities/Okeke_Lu_Cellulolytic_Consortium.html" class="community-card">
+                <h2>Okeke-Lu Cellulolytic-Xylanolytic Consortium</h2>
+                <p class="description">A defined 5-member bacterial consortium from Alabama soil capable of dual cellulose and hemicellulose degradation. The consortium consists of Pseudoxanthomonas byssovorax DB1, Microbacterium oxydans DB2, Bacillus sp. DB7, Ochrobactrum sp. DB8, and Klebsiella sp. DB13. Isolates DB1 and DB2 display the highest cellulase activity (27.83 and 31.22 U/mg), producing a complete enzyme system including filter paper cellulase, β-glucosidase, xylanase, and β-xylosidase for comprehensive lignocellulose bioprocessing.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">LIGNOCELLULOSE</span>
+                </div>
+            </a>
+
+            <a href="communities/PGM_Spent_Catalyst_Bioleaching.html" class="community-card">
+                <h2>PGM Spent Catalyst Bioleaching Consortium</h2>
+                <p class="description">An engineered acidophilic microbial consortium designed for sustainable recovery of platinum group metals (PGMs) from spent automotive catalysts and hydroprocessing catalysts. This bioleaching system employs a two-stage mechanism combining Acidithiobacillus thiooxidans for alumina support dissolution with biogenic thiosulfate producers for PGM complexation and mobilization. Spent three-way catalysts (TWC) from automotive exhaust systems contain precious metals (Pt, Pd, Rh) deposited on alumina (Al₂O₃) supports, while spent petroleum refinery hydroprocessing catalysts contain Pd, Ni, Mo, and Al. The consortium operates under acidic conditions in column bioreactors, achieving exceptional recovery rates: 93.2% Pd extraction, 82.9% Ni, 33.4% Al, and 22.7% Mo from spent petroleum catalysts. The bioleaching mechanism proceeds in two stages: (1) At. thiooxidans generates sulfuric acid that dissolves the alumina support matrix, exposing embedded PGM particles, and (2) biogenic thiosulfate (S₂O₃²⁻) produced during sulfur oxidation forms stable complexes with Pd and other PGMs in the presence of copper and ammonia, mobilizing them from the catalyst surface. The thiosulfate-copper-ammonia system enables selective PGM leaching without harsh cyanide reagents. This biotechnological approach offers an environmentally sustainable alternative to conventional pyrometallurgical PGM recovery (high-temperature smelting) and aggressive chemical leaching (aqua regia, cyanide), while addressing circular economy needs for critical materials recovery from automotive and industrial waste streams. The technology represents a significant advance in green metallurgy for spent catalyst recycling.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Panzhihua_Vanadium_Titanium_Tailings.html" class="community-card">
+                <h2>Panzhihua Vanadium Titanium Tailings Community</h2>
+                <p class="description">A perturbed indigenous microbial community from vanadium-titanium magnetite mine tailings in Panzhihua, Sichuan, China, the world's largest V-Ti magnetite deposit and largest vanadium production city. This community comprises nitrogen-fixing rhizobia (Bradyrhizobium pachyrhizi, Rhizobium species), metal-reducing bacteria, and indigenous microbiota that facilitate phytoremediation of polymetallic tailings containing vanadium (340 mg/kg), titanium, iron, copper, nickel, manganese, and zinc. The Panzhihua deposit has generated approximately 570 million tons of tailing slurries from mining activities, creating a massive contamination challenge requiring sustainable bioremediation. The indigenous microbial community has adapted to extreme metal stress through nitrogen fixation coupled with plant growth promotion, enabling successful legume-based phytoremediation with Pongamia pinnata and Leucaena leucocephala. Bradyrhizobium species demonstrate exceptional heavy metal tolerance while maintaining nitrogen-fixing capacity (increasing plant nitrogen content by 10-145%), promoting plant growth through IAA production, and facilitating metal phytoextraction (enhancing Cu and Ni uptake by 600%). Metal-reducing bacteria contribute to vanadium detoxification through dissimilatory V(V) reduction to less soluble V(IV), decreasing vanadium bioavailability and mobilization risk. The community drives transformation of soil organic carbon, increasing active carbon components and carbon transformation enzymes during revegetation, improving overall tailings soil quality. This system represents a critical model for coupling nitrogen fixation, metal tolerance, and phytoremediation in polymetallic mine tailings, addressing both resource recovery and environmental remediation challenges in the world's largest vanadium-titanium deposit.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">PERTURBED</span>
+                    <span class="badge badge-category">BIOREMEDIATION</span>
+                </div>
+            </a>
+
+            <a href="communities/Pelotomaculum_Methanothermobacter_Syntrophy.html" class="community-card">
+                <h2>Pelotomaculum-Methanothermobacter Syntrophic Consortium</h2>
+                <p class="description">A thermophilic syntrophic, obligate two-member anaerobic consortium consisting of Pelotomaculum thermopropionicum, which oxidizes propionate and other organic acids (ethanol, lactate, alcohols) to acetate, CO2, and H2, and Methanothermobacter thermautotrophicus, a hydrogen-utilizing thermophilic methanogen. P. thermopropionicum oxidizes propionate only in coculture with H2-using methanogens, as it uses protons as the electron acceptor with H2 as the electron sink product. The removal of H2 by M. thermautotrophicus is thermodynamically essential for continued propionate oxidation by P. thermopropionicum. This thermophilic syntrophic relationship is fundamental to understanding propionate degradation and methane production at elevated temperatures (55°C) in anaerobic environments such as thermophilic digesters and hot springs.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Phenol_Carboxylation_Consortium.html" class="community-card">
+                <h2>Phenol Carboxylation Consortium</h2>
+                <p class="description">An obligate syntrophic 4-member consortium for anaerobic degradation of phenol via carboxylation to benzoate. The consortium consists of a short motile rod, a long non-motile rod, Desulfovibrio sp., and Methanospirillum sp. (methanogen). Under methanogenic conditions (N2/CO2), phenol is carboxylated to benzoate, which is then degraded to acetate, CH4, and CO2. The three bacterial types exhibit obligate syntrophic interdependence with the methanogen for complete aromatic pollutant mineralization.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Phormidium_Alkaline_Consortium.html" class="community-card">
+                <h2>Phormidium Alkaline Consortium</h2>
+                <p class="description">A natural cyanobacterial-heterotrophic consortium dominated by Candidatus Phormidium alkaliphilum, isolated from soda lakes. This consortium represents a robust, stable community optimized for carbon sequestration in high-pH environments (pH >11). The community includes 8-12 core members with 29 identified heterotrophic metagenome-assembled genomes spanning Bacteroidota, Alphaproteobacteria, Gammaproteobacteria, Verrucomicrobiota, Patescibacteria, and Planctomycetota. The consortium demonstrated exceptional stability with 4 years of crash-free growth in laboratory culture, maintaining biomass productivity of 15.2 g/m²/day. Ecological interactions include carbon transfer from cyanobacteria to heterotrophs, nutrient remineralization, vitamin provision (B12, B1, B7), and functional niche partitioning that enhances community robustness. The consortium enables direct CO2 capture from air at alkaline pH, making it highly relevant for biotechnological carbon sequestration applications. Stable isotope probing with ¹³C-bicarbonate revealed tight coupling of carbon flux from primary production to heterotrophic populations, particularly Wenzhouxiangella species.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">CARBON_SEQUESTRATION</span>
+                </div>
+            </a>
+
+            <a href="communities/Polaromonas_Vanadium_Reduction_Community.html" class="community-card">
+                <h2>Polaromonas Vanadium Reduction Community</h2>
+                <p class="description">A microbial community from vanadium mine tailings in northern China capable of reducing toxic soluble vanadate [V(V)] to less soluble vanadyl [V(IV)], facilitating vanadium detoxification and immobilization. This community is dominated by Polaromonas species (Burkholderiaceae family, up to 46% relative abundance in tailings) that perform dissimilatory V(V) reduction using genes homologous to iron and metal reduction pathways (cymA, omcA, narG). The tailings harbor diverse metal-reducing bacteria including sulfate reducers (Desulfovibrio, Desulfitobacterium) and iron-reducing Proteobacteria (Geobacter-related organisms) that contribute to reductive immobilization of vanadium and co-occurring metals. V(V) reduction to V(IV) decreases vanadium solubility by 2-3 orders of magnitude, transforming mobile vanadate into sparingly soluble vanadyl species and V(IV)-containing minerals. The community is enriched from highly contaminated mine tailings with total vanadium concentrations reaching 10,500 mg/kg and bioavailable V(V) at 15-25 mg/L in pore water. Under anaerobic conditions with electron donors (lactate, acetate, hydrogen), the community achieves 60-85% V(V) reduction within 7-14 days. Genes encoding c-type cytochromes (cymA, omcA), nitrate reductases (narG, napA), and arsenate reductases (arrA) mediate V(V) reduction through outer membrane electron transfer pathways. This represents the first demonstration of microbial V(V) reduction in circumneutral pH mine tailings, providing a biological approach for vanadium immobilization and mine remediation. The system is particularly relevant for emerging vanadium contamination from steel production, petroleum processing, and vanadium redox flow battery manufacturing.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">PERTURBED</span>
+                    <span class="badge badge-category">OTHER</span>
+                </div>
+            </a>
+
+            <a href="communities/Pseudonitzschia_Sulfitobacter_Association.html" class="community-card">
+                <h2>Pseudo-nitzschia-Sulfitobacter Marine Association</h2>
+                <p class="description">A mutualistic marine diatom-bacteria association between Pseudo-nitzschia multiseries and Sulfitobacter sp. SA11, mediated by auxin and tryptophan signaling. The diatom produces tryptophan and taurine, which the bacterium uses to synthesize indole-3-acetic acid (IAA) auxin that promotes diatom growth. The bacterium also secretes ammonia as a nitrogen source. This interaction is widespread in ocean ecosystems and plays a significant role in carbon cycling and primary production.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">PHYTOPLANKTON</span>
+                </div>
+            </a>
+
+            <a href="communities/Rammelsberg_Cobalt_Nickel_Tailings.html" class="community-card">
+                <h2>Rammelsberg Cobalt-Nickel Tailings Consortium</h2>
+                <p class="description">A mesophilic acidophilic bacterial consortium applied to bioleach cobalt, copper, and other valuable metals from sulfidic mine tailings at the Rammelsberg polymetallic massive sulfide deposit in the Harz Mountains, Germany. This consortium represents one of the only industrial-scale cobalt bioleaching processes globally and demonstrates exceptional efficiency in recovering critical battery materials from low-grade mine tailings. The adapted microbial community consists mainly of Acidithiobacillus ferrooxidans (iron-oxidizing) and Acidithiobacillus thiooxidans (sulfur-oxidizing), achieving 91% cobalt and 57% copper extraction from bulk tailings (Co 0.02%, Cu 0.12%) after 13 days in stirred tank reactors at 10% pulp density. The consortium exhibits synergistic cooperation between iron and sulfur oxidizers, where iron oxidation by At. ferrooxidans generates ferric iron that chemically oxidizes sulfide minerals, while sulfur oxidation by At. thiooxidans prevents elemental sulfur passivation and maintains low pH through sulfuric acid production. Mineralogical analysis revealed that cobalt occurs on the surface of framboidal pyrite and is mobilized through microbial attack. This system demonstrates the biotechnological potential for recovering critical materials (cobalt, copper, nickel) from mine waste through environmentally sustainable bioprocessing, addressing both resource recovery and mine tailings remediation challenges relevant to the circular economy and battery supply chains.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Richmond_Mine_AMD_Biofilm.html" class="community-card">
+                <h2>Richmond Mine AMD Biofilm</h2>
+                <p class="description">A thick, subaerial biofilm community from the Richmond Mine at Iron Mountain, California, representing one of the most extreme acid mine drainage (AMD) environments on Earth. This predominantly lithotrophic biofilm thrives at extraordinarily low pH (0.5-1.0) with temperatures ranging from 30-50°C and metal ion concentrations in the decagrams per liter range. The community is dominated by iron-oxidizing bacteria (Leptospirillum spp.) and archaea (Ferroplasma acidarmanus) that drive pyrite dissolution through ferric iron generation. Leptospirillum group II comprises 71% of detected clones, with Ferroplasma reaching up to 85% of cells in highly acidic microniches. The biofilm also contains nitrogen-fixing Leptospirillum group III (L. ferrodiazotrophum), making it a keystone species in this nitrogen-limited ecosystem. Ultra-small ARMAN archaea (Micrarchaeota and Parvarchaeota) with genome sizes ~1 Mb represent novel lineages found at 5-25% relative abundance. The community oxidizes approximately 1-2 × 10⁵ moles of pyrite per day, generating extreme acidity and solubilizing metals including iron (up to 24 g/L), zinc (several g/L), and copper (hundreds mg/L). This natural biofilm serves as a model system for understanding microbial life at pH extremes and has implications for biomining, bioremediation, and astrobiology.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/Rifle_Uranium_Reducing_Community.html" class="community-card">
+                <h2>Rifle Uranium-Reducing Community</h2>
+                <p class="description">A microbial community stimulated for in situ bioremediation of uranium-contaminated groundwater at the Old Rifle site in Rifle, Colorado. This aquifer community demonstrates sequential reduction processes following acetate biostimulation at 1-3 mM concentrations. The community transitions through distinct metabolic phases: Phase I (days 0-50) dominated by Geobacter species (up to 89% of community) performing Fe(III) reduction coupled to U(VI) reduction, achieving 70% uranium removal within 50 days and reducing concentrations below the EPA treatment goal of 0.18 μM in some wells. Phase II (>50 days) shifts to sulfate-reducing bacteria including Desulfobacteraceae (45% by day 80), Desulfosporosinus, and Desulfotomaculum acetoxidans as Fe(III) becomes depleted. Geobacter metallireducens and Anaeromyxobacter dehalogenans reduce soluble U(VI) to insoluble U(IV), forming biogenic uraninite nanoparticles that immobilize uranium. Desulfovibrio species contribute to uranium reduction through enzymatic pathways while generating hydrogen sulfide that can chemically reduce uranium. This represents the first successful field demonstration of uranium bioremediation via stimulating subsurface Geobacter populations, providing an alternative to pump-and-treat remediation. Groundwater flow rate is 0.82 m/day, creating dynamic conditions where microbial metabolism must outpace uranium advection.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">PERTURBED</span>
+                    <span class="badge badge-category">BIOREMEDIATION</span>
+                </div>
+            </a>
+
+            <a href="communities/SF356_Cellulose_Degrader.html" class="community-card">
+                <h2>SF356 Thermophilic Cellulose-Degrading Community</h2>
+                <p class="description">A stable thermophilic cellulose-degrading consortium (SF356) from composting systems, consisting of five bacterial strains: Clostridium straminisolvens CSK1, Clostridium sp. FG4, Pseudoxanthomonas sp. M1-3, Brevibacillus sp. M1-5, and Bordetella sp. M1-6. The community exhibits both functional and structural stability over 20 subcultures at 50°C. Synergistic interactions occur between the anaerobic cellulolytic Clostridium and aerobic bacteria, where aerobes create anaerobic conditions while receiving acetate and glucose from cellulose fermentation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">LIGNOCELLULOSE</span>
+                </div>
+            </a>
+
+            <a href="communities/Salar_Atacama_Lithium_Brine_Community.html" class="community-card">
+                <h2>Salar de Atacama Lithium Brine Community</h2>
+                <p class="description">A halophilic archaeal-bacterial consortium from the world's largest lithium reserve in the Salar de Atacama, Chile. This community thrives in extreme hypersaline brines with lithium concentrations up to 1,500 ppm (1.5 g/L) and total salinity ranging from 34.7% (natural brine) to 55.6% (concentrated brine during industrial processing). The community is strongly dominated by halophilic archaea of the family Halobacteriaceae, with natural brines showing higher archaeal diversity (Halovenus 26.8%, Natronomonas 20.1%, Haloarcula 14%, Halobacterium 13%) compared to concentrated brines where Halovenus becomes even more dominant (41%). Bacterial diversity is phylogenetically richer in concentrated brines, with Rhodothermaceae (represented solely by Salinibacter, 56% in natural brine) being the most abundant bacterial family. The community demonstrates remarkable lithium tolerance and adaptation to chaotropic stress, making it highly relevant for understanding microbial ecology in extreme saline environments and potential biotechnological applications in lithium extraction and critical mineral bioprocessing. Lithium acts as a modulator of microbial richness and diversity, with bacterial diversity increasing and archaeal diversity decreasing as lithium concentration rises during industrial processing.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">EXTREME_ENVIRONMENT</span>
+                </div>
+            </a>
+
+            <a href="communities/Sorghum_SRC1_Subset.html" class="community-card">
+                <h2>Sorghum SRC1 Subset Community</h2>
+                <p class="description">A simplified synthetic rhizosphere community (SRC1-subset) derived from the larger SRC1 consortium for enhancing sorghum bioenergy crop productivity. The subset consists of 16-20 bacterial strains selected from the full 57-strain SRC1 community, including multiple Pseudomonas, Bacillus, and Arthrobacter strains. This engineered community was designed using network analysis to identify hub taxa and strains capable of utilizing sorghum-specific root exudate compounds. Field-tested studies demonstrate that the community effectively colonizes sorghum rhizosphere and roots, leading to increased shoot biomass and improved yield performance under field conditions. The growth enhancement correlates with transcriptional dampening of lignin biosynthesis in the host plant.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Soybean_N_Fixation_sfSynCom.html" class="community-card">
+                <h2>Soybean N-Fixation Simplified SynCom</h2>
+                <p class="description">A simplified synthetic community (sfSynCom) for enhanced symbiotic nitrogen fixation in soybean, based on core-helper strain interactions. The consortium consists of Bradyrhizobium elkanii BXYD3 as the core nitrogen-fixing symbiont and two Pantoea helper strains. The helper strains produce acyl homoserine lactones (AHL) that enhance colonization and infection of soybean roots by B. elkanii through quorum sensing, significantly improving nodulation and nitrogen fixation compared to single-strain inoculation.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Synechococcus_Bacillus_SPC.html" class="community-card">
+                <h2>Synechococcus-Bacillus Synthetic Photosynthetic Consortium</h2>
+                <p class="description">A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with Bacillus subtilis 168. The cyanobacterium fixes CO2 and exports sucrose, which supports heterotrophic growth of B. subtilis. This modular platform demonstrates a stable photosynthetic co-culture for sustainable carbon cycling.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">OTHER</span>
+                </div>
+            </a>
+
+            <a href="communities/Synechococcus_Ecoli_SPC.html" class="community-card">
+                <h2>Synechococcus-E.coli Synthetic Photosynthetic Consortium</h2>
+                <p class="description">A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with Escherichia coli. The cyanobacterium fixes CO2 and exports up to 85% of fixed carbon as sucrose, which supports heterotrophic growth of E. coli. This modular platform enables stable, long-term photosynthetic co-culture for biofuel precursor production and demonstrates a synthetic cross-feeding interaction that persists over days to months.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">OTHER</span>
+                </div>
+            </a>
+
+            <a href="communities/Synechococcus_Yarrowia_SPC.html" class="community-card">
+                <h2>Synechococcus-Yarrowia Synthetic Photosynthetic Consortium</h2>
+                <p class="description">A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with the oleaginous yeast Yarrowia lipolytica Po1g. The cyanobacterium fixes CO2 and exports sucrose, which Y. lipolytica converts to lipids for biofuel production. This system demonstrates photosynthetic carbon capture coupled to lipid biosynthesis in a modular platform.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">OTHER</span>
+                </div>
+            </a>
+
+            <a href="communities/Syntrophobacter_Methanobacterium_Syntrophy.html" class="community-card">
+                <h2>Syntrophobacter-Methanobacterium Syntrophic Consortium</h2>
+                <p class="description">A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophobacter fumaroxidans, which oxidizes propionate to acetate, and Methanobacterium formicicum, a hydrogen and formate-utilizing methanogen. S. fumaroxidans degrades propionate via the methylmalonyl-CoA pathway only in coculture with H2/formate-using archaea, as it uses protons as the electron acceptor with H2 and formate as electron sink products. The removal of H2 and formate by M. formicicum is thermodynamically essential for continued propionate oxidation by S. fumaroxidans. This syntrophic relationship is fundamental to understanding methane production from propionate in anaerobic environments such as digesters, sediments, and wastewater treatment systems, playing a critical role in biogeochemical cycling.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Syntrophobacter_Methanospirillum_Syntrophy.html" class="community-card">
+                <h2>Syntrophobacter-Methanospirillum Syntrophic Consortium</h2>
+                <p class="description">A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophobacter fumaroxidans, which oxidizes propionate to acetate, and Methanospirillum hungatei, a hydrogen and formate-utilizing methanogen. S. fumaroxidans degrades propionate via the methylmalonyl-CoA pathway only in coculture with H2/formate-using archaea, as it uses protons as the electron acceptor with H2 and formate as electron sink products. The removal of H2 and formate by M. hungatei is thermodynamically essential for continued propionate oxidation by S. fumaroxidans. This syntrophic relationship is fundamental to understanding methane production from propionate in anaerobic environments such as digesters, sediments, and wastewater treatment systems, playing a critical role in biogeochemical cycling.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Syntrophomonas_Methanospirillum_Syntrophy.html" class="community-card">
+                <h2>Syntrophomonas-Methanospirillum Syntrophic Consortium</h2>
+                <p class="description">A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophomonas wolfei, which β-oxidizes saturated fatty acids (butyrate through octanoate) to acetate, and Methanospirillum hungatei, a hydrogen-utilizing methanogen. S. wolfei degrades butyrate only in coculture with H2-using bacteria, as it uses protons as the electron acceptor with H2 as the electron sink product. The removal of H2 by M. hungatei is thermodynamically essential for continued fatty acid oxidation by S. wolfei. This classic syntrophic relationship is fundamental to understanding methane production from fatty acids in anaerobic environments such as digesters, sediments, and the rumen.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Syntrophus_Benzoate_Degrader.html" class="community-card">
+                <h2>Syntrophus Benzoate Degrader</h2>
+                <p class="description">A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophus aciditrophicus SB, which degrades benzoate and other aromatic compounds to acetate and H2/formate, and Methanospirillum hungatei, a hydrogen-utilizing methanogen. S. aciditrophicus degrades benzoate only in coculture with H2-using microorganisms, as it uses protons as the electron acceptor with H2 and formate as electron sink products. The removal of H2 by M. hungatei is thermodynamically essential for continued benzoate degradation by S. aciditrophicus. This syntrophic relationship is important for understanding aromatic compound degradation and bioremediation in anaerobic environments such as sediments and contaminated aquifers.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">SYNTROPHY</span>
+                </div>
+            </a>
+
+            <a href="communities/Thermophilic_Pyrite_QS_Consortium.html" class="community-card">
+                <h2>Thermophilic Pyrite Quorum Sensing Consortium</h2>
+                <p class="description">A moderately thermophilic three-species bioleaching consortium used to study the effects of quorum sensing (QS) signaling on pyrite and chalcopyrite dissolution. This acidophilic community consists of Leptospirillum ferriphilum DSM 14647, Acidithiobacillus caldus DSM 8584, and Sulfobacillus thermosulfidooxidans DSM 9293, operating at pH 2.0-2.5 and 40°C. The consortium demonstrates coordinated microbial behavior mediated by diffusible signal factor (DSF) and N-acyl-homoserine lactone (AHL) quorum sensing systems. Treatment with DSF-family compounds (DSF and BDSF at 2 μM each) reduced pyrite and chalcopyrite dissolution via inhibitory effects on iron oxidation and mineral colonization. DSF compounds induced A. caldus motility and dispersion from pyrite with concomitant expansion of L. ferriphilum on mineral surfaces, while AHL-mediated signaling (C12-AHL, C14-AHL, 3-OH-C12-AHL, 3-OH-C14-AHL at 5 μM each) repressed L. ferriphilum motility. The consortium was subjected to RNA-seq transcriptomics (12 samples, 271 Gbases) to elucidate gene expression changes in response to QS molecules (NCBI BioProject PRJNA1259591). This system represents the first comprehensive study of quorum sensing regulation in moderately thermophilic biomining bacteria, revealing that QS molecules change planktonic/mineral subpopulation distributions and modulate leaching efficiency through control of cell attachment and iron oxidation rates.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">BIOMINING</span>
+                </div>
+            </a>
+
+            <a href="communities/Tinto_River_Iron_Cycling_Community.html" class="community-card">
+                <h2>Tinto River Iron Cycling Community</h2>
+                <p class="description">A natural acidic iron-cycling microbial community from the Rio Tinto River in southwestern Spain, distinguished by exceptional eukaryotic diversity (>65% of total biomass) in an extremely acidic environment (mean pH 2.2). While prokaryotic diversity is low with 80% of bacteria belonging to three iron-cycling genera (Leptospirillum, Acidithiobacillus, Acidiphilium), eukaryotic diversity is remarkably high including algae (diatoms, Chlorophyta, Euglenozoa, Rhodophyta), fungi (Hortaea, Acidomyces), and diverse protists (ciliates, amoebae, heliozoans, cercomonads, stramenopiles). The river has constant acidic pH (mean 2.2, range 1.0-2.5) and high metal concentrations (Fe 2.3 g/L, Cu 0.11 g/L, Zn 0.22 g/L) throughout its 100 km length, driven by natural oxidation of massive sulfide deposits in the Iberian Pyrite Belt. The prokaryotic community drives iron cycling through Fe²⁺ oxidation (Leptospirillum, Acidithiobacillus) and heterotrophic carbon cycling (Acidiphilium), creating stromatolite-like iron oxide precipitates. Eukaryotes contribute primary production (photosynthetic algae), heterotrophic consumption (protists, fungi), and trophic structure (ciliate predators, heliozoan top predators). The ecosystem represents a natural analog for early Earth conditions and extraterrestrial iron-rich acidic environments, supporting astrobiology research. Rio Tinto demonstrates that complex food webs with eukaryotic dominance can thrive in extreme acid-metal conditions, challenging assumptions about habitability limits.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-natural">STABLE</span>
+                    <span class="badge badge-category">AMD</span>
+                </div>
+            </a>
+
+            <a href="communities/Trichoderma_Lactate_Platform.html" class="community-card">
+                <h2>Trichoderma Lactate Platform for SCFA Production</h2>
+                <p class="description">A heterogeneous 3-member consortium for direct conversion of lignocellulose to short-chain fatty acids (SCFAs), specifically butyric acid. The platform consists of Trichoderma reesei Rut-C30 (aerobic fungus producing cellulases), Lactobacillus pentosus (facultative anaerobic lactic acid bacterium), and Clostridium tyrobutyricum (obligate anaerobic butyrate producer). Sequential inoculation creates an oxygen gradient allowing coexistence of all members. T. reesei degrades cellulose to sugars, LAB converts sugars to lactate and creates anaerobic conditions, and C. tyrobutyricum ferments lactate to butyrate, achieving 196 kg butyric acid per metric ton of beechwood.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">LIGNOCELLULOSE</span>
+                </div>
+            </a>
+
+            <a href="communities/Wheat_Consortium_C1.html" class="community-card">
+                <h2>Wheat Synthetic Consortium C1</h2>
+                <p class="description">A synthetic 3-member rhizosphere consortium (C1) for biocontrol of soilborne fungal pathogens in wheat. The consortium consists of Cupriavidus campinensis B20, Asticcacaulis sp. B27, and an additional rhizosphere isolate. Together, these bacteria suppress Rhizoctonia solani AG8 through production of antimicrobial compounds, volatile organic compounds, and induced systemic resistance in wheat plants, providing effective biological control for sustainable agriculture.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+            <a href="communities/Wheat_Consortium_C6.html" class="community-card">
+                <h2>Wheat Synthetic Consortium C6</h2>
+                <p class="description">A synthetic 4-member rhizosphere consortium (C6) for biocontrol of Rhizoctonia solani in wheat. The consortium includes Janthinobacterium lividum BJ, Pseudomonas sp. P25, and two additional rhizosphere bacteria. Together, they provide effective suppression of R. solani AG8, a major soilborne pathogen causing root disease in wheat, through synergistic antimicrobial activity and plant growth promotion.
+</p>
+                <div class="card-footer">
+                    <span class="badge badge-engineered">ENGINEERED</span>
+                    <span class="badge badge-category">RHIZOSPHERE</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

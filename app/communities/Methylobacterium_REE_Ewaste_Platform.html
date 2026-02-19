@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methylobacterium REE E-waste Platform - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Methylobacterium REE E-waste Platform</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        contaminated soil
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002874"
+                           class="term-link" target="_blank">
+                            ENVO:00002874
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Methylobacterium_REE_Ewaste_Platform.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>An engineered monoculture bioplatform based on the mesophilic methylotrophic bacterium Methylobacterium extorquens AM1 for sustainable recovery of rare earth elements (REE) from electronic waste. This system represents a paradigm shift in critical materials recovery through non-acidic, green bioprocessing that eliminates the harsh chemical leaching typical of conventional REE extraction. M. extorquens naturally accumulates REE in intracellular polyphosphate granules during methanol metabolism, achieving baseline bioaccumulation of 3.2 mg Nd/g dry cell weight. Through metabolic engineering—overexpression of lanthanophore biosynthesis genes (mll operon under lac promoter control) and deletion of exopolyphosphatase (ppx)—REE bioaccumulation was enhanced to 202 mg Nd/g DCW (63-fold improvement), representing one of the highest microbial REE loading capacities reported. The platform achieves remarkable selectivity with 98% of accumulated metal being REE and 96.8% of that being neodymium, critical for permanent magnet recycling. The system operates at near-neutral pH (6.9), mesophilic temperature (29-30°C), and scales to 10-liter bioreactors with controlled organic acid supplementation (5-15 mM citrate). After bioleaching with citrate, 58.7 ppm REE are mobilized from electronic waste (magnet swarf), followed by cellular bioaccumulation and recovery. This consolidated platform integrates leaching, bioaccumulation, and recovery in a single organism, offering environmental advantages over acidic chemical processing while addressing circular economy needs for critical materials in clean energy technologies.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Methylobacterium extorquens</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=408"
+                               class="term-link" target="_blank">
+                                NCBITaxon:408
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Acid-Mediated REE Bioleaching</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Methylobacterium extorquens</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    citric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30769"
+                        class="term-link" target="_blank">CHEBI:30769</a>), 
+                    
+                    gluconic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33198"
+                        class="term-link" target="_blank">CHEBI:33198</a>), 
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    neodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33372"
+                        class="term-link" target="_blank">CHEBI:33372</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic acid metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006082"
+                            class="term-link" target="_blank">GO:0006082</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Lanthanophore-Mediated REE Bioaccumulation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The addition of organic acids increases REE leaching in a nonspecific manner"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Lanthanophore-Mediated REE Bioaccumulation</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Methylobacterium extorquens</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    neodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33372"
+                        class="term-link" target="_blank">CHEBI:33372</a>), 
+                    
+                    praseodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49648"
+                        class="term-link" target="_blank">CHEBI:49648</a>), 
+                    
+                    dysprosium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49782"
+                        class="term-link" target="_blank">CHEBI:49782</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                    <li>
+                        cellular response to metal ion
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0071248"
+                            class="term-link" target="_blank">GO:0071248</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Polyphosphate Granule REE Sequestration
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"REEs are stored intracellularly in polyphosphate granules, and genetic engineering to eliminate exopolyphosphatase activity increases metal accumulation, confirming the link between phosphate metabolism and biological REE use"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"In cell samples, 98.0% of the accumulated metal was REE, 96.8% of which was Nd"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Polyphosphate Granule REE Sequestration</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Methylobacterium extorquens</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    neodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33372"
+                        class="term-link" target="_blank">CHEBI:33372</a>), 
+                    
+                    polyphosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=59905"
+                        class="term-link" target="_blank">CHEBI:59905</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        polyphosphate catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006799"
+                            class="term-link" target="_blank">GO:0006799</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"REEs are stored intracellularly in polyphosphate granules, and genetic engineering to eliminate exopolyphosphatase activity increases metal accumulation, confirming the link between phosphate metabolism and biological REE use"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"With ppx deletion: 202 mg Nd/g DW"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Methanol-Powered REE Acquisition Metabolism</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Methylobacterium extorquens</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    methanol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17790"
+                        class="term-link" target="_blank">CHEBI:17790</a>), 
+                    
+                    neodymium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33372"
+                        class="term-link" target="_blank">CHEBI:33372</a>), 
+                    
+                    formaldehyde
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16842"
+                        class="term-link" target="_blank">CHEBI:16842</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        methanol metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006118"
+                            class="term-link" target="_blank">GO:0006118</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38150661/"
+                               class="pmid-link" target="_blank">PMID:38150661</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The mesophilic methylotrophic bacterium Methylobacterium extorquens AM1 was previously shown to grow using electronic waste by naturally acquiring REEs to power methanol metabolism"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>6.9</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>29-30</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Bioreactor Scale</strong></td>
+                        <td>10</td>
+                        <td>liters</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Medium Composition</strong></td>
+                        <td>HyphoMOD minimal medium</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>REE Bioaccumulation Capacity</strong></td>
+                        <td>202</td>
+                        <td>mg Nd/g dry cell weight</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>REE Selectivity and Purity</strong></td>
+                        <td>98%</td>
+                        <td>% REE purity</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Substrate E-waste Composition</strong></td>
+                        <td>Nd-Fe-B magnet swarf</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Citrate Leaching Efficiency</strong></td>
+                        <td>58.7</td>
+                        <td>ppm REE leached</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Genetic Engineering Strategy</strong></td>
+                        <td>mll overexpression + ppx deletion</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Consolidated Bioprocessing</strong></td>
+                        <td>Integrated leaching-accumulation-recovery</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

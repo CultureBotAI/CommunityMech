@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMD Acidophile Heterotroph Network - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>AMD Acidophile Heterotroph Network</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-natural">
+                            STABLE
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        acid mine drainage
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002186"
+                           class="term-link" target="_blank">
+                            ENVO:00002186
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">AMD_Acidophile_Heterotroph_Network.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A heterotrophic microbial network in acid mine drainage (AMD) systems dominated by Acidiphilium species and related acidophilic heterotrophs. This community plays a crucial role in coupling carbon and iron cycles in extremely acidic environments, supporting autotrophic iron oxidizers through organic matter processing and nutrient remineralization. The network thrives at pH 2-4 in AMD sites globally, where heterotrophs metabolize organic compounds produced by autotrophs or released from lysed cells, preventing organic carbon accumulation that would inhibit autotrophic iron oxidizers. Key members include Acidiphilium multivorum (facultative Fe(III) reducer and organic carbon degrader), Ferrimicrobium acidiphilum (iron-oxidizing heterotroph and dissolved organic carbon remover), Acidocella facilis (obligate aerobic heterotroph), Acidisphaera rubrifaciens (photoheterotrophic bacteriochlorophyll producer), and Acidobacterium capsulatum (chemoorganotrophic acidophile). These organisms collectively perform organic matter degradation, ferric iron reduction, biofilm formation, and nutrient cycling. The heterotroph-autotroph coupling maintains community stability by removing inhibitory organic carbon, recycling nutrients (nitrogen, phosphorus), generating ferrous iron for autotrophic energy generation, and facilitating metal tolerance through extracellular polymeric substances (EPS) production. This network represents a critical functional guild in AMD ecosystems, enabling the persistence of autotrophic iron-oxidizing communities through metabolic cooperation and resource partitioning.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidiphilium multivorum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=62140"
+                               class="term-link" target="_blank">
+                                NCBITaxon:62140
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Ferrimicrobium acidiphilum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=121039"
+                               class="term-link" target="_blank">
+                                NCBITaxon:121039
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidiphilium cryptum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=524"
+                               class="term-link" target="_blank">
+                                NCBITaxon:524
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidocella facilis</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=525"
+                               class="term-link" target="_blank">
+                                NCBITaxon:525
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidisphaera rubrifaciens</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=50715"
+                               class="term-link" target="_blank">
+                                NCBITaxon:50715
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>RARE</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Acidobacterium capsulatum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=33075"
+                               class="term-link" target="_blank">
+                                NCBITaxon:33075
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>RARE</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Carbon Scavenging and Remineralization</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidiphilium multivorum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank">CHEBI:50860</a>), 
+                    
+                    carbon dioxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
+                        class="term-link" target="_blank">CHEBI:16526</a>), 
+                    
+                    ammonium
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28938"
+                        class="term-link" target="_blank">CHEBI:28938</a>), 
+                    
+                    phosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                        class="term-link" target="_blank">CHEBI:18367</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
+                            class="term-link" target="_blank">GO:1901575</a>)
+                    </li>
+                    
+                    <li>
+                        aerobic respiration
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009060"
+                            class="term-link" target="_blank">GO:0009060</a>)
+                    </li>
+                    
+                    <li>
+                        nitrogen compound metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006807"
+                            class="term-link" target="_blank">GO:0006807</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.3389/fmicb.2015.00475</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Low-pH conditions appear to be the main factor underlying the limited diversity of the microbial populations thriving in these environments, although temperature, ionic composition, total organic carbon, and dissolved oxygen are also considered to significantly influence their microbial life"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1128/msystems.00867-20</strong>
+                            
+                            - SUPPORT (REVIEW)
+                        </div>
+                        
+                        <div class="snippet">"We found in the genomes of Acidiphilium an abundant repertoire of horizontally transferred genes (HTGs) contributing to environmental adaption and metabolic ability expansion, as indicated by phylogenetic reconstruction and gene context comparison"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Ferric Iron Reduction and Ferrous Iron Regeneration</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidiphilium multivorum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    iron(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    iron(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank">CHEBI:17234</a>), 
+                    
+                    organic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=64709"
+                        class="term-link" target="_blank">CHEBI:64709</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        anaerobic respiration
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009061"
+                            class="term-link" target="_blank">GO:0009061</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Organic Carbon Scavenging and Remineralization
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/10427060/"
+                               class="pmid-link" target="_blank">PMID:10427060</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"These collective results indicate that the in situ reduction of Fe(III) in acidic sediments can be mediated by heterotrophic Acidiphilium species that are capable of coupling the reduction of Fe(III) to the complete oxidation of a large variety of substrates including glucose and H(2)."</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1093/femsec/49.1.137</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Iron respiration by Acidiphilium cryptum at pH 5"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Heterotrophic Iron Oxidation by Ferrimicrobium</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Ferrimicrobium acidiphilum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    iron(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    iron(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank">CHEBI:50860</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        heterotrophy
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019752"
+                            class="term-link" target="_blank">GO:0019752</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1099/ijs.0.65409-0</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Two novel extremely acidophilic, iron-oxidizing actinobacteria were isolated, one from a mine site in North Wales, UK (isolate T23(T)), and the other from a geothermal site in Yellowstone National Park, Wyoming, USA (Y005(T))"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1128/aem.01906-20</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"acidiphilum as it respired on extracellular iron using an integrating cavity absorption meter that permitted accurate optical measurements in turbid suspensions of the intact bacterium under physiological conditions"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Biofilm Formation and Metal Sequestration</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    polysaccharide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18154"
+                        class="term-link" target="_blank">CHEBI:18154</a>), 
+                    
+                    protein
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=36080"
+                        class="term-link" target="_blank">CHEBI:36080</a>), 
+                    
+                    copper(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29036"
+                        class="term-link" target="_blank">CHEBI:29036</a>), 
+                    
+                    zinc(2+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29105"
+                        class="term-link" target="_blank">CHEBI:29105</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        biofilm formation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0042710"
+                            class="term-link" target="_blank">GO:0042710</a>)
+                    </li>
+                    
+                    <li>
+                        extracellular matrix organization
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030198"
+                            class="term-link" target="_blank">GO:0030198</a>)
+                    </li>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1128/aem.02301-09</strong>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Characterization of Extracellular Polymeric Substances from Acidophilic Microbial Biofilms"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/18330567/"
+                               class="pmid-link" target="_blank">PMID:18330567</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The efficiency of five extraction methods for extracellular polymeric substances (EPS) was compared on three benthic eukaryotic biofilms isolated from an extreme acidic river, Río Tinto (SW, Spain)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH Range</strong></td>
+                        <td>2.0-4.0</td>
+                        <td>pH</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Dissolved Organic Carbon</strong></td>
+                        <td>Variable, 10-500 mg/L</td>
+                        <td>mg/L DOC</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Oxygen Availability</strong></td>
+                        <td>Aerobic to anaerobic</td>
+                        <td>qualitative</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>15-40</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Metal Concentrations</strong></td>
+                        <td>Fe: 0.5-5 g/L; Zn: 100-1000 mg/L; Cu: 50-500 mg/L</td>
+                        <td>g/L or mg/L</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

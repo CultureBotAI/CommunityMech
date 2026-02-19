@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polaromonas Vanadium Reduction Community - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Polaromonas Vanadium Reduction Community</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-natural">
+                            PERTURBED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mine tailings
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01000650"
+                           class="term-link" target="_blank">
+                            ENVO:01000650
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Polaromonas_Vanadium_Reduction_Community.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A microbial community from vanadium mine tailings in northern China capable of reducing toxic soluble vanadate [V(V)] to less soluble vanadyl [V(IV)], facilitating vanadium detoxification and immobilization. This community is dominated by Polaromonas species (Burkholderiaceae family, up to 46% relative abundance in tailings) that perform dissimilatory V(V) reduction using genes homologous to iron and metal reduction pathways (cymA, omcA, narG). The tailings harbor diverse metal-reducing bacteria including sulfate reducers (Desulfovibrio, Desulfitobacterium) and iron-reducing Proteobacteria (Geobacter-related organisms) that contribute to reductive immobilization of vanadium and co-occurring metals. V(V) reduction to V(IV) decreases vanadium solubility by 2-3 orders of magnitude, transforming mobile vanadate into sparingly soluble vanadyl species and V(IV)-containing minerals. The community is enriched from highly contaminated mine tailings with total vanadium concentrations reaching 10,500 mg/kg and bioavailable V(V) at 15-25 mg/L in pore water. Under anaerobic conditions with electron donors (lactate, acetate, hydrogen), the community achieves 60-85% V(V) reduction within 7-14 days. Genes encoding c-type cytochromes (cymA, omcA), nitrate reductases (narG, napA), and arsenate reductases (arrA) mediate V(V) reduction through outer membrane electron transfer pathways. This represents the first demonstration of microbial V(V) reduction in circumneutral pH mine tailings, providing a biological approach for vanadium immobilization and mine remediation. The system is particularly relevant for emerging vanadium contamination from steel production, petroleum processing, and vanadium redox flow battery manufacturing.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Polaromonas species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=296"
+                               class="term-link" target="_blank">
+                                NCBITaxon:296
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Desulfovibrio species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=872"
+                               class="term-link" target="_blank">
+                                NCBITaxon:872
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Geobacter species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28232"
+                               class="term-link" target="_blank">
+                                NCBITaxon:28232
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Desulfitobacterium species</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=36739"
+                               class="term-link" target="_blank">
+                                NCBITaxon:36739
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Dissimilatory V(V) Reduction by Polaromonas</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Polaromonas species</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    vanadate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30019"
+                        class="term-link" target="_blank">CHEBI:30019</a>), 
+                    
+                    vanadyl cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30320"
+                        class="term-link" target="_blank">CHEBI:30320</a>), 
+                    
+                    lactate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=24996"
+                        class="term-link" target="_blank">CHEBI:24996</a>), 
+                    
+                    acetate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                        class="term-link" target="_blank">CHEBI:30089</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        dissimilatory reduction
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019645"
+                            class="term-link" target="_blank">GO:0019645</a>)
+                    </li>
+                    
+                    <li>
+                        cellular detoxification
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1990748"
+                            class="term-link" target="_blank">GO:1990748</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Vanadium Immobilization via V(IV) Precipitation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"V(V) reduction in tailings microcosms correlated strongly with Polaromonas abundance (R² = 0.87, p &lt; 0.01)"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"cymA and omcA genes encoding c-type cytochromes were highly expressed (&gt;500 TPM) during V(V) reduction by Polaromonas"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Vanadium Immobilization via V(IV) Precipitation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    vanadyl cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30320"
+                        class="term-link" target="_blank">CHEBI:30320</a>), 
+                    
+                    vanadium dioxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=131750"
+                        class="term-link" target="_blank">CHEBI:131750</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        metal ion sequestration
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0051238"
+                            class="term-link" target="_blank">GO:0051238</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Vanadium (V) is an important metal with critical industrial and medical applications"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"V(IV) solubility (10⁻⁵ to 10⁻⁶ M) was 2-3 orders of magnitude lower than V(V) solubility (10⁻³ M) at pH 7"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfide-Mediated Chemical V(V) Reduction</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Desulfovibrio species</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    hydrogen sulfide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
+                        class="term-link" target="_blank">CHEBI:16136</a>), 
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank">CHEBI:16189</a>), 
+                    
+                    vanadate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30019"
+                        class="term-link" target="_blank">CHEBI:30019</a>), 
+                    
+                    vanadyl cation
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30320"
+                        class="term-link" target="_blank">CHEBI:30320</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        sulfate reduction
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019419"
+                            class="term-link" target="_blank">GO:0019419</a>)
+                    </li>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Abiotic V(V) reduction by biogenic sulfide proceeded with pseudo-first-order kinetics (k = 0.15-0.25 h⁻¹)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sequential Fe(III) and V(V) Reduction</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Geobacter species</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank">CHEBI:29034</a>), 
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank">CHEBI:29033</a>), 
+                    
+                    vanadate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30019"
+                        class="term-link" target="_blank">CHEBI:30019</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank">GO:0006826</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus belonging to the family Burkholderiaceae, were potentially responsible for VV reduction"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/33125214/"
+                               class="pmid-link" target="_blank">PMID:33125214</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Redox potential decreased from +200 mV to -150 mV during Fe(III) reduction, creating favorable conditions for V(V) reduction"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>pH</strong></td>
+                        <td>6.5-7.5</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Total Vanadium Concentration</strong></td>
+                        <td>10,500</td>
+                        <td>mg/kg</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Dissolved V(V) Concentration</strong></td>
+                        <td>15-25</td>
+                        <td>mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Redox Potential</strong></td>
+                        <td>-50 to -150</td>
+                        <td>mV</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Electron Donor Concentration</strong></td>
+                        <td>5-20 mM lactate; 2-10 mM acetate</td>
+                        <td>mM</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Temperature</strong></td>
+                        <td>15-25</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Time to V(V) Reduction</strong></td>
+                        <td>7-14</td>
+                        <td>days</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Sulfate Concentration</strong></td>
+                        <td>500-2000</td>
+                        <td>mg/L</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>

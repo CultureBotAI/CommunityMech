@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspergillus Indium LED Recovery Platform - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Aspergillus Indium LED Recovery Platform</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        laboratory bioreactor
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">Aspergillus_Indium_LED_Recovery.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>An engineered fungal monoculture bioplatform based on Aspergillus niger for sustainable recovery of indium from waste liquid crystal display (LCD) and light-emitting diode (LED) panels through indirect bioleaching. This system represents a green alternative to conventional harsh chemical extraction methods (concentrated acids at high temperatures), utilizing fungal organic acid production to mobilize and recover critical materials from electronic waste. A. niger produces a cocktail of organic acids including oxalic acid (14.9 g/L), gluconic acid (1.2 g/L), citric acid (0.9 g/L), and malic acid (0.39 g/L) during growth on glucose-based medium. The spent culture filtrate achieves remarkable indium recovery performance: 100% indium yield from waste LCD/LED panels in just 1.5 hours at 70°C, with final indium concentration of 145.6 mg/L. The bioleaching mechanism involves H+ ions from acidic functional groups (-COOH) of organic acids and secreted proteins, which dissolve indium-tin oxide (ITO) coatings and indium-bearing components. The process operates at low pH (1.96) due to organic acid accumulation, creating optimal conditions for indium mobilization while avoiding the corrosivity, energy intensity, and hazardous waste generation of conventional acid leaching. This biotechnological approach addresses the critical need for indium recycling, as this element is essential for touchscreens, flat-panel displays, and optoelectronics, yet faces supply constraints due to limited primary resources and increasing demand from electronics manufacturing.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Aspergillus niger</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=5061"
+                               class="term-link" target="_blank">
+                                NCBITaxon:5061
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+        <section>
+            <h2>Ecological Interactions</h2>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Acid Production for Indium Bioleaching</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Aspergillus niger</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    gluconic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33198"
+                        class="term-link" target="_blank">CHEBI:33198</a>), 
+                    
+                    citric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30769"
+                        class="term-link" target="_blank">CHEBI:30769</a>), 
+                    
+                    malic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=6650"
+                        class="term-link" target="_blank">CHEBI:6650</a>), 
+                    
+                    glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17234"
+                        class="term-link" target="_blank">CHEBI:17234</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic acid biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901617"
+                            class="term-link" target="_blank">GO:1901617</a>)
+                    </li>
+                    
+                    <li>
+                        carboxylic acid metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019752"
+                            class="term-link" target="_blank">GO:0019752</a>)
+                    </li>
+                    
+                    <li>
+                        tricarboxylic acid cycle
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006099"
+                            class="term-link" target="_blank">GO:0006099</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Indium-Tin Oxide Dissolution and Mobilization
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34111782/"
+                               class="pmid-link" target="_blank">PMID:34111782</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Carboxy groups from organic acids and proteins were the critical substances to release H+ for leaching indium mainly competed with iron via reactions analysis"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.scitotenv.2021.148151</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Carboxy groups from organic acids and proteins were the critical substances to release H+ for leaching indium mainly competed with iron via reactions analysis"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Indium-Tin Oxide Dissolution and Mobilization</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Aspergillus niger</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    indium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30056"
+                        class="term-link" target="_blank">CHEBI:30056</a>), 
+                    
+                    tin(4+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30052"
+                        class="term-link" target="_blank">CHEBI:30052</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        metal ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030001"
+                            class="term-link" target="_blank">GO:0030001</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Indium-Oxalate Complex Formation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34111782/"
+                               class="pmid-link" target="_blank">PMID:34111782</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The effective components increased after optimizing, including the dissociative H+ concentration, the effective carboxyl groups for leaching metal oxides, and the output of oxalic acid"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.scitotenv.2021.148151</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The effective components increased after optimizing, including the dissociative H+ concentration, the effective carboxyl groups for leaching metal oxides, and the output of oxalic acid"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Indium-Oxalate Complex Formation</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Aspergillus niger</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank">CHEBI:16995</a>), 
+                    
+                    indium(3+)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30056"
+                        class="term-link" target="_blank">CHEBI:30056</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        metal ion homeostasis
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055065"
+                            class="term-link" target="_blank">GO:0055065</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <strong>doi:10.1016/j.scitotenv.2021.148151</strong>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The indium bioleaching efficiency can be improved from 12.3% to 100% by fermentation method optimization"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Protein-Mediated Proton Donation</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Aspergillus niger</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    protein
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=36080"
+                        class="term-link" target="_blank">CHEBI:36080</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        protein secretion
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009306"
+                            class="term-link" target="_blank">GO:0009306</a>)
+                    </li>
+                    
+                    <li>
+                        extracellular region
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0005576"
+                            class="term-link" target="_blank">GO:0005576</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/34111782/"
+                               class="pmid-link" target="_blank">PMID:34111782</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Carboxy groups from organic acids and proteins were the critical substances to release H+ for leaching indium mainly competed with iron via reactions analysis"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Bioleaching Temperature</strong></td>
+                        <td>70</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Fermentation Temperature</strong></td>
+                        <td>30</td>
+                        <td>°C</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>pH of Bioleaching Solution</strong></td>
+                        <td>1.96</td>
+                        <td>pH units</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Leaching Time</strong></td>
+                        <td>1.5</td>
+                        <td>hours</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>LCD/LED Waste Pulp Density</strong></td>
+                        <td>1</td>
+                        <td>% (w/v)</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Fermentation Duration</strong></td>
+                        <td>7</td>
+                        <td>days</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Agitation Rate</strong></td>
+                        <td>150</td>
+                        <td>rpm</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Glucose Concentration</strong></td>
+                        <td>100</td>
+                        <td>g/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Yeast Extract Concentration</strong></td>
+                        <td>5</td>
+                        <td>g/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Indium Recovery Efficiency</strong></td>
+                        <td>100</td>
+                        <td>% yield</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Indium Concentration in Leachate</strong></td>
+                        <td>145.6</td>
+                        <td>mg/L</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Process Configuration</strong></td>
+                        <td>Indirect bioleaching (two-step)</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Substrate Waste Composition</strong></td>
+                        <td>LCD/LED panels (ITO-coated glass)</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+</body>
+</html>
