@@ -63,6 +63,7 @@ class BrowserExporter:
             "biological_processes": self._extract_processes(data),
             "interaction_types": self._extract_interaction_types(data),
             "functional_roles": self._extract_functional_roles(data),
+            "datasets": self._extract_datasets(data),
             "description": data.get("description", ""),
             "source_file": yaml_path.name,
         }
@@ -156,6 +157,19 @@ class BrowserExporter:
                 roles.add(role)
         return sorted(roles)
 
+    def _extract_datasets(self, data: dict) -> List[Dict[str, str]]:
+        """Extract associated datasets."""
+        datasets = []
+        for ds in data.get("associated_datasets", []):
+            datasets.append({
+                "name": ds.get("name", ""),
+                "dataset_type": ds.get("dataset_type", ""),
+                "repository": ds.get("repository", ""),
+                "accession": ds.get("accession", ""),
+                "url": ds.get("url", ""),
+            })
+        return datasets
+
     def _build_search_text(self, community: dict) -> str:
         """Build combined search text from all fields."""
         parts = [
@@ -182,6 +196,10 @@ class BrowserExporter:
         parts.extend(community["interaction_types"])
         parts.extend(community["functional_roles"])
 
+        # Add dataset names and types
+        for ds in community["datasets"]:
+            parts.extend([ds["name"], ds["dataset_type"], ds["repository"], ds["accession"]])
+
         # Combine and clean
         text = " ".join(str(p) for p in parts if p)
         return " ".join(text.split())  # Normalize whitespace
@@ -196,6 +214,8 @@ class BrowserExporter:
         metabolites: Set[str] = set()
         interaction_types: Set[str] = set()
         functional_roles: Set[str] = set()
+        dataset_types: Set[str] = set()
+        dataset_repositories: Set[str] = set()
 
         for community in self.communities:
             if community["ecological_state"]:
@@ -221,6 +241,12 @@ class BrowserExporter:
             interaction_types.update(community["interaction_types"])
             functional_roles.update(community["functional_roles"])
 
+            for ds in community["datasets"]:
+                if ds["dataset_type"]:
+                    dataset_types.add(ds["dataset_type"])
+                if ds["repository"]:
+                    dataset_repositories.add(ds["repository"])
+
         return {
             "ecological_states": sorted(ecological_states),
             "community_origins": sorted(community_origins),
@@ -230,6 +256,8 @@ class BrowserExporter:
             "metabolites": sorted(metabolites)[:50],
             "interaction_types": sorted(interaction_types),
             "functional_roles": sorted(functional_roles),
+            "dataset_types": sorted(dataset_types),
+            "dataset_repositories": sorted(dataset_repositories),
         }
 
     def _write_js_file(self, output_path: Path, facets: Dict[str, Any]) -> None:

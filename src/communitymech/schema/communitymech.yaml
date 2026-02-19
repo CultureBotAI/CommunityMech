@@ -154,6 +154,56 @@ enums:
       CROSS_FEEDER:
         description: Utilizes metabolites from other taxa
 
+  DatasetTypeEnum:
+    description: Type of omics or other dataset associated with a community
+    permissible_values:
+      METAGENOME:
+        description: Shotgun metagenomic sequencing
+      AMPLICON_16S:
+        description: 16S rRNA amplicon sequencing
+      AMPLICON_ITS:
+        description: ITS amplicon sequencing (fungal)
+      METATRANSCRIPTOME:
+        description: Metatranscriptomic sequencing
+      METAPROTEOME:
+        description: Metaproteomic analysis
+      METABOLOMICS:
+        description: Metabolomics (LC-MS, GC-MS, etc.)
+      GENOME:
+        description: Isolate whole genome sequencing
+      PHENOTYPE:
+        description: Phenotypic measurements (growth, imaging, etc.)
+      OTHER:
+        description: Other dataset type
+
+  DatasetRepositoryEnum:
+    description: Data repositories for omics and related datasets
+    permissible_values:
+      NCBI_SRA:
+        description: NCBI Sequence Read Archive
+      NCBI_BIOPROJECT:
+        description: NCBI BioProject
+      NMDC:
+        description: National Microbiome Data Collaborative
+      JGI_GOLD:
+        description: JGI Genomes OnLine Database
+      JGI_IMG:
+        description: JGI Integrated Microbial Genomes
+      MGNIFY:
+        description: MGnify (EBI metagenomics)
+      METABOLOMICS_WORKBENCH:
+        description: Metabolomics Workbench
+      MASSIVE:
+        description: MassIVE mass spectrometry data
+      GNPS:
+        description: Global Natural Products Social Molecular Networking
+      FIGSHARE:
+        description: Figshare data repository
+      ZENODO:
+        description: Zenodo data repository
+      OTHER:
+        description: Other data repository
+
   CultureCollectionEnum:
     description: Major microbial culture collections worldwide
     permissible_values:
@@ -404,6 +454,31 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  AssociatedDataset:
+    description: An omics or other dataset associated with the community
+    attributes:
+      name:
+        description: Human-readable name for this dataset
+        required: true
+      dataset_type:
+        description: Type of dataset (metagenome, amplicon, metabolomics, etc.)
+        range: DatasetTypeEnum
+        required: true
+      repository:
+        description: Data repository where the dataset is deposited
+        range: DatasetRepositoryEnum
+      accession:
+        description: Repository accession or identifier (e.g., PRJNA1151037, nmdc:sty-11-ev70y104, MSV000095476)
+        required: true
+      url:
+        description: Direct URL to the dataset
+      description:
+        description: Description of the dataset contents and scope
+      evidence:
+        description: Evidence linking this dataset to the community
+        range: EvidenceItem
+        multivalued: true
+
   MicrobialCommunity:
     tree_root: true
     description: A microbial community with composition and interactions
@@ -436,4 +511,8 @@ classes:
       environmental_factors:
         description: Environmental conditions
         range: EnvironmentalFactor
+        multivalued: true
+      associated_datasets:
+        description: Omics and other datasets associated with this community
+        range: AssociatedDataset
         multivalued: true

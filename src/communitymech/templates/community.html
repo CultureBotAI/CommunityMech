@@ -428,6 +428,44 @@
         </section>
         {% endif %}
 
+        <!-- Associated Datasets -->
+        {% if community.associated_datasets %}
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ds in community.associated_datasets %}
+                    <tr>
+                        <td>
+                            <strong>{{ ds.name }}</strong>
+                            {% if ds.description %}
+                            <br><span style="color: var(--text-muted); font-size: 0.875rem;">{{ ds.description }}</span>
+                            {% endif %}
+                        </td>
+                        <td><span class="role-badge">{{ ds.dataset_type }}</span></td>
+                        <td>{% if ds.repository %}{{ ds.repository }}{% endif %}</td>
+                        <td>
+                            {% if ds.url %}
+                            <a href="{{ ds.url }}" class="term-link" target="_blank">{{ ds.accession }}</a>
+                            {% else %}
+                            {{ ds.accession }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
         <!-- Environmental Factors -->
         {% if community.environmental_factors %}
         <section>
