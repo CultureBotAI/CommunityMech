@@ -1,0 +1,195 @@
+name: ENIGMA Denitrifying SynCom
+description: >-
+  A two-member denitrifying synthetic community from the ENIGMA program, composed of
+  Rhodanobacter thiooxydans FW510-R12 and Acidovorax sp. GW101-3H11 isolated from a heavily
+  nitrate-contaminated superfund site. The consortium exhibits pathway-partitioned denitrification
+  via nitrite and nitric oxide exchange, with cooperativity that can be disrupted under high
+  nitrate conditions leading to nitrite accumulation and nitrous oxide off-gassing.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: contaminated soil
+  term:
+    id: ENVO:00002874
+    label: contaminated soil
+  notes: >-
+    Community members were isolated from a heavily nitrate-contaminated superfund site
+    groundwater system associated with ENIGMA research.
+engineering_design:
+  objective: Resolve mechanisms and consequences of pathway-partitioned denitrification in a defined SynCom.
+  assembly_strategy: Two-member bottom-up SynCom assembled from site isolates FW510-R12 and GW101-3H11.
+  perturbation_design: High nitrate context was used to test destabilization of cooperative denitrification.
+  measurement_endpoints:
+  - Physiological growth and metabolite dynamics
+  - Kinetic modeling of denitrification partitioning
+  - Multi-omics readouts (transcriptome and proteome)
+  notes: Design emphasizes exchange of nitrite and nitric oxide as partitioned pathway intermediates.
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have investigated mechanisms and consequences of process partitioning of denitrification through detailed physiological characterization and kinetic modeling of a synthetic community of Rhodanobacter thiooxydans FW510-R12 and Acidovorax sp. GW101-3H11
+    explanation: Supports deliberate two-member SynCom design and its primary physiological plus modeling endpoints.
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We demonstrate that certain contexts, such as high NO3-, cause unbalanced growth of community members, due to differences in their substrate utilization kinetics
+    explanation: Supports use of high nitrate as an explicit perturbation in the design.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodanobacter thiooxydans FW510-R12
+    term:
+      id: NCBITaxon:416169
+      label: Rhodanobacter thiooxydans
+  strain_designation:
+    strain_name: FW510-R12
+    isolation_source: heavily nitrate-contaminated superfund site groundwater
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have investigated mechanisms and consequences of process partitioning of denitrification through detailed physiological characterization and kinetic modeling of a synthetic community of Rhodanobacter thiooxydans FW510-R12 and Acidovorax sp. GW101-3H11
+    explanation: Documents FW510-R12 membership in the denitrifying synthetic community
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have discovered that these two bacterial isolates, from a heavily nitrate (NO3-) contaminated superfund site, complete denitrification through the exchange of nitrite (NO2-) and nitric oxide (NO)
+    explanation: Supports pathway-partitioned denitrification role for FW510-R12
+- taxon_term:
+    preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
+  strain_designation:
+    strain_name: GW101-3H11
+    isolation_source: heavily nitrate-contaminated superfund site groundwater
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have investigated mechanisms and consequences of process partitioning of denitrification through detailed physiological characterization and kinetic modeling of a synthetic community of Rhodanobacter thiooxydans FW510-R12 and Acidovorax sp. GW101-3H11
+    explanation: Documents GW101-3H11 membership in the denitrifying synthetic community
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have discovered that these two bacterial isolates, from a heavily nitrate (NO3-) contaminated superfund site, complete denitrification through the exchange of nitrite (NO2-) and nitric oxide (NO)
+    explanation: Supports pathway-partitioned denitrification role for GW101-3H11
+ecological_interactions:
+- name: Pathway-Partitioned Denitrification Cooperation
+  description: >-
+    The two-member SynCom completes denitrification through metabolite exchange, coupling
+    the denitrification pathway across both partners.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Rhodanobacter thiooxydans FW510-R12
+    term:
+      id: NCBITaxon:416169
+      label: Rhodanobacter thiooxydans
+  target_taxon:
+    preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We have discovered that these two bacterial isolates, from a heavily nitrate (NO3-) contaminated superfund site, complete denitrification through the exchange of nitrite (NO2-) and nitric oxide (NO)
+    explanation: Demonstrates cooperative denitrification through exchanged intermediates
+- name: High-Nitrate Destabilization of Cooperation
+  description: >-
+    Under high nitrate conditions, growth becomes imbalanced and nitrite accumulates,
+    disrupting cooperative denitrification and increasing N2O release.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Acidovorax sp. GW101-3H11
+    term:
+      id: NCBITaxon:1872122
+      label: Acidovorax sp.
+  target_taxon:
+    preferred_term: Rhodanobacter thiooxydans FW510-R12
+    term:
+      id: NCBITaxon:416169
+      label: Rhodanobacter thiooxydans
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We demonstrate that certain contexts, such as high NO3-, cause unbalanced growth of community members, due to differences in their substrate utilization kinetics
+    explanation: Supports context-dependent imbalance between SynCom members
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-, which disrupts denitrification causing N2O off gassing
+    explanation: Links growth imbalance to nitrite toxicity and increased N2O release
+environmental_factors:
+- name: Nitrate loading context
+  value: high NO3-
+  description: Elevated nitrate concentrations can destabilize cooperative denitrification.
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We demonstrate that certain contexts, such as high NO3-, cause unbalanced growth of community members, due to differences in their substrate utilization kinetics
+    explanation: Documents nitrate-dependent growth imbalance
+- name: Nitrite toxicity and N2O off-gassing
+  value: toxic NO2- accumulation with N2O release
+  description: Accumulation of nitrite disrupts denitrification and promotes N2O emission.
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-, which disrupts denitrification causing N2O off gassing
+    explanation: Defines mechanistic link between NO2- accumulation and N2O emission
+associated_datasets:
+- name: SynCom transcriptome sequencing
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE272493
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE272493
+  description: Raw sequencing data for transcriptomics analysis of monoculture and SynCom contexts.
+- name: SynCom proteomics dataset
+  dataset_type: METAPROTEOME
+  repository: OTHER
+  accession: PXD051979
+  url: https://www.ebi.ac.uk/pride/archive/projects/PXD051979
+  description: Mass spectrometry proteomics data deposited through PRIDE/ProteomeXchange.
+- name: Rhodanobacter thiooxydans FW510-R12 genome
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA255897
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA255897
+  description: Genome resource used for R12-specific transcript quantification and modeling.
+- name: Acidovorax sp. GW101-3H11 genome
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA314893
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA314893
+  description: Genome resource used for 3H11-specific transcript quantification and modeling.
+- name: SynCom model and analysis code
+  dataset_type: OTHER
+  repository: OTHER
+  accession: github:baliga-lab/3H11_R12_SynCom
+  url: https://github.com/baliga-lab/3H11_R12_SynCom
+  description: Code, summary tables, and model outputs for growth, metabolite, transcriptomics, and proteomics analyses.
