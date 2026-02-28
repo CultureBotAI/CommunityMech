@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-02-18T16:02:21
+# Generation date: 2026-02-25T11:30:13
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -598,6 +598,107 @@ class AssociatedDataset(YAMLRoot):
 
 
 @dataclass(repr=False)
+class ExternalResource(YAMLRoot):
+    """
+    An external model or narrative resource linked to the community
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["ExternalResource"]
+    class_class_curie: ClassVar[str] = "communitymech:ExternalResource"
+    class_name: ClassVar[str] = "ExternalResource"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.ExternalResource
+
+    name: str = None
+    repository: Union[str, "ExternalResourceRepositoryEnum"] = None
+    resource_id: str = None
+    url: str = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self._is_empty(self.repository):
+            self.MissingRequiredField("repository")
+        if not isinstance(self.repository, ExternalResourceRepositoryEnum):
+            self.repository = ExternalResourceRepositoryEnum(self.repository)
+
+        if self._is_empty(self.resource_id):
+            self.MissingRequiredField("resource_id")
+        if not isinstance(self.resource_id, str):
+            self.resource_id = str(self.resource_id)
+
+        if self._is_empty(self.url):
+            self.MissingRequiredField("url")
+        if not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
+
+        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CommunityEngineeringDesign(YAMLRoot):
+    """
+    Design intent and implementation details for engineered or synthetic communities
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["CommunityEngineeringDesign"]
+    class_class_curie: ClassVar[str] = "communitymech:CommunityEngineeringDesign"
+    class_name: ClassVar[str] = "CommunityEngineeringDesign"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CommunityEngineeringDesign
+
+    objective: Optional[str] = None
+    assembly_strategy: Optional[str] = None
+    inoculation_strategy: Optional[str] = None
+    passaging_regimen: Optional[str] = None
+    perturbation_design: Optional[str] = None
+    measurement_endpoints: Optional[Union[str, list[str]]] = empty_list()
+    protocol_url: Optional[str] = None
+    notes: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.objective is not None and not isinstance(self.objective, str):
+            self.objective = str(self.objective)
+
+        if self.assembly_strategy is not None and not isinstance(self.assembly_strategy, str):
+            self.assembly_strategy = str(self.assembly_strategy)
+
+        if self.inoculation_strategy is not None and not isinstance(self.inoculation_strategy, str):
+            self.inoculation_strategy = str(self.inoculation_strategy)
+
+        if self.passaging_regimen is not None and not isinstance(self.passaging_regimen, str):
+            self.passaging_regimen = str(self.passaging_regimen)
+
+        if self.perturbation_design is not None and not isinstance(self.perturbation_design, str):
+            self.perturbation_design = str(self.perturbation_design)
+
+        if not isinstance(self.measurement_endpoints, list):
+            self.measurement_endpoints = [self.measurement_endpoints] if self.measurement_endpoints is not None else []
+        self.measurement_endpoints = [v if isinstance(v, str) else str(v) for v in self.measurement_endpoints]
+
+        if self.protocol_url is not None and not isinstance(self.protocol_url, str):
+            self.protocol_url = str(self.protocol_url)
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class MicrobialCommunity(YAMLRoot):
     """
     A microbial community with composition and interactions
@@ -614,11 +715,13 @@ class MicrobialCommunity(YAMLRoot):
     ecological_state: Optional[Union[str, "EcologicalStateEnum"]] = None
     community_origin: Optional[Union[str, "CommunityOriginEnum"]] = None
     community_category: Optional[Union[str, "CommunityCategoryEnum"]] = None
+    engineering_design: Optional[Union[dict, CommunityEngineeringDesign]] = None
     environment_term: Optional[Union[dict, EnvironmentDescriptor]] = None
     taxonomy: Optional[Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]] = empty_list()
     ecological_interactions: Optional[Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]] = empty_list()
     environmental_factors: Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]] = empty_list()
     associated_datasets: Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]] = empty_list()
+    external_resources: Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -638,6 +741,9 @@ class MicrobialCommunity(YAMLRoot):
         if self.community_category is not None and not isinstance(self.community_category, CommunityCategoryEnum):
             self.community_category = CommunityCategoryEnum(self.community_category)
 
+        if self.engineering_design is not None and not isinstance(self.engineering_design, CommunityEngineeringDesign):
+            self.engineering_design = CommunityEngineeringDesign(**as_dict(self.engineering_design))
+
         if self.environment_term is not None and not isinstance(self.environment_term, EnvironmentDescriptor):
             self.environment_term = EnvironmentDescriptor(**as_dict(self.environment_term))
 
@@ -648,6 +754,8 @@ class MicrobialCommunity(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="environmental_factors", slot_type=EnvironmentalFactor, key_name="name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="associated_datasets", slot_type=AssociatedDataset, key_name="name", keyed=False)
+
+        self._normalize_inlined_as_dict(slot_name="external_resources", slot_type=ExternalResource, key_name="name", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -954,6 +1062,37 @@ class DatasetRepositoryEnum(EnumDefinitionImpl):
         description="Data repositories for omics and related datasets",
     )
 
+class ExternalResourceRepositoryEnum(EnumDefinitionImpl):
+    """
+    External repositories and platforms that host community model resources
+    """
+    BIOMODELS = PermissibleValue(
+        text="BIOMODELS",
+        description="BioModels database")
+    KBASE = PermissibleValue(
+        text="KBASE",
+        description="KBase Narrative platform")
+    BIGG = PermissibleValue(
+        text="BIGG",
+        description="BiGG Models")
+    VMH = PermissibleValue(
+        text="VMH",
+        description="Virtual Metabolic Human")
+    MODELSEED = PermissibleValue(
+        text="MODELSEED",
+        description="ModelSEED resources")
+    GITHUB = PermissibleValue(
+        text="GITHUB",
+        description="GitHub repository")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other resource repository")
+
+    _defn = EnumDefinition(
+        name="ExternalResourceRepositoryEnum",
+        description="External repositories and platforms that host community model resources",
+    )
+
 class CultureCollectionEnum(EnumDefinitionImpl):
     """
     Major microbial culture collections worldwide
@@ -1203,6 +1342,51 @@ slots.associatedDataset__description = Slot(uri=COMMUNITYMECH.description, name=
 slots.associatedDataset__evidence = Slot(uri=COMMUNITYMECH.evidence, name="associatedDataset__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.associatedDataset__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
 
+slots.externalResource__name = Slot(uri=COMMUNITYMECH.name, name="externalResource__name", curie=COMMUNITYMECH.curie('name'),
+                   model_uri=COMMUNITYMECH.externalResource__name, domain=None, range=str)
+
+slots.externalResource__repository = Slot(uri=COMMUNITYMECH.repository, name="externalResource__repository", curie=COMMUNITYMECH.curie('repository'),
+                   model_uri=COMMUNITYMECH.externalResource__repository, domain=None, range=Union[str, "ExternalResourceRepositoryEnum"])
+
+slots.externalResource__resource_id = Slot(uri=COMMUNITYMECH.resource_id, name="externalResource__resource_id", curie=COMMUNITYMECH.curie('resource_id'),
+                   model_uri=COMMUNITYMECH.externalResource__resource_id, domain=None, range=str)
+
+slots.externalResource__url = Slot(uri=COMMUNITYMECH.url, name="externalResource__url", curie=COMMUNITYMECH.curie('url'),
+                   model_uri=COMMUNITYMECH.externalResource__url, domain=None, range=str)
+
+slots.externalResource__description = Slot(uri=COMMUNITYMECH.description, name="externalResource__description", curie=COMMUNITYMECH.curie('description'),
+                   model_uri=COMMUNITYMECH.externalResource__description, domain=None, range=Optional[str])
+
+slots.externalResource__evidence = Slot(uri=COMMUNITYMECH.evidence, name="externalResource__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.externalResource__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
+slots.communityEngineeringDesign__objective = Slot(uri=COMMUNITYMECH.objective, name="communityEngineeringDesign__objective", curie=COMMUNITYMECH.curie('objective'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__objective, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__assembly_strategy = Slot(uri=COMMUNITYMECH.assembly_strategy, name="communityEngineeringDesign__assembly_strategy", curie=COMMUNITYMECH.curie('assembly_strategy'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__assembly_strategy, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__inoculation_strategy = Slot(uri=COMMUNITYMECH.inoculation_strategy, name="communityEngineeringDesign__inoculation_strategy", curie=COMMUNITYMECH.curie('inoculation_strategy'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__inoculation_strategy, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__passaging_regimen = Slot(uri=COMMUNITYMECH.passaging_regimen, name="communityEngineeringDesign__passaging_regimen", curie=COMMUNITYMECH.curie('passaging_regimen'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__passaging_regimen, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__perturbation_design = Slot(uri=COMMUNITYMECH.perturbation_design, name="communityEngineeringDesign__perturbation_design", curie=COMMUNITYMECH.curie('perturbation_design'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__perturbation_design, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__measurement_endpoints = Slot(uri=COMMUNITYMECH.measurement_endpoints, name="communityEngineeringDesign__measurement_endpoints", curie=COMMUNITYMECH.curie('measurement_endpoints'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__measurement_endpoints, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.communityEngineeringDesign__protocol_url = Slot(uri=COMMUNITYMECH.protocol_url, name="communityEngineeringDesign__protocol_url", curie=COMMUNITYMECH.curie('protocol_url'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__protocol_url, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__notes = Slot(uri=COMMUNITYMECH.notes, name="communityEngineeringDesign__notes", curie=COMMUNITYMECH.curie('notes'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__notes, domain=None, range=Optional[str])
+
+slots.communityEngineeringDesign__evidence = Slot(uri=COMMUNITYMECH.evidence, name="communityEngineeringDesign__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.communityEngineeringDesign__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
 slots.microbialCommunity__name = Slot(uri=COMMUNITYMECH.name, name="microbialCommunity__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.microbialCommunity__name, domain=None, range=str)
 
@@ -1218,6 +1402,9 @@ slots.microbialCommunity__community_origin = Slot(uri=COMMUNITYMECH.community_or
 slots.microbialCommunity__community_category = Slot(uri=COMMUNITYMECH.community_category, name="microbialCommunity__community_category", curie=COMMUNITYMECH.curie('community_category'),
                    model_uri=COMMUNITYMECH.microbialCommunity__community_category, domain=None, range=Optional[Union[str, "CommunityCategoryEnum"]])
 
+slots.microbialCommunity__engineering_design = Slot(uri=COMMUNITYMECH.engineering_design, name="microbialCommunity__engineering_design", curie=COMMUNITYMECH.curie('engineering_design'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__engineering_design, domain=None, range=Optional[Union[dict, CommunityEngineeringDesign]])
+
 slots.microbialCommunity__environment_term = Slot(uri=COMMUNITYMECH.environment_term, name="microbialCommunity__environment_term", curie=COMMUNITYMECH.curie('environment_term'),
                    model_uri=COMMUNITYMECH.microbialCommunity__environment_term, domain=None, range=Optional[Union[dict, EnvironmentDescriptor]])
 
@@ -1232,4 +1419,7 @@ slots.microbialCommunity__environmental_factors = Slot(uri=COMMUNITYMECH.environ
 
 slots.microbialCommunity__associated_datasets = Slot(uri=COMMUNITYMECH.associated_datasets, name="microbialCommunity__associated_datasets", curie=COMMUNITYMECH.curie('associated_datasets'),
                    model_uri=COMMUNITYMECH.microbialCommunity__associated_datasets, domain=None, range=Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]])
+
+slots.microbialCommunity__external_resources = Slot(uri=COMMUNITYMECH.external_resources, name="microbialCommunity__external_resources", curie=COMMUNITYMECH.curie('external_resources'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__external_resources, domain=None, range=Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]])
 

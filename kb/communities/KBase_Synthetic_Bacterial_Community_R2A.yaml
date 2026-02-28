@@ -1,0 +1,80 @@
+name: KBase Synthetic Bacterial Community in R2A Medium
+description: >-
+  Public KBase narrative for community modeling and flux balance analysis of a synthetic
+  bacterial community in R2A medium. The workflow applies gapfilling, merged community model
+  construction, and FBA for a Populus-associated SynCom context.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Public KBase narrative for community modeling and flux balance analysis of a synthetic bacterial community in R2A medium.
+  assembly_strategy: Bottom-up synthetic assembly of a 3-member consortium from selected isolates/strains.
+  measurement_endpoints:
+  - 16S amplicon-based community composition profiling
+  - Member-level abundance and persistence tracking
+  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters when available.
+  evidence:
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In this study, 10 bacterial strains isolated from the Populus deltoides rhizosphere were combined and passaged in two different media environments to form stable microbial communities.
+    explanation: Supports this KBase narrative's PD10 synthetic community modeling context.
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+taxonomy:
+- taxon_term:
+    preferred_term: Pantoea sp. YR343
+    term:
+      id: NCBITaxon:53335
+      label: Pantoea
+  strain_designation:
+    strain_name: YR343
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Pseudomonas sp. GM17
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  strain_designation:
+    strain_name: GM17
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Variovorax sp. CF313
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  strain_designation:
+    strain_name: CF313
+  functional_role:
+  - CROSS_FEEDER
+associated_datasets:
+- name: Populus PD10 amplicon profiling
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA658537
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA658537
+  description: 16S profiling dataset used in the original PD10 SynCom study.
+- name: Primary publication
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PMID:33995895
+  url: https://pubmed.ncbi.nlm.nih.gov/33995895/
+  description: Publication for Populus PD10 synthetic community assembly and modeling.
+external_resources:
+- name: KBase narrative
+  repository: KBASE
+  resource_id: ws.73221.obj.117
+  url: https://kbase.us/n/73221/117/
+  description: Community Modeling and Flux Balance Analysis of Synthetic Bacterial Community in R2A Medium.
+  evidence:
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In this study, 10 bacterial strains isolated from the Populus deltoides rhizosphere were combined and passaged in two different media environments to form stable microbial communities.
+    explanation: Supports this KBase narrative's PD10 synthetic community modeling context.

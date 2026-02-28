@@ -204,6 +204,24 @@ enums:
       OTHER:
         description: Other data repository
 
+  ExternalResourceRepositoryEnum:
+    description: External repositories and platforms that host community model resources
+    permissible_values:
+      BIOMODELS:
+        description: BioModels database
+      KBASE:
+        description: KBase Narrative platform
+      BIGG:
+        description: BiGG Models
+      VMH:
+        description: Virtual Metabolic Human
+      MODELSEED:
+        description: ModelSEED resources
+      GITHUB:
+        description: GitHub repository
+      OTHER:
+        description: Other resource repository
+
   CultureCollectionEnum:
     description: Major microbial culture collections worldwide
     permissible_values:
@@ -483,6 +501,54 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  ExternalResource:
+    description: An external model or narrative resource linked to the community
+    attributes:
+      name:
+        description: Human-readable name for this resource
+        required: true
+      repository:
+        description: Repository or platform where this resource is hosted
+        range: ExternalResourceRepositoryEnum
+        required: true
+      resource_id:
+        description: Repository identifier (e.g., MODEL2405300001, ws.73218.obj.75)
+        required: true
+      url:
+        description: Direct URL to the resource
+        required: true
+      description:
+        description: Description of the resource and its relevance
+      evidence:
+        description: Evidence linking this resource to the community
+        range: EvidenceItem
+        multivalued: true
+
+  CommunityEngineeringDesign:
+    description: Design intent and implementation details for engineered or synthetic communities
+    attributes:
+      objective:
+        description: Primary design objective or experimental hypothesis
+      assembly_strategy:
+        description: How member strains were selected and assembled
+      inoculation_strategy:
+        description: How the initial inoculum was composed and introduced
+      passaging_regimen:
+        description: Serial transfer or cultivation regimen used for stabilization and selection
+      perturbation_design:
+        description: Planned perturbations applied to probe or tune community behavior
+      measurement_endpoints:
+        description: Primary readouts used to evaluate design outcomes
+        multivalued: true
+      protocol_url:
+        description: URL to an assembly or cultivation protocol, if available
+      notes:
+        description: Additional engineering-design details
+      evidence:
+        description: Evidence supporting the engineering-design description
+        range: EvidenceItem
+        multivalued: true
+
   MicrobialCommunity:
     tree_root: true
     description: A microbial community with composition and interactions
@@ -501,6 +567,9 @@ classes:
       community_category:
         description: Broad functional or ecological category
         range: CommunityCategoryEnum
+      engineering_design:
+        description: Explicit engineering design and implementation details for this community
+        range: CommunityEngineeringDesign
       environment_term:
         description: Environment where community exists
         range: EnvironmentDescriptor
@@ -519,4 +588,8 @@ classes:
       associated_datasets:
         description: Omics and other datasets associated with this community
         range: AssociatedDataset
+        multivalued: true
+      external_resources:
+        description: External model and narrative resources linked to this community
+        range: ExternalResource
         multivalued: true
