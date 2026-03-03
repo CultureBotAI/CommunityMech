@@ -424,8 +424,11 @@
 
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
-                <div class="network-tooltip" id="network-tooltip"></div>
-                <svg id="network-svg" height="400"></svg>
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" height="400" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for {{ community.name }}</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
@@ -775,21 +778,33 @@
         var tooltip = d3.select("#network-tooltip");
 
         node.on("mouseenter", function(event, d) {
-            var html = "";
+            tooltip.selectAll("*").remove();
             if (d.type === "taxon") {
-                html = "<strong>" + d.label + "</strong><br>" +
-                    d.ontologyId + "<br>" +
-                    "Abundance: " + d.abundance +
-                    (d.roles.length ? "<br>Roles: " + d.roles.join(", ") : "");
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
             } else {
-                html = "<strong>" + d.label + "</strong><br>" +
-                    d.interactionType +
-                    (d.metabolites.length ? "<br>Metabolites: " + d.metabolites.join(", ") : "") +
-                    (d.processes.length ? "<br>Processes: " + d.processes.join(", ") : "") +
-                    "<br>Evidence items: " + d.evidenceCount;
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
             }
-            tooltip.html(html)
-                .style("opacity", 1)
+            tooltip.style("opacity", 1)
                 .style("left", (event.offsetX + 12) + "px")
                 .style("top", (event.offsetY - 12) + "px");
         })
