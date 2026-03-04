@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLBRC Populus Variovorax SynCom28 - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>GLBRC Populus Variovorax SynCom28</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        rhizosphere
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00005801"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:00005801
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">GLBRC_Populus_Variovorax_SynCom28.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A defined, genome-resolved 28-strain synthetic community of Variovorax isolates from Populus deltoides and Populus trichocarpa roots. The community was used to identify strain-level partitioning between rhizosphere and endosphere compartments and genomic traits associated with endosphere specialization.</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK119</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK151</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK370</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK460</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK613</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BK658</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. BT01</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. CF079</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. CF313</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV004</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV008</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV014</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV035</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV040</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV042</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. GV051</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OK202</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OK212</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OK605</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OV084</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OV329</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. OV700</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. PDC80</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. YR216</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. YR266</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. YR634</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. YR750</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax sp. YR752</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=34072"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:34072
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+
+        <!-- Associated Datasets -->
+        
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Primary publication</strong>
+                            
+                            <br><span class="dataset-description">mSystems article describing the 28-strain Variovorax Populus SynCom analysis.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">OTHER</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://doi.org/10.1128/msystems.01605-25" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.1128/msystems.01605-25</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>DefCom strain metadata table</strong>
+                            
+                            <br><span class="dataset-description">Supplementary Table S1 listing the 28 Variovorax strains and metadata.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">OTHER</span></td>
+                        <td>ZENODO</td>
+                        <td>
+                            
+                            <a href="https://zenodo.org/records/17466836" class="term-link" target="_blank" rel="noopener noreferrer">zenodo:17466836#Supp_table_1_strain_info.csv</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Raw metagenomic reads</strong>
+                            
+                            <br><span class="dataset-description">Strain-resolved metagenomic sequencing reads for rhizosphere and endosphere colonization analyses.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">METAGENOME</span></td>
+                        <td>NCBI_BIOPROJECT</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1322484" class="term-link" target="_blank" rel="noopener noreferrer">PRJNA1322484</a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Endosphere selective pressure</strong></td>
+                        <td>host-filtered root endosphere</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><strong>Compartment partitioning design</strong></td>
+                        <td>rhizosphere versus endosphere</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>
