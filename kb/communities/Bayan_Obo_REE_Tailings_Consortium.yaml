@@ -291,6 +291,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  target_taxon:
+    preferred_term: Acidiphilium cryptum
+    term:
+      id: NCBITaxon:524
+      label: Acidiphilium cryptum
   metabolites:
   - preferred_term: lanthanum(3+)
     term:
@@ -384,6 +394,63 @@ ecological_interactions:
       remove and systematically monitor contaminants in comparison to virgin MXene,
       thanks to the synergistic effects and complementary benefits
     explanation: Quantifies synergistic enhancement in two-step process
+- name: Actinobacterial Siderophore and Organic Acid Contribution
+  description: 'Streptomyces sp. contributes to REE mobilization through secretion
+    of organic acids (lactic, oxalic, pyruvic), siderophores, and complexing ligands
+    that act as dominant agents for REE extraction. The actinobacterial organic acids
+    complement those produced by Acidiphilium cryptum, enhancing overall chelation
+    capacity and REE solubilization from bastnaesite and monazite. Streptomyces-produced
+    siderophores (metal-chelating compounds) provide additional REE complexation mechanisms
+    beyond simple organic acids. This actinobacterial component of the functional
+    consortium diversifies the metabolic toolkit available for mineral attack, though
+    at lower abundance than the dominant Acidiphilium and Acidithiobacillus members.'
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Streptomyces
+    term:
+      id: NCBITaxon:1883
+      label: Streptomyces
+  target_taxon:
+    preferred_term: Acidiphilium cryptum
+    term:
+      id: NCBITaxon:524
+      label: Acidiphilium cryptum
+  metabolites:
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:28358
+      label: lactic acid
+    notes: Organic acid produced by Streptomyces
+  - preferred_term: oxalic acid
+    term:
+      id: CHEBI:16995
+      label: oxalic acid
+    notes: REE chelator from actinobacterial metabolism
+  - preferred_term: pyruvic acid
+    term:
+      id: CHEBI:32816
+      label: pyruvic acid
+    notes: Organic acid produced by Streptomyces
+  biological_processes:
+  - preferred_term: organic acid metabolic process
+    term:
+      id: GO:0006082
+      label: organic acid metabolic process
+  - preferred_term: siderophore biosynthetic process
+    term:
+      id: GO:0019290
+      label: siderophore biosynthetic process
+  downstream:
+  - target: REE Dissolution from Bastnaesite and Monazite
+    description: Siderophores and organic acids contribute to REE complexation
+  evidence:
+  - reference: doi:10.1016/j.chemogeo.2018.03.018
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: actinobacterial strains secreted various organic acids, complexing ligands,
+      and siderophores as dominant agents to extract rare earth elements from bastnaesite-bearing
+      rock
+    explanation: Establishes actinobacterial mechanisms for REE mobilization
 environmental_factors:
 - name: pH
   value: 1.5-2.5
