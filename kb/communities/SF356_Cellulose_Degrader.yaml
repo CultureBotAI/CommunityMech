@@ -145,6 +145,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:118669
       label: Pseudoxanthomonas
+  target_taxon:
+    preferred_term: Brevibacillus sp. M1-5
+    term:
+      id: NCBITaxon:55524
+      label: Brevibacillus
   metabolites:
   - preferred_term: glucose
     term:
@@ -174,6 +179,111 @@ ecological_interactions:
     snippet: straminisolvens CSK1) and two strains of aerobic bacteria (Pseudoxanthomonas
       sp. strain M1-3 and Brevibacillus sp. strain M1-5) were observed; the aerobes
       introduced anaerobic conditions, and C
+- name: Complementary Cellulolytic Activity
+  description: 'Clostridium sp. FG4 provides complementary cellulolytic activity alongside
+    C. straminisolvens CSK1, enhancing the overall cellulose degradation efficiency
+    of the consortium. The presence of two Clostridium species with cellulose-degrading
+    capability provides functional redundancy that contributes to the remarkable
+    functional stability observed over 20 subcultures. Both Clostridium strains
+    operate under anaerobic conditions created by the aerobic partners, sharing
+    the cellulose substrate and potentially specializing in different cellulose
+    fractions or degradation products. This functional diversity within the primary
+    degrader guild ensures robust cellulose utilization even if one species declines.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium sp. FG4
+    term:
+      id: NCBITaxon:319464
+      label: Clostridium sp. FG4
+  target_taxon:
+    preferred_term: Clostridium straminisolvens CSK1
+    term:
+      id: NCBITaxon:283683
+      label: Clostridium straminisolvens
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  evidence:
+  - reference: PMID:16269746
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A cellulose-degrading defined mixed culture (designated SF356) consisting
+      of five bacterial strains (Clostridium straminisolvens CSK1, Clostridium sp.
+      strain FG4, Pseudoxanthomonas sp. strain M1-3, Brevibacillus sp. strain M1-5,
+      and Bordetella sp. strain M1-6) exhibited both functional and structural stability;
+      namely, no change in cellulose-degrading efficiency was observed, and all members
+      stably coexisted through 20 subcultures
+    explanation: Demonstrates stable coexistence of two cellulolytic Clostridium species
+- name: Aerobic Metabolic Support and Community Structuring
+  description: 'Bordetella sp. M1-6 contributes to aerobic metabolic support alongside
+    Pseudoxanthomonas and Brevibacillus, consuming oxygen and degradation products
+    from Clostridium fermentation. The three aerobic bacteria work together to create
+    and maintain anaerobic microenvironments necessary for optimal Clostridium cellulolytic
+    activity. Bordetella may also contribute to community structure through biofilm
+    formation or production of signaling molecules that coordinate community behavior.
+    The presence of three aerobic species provides metabolic diversity and resilience,
+    ensuring continued oxygen scavenging and anaerobiosis even under varying environmental
+    conditions. This functional redundancy among aerobes mirrors the redundancy
+    in cellulolytic activity, contributing to the overall stability of SF356.
+
+    '
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Bordetella sp. M1-6
+    term:
+      id: NCBITaxon:118667
+      label: Bordetella sp. M1-6
+  target_taxon:
+    preferred_term: Pseudoxanthomonas sp. M1-3
+    term:
+      id: NCBITaxon:118669
+      label: Pseudoxanthomonas sp. M1-3
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: aerobic respiration
+    term:
+      id: GO:0009060
+      label: aerobic respiration
+  evidence:
+  - reference: PMID:16269746
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A cellulose-degrading defined mixed culture (designated SF356) consisting
+      of five bacterial strains (Clostridium straminisolvens CSK1, Clostridium sp.
+      strain FG4, Pseudoxanthomonas sp. strain M1-3, Brevibacillus sp. strain M1-5,
+      and Bordetella sp. strain M1-6) exhibited both functional and structural stability;
+      namely, no change in cellulose-degrading efficiency was observed, and all members
+      stably coexisted through 20 subcultures
+    explanation: Documents stable coexistence of all five members including aerobic bacteria
 environmental_factors:
 - name: Temperature
   value: 50-55°C
