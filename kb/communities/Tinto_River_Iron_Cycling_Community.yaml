@@ -236,6 +236,16 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillariophyceae
+    term:
+      id: NCBITaxon:33849
+      label: Bacillariophyceae
+  target_taxon:
+    preferred_term: Chlorophyta
+    term:
+      id: NCBITaxon:3041
+      label: Chlorophyta
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -248,6 +258,113 @@ ecological_interactions:
     snippet: However, highly acidic environments are usually inhabited by acidophilic and acidotolerant eukaryotic microorganisms
       such as algae, amoebas, ciliates, heliozoan and rotifers, not to mention filamentous fungi and yeasts
     explanation: Quantifies eukaryotic biomass dominance
+- name: Complementary Iron and Sulfur Oxidation
+  description: 'Acidithiobacillus ferrooxidans complements Leptospirillum iron oxidation
+    by providing dual metabolic capability for both iron and sulfur oxidation. While
+    Leptospirillum specializes in Fe²⁺ oxidation, At. ferrooxidans oxidizes both
+    Fe²⁺ and reduced sulfur compounds to sulfuric acid, removing sulfur that would
+    otherwise passivate mineral surfaces and inhibit iron oxidation. This metabolic
+    partnership enhances overall iron cycling efficiency and maintains acidic conditions
+    through sulfuric acid production. At. ferrooxidans contributes ~25% of prokaryotic
+    community, providing functional redundancy in iron oxidation and additional sulfur
+    removal capacity. The organism is chemolithoautotrophic, fixing CO₂ via Calvin
+    cycle and contributing to the autotrophic carbon base alongside Leptospirillum.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  target_taxon:
+    preferred_term: Leptospirillum
+    term:
+      id: NCBITaxon:34045
+      label: Leptospirillum ferrooxidans
+  metabolites:
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  - preferred_term: elemental sulfur
+    term:
+      id: CHEBI:27568
+      label: sulfur atom
+  - preferred_term: sulfuric acid
+    term:
+      id: CHEBI:26836
+      label: sulfuric acid
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  evidence:
+  - reference: doi:10.1128/aem.69.8.4853-4865.2003
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Members of Leptospirillum ferrooxidans , Acidithiobacillus ferrooxidans , and Acidiphilium spp., all related
+      to the iron cycle, accounted for most of the prokaryotic microorganisms detected
+    explanation: Documents At. ferrooxidans role in iron cycle alongside Leptospirillum
+  - reference: doi:10.1128/aem.69.8.4853-4865.2003
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Comparative sequence analysis of DGGE bands showed the presence of organisms related to Leptospirillum spp.,
+      Acidithiobacillus ferrooxidans , Acidiphilium spp., " Ferrimicrobium acidiphilum ," Ferroplasma acidiphilum , and Thermoplasma
+      acidophilum
+    explanation: Establishes presence in iron-cycling community
+- name: Fungal Organic Matter Degradation and Biofilm Formation
+  description: 'Basidiomycota fungi including acidophilic black yeasts (Hortaea werneckii)
+    contribute to organic matter degradation, biofilm formation, and nutrient cycling
+    through extracellular enzyme secretion. Fungi decompose complex organic polymers
+    from algal biomass and microbial necromass, releasing simpler compounds available
+    to heterotrophic bacteria like Acidiphilium. Fungal hyphae and biofilms provide
+    structural scaffolding for stromatolite-like iron oxide precipitates, enhancing
+    community spatial organization. The acidophilic fungi tolerate extreme pH and
+    metal concentrations, forming a eukaryotic decomposer guild that complements
+    bacterial heterotrophs. Fungal presence indicates functional redundancy in organic
+    matter processing, contributing to the ecosystem resilience observed in Rio
+    Tinto despite extreme environmental stress.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Basidiomycota
+    term:
+      id: NCBITaxon:5204
+      label: Basidiomycota
+  target_taxon:
+    preferred_term: Acidiphilium
+    term:
+      id: NCBITaxon:522
+      label: Acidiphilium
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Complex organic polymers from algae and microbial biomass
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:25369810
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: However, highly acidic environments are usually inhabited by acidophilic and acidotolerant eukaryotic microorganisms
+      such as algae, amoebas, ciliates, heliozoan and rotifers, not to mention filamentous fungi and yeasts
+    explanation: Documents fungal presence in Rio Tinto eukaryotic community
 environmental_factors:
 - name: pH
   value: '2.2'
