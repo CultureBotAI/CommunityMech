@@ -245,7 +245,7 @@ ecological_interactions:
   target_taxon:
     preferred_term: Ferrimicrobium acidiphilum
     term:
-      id: NCBITaxon:525909
+      id: NCBITaxon:121039
       label: Ferrimicrobium acidiphilum
   metabolites:
   - preferred_term: organic molecular entity
@@ -317,7 +317,7 @@ ecological_interactions:
   target_taxon:
     preferred_term: Acidiphilium cryptum
     term:
-      id: NCBITaxon:524384
+      id: NCBITaxon:524
       label: Acidiphilium cryptum
   metabolites:
   - preferred_term: iron(3+)
@@ -385,8 +385,13 @@ ecological_interactions:
   source_taxon:
     preferred_term: Ferrimicrobium acidiphilum
     term:
-      id: NCBITaxon:525909
+      id: NCBITaxon:121039
       label: Ferrimicrobium acidiphilum
+  target_taxon:
+    preferred_term: Acidiphilium multivorum
+    term:
+      id: NCBITaxon:62140
+      label: Acidiphilium multivorum
   metabolites:
   - preferred_term: iron(2+)
     term:
@@ -442,6 +447,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidocella facilis
+    term:
+      id: NCBITaxon:525
+      label: Acidocella facilis
+  target_taxon:
+    preferred_term: Acidiphilium multivorum
+    term:
+      id: NCBITaxon:62140
+      label: Acidiphilium multivorum
   metabolites:
   - preferred_term: polysaccharide
     term:
@@ -488,6 +503,108 @@ ecological_interactions:
     snippet: The efficiency of five extraction methods for extracellular polymeric substances (EPS) was compared on three
       benthic eukaryotic biofilms isolated from an extreme acidic river, Río Tinto (SW, Spain)
     explanation: Establishes EPS production by acidophilic communities
+- name: Photoheterotrophic Carbon Cycling
+  description: 'Acidisphaera rubrifaciens performs photoheterotrophy in surface AMD biofilms, combining light-harvesting with
+    organic carbon metabolism. This bacterium produces bacteriochlorophyll a and carotenoids, allowing it to capture light
+    energy while degrading organic compounds. In surface biofilms exposed to sunlight, A. rubrifaciens supplements heterotrophic
+    metabolism with photosynthetic energy capture, providing a metabolic bridge between purely chemoheterotrophic organisms
+    and phototrophic energy acquisition. This contributes to overall organic carbon turnover in AMD systems and provides an
+    additional energy input pathway that complements the chemotrophic metabolism of other heterotrophs.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Acidisphaera rubrifaciens
+    term:
+      id: NCBITaxon:50715
+      label: Acidisphaera rubrifaciens
+  target_taxon:
+    preferred_term: Acidocella facilis
+    term:
+      id: NCBITaxon:525
+      label: Acidocella facilis
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Organic carbon substrates shared with other aerobic heterotrophs
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:10939661
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On the basis of these results, it was concluded that the four isolates should be classified into a new genus
+      and a new species, for which the name Acidisphaera rubrifaciens is proposed
+    explanation: Establishes photoheterotrophic metabolism in AMD
+- name: Complex Polysaccharide Degradation
+  description: 'Acidobacterium capsulatum degrades complex organic polymers that are inaccessible to other AMD heterotrophs,
+    including xylan, hemicelluloses, pectin, starch, and chitin. This metabolically versatile organism breaks down these
+    complex substrates into simpler organic compounds (sugars, organic acids) that become available for other heterotrophs.
+    By accessing complex polysaccharide pools, A. capsulatum expands the range of carbon sources available to the AMD heterotroph
+    community. The degradation products support growth of organisms like Acidiphilium and Acidocella that utilize simpler
+    organic substrates. This creates a trophic cascade where complex organic matter degraders enable subsequent heterotrophic
+    metabolism by other community members.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Acidobacterium capsulatum
+    term:
+      id: NCBITaxon:33075
+      label: Acidobacterium capsulatum
+  target_taxon:
+    preferred_term: Acidiphilium cryptum
+    term:
+      id: NCBITaxon:524
+      label: Acidiphilium cryptum
+  metabolites:
+  - preferred_term: polysaccharide
+    term:
+      id: CHEBI:18154
+      label: polysaccharide
+    notes: Complex polysaccharides degraded by A. capsulatum
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+    notes: Simple sugars released from polysaccharide degradation
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+    notes: Organic acids produced during complex substrate degradation
+  biological_processes:
+  - preferred_term: polysaccharide catabolic process
+    term:
+      id: GO:0000272
+      label: polysaccharide catabolic process
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  evidence:
+  - reference: doi:10.1007/BF02106205
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Acidobacterium capsulatum gen. nov., sp. nov.: An acidophilic chemoorganotrophic bacterium containing menaquinone
+      from acidic mineral environment'
+    explanation: Establishes chemoorganotrophic metabolism
+  - reference: doi:10.3389/fmicb.2016.00744
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'Genomic and metagenomic data predict a number of ecologically relevant capabilities for some acidobacteria,
+      including the ability to: use of nitrite as N source, respond to soil macro-, micro nutrients and soil acidity, express
+      multiple active transporters, degrade gellan gum and produce exopolysaccharide (EPS)'
+    explanation: Documents polysaccharide degradation capability
 environmental_factors:
 - name: pH Range
   value: 2.0-4.0
