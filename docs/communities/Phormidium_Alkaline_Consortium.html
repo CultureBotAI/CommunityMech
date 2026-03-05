@@ -542,7 +542,7 @@
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
-                <svg id="network-svg" height="500" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Phormidium Alkaline Consortium</title>
                     <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
                 </svg>
@@ -1367,7 +1367,9 @@
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
-        var height = 500;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 12;
+        var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
         // Arrow marker
@@ -1384,10 +1386,12 @@
             .attr("fill", "#94a3b8");
 
         var simulation = d3.forceSimulation(nodes)
-            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(80))
-            .force("charge", d3.forceManyBody().strength(-300))
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
             .force("center", d3.forceCenter(width / 2, height / 2))
-            .force("collision", d3.forceCollide().radius(30));
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
 
         var link = svg.append("g")
             .selectAll("line")
@@ -1490,11 +1494,16 @@
                 .attr("y2", function(d) { return d.target.y; });
 
             node.attr("transform", function(d) {
-                // Larger margins to accommodate node sizes and labels
-                // Taxa have labels positioned below (24-30px), plus node radius (12-18px)
-                var marginTop = 30;
-                var marginBottom = 50;
-                var marginSide = 60;
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
                 d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
                 d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
                 return "translate(" + d.x + "," + d.y + ")";
