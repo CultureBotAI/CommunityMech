@@ -592,7 +592,7 @@
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
-                <svg id="network-svg" height="400" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                <svg id="network-svg" height="500" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Industrial Bioleaching Reactor Consortium</title>
                     <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
                 </svg>
@@ -1546,7 +1546,7 @@
         var container = document.getElementById("network-container");
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
-        var height = 400;
+        var height = 500;
         svg.attr("width", width).attr("height", height);
 
         // Arrow marker
@@ -1669,8 +1669,13 @@
                 .attr("y2", function(d) { return d.target.y; });
 
             node.attr("transform", function(d) {
-                d.x = Math.max(20, Math.min(width - 20, d.x));
-                d.y = Math.max(20, Math.min(height - 20, d.y));
+                // Larger margins to accommodate node sizes and labels
+                // Taxa have labels positioned below (24-30px), plus node radius (12-18px)
+                var marginTop = 30;
+                var marginBottom = 50;
+                var marginSide = 60;
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
                 return "translate(" + d.x + "," + d.y + ")";
             });
         });
