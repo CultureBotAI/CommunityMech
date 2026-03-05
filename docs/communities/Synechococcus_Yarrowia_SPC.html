@@ -842,19 +842,60 @@
             })
             .attr("stroke-width", 1.5);
 
-        // Labels
-        node.append("text")
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
             .text(function(d) {
-                if (d.type === "taxon") {
-                    var parts = d.label.split(" ");
-                    return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
-                }
-                return "";
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
             })
             .attr("text-anchor", "middle")
-            .attr("dy", function(d) { return d.type === "taxon" ? (d.abundance === "DOMINANT" ? 30 : 24) : 0; })
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
             .attr("font-size", "10px")
             .attr("fill", "#475569");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .attr("fill", "#475569")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
 
         // Tooltip
         var tooltip = d3.select("#network-tooltip");
