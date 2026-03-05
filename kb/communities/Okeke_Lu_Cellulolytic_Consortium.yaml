@@ -93,6 +93,16 @@ taxonomy:
 ecological_interactions:
 - name: Cellulose Degradation
   interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pseudoxanthomonas byssovorax DB1
+    term:
+      id: NCBITaxon:324747
+      label: Pseudoxanthomonas byssovorax
+  target_taxon:
+    preferred_term: Bacillus sp. DB7
+    term:
+      id: NCBITaxon:870529
+      label: Bacillus sp. DB7
   metabolites:
   - preferred_term: cellulose
     term:
@@ -121,6 +131,16 @@ ecological_interactions:
       enzymes, end-product inhibition, adsorption, and requirement for high amounts of enzymes in direct use of enzymes.
 - name: Hemicellulose Degradation
   interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Microbacterium oxydans DB2
+    term:
+      id: NCBITaxon:82380
+      label: Microbacterium oxydans
+  target_taxon:
+    preferred_term: Klebsiella sp. DB13
+    term:
+      id: NCBITaxon:870530
+      label: Klebsiella sp. DB13
   metabolites:
   - preferred_term: xylan
     term:
@@ -145,6 +165,33 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Isolate DB2 produced the highest xylanase activity (103.05 U mg⁻¹), while the highest β-xylosidase activity (7.72
       U mg⁻¹) was observed with DB13
+- name: Synergistic Lignocellulose Degradation
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Bacillus sp. DB7
+    term:
+      id: NCBITaxon:870529
+      label: Bacillus sp. DB7
+  target_taxon:
+    preferred_term: Ochrobactrum sp. DB8
+    term:
+      id: NCBITaxon:870532
+      label: Ochrobactrum sp. DB8
+  biological_processes:
+  - preferred_term: polysaccharide catabolic process
+    term:
+      id: GO:0000272
+      label: polysaccharide catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:20859703
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such as incomplete synergistic
+      enzymes, end-product inhibition, adsorption, and requirement for high amounts of enzymes in direct use of enzymes.
 environmental_factors:
 - name: Source environment
   value: Alabama soil
