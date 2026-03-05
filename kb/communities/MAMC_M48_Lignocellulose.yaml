@@ -101,6 +101,16 @@ taxonomy:
 ecological_interactions:
 - name: Synergistic Lignocellulose Degradation
   interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Stenotrophomonas maltophilia JN40
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  target_taxon:
+    preferred_term: Paenibacillus sp. PALXIL05
+    term:
+      id: NCBITaxon:375486
+      label: Paenibacillus sp. PALXIL05
   metabolites:
   - preferred_term: cellulose
     term:
@@ -129,6 +139,60 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Enriched microbial communities, obtained from environmental samples through selective processes, can effectively
       contribute to lignocellulose degradation
+- name: Cellulose Hydrolysis Partnership
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Microbacterium sp. UYFA68
+    term:
+      id: NCBITaxon:1605331
+      label: Microbacterium sp. UYFA68
+  target_taxon:
+    preferred_term: Chryseobacterium taiwanense DUCC3723
+    term:
+      id: NCBITaxon:363331
+      label: Chryseobacterium taiwanense
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:29392382
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp., Chryseobacterium
+      taiwanense, and Brevundimonas sp. was found to be the most effective degrading synthetic community.
+- name: Hemicellulose Degradation Partnership
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Paenibacillus sp. PALXIL05
+    term:
+      id: NCBITaxon:375486
+      label: Paenibacillus sp. PALXIL05
+  target_taxon:
+    preferred_term: Brevundimonas sp. R3
+    term:
+      id: NCBITaxon:1501972
+      label: Brevundimonas sp. R3
+  biological_processes:
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:29392382
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp., Chryseobacterium
+      taiwanense, and Brevundimonas sp. was found to be the most effective degrading synthetic community.
 environmental_factors:
 - name: Substrate
   value: sugarcane waste
