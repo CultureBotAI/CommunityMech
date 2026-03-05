@@ -1,0 +1,197 @@
+name: Rice-Duckweed Bacillus Biocontrol SynCom
+description: >-
+  An 8-member, Bacillus-dominated synthetic community (SynCom) assembled from a rice-duckweed
+  agroecosystem by targeting taxa consistently shared across soil, root and shoot niches. The
+  SynCom concurrently promotes rice growth and suppresses sheath blight caused by Rhizoctonia
+  solani, reducing the final disease index by 70% without detectable phytotoxicity.
+  Leave-one-member perturbations reveal a division-of-labor architecture: individual strains
+  specialize in auxin production, siderophore-linked iron mobilization, or
+  lipopeptide/polyketide-based antagonism, yielding complementary yet partially redundant
+  contributions that render community performance resilient to single-member loss. 8 members
+  total; strain-level identifiers available in supplementary data.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >-
+    Generate a multifunctional SynCom for concurrent rice growth promotion and sheath blight
+    biocontrol via a top-down, ecology-guided route with demonstrated greenhouse efficacy and
+    mechanistic transparency.
+  assembly_strategy: >-
+    Top-down ecological core selection from a rice-duckweed agroecosystem, targeting taxa
+    consistently shared across soil, root and shoot niches.
+  perturbation_design: >-
+    Leave-one-member perturbations (-Dx) combined with untargeted LC-MS profiling and qRT-PCR
+    of biosynthetic genes to map individual member contributions to metabolite pools and plant
+    outcomes.
+  measurement_endpoints:
+  - Disease index (sheath blight severity)
+  - Plant growth metrics (shoot biomass, root architecture)
+  - Untargeted LC-MS metabolite profiling
+  - qRT-PCR of biosynthetic genes (surfactin, bacillomycin, fengycin, difficidin)
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      A top-down, ecology-guided route can generate a multifunction SynCom with demonstrated
+      greenhouse efficacy and mechanistic transparency
+    explanation: Describes the ecology-guided assembly strategy and greenhouse validation
+environment_term:
+  preferred_term: rice rhizosphere in rice-duckweed agroecosystem
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: >-
+    Rice-duckweed agroecosystem under greenhouse conditions. The SynCom was derived from taxa
+    shared across soil, root and shoot niches of this system.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus sp. (auxin producer)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+    notes: >-
+      Auxin (IAA)-producing specialist within the 8-member SynCom. Division-of-labor member
+      contributing to rice growth promotion through indole-3-acetic acid biosynthesis.
+      8 members total; strain-level identifiers available in supplementary data.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      division-of-labor architecture: individual strains specialized in auxin production,
+      siderophore-linked iron mobilization, or lipopeptide/polyketide-based antagonism
+    explanation: Documents auxin production specialization within the SynCom
+- taxon_term:
+    preferred_term: Bacillus sp. (siderophore producer)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+    notes: >-
+      Siderophore-producing specialist within the 8-member SynCom. Contributes to rice growth
+      promotion through siderophore-linked iron mobilization.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      division-of-labor architecture: individual strains specialized in auxin production,
+      siderophore-linked iron mobilization, or lipopeptide/polyketide-based antagonism
+    explanation: Documents siderophore-linked iron mobilization specialization
+- taxon_term:
+    preferred_term: Bacillus sp. (lipopeptide antagonist)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+    notes: >-
+      Lipopeptide-producing antagonist within the 8-member SynCom. Produces surfactin,
+      bacillomycin, and fengycin for biocontrol of Rhizoctonia solani sheath blight.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      division-of-labor architecture: individual strains specialized in auxin production,
+      siderophore-linked iron mobilization, or lipopeptide/polyketide-based antagonism
+    explanation: Documents lipopeptide-based antagonism specialization
+- taxon_term:
+    preferred_term: Bacillus sp. (polyketide antagonist)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+    notes: >-
+      Polyketide-producing antagonist within the 8-member SynCom. Produces difficidin for
+      biocontrol of Rhizoctonia solani sheath blight.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      division-of-labor architecture: individual strains specialized in auxin production,
+      siderophore-linked iron mobilization, or lipopeptide/polyketide-based antagonism
+    explanation: Documents polyketide-based antagonism specialization
+ecological_interactions:
+- name: Division-of-Labor Growth Promotion
+  description: >-
+    Individual strains within the SynCom specialize in auxin production and siderophore-linked
+    iron mobilization, complementing each other for rice growth promotion. These complementary
+    yet partially redundant contributions render community performance resilient to
+    single-member loss.
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indol-3-yl-acetic acid
+    notes: Auxin produced by specialist member(s) for rice growth promotion
+  - preferred_term: acetoin
+    term:
+      id: CHEBI:15688
+      label: acetoin
+    notes: Volatile organic compound contributing to plant growth promotion
+  - preferred_term: 2,3-butanediol
+    term:
+      id: CHEBI:16982
+      label: (R,R)-butane-2,3-diol
+    notes: Volatile organic compound contributing to plant growth promotion
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      complementary yet partially redundant contributions mapped members, metabolite pools,
+      plant outcomes and rendered community performance resilient to single-member loss
+    explanation: Documents complementary growth promotion through division of labor
+- name: Antimicrobial Biocontrol of Sheath Blight
+  description: >-
+    SynCom members produce lipopeptides (surfactin, bacillomycin, fengycin) and polyketides
+    (difficidin) that suppress Rhizoctonia solani sheath blight, reducing the final disease
+    index by 70%.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Bacillus SynCom
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+  target_taxon:
+    preferred_term: Rhizoctonia solani
+    term:
+      id: NCBITaxon:456999
+      label: Rhizoctonia solani
+    notes: Causal agent of rice sheath blight
+  metabolites:
+  - preferred_term: surfactin
+    term:
+      id: CHEBI:29681
+      label: surfactin
+    notes: Lipopeptide antibiotic contributing to biocontrol
+  evidence:
+  - reference: PMID:41736136
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      SynCom concurrently promoted rice growth and suppressed sheath blight caused by
+      Rhizoctonia solani, reducing the final disease index by 70% without detectable
+      phytotoxicity
+    explanation: Documents 70% disease index reduction through antimicrobial metabolites
+environmental_factors:
+- name: Host Plant
+  value: Oryza sativa (rice)
+  description: Rice plants grown under greenhouse conditions as the host for sheath blight biocontrol assays.
+- name: Co-cultivated Plant
+  value: Lemna minor (duckweed)
+  description: >-
+    Duckweed co-cultivated with rice in the agroecosystem from which the core microbiome
+    was derived.
+- name: Growth Conditions
+  value: Greenhouse
+  description: Greenhouse conditions for SynCom efficacy evaluation.
