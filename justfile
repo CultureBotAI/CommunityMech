@@ -93,3 +93,11 @@ lint:
 # Full QC (validate + lint + test)
 qc: validate-all validate-terms-all validate-references-all lint test
     @echo "✅ All QC checks passed!"
+
+# Check which community strains are represented in UniProt reference proteomes
+uniprot-reference COMMUNITY_PATH="kb/communities":
+    uv run python -m communitymech.uniprot_reference_proteomes {{COMMUNITY_PATH}}
+
+# Build proteome-oriented CSV with communities per UniProt proteome/taxon
+uniprot-proteome-csv COMMUNITY_PATH="kb/communities" OUT="reports/uniprot_strain_proteome_communities.csv":
+    uv run python -m communitymech.uniprot_reference_proteomes {{COMMUNITY_PATH}} --proteome-csv-out {{OUT}}
