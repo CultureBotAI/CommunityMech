@@ -821,6 +821,93 @@
             
             <div class="interaction-card">
                 <div class="interaction-header">
+                    <h3>Complementary Archaeal Nitrification Across pH Gradient</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Nitrososphaera-like archaeon</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Candidatus Nitrosotalea devanaterra</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    ammonium
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28938"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28938</a>), 
+                    
+                    ammonia
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16134"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16134</a>), 
+                    
+                    nitrite
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16301"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16301</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        nitrification
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019329"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019329</a>)
+                    </li>
+                    
+                    <li>
+                        ammonia monooxygenase activity
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0050510"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0050510</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29209281/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29209281</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum; AOB genes related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24909965/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24909965</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Interestingly, despite their close phylogenetic relatedness, the two Nitrosotalea strains exhibited differences in physiological features, including specific growth rate, temperature preference and to an extent, response to organic compounds"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
                     <h3>Urea-Mediated Ammonia Provision</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
@@ -1173,6 +1260,54 @@
         
         (function() {
             var intId = "interaction:3";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("ammonium");
+            
+            metabolites.push("ammonia");
+            
+            metabolites.push("nitrite");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("nitrification");
+            
+            processes.push("ammonia monooxygenase activity");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Complementary Archaeal Nitrification Across pH Gradient",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Nitrososphaera-like archaeon";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Candidatus Nitrosotalea devanaterra";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:4";
             var intType = "CROSS_FEEDING";
             var metabolites = [];
             
@@ -1230,7 +1365,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 8;
+        var nodeCount = 9;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

@@ -530,6 +530,83 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Bradyrhizobium elkanii BXYD3</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    N-acyl-L-homoserine lactone
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48850"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:48850</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        quorum sensing
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009372"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009372</a>)
+                    </li>
+                    
+                    <li>
+                        cell-cell signaling
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0007267"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0007267</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Enhanced Root Colonization and Nodulation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40052412/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40052412</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Two of these helper strains assigned to the Pantoea taxon produce acyl homoserine lactones, which significantly enhanced the colonization and infection of soybean by BXYD3"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>AHL Quorum Sensing Signal Production (strain 2)</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Pantoea sp. helper strain 2</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Bradyrhizobium elkanii BXYD3</p>
+                
 
                 
                 <p><strong>Metabolites:</strong>
@@ -602,6 +679,8 @@
                 <p><strong>Source Taxon:</strong> Bradyrhizobium elkanii BXYD3</p>
                 
 
+                
+                <p><strong>Target Taxon:</strong> Glycine max</p>
                 
 
                 
@@ -819,10 +898,59 @@
             
 
             
+            var tgtKey = "Bradyrhizobium elkanii BXYD3";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
         (function() {
             var intId = "interaction:1";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("N-acyl-L-homoserine lactone");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("quorum sensing");
+            
+            processes.push("cell-cell signaling");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "AHL Quorum Sensing Signal Production (strain 2)",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Pantoea sp. helper strain 2";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Bradyrhizobium elkanii BXYD3";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
             var intType = "MUTUALISM";
             var metabolites = [];
             
@@ -862,6 +990,11 @@
             
 
             
+            var tgtKey = "Glycine max";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
 
@@ -880,7 +1013,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

@@ -674,7 +674,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Acidiphilium cryptum</p>
                 
 
                 
@@ -810,6 +814,89 @@
                         </div>
                         
                         <div class="snippet">"In the area of environmental remediation, MXene-based composites obtained through heterointerface engineering strategies have the ability to effectively remove and systematically monitor contaminants in comparison to virgin MXene, thanks to the synergistic effects and complementary benefits"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Actinobacterial Siderophore and Organic Acid Contribution</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Streptomyces</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Acidiphilium cryptum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    lactic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28358"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28358</a>), 
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16995</a>), 
+                    
+                    pyruvic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=32816"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:32816</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic acid metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006082"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006082</a>)
+                    </li>
+                    
+                    <li>
+                        siderophore biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019290"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019290</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> REE Dissolution from Bastnaesite and Monazite
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.1016/j.chemogeo.2018.03.018"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1016/j.chemogeo.2018.03.018</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"actinobacterial strains secreted various organic acids, complexing ligands, and siderophores as dominant agents to extract rare earth elements from bastnaesite-bearing rock"</div>
                         
                     </li>
                     
@@ -1074,7 +1161,17 @@
             });
 
             
+            var srcKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Acidiphilium cryptum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1116,6 +1213,54 @@
             
         })();
         
+        (function() {
+            var intId = "interaction:4";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            
+            metabolites.push("lactic acid");
+            
+            metabolites.push("oxalic acid");
+            
+            metabolites.push("pyruvic acid");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("organic acid metabolic process");
+            
+            processes.push("siderophore biosynthetic process");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Actinobacterial Siderophore and Organic Acid Contribution",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Streptomyces";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Acidiphilium cryptum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1132,7 +1277,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 7;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

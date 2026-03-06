@@ -823,7 +823,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Leptospirillum ferriphilum</p>
                 
 
                 
@@ -1258,7 +1262,17 @@
             });
 
             
+            var srcKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Leptospirillum ferriphilum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         

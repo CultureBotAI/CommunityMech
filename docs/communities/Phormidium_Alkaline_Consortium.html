@@ -738,7 +738,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Bacteroidota members</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Candidatus Phormidium alkaliphilum</p>
                 
 
                 
@@ -871,7 +875,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Wenzhouxiangella sp.</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Candidatus Phormidium alkaliphilum</p>
                 
 
                 
@@ -923,6 +931,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Verrucomicrobiota members</p>
+                
 
                 
                 <p><strong>Metabolites:</strong>
@@ -963,6 +973,58 @@
                         </div>
                         
                         <div class="snippet">"Genome-resolved metaproteomics with stable isotope probing using 13 C-bicarbonate (protein/SIP) showed tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations, specially Wenzhouxiangella"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Alphaproteobacterial Heterotrophy and Symbiosis</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Alphaproteobacteria members</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Candidatus Phormidium alkaliphilum</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        mutualism
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.3389/fmicb.2022.780346"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2022.780346</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Genome-resolved metaproteomics with stable isotope probing using 13 C-bicarbonate (protein/SIP) showed tight coupling of carbon transfer from cyanobacteria to the heterotrophic populations"</div>
                         
                     </li>
                     
@@ -1237,7 +1299,17 @@
             });
 
             
+            var srcKey = "Bacteroidota members";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Candidatus Phormidium alkaliphilum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1311,7 +1383,17 @@
             });
 
             
+            var srcKey = "Wenzhouxiangella sp.";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Candidatus Phormidium alkaliphilum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1350,6 +1432,49 @@
             
 
             
+            var tgtKey = "Verrucomicrobiota members";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:6";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("mutualism");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Alphaproteobacterial Heterotrophy and Symbiosis",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Alphaproteobacteria members";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Candidatus Phormidium alkaliphilum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
 
@@ -1368,7 +1493,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 12;
+        var nodeCount = 13;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

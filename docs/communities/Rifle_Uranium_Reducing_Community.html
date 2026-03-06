@@ -667,7 +667,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Geobacter species</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Anaeromyxobacter dehalogenans</p>
                 
 
                 
@@ -867,7 +871,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Geobacter species</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Desulfobacteraceae family</p>
                 
 
                 
@@ -926,6 +934,97 @@
                         </div>
                         
                         <div class="snippet">"Fe(III) is depleted, sulfate is reduced, and sulfate-reducing bacteria predominate"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Complementary Sulfate Reduction and U(VI) Reduction</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Desulfosporosinus species</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Desulfobacteraceae family</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    sulfate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16189"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16189</a>), 
+                    
+                    hydrogen sulfide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16136"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16136</a>), 
+                    
+                    uranium(VI)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=37119"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:37119</a>), 
+                    
+                    uranium(IV)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=33395"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:33395</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        sulfate reduction
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019419</a>)
+                    </li>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/12788780/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:12788780</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"This removal was associated with an enrichment in microorganisms most closely related to Pseudomonas and Desulfosporosinus species."</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36889400/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36889400</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The reduction of U(VI) by the sulfate-reducing bacterium Desulfosporosinus hippei DSM 8344T, a close phylogenetic relative to naturally occurring microorganism present in clay rock and bentonite, was investigated"</div>
                         
                     </li>
                     
@@ -1149,7 +1248,17 @@
             });
 
             
+            var srcKey = "Geobacter species";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Anaeromyxobacter dehalogenans";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1274,7 +1383,67 @@
             });
 
             
+            var srcKey = "Geobacter species";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Desulfobacteraceae family";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:5";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("sulfate");
+            
+            metabolites.push("hydrogen sulfide");
+            
+            metabolites.push("uranium(VI)");
+            
+            metabolites.push("uranium(IV)");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("sulfate reduction");
+            
+            processes.push("oxidation-reduction process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Complementary Sulfate Reduction and U(VI) Reduction",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Desulfosporosinus species";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Desulfobacteraceae family";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1294,7 +1463,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 10;
+        var nodeCount = 11;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

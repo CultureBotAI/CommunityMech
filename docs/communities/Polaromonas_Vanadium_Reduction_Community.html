@@ -649,6 +649,8 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Polaromonas species</p>
+                
 
                 
 
@@ -731,6 +733,8 @@
                 <p><strong>Source Taxon:</strong> Desulfovibrio species</p>
                 
 
+                
+                <p><strong>Target Taxon:</strong> Desulfitobacterium species</p>
                 
 
                 
@@ -1122,6 +1126,11 @@
             });
 
             
+            var srcKey = "Polaromonas species";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
             
         })();
@@ -1168,6 +1177,11 @@
             }
             
 
+            
+            var tgtKey = "Desulfitobacterium species";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         

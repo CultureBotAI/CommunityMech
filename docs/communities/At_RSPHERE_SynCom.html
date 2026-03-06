@@ -574,6 +574,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Arabidopsis thaliana</p>
+                
 
                 
 
@@ -635,6 +637,8 @@
                 <p><strong>Source Taxon:</strong> Variovorax sp.</p>
                 
 
+                
+                <p><strong>Target Taxon:</strong> Arabidopsis thaliana</p>
                 
 
                 
@@ -698,6 +702,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Arabidopsis thaliana</p>
+                
 
                 
 
@@ -736,6 +742,122 @@
                         </div>
                         
                         <div class="snippet">"Using defined bacterial communities and a gnotobiotic Arabidopsis plant system we show that the isolates form assemblies resembling natural microbiota on their cognate host organs, but are also capable of ectopic leaf or root colonization"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Bioactive Metabolite Production and Plant Growth Promotion</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Streptomyces sp.</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Arabidopsis thaliana</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        secondary metabolite biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044550"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044550</a>)
+                    </li>
+                    
+                    <li>
+                        plant-bacterium mutualism
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.1038/nature16192"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/nature16192</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"We established Arabidopsis leaf- and root-derived microbiota culture collections representing the majority of bacterial species that are reproducibly detectable by culture-independent community sequencing"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Organic Matter Degradation and Nutrient Cycling</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Flavobacterium sp.</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Arabidopsis thaliana</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0071704"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0071704</a>)
+                    </li>
+                    
+                    <li>
+                        plant-bacterium mutualism
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044403"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044403</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.1038/nature16192"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1038/nature16192</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"We established Arabidopsis leaf- and root-derived microbiota culture collections representing the majority of bacterial species that are reproducibly detectable by culture-independent community sequencing"</div>
                         
                     </li>
                     
@@ -920,6 +1042,11 @@
             
 
             
+            var tgtKey = "Arabidopsis thaliana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
         (function() {
@@ -957,6 +1084,11 @@
             
 
             
+            var tgtKey = "Arabidopsis thaliana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
         (function() {
@@ -992,6 +1124,91 @@
             
 
             
+            var tgtKey = "Arabidopsis thaliana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:3";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("secondary metabolite biosynthetic process");
+            
+            processes.push("plant-bacterium mutualism");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Bioactive Metabolite Production and Plant Growth Promotion",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Streptomyces sp.";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Arabidopsis thaliana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:4";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("organic substance metabolic process");
+            
+            processes.push("plant-bacterium mutualism");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Organic Matter Degradation and Nutrient Cycling",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Flavobacterium sp.";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Arabidopsis thaliana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
 
@@ -1010,7 +1227,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 9;
+        var nodeCount = 11;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

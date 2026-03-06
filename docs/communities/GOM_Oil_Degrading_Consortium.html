@@ -526,7 +526,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Alcanivorax sp. GOM</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Halopseudomonas aestusnigri GOM5</p>
                 
 
                 
@@ -595,7 +599,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Pseudomonas sp. GOM</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Paenarthrobacter sp. GOM3</p>
                 
 
                 
@@ -808,7 +816,17 @@
             });
 
             
+            var srcKey = "Alcanivorax sp. GOM";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Halopseudomonas aestusnigri GOM5";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -846,7 +864,17 @@
             });
 
             
+            var srcKey = "Pseudomonas sp. GOM";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Paenarthrobacter sp. GOM3";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         

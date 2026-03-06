@@ -526,7 +526,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Short motile rod bacterium</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Long non-motile rod bacterium</p>
                 
 
                 
@@ -667,6 +671,66 @@
                         </div>
                         
                         <div class="snippet">"When 4-hydroxybenzoate was used as the substrate, phenol (maximum, 20 microM) and benzoate (maximum, 92 microM) were detected as intermediates, which were then further degraded to acetate and methane by the coculture"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Sulfate Reduction Contribution to Syntrophy</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Desulfovibrio sp.</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Methanospirillum sp.</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    dihydrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/18281436/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:18281436</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading organism capable of oxidizing phenol in association with an H(2)-scavenging methanogen partner"</div>
                         
                     </li>
                     
@@ -824,7 +888,17 @@
             });
 
             
+            var srcKey = "Short motile rod bacterium";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Long non-motile rod bacterium";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -873,6 +947,48 @@
             
         })();
         
+        (function() {
+            var intId = "interaction:2";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            
+            metabolites.push("dihydrogen");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("oxidation-reduction process");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Sulfate Reduction Contribution to Syntrophy",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Desulfovibrio sp.";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Methanospirillum sp.";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -889,7 +1005,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

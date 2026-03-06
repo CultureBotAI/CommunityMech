@@ -607,6 +607,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Chlamydomonas reinhardtii</p>
+                
 
                 
                 <p><strong>Metabolites:</strong>
@@ -636,6 +638,83 @@
                 
                 <h4>Evidence</h4>
                 <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38159768/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38159768</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"When incubated in mannitol- and yeast extract-containing medium, this bacterial community can promote and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial chlorophyll) algal cultures, respectively"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Multispecies Bacterial Consortium Supporting H2 Production</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Bacillus cereus</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Stenotrophomonas goyi</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    oxygen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15379"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15379</a>), 
+                    
+                    hydrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=49637"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:49637</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        interspecies interaction
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38159768/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38159768</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"A naturally occurring multispecies bacterial community composed of Bacillus cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop"</div>
+                        
+                    </li>
                     
                     <li class="evidence-item">
                         <div>
@@ -852,6 +931,55 @@
             
 
             
+            var tgtKey = "Chlamydomonas reinhardtii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("oxygen");
+            
+            metabolites.push("hydrogen");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("interspecies interaction");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Multispecies Bacterial Consortium Supporting H2 Production",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Bacillus cereus";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Stenotrophomonas goyi";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
 
@@ -870,7 +998,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
