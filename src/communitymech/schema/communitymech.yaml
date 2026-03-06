@@ -476,6 +476,49 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  GrowthMediaComponent:
+    description: A component of growth media (nutrient, salt, buffer, etc.)
+    attributes:
+      name:
+        description: Name of the component
+        required: true
+      concentration:
+        description: Concentration value
+      unit:
+        description: Unit of measurement for concentration
+      chebi_term:
+        description: CHEBI term for the component
+        range: MetaboliteDescriptor
+
+  GrowthMedia:
+    description: Growth media used for cultivation of the community or its members
+    attributes:
+      name:
+        description: Name of the growth medium
+        required: true
+      culturemech_id:
+        description: Identifier in CultureMech media database (e.g., MEDIUM:0000001)
+      culturemech_url:
+        description: URL to CultureMech media entry
+      composition:
+        description: Components of the growth medium
+        range: GrowthMediaComponent
+        multivalued: true
+      ph:
+        description: pH of the medium
+      temperature:
+        description: Incubation temperature
+      temperature_unit:
+        description: Unit for temperature (e.g., °C, K)
+      atmosphere:
+        description: Atmospheric conditions (aerobic, anaerobic, microaerobic)
+      preparation_notes:
+        description: Additional preparation details or modifications
+      evidence:
+        description: Evidence for this growth medium
+        range: EvidenceItem
+        multivalued: true
+
   AssociatedDataset:
     description: An omics or other dataset associated with the community
     attributes:
@@ -584,6 +627,10 @@ classes:
       environmental_factors:
         description: Environmental conditions
         range: EnvironmentalFactor
+        multivalued: true
+      growth_media:
+        description: Growth media used for cultivation
+        range: GrowthMedia
         multivalued: true
       associated_datasets:
         description: Omics and other datasets associated with this community

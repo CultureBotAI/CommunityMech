@@ -1,0 +1,81 @@
+name: Example Community with Growth Media
+description: Example showing how to document growth media information
+
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: SYNTROPHY
+
+environment_term:
+  preferred_term: laboratory culture
+  term:
+    id: ENVO:00002034
+    label: laboratory culture
+
+taxonomy:
+  - taxon_term:
+      preferred_term: Escherichia coli
+      term:
+        id: NCBITaxon:562
+        label: Escherichia coli
+
+# Growth media information
+growth_media:
+  # Example 1: CCAP bacterial medium with link to CultureMech
+  - name: CCAP Medium C100 (Soil/Water + AMP)
+    culturemech_id: mediadive.medium:C100
+    culturemech_url: https://github.com/CultureBotAI/CultureMech/blob/main/data/normalized_yaml/bacterial/CCAP_C100_S_W_AMP.yaml
+    ph: "7-8"
+    temperature: "20"
+    temperature_unit: "°C"
+    atmosphere: aerobic
+    composition:
+      - name: Soil (garden loam)
+        concentration: "variable"
+        unit: "g/L"
+      - name: Ammonium magnesium phosphate
+        concentration: "0.01"
+        unit: "g/L"
+      - name: Ampicillin
+        concentration: "0.025"
+        unit: "g/L"
+        chebi_term:
+          preferred_term: ampicillin
+          term:
+            id: CHEBI:28971
+            label: ampicillin
+    preparation_notes: "Layer ~1 cm air-dried sieved garden loam, add deionised water to 7-10 cm depth. Autoclave 15 min at 15 psi on 2 consecutive days. Add ampicillin from filter-sterilized stock."
+    evidence:
+      - reference: doi:10.1234/ccap.media
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "CCAP Medium C100 documented in culture collection protocols."
+
+  # Example 2: Complex medium without CultureMech link
+  - name: LB Medium (Modified)
+    ph: "7.0"
+    temperature: "30"
+    temperature_unit: "°C"
+    atmosphere: aerobic
+    composition:
+      - name: Tryptone
+        concentration: "10.0"
+        unit: "g/L"
+      - name: Yeast extract
+        concentration: "5.0"
+        unit: "g/L"
+      - name: Sodium chloride
+        concentration: "5.0"
+        unit: "g/L"
+        chebi_term:
+          preferred_term: sodium chloride
+          term:
+            id: CHEBI:26710
+            label: sodium chloride
+    preparation_notes: "Modified with reduced NaCl concentration for low-salt adaptation."
+    evidence:
+      - reference: doi:10.1234/example.2024
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Cells were adapted to low-salt LB medium over 10 passages."
+
+ecological_interactions: []

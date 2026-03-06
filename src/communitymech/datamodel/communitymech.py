@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-02-25T11:30:13
+# Generation date: 2026-03-06T00:42:58
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -548,6 +548,98 @@ class EnvironmentalFactor(YAMLRoot):
 
 
 @dataclass(repr=False)
+class GrowthMediaComponent(YAMLRoot):
+    """
+    A component of growth media (nutrient, salt, buffer, etc.)
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GrowthMediaComponent"]
+    class_class_curie: ClassVar[str] = "communitymech:GrowthMediaComponent"
+    class_name: ClassVar[str] = "GrowthMediaComponent"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GrowthMediaComponent
+
+    name: str = None
+    concentration: Optional[str] = None
+    unit: Optional[str] = None
+    chebi_term: Optional[Union[dict, MetaboliteDescriptor]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.concentration is not None and not isinstance(self.concentration, str):
+            self.concentration = str(self.concentration)
+
+        if self.unit is not None and not isinstance(self.unit, str):
+            self.unit = str(self.unit)
+
+        if self.chebi_term is not None and not isinstance(self.chebi_term, MetaboliteDescriptor):
+            self.chebi_term = MetaboliteDescriptor(**as_dict(self.chebi_term))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GrowthMedia(YAMLRoot):
+    """
+    Growth media used for cultivation of the community or its members
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GrowthMedia"]
+    class_class_curie: ClassVar[str] = "communitymech:GrowthMedia"
+    class_name: ClassVar[str] = "GrowthMedia"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GrowthMedia
+
+    name: str = None
+    culturemech_id: Optional[str] = None
+    culturemech_url: Optional[str] = None
+    composition: Optional[Union[Union[dict, GrowthMediaComponent], list[Union[dict, GrowthMediaComponent]]]] = empty_list()
+    ph: Optional[str] = None
+    temperature: Optional[str] = None
+    temperature_unit: Optional[str] = None
+    atmosphere: Optional[str] = None
+    preparation_notes: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.name):
+            self.MissingRequiredField("name")
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
+
+        if self.culturemech_id is not None and not isinstance(self.culturemech_id, str):
+            self.culturemech_id = str(self.culturemech_id)
+
+        if self.culturemech_url is not None and not isinstance(self.culturemech_url, str):
+            self.culturemech_url = str(self.culturemech_url)
+
+        self._normalize_inlined_as_dict(slot_name="composition", slot_type=GrowthMediaComponent, key_name="name", keyed=False)
+
+        if self.ph is not None and not isinstance(self.ph, str):
+            self.ph = str(self.ph)
+
+        if self.temperature is not None and not isinstance(self.temperature, str):
+            self.temperature = str(self.temperature)
+
+        if self.temperature_unit is not None and not isinstance(self.temperature_unit, str):
+            self.temperature_unit = str(self.temperature_unit)
+
+        if self.atmosphere is not None and not isinstance(self.atmosphere, str):
+            self.atmosphere = str(self.atmosphere)
+
+        if self.preparation_notes is not None and not isinstance(self.preparation_notes, str):
+            self.preparation_notes = str(self.preparation_notes)
+
+        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class AssociatedDataset(YAMLRoot):
     """
     An omics or other dataset associated with the community
@@ -720,6 +812,7 @@ class MicrobialCommunity(YAMLRoot):
     taxonomy: Optional[Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]] = empty_list()
     ecological_interactions: Optional[Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]] = empty_list()
     environmental_factors: Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]] = empty_list()
+    growth_media: Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]] = empty_list()
     associated_datasets: Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]] = empty_list()
     external_resources: Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]] = empty_list()
 
@@ -752,6 +845,8 @@ class MicrobialCommunity(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="ecological_interactions", slot_type=EcologicalInteraction, key_name="name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="environmental_factors", slot_type=EnvironmentalFactor, key_name="name", keyed=False)
+
+        self._normalize_inlined_as_dict(slot_name="growth_media", slot_type=GrowthMedia, key_name="name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="associated_datasets", slot_type=AssociatedDataset, key_name="name", keyed=False)
 
@@ -1321,6 +1416,48 @@ slots.environmentalFactor__description = Slot(uri=COMMUNITYMECH.description, nam
 slots.environmentalFactor__evidence = Slot(uri=COMMUNITYMECH.evidence, name="environmentalFactor__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.environmentalFactor__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
 
+slots.growthMediaComponent__name = Slot(uri=COMMUNITYMECH.name, name="growthMediaComponent__name", curie=COMMUNITYMECH.curie('name'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__name, domain=None, range=str)
+
+slots.growthMediaComponent__concentration = Slot(uri=COMMUNITYMECH.concentration, name="growthMediaComponent__concentration", curie=COMMUNITYMECH.curie('concentration'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__concentration, domain=None, range=Optional[str])
+
+slots.growthMediaComponent__unit = Slot(uri=COMMUNITYMECH.unit, name="growthMediaComponent__unit", curie=COMMUNITYMECH.curie('unit'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__unit, domain=None, range=Optional[str])
+
+slots.growthMediaComponent__chebi_term = Slot(uri=COMMUNITYMECH.chebi_term, name="growthMediaComponent__chebi_term", curie=COMMUNITYMECH.curie('chebi_term'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__chebi_term, domain=None, range=Optional[Union[dict, MetaboliteDescriptor]])
+
+slots.growthMedia__name = Slot(uri=COMMUNITYMECH.name, name="growthMedia__name", curie=COMMUNITYMECH.curie('name'),
+                   model_uri=COMMUNITYMECH.growthMedia__name, domain=None, range=str)
+
+slots.growthMedia__culturemech_id = Slot(uri=COMMUNITYMECH.culturemech_id, name="growthMedia__culturemech_id", curie=COMMUNITYMECH.curie('culturemech_id'),
+                   model_uri=COMMUNITYMECH.growthMedia__culturemech_id, domain=None, range=Optional[str])
+
+slots.growthMedia__culturemech_url = Slot(uri=COMMUNITYMECH.culturemech_url, name="growthMedia__culturemech_url", curie=COMMUNITYMECH.curie('culturemech_url'),
+                   model_uri=COMMUNITYMECH.growthMedia__culturemech_url, domain=None, range=Optional[str])
+
+slots.growthMedia__composition = Slot(uri=COMMUNITYMECH.composition, name="growthMedia__composition", curie=COMMUNITYMECH.curie('composition'),
+                   model_uri=COMMUNITYMECH.growthMedia__composition, domain=None, range=Optional[Union[Union[dict, GrowthMediaComponent], list[Union[dict, GrowthMediaComponent]]]])
+
+slots.growthMedia__ph = Slot(uri=COMMUNITYMECH.ph, name="growthMedia__ph", curie=COMMUNITYMECH.curie('ph'),
+                   model_uri=COMMUNITYMECH.growthMedia__ph, domain=None, range=Optional[str])
+
+slots.growthMedia__temperature = Slot(uri=COMMUNITYMECH.temperature, name="growthMedia__temperature", curie=COMMUNITYMECH.curie('temperature'),
+                   model_uri=COMMUNITYMECH.growthMedia__temperature, domain=None, range=Optional[str])
+
+slots.growthMedia__temperature_unit = Slot(uri=COMMUNITYMECH.temperature_unit, name="growthMedia__temperature_unit", curie=COMMUNITYMECH.curie('temperature_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__temperature_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__atmosphere = Slot(uri=COMMUNITYMECH.atmosphere, name="growthMedia__atmosphere", curie=COMMUNITYMECH.curie('atmosphere'),
+                   model_uri=COMMUNITYMECH.growthMedia__atmosphere, domain=None, range=Optional[str])
+
+slots.growthMedia__preparation_notes = Slot(uri=COMMUNITYMECH.preparation_notes, name="growthMedia__preparation_notes", curie=COMMUNITYMECH.curie('preparation_notes'),
+                   model_uri=COMMUNITYMECH.growthMedia__preparation_notes, domain=None, range=Optional[str])
+
+slots.growthMedia__evidence = Slot(uri=COMMUNITYMECH.evidence, name="growthMedia__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.growthMedia__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
 slots.associatedDataset__name = Slot(uri=COMMUNITYMECH.name, name="associatedDataset__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.associatedDataset__name, domain=None, range=str)
 
@@ -1416,6 +1553,9 @@ slots.microbialCommunity__ecological_interactions = Slot(uri=COMMUNITYMECH.ecolo
 
 slots.microbialCommunity__environmental_factors = Slot(uri=COMMUNITYMECH.environmental_factors, name="microbialCommunity__environmental_factors", curie=COMMUNITYMECH.curie('environmental_factors'),
                    model_uri=COMMUNITYMECH.microbialCommunity__environmental_factors, domain=None, range=Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]])
+
+slots.microbialCommunity__growth_media = Slot(uri=COMMUNITYMECH.growth_media, name="microbialCommunity__growth_media", curie=COMMUNITYMECH.curie('growth_media'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__growth_media, domain=None, range=Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]])
 
 slots.microbialCommunity__associated_datasets = Slot(uri=COMMUNITYMECH.associated_datasets, name="microbialCommunity__associated_datasets", curie=COMMUNITYMECH.curie('associated_datasets'),
                    model_uri=COMMUNITYMECH.microbialCommunity__associated_datasets, domain=None, range=Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]])
