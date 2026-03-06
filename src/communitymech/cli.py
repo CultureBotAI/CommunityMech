@@ -541,6 +541,113 @@ def _apply_batch_report(report_path: Path):
             click.echo("Backups saved to .backups/\n")
 
 
+@cli.command(name="generate-umap")
+@click.option(
+    "--communities-dir",
+    type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
+    default="kb/communities",
+    help="Directory containing community YAML files",
+)
+@click.option(
+    "--embeddings-path",
+    type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=Path),
+    default="data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_2026-02-01_05_54_01.tsv.gz",
+    help="Path to KG-Microbe embeddings TSV.gz file",
+)
+@click.option(
+    "--output",
+    type=click.Path(dir_okay=False, path_type=Path),
+    default="docs/community_umap.html",
+    help="Output HTML path",
+)
+@click.option(
+    "--cache-dir",
+    type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
+    default=".umap_cache",
+    help="Directory for embedding cache",
+)
+@click.option(
+    "--force-reload",
+    is_flag=True,
+    help="Force reload embeddings (ignore cache)",
+)
+@click.option(
+    "--n-neighbors",
+    type=int,
+    default=15,
+    help="UMAP n_neighbors parameter (controls local vs global structure)",
+)
+@click.option(
+    "--min-dist",
+    type=float,
+    default=0.1,
+    help="UMAP min_dist parameter (minimum distance between points)",
+)
+@click.option(
+    "--min-coverage",
+    type=float,
+    default=0.5,
+    help="Minimum fraction of taxa that must have embeddings (0.0-1.0)",
+)
+def generate_umap(
+    communities_dir: Path,
+    embeddings_path: Path,
+    output: Path,
+    cache_dir: Path,
+    force_reload: bool,
+    n_neighbors: int,
+    min_dist: float,
+    min_coverage: float,
+):
+    """Generate interactive UMAP visualization of community embedding space.
+
+    Creates a 2D UMAP projection of all communities based on their taxonomic
+    composition embeddings from KG-Microbe. The visualization is an interactive
+    HTML scatterplot published to docs/ for GitHub Pages.
+
+    Examples:
+
+        # Generate with default settings
+        communitymech generate-umap
+
+        # Custom UMAP parameters
+        communitymech generate-umap --n-neighbors 20 --min-dist 0.05
+
+        # Force reload embeddings (ignore cache)
+        communitymech generate-umap --force-reload
+
+        # Custom output location
+        communitymech generate-umap --output docs/custom_umap.html
+    """
+    try:
+        from communitymech.visualization.umap_generator import UMAPVisualizationGenerator
+    except ImportError as e:
+        click.echo(f"❌ Error: Missing dependencies: {e}", err=True)
+        click.echo("\n💡 Install required dependencies:")
+        click.echo("   uv sync")
+        sys.exit(1)
+
+    try:
+        generator = UMAPVisualizationGenerator()
+        generator.generate(
+            communities_dir=str(communities_dir),
+            embeddings_path=str(embeddings_path),
+            output_path=str(output),
+            cache_dir=str(cache_dir),
+            force_reload=force_reload,
+            n_neighbors=n_neighbors,
+            min_dist=min_dist,
+            min_coverage=min_coverage,
+        )
+
+    except Exception as e:
+        click.echo(f"❌ Error during UMAP generation: {e}", err=True)
+        if "--verbose" in sys.argv or "-v" in sys.argv:
+            import traceback
+            traceback.print_exc()
+        sys.exit(1)
+
+
 def main():
     """Entry point for CLI."""
     cli()

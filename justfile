@@ -73,6 +73,15 @@ gen-browser:
 gen-html:
     uv run python -m communitymech.render
 
+# Generate UMAP visualization of community embedding space
+gen-umap:
+    uv run communitymech generate-umap
+    @echo "✅ UMAP visualization generated at docs/community_umap.html"
+
+# Generate all HTML (communities + UMAP)
+gen-all: gen-html gen-umap
+    @echo "✅ All HTML pages regenerated"
+
 # Clean generated files
 clean:
     rm -rf src/communitymech/datamodel/*.py

@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Embedding Space - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .controls label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .controls select,
+        .controls input[type="search"] {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .controls input[type="search"] {
+            min-width: 250px;
+        }
+
+        #umap-plot {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .info-panel {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-panel h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-panel ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-panel li {
+            padding: 0.3rem 0;
+        }
+
+        .info-panel strong {
+            color: var(--primary);
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: 6px;
+            pointer-events: none;
+            font-size: 0.85rem;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: #60a5fa;
+        }
+
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0.2rem 0;
+        }
+
+        .tooltip-label {
+            color: #94a3b8;
+        }
+
+        .point {
+            cursor: pointer;
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        .point:hover {
+            stroke: #fbbf24;
+            stroke-width: 2.5px;
+        }
+
+        .point.highlighted {
+            stroke: #fbbf24;
+            stroke-width: 3px;
+        }
+    </style>
+    <script src="d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Community Embedding Space</h1>
+            <p class="subtitle">UMAP projection of 73 microbial communities based on taxonomic composition</p>
+            <a href="index.html" class="nav-link">← Back to Community Index</a>
+        </header>
+
+        <div class="controls">
+            <label>
+                Color by:
+                <select id="color-by">
+                    <option value="category">Category</option>
+                    <option value="ecological_state">Ecological State</option>
+                    <option value="origin">Origin</option>
+                </select>
+            </label>
+
+            <label>
+                Size by:
+                <select id="size-by">
+                    <option value="num_taxa">Number of Taxa</option>
+                    <option value="num_interactions">Interactions</option>
+                </select>
+            </label>
+
+            <input type="search" id="search" placeholder="Search communities...">
+        </div>
+
+        <div id="umap-plot"></div>
+
+        <div class="legend" id="legend"></div>
+
+        <div class="info-panel">
+            <h2>How to Interpret This Visualization</h2>
+            <ul>
+                <li><strong>Proximity:</strong> Communities close together have similar taxonomic composition in embedding space</li>
+                <li><strong>Color:</strong> Categorical grouping (default: community category like AMD, DIET, SynCom)</li>
+                <li><strong>Size:</strong> Metric of interest (default: number of unique taxa)</li>
+                <li><strong>Hover:</strong> View detailed metadata tooltip</li>
+                <li><strong>Click:</strong> Navigate to the community's detail page</li>
+                <li><strong>Zoom/Pan:</strong> Use mouse wheel to zoom, click and drag to pan</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Data from Jinja2 template
+        const communityData = [
+  {
+    "id": "AMD_Acidophile_Heterotroph_Network",
+    "name": "AMD Acidophile Heterotroph Network",
+    "umap_x": 5.335850238800049,
+    "umap_y": 12.18360424041748,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/AMD_Acidophile_Heterotroph_Network.html"
+  },
+  {
+    "id": "AMD_Nitrososphaerota_Archaeal",
+    "name": "AMD Nitrososphaerota Archaeal Community",
+    "umap_x": 5.422664165496826,
+    "umap_y": 11.760801315307617,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 4,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/AMD_Nitrososphaerota_Archaeal.html"
+  },
+  {
+    "id": "Aspergillus_Indium_LED_Recovery",
+    "name": "Aspergillus Indium LED Recovery Platform",
+    "umap_x": 6.352931976318359,
+    "umap_y": 10.047120094299316,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 1,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Aspergillus_Indium_LED_Recovery.html"
+  },
+  {
+    "id": "At_RSPHERE_SynCom",
+    "name": "At-RSPHERE SynCom",
+    "umap_x": 7.596687316894531,
+    "umap_y": 7.634818077087402,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 83.33333333333334,
+    "url": "communities/At_RSPHERE_SynCom.html"
+  },
+  {
+    "id": "Australian_Lead_Zinc_Polymetallic",
+    "name": "Australian Lead Zinc Polymetallic Tailings Consortium",
+    "umap_x": 4.720704555511475,
+    "umap_y": 12.182576179504395,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailing",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Australian_Lead_Zinc_Polymetallic.html"
+  },
+  {
+    "id": "Bayan_Obo_REE_Tailings_Consortium",
+    "name": "Bayan Obo REE Tailings Consortium",
+    "umap_x": 5.32612943649292,
+    "umap_y": 12.934501647949219,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 3,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Bayan_Obo_REE_Tailings_Consortium.html"
+  },
+  {
+    "id": "BioModels_MODEL2204300002_Kefir_Rothia_Model",
+    "name": "BioModels MODEL2204300002 Kefir Rothia Model",
+    "umap_x": 6.850636959075928,
+    "umap_y": 8.550395011901855,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 1,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2204300002_Kefir_Rothia_Model.html"
+  },
+  {
+    "id": "BioModels_MODEL2209060002_DPigrum_SAureus_Community",
+    "name": "BioModels MODEL2209060002 D pigrum - S aureus Community",
+    "umap_x": 5.684395790100098,
+    "umap_y": 9.640564918518066,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 2,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.html"
+  },
+  {
+    "id": "Chlamydomonas_Bacterial_H2_Consortium",
+    "name": "Chlamydomonas-Bacterial Hydrogen Production Consortium",
+    "umap_x": 6.468229293823242,
+    "umap_y": 8.723896026611328,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 75.0,
+    "url": "communities/Chlamydomonas_Bacterial_H2_Consortium.html"
+  },
+  {
+    "id": "Chlamydomonas_Methylobacterium_Mutualism",
+    "name": "Chlamydomonas-Methylobacterium Mutualistic Consortium",
+    "umap_x": 7.075538158416748,
+    "umap_y": 8.687997817993164,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "freshwater environment",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 50.0,
+    "url": "communities/Chlamydomonas_Methylobacterium_Mutualism.html"
+  },
+  {
+    "id": "Chlorella_Rhizobium_Bioflocculation",
+    "name": "Chlorella-Rhizobium Bioflocculation",
+    "umap_x": 3.756462812423706,
+    "umap_y": 10.662314414978027,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "wastewater treatment plant",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 50.0,
+    "url": "communities/Chlorella_Rhizobium_Bioflocculation.html"
+  },
+  {
+    "id": "Chromium_Sulfur_Reduction_Enrichment",
+    "name": "Chromium Sulfur Reduction Enrichment",
+    "umap_x": 7.744033336639404,
+    "umap_y": 9.005861282348633,
+    "category": "METAL_REDUCTION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailings",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Chromium_Sulfur_Reduction_Enrichment.html"
+  },
+  {
+    "id": "Chromobacterium_Gold_Biocyanidation",
+    "name": "Chromobacterium Gold Biocyanidation Platform",
+    "umap_x": 6.72406530380249,
+    "umap_y": 8.153709411621094,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 1,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Chromobacterium_Gold_Biocyanidation.html"
+  },
+  {
+    "id": "Cinnamate_Degradation_Consortium",
+    "name": "Cinnamate \u03b2-Oxidation Consortium",
+    "umap_x": 3.24239444732666,
+    "umap_y": 10.938712120056152,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cinnamate_Degradation_Consortium.html"
+  },
+  {
+    "id": "Copper_Biomining_Heap_Leach",
+    "name": "Copper Biomining Heap Leach Consortium",
+    "umap_x": 4.667097091674805,
+    "umap_y": 12.394721984863281,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Copper_Biomining_Heap_Leach.html"
+  },
+  {
+    "id": "Coscinodiscus_Synthetic_Community",
+    "name": "Coscinodiscus Synthetic Community",
+    "umap_x": 5.895320892333984,
+    "umap_y": 10.515815734863281,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "marine environment",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Coscinodiscus_Synthetic_Community.html"
+  },
+  {
+    "id": "DVM_Triculture",
+    "name": "DVM Tri-culture",
+    "umap_x": 3.687493324279785,
+    "umap_y": 11.226722717285156,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/DVM_Triculture.html"
+  },
+  {
+    "id": "Dangl_SynComm_35",
+    "name": "Jeff Dangl's SynComm 35",
+    "umap_x": 7.533004283905029,
+    "umap_y": 8.819748878479004,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 8,
+    "num_interactions": 7,
+    "coverage_pct": 87.5,
+    "url": "communities/Dangl_SynComm_35.html"
+  },
+  {
+    "id": "Desulfovibrio_Methanococcus_Syntrophy",
+    "name": "Desulfovibrio-Methanococcus Syntrophic Consortium",
+    "umap_x": 3.746198892593384,
+    "umap_y": 11.073049545288086,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sulfate-free anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Desulfovibrio_Methanococcus_Syntrophy.html"
+  },
+  {
+    "id": "ENIGMA_Denitrifying_SynCom",
+    "name": "ENIGMA Denitrifying SynCom",
+    "umap_x": 7.121265888214111,
+    "umap_y": 7.65595006942749,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "contaminated soil",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/ENIGMA_Denitrifying_SynCom.html"
+  },
+  {
+    "id": "EcoFAB_Ring_Trial_SynCom17",
+    "name": "EcoFAB 2.0 Root Microbiome Ring Trial SynCom17",
+    "umap_x": 6.852676868438721,
+    "umap_y": 9.061969757080078,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "EcoFAB 2.0 hydroponic device",
+    "num_taxa": 17,
+    "num_interactions": 15,
+    "coverage_pct": 100.0,
+    "url": "communities/EcoFAB_Ring_Trial_SynCom17.html"
+  },
+  {
+    "id": "Ewaste_Bioleaching_Consortium",
+    "name": "E-waste Bioleaching Consortium",
+    "umap_x": 4.8132500648498535,
+    "umap_y": 12.750751495361328,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ewaste_Bioleaching_Consortium.html"
+  },
+  {
+    "id": "Ferroplasma_Leptospirillum_Syntrophy",
+    "name": "Ferroplasma-Leptospirillum Iron-Cycling Syntrophy",
+    "umap_x": 4.90154504776001,
+    "umap_y": 12.176844596862793,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 2,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ferroplasma_Leptospirillum_Syntrophy.html"
+  },
+  {
+    "id": "GLBRC_Populus_Variovorax_SynCom28",
+    "name": "GLBRC Populus Variovorax SynCom28",
+    "umap_x": 7.202643394470215,
+    "umap_y": 8.472996711730957,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 28,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/GLBRC_Populus_Variovorax_SynCom28.html"
+  },
+  {
+    "id": "GLBRC_UFMP_Fermentation_Community",
+    "name": "GLBRC Ultra-Filtered Milk Permeate Fermentation Community",
+    "umap_x": 5.93159294128418,
+    "umap_y": 10.055113792419434,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Anaerobic bioreactor (35C, pH 5.5, 6-day retention time)",
+    "num_taxa": 10,
+    "num_interactions": 3,
+    "coverage_pct": 80.0,
+    "url": "communities/GLBRC_UFMP_Fermentation_Community.html"
+  },
+  {
+    "id": "GOM_Oil_Degrading_Consortium",
+    "name": "Gulf of Mexico Oil-Degrading Consortium",
+    "umap_x": 6.7852373123168945,
+    "umap_y": 7.113464832305908,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine environment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/GOM_Oil_Degrading_Consortium.html"
+  },
+  {
+    "id": "Geobacter_Clostridium_DIET",
+    "name": "Geobacter-Clostridium DIET Community",
+    "umap_x": 4.53416633605957,
+    "umap_y": 11.422757148742676,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "laboratory culture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Clostridium_DIET.html"
+  },
+  {
+    "id": "Geobacter_Methanosaeta_DIET",
+    "name": "Geobacter-Methanosaeta DIET Community",
+    "umap_x": 4.06240177154541,
+    "umap_y": 11.622976303100586,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sediment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Methanosaeta_DIET.html"
+  },
+  {
+    "id": "Geobacter_Methanosarcina_DIET",
+    "name": "Geobacter-Methanosarcina DIET Community",
+    "umap_x": 4.012508392333984,
+    "umap_y": 11.529423713684082,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sediment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Methanosarcina_DIET.html"
+  },
+  {
+    "id": "Iberian_Pit_Lake_Stratified_Community",
+    "name": "Iberian Pit Lake Stratified Community",
+    "umap_x": 5.620964050292969,
+    "umap_y": 11.354667663574219,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 8,
+    "num_interactions": 5,
+    "coverage_pct": 87.5,
+    "url": "communities/Iberian_Pit_Lake_Stratified_Community.html"
+  },
+  {
+    "id": "Industrial_Bioreactor_Consortium",
+    "name": "Industrial Bioleaching Reactor Consortium",
+    "umap_x": 5.236539363861084,
+    "umap_y": 11.576166152954102,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "bioreactor",
+    "num_taxa": 8,
+    "num_interactions": 9,
+    "coverage_pct": 100.0,
+    "url": "communities/Industrial_Bioreactor_Consortium.html"
+  },
+  {
+    "id": "Ion_Adsorption_REE_Indigenous_Community",
+    "name": "Ion-Adsorption REE Indigenous Community",
+    "umap_x": 6.677934169769287,
+    "umap_y": 10.924001693725586,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "weathering crust",
+    "num_taxa": 7,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ion_Adsorption_REE_Indigenous_Community.html"
+  },
+  {
+    "id": "KBase_Synthetic_Bacterial_Community_R2A",
+    "name": "KBase Synthetic Bacterial Community in R2A Medium",
+    "umap_x": 6.980250835418701,
+    "umap_y": 6.973784923553467,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_Synthetic_Bacterial_Community_R2A.html"
+  },
+  {
+    "id": "Lotus_LjSC3",
+    "name": "Lotus Lj-SC3 Synthetic Community",
+    "umap_x": 6.698470592498779,
+    "umap_y": 9.685670852661133,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 10,
+    "num_interactions": 9,
+    "coverage_pct": 90.0,
+    "url": "communities/Lotus_LjSC3.html"
+  },
+  {
+    "id": "MAMC_M48_Lignocellulose",
+    "name": "MAMC-M48 Lignocellulose-Degrading Consortium",
+    "umap_x": 6.365224361419678,
+    "umap_y": 8.232878684997559,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "soil",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/MAMC_M48_Lignocellulose.html"
+  },
+  {
+    "id": "MSC1_Dominant_Core",
+    "name": "MSC-1 Dominant Core",
+    "umap_x": 7.439002990722656,
+    "umap_y": 7.750172138214111,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "arid grassland soil",
+    "num_taxa": 13,
+    "num_interactions": 11,
+    "coverage_pct": 100.0,
+    "url": "communities/MSC1_Dominant_Core.html"
+  },
+  {
+    "id": "Maize_Root_Simplified_Community",
+    "name": "Maize Root Simplified Bacterial Community",
+    "umap_x": 6.21904182434082,
+    "umap_y": 8.125472068786621,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 8,
+    "num_interactions": 8,
+    "coverage_pct": 87.5,
+    "url": "communities/Maize_Root_Simplified_Community.html"
+  },
+  {
+    "id": "Mercury_SFA_EFPC_Sediment_Community",
+    "name": "Mercury SFA East Fork Poplar Creek Sediment Community",
+    "umap_x": 6.166220664978027,
+    "umap_y": 11.036131858825684,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "Mercury-contaminated creek sediment",
+    "num_taxa": 11,
+    "num_interactions": 3,
+    "coverage_pct": 81.81818181818183,
+    "url": "communities/Mercury_SFA_EFPC_Sediment_Community.html"
+  },
+  {
+    "id": "Methylobacterium_REE_Ewaste_Platform",
+    "name": "Methylobacterium REE E-waste Platform",
+    "umap_x": 6.413887977600098,
+    "umap_y": 7.703221797943115,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 1,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylobacterium_REE_Ewaste_Platform.html"
+  },
+  {
+    "id": "Mixed_Gallium_LED_Recovery_Consortium",
+    "name": "Mixed Gallium LED Recovery Consortium",
+    "umap_x": 5.188926696777344,
+    "umap_y": 12.737383842468262,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Mixed_Gallium_LED_Recovery_Consortium.html"
+  },
+  {
+    "id": "Naica_Deep_Subsurface_Thermophilic",
+    "name": "Naica Deep Subsurface Thermophilic Community",
+    "umap_x": 6.279340744018555,
+    "umap_y": 11.282183647155762,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "deep subsurface environment",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Naica_Deep_Subsurface_Thermophilic.html"
+  },
+  {
+    "id": "ORNL_PMI_Populus_PD10_SynCom",
+    "name": "ORNL PMI Populus PD10 SynCom",
+    "umap_x": 7.132894039154053,
+    "umap_y": 7.41309928894043,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 10,
+    "num_interactions": 9,
+    "coverage_pct": 100.0,
+    "url": "communities/ORNL_PMI_Populus_PD10_SynCom.html"
+  },
+  {
+    "id": "Okeke_Lu_Cellulolytic_Consortium",
+    "name": "Okeke-Lu Cellulolytic-Xylanolytic Consortium",
+    "umap_x": 6.344756603240967,
+    "umap_y": 9.59140682220459,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "soil",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Okeke_Lu_Cellulolytic_Consortium.html"
+  },
+  {
+    "id": "PGM_Spent_Catalyst_Bioleaching",
+    "name": "PGM Spent Catalyst Bioleaching Consortium",
+    "umap_x": 5.0331244468688965,
+    "umap_y": 12.879776000976562,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 4,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/PGM_Spent_Catalyst_Bioleaching.html"
+  },
+  {
+    "id": "PMI_Variovorax_Thermotolerance_Collection",
+    "name": "PMI Variovorax Thermotolerance Collection",
+    "umap_x": 7.208929538726807,
+    "umap_y": 8.16915512084961,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 6,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/PMI_Variovorax_Thermotolerance_Collection.html"
+  },
+  {
+    "id": "Panzhihua_Vanadium_Titanium_Tailings",
+    "name": "Panzhihua Vanadium Titanium Tailings Community",
+    "umap_x": 7.643954277038574,
+    "umap_y": 8.070090293884277,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailings",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 83.33333333333334,
+    "url": "communities/Panzhihua_Vanadium_Titanium_Tailings.html"
+  },
+  {
+    "id": "Pelotomaculum_Methanothermobacter_Syntrophy",
+    "name": "Pelotomaculum-Methanothermobacter Syntrophic Consortium",
+    "umap_x": 3.2474255561828613,
+    "umap_y": 10.27045726776123,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "thermophilic anaerobic digester",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pelotomaculum_Methanothermobacter_Syntrophy.html"
+  },
+  {
+    "id": "Phenol_Carboxylation_Consortium",
+    "name": "Phenol Carboxylation Consortium",
+    "umap_x": 6.533443927764893,
+    "umap_y": 7.299815654754639,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Phenol_Carboxylation_Consortium.html"
+  },
+  {
+    "id": "Phormidium_Alkaline_Consortium",
+    "name": "Phormidium Alkaline Consortium",
+    "umap_x": 6.429243564605713,
+    "umap_y": 11.22262191772461,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "soda lake",
+    "num_taxa": 6,
+    "num_interactions": 7,
+    "coverage_pct": 83.33333333333334,
+    "url": "communities/Phormidium_Alkaline_Consortium.html"
+  },
+  {
+    "id": "Polaromonas_Vanadium_Reduction_Community",
+    "name": "Polaromonas Vanadium Reduction Community",
+    "umap_x": 6.069690704345703,
+    "umap_y": 8.447366714477539,
+    "category": "OTHER",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailings",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Polaromonas_Vanadium_Reduction_Community.html"
+  },
+  {
+    "id": "Pseudonitzschia_Sulfitobacter_Association",
+    "name": "Pseudo-nitzschia-Sulfitobacter Marine Association",
+    "umap_x": 6.490307807922363,
+    "umap_y": 10.284906387329102,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudonitzschia_Sulfitobacter_Association.html"
+  },
+  {
+    "id": "Rammelsberg_Cobalt_Nickel_Tailings",
+    "name": "Rammelsberg Cobalt-Nickel Tailings Consortium",
+    "umap_x": 5.137479305267334,
+    "umap_y": 13.109345436096191,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Rammelsberg_Cobalt_Nickel_Tailings.html"
+  },
+  {
+    "id": "Rice_Duckweed_Bacillus_SynCom",
+    "name": "Rice-Duckweed Bacillus Biocontrol SynCom",
+    "umap_x": 7.850104331970215,
+    "umap_y": 9.22783088684082,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rice rhizosphere in rice-duckweed agroecosystem",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Rice_Duckweed_Bacillus_SynCom.html"
+  },
+  {
+    "id": "Richmond_Mine_AMD_Biofilm",
+    "name": "Richmond Mine AMD Biofilm",
+    "umap_x": 5.5276265144348145,
+    "umap_y": 11.864823341369629,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Richmond_Mine_AMD_Biofilm.html"
+  },
+  {
+    "id": "Rifle_Uranium_Reducing_Community",
+    "name": "Rifle Uranium-Reducing Community",
+    "umap_x": 4.316126823425293,
+    "umap_y": 11.212043762207031,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "contaminated soil",
+    "num_taxa": 5,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Rifle_Uranium_Reducing_Community.html"
+  },
+  {
+    "id": "SF356_Cellulose_Degrader",
+    "name": "SF356 Thermophilic Cellulose-Degrading Community",
+    "umap_x": 6.312337398529053,
+    "umap_y": 10.276755332946777,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "compost",
+    "num_taxa": 5,
+    "num_interactions": 4,
+    "coverage_pct": 80.0,
+    "url": "communities/SF356_Cellulose_Degrader.html"
+  },
+  {
+    "id": "Salar_Atacama_Lithium_Brine_Community",
+    "name": "Salar de Atacama Lithium Brine Community",
+    "umap_x": 6.3212127685546875,
+    "umap_y": 10.664302825927734,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "hypersaline brine",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Salar_Atacama_Lithium_Brine_Community.html"
+  },
+  {
+    "id": "Sorghum_SRC1_Subset",
+    "name": "Sorghum SRC1 Subset Community",
+    "umap_x": 6.747371196746826,
+    "umap_y": 7.655664443969727,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 7,
+    "num_interactions": 6,
+    "coverage_pct": 85.71428571428571,
+    "url": "communities/Sorghum_SRC1_Subset.html"
+  },
+  {
+    "id": "Soybean_N_Fixation_sfSynCom",
+    "name": "Soybean N-Fixation Simplified SynCom",
+    "umap_x": 7.484430313110352,
+    "umap_y": 7.031156063079834,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 75.0,
+    "url": "communities/Soybean_N_Fixation_sfSynCom.html"
+  },
+  {
+    "id": "Synechococcus_Bacillus_SPC",
+    "name": "Synechococcus-Bacillus Synthetic Photosynthetic Consortium",
+    "umap_x": 6.073421001434326,
+    "umap_y": 7.936385154724121,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Bacillus_SPC.html"
+  },
+  {
+    "id": "Synechococcus_Ecoli_SPC",
+    "name": "Synechococcus-E.coli Synthetic Photosynthetic Consortium",
+    "umap_x": 5.429351806640625,
+    "umap_y": 10.798944473266602,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Ecoli_SPC.html"
+  },
+  {
+    "id": "Synechococcus_Yarrowia_SPC",
+    "name": "Synechococcus-Yarrowia Synthetic Photosynthetic Consortium",
+    "umap_x": 5.550398826599121,
+    "umap_y": 10.835158348083496,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Yarrowia_SPC.html"
+  },
+  {
+    "id": "Syntrophobacter_Methanobacterium_Syntrophy",
+    "name": "Syntrophobacter-Methanobacterium Syntrophic Consortium",
+    "umap_x": 2.979314088821411,
+    "umap_y": 10.909869194030762,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophobacter_Methanobacterium_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophobacter_Methanospirillum_Syntrophy",
+    "name": "Syntrophobacter-Methanospirillum Syntrophic Consortium",
+    "umap_x": 3.367846727371216,
+    "umap_y": 10.57669448852539,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophobacter_Methanospirillum_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophomonas_Methanospirillum_Syntrophy",
+    "name": "Syntrophomonas-Methanospirillum Syntrophic Consortium",
+    "umap_x": 3.0067787170410156,
+    "umap_y": 10.57761287689209,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic digester",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophomonas_Methanospirillum_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophus_Benzoate_Degrader",
+    "name": "Syntrophus Benzoate Degrader",
+    "umap_x": 3.193743944168091,
+    "umap_y": 10.396971702575684,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic sediments",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophus_Benzoate_Degrader.html"
+  },
+  {
+    "id": "TYQ1_Nematode_Biocontrol_SynCom",
+    "name": "TYQ1 Nematode Biocontrol SynCom",
+    "umap_x": 7.968616962432861,
+    "umap_y": 8.515410423278809,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "cucumber rhizosphere",
+    "num_taxa": 8,
+    "num_interactions": 4,
+    "coverage_pct": 62.5,
+    "url": "communities/TYQ1_Nematode_Biocontrol_SynCom.html"
+  },
+  {
+    "id": "Thermophilic_Pyrite_QS_Consortium",
+    "name": "Thermophilic Pyrite Quorum Sensing Consortium",
+    "umap_x": 4.860495090484619,
+    "umap_y": 12.533857345581055,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 3,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Thermophilic_Pyrite_QS_Consortium.html"
+  },
+  {
+    "id": "Tinto_River_Iron_Cycling_Community",
+    "name": "Tinto River Iron Cycling Community",
+    "umap_x": 5.509975910186768,
+    "umap_y": 12.29267406463623,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 83.33333333333334,
+    "url": "communities/Tinto_River_Iron_Cycling_Community.html"
+  },
+  {
+    "id": "Trichoderma_Lactate_Platform",
+    "name": "Trichoderma Lactate Platform for SCFA Production",
+    "umap_x": 5.71340274810791,
+    "umap_y": 9.887504577636719,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichoderma_Lactate_Platform.html"
+  },
+  {
+    "id": "Wheat_Consortium_C1",
+    "name": "Wheat Synthetic Consortium C1",
+    "umap_x": 6.967381000518799,
+    "umap_y": 9.210123062133789,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 66.66666666666666,
+    "url": "communities/Wheat_Consortium_C1.html"
+  },
+  {
+    "id": "Wheat_Consortium_C6",
+    "name": "Wheat Synthetic Consortium C6",
+    "umap_x": 6.820339679718018,
+    "umap_y": 7.048876762390137,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 66.66666666666666,
+    "url": "communities/Wheat_Consortium_C6.html"
+  },
+  {
+    "id": "mCAFEs_Brachypodium_RCC",
+    "name": "m-CAFEs Brachypodium Reduced Complexity Consortia",
+    "umap_x": 7.504366874694824,
+    "umap_y": 8.474532127380371,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "Brachypodium distachyon rhizosphere",
+    "num_taxa": 10,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/mCAFEs_Brachypodium_RCC.html"
+  }
+];
+
+        // Configuration
+        const width = 1200;
+        const height = 700;
+        const margin = { top: 20, right: 20, bottom: 40, left: 40 };
+
+        // Color schemes for different attributes with semantic, non-clashing colors
+        const categoryColors = {
+            'AMD': '#e74c3c',                    // Red - extreme acidic
+            'BIOMINING': '#f39c12',              // Orange - metal extraction
+            'BIOREMEDIATION': '#27ae60',         // Green - cleanup/restoration
+            'BIOTECHNOLOGY': '#3498db',          // Blue - engineered systems
+            'CARBON_SEQUESTRATION': '#16a085',   // Teal - carbon cycling
+            'DIET': '#9b59b6',                   // Purple - electron transfer
+            'EXTREME_ENVIRONMENT': '#c0392b',    // Dark red - extreme
+            'LIGNOCELLULOSE': '#d35400',         // Brown-orange - plant matter
+            'METAL_REDUCTION': '#95a5a6',        // Gray - metal cycling
+            'METHANOGENESIS': '#8e44ad',         // Dark purple - methane
+            'OTHER': '#7f8c8d',                  // Medium gray - uncategorized
+            'PHYTOPLANKTON': '#1abc9c',          // Cyan - marine/aquatic
+            'RHIZOSPHERE': '#2ecc71',            // Bright green - plant roots
+            'SYNTROPHY': '#e67e22'               // Orange-red - partnerships
+        };
+
+        const stateColors = {
+            'STABLE': '#27ae60',        // Green - stable
+            'PERTURBED': '#f39c12',     // Orange - disturbed
+            'ENGINEERED': '#3498db'     // Blue - designed
+        };
+
+        const originColors = {
+            'NATURAL': '#27ae60',       // Green - natural
+            'ENGINEERED': '#3498db',    // Blue - human-designed
+            'SYNTHETIC': '#9b59b6'      // Purple - fully synthetic
+        };
+
+        const colorSchemes = {
+            category: d3.scaleOrdinal()
+                .domain(Object.keys(categoryColors))
+                .range(Object.values(categoryColors)),
+            ecological_state: d3.scaleOrdinal()
+                .domain(Object.keys(stateColors))
+                .range(Object.values(stateColors)),
+            origin: d3.scaleOrdinal()
+                .domain(Object.keys(originColors))
+                .range(Object.values(originColors))
+        };
+
+        // Initialize
+        let currentColorBy = 'category';
+        let currentSizeBy = 'num_taxa';
+
+        // Create SVG
+        const svg = d3.select('#umap-plot')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+        const g = svg.append('g');
+
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 10])
+            .on('zoom', (event) => {
+                g.attr('transform', event.transform);
+            });
+
+        svg.call(zoom);
+
+        // Tooltip
+        const tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        // Scales
+        const xExtent = d3.extent(communityData, d => d.umap_x);
+        const yExtent = d3.extent(communityData, d => d.umap_y);
+
+        const xScale = d3.scaleLinear()
+            .domain([xExtent[0] - 0.5, xExtent[1] + 0.5])
+            .range([margin.left, width - margin.right]);
+
+        const yScale = d3.scaleLinear()
+            .domain([yExtent[0] - 0.5, yExtent[1] + 0.5])
+            .range([height - margin.bottom, margin.top]);
+
+        // Size scale
+        function getSizeScale(attr) {
+            const extent = d3.extent(communityData, d => d[attr]);
+            return d3.scaleSqrt()
+                .domain(extent)
+                .range([4, 12]);
+        }
+
+        let sizeScale = getSizeScale(currentSizeBy);
+
+        // Draw points
+        function updateVisualization() {
+            const colorScale = colorSchemes[currentColorBy];
+            sizeScale = getSizeScale(currentSizeBy);
+
+            const points = g.selectAll('.point')
+                .data(communityData, d => d.id);
+
+            // Exit
+            points.exit().remove();
+
+            // Enter + Update
+            const pointsEnter = points.enter()
+                .append('circle')
+                .attr('class', 'point')
+                .on('mouseover', showTooltip)
+                .on('mousemove', moveTooltip)
+                .on('mouseout', hideTooltip)
+                .on('click', navigateToCommunity);
+
+            points.merge(pointsEnter)
+                .attr('cx', d => xScale(d.umap_x))
+                .attr('cy', d => yScale(d.umap_y))
+                .attr('r', d => sizeScale(d[currentSizeBy]))
+                .attr('fill', d => colorScale(d[currentColorBy]))
+                .attr('opacity', 0.8);
+
+            updateLegend(colorScale);
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 1);
+
+            tooltip.html(`
+                <div class="tooltip-title">${d.name}</div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Category:</span>
+                    <span>${d.category}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">State:</span>
+                    <span>${d.ecological_state}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Origin:</span>
+                    <span>${d.origin}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Taxa:</span>
+                    <span>${d.num_taxa}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Interactions:</span>
+                    <span>${d.num_interactions}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Coverage:</span>
+                    <span>${d.coverage_pct.toFixed(1)}%</span>
+                </div>
+                <div style="margin-top: 0.5rem; color: #60a5fa;">Click to view details →</div>
+            `);
+        }
+
+        function moveTooltip(event) {
+            tooltip
+                .style('left', (event.pageX + 15) + 'px')
+                .style('top', (event.pageY - 28) + 'px');
+        }
+
+        function hideTooltip() {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 0);
+        }
+
+        function navigateToCommunity(event, d) {
+            window.location.href = d.url;
+        }
+
+        // Legend
+        function updateLegend(colorScale) {
+            const legendDiv = d3.select('#legend');
+            legendDiv.html('');
+
+            const values = [...new Set(communityData.map(d => d[currentColorBy]))].sort();
+
+            legendDiv.append('div')
+                .style('font-weight', 'bold')
+                .style('margin-bottom', '0.5rem')
+                .text(`Color Legend (${currentColorBy.replace('_', ' ')}):`);
+
+            const items = legendDiv.selectAll('.legend-item')
+                .data(values)
+                .enter()
+                .append('div')
+                .attr('class', 'legend-item');
+
+            items.append('div')
+                .attr('class', 'legend-color')
+                .style('background-color', d => colorScale(d));
+
+            items.append('span')
+                .text(d => d);
+        }
+
+        // Event listeners
+        d3.select('#color-by').on('change', function() {
+            currentColorBy = this.value;
+            updateVisualization();
+        });
+
+        d3.select('#size-by').on('change', function() {
+            currentSizeBy = this.value;
+            updateVisualization();
+        });
+
+        // Search
+        d3.select('#search').on('input', function() {
+            const searchTerm = this.value.toLowerCase();
+
+            g.selectAll('.point')
+                .classed('highlighted', d => {
+                    return searchTerm && (
+                        d.name.toLowerCase().includes(searchTerm) ||
+                        d.id.toLowerCase().includes(searchTerm)
+                    );
+                })
+                .attr('opacity', d => {
+                    if (!searchTerm) return 0.8;
+                    return (d.name.toLowerCase().includes(searchTerm) ||
+                            d.id.toLowerCase().includes(searchTerm)) ? 0.95 : 0.2;
+                });
+        });
+
+        // Initial render
+        updateVisualization();
+
+        // Add axes
+        const xAxis = d3.axisBottom(xScale).ticks(5);
+        const yAxis = d3.axisLeft(yScale).ticks(5);
+
+        svg.append('g')
+            .attr('transform', `translate(0,${height - margin.bottom})`)
+            .call(xAxis)
+            .append('text')
+            .attr('x', width / 2)
+            .attr('y', 35)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 1');
+
+        svg.append('g')
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(yAxis)
+            .append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -height / 2)
+            .attr('y', -30)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 2');
+    </script>
+</body>
+</html>

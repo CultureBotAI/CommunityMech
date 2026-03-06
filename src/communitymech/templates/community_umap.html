@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Embedding Space - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .controls label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .controls select,
+        .controls input[type="search"] {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .controls input[type="search"] {
+            min-width: 250px;
+        }
+
+        #umap-plot {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .info-panel {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-panel h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-panel ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-panel li {
+            padding: 0.3rem 0;
+        }
+
+        .info-panel strong {
+            color: var(--primary);
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: 6px;
+            pointer-events: none;
+            font-size: 0.85rem;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: #60a5fa;
+        }
+
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0.2rem 0;
+        }
+
+        .tooltip-label {
+            color: #94a3b8;
+        }
+
+        .point {
+            cursor: pointer;
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        .point:hover {
+            stroke: #fbbf24;
+            stroke-width: 2.5px;
+        }
+
+        .point.highlighted {
+            stroke: #fbbf24;
+            stroke-width: 3px;
+        }
+    </style>
+    <script src="d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Community Embedding Space</h1>
+            <p class="subtitle">UMAP projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
+            <a href="index.html" class="nav-link">← Back to Community Index</a>
+        </header>
+
+        <div class="controls">
+            <label>
+                Color by:
+                <select id="color-by">
+                    <option value="category">Category</option>
+                    <option value="ecological_state">Ecological State</option>
+                    <option value="origin">Origin</option>
+                </select>
+            </label>
+
+            <label>
+                Size by:
+                <select id="size-by">
+                    <option value="num_taxa">Number of Taxa</option>
+                    <option value="num_interactions">Interactions</option>
+                </select>
+            </label>
+
+            <input type="search" id="search" placeholder="Search communities...">
+        </div>
+
+        <div id="umap-plot"></div>
+
+        <div class="legend" id="legend"></div>
+
+        <div class="info-panel">
+            <h2>How to Interpret This Visualization</h2>
+            <ul>
+                <li><strong>Proximity:</strong> Communities close together have similar taxonomic composition in embedding space</li>
+                <li><strong>Color:</strong> Categorical grouping (default: community category like AMD, DIET, SynCom)</li>
+                <li><strong>Size:</strong> Metric of interest (default: number of unique taxa)</li>
+                <li><strong>Hover:</strong> View detailed metadata tooltip</li>
+                <li><strong>Click:</strong> Navigate to the community's detail page</li>
+                <li><strong>Zoom/Pan:</strong> Use mouse wheel to zoom, click and drag to pan</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Data from Jinja2 template
+        const communityData = {{ community_data_json | safe }};
+
+        // Configuration
+        const width = 1200;
+        const height = 700;
+        const margin = { top: 20, right: 20, bottom: 40, left: 40 };
+
+        // Color schemes for different attributes with semantic, non-clashing colors
+        const categoryColors = {
+            'AMD': '#e74c3c',                    // Red - extreme acidic
+            'BIOMINING': '#f39c12',              // Orange - metal extraction
+            'BIOREMEDIATION': '#27ae60',         // Green - cleanup/restoration
+            'BIOTECHNOLOGY': '#3498db',          // Blue - engineered systems
+            'CARBON_SEQUESTRATION': '#16a085',   // Teal - carbon cycling
+            'DIET': '#9b59b6',                   // Purple - electron transfer
+            'EXTREME_ENVIRONMENT': '#c0392b',    // Dark red - extreme
+            'LIGNOCELLULOSE': '#d35400',         // Brown-orange - plant matter
+            'METAL_REDUCTION': '#95a5a6',        // Gray - metal cycling
+            'METHANOGENESIS': '#8e44ad',         // Dark purple - methane
+            'OTHER': '#7f8c8d',                  // Medium gray - uncategorized
+            'PHYTOPLANKTON': '#1abc9c',          // Cyan - marine/aquatic
+            'RHIZOSPHERE': '#2ecc71',            // Bright green - plant roots
+            'SYNTROPHY': '#e67e22'               // Orange-red - partnerships
+        };
+
+        const stateColors = {
+            'STABLE': '#27ae60',        // Green - stable
+            'PERTURBED': '#f39c12',     // Orange - disturbed
+            'ENGINEERED': '#3498db'     // Blue - designed
+        };
+
+        const originColors = {
+            'NATURAL': '#27ae60',       // Green - natural
+            'ENGINEERED': '#3498db',    // Blue - human-designed
+            'SYNTHETIC': '#9b59b6'      // Purple - fully synthetic
+        };
+
+        const colorSchemes = {
+            category: d3.scaleOrdinal()
+                .domain(Object.keys(categoryColors))
+                .range(Object.values(categoryColors)),
+            ecological_state: d3.scaleOrdinal()
+                .domain(Object.keys(stateColors))
+                .range(Object.values(stateColors)),
+            origin: d3.scaleOrdinal()
+                .domain(Object.keys(originColors))
+                .range(Object.values(originColors))
+        };
+
+        // Initialize
+        let currentColorBy = 'category';
+        let currentSizeBy = 'num_taxa';
+
+        // Create SVG
+        const svg = d3.select('#umap-plot')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+        const g = svg.append('g');
+
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 10])
+            .on('zoom', (event) => {
+                g.attr('transform', event.transform);
+            });
+
+        svg.call(zoom);
+
+        // Tooltip
+        const tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        // Scales
+        const xExtent = d3.extent(communityData, d => d.umap_x);
+        const yExtent = d3.extent(communityData, d => d.umap_y);
+
+        const xScale = d3.scaleLinear()
+            .domain([xExtent[0] - 0.5, xExtent[1] + 0.5])
+            .range([margin.left, width - margin.right]);
+
+        const yScale = d3.scaleLinear()
+            .domain([yExtent[0] - 0.5, yExtent[1] + 0.5])
+            .range([height - margin.bottom, margin.top]);
+
+        // Size scale
+        function getSizeScale(attr) {
+            const extent = d3.extent(communityData, d => d[attr]);
+            return d3.scaleSqrt()
+                .domain(extent)
+                .range([4, 12]);
+        }
+
+        let sizeScale = getSizeScale(currentSizeBy);
+
+        // Draw points
+        function updateVisualization() {
+            const colorScale = colorSchemes[currentColorBy];
+            sizeScale = getSizeScale(currentSizeBy);
+
+            const points = g.selectAll('.point')
+                .data(communityData, d => d.id);
+
+            // Exit
+            points.exit().remove();
+
+            // Enter + Update
+            const pointsEnter = points.enter()
+                .append('circle')
+                .attr('class', 'point')
+                .on('mouseover', showTooltip)
+                .on('mousemove', moveTooltip)
+                .on('mouseout', hideTooltip)
+                .on('click', navigateToCommunity);
+
+            points.merge(pointsEnter)
+                .attr('cx', d => xScale(d.umap_x))
+                .attr('cy', d => yScale(d.umap_y))
+                .attr('r', d => sizeScale(d[currentSizeBy]))
+                .attr('fill', d => colorScale(d[currentColorBy]))
+                .attr('opacity', 0.8);
+
+            updateLegend(colorScale);
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 1);
+
+            tooltip.html(`
+                <div class="tooltip-title">${d.name}</div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Category:</span>
+                    <span>${d.category}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">State:</span>
+                    <span>${d.ecological_state}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Origin:</span>
+                    <span>${d.origin}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Taxa:</span>
+                    <span>${d.num_taxa}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Interactions:</span>
+                    <span>${d.num_interactions}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Coverage:</span>
+                    <span>${d.coverage_pct.toFixed(1)}%</span>
+                </div>
+                <div style="margin-top: 0.5rem; color: #60a5fa;">Click to view details →</div>
+            `);
+        }
+
+        function moveTooltip(event) {
+            tooltip
+                .style('left', (event.pageX + 15) + 'px')
+                .style('top', (event.pageY - 28) + 'px');
+        }
+
+        function hideTooltip() {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 0);
+        }
+
+        function navigateToCommunity(event, d) {
+            window.location.href = d.url;
+        }
+
+        // Legend
+        function updateLegend(colorScale) {
+            const legendDiv = d3.select('#legend');
+            legendDiv.html('');
+
+            const values = [...new Set(communityData.map(d => d[currentColorBy]))].sort();
+
+            legendDiv.append('div')
+                .style('font-weight', 'bold')
+                .style('margin-bottom', '0.5rem')
+                .text(`Color Legend (${currentColorBy.replace('_', ' ')}):`);
+
+            const items = legendDiv.selectAll('.legend-item')
+                .data(values)
+                .enter()
+                .append('div')
+                .attr('class', 'legend-item');
+
+            items.append('div')
+                .attr('class', 'legend-color')
+                .style('background-color', d => colorScale(d));
+
+            items.append('span')
+                .text(d => d);
+        }
+
+        // Event listeners
+        d3.select('#color-by').on('change', function() {
+            currentColorBy = this.value;
+            updateVisualization();
+        });
+
+        d3.select('#size-by').on('change', function() {
+            currentSizeBy = this.value;
+            updateVisualization();
+        });
+
+        // Search
+        d3.select('#search').on('input', function() {
+            const searchTerm = this.value.toLowerCase();
+
+            g.selectAll('.point')
+                .classed('highlighted', d => {
+                    return searchTerm && (
+                        d.name.toLowerCase().includes(searchTerm) ||
+                        d.id.toLowerCase().includes(searchTerm)
+                    );
+                })
+                .attr('opacity', d => {
+                    if (!searchTerm) return 0.8;
+                    return (d.name.toLowerCase().includes(searchTerm) ||
+                            d.id.toLowerCase().includes(searchTerm)) ? 0.95 : 0.2;
+                });
+        });
+
+        // Initial render
+        updateVisualization();
+
+        // Add axes
+        const xAxis = d3.axisBottom(xScale).ticks(5);
+        const yAxis = d3.axisLeft(yScale).ticks(5);
+
+        svg.append('g')
+            .attr('transform', `translate(0,${height - margin.bottom})`)
+            .call(xAxis)
+            .append('text')
+            .attr('x', width / 2)
+            .attr('y', 35)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 1');
+
+        svg.append('g')
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(yAxis)
+            .append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -height / 2)
+            .attr('y', -30)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 2');
+    </script>
+</body>
+</html>
