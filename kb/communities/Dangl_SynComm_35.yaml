@@ -153,10 +153,10 @@ ecological_interactions:
     '
   interaction_type: COMMENSALISM
   source_taxon:
-    preferred_term: SynComm 35 bacterial community
+    preferred_term: Dyella japonica MF79
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:231455
+      label: Dyella japonica
   target_taxon:
     preferred_term: Arabidopsis thaliana
     term:
@@ -194,10 +194,15 @@ ecological_interactions:
     '
   interaction_type: COMMENSALISM
   source_taxon:
-    preferred_term: Bacterial suppressors (10 robust strains)
+    preferred_term: Dyella japonica MF79
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:231455
+      label: Dyella japonica
+  target_taxon:
+    preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
   biological_processes:
   - preferred_term: regulation of defense response
     term:
@@ -247,15 +252,15 @@ ecological_interactions:
     '
   interaction_type: MUTUALISM
   source_taxon:
-    preferred_term: Suppressor bacteria
+    preferred_term: Dyella japonica MF79
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:231455
+      label: Dyella japonica
   target_taxon:
-    preferred_term: Non-suppressor bacteria
+    preferred_term: Pseudomonas species
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:286
+      label: Pseudomonas
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -267,6 +272,123 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Suppressors and nonsuppressors co-occur in the root microbiome and the
       presence of the former can enhance the colonization ability of the latter
+- name: Taxonomic Diversity Enabling Functional Complementarity
+  description: 'The SynComm 35 community comprises taxonomically diverse bacteria
+    spanning multiple phyla and orders (Xanthomonadales, Flavobacteriales, Microbacteriales,
+    Pseudomonadales, Burkholderiales), providing functional redundancy and metabolic
+    complementarity in the rhizosphere. Xanthomonadales members contribute to plant-microbe
+    signaling and nutrient acquisition. Flavobacterium species provide polysaccharide
+    degradation and vitamin production. Microbacterium species contribute to organic
+    matter turnover and stress tolerance. Stenotrophomonas species enhance nutrient
+    mobilization and plant growth promotion. This phylogenetic diversity ensures community
+    resilience against environmental perturbations and enables colonization across
+    heterogeneous root microenvironments. The taxonomic breadth of SynComm 35 reflects
+    natural root microbiome composition where diverse bacteria cooperate to establish
+    stable plant-microbe associations despite host immune surveillance.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Xanthomonadales members
+    term:
+      id: NCBITaxon:135614
+      label: Xanthomonadales
+  target_taxon:
+    preferred_term: Flavobacterium species
+    term:
+      id: NCBITaxon:237
+      label: Flavobacterium
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1073/pnas.2100678118
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Significance In natural environments, plants establish intimate interactions
+      with a wide diversity of microbes
+    explanation: Documents taxonomic diversity enabling community function
+- name: Community Member Metabolic Cooperation
+  description: 'Microbacterium and Stenotrophomonas species cooperate metabolically
+    within the SynComm 35 community, sharing nutrients and metabolites in the rhizosphere
+    environment. Microbacterium species degrade complex organic polymers and produce
+    amino acids and vitamins that benefit other community members. Stenotrophomonas
+    species mobilize phosphate and produce siderophores for iron acquisition, creating
+    public goods accessible to the community. This cross-feeding network reduces competition
+    for resources and stabilizes community structure during root colonization. The
+    metabolic cooperation complements the immune suppression mediated by Dyella japonica,
+    creating a multi-layered strategy for successful root colonization.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Microbacterium species
+    term:
+      id: NCBITaxon:33882
+      label: Microbacterium
+  target_taxon:
+    preferred_term: Stenotrophomonas species
+    term:
+      id: NCBITaxon:40323
+      label: Stenotrophomonas
+  metabolites:
+  - preferred_term: amino-acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+    notes: Produced by Microbacterium for community consumption
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1073/pnas.2100678118
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Suppressors and nonsuppressors co-occur in the root microbiome and the
+      presence of the former can enhance the colonization ability of the latter
+    explanation: Demonstrates cooperative interactions among community members
+- name: Negative Control Strain Baseline Response
+  description: 'Escherichia coli DH5α serves as a negative control strain representing
+    a bacterium that lacks evolved adaptations for plant root colonization and immune
+    suppression. Unlike the SynComm 35 members that suppress MAMP-triggered immunity,
+    E. coli DH5α induces normal plant defense responses and colonizes poorly. The
+    strain provides a baseline for measuring the specific immune-modulating capabilities
+    of adapted root commensals. Comparison between E. coli and SynComm 35 demonstrates
+    that immune suppression is not a general bacterial property but requires specific
+    adaptations (Type II secretion systems, effector proteins, specialized metabolites)
+    that evolved in plant-associated bacteria. This control validates that the observed
+    immune suppression is due to specific bacterial strategies rather than non-specific
+    bacterial presence.
+
+    '
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Escherichia coli DH5α
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Dyella japonica MF79
+    term:
+      id: NCBITaxon:231455
+      label: Dyella japonica
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: doi:10.1073/pnas.2100678118
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It is unknown, however, how microbiota composed of commensal bacteria
+      colonize roots in the face of a sophisticated plant immune system that evolved
+      to recognize microbial-associated molecular patterns
+    explanation: E. coli serves as non-adapted control demonstrating plant immunity
 environmental_factors:
 - name: MAMP Treatment
   value: flg22 (flagellin epitope)
