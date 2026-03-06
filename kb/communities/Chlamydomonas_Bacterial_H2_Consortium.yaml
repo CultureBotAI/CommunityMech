@@ -131,6 +131,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:2982533
       label: Microbacterium forte
+  target_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
   metabolites:
   - preferred_term: mannitol
     term:
@@ -150,6 +155,69 @@ ecological_interactions:
       313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7
       μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial
       chlorophyll) algal cultures, respectively
+- name: Multispecies Bacterial Consortium Supporting H2 Production
+  description: 'Bacillus cereus, Stenotrophomonas goyi, and Microbacterium forte
+    form a naturally occurring multispecies bacterial community that synergistically
+    supports sustained algal hydrogen production in Chlamydomonas cultures. These
+    three bacterial species work together to create optimal conditions for anaerobic
+    algal H2 generation through complementary metabolic activities: oxygen scavenging
+    to establish anaerobiosis necessary for hydrogenase activity, consumption of inhibitory
+    photosynthetic oxygen, nutrient cycling and remineralization, and production of
+    growth-promoting factors. Bacillus cereus contributes spore-forming resilience
+    and metabolic versatility, enabling the consortium to persist through aerobic-anaerobic
+    transitions. Stenotrophomonas goyi provides stress tolerance and may produce enzymes
+    or secondary metabolites that benefit algal cells. Together with Microbacterium
+    forte (the dominant mannitol consumer), this tripartite bacterial partnership
+    sustains algal H2 production for 17-25 days at rates up to 313 mL H2/L, far exceeding
+    axenic algal performance. The naturally co-evolved bacterial community demonstrates
+    functional complementarity where no single bacterial species can replicate the
+    full consortium benefit, highlighting the importance of microbial diversity in
+    biotechnological H2 production systems.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  target_taxon:
+    preferred_term: Stenotrophomonas goyi
+    term:
+      id: NCBITaxon:3050471
+      label: Stenotrophomonas goyi
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+    notes: Scavenged to establish anaerobiosis
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:49637
+      label: dihydrogen
+    concentration: Enhanced production up to 313 mL/L over 17 days
+  biological_processes:
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A naturally occurring multispecies bacterial community composed of Bacillus
+      cereus and two novel bacteria (Microbacterium forte sp. nov. and Stenotrop
+    explanation: Documents tripartite bacterial consortium
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When incubated in mannitol- and yeast extract-containing medium, this
+      bacterial community can promote and sustain algal hydrogen production up to
+      313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7
+      μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial
+      chlorophyll) algal cultures, respectively
+    explanation: Quantifies consortium enhancement of H2 production
 environmental_factors:
 - name: Light
   value: continuous illumination
