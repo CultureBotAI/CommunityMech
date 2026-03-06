@@ -1,0 +1,438 @@
+name: GLBRC Ultra-Filtered Milk Permeate Fermentation Community
+description: >
+  A fermentative microbial community maintained in a 282-day continuous bioreactor experiment
+  fed ultra-filtered milk permeate (UFMP), a low-value dairy coproduct. Originally inoculated
+  from an acid-phase digester at the Nine Springs Wastewater Treatment Plant (Madison, WI).
+  Metagenome-assembled genomes (MAGs) revealed functional partitioning between phyla:
+  Actinobacteriota members (Olsenella, Bifidobacterium, Pauljensenia) degrade lactose via the
+  Leloir pathway and bifid shunt, producing acetic, lactic, and succinic acids. Firmicutes
+  members (Clostridium, Agathobacter) perform chain elongation via reverse beta-oxidation,
+  converting lactic acid, ethanol, or lactose into butyric, hexanoic, and octanoic acids.
+  This cross-feeding between Actinobacteriota (acid producers) and Firmicutes (chain elongators)
+  forms the core metabolic network enabling conversion of dairy waste into renewable chemicals
+  via the carboxylate platform.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Characterize the microbial community converting dairy coproducts (ultra-filtered milk
+    permeate) into renewable chemicals via carboxylate platform fermentation.
+  assembly_strategy: >
+    Inoculated from an acid-phase digester; enriched through continuous bioreactor operation
+    over 282 days.
+  perturbation_design: >
+    Continuous feed of UFMP at 0.5 L/day, pH 5.5, 35 degrees C, 6-day hydraulic retention time.
+  measurement_endpoints:
+  - Metagenome sequencing and MAG reconstruction
+  - Metabolic pathway analysis from genome annotations
+  - Product quantification (organic acids, medium-chain fatty acids)
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Fermentative microbial communities have the potential to serve as biocatalysts for
+      the conversion of low-value dairy coproducts into renewable chemicals
+    explanation: Describes the engineering objective of the bioreactor community
+environment_term:
+  preferred_term: Anaerobic bioreactor (35C, pH 5.5, 6-day retention time)
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Anaerobic continuous stirred-tank reactor fed ultra-filtered milk permeate (UFMP) at
+    0.5 L/day. Operated at 35 degrees C, pH controlled at 5.5, with a 6-day hydraulic
+    retention time. Total operation period was 282 days.
+taxonomy:
+- taxon_term:
+    preferred_term: Olsenella_B sp. (MAG ATO3)
+    term:
+      id: NCBITaxon:133926
+      label: Olsenella
+    notes: >
+      Dominant Actinobacteriota member (up to 61.5% relative abundance). Degrades lactose
+      via the Leloir pathway, producing acetic and lactic acids.
+  strain_designation:
+    strain_name: MAG ATO3
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 61.5% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Olsenella_B sp. ATO3 is the most abundant Actinobacteriota performing lactose degradation
+- taxon_term:
+    preferred_term: Clostridium_B sp. (MAG CLOS1)
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+    notes: >
+      Dominant Firmicutes member (up to 45.6% relative abundance). Performs chain elongation
+      from lactic acid to butyric, hexanoic, and octanoic acids via reverse beta-oxidation.
+  strain_designation:
+    strain_name: MAG CLOS1
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: DOMINANT
+  abundance_value: up to 45.6% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+      ethanol, or lactic acid as the growth substrate
+    explanation: Clostridium_B sp. CLOS1 is the dominant chain elongator using lactic acid
+- taxon_term:
+    preferred_term: Pauljensenia sp. (MAG ACT2)
+    term:
+      id: NCBITaxon:2767049
+      label: Pauljensenia
+    notes: >
+      Actinobacteriota member (up to 29.6% relative abundance). Produces succinic acid
+      from lactose.
+  strain_designation:
+    strain_name: MAG ACT2
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 29.6% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Pauljensenia sp. ACT2 is an Actinobacteriota member producing succinic acid
+- taxon_term:
+    preferred_term: Agathobacter rectalis (MAG LCO1)
+    term:
+      id: NCBITaxon:1851376
+      label: Agathobacter
+    notes: >
+      Firmicutes member (up to 18.7% relative abundance). Performs lactose-based chain
+      elongation to medium-chain fatty acids.
+  strain_designation:
+    strain_name: MAG LCO1
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: DOMINANT
+  abundance_value: up to 18.7% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+      ethanol, or lactic acid as the growth substrate
+    explanation: Agathobacter rectalis LCO1 performs lactose-based chain elongation
+- taxon_term:
+    preferred_term: Bifidobacterium tibiigranuli (MAG BIF2)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+    notes: >
+      Actinobacteriota member (up to 17.4% relative abundance). Ferments lactose via the
+      bifid shunt pathway.
+  strain_designation:
+    strain_name: MAG BIF2
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 17.4% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Bifidobacterium tibiigranuli BIF2 ferments lactose via the bifid shunt
+- taxon_term:
+    preferred_term: RUG023 sp. (MAG SPH2)
+    term:
+      id: NCBITaxon:203691
+      label: Spirochaetota
+    notes: >
+      Spirochaetota member (up to 16.1% relative abundance). Produces ethanol which serves
+      as substrate for chain elongation by Firmicutes.
+  strain_designation:
+    strain_name: MAG SPH2
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  abundance_value: up to 16.1% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+      ethanol, or lactic acid as the growth substrate
+    explanation: RUG023 sp. SPH2 produces ethanol used as chain elongation substrate
+- taxon_term:
+    preferred_term: Bifidobacterium sp. (MAG BIF11)
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+    notes: >
+      Second Bifidobacterium MAG (up to 15.3% relative abundance). Lactose fermentation
+      via bifid shunt.
+  strain_designation:
+    strain_name: MAG BIF11
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 15.3% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Bifidobacterium BIF11 contributes to lactose degradation via bifid shunt
+- taxon_term:
+    preferred_term: Olsenella_B sp900119625 (MAG ATO6)
+    term:
+      id: NCBITaxon:133926
+      label: Olsenella
+    notes: >
+      Second Olsenella MAG (up to 13.9% relative abundance). Lactose degradation via
+      Leloir pathway.
+  strain_designation:
+    strain_name: MAG ATO6
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 13.9% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Olsenella_B ATO6 contributes to lactose degradation via Leloir pathway
+- taxon_term:
+    preferred_term: Bifidobacterium thermophilum (MAG BIF18)
+    term:
+      id: NCBITaxon:1682
+      label: Bifidobacterium thermophilum
+    notes: >
+      Third Bifidobacterium MAG (up to 11.4% relative abundance). Lactose fermentation.
+  strain_designation:
+    strain_name: MAG BIF18
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: up to 11.4% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Bifidobacterium thermophilum BIF18 contributes to lactose fermentation
+- taxon_term:
+    preferred_term: Acidaminococcus sp. (MAG ACID1)
+    term:
+      id: NCBITaxon:904
+      label: Acidaminococcus
+    notes: >
+      Firmicutes member (up to 10.2% relative abundance). Possible ethanol-based chain
+      elongation.
+  strain_designation:
+    strain_name: MAG ACID1
+    isolation_source: UFMP bioreactor metagenome
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: DOMINANT
+  abundance_value: up to 10.2% relative abundance
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+      ethanol, or lactic acid as the growth substrate
+    explanation: Acidaminococcus sp. ACID1 may perform ethanol-based chain elongation
+ecological_interactions:
+- name: Lactose Degradation to Organic Acids
+  description: >
+    Actinobacteriota members (Olsenella, Bifidobacterium, Pauljensenia) degrade lactose
+    via the Leloir pathway and the bifid shunt, producing acetic, lactic, and succinic
+    acids as primary fermentation products. These short-chain acids serve as substrates
+    for downstream chain elongation by Firmicutes.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: lactose
+    term:
+      id: CHEBI:17716
+      label: lactose
+    notes: Primary substrate from ultra-filtered milk permeate
+  - preferred_term: acetic acid
+    term:
+      id: CHEBI:15366
+      label: acetate
+    notes: Product of Leloir pathway and bifid shunt
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:422
+      label: lactate
+    notes: Product of lactose fermentation; substrate for chain elongation
+  - preferred_term: succinic acid
+    term:
+      id: CHEBI:30031
+      label: succinate
+    notes: Produced primarily by Pauljensenia sp.
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Documents lactose degradation pathways of Actinobacteriota members
+- name: Chain Elongation to Medium-Chain Fatty Acids
+  description: >
+    Firmicutes members (Clostridium, Agathobacter) perform reverse beta-oxidation (chain
+    elongation) using lactic acid, ethanol, or lactose as electron donors and carbon sources
+    to produce butyric (C4), hexanoic (C6), and octanoic (C8) acids. This represents
+    a key cross-feeding interaction where Actinobacteriota-produced lactic acid fuels
+    Firmicutes chain elongation.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:422
+      label: lactate
+    notes: Electron donor and carbon source for chain elongation
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+    notes: Alternative electron donor for chain elongation
+  - preferred_term: butyric acid
+    term:
+      id: CHEBI:30772
+      label: butyrate
+    notes: C4 chain elongation product
+  - preferred_term: hexanoic acid
+    term:
+      id: CHEBI:30776
+      label: hexanoate
+    notes: C6 chain elongation product
+  - preferred_term: octanoic acid
+    term:
+      id: CHEBI:28837
+      label: octanoate
+    notes: C8 chain elongation product
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Firmicutes phylum contribute to the chain-elongation-mediated production
+      of butyric, hexanoic, and octanoic acids, with different microbes using either lactose,
+      ethanol, or lactic acid as the growth substrate
+    explanation: Documents chain elongation by Firmicutes using multiple substrates
+- name: Actinobacteriota-Firmicutes Cross-Feeding Network
+  description: >
+    The core metabolic interaction in the community is cross-feeding between Actinobacteriota
+    (which produce lactic acid from lactose) and Firmicutes (which consume lactic acid
+    for chain elongation). This syntrophic relationship enables the full conversion of
+    lactose into medium-chain fatty acids via a two-step metabolic cascade.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Olsenella (Actinobacteriota)
+    term:
+      id: NCBITaxon:133926
+      label: Olsenella
+    notes: Representative of Actinobacteriota acid producers
+  target_taxon:
+    preferred_term: Clostridium (Firmicutes)
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+    notes: Representative of Firmicutes chain elongators
+  metabolites:
+  - preferred_term: lactic acid
+    term:
+      id: CHEBI:422
+      label: lactate
+    notes: Key cross-feeding metabolite between Actinobacteriota and Firmicutes
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      members of the Actinobacteriota phylum are important in the degradation of lactose,
+      via the Leloir pathway and the bifid shunt, and the production of acetic, lactic,
+      and succinic acids
+    explanation: Actinobacteriota produce lactic acid consumed by Firmicutes chain elongators
+environmental_factors:
+- name: Temperature
+  value: '35'
+  unit: degrees C
+  description: Bioreactor maintained at mesophilic temperature.
+- name: pH
+  value: '5.5'
+  description: Controlled at acidic pH optimal for carboxylate platform fermentation.
+- name: Hydraulic Retention Time
+  value: '6'
+  unit: days
+  description: 6-day retention time with 0.5 L/day feed rate.
+- name: Feed Substrate
+  value: Ultra-filtered milk permeate (UFMP)
+  description: >
+    Low-value dairy coproduct used as primary carbon source. Contains lactose as the
+    main fermentable sugar.
+- name: Atmosphere
+  value: Anaerobic
+  description: Anaerobic conditions maintained throughout the 282-day operation.
+associated_datasets:
+- name: Metagenome Sequencing
+  dataset_type: METAGENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA768492
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA768492
+  description: >
+    Shotgun metagenome sequencing data from the UFMP fermentation bioreactor used for
+    MAG reconstruction and metabolic pathway analysis.
+  evidence:
+  - reference: PMID:37324413
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Fermentative microbial communities have the potential to serve as biocatalysts for
+      the conversion of low-value dairy coproducts into renewable chemicals
+    explanation: Links the metagenome dataset to the UFMP fermentation community study
