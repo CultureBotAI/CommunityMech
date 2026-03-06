@@ -131,7 +131,7 @@ suggest-network-repairs:
     uv run communitymech repair-network-batch --report-only
 
 # Generate repair suggestions with limits
-suggest-network-repairs-limited MAX=10:
+suggest-network-repairs-limited MAX='10':
     uv run communitymech repair-network-batch --report-only --max-communities {{MAX}}
 
 # Apply approved suggestions from batch report
