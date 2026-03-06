@@ -1,0 +1,71 @@
+# LLM Configuration for Network Repair
+# Used by communitymech CLI for LLM-assisted network repair
+
+llm:
+  # Provider: anthropic (Claude), openai, or local
+  provider: anthropic
+
+  # Model to use (see provider documentation for available models)
+  # For Anthropic: claude-opus-4-6, claude-sonnet-4-6, claude-haiku-4-5
+  model: claude-opus-4-6
+
+  # API key environment variable name
+  # Set your API key: export ANTHROPIC_API_KEY=sk-ant-...
+  api_key_env: ANTHROPIC_API_KEY
+
+  # Temperature for sampling (0.0-1.0)
+  # Lower values = more deterministic, factual outputs
+  # Higher values = more creative, diverse outputs
+  temperature: 0.1
+
+  # Maximum tokens in response
+  max_tokens: 4096
+
+  # Timeout for API calls (seconds)
+  timeout: 60
+
+repair:
+  # Auto-approve suggestions with confidence score above this threshold
+  # Range: 0.0-1.0 (1.0 = perfect confidence)
+  # Set to 1.0 to require manual approval for all suggestions
+  auto_approve_threshold: 0.95
+
+  # Maximum number of repair suggestions per disconnected taxon
+  max_suggestions_per_taxon: 2
+
+  # Require evidence validation for all suggestions
+  # If true, evidence snippets must match abstracts with 95%+ similarity
+  require_evidence_validation: true
+
+  # Create backup before applying repairs
+  backup_before_apply: true
+
+  # Backup directory
+  backup_dir: .backups
+
+validation:
+  # Minimum fuzzy match score for evidence snippets (0.0-1.0)
+  min_snippet_match_score: 0.95
+
+  # Enable ontology term validation via OAK
+  validate_ontology_terms: true
+
+  # Enable biological plausibility checks
+  check_biological_plausibility: true
+
+  # Ontology adapters (from conf/oak_config.yaml)
+  oak_config: conf/oak_config.yaml
+
+# Cost tracking and rate limiting
+limits:
+  # Maximum API calls per run
+  max_api_calls_per_run: 100
+
+  # Rate limit (calls per minute)
+  rate_limit_per_minute: 10
+
+  # Enable cost estimation and tracking
+  track_costs: true
+
+  # Maximum estimated cost per run (USD)
+  max_cost_per_run: 10.0
