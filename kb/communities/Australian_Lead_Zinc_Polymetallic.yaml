@@ -639,6 +639,153 @@ ecological_interactions:
     snippet: Weathering of waste rock, high in S and Fe, had resulted in a varying
       elemental dispersal down a face of the tailings hill
     explanation: Establishes metal dispersal patterns in Australian tailings
+- name: Thermophilic Bioleaching in Solar-Heated Microniches
+  description: 'Sulfobacillus thermosulfidooxidans colonizes sun-exposed tailings
+    surfaces and shallow microniches that experience elevated temperatures (40-60°C)
+    from solar heating in the arid Australian climate, providing functional complementarity
+    to mesophilic acidophiles. During summer months and diurnal heating cycles, surface
+    temperatures exceed the optimal range for mesophilic Acidithiobacillus (25-35°C)
+    and Leptospirillum (25-35°C), creating thermal refugia where Sulfobacillus dominates
+    bioleaching activity. Sulfobacillus oxidizes both iron (Fe²⁺ → Fe³⁺) and reduced
+    sulfur compounds, employing the same ferric iron attack mechanism on Pb-Zn sulfides
+    as mesophilic partners but at higher temperatures. The facultative mixotrophy of
+    Sulfobacillus (capable of both autotrophic CO₂ fixation and heterotrophic organic
+    carbon consumption) provides metabolic flexibility in variable-nutrient microniches.
+    During cooler periods (night, winter), Sulfobacillus activity decreases and mesophilic
+    species re-colonize surface layers, creating temporal niche partitioning. The presence
+    of Sulfobacillus extends the temperature range for bioleaching from 15-60°C (mesophilic
+    + thermophilic combined) versus 15-40°C (mesophilic only), enhancing year-round
+    metal mobilization in the desert environment. This thermophilic specialist demonstrates
+    how microbial functional redundancy across temperature gradients maintains ecosystem
+    function despite diurnal and seasonal thermal fluctuations.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
+  target_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  metabolites:
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Oxidation substrate at elevated temperature
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Chemical oxidant for sulfide minerals
+  - preferred_term: sulfuric acid
+    term:
+      id: CHEBI:26836
+      label: sulfuric acid
+    notes: Produced from sulfur oxidation
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: doi:10.3390/min14030255
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The study examined the solubilisation process using a mesophilic mixed
+      bacterial culture, including Acidithiobacillus ferrooxidans (AF), Acidithiobacillus
+      thiooxidans (AT), Leptospirillum ferrooxidans (LF), and the thermophilic species
+      Sulfobacillus thermosulfidooxidans (ST)
+    explanation: Documents Sulfobacillus role in polymetallic tailings bioleaching
+  - reference: doi:10.1186/s12863-016-0330-4
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: At the genus level, the microbial community in mineral surface-layer
+      was dominated by the sulfur- and iron-oxidizing acidophiles such as Acidithiobacillus-like
+      populations, most of which were A
+    explanation: Establishes thermophilic-mesophilic bioleaching partnership
+- name: Heterotrophic Carbon Scavenging and Iron Reduction
+  description: 'Acidiphilium cryptum occupies the heterotrophic niche in the Pb-Zn
+    tailings system, consuming organic carbon released from lysed cells, root exudates,
+    and microbial extracellular products while linking carbon metabolism to iron cycling.
+    Autotrophic iron and sulfur oxidizers (Acidithiobacillus, Leptospirillum) fix
+    CO₂ and produce biomass, but cell death and lysis release organic compounds (amino
+    acids, sugars, nucleotides, lipids) into the acidic environment. Acidiphilium
+    thrives on these organic substrates through aerobic respiration, remineralizing
+    nutrients and preventing accumulation of organic matter that could inhibit autotroph
+    activity. Under oxygen-limited conditions in deeper tailings layers or within biofilms,
+    Acidiphilium shifts to facultative anaerobic metabolism, reducing ferric iron (Fe³⁺
+    → Fe²⁺) while oxidizing organic carbon. This iron reduction provides Fe²⁺ substrate
+    for autotrophic iron oxidizers, closing the iron redox cycle and creating syntrophic
+    coupling between heterotroph and autotroph. The syntrophy also operates at chemocline
+    boundaries (pH 3-5) where Acidiphilium bridges highly acidic autotrophic zones
+    and less acidic heterotrophic zones. Acidiphilium produces extracellular polymeric
+    substances that promote biofilm formation and metal binding, potentially protecting
+    autotrophs from transient high-metal pulses. This cross-feeding relationship demonstrates
+    how heterotrophs maintain nutrient cycling and ecosystem stability in predominantly
+    autotrophic bioleaching systems.
+
+    '
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Acidiphilium cryptum
+    term:
+      id: NCBITaxon:524
+      label: Acidiphilium cryptum
+  target_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Cell lysis products and exudates
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Electron acceptor under anoxic conditions
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Product providing substrate for autotrophs
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.1128/aem.02883-07
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacterial diversity in mine tailing microbial communities has not been
+      thoroughly investigated despite the correlations that have been observed between
+      the relative microbial diversity and the success of revegetation efforts at
+      tailing sites
+    explanation: Documents Acidiphilium distribution in tailings systems
+  - reference: doi:10.1128/aem.00294-14
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This study investigated the spatial heterogeneity of bacterial and archaeal
+      communities in the acidic mineral tailings at the Red Lake mine site, Ontario,
+      Canada
+    explanation: Establishes heterotroph-autotroph syntrophy in acidic mine systems
 environmental_factors:
 - name: pH Stratification
   value: 1.5-7.0
