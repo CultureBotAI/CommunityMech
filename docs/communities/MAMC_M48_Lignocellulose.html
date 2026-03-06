@@ -548,7 +548,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Stenotrophomonas maltophilia JN40</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Paenibacillus sp. PALXIL05</p>
                 
 
                 
@@ -604,6 +608,122 @@
                         </div>
                         
                         <div class="snippet">"Enriched microbial communities, obtained from environmental samples through selective processes, can effectively contribute to lignocellulose degradation"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Cellulose Hydrolysis Partnership</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Microbacterium sp. UYFA68</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Chryseobacterium taiwanense DUCC3723</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        cellulose catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0030245"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0030245</a>)
+                    </li>
+                    
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29392382/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29392382</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp., Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading synthetic community."</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Hemicellulose Degradation Partnership</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Paenibacillus sp. PALXIL05</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Brevundimonas sp. R3</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        xylan catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0045493"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0045493</a>)
+                    </li>
+                    
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/29392382/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:29392382</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp., Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading synthetic community."</div>
                         
                     </li>
                     
@@ -774,7 +894,97 @@
             });
 
             
+            var srcKey = "Stenotrophomonas maltophilia JN40";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Paenibacillus sp. PALXIL05";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("cellulose catabolic process");
+            
+            processes.push("interspecies interaction between organisms");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Cellulose Hydrolysis Partnership",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Microbacterium sp. UYFA68";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Chryseobacterium taiwanense DUCC3723";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("xylan catabolic process");
+            
+            processes.push("interspecies interaction between organisms");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Hemicellulose Degradation Partnership",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Paenibacillus sp. PALXIL05";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Brevundimonas sp. R3";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -794,7 +1004,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 6;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

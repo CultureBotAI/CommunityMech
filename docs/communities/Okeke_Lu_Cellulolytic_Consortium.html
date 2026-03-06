@@ -548,7 +548,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Pseudoxanthomonas byssovorax DB1</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Bacillus sp. DB7</p>
                 
 
                 
@@ -623,7 +627,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Microbacterium oxydans DB2</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Klebsiella sp. DB13</p>
                 
 
                 
@@ -675,6 +683,64 @@
                         </div>
                         
                         <div class="snippet">"Isolate DB2 produced the highest xylanase activity (103.05 U mg⁻¹), while the highest β-xylosidase activity (7.72 U mg⁻¹) was observed with DB13"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Synergistic Lignocellulose Degradation</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Bacillus sp. DB7</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Ochrobactrum sp. DB8</p>
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        polysaccharide catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0000272"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0000272</a>)
+                    </li>
+                    
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/20859703/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:20859703</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Use of microbial consortium in bioprocessing of lignocelluloses could reduce problems such as incomplete synergistic enzymes, end-product inhibition, adsorption, and requirement for high amounts of enzymes in direct use of enzymes."</div>
                         
                     </li>
                     
@@ -837,7 +903,17 @@
             });
 
             
+            var srcKey = "Pseudoxanthomonas byssovorax DB1";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Bacillus sp. DB7";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -873,7 +949,57 @@
             });
 
             
+            var srcKey = "Microbacterium oxydans DB2";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Klebsiella sp. DB13";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("polysaccharide catabolic process");
+            
+            processes.push("interspecies interaction between organisms");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Synergistic Lignocellulose Degradation",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Bacillus sp. DB7";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Ochrobactrum sp. DB8";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -893,7 +1019,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 7;
+        var nodeCount = 8;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

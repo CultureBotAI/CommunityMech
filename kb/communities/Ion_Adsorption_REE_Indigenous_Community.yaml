@@ -253,6 +253,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:1386
       label: Bacillus
+  target_taxon:
+    preferred_term: Micrococcus
+    term:
+      id: NCBITaxon:1269
+      label: Micrococcus
   metabolites:
   - preferred_term: dysprosium(3+)
     term:
@@ -324,6 +329,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:1224
       label: Proteobacteria
+  target_taxon:
+    preferred_term: Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinobacteria
   metabolites:
   - preferred_term: citric acid
     term:
@@ -373,6 +383,11 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
   metabolites:
   - preferred_term: dysprosium(3+)
     term:
@@ -408,6 +423,110 @@ ecological_interactions:
     snippet: selective adsorption of REEs by teichoic acids in the cell walls of Gram-positive bacteria can contribute to
       the fractionation between HREEs and LREEs
     explanation: Links bacterial selectivity to deposit-scale HREE enrichment
+- name: Fungal Bioweathering and Mineral Dissolution
+  description: 'Ascomycota and Basidiomycota fungi work synergistically to accelerate granite weathering and REE mineral dissolution
+    through complementary enzymatic and chemical attack mechanisms. Together comprising over 88% of fungal sequences, these
+    two dominant phyla produce diverse organic acids (citric, oxalic, gluconic), extracellular enzymes (laccases, peroxidases),
+    and siderophores that chelate REE cations and dissolve silicate minerals. Ascomycete hyphae mechanically penetrate mineral
+    grain boundaries while secreting organic acids that protonate and dissolve REE-bearing phases like monazite, xenotime,
+    and REE-enriched clays. Basidiomycete enzymes further degrade silicate matrices and mobilize REE from resistant mineral
+    structures. The fungal bioweathering creates high-surface-area weathering zones where primary REE minerals transform into
+    secondary clay-bound ion-adsorption forms. This fungal-bacterial partnership drives the biogeochemical cascade: fungal
+    mineral dissolution releases REE → bacterial biosorption concentrates HREE → deposit-scale HREE enrichment occurs. The
+    synergistic action of Ascomycota and Basidiomycota accelerates REE mineralization orders of magnitude faster than abiotic
+    weathering processes.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Ascomycota
+    term:
+      id: NCBITaxon:4890
+      label: Ascomycota
+  target_taxon:
+    preferred_term: Basidiomycota
+    term:
+      id: NCBITaxon:5204
+      label: Basidiomycota
+  metabolites:
+  - preferred_term: citric acid
+    term:
+      id: CHEBI:30769
+      label: citric acid
+    notes: Fungal organic acid for REE complexation
+  - preferred_term: oxalic acid
+    term:
+      id: CHEBI:16995
+      label: oxalic acid
+    notes: Strong chelator for mineral dissolution
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  downstream:
+  - target: Teichoic Acid-Mediated HREE Selective Biosorption
+    description: Fungal dissolution releases REE for bacterial biosorption
+  evidence:
+  - reference: PMID:35708325
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Both fungi and bacteria can contribute to the REE mineralization in regolith-hosted deposits
+    explanation: Documents synergistic fungal bioweathering
+  - reference: PMID:35708325
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: These findings not only elucidate the crucial contribution of fungi and bacteria in the supergene REE mineralization
+      but also provide insights into efficient utilization of mineral resources via a biological pathway
+    explanation: Establishes fungal role in REE mobilization
+- name: Oligotrophic REE Mobilization and Deep Profile Colonization
+  description: 'Acidobacteria employ oligotrophic K-strategist metabolic strategies to colonize nutrient-depleted deep weathering
+    zones (up to 40m depth) and contribute to long-term REE mobilization and biogeochemical cycling. Representing 14.6% of
+    the bacterial community, Acidobacteria thrive in low-organic-carbon regolith environments where r-strategist copiotrophs
+    (like many Proteobacteria) cannot compete. Their slow-growing, stress-tolerant lifestyle enables sustained activity in
+    the C horizon weathered bedrock where microbial biomass decreases to 23.6 ppm. Acidobacteria produce exopolysaccharides
+    and organic ligands that bind REE cations and enhance mineral dissolution at depth, complementing the more abundant Proteobacteria
+    in upper horizons. This vertical metabolic partitioning ensures continuous REE mobilization throughout the 40-meter weathering
+    profile. The oligotrophic adaptations of Acidobacteria are critical for establishing stable indigenous microbial communities
+    in the nutrient-scarce, low-productivity conditions of regolith-hosted REE deposits, enabling the thousand-year biogeochemical
+    processes that create economically viable HREE enrichment.
+
+    '
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Acidobacteria
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteria
+  target_taxon:
+    preferred_term: Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Proteobacteria
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Exopolysaccharides and organic ligands for REE binding
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:35708325
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Acidobacteria are considered to have an oligotrophic (K-strategist) lifestyle, which facilitates their living
+      in the low-nutrient environments in regolith-hosted REE deposits
+    explanation: Documents oligotrophic adaptation and deep profile colonization
+  - reference: PMID:35708325
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: However, little is known about the roles of microorganisms in the formation of exogenic deposits such as regolith-hosted
+      REE deposits that are of HREE enrichment and provide over 90% of global HREE demand
+    explanation: Establishes Acidobacteria contribution to REE mobilization
 environmental_factors:
 - name: Weathering Profile Depth
   value: 0-40

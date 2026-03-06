@@ -654,7 +654,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Acidithiobacillus ferrooxidans</p>
                 
 
                 
@@ -807,7 +811,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Leptospirillum ferriphilum</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Sulfobacillus benefaciens</p>
                 
 
                 
@@ -875,6 +883,80 @@
                         </div>
                         
                         <div class="snippet">"Successive subculturing proved effective, reducing the pre-oxidation phase delay by up to 2.6 times"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Two-Step Iron and Sulfur Oxidation Partnership</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrivorans</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Acidithiobacillus thiooxidans</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29034</a>), 
+                    
+                    sulfuric acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26836"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:26836</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        nitrogen fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009399"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009399</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/26704063/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:26704063</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"In the first step, chemolithotrophic acidophilic Acidithiobacillus ferrivorans and Acidithiobacillus thiooxidans were used"</div>
                         
                     </li>
                     
@@ -1098,7 +1180,17 @@
             });
 
             
+            var srcKey = "Leptospirillum ferriphilum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1171,7 +1263,65 @@
             });
 
             
+            var srcKey = "Leptospirillum ferriphilum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Sulfobacillus benefaciens";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:4";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            
+            metabolites.push("Fe(II)");
+            
+            metabolites.push("Fe(III)");
+            
+            metabolites.push("sulfuric acid");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("oxidation-reduction process");
+            
+            processes.push("nitrogen fixation");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Two-Step Iron and Sulfur Oxidation Partnership",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Acidithiobacillus ferrivorans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Acidithiobacillus thiooxidans";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1191,7 +1341,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 9;
+        var nodeCount = 10;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

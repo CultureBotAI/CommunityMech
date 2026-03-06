@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Community with Growth Media - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Example Community with Growth Media</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        laboratory culture
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00002034"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:00002034
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">growth_media_example.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>Example showing how to document growth media information</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Escherichia coli</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:562
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        
+
+        <!-- Associated Datasets -->
+        
+
+        <!-- Environmental Factors -->
+        
+
+        <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    CCAP Medium C100 (Soil/Water + AMP)
+                    
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">
+                        (mediadive.medium:C100)
+                    </span>
+                    
+                </h3>
+
+                
+                <p style="margin: 0.5rem 0;">
+                    <a href="https://github.com/CultureBotAI/CultureMech/blob/main/data/normalized_yaml/bacterial/CCAP_C100_S_W_AMP.yaml" class="term-link" target="_blank" rel="noopener">
+                        View in CultureMech →
+                    </a>
+                </p>
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">7-8</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">20 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">aerobic</span>
+                    </div>
+                    
+                </div>
+
+                
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><strong>Soil (garden loam)</strong></td>
+                            <td>variable</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>Ammonium magnesium phosphate</strong></td>
+                            <td>0.01</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>Ampicillin</strong></td>
+                            <td>0.025</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28971"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:28971
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Layer ~1 cm air-dried sieved garden loam, add deionised water to 7-10 cm depth. Autoclave 15 min at 15 psi on 2 consecutive days. Add ampicillin from filter-sterilized stock.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.1234/ccap.media"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.1234/ccap.media
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"CCAP Medium C100 documented in culture collection protocols."</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="metadata">
+                <h3>
+                    LB Medium (Modified)
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">7.0</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">30 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">aerobic</span>
+                    </div>
+                    
+                </div>
+
+                
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><strong>Tryptone</strong></td>
+                            <td>10.0</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>Yeast extract</strong></td>
+                            <td>5.0</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>Sodium chloride</strong></td>
+                            <td>5.0</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=26710"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:26710
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Modified with reduced NaCl concentration for low-salt adaptation.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.1234/example.2024"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.1234/example.2024
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"Cells were adapted to low-salt LB medium over 10 passages."</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+</body>
+</html>

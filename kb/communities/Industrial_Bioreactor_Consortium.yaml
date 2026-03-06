@@ -632,6 +632,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
+  target_taxon:
+    preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
   metabolites:
   - preferred_term: chalcopyrite
     term:
@@ -735,6 +745,120 @@ ecological_interactions:
       the "microbial dark matter" suggests their common fundamental environmental
       strategy and metabolic networking
     explanation: Indicates emerging sulfur metabolism capability
+- name: Early-Stage Iron Oxidation with Leptospirillum
+  description: 'Leptospirillum ferriphilum contributes to iron oxidation in the
+    early stages of bioreactor operation at lower pulp densities (<4% w/v). This
+    obligate chemolithoautotroph efficiently colonizes sulfide mineral surfaces
+    and oxidizes Fe²⁺ at pH approaching 1.5, working alongside Acidithiobacillus
+    caldus in the initial consortium composition. However, L. ferriphilum is
+    sensitive to elevated pulp densities, organic matter accumulation, and flotation
+    reagent residues, becoming absent above 4% pulp density. As the reactor adapts
+    to higher densities through serial subculturing, L. ferriphilum is replaced
+    by more tolerant iron oxidizers like Ferroplasma species and Acidiplasma.'
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Leptospirillum ferriphilum
+    term:
+      id: NCBITaxon:178606
+      label: Leptospirillum ferriphilum
+  target_taxon:
+    preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
+  metabolites:
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Substrate for iron oxidation
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Product for chalcopyrite oxidation
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:24242252
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results show that the culture consisted mainly of four species,
+      including Leptospirillum ferriphilum, Acidithiobacillus caldus, Sulfobacillus
+      acidophilus, and Ferroplasma thermophilum, before adapting to a pulp density
+      of 4%
+    explanation: Establishes L. ferriphilum presence in early consortium
+- name: Ferroplasma Species Complementarity
+  description: 'Multiple Ferroplasma species (F. acidiphilum, Ferroplasma sp.)
+    co-exist in the late-stage adapted consortium, contributing to robust iron
+    oxidation at extreme acidity and high pulp densities. These cell wall-lacking
+    archaea grow chemomixotrophically, oxidizing Fe²⁺ while scavenging organic
+    carbon. The presence of multiple related species may provide functional
+    redundancy and metabolic diversity, enabling the consortium to maintain
+    performance across varying conditions (batch vs. continuous reactors, pulp
+    density gradients, pH fluctuations).'
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Ferroplasma sp.
+    term:
+      id: NCBITaxon:2591003
+      label: Ferroplasma sp.
+  target_taxon:
+    preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
+  metabolites:
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Shared substrate
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.3390/biology12111411
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Multiple Ferroplasma species co-occur in adapted bioleach consortia
+    explanation: Documents Ferroplasma species diversity
+- name: Thermoplasmatales Archaeal Community Structure
+  description: 'Unclassified Thermoplasmatales archaeon represents additional
+    archaeal diversity beyond characterized Ferroplasma, Acidiplasma, and
+    Cuniculiplasma members. This organism may represent a novel lineage within
+    the order Thermoplasmatales or a strain variant of known species. The
+    Thermoplasmatales archaea collectively dominate late-stage bioreactors,
+    tolerating extreme acidity (pH <1.5), high metal concentrations, and
+    elevated pulp densities that inhibit bacterial members.'
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Thermoplasmatales archaeon
+    term:
+      id: NCBITaxon:2268204
+      label: Thermoplasmatales archaeon
+  target_taxon:
+    preferred_term: Acidiplasma sp.
+    term:
+      id: NCBITaxon:1872114
+      label: Acidiplasma sp.
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.3390/biology12111411
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Genomic characterization reveals six key organisms in the industrial
+      consortium
+    explanation: Documents archaeal diversity in adapted consortium
 environmental_factors:
 - name: Moderate Thermophilic Temperature Range
   value: 40-50

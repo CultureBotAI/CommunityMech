@@ -19,6 +19,7 @@ dependencies = [
     "click>=8.0.0",
     "jinja2>=3.0.0",
     "oaklib>=0.5.0",
+    "requests>=2.31.0",
 ]
 
 [project.optional-dependencies]
@@ -38,6 +39,11 @@ koza = [
 
 validation = [
     "linkml-validator>=0.4.0",
+]
+
+llm = [
+    "anthropic>=0.39.0",
+    "rich>=13.0.0",
 ]
 
 [project.scripts]
@@ -67,6 +73,12 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
+markers = [
+    "e2e: End-to-end tests that require API key (deselect with '-m \"not e2e\"')",
+    "integration: Integration tests",
+]
+# By default, skip e2e tests (require explicit --e2e flag)
+addopts = "-m 'not e2e'"
 
 [tool.mypy]
 python_version = "3.10"

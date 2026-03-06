@@ -679,7 +679,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Acidithiobacillus thiooxidans</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Leptospirillum ferrooxidans</p>
                 
 
                 
@@ -761,6 +765,8 @@
                     <span class="interaction-type">COMMENSALISM</span>
                 </div>
 
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
                 
 
                 
@@ -1078,7 +1084,17 @@
             });
 
             
+            var srcKey = "Acidithiobacillus thiooxidans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Leptospirillum ferrooxidans";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1111,6 +1127,11 @@
                 evidenceCount: evidenceCount
             });
 
+            
+            var srcKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
             
 
             

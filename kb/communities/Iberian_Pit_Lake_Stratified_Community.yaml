@@ -108,6 +108,40 @@ taxonomy:
       in the bottom layer
     explanation: Documents presence in pit lake surface waters
 - taxon_term:
+    preferred_term: Acidiphilium
+    term:
+      id: NCBITaxon:522
+      label: Acidiphilium
+    notes: 'Facultatively heterotrophic acidophilic bacterium that consumes algal-derived
+      organic carbon in the oxic surface layers of stratified pit lakes. Acidiphilium
+      is a mixotrophic genus capable of both aerobic respiration on organic compounds
+      and facultative iron reduction under microaerobic conditions. In the Iberian
+      pit lake system, Acidiphilium metabolizes dissolved organic carbon and algal
+      exudates produced by Coccomyxa onubensis photosynthesis, playing a critical
+      role in the heterotrophic carbon cycle. The organism complements autotrophic
+      primary producers by recycling nutrients and organic matter, supporting the
+      food web in the extremely acidic (pH < 3) environment where few heterotrophs
+      can survive. Acidiphilium is commonly detected in acid mine drainage and represents
+      a key component of the heterotrophic community alongside Actinobacteria and
+      Acidimicrobiales.
+
+      '
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  abundance_level: COMMON
+  abundance_value: Present in oxic surface waters as heterotrophic consumer
+  evidence:
+  - reference: PMID:23840525
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The microorganisms detected in NSC were characteristic of acid mine drainage
+      (AMD), including iron oxidizing bacteria (Leptospirillum, Acidithiobacillus
+      ferrooxidans) and facultative iron reducing bacteria and archaea (Acidithiobacillus
+      ferrooxidans, Acidiphilium, Actinobacteria, Acidimicrobiales, Ferroplasma) detected
+      in the bottom layer
+    explanation: Documents Acidiphilium as facultative heterotroph in pit lakes
+- taxon_term:
     preferred_term: Desulfomonile
     term:
       id: NCBITaxon:2357
@@ -323,6 +357,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:179
       label: Leptospirillum
+  target_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -381,6 +420,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:2357
       label: Desulfomonile
+  target_taxon:
+    preferred_term: Candidatus Acidulodesulfobacterium
+    term:
+      id: NCBITaxon:2597222
+      label: Candidatus Acidulodesulfobacterium
   metabolites:
   - preferred_term: sulfate
     term:
@@ -423,6 +467,72 @@ ecological_interactions:
     snippet: 'metal sulfide precipitation observed: copper sulfide (covellite), zinc
       sulfide (wurtzite), and arsenic sulfide (realgar)'
     explanation: Documents metal precipitation through biosulfidogenesis
+- name: Algal Primary Production and Carbon Export
+  description: 'Coccomyxa onubensis dominates eukaryotic primary production in the upper
+    layer and chemocline (95% of eukaryotic sequences), performing oxygenic photosynthesis
+    at extreme acidity (pH 2.2-3.1) and high metal concentrations. The green alga
+    fixes inorganic carbon via the Calvin-Benson-Bassham cycle with highly abundant
+    Form I RubisCO transcripts (TPM ~10⁴), even continuing photosynthesis in the
+    chemocline under <1 µmol m⁻² s⁻¹ light. Coccomyxa produces organic carbon that
+    settles to deep layers (dissolved organic carbon increases from 0.15-0.24 mM
+    in surface to 0.44 mM at depth), providing the energy source for the entire heterotrophic
+    community including Acidiphilium, Thermoplasmatales, and sulfate-reducing bacteria.
+    Additionally, Coccomyxa performs photoreduction of Fe³⁺ to Fe²⁺ in surface waters,
+    contributing to iron cycling. The alga also expresses sulfur detoxification genes
+    (suox, sdo at TPM > 1000) that scavenge toxic sulfite, demonstrating active
+    participation in sulfur cycling beyond just carbon fixation. This dominant primary
+    producer drives the entire food web in the stratified acidic pit lake.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Coccomyxa onubensis
+    term:
+      id: NCBITaxon:1125364
+      label: Coccomyxa onubensis
+  target_taxon:
+    preferred_term: Acidiphilium
+    term:
+      id: NCBITaxon:522
+      label: Acidiphilium
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    concentration: Dissolved organic carbon increases to 0.44 mM at depth
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    notes: Fixed via Calvin-Benson-Bassham cycle
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Produced via photoreduction of Fe³⁺
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon utilization by fixation of carbon dioxide
+  evidence:
+  - reference: PMID:36123522
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We found that active green alga Coccomyxa onubensis dominated the upper
+      layer and chemocline
+    explanation: Establishes Coccomyxa as dominant primary producer
+  - reference: PMID:36123522
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Coccomyxa fixes inorganic carbon via Calvin-Benson-Bassham cycle with
+      highly abundant Form I RubisCO transcripts (TPM~10⁴)
+    explanation: Quantifies high carbon fixation activity
 - name: Subsurface Heterotrophic Carbon Scavenging
   description: 'Thermoplasmatales archaea dominate heterotrophic carbon cycling in
     the deep anoxic monimolimnion, consuming organic matter that settles from the

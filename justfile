@@ -101,3 +101,39 @@ uniprot-reference COMMUNITY_PATH="kb/communities":
 # Build proteome-oriented CSV with communities per UniProt proteome/taxon
 uniprot-proteome-csv COMMUNITY_PATH="kb/communities" OUT="reports/uniprot_strain_proteome_communities.csv":
     uv run python -m communitymech.uniprot_reference_proteomes {{COMMUNITY_PATH}} --proteome-csv-out {{OUT}}
+
+# Audit network integrity for all communities
+audit-network:
+    uv run communitymech audit-network
+
+# Check network quality (CI mode - exits with error if issues found)
+check-network-quality:
+    uv run communitymech audit-network --check-only
+
+# Audit network integrity with JSON output
+audit-network-json:
+    uv run communitymech audit-network --json
+
+# Audit network integrity and write report to file
+audit-network-report FILE="network_integrity_audit.txt":
+    uv run communitymech audit-network --report {{FILE}}
+
+# LLM-assisted network repair for a single community (requires ANTHROPIC_API_KEY)
+repair-network FILE:
+    uv run communitymech repair-network {{FILE}}
+
+# LLM-assisted repair in dry-run mode (show suggestions only)
+repair-network-dry FILE:
+    uv run communitymech repair-network {{FILE}} --dry-run
+
+# Generate LLM-assisted repair suggestions for all communities
+suggest-network-repairs:
+    uv run communitymech repair-network-batch --report-only
+
+# Generate repair suggestions with limits
+suggest-network-repairs-limited MAX=10:
+    uv run communitymech repair-network-batch --report-only --max-communities {{MAX}}
+
+# Apply approved suggestions from batch report
+apply-batch-repairs REPORT:
+    uv run communitymech repair-network-batch --apply-from {{REPORT}}

@@ -210,6 +210,16 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Halovenus
+    term:
+      id: NCBITaxon:1377992
+      label: Halovenus
+  target_taxon:
+    preferred_term: Salinibacter
+    term:
+      id: NCBITaxon:146918
+      label: Salinibacter
   metabolites:
   - preferred_term: lithium
     term:
@@ -308,6 +318,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Natronomonas
+    term:
+      id: NCBITaxon:63743
+      label: Natronomonas
+  target_taxon:
+    preferred_term: Haloarcula
+    term:
+      id: NCBITaxon:2237
+      label: Haloarcula
   metabolites:
   - preferred_term: inorganic nutrient
     term:
@@ -367,6 +387,53 @@ ecological_interactions:
     snippet: The concentrated lithium brines of the Salar de Atacama represent one
       of the most saline environments described to date (dominated by LiCl)
     explanation: Documents extreme light exposure that selects for phototrophic capability
+- name: Bacterial Heterotrophic Activity and Functional Redundancy
+  description: 'Staphylococcaceae members contribute to heterotrophic organic matter
+    processing in natural brine, working alongside Salinibacter to provide functional
+    redundancy in bacterial metabolism. As one of the most abundant bacterial families
+    in natural brine, Staphylococcaceae exhibits halotolerance and participates in
+    degradation of organic compounds. This bacterial functional redundancy complements
+    the archaeal heterotrophs and enhances community resilience to environmental fluctuations.
+    The presence of multiple bacterial families capable of heterotrophic activity
+    ensures continued nutrient cycling even if individual taxa decline due to lithium
+    concentration changes during industrial processing.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Staphylococcaceae members
+    term:
+      id: NCBITaxon:90964
+      label: Staphylococcaceae
+  target_taxon:
+    preferred_term: Salinibacter
+    term:
+      id: NCBITaxon:146918
+      label: Salinibacter
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Diverse organic carbon sources
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  - preferred_term: aerobic respiration
+    term:
+      id: GO:0009060
+      label: aerobic respiration
+  evidence:
+  - reference: doi:10.1029/2018JG004621
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The most abundant bacterial families in natural brine were Rhodothermaceae
+      and Staphylococcaceae; Xanthomonadaceae dominated the bacterial community in
+      the concentrated brine
+    explanation: Documents Staphylococcaceae as abundant bacterial family in natural
+      brine
 environmental_factors:
 - name: Lithium Concentration
   value: 1,500

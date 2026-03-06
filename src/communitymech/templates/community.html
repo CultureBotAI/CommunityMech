@@ -591,6 +591,122 @@
             </table>
         </section>
         {% endif %}
+
+        <!-- Growth Media -->
+        {% if community.growth_media %}
+        <section>
+            <h2>Growth Media</h2>
+            {% for medium in community.growth_media %}
+            <div class="metadata">
+                <h3>
+                    {{ medium.name }}
+                    {% if medium.culturemech_id %}
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">
+                        ({{ medium.culturemech_id }})
+                    </span>
+                    {% endif %}
+                </h3>
+
+                {% if medium.culturemech_url %}
+                <p style="margin: 0.5rem 0;">
+                    <a href="{{ medium.culturemech_url }}" class="term-link" target="_blank" rel="noopener">
+                        View in CultureMech →
+                    </a>
+                </p>
+                {% endif %}
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    {% if medium.ph %}
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">{{ medium.ph }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if medium.temperature %}
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">{{ medium.temperature }} {{ medium.temperature_unit or '°C' }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if medium.atmosphere %}
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">{{ medium.atmosphere }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if medium.composition %}
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for component in medium.composition %}
+                        <tr>
+                            <td><strong>{{ component.name }}</strong></td>
+                            <td>{{ component.concentration or 'N/A' }}</td>
+                            <td>{{ component.unit or 'N/A' }}</td>
+                            <td>
+                                {% if component.chebi_term and component.chebi_term.term %}
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId={{ component.chebi_term.term.id.replace('CHEBI:', '') }}"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    {{ component.chebi_term.term.id }}
+                                </a>
+                                {% else %}
+                                N/A
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+
+                {% if medium.preparation_notes %}
+                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                    <strong>Preparation notes:</strong> {{ medium.preparation_notes }}
+                </p>
+                {% endif %}
+
+                {% if medium.evidence %}
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    {% for ev in medium.evidence %}
+                    <div class="evidence-item">
+                        {% if ev.reference.startswith('PMID:') %}
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.replace('PMID:', '') }}"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            {{ ev.reference }}
+                        </a>
+                        {% elif ev.reference.startswith('doi:') %}
+                        <a href="https://doi.org/{{ ev.reference.replace('doi:', '') }}"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            {{ ev.reference }}
+                        </a>
+                        {% else %}
+                        <span class="pmid-link">{{ ev.reference }}</span>
+                        {% endif %}
+
+                        {% if ev.snippet %}
+                        <p class="snippet">"{{ ev.snippet }}"</p>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
     </main>
 
     <footer>

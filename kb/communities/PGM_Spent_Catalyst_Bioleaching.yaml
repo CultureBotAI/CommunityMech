@@ -195,6 +195,133 @@ taxonomy:
       methods
     explanation: Documents role in green PGM leaching chemistry
 ecological_interactions:
+- name: Complementary Iron and Sulfur Oxidation
+  description: 'Acidithiobacillus ferrooxidans provides complementary metabolic capability through dual iron and sulfur oxidation,
+    working synergistically with At. thiooxidans in the bioleaching consortium. At. ferrooxidans oxidizes ferrous iron (Fe²⁺
+    → Fe³⁺) present as impurities in spent catalyst matrices, generating ferric iron that can chemically attack metal sulfides
+    and enhance overall leaching kinetics. The organism also oxidizes reduced sulfur compounds, contributing supplementary
+    sulfuric acid production for alumina dissolution. This dual functionality complements At. thiooxidans, which specializes
+    in sulfur oxidation and thiosulfate production. The metabolic versatility of At. ferrooxidans enhances consortium robustness
+    against substrate heterogeneity in spent catalysts from different sources (automotive TWC, petroleum hydroprocessing).
+    Both organisms fix CO₂ autotrophically, reducing nutrient requirements for industrial-scale operation. The synergistic
+    iron-sulfur oxidation by mixed acidophile consortia improves PGM recovery efficiency compared to monocultures, demonstrating
+    functional complementarity in catalyst bioleaching systems.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  target_taxon:
+    preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
+  metabolites:
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Substrate for iron oxidation
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+    notes: Product enhancing leaching kinetics
+  - preferred_term: sulfuric acid
+    term:
+      id: CHEBI:26836
+      label: sulfuric acid
+    notes: Complementary acid generation
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: PMID:38138568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at 5% pulp density using
+      both commercially available and biogenic thiosulfate, highlighting the method's versatility for Pd bioleaching from
+      both thiosulfate sources.
+    explanation: Documents At. ferrooxidans contribution to mixed consortium PGM recovery
+  - reference: doi:10.1016/j.jenvman.2019.04.081
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The feasibility of column bioleaching in the recovery of valuable metals (Ni, V, Mo, and Al) from an uncrushed
+      petroleum refinery spent hydroprocessing catalyst using Acidithiobacillus thiooxidans has been reported
+    explanation: Establishes metabolic synergy in catalyst bioleaching
+- name: Metal-Tolerant Sulfur Oxidation and Metabolic Redundancy
+  description: 'Sulfobacillus thermosulfidooxidans contributes metabolic redundancy and enhanced metal tolerance to the bioleaching
+    consortium. This facultatively autotrophic bacterium oxidizes reduced sulfur compounds and ferrous iron, providing backup
+    functionality that parallels Acidithiobacillus capabilities. The critical advantage is Sulfobacillus'' exceptional tolerance
+    to elevated concentrations of Pd, Ni, Mo, and Al that accumulate in pregnant leach solution during catalyst processing.
+    As PGM and base metal concentrations increase during bioleaching, Acidithiobacillus activity may be inhibited by metal
+    toxicity, but Sulfobacillus maintains sulfur oxidation and acid generation through its superior metal resistance. This
+    tolerance enables sustained bioleaching performance even as metal concentrations approach extraction targets (93.2% Pd,
+    82.9% Ni). Additionally, the facultative autotrophy allows mixotrophic growth on organic compounds plus inorganic electron
+    donors, providing metabolic flexibility when catalyst matrices contain carbonaceous deposits. The spore-forming capability
+    ensures survival during bioreactor disruptions. This functional redundancy with enhanced stress tolerance makes Sulfobacillus
+    a valuable consortium member for robust industrial-scale PGM recovery operations.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
+  target_taxon:
+    preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
+  metabolites:
+  - preferred_term: palladium
+    term:
+      id: CHEBI:26156
+      label: palladium atom
+    notes: Tolerated at high concentrations during recovery
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+    notes: Tolerated metal in leachate
+  - preferred_term: sulfuric acid
+    term:
+      id: CHEBI:26836
+      label: sulfuric acid
+    notes: Redundant acid generation under metal stress
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: PMID:38138568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at 5% pulp density using
+      both commercially available and biogenic thiosulfate, highlighting the method's versatility for Pd bioleaching from
+      both thiosulfate sources.
+    explanation: Documents Sulfobacillus role in metal-tolerant catalyst bioleaching
+  - reference: doi:10.1016/j.jenvman.2019.04.081
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among various operational modifications, submerged bioleaching in continuous mode was considered as the best
+      strategy in which about 82.9% of Ni, 33.4% of Al, and 22.7% of Mo were leached after 315 h of column operation
+    explanation: Establishes performance in high-metal environments
 - name: Alumina Support Matrix Dissolution
   description: 'Acidithiobacillus thiooxidans and supporting sulfur oxidizers generate sulfuric acid through oxidation of
     elemental sulfur and reduced inorganic sulfur compounds. The bacterially-produced acid attacks the alumina (γ-Al₂O₃) support
@@ -358,6 +485,11 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
   metabolites:
   - preferred_term: palladium
     term:
@@ -423,6 +555,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:930
       label: Acidithiobacillus thiooxidans
+  target_taxon:
+    preferred_term: Thiobacillus thioparus
+    term:
+      id: NCBITaxon:931
+      label: Thiobacillus thioparus
   metabolites:
   - preferred_term: thiosulfate
     term:

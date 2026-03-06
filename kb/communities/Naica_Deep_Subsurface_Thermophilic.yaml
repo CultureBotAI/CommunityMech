@@ -334,6 +334,47 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: Bacterial sequences belonged to the Candidate Division OP3, Firmicutes and the Alpha- and Beta-proteobacteria
     explanation: Firmicutes presence suggests fermentative potential
+- name: Proteobacterial Oligotrophic Metabolism
+  description: 'Alphaproteobacteria and Betaproteobacteria represent oligotrophic specialists adapted to extremely low carbon availability in the Naica deep subsurface. Alphaproteobacteria (including Sphingomonas-like and Bradyrhizobium-like oligotrophs) scavenge dissolved organic carbon using high-affinity transport systems and may perform mixotrophic metabolism combining organic carbon with oxidation of reduced compounds (H₂, sulfur). Betaproteobacteria potentially perform autotrophic denitrification coupling nitrate reduction to sulfur oxidation, or heterotrophic denitrification using organic carbon. Together, these proteobacteria complement the dominant Thermoplasmatales and OP3 heterotrophs, providing functional redundancy in carbon cycling and contributing to nitrogen cycling. Their presence represents bacterial diversity that enhances community metabolic flexibility and resilience under extreme oligotrophy.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Alphaproteobacteria
+    term:
+      id: NCBITaxon:28211
+      label: Alphaproteobacteria
+  target_taxon:
+    preferred_term: Betaproteobacteria
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    concentration: Trace (<1 mg/L DOC)
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    notes: Potential electron donor
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.3389/fmicb.2013.00037
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacterial sequences belonged to the Candidate Division OP3, Firmicutes and the Alpha- and Beta-proteobacteria
+    explanation: Documents presence of both proteobacterial groups in oligotrophic subsurface
 - name: Denitrification by Betaproteobacteria
   description: 'Betaproteobacteria potentially perform denitrification, reducing nitrite (from Thaumarchaeota ammonia oxidation)
     to dinitrogen gas (N₂). In oligotrophic subsurface aquifers, autotrophic denitrifiers (Thiobacillus-like sulfur oxidizers)

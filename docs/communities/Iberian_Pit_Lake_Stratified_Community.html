@@ -437,6 +437,30 @@
                     
                     <tr>
                         <td>
+                            <strong>Acidiphilium</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=522"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:522
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
                             <strong>Desulfomonile</strong>
                         </td>
                         <td>
@@ -602,6 +626,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
 
                 
                 <p><strong>Metabolites:</strong>
@@ -692,6 +718,8 @@
                 
 
                 
+                <p><strong>Target Taxon:</strong> Candidatus Acidulodesulfobacterium</p>
+                
 
                 
                 <p><strong>Metabolites:</strong>
@@ -768,6 +796,93 @@
                         </div>
                         
                         <div class="snippet">"metal sulfide precipitation observed: copper sulfide (covellite), zinc sulfide (wurtzite), and arsenic sulfide (realgar)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Algal Primary Production and Carbon Export</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Coccomyxa onubensis</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Acidiphilium</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>), 
+                    
+                    carbon dioxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16526</a>), 
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        photosynthesis
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
+                    </li>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36123522/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36123522</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"We found that active green alga Coccomyxa onubensis dominated the upper layer and chemocline"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36123522/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36123522</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Coccomyxa fixes inorganic carbon via Calvin-Benson-Bassham cycle with highly abundant Form I RubisCO transcripts (TPM~10⁴)"</div>
                         
                     </li>
                     
@@ -1031,6 +1146,13 @@
             roles: ["PRIMARY_DEGRADER"]
         };
         
+        taxonData["Acidiphilium"] = {
+            id: "NCBITaxon:522",
+            label: "Acidiphilium",
+            abundance: "COMMON",
+            roles: ["CROSS_FEEDER", "SECONDARY_FERMENTER"]
+        };
+        
         taxonData["Desulfomonile"] = {
             id: "NCBITaxon:2357",
             label: "Desulfomonile",
@@ -1128,6 +1250,11 @@
             
 
             
+            var tgtKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
         (function() {
@@ -1171,10 +1298,63 @@
             
 
             
+            var tgtKey = "Candidatus Acidulodesulfobacterium";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
         })();
         
         (function() {
             var intId = "interaction:2";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("organic molecular entity");
+            
+            metabolites.push("carbon dioxide");
+            
+            metabolites.push("Fe(II)");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("photosynthesis");
+            
+            processes.push("carbon fixation");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Algal Primary Production and Carbon Export",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Coccomyxa onubensis";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Acidiphilium";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:3";
             var intType = "CROSS_FEEDING";
             var metabolites = [];
             
@@ -1209,7 +1389,7 @@
         })();
         
         (function() {
-            var intId = "interaction:3";
+            var intId = "interaction:4";
             var intType = "CROSS_FEEDING";
             var metabolites = [];
             
@@ -1263,7 +1443,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 11;
+        var nodeCount = 13;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

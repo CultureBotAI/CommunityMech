@@ -355,6 +355,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Leptospirillum group II
+    term:
+      id: NCBITaxon:419541
+      label: Leptospirillum sp. Group II '5-way CG'
+  target_taxon:
+    preferred_term: Ferroplasma acidarmanus
+    term:
+      id: NCBITaxon:97393
+      label: Ferroplasma acidarmanus
   metabolites:
   - preferred_term: pyrite
     term:
@@ -489,6 +499,71 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: the ARMAN cell wall is penetrated by cell wall-less Archaea
     explanation: Suggests potential parasitic or syntrophic interactions
+- name: Iron and Sulfur Oxidation at Higher pH Refugia
+  description: 'Acidithiobacillus ferrooxidans occupies higher pH niches (pH >1.0) such
+    as the Red Pool (pH 1.4) where it can outcompete Leptospirillum and Ferroplasma.
+    This versatile chemolithoautotroph oxidizes both ferrous iron and reduced sulfur
+    compounds, fixing carbon and nitrogen from the atmosphere. At pH 1.4, A. ferrooxidans
+    grows optimally while Ferroplasma activity declines. This spatial partitioning
+    by pH creates distinct microenvironments within the mine where different iron
+    oxidizers dominate, expanding the overall metabolic capacity and pH range of the
+    biofilm ecosystem. A. ferrooxidans contributes to pyrite dissolution in moderate
+    pH zones while Leptospirillum and Ferroplasma dominate at extreme acidity (pH
+    <1.0).
+
+    '
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Acidithiobacillus ferrooxidans
+    term:
+      id: NCBITaxon:920
+      label: Acidithiobacillus ferrooxidans
+  target_taxon:
+    preferred_term: Leptospirillum group II
+    term:
+      id: NCBITaxon:419541
+      label: Leptospirillum sp. Group II '5-way CG'
+  metabolites:
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  - preferred_term: elemental sulfur
+    term:
+      id: CHEBI:27568
+      label: sulfur atom
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon utilization by fixation of carbon dioxide
+  evidence:
+  - reference: doi:10.1186/1467-4866-5-13
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Several novel lineages were identified within the archaeal Thermoplasmatales
+      order associated with the pyrite slump, and the Red Pool (pH 1.4) contained
+      the only population of Acidithiobacillus
+    explanation: Documents A. ferrooxidans presence in higher pH refugia
+  - reference: PMID:19077236
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'BACKGROUND: Acidithiobacillus ferrooxidans is a major participant in
+      consortia of microorganisms used for the industrial recovery of copper (bioleaching
+      or biomining)'
+    explanation: Establishes iron and sulfur oxidation capabilities
 environmental_factors:
 - name: Extreme Acidity
   value: 0.5-1.0

@@ -785,6 +785,76 @@
             
             <div class="interaction-card">
                 <div class="interaction-header">
+                    <h3>Proteobacterial Oligotrophic Metabolism</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Alphaproteobacteria</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Betaproteobacteria</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    organic molecular entity
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=50860"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:50860</a>), 
+                    
+                    dihydrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic substance catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:1901575</a>)
+                    </li>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.3389/fmicb.2013.00037"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fmicb.2013.00037</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Bacterial sequences belonged to the Candidate Division OP3, Firmicutes and the Alpha- and Beta-proteobacteria"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
                     <h3>Denitrification by Betaproteobacteria</h3>
                     <span class="interaction-type">CROSS_FEEDING</span>
                 </div>
@@ -1122,6 +1192,52 @@
             var metabolites = [];
             
             
+            metabolites.push("organic molecular entity");
+            
+            metabolites.push("dihydrogen");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("organic substance catabolic process");
+            
+            processes.push("oxidation-reduction process");
+            
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Proteobacterial Oligotrophic Metabolism",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Alphaproteobacteria";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Betaproteobacteria";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:4";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
             metabolites.push("nitrite");
             
             metabolites.push("dinitrogen");
@@ -1171,7 +1287,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 10;
+        var nodeCount = 11;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

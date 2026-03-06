@@ -758,7 +758,11 @@
                 </div>
 
                 
+                <p><strong>Source Taxon:</strong> Leptospirillum group II</p>
+                
 
+                
+                <p><strong>Target Taxon:</strong> Ferroplasma acidarmanus</p>
                 
 
                 
@@ -984,6 +988,99 @@
                         </div>
                         
                         <div class="snippet">"the ARMAN cell wall is penetrated by cell wall-less Archaea"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Iron and Sulfur Oxidation at Higher pH Refugia</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Acidithiobacillus ferrooxidans</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Leptospirillum group II</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    Fe(II)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29033"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29033</a>), 
+                    
+                    Fe(III)
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29034"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29034</a>), 
+                    
+                    elemental sulfur
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=27568"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:27568</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        oxidation-reduction process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
+                    </li>
+                    
+                    <li>
+                        iron ion transport
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
+                    </li>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://doi.org/10.1186/1467-4866-5-13"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1186/1467-4866-5-13</a>
+                            
+                            - SUPPORT (IN_VIVO)
+                        </div>
+                        
+                        <div class="snippet">"Several novel lineages were identified within the archaeal Thermoplasmatales order associated with the pyrite slump, and the Red Pool (pH 1.4) contained the only population of Acidithiobacillus"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/19077236/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:19077236</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"BACKGROUND: Acidithiobacillus ferrooxidans is a major participant in consortia of microorganisms used for the industrial recovery of copper (bioleaching or biomining)"</div>
                         
                     </li>
                     
@@ -1249,7 +1346,17 @@
             });
 
             
+            var srcKey = "Leptospirillum group II";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
 
+            
+            var tgtKey = "Ferroplasma acidarmanus";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
             
         })();
         
@@ -1336,6 +1443,56 @@
             
         })();
         
+        (function() {
+            var intId = "interaction:5";
+            var intType = "COMPETITION";
+            var metabolites = [];
+            
+            
+            metabolites.push("Fe(II)");
+            
+            metabolites.push("Fe(III)");
+            
+            metabolites.push("elemental sulfur");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("oxidation-reduction process");
+            
+            processes.push("iron ion transport");
+            
+            processes.push("carbon fixation");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Iron and Sulfur Oxidation at Higher pH Refugia",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Acidithiobacillus ferrooxidans";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Leptospirillum group II";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1352,7 +1509,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 11;
+        var nodeCount = 12;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 

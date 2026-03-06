@@ -283,6 +283,16 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Geobacter species
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  target_taxon:
+    preferred_term: Anaeromyxobacter dehalogenans
+    term:
+      id: NCBITaxon:161493
+      label: Anaeromyxobacter dehalogenans
   metabolites:
   - preferred_term: uranium(IV)
     term:
@@ -416,6 +426,16 @@ ecological_interactions:
 
     '
   interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Geobacter species
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  target_taxon:
+    preferred_term: Desulfobacteraceae family
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacteraceae
   metabolites:
   - preferred_term: Fe(III)
     term:
@@ -446,6 +466,70 @@ ecological_interactions:
     snippet: Fe(III) is depleted, sulfate is reduced, and sulfate-reducing bacteria
       predominate
     explanation: Describes metabolic succession mechanism
+- name: Complementary Sulfate Reduction and U(VI) Reduction
+  description: 'Desulfosporosinus species contribute to sulfate reduction and uranium
+    removal during Phase II, working alongside Desulfobacteraceae and Desulfovibrio.
+    As a Gram-positive, spore-forming sulfate reducer, Desulfosporosinus exhibits
+    distinct enzymatic pathways for U(VI) reduction compared to Gram-negative Desulfovibrio,
+    lacking certain cytochromes. This functional diversity may enhance community
+    resilience and uranium reduction efficiency across varying microenvironmental
+    conditions. Spore formation enables Desulfosporosinus to persist during unfavorable
+    conditions and rapidly reactivate when acetate and sulfate are available.
+
+    '
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Desulfosporosinus species
+    term:
+      id: NCBITaxon:79206
+      label: Desulfosporosinus
+  target_taxon:
+    preferred_term: Desulfobacteraceae family
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacteraceae
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+    notes: Electron acceptor
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+    notes: Product; chemically reduces U(VI)
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  - preferred_term: uranium(IV)
+    term:
+      id: CHEBI:33395
+      label: uranium(IV)
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:12788780
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This removal was associated with an enrichment in microorganisms most
+      closely related to Pseudomonas and Desulfosporosinus species.
+    explanation: Documents Desulfosporosinus enrichment during uranium removal
+  - reference: PMID:36889400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The reduction of U(VI) by the sulfate-reducing bacterium Desulfosporosinus
+      hippei DSM 8344T, a close phylogenetic relative to naturally occurring microorganism
+      present in clay rock and bentonite, was investigated
+    explanation: Establishes U(VI) reduction capability
 environmental_factors:
 - name: pH
   value: ~7

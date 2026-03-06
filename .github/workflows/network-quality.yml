@@ -1,0 +1,160 @@
+name: Network Quality Check
+
+on:
+  pull_request:
+    paths:
+      - 'kb/communities/*.yaml'
+      - 'src/communitymech/network/**'
+      - 'src/communitymech/schema/**'
+  push:
+    branches:
+      - main
+      - manual-network-curation
+    paths:
+      - 'kb/communities/*.yaml'
+
+jobs:
+  audit-network:
+    runs-on: ubuntu-latest
+    name: Audit Network Integrity
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Run network integrity audit
+        id: audit
+        run: |
+          uv run communitymech audit-network --check-only
+        continue-on-error: true
+
+      - name: Generate detailed report
+        if: failure()
+        run: |
+          mkdir -p reports
+          uv run communitymech audit-network --report reports/network_audit.txt
+          uv run communitymech audit-network --json > reports/network_audit.json
+
+      - name: Upload audit reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: network-audit-reports
+          path: |
+            reports/network_audit.txt
+            reports/network_audit.json
+
+      - name: Comment on PR with issues
+        if: failure() && github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = fs.readFileSync('reports/network_audit.txt', 'utf8');
+            const maxLength = 60000;
+            const truncatedReport = report.length > maxLength
+              ? report.substring(0, maxLength) + '\n\n... (truncated)'
+              : report;
+
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `## ❌ Network Integrity Issues Detected\n\n\`\`\`\n${truncatedReport}\n\`\`\`\n\n📊 Download full reports from the workflow artifacts.`
+            });
+
+      - name: Fail if issues found
+        if: steps.audit.outcome == 'failure'
+        run: exit 1
+
+  # LLM-assisted repair suggestions (requires ANTHROPIC_API_KEY secret)
+  suggest-repairs:
+    runs-on: ubuntu-latest
+    needs: audit-network
+    if: failure()
+    name: Generate Repair Suggestions
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+
+      - name: Install dependencies
+        run: uv sync --all-extras
+
+      - name: Generate LLM repair suggestions
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          mkdir -p reports
+          uv run communitymech repair-network-batch --report-only \
+            --output reports/repair_suggestions.yaml \
+            --max-communities 20 \
+            --max-issues 3
+        continue-on-error: true
+
+      - name: Upload repair suggestions
+        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: network-repair-suggestions
+          path: reports/repair_suggestions.yaml
+
+      - name: Comment on PR with suggestions summary
+        if: github.event_name == 'pull_request' && secrets.ANTHROPIC_API_KEY != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            try {
+              const report = fs.readFileSync('reports/repair_suggestions.yaml', 'utf8');
+              const yaml = require('js-yaml');
+              const data = yaml.load(report);
+
+              const summary = `## 🤖 LLM Repair Suggestions Available
+
+**Communities with Issues**: ${data.communities_with_issues}
+**Total Suggestions**: ${data.total_suggestions}
+**Estimated Cost**: $${data.cost_estimate.total_cost_usd.toFixed(2)}
+
+📥 Download the full repair report from the workflow artifacts.
+
+**Next Steps**:
+1. Download \`network-repair-suggestions\` artifact
+2. Review suggested repairs
+3. Set \`approved: true\` for suggestions to apply
+4. Run \`just apply-batch-repairs reports/repair_suggestions.yaml\`
+`;
+
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: summary
+              });
+            } catch (error) {
+              console.log('Could not post suggestions summary:', error);
+            }

@@ -453,6 +453,79 @@ ecological_interactions:
     snippet: ferriphilum for growth, maintaining low levels of organic compounds in
       the culture medium, preventing their toxic effects on L
     explanation: Demonstrates organic matter detoxification function
+- name: Complementary Archaeal Nitrification Across pH Gradient
+  description: 'Candidatus Nitrosotalea and Nitrososphaera-like archaea partition
+    the nitrification niche across the AMD pH gradient (2.5-5.0), providing functional
+    redundancy and metabolic complementarity. Ca. Nitrosotalea dominates the more
+    acidic zones (pH 4.0-5.0) with optimal growth at pH 4.0-5.5, while Nitrososphaera-like
+    archaea contribute significantly at moderately acidic pH (3.5-4.5). This pH-based
+    niche partitioning ensures continuous ammonia oxidation across the full acidic
+    gradient of AMD sediments despite spatial pH heterogeneity. Both archaea oxidize
+    ammonia via copper-containing ammonia monooxygenase (amoA genes) and fix CO2 through
+    the 3HP/4HB pathway, but differ in acid tolerance mechanisms. Ca. Nitrosotalea
+    exhibits the highest known substrate affinity (Km 0.6-2.8 nM NH3) and specialized
+    Amt-type ammonium transporters for ultra-low pH environments. Nitrososphaera-like
+    archaea possess enhanced membrane lipid modifications and possibly alternative
+    proton homeostasis systems enabling growth at pH 3.5-4.0 where Ca. Nitrosotalea
+    activity declines. Together they maintain 3-10 fold higher nitrification rates
+    than bacterial AOB across pH 3.5-5.0, with combined amoA gene abundance 10⁴-10⁶
+    copies/g sediment. This archaeal partnership provides ecosystem stability: if
+    microenvironmental pH shifts favor one species, the other compensates, preventing
+    nitrification failure.
+
+    '
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Nitrososphaera-like archaeon
+    term:
+      id: NCBITaxon:1783275
+      label: Nitrososphaera
+  target_taxon:
+    preferred_term: Candidatus Nitrosotalea devanaterra
+    term:
+      id: NCBITaxon:1379270
+      label: Candidatus Nitrosotalea devanaterra
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+    concentration: 50-380 mg/L NH4+-N substrate pool
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+    concentration: 0.1-10 nM free NH3 at pH 3.5-4.5
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+    notes: Combined nitrite production from both AOA species
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: nitrification
+  - preferred_term: ammonia monooxygenase activity
+    term:
+      id: GO:0050510
+      label: ammonia monooxygenase activity
+  evidence:
+  - reference: PMID:29209281
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea,
+      and Nitrosoarchaeum; AOB genes related to Nitrosomonas and Nitrosospira; and
+      NOB genes related to Nitrospira
+    explanation: Documents co-occurrence of Nitrososphaera and Nitrosotalea in AMD
+  - reference: PMID:24909965
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Interestingly, despite their close phylogenetic relatedness, the two
+      Nitrosotalea strains exhibited differences in physiological features, including
+      specific growth rate, temperature preference and to an extent, response to organic
+      compounds
+    explanation: Demonstrates physiological differentiation enabling niche partitioning
 - name: Urea-Mediated Ammonia Provision
   description: 'Archaeal ammonia oxidizers hydrolyze urea to generate localized ammonia,
     overcoming substrate limitation at low pH. In acidic AMD environments (pH 2.5-4.5),
