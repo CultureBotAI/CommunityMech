@@ -286,6 +286,24 @@
             'SYNTHETIC': '#9b59b6'      // Purple - fully synthetic
         };
 
+        // Symbol shapes for each category (accessibility!)
+        const categorySymbols = {
+            'AMD': d3.symbolCircle,              // ● Circle
+            'BIOMINING': d3.symbolSquare,        // ■ Square
+            'BIOREMEDIATION': d3.symbolTriangle, // ▲ Triangle
+            'BIOTECHNOLOGY': d3.symbolDiamond,   // ◆ Diamond
+            'CARBON_SEQUESTRATION': d3.symbolCross, // + Cross
+            'DIET': d3.symbolStar,               // ★ Star
+            'EXTREME_ENVIRONMENT': d3.symbolWye, // Y Wye
+            'LIGNOCELLULOSE': d3.symbolCircle,   // ● Circle (different color from AMD)
+            'METAL_REDUCTION': d3.symbolSquare,  // ■ Square (different color from BIOMINING)
+            'METHANOGENESIS': d3.symbolTriangle, // ▲ Triangle (different color from BIOREMEDIATION)
+            'OTHER': d3.symbolDiamond,           // ◆ Diamond (different color from BIOTECHNOLOGY)
+            'PHYTOPLANKTON': d3.symbolCross,     // + Cross (different color from CARBON_SEQ)
+            'RHIZOSPHERE': d3.symbolStar,        // ★ Star (different color from DIET)
+            'SYNTROPHY': d3.symbolWye            // Y Wye (different color from EXTREME)
+        };
+
         const colorSchemes = {
             category: d3.scaleOrdinal()
                 .domain(Object.keys(categoryColors))
@@ -297,6 +315,10 @@
                 .domain(Object.keys(originColors))
                 .range(Object.values(originColors))
         };
+
+        const symbolScale = d3.scaleOrdinal()
+            .domain(Object.keys(categorySymbols))
+            .range(Object.values(categorySymbols));
 
         // Initialize
         let currentColorBy = 'category';
@@ -337,17 +359,17 @@
             .domain([yExtent[0] - 0.5, yExtent[1] + 0.5])
             .range([height - margin.bottom, margin.top]);
 
-        // Size scale
+        // Size scale (area-based for symbols)
         function getSizeScale(attr) {
             const extent = d3.extent(communityData, d => d[attr]);
             return d3.scaleSqrt()
                 .domain(extent)
-                .range([4, 12]);
+                .range([60, 200]); // Larger values for symbol size (area in pixels)
         }
 
         let sizeScale = getSizeScale(currentSizeBy);
 
-        // Draw points
+        // Draw points using symbols
         function updateVisualization() {
             const colorScale = colorSchemes[currentColorBy];
             sizeScale = getSizeScale(currentSizeBy);
@@ -360,7 +382,7 @@
 
             // Enter + Update
             const pointsEnter = points.enter()
-                .append('circle')
+                .append('path')
                 .attr('class', 'point')
                 .on('mouseover', showTooltip)
                 .on('mousemove', moveTooltip)
@@ -368,9 +390,15 @@
                 .on('click', navigateToCommunity);
 
             points.merge(pointsEnter)
-                .attr('cx', d => xScale(d.umap_x))
-                .attr('cy', d => yScale(d.umap_y))
-                .attr('r', d => sizeScale(d[currentSizeBy]))
+                .attr('transform', d => `translate(${xScale(d.umap_x)},${yScale(d.umap_y)})`)
+                .attr('d', d => {
+                    const symbolType = currentColorBy === 'category'
+                        ? symbolScale(d.category)
+                        : d3.symbolCircle;
+                    return d3.symbol()
+                        .type(symbolType)
+                        .size(sizeScale(d[currentSizeBy]))();
+                })
                 .attr('fill', d => colorScale(d[currentColorBy]))
                 .attr('opacity', 0.8);
 
@@ -429,27 +457,50 @@
             window.location.href = d.url;
         }
 
-        // Legend
+        // Legend with symbols
         function updateLegend(colorScale) {
             const legendDiv = d3.select('#legend');
             legendDiv.html('');
 
             const values = [...new Set(communityData.map(d => d[currentColorBy]))].sort();
 
+            const title = currentColorBy === 'category'
+                ? 'Legend (Color + Shape):'
+                : `Color Legend (${currentColorBy.replace('_', ' ')}):`;
+
             legendDiv.append('div')
                 .style('font-weight', 'bold')
                 .style('margin-bottom', '0.5rem')
-                .text(`Color Legend (${currentColorBy.replace('_', ' ')}):`);
+                .text(title);
 
             const items = legendDiv.selectAll('.legend-item')
                 .data(values)
                 .enter()
                 .append('div')
-                .attr('class', 'legend-item');
+                .attr('class', 'legend-item')
+                .style('display', 'flex')
+                .style('align-items', 'center')
+                .style('gap', '0.5rem');
 
-            items.append('div')
-                .attr('class', 'legend-color')
-                .style('background-color', d => colorScale(d));
+            // Add SVG symbol for categories, colored box for others
+            if (currentColorBy === 'category') {
+                items.append('svg')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .append('path')
+                    .attr('d', d => {
+                        const symbolType = symbolScale(d);
+                        return d3.symbol().type(symbolType).size(150)();
+                    })
+                    .attr('transform', 'translate(10,10)')
+                    .attr('fill', d => colorScale(d))
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1);
+            } else {
+                items.append('div')
+                    .attr('class', 'legend-color')
+                    .style('background-color', d => colorScale(d));
+            }
 
             items.append('span')
                 .text(d => d);
