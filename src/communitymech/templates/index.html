@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CommunityMech - Microbial Community Knowledge Base</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: white;
+            border-bottom: 2px solid #2563eb;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #2563eb;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 1.125rem;
+        }
+
+        /* Main layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Filter panel */
+        .filter-panel {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+            align-self: start;
+        }
+
+        .filter-panel h3 {
+            font-size: 1rem;
+            margin: 0;
+            color: #1e293b;
+        }
+
+        /* Search container */
+        .search-container {
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #64748b;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            color: #1e293b;
+        }
+
+        .search-results-count {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        /* Facet sections */
+        .facet-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .facet-section:last-child {
+            border-bottom: none;
+        }
+
+        .facet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+        }
+
+        .facet-toggle {
+            font-size: 1.2rem;
+            color: #64748b;
+            user-select: none;
+        }
+
+        .facet-body {
+            padding-left: 0.5rem;
+        }
+
+        .facet-body.collapsed {
+            display: none;
+        }
+
+        .facet-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .facet-actions button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .facet-actions button:hover {
+            background: #f8fafc;
+        }
+
+        /* Checkboxes */
+        .facet-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .facet-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0;
+        }
+
+        .facet-checkbox:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .facet-checkbox input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .facet-label {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .facet-count {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* Active filters */
+        .active-filters {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .active-filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-reset {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            background: white;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-reset:hover {
+            background: #fef3c7;
+        }
+
+        #active-filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .filter-tag {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .filter-tag-remove {
+            cursor: pointer;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        .filter-tag-remove:hover {
+            color: #ef4444;
+        }
+
+        /* Community grid */
+        .content-area {
+            min-width: 0; /* Fixes grid overflow */
+        }
+
+        .umap-link {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #2563eb;
+        }
+
+        .umap-link h2 {
+            color: #2563eb;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .umap-link p {
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .umap-link a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .umap-link a:hover {
+            background: #1e40af;
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .community-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .community-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-card h2 {
+            color: #2563eb;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .community-card .description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.75rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .badge-ENGINEERED { background: #dbeafe; color: #1e40af; }
+        .badge-STABLE { background: #d1fae5; color: #065f46; }
+        .badge-PERTURBED { background: #fed7aa; color: #92400e; }
+        .badge-SYNTHETIC { background: #e9d5ff; color: #6b21a8; }
+
+        .badge-category {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.6rem;
+            border-radius: 10px;
+        }
+
+        /* Hidden state for filtering */
+        .community-card.hidden {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>CommunityMech</h1>
+            <p class="subtitle">Microbial Community Knowledge Base</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="main-container">
+            <!-- Left sidebar: Filter panel -->
+            <div class="filter-panel">
+                <!-- Enhanced search -->
+                <div class="search-container">
+                    <input type="search" id="search"
+                        placeholder="Search by name or description..."
+                        autocomplete="off">
+                    <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
+                </div>
+                <div class="search-results-count">
+                    Showing <span id="results-count">{{ communities|length }}</span> of {{ communities|length }} communities
+                </div>
+
+                <!-- Active filters summary -->
+                <div id="active-filters" class="active-filters" style="display: none;">
+                    <div class="active-filters-header">
+                        <strong>Active Filters:</strong>
+                        <button id="reset-all" class="btn-reset">Clear All</button>
+                    </div>
+                    <div id="active-filter-tags"></div>
+                </div>
+
+                <!-- Category facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('category-facet')">
+                        <h3>Category</h3>
+                        <span class="facet-toggle">−</span>
+                    </div>
+                    <div id="category-facet" class="facet-body">
+                        <div class="facet-actions">
+                            <button class="select-all" data-facet="category">All</button>
+                            <button class="clear-all" data-facet="category">None</button>
+                        </div>
+                        <div id="category-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Ecological state facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('state-facet')">
+                        <h3>Ecological State</h3>
+                        <span class="facet-toggle">−</span>
+                    </div>
+                    <div id="state-facet" class="facet-body">
+                        <div id="state-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: Community grid -->
+            <div class="content-area">
+                <div class="umap-link">
+                    <h2>📊 Explore Community Relationships</h2>
+                    <p>View the UMAP projection of all communities based on their taxonomic composition embeddings from KG-Microbe.</p>
+                    <a href="community_umap.html">View Community Embedding Space →</a>
+                </div>
+
+                <div class="community-grid" id="community-grid">
+                    {% for community in communities %}
+                    <a href="communities/{{ community.id }}.html"
+                       class="community-card"
+                       data-id="{{ community.id }}"
+                       data-name="{{ community.name|lower }}"
+                       data-description="{{ community.description|lower }}"
+                       data-category="{{ community.community_category }}"
+                       data-state="{{ community.ecological_state }}">
+                        <h2>{{ community.name }}</h2>
+                        <p class="description">{{ community.description }}</p>
+                        <div class="card-footer">
+                            <span class="badge badge-{{ community.ecological_state }}">{{ community.ecological_state }}</span>
+                            <span class="badge badge-category">{{ community.community_category }}</span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== FILTERING SYSTEM =====
+
+        // Filter state
+        const filterState = {
+            searchTerm: '',
+            categories: new Set(),
+            ecologicalStates: new Set(),
+
+            hasActiveFilters() {
+                return this.searchTerm || this.categories.size > 0 || this.ecologicalStates.size > 0;
+            },
+
+            reset() {
+                this.searchTerm = '';
+                this.categories.clear();
+                this.ecologicalStates.clear();
+            }
+        };
+
+        // Get all community cards
+        const allCards = Array.from(document.querySelectorAll('.community-card'));
+
+        // Initialize facets on page load
+        function initializeFacets() {
+            const categoryCounts = {};
+            const stateCounts = {};
+
+            allCards.forEach(card => {
+                const category = card.dataset.category;
+                const state = card.dataset.state;
+
+                categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+                stateCounts[state] = (stateCounts[state] || 0) + 1;
+            });
+
+            // Generate category checkboxes sorted by count (descending)
+            const categoryContainer = document.getElementById('category-checkboxes');
+            Object.entries(categoryCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([category, count]) => {
+                    const label = document.createElement('label');
+                    label.className = 'facet-checkbox';
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = category;
+                    checkbox.dataset.facet = 'category';
+                    checkbox.addEventListener('change', handleFilterChange);
+
+                    const labelSpan = document.createElement('span');
+                    labelSpan.className = 'facet-label';
+                    labelSpan.textContent = category.replace(/_/g, ' ');
+
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'facet-count';
+                    countSpan.dataset.category = category;
+                    countSpan.textContent = `(${count})`;
+
+                    label.appendChild(checkbox);
+                    label.appendChild(labelSpan);
+                    label.appendChild(countSpan);
+                    categoryContainer.appendChild(label);
+                });
+
+            // Generate ecological state checkboxes
+            const stateContainer = document.getElementById('state-checkboxes');
+            Object.entries(stateCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([state, count]) => {
+                    const label = document.createElement('label');
+                    label.className = 'facet-checkbox';
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = state;
+                    checkbox.dataset.facet = 'ecologicalState';
+                    checkbox.addEventListener('change', handleFilterChange);
+
+                    const labelSpan = document.createElement('span');
+                    labelSpan.className = 'facet-label';
+                    labelSpan.textContent = state.replace(/_/g, ' ');
+
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'facet-count';
+                    countSpan.dataset.state = state;
+                    countSpan.textContent = `(${count})`;
+
+                    label.appendChild(checkbox);
+                    label.appendChild(labelSpan);
+                    label.appendChild(countSpan);
+                    stateContainer.appendChild(label);
+                });
+        }
+
+        // Core filtering function
+        function applyFilters() {
+            return allCards.filter(card => {
+                // Search filter (multi-field)
+                if (filterState.searchTerm) {
+                    const term = filterState.searchTerm.toLowerCase();
+                    const matches = card.dataset.name.includes(term) ||
+                                  card.dataset.description.includes(term);
+                    if (!matches) return false;
+                }
+
+                // Category filter (OR logic within facet)
+                if (filterState.categories.size > 0 &&
+                    !filterState.categories.has(card.dataset.category)) return false;
+
+                // State filter
+                if (filterState.ecologicalStates.size > 0 &&
+                    !filterState.ecologicalStates.has(card.dataset.state)) return false;
+
+                return true;
+            });
+        }
+
+        // Update visualization with filtered data
+        function updateFiltering() {
+            const filteredCards = applyFilters();
+            const filteredIds = new Set(filteredCards.map(card => card.dataset.id));
+
+            // Update card visibility
+            allCards.forEach(card => {
+                if (filteredIds.has(card.dataset.id)) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Update counts
+            document.getElementById('results-count').textContent = filteredCards.length;
+            updateFilterCounts(filteredCards);
+            updateActiveFiltersSummary();
+        }
+
+        // Update facet counts based on current filters
+        function updateFilterCounts(filteredCards) {
+            const categoryCounts = {};
+            const stateCounts = {};
+
+            filteredCards.forEach(card => {
+                const category = card.dataset.category;
+                const state = card.dataset.state;
+                categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+                stateCounts[state] = (stateCounts[state] || 0) + 1;
+            });
+
+            // Update category counts
+            document.querySelectorAll('[data-category]').forEach(el => {
+                const category = el.dataset.category;
+                const count = categoryCounts[category] || 0;
+                el.textContent = `(${count})`;
+            });
+
+            // Update state counts
+            document.querySelectorAll('[data-state]').forEach(el => {
+                const state = el.dataset.state;
+                const count = stateCounts[state] || 0;
+                el.textContent = `(${count})`;
+            });
+        }
+
+        // Update active filters summary
+        function updateActiveFiltersSummary() {
+            const container = document.getElementById('active-filters');
+            const tagsContainer = document.getElementById('active-filter-tags');
+            tagsContainer.innerHTML = '';
+
+            if (!filterState.hasActiveFilters()) {
+                container.style.display = 'none';
+                return;
+            }
+
+            container.style.display = 'block';
+
+            // Add search tag
+            if (filterState.searchTerm) {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>Search: "${filterState.searchTerm}"</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    document.getElementById('search').value = '';
+                    filterState.searchTerm = '';
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            }
+
+            // Add category tags
+            filterState.categories.forEach(cat => {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>${cat.replace(/_/g, ' ')}</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    filterState.categories.delete(cat);
+                    document.querySelector(`input[value="${cat}"][data-facet="category"]`).checked = false;
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            });
+
+            // Add state tags
+            filterState.ecologicalStates.forEach(state => {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>${state.replace(/_/g, ' ')}</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    filterState.ecologicalStates.delete(state);
+                    document.querySelector(`input[value="${state}"][data-facet="ecologicalState"]`).checked = false;
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            });
+        }
+
+        // Event handlers
+        let searchTimeout;
+        document.getElementById('search').addEventListener('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterState.searchTerm = this.value.trim();
+                updateFiltering();
+            }, 150); // 150ms debounce
+        });
+
+        document.getElementById('search-clear').addEventListener('click', () => {
+            document.getElementById('search').value = '';
+            filterState.searchTerm = '';
+            updateFiltering();
+        });
+
+        function handleFilterChange(event) {
+            const checkbox = event.target;
+            const facetType = checkbox.dataset.facet;
+            const value = checkbox.value;
+
+            let setName;
+            if (facetType === 'category') {
+                setName = 'categories';
+            } else if (facetType === 'ecologicalState') {
+                setName = 'ecologicalStates';
+            }
+
+            if (checkbox.checked) {
+                filterState[setName].add(value);
+            } else {
+                filterState[setName].delete(value);
+            }
+
+            updateFiltering();
+        }
+
+        // Select All / Clear All buttons
+        document.querySelectorAll('.select-all').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const facetType = this.dataset.facet;
+                document.querySelectorAll(`input[data-facet="${facetType}"]`).forEach(checkbox => {
+                    checkbox.checked = true;
+                    checkbox.dispatchEvent(new Event('change'));
+                });
+            });
+        });
+
+        document.querySelectorAll('.clear-all').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const facetType = this.dataset.facet;
+                document.querySelectorAll(`input[data-facet="${facetType}"]`).forEach(checkbox => {
+                    checkbox.checked = false;
+                    checkbox.dispatchEvent(new Event('change'));
+                });
+            });
+        });
+
+        // Reset all filters
+        document.getElementById('reset-all').addEventListener('click', () => {
+            filterState.reset();
+            document.getElementById('search').value = '';
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            updateFiltering();
+        });
+
+        // Toggle facet collapse/expand
+        function toggleFacet(facetId) {
+            const facetBody = document.getElementById(facetId);
+            const toggle = facetBody.previousElementSibling.querySelector('.facet-toggle');
+
+            if (facetBody.classList.contains('collapsed')) {
+                facetBody.classList.remove('collapsed');
+                toggle.textContent = '−';
+            } else {
+                facetBody.classList.add('collapsed');
+                toggle.textContent = '+';
+            }
+        }
+
+        // Initialize facets when page loads
+        initializeFacets();
+    </script>
+</body>
+</html>
