@@ -198,6 +198,227 @@
             stroke: #fbbf24;
             stroke-width: 3px;
         }
+
+        /* Two-column layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        /* Filter panel */
+        .filter-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+            align-self: start;
+        }
+
+        /* Search container */
+        .search-container {
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            color: var(--text);
+        }
+
+        .search-results-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Facet sections */
+        .facet-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .facet-section:last-child {
+            border-bottom: none;
+        }
+
+        .facet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+        }
+
+        .facet-header h3 {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .facet-toggle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            user-select: none;
+        }
+
+        .facet-body {
+            padding-left: 0.5rem;
+        }
+
+        .facet-body.collapsed {
+            display: none;
+        }
+
+        .facet-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .facet-actions button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .facet-actions button:hover {
+            background: var(--surface);
+        }
+
+        /* Checkboxes */
+        .facet-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .facet-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0;
+        }
+
+        .facet-checkbox:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .facet-checkbox input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .facet-label {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .facet-count {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Active filters */
+        .active-filters {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .active-filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-reset {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            background: white;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-reset:hover {
+            background: #fef3c7;
+        }
+
+        #active-filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .filter-tag {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .filter-tag-remove {
+            cursor: pointer;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .filter-tag-remove:hover {
+            color: var(--error);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+        }
     </style>
     <script src="d3.v7.min.js"></script>
 </head>
@@ -226,13 +447,75 @@
                     <option value="num_interactions">Interactions</option>
                 </select>
             </label>
-
-            <input type="search" id="search" placeholder="Search communities...">
         </div>
 
-        <div id="umap-plot"></div>
+        <div class="main-container">
+            <!-- Left sidebar: Filter panel -->
+            <div class="filter-panel">
+                <!-- Enhanced search -->
+                <div class="search-container">
+                    <input type="search" id="search"
+                        placeholder="Search by name, category, or environment..."
+                        autocomplete="off">
+                    <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
+                </div>
+                <div class="search-results-count">
+                    Showing <span id="results-count">{{ num_communities }}</span> of {{ num_communities }} communities
+                </div>
 
-        <div class="legend" id="legend"></div>
+                <!-- Active filters summary -->
+                <div id="active-filters" class="active-filters" style="display: none;">
+                    <div class="active-filters-header">
+                        <strong>Active Filters:</strong>
+                        <button id="reset-all" class="btn-reset">Clear All</button>
+                    </div>
+                    <div id="active-filter-tags"></div>
+                </div>
+
+                <!-- Category facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('category-facet')">
+                        <h3>Category</h3>
+                        <span class="facet-toggle">−</span>
+                    </div>
+                    <div id="category-facet" class="facet-body">
+                        <div class="facet-actions">
+                            <button class="select-all" data-facet="category">All</button>
+                            <button class="clear-all" data-facet="category">None</button>
+                        </div>
+                        <div id="category-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Ecological state facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('state-facet')">
+                        <h3>Ecological State</h3>
+                        <span class="facet-toggle">−</span>
+                    </div>
+                    <div id="state-facet" class="facet-body">
+                        <div id="state-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Origin facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('origin-facet')">
+                        <h3>Origin</h3>
+                        <span class="facet-toggle">−</span>
+                    </div>
+                    <div id="origin-facet" class="facet-body">
+                        <div id="origin-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: UMAP plot and legend -->
+            <div class="plot-container">
+                <div id="umap-plot"></div>
+                <div class="legend" id="legend"></div>
+            </div>
+        </div>
 
         <div class="info-panel">
             <h2>How to Interpret This Visualization</h2>
@@ -403,6 +686,11 @@
                 .attr('opacity', 0.8);
 
             updateLegend(colorScale);
+
+            // Re-apply filters to maintain filter state after visualization update
+            if (filterState.hasActiveFilters()) {
+                updateFiltering();
+            }
         }
 
         // Tooltip functions
@@ -517,23 +805,334 @@
             updateVisualization();
         });
 
-        // Search
-        d3.select('#search').on('input', function() {
-            const searchTerm = this.value.toLowerCase();
+        // ===== FILTERING SYSTEM =====
 
+        // Filter state
+        const filterState = {
+            searchTerm: '',
+            categories: new Set(),
+            ecologicalStates: new Set(),
+            origins: new Set(),
+
+            hasActiveFilters() {
+                return this.searchTerm || this.categories.size > 0 ||
+                       this.ecologicalStates.size > 0 || this.origins.size > 0;
+            },
+
+            reset() {
+                this.searchTerm = '';
+                this.categories.clear();
+                this.ecologicalStates.clear();
+                this.origins.clear();
+            }
+        };
+
+        // Initialize facets on page load
+        function initializeFacets() {
+            // Count communities per category
+            const categoryCounts = {};
+            const stateCounts = {};
+            const originCounts = {};
+
+            communityData.forEach(d => {
+                categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
+                stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
+                originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
+            });
+
+            // Generate category checkboxes sorted by count (descending)
+            const categoryContainer = d3.select('#category-checkboxes');
+            Object.entries(categoryCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([category, count]) => {
+                    const label = categoryContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', category)
+                        .attr('data-facet', 'category')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(category.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-category', category)
+                        .text(`(${count})`);
+                });
+
+            // Generate ecological state checkboxes
+            const stateContainer = d3.select('#state-checkboxes');
+            Object.entries(stateCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([state, count]) => {
+                    const label = stateContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', state)
+                        .attr('data-facet', 'ecologicalState')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(state.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-state', state)
+                        .text(`(${count})`);
+                });
+
+            // Generate origin checkboxes
+            const originContainer = d3.select('#origin-checkboxes');
+            Object.entries(originCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([origin, count]) => {
+                    const label = originContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', origin)
+                        .attr('data-facet', 'origin')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(origin.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-origin', origin)
+                        .text(`(${count})`);
+                });
+        }
+
+        // Core filtering function
+        function applyFilters() {
+            return communityData.filter(d => {
+                // Search filter (multi-field)
+                if (filterState.searchTerm) {
+                    const term = filterState.searchTerm.toLowerCase();
+                    const matches = d.name.toLowerCase().includes(term) ||
+                                  d.id.toLowerCase().includes(term) ||
+                                  (d.environment && d.environment.toLowerCase().includes(term)) ||
+                                  d.category.toLowerCase().includes(term);
+                    if (!matches) return false;
+                }
+
+                // Category filter (OR logic within facet)
+                if (filterState.categories.size > 0 &&
+                    !filterState.categories.has(d.category)) return false;
+
+                // State filter
+                if (filterState.ecologicalStates.size > 0 &&
+                    !filterState.ecologicalStates.has(d.ecological_state)) return false;
+
+                // Origin filter
+                if (filterState.origins.size > 0 &&
+                    !filterState.origins.has(d.origin)) return false;
+
+                return true;
+            });
+        }
+
+        // Update visualization with filtered data
+        function updateFiltering() {
+            const filteredData = applyFilters();
+            const filteredIds = new Set(filteredData.map(fd => fd.id));
+
+            // Update point visibility and highlighting
             g.selectAll('.point')
                 .classed('highlighted', d => {
-                    return searchTerm && (
-                        d.name.toLowerCase().includes(searchTerm) ||
-                        d.id.toLowerCase().includes(searchTerm)
-                    );
+                    return filterState.searchTerm && filteredIds.has(d.id);
                 })
                 .attr('opacity', d => {
-                    if (!searchTerm) return 0.8;
-                    return (d.name.toLowerCase().includes(searchTerm) ||
-                            d.id.toLowerCase().includes(searchTerm)) ? 0.95 : 0.2;
+                    return filteredIds.has(d.id) ? 0.8 : 0.1;
+                });
+
+            // Update counts
+            d3.select('#results-count').text(filteredData.length);
+            updateFilterCounts(filteredData);
+            updateActiveFiltersSummary();
+        }
+
+        // Update facet counts based on current filters
+        function updateFilterCounts(filteredData) {
+            // Count within filtered data
+            const categoryCounts = {};
+            const stateCounts = {};
+            const originCounts = {};
+
+            filteredData.forEach(d => {
+                categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
+                stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
+                originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
+            });
+
+            // Update category counts
+            d3.selectAll('[data-category]').each(function() {
+                const category = d3.select(this).attr('data-category');
+                const count = categoryCounts[category] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+
+            // Update state counts
+            d3.selectAll('[data-state]').each(function() {
+                const state = d3.select(this).attr('data-state');
+                const count = stateCounts[state] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+
+            // Update origin counts
+            d3.selectAll('[data-origin]').each(function() {
+                const origin = d3.select(this).attr('data-origin');
+                const count = originCounts[origin] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+        }
+
+        // Update active filters summary
+        function updateActiveFiltersSummary() {
+            const container = d3.select('#active-filters');
+            const tagsContainer = d3.select('#active-filter-tags');
+            tagsContainer.html('');
+
+            if (!filterState.hasActiveFilters()) {
+                container.style('display', 'none');
+                return;
+            }
+
+            container.style('display', 'block');
+
+            // Add search tag
+            if (filterState.searchTerm) {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(`Search: "${filterState.searchTerm}"`);
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        d3.select('#search').node().value = '';
+                        filterState.searchTerm = '';
+                        updateFiltering();
+                    });
+            }
+
+            // Add category tags
+            filterState.categories.forEach(cat => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(cat.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.categories.delete(cat);
+                        d3.select(`input[value="${cat}"][data-facet="category"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+
+            // Add state tags
+            filterState.ecologicalStates.forEach(state => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(state.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.ecologicalStates.delete(state);
+                        d3.select(`input[value="${state}"][data-facet="ecologicalState"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+
+            // Add origin tags
+            filterState.origins.forEach(origin => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(origin.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.origins.delete(origin);
+                        d3.select(`input[value="${origin}"][data-facet="origin"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+        }
+
+        // Event handlers
+        let searchTimeout;
+        d3.select('#search').on('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterState.searchTerm = this.value.trim();
+                updateFiltering();
+            }, 150); // 150ms debounce
+        });
+
+        d3.select('#search-clear').on('click', () => {
+            d3.select('#search').node().value = '';
+            filterState.searchTerm = '';
+            updateFiltering();
+        });
+
+        function handleFilterChange(event) {
+            const checkbox = event.target;
+            const facetType = checkbox.dataset.facet;
+            const value = checkbox.value;
+
+            let setName;
+            if (facetType === 'category') {
+                setName = 'categories';
+            } else if (facetType === 'ecologicalState') {
+                setName = 'ecologicalStates';
+            } else if (facetType === 'origin') {
+                setName = 'origins';
+            }
+
+            if (checkbox.checked) {
+                filterState[setName].add(value);
+            } else {
+                filterState[setName].delete(value);
+            }
+
+            updateFiltering();
+        }
+
+        // Select All / Clear All buttons
+        d3.selectAll('.select-all').on('click', function() {
+            const facetType = this.dataset.facet;
+            d3.selectAll(`input[data-facet="${facetType}"]`)
+                .each(function() {
+                    this.checked = true;
+                    const event = new Event('change');
+                    this.dispatchEvent(event);
                 });
         });
+
+        d3.selectAll('.clear-all').on('click', function() {
+            const facetType = this.dataset.facet;
+            d3.selectAll(`input[data-facet="${facetType}"]`)
+                .each(function() {
+                    this.checked = false;
+                    const event = new Event('change');
+                    this.dispatchEvent(event);
+                });
+        });
+
+        // Reset all filters
+        d3.select('#reset-all').on('click', () => {
+            filterState.reset();
+            d3.select('#search').node().value = '';
+            d3.selectAll('input[type="checkbox"]').property('checked', false);
+            updateFiltering();
+        });
+
+        // Toggle facet collapse/expand
+        function toggleFacet(facetId) {
+            const facetBody = d3.select(`#${facetId}`);
+            const toggle = facetBody.node().previousElementSibling.querySelector('.facet-toggle');
+
+            if (facetBody.classed('collapsed')) {
+                facetBody.classed('collapsed', false);
+                toggle.textContent = '−';
+            } else {
+                facetBody.classed('collapsed', true);
+                toggle.textContent = '+';
+            }
+        }
+
+        // Initialize facets when page loads
+        initializeFacets();
 
         // Initial render
         updateVisualization();
