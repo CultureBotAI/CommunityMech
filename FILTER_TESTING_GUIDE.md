@@ -1,6 +1,14 @@
 # Filter Panel Testing Guide
 
-## Manual Testing Checklist for UMAP Visualization
+## Testing Both Pages
+
+The filtering system is now available on **two pages**:
+1. **Index page** (`docs/index.html`) - Community card grid
+2. **UMAP page** (`docs/community_umap.html`) - Interactive visualization
+
+Both pages share the same filtering UI and behavior.
+
+## Manual Testing Checklist for Both Pages
 
 ### 1. Enhanced Search Functionality
 - [ ] Open `docs/community_umap.html` in browser
@@ -79,8 +87,10 @@ Test in:
 
 ## Expected Results Summary
 
+### UMAP Page (`community_umap.html`)
+
 **Initial State:**
-- 73 communities visible
+- 73 communities visible as points
 - All facets expanded with counts
 - No active filters
 - Search bar empty
@@ -91,10 +101,27 @@ Test in:
 - Active filters summary visible with yellow background
 - Dynamic count updates
 - Removable filter tags
+- Zoom/pan state preserved
 
-**User Experience:**
+### Index Page (`index.html`)
+
+**Initial State:**
+- 82 community cards visible in grid
+- All facets expanded with counts
+- No active filters
+- Search bar empty
+
+**After Filtering:**
+- Filtered cards completely hidden (display: none)
+- Visible cards remain in grid
+- Active filters summary visible with yellow background
+- Dynamic count updates
+- Removable filter tags
+- Grid layout adjusts dynamically
+
+**User Experience (Both Pages):**
 - Smooth, responsive filtering
 - No page reloads
-- Zoom/pan state preserved
 - Clear visual feedback
 - Intuitive controls
+- Consistent UI across both pages
