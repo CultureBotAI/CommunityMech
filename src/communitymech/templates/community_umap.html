@@ -207,6 +207,16 @@
             margin-top: 1rem;
         }
 
+        .plot-container {
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        #umap-plot svg {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Filter panel */
         .filter-panel {
             background: var(--surface);
@@ -275,8 +285,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            padding: 0.5rem 0;
+            background: transparent;
+            border: none;
             cursor: pointer;
             margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .facet-header:hover {
+            background: var(--surface);
+        }
+
+        .facet-header:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .facet-header h3 {
@@ -474,10 +498,10 @@
 
                 <!-- Category facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('category-facet')">
+                    <button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
                         <h3>Category</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="category-facet" class="facet-body">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="category">All</button>
@@ -489,10 +513,10 @@
 
                 <!-- Ecological state facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('state-facet')">
+                    <button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
                         <h3>Ecological State</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="state-facet" class="facet-body">
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -500,10 +524,10 @@
 
                 <!-- Origin facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('origin-facet')">
+                    <button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
                         <h3>Origin</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="origin-facet" class="facet-body">
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -827,18 +851,25 @@
             }
         };
 
-        // Initialize facets on page load
-        function initializeFacets() {
-            // Count communities per category
+        // Helper function to count communities by facet values (DRY principle)
+        function countByFacets(data) {
             const categoryCounts = {};
             const stateCounts = {};
             const originCounts = {};
 
-            communityData.forEach(d => {
+            data.forEach(d => {
                 categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
                 stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
                 originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
             });
+
+            return { categoryCounts, stateCounts, originCounts };
+        }
+
+        // Initialize facets on page load
+        function initializeFacets() {
+            // Count communities per category
+            const { categoryCounts, stateCounts, originCounts } = countByFacets(communityData);
 
             // Generate category checkboxes sorted by count (descending)
             const categoryContainer = d3.select('#category-checkboxes');
@@ -1088,25 +1119,37 @@
             updateFiltering();
         }
 
-        // Select All / Clear All buttons
+        // Select All / Clear All buttons (optimized with batch updates)
         d3.selectAll('.select-all').on('click', function() {
             const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
             d3.selectAll(`input[data-facet="${facetType}"]`)
                 .each(function() {
                     this.checked = true;
-                    const event = new Event('change');
-                    this.dispatchEvent(event);
+                    filterState[setName].add(this.value);
                 });
+
+            // Single visualization update
+            updateFiltering();
         });
 
         d3.selectAll('.clear-all').on('click', function() {
             const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
             d3.selectAll(`input[data-facet="${facetType}"]`)
                 .each(function() {
                     this.checked = false;
-                    const event = new Event('change');
-                    this.dispatchEvent(event);
+                    filterState[setName].delete(this.value);
                 });
+
+            // Single visualization update
+            updateFiltering();
         });
 
         // Reset all filters
@@ -1120,14 +1163,17 @@
         // Toggle facet collapse/expand
         function toggleFacet(facetId) {
             const facetBody = d3.select(`#${facetId}`);
-            const toggle = facetBody.node().previousElementSibling.querySelector('.facet-toggle');
+            const button = facetBody.node().previousElementSibling;
+            const toggle = button.querySelector('.facet-toggle');
 
             if (facetBody.classed('collapsed')) {
                 facetBody.classed('collapsed', false);
                 toggle.textContent = '−';
+                button.setAttribute('aria-expanded', 'true');
             } else {
                 facetBody.classed('collapsed', true);
                 toggle.textContent = '+';
+                button.setAttribute('aria-expanded', 'false');
             }
         }
 

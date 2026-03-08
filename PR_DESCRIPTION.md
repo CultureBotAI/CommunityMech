@@ -52,6 +52,10 @@ This PR adds a comprehensive filtering system to **both the UMAP visualization a
 - `src/communitymech/render.py` (modified to use Jinja template)
 - `docs/community_umap.html` (regenerated)
 - `docs/index.html` (regenerated)
+- `FILTER_TESTING_GUIDE.md` (new testing documentation)
+- `UMAP_FILTER_IMPLEMENTATION.md` (implementation details)
+- `IMPLEMENTATION_SUMMARY.md` (LLM quality check documentation)
+- `PR_DESCRIPTION.md` (this file)
 
 **Code Added:**
 - ~1200 lines total across both pages
@@ -97,17 +101,7 @@ open docs/index.html
 
 ## Screenshots
 
-### Before (simple UI, no filtering)
-![before](https://placeholder-for-screenshot-before.png)
-
-### After - UMAP Page (filter panel with search and facets)
-![umap-after](https://placeholder-for-screenshot-umap.png)
-
-### After - Index Page (filter panel with card grid)
-![index-after](https://placeholder-for-screenshot-index.png)
-
-### Filtering in Action
-![filtering](https://placeholder-for-screenshot-filtering.png)
+Screenshots to be added after manual review.
 
 ## Checklist
 
@@ -122,10 +116,6 @@ open docs/index.html
 - [x] Testing guide provided
 - [x] Consistent UI across both pages
 - [ ] Screenshots added (TODO: add before/after screenshots)
-
-## Related Issues
-
-Closes #XX (if there was an issue for this feature request)
 
 ## Notes
 
