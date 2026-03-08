@@ -633,15 +633,15 @@
                 stateCounts[state] = (stateCounts[state] || 0) + 1;
             });
 
-            // Update category counts
-            document.querySelectorAll('[data-category]').forEach(el => {
+            // Update category counts (only in filter panel, not community cards)
+            document.querySelectorAll('.facet-count[data-category]').forEach(el => {
                 const category = el.dataset.category;
                 const count = categoryCounts[category] || 0;
                 el.textContent = `(${count})`;
             });
 
-            // Update state counts
-            document.querySelectorAll('[data-state]').forEach(el => {
+            // Update state counts (only in filter panel, not community cards)
+            document.querySelectorAll('.facet-count[data-state]').forEach(el => {
                 const state = el.dataset.state;
                 const count = stateCounts[state] || 0;
                 el.textContent = `(${count})`;
