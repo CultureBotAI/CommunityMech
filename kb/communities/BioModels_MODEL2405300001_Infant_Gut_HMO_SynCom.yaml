@@ -23,6 +23,251 @@ environment_term:
     id: ENVO:01001405
     label: laboratory environment
   notes: Model set represents a synthetic infant gut community under defined in silico conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium longum subsp. infantis
+    term:
+      id: NCBITaxon:157
+      label: Bifidobacterium longum subsp. infantis
+  strain_designation:
+    strain_name: ATCC15697
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Here, we designed BIG-Syc, a synthetic community of 13 strains from the gut of
+      vaginally born, breastfed infants.
+    explanation: Establishes B. infantis as a core HMO degrader in BIG-Syc.
+- taxon_term:
+    preferred_term: Bifidobacterium bifidum
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  strain_designation:
+    strain_name: JCM1254
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Bifidobacterium infantis and Bifidobacterium bifidum suppressing one another
+    explanation: Establishes B. bifidum as a core HMO degrader in BIG-Syc.
+- taxon_term:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+  strain_designation:
+    strain_name: ATCC15700
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Bacteroides fragilis
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+  strain_designation:
+    strain_name: ATCC25285
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Bacteroides vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Bacteroides vulgatus
+  strain_designation:
+    strain_name: ATCC8482
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Bacteroides ovatus
+    term:
+      id: NCBITaxon:28116
+      label: Phocaeicola vulgatus
+  strain_designation:
+    strain_name: DSM1896
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  strain_designation:
+    strain_name: ATCC10790
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Ruminococcus gnavus
+    term:
+      id: NCBITaxon:33038
+      label: Ruminococcus gnavus
+  strain_designation:
+    strain_name: ATCC29149
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Escherichia coli K-12
+    term:
+      id: NCBITaxon:83333
+      label: Escherichia coli K-12
+  strain_designation:
+    strain_name: MG1655
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Lacticaseibacillus rhamnosus
+    term:
+      id: NCBITaxon:47715
+      label: Lacticaseibacillus rhamnosus
+  strain_designation:
+    strain_name: GG
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Enterococcus faecalis
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+  strain_designation:
+    strain_name: ATCC19433
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Streptococcus thermophilus
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  strain_designation:
+    strain_name: ATCC19258
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Blautia producta
+    term:
+      id: NCBITaxon:33035
+      label: Blautia producta
+  strain_designation:
+    strain_name: JCM1471
+  functional_role:
+  - SECONDARY_FERMENTER
+ecological_interactions:
+- name: Bifidobacterium HMO Degradation and Cross-Feeding
+  description: >-
+    Bifidobacterium species (B. infantis, B. bifidum, B. breve) serve as primary human
+    milk oligosaccharide degraders in BIG-Syc. These HMO degraders break down complex
+    oligosaccharides and release simpler carbohydrates, organic acids, and gases that
+    are utilized by cross-feeding community members. B. infantis and B. bifidum can
+    suppress one another depending on HMO composition, with four-HMO mixes favoring
+    B. infantis dominance and five-HMO mixes supporting B. bifidum dominance. This
+    resource-sharing mechanism enables complete HMO degradation through teamwork.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: oligosaccharide
+    term:
+      id: CHEBI:50699
+      label: oligosaccharide
+    concentration: Human milk oligosaccharides degraded by Bifidobacterium
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+    concentration: Released by HMO degraders for cross-feeders
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates,
+      organic acids, and gases released from human milk oligosaccharide degraders.
+    explanation: >-
+      Demonstrates the cross-feeding mechanism where HMO degraders provide metabolites
+      to other community members.
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Bifidobacterium infantis and Bifidobacterium bifidum suppressing one another
+    explanation: >-
+      Shows competitive dynamics between the two main Bifidobacterium HMO degraders.
+- name: Cross-Feeder Utilization of HMO Degradation Products
+  description: >-
+    Cross-feeding community members (Veillonella, Ruminococcus, E. coli, Lactobacillus,
+    Enterococcus, Streptococcus) utilize simpler carbohydrates, organic acids, and
+    gases released from HMO degradation by Bifidobacterium and Bacteroides species.
+    This resource-sharing enables complete degradation of human milk oligosaccharides
+    through metabolic cooperation. The cross-feeders depend on primary degraders to
+    break down complex HMOs into accessible metabolites, demonstrating syntrophic
+    teamwork in the infant gut ecosystem.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  metabolites:
+  - preferred_term: monosaccharide
+    term:
+      id: CHEBI:35381
+      label: monosaccharide
+    concentration: Simple carbohydrates from HMO degradation
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+    concentration: Metabolites from HMO degraders
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      BIG-Syc demonstrated teamwork as cross-feeders utilized simpler carbohydrates,
+      organic acids, and gases released from human milk oligosaccharide degraders.
+    explanation: >-
+      Demonstrates cross-feeder reliance on metabolites from primary HMO degraders.
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      human milk oligosaccharides prompt resource-sharing for their complete degradation
+      while leading to a different compositional and functional profile in the community
+    explanation: >-
+      Shows that HMOs drive resource-sharing dynamics in the community.
+- name: Bacteroides HMO Degradation
+  description: >-
+    Bacteroides species (B. fragilis, B. vulgatus, B. ovatus) complement Bifidobacterium
+    as primary HMO degraders in BIG-Syc. These species contribute to the degradation
+    of human milk oligosaccharides and release metabolites that support cross-feeding
+    community members. Their combined activity with Bifidobacterium species enables
+    comprehensive HMO utilization and shapes the compositional and functional profile
+    of the infant gut community.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacteroides fragilis
+    term:
+      id: NCBITaxon:817
+      label: Bacteroides fragilis
+  metabolites:
+  - preferred_term: oligosaccharide
+    term:
+      id: CHEBI:50699
+      label: oligosaccharide
+    concentration: Human milk oligosaccharides degraded
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      BIG-Syc replicated key compositional, metabolic, and proteomic characteristics
+      of the gut microbiota of infants.
+    explanation: >-
+      Supports that Bacteroides species contribute to authentic infant gut microbiota
+      characteristics including HMO degradation.
 associated_datasets:
 - name: BioModels model archive
   dataset_type: OTHER

@@ -40,6 +40,105 @@ associated_datasets:
   accession: PMID:30254121
   url: https://pubmed.ncbi.nlm.nih.gov/30254121/
   description: Study on the cost of metabolic interactions in insect-bacterial symbioses.
+ecological_interactions:
+- name: Sulcia Essential Amino Acid Provisioning
+  description: >-
+    Sulcia provides essential amino acids to the sharpshooter host, which are lacking in
+    the nutrient-poor xylem sap diet. Through metabolic modeling, Sulcia with its highly
+    reduced genome (≤0.3 Mb) is calculated to recycle 30-80% of host-derived nitrogen to
+    essential amino acids that are returned to the host. This mutualistic relationship
+    represents extensive bidirectional metabolite flux between Sulcia and the host, with
+    the host providing carbon/energy substrates and Sulcia synthesizing amino acids the
+    host cannot produce.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Sulcia
+    term:
+      id: NCBITaxon:2716471
+      label: Sulcia
+  target_taxon:
+    preferred_term: Graphocephala coccinea
+    term:
+      id: NCBITaxon:236401
+      label: Graphocephala coccinea
+  metabolites:
+  - preferred_term: L-leucine
+    term:
+      id: CHEBI:15603
+      label: L-leucine
+    concentration: Essential amino acid produced by Sulcia
+  - preferred_term: L-isoleucine
+    term:
+      id: CHEBI:17191
+      label: L-isoleucine
+    concentration: Essential amino acid produced by Sulcia
+  - preferred_term: nitrogen
+    term:
+      id: CHEBI:25555
+      label: nitrogen molecular entity
+    concentration: 30-80% recycled from host to essential amino acids
+  evidence:
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Sulcia and Hodgkinia with genomes of ≤0.3 Mb are calculated to recycle ∼30 to 80%
+      of host-derived nitrogen to essential amino acids returned to the host
+    explanation: >-
+      Demonstrates Sulcia's role in nitrogen recycling and essential amino acid provisioning
+      to the host through metabolic modeling.
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Our simulations reveal extensive bidirectional flux of multiple metabolites between
+      each symbiont and the host
+    explanation: >-
+      Supports the extensive metabolic exchange between Sulcia and the sharpshooter host.
+- name: Baumannia Metabolic Complementarity
+  description: >-
+    Baumannia cicadellinicola, the coprimary symbiont with a larger genome (≥0.6 Mb),
+    provides metabolic functions that complement both the host and Sulcia. Baumannia
+    recycles approximately 10-15% of host nitrogen and synthesizes metabolites not
+    produced by Sulcia, including vitamins and cofactors. The metabolic modeling reveals
+    near-complete metabolic segregation between Baumannia and Sulcia, with metabolite
+    exchange occurring primarily through host-mediated pathways rather than direct
+    cross-feeding between symbionts.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Baumannia cicadellinicola
+    term:
+      id: NCBITaxon:186490
+      label: Candidatus Palibaumannia cicadellinicola
+  target_taxon:
+    preferred_term: Graphocephala coccinea
+    term:
+      id: NCBITaxon:236401
+      label: Graphocephala coccinea
+  metabolites:
+  - preferred_term: nitrogen
+    term:
+      id: CHEBI:25555
+      label: nitrogen molecular entity
+    concentration: 10-15% recycled from host
+  evidence:
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Baumannia and Sodalis with genomes of ≥0.6 Mb recycle 10 to 15% of host nitrogen
+    explanation: >-
+      Quantifies Baumannia's contribution to nitrogen recycling and metabolite provisioning
+      to the host.
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding)
+      between the two symbionts, a likely mode of host control over symbiont metabolism
+    explanation: >-
+      Demonstrates that Baumannia and Sulcia exchange metabolites primarily with the host
+      rather than directly with each other.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS
