@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-08T23:13:01
+# Generation date: 2026-03-09T01:02:36
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -1039,6 +1039,15 @@ class InteractionTypeEnum(EnumDefinitionImpl):
     SYNTROPHY = PermissibleValue(
         text="SYNTROPHY",
         description="Obligate metabolic cooperation")
+    NICHE_PARTITIONING = PermissibleValue(
+        text="NICHE_PARTITIONING",
+        description="""Strains/species occupy distinct ecological niches, reducing competition through spatial or temporal separation""")
+    STRAIN_COMPETITION = PermissibleValue(
+        text="STRAIN_COMPETITION",
+        description="Intraspecific competition between closely related strains of the same species")
+    COLONIZATION_FACILITATION = PermissibleValue(
+        text="COLONIZATION_FACILITATION",
+        description="""One organism facilitates the colonization or establishment of another through priority effects or niche modification""")
 
     _defn = EnumDefinition(
         name="InteractionTypeEnum",
