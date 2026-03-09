@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-06T00:42:58
+# Generation date: 2026-03-08T23:13:01
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -815,6 +815,10 @@ class MicrobialCommunity(YAMLRoot):
     growth_media: Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]] = empty_list()
     associated_datasets: Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]] = empty_list()
     external_resources: Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]] = empty_list()
+    metals_present: Optional[Union[Union[str, "MetalElementEnum"], list[Union[str, "MetalElementEnum"]]]] = empty_list()
+    rare_earth_elements_present: Optional[Union[Union[str, "RareEarthElementEnum"], list[Union[str, "RareEarthElementEnum"]]]] = empty_list()
+    metal_relevance: Optional[Union[str, "MetalRelevanceEnum"]] = None
+    metal_notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -851,6 +855,20 @@ class MicrobialCommunity(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="associated_datasets", slot_type=AssociatedDataset, key_name="name", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="external_resources", slot_type=ExternalResource, key_name="name", keyed=False)
+
+        if not isinstance(self.metals_present, list):
+            self.metals_present = [self.metals_present] if self.metals_present is not None else []
+        self.metals_present = [v if isinstance(v, MetalElementEnum) else MetalElementEnum(v) for v in self.metals_present]
+
+        if not isinstance(self.rare_earth_elements_present, list):
+            self.rare_earth_elements_present = [self.rare_earth_elements_present] if self.rare_earth_elements_present is not None else []
+        self.rare_earth_elements_present = [v if isinstance(v, RareEarthElementEnum) else RareEarthElementEnum(v) for v in self.rare_earth_elements_present]
+
+        if self.metal_relevance is not None and not isinstance(self.metal_relevance, MetalRelevanceEnum):
+            self.metal_relevance = MetalRelevanceEnum(self.metal_relevance)
+
+        if self.metal_notes is not None and not isinstance(self.metal_notes, str):
+            self.metal_notes = str(self.metal_notes)
 
         super().__post_init__(**kwargs)
 
@@ -1246,6 +1264,176 @@ class CultureCollectionEnum(EnumDefinitionImpl):
         description="Major microbial culture collections worldwide",
     )
 
+class MetalElementEnum(EnumDefinitionImpl):
+    """
+    Metal elements relevant to microbial communities
+    """
+    COPPER = PermissibleValue(
+        text="COPPER",
+        description="Copper(2+) cation",
+        meaning=CHEBI["29036"])
+    IRON = PermissibleValue(
+        text="IRON",
+        description="Iron(2+) cation",
+        meaning=CHEBI["29033"])
+    ZINC = PermissibleValue(
+        text="ZINC",
+        description="Zinc(2+) cation",
+        meaning=CHEBI["27363"])
+    NICKEL = PermissibleValue(
+        text="NICKEL",
+        description="Nickel(2+) cation",
+        meaning=CHEBI["49786"])
+    COBALT = PermissibleValue(
+        text="COBALT",
+        description="Cobalt(2+) cation",
+        meaning=CHEBI["48828"])
+    VANADIUM = PermissibleValue(
+        text="VANADIUM",
+        description="Vanadium cation",
+        meaning=CHEBI["27698"])
+    URANIUM = PermissibleValue(
+        text="URANIUM",
+        description="Uranium atom",
+        meaning=CHEBI["27214"])
+    CHROMIUM = PermissibleValue(
+        text="CHROMIUM",
+        description="Chromium atom",
+        meaning=CHEBI["28073"])
+    LEAD = PermissibleValue(
+        text="LEAD",
+        description="Lead(2+) cation",
+        meaning=CHEBI["25016"])
+    LITHIUM = PermissibleValue(
+        text="LITHIUM",
+        description="Lithium(1+) cation",
+        meaning=CHEBI["49713"])
+    GOLD = PermissibleValue(
+        text="GOLD",
+        description="Gold atom",
+        meaning=CHEBI["29287"])
+    SILVER = PermissibleValue(
+        text="SILVER",
+        description="Silver(1+) cation",
+        meaning=CHEBI["30512"])
+    PALLADIUM = PermissibleValue(
+        text="PALLADIUM",
+        description="Palladium atom",
+        meaning=CHEBI["33373"])
+    GALLIUM = PermissibleValue(
+        text="GALLIUM",
+        description="Gallium(3+) cation",
+        meaning=CHEBI["49631"])
+    INDIUM = PermissibleValue(
+        text="INDIUM",
+        description="Indium(3+) cation",
+        meaning=CHEBI["49464"])
+    TITANIUM = PermissibleValue(
+        text="TITANIUM",
+        description="Titanium atom",
+        meaning=CHEBI["33341"])
+
+    _defn = EnumDefinition(
+        name="MetalElementEnum",
+        description="Metal elements relevant to microbial communities",
+    )
+
+class RareEarthElementEnum(EnumDefinitionImpl):
+    """
+    Rare earth elements (lanthanides + Y, Sc)
+    """
+    LANTHANUM = PermissibleValue(
+        text="LANTHANUM",
+        description="Lanthanum(3+) cation",
+        meaning=CHEBI["32359"])
+    CERIUM = PermissibleValue(
+        text="CERIUM",
+        description="Cerium(3+) cation",
+        meaning=CHEBI["32998"])
+    PRASEODYMIUM = PermissibleValue(
+        text="PRASEODYMIUM",
+        description="Praseodymium(3+) cation",
+        meaning=CHEBI["49648"])
+    NEODYMIUM = PermissibleValue(
+        text="NEODYMIUM",
+        description="Neodymium(3+) cation",
+        meaning=CHEBI["33372"])
+    SAMARIUM = PermissibleValue(
+        text="SAMARIUM",
+        description="Samarium(3+) cation",
+        meaning=CHEBI["33376"])
+    EUROPIUM = PermissibleValue(
+        text="EUROPIUM",
+        description="Europium(3+) cation",
+        meaning=CHEBI["30688"])
+    GADOLINIUM = PermissibleValue(
+        text="GADOLINIUM",
+        description="Gadolinium(3+) cation",
+        meaning=CHEBI["33375"])
+    TERBIUM = PermissibleValue(
+        text="TERBIUM",
+        description="Terbium(3+) cation",
+        meaning=CHEBI["33374"])
+    DYSPROSIUM = PermissibleValue(
+        text="DYSPROSIUM",
+        description="Dysprosium(3+) cation",
+        meaning=CHEBI["49782"])
+    HOLMIUM = PermissibleValue(
+        text="HOLMIUM",
+        description="Holmium(3+) cation",
+        meaning=CHEBI["49649"])
+    ERBIUM = PermissibleValue(
+        text="ERBIUM",
+        description="Erbium(3+) cation",
+        meaning=CHEBI["49650"])
+    THULIUM = PermissibleValue(
+        text="THULIUM",
+        description="Thulium(3+) cation",
+        meaning=CHEBI["33377"])
+    YTTERBIUM = PermissibleValue(
+        text="YTTERBIUM",
+        description="Ytterbium(3+) cation",
+        meaning=CHEBI["33378"])
+    LUTETIUM = PermissibleValue(
+        text="LUTETIUM",
+        description="Lutetium(3+) cation",
+        meaning=CHEBI["33382"])
+    YTTRIUM = PermissibleValue(
+        text="YTTRIUM",
+        description="Yttrium(3+) cation",
+        meaning=CHEBI["49976"])
+    SCANDIUM = PermissibleValue(
+        text="SCANDIUM",
+        description="Scandium(3+) cation",
+        meaning=CHEBI["33330"])
+
+    _defn = EnumDefinition(
+        name="RareEarthElementEnum",
+        description="Rare earth elements (lanthanides + Y, Sc)",
+    )
+
+class MetalRelevanceEnum(EnumDefinitionImpl):
+    """
+    Relevance of metals/REE to community function
+    """
+    PRIMARY = PermissibleValue(
+        text="PRIMARY",
+        description="Primary function involves metal/REE extraction or cycling")
+    SIGNIFICANT = PermissibleValue(
+        text="SIGNIFICANT",
+        description="Significant metal/REE metabolism but not primary function")
+    INCIDENTAL = PermissibleValue(
+        text="INCIDENTAL",
+        description="Incidental metal/REE interaction")
+    NOT_APPLICABLE = PermissibleValue(
+        text="NOT_APPLICABLE",
+        description="No significant metal/REE relevance")
+
+    _defn = EnumDefinition(
+        name="MetalRelevanceEnum",
+        description="Relevance of metals/REE to community function",
+    )
+
 # Slots
 class slots:
     pass
@@ -1562,4 +1750,16 @@ slots.microbialCommunity__associated_datasets = Slot(uri=COMMUNITYMECH.associate
 
 slots.microbialCommunity__external_resources = Slot(uri=COMMUNITYMECH.external_resources, name="microbialCommunity__external_resources", curie=COMMUNITYMECH.curie('external_resources'),
                    model_uri=COMMUNITYMECH.microbialCommunity__external_resources, domain=None, range=Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]])
+
+slots.microbialCommunity__metals_present = Slot(uri=COMMUNITYMECH.metals_present, name="microbialCommunity__metals_present", curie=COMMUNITYMECH.curie('metals_present'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__metals_present, domain=None, range=Optional[Union[Union[str, "MetalElementEnum"], list[Union[str, "MetalElementEnum"]]]])
+
+slots.microbialCommunity__rare_earth_elements_present = Slot(uri=COMMUNITYMECH.rare_earth_elements_present, name="microbialCommunity__rare_earth_elements_present", curie=COMMUNITYMECH.curie('rare_earth_elements_present'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__rare_earth_elements_present, domain=None, range=Optional[Union[Union[str, "RareEarthElementEnum"], list[Union[str, "RareEarthElementEnum"]]]])
+
+slots.microbialCommunity__metal_relevance = Slot(uri=COMMUNITYMECH.metal_relevance, name="microbialCommunity__metal_relevance", curie=COMMUNITYMECH.curie('metal_relevance'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__metal_relevance, domain=None, range=Optional[Union[str, "MetalRelevanceEnum"]])
+
+slots.microbialCommunity__metal_notes = Slot(uri=COMMUNITYMECH.metal_notes, name="microbialCommunity__metal_notes", curie=COMMUNITYMECH.curie('metal_notes'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__metal_notes, domain=None, range=Optional[str])
 

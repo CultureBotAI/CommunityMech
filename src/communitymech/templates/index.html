@@ -360,6 +360,20 @@
             border-radius: 10px;
         }
 
+        .badge-member-count {
+            background: #f1f5f9;
+            color: #475569;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .card-footer-left {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
         /* Hidden state for filtering */
         .community-card.hidden {
             display: none;
@@ -445,6 +459,47 @@
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
                 </div>
+
+                <!-- Metals facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('metals-facet')">
+                        <h3>Metals</h3>
+                        <span class="facet-toggle">+</span>
+                    </div>
+                    <div id="metals-facet" class="facet-body collapsed">
+                        <div class="facet-actions">
+                            <button class="select-all" data-facet="metals">All</button>
+                            <button class="clear-all" data-facet="metals">None</button>
+                        </div>
+                        <div id="metals-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Rare Earth Elements facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('ree-facet')">
+                        <h3>Rare Earth Elements</h3>
+                        <span class="facet-toggle">+</span>
+                    </div>
+                    <div id="ree-facet" class="facet-body collapsed">
+                        <div class="facet-actions">
+                            <button class="select-all" data-facet="ree">All</button>
+                            <button class="clear-all" data-facet="ree">None</button>
+                        </div>
+                        <div id="ree-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Metal Relevance facet -->
+                <div class="facet-section">
+                    <div class="facet-header" onclick="toggleFacet('relevance-facet')">
+                        <h3>Metal Relevance</h3>
+                        <span class="facet-toggle">+</span>
+                    </div>
+                    <div id="relevance-facet" class="facet-body collapsed">
+                        <div id="relevance-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Right side: Community grid -->
@@ -463,11 +518,25 @@
                        data-name="{{ community.name|lower }}"
                        data-description="{{ community.description|lower }}"
                        data-category="{{ community.community_category }}"
-                       data-state="{{ community.ecological_state }}">
+                       data-state="{{ community.ecological_state }}"
+                       data-metals="{{ community.metals_present|join(',') }}"
+                       data-ree="{{ community.rare_earth_elements_present|join(',') }}"
+                       data-relevance="{{ community.metal_relevance }}"
+                       data-member-count="{{ community.member_count }}">
                         <h2>{{ community.name }}</h2>
                         <p class="description">{{ community.description }}</p>
                         <div class="card-footer">
-                            <span class="badge badge-{{ community.ecological_state }}">{{ community.ecological_state }}</span>
+                            <div class="card-footer-left">
+                                <span class="badge badge-member-count" title="Number of member taxa">
+                                    <svg width="12" height="12" viewBox="0 0 12 12" style="vertical-align: middle; margin-right: 3px;">
+                                        <circle cx="6" cy="3" r="2" fill="currentColor"/>
+                                        <circle cx="3" cy="8" r="1.5" fill="currentColor" opacity="0.7"/>
+                                        <circle cx="9" cy="8" r="1.5" fill="currentColor" opacity="0.7"/>
+                                    </svg>
+                                    {{ community.member_count }}
+                                </span>
+                                <span class="badge badge-{{ community.ecological_state }}">{{ community.ecological_state }}</span>
+                            </div>
                             <span class="badge badge-category">{{ community.community_category }}</span>
                         </div>
                     </a>
@@ -491,15 +560,26 @@
             searchTerm: '',
             categories: new Set(),
             ecologicalStates: new Set(),
+            metals: new Set(),
+            rareEarthElements: new Set(),
+            metalRelevance: new Set(),
 
             hasActiveFilters() {
-                return this.searchTerm || this.categories.size > 0 || this.ecologicalStates.size > 0;
+                return this.searchTerm ||
+                       this.categories.size > 0 ||
+                       this.ecologicalStates.size > 0 ||
+                       this.metals.size > 0 ||
+                       this.rareEarthElements.size > 0 ||
+                       this.metalRelevance.size > 0;
             },
 
             reset() {
                 this.searchTerm = '';
                 this.categories.clear();
                 this.ecologicalStates.clear();
+                this.metals.clear();
+                this.rareEarthElements.clear();
+                this.metalRelevance.clear();
             }
         };
 
@@ -510,6 +590,9 @@
         function initializeFacets() {
             const categoryCounts = {};
             const stateCounts = {};
+            const metalsCounts = {};
+            const reeCounts = {};
+            const relevanceCounts = {};
 
             allCards.forEach(card => {
                 const category = card.dataset.category;
@@ -517,6 +600,24 @@
 
                 categoryCounts[category] = (categoryCounts[category] || 0) + 1;
                 stateCounts[state] = (stateCounts[state] || 0) + 1;
+
+                // Count metals
+                const metals = card.dataset.metals.split(',').filter(m => m);
+                metals.forEach(metal => {
+                    metalsCounts[metal] = (metalsCounts[metal] || 0) + 1;
+                });
+
+                // Count REE
+                const ree = card.dataset.ree.split(',').filter(r => r);
+                ree.forEach(element => {
+                    reeCounts[element] = (reeCounts[element] || 0) + 1;
+                });
+
+                // Count relevance
+                const relevance = card.dataset.relevance;
+                if (relevance && relevance !== 'NOT_APPLICABLE') {
+                    relevanceCounts[relevance] = (relevanceCounts[relevance] || 0) + 1;
+                }
             });
 
             // Generate category checkboxes sorted by count (descending)
@@ -576,6 +677,95 @@
                     label.appendChild(countSpan);
                     stateContainer.appendChild(label);
                 });
+
+            // Generate metals checkboxes
+            const metalsContainer = document.getElementById('metals-checkboxes');
+            Object.entries(metalsCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([metal, count]) => {
+                    const label = document.createElement('label');
+                    label.className = 'facet-checkbox';
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = metal;
+                    checkbox.dataset.facet = 'metals';
+                    checkbox.addEventListener('change', handleFilterChange);
+
+                    const labelSpan = document.createElement('span');
+                    labelSpan.className = 'facet-label';
+                    labelSpan.textContent = metal.replace(/_/g, ' ');
+
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'facet-count';
+                    countSpan.dataset.metal = metal;
+                    countSpan.textContent = `(${count})`;
+
+                    label.appendChild(checkbox);
+                    label.appendChild(labelSpan);
+                    label.appendChild(countSpan);
+                    metalsContainer.appendChild(label);
+                });
+
+            // Generate REE checkboxes
+            const reeContainer = document.getElementById('ree-checkboxes');
+            Object.entries(reeCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([element, count]) => {
+                    const label = document.createElement('label');
+                    label.className = 'facet-checkbox';
+
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.value = element;
+                    checkbox.dataset.facet = 'ree';
+                    checkbox.addEventListener('change', handleFilterChange);
+
+                    const labelSpan = document.createElement('span');
+                    labelSpan.className = 'facet-label';
+                    labelSpan.textContent = element.replace(/_/g, ' ');
+
+                    const countSpan = document.createElement('span');
+                    countSpan.className = 'facet-count';
+                    countSpan.dataset.ree = element;
+                    countSpan.textContent = `(${count})`;
+
+                    label.appendChild(checkbox);
+                    label.appendChild(labelSpan);
+                    label.appendChild(countSpan);
+                    reeContainer.appendChild(label);
+                });
+
+            // Generate metal relevance checkboxes
+            const relevanceContainer = document.getElementById('relevance-checkboxes');
+            const relevanceOrder = ['PRIMARY', 'SIGNIFICANT', 'INCIDENTAL'];
+            relevanceOrder.forEach(relevance => {
+                const count = relevanceCounts[relevance];
+                if (!count) return;
+
+                const label = document.createElement('label');
+                label.className = 'facet-checkbox';
+
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = relevance;
+                checkbox.dataset.facet = 'relevance';
+                checkbox.addEventListener('change', handleFilterChange);
+
+                const labelSpan = document.createElement('span');
+                labelSpan.className = 'facet-label';
+                labelSpan.textContent = relevance.replace(/_/g, ' ');
+
+                const countSpan = document.createElement('span');
+                countSpan.className = 'facet-count';
+                countSpan.dataset.relevance = relevance;
+                countSpan.textContent = `(${count})`;
+
+                label.appendChild(checkbox);
+                label.appendChild(labelSpan);
+                label.appendChild(countSpan);
+                relevanceContainer.appendChild(label);
+            });
         }
 
         // Core filtering function
@@ -596,6 +786,24 @@
                 // State filter
                 if (filterState.ecologicalStates.size > 0 &&
                     !filterState.ecologicalStates.has(card.dataset.state)) return false;
+
+                // Metal filter (OR logic within facet)
+                if (filterState.metals.size > 0) {
+                    const cardMetals = card.dataset.metals.split(',').filter(m => m);
+                    const hasMatch = cardMetals.some(m => filterState.metals.has(m));
+                    if (!hasMatch) return false;
+                }
+
+                // REE filter (OR logic within facet)
+                if (filterState.rareEarthElements.size > 0) {
+                    const cardRee = card.dataset.ree.split(',').filter(r => r);
+                    const hasMatch = cardRee.some(r => filterState.rareEarthElements.has(r));
+                    if (!hasMatch) return false;
+                }
+
+                // Metal relevance filter (OR logic)
+                if (filterState.metalRelevance.size > 0 &&
+                    !filterState.metalRelevance.has(card.dataset.relevance)) return false;
 
                 return true;
             });
@@ -625,25 +833,67 @@
         function updateFilterCounts(filteredCards) {
             const categoryCounts = {};
             const stateCounts = {};
+            const metalsCounts = {};
+            const reeCounts = {};
+            const relevanceCounts = {};
 
             filteredCards.forEach(card => {
                 const category = card.dataset.category;
                 const state = card.dataset.state;
                 categoryCounts[category] = (categoryCounts[category] || 0) + 1;
                 stateCounts[state] = (stateCounts[state] || 0) + 1;
+
+                // Count metals
+                const metals = card.dataset.metals.split(',').filter(m => m);
+                metals.forEach(metal => {
+                    metalsCounts[metal] = (metalsCounts[metal] || 0) + 1;
+                });
+
+                // Count REE
+                const ree = card.dataset.ree.split(',').filter(r => r);
+                ree.forEach(element => {
+                    reeCounts[element] = (reeCounts[element] || 0) + 1;
+                });
+
+                // Count relevance
+                const relevance = card.dataset.relevance;
+                if (relevance && relevance !== 'NOT_APPLICABLE') {
+                    relevanceCounts[relevance] = (relevanceCounts[relevance] || 0) + 1;
+                }
             });
 
-            // Update category counts (only in filter panel, not community cards)
+            // Update category counts
             document.querySelectorAll('.facet-count[data-category]').forEach(el => {
                 const category = el.dataset.category;
                 const count = categoryCounts[category] || 0;
                 el.textContent = `(${count})`;
             });
 
-            // Update state counts (only in filter panel, not community cards)
+            // Update state counts
             document.querySelectorAll('.facet-count[data-state]').forEach(el => {
                 const state = el.dataset.state;
                 const count = stateCounts[state] || 0;
+                el.textContent = `(${count})`;
+            });
+
+            // Update metal counts
+            document.querySelectorAll('.facet-count[data-metal]').forEach(el => {
+                const metal = el.dataset.metal;
+                const count = metalsCounts[metal] || 0;
+                el.textContent = `(${count})`;
+            });
+
+            // Update REE counts
+            document.querySelectorAll('.facet-count[data-ree]').forEach(el => {
+                const ree = el.dataset.ree;
+                const count = reeCounts[ree] || 0;
+                el.textContent = `(${count})`;
+            });
+
+            // Update relevance counts
+            document.querySelectorAll('.facet-count[data-relevance]').forEach(el => {
+                const relevance = el.dataset.relevance;
+                const count = relevanceCounts[relevance] || 0;
                 el.textContent = `(${count})`;
             });
         }
@@ -717,6 +967,63 @@
                 tag.appendChild(remove);
                 tagsContainer.appendChild(tag);
             });
+
+            // Add metal tags
+            filterState.metals.forEach(metal => {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>Metal: ${metal.replace(/_/g, ' ')}</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    filterState.metals.delete(metal);
+                    document.querySelector(`input[value="${metal}"][data-facet="metals"]`).checked = false;
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            });
+
+            // Add REE tags
+            filterState.rareEarthElements.forEach(element => {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>REE: ${element.replace(/_/g, ' ')}</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    filterState.rareEarthElements.delete(element);
+                    document.querySelector(`input[value="${element}"][data-facet="ree"]`).checked = false;
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            });
+
+            // Add relevance tags
+            filterState.metalRelevance.forEach(relevance => {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+                tag.innerHTML = `<span>Relevance: ${relevance.replace(/_/g, ' ')}</span>`;
+
+                const remove = document.createElement('span');
+                remove.className = 'filter-tag-remove';
+                remove.textContent = '✕';
+                remove.onclick = () => {
+                    filterState.metalRelevance.delete(relevance);
+                    document.querySelector(`input[value="${relevance}"][data-facet="relevance"]`).checked = false;
+                    updateFiltering();
+                };
+
+                tag.appendChild(remove);
+                tagsContainer.appendChild(tag);
+            });
         }
 
         // Event handlers
@@ -745,6 +1052,12 @@
                 setName = 'categories';
             } else if (facetType === 'ecologicalState') {
                 setName = 'ecologicalStates';
+            } else if (facetType === 'metals') {
+                setName = 'metals';
+            } else if (facetType === 'ree') {
+                setName = 'rareEarthElements';
+            } else if (facetType === 'relevance') {
+                setName = 'metalRelevance';
             }
 
             if (checkbox.checked) {

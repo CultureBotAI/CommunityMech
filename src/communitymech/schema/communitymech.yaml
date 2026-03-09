@@ -258,6 +258,122 @@ enums:
       OTHER:
         description: Other culture collection not listed
 
+  MetalElementEnum:
+    description: Metal elements relevant to microbial communities
+    permissible_values:
+      COPPER:
+        meaning: CHEBI:29036
+        description: Copper(2+) cation
+      IRON:
+        meaning: CHEBI:29033
+        description: Iron(2+) cation
+      ZINC:
+        meaning: CHEBI:27363
+        description: Zinc(2+) cation
+      NICKEL:
+        meaning: CHEBI:49786
+        description: Nickel(2+) cation
+      COBALT:
+        meaning: CHEBI:48828
+        description: Cobalt(2+) cation
+      VANADIUM:
+        meaning: CHEBI:27698
+        description: Vanadium cation
+      URANIUM:
+        meaning: CHEBI:27214
+        description: Uranium atom
+      CHROMIUM:
+        meaning: CHEBI:28073
+        description: Chromium atom
+      LEAD:
+        meaning: CHEBI:25016
+        description: Lead(2+) cation
+      LITHIUM:
+        meaning: CHEBI:49713
+        description: Lithium(1+) cation
+      GOLD:
+        meaning: CHEBI:29287
+        description: Gold atom
+      SILVER:
+        meaning: CHEBI:30512
+        description: Silver(1+) cation
+      PALLADIUM:
+        meaning: CHEBI:33373
+        description: Palladium atom
+      GALLIUM:
+        meaning: CHEBI:49631
+        description: Gallium(3+) cation
+      INDIUM:
+        meaning: CHEBI:49464
+        description: Indium(3+) cation
+      TITANIUM:
+        meaning: CHEBI:33341
+        description: Titanium atom
+
+  RareEarthElementEnum:
+    description: Rare earth elements (lanthanides + Y, Sc)
+    permissible_values:
+      LANTHANUM:
+        meaning: CHEBI:32359
+        description: Lanthanum(3+) cation
+      CERIUM:
+        meaning: CHEBI:32998
+        description: Cerium(3+) cation
+      PRASEODYMIUM:
+        meaning: CHEBI:49648
+        description: Praseodymium(3+) cation
+      NEODYMIUM:
+        meaning: CHEBI:33372
+        description: Neodymium(3+) cation
+      SAMARIUM:
+        meaning: CHEBI:33376
+        description: Samarium(3+) cation
+      EUROPIUM:
+        meaning: CHEBI:30688
+        description: Europium(3+) cation
+      GADOLINIUM:
+        meaning: CHEBI:33375
+        description: Gadolinium(3+) cation
+      TERBIUM:
+        meaning: CHEBI:33374
+        description: Terbium(3+) cation
+      DYSPROSIUM:
+        meaning: CHEBI:49782
+        description: Dysprosium(3+) cation
+      HOLMIUM:
+        meaning: CHEBI:49649
+        description: Holmium(3+) cation
+      ERBIUM:
+        meaning: CHEBI:49650
+        description: Erbium(3+) cation
+      THULIUM:
+        meaning: CHEBI:33377
+        description: Thulium(3+) cation
+      YTTERBIUM:
+        meaning: CHEBI:33378
+        description: Ytterbium(3+) cation
+      LUTETIUM:
+        meaning: CHEBI:33382
+        description: Lutetium(3+) cation
+      YTTRIUM:
+        meaning: CHEBI:49976
+        description: Yttrium(3+) cation
+      SCANDIUM:
+        meaning: CHEBI:33330
+        description: Scandium(3+) cation
+
+  MetalRelevanceEnum:
+    description: Relevance of metals/REE to community function
+    permissible_values:
+      PRIMARY:
+        description: Primary function involves metal/REE extraction or cycling
+      SIGNIFICANT:
+        description: Significant metal/REE metabolism but not primary function
+      INCIDENTAL:
+        description: Incidental metal/REE interaction
+      NOT_APPLICABLE:
+        description: No significant metal/REE relevance
+
 classes:
   Term:
     description: An ontology term with ID and label
@@ -640,3 +756,17 @@ classes:
         description: External model and narrative resources linked to this community
         range: ExternalResource
         multivalued: true
+      metals_present:
+        description: Metals present or processed by this community
+        range: MetalElementEnum
+        multivalued: true
+      rare_earth_elements_present:
+        description: Rare earth elements present or processed by this community
+        range: RareEarthElementEnum
+        multivalued: true
+      metal_relevance:
+        description: Overall relevance of this community for metal/REE processing
+        range: MetalRelevanceEnum
+      metal_notes:
+        description: Additional context on metal/REE processing mechanisms or significance
+        range: string

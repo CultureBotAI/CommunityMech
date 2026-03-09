@@ -105,12 +105,25 @@ class CommunityRenderer:
         for yaml_file in yaml_files:
             with open(yaml_file) as f:
                 data = yaml.safe_load(f)
+
+                # Compute member count from taxonomy
+                member_count = len(data.get("taxonomy", []))
+
+                # Extract metal/REE data
+                metals = data.get("metals_present", [])
+                ree = data.get("rare_earth_elements_present", [])
+                metal_relevance = data.get("metal_relevance", "NOT_APPLICABLE")
+
                 communities.append({
                     "id": yaml_file.stem,
                     "name": data.get("name", ""),
                     "description": data.get("description", ""),
                     "ecological_state": data.get("ecological_state", ""),
                     "community_category": data.get("community_category", ""),
+                    "member_count": member_count,
+                    "metals_present": metals,
+                    "rare_earth_elements_present": ree,
+                    "metal_relevance": metal_relevance,
                 })
 
         # Load index template
