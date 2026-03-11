@@ -12,16 +12,205 @@ engineering_design:
   - Community composition and functional performance readouts
   notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters when available.
   evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      we developed an automated workflow that iteratively cycles between metabolic modeling
+      software in KBase and the reactive transport code PFLOTRAN
+    explanation: >-
+      Describes the ORT workflow coupling genome-scale metabolic models in KBase with
+      reactive transport modeling.
   - reference: PMID:29979655
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: 'KBase: The United States Department of Energy Systems Biology Knowledgebase.'
     explanation: Supports the KBase platform provenance for this workflow narrative.
 environment_term:
-  preferred_term: laboratory environment
+  preferred_term: river sediment
   term:
-    id: ENVO:01001405
-    label: laboratory environment
+    id: ENVO:00002359
+    label: river sediment
+  notes: Columbia River sediment samples used for metagenomic assembly and metabolic modeling.
+associated_datasets:
+- name: Primary publication
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PMID:34726691
+  url: https://pubmed.ncbi.nlm.nih.gov/34726691/
+  description: Bioinformatics publication describing the ORT workflow coupling genome-scale metabolic models with reactive transport modeling for nitrogen cycling.
+taxonomy:
+- taxon_term:
+    preferred_term: Nitrososphaeraceae archaeon
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: >-
+      Archaeal genome classified as Nitrososphaeraceae (family level), genus TA-21,
+      from Columbia River sediments. Functions as ammonium oxidizer in the nitrogen cycle.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Four genomes representing nitrogen cycling were selected from Columbia River sediments
+    explanation: >-
+      Establishes the archaeal ammonium oxidizer as a member of the nitrogen-cycling community.
+- taxon_term:
+    preferred_term: Nitrospiraceae bacterium
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+    notes: >-
+      Bacterial member of Nitrospiraceae family from Columbia River sediments. Functions as
+      nitrite oxidizer in the nitrogen cycle.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Four genomes representing nitrogen cycling were selected from Columbia River sediments
+    explanation: >-
+      Establishes the bacterial nitrite oxidizer as a member of the nitrogen-cycling community.
+- taxon_term:
+    preferred_term: Steroidobacteraceae denitrifier 1
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+    notes: >-
+      Gammaproteobacterial genome within family Steroidobacteraceae from Columbia River sediments.
+      Functions as denitrifier reducing nitrate to nitrogen gas.
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Four genomes representing nitrogen cycling were selected from Columbia River sediments
+    explanation: >-
+      Establishes the first denitrifier as a member of the nitrogen-cycling community.
+- taxon_term:
+    preferred_term: Steroidobacteraceae denitrifier 2
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+    notes: >-
+      Second gammaproteobacterial genome within family Steroidobacteraceae from Columbia River
+      sediments. Functions as denitrifier reducing nitrate to nitrogen gas.
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Four genomes representing nitrogen cycling were selected from Columbia River sediments
+    explanation: >-
+      Establishes the second denitrifier as a member of the nitrogen-cycling community.
+ecological_interactions:
+- name: Coupled Nitrification in Columbia River Sediments
+  description: >-
+    Ammonia-oxidizing archaea (Nitrososphaeraceae) and nitrite-oxidizing bacteria (Nitrospiraceae)
+    form a coupled nitrification network in Columbia River sediments. The archaeon oxidizes
+    ammonium to nitrite, which is then consumed by Nitrospiraceae to produce nitrate. This
+    syntrophic coupling is fundamental to nitrogen cycling in the sediment microbiome and
+    demonstrates metabolic interdependence between archaeal and bacterial partners. The
+    partnership enables complete nitrification from ammonium to nitrate, feeding nitrate to
+    downstream denitrifiers.
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+    concentration: Oxidized by archaeon
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+    concentration: Produced by archaeon, consumed by bacterium
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+    concentration: Produced by bacterium
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      predict nitrogen cycling patterns with site-specific insight into the chemical and
+      biological drivers of nitrification and denitrification processes
+    explanation: >-
+      Demonstrates coupled nitrification as a key process in the Columbia River sediment community.
+- name: Nitrate-to-Nitrogen Gas Denitrification
+  description: >-
+    Two Steroidobacteraceae denitrifiers consume nitrate produced by nitrifying organisms
+    and reduce it through denitrification to nitrogen gas. This terminal step in the nitrogen
+    cycle completes the transformation of fixed nitrogen back to atmospheric N2. The denitrifiers
+    depend on upstream nitrification to provide nitrate substrate, demonstrating sequential
+    metabolic coupling across the community. Genome-scale models revealed that denitrifiers
+    utilize 15 to 23 unique carbon sources including betaine, leucine, and choline, enabling
+    precise identification of biogeochemical limiting factors.
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+    concentration: Consumed by denitrifiers
+  - preferred_term: nitrogen
+    term:
+      id: CHEBI:17997
+      label: nitrogen
+    concentration: Produced as N2 gas
+  - preferred_term: betaine
+    term:
+      id: CHEBI:17750
+      label: betaine
+    concentration: Carbon source for denitrifiers
+  - preferred_term: leucine
+    term:
+      id: CHEBI:15603
+      label: leucine
+    concentration: Carbon source for denitrifiers
+  - preferred_term: choline
+    term:
+      id: CHEBI:15354
+      label: choline
+    concentration: Carbon source for denitrifiers
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      GSMs identified additional carbon sources utilized, enabling more precise identification
+      of the biogeochemical limiting factors in the system
+    explanation: >-
+      Demonstrates that denitrifiers utilize diverse carbon sources beyond traditional models.
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      predict nitrogen cycling patterns with site-specific insight into the chemical and
+      biological drivers of nitrification and denitrification processes
+    explanation: >-
+      Establishes denitrification as a key process coupled to nitrification in the community.
 external_resources:
 - name: KBase narrative
   repository: KBASE
@@ -29,6 +218,14 @@ external_resources:
   url: https://kbase.us/n/71260/262/
   description: "ORT: KBase Workflow narrative page with merged community modeling steps."
   evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      The approach is applied to environmental metagenomic data from a river system predicted
+      nitrogen cycling patterns
+    explanation: >-
+      Supports that the KBase ORT workflow narrative uses Columbia River metagenomic data.
   - reference: PMID:29979655
     supports: SUPPORT
     evidence_source: COMPUTATIONAL

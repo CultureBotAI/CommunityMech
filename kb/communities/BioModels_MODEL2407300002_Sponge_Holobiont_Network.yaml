@@ -56,9 +56,150 @@ external_resources:
       community
     explanation: >-
       Demonstrates nutrient-dependent metabolic flexibility in the holobiont network.
-notes: >-
-  Eight-species metabolic network includes seven bacterial and one archaeal species
-  (ammonia-oxidizing archaea, nitrite-oxidizing bacteria, and a newly discovered bacterial
-  taxon involved in cross-feeding). Full taxonomy and interactions require access to
-  supplementary materials from doi:10.1038/s41467-024-55222-w (Nature Communications, Dec 2024).
-  Community deferred pending supplementary data extraction.
+taxonomy:
+- taxon_term:
+    preferred_term: Ammonia-oxidizing archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: >-
+      Ammonia-oxidizing archaeon from Stylissa holobiont. Specific species identification
+      requires supplementary materials from doi:10.1038/s41467-024-55222-w. Likely
+      Nitrosopumilus-like based on typical sponge microbiome composition.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Eight genome-scale metabolic models representing seven bacterial and one archaeal
+      species constructed and manually curated based on metagenome-assembled genomes
+    explanation: >-
+      Establishes presence of archaeal species in the eight-member holobiont network.
+- taxon_term:
+    preferred_term: Nitrite-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: >-
+      Nitrite-oxidizing bacterium from Stylissa holobiont. Specific species identification
+      requires supplementary materials. Likely Nitrospira-like based on typical sponge
+      microbiome composition.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Eight genome-scale metabolic models representing seven bacterial and one archaeal
+      species constructed and manually curated based on metagenome-assembled genomes
+    explanation: >-
+      Establishes presence of bacterial species in the eight-member holobiont network.
+- taxon_term:
+    preferred_term: Novel cross-feeding bacterial taxon
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: >-
+      Newly discovered bacterial taxon with key role in cross-feeding activities. Dynamically
+      adjusts metabolism with nutrient inputs. Specific taxonomic identification requires
+      supplementary materials from doi:10.1038/s41467-024-55222-w.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      the key role that a newly discovered bacterial taxon has in cross-feeding activities
+    explanation: >-
+      Identifies a novel bacterial taxon with central cross-feeding role in holobiont
+      metabolism.
+ecological_interactions:
+- name: Coupled Nitrification in Stylissa Holobiont
+  description: >-
+    Ammonia-oxidizing archaea (AOA) and nitrite-oxidizing bacteria (NOB) form a coupled
+    nitrification network in the Stylissa holobiont. AOA oxidize ammonia to nitrite,
+    which is then consumed by NOB to produce nitrate. This syntrophic coupling is
+    fundamental to nitrogen cycling in the sponge microbiome and demonstrates metabolic
+    interdependence between archaeal and bacterial partners. The partnership enables
+    complete nitrification and contributes to nutrient cycling within the holobiont.
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+    concentration: Oxidized by AOA
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+    concentration: Produced by AOA, consumed by NOB
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+    concentration: Produced by NOB
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Eight genome-scale metabolic models representing seven bacterial and one archaeal
+      species constructed and manually curated based on metagenome-assembled genomes
+    explanation: >-
+      Supports presence of both AOA and bacterial species enabling coupled nitrification
+      in the holobiont.
+- name: Nutrient-Responsive Cross-Feeding Network
+  description: >-
+    A newly discovered bacterial taxon serves a key role in cross-feeding activities
+    within the Stylissa holobiont, dynamically adjusting its metabolism with nutrient
+    inputs. This organism mediates metabolic exchanges among community members, enabling
+    resource sharing and metabolic flexibility. Different organic nutrient inputs (such
+    as HT and laurate) result in the symbiont community exhibiting net heterotrophy
+    or autotrophy, demonstrating nutrient-dependent metabolic flexibility coordinated
+    through cross-feeding interactions.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      the key role that a newly discovered bacterial taxon has in cross-feeding activities
+    explanation: >-
+      Identifies a bacterial taxon central to cross-feeding dynamics in the holobiont
+      network.
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      different organic inputs can result in net heterotrophy or autotrophy of the
+      symbiont community
+    explanation: >-
+      Demonstrates nutrient-responsive metabolic flexibility mediated by cross-feeding.
+- name: Sponge-Derived Nutrient Provisioning to Microbiome
+  description: >-
+    The sponge host (Stylissa sp.) provides essential nutrients to the microbial community,
+    which are critical for microbiome stability. Metabolic modeling reveals that sponge-derived
+    metabolites define the metabolic capacity of the symbiont network and enable community
+    persistence. This host-to-microbe nutrient flow represents a fundamental mutualistic
+    relationship where the host supplies resources that structure the eight-species
+    microbial community and drive their metabolic interactions.
+  interaction_type: MUTUALISM
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Eight genome-scale metabolic models representing seven bacterial and one archaeal
+      species constructed and manually curated based on metagenome-assembled genomes
+    explanation: >-
+      Supports host-microbiome metabolic integration in the Stylissa holobiont.
