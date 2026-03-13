@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-09T01:02:36
+# Generation date: 2026-03-12T23:15:12
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -86,7 +86,8 @@ class PMID(str):
 
 
 # Class references
-
+class MicrobialCommunityId(extended_str):
+    pass
 
 
 @dataclass(repr=False)
@@ -802,6 +803,7 @@ class MicrobialCommunity(YAMLRoot):
     class_name: ClassVar[str] = "MicrobialCommunity"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.MicrobialCommunity
 
+    id: Union[str, MicrobialCommunityId] = None
     name: str = None
     description: Optional[str] = None
     ecological_state: Optional[Union[str, "EcologicalStateEnum"]] = None
@@ -821,6 +823,11 @@ class MicrobialCommunity(YAMLRoot):
     metal_notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MicrobialCommunityId):
+            self.id = MicrobialCommunityId(self.id)
+
         if self._is_empty(self.name):
             self.MissingRequiredField("name")
         if not isinstance(self.name, str):
@@ -1720,6 +1727,10 @@ slots.communityEngineeringDesign__notes = Slot(uri=COMMUNITYMECH.notes, name="co
 
 slots.communityEngineeringDesign__evidence = Slot(uri=COMMUNITYMECH.evidence, name="communityEngineeringDesign__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.communityEngineeringDesign__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
+slots.microbialCommunity__id = Slot(uri=COMMUNITYMECH.id, name="microbialCommunity__id", curie=COMMUNITYMECH.curie('id'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__id, domain=None, range=URIRef,
+                   pattern=re.compile(r'^CommunityMech:\d{6}$'))
 
 slots.microbialCommunity__name = Slot(uri=COMMUNITYMECH.name, name="microbialCommunity__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.microbialCommunity__name, domain=None, range=str)
