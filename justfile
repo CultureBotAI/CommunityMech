@@ -146,3 +146,11 @@ suggest-network-repairs-limited MAX='10':
 # Apply approved suggestions from batch report
 apply-batch-repairs REPORT:
     uv run communitymech repair-network-batch --apply-from {{REPORT}}
+
+# Link growth media to CultureMech/MediaIngredientMech (dry-run)
+link-media-dry:
+    uv run python scripts/link_growth_media.py --dry-run
+
+# Link growth media to CultureMech/MediaIngredientMech (apply)
+link-media:
+    uv run python scripts/link_growth_media.py
