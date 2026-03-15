@@ -207,6 +207,16 @@
             margin-top: 1rem;
         }
 
+        .plot-container {
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        #umap-plot svg {
+            max-width: 100%;
+            height: auto;
+        }
+
         /* Filter panel */
         .filter-panel {
             background: var(--surface);
@@ -275,8 +285,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            padding: 0.5rem 0;
+            background: transparent;
+            border: none;
             cursor: pointer;
             margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .facet-header:hover {
+            background: var(--surface);
+        }
+
+        .facet-header:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
 
         .facet-header h3 {
@@ -426,7 +450,7 @@
     <div class="container">
         <header>
             <h1>🔬 Community Embedding Space</h1>
-            <p class="subtitle">UMAP projection of 73 microbial communities based on taxonomic composition</p>
+            <p class="subtitle">UMAP projection of 74 microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
         </header>
 
@@ -460,7 +484,7 @@
                     <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
                 </div>
                 <div class="search-results-count">
-                    Showing <span id="results-count">73</span> of 73 communities
+                    Showing <span id="results-count">74</span> of 74 communities
                 </div>
 
                 <!-- Active filters summary -->
@@ -474,10 +498,10 @@
 
                 <!-- Category facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('category-facet')">
+                    <button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
                         <h3>Category</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="category-facet" class="facet-body">
                         <div class="facet-actions">
                             <button class="select-all" data-facet="category">All</button>
@@ -489,10 +513,10 @@
 
                 <!-- Ecological state facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('state-facet')">
+                    <button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
                         <h3>Ecological State</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="state-facet" class="facet-body">
                         <div id="state-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -500,10 +524,10 @@
 
                 <!-- Origin facet -->
                 <div class="facet-section">
-                    <div class="facet-header" onclick="toggleFacet('origin-facet')">
+                    <button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
                         <h3>Origin</h3>
-                        <span class="facet-toggle">−</span>
-                    </div>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
                     <div id="origin-facet" class="facet-body">
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
@@ -536,8 +560,8 @@
   {
     "id": "AMD_Acidophile_Heterotroph_Network",
     "name": "AMD Acidophile Heterotroph Network",
-    "umap_x": 5.335850238800049,
-    "umap_y": 12.18360424041748,
+    "umap_x": -0.19081178307533264,
+    "umap_y": 3.1725010871887207,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -550,8 +574,8 @@
   {
     "id": "AMD_Nitrososphaerota_Archaeal",
     "name": "AMD Nitrososphaerota Archaeal Community",
-    "umap_x": 5.422664165496826,
-    "umap_y": 11.760801315307617,
+    "umap_x": -1.323296070098877,
+    "umap_y": 2.7582950592041016,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -562,24 +586,10 @@
     "url": "communities/AMD_Nitrososphaerota_Archaeal.html"
   },
   {
-    "id": "Aspergillus_Indium_LED_Recovery",
-    "name": "Aspergillus Indium LED Recovery Platform",
-    "umap_x": 6.352931976318359,
-    "umap_y": 10.047120094299316,
-    "category": "BIOMINING",
-    "ecological_state": "ENGINEERED",
-    "origin": "ENGINEERED",
-    "environment": "laboratory bioreactor",
-    "num_taxa": 1,
-    "num_interactions": 4,
-    "coverage_pct": 100.0,
-    "url": "communities/Aspergillus_Indium_LED_Recovery.html"
-  },
-  {
     "id": "At_RSPHERE_SynCom",
     "name": "At-RSPHERE SynCom",
-    "umap_x": 7.596687316894531,
-    "umap_y": 7.634818077087402,
+    "umap_x": -3.9734864234924316,
+    "umap_y": 0.39806419610977173,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -592,8 +602,8 @@
   {
     "id": "Australian_Lead_Zinc_Polymetallic",
     "name": "Australian Lead Zinc Polymetallic Tailings Consortium",
-    "umap_x": 4.720704555511475,
-    "umap_y": 12.182576179504395,
+    "umap_x": -0.7304470539093018,
+    "umap_y": 3.303682327270508,
     "category": "BIOREMEDIATION",
     "ecological_state": "PERTURBED",
     "origin": "NATURAL",
@@ -606,8 +616,8 @@
   {
     "id": "Bayan_Obo_REE_Tailings_Consortium",
     "name": "Bayan Obo REE Tailings Consortium",
-    "umap_x": 5.32612943649292,
-    "umap_y": 12.934501647949219,
+    "umap_x": -0.05995837599039078,
+    "umap_y": 3.6052801609039307,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -618,52 +628,80 @@
     "url": "communities/Bayan_Obo_REE_Tailings_Consortium.html"
   },
   {
-    "id": "BioModels_MODEL2204300002_Kefir_Rothia_Model",
-    "name": "BioModels MODEL2204300002 Kefir Rothia Model",
-    "umap_x": 6.850636959075928,
-    "umap_y": 8.550395011901855,
+    "id": "BioModels_MODEL2204300001_Kefir_Community_Model",
+    "name": "BioModels MODEL2204300001 Kefir Community Model",
+    "umap_x": -2.955209970474243,
+    "umap_y": 0.8454476594924927,
     "category": "BIOTECHNOLOGY",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
     "environment": "laboratory environment",
-    "num_taxa": 1,
-    "num_interactions": 0,
-    "coverage_pct": 100.0,
-    "url": "communities/BioModels_MODEL2204300002_Kefir_Rothia_Model.html"
+    "num_taxa": 6,
+    "num_interactions": 4,
+    "coverage_pct": 50.0,
+    "url": "communities/BioModels_MODEL2204300001_Kefir_Community_Model.html"
   },
   {
     "id": "BioModels_MODEL2209060002_DPigrum_SAureus_Community",
     "name": "BioModels MODEL2209060002 D pigrum - S aureus Community",
-    "umap_x": 5.684395790100098,
-    "umap_y": 9.640564918518066,
+    "umap_x": -2.441847085952759,
+    "umap_y": 0.7826196551322937,
     "category": "OTHER",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
     "environment": "laboratory environment",
     "num_taxa": 2,
-    "num_interactions": 0,
+    "num_interactions": 1,
     "coverage_pct": 100.0,
     "url": "communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.html"
   },
   {
+    "id": "BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom",
+    "name": "BioModels MODEL2405300001 Infant Gut HMO SynCom",
+    "umap_x": -2.522212266921997,
+    "umap_y": 1.295761227607727,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory environment",
+    "num_taxa": 13,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.html"
+  },
+  {
+    "id": "BioModels_MODEL2407300002_Sponge_Holobiont_Network",
+    "name": "BioModels MODEL2407300002 Sponge Holobiont Network",
+    "umap_x": -1.5745854377746582,
+    "umap_y": 1.4635123014450073,
+    "category": "OTHER",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Not specified",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.html"
+  },
+  {
     "id": "Chlamydomonas_Bacterial_H2_Consortium",
     "name": "Chlamydomonas-Bacterial Hydrogen Production Consortium",
-    "umap_x": 6.468229293823242,
-    "umap_y": 8.723896026611328,
+    "umap_x": -3.5970401763916016,
+    "umap_y": 1.5815789699554443,
     "category": "PHYTOPLANKTON",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
     "environment": "laboratory bioreactor",
     "num_taxa": 4,
     "num_interactions": 3,
-    "coverage_pct": 75.0,
+    "coverage_pct": 50.0,
     "url": "communities/Chlamydomonas_Bacterial_H2_Consortium.html"
   },
   {
     "id": "Chlamydomonas_Methylobacterium_Mutualism",
     "name": "Chlamydomonas-Methylobacterium Mutualistic Consortium",
-    "umap_x": 7.075538158416748,
-    "umap_y": 8.687997817993164,
+    "umap_x": -3.6456801891326904,
+    "umap_y": 1.0731185674667358,
     "category": "PHYTOPLANKTON",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -676,8 +714,8 @@
   {
     "id": "Chlorella_Rhizobium_Bioflocculation",
     "name": "Chlorella-Rhizobium Bioflocculation",
-    "umap_x": 3.756462812423706,
-    "umap_y": 10.662314414978027,
+    "umap_x": -4.470812797546387,
+    "umap_y": 0.4894890785217285,
     "category": "PHYTOPLANKTON",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -690,8 +728,8 @@
   {
     "id": "Chromium_Sulfur_Reduction_Enrichment",
     "name": "Chromium Sulfur Reduction Enrichment",
-    "umap_x": 7.744033336639404,
-    "umap_y": 9.005861282348633,
+    "umap_x": -4.578344821929932,
+    "umap_y": 1.2533273696899414,
     "category": "METAL_REDUCTION",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -702,24 +740,10 @@
     "url": "communities/Chromium_Sulfur_Reduction_Enrichment.html"
   },
   {
-    "id": "Chromobacterium_Gold_Biocyanidation",
-    "name": "Chromobacterium Gold Biocyanidation Platform",
-    "umap_x": 6.72406530380249,
-    "umap_y": 8.153709411621094,
-    "category": "BIOTECHNOLOGY",
-    "ecological_state": "ENGINEERED",
-    "origin": "ENGINEERED",
-    "environment": "mine tailing",
-    "num_taxa": 1,
-    "num_interactions": 4,
-    "coverage_pct": 100.0,
-    "url": "communities/Chromobacterium_Gold_Biocyanidation.html"
-  },
-  {
     "id": "Cinnamate_Degradation_Consortium",
     "name": "Cinnamate \u03b2-Oxidation Consortium",
-    "umap_x": 3.24239444732666,
-    "umap_y": 10.938712120056152,
+    "umap_x": -1.9339877367019653,
+    "umap_y": 0.34797585010528564,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -732,8 +756,8 @@
   {
     "id": "Copper_Biomining_Heap_Leach",
     "name": "Copper Biomining Heap Leach Consortium",
-    "umap_x": 4.667097091674805,
-    "umap_y": 12.394721984863281,
+    "umap_x": -0.5369513034820557,
+    "umap_y": 3.578315019607544,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -746,8 +770,8 @@
   {
     "id": "Coscinodiscus_Synthetic_Community",
     "name": "Coscinodiscus Synthetic Community",
-    "umap_x": 5.895320892333984,
-    "umap_y": 10.515815734863281,
+    "umap_x": -2.9944605827331543,
+    "umap_y": 0.4435957968235016,
     "category": "PHYTOPLANKTON",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -760,8 +784,8 @@
   {
     "id": "DVM_Triculture",
     "name": "DVM Tri-culture",
-    "umap_x": 3.687493324279785,
-    "umap_y": 11.226722717285156,
+    "umap_x": -2.4782233238220215,
+    "umap_y": 3.248464584350586,
     "category": "METHANOGENESIS",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -774,8 +798,8 @@
   {
     "id": "Dangl_SynComm_35",
     "name": "Jeff Dangl's SynComm 35",
-    "umap_x": 7.533004283905029,
-    "umap_y": 8.819748878479004,
+    "umap_x": -4.128664970397949,
+    "umap_y": 1.1701347827911377,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -788,8 +812,8 @@
   {
     "id": "Desulfovibrio_Methanococcus_Syntrophy",
     "name": "Desulfovibrio-Methanococcus Syntrophic Consortium",
-    "umap_x": 3.746198892593384,
-    "umap_y": 11.073049545288086,
+    "umap_x": -2.1548588275909424,
+    "umap_y": 3.2850887775421143,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -802,8 +826,8 @@
   {
     "id": "ENIGMA_Denitrifying_SynCom",
     "name": "ENIGMA Denitrifying SynCom",
-    "umap_x": 7.121265888214111,
-    "umap_y": 7.65595006942749,
+    "umap_x": -2.9601058959960938,
+    "umap_y": 1.5695494413375854,
     "category": "BIOREMEDIATION",
     "ecological_state": "ENGINEERED",
     "origin": "SYNTHETIC",
@@ -816,8 +840,8 @@
   {
     "id": "EcoFAB_Ring_Trial_SynCom17",
     "name": "EcoFAB 2.0 Root Microbiome Ring Trial SynCom17",
-    "umap_x": 6.852676868438721,
-    "umap_y": 9.061969757080078,
+    "umap_x": -3.518749952316284,
+    "umap_y": 1.477869987487793,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "SYNTHETIC",
@@ -830,8 +854,8 @@
   {
     "id": "Ewaste_Bioleaching_Consortium",
     "name": "E-waste Bioleaching Consortium",
-    "umap_x": 4.8132500648498535,
-    "umap_y": 12.750751495361328,
+    "umap_x": -0.00664780056104064,
+    "umap_y": 3.4948582649230957,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -844,8 +868,8 @@
   {
     "id": "Ferroplasma_Leptospirillum_Syntrophy",
     "name": "Ferroplasma-Leptospirillum Iron-Cycling Syntrophy",
-    "umap_x": 4.90154504776001,
-    "umap_y": 12.176844596862793,
+    "umap_x": -0.9590296745300293,
+    "umap_y": 3.3262481689453125,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -858,22 +882,22 @@
   {
     "id": "GLBRC_Populus_Variovorax_SynCom28",
     "name": "GLBRC Populus Variovorax SynCom28",
-    "umap_x": 7.202643394470215,
-    "umap_y": 8.472996711730957,
+    "umap_x": -4.237582206726074,
+    "umap_y": -0.14517901837825775,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "SYNTHETIC",
     "environment": "rhizosphere",
     "num_taxa": 28,
-    "num_interactions": 0,
+    "num_interactions": 3,
     "coverage_pct": 100.0,
     "url": "communities/GLBRC_Populus_Variovorax_SynCom28.html"
   },
   {
     "id": "GLBRC_UFMP_Fermentation_Community",
     "name": "GLBRC Ultra-Filtered Milk Permeate Fermentation Community",
-    "umap_x": 5.93159294128418,
-    "umap_y": 10.055113792419434,
+    "umap_x": -2.822713613510132,
+    "umap_y": 1.0180176496505737,
     "category": "BIOTECHNOLOGY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -886,8 +910,8 @@
   {
     "id": "GOM_Oil_Degrading_Consortium",
     "name": "Gulf of Mexico Oil-Degrading Consortium",
-    "umap_x": 6.7852373123168945,
-    "umap_y": 7.113464832305908,
+    "umap_x": -3.6232733726501465,
+    "umap_y": 0.5503012537956238,
     "category": "BIOREMEDIATION",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -900,8 +924,8 @@
   {
     "id": "Geobacter_Clostridium_DIET",
     "name": "Geobacter-Clostridium DIET Community",
-    "umap_x": 4.53416633605957,
-    "umap_y": 11.422757148742676,
+    "umap_x": -2.408296823501587,
+    "umap_y": 3.8133890628814697,
     "category": "DIET",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -914,8 +938,8 @@
   {
     "id": "Geobacter_Methanosaeta_DIET",
     "name": "Geobacter-Methanosaeta DIET Community",
-    "umap_x": 4.06240177154541,
-    "umap_y": 11.622976303100586,
+    "umap_x": -2.4948716163635254,
+    "umap_y": 3.8843026161193848,
     "category": "DIET",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -928,8 +952,8 @@
   {
     "id": "Geobacter_Methanosarcina_DIET",
     "name": "Geobacter-Methanosarcina DIET Community",
-    "umap_x": 4.012508392333984,
-    "umap_y": 11.529423713684082,
+    "umap_x": -2.7076613903045654,
+    "umap_y": 3.6434104442596436,
     "category": "DIET",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -942,8 +966,8 @@
   {
     "id": "Iberian_Pit_Lake_Stratified_Community",
     "name": "Iberian Pit Lake Stratified Community",
-    "umap_x": 5.620964050292969,
-    "umap_y": 11.354667663574219,
+    "umap_x": -0.5902840495109558,
+    "umap_y": 2.751486301422119,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -956,8 +980,8 @@
   {
     "id": "Industrial_Bioreactor_Consortium",
     "name": "Industrial Bioleaching Reactor Consortium",
-    "umap_x": 5.236539363861084,
-    "umap_y": 11.576166152954102,
+    "umap_x": -1.372968077659607,
+    "umap_y": 3.3263590335845947,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -970,8 +994,8 @@
   {
     "id": "Ion_Adsorption_REE_Indigenous_Community",
     "name": "Ion-Adsorption REE Indigenous Community",
-    "umap_x": 6.677934169769287,
-    "umap_y": 10.924001693725586,
+    "umap_x": -1.814690351486206,
+    "umap_y": 1.8382039070129395,
     "category": "BIOTECHNOLOGY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -982,24 +1006,52 @@
     "url": "communities/Ion_Adsorption_REE_Indigenous_Community.html"
   },
   {
+    "id": "KBase_Models_for_Zahmeeth_Original_PLOS",
+    "name": "KBase Models for Zahmeeth Original PLOS",
+    "umap_x": -3.1155786514282227,
+    "umap_y": 0.10801586508750916,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_Models_for_Zahmeeth_Original_PLOS.html"
+  },
+  {
+    "id": "KBase_ORT_Workflow_Community_Model",
+    "name": "KBase ORT Workflow Community Model",
+    "umap_x": -1.2589037418365479,
+    "umap_y": 2.4222073554992676,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "river sediment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_ORT_Workflow_Community_Model.html"
+  },
+  {
     "id": "KBase_Synthetic_Bacterial_Community_R2A",
     "name": "KBase Synthetic Bacterial Community in R2A Medium",
-    "umap_x": 6.980250835418701,
-    "umap_y": 6.973784923553467,
+    "umap_x": -3.786933422088623,
+    "umap_y": -0.16227489709854126,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "SYNTHETIC",
     "environment": "rhizosphere",
     "num_taxa": 3,
-    "num_interactions": 0,
+    "num_interactions": 3,
     "coverage_pct": 100.0,
     "url": "communities/KBase_Synthetic_Bacterial_Community_R2A.html"
   },
   {
     "id": "Lotus_LjSC3",
     "name": "Lotus Lj-SC3 Synthetic Community",
-    "umap_x": 6.698470592498779,
-    "umap_y": 9.685670852661133,
+    "umap_x": -3.1269638538360596,
+    "umap_y": 1.789698839187622,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1012,8 +1064,8 @@
   {
     "id": "MAMC_M48_Lignocellulose",
     "name": "MAMC-M48 Lignocellulose-Degrading Consortium",
-    "umap_x": 6.365224361419678,
-    "umap_y": 8.232878684997559,
+    "umap_x": -3.9207727909088135,
+    "umap_y": 0.8673566579818726,
     "category": "LIGNOCELLULOSE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1026,8 +1078,8 @@
   {
     "id": "MSC1_Dominant_Core",
     "name": "MSC-1 Dominant Core",
-    "umap_x": 7.439002990722656,
-    "umap_y": 7.750172138214111,
+    "umap_x": -2.9102985858917236,
+    "umap_y": 1.7513151168823242,
     "category": "BIOREMEDIATION",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1040,8 +1092,8 @@
   {
     "id": "Maize_Root_Simplified_Community",
     "name": "Maize Root Simplified Bacterial Community",
-    "umap_x": 6.21904182434082,
-    "umap_y": 8.125472068786621,
+    "umap_x": -3.729649305343628,
+    "umap_y": 0.6866102814674377,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1054,8 +1106,8 @@
   {
     "id": "Mercury_SFA_EFPC_Sediment_Community",
     "name": "Mercury SFA East Fork Poplar Creek Sediment Community",
-    "umap_x": 6.166220664978027,
-    "umap_y": 11.036131858825684,
+    "umap_x": -1.754827618598938,
+    "umap_y": 2.0648107528686523,
     "category": "BIOREMEDIATION",
     "ecological_state": "PERTURBED",
     "origin": "NATURAL",
@@ -1066,24 +1118,10 @@
     "url": "communities/Mercury_SFA_EFPC_Sediment_Community.html"
   },
   {
-    "id": "Methylobacterium_REE_Ewaste_Platform",
-    "name": "Methylobacterium REE E-waste Platform",
-    "umap_x": 6.413887977600098,
-    "umap_y": 7.703221797943115,
-    "category": "BIOMINING",
-    "ecological_state": "ENGINEERED",
-    "origin": "ENGINEERED",
-    "environment": "contaminated soil",
-    "num_taxa": 1,
-    "num_interactions": 4,
-    "coverage_pct": 100.0,
-    "url": "communities/Methylobacterium_REE_Ewaste_Platform.html"
-  },
-  {
     "id": "Mixed_Gallium_LED_Recovery_Consortium",
     "name": "Mixed Gallium LED Recovery Consortium",
-    "umap_x": 5.188926696777344,
-    "umap_y": 12.737383842468262,
+    "umap_x": -0.33388808369636536,
+    "umap_y": 3.8298048973083496,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1096,8 +1134,8 @@
   {
     "id": "Naica_Deep_Subsurface_Thermophilic",
     "name": "Naica Deep Subsurface Thermophilic Community",
-    "umap_x": 6.279340744018555,
-    "umap_y": 11.282183647155762,
+    "umap_x": -1.565110683441162,
+    "umap_y": 1.9793866872787476,
     "category": "EXTREME_ENVIRONMENT",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1110,8 +1148,8 @@
   {
     "id": "ORNL_PMI_Populus_PD10_SynCom",
     "name": "ORNL PMI Populus PD10 SynCom",
-    "umap_x": 7.132894039154053,
-    "umap_y": 7.41309928894043,
+    "umap_x": -3.466684579849243,
+    "umap_y": 0.3164951205253601,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "SYNTHETIC",
@@ -1124,8 +1162,8 @@
   {
     "id": "Okeke_Lu_Cellulolytic_Consortium",
     "name": "Okeke-Lu Cellulolytic-Xylanolytic Consortium",
-    "umap_x": 6.344756603240967,
-    "umap_y": 9.59140682220459,
+    "umap_x": -2.6953673362731934,
+    "umap_y": 0.09012016654014587,
     "category": "LIGNOCELLULOSE",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1138,8 +1176,8 @@
   {
     "id": "PGM_Spent_Catalyst_Bioleaching",
     "name": "PGM Spent Catalyst Bioleaching Consortium",
-    "umap_x": 5.0331244468688965,
-    "umap_y": 12.879776000976562,
+    "umap_x": -0.18238714337348938,
+    "umap_y": 3.8675599098205566,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1152,8 +1190,8 @@
   {
     "id": "PMI_Variovorax_Thermotolerance_Collection",
     "name": "PMI Variovorax Thermotolerance Collection",
-    "umap_x": 7.208929538726807,
-    "umap_y": 8.16915512084961,
+    "umap_x": -4.1318864822387695,
+    "umap_y": -0.3115985691547394,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1166,8 +1204,8 @@
   {
     "id": "Panzhihua_Vanadium_Titanium_Tailings",
     "name": "Panzhihua Vanadium Titanium Tailings Community",
-    "umap_x": 7.643954277038574,
-    "umap_y": 8.070090293884277,
+    "umap_x": -4.127016544342041,
+    "umap_y": 1.6859649419784546,
     "category": "BIOREMEDIATION",
     "ecological_state": "PERTURBED",
     "origin": "NATURAL",
@@ -1180,8 +1218,8 @@
   {
     "id": "Pelotomaculum_Methanothermobacter_Syntrophy",
     "name": "Pelotomaculum-Methanothermobacter Syntrophic Consortium",
-    "umap_x": 3.2474255561828613,
-    "umap_y": 10.27045726776123,
+    "umap_x": -2.1158487796783447,
+    "umap_y": -0.31019437313079834,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1194,8 +1232,8 @@
   {
     "id": "Phenol_Carboxylation_Consortium",
     "name": "Phenol Carboxylation Consortium",
-    "umap_x": 6.533443927764893,
-    "umap_y": 7.299815654754639,
+    "umap_x": -1.4092209339141846,
+    "umap_y": 1.5775705575942993,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1208,8 +1246,8 @@
   {
     "id": "Phormidium_Alkaline_Consortium",
     "name": "Phormidium Alkaline Consortium",
-    "umap_x": 6.429243564605713,
-    "umap_y": 11.22262191772461,
+    "umap_x": -2.3211593627929688,
+    "umap_y": 1.4310485124588013,
     "category": "CARBON_SEQUESTRATION",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1222,8 +1260,8 @@
   {
     "id": "Polaromonas_Vanadium_Reduction_Community",
     "name": "Polaromonas Vanadium Reduction Community",
-    "umap_x": 6.069690704345703,
-    "umap_y": 8.447366714477539,
+    "umap_x": -3.058140277862549,
+    "umap_y": 3.2107934951782227,
     "category": "OTHER",
     "ecological_state": "PERTURBED",
     "origin": "NATURAL",
@@ -1236,8 +1274,8 @@
   {
     "id": "Pseudonitzschia_Sulfitobacter_Association",
     "name": "Pseudo-nitzschia-Sulfitobacter Marine Association",
-    "umap_x": 6.490307807922363,
-    "umap_y": 10.284906387329102,
+    "umap_x": -2.6309256553649902,
+    "umap_y": 1.5109738111495972,
     "category": "PHYTOPLANKTON",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1250,8 +1288,8 @@
   {
     "id": "Rammelsberg_Cobalt_Nickel_Tailings",
     "name": "Rammelsberg Cobalt-Nickel Tailings Consortium",
-    "umap_x": 5.137479305267334,
-    "umap_y": 13.109345436096191,
+    "umap_x": -0.030790315940976143,
+    "umap_y": 3.752592086791992,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1264,8 +1302,8 @@
   {
     "id": "Rice_Duckweed_Bacillus_SynCom",
     "name": "Rice-Duckweed Bacillus Biocontrol SynCom",
-    "umap_x": 7.850104331970215,
-    "umap_y": 9.22783088684082,
+    "umap_x": -4.595498561859131,
+    "umap_y": 1.354771614074707,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1278,8 +1316,8 @@
   {
     "id": "Richmond_Mine_AMD_Biofilm",
     "name": "Richmond Mine AMD Biofilm",
-    "umap_x": 5.5276265144348145,
-    "umap_y": 11.864823341369629,
+    "umap_x": -1.0369207859039307,
+    "umap_y": 3.0378081798553467,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1292,8 +1330,8 @@
   {
     "id": "Rifle_Uranium_Reducing_Community",
     "name": "Rifle Uranium-Reducing Community",
-    "umap_x": 4.316126823425293,
-    "umap_y": 11.212043762207031,
+    "umap_x": -2.5919322967529297,
+    "umap_y": 3.5131075382232666,
     "category": "BIOREMEDIATION",
     "ecological_state": "PERTURBED",
     "origin": "NATURAL",
@@ -1306,8 +1344,8 @@
   {
     "id": "SF356_Cellulose_Degrader",
     "name": "SF356 Thermophilic Cellulose-Degrading Community",
-    "umap_x": 6.312337398529053,
-    "umap_y": 10.276755332946777,
+    "umap_x": -2.851411819458008,
+    "umap_y": 0.5108457803726196,
     "category": "LIGNOCELLULOSE",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1320,8 +1358,8 @@
   {
     "id": "Salar_Atacama_Lithium_Brine_Community",
     "name": "Salar de Atacama Lithium Brine Community",
-    "umap_x": 6.3212127685546875,
-    "umap_y": 10.664302825927734,
+    "umap_x": -3.187347888946533,
+    "umap_y": 1.2646733522415161,
     "category": "EXTREME_ENVIRONMENT",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1334,8 +1372,8 @@
   {
     "id": "Sorghum_SRC1_Subset",
     "name": "Sorghum SRC1 Subset Community",
-    "umap_x": 6.747371196746826,
-    "umap_y": 7.655664443969727,
+    "umap_x": -4.48836088180542,
+    "umap_y": 0.880964994430542,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1348,8 +1386,8 @@
   {
     "id": "Soybean_N_Fixation_sfSynCom",
     "name": "Soybean N-Fixation Simplified SynCom",
-    "umap_x": 7.484430313110352,
-    "umap_y": 7.031156063079834,
+    "umap_x": -3.4677376747131348,
+    "umap_y": -0.24889503419399261,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1362,8 +1400,8 @@
   {
     "id": "Synechococcus_Bacillus_SPC",
     "name": "Synechococcus-Bacillus Synthetic Photosynthetic Consortium",
-    "umap_x": 6.073421001434326,
-    "umap_y": 7.936385154724121,
+    "umap_x": -2.6413891315460205,
+    "umap_y": 2.220979928970337,
     "category": "OTHER",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1376,8 +1414,8 @@
   {
     "id": "Synechococcus_Ecoli_SPC",
     "name": "Synechococcus-E.coli Synthetic Photosynthetic Consortium",
-    "umap_x": 5.429351806640625,
-    "umap_y": 10.798944473266602,
+    "umap_x": -2.4973318576812744,
+    "umap_y": 2.336697578430176,
     "category": "OTHER",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1390,8 +1428,8 @@
   {
     "id": "Synechococcus_Yarrowia_SPC",
     "name": "Synechococcus-Yarrowia Synthetic Photosynthetic Consortium",
-    "umap_x": 5.550398826599121,
-    "umap_y": 10.835158348083496,
+    "umap_x": -2.363246202468872,
+    "umap_y": 2.485758066177368,
     "category": "OTHER",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1404,8 +1442,8 @@
   {
     "id": "Syntrophobacter_Methanobacterium_Syntrophy",
     "name": "Syntrophobacter-Methanobacterium Syntrophic Consortium",
-    "umap_x": 2.979314088821411,
-    "umap_y": 10.909869194030762,
+    "umap_x": -1.6383534669876099,
+    "umap_y": -0.07137273252010345,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1418,8 +1456,8 @@
   {
     "id": "Syntrophobacter_Methanospirillum_Syntrophy",
     "name": "Syntrophobacter-Methanospirillum Syntrophic Consortium",
-    "umap_x": 3.367846727371216,
-    "umap_y": 10.57669448852539,
+    "umap_x": -1.52372407913208,
+    "umap_y": -0.3183773159980774,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1432,8 +1470,8 @@
   {
     "id": "Syntrophomonas_Methanospirillum_Syntrophy",
     "name": "Syntrophomonas-Methanospirillum Syntrophic Consortium",
-    "umap_x": 3.0067787170410156,
-    "umap_y": 10.57761287689209,
+    "umap_x": -1.7281725406646729,
+    "umap_y": -0.239523246884346,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1446,8 +1484,8 @@
   {
     "id": "Syntrophus_Benzoate_Degrader",
     "name": "Syntrophus Benzoate Degrader",
-    "umap_x": 3.193743944168091,
-    "umap_y": 10.396971702575684,
+    "umap_x": -1.8367466926574707,
+    "umap_y": -0.3438749611377716,
     "category": "SYNTROPHY",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1460,8 +1498,8 @@
   {
     "id": "TYQ1_Nematode_Biocontrol_SynCom",
     "name": "TYQ1 Nematode Biocontrol SynCom",
-    "umap_x": 7.968616962432861,
-    "umap_y": 8.515410423278809,
+    "umap_x": -4.188424110412598,
+    "umap_y": 1.1427236795425415,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1474,8 +1512,8 @@
   {
     "id": "Thermophilic_Pyrite_QS_Consortium",
     "name": "Thermophilic Pyrite Quorum Sensing Consortium",
-    "umap_x": 4.860495090484619,
-    "umap_y": 12.533857345581055,
+    "umap_x": -0.5461181998252869,
+    "umap_y": 3.738027334213257,
     "category": "BIOMINING",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1488,8 +1526,8 @@
   {
     "id": "Tinto_River_Iron_Cycling_Community",
     "name": "Tinto River Iron Cycling Community",
-    "umap_x": 5.509975910186768,
-    "umap_y": 12.29267406463623,
+    "umap_x": -0.34526386857032776,
+    "umap_y": 2.9822471141815186,
     "category": "AMD",
     "ecological_state": "STABLE",
     "origin": "NATURAL",
@@ -1502,8 +1540,8 @@
   {
     "id": "Trichoderma_Lactate_Platform",
     "name": "Trichoderma Lactate Platform for SCFA Production",
-    "umap_x": 5.71340274810791,
-    "umap_y": 9.887504577636719,
+    "umap_x": -2.4180405139923096,
+    "umap_y": 0.6986697316169739,
     "category": "LIGNOCELLULOSE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1516,8 +1554,8 @@
   {
     "id": "Wheat_Consortium_C1",
     "name": "Wheat Synthetic Consortium C1",
-    "umap_x": 6.967381000518799,
-    "umap_y": 9.210123062133789,
+    "umap_x": -3.4526071548461914,
+    "umap_y": 1.9574929475784302,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1530,8 +1568,8 @@
   {
     "id": "Wheat_Consortium_C6",
     "name": "Wheat Synthetic Consortium C6",
-    "umap_x": 6.820339679718018,
-    "umap_y": 7.048876762390137,
+    "umap_x": -4.284194469451904,
+    "umap_y": 0.36186328530311584,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1544,8 +1582,8 @@
   {
     "id": "mCAFEs_Brachypodium_RCC",
     "name": "m-CAFEs Brachypodium Reduced Complexity Consortia",
-    "umap_x": 7.504366874694824,
-    "umap_y": 8.474532127380371,
+    "umap_x": -3.8426406383514404,
+    "umap_y": 1.3872545957565308,
     "category": "RHIZOSPHERE",
     "ecological_state": "ENGINEERED",
     "origin": "ENGINEERED",
@@ -1850,18 +1888,25 @@
             }
         };
 
-        // Initialize facets on page load
-        function initializeFacets() {
-            // Count communities per category
+        // Helper function to count communities by facet values (DRY principle)
+        function countByFacets(data) {
             const categoryCounts = {};
             const stateCounts = {};
             const originCounts = {};
 
-            communityData.forEach(d => {
+            data.forEach(d => {
                 categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
                 stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
                 originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
             });
+
+            return { categoryCounts, stateCounts, originCounts };
+        }
+
+        // Initialize facets on page load
+        function initializeFacets() {
+            // Count communities per category
+            const { categoryCounts, stateCounts, originCounts } = countByFacets(communityData);
 
             // Generate category checkboxes sorted by count (descending)
             const categoryContainer = d3.select('#category-checkboxes');
@@ -2111,25 +2156,37 @@
             updateFiltering();
         }
 
-        // Select All / Clear All buttons
+        // Select All / Clear All buttons (optimized with batch updates)
         d3.selectAll('.select-all').on('click', function() {
             const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
             d3.selectAll(`input[data-facet="${facetType}"]`)
                 .each(function() {
                     this.checked = true;
-                    const event = new Event('change');
-                    this.dispatchEvent(event);
+                    filterState[setName].add(this.value);
                 });
+
+            // Single visualization update
+            updateFiltering();
         });
 
         d3.selectAll('.clear-all').on('click', function() {
             const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
             d3.selectAll(`input[data-facet="${facetType}"]`)
                 .each(function() {
                     this.checked = false;
-                    const event = new Event('change');
-                    this.dispatchEvent(event);
+                    filterState[setName].delete(this.value);
                 });
+
+            // Single visualization update
+            updateFiltering();
         });
 
         // Reset all filters
@@ -2143,14 +2200,17 @@
         // Toggle facet collapse/expand
         function toggleFacet(facetId) {
             const facetBody = d3.select(`#${facetId}`);
-            const toggle = facetBody.node().previousElementSibling.querySelector('.facet-toggle');
+            const button = facetBody.node().previousElementSibling;
+            const toggle = button.querySelector('.facet-toggle');
 
             if (facetBody.classed('collapsed')) {
                 facetBody.classed('collapsed', false);
                 toggle.textContent = '−';
+                button.setAttribute('aria-expanded', 'true');
             } else {
                 facetBody.classed('collapsed', true);
                 toggle.textContent = '+';
+                button.setAttribute('aria-expanded', 'false');
             }
         }
 
