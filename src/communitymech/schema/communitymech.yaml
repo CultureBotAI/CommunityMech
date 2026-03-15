@@ -172,6 +172,22 @@ enums:
       CROSS_FEEDER:
         description: Utilizes metabolites from other taxa
 
+  AtmosphereEnum:
+    description: Atmospheric/oxygen requirements for growth
+    permissible_values:
+      AEROBIC:
+        description: Requires oxygen for growth
+      ANAEROBIC:
+        description: Growth only in absence of oxygen (strict anaerobe)
+      MICROAEROBIC:
+        description: Requires low oxygen levels (typically 2-10%)
+      FACULTATIVE_ANAEROBIC:
+        description: Can grow with or without oxygen
+      FACULTATIVE_AEROBIC:
+        description: Preferentially aerobic but can grow anaerobically
+      CAPNOPHILIC:
+        description: Requires elevated CO2 levels
+
   DatasetTypeEnum:
     description: Type of omics or other dataset associated with a community
     permissible_values:
@@ -644,14 +660,57 @@ classes:
         multivalued: true
       ph:
         description: pH of the medium
+      ph_range:
+        description: pH range for growth (e.g., "5.5-7.0")
       temperature:
         description: Incubation temperature
       temperature_unit:
         description: Unit for temperature (e.g., °C, K)
+      temperature_range:
+        description: Temperature range for growth (e.g., "25-37")
       atmosphere:
-        description: Atmospheric conditions (aerobic, anaerobic, microaerobic)
+        description: Atmospheric/oxygen requirements
+        range: AtmosphereEnum
+      headspace_gas:
+        description: Gas composition in headspace (e.g., "N2/CO2 80:20", "H2/CO2 80:20")
+      salinity:
+        description: Salinity of the medium (NaCl equivalent)
+      salinity_unit:
+        description: Unit for salinity (%, M, g/L, ppt)
+      pressure:
+        description: Pressure for cultivation (relevant for extremophiles)
+      pressure_unit:
+        description: Unit for pressure (atm, bar, MPa, psi)
+      light_regime:
+        description: Light/dark cycle (e.g., "16h/8h", "continuous", "dark")
+      light_intensity:
+        description: Light intensity value
+      light_intensity_unit:
+        description: Unit for light intensity (μmol photons/m²/s, lux, W/m²)
+      redox_potential:
+        description: Oxidation-reduction potential
+      redox_potential_unit:
+        description: Unit for redox (mV vs SHE, Eh)
+      inoculum_source:
+        description: Source of inoculum
+      inoculum_size:
+        description: Initial cell density or transfer percentage
+      inoculum_unit:
+        description: Unit for inoculum (cells/mL, OD600, %v/v, CFU/mL)
+      incubation_time:
+        description: Duration of incubation
+      incubation_time_unit:
+        description: Unit for incubation time (hours, days, weeks)
+      shaking_speed:
+        description: Shaking/agitation speed for liquid cultures
+      shaking_speed_unit:
+        description: Unit for shaking (rpm, oscillations/min)
+      vessel_type:
+        description: Type of cultivation vessel (flask, tube, bioreactor, plate, etc.)
       preparation_notes:
         description: Additional preparation details or modifications
+      protocol_url:
+        description: URL to detailed protocol (e.g., protocols.io, dx.doi.org)
       evidence:
         description: Evidence for this growth medium
         range: EvidenceItem

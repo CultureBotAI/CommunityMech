@@ -201,3 +201,126 @@ metals_present:
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements; Metal/REE detected via keyword
   matching in description (context-validated)
+growth_media:
+- name: Anaerobic bicarbonate-buffered mineral medium for syntrophic butyrate oxidation
+  atmosphere: ANAEROBIC
+  ph: '7.2'
+  ph_range: 7.0-7.4
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  headspace_gas: N2/CO2 80:20
+  vessel_type: serum bottles with butyl rubber stoppers
+  incubation_time: '84'
+  incubation_time_unit: hours
+  preparation_notes: 'Medium prepared under strict anaerobic conditions using modified Hungate technique.
+    Medium boiled and cooled under N2/CO2 atmosphere, dispensed anaerobically into serum bottles, sealed
+    with butyl rubber stoppers, and autoclaved. Reducing agents (Na2S and cysteine) added from sterile
+    anaerobic stock solutions after autoclaving. Final pH adjusted to 7.2. Resazurin used as redox
+    indicator (colorless when reduced). Growth requires strict anaerobic conditions; addition of H2
+    gas to headspace inhibits butyrate degradation.
+
+    '
+  composition:
+  - name: Butyrate (sodium salt)
+    concentration: '10'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium butyrate
+      term:
+        id: CHEBI:88613
+        label: sodium butyrate
+  - name: Sodium bicarbonate
+    concentration: '30'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium hydrogencarbonate
+      term:
+        id: CHEBI:32139
+        label: sodium hydrogencarbonate
+  - name: Ammonium chloride
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: ammonium chloride
+      term:
+        id: CHEBI:31206
+        label: ammonium chloride
+  - name: Sodium phosphate buffer
+    concentration: '2.8'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium dihydrogen phosphate
+      term:
+        id: CHEBI:37585
+        label: sodium dihydrogen phosphate
+  - name: Potassium phosphate buffer
+    concentration: '3.5'
+    unit: mM
+    chebi_term:
+      preferred_term: dipotassium hydrogen phosphate
+      term:
+        id: CHEBI:131527
+        label: dipotassium hydrogen phosphate
+  - name: Magnesium chloride
+    concentration: '1'
+    unit: mM
+    chebi_term:
+      preferred_term: magnesium dichloride
+      term:
+        id: CHEBI:6636
+        label: magnesium dichloride
+  - name: Calcium chloride
+    concentration: '0.5'
+    unit: mM
+    chebi_term:
+      preferred_term: calcium dichloride
+      term:
+        id: CHEBI:3312
+        label: calcium dichloride
+  - name: Sodium sulfide
+    concentration: '1.2'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium sulfide
+      term:
+        id: CHEBI:87157
+        label: sodium sulfide
+  - name: L-Cysteine hydrochloride
+    concentration: '1.2'
+    unit: mM
+    chebi_term:
+      preferred_term: L-cysteine hydrochloride
+      term:
+        id: CHEBI:32447
+        label: L-cysteine hydrochloride
+  - name: Resazurin
+    concentration: '0.5'
+    unit: mg/L
+    chebi_term:
+      preferred_term: resazurin
+      term:
+        id: CHEBI:48953
+        label: resazurin
+  - name: Trace element solution SL-10
+    concentration: '1'
+    unit: mL/L
+  - name: Vitamin solution
+    concentration: '1'
+    unit: mL/L
+  - name: Yeast extract
+    concentration: '0.2'
+    unit: g/L
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth and degradation of fatty acids occur only in syntrophic association with H(2)-using
+      bacteria
+    explanation: Confirms obligate requirement for syntrophic growth medium supporting S. wolfei butyrate
+      oxidation in coculture with H2-utilizing M. hungatei
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of H(2) to the medium stopped growth and butyrate degradation by S
+    explanation: Demonstrates that elevated H2 prevents syntrophic metabolism, confirming strict requirement
+      for low H2 partial pressure maintained by methanogenic partner

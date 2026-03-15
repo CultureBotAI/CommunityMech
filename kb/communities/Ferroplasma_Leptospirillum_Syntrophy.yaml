@@ -476,3 +476,84 @@ metals_present:
 metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
+growth_media:
+- name: Modified 9K Medium for Ferroplasma-Leptospirillum Co-culture
+  composition:
+  - name: Ammonium sulfate
+    concentration: 3.0
+    unit: g/L
+    chebi_term:
+      preferred_term: ammonium sulfate
+      term:
+        id: CHEBI:62946
+        label: ammonium sulfate
+  - name: Magnesium sulfate heptahydrate
+    concentration: 0.5
+    unit: g/L
+    chebi_term:
+      preferred_term: magnesium sulfate heptahydrate
+      term:
+        id: CHEBI:32599
+        label: magnesium sulfate heptahydrate
+  - name: Dipotassium hydrogen phosphate
+    concentration: 0.5
+    unit: g/L
+    chebi_term:
+      preferred_term: dipotassium hydrogen phosphate
+      term:
+        id: CHEBI:131527
+        label: dipotassium hydrogen phosphate
+  - name: Potassium chloride
+    concentration: 0.1
+    unit: g/L
+    chebi_term:
+      preferred_term: potassium chloride
+      term:
+        id: CHEBI:32588
+        label: potassium chloride
+  - name: Calcium nitrate
+    concentration: 0.01
+    unit: g/L
+    chebi_term:
+      preferred_term: calcium nitrate
+      term:
+        id: CHEBI:64205
+        label: calcium nitrate
+  - name: Iron(II) sulfate heptahydrate
+    concentration: 44.2
+    unit: g/L
+    chebi_term:
+      preferred_term: iron(II) sulfate
+      term:
+        id: CHEBI:31437
+        label: iron(II) sulfate (anhydrous)
+  - name: Yeast extract
+    concentration: 0.04
+    unit: '% wt/vol'
+  ph: 1.7
+  ph_range: 1.5-2.0
+  temperature: 37.5
+  temperature_unit: °C
+  temperature_range: 35-40
+  atmosphere: AEROBIC
+  preparation_notes: 'Medium adjusted to initial pH ~1.7 with H2SO4. For syntrophy experiments, yeast
+    extract concentration is critical: 0.04% wt/vol (0.4 g/L) is optimal for F. acidiphilum growth. Higher
+    concentrations (0.5 g/L) create organic matter stress that demonstrates the syntrophic benefit of
+    co-culture. Co-culture achieves 31.5% higher copper extraction and 31.7% higher Fe3+ generation compared
+    to monocultures under organic stress conditions. Leptospirillum is an obligate aerobe requiring oxygen,
+    while Ferroplasma is microaerophilic and tolerates lower O2. Cultures maintained with aeration but
+    not vigorous sparging to accommodate both organisms.'
+  evidence:
+  - reference: PMID:27535541
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acidiphilum, strain BRL-115 is a chemomixotrophic organism, and its growth is maximized with
+      yeast extract at a concentration of 0.04% wt/vol
+    explanation: Establishes optimal yeast extract concentration for Ferroplasma growth in co-culture
+  - reference: PMID:27535541
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acidiphilum supernatant and vice versa, it was observed that in both cases cell growth is
+      favorably affected by the presence of the filtered medium of the other microorganism, proving a
+      synergistic interaction between these species
+    explanation: Demonstrates syntrophic benefit of co-cultivation

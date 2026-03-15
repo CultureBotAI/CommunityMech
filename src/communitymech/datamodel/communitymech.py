@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-12T23:15:12
+# Generation date: 2026-03-14T19:12:10
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -561,6 +561,8 @@ class GrowthMediaComponent(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GrowthMediaComponent
 
     name: str = None
+    media_ingredient_mech_id: Optional[str] = None
+    media_ingredient_mech_url: Optional[str] = None
     concentration: Optional[str] = None
     unit: Optional[str] = None
     chebi_term: Optional[Union[dict, MetaboliteDescriptor]] = None
@@ -570,6 +572,12 @@ class GrowthMediaComponent(YAMLRoot):
             self.MissingRequiredField("name")
         if not isinstance(self.name, str):
             self.name = str(self.name)
+
+        if self.media_ingredient_mech_id is not None and not isinstance(self.media_ingredient_mech_id, str):
+            self.media_ingredient_mech_id = str(self.media_ingredient_mech_id)
+
+        if self.media_ingredient_mech_url is not None and not isinstance(self.media_ingredient_mech_url, str):
+            self.media_ingredient_mech_url = str(self.media_ingredient_mech_url)
 
         if self.concentration is not None and not isinstance(self.concentration, str):
             self.concentration = str(self.concentration)
@@ -600,10 +608,31 @@ class GrowthMedia(YAMLRoot):
     culturemech_url: Optional[str] = None
     composition: Optional[Union[Union[dict, GrowthMediaComponent], list[Union[dict, GrowthMediaComponent]]]] = empty_list()
     ph: Optional[str] = None
+    ph_range: Optional[str] = None
     temperature: Optional[str] = None
     temperature_unit: Optional[str] = None
-    atmosphere: Optional[str] = None
+    temperature_range: Optional[str] = None
+    atmosphere: Optional[Union[str, "AtmosphereEnum"]] = None
+    headspace_gas: Optional[str] = None
+    salinity: Optional[str] = None
+    salinity_unit: Optional[str] = None
+    pressure: Optional[str] = None
+    pressure_unit: Optional[str] = None
+    light_regime: Optional[str] = None
+    light_intensity: Optional[str] = None
+    light_intensity_unit: Optional[str] = None
+    redox_potential: Optional[str] = None
+    redox_potential_unit: Optional[str] = None
+    inoculum_source: Optional[str] = None
+    inoculum_size: Optional[str] = None
+    inoculum_unit: Optional[str] = None
+    incubation_time: Optional[str] = None
+    incubation_time_unit: Optional[str] = None
+    shaking_speed: Optional[str] = None
+    shaking_speed_unit: Optional[str] = None
+    vessel_type: Optional[str] = None
     preparation_notes: Optional[str] = None
+    protocol_url: Optional[str] = None
     evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -623,17 +652,80 @@ class GrowthMedia(YAMLRoot):
         if self.ph is not None and not isinstance(self.ph, str):
             self.ph = str(self.ph)
 
+        if self.ph_range is not None and not isinstance(self.ph_range, str):
+            self.ph_range = str(self.ph_range)
+
         if self.temperature is not None and not isinstance(self.temperature, str):
             self.temperature = str(self.temperature)
 
         if self.temperature_unit is not None and not isinstance(self.temperature_unit, str):
             self.temperature_unit = str(self.temperature_unit)
 
-        if self.atmosphere is not None and not isinstance(self.atmosphere, str):
-            self.atmosphere = str(self.atmosphere)
+        if self.temperature_range is not None and not isinstance(self.temperature_range, str):
+            self.temperature_range = str(self.temperature_range)
+
+        if self.atmosphere is not None and not isinstance(self.atmosphere, AtmosphereEnum):
+            self.atmosphere = AtmosphereEnum(self.atmosphere)
+
+        if self.headspace_gas is not None and not isinstance(self.headspace_gas, str):
+            self.headspace_gas = str(self.headspace_gas)
+
+        if self.salinity is not None and not isinstance(self.salinity, str):
+            self.salinity = str(self.salinity)
+
+        if self.salinity_unit is not None and not isinstance(self.salinity_unit, str):
+            self.salinity_unit = str(self.salinity_unit)
+
+        if self.pressure is not None and not isinstance(self.pressure, str):
+            self.pressure = str(self.pressure)
+
+        if self.pressure_unit is not None and not isinstance(self.pressure_unit, str):
+            self.pressure_unit = str(self.pressure_unit)
+
+        if self.light_regime is not None and not isinstance(self.light_regime, str):
+            self.light_regime = str(self.light_regime)
+
+        if self.light_intensity is not None and not isinstance(self.light_intensity, str):
+            self.light_intensity = str(self.light_intensity)
+
+        if self.light_intensity_unit is not None and not isinstance(self.light_intensity_unit, str):
+            self.light_intensity_unit = str(self.light_intensity_unit)
+
+        if self.redox_potential is not None and not isinstance(self.redox_potential, str):
+            self.redox_potential = str(self.redox_potential)
+
+        if self.redox_potential_unit is not None and not isinstance(self.redox_potential_unit, str):
+            self.redox_potential_unit = str(self.redox_potential_unit)
+
+        if self.inoculum_source is not None and not isinstance(self.inoculum_source, str):
+            self.inoculum_source = str(self.inoculum_source)
+
+        if self.inoculum_size is not None and not isinstance(self.inoculum_size, str):
+            self.inoculum_size = str(self.inoculum_size)
+
+        if self.inoculum_unit is not None and not isinstance(self.inoculum_unit, str):
+            self.inoculum_unit = str(self.inoculum_unit)
+
+        if self.incubation_time is not None and not isinstance(self.incubation_time, str):
+            self.incubation_time = str(self.incubation_time)
+
+        if self.incubation_time_unit is not None and not isinstance(self.incubation_time_unit, str):
+            self.incubation_time_unit = str(self.incubation_time_unit)
+
+        if self.shaking_speed is not None and not isinstance(self.shaking_speed, str):
+            self.shaking_speed = str(self.shaking_speed)
+
+        if self.shaking_speed_unit is not None and not isinstance(self.shaking_speed_unit, str):
+            self.shaking_speed_unit = str(self.shaking_speed_unit)
+
+        if self.vessel_type is not None and not isinstance(self.vessel_type, str):
+            self.vessel_type = str(self.vessel_type)
 
         if self.preparation_notes is not None and not isinstance(self.preparation_notes, str):
             self.preparation_notes = str(self.preparation_notes)
+
+        if self.protocol_url is not None and not isinstance(self.protocol_url, str):
+            self.protocol_url = str(self.protocol_url)
 
         self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
 
@@ -1106,6 +1198,34 @@ class FunctionalRoleEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="FunctionalRoleEnum",
         description="Functional role in the community",
+    )
+
+class AtmosphereEnum(EnumDefinitionImpl):
+    """
+    Atmospheric/oxygen requirements for growth
+    """
+    AEROBIC = PermissibleValue(
+        text="AEROBIC",
+        description="Requires oxygen for growth")
+    ANAEROBIC = PermissibleValue(
+        text="ANAEROBIC",
+        description="Growth only in absence of oxygen (strict anaerobe)")
+    MICROAEROBIC = PermissibleValue(
+        text="MICROAEROBIC",
+        description="Requires low oxygen levels (typically 2-10%)")
+    FACULTATIVE_ANAEROBIC = PermissibleValue(
+        text="FACULTATIVE_ANAEROBIC",
+        description="Can grow with or without oxygen")
+    FACULTATIVE_AEROBIC = PermissibleValue(
+        text="FACULTATIVE_AEROBIC",
+        description="Preferentially aerobic but can grow anaerobically")
+    CAPNOPHILIC = PermissibleValue(
+        text="CAPNOPHILIC",
+        description="Requires elevated CO2 levels")
+
+    _defn = EnumDefinition(
+        name="AtmosphereEnum",
+        description="Atmospheric/oxygen requirements for growth",
     )
 
 class DatasetTypeEnum(EnumDefinitionImpl):
@@ -1623,6 +1743,12 @@ slots.environmentalFactor__evidence = Slot(uri=COMMUNITYMECH.evidence, name="env
 slots.growthMediaComponent__name = Slot(uri=COMMUNITYMECH.name, name="growthMediaComponent__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__name, domain=None, range=str)
 
+slots.growthMediaComponent__media_ingredient_mech_id = Slot(uri=COMMUNITYMECH.media_ingredient_mech_id, name="growthMediaComponent__media_ingredient_mech_id", curie=COMMUNITYMECH.curie('media_ingredient_mech_id'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_id, domain=None, range=Optional[str])
+
+slots.growthMediaComponent__media_ingredient_mech_url = Slot(uri=COMMUNITYMECH.media_ingredient_mech_url, name="growthMediaComponent__media_ingredient_mech_url", curie=COMMUNITYMECH.curie('media_ingredient_mech_url'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_url, domain=None, range=Optional[str])
+
 slots.growthMediaComponent__concentration = Slot(uri=COMMUNITYMECH.concentration, name="growthMediaComponent__concentration", curie=COMMUNITYMECH.curie('concentration'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__concentration, domain=None, range=Optional[str])
 
@@ -1647,17 +1773,80 @@ slots.growthMedia__composition = Slot(uri=COMMUNITYMECH.composition, name="growt
 slots.growthMedia__ph = Slot(uri=COMMUNITYMECH.ph, name="growthMedia__ph", curie=COMMUNITYMECH.curie('ph'),
                    model_uri=COMMUNITYMECH.growthMedia__ph, domain=None, range=Optional[str])
 
+slots.growthMedia__ph_range = Slot(uri=COMMUNITYMECH.ph_range, name="growthMedia__ph_range", curie=COMMUNITYMECH.curie('ph_range'),
+                   model_uri=COMMUNITYMECH.growthMedia__ph_range, domain=None, range=Optional[str])
+
 slots.growthMedia__temperature = Slot(uri=COMMUNITYMECH.temperature, name="growthMedia__temperature", curie=COMMUNITYMECH.curie('temperature'),
                    model_uri=COMMUNITYMECH.growthMedia__temperature, domain=None, range=Optional[str])
 
 slots.growthMedia__temperature_unit = Slot(uri=COMMUNITYMECH.temperature_unit, name="growthMedia__temperature_unit", curie=COMMUNITYMECH.curie('temperature_unit'),
                    model_uri=COMMUNITYMECH.growthMedia__temperature_unit, domain=None, range=Optional[str])
 
+slots.growthMedia__temperature_range = Slot(uri=COMMUNITYMECH.temperature_range, name="growthMedia__temperature_range", curie=COMMUNITYMECH.curie('temperature_range'),
+                   model_uri=COMMUNITYMECH.growthMedia__temperature_range, domain=None, range=Optional[str])
+
 slots.growthMedia__atmosphere = Slot(uri=COMMUNITYMECH.atmosphere, name="growthMedia__atmosphere", curie=COMMUNITYMECH.curie('atmosphere'),
-                   model_uri=COMMUNITYMECH.growthMedia__atmosphere, domain=None, range=Optional[str])
+                   model_uri=COMMUNITYMECH.growthMedia__atmosphere, domain=None, range=Optional[Union[str, "AtmosphereEnum"]])
+
+slots.growthMedia__headspace_gas = Slot(uri=COMMUNITYMECH.headspace_gas, name="growthMedia__headspace_gas", curie=COMMUNITYMECH.curie('headspace_gas'),
+                   model_uri=COMMUNITYMECH.growthMedia__headspace_gas, domain=None, range=Optional[str])
+
+slots.growthMedia__salinity = Slot(uri=COMMUNITYMECH.salinity, name="growthMedia__salinity", curie=COMMUNITYMECH.curie('salinity'),
+                   model_uri=COMMUNITYMECH.growthMedia__salinity, domain=None, range=Optional[str])
+
+slots.growthMedia__salinity_unit = Slot(uri=COMMUNITYMECH.salinity_unit, name="growthMedia__salinity_unit", curie=COMMUNITYMECH.curie('salinity_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__salinity_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__pressure = Slot(uri=COMMUNITYMECH.pressure, name="growthMedia__pressure", curie=COMMUNITYMECH.curie('pressure'),
+                   model_uri=COMMUNITYMECH.growthMedia__pressure, domain=None, range=Optional[str])
+
+slots.growthMedia__pressure_unit = Slot(uri=COMMUNITYMECH.pressure_unit, name="growthMedia__pressure_unit", curie=COMMUNITYMECH.curie('pressure_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__pressure_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__light_regime = Slot(uri=COMMUNITYMECH.light_regime, name="growthMedia__light_regime", curie=COMMUNITYMECH.curie('light_regime'),
+                   model_uri=COMMUNITYMECH.growthMedia__light_regime, domain=None, range=Optional[str])
+
+slots.growthMedia__light_intensity = Slot(uri=COMMUNITYMECH.light_intensity, name="growthMedia__light_intensity", curie=COMMUNITYMECH.curie('light_intensity'),
+                   model_uri=COMMUNITYMECH.growthMedia__light_intensity, domain=None, range=Optional[str])
+
+slots.growthMedia__light_intensity_unit = Slot(uri=COMMUNITYMECH.light_intensity_unit, name="growthMedia__light_intensity_unit", curie=COMMUNITYMECH.curie('light_intensity_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__light_intensity_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__redox_potential = Slot(uri=COMMUNITYMECH.redox_potential, name="growthMedia__redox_potential", curie=COMMUNITYMECH.curie('redox_potential'),
+                   model_uri=COMMUNITYMECH.growthMedia__redox_potential, domain=None, range=Optional[str])
+
+slots.growthMedia__redox_potential_unit = Slot(uri=COMMUNITYMECH.redox_potential_unit, name="growthMedia__redox_potential_unit", curie=COMMUNITYMECH.curie('redox_potential_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__redox_potential_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__inoculum_source = Slot(uri=COMMUNITYMECH.inoculum_source, name="growthMedia__inoculum_source", curie=COMMUNITYMECH.curie('inoculum_source'),
+                   model_uri=COMMUNITYMECH.growthMedia__inoculum_source, domain=None, range=Optional[str])
+
+slots.growthMedia__inoculum_size = Slot(uri=COMMUNITYMECH.inoculum_size, name="growthMedia__inoculum_size", curie=COMMUNITYMECH.curie('inoculum_size'),
+                   model_uri=COMMUNITYMECH.growthMedia__inoculum_size, domain=None, range=Optional[str])
+
+slots.growthMedia__inoculum_unit = Slot(uri=COMMUNITYMECH.inoculum_unit, name="growthMedia__inoculum_unit", curie=COMMUNITYMECH.curie('inoculum_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__inoculum_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__incubation_time = Slot(uri=COMMUNITYMECH.incubation_time, name="growthMedia__incubation_time", curie=COMMUNITYMECH.curie('incubation_time'),
+                   model_uri=COMMUNITYMECH.growthMedia__incubation_time, domain=None, range=Optional[str])
+
+slots.growthMedia__incubation_time_unit = Slot(uri=COMMUNITYMECH.incubation_time_unit, name="growthMedia__incubation_time_unit", curie=COMMUNITYMECH.curie('incubation_time_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__incubation_time_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__shaking_speed = Slot(uri=COMMUNITYMECH.shaking_speed, name="growthMedia__shaking_speed", curie=COMMUNITYMECH.curie('shaking_speed'),
+                   model_uri=COMMUNITYMECH.growthMedia__shaking_speed, domain=None, range=Optional[str])
+
+slots.growthMedia__shaking_speed_unit = Slot(uri=COMMUNITYMECH.shaking_speed_unit, name="growthMedia__shaking_speed_unit", curie=COMMUNITYMECH.curie('shaking_speed_unit'),
+                   model_uri=COMMUNITYMECH.growthMedia__shaking_speed_unit, domain=None, range=Optional[str])
+
+slots.growthMedia__vessel_type = Slot(uri=COMMUNITYMECH.vessel_type, name="growthMedia__vessel_type", curie=COMMUNITYMECH.curie('vessel_type'),
+                   model_uri=COMMUNITYMECH.growthMedia__vessel_type, domain=None, range=Optional[str])
 
 slots.growthMedia__preparation_notes = Slot(uri=COMMUNITYMECH.preparation_notes, name="growthMedia__preparation_notes", curie=COMMUNITYMECH.curie('preparation_notes'),
                    model_uri=COMMUNITYMECH.growthMedia__preparation_notes, domain=None, range=Optional[str])
+
+slots.growthMedia__protocol_url = Slot(uri=COMMUNITYMECH.protocol_url, name="growthMedia__protocol_url", curie=COMMUNITYMECH.curie('protocol_url'),
+                   model_uri=COMMUNITYMECH.growthMedia__protocol_url, domain=None, range=Optional[str])
 
 slots.growthMedia__evidence = Slot(uri=COMMUNITYMECH.evidence, name="growthMedia__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.growthMedia__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
