@@ -49,6 +49,16 @@ just link-media-dry
 just link-media
 ```
 
+### Generate mapping reports
+```bash
+just link-media-report
+```
+
+This generates three reports in `reports/`:
+- `ingredient_mapping.csv` - All ingredients with mapping status
+- `media_mapping.csv` - All media with mapping status
+- `media_linking_summary.txt` - Human-readable summary
+
 ### Process single community
 ```bash
 uv run python scripts/link_growth_media.py --community-id EcoFAB_Ring_Trial_SynCom17 --dry-run
@@ -61,8 +71,42 @@ uv run python scripts/link_growth_media.py \
   --fuzzy-threshold 0.9 \
   --cache-ttl 3600 \
   --no-cache \
-  --limit 10
+  --limit 10 \
+  --ingredient-report reports/ingredients.csv \
+  --media-report reports/media.csv \
+  --summary-report reports/summary.txt
 ```
+
+## Reporting
+
+### Report Formats
+
+**Ingredient Mapping CSV** (`ingredient_mapping.csv`)
+```csv
+ingredient_name,community_id,media_name,mapped_id,match_score,status
+yeast extract,EcoFAB_Ring_Trial_SynCom17,R2A medium,MediaIngredientMech:000015,1.000,mapped
+peptone,EcoFAB_Ring_Trial_SynCom17,R2A medium,,0.850,unmapped
+```
+
+**Media Mapping CSV** (`media_mapping.csv`)
+```csv
+media_name,community_id,mapped_id,match_score,status
+R2A medium,EcoFAB_Ring_Trial_SynCom17,CultureMech:000042,1.000,mapped
+LB medium,Synechococcus_Ecoli_SPC,CultureMech:000001,1.000,mapped
+```
+
+**Summary Report** (`media_linking_summary.txt`)
+- Human-readable text report
+- Statistics on mapping success
+- Lists of mapped and unmapped items
+- Communities where each ingredient appears
+
+### Using Reports for Curation
+
+1. **Identify unmapped ingredients**: Review `ingredient_mapping.csv` for `status=unmapped`
+2. **Add manual overrides**: Update `conf/media_mappings.yaml` with corrections
+3. **Re-run with reports**: Generate updated reports to verify fixes
+4. **Track progress**: Use summary report to monitor curation completeness
 
 ## Configuration
 

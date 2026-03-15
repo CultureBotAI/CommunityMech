@@ -154,3 +154,10 @@ link-media-dry:
 # Link growth media to CultureMech/MediaIngredientMech (apply)
 link-media:
     uv run python scripts/link_growth_media.py
+
+# Generate ingredient/media mapping reports
+link-media-report:
+    uv run python scripts/link_growth_media.py --dry-run \
+        --ingredient-report reports/ingredient_mapping.csv \
+        --media-report reports/media_mapping.csv \
+        --summary-report reports/media_linking_summary.txt
