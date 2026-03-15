@@ -248,20 +248,14 @@ def load_manual_overrides(config_path: Path) -> dict:
         return yaml.safe_load(f) or {}
 
 
-def update_yaml_with_media(yaml_path: Path, growth_media: list) -> None:
-    """Update a YAML file with growth media data.
+def update_yaml_with_media(yaml_path: Path, data: dict) -> None:
+    """Update a YAML file with community data including growth media.
 
     Args:
-        yaml_path: Path to community YAML file
-        growth_media: List of growth media records
+        yaml_path: Path to community YAML file to write
+        data: Community data dict with updated growth_media
     """
-    with open(yaml_path) as f:
-        data = yaml.safe_load(f)
-
-    # Update growth_media field
-    data["growth_media"] = growth_media
-
-    # Write back with clean formatting (same pattern as backfill_metals.py)
+    # Write with clean formatting (same pattern as backfill_metals.py)
     with open(yaml_path, "w") as f:
         yaml.dump(
             data,
@@ -280,6 +274,8 @@ def process_single_community(
     cache_ttl: int = 86400,
     use_cache: bool = True,
     manual_overrides: Optional[dict] = None,
+    culturemech_index_path: Optional[str] = None,
+    mediaingredientmech_index_path: Optional[str] = None,
 ) -> None:
     """Process a single community by ID."""
     community_dir = Path("kb/communities")
@@ -294,9 +290,19 @@ def process_single_community(
         data = yaml.safe_load(f)
 
     # Initialize utilities
-    fetcher = MediaFetcher(cache_ttl=cache_ttl)
+    fetcher = MediaFetcher(
+        cache_ttl=cache_ttl,
+        culturemech_index_path=culturemech_index_path,
+        mediaingredientmech_index_path=mediaingredientmech_index_path
+    )
     matcher = MediaMatcher(fuzzy_threshold=fuzzy_threshold, manual_overrides=manual_overrides)
     merger = CompositionMerger()
+
+    # Load all CultureMech media for matching
+    all_media = fetcher.list_all_culturemech_media()
+
+    # Load all MediaIngredientMech ingredients for matching
+    all_ingredients = fetcher.list_all_mediaingredientmech_ingredients()
 
     # Get existing growth_media or create empty list
     growth_media = data.get("growth_media", [])
@@ -308,27 +314,79 @@ def process_single_community(
     for media in growth_media:
         media_name = media.get("name", "")
 
-        # Try to match and add CultureMech ID
-        # For now, we'll just add placeholder logic since we need an index
-        # TODO: Implement when CultureMech provides media index
+        # Try to match media name to CultureMech
+        match = matcher.match_media_name(media_name, all_media)
+        if match:
+            culturemech_id, matched_name, score = match
+            if "culturemech_id" not in media:
+                media["culturemech_id"] = culturemech_id
+                media["culturemech_url"] = f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                updated = True
+                print(f"  {GREEN}✓ Matched '{media_name}' → {culturemech_id} (score: {score:.3f}){RESET}")
+
+            # Fetch recipe to get ingredients
+            recipe = fetcher.fetch_culturemech_recipe_by_id(culturemech_id)
+            if recipe and "ingredients" in recipe:
+                # Merge composition
+                existing_comp = media.get("composition", [])
+                culturemech_comp = recipe["ingredients"]
+
+                # Convert CultureMech ingredients to CommunityMech format
+                converted_comp = []
+                for ing in culturemech_comp:
+                    new_ing = {"name": ing.get("preferred_term", "")}
+                    if "concentration" in ing:
+                        conc = ing["concentration"]
+                        if isinstance(conc, dict):
+                            new_ing["concentration"] = conc.get("value", "")
+                            new_ing["unit"] = conc.get("unit", "")
+                        else:
+                            new_ing["concentration"] = str(conc)
+                    converted_comp.append(new_ing)
+
+                merged = merger.merge_compositions(existing_comp, converted_comp, mark_source=True)
+                if len(merged) > len(existing_comp):
+                    media["composition"] = merged
+                    updated = True
+        else:
+            print(f"  {YELLOW}No match for '{media_name}'{RESET}")
 
         # Add empty composition if missing
         if "composition" not in media:
             media["composition"] = []
             updated = True
 
+        # Match and link ingredients to MediaIngredientMech
+        composition = media.get("composition", [])
+        ingredients_matched = 0
+        for ingredient in composition:
+            ingredient_name = ingredient.get("name", "")
+            if ingredient_name and "media_ingredient_mech_id" not in ingredient:
+                # Try to match ingredient to MediaIngredientMech
+                ing_match = matcher.match_ingredient_name(ingredient_name, all_ingredients)
+                if ing_match:
+                    ing_id, matched_name, score = ing_match
+                    ingredient["media_ingredient_mech_id"] = ing_id
+                    ingredient["media_ingredient_mech_url"] = f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                    ingredients_matched += 1
+                    updated = True
+
+        if ingredients_matched > 0:
+            print(f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}")
+
     print(f"\n{BLUE}{yaml_file.stem}:{RESET}")
     print(f"  Media records: {len(growth_media)}")
 
-    if growth_media and not dry_run:
+    if updated and not dry_run:
         # Backup original
         backup_path = yaml_file.with_suffix(".yaml.bak")
-        yaml_file.rename(backup_path)
+        if yaml_file.exists():
+            yaml_file.rename(backup_path)
 
-        update_yaml_with_media(yaml_file, growth_media)
+        update_yaml_with_media(yaml_file, data)
         print(f"  {GREEN}✓ Updated {yaml_file.name}{RESET}")
-    elif updated and not dry_run:
-        print(f"  {GREEN}✓ Would update {yaml_file.name}{RESET}")
+    elif updated:
+        print(f"  {YELLOW}Would update {yaml_file.name}{RESET}")
 
 
 def process_all_communities(
@@ -340,6 +398,8 @@ def process_all_communities(
     ingredient_report: Optional[Path] = None,
     media_report: Optional[Path] = None,
     summary_report: Optional[Path] = None,
+    culturemech_index_path: Optional[str] = None,
+    mediaingredientmech_index_path: Optional[str] = None,
 ) -> None:
     """Process all communities to link growth media.
 
@@ -352,6 +412,7 @@ def process_all_communities(
         ingredient_report: Path to export ingredient mapping CSV
         media_report: Path to export media mapping CSV
         summary_report: Path to export summary report
+        culturemech_index_path: Path to CultureMech recipe_index.json
     """
     community_dir = Path("kb/communities")
 
@@ -381,10 +442,24 @@ def process_all_communities(
     }
 
     # Initialize utilities
-    fetcher = MediaFetcher(cache_ttl=cache_ttl)
+    fetcher = MediaFetcher(
+        cache_ttl=cache_ttl,
+        culturemech_index_path=culturemech_index_path,
+        mediaingredientmech_index_path=mediaingredientmech_index_path
+    )
     matcher = MediaMatcher(fuzzy_threshold=fuzzy_threshold, manual_overrides=manual_overrides)
     merger = CompositionMerger()
     tracker = IngredientMappingTracker()
+
+    # Load all CultureMech media for matching
+    print("Loading CultureMech recipe index...")
+    all_media = fetcher.list_all_culturemech_media()
+    print(f"Loaded {len(all_media)} CultureMech recipes")
+
+    # Load all MediaIngredientMech ingredients for matching
+    print("Loading MediaIngredientMech ingredient index...")
+    all_ingredients = fetcher.list_all_mediaingredientmech_ingredients()
+    print(f"Loaded {len(all_ingredients)} MediaIngredientMech ingredients\n")
 
     for yaml_file in yaml_files:
         # Load community data
@@ -400,21 +475,82 @@ def process_all_communities(
 
         if growth_media:
             stats["with_media"] += 1
+            updated = False
 
             # Process each media record
             for media in growth_media:
                 media_name = media.get("name", "")
 
-                # Track media (placeholder for actual matching when CultureMech index available)
-                culturemech_id = media.get("culturemech_id")
-                tracker.record_media(media_name, community_id, culturemech_id)
+                print(f"\n{BLUE}{yaml_file.stem}:{RESET}")
+                print(f"  Media: {media_name}")
+
+                # Try to match media name to CultureMech
+                match = matcher.match_media_name(media_name, all_media)
+                if match:
+                    culturemech_id, matched_name, score = match
+                    stats["media_matched"] += 1
+
+                    if "culturemech_id" not in media:
+                        media["culturemech_id"] = culturemech_id
+                        media["culturemech_url"] = f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                        updated = True
+                        print(f"  {GREEN}✓ Matched → {culturemech_id} (score: {score:.3f}){RESET}")
+
+                    # Track media match
+                    tracker.record_media(media_name, community_id, culturemech_id, score)
+
+                    # Fetch recipe to get ingredients
+                    recipe = fetcher.fetch_culturemech_recipe_by_id(culturemech_id)
+                    if recipe and "ingredients" in recipe:
+                        # Merge composition
+                        existing_comp = media.get("composition", [])
+
+                        # Convert CultureMech ingredients to CommunityMech format
+                        converted_comp = []
+                        for ing in recipe["ingredients"]:
+                            new_ing = {"name": ing.get("preferred_term", "")}
+                            if "concentration" in ing:
+                                conc = ing["concentration"]
+                                if isinstance(conc, dict):
+                                    new_ing["concentration"] = conc.get("value", "")
+                                    new_ing["unit"] = conc.get("unit", "")
+                                else:
+                                    new_ing["concentration"] = str(conc)
+                            converted_comp.append(new_ing)
+
+                        merged = merger.merge_compositions(existing_comp, converted_comp, mark_source=True)
+                        added_count = len(merged) - len(existing_comp)
+                        if added_count > 0:
+                            media["composition"] = merged
+                            stats["ingredients_added"] += added_count
+                            updated = True
+                            print(f"  {GREEN}✓ Added {added_count} ingredients from CultureMech{RESET}")
+                else:
+                    # No match found
+                    tracker.record_media(media_name, community_id, None, None)
+                    print(f"  {YELLOW}No CultureMech match{RESET}")
 
                 # Add empty composition if missing
                 if "composition" not in media:
                     media["composition"] = []
 
+                # Match and link ingredients to MediaIngredientMech
+                composition = media.get("composition", [])
+                ingredients_matched = 0
+                for ingredient in composition:
+                    ingredient_name = ingredient.get("name", "")
+                    if ingredient_name and "media_ingredient_mech_id" not in ingredient:
+                        # Try to match ingredient to MediaIngredientMech
+                        ing_match = matcher.match_ingredient_name(ingredient_name, all_ingredients)
+                        if ing_match:
+                            ing_id, matched_name, score = ing_match
+                            ingredient["media_ingredient_mech_id"] = ing_id
+                            ingredient["media_ingredient_mech_url"] = f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                            ingredients_matched += 1
+                            updated = True
+
                 # Track ingredients
-                for ingredient in media.get("composition", []):
+                for ingredient in composition:
                     ingredient_name = ingredient.get("name", "")
                     if ingredient_name:
                         mapped_id = ingredient.get("media_ingredient_mech_id")
@@ -425,17 +561,18 @@ def process_all_communities(
                             mapped_id,
                         )
 
-                print(f"\n{BLUE}{yaml_file.stem}:{RESET}")
-                print(f"  Media: {media_name}")
-                print(f"  Components: {len(media.get('composition', []))}")
+                print(f"  Components: {len(composition)}")
+                if ingredients_matched > 0:
+                    print(f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}")
 
             # Update file if needed
-            if not dry_run:
+            if updated and not dry_run:
                 # Backup original
                 backup_path = yaml_file.with_suffix(".yaml.bak")
-                yaml_file.rename(backup_path)
+                if yaml_file.exists():
+                    yaml_file.rename(backup_path)
 
-                update_yaml_with_media(yaml_file, growth_media)
+                update_yaml_with_media(yaml_file, data)
                 print(f"  {GREEN}✓ Updated{RESET}")
 
     # Print summary
@@ -520,6 +657,16 @@ def main():
         type=str,
         help="Export summary report to text file (e.g., reports/summary.txt)",
     )
+    parser.add_argument(
+        "--culturemech-index",
+        type=str,
+        help="Path to CultureMech recipe_index.json (default: ../../CultureMech/data/normalized_yaml/recipe_index.json)",
+    )
+    parser.add_argument(
+        "--mediaingredientmech-index",
+        type=str,
+        help="Path to MediaIngredientMech all_ingredients_index.json (default: ../../MediaIngredientMech/data/curated/all_ingredients_index.json)",
+    )
 
     args = parser.parse_args()
 
@@ -535,6 +682,8 @@ def main():
             cache_ttl=args.cache_ttl,
             use_cache=not args.no_cache,
             manual_overrides=manual_overrides,
+            culturemech_index_path=args.culturemech_index,
+            mediaingredientmech_index_path=args.mediaingredientmech_index,
         )
     else:
         process_all_communities(
@@ -546,6 +695,8 @@ def main():
             ingredient_report=Path(args.ingredient_report) if args.ingredient_report else None,
             media_report=Path(args.media_report) if args.media_report else None,
             summary_report=Path(args.summary_report) if args.summary_report else None,
+            culturemech_index_path=args.culturemech_index,
+            mediaingredientmech_index_path=args.mediaingredientmech_index,
         )
 
 

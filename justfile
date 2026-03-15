@@ -149,15 +149,21 @@ apply-batch-repairs REPORT:
 
 # Link growth media to CultureMech/MediaIngredientMech (dry-run)
 link-media-dry:
-    uv run python scripts/link_growth_media.py --dry-run
+    uv run python scripts/link_growth_media.py --dry-run \
+        --culturemech-index ../../CultureMech/data/normalized_yaml/recipe_index.json \
+        --mediaingredientmech-index ../../MediaIngredientMech/data/curated/all_ingredients_index.json
 
 # Link growth media to CultureMech/MediaIngredientMech (apply)
 link-media:
-    uv run python scripts/link_growth_media.py
+    uv run python scripts/link_growth_media.py \
+        --culturemech-index ../../CultureMech/data/normalized_yaml/recipe_index.json \
+        --mediaingredientmech-index ../../MediaIngredientMech/data/curated/all_ingredients_index.json
 
 # Generate ingredient/media mapping reports
 link-media-report:
     uv run python scripts/link_growth_media.py --dry-run \
+        --culturemech-index ../../CultureMech/data/normalized_yaml/recipe_index.json \
+        --mediaingredientmech-index ../../MediaIngredientMech/data/curated/all_ingredients_index.json \
         --ingredient-report reports/ingredient_mapping.csv \
         --media-report reports/media_mapping.csv \
         --summary-report reports/media_linking_summary.txt

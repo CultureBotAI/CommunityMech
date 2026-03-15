@@ -393,9 +393,9 @@ growth_media:
   vessel_type: culture tubes or flasks
   inoculum_size: '0.001'
   inoculum_unit: OD600
-  preparation_notes: 'General-purpose rich medium used for growing individual bacterial strains from
-    Brassicaceae roots. Cultures grown to stationary phase, washed, and resuspended in sterile water
-    or MgCl2 solution for inoculation into gnotobiotic plant systems.
+  preparation_notes: 'General-purpose rich medium used for growing individual bacterial strains from Brassicaceae
+    roots. Cultures grown to stationary phase, washed, and resuspended in sterile water or MgCl2 solution
+    for inoculation into gnotobiotic plant systems.
 
     '
   evidence:
@@ -404,6 +404,19 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: We report that root-associated commensal bacteria actively suppress the host immune response
       in the context of a synthetic bacterial community.
+  culturemech_id: CultureMech:008226
+  culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:008226
+  composition:
+  - name: Distilled water
+    concentration: '1'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000114
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000114
+  - name: Bacto Tryptic Soy Broth (Difco)
+    concentration: '30'
+    unit: G_PER_L
+    from: CultureMech
 - name: Half-strength Murashige-Skoog medium for Arabidopsis growth
   ph: '5.8'
   temperature: '22'
@@ -431,9 +444,13 @@ growth_media:
       term:
         id: CHEBI:17992
         label: sucrose
+    media_ingredient_mech_id: MediaIngredientMech:000214
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000214
   - name: Agar
     concentration: '0.8'
     unit: '%'
+    media_ingredient_mech_id: MediaIngredientMech:000119
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000119
   evidence:
   - reference: doi:10.1073/pnas.2100678118
     supports: SUPPORT

@@ -243,7 +243,12 @@ growth_media:
   inoculum_unit: μg chlorophyll/mL
   incubation_time: '17'
   incubation_time_unit: days
-  preparation_notes: 'Medium prepared for sustained algal-bacterial hydrogen production. Mannitol and yeast extract are added to support bacterial growth and enhance H2 production. Cultures start under aerobic conditions and transition to anaerobic conditions for hydrogen production. Sulfur deprivation may be used to induce anaerobiosis and activate hydrogenase in Chlamydomonas. High-cell density cultures (76.7 μg/mL chlorophyll) produce 313 mL H2/L over 17 days, while low-cell density cultures (10 μg/mL chlorophyll) produce 163.5 mL H2/L over 25 days.
+  preparation_notes: 'Medium prepared for sustained algal-bacterial hydrogen production. Mannitol and
+    yeast extract are added to support bacterial growth and enhance H2 production. Cultures start under
+    aerobic conditions and transition to anaerobic conditions for hydrogen production. Sulfur deprivation
+    may be used to induce anaerobiosis and activate hydrogenase in Chlamydomonas. High-cell density cultures
+    (76.7 μg/mL chlorophyll) produce 313 mL H2/L over 17 days, while low-cell density cultures (10 μg/mL
+    chlorophyll) produce 163.5 mL H2/L over 25 days.
 
     '
   composition:
@@ -255,6 +260,7 @@ growth_media:
       term:
         id: CHEBI:9754
         label: tris(hydroxymethyl)aminomethane
+    from: community_curated
   - name: Acetate (carbon source)
     concentration: '17'
     unit: mM
@@ -263,6 +269,7 @@ growth_media:
       term:
         id: CHEBI:30089
         label: acetate
+    from: community_curated
   - name: Mannitol
     concentration: '20'
     unit: mM
@@ -271,6 +278,9 @@ growth_media:
       term:
         id: CHEBI:16899
         label: mannitol
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000308
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000308
   - name: Yeast extract
     concentration: '0.1'
     unit: percent (w/v)
@@ -279,6 +289,9 @@ growth_media:
       term:
         id: CHEBI:89981
         label: yeast extract
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000025
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000025
   - name: Ammonium chloride (nitrogen source)
     concentration: '7.5'
     unit: mM
@@ -287,6 +300,7 @@ growth_media:
       term:
         id: CHEBI:31206
         label: ammonium chloride
+    from: community_curated
   - name: Potassium phosphate
     concentration: '1.0'
     unit: mM
@@ -295,6 +309,9 @@ growth_media:
       term:
         id: CHEBI:131527
         label: dipotassium hydrogen phosphate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000630
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000630
   - name: Magnesium sulfate
     concentration: '0.4'
     unit: mM
@@ -303,6 +320,9 @@ growth_media:
       term:
         id: CHEBI:32599
         label: magnesium sulfate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000174
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000174
   - name: Calcium chloride
     concentration: '0.34'
     unit: mM
@@ -311,12 +331,26 @@ growth_media:
       term:
         id: CHEBI:3312
         label: calcium dichloride
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000484
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000484
+  - name: See source for composition
+    concentration: variable
+    unit: VARIABLE
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000002
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000002
   evidence:
   - reference: PMID:38159768
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community can promote and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial chlorophyll) algal cultures, respectively
+    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community
+      can promote and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1
+      for 25 days in high-cell (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1
+      of initial chlorophyll) algal cultures, respectively
     explanation: Establishes mannitol and yeast extract as key medium components for sustained H2 production
+  culturemech_id: CultureMech:000139
+  culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000139
 metals_present:
 - TITANIUM
 metal_relevance: SIGNIFICANT

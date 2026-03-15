@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-14T19:12:10
+# Generation date: 2026-03-14T21:50:53
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -566,6 +566,7 @@ class GrowthMediaComponent(YAMLRoot):
     concentration: Optional[str] = None
     unit: Optional[str] = None
     chebi_term: Optional[Union[dict, MetaboliteDescriptor]] = None
+    from: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -587,6 +588,9 @@ class GrowthMediaComponent(YAMLRoot):
 
         if self.chebi_term is not None and not isinstance(self.chebi_term, MetaboliteDescriptor):
             self.chebi_term = MetaboliteDescriptor(**as_dict(self.chebi_term))
+
+        if self.from is not None and not isinstance(self.from, str):
+            self.from = str(self.from)
 
         super().__post_init__(**kwargs)
 
@@ -1757,6 +1761,9 @@ slots.growthMediaComponent__unit = Slot(uri=COMMUNITYMECH.unit, name="growthMedi
 
 slots.growthMediaComponent__chebi_term = Slot(uri=COMMUNITYMECH.chebi_term, name="growthMediaComponent__chebi_term", curie=COMMUNITYMECH.curie('chebi_term'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__chebi_term, domain=None, range=Optional[Union[dict, MetaboliteDescriptor]])
+
+slots.growthMediaComponent__from = Slot(uri=COMMUNITYMECH.from, name="growthMediaComponent__from", curie=COMMUNITYMECH.curie('from'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__from, domain=None, range=Optional[str])
 
 slots.growthMedia__name = Slot(uri=COMMUNITYMECH.name, name="growthMedia__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.growthMedia__name, domain=None, range=str)

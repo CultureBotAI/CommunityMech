@@ -233,7 +233,7 @@ growth_media:
   shaking_speed_unit: rpm
   incubation_time: '96'
   incubation_time_unit: hours
-  inoculum_size: '5E5'
+  inoculum_size: 5E5
   inoculum_unit: cells/mL total
   preparation_notes: 'Mineral salts medium (MSM) supplemented with 1% sugarcane straw as lignocellulose
     substrate. All five strains are aerobic degraders isolated from soil through enrichment on sugarcane
@@ -253,9 +253,83 @@ growth_media:
       term:
         id: CHEBI:18246
         label: cellulose
+    from: community_curated
   - name: Mineral salts medium base
     concentration: standard MSM formulation
     unit: unspecified
+    from: community_curated
+  - name: KNO3
+    concentration: '0.25'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000170
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000170
+  - name: KH2PO4
+    concentration: '0.1'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000116
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000116
+  - name: MgSO4 x 7 H2O
+    concentration: '0.05'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000118
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000118
+  - name: CaCl2 x 2 H2O
+    concentration: '0.01'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000115
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000115
+  - name: EDTA
+    concentration: '5'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000165
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000165
+  - name: CuCl2 x 5 H2O
+    concentration: '0.1'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000357
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000357
+  - name: FeSO4 x 7 H2O
+    concentration: '2'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000130
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000130
+  - name: ZnSO4 x 7 H2O
+    concentration: '0.1'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000135
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000135
+  - name: NiCl2 x 6 H2O
+    concentration: '0.02'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000124
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000124
+  - name: CoCl2 x 6 H2O
+    concentration: '0.2'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000126
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000126
+  - name: Na2MoO4
+    concentration: '0.03'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000330
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000330
+  - name: MnCl2 x 4 H2O
+    concentration: '0.03'
+    unit: G_PER_L
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000127
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000127
   evidence:
   - reference: PMID:29392382
     supports: SUPPORT
@@ -269,17 +343,18 @@ growth_media:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The screening method described here successfully led to the selection of effective MAMC,
-      whose degradation potential reached up 96.5% of the degradation rates when all 18 species were
-      present
+      whose degradation potential reached up 96.5% of the degradation rates when all 18 species were present
     explanation: Demonstrates MAMC-M48 effectiveness, achieving 96.5% of full consortium degradation capacity
   - reference: PMID:29392382
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium
-      sp., Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading
+    snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp.,
+      Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading
       synthetic community
     explanation: Identifies MAMC-M48 composition as the most effective 5-member lignocellulose-degrading
       consortium
+  culturemech_id: CultureMech:000423
+  culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000423
 metals_present:
 - TITANIUM
 metal_relevance: INCIDENTAL

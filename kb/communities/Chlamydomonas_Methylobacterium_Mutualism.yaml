@@ -241,7 +241,11 @@ growth_media:
   light_regime: continuous illumination
   light_intensity: '100'
   light_intensity_unit: μmol photons/m²/s
-  preparation_notes: 'TAP medium is the standard maintenance medium for Chlamydomonas reinhardtii. For nitrogen stress experiments, cultures are grown in nitrogen-depleted TAP medium to induce the mutualistic interaction with Methylobacterium. The medium contains Tris buffer for pH stability and acetate as a carbon source. Ammonium serves as the nitrogen source under normal conditions, but is omitted or depleted to create nitrogen stress.
+  preparation_notes: 'TAP medium is the standard maintenance medium for Chlamydomonas reinhardtii. For
+    nitrogen stress experiments, cultures are grown in nitrogen-depleted TAP medium to induce the mutualistic
+    interaction with Methylobacterium. The medium contains Tris buffer for pH stability and acetate as
+    a carbon source. Ammonium serves as the nitrogen source under normal conditions, but is omitted or
+    depleted to create nitrogen stress.
 
     '
   composition:
@@ -253,6 +257,7 @@ growth_media:
       term:
         id: CHEBI:9754
         label: tris(hydroxymethyl)aminomethane
+    from: community_curated
   - name: Acetate (carbon source)
     concentration: '17'
     unit: mM
@@ -261,6 +266,7 @@ growth_media:
       term:
         id: CHEBI:30089
         label: acetate
+    from: community_curated
   - name: Ammonium chloride (nitrogen source)
     concentration: '7.5'
     unit: mM
@@ -269,6 +275,7 @@ growth_media:
       term:
         id: CHEBI:31206
         label: ammonium chloride
+    from: community_curated
   - name: Potassium phosphate
     concentration: '1.0'
     unit: mM
@@ -277,6 +284,9 @@ growth_media:
       term:
         id: CHEBI:131527
         label: dipotassium hydrogen phosphate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000630
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000630
   - name: Magnesium sulfate
     concentration: '0.4'
     unit: mM
@@ -285,6 +295,9 @@ growth_media:
       term:
         id: CHEBI:32599
         label: magnesium sulfate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000174
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000174
   - name: Calcium chloride
     concentration: '0.34'
     unit: mM
@@ -293,12 +306,25 @@ growth_media:
       term:
         id: CHEBI:3312
         label: calcium dichloride
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000484
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000484
+  - name: See source for composition
+    concentration: variable
+    unit: VARIABLE
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000002
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000002
   evidence:
   - reference: PMID:29385570
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen sources (e.g
-    explanation: Establishes TAP medium as the growth medium for studying nitrogen metabolism and stress responses
+    snippet: The model alga Chlamydomonas reinhardtii can grow efficiently on several inorganic nitrogen
+      sources (e.g
+    explanation: Establishes TAP medium as the growth medium for studying nitrogen metabolism and stress
+      responses
+  culturemech_id: CultureMech:000139
+  culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000139
 metals_present:
 - IRON
 - TITANIUM

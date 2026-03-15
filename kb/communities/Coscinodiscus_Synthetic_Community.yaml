@@ -382,7 +382,12 @@ growth_media:
   light_regime: 12h/12h light-dark cycle
   light_intensity: '100'
   light_intensity_unit: μmol photons/m²/s
-  preparation_notes: 'f/2 medium (Guillard and Ryther 1962, Guillard 1975) is the standard growth medium for marine diatoms and phytoplankton. The medium is prepared with filtered natural seawater or artificial seawater (30 ppt salinity) enriched with f/2 nutrients, trace metals, and vitamins. Silicate (sodium metasilicate) is essential for diatom growth as it is required to build the biomineralized silica frustule cell wall. Autoclaved f/2 medium may produce silica precipitate. The medium supports both photosynthetic diatom growth and heterotrophic bacterial growth on diatom-derived organic compounds.
+  preparation_notes: 'f/2 medium (Guillard and Ryther 1962, Guillard 1975) is the standard growth medium
+    for marine diatoms and phytoplankton. The medium is prepared with filtered natural seawater or artificial
+    seawater (30 ppt salinity) enriched with f/2 nutrients, trace metals, and vitamins. Silicate (sodium
+    metasilicate) is essential for diatom growth as it is required to build the biomineralized silica
+    frustule cell wall. Autoclaved f/2 medium may produce silica precipitate. The medium supports both
+    photosynthetic diatom growth and heterotrophic bacterial growth on diatom-derived organic compounds.
 
     '
   composition:
@@ -394,6 +399,7 @@ growth_media:
       term:
         id: CHEBI:78870
         label: sodium nitrate
+    from: community_curated
   - name: Sodium phosphate monobasic (phosphorus source)
     concentration: '5'
     unit: mg/L
@@ -402,6 +408,7 @@ growth_media:
       term:
         id: CHEBI:37585
         label: sodium dihydrogen phosphate
+    from: community_curated
   - name: Sodium metasilicate (silicate for diatom frustules)
     concentration: '30'
     unit: mg/L
@@ -410,6 +417,7 @@ growth_media:
       term:
         id: CHEBI:86154
         label: sodium metasilicate
+    from: community_curated
   - name: Iron (as FeCl3 in EDTA)
     concentration: '3.15'
     unit: mg/L
@@ -418,6 +426,7 @@ growth_media:
       term:
         id: CHEBI:30808
         label: iron trichloride
+    from: community_curated
   - name: EDTA (chelating agent)
     concentration: '4.36'
     unit: mg/L
@@ -426,6 +435,7 @@ growth_media:
       term:
         id: CHEBI:42191
         label: EDTA(4-)
+    from: community_curated
   - name: Manganese chloride
     concentration: '0.18'
     unit: mg/L
@@ -434,6 +444,7 @@ growth_media:
       term:
         id: CHEBI:132177
         label: manganese dichloride
+    from: community_curated
   - name: Zinc sulfate
     concentration: '0.022'
     unit: mg/L
@@ -442,6 +453,9 @@ growth_media:
       term:
         id: CHEBI:10106
         label: zinc sulfate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000204
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000204
   - name: Cobalt chloride
     concentration: '0.01'
     unit: mg/L
@@ -450,6 +464,7 @@ growth_media:
       term:
         id: CHEBI:35696
         label: cobalt dichloride
+    from: community_curated
   - name: Copper sulfate
     concentration: '0.01'
     unit: mg/L
@@ -458,6 +473,9 @@ growth_media:
       term:
         id: CHEBI:23414
         label: copper(II) sulfate
+    from: community_curated
+    media_ingredient_mech_id: MediaIngredientMech:000578
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000578
   - name: Sodium molybdate
     concentration: '0.006'
     unit: mg/L
@@ -466,6 +484,7 @@ growth_media:
       term:
         id: CHEBI:75213
         label: sodium molybdate (anhydrous)
+    from: community_curated
   - name: Vitamin B12 (cyanocobalamin)
     concentration: '0.0005'
     unit: mg/L
@@ -474,6 +493,7 @@ growth_media:
       term:
         id: CHEBI:28115
         label: cob(I)alamin
+    from: community_curated
   - name: Biotin (Vitamin B7)
     concentration: '0.0005'
     unit: mg/L
@@ -482,6 +502,7 @@ growth_media:
       term:
         id: CHEBI:57586
         label: biotin
+    from: community_curated
   - name: Thiamine HCl (Vitamin B1)
     concentration: '0.1'
     unit: mg/L
@@ -490,6 +511,13 @@ growth_media:
       term:
         id: CHEBI:18385
         label: thiamine(1+)
+    from: community_curated
+  - name: See source for composition
+    concentration: variable
+    unit: VARIABLE
+    from: CultureMech
+    media_ingredient_mech_id: MediaIngredientMech:000002
+    media_ingredient_mech_url: https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/MediaIngredientMech:000002
   evidence:
   - reference: PMID:36300970
     supports: SUPPORT
@@ -500,6 +528,8 @@ growth_media:
       within the consortium are specific and that the sum of the pairwise interactions can explain algal
       and bacterial growth in the community
     explanation: Establishes marine diatom culture medium for synthetic community
+  culturemech_id: CultureMech:000149
+  culturemech_url: https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/CultureMech:000149
 environmental_factors:
 - name: Marine medium
   value: Artificial seawater medium
