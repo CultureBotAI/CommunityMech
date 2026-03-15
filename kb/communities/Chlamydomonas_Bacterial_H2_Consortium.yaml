@@ -227,6 +227,96 @@ environmental_factors:
 - name: Anaerobic conditions
   value: required for H2 production
   description: Hydrogen production occurs under anaerobic conditions after initial aerobic growth phase
+growth_media:
+- name: TAP medium with mannitol and yeast extract for hydrogen production
+  ph: '7.3'
+  ph_range: 7.0-7.5
+  temperature: '25'
+  temperature_unit: degrees Celsius
+  temperature_range: 22-28
+  atmosphere: FACULTATIVE_ANAEROBIC
+  headspace_gas: Anaerobic conditions established after initial aerobic growth phase
+  light_regime: continuous illumination
+  light_intensity: '150'
+  light_intensity_unit: μmol photons/m²/s
+  inoculum_size: 76.7 μg/mL (high-cell density) or 10 μg/mL (low-cell density)
+  inoculum_unit: μg chlorophyll/mL
+  incubation_time: '17'
+  incubation_time_unit: days
+  preparation_notes: 'Medium prepared for sustained algal-bacterial hydrogen production. Mannitol and yeast extract are added to support bacterial growth and enhance H2 production. Cultures start under aerobic conditions and transition to anaerobic conditions for hydrogen production. Sulfur deprivation may be used to induce anaerobiosis and activate hydrogenase in Chlamydomonas. High-cell density cultures (76.7 μg/mL chlorophyll) produce 313 mL H2/L over 17 days, while low-cell density cultures (10 μg/mL chlorophyll) produce 163.5 mL H2/L over 25 days.
+
+    '
+  composition:
+  - name: Tris base (buffer)
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: Tris
+      term:
+        id: CHEBI:9754
+        label: tris(hydroxymethyl)aminomethane
+  - name: Acetate (carbon source)
+    concentration: '17'
+    unit: mM
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  - name: Mannitol
+    concentration: '20'
+    unit: mM
+    chebi_term:
+      preferred_term: mannitol
+      term:
+        id: CHEBI:16899
+        label: mannitol
+  - name: Yeast extract
+    concentration: '0.1'
+    unit: percent (w/v)
+    chebi_term:
+      preferred_term: yeast extract
+      term:
+        id: CHEBI:89981
+        label: yeast extract
+  - name: Ammonium chloride (nitrogen source)
+    concentration: '7.5'
+    unit: mM
+    chebi_term:
+      preferred_term: ammonium chloride
+      term:
+        id: CHEBI:31206
+        label: ammonium chloride
+  - name: Potassium phosphate
+    concentration: '1.0'
+    unit: mM
+    chebi_term:
+      preferred_term: dipotassium hydrogen phosphate
+      term:
+        id: CHEBI:131527
+        label: dipotassium hydrogen phosphate
+  - name: Magnesium sulfate
+    concentration: '0.4'
+    unit: mM
+    chebi_term:
+      preferred_term: magnesium sulfate
+      term:
+        id: CHEBI:32599
+        label: magnesium sulfate
+  - name: Calcium chloride
+    concentration: '0.34'
+    unit: mM
+    chebi_term:
+      preferred_term: calcium chloride
+      term:
+        id: CHEBI:3312
+        label: calcium dichloride
+  evidence:
+  - reference: PMID:38159768
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When incubated in mannitol- and yeast extract-containing medium, this bacterial community can promote and sustain algal hydrogen production up to 313 mL H2·L-1 for 17 days and 163.5 mL H2·L-1 for 25 days in high-cell (76.7 μg·mL-1 of initial chlorophyll) and low-cell density (10 μg·mL-1 of initial chlorophyll) algal cultures, respectively
+    explanation: Establishes mannitol and yeast extract as key medium components for sustained H2 production
 metals_present:
 - TITANIUM
 metal_relevance: SIGNIFICANT
