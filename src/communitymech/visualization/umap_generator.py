@@ -28,6 +28,7 @@ class UMAPVisualizationGenerator:
         n_neighbors: int = 15,
         min_dist: float = 0.1,
         min_coverage: float = 0.5,
+        exclude_hosts: bool = True,
     ):
         """Generate interactive UMAP visualization.
 
@@ -41,6 +42,7 @@ class UMAPVisualizationGenerator:
             n_neighbors: UMAP n_neighbors parameter
             min_dist: UMAP min_dist parameter
             min_coverage: Minimum embedding coverage for communities
+            exclude_hosts: Exclude non-microbial taxa (hosts) from representation
         """
         print("=" * 60)
         print("🔬 CommunityMech UMAP Visualization Generator")
@@ -58,11 +60,14 @@ class UMAPVisualizationGenerator:
         # Step 2: Aggregate communities
         aggregator = CommunityVectorAggregator(embeddings)
         community_vectors, aggregation_metadata = aggregator.aggregate_communities(
-            communities_dir, min_coverage=min_coverage
+            communities_dir, min_coverage=min_coverage, exclude_hosts=exclude_hosts
         )
 
         print(f"\n📦 Aggregated {len(community_vectors)} communities")
-        print(f"   (skipped {self._count_yaml_files(communities_dir) - len(community_vectors)} due to low coverage)")
+        if exclude_hosts:
+            print(f"   (excluded non-microbial host taxa from {self._count_yaml_files(communities_dir) - len(community_vectors)} communities)")
+        else:
+            print(f"   (skipped {self._count_yaml_files(communities_dir) - len(community_vectors)} due to low coverage)")
 
         # Step 3: Run UMAP
         reducer = UMAPReducer(
@@ -133,6 +138,9 @@ class UMAPVisualizationGenerator:
             # Get name
             name = yaml_data.get("name", community_id.replace("_", " "))
 
+            # Use microbial taxa count if available (when exclude_hosts=True)
+            num_taxa = metadata.get("num_microbial_taxa", metadata.get("num_taxa", 0))
+
             community_data.append(
                 {
                     "id": community_id,
@@ -143,7 +151,7 @@ class UMAPVisualizationGenerator:
                     "ecological_state": ecological_state,
                     "origin": origin,
                     "environment": environment,
-                    "num_taxa": metadata.get("num_taxa", 0),
+                    "num_taxa": num_taxa,
                     "num_interactions": num_interactions,
                     "coverage_pct": metadata.get("coverage_pct", 0.0),
                     "url": f"communities/{community_id}.html",

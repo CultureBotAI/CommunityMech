@@ -589,6 +589,11 @@ def _apply_batch_report(report_path: Path):
     default=0.5,
     help="Minimum fraction of taxa that must have embeddings (0.0-1.0)",
 )
+@click.option(
+    "--include-hosts/--exclude-hosts",
+    default=False,
+    help="Include non-microbial host taxa in representations (default: exclude)",
+)
 def generate_umap(
     communities_dir: Path,
     embeddings_path: Path,
@@ -598,6 +603,7 @@ def generate_umap(
     n_neighbors: int,
     min_dist: float,
     min_coverage: float,
+    include_hosts: bool,
 ):
     """Generate interactive UMAP visualization of community embedding space.
 
@@ -638,6 +644,7 @@ def generate_umap(
             n_neighbors=n_neighbors,
             min_dist=min_dist,
             min_coverage=min_coverage,
+            exclude_hosts=not include_hosts,
         )
 
     except Exception as e:
