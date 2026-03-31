@@ -1,0 +1,207 @@
+name: Model Soil Consortium-2 (MSC-2)
+description: >-
+  Reduced-complexity model soil consortium assembled from MSC-1 isolates to study
+  community-level chitin decomposition, interspecies interactions, and emergent
+  phenotypes in soil. MSC-2 contains eight bacterial members spanning diverse phyla
+  and was used for isolate genome sequencing, 16S profiling, metatranscriptomics,
+  metabolomics, and KBase-enabled metabolic modeling in the Hofmockel Soil Microbiome
+  SFA context.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: >-
+    Build a reduced, tractable soil consortium for studying how community context
+    shapes chitin degradation and member success during decomposition.
+  assembly_strategy: >-
+    Eight isolates were selected from MSC-1 to include both chitin degraders and
+    nondegraders while maximizing taxonomic diversity.
+  inoculation_strategy: Eight individually isolated strains assembled into a defined mixed community.
+  passaging_regimen: >-
+    Developed as a reduced-complexity follow-on to the naturally evolved MSC-1 soil
+    consortium for monoculture and coculture chitin assays.
+  measurement_endpoints:
+  - isolate growth on chitin and alternative carbon sources
+  - 16S rRNA community composition profiling
+  - metatranscriptomics during community growth on chitin
+  - community metabolomics during chitin decomposition
+  notes: >-
+    The KBase Soil Microbiome SFA page describes MSC-2 as one of the model consortia
+    used for OMEGGA and ModelSEED2 workflows.
+  evidence:
+  - reference: PMID:36154140
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Chitin was applied to a model soil consortium that we developed, "model soil consortium-2" (MSC-2), consisting of eight members of diverse phyla and including both chitin degraders and nondegraders.'
+    explanation: Supports the reduced eight-member MSC-2 design and mixed degrader/nondegrader composition.
+environment_term:
+  preferred_term: grassland soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Isolates were derived from IAREC grassland soil in Prosser, Washington.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptomyces sp. MSC1_001
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  strain_designation:
+    strain_name: MSC1_001
+    genome_accession: GCA_023667545.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667545.1
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Neorhizobium tomejilense MSC1_005
+    term:
+      id: NCBITaxon:2093828
+      label: Neorhizobium tomejilense
+  strain_designation:
+    strain_name: MSC1_005
+    genome_accession: GCA_023667605.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667605.1
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Dyadobacter sp. MSC1_007
+    term:
+      id: NCBITaxon:1914288
+      label: Dyadobacter sp.
+  strain_designation:
+    strain_name: MSC1_007
+    genome_accession: GCA_023667495.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667495.1
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Sphingopyxis sp. MSC1_008
+    term:
+      id: NCBITaxon:1908224
+      label: Sphingopyxis sp.
+  strain_designation:
+    strain_name: MSC1_008
+    genome_accession: GCA_023197165.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023197165.1
+  functional_role:
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Ensifer adhaerens MSC1_011
+    term:
+      id: NCBITaxon:106592
+      label: Ensifer adhaerens
+  strain_designation:
+    strain_name: MSC1_011
+    genome_accession: GCA_023667555.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667555.1
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Variovorax beijingensis MSC1_012
+    term:
+      id: NCBITaxon:2496117
+      label: Variovorax beijingensis
+  strain_designation:
+    strain_name: MSC1_012
+    genome_accession: GCA_023667525.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667525.1
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+- taxon_term:
+    preferred_term: Sinorhizobium meliloti MSC1_014
+    term:
+      id: NCBITaxon:382
+      label: Sinorhizobium meliloti
+  strain_designation:
+    strain_name: MSC1_014
+    genome_accession: GCA_023197145.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023197145.1
+  functional_role:
+  - PRIMARY_DEGRADER
+- taxon_term:
+    preferred_term: Rhodococcus sp. MSC1_016
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus
+  strain_designation:
+    strain_name: MSC1_016
+    genome_accession: GCA_023667485.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_023667485.1
+  functional_role:
+  - PRIMARY_DEGRADER
+associated_datasets:
+- name: MSC-2 isolate genomes
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA788902
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA788902
+  description: BioProject containing the eight isolate genome assemblies used for MSC-2.
+- name: MSC-2 bacterial isolate genomes (PNNL DataHub)
+  dataset_type: GENOME
+  repository: OTHER
+  accession: 10.25584/PNNLDH/1986536
+  url: https://data.pnnl.gov/group/nodes/dataset/33234
+  description: PNNL DataHub record linking the MSC-2 isolate genome assemblies and accessions.
+- name: MSC-2 16S growth dataset
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: PNNLDH:33231
+  url: https://data.pnnl.gov/group/nodes/dataset/33231
+  description: 16S rRNA gene data from MSC-2 growth experiments.
+- name: MSC-2 metatranscriptomic dataset
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: PNNLDH:33232
+  url: https://data.pnnl.gov/group/nodes/dataset/33232
+  description: Metatranscriptomic data from MSC-2 chitin growth assays.
+- name: MSC-2 primary publication
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PMID:36154140
+  url: https://pubmed.ncbi.nlm.nih.gov/36154140/
+  description: Primary publication describing MSC-2 assembly, multiomics, and community interaction results.
+ecological_interactions:
+- name: Chitin Breakdown Product Sharing
+  description: >-
+    Community growth on chitin is supported by interspecies sharing of decomposition
+    products, so the most abundant members are not necessarily the taxa that directly
+    metabolize chitin in monoculture.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: chitin
+    term:
+      id: CHEBI:18246
+      label: chitin
+  downstream:
+  - target: Community growth on chitin decomposition products
+  evidence:
+  - reference: PMID:36154140
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the most abundant members of MSC-2 were not those that were able to metabolize chitin itself, but rather those that were able to take full advantage of interspecies interactions to grow on chitin decomposition products
+    explanation: Supports cross-feeding and shared access to products released during community chitin degradation.
+- name: Community-Responsive Streptomyces Chitin Phenotype
+  description: >-
+    Streptomyces exhibits a community-responsive chitin phenotype, and MSC-2 organizes
+    members into distinct functional roles during decomposition.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Streptomyces sp. MSC1_001
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  downstream:
+  - target: Distinct functional roles during chitin degradation
+  evidence:
+  - reference: PMID:36154140
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Emergent properties of both species and the community were found, including changes in the chitin degradation potential of Streptomyces species and organization of all species into distinct roles in the chitin degradation process.
+    explanation: Supports that Streptomyces behavior and community roles depend on the surrounding MSC-2 membership.
+external_resources:
+- name: KBase Soil Microbiome SFA collaboration page
+  repository: KBASE
+  resource_id: hofmockel-sfa
+  url: https://www.kbase.us/research/hofmockel-sfa/
+  description: KBase Soil Microbiome SFA page describing OMEGGA and MSC-2 use in ModelSEED2 workflows.

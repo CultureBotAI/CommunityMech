@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Soil Consortium-2 (MSC-2) - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Model Soil Consortium-2 (MSC-2)</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        grassland soil
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_00001998"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:00001998
+                        </a>
+                    </span>
+                </div>
+                
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Source File</span>
+                    <span class="metadata-value">MSC2_Model_Soil_Consortium.yaml</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>Reduced-complexity model soil consortium assembled from MSC-1 isolates to study community-level chitin decomposition, interspecies interactions, and emergent phenotypes in soil. MSC-2 contains eight bacterial members spanning diverse phyla and was used for isolate genome sequencing, 16S profiling, metatranscriptomics, metabolomics, and KBase-enabled metabolic modeling in the Hofmockel Soil Microbiome SFA context.</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Streptomyces sp. MSC1_001</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1931"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1931
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Neorhizobium tomejilense MSC1_005</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2093828"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:2093828
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Dyadobacter sp. MSC1_007</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1914288"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1914288
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Sphingopyxis sp. MSC1_008</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1908224"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1908224
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Ensifer adhaerens MSC1_011</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=106592"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:106592
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Variovorax beijingensis MSC1_012</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2496117"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:2496117
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Sinorhizobium meliloti MSC1_014</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=382"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:382
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>Rhodococcus sp. MSC1_016</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1827"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1827
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+        
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Model Soil Consortium-2 (MSC-2)</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #a855f7;"></span> Syntrophy
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #ef4444;"></span> Competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Chitin Breakdown Product Sharing</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    chitin
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18246"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18246</a>)
+                    
+                </p>
+                
+
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Community growth on chitin decomposition products
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"the most abundant members of MSC-2 were not those that were able to metabolize chitin itself, but rather those that were able to take full advantage of interspecies interactions to grow on chitin decomposition products"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Community-Responsive Streptomyces Chitin Phenotype</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Streptomyces sp. MSC1_001</p>
+                
+
+                
+
+                
+
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Distinct functional roles during chitin degradation
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Emergent properties of both species and the community were found, including changes in the chitin degradation potential of Streptomyces species and organization of all species into distinct roles in the chitin degradation process."</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        
+        </section>
+
+        <!-- Associated Datasets -->
+        
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>MSC-2 isolate genomes</strong>
+                            
+                            <br><span class="dataset-description">BioProject containing the eight isolate genome assemblies used for MSC-2.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">GENOME</span></td>
+                        <td>NCBI_BIOPROJECT</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA788902" class="term-link" target="_blank" rel="noopener noreferrer">PRJNA788902</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>MSC-2 bacterial isolate genomes (PNNL DataHub)</strong>
+                            
+                            <br><span class="dataset-description">PNNL DataHub record linking the MSC-2 isolate genome assemblies and accessions.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">GENOME</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://data.pnnl.gov/group/nodes/dataset/33234" class="term-link" target="_blank" rel="noopener noreferrer">10.25584/PNNLDH/1986536</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>MSC-2 16S growth dataset</strong>
+                            
+                            <br><span class="dataset-description">16S rRNA gene data from MSC-2 growth experiments.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">AMPLICON_16S</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://data.pnnl.gov/group/nodes/dataset/33231" class="term-link" target="_blank" rel="noopener noreferrer">PNNLDH:33231</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>MSC-2 metatranscriptomic dataset</strong>
+                            
+                            <br><span class="dataset-description">Metatranscriptomic data from MSC-2 chitin growth assays.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">METATRANSCRIPTOME</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://data.pnnl.gov/group/nodes/dataset/33232" class="term-link" target="_blank" rel="noopener noreferrer">PNNLDH:33232</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <strong>MSC-2 primary publication</strong>
+                            
+                            <br><span class="dataset-description">Primary publication describing MSC-2 assembly, multiomics, and community interaction results.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">OTHER</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/36154140/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:36154140</a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+
+        <!-- Growth Media -->
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            CROSS_FEEDING: "#22c55e",
+            MUTUALISM: "#3b82f6",
+            SYNTROPHY: "#a855f7",
+            COMPETITION: "#ef4444",
+            COMMENSALISM: "#f97316"
+        };
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+        
+        taxonData["Streptomyces sp. MSC1_001"] = {
+            id: "NCBITaxon:1931",
+            label: "Streptomyces sp. MSC1_001",
+            abundance: "UNKNOWN",
+            roles: ["CROSS_FEEDER"]
+        };
+        
+        taxonData["Neorhizobium tomejilense MSC1_005"] = {
+            id: "NCBITaxon:2093828",
+            label: "Neorhizobium tomejilense MSC1_005",
+            abundance: "UNKNOWN",
+            roles: ["CROSS_FEEDER"]
+        };
+        
+        taxonData["Dyadobacter sp. MSC1_007"] = {
+            id: "NCBITaxon:1914288",
+            label: "Dyadobacter sp. MSC1_007",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+        
+        taxonData["Sphingopyxis sp. MSC1_008"] = {
+            id: "NCBITaxon:1908224",
+            label: "Sphingopyxis sp. MSC1_008",
+            abundance: "UNKNOWN",
+            roles: ["CROSS_FEEDER"]
+        };
+        
+        taxonData["Ensifer adhaerens MSC1_011"] = {
+            id: "NCBITaxon:106592",
+            label: "Ensifer adhaerens MSC1_011",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+        
+        taxonData["Variovorax beijingensis MSC1_012"] = {
+            id: "NCBITaxon:2496117",
+            label: "Variovorax beijingensis MSC1_012",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER", "CROSS_FEEDER"]
+        };
+        
+        taxonData["Sinorhizobium meliloti MSC1_014"] = {
+            id: "NCBITaxon:382",
+            label: "Sinorhizobium meliloti MSC1_014",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+        
+        taxonData["Rhodococcus sp. MSC1_016"] = {
+            id: "NCBITaxon:1827",
+            label: "Rhodococcus sp. MSC1_016",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+        
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+        
+        (function() {
+            var intId = "interaction:0";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("chitin");
+            
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Chitin Breakdown Product Sharing",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Community-Responsive Streptomyces Chitin Phenotype",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Streptomyces sp. MSC1_001";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+        })();
+        
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 10;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#3b82f6")
+            .attr("stroke", "#1e40af")
+            .attr("stroke-width", 1.5);
+
+        // Interaction nodes: rounded rects
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("rect")
+            .attr("width", 28)
+            .attr("height", 18)
+            .attr("x", -14)
+            .attr("y", -9)
+            .attr("rx", 5)
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || "#6b7280"; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || "#6b7280");
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .attr("fill", "#475569");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .attr("fill", "#475569")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+    
+</body>
+</html>
