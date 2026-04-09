@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-14T21:50:53
+# Generation date: 2026-03-22T20:07:04
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -366,7 +366,9 @@ class StrainDesignation(YAMLRoot):
         if self.strain_name is not None and not isinstance(self.strain_name, str):
             self.strain_name = str(self.strain_name)
 
-        self._normalize_inlined_as_dict(slot_name="culture_collections", slot_type=CultureCollectionID, key_name="collection", keyed=False)
+        if not isinstance(self.culture_collections, list):
+            self.culture_collections = [self.culture_collections] if self.culture_collections is not None else []
+        self.culture_collections = [v if isinstance(v, CultureCollectionID) else CultureCollectionID(**as_dict(v)) for v in self.culture_collections]
 
         if self.type_strain is not None and not isinstance(self.type_strain, Bool):
             self.type_strain = Bool(self.type_strain)
@@ -427,7 +429,9 @@ class TaxonomicComposition(YAMLRoot):
             self.functional_role = [self.functional_role] if self.functional_role is not None else []
         self.functional_role = [v if isinstance(v, FunctionalRoleEnum) else FunctionalRoleEnum(v) for v in self.functional_role]
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -499,13 +503,21 @@ class EcologicalInteraction(YAMLRoot):
         if self.target_taxon is not None and not isinstance(self.target_taxon, TaxonDescriptor):
             self.target_taxon = TaxonDescriptor(**as_dict(self.target_taxon))
 
-        self._normalize_inlined_as_dict(slot_name="metabolites", slot_type=MetaboliteDescriptor, key_name="preferred_term", keyed=False)
+        if not isinstance(self.metabolites, list):
+            self.metabolites = [self.metabolites] if self.metabolites is not None else []
+        self.metabolites = [v if isinstance(v, MetaboliteDescriptor) else MetaboliteDescriptor(**as_dict(v)) for v in self.metabolites]
 
-        self._normalize_inlined_as_dict(slot_name="biological_processes", slot_type=BiologicalProcessDescriptor, key_name="preferred_term", keyed=False)
+        if not isinstance(self.biological_processes, list):
+            self.biological_processes = [self.biological_processes] if self.biological_processes is not None else []
+        self.biological_processes = [v if isinstance(v, BiologicalProcessDescriptor) else BiologicalProcessDescriptor(**as_dict(v)) for v in self.biological_processes]
 
-        self._normalize_inlined_as_dict(slot_name="downstream", slot_type=InteractionDownstream, key_name="target", keyed=False)
+        if not isinstance(self.downstream, list):
+            self.downstream = [self.downstream] if self.downstream is not None else []
+        self.downstream = [v if isinstance(v, InteractionDownstream) else InteractionDownstream(**as_dict(v)) for v in self.downstream]
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -543,7 +555,9 @@ class EnvironmentalFactor(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -566,7 +580,7 @@ class GrowthMediaComponent(YAMLRoot):
     concentration: Optional[str] = None
     unit: Optional[str] = None
     chebi_term: Optional[Union[dict, MetaboliteDescriptor]] = None
-    from: Optional[str] = None
+    from_source: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -589,8 +603,8 @@ class GrowthMediaComponent(YAMLRoot):
         if self.chebi_term is not None and not isinstance(self.chebi_term, MetaboliteDescriptor):
             self.chebi_term = MetaboliteDescriptor(**as_dict(self.chebi_term))
 
-        if self.from is not None and not isinstance(self.from, str):
-            self.from = str(self.from)
+        if self.from_source is not None and not isinstance(self.from_source, str):
+            self.from_source = str(self.from_source)
 
         super().__post_init__(**kwargs)
 
@@ -651,7 +665,9 @@ class GrowthMedia(YAMLRoot):
         if self.culturemech_url is not None and not isinstance(self.culturemech_url, str):
             self.culturemech_url = str(self.culturemech_url)
 
-        self._normalize_inlined_as_dict(slot_name="composition", slot_type=GrowthMediaComponent, key_name="name", keyed=False)
+        if not isinstance(self.composition, list):
+            self.composition = [self.composition] if self.composition is not None else []
+        self.composition = [v if isinstance(v, GrowthMediaComponent) else GrowthMediaComponent(**as_dict(v)) for v in self.composition]
 
         if self.ph is not None and not isinstance(self.ph, str):
             self.ph = str(self.ph)
@@ -731,7 +747,97 @@ class GrowthMedia(YAMLRoot):
         if self.protocol_url is not None and not isinstance(self.protocol_url, str):
             self.protocol_url = str(self.protocol_url)
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class RelatedMedia(YAMLRoot):
+    """
+    A CultureMech medium relevant to this community through shared environment, organism overlap, or study context.
+    Complements GrowthMedia (which captures media actually used for cultivation) by enabling environment-based
+    discovery of potentially useful media across the CultureMech repository.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["RelatedMedia"]
+    class_class_curie: ClassVar[str] = "communitymech:RelatedMedia"
+    class_name: ClassVar[str] = "RelatedMedia"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.RelatedMedia
+
+    preferred_term: str = None
+    culturemech_id: Optional[str] = None
+    relationship_type: Optional[Union[str, "MediaRelationshipEnum"]] = None
+    shared_environment_term: Optional[Union[dict, Term]] = None
+    relevance_notes: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self.culturemech_id is not None and not isinstance(self.culturemech_id, str):
+            self.culturemech_id = str(self.culturemech_id)
+
+        if self.relationship_type is not None and not isinstance(self.relationship_type, MediaRelationshipEnum):
+            self.relationship_type = MediaRelationshipEnum(self.relationship_type)
+
+        if self.shared_environment_term is not None and not isinstance(self.shared_environment_term, Term):
+            self.shared_environment_term = Term(**as_dict(self.shared_environment_term))
+
+        if self.relevance_notes is not None and not isinstance(self.relevance_notes, str):
+            self.relevance_notes = str(self.relevance_notes)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class RelatedIngredient(YAMLRoot):
+    """
+    A MediaIngredientMech ingredient relevant to this community's environment or metabolism. Complements
+    GrowthMediaComponent (which captures ingredients in actual cultivation media) by linking to environmentally
+    significant compounds that may not be in any currently used medium.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["RelatedIngredient"]
+    class_class_curie: ClassVar[str] = "communitymech:RelatedIngredient"
+    class_name: ClassVar[str] = "RelatedIngredient"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.RelatedIngredient
+
+    preferred_term: str = None
+    mediaingredientmech_id: Optional[str] = None
+    chebi_term: Optional[Union[dict, Term]] = None
+    relevance: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.preferred_term):
+            self.MissingRequiredField("preferred_term")
+        if not isinstance(self.preferred_term, str):
+            self.preferred_term = str(self.preferred_term)
+
+        if self.mediaingredientmech_id is not None and not isinstance(self.mediaingredientmech_id, str):
+            self.mediaingredientmech_id = str(self.mediaingredientmech_id)
+
+        if self.chebi_term is not None and not isinstance(self.chebi_term, Term):
+            self.chebi_term = Term(**as_dict(self.chebi_term))
+
+        if self.relevance is not None and not isinstance(self.relevance, str):
+            self.relevance = str(self.relevance)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -781,7 +887,9 @@ class AssociatedDataset(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -829,7 +937,9 @@ class ExternalResource(YAMLRoot):
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -882,7 +992,9 @@ class CommunityEngineeringDesign(YAMLRoot):
         if self.notes is not None and not isinstance(self.notes, str):
             self.notes = str(self.notes)
 
-        self._normalize_inlined_as_dict(slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False)
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence]
 
         super().__post_init__(**kwargs)
 
@@ -911,6 +1023,8 @@ class MicrobialCommunity(YAMLRoot):
     ecological_interactions: Optional[Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]] = empty_list()
     environmental_factors: Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]] = empty_list()
     growth_media: Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]] = empty_list()
+    related_media: Optional[Union[Union[dict, RelatedMedia], list[Union[dict, RelatedMedia]]]] = empty_list()
+    related_ingredients: Optional[Union[Union[dict, RelatedIngredient], list[Union[dict, RelatedIngredient]]]] = empty_list()
     associated_datasets: Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]] = empty_list()
     external_resources: Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]] = empty_list()
     metals_present: Optional[Union[Union[str, "MetalElementEnum"], list[Union[str, "MetalElementEnum"]]]] = empty_list()
@@ -947,17 +1061,37 @@ class MicrobialCommunity(YAMLRoot):
         if self.environment_term is not None and not isinstance(self.environment_term, EnvironmentDescriptor):
             self.environment_term = EnvironmentDescriptor(**as_dict(self.environment_term))
 
-        self._normalize_inlined_as_dict(slot_name="taxonomy", slot_type=TaxonomicComposition, key_name="taxon_term", keyed=False)
+        if not isinstance(self.taxonomy, list):
+            self.taxonomy = [self.taxonomy] if self.taxonomy is not None else []
+        self.taxonomy = [v if isinstance(v, TaxonomicComposition) else TaxonomicComposition(**as_dict(v)) for v in self.taxonomy]
 
-        self._normalize_inlined_as_dict(slot_name="ecological_interactions", slot_type=EcologicalInteraction, key_name="name", keyed=False)
+        if not isinstance(self.ecological_interactions, list):
+            self.ecological_interactions = [self.ecological_interactions] if self.ecological_interactions is not None else []
+        self.ecological_interactions = [v if isinstance(v, EcologicalInteraction) else EcologicalInteraction(**as_dict(v)) for v in self.ecological_interactions]
 
-        self._normalize_inlined_as_dict(slot_name="environmental_factors", slot_type=EnvironmentalFactor, key_name="name", keyed=False)
+        if not isinstance(self.environmental_factors, list):
+            self.environmental_factors = [self.environmental_factors] if self.environmental_factors is not None else []
+        self.environmental_factors = [v if isinstance(v, EnvironmentalFactor) else EnvironmentalFactor(**as_dict(v)) for v in self.environmental_factors]
 
-        self._normalize_inlined_as_dict(slot_name="growth_media", slot_type=GrowthMedia, key_name="name", keyed=False)
+        if not isinstance(self.growth_media, list):
+            self.growth_media = [self.growth_media] if self.growth_media is not None else []
+        self.growth_media = [v if isinstance(v, GrowthMedia) else GrowthMedia(**as_dict(v)) for v in self.growth_media]
 
-        self._normalize_inlined_as_dict(slot_name="associated_datasets", slot_type=AssociatedDataset, key_name="name", keyed=False)
+        if not isinstance(self.related_media, list):
+            self.related_media = [self.related_media] if self.related_media is not None else []
+        self.related_media = [v if isinstance(v, RelatedMedia) else RelatedMedia(**as_dict(v)) for v in self.related_media]
 
-        self._normalize_inlined_as_dict(slot_name="external_resources", slot_type=ExternalResource, key_name="name", keyed=False)
+        if not isinstance(self.related_ingredients, list):
+            self.related_ingredients = [self.related_ingredients] if self.related_ingredients is not None else []
+        self.related_ingredients = [v if isinstance(v, RelatedIngredient) else RelatedIngredient(**as_dict(v)) for v in self.related_ingredients]
+
+        if not isinstance(self.associated_datasets, list):
+            self.associated_datasets = [self.associated_datasets] if self.associated_datasets is not None else []
+        self.associated_datasets = [v if isinstance(v, AssociatedDataset) else AssociatedDataset(**as_dict(v)) for v in self.associated_datasets]
+
+        if not isinstance(self.external_resources, list):
+            self.external_resources = [self.external_resources] if self.external_resources is not None else []
+        self.external_resources = [v if isinstance(v, ExternalResource) else ExternalResource(**as_dict(v)) for v in self.external_resources]
 
         if not isinstance(self.metals_present, list):
             self.metals_present = [self.metals_present] if self.metals_present is not None else []
@@ -1066,6 +1200,32 @@ class CommunityOriginEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="CommunityOriginEnum",
         description="The origin or source of the community",
+    )
+
+class MediaRelationshipEnum(EnumDefinitionImpl):
+    """
+    Type of relationship between a microbial community and a growth medium. Distinguishes actual cultivation media
+    from environmentally related media.
+    """
+    CULTIVATION_MEDIUM = PermissibleValue(
+        text="CULTIVATION_MEDIUM",
+        description="Medium actually used for cultivation of community members")
+    ISOLATION_MEDIUM = PermissibleValue(
+        text="ISOLATION_MEDIUM",
+        description="Medium used for initial isolation of community members from the environment")
+    ENVIRONMENT_ANALOG = PermissibleValue(
+        text="ENVIRONMENT_ANALOG",
+        description="Medium designed to mimic the community's natural environment")
+    REFERENCED_IN_STUDY = PermissibleValue(
+        text="REFERENCED_IN_STUDY",
+        description="Medium referenced in a study of this community but not necessarily used for cultivation")
+    SELECTIVE_ENRICHMENT = PermissibleValue(
+        text="SELECTIVE_ENRICHMENT",
+        description="Medium used for selective enrichment of specific functional groups within the community")
+
+    _defn = EnumDefinition(
+        name="MediaRelationshipEnum",
+        description="""Type of relationship between a microbial community and a growth medium. Distinguishes actual cultivation media from environmentally related media.""",
     )
 
 class CommunityCategoryEnum(EnumDefinitionImpl):
@@ -1762,8 +1922,8 @@ slots.growthMediaComponent__unit = Slot(uri=COMMUNITYMECH.unit, name="growthMedi
 slots.growthMediaComponent__chebi_term = Slot(uri=COMMUNITYMECH.chebi_term, name="growthMediaComponent__chebi_term", curie=COMMUNITYMECH.curie('chebi_term'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__chebi_term, domain=None, range=Optional[Union[dict, MetaboliteDescriptor]])
 
-slots.growthMediaComponent__from = Slot(uri=COMMUNITYMECH.from, name="growthMediaComponent__from", curie=COMMUNITYMECH.curie('from'),
-                   model_uri=COMMUNITYMECH.growthMediaComponent__from, domain=None, range=Optional[str])
+slots.growthMediaComponent__from_source = Slot(uri=COMMUNITYMECH['from'], name="growthMediaComponent__from_source", curie=COMMUNITYMECH.curie('from'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__from_source, domain=None, range=Optional[str])
 
 slots.growthMedia__name = Slot(uri=COMMUNITYMECH.name, name="growthMedia__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.growthMedia__name, domain=None, range=str)
@@ -1857,6 +2017,41 @@ slots.growthMedia__protocol_url = Slot(uri=COMMUNITYMECH.protocol_url, name="gro
 
 slots.growthMedia__evidence = Slot(uri=COMMUNITYMECH.evidence, name="growthMedia__evidence", curie=COMMUNITYMECH.curie('evidence'),
                    model_uri=COMMUNITYMECH.growthMedia__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
+slots.relatedMedia__preferred_term = Slot(uri=COMMUNITYMECH.preferred_term, name="relatedMedia__preferred_term", curie=COMMUNITYMECH.curie('preferred_term'),
+                   model_uri=COMMUNITYMECH.relatedMedia__preferred_term, domain=None, range=str)
+
+slots.relatedMedia__culturemech_id = Slot(uri=COMMUNITYMECH.culturemech_id, name="relatedMedia__culturemech_id", curie=COMMUNITYMECH.curie('culturemech_id'),
+                   model_uri=COMMUNITYMECH.relatedMedia__culturemech_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^CultureMech:\d{6}$'))
+
+slots.relatedMedia__relationship_type = Slot(uri=COMMUNITYMECH.relationship_type, name="relatedMedia__relationship_type", curie=COMMUNITYMECH.curie('relationship_type'),
+                   model_uri=COMMUNITYMECH.relatedMedia__relationship_type, domain=None, range=Optional[Union[str, "MediaRelationshipEnum"]])
+
+slots.relatedMedia__shared_environment_term = Slot(uri=COMMUNITYMECH.shared_environment_term, name="relatedMedia__shared_environment_term", curie=COMMUNITYMECH.curie('shared_environment_term'),
+                   model_uri=COMMUNITYMECH.relatedMedia__shared_environment_term, domain=None, range=Optional[Union[dict, Term]])
+
+slots.relatedMedia__relevance_notes = Slot(uri=COMMUNITYMECH.relevance_notes, name="relatedMedia__relevance_notes", curie=COMMUNITYMECH.curie('relevance_notes'),
+                   model_uri=COMMUNITYMECH.relatedMedia__relevance_notes, domain=None, range=Optional[str])
+
+slots.relatedMedia__evidence = Slot(uri=COMMUNITYMECH.evidence, name="relatedMedia__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.relatedMedia__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
+
+slots.relatedIngredient__preferred_term = Slot(uri=COMMUNITYMECH.preferred_term, name="relatedIngredient__preferred_term", curie=COMMUNITYMECH.curie('preferred_term'),
+                   model_uri=COMMUNITYMECH.relatedIngredient__preferred_term, domain=None, range=str)
+
+slots.relatedIngredient__mediaingredientmech_id = Slot(uri=COMMUNITYMECH.mediaingredientmech_id, name="relatedIngredient__mediaingredientmech_id", curie=COMMUNITYMECH.curie('mediaingredientmech_id'),
+                   model_uri=COMMUNITYMECH.relatedIngredient__mediaingredientmech_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^MediaIngredientMech:\d{6}$'))
+
+slots.relatedIngredient__chebi_term = Slot(uri=COMMUNITYMECH.chebi_term, name="relatedIngredient__chebi_term", curie=COMMUNITYMECH.curie('chebi_term'),
+                   model_uri=COMMUNITYMECH.relatedIngredient__chebi_term, domain=None, range=Optional[Union[dict, Term]])
+
+slots.relatedIngredient__relevance = Slot(uri=COMMUNITYMECH.relevance, name="relatedIngredient__relevance", curie=COMMUNITYMECH.curie('relevance'),
+                   model_uri=COMMUNITYMECH.relatedIngredient__relevance, domain=None, range=Optional[str])
+
+slots.relatedIngredient__evidence = Slot(uri=COMMUNITYMECH.evidence, name="relatedIngredient__evidence", curie=COMMUNITYMECH.curie('evidence'),
+                   model_uri=COMMUNITYMECH.relatedIngredient__evidence, domain=None, range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]])
 
 slots.associatedDataset__name = Slot(uri=COMMUNITYMECH.name, name="associatedDataset__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.associatedDataset__name, domain=None, range=str)
@@ -1960,6 +2155,12 @@ slots.microbialCommunity__environmental_factors = Slot(uri=COMMUNITYMECH.environ
 
 slots.microbialCommunity__growth_media = Slot(uri=COMMUNITYMECH.growth_media, name="microbialCommunity__growth_media", curie=COMMUNITYMECH.curie('growth_media'),
                    model_uri=COMMUNITYMECH.microbialCommunity__growth_media, domain=None, range=Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]])
+
+slots.microbialCommunity__related_media = Slot(uri=COMMUNITYMECH.related_media, name="microbialCommunity__related_media", curie=COMMUNITYMECH.curie('related_media'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__related_media, domain=None, range=Optional[Union[Union[dict, RelatedMedia], list[Union[dict, RelatedMedia]]]])
+
+slots.microbialCommunity__related_ingredients = Slot(uri=COMMUNITYMECH.related_ingredients, name="microbialCommunity__related_ingredients", curie=COMMUNITYMECH.curie('related_ingredients'),
+                   model_uri=COMMUNITYMECH.microbialCommunity__related_ingredients, domain=None, range=Optional[Union[Union[dict, RelatedIngredient], list[Union[dict, RelatedIngredient]]]])
 
 slots.microbialCommunity__associated_datasets = Slot(uri=COMMUNITYMECH.associated_datasets, name="microbialCommunity__associated_datasets", curie=COMMUNITYMECH.curie('associated_datasets'),
                    model_uri=COMMUNITYMECH.microbialCommunity__associated_datasets, domain=None, range=Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]])

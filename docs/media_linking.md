@@ -191,6 +191,7 @@ just validate-all
 
 ## See Also
 
+- **[Cross-Repo Environmental Linking](cross_repo_linking.md)** -- Environment-based linking via `related_media` and `related_ingredients` fields (complements the cultivation-based linking described here)
 - LinkML schema: `src/communitymech/schema/communitymech.yaml`
-- GrowthMedia class definition (lines 631-658)
-- GrowthMediaComponent class definition (lines 613-630)
+- GrowthMedia class definition
+- GrowthMediaComponent class definition

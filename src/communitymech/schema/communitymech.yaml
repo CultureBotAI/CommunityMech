@@ -80,6 +80,22 @@ enums:
       SYNTHETIC:
         description: Fully synthetic community designed in laboratory
 
+  MediaRelationshipEnum:
+    description: >-
+      Type of relationship between a microbial community and a growth medium.
+      Distinguishes actual cultivation media from environmentally related media.
+    permissible_values:
+      CULTIVATION_MEDIUM:
+        description: Medium actually used for cultivation of community members
+      ISOLATION_MEDIUM:
+        description: Medium used for initial isolation of community members from the environment
+      ENVIRONMENT_ANALOG:
+        description: Medium designed to mimic the community's natural environment
+      REFERENCED_IN_STUDY:
+        description: Medium referenced in a study of this community but not necessarily used for cultivation
+      SELECTIVE_ENRICHMENT:
+        description: Medium used for selective enrichment of specific functional groups within the community
+
   CommunityCategoryEnum:
     description: Broad functional/ecological category of the community
     permissible_values:
@@ -718,6 +734,71 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  RelatedMedia:
+    description: >-
+      A CultureMech medium relevant to this community through shared environment,
+      organism overlap, or study context. Complements GrowthMedia (which captures
+      media actually used for cultivation) by enabling environment-based discovery
+      of potentially useful media across the CultureMech repository.
+    attributes:
+      preferred_term:
+        description: Human-readable media name (should match CultureMech record name)
+        required: true
+        range: string
+      culturemech_id:
+        description: CultureMech identifier for this medium
+        required: false
+        range: string
+        pattern: "^CultureMech:\\d{6}$"
+      relationship_type:
+        description: How this medium relates to the community
+        range: MediaRelationshipEnum
+        required: false
+      shared_environment_term:
+        description: >-
+          ENVO term for the shared environment linking this medium to the community.
+          Enables SPARQL joins between CommunityMech environment_term and
+          CultureMech source_environment.
+        range: Term
+        required: false
+      relevance_notes:
+        description: Why this medium is relevant to the community
+        range: string
+        required: false
+      evidence:
+        description: Evidence supporting the media-community relationship
+        range: EvidenceItem
+        multivalued: true
+
+  RelatedIngredient:
+    description: >-
+      A MediaIngredientMech ingredient relevant to this community's environment
+      or metabolism. Complements GrowthMediaComponent (which captures ingredients
+      in actual cultivation media) by linking to environmentally significant
+      compounds that may not be in any currently used medium.
+    attributes:
+      preferred_term:
+        description: Human-readable ingredient name (should match MediaIngredientMech record)
+        required: true
+        range: string
+      mediaingredientmech_id:
+        description: MediaIngredientMech identifier
+        required: false
+        range: string
+        pattern: "^MediaIngredientMech:\\d{6}$"
+      chebi_term:
+        description: CHEBI ontology term for the ingredient compound
+        range: Term
+        required: false
+      relevance:
+        description: Why this ingredient is relevant to the community
+        required: false
+        range: string
+      evidence:
+        description: Evidence supporting the ingredient-community relationship
+        range: EvidenceItem
+        multivalued: true
+
   AssociatedDataset:
     description: An omics or other dataset associated with the community
     attributes:
@@ -836,6 +917,24 @@ classes:
         description: Growth media used for cultivation
         range: GrowthMedia
         multivalued: true
+      related_media:
+        description: >-
+          CultureMech media relevant to this community through shared environment,
+          organism overlap, or study context. For media actually used in cultivation,
+          use the growth_media field instead.
+        range: RelatedMedia
+        multivalued: true
+        required: false
+        inlined_as_list: true
+      related_ingredients:
+        description: >-
+          MediaIngredientMech ingredients relevant to this community's environment
+          or metabolism. For ingredients in actual cultivation media, see
+          growth_media.composition instead.
+        range: RelatedIngredient
+        multivalued: true
+        required: false
+        inlined_as_list: true
       associated_datasets:
         description: Omics and other datasets associated with this community
         range: AssociatedDataset

@@ -130,7 +130,9 @@ CommunityMech/
 
 - **[Implementation Plan](COMMUNITY_MECH_PLAN.md)** - Complete 11-phase plan
 - **[Quick Start Guide](QUICK_START.md)** - Quick reference
-- **[Schema Documentation](docs/)** - LinkML schema reference (once generated)
+- **[Schema Documentation](docs/)** - LinkML schema reference
+- **[Cross-Repo Linking](docs/cross_repo_linking.md)** - Environmental linking to CultureMech and MediaIngredientMech
+- **[Growth Media Linking](docs/media_linking.md)** - Cultivation-based media linking
 
 ---
 
@@ -200,7 +202,14 @@ ecological_interactions:
 - **Rich YAML** - For agent consumption (full context)
 - **Simple KG** - For graph algorithms (Biolink edges)
 
-### 5. Scientist-Friendly
+### 5. Cross-Repository Linking
+- **Environmental linking** to CultureMech media and MediaIngredientMech ingredients
+- Environment-based discovery via shared ENVO terms
+- `related_media` for environmentally relevant media (complements `growth_media`)
+- `related_ingredients` for environmentally significant compounds
+- SPARQL query patterns for cross-repo joins
+
+### 6. Scientist-Friendly
 - Faceted browser (no coding required)
 - Click-through to evidence
 - Interactive visualizations
@@ -215,8 +224,9 @@ ecological_interactions:
 - [x] Implementation plan documented
 - [x] Reference implementation analyzed (Monarch dismech)
 - [x] Seed data added (35 communities)
-- [ ] Schema design
-- [ ] First example community YAML
+- [x] Schema design (LinkML schema with full validation)
+- [x] First example community YAML
+- [x] Cross-repo environmental linking (CultureMech + MediaIngredientMech)
 - [ ] Validation stack setup
 - [ ] Koza transform implementation
 - [ ] Faceted browser adaptation
