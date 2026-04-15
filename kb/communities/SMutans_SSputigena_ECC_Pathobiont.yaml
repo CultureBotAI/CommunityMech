@@ -1,0 +1,127 @@
+id: CommunityMech:000084
+name: Streptococcus mutans - Selenomonas sputigena ECC Pathobiont Model
+description: >-
+  A defined dual-species oral biofilm model derived from early childhood caries
+  discovery-validation work. Selenomonas sputigena becomes trapped within
+  Streptococcus mutans exoglucans, builds a honeycomb-like multicellular
+  superstructure, enhances acidogenesis, and increases enamel lesion severity
+  in vivo.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: ORAL
+engineering_design:
+  objective: >-
+    Identify disease-relevant inter-species interactions in early childhood
+    caries and validate whether Selenomonas sputigena acts as a pathobiont with
+    Streptococcus mutans.
+  assembly_strategy: >-
+    Discovery-validation pipeline starting from supragingival biofilm
+    metagenomics and metatranscriptomics, followed by dual-species imaging,
+    virulence assays, and rodent coinfection experiments.
+  perturbation_design: >-
+    Selenomonas sputigena was tested individually and with Streptococcus
+    mutans to compare spatial arrangement, acidogenesis, tooth-surface
+    colonization, and in vivo cariogenicity.
+  measurement_endpoints:
+  - Metagenomics
+  - Metatranscriptomics
+  - Multiscale imaging
+  - Virulence assays
+  - Rodent caries scoring
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Here, we integrate multi-omics of supragingival biofilm (dental plaque)
+      from 416 preschool-age children (208 males and 208 females) in a
+      discovery-validation pipeline to identify disease-relevant inter-species
+      interactions.
+    explanation: Supports the study design used to derive and validate this pathobiont model.
+environment_term:
+  preferred_term: supragingival cariogenic plaque biofilm
+  term:
+    id: ENVO:01001034
+    label: environment determined by a biofilm on an animal surface
+  notes: >-
+    Model is grounded in supragingival plaque from preschool children with
+    early childhood caries and validated on tooth surfaces in vivo.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Streptococcus mutans has been implicated as the primary pathogen in
+      childhood caries (tooth decay).
+    explanation: Establishes Streptococcus mutans as the reference pathogen in the model.
+- taxon_term:
+    preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      We show that S. sputigena, a flagellated anaerobe with previously unknown
+      role in supragingival biofilm, becomes trapped in streptococcal
+      exoglucans
+    explanation: Establishes Selenomonas sputigena as the pathobiont evaluated in the model.
+ecological_interactions:
+- name: Streptococcal Exoglucan Entrapment of Selenomonas sputigena
+  description: >-
+    Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its
+    motility, and create a structured mixed-species biofilm.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  target_taxon:
+    preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      We show that S. sputigena, a flagellated anaerobe with previously unknown
+      role in supragingival biofilm, becomes trapped in streptococcal
+      exoglucans, loses motility but actively proliferates to build a
+      honeycomb-like multicellular-superstructure encapsulating S. mutans,
+      enhancing acidogenesis.
+    explanation: Documents matrix-mediated trapping and structured coassembly with S. mutans.
+- name: Pathobiont-Enhanced Cariogenicity
+  description: >-
+    Selenomonas sputigena is non-cariogenic alone but markedly worsens enamel
+    lesion formation when coinfected with Streptococcus mutans.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      While incapable of causing caries on its own, when co-infected with S.
+      mutans, S. sputigena causes extensive tooth enamel lesions and
+      exacerbates disease severity in vivo.
+    explanation: Supports S. sputigena as a pathobiont that heightens S. mutans virulence.

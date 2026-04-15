@@ -1,0 +1,153 @@
+id: CommunityMech:000083
+name: Streptococcus mutans - Candida albicans ECC Biofilm Model
+description: >-
+  A defined cross-kingdom dual-species plaque biofilm model capturing the
+  synergistic virulence of Streptococcus mutans and Candida albicans in early
+  childhood caries. Coinfection produces an EPS-rich biofilm with higher
+  biomass, larger microcolonies, and more severe carious lesions than either
+  species alone.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: ORAL
+engineering_design:
+  objective: >-
+    Test whether a dual-species bacterium-fungus consortium amplifies plaque
+    biofilm virulence and caries severity beyond single-species infections.
+  assembly_strategy: >-
+    Bottom-up assembly of Streptococcus mutans and Candida albicans in
+    cospecies plaque biofilms, followed by validation in a rodent caries model.
+  perturbation_design: >-
+    Cospecies biofilms were compared with single-species controls in vitro and
+    in vivo to measure EPS production, biofilm architecture, virulence gene
+    expression, and caries severity.
+  measurement_endpoints:
+  - Biofilm biomass
+  - EPS accumulation
+  - Virulence gene expression
+  - Three-dimensional biofilm imaging
+  - Rodent caries scoring
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      We showed that the ability of these organisms together to form biofilms
+      is enhanced in vitro and in vivo.
+    explanation: Supports the defined dual-species design and its enhanced biofilm phenotype.
+environment_term:
+  preferred_term: cariogenic plaque biofilm on tooth surface
+  term:
+    id: ENVO:01001034
+    label: environment determined by a biofilm on an animal surface
+  notes: >-
+    Cross-kingdom plaque biofilm model relevant to early childhood caries and
+    validated on rodent tooth surfaces in vivo.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Streptococcus mutans is often cited as the main bacterial pathogen in
+      dental caries, particularly in early-childhood caries (ECC).
+    explanation: Establishes Streptococcus mutans as the bacterial member of the model.
+- taxon_term:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Candida albicans cells are frequently detected along with heavy
+      infection by S. mutans in plaque biofilms from ECC-affected children.
+    explanation: Establishes Candida albicans as the fungal member of the model.
+ecological_interactions:
+- name: Cross-Kingdom Biofilm Enhancement
+  description: >-
+    Coinoculation of Streptococcus mutans and Candida albicans enhances biofilm
+    formation relative to either species alone in both in vitro and in vivo
+    settings.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  target_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      We showed that the ability of these organisms together to form biofilms
+      is enhanced in vitro and in vivo.
+    explanation: Supports a mutually reinforcing cross-kingdom biofilm interaction.
+- name: Candida-Driven EPS Amplification of Streptococcus mutans
+  description: >-
+    Candida albicans promotes an EPS-rich matrix and higher viable Streptococcus
+    mutans abundance within cospecies plaque biofilms.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      The presence of C. albicans augments the production of
+      exopolysaccharides (EPS), such that cospecies biofilms accrue more
+      biomass and harbor more viable S. mutans cells than single-species
+      biofilms.
+    explanation: Supports Candida-mediated enhancement of S. mutans colonization and matrix formation.
+- name: Synergistic Caries Virulence
+  description: >-
+    Coinfection with Streptococcus mutans and Candida albicans increases plaque
+    infection burden and produces more aggressive carious lesions than either
+    species alone.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Coinfected animals displayed higher levels of infection and microbial
+      carriage within plaque biofilms than animals infected with either species
+      alone.
+    explanation: Documents increased pathogenic load during dual-species coinfection.
+  - reference: PMID:24566629
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Furthermore, coinfection synergistically enhanced biofilm virulence,
+      leading to aggressive onset of the disease with rampant carious lesions.
+    explanation: Documents amplified caries severity caused by the dual-species consortium.
