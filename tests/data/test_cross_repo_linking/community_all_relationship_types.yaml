@@ -1,0 +1,73 @@
+id: CommunityMech:000099
+name: Marine Hydrothermal Vent Community
+description: "Test community with all MediaRelationshipEnum values"
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+
+environment_term:
+  preferred_term: hydrothermal vent
+  term:
+    id: ENVO:01000030
+    label: hydrothermal vent
+
+taxonomy:
+  - taxon_term:
+      preferred_term: Thermococcus chitonophagus
+      term:
+        id: NCBITaxon:79679
+        label: Thermococcus chitonophagus
+    abundance_level: DOMINANT
+    functional_role:
+      - PRIMARY_DEGRADER
+    evidence:
+      - reference: PMID:20000001
+        supports: SUPPORT
+        evidence_source: IN_VIVO
+        snippet: "Thermococcus was the dominant taxon in vent chimney biofilm samples"
+
+related_media:
+  - preferred_term: Vent Chimney Medium
+    culturemech_id: CultureMech:007001
+    relationship_type: CULTIVATION_MEDIUM
+    relevance_notes: "Used directly for cultivation of vent isolates"
+
+  - preferred_term: Sulfide Isolation Agar
+    culturemech_id: CultureMech:007015
+    relationship_type: ISOLATION_MEDIUM
+    relevance_notes: "Used for initial isolation from chimney samples"
+
+  - preferred_term: Synthetic Hydrothermal Fluid
+    culturemech_id: CultureMech:007020
+    relationship_type: ENVIRONMENT_ANALOG
+    shared_environment_term:
+      id: ENVO:01000030
+      label: hydrothermal vent
+    relevance_notes: "Mimics vent fluid chemistry at 80C"
+
+  - preferred_term: Marine Broth 2216
+    culturemech_id: CultureMech:000042
+    relationship_type: REFERENCED_IN_STUDY
+    relevance_notes: "Referenced as control medium in vent community study"
+    evidence:
+      - reference: PMID:20000001
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Marine Broth 2216 was used as a general-purpose control medium"
+
+  - preferred_term: Chitin Enrichment Medium
+    culturemech_id: CultureMech:007030
+    relationship_type: SELECTIVE_ENRICHMENT
+    relevance_notes: "Enriches for chitin-degrading thermophiles in vent samples"
+
+related_ingredients:
+  - preferred_term: Sodium sulfide
+    mediaingredientmech_id: MediaIngredientMech:000112
+    chebi_term:
+      id: CHEBI:29919
+      label: sodium sulfide
+    relevance: "Key electron donor in hydrothermal vent chemistry"
+
+  - preferred_term: Elemental sulfur
+    mediaingredientmech_id: MediaIngredientMech:000345
+    relevance: "Electron acceptor for sulfur-reducing thermophiles"

@@ -1,0 +1,97 @@
+id: CommunityMech:000024
+name: SPRUCE Peatland Warming Microbial Community
+description: >-
+  Microbial community from the SPRUCE experiment at the Marcell Experimental
+  Forest, Minnesota. Enhanced with cross-repo links to CultureMech media and
+  MediaIngredientMech ingredients.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+
+environment_term:
+  preferred_term: peatland
+  term:
+    id: ENVO:00000044
+    label: peatland
+  notes: "Northern boreal ombrotrophic peatland, Marcell Experimental Forest, MN"
+
+taxonomy:
+  - taxon_term:
+      preferred_term: Methanoregula boonei
+      term:
+        id: NCBITaxon:521011
+        label: Methanoregula boonei
+    abundance_level: DOMINANT
+    functional_role:
+      - SYNTROPHIC_PARTNER
+    evidence:
+      - reference: PMID:38515239
+        supports: SUPPORT
+        evidence_source: IN_VIVO
+        snippet: "Methanoregula dominated the methanogen community in surface peat layers"
+
+growth_media:
+  - name: Anaerobic Basal Medium
+    culturemech_id: CultureMech:005023
+    ph: "4.5"
+    temperature: "25"
+    temperature_unit: "°C"
+    atmosphere: ANAEROBIC
+    headspace_gas: "N2/CO2 80:20"
+    evidence:
+      - reference: PMID:38515239
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: "Peat samples were incubated anaerobically at 25C in modified basal medium"
+
+related_media:
+  - preferred_term: Acidic Peatland Medium
+    culturemech_id: CultureMech:010001
+    relationship_type: ENVIRONMENT_ANALOG
+    shared_environment_term:
+      id: ENVO:00000044
+      label: peatland
+    relevance_notes: "Medium designed to mimic acidic peatland conditions (pH 3.5-4.5)"
+    evidence:
+      - reference: PMID:38515239
+        supports: SUPPORT
+        evidence_source: IN_VIVO
+        snippet: "Peat microbial communities characterized from SPRUCE experimental plots"
+
+  - preferred_term: Sphagnum Bog Extract Medium
+    culturemech_id: CultureMech:010045
+    relationship_type: ENVIRONMENT_ANALOG
+    shared_environment_term:
+      id: ENVO:00000044
+      label: peatland
+    relevance_notes: "Contains Sphagnum moss extract providing natural growth factors"
+
+  - preferred_term: Iron-Reducing Enrichment Medium
+    culturemech_id: CultureMech:008012
+    relationship_type: SELECTIVE_ENRICHMENT
+    relevance_notes: "Selective for iron-reducing bacteria detected in SPRUCE metagenomes"
+    evidence:
+      - reference: PMID:35481924
+        supports: SUPPORT
+        evidence_source: COMPUTATIONAL
+        snippet: "Geobacter-related MAGs enriched in deep peat with warming treatment"
+
+related_ingredients:
+  - preferred_term: Humic acid
+    mediaingredientmech_id: MediaIngredientMech:000523
+    chebi_term:
+      id: CHEBI:34818
+      label: humic acid
+    relevance: "Major peat organic matter component and electron acceptor"
+    evidence:
+      - reference: PMID:38515239
+        supports: SUPPORT
+        evidence_source: IN_VIVO
+        snippet: "Humic substances dominate dissolved organic matter in peat porewater"
+
+  - preferred_term: Ferrous sulfate
+    mediaingredientmech_id: MediaIngredientMech:000089
+    chebi_term:
+      id: CHEBI:75832
+      label: iron(2+) sulfate
+    relevance: "Iron source for iron-cycling bacteria in deeper peat layers"
