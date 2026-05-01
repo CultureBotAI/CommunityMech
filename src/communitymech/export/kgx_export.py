@@ -59,6 +59,52 @@ PRED_LOCATED_IN = "biolink:located_in"
 PRED_RELATED_TO = "biolink:related_to"
 PRED_OCCURS_IN = "biolink:occurs_in"
 
+# Bare-name → CHEBI lookup for the elements appearing in metals_present
+# and rare_earth_elements_present. Verified against CHEBI sqlite via
+# OAK at port time; expand as new elements appear in community YAMLs.
+_ELEMENT_CHEBI: dict[str, tuple[str, str]] = {
+    # (uppercase element name): (CHEBI ID, label)
+    "TITANIUM": ("CHEBI:33341", "titanium atom"),
+    "IRON": ("CHEBI:18248", "iron atom"),
+    "COPPER": ("CHEBI:28694", "copper atom"),
+    "GOLD": ("CHEBI:29287", "gold atom"),
+    "NICKEL": ("CHEBI:28112", "nickel atom"),
+    "ZINC": ("CHEBI:27363", "zinc atom"),
+    "PALLADIUM": ("CHEBI:33363", "palladium"),
+    "VANADIUM": ("CHEBI:27698", "vanadium atom"),
+    "CHROMIUM": ("CHEBI:28073", "chromium atom"),
+    "LEAD": ("CHEBI:25016", "lead atom"),
+    "SILVER": ("CHEBI:30512", "silver atom"),
+    "GALLIUM": ("CHEBI:49631", "gallium atom"),
+    "COBALT": ("CHEBI:27638", "cobalt atom"),
+    "URANIUM": ("CHEBI:27214", "uranium atom"),
+    "LITHIUM": ("CHEBI:30145", "lithium atom"),
+    # Rare earths
+    "CERIUM": ("CHEBI:33369", "cerium"),
+    "LANTHANUM": ("CHEBI:33336", "lanthanum atom"),
+    "NEODYMIUM": ("CHEBI:33372", "neodymium atom"),
+    "PRASEODYMIUM": ("CHEBI:49828", "praseodymium atom"),
+    "SAMARIUM": ("CHEBI:33374", "samarium atom"),
+    "DYSPROSIUM": ("CHEBI:33377", "dysprosium atom"),
+    "ERBIUM": ("CHEBI:33379", "erbium"),
+    "GADOLINIUM": ("CHEBI:33375", "gadolinium atom"),
+    "TERBIUM": ("CHEBI:33376", "terbium atom"),
+    "YTTERBIUM": ("CHEBI:33381", "ytterbium"),
+    "YTTRIUM": ("CHEBI:33331", "yttrium atom"),
+}
+
+
+def _resolve_element(name: str) -> tuple[str, str]:
+    """Map a bare element name to (CHEBI:N, label).
+    Falls back to (uppercase-as-id, uppercase-as-label) when unknown
+    so the export remains total — emit-everything semantics."""
+    if not name:
+        return "", ""
+    key = name.strip().upper()
+    if key in _ELEMENT_CHEBI:
+        return _ELEMENT_CHEBI[key]
+    return key, name
+
 
 # ---------- evidence formatting (dismech pattern) ----------
 
@@ -166,28 +212,36 @@ def _extract(community: dict, nodes: dict[str, Node],
             publications=pubs, supporting_text=supp,
         ))
 
-    # ---- Community → metals_present ----
-    for metal in community.get("metals_present") or []:
-        if isinstance(metal, dict):
-            mterm = metal.get("term") or {}
-            mid = mterm.get("id") or metal.get("preferred_term") or ""
-            mlabel = mterm.get("label") or metal.get("preferred_term") or ""
-            mevidence = metal.get("evidence") or []
-        else:
-            mid = str(metal)
-            mlabel = str(metal)
-            mevidence = []
-        if not mid:
-            continue
-        nodes.setdefault(mid, Node(mid, CAT_CHEMICAL, mlabel,
-                                   ""))
-        pubs, supp = _format_evidence(mevidence)
-        edges.append(Edge(
-            id=_edge_id(cid, PRED_RELATED_TO, mid, "metal"),
-            subject=cid, predicate=PRED_RELATED_TO, object=mid,
-            category=ASSOC_CHEM,
-            publications=pubs, supporting_text=supp,
-        ))
+    # ---- Community → metals_present + rare_earth_elements_present ----
+    metal_lists = (
+        ("metal", community.get("metals_present") or []),
+        ("rare_earth", community.get("rare_earth_elements_present") or []),
+    )
+    for qualifier, items in metal_lists:
+        for metal in items:
+            if isinstance(metal, dict):
+                mterm = metal.get("term") or {}
+                mid = mterm.get("id") or ""
+                mlabel = mterm.get("label") or metal.get("preferred_term") or ""
+                if not mid:
+                    # Fall back to bare-name resolver
+                    mid, fallback_label = _resolve_element(
+                        metal.get("preferred_term") or "")
+                    mlabel = mlabel or fallback_label
+                mevidence = metal.get("evidence") or []
+            else:
+                mid, mlabel = _resolve_element(str(metal))
+                mevidence = []
+            if not mid:
+                continue
+            nodes.setdefault(mid, Node(mid, CAT_CHEMICAL, mlabel, ""))
+            pubs, supp = _format_evidence(mevidence)
+            edges.append(Edge(
+                id=_edge_id(cid, PRED_RELATED_TO, mid, qualifier),
+                subject=cid, predicate=PRED_RELATED_TO, object=mid,
+                category=ASSOC_CHEM,
+                publications=pubs, supporting_text=supp,
+            ))
 
     # ---- Community → growth_media (CultureMech links if present) ----
     for gm in community.get("growth_media") or []:

@@ -39,6 +39,11 @@ jobs:
       - name: Show manifest
         run: cat output/kgx/manifest.json
 
+      - name: Validate KGX (lightweight)
+        run: |
+          PYTHONPATH=src python -m communitymech.export.validate_kgx \
+            --kgx-dir output/kgx --strict
+
       - name: Gzip outputs
         working-directory: output/kgx
         run: |

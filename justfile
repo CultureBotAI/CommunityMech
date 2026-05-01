@@ -175,3 +175,10 @@ link-media-report:
 kgx-export:
     PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export \
       --kb kb/communities --output output/kgx
+
+# Lightweight structural validation of the KGX TSV outputs.
+# No external deps; checks columns, CURIE shape, biolink predicate
+# names, duplicate IDs, dangling subjects/objects.
+kgx-validate:
+    PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export.validate_kgx \
+      --kgx-dir output/kgx --strict

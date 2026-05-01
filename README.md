@@ -136,6 +136,75 @@ CommunityMech/
 
 ---
 
+## 📦 KGX export (downstream consumer contract)
+
+CommunityMech publishes its community knowledge graph as KGX TSV on
+every release. The artifact has stable column shapes, deterministic
+edge IDs, and propagates literature evidence directly into edge
+metadata so downstream graphs preserve provenance.
+
+### Where to find it
+
+- **Latest release:** GitHub Releases page → `nodes.tsv.gz`,
+  `edges.tsv.gz`, and `manifest.json` attached to each release.
+- **CI artifacts:** every push and release run uploads the same
+  files to the workflow's Artifacts panel
+  (`.github/workflows/kgx-release.yaml`, ~90-day retention).
+- **Local build:** `just kgx-export` writes them to
+  `output/kgx/`. `just kgx-validate` runs structural checks.
+
+### File schemas
+
+`nodes.tsv` columns: `id, category, name, description, provided_by`
+
+`edges.tsv` columns: `id, subject, predicate, object, category, publications, supporting_text, knowledge_level, agent_type, primary_knowledge_source`
+
+Edge `id` values are deterministic UUID5 derived from `(subject,
+predicate, object, qualifier)` — re-running the export with the
+same input produces byte-identical IDs.
+
+### Edge types
+
+| Predicate | Subject category | Object category | Edge category |
+|---|---|---|---|
+| `biolink:located_in` | `biolink:OrganismalEntity` (community) | `biolink:EnvironmentalFeature` (ENVO) | `biolink:OrganismToEnvironmentAssociation` |
+| `biolink:has_part` | `biolink:OrganismalEntity` (community) | `biolink:OrganismTaxon` (NCBITaxon) | `biolink:OrganismToOrganismAssociation` |
+| `biolink:related_to` | `biolink:OrganismalEntity` (community) | `biolink:ChemicalEntity` (CHEBI metals/REE) | `biolink:ChemicalEntityToOrganismalEntityAssociation` |
+| `biolink:occurs_in` | `biolink:OrganismalEntity` (community) | growth medium | `biolink:Association` |
+
+### Provenance & evidence
+
+Every edge derived from a community evidence claim carries:
+
+- `publications`: pipe-separated CURIEs (e.g.
+  `PMID:18936492|DOI:10.1099/00207713-50-4-1539`)
+- `supporting_text`: pipe-separated verbatim snippets (the same
+  ones that pass MIM's anti-hallucination Phase 1 validator)
+- `knowledge_level`: `knowledge_assertion` (curator-asserted)
+- `agent_type`: `manual_agent`
+- `primary_knowledge_source`: `infores:communitymech`
+
+### Stability commitments
+
+- Column order in both TSVs is fixed; new columns will only be
+  appended at the right.
+- Edge IDs are stable across runs unless the underlying
+  `(subject, predicate, object, qualifier)` tuple changes.
+- `infores:communitymech` is the canonical knowledge-source id.
+- Bare element names in `metals_present` / `rare_earth_elements_present`
+  are auto-resolved to verified CHEBI atom CURIEs (26 elements
+  covered as of 2026-05); see `_ELEMENT_CHEBI` in
+  `src/communitymech/export/kgx_export.py` for the full table.
+
+### Upstream details
+
+The export is implemented as a custom Python emitter (no Koza
+dependency for a 78-record / ~580-edge scale). Schema, evidence
+slots, and edge selection are documented in:
+[`../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md`](../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md).
+
+---
+
 ## 🧬 Example Community File
 
 ```yaml
