@@ -182,3 +182,10 @@ kgx-export:
 kgx-validate:
     PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export.validate_kgx \
       --kgx-dir output/kgx --strict
+
+# Render per-community HTML detail pages from kb/communities/*.yaml
+# into pages/community/. Includes a Mermaid membership flowchart via
+# the shared kg_microbe_browser.graph builder in claw. See
+# ../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
+gen-community-pages *args:
+    /opt/homebrew/bin/python3.13 src/communitymech/render_community_pages.py {{args}}

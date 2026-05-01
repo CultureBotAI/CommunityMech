@@ -1,0 +1,41 @@
+<section id="taxonomy">
+<h2>Taxonomy</h2>
+<table>
+<thead>
+<tr><th>Taxon</th><th>NCBITaxon</th><th>Functional role</th><th>Abundance</th><th>Evidence</th></tr>
+</thead>
+<tbody>
+{% for entry in community.taxonomy %}
+{% set t = (entry.taxon_term or {}).term or {} %}
+<tr>
+  <td>
+    <strong>{{ (entry.taxon_term or {}).preferred_term or t.label or '' }}</strong>
+    {% if (entry.taxon_term or {}).notes %}
+      <div class="muted small prewrap">{{ entry.taxon_term.notes[:150] }}{% if entry.taxon_term.notes|length > 150 %}…{% endif %}</div>
+    {% endif %}
+  </td>
+  <td>
+    {% if t.id %}
+      <a href="{{ curie_to_url(t.id) }}" rel="nofollow noreferrer">
+        <code>{{ t.id }}</code></a>
+    {% endif %}
+  </td>
+  <td>
+    {% set fr = entry.functional_role %}
+    {% if fr is iterable and fr is not string %}
+      {% for r in fr %}<span class="badge small">{{ r }}</span> {% endfor %}
+    {% elif fr %}
+      <span class="badge small">{{ fr }}</span>
+    {% endif %}
+  </td>
+  <td class="muted">{{ entry.abundance_value or entry.abundance_level or '' }}</td>
+  <td>
+    {% if entry.evidence %}
+      <span class="muted small">{{ entry.evidence|length }} item(s)</span>
+    {% endif %}
+  </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</section>

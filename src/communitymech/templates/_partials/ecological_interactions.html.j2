@@ -1,0 +1,44 @@
+<section id="ecological-interactions">
+<h2>Ecological interactions <small class="muted">({{ community.ecological_interactions|length }})</small></h2>
+{% for interaction in community.ecological_interactions %}
+<div class="interaction">
+  <h3>{{ interaction.name or 'Interaction ' ~ loop.index }}</h3>
+  {% if interaction.description %}
+    <p class="prewrap">{{ interaction.description }}</p>
+  {% endif %}
+  {% if interaction.evidence %}
+    <details class="evidence-list">
+      <summary class="muted small">{{ interaction.evidence|length }} evidence item(s)</summary>
+      {% for ev in interaction.evidence %}
+        <div class="evidence">
+          <div class="evidence-head">
+            {% if ev.evidence_source %}
+              <span class="badge small">{{ ev.evidence_source }}</span>
+            {% endif %}
+            {% if ev.supports %}
+              <span class="badge small">{{ ev.supports }}</span>
+            {% endif %}
+            {% if ev.reference %}
+              {% set ref = ev.reference %}
+              {% if ref.startswith('PMID:') %}
+                <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ref|replace('PMID:','') }}/" rel="nofollow noreferrer">{{ ref }}</a>
+              {% elif ref.startswith('doi:') or ref.startswith('DOI:') %}
+                <a href="https://doi.org/{{ ref|replace('doi:','')|replace('DOI:','') }}" rel="nofollow noreferrer">{{ ref }}</a>
+              {% else %}
+                <code>{{ ref }}</code>
+              {% endif %}
+            {% endif %}
+          </div>
+          {% if ev.snippet %}
+            <blockquote class="snippet">{{ ev.snippet }}</blockquote>
+          {% endif %}
+          {% if ev.explanation %}
+            <p class="explanation small">{{ ev.explanation }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </details>
+  {% endif %}
+</div>
+{% endfor %}
+</section>

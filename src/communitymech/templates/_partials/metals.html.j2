@@ -1,0 +1,25 @@
+<section id="metals">
+<h2>Metals & rare-earth elements</h2>
+{% if community.metals_present %}
+  <h3 class="small">Metals</h3>
+  <ul class="inline">
+    {% for m in community.metals_present %}
+      <li>{{ m if m is string else (m.preferred_term or m.get('term', {}).get('label') or '?') }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% if community.rare_earth_elements_present %}
+  <h3 class="small">Rare-earth elements</h3>
+  <ul class="inline">
+    {% for m in community.rare_earth_elements_present %}
+      <li>{{ m if m is string else (m.preferred_term or m.get('term', {}).get('label') or '?') }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+{% if community.metal_relevance %}
+  <p><strong>Relevance:</strong> {{ community.metal_relevance }}</p>
+{% endif %}
+{% if community.metal_notes %}
+  <p class="prewrap small">{{ community.metal_notes }}</p>
+{% endif %}
+</section>

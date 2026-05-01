@@ -1,0 +1,23 @@
+<section id="environment">
+<h2>Environment</h2>
+{% set env = community.environment_term or {} %}
+{% set t = env.term or {} %}
+<dl class="kv">
+  {% if t.id %}
+    <dt>Environment term</dt>
+    <dd>
+      <a href="{{ curie_to_url(t.id) }}" rel="nofollow noreferrer">
+        <code>{{ t.id }}</code></a>
+      &mdash; {{ t.label or '' }}
+    </dd>
+  {% endif %}
+  {% if env.preferred_term and env.preferred_term != (t.label or '') %}
+    <dt>Preferred term</dt>
+    <dd>{{ env.preferred_term }}</dd>
+  {% endif %}
+  {% if env.notes %}
+    <dt>Notes</dt>
+    <dd class="prewrap">{{ env.notes }}</dd>
+  {% endif %}
+</dl>
+</section>

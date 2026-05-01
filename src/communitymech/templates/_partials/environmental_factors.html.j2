@@ -1,0 +1,17 @@
+<section id="environmental-factors">
+<h2>Environmental factors <small class="muted">({{ community.environmental_factors|length }})</small></h2>
+<dl class="kv">
+{% for factor in community.environmental_factors %}
+  <dt>{{ factor.name or 'Factor ' ~ loop.index }}</dt>
+  <dd>
+    {% if factor.value %}<strong>{{ factor.value }}</strong>{% endif %}
+    {% if factor.description %}
+      <div class="muted small prewrap">{{ factor.description }}</div>
+    {% endif %}
+    {% if factor.evidence %}
+      <span class="muted small">— {{ factor.evidence|length }} evidence item(s)</span>
+    {% endif %}
+  </dd>
+{% endfor %}
+</dl>
+</section>

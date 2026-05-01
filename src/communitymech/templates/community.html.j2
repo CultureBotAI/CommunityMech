@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ community.name }} — CommunityMech</title>
+<link rel="stylesheet" href="../style.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs"></script>
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+  mermaid.initialize({ startOnLoad: true, theme: "neutral" });
+</script>
+</head>
+<body>
+
+<nav class="breadcrumb">
+  <a href="../index.html">CommunityMech</a> &rsaquo;
+  <a href="index.html">communities</a> &rsaquo;
+  <span>{{ community.id }}</span>
+</nav>
+
+<header>
+  <h1>{{ community.name }}</h1>
+  <div class="meta">
+    <span class="curie">{{ community.id }}</span>
+    {% if community.community_category %}
+      <span class="badge">{{ community.community_category }}</span>
+    {% endif %}
+    {% if community.community_origin %}
+      <span class="badge">{{ community.community_origin }}</span>
+    {% endif %}
+    {% if community.ecological_state %}
+      <span class="badge">{{ community.ecological_state }}</span>
+    {% endif %}
+  </div>
+  {% if community.description %}
+    <p class="description">{{ community.description }}</p>
+  {% endif %}
+</header>
+
+{% include "_partials/environment.html.j2" %}
+
+{% if membership_graph %}
+<section id="membership">
+<h2>Member taxa <small class="muted">({{ (community.taxonomy or [])|length }})</small></h2>
+{{ membership_graph|safe_mermaid }}
+</section>
+{% endif %}
+
+{% if community.taxonomy %}{% include "_partials/taxonomy.html.j2" %}{% endif %}
+{% if community.ecological_interactions %}{% include "_partials/ecological_interactions.html.j2" %}{% endif %}
+{% if community.environmental_factors %}{% include "_partials/environmental_factors.html.j2" %}{% endif %}
+{% if community.metals_present or community.rare_earth_elements_present %}
+  {% include "_partials/metals.html.j2" %}
+{% endif %}
+
+<footer>
+  <small class="muted">
+    Generated {{ generated_at }} from
+    <code>{{ source_path }}</code>
+  </small>
+</footer>
+
+</body>
+</html>
