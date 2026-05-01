@@ -1,0 +1,60 @@
+name: Generate per-community pages
+
+# Renders Phase 5 per-community HTML pages with embedded Mermaid
+# membership graphs. Uploads as workflow artifact (no Pages deploy
+# yet — flip to actions/deploy-pages once you've enabled Pages in
+# repo settings).
+#
+# Phase 5 of the dismech-pattern port; see
+# ../../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "kb/communities/**.yaml"
+      - "src/communitymech/templates/**"
+      - "src/communitymech/render_community_pages.py"
+      - ".github/workflows/generate-pages.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout CommunityMech
+        uses: actions/checkout@v4
+        with:
+          path: CommunityMech
+
+      - name: Checkout claw (kg_microbe_browser)
+        uses: actions/checkout@v4
+        with:
+          repository: CultureBotAI/culturebotai-claw
+          path: culturebotai-claw
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml jinja2 markupsafe
+
+      - name: Render per-community pages
+        env:
+          PYTHONPATH: ${{ github.workspace }}/culturebotai-claw/src
+        run: |
+          cd CommunityMech
+          python src/communitymech/render_community_pages.py
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: community-pages-${{ github.run_id }}
+          path: CommunityMech/pages/
+          retention-days: 30
