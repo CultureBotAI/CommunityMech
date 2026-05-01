@@ -1,0 +1,65 @@
+name: KGX release artifact
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "branch/tag to build from"
+        default: "main"
+        required: false
+
+permissions:
+  contents: write   # to attach release assets
+
+jobs:
+  kgx-export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pyyaml
+
+      - name: Generate KGX TSV
+        run: |
+          PYTHONPATH=src python -m communitymech.export \
+            --kb kb/communities \
+            --output output/kgx
+
+      - name: Show manifest
+        run: cat output/kgx/manifest.json
+
+      - name: Gzip outputs
+        working-directory: output/kgx
+        run: |
+          gzip -k -9 nodes.tsv
+          gzip -k -9 edges.tsv
+
+      - name: Upload as workflow artifact (always)
+        uses: actions/upload-artifact@v4
+        with:
+          name: communitymech-kgx-${{ github.sha }}
+          path: |
+            output/kgx/nodes.tsv.gz
+            output/kgx/edges.tsv.gz
+            output/kgx/manifest.json
+          retention-days: 90
+
+      - name: Attach to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            output/kgx/nodes.tsv.gz
+            output/kgx/edges.tsv.gz
+            output/kgx/manifest.json

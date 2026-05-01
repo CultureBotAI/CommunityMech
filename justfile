@@ -167,3 +167,11 @@ link-media-report:
         --ingredient-report reports/ingredient_mapping.csv \
         --media-report reports/media_mapping.csv \
         --summary-report reports/media_linking_summary.txt
+
+# Export the community knowledge graph as KGX TSV (nodes.tsv +
+# edges.tsv) with publications and supporting_text propagated from
+# evidence claims. Phase 3 of the dismech-pattern port. See
+# ../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md
+kgx-export:
+    PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export \
+      --kb kb/communities --output output/kgx
