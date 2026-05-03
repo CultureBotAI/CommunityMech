@@ -551,7 +551,7 @@ def _apply_batch_report(report_path: Path):
 @click.option(
     "--embeddings-path",
     type=click.Path(exists=True, file_okay=True, dir_okay=False, path_type=Path),
-    default="data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_2026-02-01_05_54_01.tsv.gz",
+    default="data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz",
     help="Path to KG-Microbe embeddings TSV.gz file",
 )
 @click.option(

@@ -20,7 +20,7 @@ class UMAPVisualizationGenerator:
     def generate(
         self,
         communities_dir: str = "kb/communities",
-        embeddings_path: str = "data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_2026-02-01_05_54_01.tsv.gz",
+        embeddings_path: str = "data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz",
         output_path: str = "docs/community_umap.html",
         template_dir: Optional[str] = None,
         cache_dir: str = ".umap_cache",
