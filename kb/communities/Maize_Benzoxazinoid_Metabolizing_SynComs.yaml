@@ -1,0 +1,54 @@
+id: CommunityMech:000101
+name: Maize Benzoxazinoid-Metabolizing SynComs
+description: Two maize root bacterial SynComs sharing six common strains and differing in a seventh benzoxazinoid-metabolizing
+  member.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Test how individual benzoxazinoid tolerance and metabolism traits combine at community scale.
+  assembly_strategy: Two seven-strain synthetic communities of maize root bacteria with shared core strains
+    and alternate benzoxazinoid-metabolizing capacity.
+  perturbation_design: In vitro exposure to MBOA, a maize benzoxazinoid breakdown product.
+  measurement_endpoints:
+  - benzoxazinoid metabolization
+  - community composition
+  - strain interactions
+  evidence:
+  - &id001
+    reference: PMID:40853002
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we designed two synthetic communities of maize root bacteria that share six common strains
+      and differ in their ability to metabolize benzoxazinoids based on the seventh strain.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Maize root bacterial synthetic communities exposed to benzoxazinoid exudates.
+taxonomy:
+- taxon_term:
+    preferred_term: maize root bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Benzoxazinoid-Mediated Niche Partitioning
+  description: Community members differ in benzoxazinoid tolerance and metabolism, redirecting metabolite
+    fate.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Two seven-strain synthetic communities of maize root bacteria with shared core strains and alternate
+    benzoxazinoid-metabolizing capacity.
+  description: In vitro exposure to MBOA, a maize benzoxazinoid breakdown product.
+  evidence:
+  - *id001

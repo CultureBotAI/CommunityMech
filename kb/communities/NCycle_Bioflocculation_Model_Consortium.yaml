@@ -1,0 +1,57 @@
+id: CommunityMech:000126
+name: N-Cycle Bioflocculation Model Consortium
+description: A reduced-complexity N-cycle model consortium of nitrifiers and denitrifiers used to study
+  bioflocculation mechanisms in biological wastewater treatment.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a reduced-complexity living model of activated sludge flocculation.
+  assembly_strategy: Nitrifying bacteria were entrapped to form microcolonies and then released with denitrifier
+    flocs to form macroclusters.
+  perturbation_design: Oxic/anoxic sequencing batch reactor cycles and alginate entrapment were used to
+    control aggregation.
+  measurement_endpoints:
+  - microcolony formation
+  - macrocluster formation
+  - bioflocculation
+  - FISH aggregation readouts
+  evidence:
+  - &id001
+    reference: PMID:40536564
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We show that it is feasible to exploit a model (N-cycle) consortium with reduced complexity
+      to fundamentally study bioflocculation.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: activated sludge floc model
+  term:
+    id: ENVO:00002046
+    label: sludge
+  notes: Model consortium designed to emulate aggregation in biological wastewater treatment.
+taxonomy:
+- taxon_term:
+    preferred_term: N-cycle bacterial consortium members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Nitrifier-Denitrifier Aggregate Formation
+  description: Nitrifier microcolonies and denitrifier flocs formed larger aggregate structures under
+    reactor cycling.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: oxic/anoxic sequencing batch reactor cycling
+  value: Oxic/anoxic cycles and alginate entrapment were used to produce nitrifier microcolonies and mixed
+    aggregates.
+  description: Oxic/anoxic sequencing batch reactor cycles and alginate entrapment were used to control
+    aggregation.
+  evidence:
+  - *id001

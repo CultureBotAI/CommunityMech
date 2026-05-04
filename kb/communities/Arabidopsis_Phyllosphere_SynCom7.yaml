@@ -1,0 +1,57 @@
+id: CommunityMech:000093
+name: Arabidopsis Phyllosphere SynCom7
+description: A seven-strain reduced-complexity Arabidopsis phyllosphere SynCom used to test host genetic
+  effects on microbiota composition.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Identify Arabidopsis host genetic factors that alter phyllosphere community composition and
+    abundance.
+  assembly_strategy: Seven bacterial strains representing abundant phyllosphere phyla were inoculated
+    onto gnotobiotic Arabidopsis mutants.
+  perturbation_design: Host mutant panel affecting surface structure, cell wall, defense, secondary metabolism,
+    and pathogen recognition.
+  measurement_endpoints:
+  - community composition
+  - member abundance
+  - host genotype effects
+  evidence:
+  - &id001
+    reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the model plant Arabidopsis thaliana was used in a gnotobiotic system and inoculated with
+      a reduced complexity synthetic bacterial community composed of seven strains representing the most
+      abundant phyla in the phyllosphere.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: phyllosphere
+  term:
+    id: ENVO:01001442
+    label: phyllosphere
+  notes: Gnotobiotic Arabidopsis phyllosphere inoculated with a seven-strain bacterial community.
+taxonomy:
+- taxon_term:
+    preferred_term: Arabidopsis phyllosphere bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Host-Genotype-Structured Assembly
+  description: Arabidopsis host genotype shifts the abundance and composition of the phyllosphere SynCom.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Seven bacterial strains representing abundant phyllosphere phyla were inoculated onto gnotobiotic
+    Arabidopsis mutants.
+  description: Host mutant panel affecting surface structure, cell wall, defense, secondary metabolism,
+    and pathogen recognition.
+  evidence:
+  - *id001

@@ -1,0 +1,64 @@
+id: CommunityMech:000106
+name: Tobacco Chemotactic Biocontrol SynCom
+description: A chemotactic three-member SynCom in bioorganic fertilizer for suppressing Ralstonia solanacearum
+  in tobacco fields.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Construct a chemotactic SynCom with compatibility, antagonism, and chemotaxis traits for
+    bacterial wilt control.
+  assembly_strategy: Two Pseudomonas strains and one Bacillus strain selected from healthy tobacco rhizosphere
+    isolates.
+  perturbation_design: Bioorganic fertilizer formulation plus growth-promoting metabolites including vitamin
+    C, propionic acid, and esculetin.
+  measurement_endpoints:
+  - Ralstonia suppression
+  - tobacco yield
+  - chemotaxis marker presence
+  - rhizosphere community enrichment
+  evidence:
+  - &id001
+    reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a chemotactic SynCom comprising two Pseudomonas strains and one Bacillus strain.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Chemotactic tobacco rhizosphere SynCom delivered in bioorganic fertilizer.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas sp.
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Bacillus sp.
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Chemotactic Bacterial Wilt Suppression
+  description: Chemotactic SynCom members colonize the rhizosphere and suppress Ralstonia invasion.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Two Pseudomonas strains and one Bacillus strain selected from healthy tobacco rhizosphere isolates.
+  description: Bioorganic fertilizer formulation plus growth-promoting metabolites including vitamin C,
+    propionic acid, and esculetin.
+  evidence:
+  - *id001

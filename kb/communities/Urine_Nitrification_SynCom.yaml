@@ -1,0 +1,91 @@
+id: CommunityMech:000117
+name: Urine Nitrification Synthetic Microbial Community
+description: A five-member synthetic microbial community containing nitrifiers and ureolytic heterotrophs
+  for urine nitrification.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert urine nitrogen to nitrate fertilizer while managing salinity and organic compounds.
+  assembly_strategy: Nitrosomonas europaea, Nitrobacter winogradskyi, Pseudomonas fluorescens, Acidovorax
+    delafieldii, and Delftia acidovorans were compiled.
+  perturbation_design: Salt adaptation and urine feeding in nitrification reactors.
+  measurement_endpoints:
+  - ammonium removal
+  - nitrate production
+  - salt adaptation
+  - organic removal
+  evidence:
+  - &id001
+    reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a synthetic microbial community containing an AOB (Nitrosomonas europaea),
+      NOB (Nitrobacter winogradskyi), and three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax
+      delafieldii, and Delftia acidovorans) was compiled and evaluated for these challenges.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Synthetic and real urine nitrification reactors.
+taxonomy:
+- taxon_term:
+    preferred_term: Nitrosomonas europaea
+    term:
+      id: NCBITaxon:915
+      label: Nitrosomonas europaea
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Nitrobacter winogradskyi
+    term:
+      id: NCBITaxon:913
+      label: Nitrobacter winogradskyi
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Acidovorax delafieldii
+    term:
+      id: NCBITaxon:80867
+      label: Acidovorax delafieldii
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Nitrifier-Heterotroph Urine Conversion
+  description: Ureolytic heterotrophs and nitrifiers cooperate to convert urine nitrogen to nitrate.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Nitrosomonas europaea, Nitrobacter winogradskyi, Pseudomonas fluorescens, Acidovorax delafieldii,
+    and Delftia acidovorans were compiled.
+  description: Salt adaptation and urine feeding in nitrification reactors.
+  evidence:
+  - *id001

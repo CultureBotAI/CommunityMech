@@ -1,0 +1,73 @@
+id: CommunityMech:000121
+name: Methane Oxidation-Cr(VI) Reduction SynCom
+description: A methane-oxidizing synthetic microbial community coupling Cr(VI) reduction to division of
+  labor and extracellular electron transfer.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Reveal division of labor in methane oxidation coupled to chromium reduction.
+  assembly_strategy: SynCom was constructed by controlling methane concentration and chromium load, enriching
+    Methylocystis with Hyphomicrobium and Thiobacillus partners.
+  perturbation_design: Methane concentration, chromium load, and methane oxidation inhibition.
+  measurement_endpoints:
+  - Cr(VI) removal load
+  - methane oxidation
+  - extracellular electron transfer
+  - multi-omics protein expression
+  evidence:
+  - &id001
+    reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a synthetic microbial community (SynCom) was constructed by controlling methane
+      concentration and chromium load.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Hypoxic methane-fed synthetic microbial community for chromium reduction.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylocystis sp.
+    term:
+      id: NCBITaxon:133
+      label: Methylocystis
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Hyphomicrobium sp.
+    term:
+      id: NCBITaxon:82
+      label: Hyphomicrobium
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Thiobacillus sp.
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Methane-Driven Chromium Reduction
+  description: Methanotrophs and partner genera couple methane oxidation with Cr(VI) reduction through
+    extracellular electron transfer.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: SynCom was constructed by controlling methane concentration and chromium load, enriching Methylocystis
+    with Hyphomicrobium and Thiobacillus partners.
+  description: Methane concentration, chromium load, and methane oxidation inhibition.
+  evidence:
+  - *id001

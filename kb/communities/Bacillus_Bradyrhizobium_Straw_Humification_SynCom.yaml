@@ -1,0 +1,65 @@
+id: CommunityMech:000120
+name: Bacillus-Bradyrhizobium Straw Humification SynCom
+description: A two-member Bacillus siamensis and Bradyrhizobium japonicum SynCom that promotes maize straw
+  humification and soil organic carbon.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Accelerate straw humification and improve soil organic carbon through a functionally stable
+    SynCom.
+  assembly_strategy: Keystone taxa from dilution microcosms were assembled as Bacillus siamensis B and
+    Bradyrhizobium japonicum G.
+  perturbation_design: Cross-feeding assays, enzyme activity assays, and field straw-return experiments.
+  measurement_endpoints:
+  - straw humification
+  - soil organic carbon
+  - cellulase activity
+  - xylanase activity
+  - nitrogenase activity
+  evidence:
+  - &id001
+    reference: PMID:41264879
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: From these taxa, we constructed a two-membered SynCom (Bacillus siamensis B and Bradyrhizobium
+      japonicum G).
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Cropland soil receiving maize straw and two-member SynCom inoculation.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus siamensis
+    term:
+      id: NCBITaxon:1178515
+      label: Bacillus siamensis
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Bradyrhizobium japonicum
+    term:
+      id: NCBITaxon:375
+      label: Bradyrhizobium japonicum
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Straw Humification Cross-Feeding
+  description: Bacillus and Bradyrhizobium cross-feed to promote straw-degrading enzymes and humification.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Keystone taxa from dilution microcosms were assembled as Bacillus siamensis B and Bradyrhizobium
+    japonicum G.
+  description: Cross-feeding assays, enzyme activity assays, and field straw-return experiments.
+  evidence:
+  - *id001

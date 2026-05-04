@@ -1,0 +1,74 @@
+id: CommunityMech:000116
+name: Aerobic Denitrification Disturbance-Stable SynCom
+description: A three-member aerobic denitrification SMC that maintains function under dibutyl phthalate
+  and levofloxacin disturbances through division of labor.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Resolve how synthetic denitrifying communities maintain functional stability under environmental
+    disturbances.
+  assembly_strategy: Pseudomonas aeruginosa N2, Acinetobacter baumannii N1, and Aeromonas hydrophila were
+    assembled as an aerobic denitrification SMC.
+  perturbation_design: Dibutyl phthalate and levofloxacin disturbance treatments.
+  measurement_endpoints:
+  - denitrification efficiency
+  - interspecific communication
+  - energy flux
+  - electron transfer
+  - EPS production
+  evidence:
+  - &id001
+    reference: PMID:40020349
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Understanding how synthetic microbial community (SMC) respond to environmental disturbances
+      is the key to realizing SMC engineering applications.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Aerobic denitrification synthetic microbial community under pollutant disturbances.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Disturbance-Stable Division of Labor
+  description: Members redistribute functional dominance and metabolic pathways to maintain denitrification.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Pseudomonas aeruginosa N2, Acinetobacter baumannii N1, and Aeromonas hydrophila were assembled
+    as an aerobic denitrification SMC.
+  description: Dibutyl phthalate and levofloxacin disturbance treatments.
+  evidence:
+  - *id001

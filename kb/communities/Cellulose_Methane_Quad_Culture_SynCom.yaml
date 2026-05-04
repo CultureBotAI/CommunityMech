@@ -1,0 +1,86 @@
+id: CommunityMech:000089
+name: Cellulose-to-Methane Quad-Culture SynCom
+description: A four-species anaerobic synthetic community coupling cellulose degradation, sulfate reduction,
+  and methanogenesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: METHANOGENESIS
+engineering_design:
+  objective: Resolve higher-order cross-feeding, competition, and synergy during anaerobic conversion
+    of cellulose to methane and carbon dioxide.
+  assembly_strategy: Rational functional-guild assembly of cellulolytic, sulfate-reducing, hydrogenotrophic
+    methanogenic, and acetoclastic methanogenic members.
+  perturbation_design: Control cultures were compared with sulfate addition using metaproteomics, metabolite
+    profiling, and stoichiometric modeling.
+  measurement_endpoints:
+  - methane production
+  - cellulose degradation
+  - sulfate reduction
+  - cross-feeding fluxes
+  evidence:
+  - &id001
+    reference: PMID:36847519
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we constructed a quad-culture consisting of a cellulolytic bacterium (Ruminiclostridium
+      cellulolyticum), a hydrogenotrophic methanogen (Methanospirillum hungatei), an acetoclastic methanogen
+      (Methanosaeta concilii), and a sulfate-reducing bacterium (Desulfovibrio vulgaris).
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Anaerobic cellulose-degrading laboratory quad-culture with sulfate perturbation.
+taxonomy:
+- taxon_term:
+    preferred_term: Ruminiclostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Clostridium cellulolyticum
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:323259
+      label: Methanospirillum hungatei
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Methanosaeta concilii
+    term:
+      id: NCBITaxon:2224
+      label: Methanosaeta concilii
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris
+    term:
+      id: NCBITaxon:881
+      label: Desulfovibrio vulgaris
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Cellulose Cross-Feeding to Methane
+  description: Cellulose fermentation products are exchanged with methanogens and sulfate reducers, producing
+    methane and modulating competition.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Rational functional-guild assembly of cellulolytic, sulfate-reducing, hydrogenotrophic methanogenic,
+    and acetoclastic methanogenic members.
+  description: Control cultures were compared with sulfate addition using metaproteomics, metabolite profiling,
+    and stoichiometric modeling.
+  evidence:
+  - *id001

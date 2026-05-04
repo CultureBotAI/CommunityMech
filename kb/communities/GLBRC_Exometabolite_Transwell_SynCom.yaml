@@ -1,0 +1,55 @@
+id: CommunityMech:000091
+name: GLBRC Exometabolite Transwell SynCom System
+description: A synthetic community assay system for probing chemically mediated microbial interactions
+  through shared exometabolites.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Interrogate exometabolite interactions among physically separated microbial populations.
+  assembly_strategy: Synthetic community members are cultured in a filter plate system that separates
+    cells while allowing chemical exchange through shared medium.
+  perturbation_design: Shared-reservoir chemical interactions are assayed using sensitive mass spectrometry.
+  measurement_endpoints:
+  - exometabolite profiles
+  - member growth
+  - productivity
+  - gene regulation
+  evidence:
+  - &id001
+    reference: PMID:29152587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we describe a straightforward synthetic community system that can be used to interrogate
+      exometabolite interactions among microorganisms.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Filter plate Transwell synthetic community system for exometabolite-mediated microbial interactions.
+taxonomy:
+- taxon_term:
+    preferred_term: exometabolite-interacting bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Exometabolite-Mediated Interaction
+  description: Community members interact chemically through small molecules, extracellular enzymes, and
+    antibiotics in shared medium.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Synthetic community members are cultured in a filter plate system that separates cells while
+    allowing chemical exchange through shared medium.
+  description: Shared-reservoir chemical interactions are assayed using sensitive mass spectrometry.
+  evidence:
+  - *id001

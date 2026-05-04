@@ -1,0 +1,65 @@
+id: CommunityMech:000113
+name: Phylogenetically Diverse Denitrifying SynCom
+description: Closely related and distantly related synthetic denitrifying communities used to test how
+  phylogenetic diversity affects denitrification and stability.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Determine whether phylogenetic diversity improves denitrification function and temporal stability.
+  assembly_strategy: Closely related communities used Shewanella strains; distantly related communities
+    used constituents from different genera.
+  perturbation_design: Experimental evolution for 200 generations.
+  measurement_endpoints:
+  - denitrification rate
+  - productivity
+  - temporal stability
+  - complementarity
+  evidence:
+  - &id001
+    reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'we selected denitrifiers based on their phylogenetic distance to construct two groups of
+      synthetic denitrifying communities: one closely related (CR) group with all strains from the genus
+      Shewanella and the other distantly related (DR) group with all constituents from different genera.'
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Synthetic denitrifying communities experimentally evolved under laboratory conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella sp.
+    term:
+      id: NCBITaxon:22
+      label: Shewanella
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paracoccus denitrificans
+    term:
+      id: NCBITaxon:266
+      label: Paracoccus denitrificans
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Phylogenetic Complementarity in Denitrification
+  description: Distantly related denitrifiers improve function and stability through complementarity and
+    asynchronous fluctuations.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Closely related communities used Shewanella strains; distantly related communities used constituents
+    from different genera.
+  description: Experimental evolution for 200 generations.
+  evidence:
+  - *id001

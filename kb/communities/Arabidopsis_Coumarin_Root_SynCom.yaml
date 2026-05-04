@@ -1,0 +1,53 @@
+id: CommunityMech:000094
+name: Arabidopsis Coumarin Root SynCom
+description: A reduced Arabidopsis root-isolate SynCom used to detect rhizosphere community shifts caused
+  by phytoalexin, flavonoid, and coumarin exudates.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Determine how Arabidopsis specialized metabolites shape root-associated bacterial community
+    composition.
+  assembly_strategy: Reduced synthetic community of Arabidopsis thaliana root-isolated bacteria.
+  perturbation_design: Plant mutants deficient in secreted phytoalexins, flavonoids, and coumarins.
+  measurement_endpoints:
+  - community shifts
+  - rhizosphere colonization
+  - metabolite-dependent recruitment
+  evidence:
+  - &id001
+    reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We employed a reduced synthetic community (SynCom) of Arabidopsis thaliana root-isolated
+      bacteria to detect community shifts that occur in the absence of the secreted small-molecule phytoalexins,
+      flavonoids, and coumarins.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Arabidopsis root SynCom used to test plant specialized metabolite effects on rhizosphere assembly.
+taxonomy:
+- taxon_term:
+    preferred_term: Arabidopsis root-isolated bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Coumarin-Dependent Recruitment
+  description: Plant exuded specialized metabolites structure which bacteria persist in the rhizosphere.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Reduced synthetic community of Arabidopsis thaliana root-isolated bacteria.
+  description: Plant mutants deficient in secreted phytoalexins, flavonoids, and coumarins.
+  evidence:
+  - *id001

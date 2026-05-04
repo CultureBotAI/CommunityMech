@@ -1,0 +1,67 @@
+id: CommunityMech:000129
+name: Soybean Chlorophyll-Selected Biofertilizer SynCom
+description: A plant-guided soybean rhizosphere SynCom selected through iterative chlorophyll-based microbiome
+  engineering to improve nodulation and biomass in soil.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Develop a multi-member soybean biofertilizer SynCom using host-mediated microbiome engineering.
+  assembly_strategy: A starting consortium of Bradyrhizobium spp. and non-rhizobial soil isolates was
+    recurrently selected using leaf chlorophyll content.
+  perturbation_design: Eight consecutive gnotobiotic selection rounds were followed by evaluation in non-sterile
+    soil.
+  measurement_endpoints:
+  - leaf chlorophyll content
+  - rhizosphere community composition
+  - nodule number
+  - plant biomass
+  - nitrogen transformation potential
+  evidence:
+  - &id001
+    reference: PMID:42007760
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a synthetic microbial community (SynCom) was developed through a host-mediated microbiome
+      engineering approach guided by leaf chlorophyll content as a rapid, non-destructive plant trait.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: soybean rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Soybean-associated rhizosphere community selected under gnotobiotic and non-sterile soil conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: soybean rhizosphere bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Bradyrhizobium
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Plant-Guided Beneficial Rhizosphere Assembly
+  description: Recurrent host-mediated selection favored nodulating Bradyrhizobium and associated beneficial
+    rhizosphere taxa.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: chlorophyll-guided recurrent selection
+  value: Rhizosphere communities from superior soybean performers were pooled and propagated across selection
+    rounds.
+  description: Eight consecutive gnotobiotic selection rounds were followed by evaluation in non-sterile
+    soil.
+  evidence:
+  - *id001
