@@ -1,0 +1,136 @@
+id: CommunityMech:000133
+name: OMM12 Gnotobiotic Mouse Gut Community
+description: OMM12, also called Oligo-MM12 or Oligo-Mouse-Microbiota, is a defined 12-strain murine
+  intestinal bacterial community used to colonize germ-free mice for reproducible microbiome research.
+  The community includes Lactobacillus reuteri I49, Enterococcus faecalis KB1, Blautia coccoides YL58,
+  Clostridium innocuum I46, Flavonifractor plautii YL31, Clostridium clostridioforme YL32, Acutalibacter
+  muris KB18, Bacteroides caecimuris I48, Muribaculum intestinale YL27, Bifidobacterium longum subsp.
+  animalis YL2, Akkermansia muciniphila YL44, and Turicimonas muris YL45. It is used as a reduced,
+  genome-characterized model of the mouse gut microbiota for colonization resistance, mucosal immunology,
+  microbial ecology, host-microbiome metabolic cross-talk, and facility-to-facility reproducibility studies.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Provide a defined, reproducible mouse intestinal microbiota for gnotobiotic experiments and
+    mechanistic studies of colonization resistance and host-microbiome interactions.
+  assembly_strategy: Genome-guided selection of 12 cultured mouse intestinal bacterial strains representing
+    major bacterial phyla in the murine gut.
+  inoculation_strategy: Germ-free mice are colonized with a frozen mixture or cultured mixture of OMM12
+    strains, with strain abundances monitored by strain-specific qPCR or sequencing.
+  measurement_endpoints:
+  - Stable colonization of germ-free mice
+  - Strain-specific absolute abundance
+  - Colonization resistance against Salmonella Typhimurium
+  - Host-microbiome metabolic cross-talk
+  evidence:
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The Oligo-Mouse-Microbiota (OMM12) is a recently developed synthetic bacterial community for functional microbiome research in mouse models
+    explanation: Supports the identity and experimental purpose of the OMM12 community.
+  - reference: PMID:27869789
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: By genome-informed design, we created an improved version of the Oligo-MM community
+    explanation: Supports the genome-guided design strategy for Oligo-MM/OMM communities.
+environment_term:
+  preferred_term: mouse intestine
+  term:
+    id: UBERON:0000160
+    label: intestine
+  notes: OMM12 is a gnotobiotic mouse intestinal microbiota model.
+taxonomy:
+- taxon_term:
+    preferred_term: OMM12 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Defined 12-strain bacterial community containing Firmicutes/Bacillota, Bacteroidota, Actinomycetota,
+      Verrucomicrobiota, and Proteobacteria/Pseudomonadota representatives from the mouse intestine.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: Twelve defined bacterial strains monitored with strain-specific assays.
+  evidence:
+  - reference: PMID:29051233
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The Oligo-Mouse-Microbiota (Oligo-MM12) is a community of 12 mouse intestinal bacteria
+    explanation: Supports OMM12 as a defined 12-member bacterial community.
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Lactobacillus reuteri I49, Enterococcus faecalis KB1, Blautia coccoides YL58
+    explanation: Provides direct evidence for named OMM12 member strains.
+ecological_interactions:
+- name: Colonization Resistance Against Salmonella
+  description: OMM12 was designed to provide conventional-like colonization resistance against Salmonella
+    enterica serovar Typhimurium in gnotobiotic mice, making it useful for dissecting microbe-microbe and
+    host-microbe mechanisms that prevent pathogen expansion.
+  interaction_type: COMPETITION
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:27869789
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: confers colonization resistance against Salmonella enterica serovar Typhimurium
+    explanation: Supports pathogen-resistance as a primary ecological function of the designed community.
+- name: Reproducible Multi-Strain Intestinal Colonization
+  description: OMM12 can reproducibly colonize germ-free mice across different animal facilities, and
+    individual strain abundances can be resolved by strain-specific qPCR. This makes the consortium a
+    standardized model for comparing mouse microbiome experiments.
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0051704
+      label: multi-organism process
+  evidence:
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: established in several germ-free mouse facilities world-wide
+    explanation: Supports reproducible colonization across facilities.
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Absolute abundance of each strain was determined by a strain-specific qPCR assay
+    explanation: Supports strain-resolved monitoring of the defined community.
+environmental_factors:
+- name: Germ-free mouse host
+  value: Axenic mice colonized with OMM12
+  description: OMM12 is introduced into germ-free mice to create a standardized gnotobiotic intestinal
+    community.
+  evidence:
+  - reference: PMID:29051233
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: to be used for microbiome research in gnotobiotic mice
+    explanation: Supports the gnotobiotic mouse host context.
+- name: Facility reproducibility
+  value: Multiple germ-free mouse facilities
+  description: OMM12 has been transferred across facilities and used for reproducible colonization studies.
+  evidence:
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: established in several germ-free mouse facilities world-wide
+    explanation: Supports facility-to-facility use of OMM12.
+associated_datasets:
+- name: Oligo-MM12 whole-genome sequence resource
+  dataset_type: GENOME
+  repository: OTHER
+  accession: PMID:29051233
+  url: https://pubmed.ncbi.nlm.nih.gov/29051233/
+  description: Genome announcement reporting high-quality whole-genome sequences for the Oligo-MM12 strains.
+  evidence:
+  - reference: PMID:29051233
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: high-quality whole genome sequences of the Oligo-MM12 strains
+    explanation: Supports the genome resource associated with the OMM12 community.
+
