@@ -1,0 +1,129 @@
+id: CommunityMech:000085
+name: Streptococcus mutans - Veillonella parvula Adult Severe Caries Model
+description: >-
+  A defined dual-species oral biofilm model for adult severe caries pairing
+  Streptococcus mutans with the ASC-associated pathobiont Veillonella parvula.
+  The coculture increases mature biofilm formation, acid resistance, oxidative
+  stress tolerance, and rodent caries severity relative to Streptococcus
+  mutans alone.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: ORAL
+engineering_design:
+  objective: >-
+    Identify adult severe caries-associated taxa and test whether Veillonella
+    parvula enhances Streptococcus mutans biofilm virulence.
+  assembly_strategy: >-
+    Metagenomic identification of adult severe caries-associated taxa followed
+    by defined dual-species coculture and rodent caries experiments with
+    Streptococcus mutans and Veillonella parvula.
+  perturbation_design: >-
+    Dual-species biofilms were evaluated for acidification, aciduricity,
+    oxidative stress tolerance, gtf expression, EPS synthesis, and in vivo
+    cariogenicity relative to single-species controls.
+  measurement_endpoints:
+  - Metagenomic profiling
+  - Acidification assays
+  - Aciduricity assays
+  - Oxidative stress tolerance assays
+  - EPS imaging
+  - Rodent caries scoring
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Samples of dental plaque were collected for metagenomic analysis. The
+      acidification, aciduricity, oxidative stress tolerance, and gtf
+      (glucosyltransferase) gene expression of S. mutans cocultured with V.
+      parvula
+    explanation: Supports the design of the dual-species adult severe caries model.
+environment_term:
+  preferred_term: adult severe caries plaque biofilm
+  term:
+    id: ENVO:01001034
+    label: environment determined by a biofilm on an animal surface
+  notes: >-
+    Defined plaque biofilm model motivated by metagenomic analysis of adult
+    severe caries and validated with rodent infection experiments.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      This study is focused on the composition of dental plaque microbiome
+      profiles in order to identify disease-relevant species and to investigate
+      into their interactions with the S. mutans.
+    explanation: Establishes Streptococcus mutans as the reference pathogen in the model.
+- taxon_term:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      The most significantly abundant taxon found associated with ASC was V.
+      parvula.
+    explanation: Establishes Veillonella parvula as the adult severe caries-associated pathobiont.
+ecological_interactions:
+- name: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+  description: >-
+    Veillonella parvula promotes mature Streptococcus mutans biofilm formation
+    and increases stress tolerance and virulence traits in the dual-species
+    consortium.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      In vitro experiments found that V. parvula can effectively promote S.
+      mutans mature biofilm formation with enhanced acid resistance, hydrogen
+      peroxide detoxicity, and biofilm virulence.
+    explanation: Supports Veillonella-driven enhancement of S. mutans virulence traits.
+- name: Pathobiont-Driven Adult Severe Caries Exacerbation
+  description: >-
+    Veillonella parvula is not independently cariogenic in the model but
+    significantly worsens disease progression when coinfected with
+    Streptococcus mutans.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Rodent model experiments revealed that V. parvula was incapable of
+      causing disease on its own, but it significantly heightened the biofilm
+      virulence of S. mutans when being co-infected and augmented the
+      progression, quantity, and severity of dental caries.
+    explanation: Supports Veillonella parvula as a synergistic pathobiont in adult severe caries.

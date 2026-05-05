@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-03-22T20:07:04
+# Generation date: 2026-04-14T18:15:13
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -1247,6 +1247,9 @@ class CommunityCategoryEnum(EnumDefinitionImpl):
     RHIZOSPHERE = PermissibleValue(
         text="RHIZOSPHERE",
         description="Plant root-associated communities")
+    ORAL = PermissibleValue(
+        text="ORAL",
+        description="Oral microbiome and dental biofilm communities")
     LIGNOCELLULOSE = PermissibleValue(
         text="LIGNOCELLULOSE",
         description="Lignocellulose degradation systems")
@@ -2179,4 +2182,3 @@ slots.microbialCommunity__metal_relevance = Slot(uri=COMMUNITYMECH.metal_relevan
 
 slots.microbialCommunity__metal_notes = Slot(uri=COMMUNITYMECH.metal_notes, name="microbialCommunity__metal_notes", curie=COMMUNITYMECH.curie('metal_notes'),
                    model_uri=COMMUNITYMECH.microbialCommunity__metal_notes, domain=None, range=Optional[str])
-
