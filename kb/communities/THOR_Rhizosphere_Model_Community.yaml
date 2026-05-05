@@ -1,0 +1,222 @@
+id: CommunityMech:000079
+name: THOR Rhizosphere Model Community
+description: 'The Hitchhikers Of the Rhizosphere (THOR) is a genetically tractable
+  three-member model microbiome assembled from Bacillus cereus, Pseudomonas koreensis,
+  and Flavobacterium johnsoniae. The community was developed from rhizosphere-associated
+  isolates to study microbial community assembly, competition, biofilm formation, secondary
+  metabolism, and higher-order interactions under controlled laboratory conditions.
+  P. koreensis produces the antibiotic koreenceine, which inhibits F. johnsoniae and
+  drives community transcriptional responses, while B. cereus modulates antibiotic production
+  and participates in emergent colony expansion and biofilm phenotypes.
+
+  '
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Create a genetically tractable reduced-complexity rhizosphere model for dissecting
+    microbial community behavior.
+  assembly_strategy: Bottom-up assembly of three rhizosphere-associated bacterial isolates spanning
+    Firmicutes, Proteobacteria, and Bacteroidetes.
+  measurement_endpoints:
+  - Pairwise and three-member biofilm production
+  - Colony expansion
+  - Interspecies inhibition by koreenceine
+  - Comparative metatranscriptomics
+  notes: THOR is synthetic as a defined experimental community, but its members are rhizosphere-associated
+    organisms selected from naturally interacting isolates.
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We developed a model community with representatives from three dominant rhizosphere taxa
+    explanation: Supports the design rationale for a reduced-complexity rhizosphere model community.
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The model community was derived from organisms associated with soybean root/rhizosphere contexts
+    and is studied in laboratory coculture.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus cereus UW85
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+    notes: Rhizosphere-associated firmicute member used as the Bacillus component of THOR.
+  strain_designation:
+    strain_name: UW85
+    isolation_source: Rhizosphere-associated isolate used in THOR development
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of three defined THOR members
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: designated THOR, containing Pseudomonas koreensis, Flavobacterium johnsoniae, and Bacillus cereus
+    explanation: Establishes B. cereus as a member of THOR.
+- taxon_term:
+    preferred_term: Pseudomonas koreensis CI12
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+    notes: Proteobacterial THOR member that produces koreenceine, an antibiotic affecting other members.
+  strain_designation:
+    strain_name: CI12
+    isolation_source: Coisolated with Bacillus cereus from field-grown soybean root/rhizosphere material
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of three defined THOR members; antibiotic-producing interaction hub
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: composed of three species-Bacillus cereus, Flavobacterium johnsoniae, and Pseudomonas koreensis
+    explanation: Establishes P. koreensis as a THOR member.
+- taxon_term:
+    preferred_term: Flavobacterium johnsoniae UW101
+    term:
+      id: NCBITaxon:986
+      label: Flavobacterium johnsoniae
+    notes: Bacteroidetes/Flavobacteriia member whose abundance and transcriptional state are sensitive
+      to P. koreensis and koreenceine.
+  strain_designation:
+    strain_name: UW101
+    isolation_source: Coisolated with Bacillus cereus from field-grown soybean root/rhizosphere material
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of three defined THOR members; sensitive to koreenceine-mediated inhibition
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-isolate from field-grown soybean roots
+    explanation: Supports the natural coisolation context for the THOR members.
+ecological_interactions:
+- name: Koreenceine-Mediated Inhibition
+  description: Pseudomonas koreensis produces koreenceine, an alkaloid antibiotic that inhibits Flavobacterium
+    johnsoniae and strongly structures transcriptional responses within THOR. Removing koreenceine or
+    changing the starting abundance of P. koreensis increases F. johnsoniae populations, indicating that
+    the antibiotic is a major regulatory and competitive mechanism in this model community.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Pseudomonas koreensis CI12
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  target_taxon:
+    preferred_term: Flavobacterium johnsoniae UW101
+    term:
+      id: NCBITaxon:986
+      label: Flavobacterium johnsoniae
+  metabolites:
+  - preferred_term: koreenceine
+    term:
+      id: CHEBI:35222
+      label: alkaloid
+    notes: Koreenceine is represented at the chemical-class level because a specific CHEBI term was not
+      identified during curation.
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  downstream:
+  - target: Flavobacterium johnsoniae population response
+    description: Reduced koreenceine activity or lower P. koreensis inoculum increases F. johnsoniae abundance.
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. koreensis produces a novel family of alkaloid antibiotics that inhibit growth of F. johnsoniae
+    explanation: Supports koreenceine-mediated inhibition by P. koreensis.
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mediated either directly or indirectly by its production of the antibiotic koreenceine
+    explanation: Supports koreenceine as a major driver of community transcriptional response.
+- name: Bacillus Modulation of Pseudomonas Antibiotic Production
+  description: Bacillus cereus modulates the inhibitory interaction between P. koreensis and F. johnsoniae
+    by suppressing production of the P. koreensis alkaloid antibiotic family. This creates a higher-order
+    interaction where the effect of P. koreensis on F. johnsoniae changes in the presence of B. cereus.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Bacillus cereus UW85
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  target_taxon:
+    preferred_term: Pseudomonas koreensis CI12
+    term:
+      id: NCBITaxon:198620
+      label: Pseudomonas koreensis
+  metabolites:
+  - preferred_term: koreenceine
+    term:
+      id: CHEBI:35222
+      label: alkaloid
+    notes: Chemical-class placeholder for the koreenceine family.
+  biological_processes:
+  - preferred_term: negative regulation of biological process
+    term:
+      id: GO:0048519
+      label: negative regulation of biological process
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: production is inhibited by B. cereus
+    explanation: Supports B. cereus modulation of P. koreensis antibiotic production.
+- name: Emergent Three-Member Biofilm Formation
+  description: The complete THOR community produces a stronger biofilm phenotype than its individual
+    members, demonstrating an emergent community property that is not captured by monoculture behavior.
+    This makes THOR useful for studying how pairwise and higher-order interactions shape aggregate
+    community outputs.
+  interaction_type: COLONIZATION_FACILITATION
+  metabolites: []
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: production of more robust biofilms by the three members together than individually
+    explanation: Supports biofilm formation as an emergent three-member community phenotype.
+environmental_factors:
+- name: Rhizosphere Origin
+  value: Field-grown soybean root/rhizosphere-associated isolates
+  description: THOR was assembled from organisms connected to soybean root/rhizosphere contexts.
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-isolate from field-grown soybean roots
+    explanation: Supports the environmental origin of the model members.
+- name: Laboratory Coculture
+  value: Defined pairwise and three-member coculture
+  description: THOR is studied through monoculture, pairwise coculture, and full-community experiments.
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When grown in pairs, each member of THOR exhibits unique signaling behavior
+    explanation: Supports the pairwise coculture format used to study THOR interactions.
+associated_datasets:
+- name: THOR comparative metatranscriptomics
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: PMID:35435700
+  url: https://pubmed.ncbi.nlm.nih.gov/35435700/
+  description: Comparative metatranscriptomics study of THOR pairwise and full-community interactions.
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Comparative metatranscriptomics on THOR revealed global patterns of interspecies transcriptional regulation
+    explanation: Links the THOR record to a metatranscriptomic characterization study.
+metal_relevance: NOT_APPLICABLE
