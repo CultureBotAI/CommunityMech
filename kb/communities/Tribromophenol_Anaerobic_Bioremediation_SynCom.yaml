@@ -1,0 +1,76 @@
+id: CommunityMech:000112
+name: Tribromophenol Anaerobic Bioremediation SynCom
+description: A synthetic anaerobic community with Clostridium, Dehalobacter, and Desulfatiglans functions
+  for 2,4,6-tribromophenol mineralization.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Mineralize 2,4,6-tribromophenol to carbon dioxide through coordinated reductive debromination,
+    fermentation, and phenol degradation.
+  assembly_strategy: Dehalobacter phylotype FTH1, Clostridium strain Ma13, and Desulfatiglans parachlorophenolica
+    strain DS were combined functionally.
+  perturbation_design: Optimization of glucose, sulfate, and inoculum density under anaerobic conditions.
+  measurement_endpoints:
+  - tribromophenol mineralization
+  - phenol degradation
+  - debromination
+  - carbon dioxide production
+  evidence:
+  - &id001
+    reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic mineralization of 2,4,6-tribromophenol (2,4,6-TBP) was achieved by a synthetic
+      anaerobe community comprising a highly enriched culture of Dehalobacter sp. phylotype FTH1 acting
+      as a reductive debrominator; Clostridium sp. strain Ma13 acting as a hydrogen supplier via glucose
+      fermentation; and a novel 4-chlorophenol-degrading anaerobe, Desulfatiglans parachlorophenolica
+      strain DS.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Anaerobic laboratory consortium for halogenated aromatic mineralization.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalobacter sp.
+    term:
+      id: NCBITaxon:55552
+      label: Dehalobacter
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Clostridium sp.
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Desulfatiglans parachlorophenolica
+    term:
+      id: NCBITaxon:1121382
+      label: Desulfatiglans parachlorophenolica
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Anaerobic Halophenol Mineralization
+  description: Debromination, hydrogen supply, and phenol degradation are partitioned among members.
+  interaction_type: SYNTROPHY
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Dehalobacter phylotype FTH1, Clostridium strain Ma13, and Desulfatiglans parachlorophenolica
+    strain DS were combined functionally.
+  description: Optimization of glucose, sulfate, and inoculum density under anaerobic conditions.
+  evidence:
+  - *id001

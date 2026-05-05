@@ -1,0 +1,55 @@
+id: CommunityMech:000114
+name: Shewanella Denitrifying Richness SynComs
+description: A panel of synthetic denitrifying communities assembled from 12 Shewanella denitrifiers with
+  richness spanning one to twelve species.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Measure biodiversity-ecosystem functioning relationships during microbial experimental evolution.
+  assembly_strategy: Random selection from a 12-member Shewanella denitrifier candidate pool to create
+    richness-gradient communities.
+  perturbation_design: Approximately 180 days of experimental evolution with 60 transfers.
+  measurement_endpoints:
+  - productivity
+  - denitrification rate
+  - community richness
+  - evolutionary change
+  evidence:
+  - &id001
+    reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we selected 12 Shewanella denitrifiers to construct synthetic denitrifying communities (SDCs)
+      with a richness gradient spanning 1 to 12 species
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Synthetic denitrifying communities with Shewanella richness gradient.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella denitrifiers
+    term:
+      id: NCBITaxon:22
+      label: Shewanella
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Richness-Dependent Denitrification
+  description: Shewanella richness gradients produce dynamic biodiversity-function relationships during
+    evolution.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Random selection from a 12-member Shewanella denitrifier candidate pool to create richness-gradient
+    communities.
+  description: Approximately 180 days of experimental evolution with 60 transfers.
+  evidence:
+  - *id001

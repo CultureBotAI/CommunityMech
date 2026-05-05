@@ -1,0 +1,74 @@
+id: CommunityMech:000130
+name: Synthetic Periphyton Freshwater Biofilm
+description: A 26-member phototrophic synthetic periphyton biofilm used as a reproducible freshwater model
+  system for species dynamics and stressor response.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Create a controlled synthetic periphyton model for manipulating freshwater phototrophic biofilm
+    species dynamics.
+  assembly_strategy: Twenty-six phototrophic species including diatoms, green algae, and cyanobacteria
+    were inoculated in successional sequence onto glass slides.
+  perturbation_design: Temperature increase and herbicide stressors were applied singly and in combination.
+  measurement_endpoints:
+  - species-level abundance dynamics
+  - community reproducibility
+  - biofilm function
+  - 3D spatial structure
+  - stressor response
+  evidence:
+  - &id001
+    reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we rationally developed a workflow to construct a synthetic community by co-culturing 26
+      phototrophic species (i.e., diatoms, green algae, and cyanobacteria)
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: freshwater periphyton biofilm
+  term:
+    id: ENVO:01001242
+    label: freshwater environment
+  notes: Synthetic periphytic biofilm grown on glass slides under controlled conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: diatoms
+    term:
+      id: NCBITaxon:2836
+      label: Bacillariophyta
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: green algae
+    term:
+      id: NCBITaxon:3041
+      label: Chlorophyta
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: cyanobacteria
+    term:
+      id: NCBITaxon:1117
+      label: Cyanobacteria
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Successional Periphyton Biofilm Assembly
+  description: Phototrophic species assemble into a diverse, stable, reproducible biofilm with trackable
+    species dynamics.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: successional inoculation on glass slides
+  value: Phototrophic species were inoculated sequentially to construct a synthetic periphytic biofilm.
+  description: Temperature increase and herbicide stressors were applied singly and in combination.
+  evidence:
+  - *id001

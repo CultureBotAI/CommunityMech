@@ -1,0 +1,58 @@
+id: CommunityMech:000124
+name: Honeybee Core-20 Defined Microbiota
+description: A stably transmitted 20-strain synthetic gut microbiota from honeybee intestine that primes
+  host immunity and reduces Hafnia alvei prevalence.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Test whether a defined honeybee gut community can stably colonize and protect the host against
+    pathogen prevalence.
+  assembly_strategy: Twenty strains isolated from honeybee intestine were selected using phylogeny analysis
+    to create the Core-20 community.
+  perturbation_design: Honeybees were colonized through passages and challenged in the context of Hafnia
+    alvei inhibition.
+  measurement_endpoints:
+  - immune gene expression
+  - Hafnia alvei prevalence
+  - stable gut colonization
+  - carbohydrate-utilization functions
+  evidence:
+  - &id001
+    reference: PMID:36532452
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we assembled a defined microbial community based on phylogeny analysis, the 'Core-20' community,
+      consisting of 20 strains isolated from the honeybee intestine.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: honeybee intestine
+  term:
+    id: UBERON:0000160
+    label: intestine
+  notes: Defined microbial community isolated from the honeybee gut.
+taxonomy:
+- taxon_term:
+    preferred_term: honeybee gut bacterial Core-20 members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Immune-Mediated Pathogen Protection
+  description: The defined Core-20 community primes host immune gene expression and reduces Hafnia alvei
+    prevalence.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: stably transmitted defined microbiota
+  value: The Core-20 community was passaged through honeybee guts and evaluated for stable colonization
+    and immune effects.
+  description: Honeybees were colonized through passages and challenged in the context of Hafnia alvei
+    inhibition.
+  evidence:
+  - *id001

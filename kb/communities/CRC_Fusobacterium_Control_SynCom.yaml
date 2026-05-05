@@ -1,0 +1,59 @@
+id: CommunityMech:000128
+name: CRC Fusobacterium Control SynCom
+description: A bottom-up designed seven-species synthetic microbial community for ecological control of
+  Fusobacterium nucleatum-associated colorectal cancer models.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Design a controllable commensal SynCom that suppresses Fusobacterium nucleatum and improves
+    colorectal cancer model outcomes.
+  assembly_strategy: Human metagenome and metabolomics data were used with metabolic network reconstruction
+    to design a seven-species low-competition SynCom.
+  perturbation_design: The SynCom was tested against Fusobacterium nucleatum in vitro and in an AOM-DSS
+    mouse colorectal cancer model.
+  measurement_endpoints:
+  - Fusobacterium nucleatum inhibition
+  - in vivo colonization
+  - tryptophan metabolism
+  - secondary bile acid conversion
+  - tumor inhibition
+  evidence:
+  - &id001
+    reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A synthetic microbial community (SynCom) is then designed by metabolic network reconstruction,
+      and its performance is validated using coculture experiments and an AOM-DSS induced mouse CRC model.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: colorectal gut microbiome
+  term:
+    id: UBERON:0001155
+    label: colon
+  notes: Designed commensal SynCom validated in coculture and mouse colorectal cancer models.
+taxonomy:
+- taxon_term:
+    preferred_term: seven commensal bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Fusobacterium Ecological Suppression
+  description: The designed SynCom inhibits F. nucleatum growth and promotes decolonization through ecological
+    and metabolic control.
+  interaction_type: COMPETITION
+  evidence:
+  - *id001
+environmental_factors:
+- name: metabolic network reconstruction design
+  value: A seven-species SynCom with low competitive interrelationships was designed from human metagenome
+    and metabolomics data.
+  description: The SynCom was tested against Fusobacterium nucleatum in vitro and in an AOM-DSS mouse
+    colorectal cancer model.
+  evidence:
+  - *id001

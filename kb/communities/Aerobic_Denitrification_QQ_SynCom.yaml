@@ -1,0 +1,73 @@
+id: CommunityMech:000115
+name: Aerobic Denitrification Quorum-Quenching SynCom
+description: A three-member aerobic denitrification SynCom whose quorum-quenching and AHL-mediated interactions
+  improve nitrate removal.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Improve aerobic denitrification efficiency by engineering member interactions in a synthetic
+    microbial community.
+  assembly_strategy: Acinetobacter baumannii N1, Pseudomonas aeruginosa N2, and Aeromonas hydrophila were
+    assembled as an SMC.
+  perturbation_design: Single-culture, co-culture, and three-member SMC denitrification systems were compared.
+  measurement_endpoints:
+  - nitrate reduction
+  - nitrite accumulation
+  - AHL signaling
+  - electron transfer
+  evidence:
+  - &id001
+    reference: PMID:38277828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a synthetic microbial community (SMC) composed of denitrifiers Acinetobacter baumannii N1
+      (AC), Pseudomonas aeruginosa N2 (PA) and Aeromonas hydrophila (AH) were constructed.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Aerobic denitrification synthetic microbial community for nitrate wastewater removal.
+taxonomy:
+- taxon_term:
+    preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: AHL-Mediated Aerobic Denitrification
+  description: AHL signaling and quorum quenching coordinate electron transfer and nitrate reduction.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Acinetobacter baumannii N1, Pseudomonas aeruginosa N2, and Aeromonas hydrophila were assembled
+    as an SMC.
+  description: Single-culture, co-culture, and three-member SMC denitrification systems were compared.
+  evidence:
+  - *id001

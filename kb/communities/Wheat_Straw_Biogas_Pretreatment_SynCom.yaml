@@ -1,0 +1,86 @@
+id: CommunityMech:000118
+name: Wheat Straw Biogas Pretreatment SynCom
+description: A four-member bacterial-fungal synthetic microbial community that produces enzymes for wheat
+  straw pretreatment and enhanced biogas production.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Improve lignocellulose degradation and biogas production from wheat straw.
+  assembly_strategy: Core microorganisms with lignocellulose-degrading abilities were screened from straw
+    and forest environments and combined.
+  perturbation_design: Synthetic microbial community enzyme pretreatment compared with commercial enzyme
+    pretreatments.
+  measurement_endpoints:
+  - cellulose degradation
+  - hemicellulose degradation
+  - lignin degradation
+  - cumulative biogas production
+  evidence:
+  - &id001
+    reference: PMID:38748977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Herein, a metagenomic approach was used to screen core microorganisms (Bacillus subtilis,
+      Acinetobacter johnsonii, Trichoderma viride, and Aspergillus niger) possessing lignocellulose-degrading
+      abilities among samples from three environments: pile retting wheat straw (WS), WS returned to soil,
+      and forest soil.'
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Synthetic microbial community for enzyme production and wheat straw pretreatment before anaerobic
+    digestion.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Acinetobacter johnsonii
+    term:
+      id: NCBITaxon:40214
+      label: Acinetobacter johnsonii
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Trichoderma viride
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma viride
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Lignocellulose Enzyme Pretreatment
+  description: Bacterial and fungal enzyme producers jointly degrade wheat straw polymers before anaerobic
+    digestion.
+  interaction_type: MUTUALISM
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Core microorganisms with lignocellulose-degrading abilities were screened from straw and forest
+    environments and combined.
+  description: Synthetic microbial community enzyme pretreatment compared with commercial enzyme pretreatments.
+  evidence:
+  - *id001

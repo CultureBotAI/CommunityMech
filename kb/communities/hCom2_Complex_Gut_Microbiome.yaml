@@ -1,0 +1,58 @@
+id: CommunityMech:000123
+name: hCom2 Complex Gut Microbiome
+description: A complex defined human gut microbiome assembled from hCom1 and iteratively augmented after
+  fecal challenge to improve stability and colonization resistance in gnotobiotic mice.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Construct a defined but complex gut microbiome that models human gut community functions
+    in vivo.
+  assembly_strategy: A 104-species hCom1 community was challenged with fecal microbiota in germ-free mice
+    and augmented with engrafting species to yield hCom2.
+  perturbation_design: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability
+    and colonization resistance.
+  measurement_endpoints:
+  - engraftment
+  - community stability
+  - colonization resistance
+  - host phenotypes
+  evidence:
+  - &id001
+    reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We identified new species that engrafted following fecal challenge and added them to hCom1,
+      yielding hCom2.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: human gut
+  term:
+    id: UBERON:0001007
+    label: digestive system
+  notes: Defined human gut microbiome used in gnotobiotic mouse experiments.
+taxonomy:
+- taxon_term:
+    preferred_term: defined human gut bacterial members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Gut Niche Filling and Colonization Resistance
+  description: Iterative niche filling improved stability to fecal challenge and resistance to pathogenic
+    Escherichia coli.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - *id001
+environmental_factors:
+- name: gnotobiotic fecal challenge
+  value: Germ-free mice colonized with hCom1 were challenged with a human fecal sample to identify additional
+    engrafting species.
+  description: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability and
+    colonization resistance.
+  evidence:
+  - *id001

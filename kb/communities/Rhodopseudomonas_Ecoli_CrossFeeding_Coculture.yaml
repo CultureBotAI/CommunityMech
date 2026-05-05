@@ -1,0 +1,64 @@
+id: CommunityMech:000092
+name: Rhodopseudomonas-E. coli Cross-Feeding Coculture
+description: A reciprocal cross-feeding coculture pairing N2-fixing Rhodopseudomonas palustris with fermentative
+  Escherichia coli.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test whether nutrient uptake adaptation can drive emergence of reciprocal cross-feeding.
+  assembly_strategy: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich
+    fermentation product transfer from E. coli.
+  perturbation_design: Wild-type and engineered cross-feeding contexts were compared during coculture
+    evolution.
+  measurement_endpoints:
+  - ammonium uptake
+  - fermentation product exchange
+  - recipient adaptation
+  - coculture growth
+  evidence:
+  - &id001
+    reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Previously we engineered a cross-feeding coculture between N2-fixing Rhodopseudomonas palustris
+      and fermentative Escherichia coli.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Engineered and evolved two-member cross-feeding coculture.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Reciprocal Carbon-Nitrogen Cross-Feeding
+  description: R. palustris supplies ammonium while E. coli supplies fermentation products.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: defined synthetic community design
+  value: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich fermentation
+    product transfer from E. coli.
+  description: Wild-type and engineered cross-feeding contexts were compared during coculture evolution.
+  evidence:
+  - *id001

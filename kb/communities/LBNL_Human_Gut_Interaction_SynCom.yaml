@@ -1,0 +1,56 @@
+id: CommunityMech:000122
+name: LBNL Human Gut Interaction SynCom
+description: A diverse synthetic human gut microbiome community used with model-guided time-series experiments
+  to infer pairwise ecological interactions and metabolic drivers of coexistence.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Infer ecological interaction structure and metabolic design principles in a synthetic human
+    gut microbiome community.
+  assembly_strategy: Defined human gut species were assembled into lower-order and higher-order consortia
+    for time-resolved community measurements.
+  perturbation_design: Initial species proportions and lower-order community combinations were varied
+    to predict higher-dimensional dynamics.
+  measurement_endpoints:
+  - time-resolved abundance dynamics
+  - ecological interaction network
+  - extracellular metabolites
+  - coexistence stability
+  evidence:
+  - &id001
+    reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This method was employed to decipher microbial interactions in a diverse human gut microbiome
+      synthetic community.
+    explanation: Supports the defined synthetic community design and represented community context.
+environment_term:
+  preferred_term: human gut microbiome
+  term:
+    id: UBERON:0001007
+    label: digestive system
+  notes: Synthetic human-associated intestinal community studied in vitro.
+taxonomy:
+- taxon_term:
+    preferred_term: human gut bacterial SynCom members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Pairwise Gut Community Interactions
+  description: Pairwise positive and negative interactions structure multi-species community dynamics.
+  interaction_type: CROSS_FEEDING
+  evidence:
+  - *id001
+environmental_factors:
+- name: model-guided synthetic community design
+  value: Lower-order assemblages were used to predict higher-dimensional human gut SynCom dynamics.
+  description: Initial species proportions and lower-order community combinations were varied to predict
+    higher-dimensional dynamics.
+  evidence:
+  - *id001
