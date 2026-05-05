@@ -1,0 +1,196 @@
+id: CommunityMech:000132
+name: KB-1 Chlorinated Ethene Dechlorinating Consortium
+description: KB-1 is a natural anaerobic bioaugmentation consortium used for reductive dechlorination of
+  chlorinated ethenes in contaminated groundwater. The culture contains Dehalococcoides-related
+  organohalide-respiring bacteria that convert tetrachloroethene and trichloroethene through chlorinated
+  intermediates to ethene. Nondechlorinating acetogens, including Acetobacterium and Sporomusa, support
+  the community by providing cobamide-related cofactors needed by Dehalococcoides.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Bioaugment contaminated aquifers with a dechlorinating enrichment culture capable of complete
+    conversion of chlorinated ethenes to ethene.
+  assembly_strategy: Naturally derived enrichment culture maintained for anaerobic organohalide respiration
+    and injected into contaminated groundwater after electron-donor amendment.
+  perturbation_design: Field bioaugmentation after methanol and acetate amendment; laboratory tests in
+    TCE- or VC-amended mineral media with vitamin and pH perturbations.
+  measurement_endpoints:
+  - Tetrachloroethene and trichloroethene depletion
+  - Ethene production
+  - Dehalococcoides detection by PCR and sequence assays
+  - Vinyl chloride dechlorination at low pH
+  evidence:
+  - reference: PMID:12523427
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the chlorinated ethenes in the microcosms were completely converted to ethene
+    explanation: Supports the bioaugmentation purpose and complete dechlorination phenotype.
+environment_term:
+  preferred_term: contaminated groundwater
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: KB-1 was applied to chlorinated-ethene contaminated groundwater at Kelly Air Force Base.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides spp. in KB-1
+    term:
+      id: NCBITaxon:61434
+      label: Dehalococcoides
+    notes: Organohalide-respiring bacteria responsible for dechlorination beyond cis-DCE to ethene.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:12523427
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: contains phylogenetic relatives of Dehalococcoides ethenogenes
+    explanation: Supports Dehalococcoides-related organisms as members of KB-1.
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides-containing bioaugmentation culture KB-1
+    explanation: Supports the Dehalococcoides-containing identity of the enrichment culture.
+- taxon_term:
+    preferred_term: Acetobacterium spp. in KB-1
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium
+    notes: Dominant acetogen in KB-1 low-pH and vitamin-perturbation experiments; supports cobamide availability.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetobacterium supports complete TCE dechlorination by Dehalococcoides
+    explanation: Supports Acetobacterium as a functionally important KB-1 member.
+- taxon_term:
+    preferred_term: Sporomusa spp. in KB-1
+    term:
+      id: NCBITaxon:906
+      label: Sporomusa
+    notes: Acetogenic KB-1 member reported with Acetobacterium in cultures lacking exogenous vitamins.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the lower ligand of cobalamin, and Sporomusa are dominant acetogens
+    explanation: Supports Sporomusa as an acetogenic KB-1 member.
+ecological_interactions:
+- name: Reductive Dechlorination to Ethene
+  description: Dehalococcoides-related organisms in KB-1 use chlorinated ethenes as electron acceptors under
+    anaerobic conditions, driving sequential reductive dechlorination of PCE and TCE to ethene in laboratory
+    microcosms and field groundwater.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Dehalococcoides spp. in KB-1
+    term:
+      id: NCBITaxon:61434
+      label: Dehalococcoides
+  metabolites:
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  - preferred_term: chloroethene
+    term:
+      id: CHEBI:28509
+      label: chloroethene
+    notes: Vinyl chloride intermediate in chlorinated-ethene dechlorination.
+  - preferred_term: ethene
+    term:
+      id: CHEBI:18153
+      label: ethene
+  downstream:
+  - target: Chlorinated solvent detoxification
+    description: PCE, TCE, and cis-DCE concentrations fall while ethene accumulates as the detoxified end product.
+  evidence:
+  - reference: PMID:12523427
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: PCE, TCE, and cis-1,2-DCE within the PTA were all below
+    explanation: Supports field depletion of chlorinated ethenes after KB-1 injection.
+  - reference: PMID:12523427
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: ethene production accounted for the observed mass loss
+    explanation: Supports ethene as the dechlorination end product.
+- name: Acetogen Cobamide Support
+  description: Acetobacterium and Sporomusa provide a supporting acetogenic guild in KB-1. Acetobacterium
+    can synthesize the cobalamin lower ligand DMB, supporting Dehalococcoides dechlorination in vitamin-free
+    medium and highlighting a cofactor-mediated syntrophic dependency.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Acetobacterium spp. in KB-1
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium
+  target_taxon:
+    preferred_term: Dehalococcoides spp. in KB-1
+    term:
+      id: NCBITaxon:61434
+      label: Dehalococcoides
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: vitamin metabolic process
+    term:
+      id: GO:0006766
+      label: vitamin metabolic process
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the lower ligand of cobalamin, and Sporomusa are dominant acetogens
+    explanation: Supports acetogens as cobamide-related supporting partners in KB-1.
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: substantial increase in cobalamin
+    explanation: Supports cobalamin availability as part of the Acetobacterium-Dehalococcoides interaction.
+environmental_factors:
+- name: Anaerobic contaminated groundwater
+  value: Reducing conditions after methanol and acetate amendment
+  description: The Kelly Air Force Base field test amended groundwater with methanol and acetate before KB-1
+    injection to establish reducing conditions for reductive dechlorination.
+  evidence:
+  - reference: PMID:12523427
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: amended with methanol and acetate to establish reducing conditions
+    explanation: Supports anaerobic reducing conditions as a field environmental factor.
+- name: pH limit for vinyl chloride dechlorination
+  value: Sustained VC-to-ethene dechlorination at pH 5.5; inhibition below pH 5.0
+  description: Low pH affects vinyl chloride reductase activity and dechlorination performance in KB-1.
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: VC to ethene was achieved at pH as low as 5.5
+    explanation: Supports the low-pH operating limit for KB-1 vinyl chloride dechlorination.
+growth_media:
+- name: TCE-amended mineral medium without exogenous vitamins
+  composition:
+  - name: trichloroethene
+    chebi_term:
+      preferred_term: trichloroethene
+      term:
+        id: CHEBI:16602
+        label: trichloroethene
+  ph_range: neutral to low pH tests
+  atmosphere: ANAEROBIC
+  preparation_notes: Vitamin-free mineral medium used to test KB-1 growth and dechlorination dependency on
+    endogenous cobamide-producing populations.
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TCE-amended mineral medium devoid of vitamins
+    explanation: Supports the growth medium and vitamin-omission perturbation.

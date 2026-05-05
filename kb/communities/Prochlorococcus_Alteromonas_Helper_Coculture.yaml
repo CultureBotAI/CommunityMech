@@ -1,0 +1,190 @@
+id: CommunityMech:000131
+name: Prochlorococcus-Alteromonas Helper Coculture
+description: A defined marine phototroph-heterotroph coculture in which the cyanobacterium Prochlorococcus
+  marinus MIT9312 is paired with the heterotrophic helper bacterium Alteromonas macleodii EZ55. The
+  system models an ocean-surface interaction where Prochlorococcus is vulnerable to hydrogen peroxide
+  because it lacks catalase, while Alteromonas removes reactive oxygen species and thereby expands the
+  conditions under which Prochlorococcus can grow. Elevated carbon dioxide perturbs this interaction by
+  reducing Alteromonas catalase expression and hydrogen peroxide removal.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Test how a heterotrophic helper bacterium changes oxidative stress tolerance and growth of
+    Prochlorococcus under ocean-relevant hydrogen peroxide, temperature, and carbon dioxide conditions.
+  assembly_strategy: Laboratory coculture of Prochlorococcus strains, including MIT9312, with Alteromonas
+    macleodii strain EZ55.
+  perturbation_design: Ambient and elevated carbon dioxide treatments, hydrogen peroxide treatments, and
+    temperature gradients were used to probe helper-bacterium protection.
+  measurement_endpoints:
+  - Prochlorococcus growth rate
+  - Hydrogen peroxide removal
+  - Catalase gene expression in Alteromonas
+  - Photosynthetic efficiency
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Prochlorococcus (VOL4, MIT9312) was co-cultured with Alteromonas (strain EZ55)
+    explanation: Supports the defined two-member coculture design and strain context.
+environment_term:
+  preferred_term: marine environment
+  term:
+    id: ENVO:00002149
+    label: marine environment
+  notes: Ocean-surface phototroph-heterotroph interaction represented in controlled laboratory coculture.
+taxonomy:
+- taxon_term:
+    preferred_term: Prochlorococcus marinus MIT9312
+    term:
+      id: NCBITaxon:1219
+      label: Prochlorococcus marinus
+    notes: Marine cyanobacterium and photosynthetic primary producer used as the helper-dependent phototroph.
+  strain_designation:
+    strain_name: MIT9312
+    isolation_source: Marine Prochlorococcus isolate used in laboratory coculture experiments.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Prochlorococcus is a globally important marine cyanobacterium
+    explanation: Supports the organism identity and primary-producer context.
+  - reference: PMID:29087377
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth of ecologically relevant concentrations of MIT9312
+    explanation: Supports use of MIT9312 in the experimental system.
+- taxon_term:
+    preferred_term: Alteromonas macleodii EZ55
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+    notes: Heterotrophic helper bacterium that removes hydrogen peroxide and modifies Prochlorococcus oxidative
+      stress exposure.
+  strain_designation:
+    strain_name: EZ55
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Alteromonas (strain EZ55) under ambient (400 p.p.m.) and elevated CO2
+    explanation: Supports Alteromonas EZ55 as the paired heterotrophic member.
+ecological_interactions:
+- name: Hydrogen Peroxide Cross-Protection
+  description: Alteromonas protects Prochlorococcus by removing hydrogen peroxide and other reactive oxygen
+    species. This detoxification service reduces oxidative stress for Prochlorococcus, which lacks catalase,
+    and increases its growth under otherwise inhibitory peroxide and temperature conditions.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Alteromonas macleodii EZ55
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+  target_taxon:
+    preferred_term: Prochlorococcus marinus MIT9312
+    term:
+      id: NCBITaxon:1219
+      label: Prochlorococcus marinus
+  metabolites:
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+    notes: Reactive oxygen species removed by helper bacteria.
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Prochlorococcus growth
+    description: Scavenging hydrogen peroxide increases Prochlorococcus growth rate and permissive temperature range.
+  evidence:
+  - reference: PMID:29087377
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH
+    explanation: Directly supports the helper-bacterium peroxide-scavenging mechanism.
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lacks the gene catalase and relies on 'helper' bacteria
+    explanation: Supports the dependence of Prochlorococcus on helper bacteria for oxidative stress relief.
+- name: Carbon Dioxide Perturbation of Helper Function
+  description: Elevated carbon dioxide weakens the Alteromonas helper interaction by decreasing Alteromonas
+    catalase gene expression and reducing the rate at which cocultures remove hydrogen peroxide. This
+    makes Prochlorococcus more vulnerable to oxidative stress under projected high-CO2 conditions.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Alteromonas macleodii EZ55
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+  target_taxon:
+    preferred_term: Prochlorococcus marinus MIT9312
+    term:
+      id: NCBITaxon:1219
+      label: Prochlorococcus marinus
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: decreased expression of the catalase gene
+    explanation: Supports the mechanism by which elevated CO2 perturbs Alteromonas helper function.
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: decrease in removal rates of hydrogen peroxide
+    explanation: Supports reduced peroxide detoxification under elevated CO2.
+environmental_factors:
+- name: Hydrogen peroxide stress
+  value: Ambient to elevated HOOH treatments
+  description: Hydrogen peroxide was varied to test oxidative-stress sensitivity and helper-bacterium scavenging.
+  evidence:
+  - reference: PMID:29087377
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH
+    explanation: Supports hydrogen peroxide scavenging as the controlled oxidative-stress factor.
+- name: Carbon dioxide
+  value: 400 ppm and 800 ppm
+  description: Ambient and elevated carbon dioxide were used to probe whether future ocean CO2 changes alter
+    the helper interaction.
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ambient (400 p.p.m.) and elevated CO2 (800 p.p.m.)
+    explanation: Documents the carbon dioxide perturbation levels used in coculture.
+associated_datasets:
+- name: Prochlorococcus MIT9312 and Alteromonas EZ55 clone growth dataset
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: BCO-DMO:688162
+  url: https://www.bco-dmo.org/dataset/688162
+  description: Growth experiment dataset for Prochlorococcus MIT9312 clones mixed with clonal isolates of
+    Alteromonas EZ55 helper bacteria.
+  evidence:
+  - reference: doi:10.1038/ismej.2017.189
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Prochlorococcus (VOL4, MIT9312) was co-cultured with Alteromonas (strain EZ55)
+    explanation: Links the dataset context to the coculture described in the publication.
