@@ -1,0 +1,224 @@
+id: CommunityMech:000136
+name: Oak Ridge FRC Uranium-Nitrate Groundwater Community
+description: A natural contaminated-groundwater microbial community from the U.S. DOE Oak Ridge Field
+  Research Center, where groundwater wells span strong gradients in acidity, nitrate, uranium, and other
+  metal contaminants. Clone-library and isolate studies link geochemistry to community structure, with
+  lower diversity in highly contaminated wells and enrichment of organisms capable of uranium, nitrate,
+  and iron reduction. This record represents the field community, distinct from existing defined ENIGMA
+  denitrifying SynCom records derived from Oak Ridge isolates.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: contaminated groundwater
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: Groundwater monitoring wells at the DOE Oak Ridge FRC are contaminated with nitrate, uranium,
+    and other metals; the ENVO term records the groundwater habitat and notes capture the contamination
+    context.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodanobacter denitrificans and related Rhodanobacter spp.
+    term:
+      id: NCBITaxon:666685
+      label: Rhodanobacter denitrificans
+    notes: Rhodanobacter is enriched in the most contaminated Oak Ridge FRC wells and includes denitrifying
+      strains isolated from nitrate-rich contaminated subsurface sediments.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In the most contaminated wells, the microbial community is enriched in the Rhodanobacter genus.
+    explanation: Supports Rhodanobacter enrichment in the field community.
+  - reference: PMID:22140175
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these strains represent the first member of the genus Rhodanobacter shown to be capable
+      of complete denitrification.
+    explanation: Supports denitrification potential for Oak Ridge Rhodanobacter isolates.
+- taxon_term:
+    preferred_term: Pseudomonas spp.
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    notes: Pseudomonas was reported among organisms stimulated in the highly contaminated well FW113-47
+      and associated with uranium and nitrate reduction potential.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth
+      of organisms capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas,
+      Rhodanobacter and Xanthomonas) and iron (Stenotrophomonas), and which were unique to this well.
+    explanation: Supports Pseudomonas membership and contaminant-linked functional potential.
+- taxon_term:
+    preferred_term: Shewanella spp.
+    term:
+      id: NCBITaxon:22
+      label: Shewanella
+    notes: Shewanella was reported as a uranium-reducing organism stimulated in the highly contaminated
+      Oak Ridge FRC well FW113-47.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth
+      of organisms capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas,
+      Rhodanobacter and Xanthomonas) and iron (Stenotrophomonas), and which were unique to this well.
+    explanation: Supports Shewanella membership and uranium-reduction potential in the contaminated well.
+- taxon_term:
+    preferred_term: Stenotrophomonas spp.
+    term:
+      id: NCBITaxon:40323
+      label: Stenotrophomonas
+    notes: Stenotrophomonas was reported among organisms stimulated in the highly contaminated well FW113-47
+      and associated with iron reduction potential.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth
+      of organisms capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas,
+      Rhodanobacter and Xanthomonas) and iron (Stenotrophomonas), and which were unique to this well.
+    explanation: Supports Stenotrophomonas membership and iron-reduction potential in the contaminated
+      well.
+ecological_interactions:
+- name: Contaminant-Selected Rhodanobacter Dominance
+  description: Low pH and high concentrations of uranium and other ions select for Rhodanobacter enrichment
+    in the most contaminated Oak Ridge FRC groundwater wells, while inhibiting many other isolates.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Rhodanobacter denitrificans and related Rhodanobacter spp.
+    term:
+      id: NCBITaxon:666685
+      label: Rhodanobacter denitrificans
+  target_taxon:
+    preferred_term: other groundwater bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We focused on a contaminated aquifer in Oak Ridge, Tennessee, USA that has large gradients
+      of pH and widely varying concentrations of uranium, nitrate, and many other inorganic ions.
+    explanation: Establishes the geochemical gradients that structure the community.
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: few isolates aside from Rhodanobacter can tolerate these eight ions.
+    explanation: Supports contaminant tolerance as a mechanism favoring Rhodanobacter under mixed ion stress.
+- name: Mixed Metal and Nitrate Reduction Potential
+  description: The contaminated well FW113-47 selected for bacteria associated with uranium, nitrate, and
+    iron reduction, indicating bioremediation-relevant redox capacity in the natural groundwater community.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Bioremediation potential
+    description: Metal-reducing bacteria in the wells suggest potential for groundwater bioremediation.
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Metal-reducing bacteria were present in all four wells, which may suggest that there is
+      potential for successful bioremediation of the groundwater at the Oak Ridge FRC.
+    explanation: Supports bioremediation relevance of metal-reducing members.
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The high concentrations of contaminants present in well FW113-47 stimulated the growth
+      of organisms capable of reducing uranium (Shewanella and Pseudomonas), nitrate (Pseudomonas,
+      Rhodanobacter and Xanthomonas) and iron (Stenotrophomonas), and which were unique to this well.
+    explanation: Links community members to uranium, nitrate, and iron redox processes.
+environmental_factors:
+- name: Groundwater pH, nitrate, uranium, and metals
+  value: pH 3 to 7; nitrate 44 to 23,400 mg/L; uranium 0.73 to 60.36 mg/L
+  description: Oak Ridge FRC groundwater wells span strong geochemical gradients that correlate with bacterial
+    diversity and contaminant-linked membership.
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Four groundwater wells (GW835, GW836, FW113-47 and FW215-49) with a wide range of pH
+      (3 to 7), nitrate (44 to 23,400 mg L(-1)), uranium (0.73 to 60.36 mg L(-1)) and other metal contamination,
+      were investigated.
+    explanation: Supports the field geochemical conditions used in this record.
+- name: Diversity loss under high contamination
+  value: lower gene diversity in highly contaminated well FW113-47
+  description: Highly contaminated groundwater showed lower bacterial gene diversity than less contaminated
+    wells, indicating contaminant filtering of the community.
+  evidence:
+  - reference: PMID:22988623
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Microbial diversity decreased in relation to the contamination levels of the wells.
+    explanation: Supports contaminant-associated loss of diversity.
+- name: Selective metal ion stress
+  value: low pH with UO2(2+), Zn(2+), Co(2+), Ni(2+), and other selective ions
+  description: Ion-mixture assays indicate that uranium and multiple heavy-metal ions contribute to the
+    selective pressure favoring Rhodanobacter over less tolerant groundwater isolates.
+  evidence:
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: low pH and high UO_{2}^{2+}, Mn^{2+}, Al^{3+}, Cd^{2+}, Zn^{2+}, Co^{2+},
+      and Ni^{2+} are both (a) selectively inhibitory of a Pseudomonas isolate from an uncontaminated
+      well vs. a Rhodanobacter isolate from a contaminated well
+    explanation: Supports the nickel, cobalt, zinc, and uranium metal-contaminant relevance recorded
+      for this community.
+metals_present:
+- URANIUM
+- IRON
+- NICKEL
+- COBALT
+- ZINC
+metal_relevance: PRIMARY
+metal_notes: Uranium and iron are directly tied to reported reduction potential; nickel, cobalt, and zinc
+  are included as selective metal contaminants reported in Oak Ridge FRC ion-mixture studies.

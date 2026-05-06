@@ -1,0 +1,190 @@
+id: CommunityMech:000135
+name: SPRUCE Peatland Methane-Cycling Microbial Community
+description: A natural peatland microbial community studied in the DOE-supported SPRUCE whole-ecosystem
+  warming experiment at the S1 Bog in northern Minnesota. The community inhabits acidic, carbon-rich,
+  waterlogged peat and mediates terminal anaerobic carbon turnover, including acetoclastic and
+  hydrogenotrophic methanogenesis. Metagenome-assembled genomes and metatranscriptomes show depth-stratified
+  microbial composition, active methanogenesis by Candidatus Methanoflorens, and temperature-sensitive
+  methane and carbon dioxide production driven by activity changes rather than wholesale community replacement.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: bog
+  term:
+    id: ENVO:00000044
+    label: bog
+  notes: SPRUCE is located in the acidic, ombrotrophic S1 Bog of the Marcell Experimental Forest in northern
+    Minnesota.
+taxonomy:
+- taxon_term:
+    preferred_term: methanogenic archaea at SPRUCE
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: The 2025 metagenomic and metatranscriptomic analysis reports Candidatus Methanoflorens as the
+      dominant active methanogen at the SPRUCE bog surface.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: we find evidence that the dominant methanogen at SPRUCE, Ca. Methanoflorens, is actively
+      performing both acetoclastic and hydrogenotrophic methanogenesis at the surface of the bog
+    explanation: Supports the methanogenic archaeal guild and its dominant active member in surface SPRUCE
+      peat.
+- taxon_term:
+    preferred_term: Acidobacteriota MAGs in SPRUCE peat
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+    notes: Acidobacteriota MAGs contribute to anaerobic peat carbon turnover and sulfur-linked respiratory
+      potential in the SPRUCE MAG collection.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Acidobacteriota MAGs in our dataset further corroborate these findings.
+    explanation: Supports Acidobacteriota as reconstructed members of the SPRUCE peat microbial community.
+- taxon_term:
+    preferred_term: deep peat acetogenic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Deep peat MAGs include acetogenic bacteria with Wood-Ljungdahl pathway potential and high acetate
+      concentrations, linking primary fermentation products to methanogenesis.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the genomic potential for acetogenesis via the Wood-Ljungdahl pathway continues to increase,
+      resulting in the highest concentrations of acetate in the deep peat
+    explanation: Supports an acetogenic bacterial guild in deeper SPRUCE peat.
+ecological_interactions:
+- name: Acetate-Fueled Methanogenesis Under Warming
+  description: Elevated temperatures increase substrate availability, including acetate, which supports
+    methanogenic activity in anaerobic peat. The inferred interaction links acetogenic production of acetate
+    in deep peat to acetoclastic and hydrogenotrophic methanogenesis by archaeal methanogens.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: deep peat acetogenic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: methanogenic archaea at SPRUCE
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methane biosynthetic process
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the mechanism by which elevated temperatures promote methanogenesis in the bog is through
+      enhanced availability of substrates (e.g., acetate).
+    explanation: Supports substrate-mediated stimulation of methanogenesis under warming.
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: we find evidence that the dominant methanogen at SPRUCE, Ca. Methanoflorens, is actively
+      performing both acetoclastic and hydrogenotrophic methanogenesis at the surface of the bog
+    explanation: Supports active methanogenic pathways in the SPRUCE surface peat community.
+- name: Depth-Stratified Anaerobic Peat Metabolism
+  description: SPRUCE peat microbial composition and functional potential vary with depth, structuring
+    terminal anaerobic carbon turnover across surface and deep peat zones.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Depth was the main driver of variation in microbial community composition (P = 0.002, adjR2
+      = 0.13, Fig. 1A, B) and functional potential (P < 0.001, R2 = 0.623).
+    explanation: Supports depth-based niche partitioning in SPRUCE peat.
+environmental_factors:
+- name: Whole-ecosystem warming and elevated carbon dioxide
+  value: air and peat warming with elevated atmospheric CO2
+  description: SPRUCE manipulates peat and air warming and elevated CO2 to test climate-change controls
+    on peat microbial activity and ecosystem carbon cycling.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The Spruce and Peatland Responses Under Changing Environments (SPRUCE) experiment, combines
+      air and peat warming in a whole-ecosystem manipulation experiment
+    explanation: Supports the major experimental perturbation applied to the natural peatland community.
+- name: Acidic organic-rich peat chemistry
+  value: pH 3.42 average outflow; total organic carbon 85.83 mg C/L
+  description: The bog porewater chemistry is acidic and organic-carbon rich, consistent with an oligotrophic
+    peatland methanogenic environment.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the pH was 3.42 and total organic carbon was 85.83 mg C/L.
+    explanation: Supports acidic, organic-rich conditions in the SPRUCE peatland system.
+associated_datasets:
+- name: SPRUCE peat metagenomes
+  dataset_type: METAGENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA364951-PRJNA364992; PRJNA443580-PRJNA443616; PRJNA444884-PRJNA444890; PRJNA651484-PRJNA651504; PRJNA677007-PRJNA677020; PRJNA697594-PRJNA697710
+  url: https://www.ncbi.nlm.nih.gov/bioproject/
+  description: Public NCBI BioProject ranges containing raw metagenomic sequences from SPRUCE peat samples.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The raw metagenomic sequences supporting this study are available in the NCBI BioProject
+      repository
+    explanation: Links the SPRUCE peat community record to public metagenomic data.
+- name: SPRUCE MAG BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1084886
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1084886
+  description: NCBI BioProject containing metagenome-assembled genomes analyzed for the SPRUCE peat microbial
+    community.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: MAGs analyzed in this manuscript were deposited in NCBI under BioProject PRJNA1084886
+    explanation: Links the community record to the deposited MAG resource.
+- name: SPRUCE metaproteomics and metabolomics
+  dataset_type: METAPROTEOME
+  repository: MASSIVE
+  accession: PXD063775; MSV000097832
+  url: https://massive.ucsd.edu/
+  description: Mass spectrometry proteomics datasets associated with the SPRUCE warming metagenome study.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The mass spectrometry proteomics data were deposited in the MetaproteomeXchange Consortium
+      via the MassIVE partner repository with accession number PXD063775 and MSV000097832.
+    explanation: Links the community record to public metaproteomic data.
