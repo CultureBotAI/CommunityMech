@@ -1,0 +1,246 @@
+id: CommunityMech:000139
+name: Aalborg East Full-Scale EBPR Activated Sludge Community
+description: An engineered full-scale activated sludge microbial community from the Aalborg East wastewater
+  treatment plant in Denmark carrying out enhanced biological phosphorus removal. The community was profiled
+  with an 18.2 Gb Illumina metagenome and qFISH, revealing phosphate-removal organisms including
+  Candidatus Accumulibacter and Tetrasphaera-related Actinobacteria, flanking substrate-providing bacteria,
+  and metagenomic enrichment for phosphate metabolism and biofilm/floc formation functions.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Remove phosphorus from municipal wastewater using enhanced biological phosphorus removal.
+  assembly_strategy: Full-scale wastewater treatment operation selected an activated sludge community under
+    anaerobic, anoxic, and oxic process zones rather than deliberate assembly from isolates.
+  perturbation_design: The plant configuration included an anaerobic tank and alternating denitrifying
+    anoxic and nitrifying oxic conditions.
+  measurement_endpoints:
+  - phosphorus removal
+  - qFISH community structure
+  - metagenomic functional potential
+  - Accumulibacter microdiversity
+  evidence:
+  - &ebpr_plant
+    reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The plant has a biodenipho configuration, which includes an anaerobic tank and a tank with
+      alternating denitrifying anoxic and nitrifying oxic conditions.
+    explanation: Supports the full-scale EBPR process configuration used to select and maintain the community.
+environment_term:
+  preferred_term: full-scale enhanced biological phosphorus removal activated sludge
+  term:
+    id: ENVO:00002046
+    label: sludge
+  notes: Activated sludge was sampled from the aeration tank of the Aalborg East wastewater treatment plant.
+taxonomy:
+- taxon_term:
+    preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+    notes: Accumulibacter is represented with the validated Betaproteobacteria class term because the record
+      captures the full-scale community and clade-level microdiversity rather than a cultured isolate.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  abundance_value: 4.8% of all bacteria by qFISH
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Accumulibacter accounted for only 4.8% of all bacteria by qFISH, but the depth of sequencing
+      enabled detailed insight into their microdiversity in the full-scale plant.
+    explanation: Supports Accumulibacter membership, abundance, and strain-level diversity in the full-scale
+      EBPR community.
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The organisms facilitating EBPR are called polyphosphate accumulating organisms (PAOs) and
+      the most important PAOs have been identified using culture independent methods as Candidatus Accumulibacter
+      phosphatis
+    explanation: Supports the PAO role of Accumulibacter in EBPR activated sludge.
+- taxon_term:
+    preferred_term: Tetrasphaera-related actinobacterial PAOs
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+    notes: Tetrasphaera-related Actinobacteria were abundant by qFISH but underrepresented in the metagenome,
+      likely because of DNA extraction bias against gram-positive bacteria.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The organisms facilitating EBPR are called polyphosphate accumulating organisms (PAOs)
+      and the most important PAOs have been identified using culture independent methods as Candidatus
+      Accumulibacter phosphatis and the actinobacterial genus Tetrasphaera.
+    explanation: Supports Tetrasphaera-related Actinobacteria as polyphosphate-accumulating members of EBPR
+      communities.
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: It is evident that actinobacteria (3% vs 30%), chloroflexi (3% vs 17%) and TM7 (0.3%
+      vs 5%) were underrepresented in the metagenome compared with the qFISH data
+    explanation: Supports substantial actinobacterial abundance in qFISH data and highlights metagenomic
+      underrepresentation.
+- taxon_term:
+    preferred_term: Bacteroidetes flanking community members
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidetes
+    notes: Bacteroidetes-related Saprospiraceae and other flanking bacteria contribute to biomass processing
+      and were prominent in metagenomic assignments.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The high number of ORFs assigned to the phylum bacteroidetes is likely to be related to
+      bacteria identified by the qFISH-probes targeting the family of saprospiraceae
+    explanation: Supports Bacteroidetes-related members in the EBPR activated sludge community.
+- taxon_term:
+    preferred_term: EBPR flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: The flanking community includes fermenters, hydrolytic bacteria, nitrifiers, and denitrifiers
+      that support the phosphorus-removing process.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacteria providing substrate to the PAOs, such as fermenters, and bacteria involved in hydrolysis
+      of macromolecules
+    explanation: Supports a functionally important flanking bacterial community around PAOs.
+ecological_interactions:
+- name: PAO Phosphate Storage Under EBPR Selection
+  description: EBPR process cycling selects for bacteria that accumulate and use intracellular polyphosphate,
+    enabling phosphorus removal from wastewater.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:18367
+      label: phosphate
+  biological_processes:
+  - preferred_term: phosphate-containing compound metabolic process
+    term:
+      id: GO:0006796
+      label: phosphate-containing compound metabolic process
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genetic potential for community function showed enrichment of genes involved in phosphate
+      metabolism and biofilm formation, reflecting the selective pressure of the EBPR process.
+    explanation: Supports phosphate metabolism as a selected community function in full-scale EBPR sludge.
+- name: Flanking-Community Substrate Provision To PAOs
+  description: Fermenters and macromolecule-hydrolyzing bacteria provide substrates to polyphosphate-accumulating
+    organisms, linking community trophic structure to phosphorus removal.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: EBPR flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacteria providing substrate to the PAOs, such as fermenters, and bacteria involved in hydrolysis
+      of macromolecules
+    explanation: Supports cross-feeding from flanking heterotrophs to PAOs.
+- name: Sludge Floc and Biofilm Formation
+  description: Activated sludge biomass retention depends on floc and biofilm formation, and the EBPR
+    metagenome was enriched for genes linked to cell wall, capsule, and extracellular macromolecule functions.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: EBPR activated sludge bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: A relatively high number of proteins was assigned to cell wall and capsule formation.
+    explanation: Supports biofilm/floc-associated functional potential in the EBPR metagenome.
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: strong selective pressure on activated sludge bacteria for effective floc/biofilm formation
+      that leads to the good settling properties that are required to retain the biomass in the plant.
+    explanation: Supports sludge floc and biofilm formation as a retention mechanism in the engineered
+      community.
+environmental_factors:
+- name: Full-scale Aalborg East WWTP operating context
+  value: domestic wastewater; stable EBPR; greater than 95% incoming phosphorus removed
+  description: The community was sampled from a municipal full-scale EBPR plant with long-term stable
+    phosphorus removal performance.
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The plant treats mainly domestic wastewater and serves 100 000 person equivalents with
+      an average load of 45 000 person equivalents.
+    explanation: Supports the full-scale municipal wastewater treatment context.
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The plant had stable EBPR performance for several years prior to the time of sampling removing
+      >95% of the incoming P
+    explanation: Supports stable phosphorus removal performance.
+- name: Anaerobic-anoxic-oxic process cycling
+  value: anaerobic tank plus alternating denitrifying anoxic and nitrifying oxic conditions
+  description: EBPR process zones impose redox and substrate cycling that selects PAOs, nitrifiers, denitrifiers,
+    and floc-forming bacteria.
+  evidence:
+  - *ebpr_plant
+associated_datasets:
+- name: Aalborg East EBPR metagenome contigs
+  dataset_type: METAGENOME
+  repository: OTHER
+  accession: "MG-RAST:4463936.3"
+  url: https://www.mg-rast.org/mgmain.html?mgpage=overview&metagenome=4463936.3
+  description: Nonredundant contigs from the Aalborg East full-scale EBPR activated sludge metagenome.
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      The set of nonredundant contigs was uploaded to the MG-RAST v2 server
+      (accession number: 4463936.3) and used in local database searches.
+    explanation: Links this community record to the public MG-RAST metagenome resource.

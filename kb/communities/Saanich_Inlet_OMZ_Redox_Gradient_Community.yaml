@@ -1,0 +1,256 @@
+id: CommunityMech:000140
+name: Saanich Inlet Oxygen Minimum Zone Redox-Gradient Community
+description: A natural marine water-column microbial community from Saanich Inlet, a seasonally anoxic
+  fjord on Vancouver Island, Canada that serves as a model oxygen minimum zone. Integrated geochemistry,
+  rate measurements, metagenomics, metatranscriptomics, metaproteomics, and qPCR link community structure
+  to coupled carbon, nitrogen, and sulfur cycling across a redox gradient, including SUP05-driven incomplete
+  sulfide-dependent denitrification, nitrite leakage supporting anammox, and a complementary nitrous oxide
+  reduction niche.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: seasonally anoxic marine fjord water column
+  term:
+    id: ENVO:00002149
+    label: marine environment
+  notes: Saanich Inlet is a seasonally anoxic fjord and model oxygen minimum zone; this record captures
+    the water-column redox-gradient microbial community.
+taxonomy:
+- taxon_term:
+    preferred_term: SUP05 Gammaproteobacteria
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+    notes: SUP05 Gammaproteobacteria are represented at class level and described as the dominant denitrifier
+      guild in Saanich Inlet.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: incomplete sulfide-driven denitrification by SUP05 Gammaproteobacteria is predicted to
+      support inorganic carbon fixation and intense nitrogen loss via anaerobic ammonium oxidation.
+    explanation: Supports SUP05 as a major sulfide-driven denitrifier guild coupled to nitrogen loss.
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: qPCR-based abundance estimates for SUP05 Gammaproteobacteria-the dominant denitrifiers
+      in Saanich Inlet
+    explanation: Supports SUP05 dominance among denitrifiers in the Saanich Inlet redox gradient.
+- taxon_term:
+    preferred_term: anammox bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: The record keeps the anammox guild taxonomically broad because the cited model uses hzo gene
+      profiles and process rates rather than a named organism in the quoted text.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes associated with partial denitrification to nitrous oxide, nitrous oxide reduction,
+      and anammox are most abundant in the SNTZ
+    explanation: Supports anammox-related community members concentrated in the sulfide-nitrate transition
+      zone.
+- taxon_term:
+    preferred_term: unidentified nitrous oxide reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Nitrous oxide reducers are kept as unidentified bacteria because the study inferred a separate
+      nosZ-containing niche not assigned to SUP05 in the quoted text.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: This coupling creates a metabolic niche for nitrous oxide reduction that completes denitrification
+      by currently unidentified community members.
+    explanation: Supports unidentified nitrous oxide reducers as a complementary functional guild.
+ecological_interactions:
+- name: SUP05 Nitrite Leakage Supports Anammox
+  description: SUP05-associated incomplete sulfide-driven denitrification releases nitrite, creating a
+    metabolic connection to anammox bacteria and nitrogen loss in the sulfide-nitrate transition zone.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: SUP05 Gammaproteobacteria
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+  target_taxon:
+    preferred_term: anammox bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: nitrite leakage during incomplete sulfide-driven denitrification by SUP05 Gammaproteobacteria
+      is predicted to support inorganic carbon fixation and intense nitrogen loss via anaerobic ammonium
+      oxidation.
+    explanation: Supports cross-feeding of nitrite from SUP05-linked denitrification to anammox.
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: incomplete sulfide-driven denitrification can be an important precursor for anammox
+    explanation: Supports sulfide-driven denitrification as an upstream process for anammox.
+- name: Complementary Nitrous Oxide Reduction Niche
+  description: SUP05 lacks the nosZ gene in genomic reconstructions, so nitrous oxide reduction is inferred
+    to be performed by other community members that complete denitrification under low-oxygen and anoxic
+    conditions.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: SUP05 Gammaproteobacteria
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+  target_taxon:
+    preferred_term: unidentified nitrous oxide reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: nitrous oxide
+    term:
+      id: CHEBI:17045
+      label: nitrous oxide
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The absence of nosZ from SUP05 suggests that incomplete nitrate reduction by SUP05 and
+      reduction of nitrous oxide by unidentified community members constitute separate and complementary
+      metabolic niches
+    explanation: Supports niche partitioning between SUP05 partial denitrification and nitrous oxide reducers.
+- name: Redox-Driven Pathway Partitioning
+  description: Oxygen, nitrate, sulfide, and ammonium gradients partition aerobic remineralization, nitrification,
+    partial denitrification, nitrous oxide reduction, and anammox pathways across the Saanich Inlet water
+    column.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Saanich Inlet redox-gradient microorganisms
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: nitrification
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the model predicts a redox-driven partitioning of pathways across the water column.
+    explanation: Supports redox-gradient niche partitioning in the Saanich Inlet water column.
+environmental_factors:
+- name: Seasonally anoxic fjord oxygen minimum zone
+  value: Saanich Inlet, Vancouver Island, Canada
+  description: Saanich Inlet is a seasonally anoxic fjord used as a tractable model for oxygen minimum
+    zone biogeochemistry.
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Saanich Inlet, a seasonally anoxic fjord with biogeochemistry analogous to oxygen minimum
+      zones
+    explanation: Supports the environment represented by this record.
+- name: Sulfide-nitrate transition zone
+  value: model domain between 100 and 200 m at station SI03
+  description: Coupled nitrogen and sulfur cycling is concentrated around the sulfide-nitrate transition
+    zone, where nitrate and hydrogen sulfide overlap.
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The model considers depths between 100 and 200 m.
+    explanation: Supports the modeled depth interval for the water-column redox-gradient community.
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: At the SNTZ in Saanich Inlet, the simultaneous availability of nitrate and hydrogen sulfide
+      fuels chemoautotrophic nitrate reduction coupled to sulfide oxidation
+    explanation: Supports nitrate and sulfide as key environmental factors structuring the community.
+associated_datasets:
+- name: Saanich Inlet 2010 multiomic redox-gradient profiles
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PNAS-1602897113-Datasets-S1-S2
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC5056048/
+  description: Supplementary metagenomic, metatranscriptomic, metaproteomic, qPCR, geochemical, and rate
+    data used in the Saanich Inlet gene-centric biogeochemical model.
+  evidence:
+  - reference: PMID:27655888
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: our metagenomic datasets (Datasets S1 and S2) reflect the actual gene distributions.
+    explanation: Links the record to the supplementary datasets used for pathway and gene-distribution
+      modeling.
