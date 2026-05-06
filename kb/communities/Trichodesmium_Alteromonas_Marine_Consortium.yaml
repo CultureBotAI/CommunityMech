@@ -1,0 +1,208 @@
+id: CommunityMech:000147
+name: Trichodesmium-Alteromonas Marine Consortium
+description: >
+  A marine cyanobacterial colony consortium centered on the nitrogen-fixing photoautotroph
+  Trichodesmium erythraeum IMS101 and conserved heterotrophic partners, especially
+  Alteromonas macleodii. Multi-omics studies support recurring Trichodesmium-associated
+  bacterial consortia in cultures and natural colonies, with potential interactions involving
+  iron and phosphorus acquisition, vitamin B12 exchange, small-carbon compound catabolism,
+  reactive oxygen detoxification, and coordinated diel resource cycling.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: PHYTOPLANKTON
+environment_term:
+  preferred_term: warm oligotrophic marine water column
+  term:
+    id: ENVO:00002149
+    label: marine environment
+  notes: Trichodesmium colonies are described from warm oligotrophic oceans and North Pacific
+    Subtropical Gyre field samples, with laboratory culture observations used to resolve mechanisms.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichodesmium erythraeum IMS101
+    term:
+      id: NCBITaxon:203124
+      label: Trichodesmium erythraeum IMS101
+    notes: Nitrogen-fixing cyanobacterial colony former and photoautotrophic host of the consortium.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The nitrogen (N)-fixing cyanobacterium Trichodesmium is globally distributed
+    explanation: Supports Trichodesmium as the nitrogen-fixing cyanobacterial center of the consortium.
+- taxon_term:
+    preferred_term: Alteromonas macleodii Trichodesmium associate
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+    notes: Conserved gammaproteobacterial heterotroph associated with Trichodesmium colonies and cultures.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: conserved presence of a species of Gammaproteobacteria (Alteromonas macleodii)
+    explanation: Supports Alteromonas macleodii as a conserved Trichodesmium-associated bacterium.
+- taxon_term:
+    preferred_term: Trichodesmium-associated heterotrophic microbiome
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Diverse heterotrophic bacteria that occur with Trichodesmium colonies in field and culture studies.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Colonies of Trichodesmium ubiquitously occur with heterotrophic bacteria
+    explanation: Supports inclusion of a broader heterotrophic microbiome in addition to Alteromonas.
+ecological_interactions:
+- name: Colony Substrate Colonization by Heterotrophs
+  description: Trichodesmium colonies provide nutrient-rich physical substrates that are colonized by
+    heterotrophic bacteria, linking diazotrophic primary production to associated heterotrophic metabolism.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Trichodesmium erythraeum IMS101
+    term:
+      id: NCBITaxon:203124
+      label: Trichodesmium erythraeum IMS101
+  target_taxon:
+    preferred_term: Trichodesmium-associated heterotrophic microbiome
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+    notes: Trichodesmium fixes nitrogen in oligotrophic marine environments.
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: macroscopic colonies that serve as relatively nutrient-rich substrates
+    explanation: Supports a colony habitat effect that enables heterotrophic colonization.
+- name: Alteromonas Helper Functions in Trichodesmium Colonies
+  description: Comparative genomics suggests that Alteromonas macleodii contributes functions that may
+    support Trichodesmium-associated community maintenance, including nutrient acquisition, vitamin exchange,
+    catabolism of small carbon compounds, and reactive oxygen detoxification.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Alteromonas macleodii Trichodesmium associate
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+  target_taxon:
+    preferred_term: Trichodesmium erythraeum IMS101
+    term:
+      id: NCBITaxon:203124
+      label: Trichodesmium erythraeum IMS101
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:18367
+      label: phosphate
+    notes: Phosphorus acquisition was one inferred interaction axis.
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+    notes: Iron acquisition was one inferred interaction axis; ferrous iron is used as a conservative
+      CHEBI grounding for iron availability.
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+    notes: Reactive oxygen species detoxification is an inferred interaction process.
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: iron and phosphorus acquisition, vitamin B12 exchange
+    explanation: Supports inferred nutrient and vitamin exchange between Alteromonas and Trichodesmium.
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: detoxification of reactive oxygen species
+    explanation: Supports an oxidative-stress helper mechanism in the association.
+- name: Diel Coordinated Resource Cycling
+  description: Field metatranscriptomes show coordinated day-night gene expression between Trichodesmium
+    and its microbiome, with co-expressed functions linked to nitrogen, carbon, iron, and vitamin B12 cycling.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Trichodesmium erythraeum IMS101
+    term:
+      id: NCBITaxon:203124
+      label: Trichodesmium erythraeum IMS101
+  target_taxon:
+    preferred_term: Trichodesmium-associated heterotrophic microbiome
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+    notes: Trichodesmium is a photoautotrophic cyanobacterium with day-night physiological cycles.
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+    notes: Diel expression patterns can affect nitrogen fixation and resource cycling.
+  evidence:
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: significantly coordinated patterns of gene expression between host and microbiome
+    explanation: Supports coordinated diel activity between Trichodesmium and associated bacteria.
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: linked to key resources including nitrogen, carbon, and iron
+    explanation: Supports resource-linked functional coordination in the holobiont.
+environmental_factors:
+- name: oligotrophic warm ocean habitat
+  value: warm oligotrophic oceans
+  description: Trichodesmium occurs in nutrient-poor warm ocean waters where fixed nitrogen inputs are
+    ecologically important.
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: warm, oligotrophic oceans
+    explanation: Supports the marine environmental setting.
+- name: day-night cycle
+  value: diel cycle
+  description: Field colonies were analyzed across day-night cycles, and many coordinated expression patterns
+    showed periodicity.
+  evidence:
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: significant day-night periodicity
+    explanation: Supports diel cycling as an environmental and physiological factor.
+associated_datasets:
+- name: Trichodesmium consortium metatranscriptomes
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: PMID:29382945
+  url: https://pubmed.ncbi.nlm.nih.gov/29382945/
+  description: Publication reporting metatranscriptome sequencing of Trichodesmium colonies from the
+    North Pacific Subtropical Gyre.
+  evidence:
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metatranscriptome sequencing was performed on Trichodesmium colonies
+    explanation: Supports the metatranscriptomic dataset association.
+metal_relevance: SIGNIFICANT
+metal_notes: Iron acquisition is one inferred interaction axis in Trichodesmium-associated bacterial consortia.
+

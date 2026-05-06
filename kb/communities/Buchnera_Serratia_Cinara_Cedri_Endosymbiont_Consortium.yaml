@@ -1,0 +1,170 @@
+id: CommunityMech:000148
+name: Buchnera-Serratia Cinara cedri Endosymbiont Consortium
+description: >
+  A natural co-obligate aphid endosymbiont consortium in the cedar aphid Cinara cedri,
+  composed of Buchnera aphidicola BCc and Serratia symbiotica SCc. Genome-based metabolic
+  inference shows that Buchnera BCc has lost some ancestral nutritional functions, while
+  Serratia SCc retains or takes over functions needed by the host-associated consortium,
+  including shared tryptophan biosynthesis and broader metabolic complementation.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: cedar aphid animal-associated intracellular symbiosis
+  term:
+    id: ENVO:01001002
+    label: animal-associated environment
+  notes: The source system is an intracellular bacterial symbiosis inside the aphid Cinara cedri; ENVO
+    animal-associated environment is used as the closest validated environmental-system term.
+taxonomy:
+- taxon_term:
+    preferred_term: Buchnera aphidicola BCc
+    term:
+      id: NCBITaxon:372461
+      label: Buchnera aphidicola BCc
+    notes: Reduced-genome primary aphid endosymbiont from Cinara cedri.
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genome sequencing of Buchnera aphidicola BCc from the aphid Cinara cedri
+    explanation: Supports the presence and genome-resolved identity of Buchnera aphidicola BCc.
+- taxon_term:
+    preferred_term: Serratia symbiotica SCc
+    term:
+      id: NCBITaxon:138074
+      label: Serratia symbiotica
+    notes: Co-primary Serratia symbiotica endosymbiont from Cinara cedri, represented at species level
+      because the curated NCBI species term is validated in the repository tooling.
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: endosymbiont Serratia symbiotica SCc, which coexists with B. aphidicola
+    explanation: Supports Serratia symbiotica SCc as a coexisting endosymbiont in the consortium.
+ecological_interactions:
+- name: Shared Tryptophan Biosynthesis
+  description: Tryptophan biosynthesis is partitioned across Buchnera aphidicola BCc and Serratia symbiotica
+    SCc, creating a metabolic dependency between the two endosymbionts.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Buchnera aphidicola BCc
+    term:
+      id: NCBITaxon:372461
+      label: Buchnera aphidicola BCc
+  target_taxon:
+    preferred_term: Serratia symbiotica SCc
+    term:
+      id: NCBITaxon:138074
+      label: Serratia symbiotica
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+    notes: Essential amino acid with pathway partitioning across the two symbionts.
+  biological_processes:
+  - preferred_term: tryptophan biosynthetic process
+    term:
+      id: GO:0000162
+      label: tryptophan biosynthetic process
+    notes: Biosynthetic pathway shared by the two endosymbionts.
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc
+    explanation: Supports partitioning of tryptophan biosynthesis between Buchnera and Serratia.
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: both bacteria are involved in the synthesis of tryptophan
+    explanation: Supports both endosymbionts contributing to the tryptophan pathway.
+- name: Serratia Takeover of Lost Buchnera Functions
+  description: Genome-based metabolic inference indicates that functions carried out by Buchnera in other
+    aphids are either retained in Buchnera BCc or taken over by Serratia SCc in Cinara cedri.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Serratia symbiotica SCc
+    term:
+      id: NCBITaxon:138074
+      label: Serratia symbiotica
+  target_taxon:
+    preferred_term: Buchnera aphidicola BCc
+    term:
+      id: NCBITaxon:372461
+      label: Buchnera aphidicola BCc
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+    notes: Buchnera BCc was reported as unable to synthesize riboflavin.
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: taken over by S. symbiotica
+    explanation: Supports Serratia complementation of functions missing from Buchnera BCc.
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: not able to synthesize tryptophan and riboflavin
+    explanation: Supports loss of Buchnera nutritional functions that require consortium complementation.
+- name: Stable Co-obligate Metabolic Complementation
+  description: The paired endosymbionts form a stable consortium through multiple cases of metabolic
+    complementation, preserving both bacterial partners in the aphid host context.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Buchnera aphidicola BCc
+    term:
+      id: NCBITaxon:372461
+      label: Buchnera aphidicola BCc
+  target_taxon:
+    preferred_term: Serratia symbiotica SCc
+    term:
+      id: NCBITaxon:138074
+      label: Serratia symbiotica
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: metabolic complementation giving functional stability to the whole consortium
+    explanation: Supports stable consortium-level complementation.
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: both bacteria are evolving together towards the establishment of a powerful consortium
+    explanation: Supports preservation of both symbionts as a coevolving consortium.
+environmental_factors:
+- name: aphid phloem-sap nutritional constraint
+  value: nutrient-deficient phloem diet
+  description: Aphid hosts feed on phloem sap with nutritional deficiencies, selecting for bacterial
+    nutritional symbioses that provide amino acids and vitamins.
+  evidence:
+  - reference: doi:10.1371/journal.pgen.1002357
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: phloem sap, which has unbalanced nitrogen/carbon content and is deficient
+    explanation: Supports the nutritional context driving the endosymbiont consortium.
+associated_datasets:
+- name: Buchnera aphidicola BCc genome project
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: NCBI BioProject 16372
+  url: https://www.ncbi.nlm.nih.gov/bioproject/16372
+  description: NCBI BioProject for the Buchnera aphidicola BCc genome from Cinara cedri.
+- name: Serratia symbiotica SCc genome project
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: NCBI BioProject 32211
+  url: https://www.ncbi.nlm.nih.gov/bioproject/32211
+  description: NCBI BioProject for Serratia symbiotica from Cinara cedri.
+metal_relevance: NOT_APPLICABLE
+
