@@ -1,0 +1,221 @@
+id: CommunityMech:000138
+name: Hanford 300 Area Unconfined Aquifer Community
+description: A natural, contaminant-impacted groundwater microbial community from the Hanford Site 300
+  Area Integrated Field Research Challenge site in eastern Washington. 16S rRNA gene pyrosequencing of
+  groundwater bacteria and archaea across three well clusters and multiple depths showed strong temporal
+  and spatial community dynamics linked to Columbia River water intrusion, depth, nitrate, uranium, and
+  redox conditions. The community includes Proteobacteria, Bacteroidetes, Actinobacteria, Acidobacteria,
+  OP3, low-abundance archaea, and functional guilds such as putative methane oxidizers, sulfur oxidizers,
+  ammonia-oxidizing archaea, and metal reducers.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: unconfined aquifer groundwater
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: Groundwater was sampled from the Hanford formation unconfined aquifer near the Columbia River
+    at the Hanford Site 300 Area.
+taxonomy:
+- taxon_term:
+    preferred_term: Proteobacteria/Pseudomonadota
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+    notes: Proteobacteria comprised half of the recovered sequences in the Hanford unconfined aquifer
+      groundwater study.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  abundance_level: DOMINANT
+  abundance_value: 50% of retrieved sequences
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Proteobacteria comprised 50% of the total sequences that were retrieved.
+    explanation: Supports Proteobacteria/Pseudomonadota dominance in the Hanford aquifer community.
+- taxon_term:
+    preferred_term: Bacteroidetes aquifer bacteria
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidetes
+    notes: Bacteroidetes were the second most abundant phylum in the recovered 16S rRNA gene sequences.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  abundance_value: 13% of retrieved sequences
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The next four most abundant phyla were Bacteroidetes (13%), Actinobacteria (6%),
+      Acidobacteria (4%) and OP3 (3%)
+    explanation: Supports Bacteroidetes membership and relative abundance in the groundwater community.
+- taxon_term:
+    preferred_term: Actinobacteria/Actinomycetota aquifer bacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+    notes: Actinobacterial ACK-M1 and CL500-29 groups appeared during river-water intrusion and became
+      abundant at high water level.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two groups of Actinobacteria (ACK-M1 and CL500-29) were not detected before intrusion,
+      but constituted 12% of the organisms detected over the intrusion period, and comprised 38% at the
+      highest water level
+    explanation: Supports intrusion-associated Actinobacteria/Actinomycetota dynamics.
+- taxon_term:
+    preferred_term: aquifer archaea, including ammonia-oxidizing archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Archaea were a low-abundance component of the aquifer community, with higher representation
+      in shallow depths and putative ammonia oxidizers reported among functional groups.
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_level: ABUNDANT
+  abundance_value: averaged 2.5% of total microbial community
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Archaea averaged only 2.5% of the total microbial community, with a slightly higher contribution
+      in shallow depths (3.9+/-1.7%) than other strata (1.9+/-0.8%)
+    explanation: Supports archaeal membership and depth-associated abundance in the groundwater community.
+ecological_interactions:
+- name: Columbia River Intrusion Community Turnover
+  description: Seasonal Columbia River water intrusion changes nitrate and groundwater elevation conditions,
+    causing temporal turnover in aquifer microbial community composition, especially in shallow wells.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: intrusion-associated Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  target_taxon:
+    preferred_term: Hanford groundwater bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The shift in community composition associated with the large dynamics in Actinobacteria
+      ACK-M1 and other clades suggested that river water intrusion could have significant impacts on
+      microbial community composition.
+    explanation: Supports river-water intrusion as a driver of temporal community turnover.
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Here, we demonstrate that Columbia River water intrusion affects microbial community composition
+      in the aquifer, 250 m from the shoreline.
+    explanation: Supports hydrologic intrusion as a structuring mechanism for the aquifer community.
+- name: Depth-Structured Redox Guilds
+  description: Deeper groundwater near the Hanford-Ringold formation boundary and redox transition zone
+    had higher proportions of putative ammonia oxidizers, methane oxidizers, and metal reducers, indicating
+    spatial niche partitioning by electron-donor and electron-acceptor availability.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: aquifer redox guild bacteria and archaea
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: aquifer archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:37119
+      label: uranium(VI)
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: nitrification
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we observed a higher proportion of putative ammonia-oxidizing Archaea, methane oxidizers
+      and metal reducers.
+    explanation: Supports depth-associated redox guild enrichment.
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic units associated
+      with particular physiological functions (for example, methane oxidizers and metal reducers) suggests
+      dynamic changes in fluxes of electron donors and acceptors over an annual cycle.
+    explanation: Supports annual redox dynamics affecting functional guilds.
+environmental_factors:
+- name: Columbia River water intrusion
+  value: nitrate mixing signal from 0.4 mg nitrate/L river water and 25 mg nitrate/L groundwater
+  description: Changes in nitrate concentration were used to estimate mixing of Columbia River water into
+    the unconfined aquifer, with low-nitrate river-water intrusion affecting community composition.
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: River water intrusion was estimated from nitrate concentrations according to a simple mixing
+      calculation, based upon the relative nitrate concentrations of 0.4 and 25 mg nitrate l-1 in river
+      and ground water.
+    explanation: Supports nitrate as an environmental indicator of river-water intrusion.
+- name: Vertical aquifer sampling depth
+  value: 10 m water-table, 13 m mid-Hanford formation, and 17 m near Hanford-Ringold contact
+  description: Each well cluster sampled multiple depths in the Hanford formation, capturing vertical
+    gradients that structured microbial composition and redox guilds.
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Each three-well cluster was completed at short (1 m) intervals within the Hanford formation:
+      near the water table (10 m), at the middle of the Hanford formation (13 m) and near the contact
+      with the underlying Ringold formation (17 m).
+    explanation: Supports the vertical groundwater sampling design and depth gradient.
+- name: Hanford 300 Area contaminant context
+  value: uranium and inorganic contaminants from historical nuclear materials production
+  description: The Hanford 300 Area unconfined aquifer is contaminated by historical nuclear-materials
+    production activities, including uranium-relevant geochemistry.
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: At the Hanford Site 300 Area, the unconfined subsurface aquifer is subject to intrusion
+      of organic and inorganic contaminants from a variety of sources associated with historical nuclear
+      materials production
+    explanation: Supports the contaminant-impacted setting of this groundwater community.
+metals_present:
+- URANIUM
+metal_relevance: SIGNIFICANT
+metal_notes: Uranium is included because the Hanford 300 Area aquifer is a historically contaminated DOE
+  site and the study measured uranium concentrations during groundwater sampling; the record does not
+  assert direct uranium reduction without experimental evidence.

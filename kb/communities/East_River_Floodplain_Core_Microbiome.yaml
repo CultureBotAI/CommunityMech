@@ -1,0 +1,230 @@
+id: CommunityMech:000137
+name: East River Floodplain Core Microbiome
+description: A natural floodplain-soil microbial community from the DOE-supported East River watershed
+  in Colorado. Metagenomic and metatranscriptomic sampling across upper, middle, and lower East River
+  meander-bound floodplains reconstructed 248 representative subspecies-level genomes and identified a
+  core floodplain microbiome. The core community is enriched in aerobic respiration, aerobic carbon monoxide
+  oxidation, thiosulfate oxidation, nitrification, methanol and formate oxidation, and carbon fixation
+  capacities that vary with soil organic carbon and floodplain position.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: CARBON_SEQUESTRATION
+environment_term:
+  preferred_term: floodplain soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Soil samples were collected from meander-bound floodplains along the East River, Colorado. The
+    ENVO term records the soil habitat, while this record's name and notes capture the floodplain setting.
+taxonomy:
+- taxon_term:
+    preferred_term: Betaproteobacteria-dominated core floodplain microbiome
+    term:
+      id: NCBITaxon:28216
+      label: Betaproteobacteria
+    notes: Betaproteobacteria had the highest number of representative genomes and dominated the operationally
+      defined core floodplain microbiome.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Betaproteobacteria was the group with the highest number of representative genomes (80)
+      in all three floodplains.
+    explanation: Supports Betaproteobacteria as a major reconstructed lineage across the East River floodplains.
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The core floodplain microbiome was dominated by Betaproteobacteria, with lower abundances
+      of Nitrospirae, Rokubacteria, Gemmatimonadetes, Gammaproteobacteria, Deltaproteobacteria, and
+      Candidatus Letescibacteria
+    explanation: Supports Betaproteobacteria dominance in the defined core floodplain microbiome.
+- taxon_term:
+    preferred_term: Nitrospirae core floodplain members
+    term:
+      id: NCBITaxon:1234
+      label: Nitrospira
+    notes: Nitrospirae were among abundant reconstructed lineages and are consistent with the highly transcribed
+      nitrification genes reported for the floodplain soils.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the most highly transcribed genes were relatively rare amoCAB and nxrAB (for nitrification)
+      genes
+    explanation: Supports active nitrification capacity in the floodplain soil community.
+- taxon_term:
+    preferred_term: Acidobacteriota floodplain representatives
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+    notes: Acidobacteriota were among the abundant representative genomes reconstructed across the three
+      meander-bound floodplains.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Other abundant taxa across floodplains included Deltaproteobacteria (27 representatives),
+      Acidobacteria (21 representatives), Nitrospirae and Planctomycetes (both with 13 representatives)
+    explanation: Supports Acidobacteriota as one of the abundant reconstructed floodplain soil lineages.
+- taxon_term:
+    preferred_term: Gemmatimonadota floodplain representatives
+    term:
+      id: NCBITaxon:142998
+      label: Gemmatimonadota
+    notes: Gemmatimonadota were reported among abundant reconstructed taxa and among the lower-abundance
+      members of the core floodplain microbiome.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The core floodplain microbiome was dominated by Betaproteobacteria, with lower abundances
+      of Nitrospirae, Rokubacteria, Gemmatimonadetes, Gammaproteobacteria, Deltaproteobacteria, and
+      Candidatus Letescibacteria
+    explanation: Supports Gemmatimonadota-related members in the East River core floodplain microbiome.
+ecological_interactions:
+- name: Core Floodplain Aerobic and Sulfur Oxidation Capacity
+  description: The cross-site core floodplain microbiome is enriched in aerobic respiration, carbon monoxide
+    oxidation, and thiosulfate oxidation, indicating shared redox capacity across meander-bound floodplain
+    soils.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: core floodplain bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: thiosulfate
+    term:
+      id: CHEBI:16094
+      label: thiosulfate
+  biological_processes:
+  - preferred_term: aerobic respiration
+    term:
+      id: GO:0009060
+      label: aerobic respiration
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: we identified a core floodplain microbiome that is enriched in capacities for aerobic
+      respiration, aerobic CO oxidation, and thiosulfate oxidation with the formation of elemental sulfur.
+    explanation: Supports shared aerobic and sulfur oxidation capacity in the core community.
+- name: Low-Organic-Carbon Chemolithotrophic Activity
+  description: Floodplain soils with lower organic carbon show increased activity of genes for methanol,
+    formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction, nitrate and nitrite reduction,
+    and carbon fixation, suggesting functional niche shifts along carbon gradients.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: East River floodplain bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: nitrification
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Within all three meanders, low soil organic carbon correlated with high activity of genes
+      involved in methanol, formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction,
+      and nitrate and nitrite reduction.
+    explanation: Supports organic-carbon-linked functional shifts in the floodplain soil community.
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the most highly transcribed genes were relatively rare amoCAB and nxrAB (for nitrification)
+      genes, followed by genes involved in methanol and formate oxidation, and nitrogen and CO2 fixation.
+    explanation: Supports active nitrification, one-carbon oxidation, nitrogen fixation, and carbon fixation
+      gene expression in the community.
+environmental_factors:
+- name: East River meander-bound floodplain position
+  value: upper, middle, and lower East River floodplain soils
+  description: Samples were collected along upper, middle, and lower reaches of the East River watershed,
+    enabling comparison of floodplain microbiomes across meanders.
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We intensively sampled the microbiomes of floodplain soils located in the upper, middle,
+      and lower reaches of the East River, Colorado.
+    explanation: Supports the watershed-scale floodplain sampling design.
+- name: Soil organic carbon gradient
+  value: low soil organic carbon associated with increased chemolithotrophic and nitrogen-cycling activity
+  description: Soil organic carbon is a key environmental gradient linked to expression of oxidation and
+    nitrogen-cycling genes in all three meanders.
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Within all three meanders, low soil organic carbon correlated with high activity of genes
+      involved in methanol, formate, sulfide, hydrogen, and ammonia oxidation, nitrite oxidoreduction,
+      and nitrate and nitrite reduction.
+    explanation: Supports soil organic carbon as a structuring environmental factor.
+associated_datasets:
+- name: East River floodplain metagenomes and metatranscriptomes
+  dataset_type: METAGENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA630765
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA630765
+  description: Umbrella BioProject for East River floodplain metagenome and metatranscriptome datasets.
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: all metagenomes and metatranscriptomes can be accessed using the umbrella accession number
+      (PRJNA630765).
+    explanation: Links the community record to public sequence data.
+- name: East River representative genomes and environmental metadata
+  dataset_type: GENOME
+  repository: OTHER
+  accession: "doi:10.15485/1631979"
+  url: https://doi.org/10.15485/1631979
+  description: ESS-DIVE data package containing representative genomes and environmental metadata for
+    East River floodplain microbiome analyses.
+  evidence:
+  - reference: PMID:34022966
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Representative genomes at the subspecies level (98% ANI set) and the species level (95%
+      ANI set), in addition to the environmental data (metadata) that support the findings of this study
+      are available in ESS-DIVE with the identifier DOI: 10.15485/1631979
+    explanation: Links the record to the ESS-DIVE genome and metadata resource.
