@@ -1,0 +1,208 @@
+id: CommunityMech:000141
+name: Chlorochromatium aggregatum Phototrophic Consortium
+description: A structured freshwater phototrophic bacterial consortium in which one central motile
+  heterotrophic beta-proteobacterium, Candidatus Symbiobacter mobilis, is surrounded by approximately
+  15 green sulfur bacterial Chlorobium chlorochromatii epibionts. Genome analyses support a highly
+  specialized symbiosis involving metabolite exchange, central-bacterium sensing and motility toward
+  light and sulfide, cell-cell adhesion, and possible quinone-mediated electron exchange.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anoxic sulfide-containing freshwater lake sediment
+  term:
+    id: ENVO:01001242
+    label: freshwater environment
+  notes: The consortium was originally enriched from freshwater lake sediment and maintained under anoxic,
+    sulfide-reduced conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorobium chlorochromatii CaD3 epibiont
+    term:
+      id: NCBITaxon:340177
+      label: Chlorobium chlorochromatii CaD3
+    notes: Photolithoautotrophic green sulfur bacterial epibiont that surrounds the central bacterium.
+  strain_designation:
+    strain_name: CaD3
+  functional_role:
+  - PRIMARY_PRODUCER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Approximately 15 epibiont cells per central bacterium
+  evidence:
+  - &genome_symbiosis
+    reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: surrounded by approximately 15 epibiont cells of Chlorobium chlorochromatii
+    explanation: Supports the identity and approximate stoichiometry of the phototrophic epibiont.
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: uses sulfide as the electron donor for photosynthetic CO2 and N2 fixation
+    explanation: Supports the photolithoautotrophic role of the green sulfur bacterial epibiont.
+- taxon_term:
+    preferred_term: Candidatus Symbiobacter mobilis central bacterium
+    term:
+      id: NCBITaxon:1436290
+      label: Candidatus Symbiobacter mobilis
+    notes: Central non-pigmented motile heterotroph in the barrel-shaped phototrophic consortium.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Candidatus Symbiobacter mobilis
+    explanation: Supports the identity and motile heterotrophic role of the central bacterium.
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: is probably no longer capable of independent growth
+    explanation: Supports obligate dependence of the central bacterium on the consortium.
+ecological_interactions:
+- name: Phototroph To Central Bacterium Metabolite Exchange
+  description: Chlorobium chlorochromatii epibionts are inferred to supply carbon, nitrogen, sulfur sources,
+    and vitamins to the metabolically reduced central bacterium.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Chlorobium chlorochromatii CaD3 epibiont
+    term:
+      id: NCBITaxon:340177
+      label: Chlorobium chlorochromatii CaD3
+  target_taxon:
+    preferred_term: Candidatus Symbiobacter mobilis central bacterium
+    term:
+      id: NCBITaxon:1436290
+      label: Candidatus Symbiobacter mobilis
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Fixed by the green sulfur bacterial epibiont
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+    concentration: Electron donor for anoxygenic photosynthesis
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: extensive metabolic exchange, involving carbon, nitrogen, and sulfur sources as well as vitamins
+    explanation: Supports broad metabolite exchange from the epibiont to the central bacterium.
+- name: Central Bacterium Navigation For Epibiont Resources
+  description: The central bacterium contributes motility and sensing, including movement toward light
+    and sulfide that directly benefit the attached phototrophic epibionts.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Candidatus Symbiobacter mobilis central bacterium
+    term:
+      id: NCBITaxon:1436290
+      label: Candidatus Symbiobacter mobilis
+  target_taxon:
+    preferred_term: Chlorobium chlorochromatii CaD3 epibiont
+    term:
+      id: NCBITaxon:340177
+      label: Chlorobium chlorochromatii CaD3
+  metabolites:
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+    concentration: Attractant/resource for the consortium
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: can sense and move towards light and sulfide
+    explanation: Supports central-bacterium sensing and motility toward resources used by the epibiont.
+- name: Possible Quinone-Mediated Electron Exchange
+  description: Genome-based models propose that quinones and quinols could shuttle electrons between the
+    central bacterium and epibiont, potentially coupling central-bacterium ATP synthesis to phototrophic
+    energy conversion.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Chlorobium chlorochromatii CaD3 epibiont
+    term:
+      id: NCBITaxon:340177
+      label: Chlorobium chlorochromatii CaD3
+  target_taxon:
+    preferred_term: Candidatus Symbiobacter mobilis central bacterium
+    term:
+      id: NCBITaxon:1436290
+      label: Candidatus Symbiobacter mobilis
+  biological_processes:
+  - preferred_term: cellular respiration
+    term:
+      id: GO:0045333
+      label: cellular respiration
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: electron cycling mechanisms, particularly those mediated by quinones
+    explanation: Supports the proposed electron-transfer mechanism.
+environmental_factors:
+- name: anoxic sulfide-reduced medium
+  value: Anaerobic sulfide-containing culture conditions
+  description: Earlier physiology work maintained the consortium at high numbers in anoxic sulfide-reduced
+    medium, consistent with the sulfide-dependent phototrophic lifestyle.
+  evidence:
+  - reference: PMID:9446684
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained at high numbers in anoxic sulfide-reduced medium
+    explanation: Supports the culture environment used for maintaining the consortium.
+- name: light and sulfide gradients
+  value: Light and sulfide are sensed by the central bacterium and used by the epibiont.
+  description: The consortium's ecology depends on navigation toward resources that support anoxygenic
+    photosynthesis by the green sulfur bacterial epibionts.
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: can sense and move towards light and sulfide
+    explanation: Supports light and sulfide as directional ecological factors.
+growth_media:
+- name: anoxic sulfide-reduced enrichment medium
+  atmosphere: ANAEROBIC
+  preparation_notes: The consortium was enriched from eutrophic freshwater lake sediment and maintained
+    in anoxic sulfide-reduced medium.
+  evidence:
+  - reference: PMID:9446684
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enriched from sediment samples of a eutrophic freshwater lake
+    explanation: Supports the enrichment origin and culture context.
+associated_datasets:
+- name: Candidatus Symbiobacter mobilis genome
+  dataset_type: GENOME
+  repository: OTHER
+  accession: CP004885
+  url: https://www.ncbi.nlm.nih.gov/nuccore/CP004885
+  description: Genome sequence for the central bacterium in Chlorochromatium aggregatum.
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: has also been deposited in GenBank (accession number CP004885)
+    explanation: Links the central-bacterium genome accession to this community record.
+- name: Chlorobium chlorochromatii CaD3 genome
+  dataset_type: GENOME
+  repository: OTHER
+  accession: CP000108
+  url: https://www.ncbi.nlm.nih.gov/nuccore/CP000108
+  description: Genome sequence for the green sulfur bacterial epibiont.
+  evidence:
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: deposited in GenBank (accession number CP000108)
+    explanation: Links the epibiont genome accession to this community record.

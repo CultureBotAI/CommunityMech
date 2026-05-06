@@ -1,0 +1,197 @@
+id: CommunityMech:000142
+name: Bacteroides-Methanobrevibacter Gnotobiotic Mouse Mutualism
+description: A defined host-associated gnotobiotic mouse community used to test archaeal-bacterial
+  mutualism in the gut. Germ-free mice were colonized with Bacteroides thetaiotaomicron with or without
+  Methanobrevibacter smithii or Desulfovibrio piger, revealing a specific interaction in which M. smithii
+  redirects B. thetaiotaomicron toward dietary fructan fermentation to acetate while using B. thetaiotaomicron
+  formate for methanogenesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Test how a prominent human gut methanogenic archaeon affects bacterial polysaccharide
+    metabolism, microbial fitness, and host energy balance in gnotobiotic mice.
+  assembly_strategy: Germ-free mice were colonized with Bacteroides thetaiotaomicron alone or in defined
+    biassociation with Methanobrevibacter smithii or Desulfovibrio piger.
+  measurement_endpoints:
+  - quantitative PCR colonization density
+  - Bacteroides thetaiotaomicron transcriptional profiling
+  - cecal short-chain fatty acids
+  - methanogenesis gene expression
+  - host adiposity
+  evidence:
+  - &gnotobiotic_design
+    reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we colonized germ-free mice with Bacteroides thetaiotaomicron
+    explanation: Supports the defined gnotobiotic mouse experimental design.
+environment_term:
+  preferred_term: gnotobiotic mouse gut environment
+  term:
+    id: ENVO:0001998
+    label: human gut environment
+  notes: The source organisms are human gut-associated, and the interaction was tested in the distal gut
+    of gnotobiotic mice as a humanized model.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+    notes: Saccharolytic bacterial forager in the defined gnotobiotic community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we colonized germ-free mice with Bacteroides thetaiotaomicron
+    explanation: Supports B. thetaiotaomicron membership and polysaccharide-foraging role.
+- taxon_term:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+    notes: Human gut methanogenic archaeon that consumes B. thetaiotaomicron-derived formate.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a prominent archaeon, Methanobrevibacter smithii
+    explanation: Supports M. smithii as the archaeal member under study.
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: B. thetaiotaomicron-derived formate is used by M. smithii for methanogenesis
+    explanation: Supports the formate-consuming methanogenic role of M. smithii.
+- taxon_term:
+    preferred_term: Desulfovibrio piger comparator
+    term:
+      id: NCBITaxon:901
+      label: Desulfovibrio piger
+    notes: Sulfate-reducing comparator organism used to distinguish M. smithii-specific effects.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: or the sulfate-reducing bacterium Desulfovibrio piger
+    explanation: Supports inclusion of D. piger as the comparator biassociation member.
+ecological_interactions:
+- name: Formate Transfer To Methanogenesis
+  description: Bacteroides thetaiotaomicron produces formate that is consumed by Methanobrevibacter smithii
+    for methanogenesis, creating an archaeal-bacterial cross-feeding interaction.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  target_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+    concentration: B. thetaiotaomicron-derived methanogenesis substrate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: Product of M. smithii methanogenesis
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: B. thetaiotaomicron-derived formate is used by M. smithii for methanogenesis
+    explanation: Supports formate transfer from the bacterial member to the archaeal methanogen.
+- name: Methanogen-Directed Fructan Fermentation
+  description: Methanobrevibacter smithii redirects B. thetaiotaomicron metabolism toward dietary fructan
+    fermentation and acetate production, unlike the D. piger comparator.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  target_taxon:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Product increased during B. thetaiotaomicron-M. smithii biassociation
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: M. smithii directs B. thetaiotaomicron to focus on fermentation of dietary fructans to acetate
+    explanation: Supports the methanogen-specific effect on bacterial fermentation output.
+- name: Biassociation Enhances Colonization Density
+  description: Cocolonization with M. smithii and B. thetaiotaomicron increased representation of both
+    species in the distal intestines of gnotobiotic mice relative to monoassociated controls.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  target_taxon:
+    preferred_term: Bacteroides thetaiotaomicron
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enhances the representation of both species in the distal intestines of gnotobiotic mice
+    explanation: Supports mutualistic enhancement of both partners in the host gut.
+environmental_factors:
+- name: germ-free mouse host
+  value: Germ-free mice were colonized with defined gut organisms.
+  description: The controlled host context allowed direct comparison of monoassociation, B. thetaiotaomicron-M.
+    smithii biassociation, and B. thetaiotaomicron-D. piger biassociation.
+  evidence:
+  - *gnotobiotic_design
+- name: dietary polysaccharides and fructans
+  value: B. thetaiotaomicron consumed dietary polysaccharides, with M. smithii directing fructan fermentation.
+  description: The interaction depended on dietary carbohydrate fermentation products in the distal gut.
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: fermentation of dietary fructans to acetate
+    explanation: Supports dietary fructans as a substrate shaping the interaction.
+associated_datasets:
+- name: Methanobrevibacter smithii gene sequences
+  dataset_type: GENOME
+  repository: OTHER
+  accession: DQ419923
+  url: https://www.ncbi.nlm.nih.gov/nuccore/DQ419923
+  description: M. smithii gene sequence accession reported with the gnotobiotic mutualism study.
+  evidence:
+  - reference: PMID:16782812
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The M. smithii gene sequences reported in this paper have been deposited
+    explanation: Links the reported M. smithii sequence data to this community record.
