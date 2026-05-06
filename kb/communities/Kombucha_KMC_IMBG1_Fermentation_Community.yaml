@@ -1,0 +1,208 @@
+id: CommunityMech:000154
+name: Kombucha KMC-IMBG1 Fermentation Community
+description: >
+  A Ukrainian kombucha microbial community variant, KMC-IMBG1, profiled by culture-dependent isolation
+  and 16S/ITS metabarcoding across sweetened black-tea and honey/cabbage-brine microenvironments. The
+  core community contains cellulose-forming acetobacteria, especially Komagataeibacter and Gluconobacter,
+  together with dominant yeasts such as Pichia and Brettanomyces/Dekkera; growth conditions alter the
+  accessory community and yeast composition.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: laboratory kombucha fermentation culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: KMC-IMBG1 is a maintained kombucha culture grown under controlled laboratory fermentation
+    conditions in sweetened black tea and related media.
+taxonomy:
+- taxon_term:
+    preferred_term: Komagataeibacter
+    term:
+      id: NCBITaxon:1434011
+      label: Komagataeibacter
+    notes: Acetobacterial core member reported as the current genus name for former Gluconacetobacter
+      isolates in KMC-IMBG1.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetobacteria of two genera Komagataeibacter (former Gluconacetobacter) and Gluconobacter
+    explanation: Supports Komagataeibacter as a core acetobacterial genus in KMC-IMBG1.
+- taxon_term:
+    preferred_term: Gluconobacter
+    term:
+      id: NCBITaxon:441
+      label: Gluconobacter
+    notes: Acetobacterial core member of the KMC-IMBG1 kombucha culture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.1186/s13568-015-0124-5
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetobacteria of two genera Komagataeibacter (former Gluconacetobacter) and Gluconobacter
+    explanation: Supports Gluconobacter as a core acetobacterial genus in KMC-IMBG1.
+- taxon_term:
+    preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+    notes: Dominant yeast genus in the KMC-IMBG1 core community under tested growth conditions.
+  abundance_level: DOMINANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Brettanomyces/Dekkera and Pichia (including former Issatchenkia) were dominant
+    explanation: Supports Pichia as a dominant yeast genus in the kombucha community.
+- taxon_term:
+    preferred_term: Brettanomyces
+    term:
+      id: NCBITaxon:13366
+      label: Brettanomyces
+    notes: Source article reports the yeast lineage as Brettanomyces/Dekkera; NCBI genus Brettanomyces is
+      used for ontology grounding.
+  abundance_level: DOMINANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: doi:10.1186/s13568-015-0124-5
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Brettanomyces/Dekkera and Pichia (including former Issatchenkia) were dominant
+    explanation: Supports Brettanomyces/Dekkera as a dominant yeast lineage in KMC-IMBG1.
+ecological_interactions:
+- name: Yeast-Acetobacter Mutualistic Fermentation
+  description: The kombucha microbial community is described as a bacteria-yeast mutualistic metabolic
+    system, with yeasts and cellulose-forming acetobacteria maintained together in a surface pellicle.
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mutualistic metabolic cooperation of pro- and eukaryotic microorganisms
+    explanation: Supports bacteria-yeast mutualistic metabolic cooperation in KMC.
+- name: Cellulose Pellicle Community Structuring
+  description: Cellulose-producing acetobacteria create a surface pellicle that encloses the mixed yeast
+    and bacterial community, physically structuring biochemical interactions.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Komagataeibacter
+    term:
+      id: NCBITaxon:1434011
+      label: Komagataeibacter
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: doi:10.1186/s13568-015-0124-5
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose-based pellicles created by the cellulose-producing bacteria
+    explanation: Supports acetobacterial cellulose pellicles as a structuring feature of the community.
+- name: Growth-Condition Dependent Accessory Recruitment
+  description: KMC-IMBG1 maintained a stable acetobacterial core but shifted accessory bacteria and yeast
+    composition across sterile sweetened tea, nonsterile sweetened tea, honey-supplemented tea, and
+    cabbage-brine hybrid microenvironments.
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The community composition was dependent on the growth conditions
+    explanation: Supports growth-condition-dependent shifts in KMC composition.
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacterial core component in nsBTS remained the same
+    explanation: Supports a relatively stable bacterial core despite growth-condition changes.
+environmental_factors:
+- name: sweetened black tea substrate
+  value: black tea extract with sucrose
+  description: KMC-IMBG1 was maintained in filter-sterilized or nonsterile sweetened black tea, with honey
+    or cabbage-brine variants used to test community flexibility.
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: black tea (Lipton, 1.2%, w/v) extract with sucrose (3.0%, w/v)
+    explanation: Supports the black-tea sucrose substrate and concentrations.
+- name: cultivation without shaking
+  value: 14 days at 28 C without shaking
+  description: Matured KMC-IMBG1 was obtained under stationary incubation, allowing surface pellicle
+    formation.
+  evidence:
+  - reference: doi:10.1186/s13568-015-0124-5
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cultivation for 14 days at 28°C without shaking
+    explanation: Supports the stationary incubation regime for matured KMC-IMBG1.
+growth_media:
+- name: sterile black tea with sucrose
+  temperature: '28'
+  temperature_unit: C
+  incubation_time: '14'
+  incubation_time_unit: days
+  shaking_speed: '0'
+  shaking_speed_unit: rpm
+  composition:
+  - name: sucrose
+    concentration: '3.0'
+    unit: percent w/v
+    chebi_term:
+      preferred_term: sucrose
+      term:
+        id: CHEBI:17992
+        label: sucrose
+  preparation_notes: Filter-sterilized black tea extract with sucrose; KMC-IMBG1 was also maintained in
+    nonsterile sweetened black tea and sterile black tea with honey.
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained in a filter sterilized black tea
+    explanation: Supports the sterile black-tea maintenance medium.
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A matured KMC-IMBG1 was obtained after cultivation for 14 days at 28°C without shaking
+    explanation: Supports the incubation time, temperature, and stationary conditions.
+associated_datasets:
+- name: KMC-IMBG1 metabarcoding and isolate sequence data
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: KF908872-KF908879
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4467805/
+  description: Article reports 16S rDNA and ITS metabarcoding of KMC-IMBG1 pellicles and liquids across
+    multiple growth microenvironments, plus GenBank accessions for isolate 16S rDNA sequences.
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: submitted to the GenBank database under an accession numbers KF908872-KF90879
+    explanation: Supports the associated GenBank sequence-accession range reported by the study.
+metal_relevance: NOT_APPLICABLE

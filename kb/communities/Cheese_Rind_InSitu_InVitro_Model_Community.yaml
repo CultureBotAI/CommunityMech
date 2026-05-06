@@ -1,0 +1,206 @@
+id: CommunityMech:000153
+name: Cheese Rind In Situ-In Vitro Model Community
+description: >
+  A tractable fermented-food surface biofilm system based on cheese rind microbial communities. Wolfe
+  and colleagues surveyed 137 rind communities across 10 countries, isolated representatives of the
+  dominant bacterial and fungal genera, and reconstructed simplified cheese-curd-agar communities in
+  vitro to test how moisture, washing, pH, and bacterial-fungal interactions shape reproducible
+  community assembly and succession.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Use naturally aged cheese rinds as a manipulable model system for mechanisms of microbial
+    community assembly, succession, and bacterial-fungal interactions.
+  assembly_strategy: Culture dominant rind-associated bacteria and fungi from representative cheeses and
+    inoculate simplified communities onto cheese curd agar under controlled rind-style treatments.
+  perturbation_design: Manipulate fungal inoculum, washing with salt solution, and moisture to mimic
+    bloomy, washed, natural, and control rind environments.
+  measurement_endpoints:
+  - 16S rDNA and ITS community composition
+  - whole-community shotgun metagenomic functional profiles
+  - colony-forming units in reconstructed communities
+  - bacterial-fungal pairwise growth responses
+  - pH changes in cheese curd agar
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: developed cheese rinds as model microbial communities
+    explanation: Supports the design objective of treating cheese rinds as model microbial communities.
+environment_term:
+  preferred_term: laboratory reconstructed cheese rind biofilm
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The source communities are naturally aged cheese rind biofilms; this curated record emphasizes
+    the controlled in vitro reconstruction on cheese curd agar.
+taxonomy:
+- taxon_term:
+    preferred_term: Staphylococcus
+    term:
+      id: NCBITaxon:1279
+      label: Staphylococcus
+    notes: Genus-level taxon used because the source record reports community members primarily at genus
+      level in amplicon and reconstruction analyses.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Staphylococcus and Candida dominated in vitro rind communities at early time points
+    explanation: Supports Staphylococcus as a member of the reconstructed rind community.
+- taxon_term:
+    preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+    notes: Genus-level taxon used because the source reports Brevibacterium as a mature-rind genus in
+      the natural-rind succession and in vitro reconstruction.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: taxa Brevibacterium and Brachybacterium and fungal taxa Penicillium and Scopulariopsis emerged
+    explanation: Supports Brevibacterium as a later-appearing member of the rind succession.
+- taxon_term:
+    preferred_term: Debaryomyces
+    term:
+      id: NCBITaxon:4958
+      label: Debaryomyces
+    notes: Genus-level yeast member enriched under low-moisture natural-rind conditions in the in vitro
+      treatment.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dry environment of the natural rind treatment enriching for the yeast Debaryomyces
+    explanation: Supports Debaryomyces as a yeast member enriched in reconstructed natural-rind conditions.
+- taxon_term:
+    preferred_term: Penicillium
+    term:
+      id: NCBITaxon:5073
+      label: Penicillium
+    notes: Filamentous fungal genus detected in mature natural-rind succession and reconstructed in vitro
+      communities.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the mold Penicillium
+    explanation: Supports Penicillium as a fungal member enriched in the natural-rind treatment.
+ecological_interactions:
+- name: Moisture-Structured Rind Community Assembly
+  description: Moisture and rind-style manipulations selected different bacterial and fungal assemblages,
+    with drier natural-rind conditions enriching Debaryomyces, Staphylococcus, and Penicillium.
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: moisture is the best predictor of rind community composition
+    explanation: Supports moisture as a key environmental driver of community assembly.
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rind microbial communities diverge in composition when exposed to abiotic manipulations
+    explanation: Supports the mechanistic role of abiotic manipulations in reconstructed communities.
+- name: Fungal Deacidification Facilitates Bacterial Growth
+  description: Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this
+    deacidification to positive growth responses of multiple bacterial genera in fungal coculture.
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yeasts and filamentous fungi deacidify the cheese curd medium
+    explanation: Supports fungal pH modification as a mechanism affecting bacterial growth.
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: positive growth responses of many bacteria to the presence of a fungus
+    explanation: Supports bacterial growth facilitation by fungal community members.
+- name: Reproducible Natural-Rind Succession
+  description: A six-genus natural-rind subset recapitulated key features of in situ succession on cheese
+    curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium,
+    Penicillium, and Scopulariopsis.
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: succession in vitro was highly reproducible amongst replicates
+    explanation: Supports reproducible temporal assembly in the reconstructed natural-rind community.
+environmental_factors:
+- name: rind moisture
+  value: natural-rind treatment drier than undried plates
+  description: Moisture was measured across rind styles and experimentally manipulated in vitro; the dry
+    natural-rind treatment enriched taxa associated with low moisture and higher salt concentration.
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 62% final moisture of the medium compared to 83% in plates that were not dried
+    explanation: Supports the moisture contrast used for the natural-rind treatment.
+- name: cheese curd medium pH
+  value: initial low pH near 5, with fungal deacidification
+  description: The study tested pH as a mechanism for bacterial responses to fungal growth on cheese curd
+    agar.
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fresh cheeses have a relatively low pH before rind development occurs
+    explanation: Supports the low-pH starting environment relevant to rind development.
+growth_media:
+- name: cheese curd agar
+  temperature: '12'
+  temperature_unit: C
+  incubation_time: '4'
+  incubation_time_unit: weeks
+  preparation_notes: Simplified rind communities were inoculated onto cheese curd agar and subjected to
+    bloomy, washed, natural, or unmanipulated control treatments.
+  evidence:
+  - reference: doi:10.1016/j.cell.2014.05.041
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After a four-week incubation at 12°C
+    explanation: Supports the incubation time and temperature for the reconstructed communities.
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: onto cheese curd agar
+    explanation: Supports cheese curd agar as the reconstructed-community substrate.
+associated_datasets:
+- name: Cheese rind amplicon and metagenomic survey
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: PMID:25036636
+  url: https://pubmed.ncbi.nlm.nih.gov/25036636/
+  description: Primary study reporting 16S rDNA, ITS, metagenomic, culturing, and in vitro reconstruction
+    data for cheese rind microbial communities.
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sequencing of 137 different rind communities across 10 countries
+    explanation: Supports the dataset scope and sampling scale.
+metal_relevance: NOT_APPLICABLE
