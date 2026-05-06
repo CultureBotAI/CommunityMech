@@ -1,0 +1,171 @@
+id: CommunityMech:000144
+name: Altered Schaedler Flora Gnotobiotic Mouse Community
+description: The altered Schaedler flora (ASF) is an eight-member defined murine gut bacterial community
+  used in gnotobiotic mice. The community was developed as a standardized, culturable intestinal flora
+  from mouse-derived bacteria and has been used for decades to study host-microbiota relationships,
+  member stability, spatial distribution, immune effects, and genome-informed community metabolism.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Provide a stable, defined murine gut microbiota for controlled gnotobiotic mouse studies.
+  assembly_strategy: Eight mouse-derived bacterial members were assembled into a standardized consortium
+    that can be cultured and stably transmitted in gnotobiotic mouse colonies.
+  measurement_endpoints:
+  - strain-specific PCR quantification
+  - spatial distribution in the mouse gastrointestinal tract
+  - host immune and disease phenotypes
+  - draft genome sequencing
+  evidence:
+  - &asf_defined
+    reference: PMID:26323627
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The altered Schaedler flora (ASF) is a model community of eight microorganisms
+    explanation: Supports ASF as an eight-member defined gnotobiotic community.
+environment_term:
+  preferred_term: gnotobiotic mouse gastrointestinal tract
+  term:
+    id: ENVO:0001998
+    label: human gut environment
+  notes: ENVO human gut environment is used as the closest validated gut-environment term in this schema;
+    the curated system is a murine gnotobiotic gastrointestinal community.
+taxonomy:
+- taxon_term:
+    preferred_term: ASF Firmicutes members
+    term:
+      id: NCBITaxon:1239
+      label: Firmicutes
+    notes: Represents ASF356 Clostridium sp., ASF492 Eubacterium plexicaudatum, ASF500 Firmicutes bacterium,
+      and ASF502 Clostridium sp. as a grouped firmicute guild.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  abundance_value: Four of eight ASF members
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF356 Clostridium sp.
+    explanation: Supports one of the firmicute members in the ASF genome table.
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF500 Firmicutes bacterium
+    explanation: Supports grouped representation of firmicute ASF members.
+- taxon_term:
+    preferred_term: ASF Lactobacillus members
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+    notes: Represents ASF360 Lactobacillus sp. and ASF361 Lactobacillus murinus.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Two of eight ASF members
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF360 Lactobacillus sp.
+    explanation: Supports Lactobacillus membership in the ASF genome table.
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF361 Lactobacillus murinus
+    explanation: Supports ASF361 as a Lactobacillus member.
+- taxon_term:
+    preferred_term: Mucispirillum schaedleri ASF457
+    term:
+      id: NCBITaxon:1379858
+      label: Mucispirillum schaedleri ASF457
+    notes: Spiral, mucus-associated member of the ASF.
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: One of eight ASF members
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF457 Mucispirillum schaedleri
+    explanation: Supports ASF457 taxonomic identity.
+- taxon_term:
+    preferred_term: Parabacteroides ASF519
+    term:
+      id: NCBITaxon:516255
+      label: Parabacteroides
+    notes: Bacteroidetes/Tannerellaceae member of the ASF, represented at genus level because the genome
+      paper table identifies it as Parabacteroides sp.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of eight ASF members
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ASF519 Parabacteroides sp.
+    explanation: Supports ASF519 as the Parabacteroides member.
+ecological_interactions:
+- name: Stable Defined Murine Gut Colonization
+  description: The ASF members are mouse-derived, culturable bacteria that can be stably maintained across
+    generations in gnotobiotic mice.
+  interaction_type: COLONIZATION_FACILITATION
+  evidence:
+  - reference: PMID:26323627
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: stably passed through multiple generations
+    explanation: Supports stable colonization and transmission in gnotobiotic mouse facilities.
+- name: Host-Microbiota Mutualistic Model
+  description: ASF provides a reduced-complexity model for studying mutualistic host-GI microbiota
+    relationships while preserving a known consortium rather than a single isolate.
+  interaction_type: MUTUALISM
+  evidence:
+  - reference: PMID:26323627
+    supports: SUPPORT
+    evidence_source: REVIEW
+    snippet: The gastrointestinal (GI) microbiota forms a mutualistic relationship with the host
+    explanation: Supports the host-microbiota relationship represented by ASF mice.
+- name: Genome-Enabled Member Interaction Model
+  description: Draft genomes for all eight ASF members enable community-level study of member functions
+    and interactions in a controlled murine gut setting.
+  interaction_type: NICHE_PARTITIONING
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: We report here the draft genome sequences of the 8 bacteria that comprise the ASF
+    explanation: Supports genome-enabled analysis of all ASF members.
+environmental_factors:
+- name: gnotobiotic mouse gastrointestinal tract
+  value: Defined flora maintained in gnotobiotic mice
+  description: ASF is used in mice colonized with known murine gut bacteria to reduce complexity while
+    preserving a stable intestinal community.
+  evidence:
+  - reference: PMID:26323627
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: mice colonized with a consortium of known bacteria that naturally inhabit the murine gut
+    explanation: Supports the murine gut host context.
+- name: anaerobic gut community members
+  value: Culturable mouse-derived intestinal bacteria
+  description: ASF members were derived from mice and selected as a culturable, defined gut consortium.
+  evidence:
+  - reference: PMID:26323627
+    supports: SUPPORT
+    evidence_source: REVIEW
+    snippet: were all derived from mice, can be cultured in vitro
+    explanation: Supports the origin and culturability of the defined community.
+associated_datasets:
+- name: Altered Schaedler Flora draft genome assemblies
+  dataset_type: GENOME
+  repository: OTHER
+  accession: ASF-genome-accessions-AQFQ-AQFV-AYGZ-AYJP
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3983311/
+  description: Draft genome assemblies for the eight ASF members, including AQFQ00000000.1, AQFR00000000.1,
+    AQFS00000000.1, AYGZ00000000.1, AQFT00000000.1, AYJP00000000.1, AQFU00000000.1, and AQFV00000000.1.
+  evidence:
+  - reference: PMID:24723722
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: GenBank accession no.
+    explanation: Supports the table of genome accessions for the ASF members.

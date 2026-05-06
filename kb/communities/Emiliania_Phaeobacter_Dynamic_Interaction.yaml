@@ -1,0 +1,207 @@
+id: CommunityMech:000143
+name: Emiliania huxleyi-Phaeobacter inhibens Dynamic Interaction
+description: >
+  A defined marine algal-bacterial co-culture model between the coccolithophore Emiliania
+  huxleyi CCMP3266 and the Roseobacter-group bacterium Phaeobacter inhibens DSM 17395. The interaction
+  is dynamic: attached bacteria initially promote algal growth but later kill aging algal hosts. Evidence
+  supports algal nutrient provisioning to the heterotrophic bacterium, bacterial attachment to naked algal
+  cells, and indole-3-acetic acid production stimulated by algal-exuded tryptophan.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Establish a simplified coccolithophore-bacterium model for dissecting marine algal-bacterial
+    physical attachment, metabolite exchange, growth promotion, and algal killing.
+  assembly_strategy: Emiliania huxleyi CCMP3266 was grown axenically in L1-Si medium, then Phaeobacter
+    inhibens DSM 17395 was added after four days of algal growth.
+  measurement_endpoints:
+  - bacterial colony-forming units in co-culture
+  - bacterial attachment to algal cells
+  - algal growth and death
+  - indole-3-acetic acid production
+  - tryptophan exudation
+  evidence:
+  - &coculture_design
+    reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of E. huxleyi and P. inhibens were cultured as follows
+    explanation: Supports the defined two-member co-culture design.
+environment_term:
+  preferred_term: marine coccolithophore-bacterium co-culture
+  term:
+    id: ENVO:00002149
+    label: marine environment
+  notes: Laboratory marine co-culture representing an interaction relevant to E. huxleyi blooms and
+    Roseobacter-group bacteria.
+taxonomy:
+- taxon_term:
+    preferred_term: Emiliania huxleyi CCMP3266
+    term:
+      id: NCBITaxon:2903
+      label: Emiliania huxleyi
+    notes: Calcifying coccolithophore algal strain used as the host phototroph in the co-culture.
+  strain_designation:
+    strain_name: CCMP3266
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The axenic algal strain of Emiliania huxleyi was CCMP3266
+    explanation: Supports the algal strain identity in the co-culture.
+- taxon_term:
+    preferred_term: Phaeobacter inhibens DSM 17395
+    term:
+      id: NCBITaxon:391619
+      label: Phaeobacter inhibens DSM 17395
+    notes: Heterotrophic Roseobacter-group bacterium that attaches to E. huxleyi and produces IAA.
+  strain_designation:
+    strain_name: DSM 17395
+    culture_collections:
+    - collection: DSM
+      accession: '17395'
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strain of Phaeobacter inhibens was DSM 17395
+    explanation: Supports the bacterial strain identity in the co-culture.
+ecological_interactions:
+- name: Algal Nutrient Provisioning Supports Bacterial Growth
+  description: E. huxleyi enables growth of P. inhibens in L1-Si medium, which is otherwise non-permissive
+    for the bacterium, by supplying suitable forms of essential nutrients.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Emiliania huxleyi CCMP3266
+    term:
+      id: NCBITaxon:2903
+      label: Emiliania huxleyi
+  target_taxon:
+    preferred_term: Phaeobacter inhibens DSM 17395
+    term:
+      id: NCBITaxon:391619
+      label: Phaeobacter inhibens DSM 17395
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. huxleyi can provide all four essential nutrients
+    explanation: Supports algal provisioning of nutrients needed for heterotrophic bacterial growth.
+- name: Tryptophan-Enhanced Bacterial Attachment And IAA Production
+  description: Tryptophan exuded from algal cells increases P. inhibens attachment and bacterial production
+    of indole-3-acetic acid, linking algal exudates to bacterial behavior and hormone production.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Emiliania huxleyi CCMP3266
+    term:
+      id: NCBITaxon:2903
+      label: Emiliania huxleyi
+  target_taxon:
+    preferred_term: Phaeobacter inhibens DSM 17395
+    term:
+      id: NCBITaxon:391619
+      label: Phaeobacter inhibens DSM 17395
+  metabolites:
+  - preferred_term: tryptophan
+    term:
+      id: CHEBI:16828
+      label: tryptophan
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: tryptophan biosynthetic process
+    term:
+      id: GO:0000162
+      label: tryptophan biosynthetic process
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterial production of indole-3-acetic acid and attachment to algae are significantly increased
+      by tryptophan
+    explanation: Supports tryptophan-stimulated bacterial IAA production and attachment.
+- name: IAA-Mediated Algal Growth Promotion And Killing
+  description: P. inhibens affects E. huxleyi physiology through indole-3-acetic acid, initially promoting
+    algal growth but ultimately contributing to algal death in aging co-cultures.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: Phaeobacter inhibens DSM 17395
+    term:
+      id: NCBITaxon:391619
+      label: Phaeobacter inhibens DSM 17395
+  target_taxon:
+    preferred_term: Emiliania huxleyi CCMP3266
+    term:
+      id: NCBITaxon:2903
+      label: Emiliania huxleyi
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both algal growth enhancement and algal death are driven by the bacterially-produced phytohormone
+      indole-3-acetic acid
+    explanation: Supports the dual growth-promoting and algicidal role of bacterial IAA.
+environmental_factors:
+- name: L1-Si seawater medium
+  value: Seawater-based L1 medium without silicate
+  description: E. huxleyi was grown in L1-Si medium, and P. inhibens was introduced into the algal culture
+    in the same medium.
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the medium was referred to as L1-Si
+    explanation: Supports the marine algal culture medium.
+- name: light-dark cycle
+  value: 12 h light / 12 h dark at 18 degrees Celsius
+  description: The phototrophic algal member was grown under controlled light and temperature.
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Algae were grown in standing cultures in a Percival chamber
+    explanation: Supports the controlled light and temperature culture setting.
+growth_media:
+- name: L1-Si medium for E. huxleyi-P. inhibens co-culture
+  temperature: '18'
+  temperature_unit: degrees Celsius
+  atmosphere: AEROBIC
+  light_regime: 12 h light / 12 h dark
+  light_intensity: '150'
+  light_intensity_unit: umol photons/m2/s
+  preparation_notes: E. huxleyi CCMP3266 was grown in L1 medium without sodium silicate; P. inhibens
+    DSM 17395 was added to algal cultures after four days.
+  evidence:
+  - *coculture_design
+associated_datasets:
+- name: Dynamic metabolic exchange article and figure data
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: eLife-17473
+  url: https://elifesciences.org/articles/17473
+  description: Article-hosted culture, imaging, flow cytometry, metabolite, and gene-expression data
+    describing the E. huxleyi-P. inhibens co-culture.
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dynamic metabolic exchange governs a marine algal-bacterial interaction
+    explanation: Links this record to the source article and article-hosted data.
