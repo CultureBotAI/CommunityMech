@@ -1,0 +1,204 @@
+id: CommunityMech:000150
+name: Desulfovibrio-Methanosarcina Lactate Syntrophy
+description: >
+  A classic anaerobic two-member syntrophic coculture in which Desulfovibrio desulfuricans degrades lactate
+  in the absence of added sulfate and Methanosarcina barkeri consumes fermentation products for methanogenesis.
+  Lactate is first degraded to acetate and methane; later acetate is converted to methane and carbon dioxide,
+  illustrating how hydrogen and substrate dynamics regulate coupled lactate oxidation and methanogenesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anaerobic laboratory rumen-fluid coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic coculture grown in sulfate-free rumen-fluid-vitamin-based medium.
+taxonomy:
+- taxon_term:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+    notes: Sulfate-reducing bacterium grown without added sulfate as the lactate-degrading partner.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio desulfuricans or Desulfovibrio vulgaris
+    explanation: Supports Desulfovibrio desulfuricans as a lactate-degrading member of the coculture study.
+- taxon_term:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+    notes: Methanogen able to use both hydrogen-carbon dioxide and acetate for methanogenesis.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture with Methanosarcina barkeri
+    explanation: Supports Methanosarcina barkeri as the methanogenic partner.
+ecological_interactions:
+- name: Lactate Degradation to Acetate and Methane
+  description: In sulfate-free coculture, D. desulfuricans catabolizes lactate and M. barkeri performs
+    methanogenesis, yielding acetate and methane during early incubation.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+  target_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+    notes: Primary substrate added to the coculture.
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Early product of lactate degradation.
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    notes: Methanogenic product.
+  biological_processes:
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:1903457
+      label: lactate catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lactate was completely degraded, with almost stoichiometric production of acetate and CH(4)
+    explanation: Supports coupled lactate degradation and methane production in the D. desulfuricans-M.
+      barkeri coculture.
+- name: Acetate Conversion by Methanosarcina
+  description: After lactate depletion, acetate produced during early lactate degradation is converted by
+    M. barkeri to methane and presumably carbon dioxide.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Methanogenic substrate consumed after lactate depletion.
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    notes: Product of acetoclastic methanogenesis.
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    notes: Presumed coproduct of acetate conversion.
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+    notes: General GO methanogenesis term used for methane-forming metabolism.
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Later, acetate was degraded to CH(4) and presumably to CO(2)
+    explanation: Supports subsequent acetate conversion to methane and carbon dioxide.
+- name: Hydrogen Inhibition of Acetate Degradation
+  description: Hydrogen produced during Desulfovibrio growth can inhibit acetate degradation by M. barkeri,
+    making hydrogen dynamics an important regulator of syntrophic carbon flow.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Desulfovibrio desulfuricans
+    term:
+      id: NCBITaxon:876
+      label: Desulfovibrio desulfuricans
+  target_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    notes: Desulfovibrio-produced hydrogen affected acetate degradation by M. barkeri.
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Acetate degradation was delayed until lactate was catabolized.
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: H(2) produced by the Desulfovibrio species during growth with lactate inhibited acetate degradation
+    explanation: Supports hydrogen-mediated inhibition of acetate degradation by M. barkeri.
+environmental_factors:
+- name: absence of added sulfate
+  value: sulfate-free coculture condition
+  description: Desulfovibrio cocultures were grown without added sulfate, shifting the system away from
+    sulfate respiration and toward syntrophic lactate degradation with methanogens.
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown in the absence of added sulfate
+    explanation: Supports the sulfate-free condition.
+- name: rumen fluid vitamin medium
+  value: rumen fluid-vitamin-based medium
+  description: Methanogenic acetate conversion was reported under rumen-fluid-vitamin-based medium conditions.
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rumen fluid-vitamin-based medium
+    explanation: Supports the growth-medium context.
+growth_media:
+- name: anaerobic rumen fluid-vitamin medium
+  atmosphere: ANAEROBIC
+  headspace_gas: H2-CO2 used for M. barkeri inoculum condition in the study
+  preparation_notes: Sulfate-free anaerobic medium with rumen fluid and vitamins used for methanogenic
+    growth experiments.
+  evidence:
+  - reference: PMID:16345708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rumen fluid-vitamin-based medium
+    explanation: Supports the medium used for Methanosarcina methanogenic activity.
+associated_datasets:
+- name: Desulfovibrio-Methanosarcina lactate syntrophy publication
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:16345708
+  url: https://pubmed.ncbi.nlm.nih.gov/16345708/
+  description: Publication reporting lactate degradation, acetate dynamics, hydrogen effects, and methane
+    production in Desulfovibrio-methanogen cocultures.
+metal_relevance: NOT_APPLICABLE
+

@@ -1,0 +1,236 @@
+id: CommunityMech:000149
+name: Synthetic Lichen Synechococcus-Rhodotorula Coculture
+description: >
+  A synthetic lichen-inspired phototroph-heterotroph coculture pairing engineered sucrose-secreting
+  Synechococcus elongatus PCC 7942 with the oleaginous yeast Rhodotorula glutinis. The cyanobacterium
+  fixes carbon dioxide under illumination and exports sucrose, while R. glutinis consumes the cyanobacterial
+  photosynthate, increases coculture biomass and lipid yield, and alleviates reactive oxygen stress that
+  limits low-density cyanobacterial axenic growth.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Establish a lichen-mimicking artificial phototroph-heterotroph production platform for biomass,
+    lipid, and biofuel precursor production from light and carbon dioxide.
+  assembly_strategy: Pair cscB+ sucrose-secreting Synechococcus elongatus PCC 7942 with compatible oleaginous
+    yeasts in modified BG-11 coculture medium; the R. glutinis pairing showed stable performance.
+  measurement_endpoints:
+  - cyanobacterial and yeast growth
+  - sucrose utilization
+  - biomass yield
+  - lipid yield and fatty acid profile
+  - hydrogen peroxide and reactive oxygen stress effects
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: establish a synthetic system mimicking lichens
+    explanation: Supports the engineering objective of constructing an artificial lichen-like coculture.
+environment_term:
+  preferred_term: laboratory phototrophic coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Engineered flask coculture maintained under illuminated laboratory conditions in modified BG-11 medium.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+    notes: Engineered cyanobacterial phototroph expressing cscB to secrete sucrose.
+  strain_designation:
+    strain_name: PCC 7942 cscB+
+    culture_collections:
+    - collection: PCC
+      accession: '7942'
+      url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
+    genetic_modification: cscB+ sucrose-secreting cyanobacterium
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose-secreting cyanobacterium Synechococcus elongatus
+    explanation: Supports the engineered cyanobacterial member and its sucrose-secretion role.
+- taxon_term:
+    preferred_term: Rhodotorula glutinis
+    term:
+      id: NCBITaxon:5535
+      label: Rhodotorula glutinis
+    notes: Oleaginous yeast heterotroph that adapted to the coculture medium and utilized sucrose from S.
+      elongatus.
+  strain_designation:
+    strain_name: ATCC 204091
+    culture_collections:
+    - collection: ATCC
+      accession: '204091'
+      notes: Reported yeast strain used for the artificial lichen coculture.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodotorula glutinis
+    explanation: Supports the yeast member used in the synthetic lichen coculture.
+ecological_interactions:
+- name: Photosynthetic Sucrose Provisioning
+  description: Engineered S. elongatus fixes carbon dioxide under illumination and secretes sucrose that
+    supports heterotrophic yeast growth.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  target_taxon:
+    preferred_term: Rhodotorula glutinis
+    term:
+      id: NCBITaxon:5535
+      label: Rhodotorula glutinis
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+    notes: Secreted carbon source consumed by R. glutinis in coculture.
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+    notes: Inorganic carbon fixed by the cyanobacterial phototroph.
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: sucrose biosynthetic process
+    term:
+      id: GO:0005986
+      label: sucrose biosynthetic process
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. glutinis and C. curvatus grew efficiently and utilized sucrose produced by the partner in co-culture
+    explanation: Supports sucrose cross-feeding from S. elongatus to yeast partners, including R. glutinis.
+- name: Rhodotorula-Enhanced Cyanobacterial Survival
+  description: R. glutinis improves cyanobacterial growth and survival at low inoculum density by alleviating
+    accumulated reactive oxygen stress.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Rhodotorula glutinis
+    term:
+      id: NCBITaxon:5535
+      label: Rhodotorula glutinis
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  metabolites:
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+    notes: Measured reactive oxygen species whose accumulation inhibited cyanobacterial axenic growth.
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cyanobacterial growth in co-culture with R. glutinis was significantly superior to axenic growth
+    explanation: Supports the beneficial effect of R. glutinis on S. elongatus growth.
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Accumulated reactive oxygen species was observed to severely inhibit axenic growth of cyanobacteria
+    explanation: Supports oxidative stress as the mechanism relieved in coculture.
+- name: Lipid Production Enhancement
+  description: Stable S. elongatus-R. glutinis cocultures increased biomass and overall lipid yield relative
+    to cyanobacterial monocultures.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Rhodotorula glutinis
+    term:
+      id: NCBITaxon:5535
+      label: Rhodotorula glutinis
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+    notes: Cyanobacterial photosynthate used by yeast for growth and lipid production.
+  biological_processes:
+  - preferred_term: sucrose catabolic process
+    term:
+      id: GO:0005987
+      label: sucrose catabolic process
+  - preferred_term: lipid biosynthetic process
+    term:
+      id: GO:0008610
+      label: lipid biosynthetic process
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: final biomass and overall lipid yields in the batch co-culture 40 to 60% higher
+    explanation: Supports increased biomass and lipid production in the R. glutinis coculture.
+environmental_factors:
+- name: modified BG-11 coculture medium
+  value: BG-11[co] with YNB without amino acids, ammonium chloride, IPTG, HEPES, and NaCl
+  description: Modified BG-11 medium supported illuminated S. elongatus-R. glutinis coculture while inducing
+    sucrose secretion by the cyanobacterium.
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: BG-11 medium supplemented with yeast nitrogen base without amino acids
+    explanation: Supports the coculture medium context.
+- name: illumination and carbon dioxide
+  value: 16:8 hour light/dark cycle with carbon dioxide-enriched air
+  description: Phototrophic culture conditions supplied light and carbon dioxide for cyanobacterial carbon
+    fixation.
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Illumination was provided by cool-white fluorescent lamps
+    explanation: Supports illuminated phototrophic cultivation.
+growth_media:
+- name: BG-11 coculture medium
+  atmosphere: AEROBIC
+  temperature: '28'
+  temperature_unit: C
+  light_regime: 16:8 h light/dark cycle
+  light_intensity: '100'
+  light_intensity_unit: micromol photons per square meter per second
+  salinity: '100'
+  salinity_unit: mM NaCl
+  vessel_type: Erlenmeyer flask
+  preparation_notes: Modified BG-11 coculture medium with HEPES, YNB without amino acids, ammonium chloride,
+    IPTG, and NaCl; cyanobacterial inoculum was grown with CO2-enriched aeration.
+  evidence:
+  - reference: doi:10.1186/s13068-017-0736-x
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were maintained under illumination of 100 μmol/m s with 16:8 h light/dark cycle
+    explanation: Supports the light regimen used for experimental cocultures.
+associated_datasets:
+- name: Artificial lichen coculture publication
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: doi:10.1186/s13068-017-0736-x
+  url: https://doi.org/10.1186/s13068-017-0736-x
+  description: Open-access study reporting growth, sucrose use, ROS, biomass, and lipid measurements for
+    S. elongatus-yeast artificial lichen cocultures.
+metal_relevance: NOT_APPLICABLE
+
