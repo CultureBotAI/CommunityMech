@@ -1,0 +1,235 @@
+id: CommunityMech:000152
+name: Industrial Milk-Line Four-Species Model Biofilm
+description: >
+  A laboratory four-species bacterial biofilm model derived from an industrial milk pasteurization-line
+  biofilm. The community contains Rhodocyclus sp., Pseudomonas fluorescens, Kocuria varians, and Bacillus
+  cereus, forms reproducible biofilms, and was used to resolve dynamic positive and negative interspecies
+  interactions, including a Bacillus cereus thiocillin I-mediated negative interaction that shapes species
+  distribution and robustness.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a reproducible four-species biofilm model from a dairy-processing biofilm to study
+    interaction networks, perturbation robustness, and molecular determinants of species distribution.
+  assembly_strategy: Select four culturable bacterial species from an industrial milk pasteurization-line
+    biofilm consortium and assemble them under laboratory biofilm growth conditions.
+  perturbation_design: Initial transient perturbations, continuous perturbations, species-subset biofilms,
+    and Bacillus cereus mutational analysis were used to infer interaction effects on robustness.
+  measurement_endpoints:
+  - biofilm growth dynamics
+  - equilibrium species composition
+  - perturbation robustness
+  - positive and negative interaction network inference
+  - thiocillin I mutational analysis
+  evidence:
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we constructed a biofilm community from four species
+    explanation: Supports deliberate construction of the four-species model biofilm.
+environment_term:
+  preferred_term: laboratory dairy-processing biofilm model
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The isolates originated from an industrial milk pasteurization-line biofilm, but the curated
+    system is the controlled laboratory model biofilm.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodocyclus sp.
+    term:
+      id: NCBITaxon:1064
+      label: Rhodocyclus
+    notes: Source strain CCL5 was identified to genus level as Rhodocyclus sp.; genus-level taxonomy is
+      used because the source did not assign a species.
+  strain_designation:
+    strain_name: CCL5
+    isolation_source: Industrial milk pasteurization-line biofilm.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodocyclus sp., Pseudomonas fluorescens, Kocuria varians, and Bacillus cereus
+    explanation: Supports Rhodocyclus sp. as a member of the four-species biofilm.
+- taxon_term:
+    preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+    notes: Source strain CLL49 was identified as Pseudomonas fluorescens by 16S rRNA gene sequence analysis.
+  strain_designation:
+    strain_name: CLL49
+    isolation_source: Industrial milk pasteurization-line biofilm.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strains CLL49 and CCL56 were identified respectively as Pseudomonas fluorescens and Kocuria varians
+    explanation: Supports P. fluorescens CLL49 as a model biofilm member.
+- taxon_term:
+    preferred_term: Kocuria varians
+    term:
+      id: NCBITaxon:1272
+      label: Kocuria varians
+    notes: Source strain CCL56 was identified as Kocuria varians by 16S rRNA gene sequence analysis.
+  strain_designation:
+    strain_name: CCL56
+    isolation_source: Industrial milk pasteurization-line biofilm.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strains CLL49 and CCL56 were identified respectively as Pseudomonas fluorescens and Kocuria varians
+    explanation: Supports K. varians CCL56 as a model biofilm member.
+- taxon_term:
+    preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+    notes: Bacillus cereus strain used in the model biofilm and source of the thiocillin I-mediated negative
+      interaction.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus cereus ATCC14579T and B. cereus ATCC10987
+    explanation: Supports Bacillus cereus strains used in the model system.
+ecological_interactions:
+- name: Dynamic Positive and Negative Biofilm Interactions
+  description: Species-subset biofilms and growth modeling revealed a dynamic network of positive and
+    negative interspecies effects that determined final biofilm composition.
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: network of dynamic, positive, and negative interactions
+    explanation: Supports the inferred interaction network in the four-species model biofilm.
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: determine the final composition of the biofilm
+    explanation: Supports the effect of interactions on equilibrium community composition.
+- name: Bacillus Thiocillin-Mediated Negative Interaction
+  description: A negative interaction in the biofilm is mediated by thiocillin I produced by the Bacillus
+    cereus strain, and mutational analysis showed that this molecule affects species distribution and
+    biofilm robustness.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: species distribution
+    description: Bacillus cereus thiocillin I changes the relative distribution of biofilm members.
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thiocillin I synthesized by the B. cereus strain
+    explanation: Supports thiocillin I as the molecular determinant of a negative interaction.
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: impact on robustness by mutational analysis
+    explanation: Supports the mutational evidence linking this interaction to biofilm robustness.
+- name: Robustness to Transient Perturbation
+  description: The model biofilm reproducibly returned to a stable equilibrium composition after transient
+    inoculum perturbations, but continuous perturbations reduced robustness.
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: highly robust against initial, transient perturbations
+    explanation: Supports the biofilm robustness phenotype after transient perturbation.
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: less so towards continuous perturbations
+    explanation: Supports reduced robustness under continuous perturbation.
+environmental_factors:
+- name: industrial milk pasteurization-line source
+  value: biofilm from a gasket in a milk pasteurization line
+  description: The model strains were derived from an industrial dairy-processing biofilm source.
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: derived from a biofilm isolated from an industrial milk pasteurization unit
+    explanation: Supports the industrial milk-line origin of the model community.
+- name: tryptic soy cultivation
+  value: Tryptic soy agar and tryptic soy broth at 30 C
+  description: Constituent strains were routinely cultivated on tryptic soy agar or in tryptic soy broth
+    before biofilm experiments.
+  evidence:
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: routinely cultivated at 30°C on tryptic soy agar
+    explanation: Supports the laboratory cultivation conditions.
+growth_media:
+- name: tryptic soy broth biofilm medium
+  atmosphere: AEROBIC
+  temperature: '30'
+  temperature_unit: C
+  shaking_speed: '60'
+  shaking_speed_unit: rpm
+  preparation_notes: Strains were routinely cultivated on tryptic soy agar plates or in liquid tryptic soy
+    broth with agitation.
+  evidence:
+  - reference: doi:10.1002/mbo3.1254
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: liquid tryptic soy broth (TSB)
+    explanation: Supports TSB as the liquid cultivation medium.
+associated_datasets:
+- name: Four-species model biofilm publication and raw-data resource
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:34964290
+  url: https://pubmed.ncbi.nlm.nih.gov/34964290/
+  description: Publication reporting species-resolved biofilm growth, perturbation robustness, interaction
+    inference, and mutational analysis of a four-species dairy-processing biofilm model.
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth dynamics and equilibrium composition of this biofilm are highly reproducible
+    explanation: Supports the publication as the source of reproducible biofilm composition measurements.
+external_resources:
+- name: PNDB raw data page for dynamic four-species model biofilm
+  repository: OTHER
+  resource_id: PMID:34964290
+  url: https://www.pndb.fr/explore/assets/experimental-raw-data-associated-to-the-publication-entitled-dynamic-interspecies-interactions-and-robustness-in-a-four-species-model-biofilm/
+  description: Public raw-data landing page associated with the four-species model biofilm publication.
+metal_relevance: NOT_APPLICABLE
