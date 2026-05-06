@@ -1,0 +1,247 @@
+id: CommunityMech:000146
+name: Anammox Granule Metabolic Interaction Community
+description: >
+  A laboratory-scale anammox granular-sludge bioreactor community reconstructed with genome-centric
+  metagenomics and metatranscriptomics. Brocadia-affiliated anammox bacteria dominate nitrogen removal,
+  while Chlorobi-affiliated and other heterotrophic bacteria recycle nitrate to nitrite, degrade EPS-derived
+  peptides, and scavenge detrital products from anammox growth.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Resolve metabolic interactions in anammox granules used for energy-efficient wastewater nitrogen
+    removal.
+  assembly_strategy: Maintain dense anammox granular sludge in a laboratory-scale bioreactor and reconstruct
+    member genomes and transcript profiles from whole-community sequencing.
+  measurement_endpoints:
+  - metagenome-assembled genomes
+  - metatranscriptomic gene expression
+  - anammox gene expression
+  - heterotrophic nitrate respiration
+  - peptide and amino acid catabolism
+  evidence:
+  - &anammox_granules
+    reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: recover 17 draft genomes
+    explanation: Supports genome-resolved reconstruction of the anammox granule community.
+environment_term:
+  preferred_term: anammox granular sludge bioreactor
+  term:
+    id: ENVO:00002001
+    label: wastewater treatment plant
+  notes: Engineered laboratory bioreactor granular sludge used as a wastewater treatment model; ENVO wastewater
+    treatment plant is the closest validated built-environment term used in this schema.
+taxonomy:
+- taxon_term:
+    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+    term:
+      id: NCBITaxon:795830
+      label: Candidatus Brocadia sinica
+    notes: AMX1 was reported as a Brocadia-affiliated anammox MAG closely related to named Brocadia species.
+      The NCBI term is used as the closest named representative for the Brocadia-like anammox population.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_value: About 62 percent relative abundance and 54 percent gene expression in the granules
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genomes affiliated with Brocadia
+    explanation: Supports Brocadia affiliation of the dominant anammox genome.
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: AMX1 had a relative abundance
+    explanation: Supports AMX1 dominance in the anammox granule community.
+- taxon_term:
+    preferred_term: Chlorobi-affiliated heterotrophic bacteria
+    term:
+      id: NCBITaxon:1090
+      label: Chlorobi
+    notes: Chlorobi-affiliated MAGs, especially CHB1 and CHB2, were inferred as active protein and peptide
+      degraders in the EPS matrix.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_value: CHB1 about 21 percent relative abundance and 26 percent gene expression
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Chlorobi-affiliated bacteria may be highly active protein degraders
+    explanation: Supports Chlorobi-affiliated heterotrophs as active protein degraders.
+- taxon_term:
+    preferred_term: anammox-granule heterotrophic flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Aggregated representation for Bacteroidetes, Chloroflexi, Proteobacteria, and other heterotrophic
+      MAGs recovered from the anammox granules.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroidetes, Chloroflexi, Proteobacteria
+    explanation: Supports the broader heterotrophic flanking community in the recovered MAG set.
+ecological_interactions:
+- name: Anammox Ammonium-Nitrite Conversion
+  description: Brocadia-affiliated AMX1 oxidizes ammonium anaerobically using nitrite as the terminal
+    electron acceptor, producing nitrogen gas and nitrate-linked byproducts that structure the granule.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+    term:
+      id: NCBITaxon:795830
+      label: Candidatus Brocadia sinica
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes involved in anammox metabolism
+    explanation: Supports active anammox metabolism in the Brocadia-affiliated AMX1 genome.
+- name: Heterotrophic Nitrite Loop
+  description: Heterotrophic anammox-granule members respire nitrate to nitrite, potentially recycling nitrate
+    produced by anammox growth back into nitrite for anammox bacteria.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: anammox-granule heterotrophic flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+    term:
+      id: NCBITaxon:795830
+      label: Candidatus Brocadia sinica
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: potentially completing a nitrite loop
+    explanation: Supports nitrate-to-nitrite recycling as an interaction with anammox bacteria.
+- name: EPS Peptide Scavenging by Chlorobi
+  description: Chlorobi-affiliated heterotrophs degrade extracellular proteinaceous material in the granule
+    matrix, releasing amino acids and peptides that can support themselves and other community members.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+    term:
+      id: NCBITaxon:795830
+      label: Candidatus Brocadia sinica
+  target_taxon:
+    preferred_term: Chlorobi-affiliated heterotrophic bacteria
+    term:
+      id: NCBITaxon:1090
+      label: Chlorobi
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: catabolizing extracellular peptides
+    explanation: Supports peptide scavenging by Chlorobi-affiliated heterotrophs.
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: EPS produced by anammox bacteria
+    explanation: Supports anammox-derived EPS as an organic carbon source.
+- name: Detritus and Small-Donor Scavenging
+  description: Other heterotrophic members scavenge detritus, peptides, hydrogen, acetate, and formate,
+    broadening carbon and electron flow in the granule.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+    term:
+      id: NCBITaxon:795830
+      label: Candidatus Brocadia sinica
+  target_taxon:
+    preferred_term: anammox-granule heterotrophic flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: scavenging of detritus and peptides
+    explanation: Supports detritus and peptide scavenging by heterotrophic members.
+environmental_factors:
+- name: anaerobic granule interior
+  value: Oxygen diffusion limited by dense aggregate structure
+  description: High granule density limits oxygen diffusion into the interior, permitting anaerobic bacteria
+    and anammox activity.
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: limit oxygen diffusion into the granule interior
+    explanation: Supports anaerobic granule interiors as a key environmental factor.
+- name: extracellular polymeric substances
+  value: Protein- and polysaccharide-rich EPS matrix
+  description: Anammox granules are embedded in EPS, and EPS-derived peptides are inferred substrates for
+    heterotrophic members.
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: matrix of organic extracellular polymeric substances
+    explanation: Supports EPS as the granule matrix.
+- name: wastewater nitrogen removal context
+  value: High-strength ammonium wastewater treatment model
+  description: Anammox communities are used for energy-efficient nitrogen removal from wastewater.
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: nitrogen removal from wastewater
+    explanation: Supports the engineered wastewater-treatment context.
+growth_media:
+- name: anammox granular-sludge bioreactor influent
+  atmosphere: ANAEROBIC
+  preparation_notes: Laboratory-scale anammox bioreactor biomass maintained as granular sludge; exact influent
+    recipe is not asserted in this record because the curated claims focus on community metagenomics and
+    metatranscriptomics.
+  evidence:
+  - *anammox_granules
+associated_datasets:
+- name: Anammox granule metagenome and metatranscriptome article
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: Nature-Communications-15416
+  url: https://www.nature.com/articles/ncomms15416
+  description: Open-access article reporting genome-centric metagenomics, metatranscriptomics, and metabolic
+    network reconstruction for a laboratory anammox granule community.
+  evidence:
+  - reference: doi:10.1038/ncomms15416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metabolic network analysis reveals microbial community interactions
+    explanation: Links this record to the article and associated supplementary data.

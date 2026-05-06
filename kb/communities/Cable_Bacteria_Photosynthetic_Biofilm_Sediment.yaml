@@ -1,0 +1,212 @@
+id: CommunityMech:000145
+name: Cable Bacteria beneath Photosynthetic Biofilm Sediment Community
+description: >
+  A coastal sediment community in which long filamentous Desulfobulbaceae cable bacteria connect
+  sulfide-rich deeper sediment to oxygen supplied near the sediment-water interface by an oxygenic
+  photosynthetic biofilm. The system links sulfur oxidation, oxygen production, sulfate-reduction-driven
+  sulfide supply, and centimeter-scale long-distance electron transfer.
+ecological_state: TRANSIENT
+community_origin: NATURAL
+community_category: OTHER
+environment_term:
+  preferred_term: marine surface sediment beneath photosynthetic biofilm
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: Coastal sediment incubation with a photosynthetic surface biofilm and suboxic/anoxic sediment
+    zones containing cable bacteria.
+taxonomy:
+- taxon_term:
+    preferred_term: Desulfobulbaceae cable bacteria
+    term:
+      id: NCBITaxon:213121
+      label: Desulfobulbaceae
+    notes: Long multicellular filamentous bacteria mediating electrogenic sulfur oxidation in sediment.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: belonging to the family Desulfobulbaceae
+    explanation: Supports conservative family-level taxonomy for cable bacteria in this sediment system.
+- taxon_term:
+    preferred_term: oxygenic algal biofilm
+    term:
+      id: NCBITaxon:3041
+      label: Chlorophyta
+    notes: Photosynthetic algal biofilm at the sediment surface that changes oxygen availability under a
+      diel light-dark cycle.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a photosynthetic algal biofilm
+    explanation: Supports inclusion of the phototrophic surface biofilm member.
+- taxon_term:
+    preferred_term: sediment sulfate-reducing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Taxonomically unresolved sediment bacteria that maintain high sulfate reduction and sulfide
+      supply in the reduced sediment horizon.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sediments with high rates of sulfate reduction
+    explanation: Supports a sulfate-reducing guild as the sulfide source for cable-bacteria activity.
+ecological_interactions:
+- name: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
+  description: Oxygenic photosynthesis by the surface biofilm increases oxygen availability near the
+    sediment-water interface, enabling cable bacteria to couple deeper sulfide oxidation to surface oxygen
+    reduction.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: oxygenic algal biofilm
+    term:
+      id: NCBITaxon:3041
+      label: Chlorophyta
+  target_taxon:
+    preferred_term: Desulfobulbaceae cable bacteria
+    term:
+      id: NCBITaxon:213121
+      label: Desulfobulbaceae
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a greater oxygen supply can enable cable bacteria
+    explanation: Supports the link between photosynthetic oxygen supply and enhanced cable-bacteria activity.
+- name: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+  description: Cable bacteria harvest electrons from free sulfide in deeper sediment and conduct those
+    electrons along filaments to oxygen near the sediment-water interface.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: sediment sulfate-reducing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Desulfobulbaceae cable bacteria
+    term:
+      id: NCBITaxon:213121
+      label: Desulfobulbaceae
+  metabolites:
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: harvesting electrons from free sulfide
+    explanation: Supports sulfide oxidation as the electron-donor side of the cable-bacteria metabolism.
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transferring these electrons along their longitudinal axes
+    explanation: Supports long-distance electron transfer along cable-bacteria filaments.
+- name: Sulfate Recycling in Contaminated Aquifer Sediments
+  description: Related cable-bacteria activity in hydrocarbon-contaminated aquifer sediment recycles sulfate
+    over centimeter distances, linking the sediment mechanism to pollutant-degrading redox interfaces.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Desulfobulbaceae cable bacteria
+    term:
+      id: NCBITaxon:213121
+      label: Desulfobulbaceae
+  target_taxon:
+    preferred_term: sediment sulfate-reducing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  evidence:
+  - reference: PMID:27058505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct recycling of sulfate by electron transfer
+    explanation: Supports sulfate recycling as a mechanism relevant to contaminated aquifer sediments.
+environmental_factors:
+- name: diel light-dark cycle
+  value: Alternating light and dark periods
+  description: Surface photosynthesis changed oxygen supply, causing rapid sulfide responses at depth.
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: imposed diel light-dark cycle
+    explanation: Supports light-driven perturbation of sediment redox coupling.
+- name: sulfide-rich deeper sediment
+  value: Free sulfide in deeper sediment horizons
+  description: Cable bacteria require reduced sulfide at depth and oxygen or another electron acceptor near
+    the surface.
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: free sulfide in deeper sediment horizons
+    explanation: Supports deeper sulfide as the electron donor reservoir.
+- name: oxic-anoxic interface
+  value: Oxygenated surface over anoxic sediment
+  description: Cable bacteria were also detected at oxic-anoxic interfaces in hydrocarbon-contaminated
+    aquifer sediments.
+  evidence:
+  - reference: PMID:27058505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxic-anoxic interfaces in aquifer sediments
+    explanation: Supports the redox-interface setting for cable-bacteria activity.
+associated_datasets:
+- name: Cable bacteria photosynthetic biofilm sediment article
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID-25416774
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4292484/
+  description: Full-text article reporting sediment microsensor and biofilm-light perturbation evidence
+    for rapid redox signal transmission by cable bacteria.
+  evidence:
+  - reference: PMID:25416774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rapid redox signal transmission by "Cable Bacteria"
+    explanation: Links this record to the primary cable-bacteria biofilm source.
