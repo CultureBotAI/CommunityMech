@@ -1,0 +1,226 @@
+id: CommunityMech:000155
+name: Ostreococcus-Dinoroseobacter B-Vitamin Mutualism
+description: >
+  A defined marine algal-bacterial coculture in which the picoeukaryotic alga Ostreococcus tauri OTH95
+  and the roseobacter Dinoroseobacter shibae DF-12 form a reciprocal B-vitamin mutualism. D. shibae
+  supplies cobalamin and thiamine needed by O. tauri, while O. tauri satisfies bacterial requirements for
+  other B vitamins in a stable long-term coculture; the interaction is experimentally tractable under
+  controlled light, temperature, and vitamin-amendment regimes.
+ecological_state: STABLE
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Test whether reciprocal B-vitamin auxotrophies can support a stable marine phytoplankton-
+    bacterium mutualism.
+  assembly_strategy: Coculture axenic Ostreococcus tauri OTH95 with Dinoroseobacter shibae DF-12 under
+    defined L1 marine algal culture conditions and controlled B-vitamin amendments.
+  perturbation_design: Vary B-vitamin combinations and starting algal:bacterial ratios, then follow
+    growth and community ratios through repeated subcultures.
+  measurement_endpoints:
+  - algal and bacterial cell densities
+  - B-vitamin auxotrophy rescue
+  - stable coculture ratios
+  - genome-based vitamin biosynthesis pathway presence and absence
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cross-exchange of B-vitamins underpins a mutualistic interaction between Ostreococcus tauri and Dinoroseobacter shibae
+    explanation: Supports the experimental focus on reciprocal vitamin exchange in this two-member coculture.
+environment_term:
+  preferred_term: laboratory marine phytoplankton coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The strains are marine-derived, but the curated community is the controlled laboratory coculture
+    used to test B-vitamin exchange.
+taxonomy:
+- taxon_term:
+    preferred_term: Ostreococcus tauri
+    term:
+      id: NCBITaxon:70448
+      label: Ostreococcus tauri
+    notes: OTH95 strain used as the photosynthetic algal partner.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ostreococcus tauri (OTH95)
+    explanation: Supports O. tauri OTH95 as a member of the coculture.
+- taxon_term:
+    preferred_term: Dinoroseobacter shibae
+    term:
+      id: NCBITaxon:215813
+      label: Dinoroseobacter shibae
+    notes: DF-12 strain used as the heterotrophic bacterial partner.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dinoroseobacter shibae DF-12
+    explanation: Supports D. shibae DF-12 as a member of the coculture.
+ecological_interactions:
+- name: Bacterial Rescue of Algal Cobalamin and Thiamine Auxotrophy
+  description: D. shibae alleviates O. tauri requirements for cobalamin and thiamine, enabling algal
+    growth without external addition of those vitamins in coculture.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Dinoroseobacter shibae
+    term:
+      id: NCBITaxon:215813
+      label: Dinoroseobacter shibae
+  target_taxon:
+    preferred_term: Ostreococcus tauri
+    term:
+      id: NCBITaxon:70448
+      label: Ostreococcus tauri
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: thiamine
+    term:
+      id: CHEBI:18385
+      label: thiamine
+  biological_processes:
+  - preferred_term: vitamin biosynthetic process
+    term:
+      id: GO:0009110
+      label: vitamin biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B12 and B1 auxotrophy of O. tauri can be alleviated by co-culturing with a heterotrophic bacterial partner Dinoroseobacter shibae
+    explanation: Supports D. shibae-mediated rescue of O. tauri cobalamin and thiamine requirements.
+- name: Algal Rescue of Bacterial Vitamin Requirements
+  description: O. tauri reciprocally satisfies vitamin requirements of D. shibae, including biotin-linked
+    auxotrophy, supporting a stable long-term coculture rather than a one-way commensal association.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Ostreococcus tauri
+    term:
+      id: NCBITaxon:70448
+      label: Ostreococcus tauri
+  target_taxon:
+    preferred_term: Dinoroseobacter shibae
+    term:
+      id: NCBITaxon:215813
+      label: Dinoroseobacter shibae
+  metabolites:
+  - preferred_term: biotin
+    term:
+      id: CHEBI:15956
+      label: biotin
+  biological_processes:
+  - preferred_term: vitamin biosynthetic process
+    term:
+      id: GO:0009110
+      label: vitamin biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alga is in turn able to satisfy the reciprocal vitamin requirements of its bacterial partner in a stable long-term co-culture
+    explanation: Supports reciprocal vitamin provisioning from O. tauri to D. shibae.
+- name: Photosynthate-Supported Roseobacter Association
+  description: The heterotrophic D. shibae partner is interpreted as receiving fixed carbon from the
+    photosynthetic alga while providing vitamins, consistent with a marine phytoplankton-bacterium
+    cross-feeding mutualism.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Ostreococcus tauri
+    term:
+      id: NCBITaxon:70448
+      label: Ostreococcus tauri
+  target_taxon:
+    preferred_term: Dinoroseobacter shibae
+    term:
+      id: NCBITaxon:215813
+      label: Dinoroseobacter shibae
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: could supply thiamine and B12 to its hosts in exchange for a source of fixed carbon
+    explanation: Supports the inferred exchange of bacterial vitamins for algal fixed carbon.
+environmental_factors:
+- name: B-vitamin availability
+  value: cobalamin, thiamine, biotin, niacin, and p-aminobenzoic acid amendments varied experimentally
+  description: Vitamin combinations were manipulated to test which auxotrophies could be rescued by
+    coculture and which vitamins each partner required.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B-vitamins were added to cultures at the following concentrations
+    explanation: Supports controlled B-vitamin amendment as a key environmental factor.
+- name: light-dark cycle
+  value: 16:8 h light:dark at 18 C
+  description: Light and temperature were controlled to support photosynthetic O. tauri growth during
+    axenic and coculture assays.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown at 18°C with a 16:8 h light:dark cycle
+    explanation: Supports the culture temperature and photoperiod.
+growth_media:
+- name: L1 marine algal medium
+  temperature: '18'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  light_regime: 16:8 h light:dark cycle
+  preparation_notes: L1 medium was used for axenic O. tauri and cocultures containing O. tauri; vitamin
+    additions were varied according to the experimental treatment.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 h light:dark cycle
+    explanation: Supports the temperature and light regime for O. tauri-containing cultures.
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin, 2.05 nM biotin, 296 nM thiamine"
+    explanation: Supports the defined B-vitamin amendment concentrations used in culture assays.
+associated_datasets:
+- name: Ostreococcus-Dinoroseobacter B-vitamin rescue phenotyping
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:30228381
+  url: https://pubmed.ncbi.nlm.nih.gov/30228381/
+  description: Primary study reporting growth assays, repeated subculture phenotypes, and genomic pathway
+    analysis for O. tauri OTH95 and D. shibae DF-12.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth of O. tauri and D. shibae under different B-vitamin combinations
+    explanation: Supports phenotypic growth-assay data associated with the coculture.
+metal_relevance: NOT_APPLICABLE

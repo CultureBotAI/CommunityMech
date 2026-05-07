@@ -1,0 +1,239 @@
+id: CommunityMech:000156
+name: Neocallimastix-Methanobrevibacter Xylanolytic Coculture
+description: >
+  A defined anaerobic rumen-derived coculture in which the xylan-degrading fungus Neocallimastix
+  frontalis PNK2 is grown with the hydrogenotrophic archaeon Methanobrevibacter smithii on xylan. The
+  methanogen removes fermentation products through interspecies hydrogen transfer, shifting fungal
+  metabolism toward acetate formation and increasing xylan utilization and extracellular hemicellulase
+  activities.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Test whether a methanogenic partner stimulates xylan degradation and extracellular enzyme
+    activity by anaerobic ruminal fungi.
+  assembly_strategy: Grow axenic Neocallimastix frontalis PNK2 or coculture it with Methanobrevibacter
+    smithii on xylan under anaerobic conditions.
+  perturbation_design: Compare fungal monoculture with fungus-methanogen coculture over batch and extended
+    incubation periods.
+  measurement_endpoints:
+  - rate and extent of xylan utilization
+  - extracellular xylanase activity
+  - alpha-L-arabinofuranosidase activity
+  - beta-D-xylosidase activity
+  - fermentation metabolite profiles
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Effect of Methanobrevibacter smithii on Xylanolytic Activity of Anaerobic Ruminal Fungi
+    explanation: Supports the experimental focus on M. smithii effects on ruminal fungal xylanolysis.
+environment_term:
+  preferred_term: laboratory anaerobic rumen coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The organisms are rumen-associated anaerobes, but this record curates the controlled laboratory
+    xylan coculture.
+taxonomy:
+- taxon_term:
+    preferred_term: Neocallimastix frontalis
+    term:
+      id: NCBITaxon:4757
+      label: Neocallimastix frontalis
+    notes: PNK2 strain used as one of the anaerobic ruminal fungal partners; this record focuses on the
+      N. frontalis-M. smithii coculture subset.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Neocallimastix frontalis PNK2
+    explanation: Supports N. frontalis PNK2 as a member of the xylan coculture.
+- taxon_term:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+    notes: Hydrogenotrophic methanogenic archaeon used as the syntrophic partner.
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in coculture with Methanobrevibacter smithii on xylan
+    explanation: Supports M. smithii as the archaeal partner in the xylan cocultures.
+ecological_interactions:
+- name: Interspecies Hydrogen Transfer During Xylan Fermentation
+  description: M. smithii removes reducing equivalents from the fungal fermentation, preventing hydrogen
+    accumulation and shifting the metabolite profile toward acetate during xylan degradation.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Neocallimastix frontalis
+    term:
+      id: NCBITaxon:4757
+      label: Neocallimastix frontalis
+  target_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  metabolites:
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metabolite profiles became acetogenic as a result of interspecies hydrogen transfer
+    explanation: Supports syntrophic hydrogen transfer as the mechanism coupling fungal fermentation to
+      the methanogenic partner.
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: more acetate and less lactate were formed, while formate and hydrogen did not accumulate
+    explanation: Supports the metabolite shift associated with M. smithii coculture.
+- name: Methanogen-Stimulated Xylan Utilization
+  description: Coculture with M. smithii increases both the rate and extent of xylan utilization by
+    anaerobic ruminal fungi relative to axenic fungal culture.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  target_taxon:
+    preferred_term: Neocallimastix frontalis
+    term:
+      id: NCBITaxon:4757
+      label: Neocallimastix frontalis
+  metabolites:
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both the rate and extent of xylan utilization were increased by coculturing
+    explanation: Supports increased xylan utilization in the fungus-methanogen coculture.
+- name: Enhanced Extracellular Hemicellulase Activities
+  description: The M. smithii coculture stimulates extracellular xylanolytic enzyme activities by the
+    anaerobic fungal partner, including xylanase, arabinofuranosidase, and beta-xylosidase activities.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanobrevibacter smithii
+    term:
+      id: NCBITaxon:2173
+      label: Methanobrevibacter smithii
+  target_taxon:
+    preferred_term: Neocallimastix frontalis
+    term:
+      id: NCBITaxon:4757
+      label: Neocallimastix frontalis
+  metabolites:
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: xylanase activity
+    term:
+      id: GO:0009044
+      label: xylanase activity
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: marked increases in the specific activities of extracellular xylanase (up to fivefold)
+    explanation: Supports increased xylanase activity in coculture.
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alpha-l-arabinofuranosidase (up to fivefold), and beta-d-xylosidase (up to sevenfold)
+    explanation: Supports increased accessory hemicellulase activities in coculture.
+environmental_factors:
+- name: xylan substrate
+  value: xylan as the growth substrate
+  description: Xylan was supplied as the polysaccharide substrate for fungal degradation and syntrophic
+    coculture assays.
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were grown axenically or in coculture with Methanobrevibacter smithii on xylan
+    explanation: Supports xylan as the experimental substrate.
+- name: anaerobic incubation with methanogenic partner
+  value: anaerobic coculture conditions
+  description: The interaction depends on the anaerobic rumen-fungus fermentation context and a
+    methanogenic archaeal partner that consumes hydrogen.
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three different ruminal anaerobic fungi
+    explanation: Supports the anaerobic ruminal fungal context for the coculture.
+growth_media:
+- name: anaerobic xylan medium
+  atmosphere: ANAEROBIC
+  preparation_notes: Anaerobic ruminal fungi were grown axenically or in coculture with M. smithii using
+    xylan as the principal polysaccharide substrate.
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three different ruminal anaerobic fungi, Neocallimastix frontalis PNK2, Sphaeromonas communis B7, and Piromonas communis B19, were grown axenically or in coculture with Methanobrevibacter smithii on xylan.
+    explanation: Supports the anaerobic xylan culture design and organism set.
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For an N. frontalis-M. smithii coculture, the positive stimulation was maintained during an extended (18-day) incubation period
+    explanation: Supports the extended N. frontalis-M. smithii coculture observation.
+associated_datasets:
+- name: Ruminal fungus-methanogen xylanolytic activity phenotypes
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:16348244
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC184724/
+  description: Primary study reporting xylan utilization, extracellular enzyme activities, and metabolite
+    profiles for anaerobic ruminal fungi grown with and without M. smithii.
+  evidence:
+  - reference: PMID:16348244
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both the rate and extent of xylan utilization were increased by coculturing
+    explanation: Supports the phenotypic xylan-utilization dataset represented by this article.
+metal_relevance: NOT_APPLICABLE
