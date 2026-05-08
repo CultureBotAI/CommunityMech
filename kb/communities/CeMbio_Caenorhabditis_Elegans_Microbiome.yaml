@@ -1,0 +1,307 @@
+id: CommunityMech:000159
+name: CeMbio Caenorhabditis elegans Microbiome
+description: >
+  CeMbio is a defined, ecologically informed twelve-strain bacterial community representing the natural
+  Caenorhabditis elegans microbiome. The v1.0 community includes Enterobacter hormaechei CEent1,
+  Lelliottia amnigena JUb66, Acinetobacter guillouiae MYb10, Sphingomonas molluscorum JUb134,
+  Stenotrophomonas indicatrix JUb19, Pseudomonas lurida MYb11, Pseudomonas berkeleyensis MSPm1,
+  Comamonas piscis BIGb0172, Pantoea nemavictus BIGb0393, Ochrobactrum vermis MYb71,
+  Sphingobacterium multivorum BIGb0170, and Chryseobacterium scophthalmum JUb44. The resource pairs
+  a genetically tractable host with cultured, genome-sequenced, CGC-distributed commensal isolates that
+  colonize the worm gut as a community, alter nematode developmental timing, and support follow-up
+  behavioral and metabolic studies with the same reference composition.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Build a simplified but natural C. elegans microbiome resource for mechanistic host-microbiome
+    experiments in a genetically tractable animal model.
+  assembly_strategy: Select cultured C. elegans-associated or habitat-associated bacterial isolates that
+    represent the most common OTUs from natural C. elegans microbiome meta-analysis and can be grown and
+    maintained with standard laboratory methods.
+  inoculation_strategy: Grow each bacterial strain, mix equal volumes of washed cultures to create the
+    CeMbio inoculum, and seed synchronized C. elegans larvae on NGM or peptone-free NGM plates.
+  measurement_endpoints:
+  - strain-resolved gut colonization
+  - bacterial community composition in worms and lawns
+  - C. elegans developmental timing
+  - diagnostic PCR primer specificity
+  - genome sequences and metabolic network reconstructions
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here we introduce CeMbio, a simplified natural Caenorhabditis elegans microbiota
+    explanation: Supports the resource identity and its simplified-natural microbiome design objective.
+environment_term:
+  preferred_term: Caenorhabditis elegans intestine
+  term:
+    id: UBERON:0000160
+    label: intestine
+  notes: CeMbio is assembled and assayed as a C. elegans gut-colonizing bacterial community.
+taxonomy:
+- taxon_term:
+    preferred_term: CeMbio v1.0 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Defined twelve-strain bacterial consortium containing Enterobacter, Lelliottia, Acinetobacter,
+      Sphingomonas, Stenotrophomonas, Pseudomonas, Comamonas, Pantoea, Ochrobactrum, Sphingobacterium,
+      and Chryseobacterium isolates.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  abundance_value: Twelve defined bacterial strains mixed as the CeMbio community.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CEent1 Enterobacter hormaechei C. elegans N2 from mesocosm
+    explanation: Supports the named Enterobacter member and illustrates the strain-level member table.
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on the above analyses, we selected 12 isolates to constitute the CeMbio resource.
+    explanation: Supports CeMbio as a defined twelve-isolate bacterial consortium.
+- taxon_term:
+    preferred_term: Caenorhabditis elegans
+    term:
+      id: NCBITaxon:6239
+      label: Caenorhabditis elegans
+    notes: Genetically tractable nematode host colonized by the CeMbio bacterial community.
+  abundance_value: Host organism for the defined bacterial community.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. elegans adult is consistently colonized by at least 1,000 and usually more than 10,000 bacteria
+    explanation: Supports C. elegans as the host whose gut is colonized by the CeMbio community.
+ecological_interactions:
+- name: Multi-Strain C. elegans Gut Colonization
+  description: All CeMbio strains establish as members of the worm gut community, with strain-, time-, and
+    culture-medium-dependent colonization dynamics and a gut community distinct from the bacterial lawn.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: CeMbio v1.0 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Caenorhabditis elegans
+    term:
+      id: NCBITaxon:6239
+      label: Caenorhabditis elegans
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0051704
+      label: multi-organism process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: all CeMbio strains can establish themselves in the worm gut as community members
+    explanation: Supports the core colonization interaction for the defined community.
+- name: Community Effects on Nematode Development
+  description: CeMbio and individual members alter C. elegans developmental timing relative to standard
+    E. coli OP50 food, indicating that the defined microbiome has measurable life-history effects.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: CeMbio v1.0 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Caenorhabditis elegans
+    term:
+      id: NCBITaxon:6239
+      label: Caenorhabditis elegans
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the CeMbio community as a whole significantly enhanced growth rates for both host strains compared to growth on E. coli OP50
+    explanation: Supports a measurable host developmental effect of the full community.
+- name: Strain-Resolved Metabolic Diversity
+  description: Genome-scale models and Biolog phenotyping showed diverse metabolic capabilities among the
+    twelve members, including variable predicted carbon-source utilization that can shape community assembly
+    and competition in the worm gut.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: CeMbio v1.0 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The greatest differences in the predicted metabolic capabilities among the strains is observed in both biosynthesis and degradation of amino acids, carbohydrates, cofactors and vitamins
+    explanation: Supports metabolic niche diversity among CeMbio strains.
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The carbon source utilization by the whole CeMbio community is highlighted in yellow.
+    explanation: Supports community-level carbon-source utilization modeling.
+- name: CeMbio Odor Preference and Food-Seeking
+  description: A follow-up study of the same twelve CeMbio reference strains showed that C. elegans prefers
+    volatile cues from three Enterobacteriaceae members, linking community member identity to host behavioral
+    preference.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: CeMbio v1.0 bacterial strain consortium
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Caenorhabditis elegans
+    term:
+      id: NCBITaxon:6239
+      label: Caenorhabditis elegans
+  biological_processes:
+  - preferred_term: chemotaxis
+    term:
+      id: GO:0006935
+      label: chemotaxis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:38228683
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We set out to measure the preference of C. elegans for the odors of the twelve bacterial species that comprise CeMbio.
+    explanation: Supports use of the exact CeMbio reference composition in a follow-up behavioral study.
+environmental_factors:
+- name: NGM and peptone-free NGM plate environment
+  value: NGM or PFM plates seeded with CeMbio bacterial inoculum
+  description: CeMbio colonization experiments varied plate medium and sampling time to test gut colonization
+    dynamics under laboratory C. elegans growth conditions.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synchronized C. elegans L1 animals were raised at 20° on 6 cm plates containing either NGM or peptone-free NGM (PFM)
+    explanation: Supports NGM/PFM plate conditions for community colonization assays.
+- name: culture medium and temperature
+  value: LB at 25-28 C; nematodes at 20 C
+  description: CeMbio strains can be grown together using simple rich medium protocols and applied to
+    synchronized C. elegans larvae under standard nematode growth conditions.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All CeMbio strains grow in Luria broth medium (LB; 10 g/l tryptone, 5 g/l yeast extract, 5 g/l NaCl
+    explanation: Supports shared LB growth conditions for the bacterial strains.
+growth_media:
+- name: Luria broth for CeMbio strain propagation
+  temperature: '25-28'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  preparation_notes: CeMbio strains are cryopreserved in glycerol/LB and can be grown in LB or on LB agar
+    before mixing into inocula for C. elegans plate assays.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All CeMbio strains grow in Luria broth medium (LB; 10 g/l tryptone, 5 g/l yeast extract, 5 g/l NaCl
+    explanation: Supports LB as a shared propagation medium for CeMbio strains.
+- name: Nematode growth medium seeded with CeMbio
+  temperature: '20'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  preparation_notes: Synchronized C. elegans L1 larvae were raised on NGM or peptone-free NGM seeded with
+    CeMbio bacterial inoculum.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Around 50 synchronized C. elegans stage 1 larvae (L1) were raised at 20° on NGM
+    explanation: Supports NGM plate use and host incubation temperature.
+associated_datasets:
+- name: Exact-composition publication - CeMbio twelve-strain microbiome resource
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PMID:32669368
+  url: https://pubmed.ncbi.nlm.nih.gov/32669368/
+  description: Primary CeMbio publication defining the twelve-strain reference community, member selection,
+    colonization assays, strain genomes, diagnostic primers, and metabolic models.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on the above analyses, we selected 12 isolates to constitute the CeMbio resource.
+    explanation: Lists the primary publication defining the exact CeMbio composition.
+- name: Exact-composition publication - CeMbio odor preference study
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:38228683
+  url: https://pubmed.ncbi.nlm.nih.gov/38228683/
+  description: Follow-up publication studying C. elegans odor preference toward the same twelve CeMbio
+    reference strains.
+  evidence:
+  - reference: PMID:38228683
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: twelve bacterial species that comprise CeMbio
+    explanation: Lists a follow-up publication using the same exact CeMbio reference strain composition.
+- name: CeMbio whole-genome sequencing BioProject
+  dataset_type: GENOME
+  repository: OTHER
+  accession: PRJEB37895
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB37895
+  description: European Nucleotide Archive genome sequencing data for the CeMbio bacterial strains.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Whole genome sequencing data for the bacteria are available in the European Nucleotide Archive (accession number PRJEB37895)
+    explanation: Supports the CeMbio genome dataset accession.
+- name: CeMbio 16S amplicon sequencing datasets
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: PRJEB37101; PRJEB37154
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB37101
+  description: Public 16S amplicon sequencing datasets from CeMbio colonization experiments.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Microbiome 16S amplicon sequencing data are publicly available under accession numbers PRJEB37101
+    explanation: Supports public 16S data associated with CeMbio community experiments.
+external_resources:
+- name: CeMbio strain resource at Caenorhabditis Genetics Center
+  repository: OTHER
+  resource_id: CeMbio
+  url: https://cgc.umn.edu/
+  description: CGC distributes CeMbio strains; the primary paper instructs users to search for CeMbio in strain descriptions.
+  evidence:
+  - reference: PMID:32669368
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: all isolates are available from the Caenorhabditis Genetics Center (CGC, http://cgc.umn.edu; search for ‘CeMbio’ in strain descriptions)
+    explanation: Supports public strain availability for the defined community.
+metal_relevance: NOT_APPLICABLE
