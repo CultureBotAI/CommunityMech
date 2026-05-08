@@ -1,0 +1,260 @@
+id: CommunityMech:000158
+name: Bacteroides-Eubacterium Gnotobiotic Gut Model
+description: >
+  A defined two-member gnotobiotic mouse gut model pairing the human gut Bacteroidetes member
+  Bacteroides thetaiotaomicron VPI-5482 with the human gut Firmicutes member Eubacterium rectale
+  ATCC 33656. The model was used to examine niche specialization and metabolic interaction between
+  dominant human gut phyla under controlled host and diet conditions. B. thetaiotaomicron expands
+  polysaccharide utilization and host mucin glycan foraging in the presence of E. rectale, while
+  E. rectale shifts away from glycan-degrading enzymes toward amino acid and sugar transport,
+  glycolytic support, and butyrate generation from acetate.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Test microbial niche specialization, metabolic interaction, and host response in a simplified
+    representative of the two dominant human gut bacterial phyla.
+  assembly_strategy: Colonize germ-free mice with B. thetaiotaomicron VPI-5482, E. rectale ATCC 33656,
+    or the defined two-member combination, then compare microbial and host responses across diets.
+  perturbation_design: Compare monoassociation and biassociation under three dietary conditions.
+  measurement_endpoints:
+  - microbial whole-genome transcriptional profiles
+  - cecal protein measurements
+  - cecal carbohydrate-metabolism assays
+  - short-chain fatty acid concentrations
+  - host gut transcriptional response
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: performing whole-genome transcriptional profiling of each species after colonization of gnotobiotic mice with each organism alone, or in combination under 3 dietary conditions
+    explanation: Supports the monoassociation, biassociation, diet-perturbation, and transcriptional measurement design.
+environment_term:
+  preferred_term: gnotobiotic mouse gut environment
+  term:
+    id: ENVO:0001998
+    label: human gut environment
+  notes: The organisms are human gut-derived strains tested in the distal gut of gnotobiotic mice as a
+    controlled model of human gut microbial interactions.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron VPI-5482
+    term:
+      id: NCBITaxon:226186
+      label: Bacteroides thetaiotaomicron VPI-5482
+    notes: Human gut Bacteroidetes member used as the polysaccharide-foraging partner.
+  strain_designation:
+    strain_name: VPI-5482
+    culture_collections:
+    - collection: ATCC
+      accession: '29148'
+      notes: Type strain equivalent reported by NCBI taxonomy for B. thetaiotaomicron.
+    - collection: DSM
+      accession: '2079'
+      notes: Type strain equivalent reported by NCBI taxonomy for B. thetaiotaomicron.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Germ-free mice were then colonized with E. rectale and/or a prominent human gut Bacteroidetes, Bacteroides thetaiotaomicron
+    explanation: Supports B. thetaiotaomicron as a member of the gnotobiotic model.
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The finished genome sequences of B. thetaiotaomicron VPI-5482
+    explanation: Supports the VPI-5482 strain identity used in the study.
+- taxon_term:
+    preferred_term: Eubacterium rectale ATCC 33656
+    term:
+      id: NCBITaxon:515619
+      label: Agathobacter rectalis ATCC 33656
+    notes: Literature name retained in preferred_term; NCBI currently labels the strain as Agathobacter
+      rectalis ATCC 33656 and lists Eubacterium rectale ATCC 33656 as an equivalent name.
+  strain_designation:
+    strain_name: ATCC 33656
+    culture_collections:
+    - collection: ATCC
+      accession: '33656'
+    - collection: CIP
+      accession: '105953'
+    isolation_source: human feces
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Germ-free mice were then colonized with E. rectale and/or a prominent human gut Bacteroidetes, Bacteroides thetaiotaomicron
+    explanation: Supports E. rectale as a member of the gnotobiotic model.
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the human gut-derived E. rectale strain ATCC 33656
+    explanation: Supports the ATCC 33656 strain identity and human gut source.
+ecological_interactions:
+- name: Bacteroides Polysaccharide Niche Expansion
+  description: B. thetaiotaomicron responds to E. rectale by increasing expression of polysaccharide utilization
+    loci and broadening glycan foraging, including host-derived mucin glycans that E. rectale cannot use.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Eubacterium rectale ATCC 33656
+    term:
+      id: NCBITaxon:515619
+      label: Agathobacter rectalis ATCC 33656
+  target_taxon:
+    preferred_term: Bacteroides thetaiotaomicron VPI-5482
+    term:
+      id: NCBITaxon:226186
+      label: Bacteroides thetaiotaomicron VPI-5482
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: B. thetaiotaomicron adapts to the presence of E. rectale by up-regulating a variety of loci specific for host-derived mucin glycans that E. rectale is unable to use
+    explanation: Supports E. rectale-dependent niche expansion by B. thetaiotaomicron toward mucin glycan use.
+- name: Eubacterium Transport and Butyrate Shift
+  description: E. rectale responds to B. thetaiotaomicron by reducing glycan-degrading enzyme production,
+    increasing transport functions, and supporting glycolysis through butyrate generation from acetate.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacteroides thetaiotaomicron VPI-5482
+    term:
+      id: NCBITaxon:226186
+      label: Bacteroides thetaiotaomicron VPI-5482
+  target_taxon:
+    preferred_term: Eubacterium rectale ATCC 33656
+    term:
+      id: NCBITaxon:515619
+      label: Agathobacter rectalis ATCC 33656
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  biological_processes:
+  - preferred_term: butyrate biosynthetic process
+    term:
+      id: GO:0019605
+      label: butyrate biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: E. rectale adapts to B. thetaiotaomicron by decreasing production of its glycan-degrading enzymes, increasing expression of selected amino acid and sugar transporters
+    explanation: Supports the B. thetaiotaomicron-dependent shift in E. rectale expression.
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: generation of butyrate from acetate
+    explanation: Supports acetate-to-butyrate metabolism as a mechanistic feature of the interaction.
+- name: Cecal Short-Chain Fatty Acid Remodeling
+  description: Cocolonization changes cecal short-chain fatty acid pools, including lower acetate relative
+    to B. thetaiotaomicron monoassociation while maintaining butyrate output associated with E. rectale.
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: cecal acetate levels are significantly lower in cocolonized mice compared with B. thetaiotaomicron monoassociated animals
+    explanation: Supports short-chain fatty acid remodeling during B. thetaiotaomicron-E. rectale cocolonization.
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: cecal butyrate levels are similar in E. rectale mono- and biassociated animals
+    explanation: Supports maintenance of E. rectale-associated butyrate in the two-member community.
+environmental_factors:
+- name: germ-free mouse host
+  value: Germ-free mice colonized with one or both human gut-derived strains.
+  description: The controlled host background enabled direct comparison between monoassociated and biassociated
+    microbial states.
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Germ-free mice were then colonized with E. rectale and/or a prominent human gut Bacteroidetes, Bacteroides thetaiotaomicron
+    explanation: Supports the gnotobiotic host model.
+- name: dietary perturbation
+  value: three dietary conditions
+  description: The model compared microbial interaction responses across diet treatments rather than a
+    single fixed host diet.
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: in combination under 3 dietary conditions
+    explanation: Supports diet as a controlled environmental factor.
+associated_datasets:
+- name: Exact-composition publication - Bacteroides thetaiotaomicron VPI-5482 and Eubacterium rectale ATCC 33656
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:19321416
+  url: https://pubmed.ncbi.nlm.nih.gov/19321416/
+  description: Primary publication reporting the exact two-member gnotobiotic mouse model, with microbial
+    transcriptomics, proteomics, metabolite assays, and host-response measurements.
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Germ-free mice were then colonized with E. rectale and/or a prominent human gut Bacteroidetes, Bacteroides thetaiotaomicron
+    explanation: Lists the publication using this exact defined composition.
+- name: Bacteroides-Eubacterium gnotobiotic mouse GEO datasets
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE14686; GSE14709; GSE14737
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE14686
+  description: GEO accessions deposited with the PNAS study for transcriptional profiling data from the
+    gnotobiotic model.
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: accession nos. GSE14686, 14709, 14737
+    explanation: Links the reported GEO accessions to the curated community record.
+- name: Eubacterium rectale ATCC 33656 complete genome project
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA29071
+  url: https://www.ncbi.nlm.nih.gov/bioproject/29071
+  description: NCBI BioProject for the E. rectale ATCC 33656 genome sequenced in the same study.
+  evidence:
+  - reference: PMID:19321416
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: CP001107 (ATCC 33656, Eubacterium rectale)
+    explanation: Supports the E. rectale ATCC 33656 genome accession linked to this community.
+metal_relevance: NOT_APPLICABLE
