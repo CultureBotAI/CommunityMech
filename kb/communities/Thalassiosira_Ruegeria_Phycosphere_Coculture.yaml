@@ -1,0 +1,285 @@
+id: CommunityMech:000162
+name: Thalassiosira-Ruegeria Phycosphere Coculture
+description: >
+  A defined two-member marine phytoplankton-bacterium model community composed of the diatom
+  Thalassiosira pseudonana CCMP1335 and the heterotrophic roseobacter Ruegeria pomeroyi DSS-3.
+  The coculture is used to study bacterial recognition by a diatom, phytoplankton-derived metabolite
+  transfer, and bacterial use of recent photosynthate in a controlled marine algal medium.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Build a tractable two-member marine phycosphere model for testing diatom-bacterium
+    recognition and exchange of phytoplankton-derived metabolites.
+  assembly_strategy: Grow axenic T. pseudonana CCMP1335 in organic carbon-free L1 +Si medium, then
+    inoculate washed R. pomeroyi DSS-3 cells into the diatom culture for pairwise coculture assays.
+  perturbation_design: Compare axenic diatom cultures, bacterial monoculture controls, and pairwise
+    T. pseudonana plus R. pomeroyi cocultures with transcriptomic and metabolomic measurements.
+  measurement_endpoints:
+  - diatom differential gene expression
+  - intracellular metabolite changes
+  - bacterial transporter and catabolic gene expression
+  - exometabolite uptake by mass spectrometry
+  - public RNA-seq and metabolomics datasets
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterium Ruegeria pomeroyi DSS-3 triggered differential expression of >80 genes in diatom Thalassiosira pseudonana CCMP1335
+    explanation: Supports the two-member model-system design and the diatom response endpoint.
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pairwise co-culture systems were established with the diatom Thalassiosira pseudonana as the sole source of substrates for Ruegeria pomeroyi DSS-3
+    explanation: Supports the pairwise coculture design and the role of the diatom as the substrate source.
+environment_term:
+  preferred_term: laboratory marine phytoplankton coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The curated community is a controlled laboratory pairwise coculture of marine-derived organisms in
+    L1 +Si medium; the biological context is a marine phycosphere phototroph-heterotroph interaction.
+taxonomy:
+- taxon_term:
+    preferred_term: Thalassiosira pseudonana CCMP1335
+    term:
+      id: NCBITaxon:296543
+      label: Thalassiosira pseudonana CCMP1335
+    notes: Diatom strain CCMP1335, the photosynthetic member of the pairwise coculture.
+  abundance_value: One of two members in the defined coculture.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: diatom Thalassiosira pseudonana CCMP1335
+    explanation: Supports T. pseudonana CCMP1335 as the diatom member of the exact pair.
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. pseudonana 1335 (National Center for Marine Algae) was grown axenically in organic carbon-free medium L1 +Si
+    explanation: Supports the strain and axenic starting culture for the pairwise coculture study.
+- taxon_term:
+    preferred_term: Ruegeria pomeroyi DSS-3
+    term:
+      id: NCBITaxon:246200
+      label: Ruegeria pomeroyi DSS-3
+    notes: Heterotrophic roseobacter strain DSS-3, inoculated into the diatom culture in pairwise coculture.
+  abundance_value: One of two members in the defined coculture.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ruegeria pomeroyi DSS-3
+    explanation: Supports R. pomeroyi DSS-3 as the bacterial member of the exact pair.
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacteria pre-grown in YTSS medium were washed five times in sterile L1 medium and inoculated into three replicate diatom cultures
+    explanation: Supports the bacterial inoculation step used to assemble the pairwise coculture.
+ecological_interactions:
+- name: Diatom Recognition of Ruegeria
+  description: T. pseudonana changes gene expression in response to R. pomeroyi DSS-3, indicating a
+    recognition response in the two-member model system.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Ruegeria pomeroyi DSS-3
+    term:
+      id: NCBITaxon:246200
+      label: Ruegeria pomeroyi DSS-3
+  target_taxon:
+    preferred_term: Thalassiosira pseudonana CCMP1335
+    term:
+      id: NCBITaxon:296543
+      label: Thalassiosira pseudonana CCMP1335
+  biological_processes:
+  - preferred_term: cell communication
+    term:
+      id: GO:0007154
+      label: cell communication
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterium Ruegeria pomeroyi DSS-3 triggered differential expression of >80 genes in diatom Thalassiosira pseudonana CCMP1335
+    explanation: Supports Ruegeria-triggered diatom recognition or response in the exact two-member system.
+- name: Phytoplankton Metabolite Transfer to Ruegeria
+  description: T. pseudonana provides organic substrates that support R. pomeroyi growth, including
+    sulfonates, sugar derivatives, and organic nitrogen compounds inferred from multi-omics measurements.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Thalassiosira pseudonana CCMP1335
+    term:
+      id: NCBITaxon:296543
+      label: Thalassiosira pseudonana CCMP1335
+  target_taxon:
+    preferred_term: Ruegeria pomeroyi DSS-3
+    term:
+      id: NCBITaxon:246200
+      label: Ruegeria pomeroyi DSS-3
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we hypothesize that nine diatom metabolites supported the majority of bacterial growth, among them sulfonates, sugar derivatives and organic nitrogen compounds
+    explanation: Supports diatom-to-Ruegeria metabolite transfer and candidate metabolite classes.
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: marine phytoplankter T. pseudonana CCMP1335 served as the sole carbon source for three bacterial strains
+    explanation: Supports the experimental premise that diatom products served as the bacterial carbon source, including in the R. pomeroyi pairwise coculture.
+- name: Diatom Chitin and Lipid Response During Coculture
+  description: Coculture with R. pomeroyi is associated with T. pseudonana transcriptional shifts in
+    lipid biosynthesis and chitin metabolism, linking the interaction to diatom cell-surface and carbon
+    allocation processes.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Ruegeria pomeroyi DSS-3
+    term:
+      id: NCBITaxon:246200
+      label: Ruegeria pomeroyi DSS-3
+  target_taxon:
+    preferred_term: Thalassiosira pseudonana CCMP1335
+    term:
+      id: NCBITaxon:296543
+      label: Thalassiosira pseudonana CCMP1335
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultured diatoms also downregulated lipid biosynthesis genes and upregulated chitin metabolism genes.
+    explanation: Supports diatom metabolic reprogramming during coculture with the bacterial partner.
+environmental_factors:
+- name: organic carbon-free L1 +Si medium
+  value: L1 +Si medium without added organic carbon
+  description: Axenic diatoms were grown in organic carbon-free L1 +Si medium before bacterial inoculation,
+    making diatom-derived compounds the relevant organic substrate source for R. pomeroyi in coculture.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. pseudonana 1335 (National Center for Marine Algae) was grown axenically in organic carbon-free medium L1 +Si
+    explanation: Supports the medium and organic-carbon constraint used for the pairwise coculture.
+- name: diatom culture age at inoculation
+  value: bacteria inoculated after 7 days of diatom growth
+  description: R. pomeroyi DSS-3 was introduced after a seven-day axenic diatom growth period in the
+    resource-partitioning coculture experiment.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After the diatom cultures had been growing for 7 days, bacteria pre-grown in YTSS medium were washed
+    explanation: Supports the timing and washing step used before assembly of the pairwise coculture.
+- name: marine photosynthate availability
+  value: dissolved metabolites released by T. pseudonana
+  description: The system models bacterial transformation of recent photosynthate from marine phytoplankton.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Exometabolite uptake pattern points to a key role for ecological resource partitioning in the assembly marine bacterial communities transforming recent photosynthate.
+    explanation: Supports the ecological framing of diatom exometabolites as recent photosynthate used by marine bacteria.
+growth_media:
+- name: L1 +Si marine diatom coculture medium
+  atmosphere: AEROBIC
+  preparation_notes: T. pseudonana CCMP1335 was grown axenically in organic carbon-free L1 +Si medium;
+    R. pomeroyi DSS-3 was pre-grown in YTSS, washed repeatedly in sterile L1 medium, and inoculated into
+    replicate diatom cultures.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacteria pre-grown in YTSS medium were washed five times in sterile L1 medium and inoculated into three replicate diatom cultures
+    explanation: Supports bacterial preparation and coculture inoculation conditions.
+associated_datasets:
+- name: Exact-composition publication - Thalassiosira-Ruegeria recognition cascade
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:28631440
+  url: https://pubmed.ncbi.nlm.nih.gov/28631440/
+  description: Primary two-member model-system publication reporting T. pseudonana CCMP1335 responses to
+    R. pomeroyi DSS-3 and inferred metabolite transfer.
+  evidence:
+  - reference: PMID:28631440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two-member model system
+    explanation: Lists a publication using the exact T. pseudonana CCMP1335 plus R. pomeroyi DSS-3 composition.
+- name: Exact-composition publication - pairwise diatom exometabolite use by Ruegeria
+  dataset_type: METABOLOMICS
+  repository: OTHER
+  accession: PMID:33097854
+  url: https://pubmed.ncbi.nlm.nih.gov/33097854/
+  description: Follow-up pairwise coculture publication that includes T. pseudonana as the substrate source
+    for R. pomeroyi DSS-3 and compares exometabolite use across bacterial partners.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pairwise co-culture systems were established with the diatom Thalassiosira pseudonana as the sole source of substrates for Ruegeria pomeroyi DSS-3
+    explanation: Lists a second publication explicitly using the exact T. pseudonana plus R. pomeroyi pair.
+- name: Diatom-bacterium coculture RNA-seq BioProject
+  dataset_type: METATRANSCRIPTOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA448168
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA448168
+  description: Public RNA-seq data associated with pairwise T. pseudonana coculture experiments.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Raw RNA-seq data are available in the NCBI SRA BioProject database under accession PRJNA448168.
+    explanation: Supports the public transcriptomics dataset accession for the coculture experiments.
+- name: Diatom-bacterium coculture metabolomics data
+  dataset_type: METABOLOMICS
+  repository: OTHER
+  accession: MTBLS1751; MTBLS1544
+  url: https://www.ebi.ac.uk/metabolights/
+  description: MetaboLights datasets for intracellular and exometabolite measurements used in the pairwise
+    diatom-bacterium coculture study.
+  evidence:
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: All MS data are available at MetaboLights under accession number MTBLS1751.
+    explanation: Supports public metabolomics data associated with the coculture experiments.
+  - reference: PMID:33097854
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Raw data, peak lists, and analysis scripts are available at MetaboLights under accession MTBLS1544.
+    explanation: Supports the exometabolomics data and analysis resource for the coculture study.
+metal_relevance: NOT_APPLICABLE
