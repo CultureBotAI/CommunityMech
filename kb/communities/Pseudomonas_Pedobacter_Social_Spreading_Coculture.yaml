@@ -1,0 +1,238 @@
+id: CommunityMech:000161
+name: Pseudomonas-Pedobacter Social Spreading Coculture
+description: >
+  A two-species soil-bacterial model community composed of Pseudomonas fluorescens Pf0-1 and
+  Pedobacter sp. V48. When mixed on low-nutrient, high-salt hard agar, the two sessile monocultures
+  produce an emergent interspecies social spreading phenotype in which both bacteria comigrate across
+  the agar surface. The system is used to study contact-dependent and environment-dependent emergent
+  motility in small soil microbial communities.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Build a tractable two-species soil model community for mechanistic study of emergent
+    interspecies motility and spatial organization.
+  assembly_strategy: Mix Pseudomonas fluorescens Pf0-1 with Pedobacter sp. V48 on low-nutrient,
+    high-salt hard agar and compare the coculture with each monoculture.
+  perturbation_design: Test contact requirements, nutrient level, salt concentration, initial species
+    ratios, fluorescent strain tagging, and related Pseudomonas/Pedobacter isolate pairs.
+  measurement_endpoints:
+  - colony expansion on hard agar
+  - comigration of both species through the spreading colony
+  - spatial organization by fluorescent microscopy
+  - nutrient and salt dependence of social spreading
+  - related-isolate induction of social spreading
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In our two-species model community, we find an emergent trait resulting from the interaction of the soil bacteria Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48.
+    explanation: Supports the identity, model-community design, and emergent-interaction objective.
+environment_term:
+  preferred_term: soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Both members are soil bacteria studied as a simplified in vitro soil-community interaction model.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas fluorescens Pf0-1
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+    notes: Soil isolate Pf0-1; represented at species level for ontology stability.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two members in the coculture.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48
+    explanation: Supports the Pseudomonas member of the defined two-species pair.
+  - reference: PMID:34288708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48 engage in interspecies social spreading
+    explanation: Supports reuse of the same exact Pseudomonas-Pedobacter pair in the follow-up study.
+- taxon_term:
+    preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
+    notes: Soil-associated Pedobacter isolate V48; represented at genus level because the publication names
+      the strain as Pedobacter sp. V48.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two members in the coculture.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48
+    explanation: Supports the Pedobacter member of the defined two-species pair.
+  - reference: PMID:34288708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48 interact
+    explanation: Supports the Pedobacter member in the exact-pair follow-up study.
+ecological_interactions:
+- name: Interspecies Social Spreading
+  description: Coculture of P. fluorescens Pf0-1 and Pedobacter sp. V48 reveals an emergent surface
+    spreading phenotype on hard agar where neither monoculture spreads under the same conditions.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
+  target_taxon:
+    preferred_term: Pseudomonas fluorescens Pf0-1
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  biological_processes:
+  - preferred_term: locomotion
+    term:
+      id: GO:0040011
+      label: locomotion
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture reveals an emergent phenotype that we term “interspecies social spreading,” where the mixed colony spreads across the hard surface
+    explanation: Supports the emergent coculture motility phenotype.
+- name: Pseudomonas-Pedobacter Comigration
+  description: Both species remain present across the spreading colony, so the behavior is comigration
+    rather than one species escaping the other.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Pseudomonas fluorescens Pf0-1
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  target_taxon:
+    preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
+  biological_processes:
+  - preferred_term: locomotion
+    term:
+      id: GO:0040011
+      label: locomotion
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both species remain associated throughout the spreading colony
+    explanation: Supports the comigration interaction and continued association during colony expansion.
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we recovered both species from each point in the spreading colony
+    explanation: Supports that both members occupy center, middle, and edge regions of the spreading colony.
+- name: Contact-Dependent Initiation
+  description: In the canonical Pf0-1 plus V48 pair, initiation of social spreading requires physical
+    proximity or contact between the two species.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Pedobacter sp. V48
+    term:
+      id: NCBITaxon:84567
+      label: Pedobacter
+  target_taxon:
+    preferred_term: Pseudomonas fluorescens Pf0-1
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  biological_processes:
+  - preferred_term: cell communication
+    term:
+      id: GO:0007154
+      label: cell communication
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: initiation of social spreading requires close association between the two species of bacteria
+    explanation: Supports the contact/proximity dependence of the canonical pair.
+environmental_factors:
+- name: low-nutrient high-salt hard agar
+  value: TSB-NK medium with 2% agar, requiring low nutrient and high NaCl conditions for Pf0-1 plus V48 social spreading
+  description: Social spreading is conditional on medium composition; high nutrient conditions prevent
+    spreading, and the canonical Pf0-1 plus V48 pair requires added salt under low-nutrient conditions.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: low-nutrient conditions are insufficient to promote social spreading without high salt concentrations
+    explanation: Supports the low-nutrient and high-salt environmental requirement.
+  - reference: PMID:34288708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: While Pf0-1+V48 require low nutrient but high NaCl conditions
+    explanation: Supports the same environment dependence in the exact-pair follow-up study.
+- name: hard agar surface
+  value: 2% agar surface not permissive for monoculture motility
+  description: The emergent behavior is observed on a hard agar surface where each individual species
+    remains sessile under the tested conditions.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: On hard agar, which is not permissive for motility of the monoculture of either species
+    explanation: Supports the hard-surface condition and monoculture contrast.
+growth_media:
+- name: TSB-NK hard agar social spreading medium
+  temperature: '25'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  preparation_notes: Low-nutrient, high-NaCl TSB-NK medium solidified with 2% agar; mixed Pf0-1 and V48
+    colonies were incubated on the agar surface to assay spreading.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TSB-NK medium solidified with 2% agar
+    explanation: Supports the hard agar medium used for the social-spreading assay.
+associated_datasets:
+- name: Exact-composition publication - Pseudomonas-Pedobacter social spreading
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:30700513
+  url: https://pubmed.ncbi.nlm.nih.gov/30700513/
+  description: Primary publication defining the Pf0-1 plus V48 two-species community and its emergent
+    interspecies social spreading phenotype.
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This simple two-species consortium is a tractable model system
+    explanation: Lists the primary publication defining the exact two-member model community.
+- name: Exact-composition publication - prevalence and variation of social spreading
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:34288708
+  url: https://pubmed.ncbi.nlm.nih.gov/34288708/
+  description: Follow-up study that revisits the exact Pf0-1 plus V48 pair while testing whether social
+    spreading is conserved among related Pseudomonas fluorescens and Pedobacter isolates.
+  evidence:
+  - reference: PMID:34288708
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We previously showed that cocultured Pseudomonas fluorescens Pf0-1 and Pedobacter sp. V48 engage in interspecies social spreading
+    explanation: Lists a follow-up publication explicitly discussing the same exact two-member pair.
+metal_relevance: NOT_APPLICABLE
