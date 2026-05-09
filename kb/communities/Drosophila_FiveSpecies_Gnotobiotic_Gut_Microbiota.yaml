@@ -1,0 +1,264 @@
+id: CommunityMech:000160
+name: Drosophila Five-Species Gnotobiotic Gut Microbiota
+description: >
+  A defined five-species Drosophila melanogaster gut microbiota assembled from fly-gut isolates of
+  Acetobacter pomorum, Acetobacter tropicalis, Lactobacillus brevis, Lactobacillus fructivorans, and
+  Lactobacillus plantarum. The community was used to colonize axenic Drosophila and test how
+  Acetobacter-Lactobacillus interactions shape host development, glucose, triglyceride allocation, and
+  host-genotype-dependent microbiota effects.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Reconstitute a low-diversity Drosophila gut microbiota with cultured Acetobacter and
+    Lactobacillus isolates to test host nutritional traits and interspecies effects.
+  assembly_strategy: Mix equal parts of five fly-gut bacterial isolates representing dominant Acetobacter
+    and Lactobacillus members of the laboratory Drosophila gut microbiota.
+  inoculation_strategy: Add a defined bacterial suspension to sterile food immediately after aseptic
+    transfer of surface-sterilized Drosophila eggs.
+  perturbation_design: Compare axenic, conventional, monoassociated, dual-species, and five-species
+    gnotobiotic flies.
+  measurement_endpoints:
+  - development time to pupation and eclosion
+  - glucose content
+  - triglyceride content
+  - bacterial abundance in flies
+  - host genotype effects on microbiota-dependent nutritional traits
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Gnotobiotic flies were constructed with one or a set of five of the Acetobacter and Lactobacillus species
+    explanation: Supports the defined gnotobiotic assembly strategy and the five-member experimental design.
+environment_term:
+  preferred_term: Drosophila melanogaster gut
+  term:
+    id: UBERON:0000160
+    label: intestine
+  notes: The defined community was introduced to Drosophila eggs and assayed as a fly gut microbiota.
+taxonomy:
+- taxon_term:
+    preferred_term: Drosophila gut Acetobacter isolates
+    term:
+      id: NCBITaxon:434
+      label: Acetobacter
+    notes: Represents Acetobacter pomorum DmelCS_004 and Acetobacter tropicalis DmelCS_006 in the defined
+      five-species microbiota.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  abundance_value: Two of five bacterial species in the defined gnotobiotic community.
+  evidence:
+  - reference: PMID:25692519
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Acetobacter pomorum DmelCS_004, A. tropicalis DmelCS_006
+    explanation: Supports the two Acetobacter members and their strain identifiers in the exact-composition follow-up study.
+  - reference: PMID:21631690
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: could be assigned to Acetobacter pomorum, A. tropicalis
+    explanation: Supports that these Acetobacter taxa were dominant members of the source Drosophila gut community.
+- taxon_term:
+    preferred_term: Drosophila gut Lactobacillus isolates
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+    notes: Represents Lactobacillus brevis DmelCS_003, Lactobacillus fructivorans DmelCS_002, and
+      Lactobacillus plantarum DmelCS_001, using names from the source publications.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  abundance_value: Three of five bacterial species in the defined gnotobiotic community.
+  evidence:
+  - reference: PMID:25692519
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Lactobacillus brevis DmelCS_003, L. fructivorans DmelCS_002 and L. plantarum DmelCS_001
+    explanation: Supports the three Lactobacillus members and their strain identifiers in the exact-composition follow-up study.
+  - reference: PMID:21631690
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Lactobacillus brevis, L. fructivorans and L. plantarum
+    explanation: Supports that these Lactobacillus taxa were dominant members of the source Drosophila gut community.
+- taxon_term:
+    preferred_term: Drosophila melanogaster
+    term:
+      id: NCBITaxon:7227
+      label: Drosophila melanogaster
+    notes: Fruit-fly host colonized with the defined bacterial community.
+  abundance_value: Host organism for the defined gut microbiota.
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Using the Drosophila melanogaster gut microbiota
+    explanation: Supports the host and gut microbiota study context.
+ecological_interactions:
+- name: Acetobacter-Lactobacillus Nutrient Allocation Interaction
+  description: Acetobacter and Lactobacillus members jointly restore host triglyceride phenotypes that
+    are not restored by Lactobacillus alone, linking interspecies effects to host nutrient allocation.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Drosophila gut Lactobacillus isolates
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  target_taxon:
+    preferred_term: Drosophila gut Acetobacter isolates
+    term:
+      id: NCBITaxon:434
+      label: Acetobacter
+  biological_processes:
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Only flies with both Acetobacter and Lactobacillus had triglyceride contents restored to the level in conventional flies.
+    explanation: Supports a non-additive community effect involving both bacterial groups and host triglyceride allocation.
+- name: Lactobacillus Promotion of Acetobacter Abundance
+  description: Lactobacillus cocolonization increases Acetobacter abundance in flies, explaining a
+    nonmodular microbiota effect on host triglyceride content.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Drosophila gut Lactobacillus isolates
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  target_taxon:
+    preferred_term: Drosophila gut Acetobacter isolates
+    term:
+      id: NCBITaxon:434
+      label: Acetobacter
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Lactobacillus-mediated promotion of Acetobacter abundance in the fly
+    explanation: Supports facilitation of Acetobacter abundance by Lactobacillus during fly colonization.
+- name: Microbiota-Dependent Host Nutrition
+  description: The five-species community was used to quantify microbiota-dependent Drosophila nutritional
+    phenotypes including development, glucose, triglyceride, glycogen, protein, and weight.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Drosophila five-species bacterial microbiota
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Drosophila melanogaster
+    term:
+      id: NCBITaxon:7227
+      label: Drosophila melanogaster
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The low glucose content of conventional flies was recapitulated in gnotobiotic Drosophila flies colonized with any of the 5 bacterial taxa tested.
+    explanation: Supports microbiota-dependent effects on host glucose levels.
+  - reference: PMID:25692519
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Gnotobiotic Drosophila associated with a defined five-species microbiota
+    explanation: Supports reuse of the same defined community to measure microbiota-dependent host nutritional traits.
+environmental_factors:
+- name: Drosophila yeast-glucose diet
+  value: Yeast-glucose agar diet at 25 C with a 12-hour light/dark cycle
+  description: Fly hosts were reared on a yeast-glucose diet under controlled incubator conditions before
+    and during gnotobiotic community assays.
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Wolbachia-free Drosophila melanogaster Canton S flies were reared at 25
+    explanation: Supports controlled Drosophila host-rearing conditions.
+- name: five-species inoculum density
+  value: 5 x 10^6 total bacterial cells per vial, equal parts for multispecies inocula
+  description: The five bacterial members were normalized by optical density, resuspended, and mixed in
+    equal parts before introduction to sterile food.
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: For microbiota of >1 species, each component was added in equal parts to make up the total inoculum
+    explanation: Supports equal-part inoculum assembly for the five-member community.
+growth_media:
+- name: modified MRS for bacterial maintenance
+  temperature: '30'
+  temperature_unit: C
+  atmosphere: FACULTATIVE_ANAEROBIC
+  preparation_notes: Acetobacter members were maintained aerobically, while Lactobacillus plates were kept
+    under carbon dioxide-enriched conditions.
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All bacteria were maintained on MMRS medium at 30
+    explanation: Supports modified MRS and incubation temperature for bacterial propagation.
+associated_datasets:
+- name: Exact-composition publication - Drosophila five-species gnotobiotic microbiota
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:24242251
+  url: https://pubmed.ncbi.nlm.nih.gov/24242251/
+  description: Primary publication defining the five-species Drosophila gnotobiotic community and measuring
+    development, glucose, triglycerides, and Acetobacter-Lactobacillus interactions.
+  evidence:
+  - reference: PMID:24242251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: To assess the performance of gnotobiotic flies colonized with our gut microbiota isolates
+    explanation: Lists the primary publication for the exact five-species gnotobiotic community.
+- name: Exact-composition publication - host genotype and microbiota-dependent nutrition
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:25692519
+  url: https://pubmed.ncbi.nlm.nih.gov/25692519/
+  description: Follow-up genome-wide association study using the same five-species bacterial suspension
+    to measure host-genotype-dependent nutritional responses.
+  evidence:
+  - reference: PMID:25692519
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The bacterial suspension comprised equal proportions of Acetobacter pomorum DmelCS_004
+    explanation: Lists a second publication using the same exact five-species community composition.
+- name: Source community publication - low-diversity Drosophila gut microbiota
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: PMID:21631690
+  url: https://pubmed.ncbi.nlm.nih.gov/21631690/
+  description: Amplicon survey identifying the five low-diversity Drosophila gut taxa that motivated the
+    defined gnotobiotic community.
+  evidence:
+  - reference: PMID:21631690
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The sequence reads were dominated by 5 operational taxonomic units (OTUs)
+    explanation: Supports the five dominant source taxa for the defined community.
+metal_relevance: NOT_APPLICABLE
