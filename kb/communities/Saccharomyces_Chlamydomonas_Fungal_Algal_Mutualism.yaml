@@ -1,0 +1,240 @@
+id: CommunityMech:000165
+name: Saccharomyces-Chlamydomonas Fungal-Algal Mutualism
+description: >
+  A two-member synthetic fungal-algal community pairing Saccharomyces cerevisiae with
+  Chlamydomonas reinhardtii under engineered laboratory conditions that force reciprocal
+  carbon and nitrogen exchange. Yeast metabolizes glucose and supplies carbon dioxide to
+  the alga, while the alga photosynthetically releases oxygen and converts nitrite into
+  reduced nitrogen that supports yeast growth.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Engineer a tractable two-species fungal-algal mutualism by imposing reciprocal carbon and
+    nitrogen dependencies between model eukaryotes.
+  assembly_strategy: Pair S. cerevisiae with C. reinhardtii in sealed illuminated cocultures containing
+    glucose and oxidized nitrogen sources so that each partner supplies a limiting metabolite to the
+    other.
+  measurement_endpoints:
+  - yeast and algal cell density
+  - coculture productivity
+  - reciprocal carbon and nitrogen exchange
+  - evolved changes in mutualism strength
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: obligate mutualism between the yeast Saccharomyces cerevisiae and the alga Chlamydomonas reinhardtii
+    explanation: Supports the designed two-member fungal-algal community.
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reciprocal carbon and nitrogen exchange
+    explanation: Supports the engineered dependency used to create the mutualism.
+environment_term:
+  preferred_term: laboratory fungal-algal coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Engineered sealed microtiter-plate cocultures maintained under laboratory illumination.
+taxonomy:
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    notes: Budding yeast model organism used as the fungal partner in the engineered mutualism.
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the budding yeast Saccharomyces cerevisiae
+    explanation: Supports S. cerevisiae as a community member.
+- taxon_term:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+    notes: Green algal model organism used as the photosynthetic partner in the engineered mutualism.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the green alga Chlamydomonas reinhardtii
+    explanation: Supports C. reinhardtii as a community member.
+ecological_interactions:
+- name: Yeast Carbon Dioxide Provisioning
+  description: S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated
+    photosynthetically by C. reinhardtii under carbon-limited coculture conditions.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. cerevisiae metabolizes glucose to carbon dioxide
+    explanation: Supports carbon dioxide cross-feeding from yeast to alga.
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. reinhardtii fixes via photosynthesis
+    explanation: Supports algal use of yeast-derived carbon dioxide in the coculture.
+- name: Algal Oxygen Provisioning
+  description: C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in
+    the sealed coculture.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. reinhardtii fixes via photosynthesis
+    explanation: Supports algal oxygen production as part of the engineered reciprocal exchange.
+- name: Algal Reduced Nitrogen Provisioning
+  description: C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that
+    supports S. cerevisiae growth.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Chlamydomonas reinhardtii
+    term:
+      id: NCBITaxon:3055
+      label: Chlamydomonas reinhardtii
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. reinhardtii reduces nitrite (NO2−) into ammonia (NH3)
+    explanation: Supports reduced nitrogen transfer from alga to yeast.
+environmental_factors:
+- name: atmospheric carbon dioxide exclusion
+  description: Preventing access to atmospheric carbon dioxide makes the alga depend on yeast-derived
+    carbon dioxide and helps force obligate mutualism.
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preventing access to atmospheric CO2
+    explanation: Supports sealed carbon-limited cultivation as an environmental condition.
+- name: glucose and nitrite availability
+  description: Glucose and nitrite availability define the reciprocal carbon and nitrogen exchange
+    environment; omitting either substrate prevents the designed mutualism.
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose, or nitrite was omitted from the experiment
+    explanation: Supports glucose and nitrite as required environmental substrates.
+growth_media:
+- name: glucose and oxidized-nitrogen synthetic coculture medium
+  atmosphere: AEROBIC
+  light_regime: illuminated
+  preparation_notes: Sealed illuminated cocultures used glucose as the yeast carbon source and oxidized
+    nitrogen sources to impose reciprocal carbon and nitrogen dependencies.
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. cerevisiae metabolizes glucose to carbon dioxide
+    explanation: Supports glucose as a coculture substrate for the yeast partner.
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. reinhardtii reduces nitrite (NO2−) into ammonia (NH3)
+    explanation: Supports nitrite as the oxidized nitrogen source used by the algal partner.
+associated_datasets:
+- name: Yeast-alga early adaptation sequencing data
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA735257
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA735257
+  description: Raw sequencing data for the later exact-composition S. cerevisiae-C. reinhardtii
+    experimental-evolution study.
+external_resources:
+- name: Exact-composition publication - fungal-algal obligate mutualism
+  repository: OTHER
+  resource_id: PMID:24994654
+  url: https://pubmed.ncbi.nlm.nih.gov/24994654/
+  description: Primary paper establishing the engineered S. cerevisiae-C. reinhardtii obligate mutualism.
+  evidence:
+  - reference: PMID:24994654
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces cerevisiae and the alga Chlamydomonas reinhardtii
+    explanation: Lists the primary exact-composition publication for this species pair.
+- name: Exact-composition publication - yeast-alga early adaptation
+  repository: OTHER
+  resource_id: doi:10.1038/s41559-022-01923-8
+  url: https://doi.org/10.1038/s41559-022-01923-8
+  description: Later experimental-evolution study using the same two-species S. cerevisiae-C. reinhardtii
+    composition.
