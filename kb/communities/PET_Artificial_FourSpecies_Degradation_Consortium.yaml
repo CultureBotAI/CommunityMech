@@ -1,0 +1,360 @@
+id: CommunityMech:000163
+name: PET Artificial Four-Species Degradation Consortium
+description: >
+  An engineered artificial consortium for polyethylene terephthalate (PET) biodegradation composed of
+  two metabolically engineered Bacillus subtilis 168 strains that secrete PETase and MHETase, plus
+  Rhodococcus jostii RHA1 and Pseudomonas putida KT2440. The design partitions PET depolymerization,
+  terephthalic acid utilization, and ethylene glycol utilization across different members to reduce
+  product inhibition during PET degradation.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Construct an artificial microbial consortium that degrades PET and reduces inhibition from
+    the PET hydrolysis products terephthalic acid and ethylene glycol.
+  assembly_strategy: Combine engineered B. subtilis 168 PETase and MHETase secretion strains with
+    R. jostii RHA1 for TPA utilization and P. putida KT2440 for EG utilization in Wn medium.
+  perturbation_design: Build two-, three-, and four-member consortia and vary temperature, pH, medium,
+    and starting inoculation ratio to evaluate PET and BHET degradation.
+  measurement_endpoints:
+  - PET film weight loss
+  - BHET depletion
+  - terephthalic acid concentration
+  - ethylene glycol concentration
+  - HPLC quantification of PET hydrolysis products
+  - scanning electron microscopy of PET film surfaces
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: artificial microbial consortium composed of Rhodococcus jostii, Pseudomonas putida and two metabolically engineered Bacillus subtilis
+    explanation: Supports the engineered community identity and member composition.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study constructed and evaluated the artificial microbial consortia in PET degradation
+    explanation: Supports the artificial-consortium objective for complex-polymer degradation.
+environment_term:
+  preferred_term: laboratory PET degradation culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The curated community is a controlled engineered culture used for PET degradation assays in LB
+    and Wn media, not a naturally sampled plastic biofilm.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 Bs_PETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    notes: Engineered B. subtilis 168 strain carrying pHP13-P43-LipB-PETase; represented at species level
+      for ontology stability.
+  abundance_value: Engineered PETase-secretion module in the consortium.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. subtilis 168 (Bacillus Genetic Stock Center) was used as the starting strain
+    explanation: Supports the B. subtilis 168 chassis used to construct the engineered PETase module.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pHP13-P _{43}-LipB-PETase
+    explanation: Supports the PETase secretion construct assigned to this module.
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 Bs_MHETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    notes: Engineered B. subtilis 168 strain carrying pHP13-P43-LipB-MHETase; represented at species level
+      for ontology stability.
+  abundance_value: Engineered MHETase-secretion module in the consortium.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: one strain that could secrete MHETase
+    explanation: Supports construction of the engineered MHETase-secreting B. subtilis member.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: named B S _PETase and B S _MHETase
+    explanation: Supports the two engineered B. subtilis modules as distinct consortium members.
+- taxon_term:
+    preferred_term: Rhodococcus jostii RHA1
+    term:
+      id: NCBITaxon:101510
+      label: Rhodococcus jostii RHA1
+    notes: Wild-type R. jostii RHA1 added as the terephthalic-acid utilization module.
+  abundance_value: TPA-utilization member of the consortium.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Wild-type strains R. jostii RHA1
+    explanation: Supports R. jostii RHA1 as a member of the engineered consortium.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: adding R. jostii to reduce the inhibition caused by terephthalic acid
+    explanation: Supports the assigned TPA-utilization role.
+- taxon_term:
+    preferred_term: Pseudomonas putida KT2440
+    term:
+      id: NCBITaxon:160488
+      label: Pseudomonas putida KT2440
+    notes: Wild-type P. putida KT2440 added as the ethylene-glycol utilization module.
+  abundance_value: EG-utilization member of the consortium.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida KT2440 (ATCC(R) 47054)
+    explanation: Supports P. putida KT2440 as a member of the engineered consortium.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida was introduced to reduce the inhibition caused by ethylene glycol
+    explanation: Supports the assigned ethylene-glycol utilization role.
+ecological_interactions:
+- name: PETase-MHETase Depolymerization Module
+  description: The two engineered B. subtilis strains divide PET hydrolysis into PETase-mediated PET to
+    MHET conversion and MHETase-mediated MHET conversion to terephthalic acid and ethylene glycol.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillus subtilis 168 Bs_PETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Bacillus subtilis 168 Bs_MHETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: poly(ethylene terephthalate) macromolecule
+    term:
+      id: CHEBI:53259
+      label: poly(ethylene terephthalate) macromolecule
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PET is degraded into MHET catalyzed by PETase
+    explanation: Supports the PETase part of the depolymerization module.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MHET is degraded into TPA and EG catalyzed by MHETase
+    explanation: Supports the MHETase part of the depolymerization module.
+- name: Rhodococcus TPA Detoxification Module
+  description: R. jostii RHA1 uses terephthalic acid, reducing TPA inhibition of PETase activity and
+    improving PET degradation by the three- and four-member consortia.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillus subtilis 168 Bs_MHETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Rhodococcus jostii RHA1
+    term:
+      id: NCBITaxon:101510
+      label: Rhodococcus jostii RHA1
+  metabolites:
+  - preferred_term: terephthalic acid
+    term:
+      id: CHEBI:15702
+      label: terephthalic acid
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. jostii was added to reduce the inhibition caused by terephthalic acid
+    explanation: Supports the TPA detoxification role of R. jostii in the consortium.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The weight of PET film was reduced by 31.2% within 3 days
+    explanation: Supports efficient TPA utilization by the R. jostii module.
+- name: Pseudomonas EG Detoxification Module
+  description: P. putida KT2440 is added to consume ethylene glycol, another PET hydrolysis product,
+    making the four-member consortium more complete in product utilization.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillus subtilis 168 Bs_MHETase
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Pseudomonas putida KT2440
+    term:
+      id: NCBITaxon:160488
+      label: Pseudomonas putida KT2440
+  metabolites:
+  - preferred_term: ethylene glycol
+    term:
+      id: CHEBI:30742
+      label: ethylene glycol
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:1901575
+      label: organic substance catabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida was introduced to reduce the inhibition caused by ethylene glycol
+    explanation: Supports the EG detoxification role of P. putida in the consortium.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TPA and EG were not accumulated
+    explanation: Supports product utilization in the four-species consortium.
+- name: Nutrient-Mediated Competition Control
+  description: Because P. putida overgrew the other members in rich media, the four-member consortium
+    was shifted to Wn medium to constrain P. putida growth and maintain the engineered division of labor.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Pseudomonas putida KT2440
+    term:
+      id: NCBITaxon:160488
+      label: Pseudomonas putida KT2440
+  target_taxon:
+    preferred_term: engineered PETase/MHETase and TPA-utilization members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida strongly inhibited growth of the other three bacteria
+    explanation: Supports the competitive growth issue that motivated medium selection.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: obtaining a four-species microbial consortium
+    explanation: Supports medium choice as a way to stabilize the four-member consortium.
+environmental_factors:
+- name: PET film substrate
+  value: amorphous PET film, 0.25 mm thickness, cut and UV-treated before degradation assays
+  description: PET film was the insoluble polymer substrate used to evaluate consortium degradation by
+    gravimetric weight loss and surface microscopy.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PET film (ES301445, amorphous, transparent, 0.25 mm thickness)
+    explanation: Supports the PET substrate used in degradation assays.
+- name: TPA and EG product inhibition
+  value: terephthalic acid and ethylene glycol inhibit PET degradation
+  description: Product inhibition motivated addition of the R. jostii and P. putida utilization modules.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reduce the inhibition caused by ethylene glycol (EG)
+    explanation: Supports inhibition by PET hydrolysis products.
+- name: Wn medium for four-species balance
+  value: Wn inorganic salt medium with erythromycin during four-member PET degradation assays
+  description: Wn medium was selected to limit P. putida overgrowth and support all four members during
+    PET degradation.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PET film incubated with different consortia in Wn medium
+    explanation: Supports Wn medium as the four-species consortium PET degradation assay medium.
+growth_media:
+- name: LB seed culture and Wn PET degradation medium
+  temperature: '37'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  preparation_notes: Initial seed cultures were grown in LB; four-member PET degradation assays used washed
+    cells diluted in Wn medium with 2 ug/mL erythromycin and PET film as substrate.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: B. subtilis and P. putida were grown at 37°C and R. jostii was grown at 30°C
+    explanation: Supports the initial seed culture medium and incubation temperatures.
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium was inoculated into 20 mL W n medium with 2 μg/mL erythromycin
+    explanation: Supports the Wn medium and erythromycin condition used for four-member PET degradation assays.
+- name: Optimized four-member inoculation ratio
+  temperature: '37'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  preparation_notes: Optimized starting ratio was Bs_PETase:Bs_MHETase:R. jostii:P. putida = 3:1:10:10^-5
+    in Wn medium.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "optimal inoculation ratio of Bs _PETase: Bs _MHETase: R. jostii: P. putida was 3:1:10: 10-5"
+    explanation: Supports the optimized starting ratio for the four-member consortium.
+associated_datasets:
+- name: Exact-composition publication - artificial PET degradation consortium
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:35003008
+  url: https://pubmed.ncbi.nlm.nih.gov/35003008/
+  description: Primary publication defining the PETase, MHETase, R. jostii, and P. putida artificial
+    consortium and reporting PET/BHET degradation phenotypes.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Finally, P. putida was introduced
+    explanation: Lists the publication defining the exact four-member engineered consortium.
+- name: Frontiers article supplementary material
+  dataset_type: OTHER
+  repository: OTHER
+  accession: doi:10.3389/fmicb.2021.778828
+  url: https://www.frontiersin.org/articles/10.3389/fmicb.2021.778828/full#supplementary-material
+  description: Supplementary tables with strain, plasmid, primer, and medium details for the artificial
+    PET degradation consortia.
+  evidence:
+  - reference: PMID:35003008
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: This study constructed and evaluated the artificial microbial consortia in PET degradation
+    explanation: Supports the supplementary material as the detailed strain and construct resource.
+metal_relevance: NOT_APPLICABLE
