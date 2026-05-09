@@ -1,6 +1,8 @@
 # CommunityMech Justfile
 # Task runner for common development commands
 
+set dotenv-load := true
+
 # List all commands
 default:
     @just --list
@@ -134,6 +136,46 @@ repair-network FILE:
 # LLM-assisted repair in dry-run mode (show suggestions only)
 repair-network-dry FILE:
     uv run communitymech repair-network {{FILE}} --dry-run
+
+# ============== Deep Research ==============
+
+research_dir := "research"
+templates_dir := "templates"
+
+# Deep research on a community using a specified provider.
+# Examples:
+#   just research-community falcon Yogurt_TwoSpecies_Starter_Culture --dry-run
+#   just research-community falcon CommunityMech:000164
+research-community provider target *args="":
+    uv run --extra dev python scripts/research_community.py \
+      --provider {{provider}} \
+      --target {{target}} \
+      --template {{templates_dir}}/community_mechanism_research.md \
+      --research-dir {{research_dir}} \
+      {{args}}
+
+# Alias for repo-specific entity research.
+research-entity provider target *args="": (research-community provider target args)
+
+# List available deep-research-client providers.
+research-providers:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ -z "${EDISON_API_KEY:-}" && -n "${FUTUREHOUSE_API_KEY:-}" ]]; then
+        EDISON_API_KEY="${FUTUREHOUSE_API_KEY}" uv run --extra dev deep-research-client providers
+    else
+        uv run --extra dev deep-research-client providers
+    fi
+
+# Show detailed availability and parameters for one provider.
+research-provider provider:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ -z "${EDISON_API_KEY:-}" && -n "${FUTUREHOUSE_API_KEY:-}" ]]; then
+        EDISON_API_KEY="${FUTUREHOUSE_API_KEY}" uv run --extra dev deep-research-client providers --provider {{provider}}
+    else
+        uv run --extra dev deep-research-client providers --provider {{provider}}
+    fi
 
 # Generate LLM-assisted repair suggestions for all communities
 suggest-network-repairs:
