@@ -1,0 +1,304 @@
+id: CommunityMech:000168
+name: Clostridium-Thermoanaerobacter Cellulosic Bioethanol Coculture
+description: >
+  A thermophilic, anaerobic, two-member laboratory coculture for consolidated cellulosic bioethanol
+  production. The cellulolytic Clostridium thermocellum LQRI member hydrolyzes and ferments cellulose,
+  while the non-cellulolytic Thermoanaerobacter pseudethanolicus strain X514 partner improves ethanol
+  production from cellulose-derived fermentation intermediates. The system is DOE-relevant because it
+  uses a defined coculture to increase ethanolic fermentation of recalcitrant cellulosic material under
+  batch and cyclic fed-batch bioprocess conditions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Improve cellulosic bioethanol fermentation by pairing a cellulolytic Clostridium thermocellum
+    LQRI strain with a saccharolytic Thermoanaerobacter strain X514 partner.
+  assembly_strategy: Bottom-up two-member anaerobic coculture assembled from cellulolytic C. thermocellum
+    LQRI and saccharolytic Thermoanaerobacter pseudethanolicus strain X514.
+  perturbation_design: Batch cocultures compared X514 with Thermoanaerobacter strain 39E, while cyclic
+    fed-batch experiments varied cellulose concentration and pH control.
+  measurement_endpoints:
+  - Ethanol production
+  - Cellulose fermentation performance
+  - Fed-batch process stability
+  - Vitamin B12 biosynthesis capacity
+  evidence:
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Engineering microbial consortia capable of efficient ethanolic fermentation of cellulose
+    explanation: Supports the engineered consortium objective for cellulosic ethanol production.
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cocultures of cellulolytic Clostridium thermocellum LQRI and saccharolytic Thermoanaerobacter pseudethanolicus strain X514
+    explanation: Supports the exact two-member coculture design curated in this record.
+environment_term:
+  preferred_term: anaerobic laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic batch and semicontinuous cyclic fed-batch fermentor system for cellulose-to-ethanol
+    conversion.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium thermocellum LQRI
+    term:
+      id: NCBITaxon:572545
+      label: Acetivibrio thermocellus DSM 2360
+    notes: The publications use Clostridium thermocellum LQRI; NCBI and JGI records place DSM 2360/LQRI
+      under Acetivibrio thermocellus.
+  strain_designation:
+    strain_name: LQRI
+    culture_collections:
+    - collection: DSM
+      accession: '2360'
+      url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-2360
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulolytic Clostridium thermocellum LQRI
+    explanation: Supports C. thermocellum LQRI as the cellulolytic member of the exact coculture.
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of cellulolytic Clostridium thermocellum
+    explanation: Supports cellulolytic C. thermocellum as the cellulose-degrading coculture member.
+- taxon_term:
+    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
+    notes: The cyclic fed-batch paper names Thermoanaerobacter pseudethanolicus strain X514; NCBI records
+      the sequenced strain as Thermoanaerobacter sp. X514.
+  strain_designation:
+    strain_name: X514
+    culture_collections:
+    - collection: ATCC
+      accession: BAA-938
+      url: https://www.atcc.org/products/baa-938
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: saccharolytic Thermoanaerobacter pseudethanolicus strain X514
+    explanation: Supports X514 as the saccharolytic Thermoanaerobacter partner in the exact coculture.
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: non-cellulolytic Thermoanaerobacter strains (X514 and 39E)
+    explanation: Supports X514 as a non-cellulolytic Thermoanaerobacter member evaluated with C. thermocellum.
+ecological_interactions:
+- name: Cellulose Hydrolysis Supporting Coculture Fermentation
+  description: C. thermocellum LQRI supplies cellulolytic activity that enables the two-member coculture
+    to ferment recalcitrant cellulose to ethanol under anaerobic process conditions.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium thermocellum LQRI
+    term:
+      id: NCBITaxon:572545
+      label: Acetivibrio thermocellus DSM 2360
+  target_taxon:
+    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: improve bioethanol production from the fermentation of recalcitrant cellulosic materials
+    explanation: Supports cellulose fermentation as the central bioprocess function of the coculture.
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tested in the semicontinuous fermentor as a model system
+    explanation: Supports the controlled fermentor context for the interaction.
+- name: X514-Enhanced Ethanolic Fermentation
+  description: Thermoanaerobacter X514 increased ethanol production in C. thermocellum cocultures, with
+    stronger enhancement than the Thermoanaerobacter 39E comparator.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
+  target_taxon:
+    preferred_term: Clostridium thermocellum LQRI
+    term:
+      id: NCBITaxon:572545
+      label: Acetivibrio thermocellus DSM 2360
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: improved ethanol production by 194-440%
+    explanation: Supports the enhanced ethanol production phenotype in Clostridium-Thermoanaerobacter cocultures.
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain X514 enhanced ethanolic fermentation much more effectively
+    explanation: Supports X514 as the more effective Thermoanaerobacter partner for ethanolic fermentation.
+- name: Vitamin B12-Linked Fermentation Robustness
+  description: The higher ethanol performance of X514 cocultures was associated with a complete vitamin
+    B12 biosynthesis pathway, suggesting a cofactor-linked mechanism for selecting robust ethanolic
+    fermentation partners.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Thermoanaerobacter pseudethanolicus strain X514
+    term:
+      id: NCBITaxon:399726
+      label: Thermoanaerobacter sp. X514
+  target_taxon:
+    preferred_term: Clostridium thermocellum LQRI
+    term:
+      id: NCBITaxon:572545
+      label: Acetivibrio thermocellus DSM 2360
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  evidence:
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: complete vitamin B(12) biosynthesis pathway
+    explanation: Supports X514 cobalamin biosynthesis capacity as a proposed mechanism linked to ethanol
+      fermentation performance.
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: improved ethanol production in strain 39E by 203%
+    explanation: Supports vitamin B12 availability as a factor affecting ethanol production in related
+      Thermoanaerobacter cocultures.
+environmental_factors:
+- name: Initial cellulose concentration
+  value: 40 to 80 g liter(-1) cellulose
+  description: Cellulose loading was a key process variable in the cyclic fed-batch coculture system.
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial cellulose concentration and pH were identified as the key process parameters
+    explanation: Supports cellulose loading as an important environmental and process factor.
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: initial cellulose concentration of 80 g liter(-1)
+    explanation: Supports a reported high-cellulose process condition for the cyclic fed-batch coculture.
+- name: pH control
+  value: pH 6.5 to 6.8
+  description: pH control strongly increased ethanol production in the semicontinuous cyclic fed-batch
+    coculture.
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH controlled at 6.5 to 6.8
+    explanation: Supports the curated pH range used for efficient cyclic fed-batch bioethanol production.
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ethanol produced with pH control was 4.5-fold higher
+    explanation: Supports pH control as an experimentally important process factor.
+growth_media:
+- name: Cellulose-fed anaerobic cyclic fed-batch coculture medium
+  composition:
+  - name: cellulose
+    concentration: 40 to 80
+    unit: g/L
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  ph: 6.5 to 6.8
+  atmosphere: ANAEROBIC
+  inoculum_source: Laboratory cultures of C. thermocellum LQRI and Thermoanaerobacter pseudethanolicus
+    strain X514.
+  preparation_notes: Semicontinuous cyclic fed-batch fermentor configuration using cellulose as the
+    recalcitrant substrate; the PubMed abstract reports cellulose loading and controlled pH but not a
+    full medium recipe.
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: semicontinuous cyclic fed-batch fermentor configuration
+    explanation: Supports the growth/cultivation context for this coculture.
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bioethanol production reaching 474 mM in 96 h
+    explanation: Supports the reported productive cultivation outcome under the curated process conditions.
+external_resources:
+- name: Mechanisms of enhanced cellulosic bioethanol fermentation by co-cultivation
+  repository: OTHER
+  resource_id: PMID:21868218
+  url: https://pubmed.ncbi.nlm.nih.gov/21868218/
+  description: Primary publication reporting C. thermocellum cocultures with Thermoanaerobacter X514 and
+    39E, including X514-linked ethanol enhancement and vitamin B12 pathway analysis.
+  evidence:
+  - reference: PMID:21868218
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of cellulolytic Clostridium thermocellum
+    explanation: Lists this primary publication as an exact-system source that includes the C. thermocellum-X514
+      composition.
+- name: Continuous cellulosic bioethanol fermentation by cyclic fed-batch cocultivation
+  repository: OTHER
+  resource_id: PMID:23275517
+  url: https://pubmed.ncbi.nlm.nih.gov/23275517/
+  description: Primary publication reporting the exact C. thermocellum LQRI and Thermoanaerobacter
+    pseudethanolicus X514 coculture in cyclic fed-batch cellulose fermentation.
+  evidence:
+  - reference: PMID:23275517
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium thermocellum LQRI and saccharolytic Thermoanaerobacter pseudethanolicus strain X514
+    explanation: Lists this primary publication as an exact-composition source for the curated coculture.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role was reported for this cellulosic bioethanol
+  coculture in the curated sources.
