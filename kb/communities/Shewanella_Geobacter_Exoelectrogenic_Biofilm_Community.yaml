@@ -1,0 +1,255 @@
+id: CommunityMech:000177
+name: Shewanella-Geobacter Three-Species Exoelectrogenic Biofilm Community
+description: >
+  A defined three-species anode-associated exoelectrogenic biofilm community composed of
+  Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens. The
+  community was assembled to study biofilm formation dynamics, strain interactions, redox
+  potential resilience, and electron transfer activity in bioelectrochemical systems.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a tractable multispecies exoelectrogenic biofilm for studying interactions,
+    biofilm dynamics, and electrical activity in bioelectrochemical reactors.
+  assembly_strategy: Bottom-up three-member biofilm assembled from exoelectrogenic Shewanella
+    and Geobacter species on an anode surface.
+  perturbation_design: Applied anode potential was varied to test biofilm resilience and electron
+    transfer activity.
+  measurement_endpoints:
+  - Biofilm formation on electrode surfaces
+  - Current density and electron transfer rate
+  - Redox-potential resilience
+  - Transcriptomic response under mixed-species conditions
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: model multispecies biofilm comprising three exoelectrogenic proteobacteria
+    explanation: Supports the engineered multispecies exoelectrogenic-biofilm design.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biofilm formation dynamics, the interactions between the organisms
+    explanation: Supports the design objective and interaction-focused measurements.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consequence of the applied anode potential
+    explanation: Supports anode potential as the experimental perturbation.
+environment_term:
+  preferred_term: anode-associated bioelectrochemical reactor biofilm
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory bioelectrochemical system with a defined anode-associated multispecies
+    biofilm.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    notes: Exoelectrogenic proteobacterium in the defined anode biofilm community.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens
+    explanation: Supports S. oneidensis as a member of the exact three-species community.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. oneidensis and G. sulfurreducens upregulated their central metabolisms
+    explanation: Supports a physiological response of S. oneidensis during mixed-species cultivation.
+- taxon_term:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+    notes: Exoelectrogenic Geobacter member that was detected in the planktonic phase of mixed-culture
+      reactors as well as in the anode-associated community.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens
+    explanation: Supports G. sulfurreducens as a member of the exact three-species community.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: G. sulfurreducens was detected in the planktonic phase
+    explanation: Supports the reported G. sulfurreducens distribution in mixed-culture reactors.
+- taxon_term:
+    preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+    notes: Exoelectrogenic Geobacter member of the defined biofilm community.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens
+    explanation: Supports G. metallireducens as a member of the exact three-species community.
+ecological_interactions:
+- name: Cooperative Exoelectrogenic Biofilm Formation
+  description: The three exoelectrogenic members formed a stable biofilm on the electrode surface
+    under mixed-species bioelectrochemical conditions.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Shewanella oneidensis and Geobacter spp.
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: anode-associated biofilm community
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: organisms build a stable biofilm on an electrode surface
+    explanation: Supports cooperative biofilm formation on the anode surface.
+- name: Positive Mixed-Species Interaction
+  description: Transcriptomic results indicated positive interactions among strains in the mixed
+    community, including central-metabolism upregulation by S. oneidensis and G. sulfurreducens.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transcriptomic results point toward a positive interaction among the individual strains
+    explanation: Supports a positive interaction among members in the mixed-species biofilm.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. oneidensis and G. sulfurreducens upregulated their central metabolisms
+    explanation: Supports a mixed-species metabolic response by S. oneidensis and G. sulfurreducens.
+- name: Accelerated Electron Transfer in Mixed-Species Anode Communities
+  description: Positive interactions in the mixed-species anode community were linked to accelerated
+    electron transfer and electrical-energy conversion in the bioelectrochemical system.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: model exoelectrogenic biofilm community
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: anode
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: positive interactions that might lead to accelerated electron transfer
+    explanation: Supports the curated interaction between mixed-species biofilm structure and electron
+      transfer activity.
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture anodic network
+    explanation: Supports the anode-linked coculture interaction context.
+environmental_factors:
+- name: Electrode surface biofilm habitat
+  value: anode-associated biofilm
+  description: The community occupied an electrode-surface biofilm habitat in a bioelectrochemical
+    reactor.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable biofilm on an electrode surface
+    explanation: Supports the electrode-surface biofilm habitat.
+- name: Applied anode redox potential
+  value: maximum electron transfer above 0.04 V versus normal hydrogen electrode
+  description: Electron transfer performance depended on the applied anode potential, with maximum
+    rates reported above 0.04 V versus a normal hydrogen electrode.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maximum electron transfer rates at electrode potentials that were higher than 0.04 V
+    explanation: Supports the anode-potential factor affecting electron transfer.
+- name: Redox-potential resilience
+  value: resilient to anode redox-potential changes
+  description: The biofilm community was resilient to changes in the anode redox potential.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resilient to changes in the redox potential of the anode
+    explanation: Supports redox-potential resilience as an environmental response.
+associated_datasets:
+- name: GSE79750 exoelectrogenic biofilm transcriptome dataset
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE79750
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79750
+  description: GEO Series for transcriptomic measurements from the multispecies exoelectrogenic
+    biofilm community in bioelectrochemical systems.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Transcriptomic results point toward a positive interaction among the individual strains
+    explanation: Links the associated transcriptomic dataset to the community interaction analysis.
+external_resources:
+- name: Exact-system primary publication - three-species exoelectrogenic biofilm
+  repository: OTHER
+  resource_id: PMID:28087529
+  url: https://pubmed.ncbi.nlm.nih.gov/28087529/
+  description: Primary publication reporting the defined S. oneidensis, G. sulfurreducens, and
+    G. metallireducens anode-associated exoelectrogenic biofilm community.
+  evidence:
+  - reference: PMID:28087529
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis, Geobacter sulfurreducens, and Geobacter metallireducens
+    explanation: Lists the exact three-species composition in the primary publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  The curated system is an electrode-respiring bioelectrochemical biofilm. No metal or rare earth
+  amendment is curated for this record.
