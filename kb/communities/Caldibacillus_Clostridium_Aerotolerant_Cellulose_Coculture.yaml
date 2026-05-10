@@ -1,0 +1,251 @@
+id: CommunityMech:000179
+name: Caldibacillus-Clostridium Aerotolerant Cellulose Coculture
+description: >
+  A designed two-member thermophilic coculture for aerotolerant cellulose conversion.
+  The community pairs the cellulolytic strict anaerobe Clostridium thermocellum with
+  the noncellulolytic facultative anaerobe Caldibacillus debilis GB1. C. debilis GB1
+  provides respiratory protection under oxidative conditions, enabling synergistic
+  cellulose utilization and ethanogenic biofuel production under an aerobic atmosphere.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Develop an aerotolerant ethanogenic cellulose coculture that reduces the burden of
+    maintaining strictly anaerobic conditions during consolidated bioprocessing.
+  assembly_strategy: Pair cellulolytic C. thermocellum with noncellulolytic facultative anaerobe
+    C. debilis GB1, an isolate from an air-tolerant cellulolytic enrichment consortium.
+  perturbation_design: Compare designed cocultures across oxidative conditions and monitor fermentation
+    product shifts during cellulose utilization.
+  measurement_endpoints:
+  - Cellulose utilization
+  - Ethanol production
+  - Lactate production
+  - Respiratory protection under oxidative conditions
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: aerotolerant ethanogenic biofuel production from cellulose
+    explanation: Supports the bioenergy and aerotolerant cellulose-conversion objective.
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: isolated from an air-tolerant cellulolytic consortium
+    explanation: Supports the assembly rationale for including C. debilis GB1.
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: unique responses to oxidative conditions
+    explanation: Supports oxidative-condition perturbation as a core design feature.
+environment_term:
+  preferred_term: aerobic cellulose-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled thermophilic coculture experiments on cellulose under oxidative and anaerobic
+    laboratory conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium thermocellum
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+    notes: Cellulolytic anaerobic partner in the designed coculture.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: included a Clostridium thermocellum strain
+    explanation: Supports C. thermocellum as a member of the source consortium context.
+- taxon_term:
+    preferred_term: Caldibacillus debilis GB1
+    term:
+      id: NCBITaxon:301148
+      label: Caldibacillus debilis
+    notes: Noncellulolytic facultative anaerobe isolated from the air-tolerant cellulolytic enrichment
+      and used as the respiratory-protection partner.
+  strain_designation:
+    strain_name: GB1
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: noncellulolytic facultative anaerobe C. debilis GB1
+    explanation: Supports C. debilis GB1 as a member of the designed coculture.
+ecological_interactions:
+- name: Respiratory Protection of C. thermocellum
+  description: C. debilis GB1 provides respiratory protection for C. thermocellum under oxidative
+    conditions, enabling cellulose utilization by the designed coculture.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Caldibacillus debilis GB1
+    term:
+      id: NCBITaxon:301148
+      label: Caldibacillus debilis
+  target_taxon:
+    preferred_term: Clostridium thermocellum
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. debilis GB1 provided respiratory protection for C. thermocellum
+    explanation: Directly supports the protective interaction curated between the two members.
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synergistic utilization of cellulose even under an aerobic atmosphere
+    explanation: Supports the interaction outcome under aerobic conditions.
+- name: Aerotolerant Ethanogenic Cellulose Conversion
+  description: The designed coculture supports ethanogenic biofuel production from cellulose while
+    tolerating oxidative conditions that are normally restrictive for strictly anaerobic cellulolytic
+    biofuel producers.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium thermocellum
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+  target_taxon:
+    preferred_term: Caldibacillus debilis GB1
+    term:
+      id: NCBITaxon:301148
+      label: Caldibacillus debilis
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: aerotolerant ethanogenic biofuel production from cellulose
+    explanation: Supports the combined cellulose-to-ethanol biofuel function of the coculture.
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synergistic utilization of cellulose even under an aerobic atmosphere
+    explanation: Supports synergistic cellulose use under aerobic conditions.
+- name: Oxidative Shift Toward Lactate Production
+  description: Oxidative conditions changed the fermentation-product profile of the designed coculture,
+    including increased lactate production.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: designed Caldibacillus-Clostridium coculture
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: including an increase in lactate production
+    explanation: Supports lactate production as an oxidative-condition response in the designed cocultures.
+environmental_factors:
+- name: Cellulose substrate
+  value: cellulose
+  description: Cellulose was the lignocellulose-relevant substrate used to evaluate the designed coculture.
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biofuel production from cellulose
+    explanation: Supports cellulose as the target substrate.
+- name: Aerobic atmosphere
+  value: oxygen exposure
+  description: The coculture was designed to tolerate oxidative conditions that would otherwise complicate
+    cultivation of anaerobic cellulose-degrading biofuel organisms.
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: even under an aerobic atmosphere
+    explanation: Supports oxygen exposure as a key experimental condition.
+growth_media:
+- name: Cellulose-fed aerotolerant coculture assay
+  composition:
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  atmosphere: FACULTATIVE_AEROBIC
+  preparation_notes: The abstract supports cellulose-fed aerotolerant coculture assays; exact medium
+    formulation and temperature details are not asserted in this record.
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biofuel production from cellulose
+    explanation: Supports cellulose as the experimental carbon substrate.
+associated_datasets: []
+external_resources:
+- name: Exact-system primary publication - C. debilis GB1 and C. thermocellum coculture
+  repository: OTHER
+  resource_id: doi:10.1128/AEM.00735-15
+  url: https://pubmed.ncbi.nlm.nih.gov/26048931/
+  description: Primary publication describing the designed aerotolerant cellulose-degrading coculture
+    with C. debilis GB1 and C. thermocellum.
+  evidence:
+  - reference: doi:10.1128/AEM.00735-15
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: aerotolerant ethanogenic biofuel production from cellulose
+    explanation: Lists the primary publication for this exact coculture system.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this aerotolerant cellulose
+  biofuel coculture.
