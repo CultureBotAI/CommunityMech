@@ -1,0 +1,311 @@
+id: CommunityMech:000173
+name: Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture
+description: >
+  A defined anaerobic synthetic coculture that combines a lactate-producing Acetobacterium woodii
+  mutant with Clostridium drakei to convert CO2 and H2 into longer-chain products. A. woodii fixes
+  CO2 with H2 and is engineered to release lactate, which C. drakei uses as an intermediate for
+  chain elongation to caproic acid. The system is DOE-relevant because it couples microbial CO2
+  valorization with in situ water electrolysis or CO2/H2 gas feeding for production of value
+  chemicals.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert CO2 and H2 into lactate-mediated caproic acid production in a two-species
+    anaerobic coculture.
+  assembly_strategy: Bottom-up coculture assembled from a recombinant lactate-producing A. woodii
+    strain and C. drakei wild type.
+  perturbation_design: Studies tested in situ water electrolysis with an All-in-One electrode,
+    direct H2 sparging, mixotrophic or autotrophic operation, and bioreactor optimization of the
+    same A. woodii plus C. drakei species pair.
+  measurement_endpoints:
+  - Lactate accumulation
+  - Caproic acid production
+  - CO2 and H2 utilization
+  - Hydrogen limitation under in situ electrolysis
+  - Bioreactor productivity and product spectrum
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Novel synthetic co-culture
+    explanation: Supports the engineered synthetic coculture design.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: true carbon-negative production of value chemicals from CO2
+    explanation: Supports the CO2-valorization objective for value-chemical production.
+environment_term:
+  preferred_term: anaerobic laboratory bioreactor with in situ electrolysis
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic laboratory bioreactor or culture system supplied with CO2/H2, including
+    an All-in-One electrode condition for in situ water electrolysis.
+taxonomy:
+- taxon_term:
+    preferred_term: Acetobacterium woodii
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+    notes: Recombinant lactate-producing A. woodii mutant used as the acetogenic CO2/H2-converting
+      partner.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetobacterium woodii and Clostridium drakei
+    explanation: Supports A. woodii as one member of the exact two-species coculture.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a recombinant A. woodii strain
+    explanation: Supports the recombinant A. woodii strain designation.
+- taxon_term:
+    preferred_term: Clostridium drakei
+    term:
+      id: NCBITaxon:332101
+      label: Clostridium drakei
+    notes: Wild-type chain-elongating partner that converts lactate-derived intermediates toward
+      caproic acid.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium drakei wild-type strain
+    explanation: Supports C. drakei wild type as the second member of the exact coculture.
+  - reference: doi:10.3389/fbioe.2023.1212044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: recombinant lactate-producing Acetobacterium woodii strain and a lactate-consuming
+      Clostridium drakei strain
+    explanation: Supports the same species-pair composition in a follow-up exact-system publication.
+ecological_interactions:
+- name: Acetogenic Lactate Production from CO2 and H2
+  description: Recombinant A. woodii fixes CO2 with H2 and is engineered to route carbon toward
+    lactate, creating the intermediate consumed by C. drakei.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Acetobacterium woodii
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+  target_taxon:
+    preferred_term: Clostridium drakei
+    term:
+      id: NCBITaxon:332101
+      label: Clostridium drakei
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetobacterium woodii is known to produce mainly acetate from CO2 and H2
+    explanation: Supports A. woodii as the CO2/H2 acetogenic partner.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: production of caproic acid from CO2 and H2 via the intermediate lactic acid
+    explanation: Supports lactate as the cross-fed intermediate connecting CO2/H2 use to caproic
+      acid production.
+- name: Lactate-Mediated Chain Elongation to Caproic Acid
+  description: C. drakei consumes lactate-derived carbon in the coculture and carries out chain
+    elongation to caproic acid.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium drakei
+    term:
+      id: NCBITaxon:332101
+      label: Clostridium drakei
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: hexanoate
+    term:
+      id: CHEBI:30776
+      label: hexanoate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: longer-chained products such as caproic acid
+    explanation: Supports the chain-elongation product class curated for C. drakei.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: production of caproic acid from CO2 and H2 via the intermediate lactic acid
+    explanation: Supports lactate-mediated caproic acid production in the coculture.
+- name: Electrolysis-Generated Hydrogen Supply
+  description: In situ water electrolysis supplies H2 to support autotrophic coculture operation,
+    with hydrogen limitation identified as a process constraint.
+  interaction_type: COMMENSALISM
+  target_taxon:
+    preferred_term: Acetobacterium woodii
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supplied using an All-in-One electrode for in situ water electrolysis
+    explanation: Supports electrolysis-based hydrogen supply as a process feature.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen limitation was identified in the AiO process
+    explanation: Supports hydrogen limitation as a curated environmental or engineering factor.
+environmental_factors:
+- name: Gas substrate
+  value: CO2 and H2
+  description: The coculture uses CO2 and H2 as gaseous substrates for autotrophic or mixotrophic
+    production.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO(2) and in situ generated H(2)
+    explanation: Supports CO2 and generated H2 as substrates.
+- name: Hydrogen delivery mode
+  value: All-in-One electrode or direct H2 sparging
+  description: Hydrogen was supplied either by in situ water electrolysis or direct gas sparging in
+    reported studies.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct H2 sparging
+    explanation: Supports direct H2 sparging as a tested hydrogen delivery mode.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactate concentrations as high as 0.5 g L-1
+    explanation: Supports measured lactate production under the All-in-One electrode condition.
+- name: Hydrogen limitation
+  value: process-limiting under All-in-One electrode operation
+  description: In situ electrolysis conditions can limit available hydrogen and constrain product
+    formation.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen limitation was identified in the AiO process
+    explanation: Supports hydrogen limitation as a process factor.
+growth_media:
+- name: Anaerobic CO2/H2 electrolysis coculture
+  composition:
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: dihydrogen
+    chebi_term:
+      preferred_term: dihydrogen
+      term:
+        id: CHEBI:18276
+        label: dihydrogen
+  atmosphere: ANAEROBIC
+  headspace_gas: CO2 with in situ generated H2 or direct H2 sparging
+  vessel_type: anaerobic laboratory bioreactor with All-in-One electrode or gas sparging
+  preparation_notes: Mineral medium details are not curated here; the source-backed conditions are
+    CO2/H2 supply, anaerobic cultivation, and comparison of in situ electrolysis with direct H2
+    sparging.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO2 and H2 via the intermediate lactic acid
+    explanation: Supports CO2/H2 as the cultivated gas substrates.
+  - reference: doi:10.1186/s12934-024-02481-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO2 as main carbon and energy source
+    explanation: Supports later bioreactor optimization of the same species pair on CO2/H2 gas.
+external_resources:
+- name: Exact-system primary publication - in situ electrolysis CO2/H2 coculture
+  repository: OTHER
+  resource_id: PMID:36619880
+  url: https://pubmed.ncbi.nlm.nih.gov/36619880/
+  description: Primary publication establishing the A. woodii and C. drakei synthetic coculture for
+    caproic acid production from CO2 and in situ generated H2 through lactic acid.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetobacterium woodii and Clostridium drakei
+    explanation: Lists the primary exact-composition publication for this two-species community.
+- name: Exact-system publication - lactate-mediated mixotrophic cocultivation
+  repository: OTHER
+  resource_id: doi:10.3389/fbioe.2023.1212044
+  url: https://doi.org/10.3389/fbioe.2023.1212044
+  description: Follow-up publication on lactate-mediated mixotrophic cocultivation of the same A.
+    woodii and C. drakei species pair.
+  evidence:
+  - reference: doi:10.3389/fbioe.2023.1212044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: recombinant lactate-producing Acetobacterium woodii strain and a lactate-consuming
+      Clostridium drakei strain
+    explanation: Lists a second exact-composition publication for the same species pair.
+- name: Exact-system publication - CO2/H2 bioreactor optimization
+  repository: OTHER
+  resource_id: doi:10.1186/s12934-024-02481-3
+  url: https://doi.org/10.1186/s12934-024-02481-3
+  description: Bioreactor optimization publication for the same lactate-mediated A. woodii mutant
+    and C. drakei coculture using CO2/H2 gas mixture as substrate.
+  evidence:
+  - reference: doi:10.1186/s12934-024-02481-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetobacterium woodii mutant strain, capable of lactate production, with the Clostridium
+      drakei SL1 type strain
+    explanation: Lists a third exact-composition publication for the same species pair.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this CO2/H2 chain-elongation
+  coculture.
