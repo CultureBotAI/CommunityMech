@@ -1,0 +1,307 @@
+id: CommunityMech:000171
+name: Methylacidiphilum-Galdieria Thermoacidophilic Methane Coculture
+description: >
+  A defined thermoacidophilic methanotroph-microalga coculture pairing Methylacidiphilum sp.
+  RTK17.1 with Galdieria sp. RTK37.1 for methane and carbon dioxide valorisation. In methane-fed
+  photobioreactor studies, the methanotroph benefits from oxygen supplied by the extremophilic
+  microalga under low-oxygen conditions, enhancing growth and methane oxidation. Follow-up work
+  showed that this interaction is density-dependent: low initial Methylacidiphilum:Galdieria ratios
+  improve net carbon fixation, whereas elevated methanotroph abundance can impose oxygen competition,
+  causing chlorosis and reduced carbon assimilation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Optimize an extremophile methane-fed photobioreactor coculture for single-cell protein
+    production and carbon valorisation from methane and carbon dioxide.
+  assembly_strategy: Bottom-up coculture of the thermoacidophilic methanotroph Methylacidiphilum sp.
+    RTK17.1 with the extremophilic microalga Galdieria sp. RTK37.1.
+  perturbation_design: Initial Methylacidiphilum:Galdieria biomass ratios were varied to test how
+    partner abundance controls oxygen partitioning, growth, chlorosis, and net carbon assimilation.
+  measurement_endpoints:
+  - Coculture dynamics
+  - Overall carbon assimilation
+  - Growth inhibition
+  - Methane oxidation
+  - Chlorosis and coproporphyrin III excretion
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanotroph-microalgae cocultures offer a promising bioprocess platform
+    explanation: Supports the engineered methanotroph-microalga bioprocess framing.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sustainable single-cell protein (SCP) production
+    explanation: Supports the single-cell protein production objective.
+environment_term:
+  preferred_term: thermoacidophilic methane-fed photobioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Laboratory methane-fed photobioreactor system assembled from thermoacidophilic strains
+    originally associated with geothermal environments.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylacidiphilum sp. RTK17.1
+    term:
+      id: NCBITaxon:511746
+      label: Candidatus Methylacidiphilum infernorum
+    notes: NCBI Taxonomy lists Methylacidiphilum sp. RTK17.1 under Candidatus Methylacidiphilum
+      infernorum.
+  strain_designation:
+    strain_name: RTK17.1
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thermoacidophilic methanotroph Methylacidiphilum sp. RTK17.1
+    explanation: Supports the identity and methane-oxidizing role of the methanotroph partner.
+  - reference: PMID:33841379
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylacidiphilum sp. RTK17.1 can utilize formate as a
+    explanation: Supports metabolic characterization of the exact methanotrophic strain.
+- taxon_term:
+    preferred_term: Galdieria sp. RTK37.1
+    term:
+      id: NCBITaxon:2530459
+      label: Galdieria sp.
+    notes: Strain-level NCBI Taxonomy for RTK37.1 was not found; the broader Galdieria sp. taxon is
+      used with the source-backed strain designation.
+  strain_designation:
+    strain_name: RTK37.1
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: extremophilic microalga Galdieria sp. RTK37.1
+    explanation: Supports the identity of the oxygenic microalgal partner.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxygen supplied by the extremophilic microalga Galdieria sp. RTK37.1
+    explanation: Supports assigning Galdieria sp. RTK37.1 as the oxygen-supplying primary producer.
+ecological_interactions:
+- name: Low-Oxygen Algal O2 Support for Methane Oxidation
+  description: Under low-oxygen conditions, Galdieria sp. RTK37.1 supplies oxygen that benefits
+    Methylacidiphilum sp. RTK17.1, enhancing methanotroph growth and methane oxidation.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Galdieria sp. RTK37.1
+    term:
+      id: NCBITaxon:2530459
+      label: Galdieria sp.
+  target_taxon:
+    preferred_term: Methylacidiphilum sp. RTK17.1
+    term:
+      id: NCBITaxon:511746
+      label: Candidatus Methylacidiphilum infernorum
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxygen supplied by the extremophilic microalga Galdieria sp. RTK37.1
+    explanation: Supports algal oxygen supply to the methanotroph.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhancing growth and methane oxidation
+    explanation: Supports the positive effect of algal oxygen supply on methanotroph performance.
+- name: Biomass-Ratio-Dependent Oxygen Competition
+  description: The coculture interaction changes with initial biomass ratio. Low methanotroph-to-alga
+    ratios improve net carbon fixation, while elevated Methylacidiphilum abundance can deplete oxygen,
+    inhibit Galdieria photosystem pigment biosynthesis, cause chlorosis, and reduce carbon fixation.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Methylacidiphilum sp. RTK17.1
+    term:
+      id: NCBITaxon:511746
+      label: Candidatus Methylacidiphilum infernorum
+  target_taxon:
+    preferred_term: Galdieria sp. RTK37.1
+    term:
+      id: NCBITaxon:2530459
+      label: Galdieria sp.
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: coproporphyrin III
+    term:
+      id: CHEBI:57307
+      label: coproporphyrin III
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inhibitory due to oxygen competition
+    explanation: Supports the density-dependent shift from mutualism to oxygen competition.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: chlorosis and excreted coproporphyrin III
+    explanation: Supports the curated chlorosis and coproporphyrin III response.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: upon oxygen replenishment
+    explanation: Supports oxygen limitation as the driver of the inhibitory phenotype.
+- name: Methane-Linked Carbon Valorisation
+  description: Methane-fed cocultures at low initial methanotroph-to-alga ratios achieved higher net
+    carbon fixation than methane-free controls, supporting methane-linked carbon valorisation by the
+    two-member system.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylacidiphilum sp. RTK17.1
+    term:
+      id: NCBITaxon:511746
+      label: Candidatus Methylacidiphilum infernorum
+  target_taxon:
+    preferred_term: Galdieria sp. RTK37.1
+    term:
+      id: NCBITaxon:2530459
+      label: Galdieria sp.
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 17-28% greater net
+    explanation: Supports methane-linked improvement in carbon fixation at low initial ratios.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane-fed photobioreactors relevant to SCP production
+    explanation: Supports the methane-fed photobioreactor and carbon-valorisation context.
+environmental_factors:
+- name: Low oxygen availability
+  value: low-O2 coculture condition
+  description: Low oxygen enables the beneficial oxygen-supply interaction but becomes limiting when
+    methanotroph abundance is high.
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxygen availability is a critical factor
+    explanation: Supports low oxygen availability as the relevant environmental condition.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxygen availability is a critical factor
+    explanation: Supports oxygen availability as a central environmental factor.
+- name: Initial partner biomass ratio
+  value: low ratios beneficial; elevated methanotroph abundance inhibitory
+  description: Initial Methylacidiphilum:Galdieria biomass ratio controls whether O2 exchange remains
+    mutually beneficial or shifts to oxygen competition and growth inhibition.
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: initial Methylacidiphilum:Galdieria biomass ratio
+    explanation: Supports biomass ratio as a designed environmental or process factor.
+growth_media:
+- name: Methane-fed thermoacidophilic photobioreactor coculture
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  atmosphere: MICROAEROBIC
+  headspace_gas: methane, carbon dioxide, and low oxygen
+  light_regime: illuminated
+  vessel_type: photobioreactor
+  preparation_notes: The PubMed-indexed abstract supports methane-fed photobioreactor and low-oxygen
+    coculture conditions; detailed medium recipe is not curated here.
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane-fed photobioreactors
+    explanation: Supports the photobioreactor cultivation context.
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: carbon dioxide
+    explanation: Supports carbon dioxide as one of the key feed gases.
+external_resources:
+- name: Exact-system publication - oxygen competition in methane-fed coculture
+  repository: OTHER
+  resource_id: PMID:41888821
+  url: https://pubmed.ncbi.nlm.nih.gov/41888821/
+  description: Publication reporting density-dependent oxygen exchange and oxygen competition in
+    the exact Methylacidiphilum sp. RTK17.1 and Galdieria sp. RTK37.1 coculture.
+  evidence:
+  - reference: PMID:41888821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylacidiphilum sp. RTK17.1 can benefit from
+    explanation: Lists the exact-system publication used for the central interaction mechanism.
+- name: Exact-system publication - single-cell protein cocultivation
+  repository: OTHER
+  resource_id: doi:10.1016/j.engmic.2025.100229
+  url: https://doi.org/10.1016/j.engmic.2025.100229
+  description: Earlier open-access Engineering Microbiology publication using the same Methylacidiphilum
+    sp. RTK17.1 and Galdieria sp. RTK37.1 species-pair composition for single-cell protein production.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this methane-fed
+  thermoacidophilic coculture.
