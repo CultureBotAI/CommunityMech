@@ -1,0 +1,318 @@
+id: CommunityMech:000175
+name: Clostridium cellulolyticum-Geobacter sulfurreducens Cellulose MFC Coculture
+description: >
+  A defined binary microbial fuel cell coculture pairing the cellulolytic fermenter
+  Clostridium cellulolyticum with the electrochemically active bacterium Geobacter
+  sulfurreducens. The community couples cellulose hydrolysis and fermentation to anode
+  respiration: C. cellulolyticum metabolizes cellulose, while G. sulfurreducens uses
+  fermentation products to transfer electrons to the anode. The same exact two-species
+  composition was reported in an initial cellulose-to-electricity study and a follow-up
+  cellulose-fed microbial biofilm ecology study. The system is relevant to DOE bioenergy
+  because it converts cellulosic biomass into electricity in a controlled bioelectrochemical
+  reactor.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert cellulose or carboxymethyl cellulose to electricity in a microbial fuel cell
+    using a defined two-member cellulolytic and electroactive coculture.
+  assembly_strategy: Bottom-up binary coculture assembled from C. cellulolyticum and G. sulfurreducens
+    in two-chamber microbial fuel cells with cellulose-derived substrates supplied to the anode chamber.
+  perturbation_design: Studies compared the coculture with pure cultures and compared soluble
+    carboxymethyl cellulose with particulate MN301 cellulose to resolve electricity output, substrate
+    degradation, and spatial biofilm organization.
+  measurement_endpoints:
+  - Electricity generation and power density
+  - Cellulose or carboxymethyl cellulose degradation
+  - Coulombic efficiency and COD removal
+  - Residual metabolites
+  - FISH and qPCR localization of partner populations
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electricity was generated from cellulose in an MFC
+    explanation: Supports the design objective of generating electricity from cellulose in a microbial
+      fuel cell.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbial ecology of cellulose-fed MFCs
+    explanation: Supports the follow-up ecological characterization of the same cellulose-fed microbial
+      fuel cell coculture.
+environment_term:
+  preferred_term: cellulose-fed microbial fuel cell anode chamber
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled two-chamber laboratory microbial fuel cell with an anode as the extracellular electron
+    acceptor and cellulose or carboxymethyl cellulose as the supplied electron donor.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+    notes: NCBI Taxonomy treats Clostridium cellulolyticum as the basionym/synonym of Ruminiclostridium
+      cellulolyticum; the publications used the historical C. cellulolyticum name.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulolytic fermenter Clostridium cellulolyticum
+    explanation: Supports membership and the cellulolytic fermenter role.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined co-culture of Clostridium cellulolyticum
+    explanation: Supports the same species as a member in the follow-up cellulose-fed MFC study.
+- taxon_term:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+    notes: Electrochemically active partner that occupies the anode-attached fraction in particulate
+      cellulose-fed MFCs.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: electrochemically active Geobacter sulfurreducens
+    explanation: Supports membership and the electroactive partner role.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Geobacter cells were attached to the electrode
+    explanation: Supports the anode-associated role of Geobacter in the particulate-cellulose MFC.
+ecological_interactions:
+- name: Cellulose Fermentation Feeding Electrode Respiration
+  description: C. cellulolyticum metabolizes cellulose and produces fermentation products that enable
+    G. sulfurreducens to respire on the anode, linking insoluble cellulosic biomass to electricity
+    generation.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: requires a syntrophic microbial community
+    explanation: Supports the syntrophic interpretation for cellulose-to-anode conversion.
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen, acetate, and ethanol were the main residual metabolites
+    explanation: Supports the fermentation product context linking cellulose metabolism to Geobacter
+      electrode respiration.
+- name: Defined Binary Electricity Production
+  description: Neither pure culture alone produced electricity from the cellulose substrates, while the
+    binary coculture generated current and improved CMC degradation, demonstrating division of labor
+    between cellulose hydrolysis and extracellular electron transfer.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Neither pure culture alone produced electricity
+    explanation: Supports the need for the binary community rather than either member alone.
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased CMC degradation from 42% to 64%
+    explanation: Supports improved cellulose derivative degradation in coculture relative to C. cellulolyticum
+      alone.
+- name: Substrate-Dependent Spatial Partitioning
+  description: During growth on particulate MN301 cellulose, C. cellulolyticum is enriched on suspended
+    cellulose particles while G. sulfurreducens is enriched on the electrode biofilm, partitioning the
+    cellulose-hydrolysis and anode-respiration niches within the reactor.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  evidence:
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: particulate MN301 cellulose was used as sole substrate
+    explanation: Supports the particulate-cellulose condition for the spatial partitioning observation.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: most Clostridium cells were found adhered to cellulose particles
+    explanation: Supports C. cellulolyticum localization on suspended cellulose particles.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: most Geobacter cells were attached to the electrode
+    explanation: Supports G. sulfurreducens localization on the electrode.
+environmental_factors:
+- name: Cellulose substrate
+  value: carboxymethyl cellulose or MN301 cellulose
+  description: The coculture was tested with soluble CMC and particulate MN301 cellulose as cellulosic
+    electron donors for the anode-respiring reactor.
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: carboxymethyl cellulose (CMC) and MN301 cellulose
+    explanation: Supports the two cellulose substrate forms used in the binary MFC study.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: soluble carboxymethyl cellulose was used
+    explanation: Supports soluble CMC as a second substrate condition in the follow-up ecology study.
+- name: Anode as extracellular electron acceptor
+  value: microbial fuel cell anode
+  description: The anode provides the solid extracellular electron acceptor used by the electroactive
+    partner during electricity generation.
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: insoluble electron donor (cellulose) and electron acceptor (anode)
+    explanation: Supports the paired cellulose/anode electron donor-acceptor context.
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: attached to the electrode
+    explanation: Supports the electrode as the physical anode niche for Geobacter.
+growth_media:
+- name: Cellulose-fed two-chamber microbial fuel cell
+  composition:
+  - name: carboxymethyl cellulose
+    concentration: '1'
+    unit: g/L
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: MN301 cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  atmosphere: ANAEROBIC
+  preparation_notes: Two-chamber microbial fuel cell anode culture with cellulose-derived substrates;
+    the abstract reports ferricyanide as catholyte but does not provide a full medium recipe.
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two-chamber MFCs with ferricyanide as the catholyte
+    explanation: Supports the two-chamber microbial fuel cell cultivation context.
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from 1 g/L carboxymethyl cellulose
+    explanation: Supports the CMC concentration included in the medium summary.
+external_resources:
+- name: Exact-system primary publication - cellulose-to-electricity binary MFC coculture
+  repository: OTHER
+  resource_id: PMID:17695929
+  url: https://pubmed.ncbi.nlm.nih.gov/17695929/
+  description: Primary publication reporting electricity production from cellulose by the exact C.
+    cellulolyticum and G. sulfurreducens two-species coculture.
+  evidence:
+  - reference: PMID:17695929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined coculture of the cellulolytic fermenter Clostridium cellulolyticum
+    explanation: Lists one exact-composition publication for this two-species community.
+- name: Exact-system follow-up publication - cellulose-fed microbial ecology and biofilm localization
+  repository: OTHER
+  resource_id: PMID:18725730
+  url: https://pubmed.ncbi.nlm.nih.gov/18725730/
+  description: Follow-up publication reporting microbial ecology, FISH, and qPCR observations for the
+    same C. cellulolyticum and G. sulfurreducens cellulose-fed MFC coculture.
+  evidence:
+  - reference: PMID:18725730
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined co-culture of Clostridium cellulolyticum and Geobacter sulfurreducens
+    explanation: Lists the second exact-composition publication for this two-species community.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No direct metal or rare earth element processing role is curated for this cellulose-fed
+  microbial fuel cell record.
