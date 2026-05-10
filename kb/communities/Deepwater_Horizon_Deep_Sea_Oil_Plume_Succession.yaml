@@ -1,0 +1,289 @@
+id: CommunityMech:000166
+name: Deepwater Horizon Deep-Sea Oil Plume Succession
+description: >
+  A natural, perturbed deep-sea hydrocarbon-plume microbial community that developed during the 2010
+  Deepwater Horizon blowout in the Gulf of Mexico. The plume selected indigenous hydrocarbon-degrading
+  Gammaproteobacteria, with early enrichment of Oceanospirillales-like petroleum degraders followed by
+  Colwellia, Cycloclasticus, methylotrophic bacteria, and other taxa with non-redundant hydrocarbon
+  degradation capacities.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: deep marine hydrocarbon plume
+  term:
+    id: ENVO:00002149
+    label: marine environment
+  notes: Deep Gulf of Mexico water-column plume formed by the Deepwater Horizon blowout; the broader ENVO
+    marine environment term is used with plume-specific context in notes.
+taxonomy:
+- taxon_term:
+    preferred_term: DWH Oceanospirillales-like bacteria
+    term:
+      id: NCBITaxon:135619
+      label: Oceanospirillales
+    notes: Early deep-plume bloom related to known petroleum-degrading Oceanospirillales.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: stimulated deep-sea indigenous γ-Proteobacteria that are closely related to known petroleum degraders
+    explanation: Supports early enrichment of indigenous petroleum-degrading Gammaproteobacteria in the plume.
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increase in abundance of Colwellia and Oceanospirillales during the incubations
+    explanation: Supports Oceanospirillales enrichment in oil and dispersant incubations from Gulf deep waters.
+- taxon_term:
+    preferred_term: Colwellia
+    term:
+      id: NCBITaxon:28228
+      label: Colwellia
+    notes: Cold deep-marine genus enriched in oil/dispersant incubations and flocs.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Colwellia were the dominant bacteria in the flocs
+    explanation: Supports Colwellia as an abundant oil-associated member in cold deep-water incubations.
+  - reference: PMID:25071745
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Colwellia species that was dominant during the Deepwater Horizon oil spill
+    explanation: Supports Colwellia dominance during the field spill response.
+- taxon_term:
+    preferred_term: Cycloclasticus
+    term:
+      id: NCBITaxon:34067
+      label: Cycloclasticus
+    notes: Aromatic-hydrocarbon-associated genus reported in DWH plume succession studies.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: enriched in the polycyclic-aromatic-hydrocarbon-degrading communities
+    explanation: Supports aromatic-hydrocarbon-degrading community members associated with plume samples.
+- taxon_term:
+    preferred_term: Methylophaga
+    term:
+      id: NCBITaxon:40222
+      label: Methylophaga
+    notes: Methylotrophic bacteria implicated in later plume-water hydrocarbon processing.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:24865772
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: methylotrophs, including Methylophaga, were in a heightened state of metabolic activity within oil plume waters
+    explanation: Supports active Methylophaga-like methylotrophs in oil plume waters.
+- taxon_term:
+    preferred_term: Marinobacter
+    term:
+      id: NCBITaxon:2742
+      label: Marinobacter
+    notes: Alkane-degrading genus enriched in stable-isotope probing experiments with DWH spill samples.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Marinobacter was enriched with n-hexadecane
+    explanation: Supports Marinobacter as an alkane-associated hydrocarbon degrader in DWH-derived experiments.
+ecological_interactions:
+- name: Intrinsic Hydrocarbon Bioremediation
+  description: Indigenous deep-sea bacteria degraded plume hydrocarbons under cold deep-water conditions,
+    creating potential for intrinsic bioremediation without substantial oxygen drawdown.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: DWH Oceanospirillales-like bacteria
+    term:
+      id: NCBITaxon:135619
+      label: Oceanospirillales
+  metabolites:
+  - preferred_term: hydrocarbon
+    term:
+      id: CHEBI:24632
+      label: hydrocarbon
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: faster-than-expected hydrocarbon biodegradation rates at 5°C
+    explanation: Supports cold deep-water hydrocarbon biodegradation.
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: intrinsic bioremediation of the oil plume in the deep-water column without substantial oxygen drawdown
+    explanation: Supports intrinsic bioremediation as a community-level function.
+- name: Colwellia Oil Droplet Floc Formation
+  description: Colwellia-dominated flocs formed with oil and biomass in cold incubations, linking cell
+    aggregation to hydrocarbon degradation in deep marine habitats.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Colwellia
+    term:
+      id: NCBITaxon:28228
+      label: Colwellia
+  metabolites:
+  - preferred_term: hydrocarbon
+    term:
+      id: CHEBI:24632
+      label: hydrocarbon
+  evidence:
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: flocs were comprised of oil, carbohydrates and biomass
+    explanation: Supports oil-associated floc formation as a Colwellia-linked mechanism.
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Colwellia were the dominant bacteria in the flocs
+    explanation: Supports Colwellia dominance in the oil-associated flocs.
+- name: Complex Hydrocarbon Substrate Partitioning
+  description: Different plume-associated taxa contributed distinct, non-redundant capacities for degrading
+    alkane and polycyclic aromatic hydrocarbons, so community-level degradation exceeded single-member
+    capabilities.
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: hydrocarbon
+    term:
+      id: CHEBI:24632
+      label: hydrocarbon
+  - preferred_term: alkane
+    term:
+      id: CHEBI:18310
+      label: alkane
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  evidence:
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: combined capabilities of the microbial community exceeded those of its individual components
+    explanation: Supports non-redundant substrate specialization across the oil-degrading community.
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: degradation of complex hydrocarbon mixtures requires the non-redundant capabilities of a complex oil-degrading community
+    explanation: Supports niche partitioning among hydrocarbon-degrading taxa.
+environmental_factors:
+- name: Deepwater Horizon hydrocarbon plume
+  value: Deepwater Horizon blowout, Gulf of Mexico
+  description: The plume was generated by the 2010 Deepwater Horizon blowout and selected indigenous
+    hydrocarbon-degrading bacteria.
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: dispersed hydrocarbon plume stimulated deep-sea indigenous γ-Proteobacteria
+    explanation: Supports the hydrocarbon plume as the perturbation selecting the microbial community.
+- name: Low deep-water temperature
+  value: 5
+  unit: degrees Celsius
+  description: Cold deep-water conditions shaped biodegradation and incubation responses.
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: hydrocarbon biodegradation rates at 5°C
+    explanation: Supports the cold-temperature condition for plume biodegradation.
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incubation at 5°C
+    explanation: Supports cold incubation used to model deep-water oil degradation.
+- name: Oil and dispersant exposure
+  description: Oil and COREXIT exposure in cold Gulf deep-water enrichments selected hydrocarbon-degrading
+    community members.
+  evidence:
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enriched and isolated indigenous hydrocarbon-degrading bacteria from deep, uncontaminated waters
+    explanation: Supports oil/dispersant exposure as an experimental enrichment condition.
+associated_datasets:
+- name: Deepwater Horizon hydrocarbon-degrader genome reconstructions
+  dataset_type: GENOME
+  repository: OTHER
+  accession: NatMicrobiol-2016-DWH-genome-reconstruction
+  url: https://pubmed.ncbi.nlm.nih.gov/27572965/
+  description: Genome-resolved stable-isotope-probing study reconstructing hydrocarbon-degradation pathways
+    from DWH sea-surface and deep-plume enrichment communities.
+  evidence:
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: reconstructed draft genomes of marine bacteria enriched from sea surface and deep plume waters
+    explanation: Links this community record to genome-resolved DWH hydrocarbon-degrader analyses.
+external_resources:
+- name: Exact-system publication - DWH deep-sea oil plume bacteria
+  repository: OTHER
+  resource_id: PMID:20736401
+  url: https://pubmed.ncbi.nlm.nih.gov/20736401/
+  description: Primary field study reporting indigenous deep-sea oil-degrading bacteria enriched in the
+    Deepwater Horizon plume.
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Deep-sea oil plume enriches indigenous oil-degrading bacteria
+    explanation: Lists a core publication for the DWH deep-sea plume community.
+- name: Exact-system publication - oil and dispersant enrichment
+  repository: OTHER
+  resource_id: PMID:22616650
+  url: https://pubmed.ncbi.nlm.nih.gov/22616650/
+  description: Cold Gulf deep-water enrichment study with MC252 oil and COREXIT showing Colwellia and
+    Oceanospirillales succession.
+  evidence:
+  - reference: PMID:22616650
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Deep-sea bacteria enriched by oil and dispersant from the Deepwater Horizon spill
+    explanation: Lists an enrichment publication from the same DWH oil-spill system.
+- name: Exact-system publication - methylotroph role in DWH plume
+  repository: OTHER
+  resource_id: PMID:24865772
+  url: https://pubmed.ncbi.nlm.nih.gov/24865772/
+  description: Review and synthesis of Methylophaga and other methylotroph activity in DWH oil plume
+    waters.
+  evidence:
+  - reference: PMID:24865772
+    supports: SUPPORT
+    evidence_source: REVIEW
+    snippet: Role of methylotrophs in the degradation of hydrocarbons during the Deepwater Horizon oil spill
+    explanation: Lists a publication addressing methylotroph function in the same DWH plume system.
+- name: Exact-system publication - DWH hydrocarbon pathway reconstruction
+  repository: OTHER
+  resource_id: PMID:27572965
+  url: https://pubmed.ncbi.nlm.nih.gov/27572965/
+  description: Genome-resolved reconstruction of DWH hydrocarbon-degradation pathways and community
+    substrate specialization.
+  evidence:
+  - reference: PMID:27572965
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Reconstructing metabolic pathways of hydrocarbon-degrading bacteria from the Deepwater Horizon oil spill
+    explanation: Lists a genome-resolved publication from the same DWH oil-spill system.
