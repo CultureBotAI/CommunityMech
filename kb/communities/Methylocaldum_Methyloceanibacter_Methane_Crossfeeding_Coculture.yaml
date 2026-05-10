@@ -1,0 +1,275 @@
+id: CommunityMech:000169
+name: Methylocaldum-Methyloceanibacter Methane Cross-Feeding Coculture
+description: >
+  A defined aerobic methane-fed laboratory coculture pairing the marine methanotroph Methylocaldum
+  marinum S8 with the facultative methylotroph Methyloceanibacter caenitepidi Gela4. M. marinum S8
+  oxidizes methane and supports syntrophic growth of M. caenitepidi Gela4 on methane-derived carbon.
+  Transcriptome and chemical analyses indicate that acetate, rather than methanol alone, is likely a
+  major cross-fed carbon source in this model methanotroph-methylotroph community.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: CARBON_SEQUESTRATION
+engineering_design:
+  objective: Resolve methane-derived carbon cross-feeding from a marine methanotroph to a facultative
+    methylotroph under defined coculture conditions.
+  assembly_strategy: Bottom-up two-strain coculture assembled from isolated Methylocaldum marinum S8 and
+    Methyloceanibacter caenitepidi Gela4.
+  perturbation_design: M. caenitepidi Gela4 transcriptomes in methanol pure culture were compared with
+    Gela4 cells grown in methane-fed coculture with M. marinum S8.
+  measurement_endpoints:
+  - Coculture growth
+  - Species composition by microscopy and read mapping
+  - RNA-seq expression profiles
+  - Methanol and organic-acid concentrations
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows syntrophically with the methanotroph, Methylocaldum marinum S8
+    explanation: Supports the defined syntrophic coculture design.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: genomic analyses of the two strains, as well as RNA-Seq and chemical analyses
+    explanation: Supports the multi-modal experimental design used to infer the interaction mechanism.
+environment_term:
+  preferred_term: methane-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled NMS-SP bottle coculture under methane/air headspace using strains originally isolated
+    from marine sediment near Kagoshima Bay, Japan.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+    notes: Marine thermotolerant methane-oxidizing bacterium; type strain S8 is also listed by DSM and
+      NBRC culture collections.
+  strain_designation:
+    strain_name: S8
+    culture_collections:
+    - collection: DSM
+      accession: '27392'
+      url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-27392
+    - collection: NBRC
+      accession: '109686'
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane-oxidizing bacteria (methanotrophs)
+    explanation: Supports the methane-oxidizing functional role of the methanotroph partner.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanotroph Methylocaldum marinum S8
+    explanation: Supports the identity of the methanotrophic strain in the coculture.
+- taxon_term:
+    preferred_term: Methyloceanibacter caenitepidi Gela4
+    term:
+      id: NCBITaxon:1384459
+      label: Methyloceanibacter caenitepidi
+    notes: Facultative methylotroph isolated from marine sediment near a hydrothermal vent.
+  strain_designation:
+    strain_name: Gela4
+    culture_collections:
+    - collection: DSM
+      accession: '27242'
+      url: https://www.dsmz.de/collection/catalogue/details/culture/DSM-27242
+    - collection: NBRC
+      accession: '109540'
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: novel facultative methylotroph, Methyloceanibacter caenitepidi Gela4
+    explanation: Supports Gela4 as the facultative methylotrophic partner.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. caenitepidi Gela4 cross-fed by M. marinum S8
+    explanation: Supports the cross-feeding role assigned to Gela4.
+ecological_interactions:
+- name: Methane-Derived Carbon Cross-Feeding
+  description: M. marinum S8 oxidizes methane and releases methane-derived carbon that supports growth
+    of the non-methanotrophic methylotroph M. caenitepidi Gela4 in coculture.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Methyloceanibacter caenitepidi Gela4
+    term:
+      id: NCBITaxon:1384459
+      label: Methyloceanibacter caenitepidi
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cross-feeding on methane-derived carbon
+    explanation: Supports methane-derived carbon transfer as the central interaction.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: organic compound other than methanol, possibly acetate
+    explanation: Supports acetate as the likely cross-fed carbon compound.
+- name: Methanol-Independent Methylotroph Response
+  description: Under coculture conditions, M. caenitepidi Gela4 downregulated serine-pathway genes while
+    upregulating TCA-cycle and acetyl-CoA synthetase genes, consistent with use of acetate-linked carbon
+    rather than methanol as the dominant cross-fed substrate.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Methyloceanibacter caenitepidi Gela4
+    term:
+      id: NCBITaxon:1384459
+      label: Methyloceanibacter caenitepidi
+  metabolites:
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: methanol metabolic process
+    term:
+      id: GO:0015945
+      label: methanol metabolic process
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanol was below the detection limit
+    explanation: Supports methanol not being the measured dominant cross-fed compound.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetyl-CoA synthetase, were upregulated
+    explanation: Supports an acetate-linked metabolic response in Gela4 during coculture.
+environmental_factors:
+- name: Methane and oxygen availability
+  value: methane/air headspace, 20:80 v/v
+  description: The coculture was grown in NMS-SP medium with methane as the sole added carbon source and
+    air as the oxygen source for aerobic methane oxidation.
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture with methanotrophs
+    explanation: Supports the methane-fed coculture experimental condition.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cross-feeding on methane-derived carbon
+    explanation: Supports methane-derived carbon as the central carbon input to the coculture interaction.
+growth_media:
+- name: NMS-SP methane/air coculture medium
+  composition:
+  - name: NMS-SP medium
+  - name: methane
+    concentration: '20'
+    unit: percent headspace gas
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  temperature: 36
+  temperature_unit: degrees Celsius
+  atmosphere: AEROBIC
+  headspace_gas: methane/air 20:80 v/v
+  inoculum_source: Washed pure cultures of M. caenitepidi Gela4 and M. marinum S8.
+  preparation_notes: The strains were grown together in 40 mL NMS-SP medium in a 200 mL glass bottle.
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in co-culture with methanotrophs
+    explanation: Supports the coculture growth medium.
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. caenitepidi Gela4 co-cultured with M. marinum S8
+    explanation: Supports the exact two-strain coculture cultivation context.
+associated_datasets:
+- name: M. caenitepidi Gela4 complete genome
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJDB3104
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJDB3104
+  description: BioProject for the complete genome of the Gela4 methylotrophic partner used in the coculture.
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: genomic analyses of the two strains
+    explanation: Links genome resources to the strains used in the exact coculture.
+- name: M. caenitepidi Gela4 and M. marinum S8 RNA-seq dataset
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: DRA006072
+  url: https://ddbj.nig.ac.jp/resource/sra-submission/DRA006072
+  description: DDBJ Sequence Read Archive RNA-seq dataset comparing Gela4 pure culture and methane-fed
+    Gela4/S8 coculture conditions.
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: RNA-Seq and chemical analyses of M. caenitepidi Gela4
+    explanation: Links the transcriptomic dataset to the coculture experiment.
+external_resources:
+- name: Exact-system publication - Methylocaldum/Methyloceanibacter cross-feeding
+  repository: OTHER
+  resource_id: PMID:30870453
+  url: https://pubmed.ncbi.nlm.nih.gov/30870453/
+  description: Primary publication reporting the exact M. marinum S8 and M. caenitepidi Gela4 methane-fed
+    coculture, RNA-seq response, and likely acetate-mediated cross-feeding.
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-culture of M. caenitepidi Gela4 and M. marinum S8
+    explanation: Lists the primary publication for the exact two-strain coculture.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this methane cross-feeding
+  coculture.
