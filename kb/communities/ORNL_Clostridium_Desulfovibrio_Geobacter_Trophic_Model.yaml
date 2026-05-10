@@ -1,0 +1,352 @@
+id: CommunityMech:000176
+name: ORNL Clostridium-Desulfovibrio-Geobacter Trophic Model Community
+description: >
+  A three-species anaerobic continuous-culture model community established to study trophic
+  and electron-acceptor interactions relevant to subsurface anaerobic environments.
+  Clostridium cellulolyticum ferments cellobiose, while Desulfovibrio vulgaris Hildenborough
+  and Geobacter sulfurreducens depend on fermentation products and use sulfate and fumarate,
+  respectively, as supplied electron acceptors.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Establish a tractable continuous-culture anaerobic model ecosystem for quantifying
+    trophic interactions, population dynamics, carbon flow, and electron flow among fermentative,
+    sulfate-respiring, and fumarate-respiring bacterial members.
+  assembly_strategy: Bottom-up three-member coculture assembled from C. cellulolyticum,
+    D. vulgaris Hildenborough, and G. sulfurreducens with cellobiose as the shared carbon and
+    energy input and sulfate and fumarate as partner-specific electron acceptors.
+  perturbation_design: Continuous-culture operation enabled qPCR population monitoring and
+    proposed carbon/electron-flow modeling of the defined three-species community.
+  measurement_endpoints:
+  - qPCR population monitoring
+  - Presence of all three members
+  - Carbon and electron flow modeling
+  - Electron donor limitation
+  - Electron acceptor limitation
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructed a model microbial community comprised of three species
+    explanation: Supports the designed three-species model-community objective.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown under continuous culture conditions
+    explanation: Supports the continuous-culture engineering context.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Proposed metabolic modeling of carbon and electron flow of the three-species community
+    explanation: Supports the modeled carbon and electron-flow endpoint.
+environment_term:
+  preferred_term: anaerobic continuous-flow laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: The source describes an anaerobic continuous-culture laboratory system rather than an
+    environmental field sample.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Clostridium cellulolyticum
+    notes: The primary abstract identifies C. cellulolyticum as the fermentative member.
+  abundance_level: DOMINANT
+  abundance_value: qPCR monitoring identified C. cellulolyticum as dominant.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three species microbial community was comprised of Clostridium cellulolyticum
+    explanation: Supports C. cellulolyticum membership in the defined community.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: qPCR monitoring of the culture revealed C. cellulolyticum to be dominant
+    explanation: Supports the dominant abundance designation.
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+    notes: The source uses the historical Desulfovibrio vulgaris Hildenborough name; NCBI
+      currently represents this taxon as Nitratidesulfovibrio vulgaris str. Hildenborough.
+  abundance_level: COMMON
+  abundance_value: qPCR monitoring confirmed D. vulgaris in the culture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough
+    explanation: Supports D. vulgaris Hildenborough membership in the defined community.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: confirmed the presence of D. vulgaris
+    explanation: Supports presence of D. vulgaris in the continuous culture.
+- taxon_term:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+    notes: The primary abstract identifies G. sulfurreducens as the partner supplied with fumarate
+      as electron acceptor.
+  abundance_level: COMMON
+  abundance_value: qPCR monitoring confirmed G. sulfurreducens in the culture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Geobacter sulfurreducens
+    explanation: Supports G. sulfurreducens membership in the defined community.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: confirmed the presence of D. vulgaris and G. sulfurreducens
+    explanation: Supports presence of G. sulfurreducens in the continuous culture.
+ecological_interactions:
+- name: Cellobiose Fermentation Supports Partner Growth
+  description: C. cellulolyticum uses cellobiose as the carbon and energy source and produces
+    metabolic byproducts that support D. vulgaris Hildenborough and G. sulfurreducens.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Clostridium cellulolyticum
+  target_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough and Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cellobiose served as the carbon and energy source for C. cellulolyticum
+    explanation: Supports the curated cellobiose-fed fermentative role for C. cellulolyticum.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. vulgaris and G. sulfurreducens derived carbon and energy from the metabolic products
+    explanation: Supports cross-feeding from C. cellulolyticum fermentation products to both partners.
+- name: Sulfate-Linked Dependence of D. vulgaris
+  description: D. vulgaris Hildenborough depends on C. cellulolyticum metabolic products while
+    sulfate is supplied as its electron acceptor.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Clostridium cellulolyticum
+  target_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. vulgaris and G. sulfurreducens derived carbon and energy from the metabolic products
+    explanation: Supports D. vulgaris dependence on metabolic products from C. cellulolyticum.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: provided with sulfate and fumarate respectively as electron acceptors
+    explanation: Supports sulfate as the electron acceptor paired with D. vulgaris in the abstract.
+- name: Fumarate-Linked Dependence of G. sulfurreducens
+  description: G. sulfurreducens depends on C. cellulolyticum metabolic products while fumarate
+    is supplied as its electron acceptor.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulolyticum
+    term:
+      id: NCBITaxon:1521
+      label: Clostridium cellulolyticum
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: fumarate
+    term:
+      id: CHEBI:18012
+      label: fumarate(2-)
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. vulgaris and G. sulfurreducens derived carbon and energy from the metabolic products
+    explanation: Supports G. sulfurreducens dependence on metabolic products from C. cellulolyticum.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: provided with sulfate and fumarate respectively as electron acceptors
+    explanation: Supports fumarate as the electron acceptor paired with G. sulfurreducens in the abstract.
+- name: Electron Donor and Acceptor Limitation
+  description: Metabolic modeling indicated C. cellulolyticum and D. vulgaris were electron-donor
+    limited, while G. sulfurreducens was electron-acceptor limited.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: three-species model community
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: three-species model community
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth of C. cellulolyticum and D. vulgaris were electron donor limited
+    explanation: Supports electron-donor limitation for C. cellulolyticum and D. vulgaris.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: G. sulfurreducens was electron acceptor limited
+    explanation: Supports electron-acceptor limitation for G. sulfurreducens.
+environmental_factors:
+- name: Anaerobic continuous-culture operation
+  value: continuous culture
+  description: The community was maintained under continuous-culture conditions in a laboratory
+    anaerobic system.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown under continuous culture conditions
+    explanation: Supports the continuous-culture environmental factor.
+- name: Electron acceptor partitioning
+  value: sulfate supplied for D. vulgaris; fumarate supplied for G. sulfurreducens
+  description: Sulfate and fumarate were supplied as electron acceptors corresponding to D. vulgaris
+    and G. sulfurreducens, respectively.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: provided with sulfate and fumarate respectively as electron acceptors
+    explanation: Supports the electron-acceptor partitioning.
+- name: Subsurface anaerobic-environment model
+  value: trophic and electron-accepting interactions of subsurface anaerobic environments
+  description: The community was designed as a tractable model for trophic and electron-acceptor
+    interactions relevant to subsurface anaerobic environments.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tractable model ecosystem comprised of members representing the functional groups
+    explanation: Supports the tractable model-ecosystem rationale for this environmental factor.
+growth_media:
+- name: Cellobiose-sulfate-fumarate anaerobic continuous-culture medium
+  composition:
+  - name: cellobiose
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  - name: sulfate
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+  - name: fumarate
+    chebi_term:
+      preferred_term: fumarate
+      term:
+        id: CHEBI:18012
+        label: fumarate(2-)
+  atmosphere: ANAEROBIC
+  preparation_notes: Abstract-supported medium summary; exact recipe concentrations are not curated here.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cellobiose served as the carbon and energy source
+    explanation: Supports cellobiose as the primary carbon and energy input.
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: provided with sulfate and fumarate respectively as electron acceptors
+    explanation: Supports sulfate and fumarate as supplied electron acceptors.
+external_resources:
+- name: Exact-system primary publication - ORNL anaerobic three-species model community
+  repository: OTHER
+  resource_id: doi:10.1186/1471-2180-10-149
+  url: https://doi.org/10.1186/1471-2180-10-149
+  description: Primary open-access publication establishing the C. cellulolyticum, D. vulgaris
+    Hildenborough, and G. sulfurreducens continuous-culture model community.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. cellulolyticum, D. vulgaris, and G. sulfurreducens can be grown in coculture
+    explanation: Lists the primary exact-composition experimental publication.
+- name: Same-composition computational publication - OptCom model-community case study
+  repository: OTHER
+  resource_id: PMID:22319433
+  url: https://pubmed.ncbi.nlm.nih.gov/22319433/
+  description: Computational OptCom paper that includes a model-community case study for the same
+    C. cellulolyticum, D. vulgaris Hildenborough, and G. sulfurreducens species composition.
+  evidence:
+  - reference: PMID:22319433
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: inter-species metabolite and electron transfer in a model microbial community
+    explanation: Lists a computational publication about metabolite and electron transfer modeling in
+      a model microbial community; the source article was checked for the exact composition.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth amendments or direct metal-reduction measurements are curated for this
+  abstract-supported record.
