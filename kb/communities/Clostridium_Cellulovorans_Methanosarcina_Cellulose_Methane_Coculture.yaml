@@ -1,0 +1,316 @@
+id: CommunityMech:000174
+name: Clostridium cellulovorans-Methanosarcina barkeri Cellulose Methane Coculture
+description: >
+  A defined anaerobic cellulose-to-methane coculture combining the cellulolytic
+  fermenter Clostridium cellulovorans 743B with the metabolically versatile methanogen
+  Methanosarcina barkeri Fusaro. C. cellulovorans degrades cellulose and produces
+  methanogenesis precursors including hydrogen, formate, and acetate, while M. barkeri
+  consumes those products for methanogenesis. The system is relevant to DOE bioenergy
+  because it is an experimentally tractable model for renewable methane production
+  from cellulosic biomass and for engineering anaerobic biomethanation consortia.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: METHANOGENESIS
+engineering_design:
+  objective: Establish a genetically tractable two-member model for direct conversion of cellulose
+    to methane through fermentative cellulose degradation coupled to methanogenesis.
+  assembly_strategy: Bottom-up coculture assembled from C. cellulovorans 743B and M. barkeri Fusaro
+    in anaerobic DCB-1 medium with cellulose as the sole added substrate.
+  perturbation_design: Monocultures and cocultures were compared for cellulose degradation, gas
+    production, VFA dynamics, pH, cell abundance, and RT-qPCR expression of interaction-related
+    genes.
+  measurement_endpoints:
+  - Cellulose degradation
+  - Methane and hydrogen production
+  - Formate and acetate depletion
+  - Volatile fatty acid concentrations
+  - pH stabilization
+  - RT-qPCR expression of selected metabolic genes
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: experimentally tractable model system
+    explanation: Supports the model-system design for mechanistic study.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: assembling consortia as inocula
+    explanation: Supports the bioenergy engineering objective of the coculture model.
+environment_term:
+  preferred_term: anaerobic cellulose-fed laboratory serum bottle culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic 160-mL serum-bottle cultures in DCB-1 medium with cellulose and a
+    CO2/N2 headspace.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+    notes: ATCC 35296 cellulolytic fermenter that supplies H2, formate, acetate, and other VFAs
+      from cellulose degradation.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B with Methanosarcina barkeri Fusaro
+    explanation: Supports C. cellulovorans 743B as one member of the exact two-species coculture.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B
+    explanation: Supports the cellulolytic primary-degrader role.
+- taxon_term:
+    preferred_term: Methanosarcina barkeri Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+    notes: DSM 804 methanogen able to use H2, formate, and acetate-linked metabolism in the
+      C. cellulovorans coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B with Methanosarcina barkeri Fusaro
+    explanation: Supports M. barkeri Fusaro as the second member of the exact two-species coculture.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous utilization of hydrogen, formate, and acetate for methanogenesis
+    explanation: Supports the methanogenic cross-feeding role of M. barkeri in the coculture.
+ecological_interactions:
+- name: Cellulose Fermentation to Methanogenesis Precursors
+  description: C. cellulovorans degrades cellulose and releases H2, formate, acetate, and other
+    fermentation products that can feed methanogenesis by M. barkeri.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+  target_taxon:
+    preferred_term: Methanosarcina barkeri Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced by C. cellulovorans during cellulose degradation
+    explanation: Supports production of methanogenesis substrates by C. cellulovorans.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B
+    explanation: Supports cellulose degradation by C. cellulovorans as the primary source of cross-fed
+      metabolites.
+- name: Multi-Substrate Methanogenesis by M. barkeri
+  description: M. barkeri consumes hydrogen, formate, and acetate produced during cellulose
+    fermentation to generate methane through hydrogenotrophic/formate-linked and acetoclastic
+    methanogenic routes.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanosarcina barkeri Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous utilization of hydrogen, formate, and acetate for methanogenesis
+    explanation: Supports M. barkeri consumption of the three C. cellulovorans products for methane
+      formation.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanogens in both cocultures were able to efficiently utilize
+    explanation: Supports consumption of C. cellulovorans fermentation products by the methanogen.
+- name: Methanogen-Enabled Cellulose Degradation and pH Stabilization
+  description: Product consumption by M. barkeri lowers H2 and VFA accumulation, stabilizes pH, and
+    improves cellulose degradation relative to C. cellulovorans monoculture.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Methanosarcina barkeri Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  target_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced by C. cellulovorans during cellulose degradation
+    explanation: Supports methanogen consumption of cellulolytic fermentation products.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degradation was observed in both cocultures
+    explanation: Supports improved cellulose degradation in coculture.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stabilized pH for C. cellulovorans
+    explanation: Supports pH stabilization as an interaction outcome.
+environmental_factors:
+- name: Cellulose substrate
+  value: cellulose
+  description: Cellulose is the substrate converted to methane by the coculture.
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct conversion of cellulose to CH4
+    explanation: Supports cellulose as the experimental substrate.
+- name: Methanogen product utilization
+  value: fermentation products consumed by M. barkeri
+  description: M. barkeri uses products released during C. cellulovorans cellulose degradation.
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced by C. cellulovorans during cellulose degradation
+    explanation: Supports product utilization by M. barkeri in the coculture.
+- name: pH stabilization
+  value: stabilized pH relative to C. cellulovorans monoculture
+  description: Coculturing with the methanogen stabilized pH for the cellulose degrader.
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stabilized pH for C. cellulovorans
+    explanation: Supports pH stabilization as an environmental outcome of the interaction.
+growth_media:
+- name: Cellulose-fed methanogenic coculture medium
+  composition:
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  atmosphere: ANAEROBIC
+  preparation_notes: The record curates the abstract-supported cellulose-to-methane culture context;
+    detailed mineral medium recipe parameters are not represented here.
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct conversion of cellulose to CH4
+    explanation: Supports cellulose-to-methane cultivation as the medium context.
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CH4 production from cellulose
+    explanation: Supports methane production from cellulose in the coculture context.
+external_resources:
+- name: Exact-system primary publication - C. cellulovorans and M. barkeri cellulose-to-methane coculture
+  repository: OTHER
+  resource_id: PMID:28191038
+  url: https://pubmed.ncbi.nlm.nih.gov/28191038/
+  description: Primary open-access publication establishing the C. cellulovorans 743B and M. barkeri
+    Fusaro coculture for direct conversion of cellulose to methane.
+  evidence:
+  - reference: PMID:28191038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B with Methanosarcina barkeri Fusaro
+    explanation: Lists the exact-composition primary publication for this two-species community.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this cellulose-to-methane
+  coculture.
