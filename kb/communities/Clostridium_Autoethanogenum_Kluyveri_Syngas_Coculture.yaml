@@ -1,0 +1,324 @@
+id: CommunityMech:000172
+name: Clostridium autoethanogenum-Clostridium kluyveri Syngas Coculture
+description: >
+  A defined anaerobic synthetic coculture combining the acetogenic syngas fermenter Clostridium
+  autoethanogenum with the chain-elongating bacterium Clostridium kluyveri. C. autoethanogenum
+  converts carbon monoxide or syngas into acetate and ethanol, while C. kluyveri consumes these
+  products for chain elongation, producing C4 and C6 fatty acids and higher alcohols. The system is
+  relevant to DOE carbon utilization and renewable fuels because it couples gas fermentation with
+  microbial upgrading of CO/syngas-derived intermediates in one growth vessel.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Integrate syngas fermentation and chain elongation to produce medium-chain fatty acids
+    and higher alcohols from carbon monoxide or syngas.
+  assembly_strategy: Bottom-up two-species coculture assembled from C. autoethanogenum and C.
+    kluyveri in anaerobic gas-fed cultivation.
+  perturbation_design: Studies compared monocultures and cocultures on CO or syngas, tested acetate
+    supplementation, examined pH effects, and later modeled strategies to increase butyrate and
+    hexanoate production.
+  measurement_endpoints:
+  - Coculture growth on CO or syngas
+  - Acetate and ethanol formation
+  - Butyrate and caproate production
+  - Butanol and hexanol production
+  - Metabolic shift during co-cultivation
+  - Community flux balance model predictions
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic co-culture consisting
+    explanation: Supports the deliberately assembled synthetic coculture design.
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: integration of syngas fermentation and chain elongation
+    explanation: Supports the engineered process objective.
+environment_term:
+  preferred_term: anaerobic syngas-fed laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic laboratory cultivation with CO or syngas as gas substrate; later model
+    publications evaluate the same species pair in a syngas fermentation context.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium autoethanogenum
+    term:
+      id: NCBITaxon:84023
+      label: Clostridium autoethanogenum
+    notes: Acetogenic syngas-fermenting partner in the defined coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium autoethanogenum and Clostridium kluyveri
+    explanation: Supports C. autoethanogenum as one member of the exact two-species coculture.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: autoethanogenum converted CO to acetate
+    explanation: Supports the acetogenic CO-converting role of C. autoethanogenum.
+- taxon_term:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+    notes: Chain-elongating partner that consumes acetogen products in the defined coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium autoethanogenum and Clostridium kluyveri
+    explanation: Supports C. kluyveri as one member of the exact two-species coculture.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuous removal of ethanol by C. kluyveri
+    explanation: Supports the cross-feeding role of C. kluyveri consuming ethanol from the acetogen.
+ecological_interactions:
+- name: Acetogenic CO and Syngas Fermentation
+  description: C. autoethanogenum converts CO or syngas into acetate and ethanol, producing the
+    substrates that support chain elongation by C. kluyveri.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium autoethanogenum
+    term:
+      id: NCBITaxon:84023
+      label: Clostridium autoethanogenum
+  target_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetate and ethanol are main products
+    explanation: Supports acetate and ethanol as syngas-fermentation products used by the chain
+      elongation partner.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converted CO to acetate and traces of ethanol
+    explanation: Supports C. autoethanogenum production of cross-fed substrates from CO.
+- name: Ethanol-Driven Chain Elongation
+  description: C. kluyveri consumes ethanol and acetate produced by C. autoethanogenum, enabling
+    formation of butyrate, caproate, butanol, and hexanol from CO or syngas.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converting CO and syngas to a mixture
+    explanation: Supports conversion of gas substrates into chain-elongated products by the coculture.
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate and caproate
+    explanation: Supports production of C4 and C6 fatty acids.
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol and hexanol were produced
+    explanation: Supports production of higher alcohols in the coculture.
+- name: Thermodynamic Ethanol Pull by C. kluyveri
+  description: C. kluyveri removal of ethanol during co-cultivation shifts C. autoethanogenum metabolism
+    toward solventogenesis, improving the electron flow into chain-elongated products.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  target_taxon:
+    preferred_term: Clostridium autoethanogenum
+    term:
+      id: NCBITaxon:84023
+      label: Clostridium autoethanogenum
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: shifted its metabolism significantly towards solventogenesis
+    explanation: Supports a coculture-induced metabolic shift in C. autoethanogenum.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuous removal of ethanol by C. kluyveri
+    explanation: Supports the inferred thermodynamic pull mechanism caused by C. kluyveri ethanol
+      consumption.
+environmental_factors:
+- name: Gas substrate
+  value: carbon monoxide or syngas
+  description: The coculture grows with CO or syngas as the gas substrate, integrating syngas fermentation
+    with chain elongation.
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO or syngas as a substrate
+    explanation: Supports CO and syngas as experimentally tested substrates.
+- name: Acetate supplementation
+  value: acetate stimulated production rates
+  description: Acetate availability affects product formation in the coculture.
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate significantly stimulated production rates
+    explanation: Supports acetate supplementation as a process factor.
+- name: pH
+  value: pH influences growth and caproate toxicity
+  description: pH was identified as a major cultivation factor affecting individual strain growth and
+    caproate toxicity.
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH was found to be a major factor
+    explanation: Supports pH as a curated environmental factor.
+growth_media:
+- name: Anaerobic CO or syngas fermentation coculture
+  composition:
+  - name: carbon monoxide
+    chebi_term:
+      preferred_term: carbon monoxide
+      term:
+        id: CHEBI:17245
+        label: carbon monoxide
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  atmosphere: ANAEROBIC
+  headspace_gas: CO or syngas
+  vessel_type: anaerobic laboratory cultivation vessel
+  preparation_notes: PubMed-indexed abstracts support CO/syngas gas substrate, acetate supplementation,
+    and pH effects; exact mineral medium recipes are not curated here.
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown on carbon monoxide or syngas
+    explanation: Supports the gas-fed coculture growth condition.
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: presence of acetate significantly stimulated
+    explanation: Supports acetate as a medium/process component.
+external_resources:
+- name: Exact-system primary publication - CO/syngas chain elongation coculture
+  repository: OTHER
+  resource_id: PMID:27042211
+  url: https://pubmed.ncbi.nlm.nih.gov/27042211/
+  description: Primary publication establishing the C. autoethanogenum and C. kluyveri synthetic
+    coculture for C4/C6 fatty acid and higher alcohol production from CO or syngas.
+  evidence:
+  - reference: PMID:27042211
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium autoethanogenum and Clostridium kluyveri
+    explanation: Lists the primary exact-composition coculture publication.
+- name: Exact-system publication - metabolic interaction and solventogenic shift
+  repository: OTHER
+  resource_id: PMID:31792266
+  url: https://pubmed.ncbi.nlm.nih.gov/31792266/
+  description: Follow-up exact species-pair publication analyzing microbial interactions and the
+    co-cultivation-induced metabolic shift during CO conversion.
+  evidence:
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic co-culture of Clostridium autoethanogenum and Clostridium kluyveri
+    explanation: Lists a second exact-composition publication for the same species pair.
+- name: Exact-system publication - genome-scale community model
+  repository: OTHER
+  resource_id: PMID:33240469
+  url: https://pubmed.ncbi.nlm.nih.gov/33240469/
+  description: Genome-scale constraint-based model of the C. autoethanogenum and C. kluyveri coculture
+    on syngas for medium-chain fatty acid production.
+  evidence:
+  - reference: PMID:33240469
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: co-culture of Clostridium autoethanogenum and Clostridium kluyveri
+    explanation: Lists a computational publication for the same exact species-pair composition.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this syngas fermentation
+  coculture.
