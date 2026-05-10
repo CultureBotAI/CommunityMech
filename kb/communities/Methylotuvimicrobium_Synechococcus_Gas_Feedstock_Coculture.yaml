@@ -1,0 +1,279 @@
+id: CommunityMech:000170
+name: Methylotuvimicrobium-Synechococcus Gas Feedstock Coculture
+description: >
+  A defined synthetic methanotroph-cyanobacterium coculture developed at Pacific Northwest
+  National Laboratory for simultaneous use of methane and carbon dioxide gas feedstocks. The
+  methanotrophic bacterium Methylomicrobium alcaliphilum 20z, currently represented by NCBI as
+  Methylotuvimicrobium alcaliphilum 20Z, is coupled to the cyanobacterium Synechococcus PCC 7002,
+  currently represented by NCBI as Picosynechococcus sp. PCC 7002. The coculture converts CH4 and
+  CO2 into microbial biomass through oxygenic photosynthesis-driven O2 supply to the methanotroph
+  and respiratory CO2 supply to the photoautotroph, with follow-up work using the same species pair
+  for quantitative coculture characterization.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert methane and carbon dioxide from biogas, natural gas, or related gas feedstocks
+    into microbial biomass using a defined binary methanotroph-cyanobacterium coculture.
+  assembly_strategy: Bottom-up two-member coculture coupling a methanotrophic bacterium to a
+    cyanobacterium via oxygenic photosynthesis.
+  perturbation_design: Batch and continuous coculture experiments tested diverse gas mixtures,
+    synthetic natural gas feed, and coupled light/O2 limitations.
+  measurement_endpoints:
+  - Coculture growth on gas mixtures
+  - Methane and CO2 conversion to biomass
+  - O2 depletion in continuous cultivation
+  - Individual biomass concentration and O2/CO2 rates in follow-up characterization
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converts greenhouse gasses, CH4 and CO2, into microbial biomass
+    explanation: Supports the gas-feedstock conversion objective.
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coupled to a cyanobacterium, Synechococcus PCC 7002 via oxygenic photosynthesis
+    explanation: Supports the engineered binary assembly strategy.
+environment_term:
+  preferred_term: illuminated gas-fed laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled batch and continuous gas-fed laboratory coculture under illumination.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylomicrobium alcaliphilum 20z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+    notes: Source publications use Methylomicrobium alcaliphilum 20z or 20ZR; NCBI Taxonomy
+      records the strain under Methylotuvimicrobium alcaliphilum 20Z.
+  strain_designation:
+    strain_name: 20z
+    culture_collections:
+    - collection: DSM
+      accession: '19304'
+    - collection: NCIMB
+      accession: '14124'
+    - collection: VKM
+      accession: B-2133
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The methanotrophic bacterium, Methylomicrobium alcaliphilum 20z
+    explanation: Supports the identity and methanotrophic role of the methane-oxidizing partner.
+  - reference: PMID:33064298
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylomicrobium alcaliphilum 20ZR-Synechococcus sp. PCC7002
+    explanation: Supports a follow-up exact species-pair implementation using a 20ZR derivative.
+- taxon_term:
+    preferred_term: Synechococcus PCC 7002
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+    notes: Source publications use Synechococcus PCC 7002 or Synechococcus sp. PCC7002; NCBI
+      currently labels taxon 32049 as Picosynechococcus sp. PCC 7002.
+  strain_designation:
+    strain_name: PCC 7002
+    culture_collections:
+    - collection: PCC
+      accession: '7002'
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cyanobacterium, Synechococcus PCC 7002
+    explanation: Supports the identity of the oxygenic photoautotrophic partner.
+  - reference: PMID:33064298
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synechococcus sp. PCC7002
+    explanation: Supports the same cyanobacterial species-pair member in the follow-up
+      characterization study.
+ecological_interactions:
+- name: Photosynthetic O2 Support for Methane Oxidation
+  description: Synechococcus PCC 7002 performs oxygenic photosynthesis and supplies O2 that supports
+    aerobic methane oxidation by M. alcaliphilum 20z, enabling coculture growth without feeding
+    external CH4/O2 mixtures.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Synechococcus PCC 7002
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  target_taxon:
+    preferred_term: Methylomicrobium alcaliphilum 20z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: via oxygenic photosynthesis
+    explanation: Supports photosynthetic O2 production as the coupling mechanism.
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: does not require CH4/O2 mixtures to be fed
+    explanation: Supports in situ O2 provisioning by the cyanobacterium during methane-fed
+      cocultivation.
+- name: CO2 Utilization by Cyanobacterial Partner
+  description: CO2 from the supplied gas stream and methanotroph respiration is available to the
+    cyanobacterial partner, allowing simultaneous methane and carbon dioxide utilization into biomass.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylomicrobium alcaliphilum 20z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+  target_taxon:
+    preferred_term: Synechococcus PCC 7002
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous utilization of methane and carbon dioxide
+    explanation: Supports coupled use of methane by the methanotroph and CO2 by the
+      photoautotroph.
+  - reference: PMID:33064298
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: individual consumption and production rates of O2 and CO2
+    explanation: Supports O2 and CO2 fluxes as measured interaction variables in the same
+      species-pair coculture platform.
+environmental_factors:
+- name: Gas feedstock composition
+  value: diverse gas mixtures ranging from biogas to natural-gas feedstock analogs
+  description: The coculture was tested across methane- and CO2-containing feedstocks relevant to
+    biogas and natural gas conversion.
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: diverse gas mixtures ranging from biogas
+    explanation: Supports gas-feedstock variation as an experimental factor.
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic natural gas feed
+    explanation: Supports the continuous synthetic natural-gas feed condition.
+- name: Light and O2 limitation
+  value: coupled light and O2 limitations
+  description: Continuous coculture reached steady state under imposed light limitation for the
+    cyanobacterium and O2 limitation for the methanotroph.
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coupled light and O2 limitations
+    explanation: Supports light and oxygen availability as paired control factors.
+growth_media:
+- name: Illuminated gas-feed coculture conditions
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  atmosphere: AEROBIC
+  headspace_gas: CH4/CO2-containing biogas and synthetic natural gas feedstocks
+  light_regime: illuminated
+  vessel_type: batch and continuous coculture reactors
+  preparation_notes: The PubMed-indexed abstract supports gas-feed and illumination conditions but
+    does not provide full mineral medium composition.
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultivation technology
+    explanation: Supports the curated culture condition as a cocultivation system.
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A continuous processes was developed
+    explanation: Supports continuous reactor cultivation as part of the growth condition.
+external_resources:
+- name: Exact-system primary publication - gas feedstock coculture
+  repository: OTHER
+  resource_id: PMID:28092828
+  url: https://pubmed.ncbi.nlm.nih.gov/28092828/
+  description: Primary publication reporting the M. alcaliphilum 20z and Synechococcus PCC 7002
+    coculture for simultaneous methane and carbon dioxide utilization.
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylomicrobium alcaliphilum 20z
+    explanation: Lists the exact primary species-pair publication.
+- name: Exact species-pair follow-up publication - quantitative characterization
+  repository: OTHER
+  resource_id: PMID:33064298
+  url: https://pubmed.ncbi.nlm.nih.gov/33064298/
+  description: Follow-up publication using the same Methylomicrobium alcaliphilum and Synechococcus
+    PCC 7002 species composition, with a 20ZR methanotroph derivative, for quantitative measurement
+    of individual biomass and O2/CO2 rates.
+  evidence:
+  - reference: PMID:33064298
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylomicrobium alcaliphilum 20ZR-Synechococcus sp. PCC7002
+    explanation: Lists an additional publication for the same species-pair composition, noting the
+      strain-derivative distinction.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this gas-feedstock
+  coculture.
