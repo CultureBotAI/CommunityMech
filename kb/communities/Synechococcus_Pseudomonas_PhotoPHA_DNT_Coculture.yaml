@@ -1,0 +1,420 @@
+id: CommunityMech:000167
+name: Synechococcus-Pseudomonas Phototrophic PHA and DNT Coculture
+description: >
+  A synthetic, light-driven two-species coculture pairing engineered Synechococcus elongatus PCC 7942
+  cscB with engineered Pseudomonas putida strains that consume cyanobacterial sucrose. The cyanobacterium
+  fixes CO2 and exports sucrose under salt/IPTG induction, while P. putida converts the transferred carbon
+  into polyhydroxyalkanoates (PHA) and, in a related engineered implementation, transforms the industrial
+  pollutant 2,4-dinitrotoluene. This platform is relevant to DOE carbon utilization, bioproduct formation,
+  and contaminant bioremediation because it couples photosynthetic CO2 fixation to heterotrophic
+  biocatalysis in a controlled laboratory community.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Couple photosynthetic CO2 fixation and sucrose export by engineered S. elongatus to P. putida
+    growth, PHA accumulation, and engineered 2,4-dinitrotoluene transformation.
+  assembly_strategy: Bottom-up two-member coculture assembled from S. elongatus PCC 7942 cscB and
+    sucrose-utilizing P. putida cscAB, cscRABY, or EM173-derived engineered strains in BG-11-derived
+    medium under illumination.
+  inoculation_strategy: S. elongatus cscB was established first under sucrose-exporting conditions, followed
+    by inoculation of the heterotrophic P. putida partner after sucrose was available.
+  perturbation_design: Salt stress and IPTG induction drive cyanobacterial sucrose export; nitrate limitation,
+    nitrate-blind P. putida engineering, alginate encapsulation, and 2,4-dinitrotoluene exposure were used
+    in different publications to tune production or remediation.
+  measurement_endpoints:
+  - Sucrose concentration
+  - Coculture growth
+  - PHA production
+  - 2,4-dinitrotoluene transformation
+  - Transcriptome, proteome, and metabolome profiles
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture consists of two bio-modules
+    explanation: Supports the two-module coculture design and division of labor.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic microbial consortium composed of two genetically engineered microbes
+    explanation: Supports that the DNT-transforming implementation is a synthetic engineered two-member
+      consortium.
+environment_term:
+  preferred_term: illuminated laboratory photobioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: BG-11-derived laboratory coculture and photobioreactor system under illumination, salt stress,
+    IPTG induction, and controlled or semi-controlled CO2/light conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+    notes: Engineered PCC 7942 derivative expressing the heterologous CscB sucrose permease to export
+      photosynthetically fixed carbon as sucrose.
+  strain_designation:
+    strain_name: PCC 7942 cscB
+    culture_collections:
+    - collection: PCC
+      accession: '7942'
+      url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
+    genetic_modification: Heterologous cscB sucrose permease enabling sucrose export under induction and
+      salt stress.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synechococcus elongatus cscB fixes CO2, converts it to sucrose, and exports it
+    explanation: Supports the cyanobacterium as the primary producer and sucrose exporter.
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cyanobacterium S. elongatus cscB, which supplies sucrose
+    explanation: Supports S. elongatus cscB as the phototrophic sucrose-supplying member in the multi-omics
+      coculture study.
+- taxon_term:
+    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    notes: Engineered P. putida derivatives used across exact species-pair publications include cscAB,
+      cscRABY, nitrate-blind cscRABY, and EM173 DNT/S variants.
+  strain_designation:
+    strain_name: P. putida cscAB/cscRABY/EM173 derivatives
+    genetic_modification: Sucrose-utilization modules and, in specific studies, nitrate-blind PHA production
+      or 2,4-dinitrotoluene transformation modules.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas putida cscAB and is converted to PHAs
+    explanation: Supports P. putida as the heterotrophic sucrose-consuming PHA-producing partner.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: heterotrophic bacterium (Pseudomonas putida EM173)
+    explanation: Supports P. putida EM173 as the heterotrophic partner in the DNT-transforming implementation.
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: heterotrophic P. putida cscRABY
+    explanation: Supports P. putida cscRABY as the heterotrophic partner in the multi-omics coculture.
+ecological_interactions:
+- name: Photosynthetic Sucrose Cross-Feeding
+  description: S. elongatus cscB fixes CO2 using light energy, converts fixed carbon to sucrose, and exports
+    sucrose to support P. putida growth and metabolism.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  target_taxon:
+    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: sucrose biosynthetic process
+    term:
+      id: GO:0005986
+      label: sucrose biosynthetic process
+  downstream:
+  - target: Heterotrophic PHA Accumulation
+    description: Secreted sucrose provides the carbon source for P. putida PHA biosynthesis.
+  - target: DNT Biotransformation
+    description: Secreted sucrose supports active metabolism of engineered P. putida during pollutant
+      transformation.
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this sugar serves as C-source for Pseudomonas putida cscAB
+    explanation: Supports sucrose as the explicit metabolite linking the two coculture modules.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cyanobacteria fix CO2 through photosynthetic metabolism and secrete sufficient carbohydrates
+    explanation: Supports photosynthetic CO2 fixation and carbohydrate secretion as the basis for P. putida
+      growth.
+- name: Heterotrophic PHA Accumulation
+  description: P. putida consumes cyanobacterial sucrose-derived carbon and accumulates medium-chain-length
+    polyhydroxyalkanoates as a bioproduct, with nitrogen limitation or nitrate-blind engineering improving
+    production in related exact species-pair studies.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  - preferred_term: poly(3-hydroxybutyrate)
+    term:
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
+  biological_processes:
+  - preferred_term: sucrose catabolic process
+    term:
+      id: GO:0005987
+      label: sucrose catabolic process
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maximal PHA production rate of 23.8
+    explanation: Supports PHA accumulation by the coculture under nitrogen-limiting conditions.
+  - reference: PMID:32523942
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PHA produced from light and CO2 was 8.8 fold increased
+    explanation: Supports improved PHA production in a nitrate-blind P. putida variant of the same species-pair
+      platform.
+- name: DNT Biotransformation with Photosynthetic Carbon Input
+  description: In the DNT-remediation implementation, engineered P. putida EM173 consumes cyanobacterial
+    sucrose and transforms 2,4-dinitrotoluene while S. elongatus provides photosynthetically fixed carbon.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  metabolites:
+  - preferred_term: 2,4-dinitrotoluene
+    term:
+      id: CHEBI:920
+      label: 2,4-dinitrotoluene
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degrade the environmental pollutant 2,4-dinitrotoluene (2,4-DNT)
+    explanation: Supports engineered P. putida-mediated DNT transformation in the photosynthetic coculture.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: remediate the industrial pollutant 2,4-DNT while simultaneously synthesizing biopolymers
+    explanation: Supports the dual bioremediation and bioproduct function of the coculture.
+- name: Growth-Promoting Partner Feedback
+  description: Multi-omics experiments indicate that P. putida cscRABY can improve S. elongatus cscB growth
+    and photosynthetic capacity, with additional molecular exchanges beyond sucrose likely contributing
+    to coculture dynamics.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Pseudomonas putida engineered sucrose-utilizing partner
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  evidence:
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: up to 80% increase in the growth rate and enhanced photosynthetic capacity
+    explanation: Supports a positive effect of P. putida on the cyanobacterial partner.
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exchange of further molecules beyond the unidirectional feeding with sucrose
+    explanation: Supports additional interaction mechanisms beyond the engineered sucrose cross-feeding link.
+environmental_factors:
+- name: Light and CO2
+  value: Illumination with CO2 as primary carbon input
+  description: Light drives cyanobacterial photosynthesis while CO2 is fixed and routed into sucrose for
+    heterotrophic metabolism.
+  evidence:
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light and CO2 as the primary inputs
+    explanation: Supports light and CO2 as the key inputs to the DNT/PHA implementation.
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: carbon-neutral production of polyhydroxyalkanoates (PHAs) from CO2
+    explanation: Supports the light/CO2 basis of the PHA production coculture.
+- name: Nitrogen limitation and nitrate-blind engineering
+  value: Nitrogen-limited or nitrate-blind P. putida conditions
+  description: Nitrogen limitation and nitrate-blind P. putida engineering were used to improve PHA accumulation
+    without breaking the two-member phototrophic coculture design.
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By applying a nitrogen-limited process
+    explanation: Supports nitrogen limitation as a process condition for PHA production.
+  - reference: PMID:32523942
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: uncoupling the PHA production from the presence of nitrate
+    explanation: Supports nitrate-blind engineering as a follow-up process intervention.
+growth_media:
+- name: BG-11+ phototrophic coculture medium
+  composition:
+  - name: BG-11+ basal medium
+  - name: sodium chloride
+    concentration: '150'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium chloride
+      term:
+        id: CHEBI:26710
+        label: sodium chloride
+  - name: IPTG
+    concentration: '0.1'
+    unit: mM
+    chebi_term:
+      preferred_term: isopropyl beta-D-thiogalactopyranoside
+      term:
+        id: CHEBI:61448
+        label: isopropyl beta-D-thiogalactopyranoside
+  ph: 7.5
+  temperature: 30
+  temperature_unit: degrees Celsius
+  atmosphere: AEROBIC
+  headspace_gas: air enriched with CO2 in photobioreactor implementations
+  salinity: '150'
+  salinity_unit: mM NaCl
+  light_regime: continuous illumination
+  light_intensity: 50 to 120
+  light_intensity_unit: umol photons/m2/s
+  inoculum_source: Engineered laboratory cultures of S. elongatus PCC 7942 cscB and P. putida sucrose-utilizing
+    derivatives.
+  preparation_notes: BG-11-derived medium was adapted for simultaneous cyanobacterial and P. putida growth;
+    specific recipes varied by publication and experiment.
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic bacterial co-culture
+    explanation: Supports the controlled in vitro coculture context for this growth medium record.
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: parallel photobioreactor system
+    explanation: Supports that later multi-omics work used a photobioreactor process for this coculture.
+associated_datasets:
+- name: MassIVE/GNPS multi-omics dataset for S. elongatus-P. putida coculture
+  dataset_type: METABOLOMICS
+  repository: MASSIVE
+  accession: MSV000092369
+  url: https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?accession=MSV000092369
+  description: Public MassIVE/GNPS dataset for the P. putida cscRABY and S. elongatus cscB multi-omics
+    coculture study.
+  evidence:
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: transcriptome, proteome, and metabolome levels
+    explanation: Links the multi-omics publication to the dataset type.
+- name: ProteomeXchange/iProX proteomics dataset for S. elongatus-P. putida coculture
+  dataset_type: METAPROTEOME
+  repository: OTHER
+  accession: PXD045253
+  url: https://proteomecentral.proteomexchange.org/cgi/GetDataset?ID=PXD045253
+  description: ProteomeXchange/iProX dataset associated with the S. elongatus cscB and P. putida cscRABY
+    synthetic coculture multi-omics study.
+  evidence:
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: proteome
+    explanation: Links the dataset to the proteomics component of the multi-omics publication.
+external_resources:
+- name: Exact-system publication - PHA production from light and CO2
+  repository: OTHER
+  resource_id: doi:10.1186/s13068-017-0875-0
+  url: https://doi.org/10.1186/s13068-017-0875-0
+  description: Primary publication establishing the S. elongatus cscB and P. putida cscAB species-pair
+    platform for PHA production.
+  evidence:
+  - reference: PMID:28814973
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mixed cultures of S. elongatus cscB and P. putida cscAB
+    explanation: Lists a primary exact species-pair publication.
+- name: Exact-system publication - nitrate-blind P. putida PHA improvement
+  repository: OTHER
+  resource_id: PMID:32523942
+  url: https://pubmed.ncbi.nlm.nih.gov/32523942/
+  description: Follow-up publication using the same S. elongatus/P. putida species pair with engineered
+    nitrate-blind P. putida for improved PHA production.
+  evidence:
+  - reference: PMID:32523942
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: composed of two partner strains
+    explanation: Lists a related exact species-pair publication while noting strain-level engineering differs.
+- name: Exact-system publication - DNT biotransformation
+  repository: OTHER
+  resource_id: PMID:32064751
+  url: https://pubmed.ncbi.nlm.nih.gov/32064751/
+  description: DOE-linked publication extending the S. elongatus/P. putida species-pair platform to
+    2,4-dinitrotoluene biotransformation and PHA production.
+  evidence:
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synechococcus elongatus PCC 7942) and a heterotrophic bacterium (Pseudomonas putida EM173)
+    explanation: Lists the exact species-pair DNT biotransformation publication.
+- name: Exact-system publication - multi-omics interaction study
+  repository: OTHER
+  resource_id: PMID:38609451
+  url: https://pubmed.ncbi.nlm.nih.gov/38609451/
+  description: Multi-omics publication on the same S. elongatus/P. putida species pair, using S. elongatus
+    cscB and P. putida cscRABY to characterize interaction mechanisms.
+  evidence:
+  - reference: PMID:38609451
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined synthetic co-culture of the cyanobacterium S. elongatus cscB
+    explanation: Lists the exact species-pair multi-omics publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role was curated for this phototrophic biotechnology and
+  DNT-bioremediation coculture.
