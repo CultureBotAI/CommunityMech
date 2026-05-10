@@ -1,0 +1,285 @@
+id: CommunityMech:000180
+name: Clostridium-Thermoanaerobacterium JN4-GD17 Cellulosic Biofuel Coculture
+description: >
+  A thermophilic two-member cellulosic biofuel coculture composed of Clostridium
+  thermocellum JN4 and Thermoanaerobacterium thermosaccharolyticum GD17. The system
+  improves overall cellulosic biofuel production efficiency relative to C. thermocellum
+  alone, but later mechanistic work indicates that GD17 also competitively hampers
+  C. thermocellum JN4 growth while using glucose and cellobiose released during cellulose
+  degradation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Characterize and engineer a defined cellulose-converting microbial consortium for
+    lignocellulosic biofuel production.
+  assembly_strategy: Pair cellulolytic C. thermocellum JN4 with non-cellulolytic T. thermosaccharolyticum
+    GD17, a companion fermenter that converts glucose or cellobiose into final products.
+  perturbation_design: Compare mono- and coculture behavior and modulate the consortium using GD17
+    stimulants to rebalance cellulose conversion.
+  measurement_endpoints:
+  - Cellulosic biofuel production efficiency
+  - Cellulose degradation
+  - Growth of C. thermocellum JN4 in coculture
+  - Glucose and cellobiose conversion
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Characterizing and engineering microbial communities for lignocellulosic biofuel production
+    explanation: Supports the consortium engineering objective.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium thermocellum JN4 and Thermoanaerobacterium thermosaccharolyticum GD17 coculture
+    explanation: Supports the exact two-member assembly.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: controlling and rebalancing these microbial consortia to modulate cellulose degradation
+    explanation: Supports perturbation and control of cellulose conversion.
+environment_term:
+  preferred_term: anaerobic cellulose-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Laboratory coculture system for cellulose, cellobiose, and glucose conversion by defined
+    thermophilic anaerobes.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium thermocellum JN4
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+    notes: Cellulolytic member that releases glucose or cellobiose from lignocellulosic substrates.
+  strain_designation:
+    strain_name: JN4
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium thermocellum JN4
+    explanation: Supports C. thermocellum JN4 as a member of the exact coculture.
+- taxon_term:
+    preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
+    term:
+      id: NCBITaxon:1517
+      label: Thermoanaerobacterium thermosaccharolyticum
+    notes: Non-cellulolytic fermentative partner with a competitive metabolic advantage in glucose
+      or cellobiose conversion.
+  strain_designation:
+    strain_name: GD17
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thermoanaerobacterium thermosaccharolyticum GD17
+    explanation: Supports T. thermosaccharolyticum GD17 as a member of the exact coculture.
+ecological_interactions:
+- name: Cellulosic Biofuel Efficiency Enhancement
+  description: Coculturing C. thermocellum JN4 with T. thermosaccharolyticum GD17 improves overall
+    cellulosic biofuel production efficiency.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium thermocellum JN4
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+  target_taxon:
+    preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
+    term:
+      id: NCBITaxon:1517
+      label: Thermoanaerobacterium thermosaccharolyticum
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture significantly improves overall cellulosic biofuel production efficiency
+    explanation: Supports improved cellulosic biofuel production in the two-member coculture.
+- name: GD17 Competitive Conversion of Released Sugars
+  description: T. thermosaccharolyticum GD17 has a competitive metabolic advantage over C. thermocellum
+    JN4 in converting glucose or cellobiose into final fermentation products.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
+    term:
+      id: NCBITaxon:1517
+      label: Thermoanaerobacterium thermosaccharolyticum
+  target_taxon:
+    preferred_term: Clostridium thermocellum JN4
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strong competitive metabolic advantage of T. thermosaccharolyticum GD17 over C. thermocellum JN4
+    explanation: Supports competitive interaction between GD17 and JN4.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: conversion of glucose or cellobiose into final products
+    explanation: Supports glucose and cellobiose as metabolites involved in the competitive conversion.
+- name: GD17 Growth Inhibition of JN4
+  description: Despite relieving carbon catabolite repression, T. thermosaccharolyticum GD17 hampers
+    C. thermocellum JN4 growth in coculture.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
+    term:
+      id: NCBITaxon:1517
+      label: Thermoanaerobacterium thermosaccharolyticum
+  target_taxon:
+    preferred_term: Clostridium thermocellum JN4
+    term:
+      id: NCBITaxon:1515
+      label: Clostridium thermocellum
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. thermosaccharolyticum GD17 significantly hampers the growth of C. thermocellum JN4
+    explanation: Supports the inhibitory effect of GD17 on JN4 growth.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: relieves the carbon catabolite repression of C. thermocellum JN4
+    explanation: Supports the narrower mechanism that GD17 can also relieve carbon catabolite repression.
+environmental_factors:
+- name: Cellulose-rich lignocellulosic substrate
+  value: cellulose
+  description: The system was designed around cellulose degradation and cellulosic biofuel production.
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: modulate cellulose degradation
+    explanation: Supports cellulose degradation as a central environmental and substrate context.
+- name: Released sugar intermediates
+  value: glucose or cellobiose
+  description: GD17 competes for glucose and cellobiose generated during cellulose conversion.
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: conversion of glucose or cellobiose into final products
+    explanation: Supports glucose and cellobiose as relevant intermediate substrates.
+growth_media:
+- name: Cellulose, cellobiose, or glucose anaerobic coculture assays
+  composition:
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: cellobiose
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  - name: glucose
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  atmosphere: ANAEROBIC
+  preparation_notes: The record captures the substrate conditions supported by the abstract and does not
+    assert complete salts, vitamins, or trace-element composition.
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: conversion of glucose or cellobiose into final products
+    explanation: Supports glucose and cellobiose as tested substrate contexts.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: modulate cellulose degradation
+    explanation: Supports cellulose as the coculture substrate context.
+associated_datasets: []
+external_resources:
+- name: Exact-system mechanistic publication - JN4 and GD17 relationship
+  repository: OTHER
+  resource_id: PMID:31551972
+  url: https://pubmed.ncbi.nlm.nih.gov/31551972/
+  description: Primary open-access mechanistic study of the C. thermocellum JN4 and T. thermosaccharolyticum
+    GD17 coculture.
+  evidence:
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium thermocellum JN4 and Thermoanaerobacterium thermosaccharolyticum GD17 coculture
+    explanation: Lists the primary exact-system publication for this coculture.
+- name: Exact-system hydrogenase publication - JN4 and GD17 hydrogen production mechanism
+  repository: OTHER
+  resource_id: PMID:27538932
+  url: https://pubmed.ncbi.nlm.nih.gov/27538932/
+  description: Follow-up exact-composition publication focused on why the JN4-GD17 coculture improves
+    cellulosic hydrogen production.
+  evidence:
+  - reference: PMID:27538932
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture of C. thermocellum JN4 and a non-cellulolytic bacterium Thermoanaerobacterium thermosaccharolyticum GD17
+    explanation: Lists a second publication with the same exact species and strain composition.
+- name: Exact-system original hydrogen publication - cellulose-to-hydrogen coculture
+  repository: OTHER
+  resource_id: doi:10.1016/j.ijhydene.2008.04.004
+  url: https://doi.org/10.1016/j.ijhydene.2008.04.004
+  description: Original report of hydrogen production from cellulose by the C. thermocellum JN4 and
+    T. thermosaccharolyticum GD17 coculture.
+  evidence:
+  - reference: PMID:27538932
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Previous investigations have shown that the co-culture of C. thermocellum JN4
+    explanation: Lists the earlier exact-composition publication lineage without relying on unvalidated
+      publisher-only full text.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this cellulosic biofuel coculture.
