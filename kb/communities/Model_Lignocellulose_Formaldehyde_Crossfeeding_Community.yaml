@@ -1,0 +1,302 @@
+id: CommunityMech:000178
+name: Model Lignocellulose Formaldehyde Cross-Feeding Community
+description: >
+  A synthetic model lignocellulose-degrading community developed to study plant-biomass
+  transformation and mitigation of toxic formaldehyde produced during breakdown of methoxylated
+  aromatic compounds. The system includes Pseudomonas putida as a lignin degrader, Cellulomonas
+  fimi as a cellulose degrader, Methylorubrum extorquens as a methylotrophic formaldehyde
+  consumer, and Yarrowia lipolytica as an oleaginous yeast included in some consortium variants.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Build a reproducible model consortium for lignocellulose degradation while reducing
+    formaldehyde toxicity generated during methoxylated aromatic-compound breakdown.
+  assembly_strategy: Combine lignin-, cellulose-, methylotrophic-, and oleaginous community members
+    in a defined Model Lignocellulose medium for controlled coculture experiments.
+  perturbation_design: Compare member combinations and substrate contexts to resolve formaldehyde
+    accumulation, resource competition, and metabolite-exchange interactions.
+  measurement_endpoints:
+  - Formaldehyde accumulation
+  - Growth inhibition by toxic intermediates
+  - Formaldehyde mitigation by methylotrophy
+  - Resource competition
+  - Metabolite exchange
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: model microbial consortium for studying lignocellulose degradation
+    explanation: Supports the model-community objective.
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mitigating the production of the toxin formaldehyde
+    explanation: Supports the formaldehyde-toxicity mitigation design.
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined minimal "Model Lignocellulose" growth medium
+    explanation: Supports the controlled growth-medium design.
+environment_term:
+  preferred_term: defined model lignocellulose laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: The community was studied in reproducible laboratory coculture experiments using a defined
+    Model Lignocellulose growth medium.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    notes: Source describes P. putida as the lignin degrader that can generate formaldehyde while
+      growing on vanillic acid.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas putida, a lignin degrader
+    explanation: Supports membership and lignin-degrader role.
+- taxon_term:
+    preferred_term: Cellulomonas fimi
+    term:
+      id: NCBITaxon:1708
+      label: Cellulomonas fimi
+    notes: Source describes C. fimi as the cellulose degrader and formaldehyde-sensitive member.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cellulomonas fimi, a cellulose degrader
+    explanation: Supports membership and cellulose-degrader role.
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exceed the minimum inhibitory concentration for C. fimi
+    explanation: Supports C. fimi as the formaldehyde-sensitive member in the interaction.
+- taxon_term:
+    preferred_term: Methylorubrum extorquens
+    term:
+      id: NCBITaxon:408
+      label: Methylorubrum extorquens
+    notes: Methylotrophic partner included to consume formaldehyde generated during aromatic-substrate
+      breakdown.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylorubrum extorquens, a methylotroph capable of using formaldehyde for growth
+    explanation: Supports membership and methylotrophic formaldehyde-consumer role.
+- taxon_term:
+    preferred_term: Yarrowia lipolytica
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+    notes: Oleaginous yeast included in some consortium variants; this record distinguishes that
+      conditional role from the bacterial formaldehyde cross-feeding core.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sometimes Yarrowia lipolytica, an oleaginous yeast
+    explanation: Supports the conditional inclusion and oleaginous-yeast role.
+ecological_interactions:
+- name: Formaldehyde Toxicity from Aromatic Breakdown
+  description: P. putida growing on vanillic acid produces formaldehyde that can reach inhibitory
+    concentrations for C. fimi, creating a toxic-intermediate interaction within the lignocellulose
+    community.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Cellulomonas fimi
+    term:
+      id: NCBITaxon:1708
+      label: Cellulomonas fimi
+  metabolites:
+  - preferred_term: formaldehyde
+    term:
+      id: CHEBI:16842
+      label: formaldehyde
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formaldehyde produced by P. putida growing on vanillic acid
+    explanation: Supports P. putida as the formaldehyde-generating member.
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exceed the minimum inhibitory concentration for C. fimi
+    explanation: Supports formaldehyde toxicity toward C. fimi.
+- name: Methylotrophic Formaldehyde Mitigation
+  description: M. extorquens lowers formaldehyde concentrations generated by P. putida, mitigating
+    toxin accumulation in the synthetic lignocellulose community.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Methylorubrum extorquens
+    term:
+      id: NCBITaxon:408
+      label: Methylorubrum extorquens
+  target_taxon:
+    preferred_term: Cellulomonas fimi
+    term:
+      id: NCBITaxon:1708
+      label: Cellulomonas fimi
+  metabolites:
+  - preferred_term: formaldehyde
+    term:
+      id: CHEBI:16842
+      label: formaldehyde
+  biological_processes:
+  - preferred_term: metabolic process
+    term:
+      id: GO:0008152
+      label: metabolic process
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: presence of M. extorquens lowers those concentrations
+    explanation: Supports methylotrophic lowering of formaldehyde concentrations.
+- name: C. fimi and M. extorquens Metabolite Exchange
+  description: The system supports a possible mutualistic interaction between C. fimi and M. extorquens
+    through metabolite exchange.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Cellulomonas fimi
+    term:
+      id: NCBITaxon:1708
+      label: Cellulomonas fimi
+  target_taxon:
+    preferred_term: Methylorubrum extorquens
+    term:
+      id: NCBITaxon:408
+      label: Methylorubrum extorquens
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mutualistic interaction between C. fimi and M. extorquens through metabolite exchange
+    explanation: Supports the curated metabolite-exchange interaction.
+- name: Resource Competition in Model Lignocellulose Medium
+  description: The consortium displayed resource competition and interspecies differences in growth
+    requirements and toxin sensitivities.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: model lignocellulose consortium members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: model lignocellulose consortium members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resource competition
+    explanation: Supports resource competition as an ecological dynamic in the community.
+environmental_factors:
+- name: Lignocellulose-relevant polymer recalcitrance
+  value: complex organic polymers such as lignocellulose
+  description: The community was motivated by lignocellulose recalcitrance as a barrier to sustainable
+    energy production from plant biomass.
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignocellulose is one of the major obstacles to sustainable energy production from plant biomass
+    explanation: Supports the DOE-relevant bioenergy motivation.
+- name: Methoxylated aromatic-compound breakdown
+  value: formaldehyde generated from aromatic-substrate metabolism
+  description: Formaldehyde toxicity was studied during breakdown of methoxylated aromatic compounds.
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: breakdown of methoxylated aromatic compounds
+    explanation: Supports the aromatic-breakdown factor.
+- name: Toxin sensitivity differences
+  value: interspecies differences in toxin sensitivity
+  description: Community members differed in growth requirements and sensitivity to formaldehyde toxicity.
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interspecies differences in growth requirements and toxin sensitivities
+    explanation: Supports member-specific growth and toxicity sensitivities.
+growth_media:
+- name: Model Lignocellulose minimal growth medium
+  composition:
+  - name: cellobiose
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  - name: xylose
+  - name: vanillic acid
+  atmosphere: AEROBIC
+  preparation_notes: Defined minimal Model Lignocellulose medium used for reproducible coculture
+    experiments; exact concentrations are not asserted in this record.
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined minimal "Model Lignocellulose" growth medium
+    explanation: Supports the named defined growth medium.
+external_resources:
+- name: Exact-system publication - Model Lignocellulose formaldehyde cross-feeding
+  repository: OTHER
+  resource_id: doi:10.3390/microorganisms9020321
+  url: https://pubmed.ncbi.nlm.nih.gov/33557371/
+  description: Primary publication describing the synthetic model lignocellulose consortium, formaldehyde
+    production by P. putida, mitigation by M. extorquens, and metabolite exchange involving C. fimi.
+  evidence:
+  - reference: doi:10.3390/microorganisms9020321
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: model microbial consortium for studying lignocellulose degradation
+    explanation: Lists the primary publication for this synthetic lignocellulose community system.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this lignocellulose formaldehyde
+  cross-feeding record.
