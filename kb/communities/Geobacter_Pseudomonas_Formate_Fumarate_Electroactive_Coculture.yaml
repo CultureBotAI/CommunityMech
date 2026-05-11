@@ -1,0 +1,319 @@
+id: CommunityMech:000201
+name: Geobacter-Pseudomonas Formate-Fumarate Electroactive Coculture
+description: >
+  A defined electroactive syntrophic coculture pairing Geobacter sulfurreducens
+  with Pseudomonas aeruginosa in a restricted formate-fumarate medium. The
+  community was used to study interspecies electron transfer and adaptive shifts
+  from syntrophy toward competition. Early coculture growth depends on
+  cooperative metabolism and direct interspecies electron transfer associated
+  with Geobacter cytochromes, while adapted cocultures show increased Geobacter
+  dominance and hydrogen/formate-linked electron-transfer features. The system
+  is relevant to DOE biogeochemistry and bioelectrochemical applications because
+  Geobacter-Pseudomonas interactions connect extracellular electron transfer,
+  metal cycling, and microbial community modeling.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Establish a two-member electroactive coculture to resolve how
+    Geobacter-Pseudomonas syntrophy, direct interspecies electron transfer, and
+    adaptive competition change during serial transfer.
+  assembly_strategy: Pair G. sulfurreducens with P. aeruginosa in restricted
+    medium containing formate and fumarate so coculture growth requires
+    cooperative metabolism.
+  perturbation_design: Compare initial and serially adapted cocultures, quantify
+    organism abundance, test Pseudomonas phenazine effects, and profile genomic
+    and proteomic changes.
+  measurement_endpoints:
+  - Coculture growth
+  - Relative Geobacter and Pseudomonas abundance
+  - Direct interspecies electron transfer-associated proteins
+  - Hydrogen interspecies transfer-associated proteins
+  - Whole-genome variant selection
+  - Phenazine-1-carboxylic acid inhibition
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A syntrophic coculture of Geobacter sulfurreducens and Pseudomonas aeruginosa was established and evolved in restricted medium
+    explanation: Supports the defined Geobacter-Pseudomonas syntrophic coculture design.
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: whole-genome sequencing of the cocultures before and after adaptive evolution
+    explanation: Supports genome-scale tracking of adaptive changes in the coculture.
+environment_term:
+  preferred_term: electroactive laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory coculture in restricted medium used to study
+    extracellular and interspecies electron transfer.
+taxonomy:
+- taxon_term:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+    notes: Species-level member of the defined Geobacter-Pseudomonas coculture.
+  abundance_level: DOMINANT
+  abundance_value: Geobacter became dominant during serially adapted cocultures.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A syntrophic coculture of Geobacter sulfurreducens and Pseudomonas aeruginosa was established
+    explanation: Supports Geobacter sulfurreducens as a member of the defined coculture.
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Geobacter sp. dominance increases with adaptation within the cocultures
+    explanation: Supports the dominant abundance designation after adaptive evolution.
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    notes: Species-level member of the defined Geobacter-Pseudomonas coculture.
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A syntrophic coculture of Geobacter sulfurreducens and Pseudomonas aeruginosa was established
+    explanation: Supports Pseudomonas aeruginosa as a member of the defined coculture.
+ecological_interactions:
+- name: Restricted-Medium Cooperative Growth
+  description: P. aeruginosa preferentially utilizes formate while G. sulfurreducens
+    preferentially utilizes fumarate, causing restricted-medium growth to depend
+    on coculture metabolism rather than either pure culture alone.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: fumarate
+    term:
+      id: CHEBI:29806
+      label: fumarate(2-)
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preferential utilization of formate and fumarate by P. aeruginosa and G. sulfurreducens respectively
+    explanation: Supports division of substrate use between the two species.
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pure cultures did not yield significant growth while substantial growth was observed in cocultures
+    explanation: Supports cooperative growth under restricted-medium conditions.
+- name: Direct Interspecies Electron Transfer Establishment
+  description: Initial cocultures show proteomic evidence for DIET-associated
+    cytochromes, indicating that direct interspecies electron transfer helps
+    establish syntrophy between the two electroactive bacteria.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  target_taxon:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: fumarate
+    term:
+      id: CHEBI:29806
+      label: fumarate(2-)
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: upregulation in DIET-associated cytochromes
+    explanation: Supports direct interspecies electron transfer-associated proteins in initial cocultures.
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: DIET plays a critical role in the establishment of syntrophy
+    explanation: Supports DIET as an early interaction mechanism.
+- name: Adaptation Toward Geobacter-Dominated Competition
+  description: Serial transfer shifted the interaction from syntrophy toward
+    competition, with Geobacter dominance increasing and variants in Geobacter
+    fabI and tetR selected during coculture evolution.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  target_taxon:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  metabolites:
+  - preferred_term: phenazine-1-carboxylic acid
+    term:
+      id: CHEBI:62412
+      label: phenazine-1-carboxylic acid
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transition from syntrophy to competition
+    explanation: Supports the adaptive shift from syntrophy to competition.
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: fabI and tetR genes emerged that were strongly selected for throughout coculture evolution
+    explanation: Supports adaptive genomic selection in G. sulfurreducens during coculture evolution.
+- name: Phenazine-Associated Inhibition Pressure
+  description: Pseudomonas-derived phenazine-1-carboxylic acid inhibited Geobacter
+    growth, but did not by itself explain selection of the Geobacter variants.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  target_taxon:
+    preferred_term: Geobacter sulfurreducens
+    term:
+      id: NCBITaxon:35554
+      label: Geobacter sulfurreducens
+  metabolites:
+  - preferred_term: phenazine-1-carboxylic acid
+    term:
+      id: CHEBI:62412
+      label: phenazine-1-carboxylic acid
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas-derived phenazine-1-carboxylic acid (PHZ-1-CA) for its potential to inhibit Geobacter growth
+    explanation: Supports PHZ-1-CA as the tested Pseudomonas-derived inhibitory compound.
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Despite its inhibitory properties, PHZ-1-CA did not drive variant selection
+    explanation: Supports phenazine-associated inhibition of Geobacter growth.
+environmental_factors:
+- name: Restricted formate-fumarate medium
+  value: formate and fumarate
+  description: Cocultures were grown in restricted medium with formate and fumarate
+    so each species had complementary substrate preferences.
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preferential utilization of formate and fumarate by P. aeruginosa and G. sulfurreducens respectively
+    explanation: Supports the formate-fumarate medium condition.
+- name: Serial-transfer adaptation
+  value: adaptive evolution
+  description: Cocultures were serially transferred to examine adaptive change in
+    electron-transfer and competition dynamics.
+  evidence:
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: over the course of adaptive evolution
+    explanation: Supports serial transfer as the adaptive perturbation regime.
+growth_media:
+- name: Restricted formate-fumarate electroactive coculture medium
+  composition:
+  - name: formate
+    chebi_term:
+      preferred_term: formate
+      term:
+        id: CHEBI:15740
+        label: formate
+  - name: fumarate
+    chebi_term:
+      preferred_term: fumarate
+      term:
+        id: CHEBI:29806
+        label: fumarate(2-)
+  inoculum_source: Laboratory cultures of G. sulfurreducens and P. aeruginosa.
+  preparation_notes: >
+    The source supports restricted medium with formate and fumarate for
+    coculture growth; this record does not assert the complete salts,
+    atmosphere, temperature, or transfer recipe.
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preferential utilization of formate and fumarate by P. aeruginosa and G. sulfurreducens respectively
+    explanation: Supports the core medium composition used for coculture growth.
+external_resources:
+- name: Exact-system proteomics publication - Geobacter/Pseudomonas electroactive coculture
+  repository: OTHER
+  resource_id: PMID:28992596
+  url: https://pubmed.ncbi.nlm.nih.gov/28992596/
+  description: Primary SWATH-MS proteomics study establishing and evolving Geobacter sulfurreducens and Pseudomonas aeruginosa syntrophic cocultures.
+  evidence:
+  - reference: PMID:28992596
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Deciphering the electric code of Geobacter sulfurreducens in cocultures with Pseudomonas aeruginosa
+    explanation: Supports this source as an exact species-composition publication.
+- name: Exact-system adaptive-evolution publication - Geobacter/Pseudomonas coculture
+  repository: OTHER
+  resource_id: PMID:32265334
+  url: https://pubmed.ncbi.nlm.nih.gov/32265334/
+  description: Open-access adaptive-evolution study of G. sulfurreducens with P. aeruginosa.
+  evidence:
+  - reference: PMID:32265334
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Geobacter sulfurreducens in Coculture with Pseudomonas aeruginosa
+    explanation: Supports this source as an exact species-composition coculture publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: >
+  The curated coculture was not a metal-reduction assay, but it is relevant to
+  metal biogeochemistry because Geobacter extracellular electron transfer is a
+  model mechanism for metal and electrode reduction in subsurface environments.
