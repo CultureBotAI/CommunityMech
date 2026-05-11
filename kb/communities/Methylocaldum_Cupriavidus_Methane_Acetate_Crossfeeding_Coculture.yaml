@@ -1,0 +1,274 @@
+id: CommunityMech:000197
+name: Methylocaldum-Cupriavidus Methane Acetate Cross-Feeding Coculture
+description: >
+  A defined artificial aerobic coculture pairing the marine methanotroph
+  Methylocaldum marinum S8 with the non-methylotrophic acetate-utilizing
+  bacterium Cupriavidus necator NBRC 102504. The coculture was used to test
+  whether methane-derived metabolites excreted by M. marinum S8 can support a
+  partner that is not a methylotroph. The system is DOE-relevant because it
+  links methane oxidation to acetate-mediated growth of a bioproduction-relevant
+  heterotroph, providing a model for methane-to-bioproduct community design.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: CARBON_SEQUESTRATION
+engineering_design:
+  objective: Test methanol-independent cross-feeding from a methane-oxidizing bacterium to a
+    non-methylotrophic acetate-utilizing partner.
+  assembly_strategy: Pair acetate-excreting Methylocaldum marinum S8 with Cupriavidus necator
+    NBRC 102504 in an artificial methane-fed coculture.
+  perturbation_design: Compare M. marinum S8 acetate excretion under microaerobic and aerobic
+    oxygen concentrations and test whether C. necator grows in coculture with S8.
+  measurement_endpoints:
+  - Acetate excretion
+  - Methanotroph growth
+  - Cupriavidus necator colony-forming units
+  - Total cell counts
+  - RNA-seq of M. marinum S8 under aerobic conditions
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Nonmethylotrophic bacteria, Cupriavidus necator NBRC 102504, could grow when cocultured with M. marinum S8
+    explanation: Supports the exact two-member artificial coculture design.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: effects of oxygen concentrations on growth of and acetate excretion by M. marinum S8
+    explanation: Supports the oxygen-condition perturbation and acetate-excretion endpoint.
+environment_term:
+  preferred_term: methane-fed aerobic laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled vial coculture experiment with methane and oxygen headspace, curated as a laboratory
+    bioreactor-like methane-fed culture system.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+    notes: Marine methanotroph S8 that excretes acetate under both microaerobic and aerobic conditions.
+  strain_designation:
+    strain_name: S8
+    culture_collections:
+    - collection: DSM
+      accession: DSM 27392
+    - collection: NBRC
+      accession: NBRC 109686
+    genome_accession: GCA_003584645.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_003584645.1/
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanotroph, Methylocaldum marinum S8
+    explanation: Supports M. marinum S8 as the methane-oxidizing member.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. marinum S8 excreted acetate during the exponential growth phase
+    explanation: Supports acetate excretion as the cross-feeding source role.
+- taxon_term:
+    preferred_term: Cupriavidus necator NBRC 102504
+    term:
+      id: NCBITaxon:1218105
+      label: Cupriavidus necator NBRC 102504
+    notes: Non-methylotrophic acetate-utilizing partner selected for bioproduction relevance.
+  strain_designation:
+    strain_name: NBRC 102504
+    culture_collections:
+    - collection: NBRC
+      accession: NBRC 102504
+    genome_accession: GCA_001598755.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001598755.1/
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cupriavidus necator NBRC 102504, could grow when cocultured with M. marinum S8
+    explanation: Supports C. necator NBRC 102504 as a growing coculture partner.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Nonmethylotrophic bacteria
+    explanation: Supports the non-methylotrophic partner role assigned to C. necator.
+ecological_interactions:
+- name: Methane-Derived Acetate Cross-Feeding To Cupriavidus
+  description: M. marinum S8 oxidizes methane and excretes acetate; C. necator NBRC 102504 grows in the
+    methane-fed coculture, supporting methanol-independent transfer of methanotroph-derived carbon.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Cupriavidus necator NBRC 102504
+    term:
+      id: NCBITaxon:1218105
+      label: Cupriavidus necator NBRC 102504
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supporting the existence of methanol-independent cross-feeding from M. marinum S8
+    explanation: Supports the inferred methanol-independent cross-feeding interaction.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: possibly utilizes acetate rather than methanol
+    explanation: Supports acetate as the likely cross-fed compound.
+- name: Oxygen-Dependent Acetate Excretion Window
+  description: M. marinum S8 excretes acetate across microaerobic and aerobic conditions, creating a
+    cross-feeding window compatible with aerobic methane oxidation and C. necator growth.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Cupriavidus necator NBRC 102504
+    term:
+      id: NCBITaxon:1218105
+      label: Cupriavidus necator NBRC 102504
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: not only under microaerobic
+    explanation: Supports acetate excretion under low-oxygen conditions.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: but also under aerobic
+    explanation: Supports acetate excretion under aerobic conditions.
+environmental_factors:
+- name: Methanotrophic aerobic context
+  value: methane-oxidizing aerobic coculture
+  description: The artificial coculture tested growth of C. necator with methane-oxidizing M. marinum
+    S8 under aerobic conditions.
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methane-oxidizing bacteria
+    explanation: Supports the methanotrophic methane-oxidizing context for M. marinum S8.
+- name: Oxygen concentration regimes
+  value: 3.5-6 and 20-31
+  unit: percent O2
+  description: Acetate excretion by M. marinum S8 was observed under both microaerobic and aerobic oxygen
+    concentrations.
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: O2 concentrations of 3.5%-6%
+    explanation: Supports the microaerobic oxygen range.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: O2 concentrations of 20%-31%
+    explanation: Supports the aerobic oxygen range.
+growth_media:
+- name: Methane-oxidizing aerobic coculture assay
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: oxygen
+    chebi_term:
+      preferred_term: oxygen
+      term:
+        id: CHEBI:15379
+        label: dioxygen
+  atmosphere: AEROBIC
+  headspace_gas: Methane plus oxygen.
+  inoculum_source: Pregrown cultures of M. marinum S8 and C. necator NBRC 102504.
+  preparation_notes: >
+    The primary article reports an aerobic methanotroph coculture; this record does not assert
+    the full salt, vitamin, or seawater recipe because the locally cached reference text is abstract-only.
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: under aerobic conditions
+    explanation: Supports aerobic cultivation as the verified culture context.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: could grow when cocultured with M. marinum S8
+    explanation: Supports the coculture assay context for C. necator and M. marinum S8.
+associated_datasets:
+- name: Methylocaldum marinum S8 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: GCA_003584645.1
+  url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_003584645.1/
+  description: NCBI genome assembly for the M. marinum S8 methanotroph.
+- name: Cupriavidus necator NBRC 102504 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: GCA_001598755.1
+  url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001598755.1/
+  description: NCBI genome assembly for the C. necator NBRC 102504 partner.
+external_resources:
+- name: Exact-system primary publication - Methylocaldum/Cupriavidus cross-feeding
+  repository: OTHER
+  resource_id: doi:10.1093/bbb/zbab150
+  url: https://doi.org/10.1093/bbb/zbab150
+  description: Primary article reporting acetate excretion by M. marinum S8 and growth of C. necator
+    NBRC 102504 in the M. marinum S8 coculture.
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. marinum S8 excreted acetate
+    explanation: Supports the primary article as the source for this curated community.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this methane acetate
+  cross-feeding coculture.
