@@ -1,0 +1,297 @@
+id: CommunityMech:000181
+name: Pseudomonas-Rhodococcus Chloronitrobenzene Coculture
+description: >
+  A defined two-member aerobic laboratory coculture for chloronitrobenzene bioremediation.
+  Pseudomonas putida HS12 was isolated using nitrobenzene enrichment and performs the
+  first partial reductive and acetylation steps on 3- and 4-chloronitrobenzene.
+  Rhodococcus sp. strain HS51 degrades the chlorohydroxyacetanilide intermediates,
+  allowing the coculture to mineralize 3- and 4-chloronitrobenzenes when an additional
+  carbon source is supplied.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Assemble a two-strain coculture capable of mineralizing chloronitrobenzene
+    pollutants that neither member alone was reported to fully mineralize.
+  assembly_strategy: Combine nitrobenzene-enriched Pseudomonas putida HS12 with
+    chlorohydroxyacetanilide-degrading Rhodococcus sp. strain HS51 to complete sequential
+    transformation and mineralization of 3- and 4-chloronitrobenzene.
+  perturbation_design: Test the coculture on 3- and 4-chloronitrobenzene with an added
+    carbon source.
+  measurement_endpoints:
+  - 3-chloronitrobenzene mineralization
+  - 4-chloronitrobenzene mineralization
+  - Chlorohydroxyacetanilide intermediate turnover
+  - Proposed degradation pathway
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degradation of CNBs by coculture of two microbial strains was attempted
+    explanation: Supports the designed two-strain coculture objective for chloronitrobenzene degradation.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was isolated and combined with P. putida HS12 to give a coculture
+    explanation: Supports the assembly of Rhodococcus sp. strain HS51 with P. putida HS12.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This coculture was confirmed to mineralize 3- and 4-CNBs
+    explanation: Supports mineralization of the target chloronitrobenzene compounds as the endpoint.
+environment_term:
+  preferred_term: chloronitrobenzene-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory coculture assay for degradation of chloronitrobenzene pollutants.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas putida HS12
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    notes: Nitrobenzene-enriched partner that converts 3- and 4-chloronitrobenzene to chlorohydroxyacetanilide
+      intermediates.
+  strain_designation:
+    strain_name: HS12
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas putida HS12 was first isolated by analogue enrichment culture
+    explanation: Supports P. putida HS12 as one isolated member of the coculture.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this strain was observed to possess a partial reductive pathway for the degradation of NB
+    explanation: Supports the partial nitrobenzene-degradation role assigned to P. putida HS12.
+- taxon_term:
+    preferred_term: Rhodococcus sp. strain HS51
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus
+    notes: Chlorohydroxyacetanilide-degrading partner paired with P. putida HS12 for complete
+      chloronitrobenzene mineralization.
+  strain_designation:
+    strain_name: HS51
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus sp. strain HS51, which degrades 4- and 5-chloro-2-hydroxyacetanilides
+    explanation: Supports Rhodococcus sp. strain HS51 as the intermediate-degrading partner.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was isolated and combined with P. putida HS12 to give a coculture
+    explanation: Supports inclusion of HS51 in the defined coculture with P. putida HS12.
+ecological_interactions:
+- name: Pseudomonas Partial Chloronitrobenzene Transformation
+  description: P. putida HS12 converts 3- and 4-chloronitrobenzene to chlorohydroxyacetanilide
+    intermediates through partial reduction and acetylation, supplying compounds that the
+    Rhodococcus partner can further degrade.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pseudomonas putida HS12
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Rhodococcus sp. strain HS51
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus
+  metabolites:
+  - preferred_term: 3-chloronitrobenzene
+    term:
+      id: CHEBI:82420
+      label: 3-Chloronitrobenzene
+  - preferred_term: 4-chloronitrobenzene
+    term:
+      id: CHEBI:34399
+      label: 4-Chloronitrobenzene
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: NB-grown cells of P. putida HS12 were found to convert 3- and 4-CNBs
+    explanation: Supports P. putida HS12 as the first transformer of the chloronitrobenzene substrates.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: by partial reduction and subsequent acetylation
+    explanation: Supports the curated partial-reduction and acetylation mechanism.
+- name: Rhodococcus Intermediate Degradation
+  description: Rhodococcus sp. strain HS51 degrades the chlorohydroxyacetanilide intermediates generated
+    by P. putida HS12, completing the sequential catabolic design.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Rhodococcus sp. strain HS51
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus
+  target_taxon:
+    preferred_term: Pseudomonas putida HS12
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus sp. strain HS51, which degrades 4- and 5-chloro-2-hydroxyacetanilides
+    explanation: Supports HS51 as the organism degrading P. putida-derived intermediates.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A degradation pathway for 3- and 4-CNBs by the two isolated strains was also proposed
+    explanation: Supports the sequential two-strain pathway interpretation.
+- name: Coculture Chloronitrobenzene Mineralization
+  description: The two-member coculture mineralizes 3- and 4-chloronitrobenzene in the presence
+    of an additional carbon source.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pseudomonas putida HS12 and Rhodococcus sp. strain HS51
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: 3-chloronitrobenzene
+    term:
+      id: CHEBI:82420
+      label: 3-Chloronitrobenzene
+  - preferred_term: 4-chloronitrobenzene
+    term:
+      id: CHEBI:34399
+      label: 4-Chloronitrobenzene
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This coculture was confirmed to mineralize 3- and 4-CNBs
+    explanation: Directly supports the community-level mineralization claim.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the presence of an additional carbon source
+    explanation: Supports the added-carbon-source condition for mineralization.
+environmental_factors:
+- name: Chloronitrobenzene pollutants
+  value: 3- and 4-chloronitrobenzene
+  description: 3- and 4-chloronitrobenzene were the target pollutant substrates for the coculture.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This coculture was confirmed to mineralize 3- and 4-CNBs
+    explanation: Supports 3- and 4-chloronitrobenzene as the target substrates.
+- name: Nitrobenzene enrichment substrate
+  value: nitrobenzene
+  description: P. putida HS12 was isolated by enrichment on nitrobenzene, supporting the partial
+    nitroaromatic degradation role.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: analogue enrichment culture using nitrobenzene (NB) as the substrate
+    explanation: Supports nitrobenzene as the enrichment substrate for the P. putida member.
+- name: Additional carbon source
+  value: additional carbon source
+  description: Coculture mineralization of chloronitrobenzenes required an additional carbon source
+    in the reported experiment; the abstract does not specify that source.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the presence of an additional carbon source
+    explanation: Supports inclusion of an added carbon source as a culture condition.
+growth_media:
+- name: Chloronitrobenzene mineralization coculture assay
+  composition:
+  - name: 3-chloronitrobenzene
+    chebi_term:
+      preferred_term: 3-chloronitrobenzene
+      term:
+        id: CHEBI:82420
+        label: 3-Chloronitrobenzene
+  - name: 4-chloronitrobenzene
+    chebi_term:
+      preferred_term: 4-chloronitrobenzene
+      term:
+        id: CHEBI:34399
+        label: 4-Chloronitrobenzene
+  - name: additional carbon source
+  atmosphere: AEROBIC
+  preparation_notes: The abstract confirms 3- and 4-CNB mineralization in the presence of an
+    additional carbon source; more specific medium formulation is not asserted here.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This coculture was confirmed to mineralize 3- and 4-CNBs
+    explanation: Supports chloronitrobenzenes as the assay substrates.
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the presence of an additional carbon source
+    explanation: Supports the added-carbon-source medium condition.
+associated_datasets: []
+external_resources:
+- name: Exact-system primary publication - P. putida HS12 and Rhodococcus sp. HS51
+  repository: OTHER
+  resource_id: PMID:10049867
+  url: https://pubmed.ncbi.nlm.nih.gov/10049867/
+  description: Primary publication describing the exact two-member chloronitrobenzene-mineralizing
+    coculture of P. putida HS12 and Rhodococcus sp. strain HS51.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was isolated and combined with P. putida HS12 to give a coculture
+    explanation: Lists the primary publication for this exact two-strain coculture.
+- name: OSTI bibliographic record
+  repository: OTHER
+  resource_id: OSTI:335354
+  url: https://www.osti.gov/biblio/335354
+  description: OSTI bibliographic entry for the same Applied and Environmental Microbiology article.
+  evidence:
+  - reference: PMID:10049867
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Degradation of chloronitrobenzenes by a coculture of Pseudomonas putida and a Rhodococcus sp
+    explanation: Links an institutional bibliographic record for the same exact-system publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this chloronitrobenzene
+  bioremediation coculture.
