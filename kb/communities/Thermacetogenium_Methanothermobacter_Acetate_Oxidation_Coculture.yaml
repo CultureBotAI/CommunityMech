@@ -1,0 +1,402 @@
+id: CommunityMech:000182
+name: Thermacetogenium-Methanothermobacter Acetate Oxidation Coculture
+description: >
+  A defined thermophilic anaerobic two-member syntrophic coculture in which
+  Thermacetogenium phaeum strain PB oxidizes acetate using the reversible
+  Wood-Ljungdahl/CO dehydrogenase-acetyl-CoA pathway, while Methanothermobacter
+  thermautotrophicus strain TM consumes reduced products through hydrogenotrophic
+  methanogenesis. This model system is relevant to anaerobic digestion and methane
+  cycling because acetate oxidation is coupled to methane formation under low
+  hydrogen partial pressure.
+ecological_state: STABLE
+community_origin: SYNTHETIC
+community_category: METHANOGENESIS
+engineering_design:
+  objective: Use a defined thermophilic coculture to study syntrophic acetate oxidation
+    coupled to hydrogenotrophic methanogenesis.
+  assembly_strategy: Pair the acetate-oxidizing bacterium Thermacetogenium phaeum PB
+    with the hydrogen-utilizing methanogen Methanothermobacter thermautotrophicus TM.
+  perturbation_design: Compare syntrophic coculture growth on acetate with pure-culture
+    or reverse-direction assays supplied with H2/CO2.
+  measurement_endpoints:
+  - Acetate oxidation
+  - Methane production
+  - Hydrogen partial pressure
+  - CO dehydrogenase/acetyl-CoA pathway activity
+  - Methanogenesis gene expression
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: can also grow on acetate if cocultured
+    explanation: Supports the experimental objective of acetate-linked syntrophic coculture growth.
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in a coculture with an acetate-oxidizing hydrogen-producing bacterium
+    explanation: Supports the coculture design around acetate oxidation and hydrogen-producing syntrophy.
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxidation of acetate in syntrophic cooperation with methanogens
+    explanation: Supports acetate oxidation in syntrophic association with methanogens as the model function.
+environment_term:
+  preferred_term: thermophilic anaerobic laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled thermophilic anaerobic serum-bottle or coculture assays used to study acetate
+    oxidation coupled to methanogenesis.
+taxonomy:
+- taxon_term:
+    preferred_term: Thermacetogenium phaeum PB
+    term:
+      id: NCBITaxon:1089553
+      label: Thermacetogenium phaeum DSM 12270
+    notes: Type strain PB/DSM 12270; acetate-oxidizing syntrophic bacterium in the defined coculture.
+  strain_designation:
+    strain_name: PB
+    type_strain: true
+    culture_collections:
+    - collection: DSM
+      accession: DSM 12270
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strain PBT (= DSM 12270T)
+    explanation: Supports the PB/DSM 12270 strain designation for T. phaeum.
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thermacetogenium phaeum is a homoacetogenic bacterium
+    explanation: Supports T. phaeum as the bacterial member of the coculture.
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thermacetogenium phaeum strain PB
+    explanation: Supports strain PB as the acetate-oxidizing bacterial member.
+- taxon_term:
+    preferred_term: Methanothermobacter thermautotrophicus TM
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+    notes: Source literature also uses the spelling Methanothermobacter thermoautotrophicus;
+      this record uses the NCBI current label for the same methanogenic partner.
+  strain_designation:
+    strain_name: TM
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogen-consuming methanogenic partner Methanothermobacter thermautotrophicus
+    explanation: Supports M. thermautotrophicus as the methanogenic coculture partner.
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanothermobacter thermoautotrophicus strain TM
+    explanation: Supports strain TM as the thermophilic methanogenic member using the source spelling.
+ecological_interactions:
+- name: Syntrophic Acetate Oxidation by Thermacetogenium
+  description: T. phaeum oxidizes acetate in coculture through the reversible CO dehydrogenase/
+    acetyl-CoA pathway, producing reduced carriers that require removal by the methanogenic
+    partner for favorable syntrophic growth.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Thermacetogenium phaeum PB
+    term:
+      id: NCBITaxon:1089553
+      label: Thermacetogenium phaeum DSM 12270
+  target_taxon:
+    preferred_term: Methanothermobacter thermautotrophicus TM
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxidized acetate rapidly
+    explanation: Supports acetate oxidation by the mixed T. phaeum and M. thermautotrophicus system.
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO dehydrogenase/acetyl-CoA pathway reversibly
+    explanation: Supports the reversible biochemical pathway used during acetate oxidation.
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yielding formate as reduced product
+    explanation: Supports formate as a reduced product of the energy-conserving acetate-oxidation mechanism.
+- name: Hydrogenotrophic Methanogenesis by Methanothermobacter
+  description: M. thermautotrophicus TM consumes low-concentration hydrogen and carbon dioxide
+    during syntrophic growth and expresses methanogenesis machinery adapted to coculture conditions.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Methanothermobacter thermautotrophicus TM
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+  target_taxon:
+    preferred_term: Thermacetogenium phaeum PB
+    term:
+      id: NCBITaxon:1089553
+      label: Thermacetogenium phaeum DSM 12270
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thermophilic hydrogen-utilizing methanogen
+    explanation: Supports the hydrogenotrophic methanogenic role of M. thermoautotrophicus TM.
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogen partial pressure was constantly kept very low
+    explanation: Supports low hydrogen partial pressure as a defining syntrophic coculture condition.
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: catalyzing the final step of methanogenesis
+    explanation: Supports methanogenesis gene expression in the coculture.
+- name: Formate Transfer to the Methanogenic Partner
+  description: Proteomic and enzyme evidence supports a reversed electron transport mechanism
+    in T. phaeum that produces formate for transfer to the methanogenic partner.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Thermacetogenium phaeum PB
+    term:
+      id: NCBITaxon:1089553
+      label: Thermacetogenium phaeum DSM 12270
+  target_taxon:
+    preferred_term: Methanothermobacter thermautotrophicus TM
+    term:
+      id: NCBITaxon:145262
+      label: Methanothermobacter thermautotrophicus
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transferred to the methanogenic partner
+    explanation: Supports transfer of formate/reducing equivalents to the methanogenic partner.
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: quinone-dependent formate dehydrogenase
+    explanation: Supports the formate-linked energy-conservation machinery in T. phaeum.
+environmental_factors:
+- name: Thermophilic temperature
+  value: 55 to 58
+  unit: degrees Celsius
+  description: The source organism was isolated from a thermophilic 55 degrees C reactor and
+    grew optimally at 58 degrees C.
+  evidence:
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thermophilic (55 degrees C) anaerobic methanogenic reactor
+    explanation: Supports thermophilic reactor origin.
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grew optimally at 58 degrees C
+    explanation: Supports the optimal thermophilic growth temperature.
+- name: Anaerobic methanogenic condition
+  value: anaerobic methanogenic coculture
+  description: T. phaeum PB was isolated from an anaerobic methanogenic reactor and studied in
+    anaerobic syntrophic cocultures.
+  evidence:
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic methanogenic reactor
+    explanation: Supports anaerobic methanogenic source conditions.
+- name: Low hydrogen partial pressure
+  value: 20 to 80
+  unit: Pa
+  description: The methanogenic partner maintained very low hydrogen partial pressure during
+    coculture with T. phaeum PB.
+  evidence:
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 20 to 80 Pa
+    explanation: Supports the low hydrogen partial pressure measured in the coculture.
+- name: Acetate substrate
+  value: acetate
+  description: Acetate was the central substrate for syntrophic oxidation in this coculture.
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grow on acetate if cocultured
+    explanation: Supports acetate as the syntrophic growth substrate.
+growth_media:
+- name: Thermophilic acetate syntrophic coculture assay
+  composition:
+  - name: acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: dihydrogen
+    chebi_term:
+      preferred_term: dihydrogen
+      term:
+        id: CHEBI:18276
+        label: dihydrogen
+  atmosphere: ANAEROBIC
+  temperature: 58
+  ph: 6.8
+  preparation_notes: The abstract-level evidence supports acetate-linked thermophilic anaerobic
+    coculture assays and H2/CO2 reverse-direction assays; detailed medium salts are not asserted here.
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grow on acetate if cocultured
+    explanation: Supports acetate as the coculture substrate.
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: after addition of H2/CO2
+    explanation: Supports H2/CO2 as the reverse-direction assay substrate condition.
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH 6.8
+    explanation: Supports the pH value for the thermophilic strain.
+associated_datasets:
+- name: Thermacetogenium phaeum DSM 12270 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA168373
+  url: https://www.ncbi.nlm.nih.gov/bioproject/168373
+  description: Genome sequencing project for T. phaeum DSM 12270 strain PB, the bacterial
+    member of this syntrophic coculture.
+  evidence:
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: its genome sequence is available
+    explanation: Supports inclusion of the available T. phaeum genome project as a member-level resource.
+external_resources:
+- name: Exact-system pathway publication - T. phaeum and M. thermautotrophicus
+  repository: OTHER
+  resource_id: PMID:15866934
+  url: https://pubmed.ncbi.nlm.nih.gov/15866934/
+  description: Primary publication describing acetate oxidation and acetate formation by the
+    T. phaeum and M. thermautotrophicus syntrophic coculture.
+  evidence:
+  - reference: PMID:15866934
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. phaeum and M. thermautotrophicus
+    explanation: Lists an exact-composition publication for this two-member coculture.
+- name: Exact-system methanogenesis expression publication
+  repository: OTHER
+  resource_id: PMID:11872465
+  url: https://pubmed.ncbi.nlm.nih.gov/11872465/
+  description: Publication reporting methanogenesis gene expression in M. thermoautotrophicus
+    strain TM cocultured with T. phaeum strain PB.
+  evidence:
+  - reference: PMID:11872465
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture with an acetate-oxidizing hydrogen-producing bacterium
+    explanation: Lists another exact-composition publication using M. thermoautotrophicus TM with T. phaeum PB.
+- name: Exact-system energy-conservation publication
+  repository: OTHER
+  resource_id: PMID:31849917
+  url: https://pubmed.ncbi.nlm.nih.gov/31849917/
+  description: Follow-up publication on energy-conserving enzyme systems in T. phaeum during
+    syntrophic acetate oxidation with methanogens.
+  evidence:
+  - reference: PMID:31849917
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanothermobacter thermautotrophicus strain TM
+    explanation: Lists a mechanistic follow-up publication using the same methanogenic partner.
+- name: Thermacetogenium phaeum type strain publication
+  repository: OTHER
+  resource_id: PMID:10939667
+  url: https://pubmed.ncbi.nlm.nih.gov/10939667/
+  description: Taxonomic publication for T. phaeum PB/DSM 12270 and its syntrophic acetate-oxidizing phenotype.
+  evidence:
+  - reference: PMID:10939667
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: syntrophic acetate-oxidizing bacterium
+    explanation: Links the type-strain publication for the bacterial member and syntrophic phenotype.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this syntrophic acetate
+  oxidation and methanogenesis coculture.
