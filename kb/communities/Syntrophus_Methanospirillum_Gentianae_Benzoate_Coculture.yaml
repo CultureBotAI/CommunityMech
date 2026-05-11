@@ -1,0 +1,340 @@
+id: CommunityMech:000187
+name: Syntrophus-Methanospirillum Gentianae Benzoate Coculture
+description: >
+  A defined anaerobic syntrophic coculture in which Syntrophus gentianae
+  degrades benzoate in association with the methanogen Methanospirillum
+  hungatei. The system is relevant to DOE anaerobic carbon cycling,
+  wastewater digestion, and aromatic-compound bioconversion because it links
+  methanogenic benzoate degradation, thermodynamic thresholds, acetate
+  inhibition, and methane formation in a tractable two-member community.
+ecological_state: STABLE
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: Measure the energetics and thermodynamic limits of methanogenic
+    benzoate degradation by Syntrophus gentianae in syntrophic coculture.
+  assembly_strategy: Pair Syntrophus gentianae with Methanospirillum hungatei
+    under methanogenic benzoate-degrading culture conditions.
+  perturbation_design: Track benzoate degradation energetics and test how
+    hydrogen, acetate, propionate, bromoethanesulfonate, and sulfate-reducing
+    partner additions affect the methanogenic coculture.
+  measurement_endpoints:
+  - Benzoate degradation
+  - Methane and acetate formation
+  - Residual benzoate concentration
+  - Free energy available to the fermenting bacterium
+  - Effects of acetate, propionate, hydrogen, BES, and sulfate reducer addition
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Energetics of methanogenic benzoate degradation by Syntrophus gentianae in syntrophic coculture
+    explanation: Supports the experimental objective around methanogenic benzoate degradation by S. gentianae.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growing cocultures of Syntrophus gentianae with Methanospirillum hungatei degraded benzoate
+    explanation: Supports the exact two-member coculture design and benzoate-degrading phenotype.
+environment_term:
+  preferred_term: anaerobic methanogenic laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic laboratory coculture assay used to study methanogenic benzoate degradation.
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophus gentianae
+    term:
+      id: NCBITaxon:43775
+      label: Syntrophus gentianae
+    notes: Anaerobic syntrophic benzoate-fermenting bacterium in the methanogenic coculture.
+  strain_designation:
+    strain_name: HQG1
+    type_strain: true
+    culture_collections:
+    - collection: DSM
+      accession: DSM 8423
+    - collection: CIP
+      accession: CIP 105111
+    genome_accession: GCA_900109885.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCF_900109885.1
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophus gentianae with Methanospirillum hungatei degraded benzoate
+    explanation: Supports S. gentianae as the benzoate-degrading bacterial member.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: benzoate-fermenting bacterium S.
+    explanation: Supports the fermenting role of S. gentianae in the benzoate coculture.
+- taxon_term:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+    notes: Methanogenic archaeal partner in the S. gentianae benzoate-degrading coculture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophus gentianae with Methanospirillum hungatei
+    explanation: Supports M. hungatei as the archaeal partner in the exact coculture.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanogenic coculture
+    explanation: Supports the methanogenic function of the coculture that includes M. hungatei.
+ecological_interactions:
+- name: Methanogenic Benzoate Degradation
+  description: Syntrophus gentianae degrades benzoate in coculture with
+    Methanospirillum hungatei, yielding acetate and methane under methanogenic
+    conditions.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophus gentianae
+    term:
+      id: NCBITaxon:43775
+      label: Syntrophus gentianae
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growing cocultures of Syntrophus gentianae with Methanospirillum hungatei degraded benzoate
+    explanation: Supports benzoate degradation in the exact two-member coculture.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degraded benzoate to CH4 and acetate
+    explanation: Supports methane and acetate as products of methanogenic benzoate degradation.
+- name: Minimum Energy Threshold for Syntrophic Growth
+  description: During growth on benzoate, the free energy available to S.
+    gentianae was near the lower limit for energy conservation, showing why
+    syntrophic partner activity and product concentrations constrain the
+    community.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophus gentianae
+    term:
+      id: NCBITaxon:43775
+      label: Syntrophus gentianae
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoate
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: change of free energy available for Syntrophus gentianae ranged between -50 and -55 kJ mol-1
+    explanation: Supports the quantified energy window during coculture growth.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: minimum energy required for growth and energy conservation
+    explanation: Supports the curated energy-threshold mechanism for syntrophic growth.
+- name: Product Inhibition of Benzoate Degradation
+  description: Acetate and hydrogen inhibited benzoate degradation
+    thermodynamically, while acetate and propionate additions lowered the
+    degradation rate, linking product accumulation to community performance.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Syntrophus gentianae
+    term:
+      id: NCBITaxon:43775
+      label: Syntrophus gentianae
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Accumulated acetate proved to be thermodynamically inhibitory
+    explanation: Supports acetate accumulation as a thermodynamic inhibitor in the coculture.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Addition of acetate or propionate to benzoate-degrading cocultures also lowered the rate
+    explanation: Supports product/addition effects on the rate of benzoate degradation.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both hydrogen and acetate inhibit benzoate degradation thermodynamically
+    explanation: Supports hydrogen and acetate inhibition of methanogenic benzoate degradation.
+environmental_factors:
+- name: Methanogenic anaerobic condition
+  value: methanogenic coculture
+  description: The experiment used methanogenic cocultures for anaerobic benzoate degradation.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanogenic coculture
+    explanation: Supports the methanogenic anaerobic culture context.
+- name: Residual benzoate threshold
+  value: 0.2
+  unit: mM
+  description: Residual benzoate remained at the end point of methanogenic benzoate degradation.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: residual concentration of benzoate of 0.2 mM was found
+    explanation: Supports the curated residual benzoate threshold.
+- name: Acetate and hydrogen inhibition
+  value: thermodynamic inhibition
+  description: Hydrogen and acetate product accumulation inhibited benzoate degradation thermodynamically.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both hydrogen and acetate inhibit benzoate degradation thermodynamically
+    explanation: Supports product inhibition as an environmental constraint.
+- name: Hydrogen-scavenging sulfate reducer perturbation
+  value: BES-inhibited methanogenic coculture plus H2-oxidizing sulfate reducer
+  description: Adding a hydrogen-oxidizing sulfate reducer to the BES-inhibited
+    methanogenic coculture drove benzoate below the detection limit, supporting
+    hydrogen scavenging as a perturbation of the two-member methanogenic system.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Addition of a H2-oxidizing sulfate reducer to the methanogenic coculture
+    explanation: Supports the perturbation with a hydrogen-oxidizing sulfate reducer.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resulted in benzoate degradation to below the limit of benzoate detection
+    explanation: Supports the effect of hydrogen scavenging on residual benzoate.
+growth_media:
+- name: Methanogenic benzoate degradation coculture assay
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Benzoate
+    chebi_term:
+      preferred_term: benzoate
+      term:
+        id: CHEBI:30746
+        label: benzoate
+  preparation_notes: >
+    The PubMed abstract supports a methanogenic S. gentianae and M. hungatei
+    coculture degrading benzoate; detailed medium composition is not asserted
+    from abstract-level evidence.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growing cocultures of Syntrophus gentianae with Methanospirillum hungatei degraded benzoate
+    explanation: Supports benzoate as the coculture substrate.
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methanogenic cocultures
+    explanation: Supports the methanogenic culture condition.
+associated_datasets:
+- name: Syntrophus gentianae DSM 8423 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: GCA_900109885.1
+  url: https://www.ncbi.nlm.nih.gov/assembly/GCF_900109885.1
+  description: Genome assembly for S. gentianae DSM 8423/HQG1, the benzoate-degrading bacterial species.
+- name: Syntrophus gentianae DSM 8423 IMG genome
+  dataset_type: GENOME
+  repository: JGI_IMG
+  accession: "2634166346"
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2634166346
+  description: JGI IMG genome resource for S. gentianae DSM 8423.
+external_resources:
+- name: Exact-system primary publication - S. gentianae and M. hungatei benzoate coculture
+  repository: OTHER
+  resource_id: PMID:33657722
+  url: https://pubmed.ncbi.nlm.nih.gov/33657722/
+  description: Primary publication reporting energetics of methanogenic benzoate degradation by the S. gentianae and M. hungatei coculture.
+  evidence:
+  - reference: PMID:33657722
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophus gentianae with Methanospirillum hungatei
+    explanation: Lists this publication as an exact-composition source for the two-member coculture.
+- name: NCBI Taxonomy - Syntrophus gentianae
+  repository: OTHER
+  resource_id: NCBITaxon:43775
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=43775
+  description: NCBI Taxonomy record for Syntrophus gentianae.
+- name: NCBI Taxonomy - Methanospirillum hungatei
+  repository: OTHER
+  resource_id: NCBITaxon:2203
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2203
+  description: NCBI Taxonomy record for Methanospirillum hungatei.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  methanogenic benzoate-degrading coculture.
