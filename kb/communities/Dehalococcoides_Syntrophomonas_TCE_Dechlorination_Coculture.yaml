@@ -1,0 +1,347 @@
+id: CommunityMech:000183
+name: Dehalococcoides-Syntrophomonas TCE Dechlorination Coculture
+description: >
+  A defined two-member anaerobic syntrophic coculture in which Dehalococcoides
+  mccartyi strain 195 reductively dechlorinates trichloroethene while
+  Syntrophomonas wolfei ferments butyrate or crotonate-derived carbon to provide
+  hydrogen and acetate. The system is relevant to chlorinated-solvent groundwater
+  bioremediation because it models interspecies hydrogen transfer and metabolite
+  exchange that support TCE dechlorination by Dehalococcoides-containing
+  communities.
+ecological_state: STABLE
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Establish a defined syntrophic coculture for studying TCE dechlorination
+    supported by butyrate fermentation and interspecies hydrogen transfer.
+  assembly_strategy: Pair Dehalococcoides mccartyi strain 195 with Syntrophomonas
+    wolfei in an anoxic defined medium containing TCE and fermentable fatty-acid
+    substrates.
+  inoculation_strategy: Initial cocultures were assembled from D. mccartyi 195 and
+    S. wolfei under anaerobic, TCE-amended laboratory conditions.
+  passaging_regimen: The established coculture was maintained as a sustainable
+    syntrophic coculture on butyrate and TCE.
+  perturbation_design: Compare strain 195 pure cultures and syntrophic cocultures,
+    including electron donor limitation and isotope-fractionation tests under altered
+    growth conditions.
+  measurement_endpoints:
+  - TCE dechlorination rate
+  - Ethene and chlorinated ethene product formation
+  - Hydrogen concentration
+  - Cell abundance of strain 195 and S. wolfei
+  - Coculture aggregation and interspecies distance
+  - Carbon isotope fractionation of TCE
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195 (strain 195) and Syntrophomonas wolfei were grown
+    explanation: Supports the two-member defined coculture composition and design.
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using butyrate as an electron donor and carbon source and trichloroethene
+    explanation: Supports the design around butyrate-fed syntrophy coupled to TCE dechlorination.
+  - reference: PMID:24015929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dhc195 with Syntrophomonas wolfei
+    explanation: Supports that a separate isotope-fractionation study used the same exact species composition.
+environment_term:
+  preferred_term: anaerobic chlorinated-ethene laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled serum-bottle coculture used as a laboratory model for chlorinated-solvent bioremediation.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides mccartyi 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+    notes: Organohalide-respiring bacterium that uses hydrogen as the electron donor for reductive
+      dechlorination of TCE in the coculture.
+  strain_designation:
+    strain_name: 195
+    type_strain: true
+    genome_accession: GCA_000011905.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000011905.1
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195 (strain 195)
+    explanation: Supports strain 195 as the Dehalococcoides member in the coculture.
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    notes: Butyrate-fermenting syntroph that supplies hydrogen and acetate to support
+      D. mccartyi 195 reductive dechlorination.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195 (strain 195) and Syntrophomonas wolfei were grown
+    explanation: Supports S. wolfei as the bacterial syntrophic partner in the coculture.
+ecological_interactions:
+- name: Butyrate Fermentation Supporting TCE Dechlorination
+  description: S. wolfei ferments butyrate in the coculture, producing hydrogen and acetate;
+    D. mccartyi 195 consumes hydrogen for reductive dechlorination of TCE, keeping
+    hydrogen low enough to make syntrophic butyrate oxidation favorable.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  biological_processes:
+  - preferred_term: butyrate catabolic process
+    term:
+      id: GO:0046359
+      label: butyrate catabolic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using butyrate as an electron donor and carbon source
+    explanation: Supports butyrate-fed syntrophic fermentation as part of the coculture.
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Aqueous H2 concentrations ranged from 24 to 180 nM
+    explanation: Supports low hydrogen transfer as a measured feature of the syntrophic coculture.
+- name: Reductive Dechlorination by Dehalococcoides
+  description: D. mccartyi 195 uses hydrogen supplied by S. wolfei as electron donor and
+    TCE as electron acceptor, producing less chlorinated ethene products including ethene
+    under the tested coculture conditions.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Dehalococcoides mccartyi 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  target_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  metabolites:
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  - preferred_term: chloroethene
+    term:
+      id: CHEBI:28509
+      label: chloroethene
+    notes: Vinyl chloride intermediate in chlorinated-ethene dechlorination.
+  - preferred_term: ethene
+    term:
+      id: CHEBI:18153
+      label: ethene
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the minimum H2 threshold value for TCE dechlorination by strain 195
+    explanation: Supports hydrogen-dependent TCE dechlorination by strain 195 in the coculture.
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE) as an electron acceptor
+    explanation: Supports TCE as the electron acceptor for reductive dechlorination in the coculture.
+  - reference: PMID:24015929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reductive dechlorination of trichloroethene (TCE)
+    explanation: Supports reductive dechlorination as the central strain 195 phenotype measured in the related exact-composition study.
+- name: Aggregation-Enhanced Hydrogen Flux
+  description: The coculture forms cell aggregates that reduce interspecies distances and
+    support the hydrogen flux required for observed TCE dechlorination rates.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cell aggregates during syntrophic growth were observed
+    explanation: Supports aggregate formation during coculture growth.
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: demonstrated the need for aggregation
+    explanation: Supports the interpretation that close physical association enables hydrogen flux.
+environmental_factors:
+- name: TCE electron acceptor
+  value: trichloroethene
+  description: TCE was the chlorinated electron acceptor in the syntrophic coculture.
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE) as an electron acceptor
+    explanation: Supports TCE as the electron acceptor for the coculture.
+- name: Butyrate electron donor and carbon source
+  value: butyrate
+  description: Butyrate supplied electron donor and carbon source for the syntrophic coculture.
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate as an electron donor and carbon source
+    explanation: Supports butyrate as the electron donor and carbon source.
+- name: Low hydrogen concentration
+  value: 24 to 180
+  unit: nM
+  description: Aqueous hydrogen concentrations during dechlorination stayed in the nanomolar range.
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Aqueous H2 concentrations ranged from 24 to 180 nM
+    explanation: Supports low hydrogen availability during syntrophic dechlorination.
+growth_media:
+- name: TCE and butyrate anaerobic coculture medium
+  composition:
+  - name: trichloroethene
+    chebi_term:
+      preferred_term: trichloroethene
+      term:
+        id: CHEBI:16602
+        label: trichloroethene
+  - name: butyrate
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:17968
+        label: butyrate
+  atmosphere: ANAEROBIC
+  preparation_notes: The PubMed abstract supports butyrate as electron donor/carbon source
+    and TCE as electron acceptor. Full-text methods report the exact serum-bottle formulation,
+    but those details are not asserted here because local reference validation only cached the
+    abstract.
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate as an electron donor and carbon source
+    explanation: Supports butyrate as a medium substrate.
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE) as an electron acceptor
+    explanation: Supports TCE as the chlorinated electron acceptor in the medium.
+associated_datasets:
+- name: Dehalococcoides mccartyi 195 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA214
+  url: https://www.ncbi.nlm.nih.gov/bioproject/214
+  description: NCBI BioProject for the complete genome of D. mccartyi 195, the dechlorinating
+    partner in the coculture.
+- name: Syntrophomonas wolfei Goettingen G311 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA13014
+  url: https://www.ncbi.nlm.nih.gov/bioproject/13014
+  description: NCBI BioProject for S. wolfei subsp. wolfei strain Goettingen G311, the
+    butyrate-fermenting syntrophic partner.
+external_resources:
+- name: Exact-system primary publication - D. mccartyi 195 and S. wolfei
+  repository: OTHER
+  resource_id: PMID:25576615
+  url: https://pubmed.ncbi.nlm.nih.gov/25576615/
+  description: Primary publication describing efficient metabolic exchange and electron transfer
+    in the D. mccartyi 195 and S. wolfei TCE-dechlorinating coculture.
+  evidence:
+  - reference: PMID:25576615
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195 (strain 195) and Syntrophomonas wolfei were grown
+    explanation: Lists the primary exact-composition coculture paper.
+- name: Exact-composition isotope-fractionation publication
+  repository: OTHER
+  resource_id: PMID:24015929
+  url: https://pubmed.ncbi.nlm.nih.gov/24015929/
+  description: Publication that measured TCE carbon isotope fractionation for D. mccartyi
+    195 with S. wolfei and other growth conditions.
+  evidence:
+  - reference: PMID:24015929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dhc195 with Syntrophomonas wolfei
+    explanation: Lists an additional publication using the same exact species composition.
+- name: Exact-system S. wolfei reverse-electron-transfer publication
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2016.01795
+  url: https://doi.org/10.3389/fmicb.2016.01795
+  description: Follow-up publication measuring S. wolfei membrane complexes and gene expression
+    in syntrophic growth with D. mccartyi strain 195.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this chlorinated-solvent
+  bioremediation coculture.
