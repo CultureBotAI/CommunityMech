@@ -1,0 +1,395 @@
+id: CommunityMech:000195
+name: Coniochaeta-Sphingobacterium-Citrobacter Wheat Straw Consortium
+description: >
+  A three-member bacterial-fungal synthetic consortium cultivated on wheat straw
+  to study division of labor during lignocellulose degradation. The community
+  combines the fungus Coniochaeta sp. 2T2.1 with the bacterium originally
+  reported as Sphingobacterium multivorum w15 and later proposed as
+  Sphingobacterium paramultivorum w15, plus Citrobacter freundii so4. The
+  system is relevant to DOE bioenergy because it links a Joint Genome Institute
+  fungal genome resource to transcriptomic and metatranscriptomic evidence for
+  cellulose, xylan, hemicellulose, lignin-modification, detoxification, and
+  vitamin B2-associated functions in a model lignocellulose-degrading
+  consortium.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Resolve eco-enzymological roles of fungal and bacterial members in a wheat
+    straw-degrading synthetic consortium.
+  assembly_strategy: Combine Coniochaeta sp. 2T2.1 with Sphingobacterium w15 and
+    Citrobacter freundii so4 in wheat straw-driven cultures.
+  perturbation_design: Compare fungal monoculture with the tripartite consortium
+    and, in a later exact-composition study, compare consortium metatranscriptomes
+    at 180 and 60 rpm across early, middle, and late time points.
+  measurement_endpoints:
+  - Fungal transcriptome response
+  - Metatranscriptomic CAZy expression
+  - Wheat straw degradation percentage
+  - Hemicellulose degradation functions
+  - Lignin-modification gene expression
+  - Vitamin B2-associated gene expression
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wheat straw-driven cultures
+    explanation: Supports wheat straw as the experimental substrate and design context.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two shaking speeds (180 and 60 rpm)
+    explanation: Supports the later exact-composition shaking-speed perturbation design.
+environment_term:
+  preferred_term: wheat-straw laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory wheat-straw culture system used for fungal transcriptomics and
+    bacterial-fungal consortium metatranscriptomics.
+taxonomy:
+- taxon_term:
+    preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
+    notes: JGI-sequenced fungal member isolated from a lignocellulose-degrading consortium.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Coniochaeta sp. strain 2T2.1
+    explanation: Supports Coniochaeta sp. 2T2.1 as the fungal member of the exact consortium.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: strongly involved in cellulose and xylan
+    explanation: Supports the primary-degrader role assigned to Coniochaeta sp. 2T2.1.
+- taxon_term:
+    preferred_term: Sphingobacterium multivorum w15
+    term:
+      id: NCBITaxon:2886510
+      label: Sphingobacterium paramultivorum
+    notes: The 2020 consortium paper reports this member as Sphingobacterium multivorum w15;
+      later taxonomic analysis proposed renaming strain w15 as Sphingobacterium paramultivorum.
+  strain_designation:
+    strain_name: w15
+    culture_collections:
+    - collection: DSM
+      accession: DSM 106342
+    genome_accession: PHGV01000000
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/PHGV01000000
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sphingobacterium multivorum w15
+    explanation: Supports w15 as one bacterial member in the original exact consortium publication.
+  - reference: PMID:34683378
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: members of the novel species, coined Sphingobacterium paramultivorum
+    explanation: Supports the updated NCBI-grounded taxonomy used for strain w15.
+- taxon_term:
+    preferred_term: Citrobacter freundii so4
+    term:
+      id: NCBITaxon:546
+      label: Citrobacter freundii
+    notes: Bacterial member so4 with genome-supported detoxification and oligosaccharide/sugar-dimer
+      utilization functions in the tripartite consortium.
+  strain_designation:
+    strain_name: so4
+    culture_collections:
+    - collection: DSM
+      accession: DSM 106340
+    genome_accession: PHGU01000000
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/PHGU01000000
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Citrobacter freundii so4
+    explanation: Supports C. freundii so4 as the second bacterial member of the original exact consortium.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: detoxification-related proteins
+    explanation: Supports C. freundii so4 as a functional helper involved in detoxification-related expression.
+ecological_interactions:
+- name: Fungal Cellulose-Xylan-Lignin Modification Role
+  description: Coniochaeta sp. 2T2.1 expresses plant biomass-degrading enzymes in wheat-straw cultures
+    and is inferred to contribute cellulose and xylan degradation at early stages plus lignin modification
+    at later stages.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: carbohydrate-active enzymes indicated an onset of (hemi)cellulose degradation
+    explanation: Supports Coniochaeta CAZyme expression during wheat-straw degradation.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: lignin modification processes
+    explanation: Supports the later-stage lignin-modification role assigned to Coniochaeta sp. 2T2.1.
+- name: Bacterial Hemicellulose And Oligosaccharide Partitioning
+  description: Sphingobacterium w15 and Citrobacter freundii so4 partition bacterial degradation roles,
+    with w15 associated mainly with hemicellulose degradation and vitamin B2 production and so4 associated
+    with oligosaccharide or sugar-dimer degradation and detoxification.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Sphingobacterium multivorum w15
+    term:
+      id: NCBITaxon:2886510
+      label: Sphingobacterium paramultivorum
+  target_taxon:
+    preferred_term: Citrobacter freundii so4
+    term:
+      id: NCBITaxon:546
+      label: Citrobacter freundii
+  metabolites:
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  biological_processes:
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: riboflavin biosynthetic process
+    term:
+      id: GO:0009231
+      label: riboflavin biosynthetic process
+  evidence:
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: S. paramultivorum w15 is involved in the degradation of mainly hemicellulose
+    explanation: Supports hemicellulose-linked functional specialization by w15.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: C. freundii so4 in the degradation of oligosaccharides or sugar dimers
+    explanation: Supports secondary carbohydrate utilization by C. freundii so4.
+- name: Inter-Kingdom Interaction And Amensalism Signal
+  description: The bacterial pair altered Coniochaeta gene expression, including upregulation of oxidases
+    and transporter genes, while the tripartite consortium showed suppression of the fungal hemicellulolytic
+    arsenal and lower degradation percentages under the tested conditions.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Sphingobacterium multivorum w15
+    term:
+      id: NCBITaxon:2886510
+      label: Sphingobacterium paramultivorum
+  target_taxon:
+    preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: inter-kingdom interactions (e.g. amensalism)
+    explanation: Supports a competitive or inhibitory interaction signal among fungal and bacterial members.
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lower degradation percentages within the microbial consortium
+    explanation: Supports that the tripartite outcome was not simply synergistic under the tested conditions.
+environmental_factors:
+- name: Wheat straw substrate
+  value: wheat straw
+  description: Wheat straw was the lignocellulosic substrate used to drive consortium growth and gene
+    expression analyses.
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wheat straw-driven cultures
+    explanation: Supports wheat straw as the substrate.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignocellulose-degrading activities
+    explanation: Supports the lignocellulose-degrading culture activity.
+- name: Shaking speed
+  value: 180 and 60
+  unit: rpm
+  description: The later exact-composition metatranscriptomic study compared culture function and expression
+    at two shaking speeds.
+  evidence:
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two shaking speeds (180 and 60 rpm)
+    explanation: Supports the shaking-speed perturbation values.
+- name: Sampling time points
+  value: 1, 5, and 13
+  unit: days
+  description: Metatranscriptomes were examined at early, middle, and late stages of wheat-straw
+    consortium cultivation.
+  evidence:
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three time points (1, 5 and 13 days)
+    explanation: Supports the curated time points for gene-expression measurements.
+growth_media:
+- name: Wheat straw-driven lignocellulose consortium culture
+  composition:
+  - name: wheat straw
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: xylan
+    chebi_term:
+      preferred_term: xylan
+      term:
+        id: CHEBI:37686
+        label: xylan
+  - name: lignin
+    chebi_term:
+      preferred_term: lignin
+      term:
+        id: CHEBI:6457
+        label: lignin
+  inoculum_source: Laboratory cultures of Coniochaeta sp. 2T2.1, Sphingobacterium w15, and Citrobacter
+    freundii so4.
+  preparation_notes: >
+    The curated publications support wheat straw-driven cultures and shaking-speed perturbations; this
+    record does not assert the full salts or trace-component medium recipe.
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wheat straw-driven cultures
+    explanation: Supports the wheat-straw culture context.
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth at two shaking speeds
+    explanation: Supports cultivation under shaking-speed treatments.
+associated_datasets:
+- name: Tripartite consortium metatranscriptome BioProject
+  dataset_type: METATRANSCRIPTOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA870051
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA870051
+  description: SRA BioProject for the tripartite consortium metatranscriptome data from the two-shaking-speed study.
+- name: Coniochaeta sp. 2T2.1 JGI genome project
+  dataset_type: GENOME
+  repository: OTHER
+  accession: JGI Project 1019910
+  url: https://genome.jgi.doe.gov/portal/lookup?app=Info&keyName=jgiProjectId&keyValue=1019910&showParent=false
+  description: JGI/MycoCosm genome resource for the Coniochaeta sp. 2T2.1 fungal member.
+- name: Sphingobacterium w15 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: PHGV01000000
+  url: https://www.ncbi.nlm.nih.gov/nuccore/PHGV01000000
+  description: Draft genome assembly for the w15 bacterial member originally reported as S. multivorum.
+- name: Citrobacter freundii so4 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: PHGU01000000
+  url: https://www.ncbi.nlm.nih.gov/nuccore/PHGU01000000
+  description: Draft genome assembly for the C. freundii so4 bacterial member.
+external_resources:
+- name: Exact-system primary publication - Coniochaeta eco-enzymological role
+  repository: OTHER
+  resource_id: PMID:31769802
+  url: https://pubmed.ncbi.nlm.nih.gov/31769802/
+  description: Primary publication reporting Coniochaeta sp. 2T2.1 transcriptomics in monoculture and
+    in the exact tripartite wheat-straw consortium with Sphingobacterium w15 and C. freundii so4.
+  evidence:
+  - reference: PMID:31769802
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic microbial consortium with Sphingobacterium multivorum w15 and Citrobacter freundii so4
+    explanation: Lists the exact-composition publication supporting this community record.
+- name: Exact-system metatranscriptomic publication - shaking-speed perturbation
+  repository: OTHER
+  resource_id: PMID:36991472
+  url: https://pubmed.ncbi.nlm.nih.gov/36991472/
+  description: Later publication using the same exact consortium composition and updated w15 taxonomy
+    to compare metatranscriptomes at 180 and 60 rpm.
+  evidence:
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sphingobacterium paramultivorum w15, Citrobacter freundii so4, and the fungus Coniochaeta sp. 2T2.1
+    explanation: Lists the later exact-composition publication, as required for communities reported in multiple publications.
+- name: w15 taxonomy publication
+  repository: OTHER
+  resource_id: PMID:34683378
+  url: https://pubmed.ncbi.nlm.nih.gov/34683378/
+  description: Taxonomic analysis proposing that the strain originally assigned to S. multivorum w15
+    should be named Sphingobacterium paramultivorum.
+  evidence:
+  - reference: PMID:34683378
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Strain w15 was originally assigned to the species Sphingobacterium multivorum
+    explanation: Supports the taxonomic note connecting the original and updated names.
+- name: JGI publication page
+  repository: OTHER
+  resource_id: doi:10.1093/femsec/fiz186
+  url: https://archive.jgi.doe.gov/publication/defining-the-eco-enzymological-role-of-the-fungal-strain-coniochaeta-sp-2t2-1-in-a-tripartite-lignocellulolytic-microbial-consortium/
+  description: DOE JGI publication page for the FEMS Microbiology Ecology exact-system paper.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role was reported for this wheat-straw
+  lignocellulose-degrading consortium in the curated sources.
