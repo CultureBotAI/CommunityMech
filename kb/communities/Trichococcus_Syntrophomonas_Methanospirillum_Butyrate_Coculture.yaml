@@ -1,0 +1,345 @@
+id: CommunityMech:000188
+name: Trichococcus-Syntrophomonas-Methanospirillum Butyrate Coculture
+description: >
+  A defined anaerobic three-member coculture in which fermentative
+  Trichococcus flocculiformis strain ES5 stimulates the syntrophic
+  butyrate-oxidizing partnership between Syntrophomonas wolfei and
+  Methanospirillum hungatei. The system extends the classic two-member
+  fatty-acid syntrophy model by adding a fermentative bacterium that increases
+  butyrate consumption and methane production and aggregates with the
+  syntrophic partners. It is relevant to DOE anaerobic carbon cycling,
+  wastewater treatment bioreactors, and engineered methanogenic consortia.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: >
+    Test how addition of fermentative T. flocculiformis ES5 influences
+    syntrophic butyrate oxidation and methane generation in a defined
+    S. wolfei and M. hungatei coculture.
+  assembly_strategy: >
+    Add T. flocculiformis ES5 to a cultured syntrophic coculture of
+    S. wolfei and M. hungatei under anaerobic butyrate-oxidizing conditions.
+  measurement_endpoints:
+  - Butyrate consumption rate
+  - Volumetric methane production rate
+  - Scanning electron microscopy of mixed-culture aggregates
+  - Coculture proteome with and without the fermentative bacterium
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: experimental observations of stimulated butyrate oxidation and methane generation
+    explanation: Supports the experimental objective focused on butyrate oxidation and methane output.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: due to the addition of a fermentative Trichococcus flocculiformis strain ES5
+    explanation: Supports the assembly strategy that adds T. flocculiformis ES5 to syntrophic cocultures.
+environment_term:
+  preferred_term: anaerobic wastewater bioreactor model coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    The exact coculture was assembled and assayed in the laboratory as a model
+    for syntrophic fatty acid oxidation in anoxic sediments, soils, and
+    wastewater treatment bioreactors.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+    notes: >
+      Fermentative strain ES5 was added to the syntrophic coculture; the
+      ontology grounding is species-level because the stable NCBI Taxonomy
+      identifier for the BacDive ES5 strain record is NCBITaxon:82803.
+  strain_designation:
+    strain_name: ES5
+    culture_collections:
+    - collection: DSM
+      accession: DSM 23957
+    genome_accession: GCA_900129415
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_900129415
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a fermentative Trichococcus flocculiformis strain ES5
+    explanation: Supports T. flocculiformis ES5 as the fermentative added member.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 to aggregate with the syntrophic partners
+    explanation: Supports ES5 as an interacting member of the three-member coculture.
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    notes: Butyrate-oxidizing bacterial syntroph stimulated in the three-member coculture.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a coculture of Syntrophomonas wolfei
+    explanation: Supports S. wolfei as a member of the coculture.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stimulated butyrate oxidation
+    explanation: Supports the butyrate-oxidizing syntrophic role of S. wolfei in this system.
+- taxon_term:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+    notes: Hydrogen/formate-scavenging methanogenic archaeal partner in the three-member coculture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanospirillum hungatei
+    explanation: Supports M. hungatei as the methanogenic archaeal member.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogen/formate-scavenging methanogenic archaea
+    explanation: Supports the curated methanogenic scavenger role of M. hungatei.
+ecological_interactions:
+- name: Fermenter-Stimulated Butyrate Oxidation and Methane Production
+  description: >
+    Addition of T. flocculiformis ES5 stimulated the S. wolfei and M. hungatei
+    syntrophic coculture, increasing butyrate consumption and volumetric methane
+    production.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+  target_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of T. flocculiformis ES5 to the syntrophic cocultures led to an increase
+    explanation: Supports ES5 addition as the perturbation that stimulated the syntrophic cocultures.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rates of butyrate consumption (120%) and volumetric methane production (150%)
+    explanation: Supports increased butyrate consumption and methane production as measured effects.
+- name: Aggregation With Syntrophic Partners
+  description: >
+    Scanning electron microscopy showed a tendency for T. flocculiformis ES5 to
+    aggregate with S. wolfei and M. hungatei in the most positively affected
+    coculture, consistent with spatial facilitation of the syntrophic partners.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei, M. hungatei, and T. flocculiformis ES5
+    explanation: Supports the exact three-member composition of the coculture examined by microscopy.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 to aggregate with the syntrophic partners
+    explanation: Supports the aggregation interaction with the two syntrophic partners.
+- name: Proteome Response in the Syntrophic Partners
+  description: >
+    Proteome analysis linked ES5 addition to signal-transducing systems in
+    M. hungatei and activation of additional butyryl coenzyme A dehydrogenase
+    and electron transfer flavoprotein in S. wolfei.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Trichococcus flocculiformis strain ES5
+    term:
+      id: NCBITaxon:82803
+      label: Trichococcus flocculiformis
+  target_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: signal transducing systems of M. hungatei
+    explanation: Supports a proteomic response in the methanogenic partner after ES5 addition.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: activation of additional butyryl coenzyme A dehydrogenase and an electron transfer flavoprotein
+    explanation: Supports the curated proteomic response in S. wolfei.
+environmental_factors:
+- name: Anoxic anaerobic ecosystem context
+  value: anoxic sediments, soils, and wastewater treatment bioreactors
+  description: >
+    The study frames fatty-acid syntrophic consortia as important in natural
+    and manufactured anoxic ecosystems, including wastewater treatment
+    bioreactors.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anoxic sediments, soils, and wastewater treatment bioreactors
+    explanation: Supports the environmental context used for grounding the model coculture.
+- name: Fermentative bacterium addition
+  value: Trichococcus flocculiformis strain ES5 added
+  description: Addition of ES5 was the defining perturbation of the syntrophic coculture.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: due to the addition of a fermentative Trichococcus flocculiformis strain ES5
+    explanation: Supports ES5 addition as the environmental and community perturbation.
+- name: Butyrate and methane rate response
+  value: increased butyrate consumption and methane production
+  description: >
+    ES5 addition increased rates of butyrate consumption and volumetric methane
+    production relative to syntrophic cocultures without the added fermenter.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rates of butyrate consumption (120%) and volumetric methane production (150%)
+    explanation: Supports the measured performance response of the community.
+growth_media:
+- name: Anaerobic butyrate syntrophic coculture assay
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Butyrate
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:17968
+        label: butyrate
+  preparation_notes: >
+    Abstract-level evidence supports an anaerobic syntrophic coculture assayed
+    for butyrate oxidation and methane generation; detailed medium composition
+    is not asserted here.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stimulated butyrate oxidation and methane generation
+    explanation: Supports butyrate oxidation and methane generation as the culture assay.
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: syntrophic anaerobic consortia
+    explanation: Supports anaerobic cultivation context for the coculture.
+associated_datasets:
+- name: Trichococcus flocculiformis DSM 23957 genome assembly
+  dataset_type: GENOME
+  repository: OTHER
+  accession: GCA_900129415
+  url: https://www.ncbi.nlm.nih.gov/assembly/GCA_900129415
+  description: Genome assembly for T. flocculiformis ES5/DSM 23957, the fermentative strain added to the coculture.
+- name: Trichococcus flocculiformis DSM 23957 IMG genome
+  dataset_type: GENOME
+  repository: JGI_IMG
+  accession: "2619618835"
+  url: https://img.jgi.doe.gov/cgi-bin/m/main.cgi?section=TaxonDetail&page=taxonDetail&taxon_oid=2619618835
+  description: JGI IMG genome resource for T. flocculiformis DSM 23957.
+external_resources:
+- name: Exact-system primary publication - ES5-stimulated S. wolfei and M. hungatei coculture
+  repository: OTHER
+  resource_id: PMID:35699440
+  url: https://pubmed.ncbi.nlm.nih.gov/35699440/
+  description: >
+    Primary publication reporting the T. flocculiformis ES5, S. wolfei, and
+    M. hungatei three-member coculture; no additional exact-composition
+    publication was identified during this curation pass.
+  evidence:
+  - reference: PMID:35699440
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. wolfei, M. hungatei, and T. flocculiformis ES5
+    explanation: Lists this publication as the exact-composition source for the three-member coculture.
+- name: DOI landing page - ES5-stimulated syntrophic coculture
+  repository: OTHER
+  resource_id: doi:10.1128/aem.00391-22
+  url: https://doi.org/10.1128/aem.00391-22
+  description: DOI landing page for the exact-system primary publication.
+- name: NCBI Taxonomy - Trichococcus flocculiformis
+  repository: OTHER
+  resource_id: NCBITaxon:82803
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=82803
+  description: NCBI Taxonomy record for Trichococcus flocculiformis.
+- name: BacDive strain record - Trichococcus flocculiformis ES5
+  repository: OTHER
+  resource_id: BacDive:2286
+  url: https://bacdive.dsmz.de/strain/2286
+  description: BacDive record for T. flocculiformis ES5/DSM 23957, including NCBI taxon, culture collection, isolation, and genome links.
+- name: NCBI Taxonomy - Syntrophomonas wolfei
+  repository: OTHER
+  resource_id: NCBITaxon:863
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=863
+  description: NCBI Taxonomy record for Syntrophomonas wolfei.
+- name: NCBI Taxonomy - Methanospirillum hungatei
+  repository: OTHER
+  resource_id: NCBITaxon:2203
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2203
+  description: NCBI Taxonomy record for Methanospirillum hungatei.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  fermenter-stimulated methanogenic butyrate coculture.
