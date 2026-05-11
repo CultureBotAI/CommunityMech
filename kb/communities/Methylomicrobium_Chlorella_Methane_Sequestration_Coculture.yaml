@@ -1,0 +1,358 @@
+id: CommunityMech:000192
+name: Methylomicrobium-Chlorella Methane Sequestration Coculture
+description: >
+  A defined halotolerant methanotroph-microalga coculture pairing
+  Methylomicrobium alcaliphilum 20Z, currently represented by NCBI as
+  Methylotuvimicrobium alcaliphilum 20Z, with Chlorella sp. HS2. The
+  two-member system was assembled to test biological methane and carbon dioxide
+  mitigation through metabolic coupling in saline culture, with increased
+  methane removal, improved growth of both members, pH recovery, and greater
+  biomass carbon sequestration reported in coculture. The system is relevant to
+  DOE interests in methane mitigation, carbon capture and utilization,
+  photosynthetic-methanotrophic consortia, and C1 bioconversion.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: CARBON_SEQUESTRATION
+engineering_design:
+  objective: >
+    Assemble a two-member methanotroph-microalga consortium for biological
+    methane and carbon dioxide sequestration under saline conditions.
+  assembly_strategy: >
+    Co-cultivate Methylomicrobium alcaliphilum 20Z with Chlorella sp. HS2 in
+    saline laboratory culture to couple methane oxidation with algal carbon
+    capture and oxygenic photosynthesis.
+  perturbation_design: >
+    Test saline coculture above 3.0% salinity, vary initial inoculum ratios,
+    and increase methane provision in enclosed serum bottles.
+  measurement_endpoints:
+  - Methane removal
+  - Growth of both microbial partners
+  - Biomass carbon sequestration
+  - Culture pH recovery
+  - Inoculum-ratio effects on biomass yield
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane removal potential of the identified halotolerant consortium
+    explanation: Supports the stated design objective for methane sequestration by a coupled consortium.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial inoculum ratio did not result in a substantial difference in biomass yield.
+    explanation: Supports inoculum ratio as an explicitly tested design variable.
+environment_term:
+  preferred_term: saline methane-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled laboratory coculture in saline medium and enclosed methane-fed
+    serum bottles; the record represents the experimental system rather than a
+    sampled natural community.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylomicrobium alcaliphilum 20Z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+    notes: >
+      The source publication uses Methylomicrobium alcaliphilum 20Z; NCBI
+      Taxonomy records the strain as Methylotuvimicrobium alcaliphilum 20Z and
+      lists Methylomicrobium alcaliphilum 20Z as an equivalent name.
+  strain_designation:
+    strain_name: 20Z
+    culture_collections:
+    - collection: DSM
+      accession: '19304'
+    - collection: NCIMB
+      accession: '14124'
+    - collection: VKM
+      accession: B-2133
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. alcaliphilum 20Z and Chlorella sp. HS2 were co-cultivated
+    explanation: Supports M. alcaliphilum 20Z as one member of the exact two-member coculture.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylomicrobium alcaliphilum 20Z was demonstrated to form a mutualistic association
+    explanation: Supports the methanotroph as a mutualistic member of the coculture.
+- taxon_term:
+    preferred_term: Chlorella sp. HS2
+    term:
+      id: NCBITaxon:2675547
+      label: Chlorella sp. HS2
+    notes: >
+      NCBI Taxonomy records Chlorella sp. HS2 as a species-level unclassified
+      Chlorella entry with homotypic synonym Chlorella sp. HS-2.
+  strain_designation:
+    strain_name: HS2
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. alcaliphilum 20Z and Chlorella sp. HS2 were co-cultivated
+    explanation: Supports Chlorella sp. HS2 as one member of the exact two-member coculture.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mutualistic association with Chlorella sp. HS2
+    explanation: Supports the algal partner as a mutualistic member of the coculture.
+ecological_interactions:
+- name: Methane Removal and Mutualistic Growth
+  description: >
+    M. alcaliphilum 20Z and Chlorella sp. HS2 form a mutualistic coculture in
+    which methane removal and growth of both organisms increase relative to the
+    tested controls.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Chlorella sp. HS2
+    term:
+      id: NCBITaxon:2675547
+      label: Chlorella sp. HS2
+  target_taxon:
+    preferred_term: Methylomicrobium alcaliphilum 20Z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increased CH4 removal and growth of both microbes were observed in co-cultures.
+    explanation: Supports methane removal and mutualistic growth enhancement in coculture.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-culture significantly enhanced the growth of both microbes
+    explanation: Supports growth enhancement of both members in the exact coculture.
+- name: Methane and Carbon Dioxide Mitigation
+  description: >
+    The methanotroph-microalga consortium was proposed as a halotolerant
+    platform for simultaneous methane and carbon dioxide mitigation, with
+    methane-fed cocultures increasing carbon sequestered in biomass.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylomicrobium alcaliphilum 20Z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+  target_taxon:
+    preferred_term: Chlorella sp. HS2
+    term:
+      id: NCBITaxon:2675547
+      label: Chlorella sp. HS2
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: remediate in situ CH4 and CO2
+    explanation: Supports the methane and carbon dioxide mitigation function of the consortium.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nearly an order of magnitude increase in the amount of carbon sequestered in biomass
+    explanation: Supports enhanced biomass carbon sequestration in methane-fed cocultures.
+- name: Saline Metabolic Coupling and pH Recovery
+  description: >
+    The coculture showed robust metabolic coupling under saline conditions and
+    maintained culture pH suitable for methanotrophic growth.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Chlorella sp. HS2
+    term:
+      id: NCBITaxon:2675547
+      label: Chlorella sp. HS2
+  target_taxon:
+    preferred_term: Methylomicrobium alcaliphilum 20Z
+    term:
+      id: NCBITaxon:1091494
+      label: Methylotuvimicrobium alcaliphilum 20Z
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: robust metabolic coupling between the two microbes
+    explanation: Supports metabolic coupling as a mechanistic feature of the two-member system.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH recovery above mild alkaline level was observed in co-cultures.
+    explanation: Supports pH recovery as a coculture-level outcome.
+environmental_factors:
+- name: Salinity
+  value: above 3.0%
+  description: >
+    The mutualistic association was reported at salinity above 3.0%, making the
+    system relevant to saline wastewater and other high-salinity process
+    contexts.
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: at a salinity level above 3.0%.
+    explanation: Supports salinity as a key environmental condition.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultivated in a saline medium.
+    explanation: Supports saline medium as the cultivation context.
+- name: Methane provision
+  value: increased methane provision in enclosed serum bottles
+  description: >
+    Increasing methane provision in sealed bottles was used to evaluate methane
+    removal capacity in the coculture.
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased methane provision in enclosed serum bottles led to saturated methane removal
+    explanation: Supports methane provision as an experimental factor affecting removal.
+- name: Initial inoculum ratio
+  value: varied without substantial biomass-yield difference
+  description: >
+    Initial inoculum ratios were tested, but biomass yield did not substantially
+    differ across those treatments.
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: independent of initial inoculum ratios.
+    explanation: Supports inoculum ratio as a tested but non-dominant factor for growth enhancement.
+- name: Culture pH
+  value: pH recovery above mild alkaline level
+  description: >
+    Methane-fed cocultures maintained pH conditions suitable for methanotrophic
+    growth.
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained a suitable cultural pH suitable for methanotrophic growth
+    explanation: Supports pH stabilization as an observed environmental outcome.
+growth_media:
+- name: Saline methane-fed methanotroph-microalga coculture assay
+  atmosphere: AEROBIC
+  preparation_notes: >
+    The source publication supports saline medium, methane-fed enclosed serum
+    bottle experiments, and coculture conditions for M. alcaliphilum 20Z and
+    Chlorella sp. HS2. Detailed medium composition is not asserted here beyond
+    the verified saline, methane, and carbon dioxide context.
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. alcaliphilum 20Z and Chlorella sp. HS2 were co-cultivated in a saline medium.
+    explanation: Supports saline coculture medium for the exact two-member community.
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A halotolerant consortium between microalgae and methanotrophic bacteria
+    explanation: Supports halotolerant methanotroph-microalga cultivation context.
+external_resources:
+- name: Exact-system primary publication - methane sequestration metabolic coupling
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2024.130607
+  url: https://doi.org/10.1016/j.biortech.2024.130607
+  description: >
+    Primary publication reporting biological methane sequestration through
+    metabolic coupling between M. alcaliphilum 20Z and Chlorella sp. HS2.
+  evidence:
+  - reference: doi:10.1016/j.biortech.2024.130607
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylomicrobium alcaliphilum 20Z was demonstrated to form a mutualistic association with Chlorella sp. HS2
+    explanation: Lists this DOI as the exact-composition source for the two-member coculture.
+- name: NCBI Taxonomy - Methylotuvimicrobium alcaliphilum 20Z
+  repository: OTHER
+  resource_id: NCBITaxon:1091494
+  url: https://www.ncbi.nlm.nih.gov/taxonomy/1091494
+  description: NCBI Taxonomy record for Methylotuvimicrobium alcaliphilum 20Z.
+- name: NCBI BioProject - Methylotuvimicrobium alcaliphilum 20Z genome
+  repository: OTHER
+  resource_id: bioproject:PRJEA73721
+  url: https://www.ncbi.nlm.nih.gov/bioproject/73721
+  description: Genome sequencing BioProject for Methylotuvimicrobium alcaliphilum 20Z.
+- name: NCBI Taxonomy - Chlorella sp. HS2
+  repository: OTHER
+  resource_id: NCBITaxon:2675547
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=2675547
+  description: NCBI Taxonomy record for Chlorella sp. HS2.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  methane-sequestration coculture.
