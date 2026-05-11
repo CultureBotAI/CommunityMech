@@ -1,0 +1,253 @@
+id: CommunityMech:000198
+name: Synechococcus-Halomonas Light-Driven PHB Coculture
+description: >
+  A synthetic, light-driven two-member phototroph-heterotroph consortium pairing
+  sucrose-exporting Synechococcus elongatus PCC 7942 cscB with the halotolerant
+  polyhydroxybutyrate producer Halomonas boliviensis LC1. The cyanobacterium
+  fixes carbon dioxide under illumination and exports sucrose, while H.
+  boliviensis consumes the cyanobacterial sucrose and accumulates the bioplastic
+  precursor polyhydroxybutyrate. The system is relevant to DOE carbon
+  utilization and bioproduct goals because it couples photosynthetic carbon
+  fixation to heterotrophic biopolymer production in a modular synthetic
+  coculture.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert light and carbon dioxide into heterotrophic polyhydroxybutyrate production by
+    coupling cyanobacterial sucrose secretion to a PHB-accumulating halophile.
+  assembly_strategy: Pair engineered S. elongatus PCC 7942 cscB with H. boliviensis LC1, with sucrose
+    export from the cyanobacterium supporting the heterotrophic PHB producer.
+  perturbation_design: Evaluate suspended and hydrogel-encapsulated coculture formats for stable,
+    light-driven PHB production.
+  measurement_endpoints:
+  - Sucrose-supported heterotroph growth
+  - Polyhydroxybutyrate production
+  - Coculture stability
+  - Long-term productivity
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic, light-driven consortium of cyanobacteria and heterotrophic bacteria enables stable polyhydroxybutyrate production
+    explanation: Supports the engineered light-driven consortium design and PHB production objective.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose secreted by S. elongatus CscB directly supports the bacterium Halomonas boliviensis
+    explanation: Supports the exact phototroph-heterotroph pairing and sucrose cross-feeding design.
+environment_term:
+  preferred_term: illuminated laboratory photobioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled synthetic light-driven coculture for photosynthetic sucrose transfer and PHB production.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+    notes: Engineered PCC 7942 derivative expressing cscB for sucrose export.
+  strain_designation:
+    strain_name: PCC 7942 cscB
+    culture_collections:
+    - collection: PCC
+      accession: '7942'
+      url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
+    genetic_modification: Heterologous cscB sucrose permease enabling sucrose export under induction
+      and salt stress.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. elongatus CscB
+    explanation: Supports the engineered cyanobacterial member.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose secreted by S. elongatus CscB
+    explanation: Supports the sucrose-exporting primary-producer role.
+- taxon_term:
+    preferred_term: Halomonas boliviensis LC1
+    term:
+      id: NCBITaxon:1072583
+      label: Vreelandella boliviensis LC1
+    notes: The publication and culture collections use Halomonas boliviensis LC1; NCBI Taxonomy currently
+      represents the strain as Vreelandella boliviensis LC1.
+  strain_designation:
+    strain_name: LC1
+    culture_collections:
+    - collection: DSM
+      accession: DSM 15516
+    - collection: ATCC
+      accession: ATCC BAA-759
+    type_strain: true
+    isolation_source: Saline soil near Laguna Colorada, Bolivia.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Halomonas boliviensis
+    explanation: Supports H. boliviensis as the heterotrophic member.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: natural producer of the bioplastic precursor, PHB
+    explanation: Supports the PHB-producing functional role assigned to H. boliviensis.
+ecological_interactions:
+- name: Photosynthetic Sucrose Transfer To Halomonas
+  description: Engineered S. elongatus PCC 7942 cscB fixes carbon dioxide using light energy and exports
+    sucrose that directly supports H. boliviensis growth and PHB accumulation.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  target_taxon:
+    preferred_term: Halomonas boliviensis LC1
+    term:
+      id: NCBITaxon:1072583
+      label: Vreelandella boliviensis LC1
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: sucrose biosynthetic process
+    term:
+      id: GO:0005986
+      label: sucrose biosynthetic process
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose secreted by S. elongatus CscB directly supports the bacterium Halomonas boliviensis
+    explanation: Supports direct sucrose cross-feeding from the cyanobacterium to the Halomonas partner.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: photoautotroph/chemoheterotroph consortial design
+    explanation: Supports the division of labor between phototrophic and heterotrophic members.
+- name: Light-Driven Biopolymer Production
+  description: H. boliviensis uses photosynthetically derived sucrose from the cyanobacterium to support
+    stable polyhydroxybutyrate production without adding external organic carbon.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  target_taxon:
+    preferred_term: Halomonas boliviensis LC1
+    term:
+      id: NCBITaxon:1072583
+      label: Vreelandella boliviensis LC1
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable polyhydroxybutyrate production
+    explanation: Supports the biopolymer-production outcome in the light-driven coculture.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: improved synthetic photoautotroph/chemoheterotroph consortial design
+    explanation: Supports the engineered modular design for light-driven PHB production.
+environmental_factors:
+- name: Illumination
+  value: light-driven culture
+  description: The coculture depends on photosynthetic light capture by S. elongatus cscB to supply sucrose
+    to H. boliviensis.
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light-driven consortium
+    explanation: Supports illumination as a required culture factor.
+- name: No external organic carbon input
+  value: cyanobacterial sucrose as organic carbon source
+  description: Sucrose secreted by the cyanobacterium provides the organic carbon supporting the heterotroph.
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose secreted by S. elongatus CscB directly supports the bacterium Halomonas boliviensis
+    explanation: Supports the cyanobacterium as the organic carbon source for H. boliviensis.
+growth_media:
+- name: Light-driven Synechococcus-Halomonas coculture
+  composition:
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: sucrose
+    chebi_term:
+      preferred_term: sucrose
+      term:
+        id: CHEBI:17992
+        label: sucrose
+  light_regime: light-driven culture
+  atmosphere: AEROBIC
+  inoculum_source: Engineered S. elongatus PCC 7942 cscB and H. boliviensis LC1 cultures.
+  preparation_notes: >
+    The curated source supports a synthetic light-driven coculture and alginate hydrogel encapsulation;
+    this record does not assert the full salts, induction, or encapsulation protocol.
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alginate encapsulation of S. elongatus CscB
+    explanation: Supports the reported coculture format.
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sucrose secreted by S. elongatus CscB directly supports the bacterium Halomonas boliviensis
+    explanation: Supports sucrose-supported heterotrophic growth in the coculture.
+external_resources:
+- name: Exact-system primary publication - Synechococcus/Halomonas PHB coculture
+  repository: OTHER
+  resource_id: doi:10.1016/j.ymben.2017.10.009
+  url: https://doi.org/10.1016/j.ymben.2017.10.009
+  description: Primary publication reporting the S. elongatus cscB and H. boliviensis light-driven
+    PHB-producing synthetic coculture.
+  evidence:
+  - reference: PMID:29061492
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic, light-driven consortium of cyanobacteria and heterotrophic bacteria enables stable polyhydroxybutyrate production
+    explanation: Supports the primary article as the source for this curated community.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this light-driven PHB
+  coculture.
