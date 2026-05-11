@@ -1,0 +1,378 @@
+id: CommunityMech:000196
+name: Clostridium phytofermentans-E. coli Cellobiose Biofilm Consortium
+description: >
+  A rationally designed two-member artificial consortium composed of
+  Clostridium phytofermentans ISDg, currently represented in NCBI Taxonomy as
+  Lachnoclostridium phytofermentans ISDg, and Escherichia coli K-12 MG1655.
+  The community was built to improve conversion of cellulose-derived sugars
+  into ethanol, biomass, and other bioproduct-relevant outputs through division
+  of labor between a cellulolytic obligate anaerobe and a facultative anaerobe.
+  It is DOE-relevant because it models consolidated lignocellulosic
+  bioprocessing, cellobiose conversion, biofilm oxygen partitioning, and
+  cross-feeding mechanisms that can improve cellulosic fuel and chemical
+  production.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Improve cellobiose and glycerol catabolism, ethanol production, and
+    biofilm biomass productivity by pairing a primary cellulose-derived-sugar
+    specialist with a facultative secondary-resource specialist.
+  assembly_strategy: Assemble wild-type C. phytofermentans ISDg with E. coli
+    K-12 MG1655 as an artificial consortium in modified GS-2 medium.
+  perturbation_design: Compare monocultures with binary consortia in planktonic
+    anoxic culture and colony biofilms, including fully anoxic, fully oxic, and
+    anoxic-to-oxic switch biofilm regimes.
+  measurement_endpoints:
+  - Cellobiose depletion
+  - Glycerol depletion
+  - Ethanol production
+  - Biofilm biomass accumulation
+  - Species-resolved biofilm spatial distribution
+  - Oxygen profiles in biofilms
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rationally designed consortium
+    explanation: Supports the engineered design framing for the two-member community.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: division of labor, and nutrient and energy transfer via necromass catabolism
+    explanation: Supports the curated design mechanisms.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans ISDg (ATCC 700394) and E. coli K-12 MG1655 were used for all experiments
+    explanation: Supports the exact strain composition of the engineered consortium.
+environment_term:
+  preferred_term: laboratory cellobiose biofilm consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory planktonic and colony-biofilm culture system grown in modified GS-2
+    medium for cellulosic-sugar bioprocessing experiments.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+    notes: The paper uses the name C. phytofermentans; NCBI currently places strain ISDg under
+      Lachnoclostridium phytofermentans.
+  strain_designation:
+    strain_name: ISDg
+    culture_collections:
+    - collection: ATCC
+      accession: ATCC 700394
+    - collection: DSM
+      accession: DSM 18823
+    type_strain: true
+    genome_accession: GCA_000018685.1
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000018685.1/
+    isolation_source: Forest soil.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: primary resource specialist was Clostridium phytofermentans
+    explanation: Supports C. phytofermentans as the primary resource specialist in the consortium.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans ISDg (ATCC 700394)
+    explanation: Supports the exact strain designation and ATCC accession.
+- taxon_term:
+    preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+    notes: Facultative anaerobic secondary-resource specialist in the artificial consortium.
+  strain_designation:
+    strain_name: K-12 MG1655
+    genome_accession: GCA_000005845.2
+    genome_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000005845.2/
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: secondary-resource specialist was Escherichia coli
+    explanation: Supports E. coli as the secondary-resource specialist in the consortium.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli K-12 MG1655 were used for all experiments
+    explanation: Supports the exact E. coli strain used.
+ecological_interactions:
+- name: Cellobiose Hydrolysis And Glucose Scavenging Feedback
+  description: C. phytofermentans releases cellobiase activity that hydrolyzes cellobiose to glucose;
+    E. coli consumes the released glucose, reducing product inhibition and creating a positive feedback
+    loop that enhances cellulose-derived sugar catabolism.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  target_taxon:
+    preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli consumed inhibitory byproducts from cellobiose catabolism
+    explanation: Supports glucose/byproduct scavenging by E. coli as a positive interaction.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: released cellobiase enzyme which hydrolyzed cellobiose into glucose extracellularly
+    explanation: Supports the extracellular cellobiose-to-glucose mechanism.
+- name: Reciprocal Necromass Catabolism
+  description: >
+    The two members exchange nutrients through biomass turnover: C. phytofermentans necromass
+    supports E. coli growth, while E. coli necromass provides peptides or biomass-derived nutrients that
+    promote C. phytofermentans growth and viability.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  target_taxon:
+    preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: peptide
+    term:
+      id: CHEBI:16670
+      label: peptide
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli necromass enhanced C. phytofermentans growth
+    explanation: Supports necromass-mediated support from E. coli to C. phytofermentans.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans necromass aided E. coli growth
+    explanation: Supports the reciprocal necromass contribution to E. coli.
+- name: Biofilm Oxygen Partitioning
+  description: In colony biofilms, E. coli consumes oxygen and helps maintain an anoxic zone that allows
+    the obligate anaerobe C. phytofermentans to persist during oxic perturbation, while E. coli occupies
+    the more oxic upper biofilm region.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  target_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli consuming O2, creating an anoxic environment for C. phytofermentans
+    explanation: Supports oxygen consumption by E. coli as a facilitative biofilm mechanism.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans resided primarily in the anoxic bottom of the biofilm
+    explanation: Supports spatial oxygen niche partitioning in the consortium biofilm.
+environmental_factors:
+- name: Modified GS-2 medium
+  value: mGS-2
+  description: Planktonic and colony-biofilm experiments used modified GS-2 medium containing cellobiose,
+    glycerol, yeast extract, citrate, urea, MOPS, salts, and trace metals.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All reported planktonic and biofilm growth were performed in modified GS-2 media
+    explanation: Supports mGS-2 as the cultivation medium.
+- name: Temperature
+  value: 37
+  unit: C
+  description: Planktonic and biofilm cultures were incubated at 37 C.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 150 revolutions per minute and 37
+    explanation: Supports the planktonic incubation temperature.
+- name: Anoxic and oxic biofilm regimes
+  value: anoxic, oxic, and anoxic-to-oxic switch
+  description: Colony biofilms were grown under fully anoxic, fully oxic, or anoxic-to-oxic switch
+    conditions to test robustness and oxygen-driven necromass release.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an anoxic to oxic switch (AOS)
+    explanation: Supports the biofilm perturbation regime.
+growth_media:
+- name: Modified GS-2 cellobiose-glycerol medium
+  composition:
+  - name: cellobiose
+    concentration: 5
+    unit: g/L
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  - name: glycerol
+    concentration: 2.3
+    unit: g/L
+    chebi_term:
+      preferred_term: glycerol
+      term:
+        id: CHEBI:17754
+        label: glycerol
+  - name: yeast extract
+    concentration: 1
+    unit: g/L
+  - name: urea
+    concentration: 2.1
+    unit: g/L
+    chebi_term:
+      preferred_term: urea
+      term:
+        id: CHEBI:16199
+        label: urea
+  - name: sodium citrate
+    concentration: 3.0
+    unit: g/L
+    chebi_term:
+      preferred_term: citrate
+      term:
+        id: CHEBI:30769
+        label: citrate(3-)
+  - name: MOPS
+    concentration: 10
+    unit: g/L
+  - name: trace metal solution
+    concentration: 10
+    unit: mL/L
+  ph: 6.9
+  temperature: 37
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: 5% H2, 5% CO2, and 90% N2 for anaerobic chamber medium handling.
+  inoculum_source: Fresh overnight cultures of C. phytofermentans ISDg and E. coli K-12 MG1655.
+  inoculum_size: 0.01 OD600 for C. phytofermentans and 0.001 OD600 for E. coli
+  inoculum_unit: OD600
+  incubation_time: 72
+  incubation_time_unit: hours for planktonic assays; 10 days for colony biofilm assays.
+  shaking_speed: 150
+  shaking_speed_unit: rpm
+  vessel_type: Balch anaerobic culture tubes for planktonic assays; polycarbonate membrane disks on
+    mGS-2 agar plates for colony biofilms.
+  preparation_notes: >
+    The published medium recipe also included phosphate buffer salts, magnesium chloride, calcium chloride,
+    ferrous sulfate, resazurin, and a trace metal solution. Biofilms were transferred to fresh medium
+    plates every 2 days.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellobiose and 10
+    explanation: Supports key carbon source and trace-metal medium components.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial OD600 of each strain was 0.01 OD600 for C. phytofermentans and 0.001 for E. coli
+    explanation: Supports the inoculation values used in the record.
+associated_datasets:
+- name: Lachnoclostridium phytofermentans ISDg genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA16184
+  url: https://www.ncbi.nlm.nih.gov/bioproject/16184
+  description: NCBI BioProject for the complete genome of the C. phytofermentans ISDg member.
+- name: Escherichia coli K-12 MG1655 reference genome
+  dataset_type: GENOME
+  repository: OTHER
+  accession: GCA_000005845.2
+  url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000005845.2/
+  description: Reference genome assembly for the E. coli K-12 MG1655 member.
+external_resources:
+- name: Primary publication - artificial cellobiose biofilm consortium
+  repository: OTHER
+  resource_id: PMID:33268782
+  url: https://pubmed.ncbi.nlm.nih.gov/33268782/
+  description: PubMed record for the primary publication reporting the C. phytofermentans and E. coli
+    artificial consortium.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Artificial consortium demonstrates emergent properties
+    explanation: Supports the primary article as the source for this community record.
+- name: Full-text article - npj Biofilms and Microbiomes
+  repository: OTHER
+  resource_id: doi:10.1038/s41522-020-00170-8
+  url: https://www.nature.com/articles/s41522-020-00170-8
+  description: Open-access full text containing methods, medium recipe, biofilm assays, and mechanistic
+    interpretation for the exact two-member consortium.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans, and E. coli binary consortia with necromass catabolism
+    explanation: Supports the full-text article as the detailed source for community mechanisms.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Trace metals are components of the modified GS-2 medium, but the curated community is not
+  reported as a metal or rare earth element processing system.
