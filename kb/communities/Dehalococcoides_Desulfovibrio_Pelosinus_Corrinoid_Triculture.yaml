@@ -1,0 +1,385 @@
+id: CommunityMech:000200
+name: Dehalococcoides-Desulfovibrio-Pelosinus Corrinoid Triculture
+description: >
+  A defined anaerobic three-member dechlorinating consortium containing
+  Dehalococcoides mccartyi strain 195, Desulfovibrio vulgaris Hildenborough,
+  and Pelosinus fermentans R7. In cobalamin-free, TCE- and lactate-amended
+  medium supplemented with the lower ligand DMB, DvH supplies hydrogen while
+  PfR7 supplies corrinoids that Dhc195 salvages and remodels into cobalamin.
+  The triculture is relevant to DOE subsurface bioremediation because it
+  identifies separable hydrogen-transfer and corrinoid-transfer mechanisms that
+  support organohalide respiration in chlorinated-solvent dechlorinating
+  communities.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Test whether a simplified lactate-fermenting consortium can support
+    sustainable D. mccartyi strain 195 dechlorination without exogenous
+    cobalamin by separating hydrogen and corrinoid provisioning across partners.
+  assembly_strategy: Combine Dhc195 with DvH as a hydrogen-supplying fermenter
+    and PfR7 as a corrinoid-supplying fermenter in defined anaerobic medium.
+  perturbation_design: Compare Dhc195/DvH, Dhc195/PfR7, and Dhc195/DvH/PfR7
+    consortia under cobalamin-free, DMB-supplemented, lactate-fed, and
+    TCE-amended conditions.
+  measurement_endpoints:
+  - TCE dechlorination
+  - Dhc195 cell growth
+  - Hydrogen production
+  - Organic acid concentrations
+  - Corrinoid identity
+  - Dhc195 transcriptomic response
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with both in tricultures
+    explanation: Supports the three-member Dhc195/DvH/PfR7 consortium design.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: without exogenous cobalamin
+    explanation: Supports the cobalamin-free experimental design.
+environment_term:
+  preferred_term: anaerobic chlorinated-ethene laboratory triculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled defined anaerobic triculture used to model nutrient and cofactor
+    exchange in chlorinated-solvent dechlorinating microbial communities.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+    notes: Organohalide-respiring strain that depends on partner-supplied hydrogen,
+      acetate, vitamins, and corrinoids in simplified dechlorinating consortia.
+  strain_designation:
+    strain_name: '195'
+    culture_collections:
+    - collection: ATCC
+      accession: BAA-2266
+    - collection: KCTC
+      accession: '15142'
+    type_strain: true
+    genome_accession: GCA_000011905.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000011905.1
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. mccartyi strain 195 (Dhc195)
+    explanation: Supports Dhc195 as the dechlorinating member of the consortium.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dhc195 imported and remodeled
+    explanation: Supports Dhc195 as the corrinoid-salvaging member.
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+    notes: The source uses Desulfovibrio vulgaris Hildenborough or DvH; NCBI
+      currently represents the strain as Nitratidesulfovibrio vulgaris str.
+      Hildenborough.
+  strain_designation:
+    strain_name: Hildenborough
+    culture_collections:
+    - collection: ATCC
+      accession: '29579'
+    genome_accession: GCA_000195755.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000195755.1
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough (DvH)
+    explanation: Supports DvH as a member of the defined consortium.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DvH provided hydrogen
+    explanation: Supports the hydrogen-supplying role assigned to DvH.
+- taxon_term:
+    preferred_term: Pelosinus fermentans R7
+    term:
+      id: NCBITaxon:1122947
+      label: Pelosinus fermentans DSM 17108
+    notes: The source uses Pelosinus fermentans R7 or PfR7; NCBI represents the
+      strain as Pelosinus fermentans DSM 17108 and lists Pelosinus fermentans R7
+      as a synonym.
+  strain_designation:
+    strain_name: R7
+    culture_collections:
+    - collection: ATCC
+      accession: BAA-1133
+    - collection: DSM
+      accession: DSM 17108
+    type_strain: true
+    isolation_source: Kaolin deposit Zhuravlinii Log, Russia.
+    genome_accession: GCA_000271485.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000271485.1
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pelosinus fermentans R7 (PfR7)
+    explanation: Supports PfR7 as a member of the defined consortium.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PfR7 provided corrinoids to Dhc195
+    explanation: Supports the corrinoid-supplying role assigned to PfR7.
+ecological_interactions:
+- name: Hydrogen Provision By Desulfovibrio
+  description: DvH ferments lactate in the defined consortium and supplies hydrogen
+    needed by Dhc195 for reductive dechlorination.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  biological_processes:
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:0019520
+      label: lactate catabolic process
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DvH provided hydrogen
+    explanation: Supports DvH-mediated hydrogen transfer to Dhc195 in the triculture.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE)- and lactate-amended medium
+    explanation: Supports lactate and TCE as the donor and acceptor context for the triculture.
+- name: Corrinoid Provision By Pelosinus
+  description: PfR7 provides corrinoids that allow Dhc195 to sustain dechlorination
+    and cell growth when cobalamin is not supplied exogenously.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pelosinus fermentans R7
+    term:
+      id: NCBITaxon:1122947
+      label: Pelosinus fermentans DSM 17108
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: 5,6-dimethylbenzimidazole
+    term:
+      id: CHEBI:15890
+      label: 5,6-dimethylbenzimidazole
+  biological_processes:
+  - preferred_term: vitamin metabolic process
+    term:
+      id: GO:0006766
+      label: vitamin metabolic process
+  - preferred_term: cobalamin transport
+    term:
+      id: GO:0015889
+      label: cobalamin transport
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PfR7 provided corrinoids to Dhc195
+    explanation: Supports corrinoid transfer from PfR7 to Dhc195.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: physiological level of 5,6-dimethylbenzimidazole (DMB)
+    explanation: Supports DMB as the lower-ligand supplement required for sustainable triculture performance.
+- name: Dhc195 Corrinoid Salvaging And Remodeling
+  description: Dhc195 imports and remodels phenolic corrinoids produced by PfR7
+    into cobalamin in the presence of DMB, inducing corrinoid-remodeling and
+    corrinoid-transport genes.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pelosinus fermentans R7
+    term:
+      id: NCBITaxon:1122947
+      label: Pelosinus fermentans DSM 17108
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: 5,6-dimethylbenzimidazole
+    term:
+      id: CHEBI:15890
+      label: 5,6-dimethylbenzimidazole
+  biological_processes:
+  - preferred_term: vitamin metabolic process
+    term:
+      id: GO:0006766
+      label: vitamin metabolic process
+  - preferred_term: cobalamin transport
+    term:
+      id: GO:0015889
+      label: cobalamin transport
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: imported and remodeled the phenolic corrinoids produced by PfR7 into cobalamin
+    explanation: Supports Dhc195 corrinoid remodeling of PfR7-produced corrinoids.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: CbiZ-dependent corrinoid-remodeling pathway and BtuFCD corrinoid ABC transporter genes
+    explanation: Supports the transcriptomic response associated with corrinoid salvaging and transport.
+environmental_factors:
+- name: Cobalamin-free medium
+  value: no exogenous cobalamin
+  description: The triculture was designed to test partner-supported corrinoid
+    transfer when cobalamin was not supplied directly.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cobalamin-free
+    explanation: Supports the cobalamin-free culture condition.
+- name: DMB lower-ligand supplement
+  value: physiological level of DMB
+  description: DMB enabled Dhc195 to remodel PfR7-produced corrinoids into cobalamin.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: physiological level of 5,6-dimethylbenzimidazole (DMB)
+    explanation: Supports DMB as a supplied lower ligand for sustainable dechlorination.
+- name: Lactate and TCE amendment
+  value: lactate-amended medium with TCE
+  description: Lactate provided the fermentable substrate and TCE provided the
+    chlorinated electron acceptor in the dechlorinating consortium.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE)- and lactate-amended medium
+    explanation: Supports lactate and TCE amendments in the defined consortium.
+growth_media:
+- name: Cobalamin-free Dhc195-DvH-PfR7 dechlorinating triculture medium
+  composition:
+  - name: lactate
+    chebi_term:
+      preferred_term: lactate
+      term:
+        id: CHEBI:24996
+        label: lactate
+  - name: trichloroethene
+    chebi_term:
+      preferred_term: trichloroethene
+      term:
+        id: CHEBI:16602
+        label: trichloroethene
+  - name: 5,6-dimethylbenzimidazole
+    chebi_term:
+      preferred_term: 5,6-dimethylbenzimidazole
+      term:
+        id: CHEBI:15890
+        label: 5,6-dimethylbenzimidazole
+  atmosphere: ANAEROBIC
+  inoculum_source: Laboratory cultures of Dhc195, DvH, and PfR7.
+  preparation_notes: >
+    The primary source supports cobalamin-free, TCE- and lactate-amended defined
+    consortium conditions with DMB; this record does not assert the complete
+    salts, vitamins, or transfer protocol.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cobalamin-free, trichloroethene (TCE)- and lactate-amended medium
+    explanation: Supports the defined medium context for the consortium.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only the triculture exhibited sustainable dechlorination and cell growth
+    explanation: Supports the triculture as the sustainable growth condition.
+associated_datasets:
+- name: GSE45533 Dhc195 corrinoid salvaging transcriptomics
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE45533
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE45533
+  description: GEO dataset for Dhc195 transcriptomic responses in defined DvH, PfR7, and triculture conditions.
+external_resources:
+- name: Exact-system primary publication - Dhc195/DvH/PfR7 corrinoid triculture
+  repository: OTHER
+  resource_id: PMID:24463969
+  url: https://pubmed.ncbi.nlm.nih.gov/24463969/
+  description: Primary publication reporting Dhc195, DvH, and PfR7 defined consortia for corrinoid salvaging and remodeling.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with both in tricultures
+    explanation: Supports the publication as the exact-composition triculture source.
+- name: Exact-system GEO transcriptomics dataset - Dhc195/DvH/PfR7 conditions
+  repository: OTHER
+  resource_id: GSE45533
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE45533
+  description: GEO record for transcriptomic analyses associated with Dhc195 corrinoid salvaging and remodeling in defined consortia.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Transcriptomic analyses of Dhc195
+    explanation: Supports the associated transcriptomic dataset for this consortium study.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this dechlorinating
+  corrinoid-transfer triculture.
