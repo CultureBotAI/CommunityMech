@@ -1,0 +1,350 @@
+id: CommunityMech:000190
+name: Pelotomaculum-Methanocella Propionate RNA-Seq Coculture
+description: >
+  A defined anaerobic syntrophic coculture pairing the propionate-oxidizing
+  bacterium Pelotomaculum thermopropionicum with the hydrogenotrophic methanogen
+  Methanocella conradii. RNA-seq comparisons against monocultures showed
+  coordinated transcriptional shifts in catabolism, methanogenesis, electron
+  bifurcation/confurcation, formate handling, signal transduction, and amino
+  acid exchange. The system is relevant to DOE interests in anaerobic carbon
+  cycling, methane production, syntrophic propionate degradation, and
+  transcriptome-guided bioreactor microbiology.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: >
+    Compare monocultures and defined syntrophic cocultures to identify how
+    P. thermopropionicum and M. conradii coordinate metabolism during
+    propionate-oxidizing methanogenic growth.
+  assembly_strategy: >
+    Construct cocultures of propionate-oxidizing P. thermopropionicum and
+    hydrogenotrophic M. conradii, then compare transcriptomes to corresponding
+    monoculture controls.
+  perturbation_design: >
+    Compare monoculture and coculture transcriptomes and test inhibition of
+    syntrophic activity by formate and 2-bromoethanesulphonate.
+  measurement_endpoints:
+  - Strand-specific mRNA sequencing
+  - Differential transcript abundance
+  - Propionate-oxidizing catabolism
+  - Methanogenesis gene expression
+  - Formate and electron bifurcation/confurcation gene expression
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transcriptome analysis was performed on these cultures using strand-specific mRNA sequencing
+    explanation: Supports the RNA-seq-centered experimental design.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii
+    explanation: Supports the exact two-member coculture assembly.
+environment_term:
+  preferred_term: anaerobic methanogenic laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled anaerobic laboratory coculture used to study syntrophic
+    propionate oxidation coupled to hydrogenotrophic methanogenesis.
+taxonomy:
+- taxon_term:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+    notes: Propionate-oxidizing bacterial syntroph in the two-member RNA-seq coculture.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: propionate-oxidizing Pelotomaculum thermopropionicum
+    explanation: Supports P. thermopropionicum as the propionate-oxidizing bacterial partner.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methylmalonyl-CoA pathway in P. thermopropionicum
+    explanation: Supports the propionate catabolic role assigned to P. thermopropionicum.
+- taxon_term:
+    preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
+    notes: Hydrogenotrophic methanogenic archaeal partner in the two-member RNA-seq coculture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic Methanocella conradii
+    explanation: Supports M. conradii as the hydrogenotrophic methanogenic partner.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: key genes for methanogenesis in M. conradii
+    explanation: Supports the methanogenic role assigned to M. conradii.
+ecological_interactions:
+- name: Propionate Oxidation Coupled to Methanogenesis
+  description: >
+    P. thermopropionicum and M. conradii form a thermodynamically constrained
+    syntrophic pair in which propionate oxidation is coordinated with
+    hydrogenotrophic methanogenesis.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+  target_taxon:
+    preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
+  metabolites:
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: propionate metabolic process
+    term:
+      id: GO:0019541
+      label: propionate metabolic process
+  - preferred_term: propionate catabolic process
+    term:
+      id: GO:0019543
+      label: propionate catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thermodynamically-based cooperation between microbial partners
+    explanation: Supports the syntrophic nature of the interaction.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii
+    explanation: Supports propionate oxidation coupled to hydrogenotrophic methanogenesis in the exact coculture.
+- name: Catabolism and Methanogenesis Upregulation in Coculture
+  description: >
+    Coculture growth upregulated catabolic genes in both organisms, including
+    methylmalonyl-CoA pathway genes in P. thermopropionicum and methanogenesis
+    genes in M. conradii.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+  target_taxon:
+    preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
+  biological_processes:
+  - preferred_term: propionate metabolic process
+    term:
+      id: GO:0019541
+      label: propionate metabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both P. thermopropionicum and M. conradii significantly upregulated the expression of genes involved in catabolism
+    explanation: Supports coordinated catabolic upregulation in coculture.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methylmalonyl-CoA pathway in P. thermopropionicum and key genes for methanogenesis in M. conradii
+    explanation: Supports the paired propionate and methanogenesis transcriptional response.
+- name: Formate and Electron Bifurcation Strategy
+  description: >
+    Transcript and inhibition evidence indicates that formate and
+    flavin-based electron bifurcation/confurcation contribute to electron
+    transfer and redox balancing during syntrophic growth.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+  target_taxon:
+    preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
+  metabolites:
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: flavin-based electron bifurcation/confurcation systems in both organisms were also upregulated
+    explanation: Supports electron bifurcation/confurcation as a coculture response.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formate was produced and utilized by P. thermopropionicum and M. conradii, respectively
+    explanation: Supports formate transfer from the syntroph to the methanogen.
+- name: Signal Transduction and Amino Acid Exchange
+  description: >
+    Coculture RNA-seq indicated upregulation of flagellum-induced signal
+    transduction and amino acid exchange, suggesting non-catabolic interaction
+    mechanisms that accompany syntrophic growth.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Pelotomaculum thermopropionicum
+    term:
+      id: NCBITaxon:110500
+      label: Pelotomaculum thermopropionicum
+  target_taxon:
+    preferred_term: Methanocella conradii
+    term:
+      id: NCBITaxon:1175444
+      label: Methanocella conradii
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: flagellum-induced signal transduction and amino acids exchange was upregulated
+    explanation: Supports signal transduction and amino acid exchange as interaction-linked responses.
+environmental_factors:
+- name: Anaerobic syntrophic energy limitation
+  value: small free-energy sharing
+  description: >
+    The system represents thermodynamically constrained anaerobic syntrophy in
+    which partners share limited free energy during growth.
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: share the small amounts of free energy for anaerobic growth
+    explanation: Supports the anaerobic energy-limited context of the coculture.
+- name: Coculture versus monoculture comparison
+  value: cocultures compared to monocultures
+  description: >
+    Transcriptomic shifts were interpreted by comparing syntrophic cocultures
+    to corresponding monoculture growth conditions.
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: compared them to monocultures
+    explanation: Supports monoculture comparison as an experimental condition.
+- name: Formate and BES inhibition
+  value: formate and 2-bromoethanesulphonate inhibited syntrophic activity
+  description: >
+    Formate and 2-BES inhibited syntrophic activity, supporting the importance
+    of formate and methanogenesis during the interaction.
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inhibition of syntrophic activity by formate and 2-bromoethanesulphonate
+    explanation: Supports formate and 2-BES as perturbations of syntrophic activity.
+growth_media:
+- name: Anaerobic propionate syntrophic coculture assay
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Propionate
+    chebi_term:
+      preferred_term: propionate
+      term:
+        id: CHEBI:17272
+        label: propionate
+  preparation_notes: >
+    Abstract-level evidence supports a propionate-oxidizing P. thermopropionicum
+    and hydrogenotrophic M. conradii coculture assayed under anaerobic
+    syntrophic conditions; detailed medium composition is not asserted here.
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: propionate-oxidizing Pelotomaculum thermopropionicum
+    explanation: Supports propionate as the defining substrate for the bacterial syntroph.
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic growth
+    explanation: Supports anaerobic growth conditions.
+associated_datasets:
+- name: Pelotomaculum-Methanocella syntrophic coculture RNA-seq
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE103596
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE103596
+  description: GEO series for strand-specific RNA-seq comparing P. thermopropionicum and M. conradii monocultures with the syntrophic coculture.
+external_resources:
+- name: Exact-system primary publication - P. thermopropionicum and M. conradii RNA-seq coculture
+  repository: OTHER
+  resource_id: PMID:30038609
+  url: https://pubmed.ncbi.nlm.nih.gov/30038609/
+  description: Primary publication reporting transcriptome shifts in the exact two-member syntrophic coculture.
+  evidence:
+  - reference: PMID:30038609
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructed cocultures of propionate-oxidizing Pelotomaculum thermopropionicum and hydrogenotrophic Methanocella conradii
+    explanation: Lists this publication as an exact-composition source for the two-member coculture.
+- name: DOI landing page - P. thermopropionicum and M. conradii coculture
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2018.01551
+  url: https://doi.org/10.3389/fmicb.2018.01551
+  description: DOI landing page for the exact-system RNA-seq publication.
+- name: GEO RNA-seq series GSE103596
+  repository: OTHER
+  resource_id: GSE103596
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE103596
+  description: Public GEO series for RNA-seq data from monoculture and syntrophic coculture conditions.
+- name: NCBI Taxonomy - Pelotomaculum thermopropionicum
+  repository: OTHER
+  resource_id: NCBITaxon:110500
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=110500
+  description: NCBI Taxonomy record for Pelotomaculum thermopropionicum.
+- name: NCBI Taxonomy - Methanocella conradii
+  repository: OTHER
+  resource_id: NCBITaxon:1175444
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1175444
+  description: NCBI Taxonomy record for Methanocella conradii.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  methanogenic propionate-oxidizing RNA-seq coculture.
