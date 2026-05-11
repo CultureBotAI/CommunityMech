@@ -1,0 +1,327 @@
+id: CommunityMech:000185
+name: Caldicellulosiruptor Two-Species Hydrogen Coculture
+description: >
+  A de novo constructed, continuous-flow, hydrogen-producing coculture pairing
+  Caldicellulosiruptor saccharolyticus DSM 8903 with the strain reported as
+  Caldicellulosiruptor kristjanssonii DSM 12137. The system was designed to test
+  whether two extreme thermophilic sugar-fermenting Caldicellulosiruptor strains
+  could stably coexist while converting glucose and xylose, major lignocellulosic
+  hydrolysate sugars, to hydrogen-rich fermentation products.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct a defined thermophilic coculture for high-yield fermentative
+    hydrogen production from glucose and xylose.
+  assembly_strategy: Combine C. saccharolyticus DSM 8903 with C. kristjanssonii
+    DSM 12137 in a continuous-flow stirred tank reactor.
+  perturbation_design: Test carbon-sufficient and carbon-limited chemostat states
+    across different dilution rates and compare mixed glucose/xylose, glucose-only,
+    and xylose-only feeds.
+  measurement_endpoints:
+  - Hydrogen yield and production rate
+  - Residual glucose and xylose
+  - Biomass concentration
+  - Acetate and minor lactate formation
+  - Species-specific qPCR abundance
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Constructing defined co-cultures of known H2 producers
+    explanation: Supports the design goal of assembling a defined hydrogen-producing coculture.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were combined in a co-culture for H2 production
+    explanation: Supports the coculture assembly and biohydrogen objective.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuous-flow stirred tank reactor
+    explanation: Supports the continuous-flow reactor design.
+environment_term:
+  preferred_term: thermophilic anaerobic continuous-flow laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled CSTR coculture operated under anaerobic thermophilic conditions for biohydrogen production.
+taxonomy:
+- taxon_term:
+    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+    term:
+      id: NCBITaxon:351627
+      label: Caldicellulosiruptor saccharolyticus DSM 8903
+    notes: Extreme thermophilic anaerobe used as one hydrogen-producing member of the defined coculture.
+  strain_designation:
+    strain_name: DSM 8903
+    culture_collections:
+    - collection: DSM
+      accession: DSM 8903
+    - collection: ATCC
+      accession: ATCC 43494
+    genome_accession: CP000679
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/CP000679
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Caldicellulosiruptor saccharolyticus DSM 8903
+    explanation: Supports DSM 8903 as a member of the exact coculture.
+- taxon_term:
+    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+    term:
+      id: NCBITaxon:632335
+      label: Caldicellulosiruptor acetigenus I77R1B
+    notes: >
+      The primary paper reports this member as C. kristjanssonii DSM 12137.
+      NCBI currently records the sequenced strain as Caldicellulosiruptor
+      acetigenus I77R1B, with C. kristjanssonii DSM 12137 as a heterotypic synonym.
+  strain_designation:
+    strain_name: DSM 12137
+    culture_collections:
+    - collection: DSM
+      accession: DSM 12137
+    - collection: ATCC
+      accession: ATCC 700853
+    genome_accession: CP002326
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/CP002326
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. kristjanssonii DSM 12137
+    explanation: Supports DSM 12137 as the second member of the exact coculture.
+ecological_interactions:
+- name: Stable Chemostat Coexistence
+  description: The two Caldicellulosiruptor strains stably coexisted in continuous
+    culture over multiple dilution rates despite competing for glucose and xylose.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+    term:
+      id: NCBITaxon:351627
+      label: Caldicellulosiruptor saccharolyticus DSM 8903
+  target_taxon:
+    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+    term:
+      id: NCBITaxon:632335
+      label: Caldicellulosiruptor acetigenus I77R1B
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture exhibited a remarkable stability over a period of 70 days
+    explanation: Supports stable coexistence during continuous reactor operation.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The two strains retained their ability to stably coexist
+    explanation: Supports coexistence even under one-carbon-source limitation.
+- name: C. saccharolyticus Growth-Supernatant Enhancement
+  description: C. saccharolyticus culture supernatant shortened the lag phase and
+    increased maximum biomass concentration of C. kristjanssonii, supporting a
+    stimulatory interaction rather than simple substrate competition.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+    term:
+      id: NCBITaxon:351627
+      label: Caldicellulosiruptor saccharolyticus DSM 8903
+  target_taxon:
+    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+    term:
+      id: NCBITaxon:632335
+      label: Caldicellulosiruptor acetigenus I77R1B
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhance the growth of C. kristjanssonii
+    explanation: Supports a stimulatory effect from C. saccharolyticus on the second strain.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increasing its maximum biomass concentration by ca. 18%
+    explanation: Supports the measured growth enhancement in supernatant-supplemented culture.
+- name: Synergistic Biohydrogen Production
+  description: The coculture converted glucose and xylose to hydrogen-rich fermentation
+    products and achieved higher glucose-limited hydrogen yields than either pure
+    culture under the same conditions.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+    term:
+      id: NCBITaxon:351627
+      label: Caldicellulosiruptor saccharolyticus DSM 8903
+  target_taxon:
+    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+    term:
+      id: NCBITaxon:632335
+      label: Caldicellulosiruptor acetigenus I77R1B
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: hydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from glucose and xylose
+    explanation: Supports hydrogen and acetate as major fermentation products of the coculture.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: H2 yields on glucose exceeded those of either organism alone
+    explanation: Supports increased hydrogen yield from the coculture relative to pure cultures.
+environmental_factors:
+- name: Extreme thermophilic cultivation
+  value: extreme thermophiles
+  description: The coculture members were extreme thermophilic bacteria.
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The extreme thermophiles
+    explanation: Supports the extreme thermophilic cultivation context.
+- name: Mixed lignocellulosic sugars
+  value: glucose and xylose
+  description: Glucose and xylose were used as model carbon and energy sources relevant
+    to lignocellulosic hydrolysates.
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose and xylose
+    explanation: Supports the mixed glucose and xylose reactor feed condition.
+- name: Glucose-limited high-yield condition
+  value: 3.7
+  unit: mol H2 per mol glucose
+  description: The reported maximum hydrogen yield occurred under glucose limitation
+    at a dilution rate of 0.06 h-1.
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maximum H2 yield of 3.7 mol (mol glucose)(-1)
+    explanation: Supports the maximum hydrogen yield curated for the coculture.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: at a dilution rate of 0.06 h(-1)
+    explanation: Supports the dilution rate associated with the high-yield condition.
+growth_media:
+- name: Glucose and xylose continuous-flow reactor feed
+  composition:
+  - name: glucose
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: xylose
+    chebi_term:
+      preferred_term: xylose
+      term:
+        id: CHEBI:18222
+        label: xylose
+  atmosphere: ANAEROBIC
+  preparation_notes: >
+    The abstract supports glucose and xylose feed in a continuous-flow stirred tank
+    reactor; detailed medium salts are not asserted here.
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from glucose and xylose in a continuous-flow stirred tank reactor
+    explanation: Supports the glucose/xylose CSTR feed condition.
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose was used as the sole growth-limiting substrate
+    explanation: Supports a glucose-only feed condition used to test coexistence.
+associated_datasets:
+- name: C. saccharolyticus DSM 8903 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA13466
+  url: https://www.ncbi.nlm.nih.gov/bioproject/13466
+  description: Genome project for C. saccharolyticus DSM 8903, one member of the coculture.
+- name: C. kristjanssonii DSM 12137 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA41727
+  url: https://www.ncbi.nlm.nih.gov/bioproject/41727
+  description: Genome project for the strain reported as C. kristjanssonii DSM 12137.
+- name: Coculture fermentation supplementary tables
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:21192828-supplement-2
+  url: https://microbialcellfactories.biomedcentral.com/articles/10.1186/1475-2859-9-102
+  description: Supplementary fermentation tables for product yields, sugar consumption, and carbon/electron recoveries.
+external_resources:
+- name: Exact-system primary publication - stable Caldicellulosiruptor coculture
+  repository: OTHER
+  resource_id: PMID:21192828
+  url: https://pubmed.ncbi.nlm.nih.gov/21192828/
+  description: Primary open-access study of the DSM 8903 and DSM 12137 hydrogen-producing coculture in continuous culture.
+  evidence:
+  - reference: PMID:21192828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Stable coexistence of two Caldicellulosiruptor species
+    explanation: Lists the exact-system publication supporting this community record.
+- name: Earlier exact-pair mixed-sugar coculture publication
+  repository: OTHER
+  resource_id: doi:10.1016/j.ijhydene.2008.07.092
+  url: https://doi.org/10.1016/j.ijhydene.2008.07.092
+  description: Earlier publication evaluating C. saccharolyticus and C. kristjanssonii in coculture during mixed-sugar hydrogen production.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  thermophilic biohydrogen coculture.
