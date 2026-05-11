@@ -1,0 +1,372 @@
+id: CommunityMech:000194
+name: High-Solids Switchgrass Methanogenic Microbiome
+description: >
+  A thermophilic, anaerobic, semi-continuously fed methanogenic enrichment
+  microbiome cultivated on mid-season switchgrass at high solids loadings. The
+  community maintained fractional carbohydrate solubilization as solids loading
+  increased from 30 to 150 g/L, with methane and carbon dioxide as the main
+  steady-state products. Metaproteomics identified bacterial carbohydrate-active
+  enzyme strategies and archaeal methanogenesis functions relevant to DOE
+  bioenergy efforts to understand robust lignocellulose deconstruction under
+  industrially relevant process conditions.
+ecological_state: STABLE
+community_origin: ENGINEERED
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Characterize a thermophilic methanogenic microbiome capable of
+    maintaining lignocellulose deconstruction at high switchgrass solids
+    loadings.
+  assembly_strategy: Enrich an anaerobic digester inoculum as a thermophilic
+    lignocellulose-fermenting microbiome and operate it semi-continuously on
+    switchgrass.
+  perturbation_design: Increase switchgrass solids loading from 30 to 75, 120,
+    and 150 g/L while fixing residence time and profiling metaproteomes across
+    supernatant, planktonic-cell, and substrate-bound fractions.
+  measurement_endpoints:
+  - Fractional carbohydrate solubilization
+  - Methane and carbon dioxide production
+  - CAZyme abundance and fraction localization
+  - Methanogenesis pathway protein abundance
+  - Oxidative stress and AA6-family protein abundance
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic methanogenic microbiome
+    explanation: Supports the microbiome identity and anaerobic methanogenic study context.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mid-season switchgrass
+    explanation: Supports switchgrass as the lignocellulosic feedstock used to cultivate and test the community.
+environment_term:
+  preferred_term: thermophilic anaerobic laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Semi-continuously fed thermophilic enrichment reactor operated on switchgrass solids under
+    anaerobic methanogenic conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridia
+    term:
+      id: NCBITaxon:186801
+      label: Clostridia
+    notes: The source reports Clostridia within Firmicutes as dominant contributors of measured CAZymes.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Firmicutes (Clostridia followed by Bacillus)
+    explanation: Supports Clostridia as a dominant taxonomic contributor to measured CAZymes.
+- taxon_term:
+    preferred_term: Bacilli
+    term:
+      id: NCBITaxon:91061
+      label: Bacilli
+    notes: The paper describes Bacillus/Bacilli-lineage Firmicutes among dominant CAZyme contributors.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Clostridia followed by Bacillus
+    explanation: Supports Bacilli/Bacillus-lineage Firmicutes as contributors to CAZyme abundance.
+- taxon_term:
+    preferred_term: Chloroflexota
+    term:
+      id: NCBITaxon:200795
+      label: Chloroflexota
+    notes: The publication uses the historical phylum name Chloroflexi and reports fraction-specific
+      prevalence of Chloroflexi-derived CAZymes.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: phylum Chloroflexi were more prevalent
+    explanation: Supports Chloroflexi/Chloroflexota as a detected CAZyme-contributing lineage.
+- taxon_term:
+    preferred_term: Thermotogota
+    term:
+      id: NCBITaxon:200918
+      label: Thermotogota
+    notes: The publication uses the historical phylum name Thermotogae and reports Thermotogae-derived
+      enzymes in supernatant and substrate-bound fractions.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: phylum Thermotogae
+    explanation: Supports Thermotogae/Thermotogota as a detected lineage contributing enzymes in the microbiome.
+- taxon_term:
+    preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Euryarchaeota
+    notes: Methanogenic proteins were assigned to Euryarchaeota proteins in the metaproteomic workflow.
+  abundance_level: COMMON
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Euryarchaeota proteins
+    explanation: Supports Euryarchaeota as the archaeal methanogenic protein source tracked in the study.
+ecological_interactions:
+- name: High-Solids Switchgrass Carbohydrate Solubilization
+  description: Bacterial CAZyme-producing lineages collectively maintained carbohydrate solubilization
+    as switchgrass solids loading increased, with Firmicutes dominant and Chloroflexi/Thermotogae
+    showing fraction-specific enzyme contributions.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Clostridia
+    term:
+      id: NCBITaxon:186801
+      label: Clostridia
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: undiminished fractional carbohydrate solubilization
+    explanation: Supports the high-solids deconstruction phenotype of the microbiome.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: specific carbohydrate-active enzyme classes
+    explanation: Supports CAZymes as the measured enzymatic basis for carbohydrate solubilization.
+- name: Fraction-Specific CAZyme Functional Niches
+  description: Chloroflexi-associated CAZymes were more prevalent in planktonic-cell fractions, whereas
+    Thermotogae-associated enzymes were more represented in supernatant and substrate-bound fractions,
+    indicating spatially partitioned lignocellulose-deconstruction functions.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Chloroflexota
+    term:
+      id: NCBITaxon:200795
+      label: Chloroflexota
+  target_taxon:
+    preferred_term: Thermotogota
+    term:
+      id: NCBITaxon:200918
+      label: Thermotogota
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: suggesting the presence of functional niches
+    explanation: Supports spatially differentiated CAZyme contributions across community fractions.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: substrate bound
+    explanation: Supports the substrate-bound fraction as one localization context for lignocellulose enzymes.
+- name: Hydrogenotrophic Methanogenic Sink
+  description: Archaeal methanogenesis functions converted fermentation-derived reducing equivalents
+    and carbon dioxide to methane, consistent with methane and carbon dioxide as the main observed
+    reactor products and hydrogenotrophic methanogenesis proteins increasing at high solids.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Euryarchaeota
+    term:
+      id: NCBITaxon:28890
+      label: Euryarchaeota
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis from carbon dioxide
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The main products observed were methane
+    explanation: Supports methane as a main reactor product.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: all hydrogenotrophic methanogenesis pathway enzymes
+    explanation: Supports hydrogenotrophic methanogenesis as a metaproteomic feature increasing at high solids.
+environmental_factors:
+- name: Switchgrass solids loading
+  value: 30 to 150
+  unit: g/L
+  description: The enrichment was tested at increasing switchgrass solids loadings representative of
+    high-solids lignocellulose bioprocessing.
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: loadings ranging from 30
+    explanation: Supports the lower end of the tested switchgrass solids-loading range.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 150 g/L
+    explanation: Supports the upper end of the tested switchgrass solids-loading range.
+- name: Anaerobic thermophilic operation
+  value: anaerobic thermophilic enrichment
+  description: The microbiome was operated as an anaerobic thermophilic lignocellulose-fermenting
+    enrichment under methanogenic conditions.
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic, thermophilic, semi-continuously fed
+    explanation: Supports the anaerobic thermophilic cultivation mode.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: utilize lignocellulose at high solids loadings
+    explanation: Supports the enrichment as a lignocellulose-utilizing microbiome operated at high solids.
+- name: High-solids enzyme response
+  value: increased AA6, beta-glucosidase, xylosidase, debranching, and pectin-acting enzyme abundance
+  description: Metaproteomics indicated increased enzyme categories associated with inhibitor removal
+    and lignocellulose accessibility at higher solids.
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: auxiliary activity family 6 enzymes
+    explanation: Supports AA6 enrichment at higher solids.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: xylosidases, carbohydrate-debranching, and pectin-acting enzymes
+    explanation: Supports the high-solids enzyme response curated for the community.
+growth_media:
+- name: Semi-continuous switchgrass feed
+  composition:
+  - name: switchgrass solids
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: xylan
+    chebi_term:
+      preferred_term: xylan
+      term:
+        id: CHEBI:37686
+        label: xylan
+  atmosphere: ANAEROBIC
+  inoculum_source: Anaerobic digester enrichment matured as a thermophilic lignocellulose-fermenting
+    microbiome.
+  preparation_notes: >
+    The paper reports semi-continuous operation on mid-season switchgrass with
+    solids loading increased from 30 to 75, 120, and 150 g/L; full mineral
+    medium details are not asserted here.
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fed semi-continuously with increasing amounts of switchgrass
+    explanation: Supports the switchgrass-fed semi-continuous cultivation setup.
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increasing solids loading from 30 to 75
+    explanation: Supports the stepped solids-loading design.
+associated_datasets:
+- name: High-solids microbiome MassIVE metaproteomics dataset
+  dataset_type: METAPROTEOME
+  repository: OTHER
+  accession: MSV000088319
+  url: https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?task=05b15f47bc0145759b12f5da310d3a6a
+  description: Raw mass spectra for the metaproteomics study of the high-solids switchgrass microbiome.
+- name: High-solids microbiome ProteomeXchange dataset
+  dataset_type: METAPROTEOME
+  repository: OTHER
+  accession: PXD029582
+  url: https://proteomecentral.proteomexchange.org/dataset/PXD029582
+  description: ProteomeXchange record for the metaproteomics data from the high-solids switchgrass microbiome.
+external_resources:
+- name: Exact-system primary publication - high-solids switchgrass microbiome
+  repository: OTHER
+  resource_id: PMID:35790765
+  url: https://pubmed.ncbi.nlm.nih.gov/35790765/
+  description: Primary ORNL/NREL-associated publication reporting metaproteomics of the anaerobic
+    thermophilic switchgrass microbiome at increasing solids loading.
+  evidence:
+  - reference: PMID:35790765
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic methanogenic microbiome
+    explanation: Lists the exact-system primary publication for this community record.
+- name: Nature Communications full-text article
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-022-31433-x
+  url: https://doi.org/10.1038/s41467-022-31433-x
+  description: Open-access article with methods, data availability, and supplementary metaproteomics tables.
+- name: MassIVE dataset DOI
+  repository: OTHER
+  resource_id: doi:10.25345/C5H85T
+  url: https://doi.org/10.25345/C5H85T
+  description: Dataset DOI for raw metaproteomics mass spectra.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role was reported for this thermophilic
+  switchgrass methanogenic microbiome in the curated sources.
