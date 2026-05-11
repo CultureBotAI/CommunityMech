@@ -1,0 +1,388 @@
+id: CommunityMech:000199
+name: Dehalococcoides-Desulfovibrio Lactate-Fed TCE Dechlorination Coculture
+description: >
+  A defined anaerobic syntrophic coculture pairing Dehalococcoides mccartyi
+  strain 195 with Desulfovibrio vulgaris Hildenborough. In this laboratory
+  model for chlorinated-solvent groundwater bioremediation, D. vulgaris
+  Hildenborough ferments lactate and supplies hydrogen and acetate that support
+  strain 195 growth and reductive dechlorination. The system is DOE-relevant
+  because it resolves metabolite exchange and stress responses that affect
+  organohalide-respiring communities used for in situ trichloroethene
+  bioremediation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Establish a sustainable two-member syntrophic coculture that supports
+    Dehalococcoides strain 195 reductive dechlorination using lactate as the
+    supplied organic substrate.
+  assembly_strategy: Pair organohalide-respiring D. mccartyi strain 195 with
+    lactate-fermenting D. vulgaris Hildenborough in defined anaerobic coculture.
+  perturbation_design: Compare strain 195 pure culture, DvH/195 coculture, and
+    related tricultures or sulfate/sulfide perturbations to quantify syntrophic
+    enhancement and inhibition mechanisms.
+  measurement_endpoints:
+  - Dechlorination rate
+  - Dehalococcoides strain 195 cell yield
+  - Transcriptomic response
+  - Proteomic response
+  - Sulfate and sulfide inhibition
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides ethenogenes strain 195 (DE195) was grown in a sustainable syntrophic association with Desulfovibrio vulgaris Hildenborough
+    explanation: Supports the exact two-member syntrophic coculture design.
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: global transcriptomic and proteomic analyses
+    explanation: Supports transcriptomic and proteomic endpoints for the coculture study.
+environment_term:
+  preferred_term: anaerobic chlorinated-ethene laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic defined coculture used to model chlorinated-solvent
+    groundwater bioremediation under laboratory conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+    notes: The main 2011 publication uses the historical name Dehalococcoides
+      ethenogenes strain 195; this record uses the current NCBI strain taxon.
+  strain_designation:
+    strain_name: '195'
+    culture_collections:
+    - collection: ATCC
+      accession: BAA-2266
+    - collection: KCTC
+      accession: '15142'
+    type_strain: true
+    genome_accession: GCA_000011905.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000011905.1
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides ethenogenes strain 195 (DE195)
+    explanation: Supports strain 195 as the dechlorinating member, using the historical species name in the source.
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195
+    explanation: Supports the current D. mccartyi strain 195 naming used by later work on the same bioremediation model.
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+    notes: The publications use Desulfovibrio vulgaris Hildenborough or DvH; NCBI
+      currently represents the strain as Nitratidesulfovibrio vulgaris str.
+      Hildenborough.
+  strain_designation:
+    strain_name: Hildenborough
+    culture_collections:
+    - collection: ATCC
+      accession: '29579'
+    genome_accession: GCA_000195755.1
+    genome_url: https://www.ncbi.nlm.nih.gov/assembly/GCA_000195755.1
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough (DVH) as a co-culture
+    explanation: Supports D. vulgaris Hildenborough as the syntrophic coculture partner.
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough
+    explanation: Supports the same DvH strain in later constructed-consortium perturbation experiments.
+ecological_interactions:
+- name: Lactate Fermentation Supports Dehalococcoides Growth
+  description: D. vulgaris Hildenborough ferments lactate and provides hydrogen and
+    acetate that support D. mccartyi strain 195 growth and reductive dechlorination
+    in the coculture.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: lactate catabolic process
+    term:
+      id: GO:0019520
+      label: lactate catabolic process
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using lactate as the sole energy and carbon source
+    explanation: Supports lactate as the supplied substrate for the syntrophic coculture.
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: capabilities of DVH to ferment lactate to provide H(2) and acetate for growth
+    explanation: Supports the hydrogen and acetate cross-feeding mechanism from DvH to strain 195.
+- name: Enhanced TCE Dechlorination By Syntrophic Support
+  description: D. mccartyi strain 195 uses partner-supported reducing equivalents
+    to dechlorinate trichloroethene, with coculture dechlorination rates and
+    strain 195 cell yield enhanced relative to strain 195 grown alone.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  - preferred_term: chloroethene
+    term:
+      id: CHEBI:28509
+      label: chloroethene
+    notes: Vinyl chloride intermediate or product in strain 195 chlorinated-ethene dechlorination.
+  - preferred_term: ethene
+    term:
+      id: CHEBI:18153
+      label: ethene
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maximum dechlorination rates of DE195 were enhanced by approximately three times
+    explanation: Supports enhanced reductive dechlorination in the coculture.
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cell yield of DE195 was enhanced in the co-culture
+    explanation: Supports improved strain 195 growth in the DvH coculture.
+- name: Sulfate-Reduction Perturbation Of Dechlorination
+  description: Later constructed-consortium work tested how sulfate and generated
+    sulfide affect dechlorination, showing that sulfide toxicity can inhibit
+    growth and dechlorination under electron-acceptor-limiting conditions.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain 195
+    term:
+      id: NCBITaxon:243164
+      label: Dehalococcoides mccartyi 195
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: high sulfate concentrations (5 mM) inhibited reductive dechlorination due to the toxicity of generated sulfide
+    explanation: Supports sulfate/sulfide perturbation as a mechanistic stressor for dechlorination.
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sulfide at 5 mM exhibited inhibitory effects on growth of the sulfate reducer
+    explanation: Supports sulfide toxicity to the sulfate-reducing partner and community function.
+environmental_factors:
+- name: Lactate-fed anaerobic condition
+  value: lactate as sole energy and carbon source
+  description: The coculture was supplied with lactate under anaerobic conditions so
+    that DvH fermentation could support strain 195.
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using lactate as the sole energy and carbon source
+    explanation: Supports lactate feeding as a defining culture condition.
+- name: Trichloroethene electron acceptor
+  value: TCE-amended dechlorinating culture
+  description: The coculture model is used to study reductive dechlorination of
+    trichloroethene by strain 195 under partner-supported growth.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE)- and lactate-amended medium
+    explanation: Supports TCE and lactate amendment in the defined dechlorinating consortium context.
+- name: Sulfate and sulfide exposure
+  value: sulfate up to 5 mM and sulfide at 5 mM
+  description: Follow-up perturbation experiments evaluated sulfate and sulfide
+    effects on D. mccartyi-containing constructed consortia.
+  evidence:
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sulfate (up to 5 mM) did not inhibit the growth or metabolism
+    explanation: Supports the tested sulfate concentration range.
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sulfide at 5 mM exhibited inhibitory effects
+    explanation: Supports sulfide as an inhibitory environmental factor.
+growth_media:
+- name: Lactate-fed anaerobic TCE dechlorination medium
+  composition:
+  - name: lactate
+    chebi_term:
+      preferred_term: lactate
+      term:
+        id: CHEBI:24996
+        label: lactate
+  - name: trichloroethene
+    chebi_term:
+      preferred_term: trichloroethene
+      term:
+        id: CHEBI:16602
+        label: trichloroethene
+  atmosphere: ANAEROBIC
+  inoculum_source: Laboratory cultures of D. mccartyi strain 195 and D. vulgaris Hildenborough.
+  preparation_notes: >
+    The curated sources support lactate-fed anaerobic TCE-dechlorinating coculture
+    conditions; this record does not assert the full defined-medium salts,
+    vitamins, or transfer protocol.
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using lactate as the sole energy and carbon source
+    explanation: Supports lactate as the supplied substrate in the syntrophic culture.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trichloroethene (TCE)- and lactate-amended medium in cocultures with Desulfovibrio vulgaris Hildenborough (DvH)
+    explanation: Supports TCE and lactate as relevant culture components for this exact coculture.
+associated_datasets:
+- name: GSE26815 strain 195 syntrophic coculture transcriptomes
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: GSE26815
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE26815
+  description: GEO microarray dataset for strain 195 grown in isolation, DvH/195 coculture, and related triculture conditions.
+- name: PRJNA136009 strain 195 syntrophic growth BioProject
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA136009
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA136009
+  description: NCBI BioProject linked to the GSE26815 syntrophic growth transcriptomic study.
+external_resources:
+- name: Exact-system primary publication - DvH/195 sustainable syntrophy
+  repository: OTHER
+  resource_id: PMID:21881617
+  url: https://pubmed.ncbi.nlm.nih.gov/21881617/
+  description: Primary study reporting D. mccartyi strain 195 grown with D. vulgaris Hildenborough as a sustainable syntrophic coculture.
+  evidence:
+  - reference: PMID:21881617
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough (DVH) as a co-culture
+    explanation: Supports this article as an exact-composition source.
+- name: Exact-system isotope-fractionation publication - Dhc195/DvH coculture
+  repository: OTHER
+  resource_id: PMID:24015929
+  url: https://pubmed.ncbi.nlm.nih.gov/24015929/
+  description: Follow-up isotope-fractionation study that included the same Dhc195 and DvH syntrophic coculture composition.
+  evidence:
+  - reference: PMID:24015929
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dhc195 with Desulfovibrio vulgaris Hildenborough
+    explanation: Lists another publication using the same exact two-member composition.
+- name: Exact-system corrinoid publication - Dhc195/DvH lactate coculture
+  repository: OTHER
+  resource_id: PMID:24463969
+  url: https://pubmed.ncbi.nlm.nih.gov/24463969/
+  description: Corrinoid-salvaging study that constructed Dhc195/DvH cocultures and related consortia in cobalamin-free or amended media.
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cocultures with Desulfovibrio vulgaris Hildenborough (DvH)
+    explanation: Lists another publication that directly reports Dhc195/DvH cocultures.
+- name: Exact-system perturbation publication - sulfate effects on DvH/195 consortia
+  repository: OTHER
+  resource_id: PMID:28159790
+  url: https://pubmed.ncbi.nlm.nih.gov/28159790/
+  description: Sulfate and sulfide perturbation study including D. mccartyi 195, D. vulgaris Hildenborough, and DvH/195 constructed consortia.
+  evidence:
+  - reference: PMID:28159790
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides mccartyi 195, the sulfate reducer Desulfovibrio vulgaris Hildenborough
+    explanation: Lists the follow-up sulfate perturbation source for the same strains.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this chlorinated-ethene
+  dechlorinating coculture.
