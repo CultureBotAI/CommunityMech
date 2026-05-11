@@ -1,0 +1,330 @@
+id: CommunityMech:000193
+name: Clostridium-Caldicellulosiruptor Minimal Medium Coculture
+description: >
+  A thermophilic, anaerobic, two-member laboratory coculture pairing
+  Clostridium thermocellum ATCC 27405 with Caldicellulosiruptor bescii DSM
+  6725. The system was used to test whether low-ionic-strength defined medium
+  with reduced nitrogen, sulfur, phosphate, and vitamin supplements could
+  maintain both cellulolytic bacterial populations during conversion of
+  cellulosic substrates relevant to consolidated bioprocessing.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Develop a reduced-nutrient defined medium that supports both
+    cellulolytic thermophiles in coculture on cellulose- and xylan-containing
+    substrates.
+  assembly_strategy: Bottom-up two-member anaerobic coculture assembled from
+    C. thermocellum ATCC 27405 and C. bescii DSM 6725 laboratory cultures.
+  perturbation_design: Nitrogen and sulfur source concentrations were varied,
+    sulfate assimilation was tested with ascorbate reductant, and the resulting
+    defined medium was evaluated with cellobiose, cellulose, acid-pretreated
+    Populus, and cellulose/xylan coculture substrates.
+  measurement_endpoints:
+  - Growth rate
+  - Ethanol production response
+  - Oxidized and reduced fermentation product ratios
+  - Maintenance of both populations in coculture
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth media for cellulolytic Clostridium thermocellum ATCC 27405 and Caldicellulosiruptor bescii bacteria usually contain excess nutrients
+    explanation: Supports the defined-medium engineering objective and the exact two bacterial members.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a low ionic strength, defined minimal nutrient medium
+    explanation: Supports the medium-development design for this coculture.
+environment_term:
+  preferred_term: thermophilic anaerobic laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled anaerobic laboratory culture system used to evaluate defined medium for thermophilic
+    cellulolytic bacteria and their coculture.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+    notes: The primary publication uses Clostridium thermocellum ATCC 27405;
+      NCBI currently records the strain under Acetivibrio thermocellus ATCC
+      27405 with Clostridium thermocellum ATCC 27405 as a homotypic synonym.
+  strain_designation:
+    strain_name: ATCC 27405
+    culture_collections:
+    - collection: ATCC
+      accession: '27405'
+    - collection: DSM
+      accession: '1237'
+    genome_accession: CP000568
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/CP000568
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium thermocellum ATCC 27405
+    explanation: Supports the exact strain identity reported for the C. thermocellum coculture member.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulolytic Clostridium thermocellum ATCC 27405
+    explanation: Supports its cellulolytic functional role in the defined-medium study.
+- taxon_term:
+    preferred_term: Caldicellulosiruptor bescii DSM 6725
+    term:
+      id: NCBITaxon:521460
+      label: Caldicellulosiruptor bescii DSM 6725
+    notes: Type strain DSM 6725 is also available as ATCC BAA-1888 and was
+      previously reported as Anaerocellum thermophilum DSM 6725.
+  strain_designation:
+    strain_name: DSM 6725
+    culture_collections:
+    - collection: DSM
+      accession: '6725'
+    - collection: ATCC
+      accession: BAA-1888
+    genome_accession: CP001393
+    genome_url: https://www.ncbi.nlm.nih.gov/nuccore/CP001393
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Caldicellulosiruptor bescii bacteria
+    explanation: Supports C. bescii as the second bacterial member in the defined-medium coculture system.
+  - reference: PMID:21227922
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Caldicellulosiruptor bescii DSM 6725 utilizes various polysaccharides
+    explanation: Supports the curated biomass-polysaccharide degradation role for C. bescii DSM 6725.
+ecological_interactions:
+- name: Stable Co-Maintenance On Cellulose And Xylan
+  description: The two bacterial populations were maintained together in the
+    defined medium when the coculture was supplied with cellulose and xylan,
+    showing compatible coexistence under mixed-polysaccharide conditions.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  target_taxon:
+    preferred_term: Caldicellulosiruptor bescii DSM 6725
+    term:
+      id: NCBITaxon:521460
+      label: Caldicellulosiruptor bescii DSM 6725
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both bacterial populations were maintained in co-cultures
+    explanation: Supports coexistence of both populations in the exact two-member coculture.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: substrates containing cellulose and xylan
+    explanation: Supports the mixed-polysaccharide substrate context for coculture maintenance.
+- name: Thermophilic Plant-Polysaccharide Conversion Capacity
+  description: C. thermocellum provides cellulolytic growth on crystalline
+    cellulose, while C. bescii DSM 6725 has genome-supported capacity to use
+    multiple plant polysaccharides, including cellulose- and xylan-associated
+    responses that make it relevant to mixed lignocellulose substrates.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Caldicellulosiruptor bescii DSM 6725
+    term:
+      id: NCBITaxon:521460
+      label: Caldicellulosiruptor bescii DSM 6725
+  target_taxon:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37686
+      label: xylan
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. thermocellum was grown on crystalline cellulose
+    explanation: Supports the cellulose-growth role for C. thermocellum in the same defined-medium study.
+  - reference: PMID:21227922
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: overproduced on cellulose or xylan
+    explanation: Supports C. bescii molecular responses to cellulose and xylan relevant to the coculture substrates.
+environmental_factors:
+- name: Reduced-nutrient defined medium
+  value: low ionic strength medium with decreased nitrogen, sulfur, phosphate, and vitamins
+  description: The medium was designed to reduce excess nutrient load for consolidated bioprocessing
+    studies while still supporting fermentation of cellulosic substrates.
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: decreased nitrogen, sulfur, phosphate and vitamin supplements
+    explanation: Supports the reduced-nutrient medium formulation.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fermentation of cellobiose, cellulose and acid-pretreated Populus
+    explanation: Supports the substrate range evaluated for the defined medium.
+- name: Sulfate with ascorbate reductant
+  value: sulfate plus ascorbate reductant
+  description: Sulfate assimilation in the presence of ascorbate shifted fermentation product redox
+    balance in both bacteria.
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both bacteria assimilated sulfate in the presence of ascorbate reductant
+    explanation: Supports sulfate and reductant as important chemical factors in the medium.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increasing the ratio of oxidized to reduced fermentation products
+    explanation: Supports the redox consequence of sulfate assimilation.
+- name: Mixed cellulose and xylan coculture substrate
+  value: cellulose and xylan
+  description: Both bacterial populations were maintained in coculture on a mixed cellulose/xylan
+    substrate in the defined medium.
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: substrates containing cellulose and xylan in defined medium
+    explanation: Supports the curated mixed-polysaccharide coculture condition.
+growth_media:
+- name: Low-ionic-strength defined cellulose/xylan coculture medium
+  composition:
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: xylan
+    chebi_term:
+      preferred_term: xylan
+      term:
+        id: CHEBI:37686
+        label: xylan
+  - name: sulfate
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+  atmosphere: ANAEROBIC
+  inoculum_source: Laboratory cultures of C. thermocellum ATCC 27405 and C. bescii DSM 6725.
+  preparation_notes: >
+    The PubMed abstract supports a low-ionic-strength defined minimal nutrient
+    medium with decreased nitrogen, sulfur, phosphate, and vitamin supplements;
+    it reports cocultures with cellulose and xylan but does not provide the full
+    salts and vitamin recipe.
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: low ionic strength, defined minimal nutrient medium
+    explanation: Supports the curated medium type.
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined medium with sulfate and basal vitamin supplements
+    explanation: Supports sulfate and basal vitamins in the coculture medium.
+associated_datasets:
+- name: C. thermocellum ATCC 27405 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA314
+  url: https://www.ncbi.nlm.nih.gov/bioproject/314
+  description: Genome project for the C. thermocellum ATCC 27405 strain used in the coculture study.
+- name: C. bescii DSM 6725 genome BioProject
+  dataset_type: GENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA29407
+  url: https://www.ncbi.nlm.nih.gov/bioproject/29407
+  description: Genome project for C. bescii DSM 6725, the second strain in the coculture study.
+external_resources:
+- name: Exact-system primary publication - defined medium coculture
+  repository: OTHER
+  resource_id: PMID:23306120
+  url: https://pubmed.ncbi.nlm.nih.gov/23306120/
+  description: Primary study reporting defined minimal nutrient medium and maintenance of both
+    C. thermocellum ATCC 27405 and C. bescii populations in coculture.
+  evidence:
+  - reference: PMID:23306120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both bacterial populations were maintained in co-cultures
+    explanation: Lists the exact-composition publication supporting this community record.
+- name: C. bescii DSM 6725 biomass-conversion genome paper
+  repository: OTHER
+  resource_id: PMID:21227922
+  url: https://pubmed.ncbi.nlm.nih.gov/21227922/
+  description: Genome and expression analysis supporting C. bescii DSM 6725 polysaccharide utilization
+    and biomass-conversion capacity.
+  evidence:
+  - reference: PMID:21227922
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Caldicellulosiruptor bescii DSM 6725 utilizes various polysaccharides
+    explanation: Lists a supporting mechanistic source for the C. bescii biomass-degradation role.
+- name: C. thermocellum ATCC 27405 BioProject
+  repository: OTHER
+  resource_id: bioproject:PRJNA314
+  url: https://www.ncbi.nlm.nih.gov/bioproject/314
+  description: NCBI BioProject for the genome-sequenced C. thermocellum ATCC 27405 strain.
+- name: C. bescii DSM 6725 BioProject
+  repository: OTHER
+  resource_id: bioproject:PRJNA29407
+  url: https://www.ncbi.nlm.nih.gov/bioproject/29407
+  description: NCBI BioProject for the genome-sequenced C. bescii DSM 6725 strain.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role was reported for this thermophilic
+  lignocellulose defined-medium coculture in the curated sources.
