@@ -1,0 +1,311 @@
+id: CommunityMech:000189
+name: Syntrophomonas-Methanococcus Butyrate Growth Coordination Coculture
+description: >
+  A defined mesophilic anaerobic coculture pairing the butyrate-oxidizing
+  syntroph Syntrophomonas wolfei with the hydrogenotrophic methanogen
+  Methanococcus maripaludis. The system is used to study how a fatty
+  acid-oxidizing bacterium and a methanogen synchronize growth, form
+  syntrophic aggregates, and maintain cell-to-cell attraction during
+  methanogenic butyrate conversion. It is relevant to DOE interests in
+  anaerobic carbon cycling, methane production, syntrophic energy sharing, and
+  engineered bioreactor microbiology.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: >
+    Evaluate cell-to-cell interaction, growth synchronization, and aggregation
+    between a butyrate-oxidizing syntroph and a hydrogenotrophic methanogen.
+  assembly_strategy: >
+    Pair Syntrophomonas wolfei with Methanococcus maripaludis as a defined
+    mesophilic coculture under anaerobic butyrate-oxidizing, methanogenic
+    conditions.
+  perturbation_design: >
+    Vary initial syntroph-to-methanogen cell ratios and apply physical
+    disturbance treatments to test growth coordination and aggregate stability.
+  measurement_endpoints:
+  - Quantitative PCR of syntroph and methanogen populations
+  - Methane and hydrogen measurements
+  - Butyrate oxidation activity
+  - Fluorescence in situ hybridization
+  - Scanning electron microscopy
+  - Microfluidic cell-to-cell attraction assays
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three experiments were conducted to evaluate the cell-to-cell interaction
+    explanation: Supports the experimental objective of measuring cell-to-cell interaction.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Supports the exact two-member mesophilic coculture design.
+environment_term:
+  preferred_term: anaerobic methanogenic laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled laboratory coculture used as a model for syntrophic butyrate
+    oxidation and methanogenesis in anoxic environments.
+taxonomy:
+- taxon_term:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+    notes: Butyrate-oxidizing syntrophic bacterium in the mesophilic coculture.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Supports S. wolfei as one member of the defined mesophilic coculture.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate-oxidizing bacteria and methanogens
+    explanation: Supports S. wolfei as the butyrate-oxidizing bacterial partner.
+- taxon_term:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+    notes: Hydrogenotrophic methanogen paired with S. wolfei in the mesophilic coculture.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Supports M. maripaludis as one member of the defined mesophilic coculture.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogens
+    explanation: Supports M. maripaludis as the hydrogenotrophic methanogenic partner.
+ecological_interactions:
+- name: Syntrophic Butyrate Oxidation and Methanogenesis
+  description: >
+    S. wolfei and M. maripaludis form a thermodynamically required syntrophic
+    partnership in which fatty acid oxidation is coupled to methanogenesis under
+    anoxic conditions.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thermodynamically required mutualistic cooperation between fatty acid-oxidizing bacteria and methanogens
+    explanation: Supports the syntrophic mechanism linking fatty acid oxidation and methanogenesis.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate-oxidizing bacteria and methanogens
+    explanation: Supports the butyrate-oxidizing and methanogenic partners in the coculture.
+- name: Population Ratio Convergence During Growth
+  description: >
+    When the two members were inoculated at different initial ratios, the
+    initially lower-abundance organism grew faster and the population ratio
+    converged, indicating growth synchronization between partners.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: syntrophs and methanogens were inoculated at different initial cell ratios
+    explanation: Supports the initial-ratio perturbation used to measure growth coordination.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the cell ratio converged over time to relative constant values
+    explanation: Supports population ratio convergence as a growth coordination outcome.
+- name: Syntrophic Aggregation and Cell-to-Cell Attraction
+  description: >
+    FISH, SEM, and microfluidic experiments showed aggregate formation and
+    directional attraction between Syntrophomonas and Methanococcus cells,
+    supporting spatial organization as part of syntrophic cooperation.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Methanococcus maripaludis
+    term:
+      id: NCBITaxon:39152
+      label: Methanococcus maripaludis
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tendency of syntrophic aggregation was not affected by the physical disturbances
+    explanation: Supports syntrophic aggregation as a measured property of the mesophilic coculture.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: suggesting the cell-to-cell attraction between Syntrophomonas and Methanococcus
+    explanation: Supports direct cell-to-cell attraction between the two partners.
+environmental_factors:
+- name: Anoxic methanogenic context
+  value: anoxic environments
+  description: >
+    The coculture models syntrophic organic decomposition and methanogenesis in
+    anoxic environments.
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: organic decomposition and methanogenesis in anoxic environments
+    explanation: Supports the anoxic methanogenic environmental context.
+- name: Initial partner ratio
+  value: variable syntroph-to-methanogen starting ratios
+  description: >
+    Initial cell ratio was varied to test how the two partners synchronize
+    growth and converge toward stable relative abundance.
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inoculated at different initial cell ratios to evaluate the growth synchronization
+    explanation: Supports initial partner ratio as a tested environmental and assembly factor.
+- name: Physical disturbance
+  value: intermittent ultrasound and constant shaking
+  description: >
+    Physical disturbance was applied to test the robustness of syntrophic
+    aggregation in the mesophilic coculture.
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: intermittent ultrasound and constant shaking treatments
+    explanation: Supports the physical disturbance treatments.
+growth_media:
+- name: Anaerobic butyrate syntrophic coculture assay
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Butyrate
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:17968
+        label: butyrate
+  preparation_notes: >
+    Abstract-level evidence supports a mesophilic S. wolfei and M. maripaludis
+    coculture assayed as a butyrate-oxidizing syntrophic system; detailed medium
+    composition is not asserted here.
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butyrate-oxidizing bacteria and methanogens
+    explanation: Supports butyrate oxidation as the core culture activity.
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Supports the mesophilic two-member coculture condition.
+external_resources:
+- name: Exact-system primary publication - S. wolfei and M. maripaludis growth coordination
+  repository: OTHER
+  resource_id: PMID:34603271
+  url: https://pubmed.ncbi.nlm.nih.gov/34603271/
+  description: >
+    Primary publication reporting growth synchronization, aggregation, and
+    cell-to-cell attraction in the S. wolfei and M. maripaludis coculture.
+  evidence:
+  - reference: PMID:34603271
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mesophilic coculture consisting of Syntrophomonas wolfei and Methanococcus maripaludis
+    explanation: Lists this publication as an exact-composition source for the two-member coculture.
+- name: Exact-system publication - conductive nanomaterial stimulation
+  repository: OTHER
+  resource_id: doi:10.1038/s41598-018-30745-7
+  url: https://doi.org/10.1038/s41598-018-30745-7
+  description: >
+    Additional exact-composition publication reporting a defined S. wolfei and
+    M. maripaludis coculture used to test carbon nanotubes and reduced graphene
+    oxide during syntrophic butyrate oxidation.
+  evidence:
+  - reference: doi:10.1038/s41598-018-30745-7
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined coculture comprisingSyntrophomonas wolfeiandMethanococcus Maripaludis
+    explanation: Lists this DOI as another exact-composition source for the same two-species coculture.
+- name: DOI landing page - growth coordination publication
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2021.742531
+  url: https://doi.org/10.3389/fmicb.2021.742531
+  description: DOI landing page for the growth coordination publication.
+- name: NCBI Taxonomy - Syntrophomonas wolfei
+  repository: OTHER
+  resource_id: NCBITaxon:863
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=863
+  description: NCBI Taxonomy record for Syntrophomonas wolfei.
+- name: NCBI Taxonomy - Methanococcus maripaludis
+  repository: OTHER
+  resource_id: NCBITaxon:39152
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=39152
+  description: NCBI Taxonomy record for Methanococcus maripaludis.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  methanogenic butyrate-oxidizing coculture.
