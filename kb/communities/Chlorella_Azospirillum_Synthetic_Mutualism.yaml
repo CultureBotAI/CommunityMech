@@ -1,0 +1,431 @@
+id: CommunityMech:000191
+name: Chlorella-Azospirillum Synthetic Mutualism
+description: >
+  A defined algal-bacterial synthetic mutualism pairing the freshwater green
+  microalga Chlorella sorokiniana UTEX 2714 with the plant-growth-promoting
+  bacterium Azospirillum brasilense Cd. The pair has been studied in
+  co-immobilized alginate bead systems and related culture formats to test how
+  nutrient availability shapes mutualistic population growth, tryptophan,
+  thiamine, and indole-3-acetic acid exchange, starch accumulation, and
+  algal-bacterial aggregation. The system is relevant to environmental
+  biotechnology, microalgal biomass production, and algal-bacterial interaction
+  design.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: >
+    Evaluate how nutritional conditions and exchanged signal molecules shape
+    synthetic mutualism between a green microalga and a plant-growth-promoting
+    bacterium.
+  assembly_strategy: >
+    Pair Chlorella sorokiniana UTEX 2714 with Azospirillum brasilense Cd in
+    laboratory culture, including co-immobilization in alginate beads.
+  perturbation_design: >
+    Compare nutrient-rich, nitrogen-free, and carbon-free initial conditions,
+    and use tryptophan, thiamine, and indole-3-acetic acid measurements to
+    resolve exchanged resources and signaling chemistry.
+  measurement_endpoints:
+  - Microalgal and bacterial population growth
+  - Tryptophan, thiamine, and indole-3-acetic acid production or consumption
+  - Starch accumulation
+  - Algal-bacterial aggregation
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formation of synthetic mutualism was assessed by changes in population growth
+    explanation: Supports the design goal of testing mutualism through population and physiological endpoints.
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mutual exchange of resources involved in producing and releasing the phytohormone indole-3-acetic acid
+    explanation: Supports the exchange-focused design for this algal-bacterial system.
+environment_term:
+  preferred_term: algal-bacterial laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    The curated community is a controlled laboratory coculture rather than a
+    sampled natural community; publications use alginate bead and related
+    culture formats for a freshwater microalga and bacterium.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella sorokiniana UTEX 2714
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+    notes: >
+      Source publications identify strain UTEX 2714; ontology grounding is
+      species-level because the stable NCBI Taxonomy term used here is
+      Chlorella sorokiniana.
+  strain_designation:
+    strain_name: UTEX 2714
+    culture_collections:
+    - collection: OTHER
+      accession: UTEX 2714
+      notes: University of Texas algal culture collection strain reported in source publications.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microalgae Chlorella sorokiniana UTEX 2714
+    explanation: Supports C. sorokiniana UTEX 2714 as the algal member of the community.
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The unicellular microalga C. sorokiniana (UTEX 2714
+    explanation: Supports the strain designation used for the algal member.
+- taxon_term:
+    preferred_term: Azospirillum brasilense Cd
+    term:
+      id: NCBITaxon:192
+      label: Azospirillum brasilense
+    notes: >
+      Source publications identify strain Cd; ontology grounding is
+      species-level because the stable NCBI Taxonomy term used here is
+      Azospirillum brasilense.
+  strain_designation:
+    strain_name: Cd
+    culture_collections:
+    - collection: DSM
+      accession: '1843'
+      notes: FEMS Microbiology Ecology methods identify A. brasilense Cd as DSM 1843.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: plant growth-promoting bacterium Azospirillum brasilense Cd
+    explanation: Supports A. brasilense Cd as the bacterial member of the community.
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacterium Azospirillum brasilense Cd (DSM 1843
+    explanation: Supports the strain and culture collection designation for the bacterial member.
+ecological_interactions:
+- name: Nutrient-Modulated Synthetic Mutualism
+  description: >
+    C. sorokiniana UTEX 2714 and A. brasilense Cd form a synthetic mutualism
+    whose population and physiological outcomes depend on the initial nutrient
+    condition, especially nitrogen and carbon availability.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Chlorella sorokiniana UTEX 2714
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+  target_taxon:
+    preferred_term: Azospirillum brasilense Cd
+    term:
+      id: NCBITaxon:192
+      label: Azospirillum brasilense
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic mutualism between C. sorokiniana and A. brasilense can be modulated
+    explanation: Supports a nutrient-modulated synthetic mutualism between the two members.
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Overall, populations of bacteria and microalgae were larger when co-immobilized.
+    explanation: Supports mutualistic population enhancement in the co-immobilized system.
+- name: Tryptophan, Thiamine, and IAA Exchange
+  description: >
+    The algal-bacterial pair exchanges resources involved in indole-3-acetic
+    acid production: the microalga releases tryptophan and thiamine, and the
+    bacterium uses those resources to produce the phytohormone IAA.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Chlorella sorokiniana UTEX 2714
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+  target_taxon:
+    preferred_term: Azospirillum brasilense Cd
+    term:
+      id: NCBITaxon:192
+      label: Azospirillum brasilense
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+  - preferred_term: thiamine
+    term:
+      id: CHEBI:18385
+      label: thiamine
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indole-3-acetic acid biosynthetic process
+  - preferred_term: tryptophan biosynthetic process
+    term:
+      id: GO:0000162
+      label: tryptophan biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using tryptophan and thiamine released by the microalga
+    explanation: Supports algal release of tryptophan and thiamine used by A. brasilense for IAA production.
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: production of signal molecules tryptophan and indole-3-acetic acid
+    explanation: Supports tryptophan and IAA as measured signal molecules in the exact species pair.
+- name: Co-Immobilization and Cell Aggregation
+  description: >
+    Co-immobilization in alginate beads and aggregation of algal and bacterial
+    cells provide spatial organization for the interaction.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Azospirillum brasilense Cd
+    term:
+      id: NCBITaxon:192
+      label: Azospirillum brasilense
+  target_taxon:
+    preferred_term: Chlorella sorokiniana UTEX 2714
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+  biological_processes:
+  - preferred_term: cell aggregation
+    term:
+      id: GO:0098743
+      label: cell aggregation
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Formation of aggregates made of microalgae and bacteria occurred
+    explanation: Supports algal-bacterial aggregation as an observed spatial feature.
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microorganisms were immobilized individually and co-immobilized in alginate beads
+    explanation: Supports alginate bead co-immobilization as the experimental spatial format.
+- name: IAA-Linked Starch Accumulation Response
+  description: >
+    Follow-up experiments linked tryptophan and bacterial indole-3-acetic acid
+    production to starch accumulation and metabolism in the synthetic
+    C. sorokiniana-A. brasilense system.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Azospirillum brasilense Cd
+    term:
+      id: NCBITaxon:192
+      label: Azospirillum brasilense
+  target_taxon:
+    preferred_term: Chlorella sorokiniana UTEX 2714
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indole-3-acetic acid biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1016/j.resmic.2016.02.005
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: measured the relations between tryptophan production, the phytohormone indole-3-acetic acid
+    explanation: Supports tryptophan and IAA as mechanistic variables in a follow-up exact-composition study.
+  - reference: doi:10.1016/j.resmic.2016.02.005
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: created by co-immobilization in alginate beads
+    explanation: Supports the alginate bead synthetic mutualism context for the follow-up starch study.
+environmental_factors:
+- name: Initial nitrogen and carbon availability
+  value: nutrient-rich, nitrogen-free, and carbon-free initial conditions
+  description: >
+    The first 12 hours of interaction were varied across nutrient-rich,
+    nitrogen-free, and carbon-free media to test whether initial nutrient
+    status modulates mutualism formation.
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three different nutritional conditions during the initial 12 h
+    explanation: Supports initial nutritional condition as an experimental factor.
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: presence or absence of nitrogen and carbon in the medium
+    explanation: Supports nitrogen and carbon availability as the key nutritional variables.
+- name: Co-immobilized alginate beads
+  value: co-immobilized algal-bacterial bead culture
+  description: >
+    Co-immobilization in alginate beads was used to spatially organize the two
+    members and compare co-immobilized and individually immobilized treatments.
+  evidence:
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: beads of 2 mm diameter were formed
+    explanation: Supports alginate bead immobilization as an experimental format.
+- name: Light and aerobic culture context
+  value: illuminated aerobic laboratory culture
+  description: >
+    Inoculum preparation for the algal partner used illuminated shaking culture,
+    while the bacterial partner was grown aerobically before immobilization.
+  evidence:
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 60 umol photon m-2 s-1
+    explanation: Supports illumination during algal inoculum preparation.
+  - reference: doi:10.1016/j.resmic.2016.02.005
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dark, heterotrophic and aerobic growth conditions
+    explanation: Supports aerobic culture conditions in a follow-up exact-composition study.
+growth_media:
+- name: Chlorella-Azospirillum alginate bead coculture assay
+  atmosphere: AEROBIC
+  light_regime: illuminated algal inoculum; dark heterotrophic follow-up assays also reported
+  preparation_notes: >
+    Publications support alginate bead immobilization and nutrient-perturbation
+    assays for the C. sorokiniana UTEX 2714 and A. brasilense Cd pair. Detailed
+    medium composition is not asserted here beyond the reported nutrient-rich,
+    nitrogen-free, and carbon-free condition classes.
+  composition:
+  - name: L-tryptophan
+    chebi_term:
+      preferred_term: L-tryptophan
+      term:
+        id: CHEBI:16828
+        label: L-tryptophan
+  - name: indole-3-acetic acid
+    chebi_term:
+      preferred_term: indole-3-acetic acid
+      term:
+        id: CHEBI:16411
+        label: indole-3-acetic acid
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nutrient-rich medium
+    explanation: Supports nutrient-rich medium as one tested culture condition.
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogen-free (N-free) or carbon-free (C-free) media
+    explanation: Supports nitrogen-free and carbon-free media as tested culture conditions.
+external_resources:
+- name: Exact-system publication - nutritional modulation of synthetic mutualism
+  repository: OTHER
+  resource_id: doi:10.1007/s00248-018-1282-1
+  url: https://doi.org/10.1007/s00248-018-1282-1
+  description: >
+    Primary exact-composition publication on how nutrient-rich, nitrogen-free,
+    and carbon-free initial conditions affect C. sorokiniana UTEX 2714 and
+    A. brasilense Cd synthetic mutualism.
+  evidence:
+  - reference: doi:10.1007/s00248-018-1282-1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorella sorokiniana UTEX 2714 and the plant growth-promoting bacterium Azospirillum brasilense Cd
+    explanation: Lists this publication as an exact-composition source for the two-member community.
+- name: Exact-system publication - tryptophan, thiamine, and IAA exchange
+  repository: OTHER
+  resource_id: doi:10.1093/femsec/fiw077
+  url: https://doi.org/10.1093/femsec/fiw077
+  description: >
+    Exact-composition publication measuring tryptophan, thiamine, and
+    indole-3-acetic acid exchange between C. sorokiniana and A. brasilense.
+  evidence:
+  - reference: doi:10.1093/femsec/fiw077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorella sorokiniana and the plant growth-promoting bacterium
+    explanation: Lists this DOI as another exact-composition source for the same species pair.
+- name: Exact-system publication - starch response under heterotrophic conditions
+  repository: OTHER
+  resource_id: doi:10.1016/j.resmic.2016.02.005
+  url: https://doi.org/10.1016/j.resmic.2016.02.005
+  description: >
+    Exact-composition follow-up publication linking tryptophan, IAA, and starch
+    accumulation in the C. sorokiniana-A. brasilense synthetic mutualism.
+  evidence:
+  - reference: doi:10.1016/j.resmic.2016.02.005
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic mutualism between the microalgae Chlorella sorokiniana and the microalgae growth-promoting bacteria Azospirillum brasilense
+    explanation: Lists this DOI as an exact-composition mechanistic follow-up source.
+- name: Related predecessor publication - Chlorella vulgaris and Azospirillum brasilense alginate beads
+  repository: OTHER
+  resource_id: doi:10.1128/AEM.66.4.1527-1531.2000
+  url: https://doi.org/10.1128/AEM.66.4.1527-1531.2000
+  description: >
+    Related alginate bead coculture precedent using Chlorella vulgaris and
+    A. brasilense; included as historical context, not as exact species
+    composition evidence for this C. sorokiniana record.
+  evidence:
+  - reference: doi:10.1128/AEM.66.4.1527-1531.2000
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Chlorella vulgaris and the plant-growth-promoting bacterium Azospirillum brasilense
+    explanation: Provides related Chlorella-Azospirillum alginate bead context but differs in Chlorella species.
+- name: NCBI Taxonomy - Chlorella sorokiniana
+  repository: OTHER
+  resource_id: NCBITaxon:3076
+  url: https://www.ncbi.nlm.nih.gov/taxonomy/3076
+  description: NCBI Taxonomy record for Chlorella sorokiniana.
+- name: NCBI Taxonomy - Azospirillum brasilense
+  repository: OTHER
+  resource_id: NCBITaxon:192
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=192
+  description: NCBI Taxonomy record for Azospirillum brasilense.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element transformation role is curated for this
+  algal-bacterial synthetic mutualism.
