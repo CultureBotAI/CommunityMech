@@ -1,0 +1,297 @@
+id: CommunityMech:000203
+name: Shewanella-Streptococcus Starch-Fueled Microbial Fuel Cell Coculture
+description: >
+  A defined starch-fed microbial fuel cell community pairing the exoelectrogen
+  Shewanella oneidensis MR-1 with the starch-fermenting lactic acid producer
+  Streptococcus bovis 148. The system was tested in two configurations:
+  two-step fermentation, where S. bovis first converted starch to lactic acid
+  before S. oneidensis generated electricity, and parallel fermentation, where
+  cultivation and fermentation by both organisms occurred simultaneously. The
+  community is relevant to DOE bioenergy and bioelectrochemical systems because
+  it couples conversion of a polymeric biomass substrate to lactate cross-feeding
+  and extracellular electron transfer in a microbial fuel cell.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert starch into electrical current by coupling fermentative
+    lactate production with Shewanella-mediated bioelectrochemical electron transfer.
+  assembly_strategy: Pair S. bovis 148 as the starch-to-lactate fermenter with
+    S. oneidensis MR-1 as the lactate-oxidizing exoelectrogen in a microbial
+    fuel cell workflow.
+  perturbation_design: Compare two-step fermentation and parallel fermentation
+    configurations for starch-fueled microbial fuel cell operation.
+  measurement_endpoints:
+  - Starch conversion
+  - Lactic acid production
+  - Current generation
+  - Current density
+  - Power density
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two methods were trialed for starch-fueled microbial fuel cell
+    explanation: Supports the engineered comparison of two starch-fed MFC configurations.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cultivation and subsequent fermentation processes of S. bovis 148 and S. oneidensis MR-1 were performed simultaneously
+    explanation: Supports the simultaneous parallel-fermentation coculture design.
+environment_term:
+  preferred_term: starch-fed laboratory microbial fuel cell
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory microbial fuel cell operated with starch-derived
+    fermentation products supporting exoelectrogenic current generation.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+    notes: Exoelectrogenic strain that generates electricity from lactic acid in the MFC.
+  strain_designation:
+    strain_name: MR-1
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis MR-1 and Streptococcus bovis 148
+    explanation: Supports S. oneidensis MR-1 as a member of the exact two-organism system.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis MR-1 generates electricity from lactic acid
+    explanation: Supports the lactate-utilizing exoelectrogenic role.
+- taxon_term:
+    preferred_term: Streptococcus bovis 148
+    term:
+      id: NCBITaxon:1335
+      label: Streptococcus equinus
+    notes: The publication names Streptococcus bovis 148; NCBI Taxonomy currently
+      resolves the searched Streptococcus bovis name to Streptococcus equinus.
+  strain_designation:
+    strain_name: '148'
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis MR-1 and Streptococcus bovis 148
+    explanation: Supports S. bovis 148 as a member of the exact two-organism system.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Streptococcus bovis 148 metabolizes starch and produces lactic acid
+    explanation: Supports the starch-fermenting lactate-producer role.
+ecological_interactions:
+- name: Starch Fermentation to Lactic Acid
+  description: S. bovis 148 metabolizes starch and produces lactic acid, converting
+    a polymeric substrate into an electron-donor intermediate usable by S. oneidensis MR-1.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Streptococcus bovis 148
+    term:
+      id: NCBITaxon:1335
+      label: Streptococcus equinus
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  metabolites:
+  - preferred_term: starch
+    term:
+      id: CHEBI:28017
+      label: starch
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Streptococcus bovis 148 metabolizes starch and produces lactic acid
+    explanation: Supports starch-to-lactate conversion by the fermenting partner.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch was first converted to lactic acid by S. bovis 148
+    explanation: Supports lactic acid production from starch in the two-step configuration.
+- name: Lactate-Fed Current Generation
+  description: S. oneidensis MR-1 uses lactic acid produced from starch fermentation
+    to generate electrical current in the microbial fuel cell.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  target_taxon:
+    preferred_term: Streptococcus bovis 148
+    term:
+      id: NCBITaxon:1335
+      label: Streptococcus equinus
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis MR-1 generates electricity from lactic acid
+    explanation: Supports lactate-fed electricity generation by S. oneidensis MR-1.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maximum currents at each term were 1.8, 2.4, and 2.8 mA
+    explanation: Supports measured current generation in the starch-fermentation workflow.
+- name: Parallel Starch Fermentation and Electrogenesis
+  description: In the parallel fermentation configuration, S. bovis 148 and
+    S. oneidensis MR-1 were cultivated simultaneously so starch conversion,
+    lactic acid production, and electricity generation occurred in one workflow.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Streptococcus bovis 148
+    term:
+      id: NCBITaxon:1335
+      label: Streptococcus equinus
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  metabolites:
+  - preferred_term: starch
+    term:
+      id: CHEBI:28017
+      label: starch
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cultivation and subsequent fermentation processes of S. bovis 148 and S. oneidensis MR-1 were performed simultaneously
+    explanation: Supports simultaneous operation of the two-member community in the parallel method.
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch was also converted into lactic acid with electricity generation
+    explanation: Supports coupled starch conversion, lactate production, and electrogenesis.
+environmental_factors:
+- name: Starch substrate
+  value: starch
+  description: Starch was the polymeric substrate driving the microbial fuel cell workflow.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch-fueled microbial fuel cell
+    explanation: Supports starch as the process substrate.
+- name: Lactic acid intermediate
+  value: lactic acid produced from starch
+  description: Lactic acid links starch fermentation by S. bovis 148 to current
+    generation by S. oneidensis MR-1.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch was first converted to lactic acid by S. bovis 148
+    explanation: Supports lactic acid as the cross-fed intermediate.
+- name: Parallel fermentation mode
+  value: simultaneous cultivation and fermentation
+  description: The parallel method allows both organisms to operate simultaneously
+    rather than separating starch fermentation from electricity generation.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: performed simultaneously
+    explanation: Supports the simultaneous parallel-fermentation condition.
+growth_media:
+- name: Starch-fed microbial fuel cell medium
+  composition:
+  - name: starch
+    chebi_term:
+      preferred_term: starch
+      term:
+        id: CHEBI:28017
+        label: starch
+  - name: lactate
+    chebi_term:
+      preferred_term: lactate
+      term:
+        id: CHEBI:24996
+        label: lactate
+  vessel_type: microbial fuel cell
+  preparation_notes: >
+    PubMed abstract supports starch as the input substrate and lactic acid as
+    the cross-fed fermentation product; the complete salts and electrode
+    configuration are not asserted here.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch was also converted into lactic acid with electricity generation
+    explanation: Supports the starch/lactate microbial fuel cell cultivation context.
+external_resources:
+- name: Exact-system primary publication - starch-fueled two-organism MFC
+  repository: OTHER
+  resource_id: PMID:28434977
+  url: https://pubmed.ncbi.nlm.nih.gov/28434977/
+  description: Primary publication reporting starch-fueled microbial fuel cells using S. oneidensis MR-1 and S. bovis 148.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Starch-fueled microbial fuel cells by two-step and parallel fermentation using Shewanella oneidensis MR-1 and Streptococcus bovis 148
+    explanation: Lists the exact two-organism publication for this community.
+- name: DOI landing page - Journal of Bioscience and Bioengineering article
+  repository: OTHER
+  resource_id: doi:10.1016/j.jbiosc.2017.03.016
+  url: https://doi.org/10.1016/j.jbiosc.2017.03.016
+  description: DOI landing page for the exact-system starch-fed microbial fuel cell article.
+  evidence:
+  - reference: PMID:28434977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10.1016/j.jbiosc.2017.03.016
+    explanation: Supports the DOI resource as the same primary publication.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this starch-fed microbial fuel cell.
