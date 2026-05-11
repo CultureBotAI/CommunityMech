@@ -1,0 +1,363 @@
+id: CommunityMech:000202
+name: Clostridium ljungdahlii-Clostridium kluyveri Syngas Alcohol Coculture
+description: >
+  A defined anaerobic synthetic coculture that combines the acetogenic syngas
+  fermenter Clostridium ljungdahlii with the chain-elongating bacterium
+  Clostridium kluyveri in a continuously fed syngas bioprocess with in-line
+  product extraction. C. ljungdahlii converts syngas into ethanol and acetate,
+  while C. kluyveri uses ethanol for reverse-beta-oxidation chain elongation to
+  butyrate and caproate. The same community also produced longer-chain alcohols
+  including butanol, hexanol, and traces of octanol within a narrow pH range.
+  The system is relevant to DOE carbon utilization and renewable fuels because
+  it converts C1 gases into C4-C8 fuels and chemicals through microbial
+  cross-feeding.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Broaden syngas fermentation product spectra by combining an
+    acetogenic C1 gas fermenter with a chain-elongating partner in one
+    continuously fed bioprocess.
+  assembly_strategy: Pair C. ljungdahlii and C. kluyveri in a continuous
+    syngas-fed reactor with gas stripping and product condensation.
+  perturbation_design: Operate the coculture across a narrow pH window and use
+    in-line product extraction to recover longer-chain alcohols.
+  measurement_endpoints:
+  - Syngas consumption
+  - Ethanol and acetate production
+  - Butyrate and caproate production
+  - Butanol, hexanol, and octanol production
+  - Reactor pH response
+  - Coculture resilience during continuous operation
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combining two wild-type bacterial strains into a single, continuously fed bioprocessing step
+    explanation: Supports the engineered two-member continuous bioprocess design.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: gas stripping and product condensing within the syngas recirculation line
+    explanation: Supports in-line product extraction as part of the system design.
+environment_term:
+  preferred_term: anaerobic syngas-fed laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled continuous syngas-fed laboratory bioreactor for microbial gas
+    fermentation and chain elongation.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+    notes: Acetogenic carboxydotroph that produces ethanol and acetate from syngas in the coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium ljungdahlii and Clostridium kluyveri
+    explanation: Supports C. ljungdahlii as one member of the exact two-species coculture.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: main products from C. ljungdahlii fermentation at a pH of 6.0 were ethanol and acetate
+    explanation: Supports the acetogenic ethanol and acetate producer role.
+- taxon_term:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+    notes: Chain-elongating partner that consumes ethanol and produces butyrate and caproate.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium ljungdahlii and Clostridium kluyveri
+    explanation: Supports C. kluyveri as one member of the exact two-species coculture.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: total ethanol produced was utilized by C. kluyveri to chain elongate
+    explanation: Supports the ethanol-consuming chain-elongation role.
+ecological_interactions:
+- name: Syngas Fermentation to Ethanol and Acetate
+  description: C. ljungdahlii converts syngas into ethanol and acetate, creating
+    reduced and oxidized C2 intermediates that support chain elongation by C. kluyveri.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  target_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: hydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: syngas-fermentation process with Clostridium ljungdahlii and Clostridium kluyveri
+    explanation: Supports the syngas-fed coculture context.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ethanol and acetate
+    explanation: Supports the cross-fed C2 products of C. ljungdahlii fermentation.
+- name: Ethanol-Driven Chain Elongation
+  description: C. kluyveri uses ethanol from C. ljungdahlii to perform reverse
+    beta-oxidation chain elongation, producing butyrate and caproate.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyrate
+  - preferred_term: hexanoate
+    term:
+      id: CHEBI:30776
+      label: hexanoate
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: utilized by C. kluyveri to chain elongate
+    explanation: Supports ethanol-driven chain elongation by C. kluyveri.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resulting in n-butyrate and n-caproate
+    explanation: Supports butyrate and caproate as chain-elongation products.
+- name: Biological Reduction to Longer-Chain Alcohols
+  description: C. ljungdahlii likely reduces chain-elongated carboxylates to
+    longer-chain alcohols using reducing power from syngas, yielding butanol,
+    hexanol, and trace octanol.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  target_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyrate
+  - preferred_term: hexanoate
+    term:
+      id: CHEBI:30776
+      label: hexanoate
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: likely reduced the produced carboxylates to their corresponding alcohols
+    explanation: Supports carboxylate reduction by C. ljungdahlii as an inferred alcohol-production mechanism.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: longer-chain alcohols n-butanol, n-hexanol, and n-octanol
+    explanation: Supports the observed longer-chain alcohol product spectrum.
+- name: pH-Restricted Product Formation
+  description: Longer-chain alcohol production depended on a narrow pH range
+    because C. ljungdahlii and C. kluyveri have different pH optima, causing a
+    process-level tradeoff between acetogenesis, chain elongation, and biological reduction.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  target_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: narrow pH spectrum of 5.7-6.4
+    explanation: Supports pH as a key environmental constraint on product formation.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two bioprocesses compete for intermediates
+    explanation: Supports competition for carboxylate intermediates between chain elongation and biological reduction.
+environmental_factors:
+- name: Syngas feed
+  value: 60% CO, 35% H2, and 5% CO2
+  description: The continuous reactor was fed syngas as the C1 gas substrate.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: syngas (60% CO, 35% H2, and 5% CO2)
+    explanation: Supports the syngas composition used in the continuous reactor.
+- name: pH window
+  value: pH 5.7-6.4
+  description: Longer-chain alcohol production occurred only in a narrow pH range.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: narrow pH spectrum of 5.7-6.4
+    explanation: Supports pH as a limiting process condition.
+- name: Product extraction
+  value: gas stripping and product condensing
+  description: The reactor used in-line product extraction to remove volatile alcohol products.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in-line product extraction through gas stripping and product condensing
+    explanation: Supports the product-extraction process configuration.
+growth_media:
+- name: Continuous syngas fermentation coculture medium
+  composition:
+  - name: carbon monoxide
+    chebi_term:
+      preferred_term: carbon monoxide
+      term:
+        id: CHEBI:17245
+        label: carbon monoxide
+  - name: hydrogen
+    chebi_term:
+      preferred_term: hydrogen
+      term:
+        id: CHEBI:18276
+        label: hydrogen
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  atmosphere: ANAEROBIC
+  headspace_gas: syngas
+  vessel_type: continuously fed laboratory bioreactor
+  preparation_notes: >
+    PubMed-indexed text supports continuous syngas feeding, gas stripping, and
+    product condensation; the complete mineral nutrient recipe is not asserted here.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuously fed with a minimal nutrient broth solution and a procured syngas mixture
+    explanation: Supports the gas-fed continuous culture medium context.
+external_resources:
+- name: Exact-system primary publication - continuous syngas alcohol coculture
+  repository: OTHER
+  resource_id: PMID:27877166
+  url: https://pubmed.ncbi.nlm.nih.gov/27877166/
+  description: Primary open-access study of continuous syngas conversion by C. ljungdahlii and C. kluyveri with in-line product extraction.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium ljungdahlii and Clostridium kluyveri
+    explanation: Lists the primary exact-composition coculture publication.
+- name: DOI landing page - Frontiers in Microbiology article
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2016.01773
+  url: https://doi.org/10.3389/fmicb.2016.01773
+  description: DOI landing page for the primary exact-composition coculture article.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A Narrow pH Range Supports Butanol, Hexanol, and Octanol Production from Syngas
+    explanation: Supports the DOI resource as the same primary publication.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this syngas fermentation coculture.
