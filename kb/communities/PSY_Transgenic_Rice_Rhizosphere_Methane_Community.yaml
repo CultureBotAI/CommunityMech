@@ -1,0 +1,258 @@
+id: CommunityMech:000216
+name: PSY Transgenic Rice Rhizosphere Methane-Mitigating Community
+description: >
+  A rice rhizosphere microbial community whose H2 cycling and methanogenesis are
+  reshaped by host overexpression of PLANT PEPTIDES CONTAINING SULFATED TYROSINE
+  (PSY) genes. Two independent transgenic rice genotypes (PSY1 and PSY2) reduced
+  cumulative CH4 emissions by 38 percent and 58 percent over 70 days relative to
+  controls. Genome-resolved metatranscriptomic, metagenomic, metabolomic, and
+  metabolic modeling data from PSY rhizosphere soils show lower ratios of CH4
+  production versus consumption gene activities (largely hydrogenotrophic),
+  decreased H2-producing gene activity, and increased bacterial H2 oxidation
+  pathways. Assembled genomes of rhizosphere H2-oxidizing bacteria are enriched
+  in gluconeogenic-acid utilization genes, and their activity is likely
+  stimulated by elevated gluconeogenic-acid amino acids in PSY rice root
+  exudates, lowering H2 available for hydrogenotrophic methanogens.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Reduce methane emissions from rice paddies by engineering the host
+    plant to reshape rhizosphere microbial H2 cycling.
+  assembly_strategy: Overexpress PSY genes in two independent rice genotypes
+    (PSY1 and PSY2) and propagate the natural rhizosphere microbial community
+    around the transgenic roots.
+  perturbation_design: Compare cumulative CH4 emissions and rhizosphere
+    metatranscriptomes, metagenomes, and metabolomes between PSY transgenic
+    rice and control rice over 70 days of growth.
+  measurement_endpoints:
+  - Cumulative CH4 emissions over 70 days
+  - Ratios of CH4 production versus consumption gene activities
+  - H2 production versus oxidation gene and pathway activities
+  - Gluconeogenic-acid content of root exudates
+  - Gene content of H2-oxidizing rhizosphere bacterial genomes
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: two independent rice genotypes overexpressing genes for PLANT
+      PEPTIDES CONTAINING SULFATED TYROSINE (PSY) reduce cumulative CH4
+      emissions by 38% (PSY1) and 58% (PSY2) over 70 days of growth compared
+      with controls
+    explanation: Supports the PSY transgenic engineering strategy and the
+      observed CH4 reductions.
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a powerful strategy to mitigate CH4 emissions from increasingly
+      widespread rice cultivation
+    explanation: Supports the methane-mitigation objective.
+environment_term:
+  preferred_term: PSY transgenic rice paddy rhizosphere
+  term:
+    id: ENVO:00002233
+    label: rhizosphere
+  notes: Rhizosphere soil surrounding PSY1 and PSY2 transgenic rice genotypes in
+    rice paddy growth conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: rhizosphere H2-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Assembled genomes of rhizosphere H2-oxidizing bacteria enriched in
+      gluconeogenic-acid utilization genes; specific species are not enumerated
+      in the abstract.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Assembled genomes of rhizosphere H2-oxidizing bacteria are enriched
+      in genes utilizing gluconeogenic acids
+    explanation: Supports the H2-oxidizing bacterial members and their genomic
+      signature.
+- taxon_term:
+    preferred_term: hydrogenotrophic methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Hydrogenotrophic methanogenic archaea whose CH4 production gene
+      activities decrease relative to consumption under PSY transgenic
+      conditions; specific genera are not enumerated in the abstract.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: lower ratios of gene activities for (mostly hydrogenotrophic) CH4
+      production versus consumption
+    explanation: Supports the hydrogenotrophic methanogen membership and reduced
+      activity ratio.
+- taxon_term:
+    preferred_term: rhizosphere H2-producing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Rhizosphere bacterial members whose H2-producing gene activity
+      decreases under PSY transgenic conditions, contrasting with the
+      H2-oxidizing counterparts.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: decreased activity of H2-producing genes
+    explanation: Supports the H2-producing bacterial members and their reduced
+      activity.
+ecological_interactions:
+- name: H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis
+  description: Increased bacterial H2 oxidation activity in PSY rhizosphere
+    lowers H2 available for hydrogenotrophic methanogens, reducing CH4
+    production.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: rhizosphere H2-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: hydrogenotrophic methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased activity of bacterial H2 oxidation pathways
+    explanation: Supports the enhanced bacterial H2 oxidation that competes with
+      methanogens for H2.
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: decreased CH4 emissions are due to a lower amount of H2 available
+      for hydrogenotrophic methanogenesis
+    explanation: Supports the proposed mechanism linking H2 oxidation to reduced
+      methanogenesis.
+- name: Root Exudate Gluconeogenic Acid Cross-Feeding
+  description: PSY rice root exudates are elevated in gluconeogenic acids,
+    primarily amino acids, that stimulate the H2-oxidizing rhizosphere bacteria
+    enriched for gluconeogenic-acid utilization genes.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: rhizosphere H2-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: rhizosphere H2-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  biological_processes:
+  - preferred_term: gluconeogenesis
+    term:
+      id: GO:0006094
+      label: gluconeogenesis
+  - preferred_term: amino acid catabolic process
+    term:
+      id: GO:0009063
+      label: cellular amino acid catabolic process
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: their activities are likely stimulated by elevated levels of
+      gluconeogenic acids, primarily amino acids, in PSY root exudates
+    explanation: Supports root-exudate amino acids as the C/N source stimulating
+      H2-oxidizing bacteria.
+- name: Reduced H2 Producer Activity
+  description: PSY rhizosphere conditions decrease H2-producing gene activity,
+    further restricting H2 supply to hydrogenotrophic methanogens.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: suppressed H2 production in the PSY rhizosphere
+    explanation: Supports the metabolic-model prediction of suppressed H2
+      production under PSY conditions.
+environmental_factors:
+- name: PSY transgene background
+  value: PSY1 vs PSY2 vs control rice
+  description: Two independent transgenic rice genotypes (PSY1 and PSY2)
+    overexpress PSY genes; their rhizospheres are compared to non-transgenic
+    control rice.
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: two independent rice genotypes overexpressing genes for PLANT
+      PEPTIDES CONTAINING SULFATED TYROSINE (PSY)
+    explanation: Supports the PSY transgenic perturbation design.
+- name: Growth period
+  value: 70 days of growth
+  description: Cumulative CH4 emissions were measured over a 70-day growth period.
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 70 days of growth compared with controls
+    explanation: Supports the time scale of the CH4 emission measurement.
+growth_media: []
+external_resources:
+- name: Primary publication for the PSY rice rhizosphere methane-mitigating community
+  repository: OTHER
+  resource_id: PMID:41582156
+  url: https://pubmed.ncbi.nlm.nih.gov/41582156/
+  description: PubMed record for the Shi et al. 2026 Nature Communications paper
+    linking PSY transgenic rice to altered rhizosphere H2 cycling and reduced
+    methane emissions.
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: elevated H2 oxidation and suppressed H2 production in the PSY
+      rhizosphere
+    explanation: Lists the primary publication and the central metabolic finding.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-026-68640-9
+  url: https://doi.org/10.1038/s41467-026-68640-9
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  rice rhizosphere methane-mitigating community.
