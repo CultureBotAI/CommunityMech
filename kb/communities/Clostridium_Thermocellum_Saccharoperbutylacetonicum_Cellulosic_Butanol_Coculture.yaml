@@ -1,0 +1,346 @@
+id: CommunityMech:000208
+name: Clostridium Thermocellum-Saccharoperbutylacetonicum Cellulosic Butanol Coculture
+description: >
+  A staged two-member coculture for producing n-butanol from crystalline cellulose.
+  The cellulolytic thermophile Clostridium thermocellum, represented in NCBI
+  Taxonomy as Acetivibrio thermocellus ATCC 27405, first hydrolyzes Avicel
+  cellulose. The butanol-producing Clostridium saccharoperbutylacetonicum strain
+  N1-4 is then added for solvent production. The system is DOE-relevant because
+  it couples consolidated cellulose deconstruction to cellulosic butanol production,
+  a liquid biofuel and bioproduct target.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Produce n-butanol directly from crystalline cellulose by pairing a cellulolytic thermophile
+    with a solventogenic butanol producer.
+  assembly_strategy: Incubate C. thermocellum on Avicel cellulose before adding C. saccharoperbutylacetonicum
+    N1-4 so cellulose hydrolysis precedes mesophilic butanol production.
+  perturbation_design: Vary the C. thermocellum preincubation time, initial cell densities, cellulose loading,
+    and compare N1-4 with other solventogenic Clostridium partners.
+  measurement_endpoints:
+  - Butanol concentration
+  - Acetone detectability
+  - Cellulose loading response
+  - Partner-strain comparison
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol production from crystalline cellulose by cocultured Clostridium thermocellum and Clostridium saccharoperbutylacetonicum N1-4
+    explanation: Supports the exact community design and target product curated here.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Less butanol was produced by cocultured Clostridium acetobutylicum and Clostridium beijerinckii than by strain N1-4
+    explanation: Supports the design choice of N1-4 as the solventogenic partner.
+environment_term:
+  preferred_term: cellulose-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory coculture using Avicel crystalline cellulose and staged incubation for
+    cellulolysis followed by butanol production.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+    notes: The primary paper uses Clostridium thermocellum; NCBI currently represents ATCC 27405 as
+      Acetivibrio thermocellus ATCC 27405.
+  strain_designation:
+    strain_name: ATCC 27405
+    culture_collections:
+    - collection: ATCC
+      accession: ATCC 27405
+    - collection: DSM
+      accession: DSM 1237
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulolytic Clostridium thermocellum
+    explanation: Supports C. thermocellum as the cellulose-degrading member.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incubated with C. thermocellum for at least 24 h
+    explanation: Supports the staged cellulose-hydrolysis role before N1-4 addition.
+- taxon_term:
+    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+    term:
+      id: NCBITaxon:1335640
+      label: Clostridium saccharoperbutylacetonicum N1-4
+    notes: The primary paper specifies strain N1-4; NCBI provides a strain-level taxon for N1-4.
+  strain_designation:
+    strain_name: N1-4
+    culture_collections:
+    - collection: ATCC
+      accession: ATCC 13564
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butanol-producing strain, Clostridium saccharoperbutylacetonicum (strain N1-4)
+    explanation: Supports N1-4 as the solventogenic butanol-producing member.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strain N1-4 was the optimal strain for producing butanol
+    explanation: Supports N1-4 as the preferred butanol producer in this coculture system.
+ecological_interactions:
+- name: Staged Cellulose Hydrolysis Feeding Solventogenesis
+  description: C. thermocellum hydrolyzes crystalline cellulose during a thermophilic preincubation, creating
+    a substrate stream that supports subsequent butanol production by C. saccharoperbutylacetonicum N1-4.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  target_taxon:
+    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+    term:
+      id: NCBITaxon:1335640
+      label: Clostridium saccharoperbutylacetonicum N1-4
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol was produced from Avicel cellulose
+    explanation: Supports cellulose-to-butanol conversion as the coculture output.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: after it was incubated with C. thermocellum for at least 24 h
+    explanation: Supports the staged hydrolysis-before-solventogenesis interaction design.
+- name: Selective Butanol Production With Low Acetone
+  description: The C. thermocellum and N1-4 coculture favored butanol as a solvent product, with acetone
+    undetectable or very low in the reported coculture studies.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+    term:
+      id: NCBITaxon:1335640
+      label: Clostridium saccharoperbutylacetonicum N1-4
+  target_taxon:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  metabolites:
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetone was undetectable in this coculture system
+    explanation: Supports selective butanol production with undetectable acetone in the cellulose coculture.
+  - reference: PMID:22999358
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: butanol was selectively produced with extremely low level of acetone
+    explanation: Supports the same species-pair coculture as a selective butanol-production system.
+- name: Reduced Hydrogen Associated With Butanol Selectivity
+  description: A later exact-species coculture study reported decreased hydrogen production when C. thermocellum
+    and N1-4 were grown together, linking low hydrogen output to a higher butanol ratio.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium thermocellum ATCC 27405
+    term:
+      id: NCBITaxon:203119
+      label: Acetivibrio thermocellus ATCC 27405
+  target_taxon:
+    preferred_term: Clostridium saccharoperbutylacetonicum N1-4
+    term:
+      id: NCBITaxon:1335640
+      label: Clostridium saccharoperbutylacetonicum N1-4
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:22999358
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogen production decreased and butanol was selectively produced
+    explanation: Supports reduced hydrogen production as a coculture-associated feature linked to butanol selectivity.
+  - reference: PMID:22999358
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: high butanol production correlates with low hydrogen production
+    explanation: Supports the proposed hydrogen-butanol relationship in the same species-pair coculture.
+environmental_factors:
+- name: Crystalline cellulose substrate
+  value: 4% Avicel cellulose
+  description: Avicel crystalline cellulose was the substrate for the primary cellulose-to-butanol coculture.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: on 4% Avicel cellulose
+    explanation: Supports the curated substrate and loading condition.
+- name: Thermocellum preincubation
+  value: at least 24 h before N1-4 addition
+  description: C. thermocellum was preincubated on cellulose before adding the butanol-producing N1-4 partner.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incubated with C. thermocellum for at least 24 h
+    explanation: Supports staged inoculation as a key process condition.
+- name: Butanol titer on Avicel
+  value: 7.9 g/liter after 9 days
+  description: The primary Avicel coculture reached a reported butanol peak after nine days of incubation.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: peaked (7.9 g/liter) after 9 days of incubation
+    explanation: Supports the reported product titer and incubation duration.
+- name: Delignified rice straw extension
+  value: 5.5 to 6.9 g/L butanol from 40 g/L delignified rice straw
+  description: A later same-species-pair study extended the coculture to alkali-pretreated delignified rice straw,
+    with cellulase addition increasing butanol output.
+  evidence:
+  - reference: PMID:25818258
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced 5.5 g/L of butanol from 40 g/L of delignified rice straw
+    explanation: Supports later lignocellulosic biomass use by the same species-pair coculture.
+  - reference: PMID:25818258
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased butanol production to 6.9 g/L
+    explanation: Supports the cellulase-enhanced butanol output in the rice-straw extension study.
+growth_media:
+- name: Staged Avicel cellulose butanol coculture
+  composition:
+  - name: Avicel cellulose
+    concentration: '4'
+    unit: percent
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: butanol
+    chebi_term:
+      preferred_term: butanol
+      term:
+        id: CHEBI:28885
+        label: butan-1-ol
+  temperature_range: 60 then 30
+  temperature_unit: C
+  inoculum_source: C. thermocellum ATCC 27405 and C. saccharoperbutylacetonicum N1-4 cultures.
+  incubation_time: '9'
+  incubation_time_unit: days
+  preparation_notes: >
+    The primary record supports a staged process in which C. thermocellum was incubated on Avicel
+    cellulose before N1-4 addition; it does not curate the full salts or reducing-agent composition.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol was produced from Avicel cellulose
+    explanation: Supports Avicel cellulose as the coculture substrate.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: after 9 days of incubation
+    explanation: Supports the curated incubation duration for peak butanol production.
+external_resources:
+- name: Exact-system primary publication - crystalline cellulose to butanol coculture
+  repository: OTHER
+  resource_id: PMID:21764954
+  url: https://pubmed.ncbi.nlm.nih.gov/21764954/
+  description: Primary publication reporting C. thermocellum and C. saccharoperbutylacetonicum N1-4
+    coculture production of butanol from crystalline cellulose.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol production from crystalline cellulose by cocultured Clostridium thermocellum and Clostridium saccharoperbutylacetonicum N1-4
+    explanation: Supports the primary article as the source for this curated exact community.
+- name: Open full text for primary crystalline cellulose study
+  repository: OTHER
+  resource_id: PMCID:PMC3187149
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3187149/
+  description: Open-access full text for the primary C. thermocellum/N1-4 cellulose-to-butanol study.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol was produced from Avicel cellulose
+    explanation: Supports the full-text resource as corresponding to the primary PubMed-indexed study.
+- name: Exact-species follow-up publication - hydrogen and butanol selectivity
+  repository: OTHER
+  resource_id: PMID:22999358
+  url: https://pubmed.ncbi.nlm.nih.gov/22999358/
+  description: Follow-up exact-species coculture publication linking decreased hydrogen production with
+    selective butanol production and very low acetone.
+  evidence:
+  - reference: PMID:22999358
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultures of Clostridium thermocellum and Clostridium saccharoperbutylacetonicum strain N1-4
+    explanation: Lists an additional publication with the same species-pair coculture composition.
+- name: Same-species lignocellulose extension - alkali-pretreated rice straw
+  repository: OTHER
+  resource_id: PMID:25818258
+  url: https://pubmed.ncbi.nlm.nih.gov/25818258/
+  description: Later same-species-pair coculture study using C. thermocellum NBRC 103400 and
+    C. saccharoperbutylacetonicum N1-4 on delignified rice straw.
+  evidence:
+  - reference: PMID:25818258
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture of cellulolytic Clostridium thermocellum NBRC 103400 and butanol-producing Clostridium saccharoperbutylacetonicum strain N1-4
+    explanation: Lists an additional publication with the same species composition but a different C. thermocellum strain.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this cellulosic butanol coculture.
