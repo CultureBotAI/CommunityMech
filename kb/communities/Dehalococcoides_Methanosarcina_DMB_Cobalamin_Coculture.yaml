@@ -1,0 +1,321 @@
+id: CommunityMech:000209
+name: Dehalococcoides-Methanosarcina DMB-Guided Cobalamin Coculture
+description: >
+  A defined two-member chlorinated-ethene bioremediation coculture pairing
+  Dehalococcoides mccartyi strain BAV1 with Methanosarcina barkeri strain Fusaro.
+  D. mccartyi BAV1 is corrinoid auxotrophic and requires a cobalamin-type cofactor
+  for organohalide respiration. M. barkeri Fusaro produces extracellular factor III,
+  which did not by itself support Dehalococcoides reductive dechlorination activity,
+  but addition of 5,6-dimethylbenzimidazole enabled guided biosynthesis of cobalamin
+  that supported Dehalococcoides activity and growth. The system is relevant to DOE
+  chlorinated-solvent groundwater bioremediation because it resolves a cofactor-mediated
+  interaction controlling reductive dechlorination.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Test whether a methanogenic partner can support Dehalococcoides reductive dechlorination
+    through cobamide production and guided cobalamin biosynthesis.
+  assembly_strategy: Pair D. mccartyi BAV1 with M. barkeri Fusaro and amend with DMB to guide production
+    of a cobalamin-like corrinoid compatible with Dehalococcoides organohalide respiration.
+  perturbation_design: Compare cobalamin-limited cultures, high-cobalamin amendments, M. barkeri cocultures,
+    and DMB-amended cocultures.
+  measurement_endpoints:
+  - Reductive dechlorination activity
+  - Dehalococcoides growth
+  - Extracellular cobamide production
+  - Vinyl chloride accumulation or consumption
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture experiments were performed with the methanogen Methanosarcina barkeri strain Fusaro
+    explanation: Supports the M. barkeri Fusaro coculture design.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of DMB enabled guided biosynthesis and generated a cobalamin
+    explanation: Supports the DMB-amended coculture as an activity- and growth-supporting design.
+environment_term:
+  preferred_term: chlorinated-ethene laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Defined laboratory coculture for testing corrinoid-mediated support of Dehalococcoides
+    chlorinated-ethene reductive dechlorination.
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides mccartyi BAV1
+    term:
+      id: NCBITaxon:216389
+      label: Dehalococcoides mccartyi BAV1
+    notes: Strain BAV1 is curated as the organohalide-respiring Dehalococcoides member.
+  strain_designation:
+    strain_name: BAV1
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D. mccartyi strains BAV1, GT and FL2
+    explanation: Supports BAV1 as one of the Dehalococcoides strains tested.
+  - reference: PMID:12840758
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: destroys dichloroethenes and vinyl chloride as part of its energy metabolism
+    explanation: Supports the organohalide-respiring dechlorination role of the BAV1 lineage.
+- taxon_term:
+    preferred_term: Methanosarcina barkeri strain Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+    notes: Methanogenic partner population tested for cobamide production and DMB-guided cobalamin support.
+  strain_designation:
+    strain_name: Fusaro
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanosarcina barkeri strain Fusaro
+    explanation: Supports M. barkeri Fusaro as the methanogenic coculture member.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. barkeri axenic cultures produced 4.2
+    explanation: Supports extracellular cobamide production by M. barkeri Fusaro.
+ecological_interactions:
+- name: DMB-Guided Cobalamin Support
+  description: M. barkeri Fusaro produces factor III cobamide, and when DMB is added the coculture can generate
+    a cobalamin that supports Dehalococcoides reductive dechlorination activity and growth.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methanosarcina barkeri strain Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi BAV1
+    term:
+      id: NCBITaxon:216389
+      label: Dehalococcoides mccartyi BAV1
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: 5,6-dimethylbenzimidazole
+    term:
+      id: CHEBI:15890
+      label: 5,6-dimethylbenzimidazole
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  - preferred_term: organohalide respiration
+    term:
+      id: GO:0070812
+      label: organohalide respiration
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of DMB enabled guided biosynthesis and generated a cobalamin
+    explanation: Supports DMB-guided cobalamin generation as the interaction mechanism.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supported Dehalococcoides' activity and growth
+    explanation: Supports the functional outcome of cobalamin generation in the coculture.
+- name: Factor III Is Insufficient Without DMB
+  description: M. barkeri Fusaro produced factor III extracellular cobamide, but that cobamide alone did not
+    satisfy Dehalococcoides corrinoid requirements under the tested chlorinated-ethene conditions.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Methanosarcina barkeri strain Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi BAV1
+    term:
+      id: NCBITaxon:216389
+      label: Dehalococcoides mccartyi BAV1
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: organohalide respiration
+    term:
+      id: GO:0070812
+      label: organohalide respiration
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Neither factor III nor the phenolic cobamides supported Dehalococcoides reductive dechlorination activity
+    explanation: Supports the negative result that native factor III alone was insufficient.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. barkeri and the Sporomusa sp. cannot fulfil Dehalococcoides' nutritional requirements
+    explanation: Supports the caveat that partner-produced cobamides alone were not sufficient.
+- name: Cobalamin-Dependent Reductive Dechlorination
+  description: BAV1 uses cobalamin-dependent organohalide respiration to detoxify chlorinated ethenes, and
+    insufficient cobalamin causes incomplete dechlorination and vinyl chloride accumulation.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Dehalococcoides mccartyi BAV1
+    term:
+      id: NCBITaxon:216389
+      label: Dehalococcoides mccartyi BAV1
+  target_taxon:
+    preferred_term: Methanosarcina barkeri strain Fusaro
+    term:
+      id: NCBITaxon:269797
+      label: Methanosarcina barkeri str. Fusaro
+  metabolites:
+  - preferred_term: chloroethene
+    term:
+      id: CHEBI:28509
+      label: chloroethene
+    notes: Vinyl chloride intermediate or electron acceptor in Dehalococcoides dechlorination assays.
+  - preferred_term: ethene
+    term:
+      id: CHEBI:18153
+      label: ethene
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: organohalide respiration
+    term:
+      id: GO:0070812
+      label: organohalide respiration
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: require vitamin B12 (CN-Cbl) to conserve energy via organohalide respiration
+    explanation: Supports cobalamin dependence for Dehalococcoides organohalide respiration.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incomplete leading to vinyl chloride (VC) accumulation
+    explanation: Supports vinyl chloride accumulation under insufficient cobalamin.
+environmental_factors:
+- name: DMB amendment
+  value: 10 microM 5,6-dimethylbenzimidazole
+  description: DMB was added to guide cobamide biosynthesis toward a cobalamin that supports Dehalococcoides
+    activity and growth.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of DMB enabled guided biosynthesis and generated a cobalamin
+    explanation: Supports the DMB-amended coculture condition.
+- name: High cobalamin control
+  value: 25 micrograms per liter CN-Cbl
+  description: Higher cyanocobalamin amendment improved dechlorination and growth compared with limiting cobalamin.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: up to 2.3-fold higher dechlorination rates
+    explanation: Supports the positive cobalamin-amendment control.
+- name: Limiting cobalamin stress
+  value: 1 microgram per liter CN-Cbl
+  description: Limiting cobalamin was depleted quickly and was associated with incomplete dechlorination.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reductive dechlorination of polychlorinated ethenes was incomplete
+    explanation: Supports the limiting cobalamin stress condition.
+growth_media:
+- name: DMB-amended chlorinated-ethene Dehalococcoides-Methanosarcina coculture
+  composition:
+  - name: 5,6-dimethylbenzimidazole
+    concentration: '10'
+    unit: microM
+    chebi_term:
+      preferred_term: 5,6-dimethylbenzimidazole
+      term:
+        id: CHEBI:15890
+        label: 5,6-dimethylbenzimidazole
+  - name: cobalamin
+    chebi_term:
+      preferred_term: cobalamin
+      term:
+        id: CHEBI:30411
+        label: cobalamin
+  - name: chloroethene
+    chebi_term:
+      preferred_term: chloroethene
+      term:
+        id: CHEBI:28509
+        label: chloroethene
+  atmosphere: ANAEROBIC
+  headspace_gas: H2/CO2
+  inoculum_source: D. mccartyi BAV1 and M. barkeri Fusaro cultures.
+  preparation_notes: >
+    The PubMed abstract supports H2/CO2-grown M. barkeri, chlorinated ethenes as Dehalococcoides
+    electron acceptors, and 10 microM DMB amendment; this record does not assert the full defined
+    medium recipe.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During growth with H2/CO2
+    explanation: Supports the gas condition for M. barkeri cobamide production.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown with chlorinated ethenes as electron acceptors
+    explanation: Supports chlorinated ethenes as the Dehalococcoides electron acceptors.
+external_resources:
+- name: Exact-system cobalamin-guidance publication
+  repository: OTHER
+  resource_id: PMID:23479750
+  url: https://pubmed.ncbi.nlm.nih.gov/23479750/
+  description: Primary publication reporting D. mccartyi BAV1, GT, and FL2 cocultures with M. barkeri
+    Fusaro and acetogens to test guided cobalamin biosynthesis for reductive dechlorination.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Guided cobalamin biosynthesis supports Dehalococcoides mccartyi reductive dechlorination activity
+    explanation: Supports this publication as the source for the curated BAV1/Fusaro interaction.
+- name: Open full text for cobalamin-guidance publication
+  repository: OTHER
+  resource_id: PMCID:PMC3638461
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3638461/
+  description: Open-access full text corresponding to the guided cobalamin biosynthesis study.
+  evidence:
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of DMB enabled guided biosynthesis and generated a cobalamin
+    explanation: Supports the PMCID resource for the mechanism curated in this record.
+- name: BAV1 dechlorination phenotype publication
+  repository: OTHER
+  resource_id: PMID:12840758
+  url: https://pubmed.ncbi.nlm.nih.gov/12840758/
+  description: Primary publication describing detoxification of vinyl chloride to ethene by the BAV1 lineage.
+  evidence:
+  - reference: PMID:12840758
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Detoxification of vinyl chloride to ethene coupled to growth
+    explanation: Supports the BAV1 dechlorination phenotype relevant to the coculture.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: Cobalt-containing cobalamin is central to reductive dechlorination, but no metal or rare
+  earth extraction/cycling role is curated for this coculture.
