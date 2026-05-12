@@ -102,6 +102,25 @@ def test_missing_source_detected(temp_communities_dir, valid_community):
     assert len(source_issues) == 1
 
 
+def test_missing_source_skipped_for_community_level_scope(
+    temp_communities_dir, valid_community
+):
+    """COMMUNITY_LEVEL interactions describe emergent/community-wide phenomena
+    and need not have source_taxon set."""
+    del valid_community["ecological_interactions"][0]["source_taxon"]
+    valid_community["ecological_interactions"][0]["scope"] = "COMMUNITY_LEVEL"
+
+    test_file = temp_communities_dir / "test_community_level.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(valid_community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    issues = auditor.audit_community(test_file)
+
+    missing_source = [i for i in issues if i["type"] == IssueType.MISSING_SOURCE]
+    assert missing_source == []
+
+
 def test_unknown_source_detected(temp_communities_dir, valid_community):
     """Test that unknown source taxon is detected."""
     # Add interaction with unknown source
