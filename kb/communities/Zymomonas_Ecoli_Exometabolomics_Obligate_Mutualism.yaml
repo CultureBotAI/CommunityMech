@@ -1,0 +1,277 @@
+id: CommunityMech:000210
+name: Zymomonas-E. coli Exometabolomics-Designed Obligate Mutualism
+description: >
+  A defined synthetic obligate mutualism pairing auxotrophic Zymomonas mobilis
+  with auxotrophic Escherichia coli. Exometabolomics of Z. mobilis spent medium
+  identified amino acid exometabolites used to select E. coli proA, pheA, and
+  ilvA auxotroph partners, while mutant fitness profiling selected a Z. mobilis
+  ZMO0748 auxotroph whose rescue was linked to glutathione-related metabolites
+  in E. coli spent medium. The system is DOE-relevant because it was developed
+  by LBNL and Sandia researchers with DOE BER support as a synthetic microbial
+  ecology platform for more resilient biotechnology processes.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct synthetic obligate mutualisms from industrially important species using
+    exometabolomics and mutant fitness profiling to select reciprocal auxotroph partners.
+  assembly_strategy: Pair a Z. mobilis ZMO0748 auxotroph with one of three E. coli amino acid
+    auxotrophs selected from Z. mobilis spent-medium exometabolites.
+  perturbation_design: Compare candidate auxotroph combinations selected by exometabolomics and
+    mutant fitness profiling for coculture growth.
+  measurement_endpoints:
+  - Optical density growth monitoring
+  - Flow cytometry confirmation of each species
+  - Exometabolomic identification of candidate rescue metabolites
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: creation of synthetic obligate mutualism using auxotrophic mutants
+    explanation: Supports the design objective of engineering auxotroph-based obligate mutualism.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: integration of mutant library fitness profiling with mass spectrometry based exometabolomics
+    explanation: Supports the combined screening and exometabolomics design workflow.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: analyzed by flow cytometry to confirm high cell counts for each species
+    explanation: Supports the use of flow cytometry as a measurement endpoint for both community members.
+environment_term:
+  preferred_term: synthetic laboratory auxotroph coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory coculture used to test reciprocal auxotroph rescue and metabolite cross-feeding.
+taxonomy:
+- taxon_term:
+    preferred_term: Zymomonas mobilis
+    term:
+      id: NCBITaxon:542
+      label: Zymomonas mobilis
+    notes: Curated at species level because the abstract supports Z. mobilis but does not specify a strain
+      in the text used for this record; the interacting population is a ZMO0748 auxotroph.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Zymomonas mobilis and Escherichia coli, were selected as the test species
+    explanation: Supports Z. mobilis as one of the two curated community members.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An auxotroph mutant in a gene (ZMO0748)
+    explanation: Supports the Z. mobilis auxotrophic mutant population curated for this system.
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Curated at species level; the paper tested E. coli proA, pheA, and ilvA auxotroph partners.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Zymomonas mobilis and Escherichia coli, were selected as the test species
+    explanation: Supports E. coli as one of the two curated community members.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three corresponding E. coli auxotrophs (proA, pheA and IlvA)
+    explanation: Supports the E. coli auxotroph variants used as coculture partners.
+ecological_interactions:
+- name: Zymomonas Amino Acid Rescue of E. coli Auxotrophs
+  description: Z. mobilis releases amino acid exometabolites in spent medium, and those exometabolites
+    were used to select E. coli proA, pheA, and ilvA auxotrophs as coculture partners.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Zymomonas mobilis
+    term:
+      id: NCBITaxon:542
+      label: Zymomonas mobilis
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+    notes: The source abstract identifies amino acid exometabolites but does not enumerate the exact
+      amino acid identities in the curated snippet.
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Amino acid exometabolites identified in the spent medium of Z. mobilis
+    explanation: Supports Z. mobilis spent-medium amino acid exometabolites as candidate E. coli rescue metabolites.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: used to select three corresponding E. coli auxotrophs
+    explanation: Supports selection of E. coli auxotrophs based on Z. mobilis exometabolites.
+- name: E. coli Glutathione-Related Rescue of Zymomonas Auxotroph
+  description: E. coli spent medium contained glutathione-related metabolites that were identified as
+    potential rescue compounds for the Z. mobilis ZMO0748 cysteine synthase-like auxotroph.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Zymomonas mobilis
+    term:
+      id: NCBITaxon:542
+      label: Zymomonas mobilis
+  metabolites:
+  - preferred_term: glutathione
+    term:
+      id: CHEBI:16856
+      label: glutathione
+    notes: Curated as glutathione-related metabolites because the source does not narrow the exact
+      transferred molecule in the abstract.
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: identified glutathione related metabolites as potentially available for rescue
+    explanation: Supports E. coli metabolite availability for rescue of the Z. mobilis auxotroph.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rescue of the Z. mobilis cysteine synthase mutant
+    explanation: Supports the target Z. mobilis auxotroph rescue mechanism.
+- name: Reciprocal Auxotroph Coculture Growth
+  description: The selected Z. mobilis auxotroph was tested in coculture with each of the three E. coli
+    auxotrophs, and growth of both species was confirmed by optical density and flow cytometry.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Zymomonas mobilis
+    term:
+      id: NCBITaxon:542
+      label: Zymomonas mobilis
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three sets of cocultures between the Z. mobilis auxotroph and each of the three E. coli auxotrophs
+    explanation: Supports the reciprocal auxotroph coculture design and tested compositions.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: monitored by optical density for growth
+    explanation: Supports growth monitoring of the cocultures.
+environmental_factors:
+- name: Auxotrophic mutant selection
+  value: Z. mobilis ZMO0748 auxotroph with E. coli proA, pheA, or ilvA auxotrophs
+  description: The mutualism depends on engineered nutrient requirements in both species.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: depend on each other for exchange or cross-feeding of metabolites
+    explanation: Supports auxotrophy-dependent reciprocal metabolite exchange.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An auxotroph mutant in a gene (ZMO0748)
+    explanation: Supports the Z. mobilis auxotroph component of the environmental design.
+- name: Exometabolomics-guided partner selection
+  value: Mass spectrometry-based exometabolomics of spent media
+  description: Spent-medium metabolite profiles were used to select and interpret reciprocal rescue
+    candidates before coculture validation.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mass spectrometry based exometabolomics as a method for constructing synthetic mutualism
+    explanation: Supports exometabolomics as the environmental and design-selection factor.
+growth_media:
+- name: Auxotroph mutualism coculture assay
+  inoculum_source: Z. mobilis ZMO0748 auxotroph and E. coli proA, pheA, or ilvA auxotroph cultures.
+  preparation_notes: >
+    The curated source text supports spent-medium exometabolomics, auxotroph pairing,
+    optical-density monitoring, and flow-cytometry confirmation. The complete medium
+    recipe is not asserted in this record because it was not verified from the cited
+    snippets.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three sets of cocultures between the Z. mobilis auxotroph and each of the three E. coli auxotrophs
+    explanation: Supports the coculture assay context and inoculum composition at the species and auxotroph level.
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: monitored by optical density for growth and analyzed by flow cytometry
+    explanation: Supports cultivation and measurement of the coculture assays.
+external_resources:
+- name: Primary publication - exometabolomics-designed obligate mutualism
+  repository: OTHER
+  resource_id: PMID:26885935
+  url: https://pubmed.ncbi.nlm.nih.gov/26885935/
+  description: Primary publication reporting exometabolomics-assisted design and validation of Z. mobilis
+    and E. coli synthetic obligate mutualisms.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Exometabolomics Assisted Design and Validation of Synthetic Obligate Mutualism
+    explanation: Supports this publication as the source for the curated synthetic mutualism.
+- name: DOI landing page - exometabolomics-designed obligate mutualism
+  repository: OTHER
+  resource_id: doi:10.1021/acssynbio.5b00236
+  url: https://doi.org/10.1021/acssynbio.5b00236
+  description: DOI landing page for the ACS Synthetic Biology article.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Exometabolomics Assisted Design and Validation of Synthetic Obligate Mutualism
+    explanation: Supports the DOI resource for the exact publication.
+- name: DOE PAGES record for the exact publication
+  repository: OTHER
+  resource_id: OSTI:1429352
+  url: https://www.osti.gov/pages/biblio/1429352
+  description: DOE PAGES metadata for the publication, including LBNL and Sandia affiliations and DOE BER
+    sponsorship.
+  evidence:
+  - reference: PMID:26885935
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Lawrence Berkeley National Laboratory
+    explanation: Supports LBNL involvement in the source publication linked through the DOE PAGES record.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth extraction, cycling, or stress role was curated for this synthetic
+  obligate mutualism.
