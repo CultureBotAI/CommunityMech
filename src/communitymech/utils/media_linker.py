@@ -9,7 +9,6 @@ import json
 import time
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 import requests
 import yaml
@@ -21,7 +20,9 @@ class MediaFetcher:
     # Default local paths (relative to project root)
     DEFAULT_CULTUREMECH_INDEX = "../CultureMech/data/normalized_yaml/recipe_index.json"
     DEFAULT_CULTUREMECH_DATA = "../CultureMech/data/normalized_yaml"
-    DEFAULT_MEDIAINGREDIENTMECH_INDEX = "../MediaIngredientMech/data/curated/all_ingredients_index.json"
+    DEFAULT_MEDIAINGREDIENTMECH_INDEX = (
+        "../MediaIngredientMech/data/curated/all_ingredients_index.json"
+    )
 
     CULTUREMECH_RAW_URL = (
         "https://raw.githubusercontent.com/CultureBotAI/CultureMech/main/kb/media/"
@@ -34,9 +35,9 @@ class MediaFetcher:
         self,
         cache_dir: str = "media_cache",
         cache_ttl: int = 86400,
-        culturemech_index_path: Optional[str] = None,
-        culturemech_data_path: Optional[str] = None,
-        mediaingredientmech_index_path: Optional[str] = None
+        culturemech_index_path: str | None = None,
+        culturemech_data_path: str | None = None,
+        mediaingredientmech_index_path: str | None = None,
     ):
         """Initialize media fetcher.
 
@@ -50,9 +51,9 @@ class MediaFetcher:
         self.cache_dir.mkdir(exist_ok=True)
         self.cache_ttl = cache_ttl
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "CommunityMech/0.1.0 (https://github.com/CultureBotAI/CommunityMech)"
-        })
+        self.session.headers.update(
+            {"User-Agent": "CommunityMech/0.1.0 (https://github.com/CultureBotAI/CommunityMech)"}
+        )
 
         # Set up local paths if provided
         if culturemech_index_path:
@@ -73,8 +74,8 @@ class MediaFetcher:
             self.mediaingredientmech_index_path = Path(self.DEFAULT_MEDIAINGREDIENTMECH_INDEX)
 
         # Cache for loaded indices
-        self._recipe_index: Optional[Dict] = None
-        self._ingredient_index: Optional[List[Dict]] = None
+        self._recipe_index: dict | None = None
+        self._ingredient_index: list[dict] | None = None
 
     def _is_cache_valid(self, cache_file: Path) -> bool:
         """Check if cache file exists and is within TTL."""
@@ -83,7 +84,7 @@ class MediaFetcher:
         age = time.time() - cache_file.stat().st_mtime
         return age < self.cache_ttl
 
-    def fetch_culturemech_media(self, media_id: str, use_cache: bool = True) -> Optional[Dict]:
+    def fetch_culturemech_media(self, media_id: str, use_cache: bool = True) -> dict | None:
         """Fetch a CultureMech media record by ID.
 
         Args:
@@ -119,9 +120,7 @@ class MediaFetcher:
             print(f"Error fetching CultureMech media {media_id}: {e}")
             return None
 
-    def fetch_media_ingredient(
-        self, ingredient_id: str, use_cache: bool = True
-    ) -> Optional[Dict]:
+    def fetch_media_ingredient(self, ingredient_id: str, use_cache: bool = True) -> dict | None:
         """Fetch a MediaIngredientMech ingredient record by ID.
 
         Args:
@@ -157,7 +156,7 @@ class MediaFetcher:
             print(f"Error fetching MediaIngredientMech ingredient {ingredient_id}: {e}")
             return None
 
-    def load_recipe_index(self) -> Dict:
+    def load_recipe_index(self) -> dict:
         """Load CultureMech recipe index from local file.
 
         Returns:
@@ -180,7 +179,7 @@ class MediaFetcher:
 
         return self._recipe_index
 
-    def list_all_culturemech_media(self) -> List[Tuple[str, str]]:
+    def list_all_culturemech_media(self) -> list[tuple[str, str]]:
         """Get all CultureMech media as (id, name) tuples for matching.
 
         Returns:
@@ -194,7 +193,7 @@ class MediaFetcher:
             print(f"Warning: {e}")
             return []
 
-    def fetch_culturemech_recipe_by_id(self, recipe_id: str) -> Optional[Dict]:
+    def fetch_culturemech_recipe_by_id(self, recipe_id: str) -> dict | None:
         """Fetch a CultureMech recipe by ID from local files.
 
         Args:
@@ -230,7 +229,7 @@ class MediaFetcher:
             print(f"Error loading recipe {recipe_id}: {e}")
             return None
 
-    def load_ingredient_index(self) -> List[Dict]:
+    def load_ingredient_index(self) -> list[dict]:
         """Load MediaIngredientMech ingredient index from local file.
 
         Returns:
@@ -253,7 +252,7 @@ class MediaFetcher:
 
         return self._ingredient_index
 
-    def list_all_mediaingredientmech_ingredients(self) -> List[Tuple[str, str]]:
+    def list_all_mediaingredientmech_ingredients(self) -> list[tuple[str, str]]:
         """Get all MediaIngredientMech ingredients as (id, name) tuples for matching.
 
         Returns:
@@ -270,9 +269,7 @@ class MediaFetcher:
 class MediaMatcher:
     """Fuzzy match media names and ingredient names."""
 
-    def __init__(
-        self, fuzzy_threshold: float = 0.85, manual_overrides: Optional[Dict] = None
-    ):
+    def __init__(self, fuzzy_threshold: float = 0.85, manual_overrides: dict | None = None):
         """Initialize media matcher.
 
         Args:
@@ -283,8 +280,8 @@ class MediaMatcher:
         self.manual_overrides = manual_overrides or {}
 
     def match_media_name(
-        self, query: str, candidates: List[Tuple[str, str]]
-    ) -> Optional[Tuple[str, str, float]]:
+        self, query: str, candidates: list[tuple[str, str]]
+    ) -> tuple[str, str, float] | None:
         """Match media name to CultureMech records.
 
         Args:
@@ -339,7 +336,11 @@ class MediaMatcher:
             # Boost score if key terms match
             if score > 0.5 and score > best_token_score:
                 best_token_score = score
-                best_token_match = (media_id, media_name, score * 0.95)  # Slightly lower than exact match
+                best_token_match = (
+                    media_id,
+                    media_name,
+                    score * 0.95,
+                )  # Slightly lower than exact match
 
         if best_token_match and best_token_score >= self.fuzzy_threshold:
             return best_token_match
@@ -357,8 +358,8 @@ class MediaMatcher:
         return best_match
 
     def match_ingredient_name(
-        self, query: str, candidates: List[Tuple[str, str]]
-    ) -> Optional[Tuple[str, str, float]]:
+        self, query: str, candidates: list[tuple[str, str]]
+    ) -> tuple[str, str, float] | None:
         """Match ingredient name to MediaIngredientMech records.
 
         Args:
@@ -386,9 +387,7 @@ class MediaMatcher:
         best_score = 0.0
 
         for ingredient_id, ingredient_name in candidates:
-            score = SequenceMatcher(
-                None, query_lower, ingredient_name.lower().strip()
-            ).ratio()
+            score = SequenceMatcher(None, query_lower, ingredient_name.lower().strip()).ratio()
             if score >= self.fuzzy_threshold and score > best_score:
                 best_score = score
                 best_match = (ingredient_id, ingredient_name, score)
@@ -401,10 +400,10 @@ class CompositionMerger:
 
     def merge_compositions(
         self,
-        existing: List[Dict],
-        culturemech: List[Dict],
+        existing: list[dict],
+        culturemech: list[dict],
         mark_source: bool = True,
-    ) -> List[Dict]:
+    ) -> list[dict]:
         """Merge ingredient lists, preserving existing and adding new from CultureMech.
 
         Args:

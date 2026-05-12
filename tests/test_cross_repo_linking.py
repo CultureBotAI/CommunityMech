@@ -11,21 +11,21 @@ Validates:
 """
 
 import re
-import pytest
-from pathlib import Path
-import yaml
 import sys
+from pathlib import Path
+
+import pytest
+import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.datamodel.communitymech import (
-    MicrobialCommunity,
-    RelatedMedia,
-    RelatedIngredient,
-    MediaRelationshipEnum,
     GrowthMedia,
+    MediaRelationshipEnum,
+    MicrobialCommunity,
+    RelatedIngredient,
+    RelatedMedia,
     Term,
-    EvidenceItem,
 )
 
 TEST_DATA_DIR = Path(__file__).parent / "data" / "test_cross_repo_linking"
@@ -38,6 +38,7 @@ MEDIAINGREDIENTMECH_ID_PATTERN = re.compile(r"^MediaIngredientMech:\d{6}$")
 # Helper
 # ---------------------------------------------------------------------------
 
+
 def load_yaml(filename: str) -> dict:
     path = TEST_DATA_DIR / filename
     assert path.exists(), f"Test data file not found: {path}"
@@ -48,6 +49,7 @@ def load_yaml(filename: str) -> dict:
 # ---------------------------------------------------------------------------
 # SPRUCE community with full cross-repo links
 # ---------------------------------------------------------------------------
+
 
 class TestSPRUCEWithLinks:
     @pytest.fixture(autouse=True)
@@ -67,9 +69,7 @@ class TestSPRUCEWithLinks:
         for rm in self.data["related_media"]:
             cid = rm.get("culturemech_id")
             if cid is not None:
-                assert CULTUREMECH_ID_PATTERN.match(cid), (
-                    f"Invalid CultureMech ID: {cid}"
-                )
+                assert CULTUREMECH_ID_PATTERN.match(cid), f"Invalid CultureMech ID: {cid}"
 
     def test_related_media_relationship_types(self):
         types = [rm.get("relationship_type") for rm in self.data["related_media"]]
@@ -78,7 +78,8 @@ class TestSPRUCEWithLinks:
 
     def test_related_media_shared_environment_term(self):
         analog = [
-            rm for rm in self.data["related_media"]
+            rm
+            for rm in self.data["related_media"]
             if rm.get("relationship_type") == "ENVIRONMENT_ANALOG"
         ]
         assert len(analog) == 2
@@ -100,9 +101,9 @@ class TestSPRUCEWithLinks:
         for ri in self.data["related_ingredients"]:
             mid = ri.get("mediaingredientmech_id")
             if mid is not None:
-                assert MEDIAINGREDIENTMECH_ID_PATTERN.match(mid), (
-                    f"Invalid MediaIngredientMech ID: {mid}"
-                )
+                assert MEDIAINGREDIENTMECH_ID_PATTERN.match(
+                    mid
+                ), f"Invalid MediaIngredientMech ID: {mid}"
 
     def test_related_ingredients_chebi_term(self):
         humic = self.data["related_ingredients"][0]
@@ -142,6 +143,7 @@ class TestSPRUCEWithLinks:
 # Backward compatibility: community without cross-repo fields
 # ---------------------------------------------------------------------------
 
+
 class TestBackwardCompatibility:
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -168,6 +170,7 @@ class TestBackwardCompatibility:
 # ---------------------------------------------------------------------------
 # All MediaRelationshipEnum values
 # ---------------------------------------------------------------------------
+
 
 class TestAllRelationshipTypes:
     @pytest.fixture(autouse=True)
@@ -204,6 +207,7 @@ class TestAllRelationshipTypes:
 # Cross-repo ID pattern validation
 # ---------------------------------------------------------------------------
 
+
 class TestIDPatternValidation:
     def test_valid_culturemech_ids(self):
         valid = ["CultureMech:000001", "CultureMech:010001", "CultureMech:999999"]
@@ -212,19 +216,23 @@ class TestIDPatternValidation:
 
     def test_invalid_culturemech_ids(self):
         invalid = [
-            "CultureMech:12345",      # too few digits
-            "CultureMech:1234567",    # too many digits
-            "culturemech:000001",     # wrong case
+            "CultureMech:12345",  # too few digits
+            "CultureMech:1234567",  # too many digits
+            "culturemech:000001",  # wrong case
             "MediaIngredientMech:000001",  # wrong prefix
-            "CultureMech:abcdef",     # non-numeric
-            "CultureMech000001",      # missing colon
-            "",                        # empty
+            "CultureMech:abcdef",  # non-numeric
+            "CultureMech000001",  # missing colon
+            "",  # empty
         ]
         for cid in invalid:
             assert not CULTUREMECH_ID_PATTERN.match(cid), f"Should be invalid: {cid}"
 
     def test_valid_mim_ids(self):
-        valid = ["MediaIngredientMech:000001", "MediaIngredientMech:000523", "MediaIngredientMech:999999"]
+        valid = [
+            "MediaIngredientMech:000001",
+            "MediaIngredientMech:000523",
+            "MediaIngredientMech:999999",
+        ]
         for mid in valid:
             assert MEDIAINGREDIENTMECH_ID_PATTERN.match(mid), f"Should be valid: {mid}"
 
@@ -245,6 +253,7 @@ class TestIDPatternValidation:
 # ---------------------------------------------------------------------------
 # Dataclass edge cases
 # ---------------------------------------------------------------------------
+
 
 class TestDataclassEdgeCases:
     def test_related_media_minimal(self):

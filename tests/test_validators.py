@@ -1,11 +1,8 @@
 """Tests for suggestion validators."""
 
-import tempfile
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
-import yaml
 
 from communitymech.network.validators import SuggestionValidator, ValidationError
 
@@ -59,14 +56,12 @@ def valid_suggestion():
                         "direction": "bidirectional",
                     }
                 ],
-                "biological_processes": [
-                    {"id": "GO:0008150", "label": "biological_process"}
-                ],
+                "biological_processes": [{"id": "GO:0008150", "label": "biological_process"}],
                 "evidence": [
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Test snippet from abstract",
                     }
                 ],
@@ -252,7 +247,7 @@ def test_evidence_validation_snippet_match(mock_fetcher_class, test_community):
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Test snippet from abstract",
                     }
                 ],
@@ -297,7 +292,7 @@ def test_evidence_validation_snippet_mismatch(mock_fetcher_class, test_community
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Completely different snippet",
                     }
                 ],

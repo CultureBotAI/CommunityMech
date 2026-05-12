@@ -13,7 +13,6 @@ import sys
 from collections import defaultdict
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional, Set
 
 import yaml
 
@@ -33,9 +32,9 @@ class NetworkIntegrityAuditor:
 
     def __init__(self, communities_dir: Path = Path("kb/communities")):
         self.communities_dir = Path(communities_dir)
-        self.issues: Dict[str, List[Dict]] = defaultdict(list)
+        self.issues: dict[str, list[dict]] = defaultdict(list)
 
-    def audit_all(self, check_only: bool = False) -> Dict[str, List[Dict]]:
+    def audit_all(self, check_only: bool = False) -> dict[str, list[dict]]:
         """
         Audit all community YAML files.
 
@@ -48,9 +47,7 @@ class NetworkIntegrityAuditor:
         yaml_files = sorted(self.communities_dir.glob("*.yaml"))
 
         if not check_only:
-            print(
-                f"\n🔍 Auditing {len(yaml_files)} communities for network integrity issues...\n"
-            )
+            print(f"\n🔍 Auditing {len(yaml_files)} communities for network integrity issues...\n")
 
         total_issues = 0
         communities_with_issues = 0
@@ -66,9 +63,7 @@ class NetworkIntegrityAuditor:
 
         if not check_only:
             print(f"\n{'='*80}")
-            print(
-                f"Summary: {communities_with_issues}/{len(yaml_files)} communities have issues"
-            )
+            print(f"Summary: {communities_with_issues}/{len(yaml_files)} communities have issues")
             print(f"Total issues found: {total_issues}")
             print(f"{'='*80}\n")
 
@@ -79,7 +74,7 @@ class NetworkIntegrityAuditor:
 
         return self.issues
 
-    def audit_community(self, yaml_path: Path) -> List[Dict]:
+    def audit_community(self, yaml_path: Path) -> list[dict]:
         """
         Audit a single community file.
 
@@ -129,9 +124,7 @@ class NetworkIntegrityAuditor:
                     }
                 )
             else:
-                source_term = source.get("preferred_term") or source.get("term", {}).get(
-                    "label"
-                )
+                source_term = source.get("preferred_term") or source.get("term", {}).get("label")
                 source_id = source.get("term", {}).get("id")
 
                 if source_term not in taxonomy_by_term:
@@ -165,9 +158,7 @@ class NetworkIntegrityAuditor:
             # Check target_taxon (optional but if present should be valid)
             target = interaction.get("target_taxon")
             if target:
-                target_term = target.get("preferred_term") or target.get("term", {}).get(
-                    "label"
-                )
+                target_term = target.get("preferred_term") or target.get("term", {}).get("label")
                 target_id = target.get("term", {}).get("id")
 
                 if target_term not in taxonomy_by_term:
@@ -198,13 +189,17 @@ class NetworkIntegrityAuditor:
                             }
                         )
 
-        # Check for disconnected taxa
+        # Check for disconnected taxa. Skip taxa that carry standalone
+        # abundance_level or functional_role metadata — they describe community
+        # membership without requiring a pairwise interaction edge.
         all_taxa = set(taxonomy_by_term.keys())
         disconnected = all_taxa - connected_taxa
 
         if disconnected and interactions:  # Only flag if there ARE interactions
             for taxon in sorted(disconnected):
                 taxon_data = taxonomy_by_term[taxon]["taxon_data"]
+                if taxon_data.get("abundance_level") or taxon_data.get("functional_role"):
+                    continue
                 issues.append(
                     {
                         "type": IssueType.DISCONNECTED,
@@ -217,7 +212,7 @@ class NetworkIntegrityAuditor:
 
         return issues
 
-    def report_community_issues(self, community_name: str, issues: List[Dict]):
+    def report_community_issues(self, community_name: str, issues: list[dict]):
         """
         Print issues for a community.
 
@@ -290,7 +285,7 @@ class NetworkIntegrityAuditor:
 
         print(f"\n✅ Detailed report written to {output_path}\n")
 
-    def get_community_data(self, community_path: Path) -> Dict:
+    def get_community_data(self, community_path: Path) -> dict:
         """
         Load community data from YAML file.
 
@@ -303,7 +298,7 @@ class NetworkIntegrityAuditor:
         with open(community_path) as f:
             return yaml.safe_load(f)
 
-    def get_taxonomy_lookup(self, community_data: Dict) -> Dict[str, Dict]:
+    def get_taxonomy_lookup(self, community_data: dict) -> dict[str, dict]:
         """
         Build taxonomy lookup from community data.
 

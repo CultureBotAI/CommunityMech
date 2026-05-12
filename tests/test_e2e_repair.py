@@ -7,7 +7,7 @@ Run with: pytest tests/test_e2e_repair.py --e2e
 import os
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 import pytest
 import yaml
@@ -28,9 +28,7 @@ def test_community_with_disconnected():
                     "preferred_term": "Escherichia coli",
                     "term": {"id": "NCBITaxon:562", "label": "Escherichia coli"},
                 },
-                "functional_roles": [
-                    {"id": "GO:0008152", "label": "metabolic process"}
-                ],
+                "functional_roles": [{"id": "GO:0008152", "label": "metabolic process"}],
             },
             {
                 "taxon_term": {
@@ -82,9 +80,7 @@ def test_community_with_disconnected():
 @pytest.fixture
 def temp_community_file(test_community_with_disconnected):
     """Create temporary community file."""
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".yaml", delete=False
-    ) as f:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
         yaml.dump(test_community_with_disconnected, f)
         path = Path(f.name)
 
@@ -95,9 +91,7 @@ def temp_community_file(test_community_with_disconnected):
         path.unlink()
 
 
-@pytest.mark.skipif(
-    not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set"
-)
+@pytest.mark.skipif(not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set")
 def test_e2e_audit_finds_disconnected(temp_community_file):
     """Test that audit correctly identifies disconnected taxon."""
     from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
@@ -111,9 +105,7 @@ def test_e2e_audit_finds_disconnected(temp_community_file):
     assert disconnected_issues[0]["taxon"] == "Disconnected bacterium"
 
 
-@pytest.mark.skipif(
-    not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set"
-)
+@pytest.mark.skipif(not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set")
 def test_e2e_strategy_selection(temp_community_file):
     """Test that strategy selector works end-to-end."""
     from communitymech.network.auditor import NetworkIntegrityAuditor
@@ -137,9 +129,7 @@ def test_e2e_strategy_selection(temp_community_file):
             assert isinstance(strategy, DisconnectedTaxonStrategy)
 
 
-@pytest.mark.skipif(
-    not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set"
-)
+@pytest.mark.skipif(not os.getenv("ANTHROPIC_API_KEY"), reason="ANTHROPIC_API_KEY not set")
 def test_e2e_context_building(temp_community_file):
     """Test that context builder creates valid context."""
     from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
@@ -204,9 +194,7 @@ def test_e2e_mock_suggestion_generation():
         client = AnthropicClient()
         context = {"test": "context"}
 
-        suggestion = client.generate_suggestion(
-            prompt=DISCONNECTED_TAXON_PROMPT, context=context
-        )
+        suggestion = client.generate_suggestion(prompt=DISCONNECTED_TAXON_PROMPT, context=context)
 
         assert "suggested_interactions" in suggestion
         assert len(suggestion["suggested_interactions"]) == 1

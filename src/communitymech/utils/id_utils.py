@@ -27,12 +27,12 @@ This module can be copied to other X-Mech repositories with minimal modification
 """
 
 import re
-import yaml
 from pathlib import Path
-from typing import Optional
+
+import yaml
 
 
-def parse_xmech_id(id_string: str, expected_prefix: str) -> Optional[int]:
+def parse_xmech_id(id_string: str, expected_prefix: str) -> int | None:
     """Parse X-Mech ID and return number part.
 
     Args:
@@ -59,7 +59,7 @@ def parse_xmech_id(id_string: str, expected_prefix: str) -> Optional[int]:
         return None
 
     try:
-        return int(id_string.split(':', 1)[1])
+        return int(id_string.split(":", 1)[1])
     except (IndexError, ValueError):
         return None
 
@@ -110,14 +110,12 @@ def validate_id_format(id_string: str, prefix: str) -> bool:
         >>> validate_id_format("Invalid:ID", "Invalid")
         False  # Wrong format
     """
-    pattern = rf'^{re.escape(prefix)}:\d{{6}}$'
+    pattern = rf"^{re.escape(prefix)}:\d{{6}}$"
     return bool(re.match(pattern, id_string))
 
 
 def find_highest_id_single_file(
-    yaml_path: Path,
-    prefix: str,
-    collection_key: str = "ingredients"
+    yaml_path: Path, prefix: str, collection_key: str = "ingredients"
 ) -> int:
     """Find highest ID in single-file YAML collection.
 
@@ -152,18 +150,14 @@ def find_highest_id_single_file(
 
     max_id = 0
     for record in data.get(collection_key, []):
-        id_str = record.get('id', '')
+        id_str = record.get("id", "")
         if id_num := parse_xmech_id(id_str, prefix):
             max_id = max(max_id, id_num)
 
     return max_id
 
 
-def find_highest_id_multi_file(
-    directory: Path,
-    prefix: str,
-    pattern: str = "*.yaml"
-) -> int:
+def find_highest_id_multi_file(directory: Path, prefix: str, pattern: str = "*.yaml") -> int:
     """Find highest ID across multiple YAML files.
 
     For repositories that store each record in a separate YAML file
@@ -205,7 +199,7 @@ def find_highest_id_multi_file(
             if not data:
                 continue
 
-            id_str = data.get('id', '')
+            id_str = data.get("id", "")
             if id_num := parse_xmech_id(id_str, prefix):
                 max_id = max(max_id, id_num)
         except Exception:
@@ -219,7 +213,7 @@ def mint_next_id(
     source: Path,
     prefix: str,
     collection_type: str = "single_file",
-    collection_key: str = "ingredients"
+    collection_key: str = "ingredients",
 ) -> str:
     """Mint next available ID for a collection.
 
@@ -270,16 +264,14 @@ def mint_next_id(
         highest = find_highest_id_multi_file(source, prefix)
     else:
         raise ValueError(
-            f"Unknown collection_type: {collection_type}. "
-            f"Must be 'single_file' or 'multi_file'"
+            f"Unknown collection_type: {collection_type}. " f"Must be 'single_file' or 'multi_file'"
         )
 
     return generate_xmech_id(prefix, highest + 1)
 
 
 def find_duplicate_ids_single_file(
-    yaml_path: Path,
-    collection_key: str = "ingredients"
+    yaml_path: Path, collection_key: str = "ingredients"
 ) -> list[str]:
     """Find duplicate IDs in single-file collection.
 
@@ -307,18 +299,14 @@ def find_duplicate_ids_single_file(
     if not data:
         return []
 
-    ids = [record.get('id') for record in data.get(collection_key, [])]
+    ids = [record.get("id") for record in data.get(collection_key, [])]
     counts = Counter(ids)
 
     duplicates = [id_str for id_str, count in counts.items() if count > 1 and id_str is not None]
     return duplicates
 
 
-def find_id_gaps(
-    yaml_path: Path,
-    prefix: str,
-    collection_key: str = "ingredients"
-) -> list[int]:
+def find_id_gaps(yaml_path: Path, prefix: str, collection_key: str = "ingredients") -> list[int]:
     """Find gaps in ID sequence for single-file collection.
 
     Args:
@@ -348,7 +336,7 @@ def find_id_gaps(
 
     ids = []
     for record in data.get(collection_key, []):
-        id_str = record.get('id', '')
+        id_str = record.get("id", "")
         if id_num := parse_xmech_id(id_str, prefix):
             ids.append(id_num)
 
@@ -373,17 +361,17 @@ if __name__ == "__main__":
 
     # Example 1: MediaIngredientMech (single-file)
     print("1. MediaIngredientMech (single-file collection)")
-    yaml_path = Path('data/curated/unmapped_ingredients.yaml')
+    yaml_path = Path("data/curated/unmapped_ingredients.yaml")
     if yaml_path.exists():
-        highest = find_highest_id_single_file(yaml_path, 'MediaIngredientMech', 'ingredients')
-        next_id = generate_xmech_id('MediaIngredientMech', highest + 1)
+        highest = find_highest_id_single_file(yaml_path, "MediaIngredientMech", "ingredients")
+        next_id = generate_xmech_id("MediaIngredientMech", highest + 1)
         print(f"   Highest ID: {highest}")
         print(f"   Next ID: {next_id}")
 
         duplicates = find_duplicate_ids_single_file(yaml_path)
         print(f"   Duplicates: {duplicates if duplicates else 'None'}")
 
-        gaps = find_id_gaps(yaml_path, 'MediaIngredientMech')
+        gaps = find_id_gaps(yaml_path, "MediaIngredientMech")
         print(f"   Gaps: {gaps if gaps else 'None'}")
     else:
         print(f"   File not found: {yaml_path}")

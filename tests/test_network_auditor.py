@@ -69,9 +69,7 @@ def test_valid_community_no_issues(temp_communities_dir, valid_community):
 def test_id_mismatch_detected(temp_communities_dir, valid_community):
     """Test that ID mismatches are detected."""
     # Create mismatch
-    valid_community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = (
-        "NCBITaxon:9999"
-    )
+    valid_community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = "NCBITaxon:9999"
 
     test_file = temp_communities_dir / "test_mismatch.yaml"
     with open(test_file, "w") as f:
@@ -162,6 +160,41 @@ def test_no_disconnected_if_no_interactions(temp_communities_dir, valid_communit
 
     disconnected_issues = [i for i in issues if i["type"] == IssueType.DISCONNECTED]
     assert len(disconnected_issues) == 0, "Should not flag disconnected if no interactions"
+
+
+def test_disconnected_skipped_when_abundance_or_role_present(
+    temp_communities_dir, valid_community
+):
+    """Taxa carrying abundance_level or functional_role describe community
+    membership and should not be flagged as DISCONNECTED."""
+    valid_community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Membership-only taxon",
+                "term": {"id": "NCBITaxon:99999", "label": "Membership-only taxon"},
+            },
+            "abundance_level": "ABUNDANT",
+        }
+    )
+    valid_community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Role-only taxon",
+                "term": {"id": "NCBITaxon:88888", "label": "Role-only taxon"},
+            },
+            "functional_role": ["PRIMARY_DEGRADER"],
+        }
+    )
+
+    test_file = temp_communities_dir / "test_membership.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(valid_community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    issues = auditor.audit_community(test_file)
+
+    disconnected_issues = [i for i in issues if i["type"] == IssueType.DISCONNECTED]
+    assert disconnected_issues == []
 
 
 def test_audit_all_communities(temp_communities_dir, valid_community):

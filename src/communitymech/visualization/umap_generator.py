@@ -2,7 +2,7 @@
 
 import json
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import yaml
 from jinja2 import Environment, FileSystemLoader
@@ -22,7 +22,7 @@ class UMAPVisualizationGenerator:
         communities_dir: str = "kb/communities",
         embeddings_path: str = "data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz",
         output_path: str = "docs/community_umap.html",
-        template_dir: Optional[str] = None,
+        template_dir: str | None = None,
         cache_dir: str = ".umap_cache",
         force_reload: bool = False,
         n_neighbors: int = 15,
@@ -50,9 +50,7 @@ class UMAPVisualizationGenerator:
 
         # Step 1: Load embeddings
         loader = EmbeddingLoader(embeddings_path, cache_dir=cache_dir)
-        embeddings = loader.load_embeddings(
-            prefixes=["NCBITaxon"], force_reload=force_reload
-        )
+        embeddings = loader.load_embeddings(prefixes=["NCBITaxon"], force_reload=force_reload)
 
         embedding_dim = loader.get_embedding_dim(embeddings)
         print(f"📊 Embedding dimension: {embedding_dim}")
@@ -65,20 +63,20 @@ class UMAPVisualizationGenerator:
 
         print(f"\n📦 Aggregated {len(community_vectors)} communities")
         if exclude_hosts:
-            print(f"   (excluded non-microbial host taxa from {self._count_yaml_files(communities_dir) - len(community_vectors)} communities)")
+            print(
+                f"   (excluded non-microbial host taxa from {self._count_yaml_files(communities_dir) - len(community_vectors)} communities)"
+            )
         else:
-            print(f"   (skipped {self._count_yaml_files(communities_dir) - len(community_vectors)} due to low coverage)")
+            print(
+                f"   (skipped {self._count_yaml_files(communities_dir) - len(community_vectors)} due to low coverage)"
+            )
 
         # Step 3: Run UMAP
-        reducer = UMAPReducer(
-            n_neighbors=n_neighbors, min_dist=min_dist, random_state=42
-        )
+        reducer = UMAPReducer(n_neighbors=n_neighbors, min_dist=min_dist, random_state=42)
         umap_df = reducer.fit_transform(community_vectors)
 
         # Step 4: Extract metadata from community YAMLs
-        community_data = self._build_community_data(
-            umap_df, aggregation_metadata, communities_dir
-        )
+        community_data = self._build_community_data(umap_df, aggregation_metadata, communities_dir)
 
         print(f"\n📝 Generated data for {len(community_data)} communities")
 
@@ -95,9 +93,9 @@ class UMAPVisualizationGenerator:
     def _build_community_data(
         self,
         umap_df,
-        aggregation_metadata: Dict[str, Dict[str, Any]],
+        aggregation_metadata: dict[str, dict[str, Any]],
         communities_dir: str,
-    ) -> List[Dict[str, Any]]:
+    ) -> list[dict[str, Any]]:
         """Build JSON data structure for visualization.
 
         Args:
@@ -116,7 +114,7 @@ class UMAPVisualizationGenerator:
             yaml_path = communities_dir_path / f"{community_id}.yaml"
 
             # Parse YAML for metadata
-            with open(yaml_path, "r") as f:
+            with open(yaml_path) as f:
                 yaml_data = yaml.safe_load(f)
 
             # Extract metadata
@@ -124,7 +122,9 @@ class UMAPVisualizationGenerator:
 
             # Count interactions (ecological_interactions is a list directly)
             ecological_interactions = yaml_data.get("ecological_interactions", [])
-            num_interactions = len(ecological_interactions) if isinstance(ecological_interactions, list) else 0
+            num_interactions = (
+                len(ecological_interactions) if isinstance(ecological_interactions, list) else 0
+            )
 
             # Get category, state, origin
             category = yaml_data.get("community_category", "UNKNOWN")
@@ -162,9 +162,9 @@ class UMAPVisualizationGenerator:
 
     def _render_html(
         self,
-        community_data: List[Dict[str, Any]],
+        community_data: list[dict[str, Any]],
         output_path: str,
-        template_dir: Optional[str] = None,
+        template_dir: str | None = None,
     ):
         """Render HTML template with community data.
 
@@ -175,9 +175,7 @@ class UMAPVisualizationGenerator:
         """
         # Auto-detect template directory
         if template_dir is None:
-            template_dir = str(
-                Path(__file__).parent.parent / "templates"
-            )
+            template_dir = str(Path(__file__).parent.parent / "templates")
 
         # Set up Jinja2 environment
         env = Environment(loader=FileSystemLoader(template_dir))

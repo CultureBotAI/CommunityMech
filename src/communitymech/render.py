@@ -5,16 +5,16 @@ Generates individual HTML pages for each community with full metadata,
 taxonomy, ecological interactions, and evidence.
 """
 
-import yaml
 from pathlib import Path
-from typing import Optional
+
+import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 
 class CommunityRenderer:
     """Render community YAML files to HTML pages."""
 
-    def __init__(self, template_dir: Optional[Path] = None):
+    def __init__(self, template_dir: Path | None = None):
         """
         Initialize renderer with Jinja2 environment.
 
@@ -33,7 +33,7 @@ class CommunityRenderer:
     def render_community(
         self,
         yaml_path: Path,
-        output_path: Optional[Path] = None,
+        output_path: Path | None = None,
     ) -> str:
         """
         Render a single community YAML to HTML.
@@ -114,17 +114,19 @@ class CommunityRenderer:
                 ree = data.get("rare_earth_elements_present", [])
                 metal_relevance = data.get("metal_relevance", "NOT_APPLICABLE")
 
-                communities.append({
-                    "id": yaml_file.stem,
-                    "name": data.get("name", ""),
-                    "description": data.get("description", ""),
-                    "ecological_state": data.get("ecological_state", ""),
-                    "community_category": data.get("community_category", ""),
-                    "member_count": member_count,
-                    "metals_present": metals,
-                    "rare_earth_elements_present": ree,
-                    "metal_relevance": metal_relevance,
-                })
+                communities.append(
+                    {
+                        "id": yaml_file.stem,
+                        "name": data.get("name", ""),
+                        "description": data.get("description", ""),
+                        "ecological_state": data.get("ecological_state", ""),
+                        "community_category": data.get("community_category", ""),
+                        "member_count": member_count,
+                        "metals_present": metals,
+                        "rare_earth_elements_present": ree,
+                        "metal_relevance": metal_relevance,
+                    }
+                )
 
         # Load index template
         template = self.env.get_template("index.html")
@@ -143,7 +145,6 @@ class CommunityRenderer:
 
 def main():
     """CLI for HTML rendering."""
-    import sys
     import argparse
 
     parser = argparse.ArgumentParser(description="Render community YAML files to HTML")

@@ -1,8 +1,8 @@
 """Build rich context for LLM prompts from community data."""
 
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set
+from typing import Any
 
 import yaml
 
@@ -21,9 +21,7 @@ class ContextBuilder:
         with open(self.community_path) as f:
             self.data = yaml.safe_load(f)
 
-    def build_disconnected_taxon_context(
-        self, taxon_name: str, taxon_id: str
-    ) -> Dict[str, Any]:
+    def build_disconnected_taxon_context(self, taxon_name: str, taxon_id: str) -> dict[str, Any]:
         """
         Build context for repairing a disconnected taxon.
 
@@ -59,7 +57,7 @@ class ContextBuilder:
 
         return context
 
-    def _build_environmental_context(self) -> Dict[str, str]:
+    def _build_environmental_context(self) -> dict[str, str]:
         """Build environmental context from community data."""
         env_factors = self.data.get("environmental_factors", {})
 
@@ -149,7 +147,11 @@ class ContextBuilder:
                 cap_list = [c.get("label", "") for c in capabilities]
                 context_parts.append(f"Metabolic Capabilities: {', '.join(cap_list)}")
 
-        return "\n".join(f"- {p}" for p in context_parts) if context_parts else "No additional information available"
+        return (
+            "\n".join(f"- {p}" for p in context_parts)
+            if context_parts
+            else "No additional information available"
+        )
 
     def _build_connected_taxa_list(self) -> str:
         """
@@ -245,7 +247,7 @@ class ContextBuilder:
 
     def build_missing_source_context(
         self, interaction_name: str, interaction_index: int
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Build context for identifying missing source_taxon.
 
@@ -278,7 +280,9 @@ class ContextBuilder:
             if preferred and taxon_id:
                 available_taxa.append(f"- {preferred} ({taxon_id})")
 
-        context["available_taxa"] = "\n".join(available_taxa) if available_taxa else "No taxa available"
+        context["available_taxa"] = (
+            "\n".join(available_taxa) if available_taxa else "No taxa available"
+        )
 
         # Interaction details
         details = []
@@ -290,13 +294,15 @@ class ContextBuilder:
             if target_term:
                 details.append(f"Target: {target_term}")
 
-        context["interaction_details"] = "\n".join(f"- {d}" for d in details) if details else "No details"
+        context["interaction_details"] = (
+            "\n".join(f"- {d}" for d in details) if details else "No details"
+        )
 
         return context
 
     def build_unknown_target_context(
         self, interaction_name: str, unknown_target: str
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Build context for resolving unknown target taxon.
 
@@ -323,11 +329,13 @@ class ContextBuilder:
             if preferred and taxon_id:
                 available_taxa.append(f"- {preferred} ({taxon_id})")
 
-        context["available_taxa"] = "\n".join(available_taxa) if available_taxa else "No taxa available"
+        context["available_taxa"] = (
+            "\n".join(available_taxa) if available_taxa else "No taxa available"
+        )
 
         return context
 
-    def get_all_taxa(self) -> List[Dict[str, str]]:
+    def get_all_taxa(self) -> list[dict[str, str]]:
         """
         Get list of all taxa in the community.
 
@@ -343,7 +351,7 @@ class ContextBuilder:
                 taxa.append({"name": preferred, "id": taxon_id})
         return taxa
 
-    def get_connected_taxa(self) -> Set[str]:
+    def get_connected_taxa(self) -> set[str]:
         """
         Get set of taxon names that are connected in the network.
 

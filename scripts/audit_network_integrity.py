@@ -61,6 +61,7 @@ class NetworkIntegrityAuditor:
                 taxonomy_by_term[preferred] = {
                     "id": taxon_id,
                     "label": term.get("term", {}).get("label"),
+                    "taxon_data": taxon,
                 }
 
         # Check each interaction
@@ -134,12 +135,17 @@ class NetworkIntegrityAuditor:
                             "message": f"Target '{target_term}' has ID {target_id}, expected {expected_id}"
                         })
 
-        # Check for disconnected taxa
+        # Check for disconnected taxa. Skip taxa that carry standalone
+        # abundance_level or functional_role metadata — they describe community
+        # membership without requiring a pairwise interaction edge.
         all_taxa = set(taxonomy_by_term.keys())
         disconnected = all_taxa - connected_taxa
 
         if disconnected and interactions:  # Only flag if there ARE interactions
             for taxon in sorted(disconnected):
+                taxon_data = taxonomy_by_term[taxon]["taxon_data"]
+                if taxon_data.get("abundance_level") or taxon_data.get("functional_role"):
+                    continue
                 issues.append({
                     "type": "DISCONNECTED",
                     "taxon": taxon,

@@ -1,7 +1,7 @@
 """Aggregate node embeddings to community-level vectors."""
 
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import numpy as np
 import yaml
@@ -10,7 +10,7 @@ import yaml
 class CommunityVectorAggregator:
     """Aggregate taxonomic embeddings to create community-level vectors."""
 
-    def __init__(self, embeddings: Dict[str, np.ndarray]):
+    def __init__(self, embeddings: dict[str, np.ndarray]):
         """Initialize aggregator.
 
         Args:
@@ -24,7 +24,7 @@ class CommunityVectorAggregator:
         min_coverage: float = 0.5,
         aggregation_method: str = "mean",
         exclude_hosts: bool = True,
-    ) -> Optional[Tuple[np.ndarray, Dict[str, Any]]]:
+    ) -> tuple[np.ndarray, dict[str, Any]] | None:
         """Aggregate embeddings for a community from its YAML file.
 
         Args:
@@ -46,7 +46,7 @@ class CommunityVectorAggregator:
                 - aggregation_method: Method used for aggregation
         """
         # Parse YAML
-        with open(community_yaml_path, "r") as f:
+        with open(community_yaml_path) as f:
             community_data = yaml.safe_load(f)
 
         # Extract NCBITaxon IDs from taxonomy section
@@ -112,7 +112,7 @@ class CommunityVectorAggregator:
 
         return community_vector, metadata
 
-    def _extract_taxon_ids(self, community_data: Dict[str, Any]) -> List[str]:
+    def _extract_taxon_ids(self, community_data: dict[str, Any]) -> list[str]:
         """Extract NCBITaxon IDs from community YAML data.
 
         Args:
@@ -143,7 +143,7 @@ class CommunityVectorAggregator:
         min_coverage: float = 0.5,
         aggregation_method: str = "mean",
         exclude_hosts: bool = True,
-    ) -> Tuple[Dict[str, np.ndarray], Dict[str, Dict[str, Any]]]:
+    ) -> tuple[dict[str, np.ndarray], dict[str, dict[str, Any]]]:
         """Aggregate all communities in a directory.
 
         Args:

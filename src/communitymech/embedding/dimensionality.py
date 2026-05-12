@@ -1,7 +1,5 @@
 """Dimensionality reduction using UMAP."""
 
-from typing import Dict, List
-
 import numpy as np
 import pandas as pd
 import umap
@@ -37,7 +35,7 @@ class UMAPReducer:
 
     def fit_transform(
         self,
-        community_vectors: Dict[str, np.ndarray],
+        community_vectors: dict[str, np.ndarray],
     ) -> pd.DataFrame:
         """Reduce community vectors to 2D.
 

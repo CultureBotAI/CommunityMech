@@ -23,9 +23,7 @@ def test_community():
                         "label": "Ferroplasma acidarmanus",
                     },
                 },
-                "functional_roles": [
-                    {"id": "GO:0055114", "label": "oxidation-reduction process"}
-                ],
+                "functional_roles": [{"id": "GO:0055114", "label": "oxidation-reduction process"}],
                 "abundance": {
                     "relative_abundance": 0.25,
                     "abundance_category": "dominant",
@@ -101,9 +99,7 @@ def test_community():
 @pytest.fixture
 def temp_community_file(test_community):
     """Create a temporary community YAML file."""
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".yaml", delete=False
-    ) as f:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
         yaml.dump(test_community, f)
         path = Path(f.name)
 
@@ -272,9 +268,7 @@ def test_no_interactions(temp_community_file, test_community):
     # Modify community to have no interactions
     test_community["ecological_interactions"] = []
 
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".yaml", delete=False
-    ) as f:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
         yaml.dump(test_community, f)
         path = Path(f.name)
 
@@ -296,9 +290,7 @@ def test_missing_environmental_factors(temp_community_file, test_community):
     # Remove environmental factors
     del test_community["environmental_factors"]
 
-    with tempfile.NamedTemporaryFile(
-        mode="w", suffix=".yaml", delete=False
-    ) as f:
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".yaml", delete=False) as f:
         yaml.dump(test_community, f)
         path = Path(f.name)
 
@@ -307,9 +299,7 @@ def test_missing_environmental_factors(temp_community_file, test_community):
 
         env_context = builder._build_environmental_context()
         assert env_context["environment"] == "Unknown environment"
-        assert (
-            "No specific parameters" in env_context["environmental_context"]
-        )
+        assert "No specific parameters" in env_context["environmental_context"]
 
     finally:
         path.unlink()

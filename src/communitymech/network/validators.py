@@ -1,14 +1,29 @@
 """Multi-layer validation for LLM-generated network repair suggestions."""
 
-import subprocess
-import tempfile
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
-import yaml
-
+from communitymech.datamodel.communitymech import (
+    EvidenceItemSupportEnum,
+    EvidenceSourceEnum,
+    InteractionTypeEnum,
+)
 from communitymech.literature import LiteratureFetcher
+
+
+def _enum_values(enum_cls: type) -> list[str]:
+    """Return permissible values of a LinkML-generated EnumDefinitionImpl class.
+
+    Reads uppercase class attributes so the validator stays in sync with the
+    schema (regen via `just gen-python`) instead of duplicating enum values.
+    """
+    return [name for name in dir(enum_cls) if not name.startswith("_") and name.isupper()]
+
+
+_INTERACTION_TYPE_VALUES = _enum_values(InteractionTypeEnum)
+_SUPPORTS_VALUES = _enum_values(EvidenceItemSupportEnum)
+_EVIDENCE_SOURCE_VALUES = _enum_values(EvidenceSourceEnum)
 
 
 class ValidationError:
@@ -23,7 +38,7 @@ class ValidationError:
     def __repr__(self) -> str:
         return f"{self.layer}::{self.field}: {self.message} [{self.severity}]"
 
-    def to_dict(self) -> Dict[str, str]:
+    def to_dict(self) -> dict[str, str]:
         return {
             "layer": self.layer,
             "field": self.field,
@@ -64,8 +79,8 @@ class SuggestionValidator:
             self.literature_fetcher = LiteratureFetcher(cache_dir="references_cache")
 
     def validate(
-        self, suggestion: Dict[str, Any], community_data: Dict[str, Any]
-    ) -> Tuple[bool, List[ValidationError]]:
+        self, suggestion: dict[str, Any], community_data: dict[str, Any]
+    ) -> tuple[bool, list[ValidationError]]:
         """
         Perform multi-layer validation on a suggestion.
 
@@ -94,9 +109,7 @@ class SuggestionValidator:
 
         # Layer 4: Biological plausibility
         if self.check_plausibility_enabled:
-            plausibility_errors = self.check_biological_plausibility(
-                suggestion, community_data
-            )
+            plausibility_errors = self.check_biological_plausibility(suggestion, community_data)
             errors.extend(plausibility_errors)
 
         # Check if any critical errors
@@ -104,7 +117,7 @@ class SuggestionValidator:
 
         return not has_errors, errors
 
-    def validate_schema(self, suggestion: Dict[str, Any]) -> List[ValidationError]:
+    def validate_schema(self, suggestion: dict[str, Any]) -> list[ValidationError]:
         """
         Layer 1: Validate YAML structure against LinkML schema.
 
@@ -166,21 +179,12 @@ class SuggestionValidator:
                 errors.extend(target_errors)
 
             # Validate interaction_type is valid enum
-            valid_types = [
-                "MUTUALISM",
-                "SYNTROPHY",
-                "COMPETITION",
-                "PREDATION",
-                "PARASITISM",
-                "COMMENSALISM",
-                "AMENSALISM",
-            ]
-            if interaction.get("interaction_type") not in valid_types:
+            if interaction.get("interaction_type") not in _INTERACTION_TYPE_VALUES:
                 errors.append(
                     ValidationError(
                         layer="schema",
                         field=f"suggested_interactions[{idx}].interaction_type",
-                        message=f"Invalid interaction type. Must be one of: {', '.join(valid_types)}",
+                        message=f"Invalid interaction type. Must be one of: {', '.join(_INTERACTION_TYPE_VALUES)}",
                         severity="error",
                     )
                 )
@@ -196,8 +200,8 @@ class SuggestionValidator:
         return errors
 
     def _validate_taxon_term(
-        self, taxon_term: Dict[str, Any], field_path: str
-    ) -> List[ValidationError]:
+        self, taxon_term: dict[str, Any], field_path: str
+    ) -> list[ValidationError]:
         """Validate TaxonTerm structure."""
         errors = []
 
@@ -246,8 +250,8 @@ class SuggestionValidator:
         return errors
 
     def _validate_evidence_item(
-        self, evidence: Dict[str, Any], field_path: str
-    ) -> List[ValidationError]:
+        self, evidence: dict[str, Any], field_path: str
+    ) -> list[ValidationError]:
         """Validate EvidenceItem structure."""
         errors = []
 
@@ -264,32 +268,30 @@ class SuggestionValidator:
                     )
                 )
 
-        # Validate enums
-        if evidence.get("supports") not in ["SUPPORT", "REFUTE", "NO_EVIDENCE"]:
+        # Validate enums (sourced from the LinkML datamodel so they track the schema).
+        if evidence.get("supports") not in _SUPPORTS_VALUES:
             errors.append(
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.supports",
-                    message="Invalid value for 'supports'",
+                    message=f"Invalid value for 'supports'. Must be one of: {', '.join(_SUPPORTS_VALUES)}",
                     severity="error",
                 )
             )
 
-        if evidence.get("evidence_source") not in ["LITERATURE", "DATABASE", "EXPERIMENTAL"]:
+        if evidence.get("evidence_source") not in _EVIDENCE_SOURCE_VALUES:
             errors.append(
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.evidence_source",
-                    message="Invalid value for 'evidence_source'",
+                    message=f"Invalid value for 'evidence_source'. Must be one of: {', '.join(_EVIDENCE_SOURCE_VALUES)}",
                     severity="error",
                 )
             )
 
         return errors
 
-    def validate_ontology_terms(
-        self, suggestion: Dict[str, Any]
-    ) -> List[ValidationError]:
+    def validate_ontology_terms(self, suggestion: dict[str, Any]) -> list[ValidationError]:
         """
         Layer 2: Validate ontology term IDs via OAK.
 
@@ -328,9 +330,7 @@ class SuggestionValidator:
                     )
 
             # Validate CHEBI IDs
-            for met_idx, metabolite in enumerate(
-                interaction.get("metabolites_exchanged", [])
-            ):
+            for met_idx, metabolite in enumerate(interaction.get("metabolites_exchanged", [])):
                 met_id = metabolite.get("metabolite_term", {}).get("id")
                 if met_id and not self._validate_chebi_id(met_id):
                     errors.append(
@@ -343,9 +343,7 @@ class SuggestionValidator:
                     )
 
             # Validate GO IDs
-            for proc_idx, process in enumerate(
-                interaction.get("biological_processes", [])
-            ):
+            for proc_idx, process in enumerate(interaction.get("biological_processes", [])):
                 proc_id = process.get("id")
                 if proc_id and not self._validate_go_id(proc_id):
                     errors.append(
@@ -392,7 +390,7 @@ class SuggestionValidator:
         except (ValueError, IndexError):
             return False
 
-    def validate_evidence(self, suggestion: Dict[str, Any]) -> List[ValidationError]:
+    def validate_evidence(self, suggestion: dict[str, Any]) -> list[ValidationError]:
         """
         Layer 3: Validate evidence snippets match abstracts.
 
@@ -482,8 +480,8 @@ class SuggestionValidator:
         return ratio >= self.min_snippet_match_score
 
     def check_biological_plausibility(
-        self, suggestion: Dict[str, Any], community_data: Dict[str, Any]
-    ) -> List[ValidationError]:
+        self, suggestion: dict[str, Any], community_data: dict[str, Any]
+    ) -> list[ValidationError]:
         """
         Layer 4: Check biological plausibility of suggestions.
 
