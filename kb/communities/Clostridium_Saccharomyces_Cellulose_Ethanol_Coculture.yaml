@@ -1,0 +1,328 @@
+id: CommunityMech:000206
+name: Clostridium-Saccharomyces Cellulose Ethanol Coculture
+description: >
+  A synthetic two-member cellulose-to-ethanol coculture pairing the cellulolytic
+  mesophile Clostridium phytofermentans ISDg, currently represented in NCBI
+  Taxonomy as Lachnoclostridium phytofermentans ISDg, with the engineered
+  cellodextrin-fermenting yeast Saccharomyces cerevisiae cdt-1. The consortium
+  is maintained by controlled oxygen delivery: the yeast removes inhibitory oxygen
+  and receives soluble sugars released during C. phytofermentans cellulose hydrolysis.
+  With added endoglucanase, the coculture produced approximately 22 g/L ethanol from
+  100 g/L alpha-cellulose. This system is relevant to DOE lignocellulosic biofuel
+  and consolidated bioprocessing goals.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Develop a stable consortia-based process for direct ethanol production
+    from cellulose using oxygen-mediated symbiosis between a cellulolytic bacterium
+    and an ethanologenic yeast.
+  assembly_strategy: Combine C. phytofermentans with S. cerevisiae cdt-1 so that
+    bacterial cellulose hydrolysis supplies soluble sugars to the yeast while yeast
+    respiration protects the oxygen-sensitive bacterium.
+  perturbation_design: Compare mono- and cocultures under semi-aerobic conditions,
+    controlled oxygen transfer, scale-up to 500 mL reactors, and added endoglucanase
+    during high-cellulose fermentations.
+  measurement_endpoints:
+  - Filter paper degradation
+  - Alpha-cellulose conversion
+  - Ethanol concentration
+  - Population stability over 50 days
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: symbiotic Clostridium phytofermentans/yeast co-culture
+    explanation: Supports the engineered cellulolytic bacterium and yeast coculture design.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consortia-based bioprocessing systems for lignocellulosic biofuels production
+    explanation: Supports the DOE-relevant lignocellulosic biofuels objective.
+environment_term:
+  preferred_term: oxygen-controlled cellulose-fed laboratory bioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory cellulose fermentation with diffusive low-level oxygen
+    transfer through neoprene tubing in shake cultures and 500 mL bioreactors.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+    notes: The source uses the name C. phytofermentans; NCBI currently represents
+      the strain as Lachnoclostridium phytofermentans ISDg.
+  strain_designation:
+    strain_name: ISDg
+    culture_collections:
+    - collection: ATCC
+      accession: ATCC 700394
+    - collection: DSM
+      accession: DSM 18823
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans and yeast
+    explanation: Supports C. phytofermentans as the bacterial member of the coculture.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: soluble sugars released by C. phytofermentans hydrolysis
+    explanation: Supports the primary degrader role in releasing soluble sugars from cellulose.
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae cdt-1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    notes: Engineered S. cerevisiae cdt-1 is a cellodextrin-fermenting yeast used
+      as the ethanologenic partner in the curated exact coculture.
+  strain_designation:
+    strain_name: cdt-1
+    genetic_modification: Expression of cellodextrin transport and intracellular
+      cleavage functions for cellodextrin utilization.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces cerevisiae cdt-1
+    explanation: Supports S. cerevisiae cdt-1 as the yeast member of the exact coculture.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces cerevisiae cdt-1
+    explanation: Supports the identity of the engineered yeast partner.
+ecological_interactions:
+- name: Cellulose Hydrolysis Feeds Yeast Fermentation
+  description: C. phytofermentans hydrolyzes alpha-cellulose and releases soluble sugars
+    that can be fermented by S. cerevisiae cdt-1.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae cdt-1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: soluble sugars released by C. phytofermentans hydrolysis
+    explanation: Supports soluble sugar cross-feeding from the cellulolytic bacterium to the yeast.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced approximately 22 g/L ethanol
+    explanation: Supports the ethanol-producing outcome of the bacterium-yeast coculture.
+- name: Oxygen Protection of Anaerobic Cellulolytic Partner
+  description: S. cerevisiae cdt-1 removes introduced oxygen, protecting oxygen-sensitive
+    C. phytofermentans and allowing the coculture to persist under controlled oxygen
+    delivery.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae cdt-1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: protect C. phytofermentans from introduced oxygen
+    explanation: Supports oxygen removal by yeast as the protective interaction.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained by controlled oxygen transport
+    explanation: Supports controlled oxygen delivery as the stabilizing environmental mechanism.
+- name: Long-Term Symbiotic Population Maintenance
+  description: Controlled diffusive oxygen transfer supported maintenance of both
+    C. phytofermentans and S. cerevisiae cdt-1 populations for 50 days.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae cdt-1
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintenance of populations of 105 to 106 CFU/mL for 50 days
+    explanation: Supports long-term maintenance of both members under controlled oxygen transfer.
+environmental_factors:
+- name: Controlled oxygen transfer
+  value: approximately 8 micromol/L hour diffusive oxygen delivery
+  description: Low-level oxygen delivery through neoprene tubing provided enough oxygen
+    for yeast respiration while maintaining compatibility with the anaerobic cellulolytic
+    bacterium.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: controlled oxygen delivery by diffusion
+    explanation: Supports controlled diffusive oxygen delivery as the stabilizing factor.
+- name: Semi-aerobic cellulose degradation
+  value: filter paper and alpha-cellulose under semi-aerobic coculture conditions
+  description: Filter paper degradation required coculture under semi-aerobic conditions,
+    and high-substrate alpha-cellulose tests quantified ethanol production.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: semi-aerobic conditions
+    explanation: Supports the oxygen regime for filter paper degradation assays.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only co-cultures were able to degrade filter paper
+    explanation: Supports coculture-specific cellulose degradation under semi-aerobic conditions.
+- name: Added endoglucanase
+  value: added endoglucanase during high-cellulose fermentation
+  description: Additional cellulase improved alpha-cellulose conversion and ethanol production,
+    indicating hydrolysis-rate limitation in the coculture process.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: improve with additional cellulase
+    explanation: Supports cellulase supplementation as a performance-affecting perturbation.
+- name: Ethanol titer
+  value: approximately 22 g/L ethanol from 100 g/L alpha-cellulose
+  description: The C. phytofermentans and S. cerevisiae cdt-1 coculture with endoglucanase
+    produced more ethanol than either monoculture under the reported high-cellulose condition.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 22 g/L ethanol from 100 g/L
+    explanation: Supports the curated ethanol titer and substrate loading.
+growth_media:
+- name: Oxygen-controlled alpha-cellulose ethanol coculture
+  composition:
+  - name: alpha-cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: oxygen
+    chebi_term:
+      preferred_term: oxygen
+      term:
+        id: CHEBI:15379
+        label: dioxygen
+  - name: ethanol
+    chebi_term:
+      preferred_term: ethanol
+      term:
+        id: CHEBI:16236
+        label: ethanol
+  atmosphere: MICROAEROBIC
+  vessel_type: 50 mL shake culture and 500 mL bioreactor
+  preparation_notes: The coculture used alpha-cellulose as the feedstock and controlled
+    diffusive oxygen delivery. The abstract supports the core substrate, oxygen-transfer,
+    scale-up, and ethanol production conditions; detailed GS2 medium composition is left
+    to the full-text resource.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: semi-aerobic conditions
+    explanation: Supports the low-oxygen culture condition for the coculture experiments.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: scaled up 500 mL bioreactors
+    explanation: Supports the reactor scale-up condition.
+external_resources:
+- name: Exact-system primary publication - cellulose-to-ethanol symbiotic coculture
+  repository: OTHER
+  resource_id: PMID:23628342
+  url: https://pubmed.ncbi.nlm.nih.gov/23628342/
+  description: Primary PubMed record for the C. phytofermentans and S. cerevisiae cdt-1
+    cellulose-to-ethanol coculture.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. phytofermentans and S. cerevisiae cdt-1
+    explanation: Lists the primary exact-composition publication for the curated coculture.
+- name: Full-text open-access article
+  repository: OTHER
+  resource_id: PMCID:PMC3653780
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3653780/
+  description: Full-text article with reactor design, culture conditions, and comparative
+    mono- and coculture data.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/1754-6834-6-59
+  url: https://doi.org/10.1186/1754-6834-6-59
+  description: DOI for the Biotechnology for Biofuels publication.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this cellulose-to-ethanol
+  coculture.
