@@ -8,7 +8,7 @@ using a three-tiered approach:
 """
 
 from pathlib import Path
-from typing import Dict, List, Set, Tuple
+
 import yaml
 
 # Mapping from CHEBI IDs to MetalElementEnum values
@@ -52,7 +52,7 @@ REE_CHEBI_MAP = {
 }
 
 # Keywords for metal detection in environmental factors and descriptions
-METAL_KEYWORDS: Dict[str, List[str]] = {
+METAL_KEYWORDS: dict[str, list[str]] = {
     "COPPER": ["copper", "cu2+", "cu(ii)", "cupric"],
     "IRON": ["iron", "fe2+", "fe3+", "fe(ii)", "fe(iii)", "ferrous", "ferric"],
     "ZINC": ["zinc", "zn2+", "zn(ii)"],
@@ -72,7 +72,7 @@ METAL_KEYWORDS: Dict[str, List[str]] = {
 }
 
 # REE keywords
-REE_KEYWORDS: Dict[str, List[str]] = {
+REE_KEYWORDS: dict[str, list[str]] = {
     "LANTHANUM": ["lanthanum", "la3+", "la(iii)"],
     "CERIUM": ["cerium", "ce3+", "ce4+", "ce(iii)", "ce(iv)"],
     "PRASEODYMIUM": ["praseodymium", "pr3+", "pr(iii)"],
@@ -114,7 +114,7 @@ STRONG_CONTEXT_KEYWORDS = [
 ]
 
 
-def extract_metals_from_community(yaml_path: Path) -> Tuple[List[str], List[str], str, str]:
+def extract_metals_from_community(yaml_path: Path) -> tuple[list[str], list[str], str, str]:
     """Extract metal/REE presence and relevance from community YAML.
 
     Uses a three-tiered extraction approach:
@@ -131,9 +131,9 @@ def extract_metals_from_community(yaml_path: Path) -> Tuple[List[str], List[str]
     with open(yaml_path) as f:
         data = yaml.safe_load(f)
 
-    metals: Set[str] = set()
-    ree: Set[str] = set()
-    notes_parts: List[str] = []
+    metals: set[str] = set()
+    ree: set[str] = set()
+    notes_parts: list[str] = []
 
     # Tier 1: CHEBI ID matching in metabolites
     tier1_metals, tier1_ree = _extract_from_chebi_terms(data)
@@ -168,10 +168,10 @@ def extract_metals_from_community(yaml_path: Path) -> Tuple[List[str], List[str]
     return sorted(list(metals)), sorted(list(ree)), relevance, notes
 
 
-def _extract_from_chebi_terms(data: dict) -> Tuple[Set[str], Set[str]]:
+def _extract_from_chebi_terms(data: dict) -> tuple[set[str], set[str]]:
     """Extract metals/REE from CHEBI terms in metabolites (Tier 1)."""
-    metals: Set[str] = set()
-    ree: Set[str] = set()
+    metals: set[str] = set()
+    ree: set[str] = set()
 
     for interaction in data.get("ecological_interactions", []):
         for metabolite in interaction.get("metabolites", []):
@@ -186,10 +186,10 @@ def _extract_from_chebi_terms(data: dict) -> Tuple[Set[str], Set[str]]:
     return metals, ree
 
 
-def _extract_from_environmental_factors(data: dict) -> Tuple[Set[str], Set[str]]:
+def _extract_from_environmental_factors(data: dict) -> tuple[set[str], set[str]]:
     """Extract metals/REE from environmental factors with quantification (Tier 2)."""
-    metals: Set[str] = set()
-    ree: Set[str] = set()
+    metals: set[str] = set()
+    ree: set[str] = set()
 
     for factor in data.get("environmental_factors", []):
         name = factor.get("name", "").lower()
@@ -212,10 +212,10 @@ def _extract_from_environmental_factors(data: dict) -> Tuple[Set[str], Set[str]]
     return metals, ree
 
 
-def _extract_from_description(data: dict) -> Tuple[Set[str], Set[str], str]:
+def _extract_from_description(data: dict) -> tuple[set[str], set[str], str]:
     """Extract metals/REE from description with context validation (Tier 3)."""
-    metals: Set[str] = set()
-    ree: Set[str] = set()
+    metals: set[str] = set()
+    ree: set[str] = set()
     notes = ""
 
     # Combine description, name, and environment notes for searching
@@ -255,7 +255,7 @@ def _extract_from_description(data: dict) -> Tuple[Set[str], Set[str], str]:
     return metals, ree, notes
 
 
-def _compute_relevance(data: dict, metals: Set[str], ree: Set[str]) -> str:
+def _compute_relevance(data: dict, metals: set[str], ree: set[str]) -> str:
     """Compute metal relevance based on category and evidence."""
     category = data.get("community_category", "")
     description = data.get("description", "").lower()
@@ -283,15 +283,15 @@ def _compute_relevance(data: dict, metals: Set[str], ree: Set[str]) -> str:
     return "NOT_APPLICABLE"
 
 
-def extract_all_metals_summary() -> Dict[str, int]:
+def extract_all_metals_summary() -> dict[str, int]:
     """Generate a summary of all metals/REE across all communities.
 
     Returns:
         Dictionary mapping metal/REE names to their occurrence counts
     """
     community_dir = Path("kb/communities")
-    metal_counts: Dict[str, int] = {}
-    ree_counts: Dict[str, int] = {}
+    metal_counts: dict[str, int] = {}
+    ree_counts: dict[str, int] = {}
 
     for yaml_file in sorted(community_dir.glob("*.yaml")):
         metals, ree, _, _ = extract_metals_from_community(yaml_file)

@@ -1,7 +1,7 @@
 """Test that generated Python datamodel exists and community YAML is valid."""
 
-import pytest
 from pathlib import Path
+
 import yaml
 
 # from linkml_runtime.loaders import yaml_loader

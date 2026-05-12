@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any
 
 from communitymech.llm.context_builder import ContextBuilder
 from communitymech.llm.prompts import (
@@ -30,7 +30,7 @@ class RepairStrategy(ABC):
         self.context_builder = ContextBuilder(community_path)
 
     @abstractmethod
-    def can_handle(self, issue: Dict[str, Any]) -> bool:
+    def can_handle(self, issue: dict[str, Any]) -> bool:
         """
         Check if this strategy can handle the given issue.
 
@@ -43,7 +43,7 @@ class RepairStrategy(ABC):
         pass
 
     @abstractmethod
-    def build_context(self, issue: Dict[str, Any]) -> Dict[str, Any]:
+    def build_context(self, issue: dict[str, Any]) -> dict[str, Any]:
         """
         Build LLM context for this issue.
 
@@ -66,8 +66,8 @@ class RepairStrategy(ABC):
         pass
 
     def validate_suggestion(
-        self, suggestion: Dict[str, Any], community_data: Dict[str, Any]
-    ) -> Tuple[bool, List]:
+        self, suggestion: dict[str, Any], community_data: dict[str, Any]
+    ) -> tuple[bool, list]:
         """
         Validate LLM suggestion using multi-layer validation.
 
@@ -80,7 +80,7 @@ class RepairStrategy(ABC):
         """
         return self.validator.validate(suggestion, community_data)
 
-    def get_issue_summary(self, issue: Dict[str, Any]) -> str:
+    def get_issue_summary(self, issue: dict[str, Any]) -> str:
         """
         Get human-readable summary of the issue.
 
@@ -96,11 +96,11 @@ class RepairStrategy(ABC):
 class DisconnectedTaxonStrategy(RepairStrategy):
     """Strategy for repairing disconnected taxa."""
 
-    def can_handle(self, issue: Dict[str, Any]) -> bool:
+    def can_handle(self, issue: dict[str, Any]) -> bool:
         """Check if this is a DISCONNECTED issue."""
         return issue.get("type") == IssueType.DISCONNECTED
 
-    def build_context(self, issue: Dict[str, Any]) -> Dict[str, Any]:
+    def build_context(self, issue: dict[str, Any]) -> dict[str, Any]:
         """
         Build context for disconnected taxon repair.
 
@@ -114,9 +114,7 @@ class DisconnectedTaxonStrategy(RepairStrategy):
         taxon_id = issue.get("taxon_id")
 
         if not taxon_name or not taxon_id:
-            raise ValueError(
-                f"Issue missing required fields 'taxon' or 'taxon_id': {issue}"
-            )
+            raise ValueError(f"Issue missing required fields 'taxon' or 'taxon_id': {issue}")
 
         return self.context_builder.build_disconnected_taxon_context(
             taxon_name=taxon_name, taxon_id=taxon_id
@@ -126,7 +124,7 @@ class DisconnectedTaxonStrategy(RepairStrategy):
         """Get DISCONNECTED_TAXON_PROMPT."""
         return DISCONNECTED_TAXON_PROMPT
 
-    def get_issue_summary(self, issue: Dict[str, Any]) -> str:
+    def get_issue_summary(self, issue: dict[str, Any]) -> str:
         """Get summary for disconnected taxon."""
         taxon = issue.get("taxon", "Unknown")
         taxon_id = issue.get("taxon_id", "Unknown")
@@ -136,11 +134,11 @@ class DisconnectedTaxonStrategy(RepairStrategy):
 class MissingSourceStrategy(RepairStrategy):
     """Strategy for identifying missing source_taxon."""
 
-    def can_handle(self, issue: Dict[str, Any]) -> bool:
+    def can_handle(self, issue: dict[str, Any]) -> bool:
         """Check if this is a MISSING_SOURCE issue."""
         return issue.get("type") == IssueType.MISSING_SOURCE
 
-    def build_context(self, issue: Dict[str, Any]) -> Dict[str, Any]:
+    def build_context(self, issue: dict[str, Any]) -> dict[str, Any]:
         """
         Build context for missing source repair.
 
@@ -154,9 +152,7 @@ class MissingSourceStrategy(RepairStrategy):
         interaction_index = issue.get("interaction_index")
 
         if interaction_index is None:
-            raise ValueError(
-                f"Issue missing required field 'interaction_index': {issue}"
-            )
+            raise ValueError(f"Issue missing required field 'interaction_index': {issue}")
 
         return self.context_builder.build_missing_source_context(
             interaction_name=interaction_name, interaction_index=interaction_index
@@ -166,7 +162,7 @@ class MissingSourceStrategy(RepairStrategy):
         """Get MISSING_SOURCE_PROMPT."""
         return MISSING_SOURCE_PROMPT
 
-    def get_issue_summary(self, issue: Dict[str, Any]) -> str:
+    def get_issue_summary(self, issue: dict[str, Any]) -> str:
         """Get summary for missing source."""
         interaction = issue.get("interaction", "Unknown")
         return f"Missing source: {interaction}"
@@ -175,11 +171,11 @@ class MissingSourceStrategy(RepairStrategy):
 class UnknownTargetStrategy(RepairStrategy):
     """Strategy for resolving unknown target taxon references."""
 
-    def can_handle(self, issue: Dict[str, Any]) -> bool:
+    def can_handle(self, issue: dict[str, Any]) -> bool:
         """Check if this is an UNKNOWN_TARGET issue."""
         return issue.get("type") == IssueType.UNKNOWN_TARGET
 
-    def build_context(self, issue: Dict[str, Any]) -> Dict[str, Any]:
+    def build_context(self, issue: dict[str, Any]) -> dict[str, Any]:
         """
         Build context for unknown target resolution.
 
@@ -203,7 +199,7 @@ class UnknownTargetStrategy(RepairStrategy):
         """Get UNKNOWN_TARGET_PROMPT."""
         return UNKNOWN_TARGET_PROMPT
 
-    def get_issue_summary(self, issue: Dict[str, Any]) -> str:
+    def get_issue_summary(self, issue: dict[str, Any]) -> str:
         """Get summary for unknown target."""
         interaction = issue.get("interaction", "Unknown")
         taxon = issue.get("taxon", "Unknown")
@@ -213,11 +209,11 @@ class UnknownTargetStrategy(RepairStrategy):
 class UnknownSourceStrategy(RepairStrategy):
     """Strategy for resolving unknown source taxon references."""
 
-    def can_handle(self, issue: Dict[str, Any]) -> bool:
+    def can_handle(self, issue: dict[str, Any]) -> bool:
         """Check if this is an UNKNOWN_SOURCE issue."""
         return issue.get("type") == IssueType.UNKNOWN_SOURCE
 
-    def build_context(self, issue: Dict[str, Any]) -> Dict[str, Any]:
+    def build_context(self, issue: dict[str, Any]) -> dict[str, Any]:
         """
         Build context for unknown source resolution.
 
@@ -244,7 +240,7 @@ class UnknownSourceStrategy(RepairStrategy):
         """Get UNKNOWN_TARGET_PROMPT (reused for source)."""
         return UNKNOWN_TARGET_PROMPT
 
-    def get_issue_summary(self, issue: Dict[str, Any]) -> str:
+    def get_issue_summary(self, issue: dict[str, Any]) -> str:
         """Get summary for unknown source."""
         interaction = issue.get("interaction", "Unknown")
         taxon = issue.get("taxon", "Unknown")
@@ -273,7 +269,7 @@ class StrategySelector:
             UnknownSourceStrategy(community_path, validator),
         ]
 
-    def select_strategy(self, issue: Dict[str, Any]) -> RepairStrategy:
+    def select_strategy(self, issue: dict[str, Any]) -> RepairStrategy:
         """
         Select appropriate strategy for the given issue.
 
@@ -292,7 +288,7 @@ class StrategySelector:
 
         raise ValueError(f"No strategy found for issue type: {issue.get('type')}")
 
-    def can_repair(self, issue: Dict[str, Any]) -> bool:
+    def can_repair(self, issue: dict[str, Any]) -> bool:
         """
         Check if any strategy can repair this issue.
 
@@ -308,7 +304,7 @@ class StrategySelector:
         except ValueError:
             return False
 
-    def get_repairable_issue_types(self) -> List[str]:
+    def get_repairable_issue_types(self) -> list[str]:
         """
         Get list of issue types that can be repaired.
 

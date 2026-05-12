@@ -3,7 +3,7 @@
 import os
 import time
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any
 
 import yaml
 
@@ -19,7 +19,7 @@ from communitymech.llm.prompts import SYSTEM_MESSAGE
 class AnthropicClient(LLMClient):
     """Claude API integration with caching and rate limiting."""
 
-    def __init__(self, config: Optional[Dict[str, Any]] = None):
+    def __init__(self, config: dict[str, Any] | None = None):
         """
         Initialize Anthropic client.
 
@@ -71,7 +71,7 @@ class AnthropicClient(LLMClient):
         self._last_request_time = 0
         self._requests_this_minute = []
 
-    def _load_config(self) -> Dict[str, Any]:
+    def _load_config(self) -> dict[str, Any]:
         """Load configuration from conf/llm_config.yaml."""
         config_path = Path("conf/llm_config.yaml")
         if not config_path.exists():
@@ -88,9 +88,7 @@ class AnthropicClient(LLMClient):
         now = time.time()
 
         # Remove requests older than 1 minute
-        self._requests_this_minute = [
-            t for t in self._requests_this_minute if now - t < 60
-        ]
+        self._requests_this_minute = [t for t in self._requests_this_minute if now - t < 60]
 
         # Check if we're at the limit
         if len(self._requests_this_minute) >= self.rate_limit_per_minute:
@@ -126,9 +124,9 @@ class AnthropicClient(LLMClient):
     def generate_suggestion(
         self,
         prompt: str,
-        context: Dict[str, Any],
+        context: dict[str, Any],
         temperature: float = 0.1,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Generate a repair suggestion using Claude API.
 
@@ -192,7 +190,7 @@ class AnthropicClient(LLMClient):
         except Exception as e:
             raise RuntimeError(f"Error generating suggestion: {e}")
 
-    def _parse_yaml_response(self, response_text: str) -> Dict[str, Any]:
+    def _parse_yaml_response(self, response_text: str) -> dict[str, Any]:
         """
         Parse YAML from LLM response.
 
@@ -236,7 +234,7 @@ class AnthropicClient(LLMClient):
         except yaml.YAMLError as e:
             raise ValueError(f"Failed to parse YAML: {e}\n\nContent:\n{yaml_content}")
 
-    def get_cost_estimate(self) -> Dict[str, Any]:
+    def get_cost_estimate(self) -> dict[str, Any]:
         """
         Get cost estimate for API usage so far.
 

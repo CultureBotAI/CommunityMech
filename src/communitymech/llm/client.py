@@ -1,7 +1,7 @@
 """Abstract base class for LLM clients."""
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 class LLMClient(ABC):
@@ -9,8 +9,8 @@ class LLMClient(ABC):
 
     @abstractmethod
     def generate_suggestion(
-        self, prompt: str, context: Dict[str, Any], temperature: float = 0.1
-    ) -> Dict[str, Any]:
+        self, prompt: str, context: dict[str, Any], temperature: float = 0.1
+    ) -> dict[str, Any]:
         """
         Generate a repair suggestion using the LLM.
 

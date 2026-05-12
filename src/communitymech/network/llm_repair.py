@@ -3,7 +3,7 @@
 import shutil
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 import yaml
 
@@ -18,8 +18,8 @@ class LLMNetworkRepairer:
 
     def __init__(
         self,
-        llm_client: Optional[AnthropicClient] = None,
-        validator: Optional[SuggestionValidator] = None,
+        llm_client: AnthropicClient | None = None,
+        validator: SuggestionValidator | None = None,
         backup_dir: Path = Path(".backups"),
     ):
         """
@@ -45,8 +45,8 @@ class LLMNetworkRepairer:
         yaml_path: Path,
         dry_run: bool = True,
         auto_approve: bool = False,
-        max_repairs: Optional[int] = None,
-    ) -> Dict[str, Any]:
+        max_repairs: int | None = None,
+    ) -> dict[str, Any]:
         """
         Repair network integrity issues in a community file.
 
@@ -126,13 +126,13 @@ class LLMNetworkRepairer:
 
     def _repair_single_issue(
         self,
-        issue: Dict[str, Any],
+        issue: dict[str, Any],
         yaml_path: Path,
-        community_data: Dict[str, Any],
+        community_data: dict[str, Any],
         selector: StrategySelector,
         dry_run: bool,
         auto_approve: bool,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Repair a single network integrity issue.
 
@@ -182,9 +182,7 @@ class LLMNetworkRepairer:
             if is_valid:
                 if auto_approve or not dry_run:
                     # Apply the suggestion
-                    self._apply_suggestion(
-                        yaml_path, suggestion, community_data, dry_run
-                    )
+                    self._apply_suggestion(yaml_path, suggestion, community_data, dry_run)
                     repair_result["applied"] = not dry_run
                     self.repairs_succeeded += 1
                 else:
@@ -208,8 +206,8 @@ class LLMNetworkRepairer:
     def _apply_suggestion(
         self,
         yaml_path: Path,
-        suggestion: Dict[str, Any],
-        community_data: Dict[str, Any],
+        suggestion: dict[str, Any],
+        community_data: dict[str, Any],
         dry_run: bool,
     ):
         """
@@ -265,7 +263,7 @@ class LLMNetworkRepairer:
         shutil.copy(yaml_path, backup_path)
         return backup_path
 
-    def list_backups(self, yaml_path: Path) -> List[Path]:
+    def list_backups(self, yaml_path: Path) -> list[Path]:
         """
         List available backups for a file.
 
@@ -292,7 +290,7 @@ class LLMNetworkRepairer:
 
         shutil.copy(backup_path, target_path)
 
-    def get_repair_summary(self) -> Dict[str, Any]:
+    def get_repair_summary(self) -> dict[str, Any]:
         """
         Get summary of repair session.
 

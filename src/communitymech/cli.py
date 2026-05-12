@@ -13,10 +13,10 @@ from communitymech.network.auditor import NetworkIntegrityAuditor
 try:
     from rich.console import Console
     from rich.panel import Panel
+    from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm
     from rich.syntax import Syntax
     from rich.table import Table
-    from rich.progress import Progress, SpinnerColumn, TextColumn
 
     RICH_AVAILABLE = True
 except ImportError:
@@ -58,9 +58,7 @@ def cli():
     type=click.Path(dir_okay=False, path_type=Path),
     help="Write detailed report to file",
 )
-def audit_network(
-    communities_dir: Path, check_only: bool, output_json: bool, report: Path = None
-):
+def audit_network(communities_dir: Path, check_only: bool, output_json: bool, report: Path = None):
     """Audit network integrity for all community YAML files.
 
     Checks for:
@@ -183,6 +181,7 @@ def repair_network(file: Path, auto_approve: bool, dry_run: bool, max_repairs: i
         click.echo(f"❌ Error during repair: {e}", err=True)
         if "--verbose" in sys.argv:
             import traceback
+
             traceback.print_exc()
         sys.exit(1)
 
@@ -227,10 +226,14 @@ def _interactive_repair(console: Console, repairer, file: Path, max_repairs: int
     repairable_issues = [i for i in issues if selector.can_repair(i)]
 
     if not repairable_issues:
-        console.print(f"\n[yellow]⚠️  None of the {len(issues)} issues are auto-repairable[/yellow]")
+        console.print(
+            f"\n[yellow]⚠️  None of the {len(issues)} issues are auto-repairable[/yellow]"
+        )
         return {"status": "no_repairs", "repairs": []}
 
-    console.print(f"\n[green]{len(repairable_issues)} issues can be repaired with LLM assistance[/green]\n")
+    console.print(
+        f"\n[green]{len(repairable_issues)} issues can be repaired with LLM assistance[/green]\n"
+    )
 
     if max_repairs:
         repairable_issues = repairable_issues[:max_repairs]
@@ -276,12 +279,20 @@ def _interactive_repair(console: Console, repairer, file: Path, max_repairs: int
                 # Apply
                 if "ecological_interactions" not in community_data:
                     community_data["ecological_interactions"] = []
-                community_data["ecological_interactions"].extend(suggestion.get("suggested_interactions", []))
+                community_data["ecological_interactions"].extend(
+                    suggestion.get("suggested_interactions", [])
+                )
 
                 # Create backup and write
                 backup_path = repairer._create_backup(file)
                 with open(file, "w") as f:
-                    yaml.dump(community_data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+                    yaml.dump(
+                        community_data,
+                        f,
+                        default_flow_style=False,
+                        sort_keys=False,
+                        allow_unicode=True,
+                    )
 
                 console.print(f"[green]✓ Applied[/green] (backup: {backup_path.name})")
                 repairs.append({"issue": issue, "applied": True, "valid": True})
@@ -292,16 +303,19 @@ def _interactive_repair(console: Console, repairer, file: Path, max_repairs: int
             console.print("[red]⊘ Skipped (validation failed)[/red]")
             repairs.append({"issue": issue, "applied": False, "valid": False})
 
-    return {"status": "success", "repairs": repairs, "cost": repairer.llm_client.get_cost_estimate()}
+    return {
+        "status": "success",
+        "repairs": repairs,
+        "cost": repairer.llm_client.get_cost_estimate(),
+    }
 
 
-def _non_interactive_repair(repairer, file: Path, auto_approve: bool, dry_run: bool, max_repairs: int):
+def _non_interactive_repair(
+    repairer, file: Path, auto_approve: bool, dry_run: bool, max_repairs: int
+):
     """Non-interactive repair (batch mode or auto-approve)."""
     return repairer.repair_community(
-        yaml_path=file,
-        dry_run=dry_run,
-        auto_approve=auto_approve,
-        max_repairs=max_repairs
+        yaml_path=file, dry_run=dry_run, auto_approve=auto_approve, max_repairs=max_repairs
     )
 
 
@@ -460,10 +474,12 @@ def _generate_batch_report(output_path: Path, max_communities: int, max_issues: 
 
         console.print(table)
 
-        console.print(f"\n[bold]Next Steps:[/bold]")
+        console.print("\n[bold]Next Steps:[/bold]")
         console.print(f"1. Review the report: {result['report_path']}")
         console.print("2. Set 'approved: true' for suggestions you want to apply")
-        console.print(f"3. Apply approved: communitymech repair-network-batch --apply-from {result['report_path']}")
+        console.print(
+            f"3. Apply approved: communitymech repair-network-batch --apply-from {result['report_path']}"
+        )
         console.print()
 
     else:
@@ -485,10 +501,12 @@ def _generate_batch_report(output_path: Path, max_communities: int, max_issues: 
             click.echo(f"API Calls: {cost.get('api_calls', 0)}")
             click.echo(f"Total Cost: ${cost.get('total_cost_usd', 0):.4f}")
 
-        click.echo(f"\nNext Steps:")
+        click.echo("\nNext Steps:")
         click.echo(f"1. Review: {result['report_path']}")
         click.echo("2. Set 'approved: true' for suggestions to apply")
-        click.echo(f"3. Apply: communitymech repair-network-batch --apply-from {result['report_path']}\n")
+        click.echo(
+            f"3. Apply: communitymech repair-network-batch --apply-from {result['report_path']}\n"
+        )
 
 
 def _apply_batch_report(report_path: Path):
@@ -501,7 +519,7 @@ def _apply_batch_report(report_path: Path):
 
     if RICH_AVAILABLE:
         console = Console()
-        console.print(f"\n[bold blue]🔧 Applying Batch Repairs[/bold blue]")
+        console.print("\n[bold blue]🔧 Applying Batch Repairs[/bold blue]")
         console.print(f"[dim]From: {report_path}[/dim]\n")
 
         with console.status("[bold yellow]Applying approved suggestions...", spinner="dots"):
@@ -651,6 +669,7 @@ def generate_umap(
         click.echo(f"❌ Error during UMAP generation: {e}", err=True)
         if "--verbose" in sys.argv or "-v" in sys.argv:
             import traceback
+
             traceback.print_exc()
         sys.exit(1)
 

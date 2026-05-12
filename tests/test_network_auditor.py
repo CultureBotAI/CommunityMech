@@ -69,9 +69,7 @@ def test_valid_community_no_issues(temp_communities_dir, valid_community):
 def test_id_mismatch_detected(temp_communities_dir, valid_community):
     """Test that ID mismatches are detected."""
     # Create mismatch
-    valid_community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = (
-        "NCBITaxon:9999"
-    )
+    valid_community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = "NCBITaxon:9999"
 
     test_file = temp_communities_dir / "test_mismatch.yaml"
     with open(test_file, "w") as f:

@@ -3,7 +3,7 @@
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 import yaml
 
@@ -18,8 +18,8 @@ class BatchReporter:
 
     def __init__(
         self,
-        llm_client: Optional[AnthropicClient] = None,
-        validator: Optional[SuggestionValidator] = None,
+        llm_client: AnthropicClient | None = None,
+        validator: SuggestionValidator | None = None,
         communities_dir: Path = Path("kb/communities"),
         parallel: bool = True,
         max_workers: int = 4,
@@ -44,9 +44,9 @@ class BatchReporter:
     def generate_report(
         self,
         output_path: Path = Path("reports/network_repair_suggestions.yaml"),
-        max_communities: Optional[int] = None,
-        max_issues_per_community: Optional[int] = None,
-    ) -> Dict[str, Any]:
+        max_communities: int | None = None,
+        max_issues_per_community: int | None = None,
+    ) -> dict[str, Any]:
         """
         Generate repair suggestions report for all communities.
 
@@ -111,8 +111,8 @@ class BatchReporter:
         }
 
     def _process_communities_parallel(
-        self, yaml_files: List[Path], max_issues: Optional[int] = None
-    ) -> List[Dict[str, Any]]:
+        self, yaml_files: list[Path], max_issues: int | None = None
+    ) -> list[dict[str, Any]]:
         """
         Process multiple communities in parallel.
 
@@ -152,9 +152,7 @@ class BatchReporter:
 
         return reports
 
-    def _process_community(
-        self, yaml_path: Path, max_issues: Optional[int] = None
-    ) -> Dict[str, Any]:
+    def _process_community(self, yaml_path: Path, max_issues: int | None = None) -> dict[str, Any]:
         """
         Process a single community and generate repair suggestions.
 
@@ -192,9 +190,7 @@ class BatchReporter:
         # Generate suggestions
         suggestions = []
         for issue in repairable_issues:
-            suggestion_entry = self._generate_suggestion(
-                issue, yaml_path, community_data, selector
-            )
+            suggestion_entry = self._generate_suggestion(issue, yaml_path, community_data, selector)
             suggestions.append(suggestion_entry)
 
         return {
@@ -207,11 +203,11 @@ class BatchReporter:
 
     def _generate_suggestion(
         self,
-        issue: Dict[str, Any],
+        issue: dict[str, Any],
         yaml_path: Path,
-        community_data: Dict[str, Any],
+        community_data: dict[str, Any],
         selector: StrategySelector,
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Generate a single repair suggestion.
 
@@ -277,7 +273,7 @@ class BatchReporter:
 
     def apply_approved_suggestions(
         self, report_path: Path, backup_dir: Path = Path(".backups")
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Apply suggestions from a report that have been approved.
 
@@ -330,6 +326,7 @@ class BatchReporter:
                     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                     backup_path = backup_dir / f"{yaml_path.stem}_{timestamp}.yaml"
                     import shutil
+
                     shutil.copy(yaml_path, backup_path)
 
                     # Apply suggestion
@@ -353,7 +350,7 @@ class BatchReporter:
 
                     applied_count += 1
 
-                except Exception as e:
+                except Exception:
                     error_count += 1
 
         return {

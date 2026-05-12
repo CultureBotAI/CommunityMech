@@ -4,11 +4,9 @@ Literature fetching utilities for CommunityMech.
 Fetches papers from PubMed, DOI, and other sources with caching.
 """
 
-import re
-import requests
 from pathlib import Path
-from typing import Optional, Tuple
-import time
+
+import requests
 
 
 class LiteratureFetcher:
@@ -18,11 +16,11 @@ class LiteratureFetcher:
         self.cache_dir = Path(cache_dir)
         self.cache_dir.mkdir(exist_ok=True)
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "CommunityMech/0.1.0 (https://github.com/CultureBotAI/CommunityMech)"
-        })
+        self.session.headers.update(
+            {"User-Agent": "CommunityMech/0.1.0 (https://github.com/CultureBotAI/CommunityMech)"}
+        )
 
-    def fetch_pubmed_abstract(self, pmid: str) -> Optional[str]:
+    def fetch_pubmed_abstract(self, pmid: str) -> str | None:
         """
         Fetch abstract from PubMed for a given PMID.
 
@@ -41,7 +39,7 @@ class LiteratureFetcher:
             return cache_file.read_text()
 
         # Fetch from PubMed E-utilities
-        url = f"https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
         params = {
             "db": "pubmed",
             "id": pmid,
@@ -64,7 +62,7 @@ class LiteratureFetcher:
             print(f"Error fetching PMID {pmid}: {e}")
             return None
 
-    def fetch_doi_metadata(self, doi: str) -> Optional[dict]:
+    def fetch_doi_metadata(self, doi: str) -> dict | None:
         """
         Fetch metadata for a DOI from CrossRef.
 
@@ -81,6 +79,7 @@ class LiteratureFetcher:
         cache_file = self.cache_dir / f"doi_{doi.replace('/', '_')}.json"
         if cache_file.exists():
             import json
+
             return json.loads(cache_file.read_text())
 
         # Fetch from CrossRef
@@ -94,6 +93,7 @@ class LiteratureFetcher:
 
             # Cache the result
             import json
+
             cache_file.write_text(json.dumps(metadata, indent=2))
 
             return metadata
@@ -102,7 +102,7 @@ class LiteratureFetcher:
             print(f"Error fetching DOI {doi}: {e}")
             return None
 
-    def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> Optional[str]:
+    def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> str | None:
         """
         Try to fetch open access PDF URL from Unpaywall.
 
@@ -135,7 +135,9 @@ class LiteratureFetcher:
             print(f"Error checking Unpaywall for {doi}: {e}")
             return None
 
-    def fetch_paper(self, reference: str, email: str = "noreply@example.com") -> Tuple[Optional[str], Optional[str]]:
+    def fetch_paper(
+        self, reference: str, email: str = "noreply@example.com"
+    ) -> tuple[str | None, str | None]:
         """
         Fetch a paper's abstract and metadata from various sources.
 
@@ -195,7 +197,10 @@ class LiteratureFetcher:
 
         # Check for fuzzy match (allow minor differences)
         from difflib import SequenceMatcher
-        ratio = SequenceMatcher(None, snippet_normalized.lower(), abstract_normalized.lower()).ratio()
+
+        ratio = SequenceMatcher(
+            None, snippet_normalized.lower(), abstract_normalized.lower()
+        ).ratio()
         if ratio > 0.95:
             return True
 

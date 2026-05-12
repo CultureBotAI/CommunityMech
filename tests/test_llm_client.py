@@ -1,12 +1,9 @@
 """Tests for LLM client integration."""
 
 import os
-import tempfile
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
-import yaml
 
 # Try to import anthropic, but don't fail if not installed
 try:
@@ -50,9 +47,7 @@ def mock_config():
 def mock_api_response():
     """Create mock API response."""
     mock_response = MagicMock()
-    mock_response.content = [
-        MagicMock(
-            text="""Here's a suggested interaction:
+    mock_response.content = [MagicMock(text="""Here's a suggested interaction:
 
 ```yaml
 suggested_interactions:
@@ -83,9 +78,7 @@ suggested_interactions:
         evidence_source: "LITERATURE"
         snippet: "Ferroplasma acidarmanus was capable of growing by reduction of Fe(III)"
 ```
-"""
-        )
-    ]
+""")]
     mock_response.usage = MagicMock()
     mock_response.usage.input_tokens = 2500
     mock_response.usage.output_tokens = 800
@@ -131,9 +124,7 @@ class TestAnthropicClient:
 
     @patch.dict(os.environ, {"ANTHROPIC_API_KEY": "sk-ant-test-key"})
     @patch("communitymech.llm.anthropic_client.anthropic.Anthropic")
-    def test_generate_suggestion(
-        self, mock_anthropic_class, mock_config, mock_api_response
-    ):
+    def test_generate_suggestion(self, mock_anthropic_class, mock_config, mock_api_response):
         """Test suggestion generation."""
         # Setup mock
         mock_client = MagicMock()
@@ -260,15 +251,11 @@ another: 123
         client = AnthropicClient(config=mock_config)
 
         # First call should work
-        client.generate_suggestion(
-            prompt="test: {key}", context={"key": "value"}, temperature=0.1
-        )
+        client.generate_suggestion(prompt="test: {key}", context={"key": "value"}, temperature=0.1)
         assert client.api_calls == 1
 
         # Second call should work
-        client.generate_suggestion(
-            prompt="test: {key}", context={"key": "value"}, temperature=0.1
-        )
+        client.generate_suggestion(prompt="test: {key}", context={"key": "value"}, temperature=0.1)
         assert client.api_calls == 2
 
         # Third call should raise
@@ -284,9 +271,7 @@ another: 123
         client = AnthropicClient(config=mock_config)
 
         with pytest.raises(ValueError, match="Missing context key"):
-            client.generate_suggestion(
-                prompt="Hello {missing_key}", context={}, temperature=0.1
-            )
+            client.generate_suggestion(prompt="Hello {missing_key}", context={}, temperature=0.1)
 
     @patch.dict(os.environ, {"ANTHROPIC_API_KEY": "sk-ant-test-key"})
     @patch("communitymech.llm.anthropic_client.anthropic.Anthropic")

@@ -5,9 +5,10 @@ Generates app/data.js with searchable community data for web interface.
 """
 
 import json
-import yaml
 from pathlib import Path
-from typing import List, Dict, Any, Set
+from typing import Any
+
+import yaml
 
 
 class BrowserExporter:
@@ -15,7 +16,7 @@ class BrowserExporter:
 
     def __init__(self, communities_dir: Path = Path("kb/communities")):
         self.communities_dir = communities_dir
-        self.communities: List[Dict[str, Any]] = []
+        self.communities: list[dict[str, Any]] = []
 
     def export_all(self, output_path: Path = Path("docs/data.js")) -> None:
         """
@@ -45,7 +46,7 @@ class BrowserExporter:
 
         print(f"\n✅ Exported {len(self.communities)} communities to {output_path}")
 
-    def _process_community(self, yaml_path: Path) -> Dict[str, Any]:
+    def _process_community(self, yaml_path: Path) -> dict[str, Any]:
         """Process a single community YAML into browser-friendly format."""
         with open(yaml_path) as f:
             data = yaml.safe_load(f)
@@ -73,7 +74,7 @@ class BrowserExporter:
 
         return community
 
-    def _extract_environment(self, data: dict) -> Dict[str, str]:
+    def _extract_environment(self, data: dict) -> dict[str, str]:
         """Extract environment term and label."""
         env = data.get("environment_term", {})
         if isinstance(env, dict) and "term" in env:
@@ -85,22 +86,24 @@ class BrowserExporter:
             }
         return {}
 
-    def _extract_taxa(self, data: dict) -> List[Dict[str, str]]:
+    def _extract_taxa(self, data: dict) -> list[dict[str, str]]:
         """Extract all taxa from taxonomy section."""
         taxa = []
         for taxon_item in data.get("taxonomy", []):
             if "taxon_term" in taxon_item:
                 taxon_term = taxon_item["taxon_term"]
                 term = taxon_term.get("term", {})
-                taxa.append({
-                    "id": term.get("id", ""),
-                    "label": term.get("label", ""),
-                    "preferred": taxon_term.get("preferred_term", ""),
-                    "roles": taxon_item.get("functional_role", []),
-                })
+                taxa.append(
+                    {
+                        "id": term.get("id", ""),
+                        "label": term.get("label", ""),
+                        "preferred": taxon_term.get("preferred_term", ""),
+                        "roles": taxon_item.get("functional_role", []),
+                    }
+                )
         return taxa
 
-    def _extract_metabolites(self, data: dict) -> List[Dict[str, str]]:
+    def _extract_metabolites(self, data: dict) -> list[dict[str, str]]:
         """Extract all metabolites from ecological interactions."""
         metabolites = []
         seen = set()
@@ -111,16 +114,18 @@ class BrowserExporter:
                     term = metabolite["term"]
                     term_id = term.get("id", "")
                     if term_id and term_id not in seen:
-                        metabolites.append({
-                            "id": term_id,
-                            "label": term.get("label", ""),
-                            "preferred": metabolite.get("preferred_term", ""),
-                        })
+                        metabolites.append(
+                            {
+                                "id": term_id,
+                                "label": term.get("label", ""),
+                                "preferred": metabolite.get("preferred_term", ""),
+                            }
+                        )
                         seen.add(term_id)
 
         return metabolites
 
-    def _extract_processes(self, data: dict) -> List[Dict[str, str]]:
+    def _extract_processes(self, data: dict) -> list[dict[str, str]]:
         """Extract biological processes from ecological interactions."""
         processes = []
         seen = set()
@@ -131,16 +136,18 @@ class BrowserExporter:
                     term = process["term"]
                     term_id = term.get("id", "")
                     if term_id and term_id not in seen:
-                        processes.append({
-                            "id": term_id,
-                            "label": term.get("label", ""),
-                            "preferred": process.get("preferred_term", ""),
-                        })
+                        processes.append(
+                            {
+                                "id": term_id,
+                                "label": term.get("label", ""),
+                                "preferred": process.get("preferred_term", ""),
+                            }
+                        )
                         seen.add(term_id)
 
         return processes
 
-    def _extract_interaction_types(self, data: dict) -> List[str]:
+    def _extract_interaction_types(self, data: dict) -> list[str]:
         """Extract unique interaction types."""
         types = set()
         for interaction in data.get("ecological_interactions", []):
@@ -149,7 +156,7 @@ class BrowserExporter:
                 types.add(itype)
         return sorted(types)
 
-    def _extract_functional_roles(self, data: dict) -> List[str]:
+    def _extract_functional_roles(self, data: dict) -> list[str]:
         """Extract unique functional roles from taxonomy."""
         roles = set()
         for taxon_item in data.get("taxonomy", []):
@@ -157,17 +164,19 @@ class BrowserExporter:
                 roles.add(role)
         return sorted(roles)
 
-    def _extract_datasets(self, data: dict) -> List[Dict[str, str]]:
+    def _extract_datasets(self, data: dict) -> list[dict[str, str]]:
         """Extract associated datasets."""
         datasets = []
         for ds in data.get("associated_datasets", []):
-            datasets.append({
-                "name": ds.get("name", ""),
-                "dataset_type": ds.get("dataset_type", ""),
-                "repository": ds.get("repository", ""),
-                "accession": ds.get("accession", ""),
-                "url": ds.get("url", ""),
-            })
+            datasets.append(
+                {
+                    "name": ds.get("name", ""),
+                    "dataset_type": ds.get("dataset_type", ""),
+                    "repository": ds.get("repository", ""),
+                    "accession": ds.get("accession", ""),
+                    "url": ds.get("url", ""),
+                }
+            )
         return datasets
 
     def _build_search_text(self, community: dict) -> str:
@@ -204,18 +213,18 @@ class BrowserExporter:
         text = " ".join(str(p) for p in parts if p)
         return " ".join(text.split())  # Normalize whitespace
 
-    def _generate_facets(self) -> Dict[str, Any]:
+    def _generate_facets(self) -> dict[str, Any]:
         """Generate facet data from all communities."""
-        ecological_states: Set[str] = set()
-        community_origins: Set[str] = set()
-        community_categories: Set[str] = set()
-        environments: Set[str] = set()
-        taxa: Set[str] = set()
-        metabolites: Set[str] = set()
-        interaction_types: Set[str] = set()
-        functional_roles: Set[str] = set()
-        dataset_types: Set[str] = set()
-        dataset_repositories: Set[str] = set()
+        ecological_states: set[str] = set()
+        community_origins: set[str] = set()
+        community_categories: set[str] = set()
+        environments: set[str] = set()
+        taxa: set[str] = set()
+        metabolites: set[str] = set()
+        interaction_types: set[str] = set()
+        functional_roles: set[str] = set()
+        dataset_types: set[str] = set()
+        dataset_repositories: set[str] = set()
 
         for community in self.communities:
             if community["ecological_state"]:
@@ -260,7 +269,7 @@ class BrowserExporter:
             "dataset_repositories": sorted(dataset_repositories),
         }
 
-    def _write_js_file(self, output_path: Path, facets: Dict[str, Any]) -> None:
+    def _write_js_file(self, output_path: Path, facets: dict[str, Any]) -> None:
         """Write JavaScript file with data and facets."""
         output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -281,7 +290,6 @@ class BrowserExporter:
 
 def main():
     """CLI for browser export."""
-    import sys
     import argparse
 
     parser = argparse.ArgumentParser(description="Export communities to browser JSON")

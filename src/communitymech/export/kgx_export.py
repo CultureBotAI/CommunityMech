@@ -19,6 +19,7 @@ Usage:
     python -m communitymech.export --output output/kgx
     python -m communitymech.export --output output/kgx --kb kb/communities
 """
+
 from __future__ import annotations
 
 import argparse
@@ -28,7 +29,6 @@ import datetime as _dt
 import sys
 import uuid
 from pathlib import Path
-from typing import Any, Iterable
 
 import yaml
 
@@ -108,6 +108,7 @@ def _resolve_element(name: str) -> tuple[str, str]:
 
 # ---------- evidence formatting (dismech pattern) ----------
 
+
 def _format_evidence(evidence_items: list[dict] | None) -> tuple[str, str]:
     """Returns (publications, supporting_text). Both '|'-separated."""
     if not evidence_items:
@@ -130,6 +131,7 @@ def _format_evidence(evidence_items: list[dict] | None) -> tuple[str, str]:
 
 
 # ---------- graph model ----------
+
 
 @dataclasses.dataclass
 class Node:
@@ -162,8 +164,8 @@ def _edge_id(subject: str, predicate: str, obj: str, qualifier: str = "") -> str
 
 # ---------- per-community extraction ----------
 
-def _extract(community: dict, nodes: dict[str, Node],
-             edges: list[Edge]) -> None:
+
+def _extract(community: dict, nodes: dict[str, Node], edges: list[Edge]) -> None:
     cid = community.get("id")
     if not cid:
         return
@@ -176,22 +178,27 @@ def _extract(community: dict, nodes: dict[str, Node],
     env_term = env.get("term") or {}
     env_id = env_term.get("id")
     if env_id:
-        nodes.setdefault(env_id, Node(
-            env_id, CAT_ENVIRONMENT,
-            env_term.get("label") or "",
-            env.get("notes") or ""))
+        nodes.setdefault(
+            env_id,
+            Node(env_id, CAT_ENVIRONMENT, env_term.get("label") or "", env.get("notes") or ""),
+        )
         # Environment-level evidence sometimes lives at the community
         # level via environmental_factors[]
         env_evidence: list[dict] = []
         for f in community.get("environmental_factors") or []:
             env_evidence.extend(f.get("evidence") or [])
         pubs, supp = _format_evidence(env_evidence)
-        edges.append(Edge(
-            id=_edge_id(cid, PRED_LOCATED_IN, env_id),
-            subject=cid, predicate=PRED_LOCATED_IN, object=env_id,
-            category=ASSOC_ENV,
-            publications=pubs, supporting_text=supp,
-        ))
+        edges.append(
+            Edge(
+                id=_edge_id(cid, PRED_LOCATED_IN, env_id),
+                subject=cid,
+                predicate=PRED_LOCATED_IN,
+                object=env_id,
+                category=ASSOC_ENV,
+                publications=pubs,
+                supporting_text=supp,
+            )
+        )
 
     # ---- Community → member taxa ----
     for entry in community.get("taxonomy") or []:
@@ -199,18 +206,22 @@ def _extract(community: dict, nodes: dict[str, Node],
         tid = term.get("id")
         if not tid:
             continue
-        nodes.setdefault(tid, Node(
-            tid, CAT_TAXON,
-            term.get("label") or "",
-            entry.get("functional_role") or ""))
+        nodes.setdefault(
+            tid, Node(tid, CAT_TAXON, term.get("label") or "", entry.get("functional_role") or "")
+        )
         pubs, supp = _format_evidence(entry.get("evidence"))
         qualifier = entry.get("functional_role") or ""
-        edges.append(Edge(
-            id=_edge_id(cid, PRED_HAS_PART, tid, qualifier),
-            subject=cid, predicate=PRED_HAS_PART, object=tid,
-            category=ASSOC_TAXON,
-            publications=pubs, supporting_text=supp,
-        ))
+        edges.append(
+            Edge(
+                id=_edge_id(cid, PRED_HAS_PART, tid, qualifier),
+                subject=cid,
+                predicate=PRED_HAS_PART,
+                object=tid,
+                category=ASSOC_TAXON,
+                publications=pubs,
+                supporting_text=supp,
+            )
+        )
 
     # ---- Community → metals_present + rare_earth_elements_present ----
     metal_lists = (
@@ -225,8 +236,7 @@ def _extract(community: dict, nodes: dict[str, Node],
                 mlabel = mterm.get("label") or metal.get("preferred_term") or ""
                 if not mid:
                     # Fall back to bare-name resolver
-                    mid, fallback_label = _resolve_element(
-                        metal.get("preferred_term") or "")
+                    mid, fallback_label = _resolve_element(metal.get("preferred_term") or "")
                     mlabel = mlabel or fallback_label
                 mevidence = metal.get("evidence") or []
             else:
@@ -236,12 +246,17 @@ def _extract(community: dict, nodes: dict[str, Node],
                 continue
             nodes.setdefault(mid, Node(mid, CAT_CHEMICAL, mlabel, ""))
             pubs, supp = _format_evidence(mevidence)
-            edges.append(Edge(
-                id=_edge_id(cid, PRED_RELATED_TO, mid, qualifier),
-                subject=cid, predicate=PRED_RELATED_TO, object=mid,
-                category=ASSOC_CHEM,
-                publications=pubs, supporting_text=supp,
-            ))
+            edges.append(
+                Edge(
+                    id=_edge_id(cid, PRED_RELATED_TO, mid, qualifier),
+                    subject=cid,
+                    predicate=PRED_RELATED_TO,
+                    object=mid,
+                    category=ASSOC_CHEM,
+                    publications=pubs,
+                    supporting_text=supp,
+                )
+            )
 
     # ---- Community → growth_media (CultureMech links if present) ----
     for gm in community.get("growth_media") or []:
@@ -257,15 +272,21 @@ def _extract(community: dict, nodes: dict[str, Node],
             continue
         nodes.setdefault(gid, Node(gid, CAT_MEDIUM, glabel, ""))
         pubs, supp = _format_evidence(gev)
-        edges.append(Edge(
-            id=_edge_id(cid, PRED_OCCURS_IN, gid, "growth_medium"),
-            subject=cid, predicate=PRED_OCCURS_IN, object=gid,
-            category=ASSOC_GENERIC,
-            publications=pubs, supporting_text=supp,
-        ))
+        edges.append(
+            Edge(
+                id=_edge_id(cid, PRED_OCCURS_IN, gid, "growth_medium"),
+                subject=cid,
+                predicate=PRED_OCCURS_IN,
+                object=gid,
+                category=ASSOC_GENERIC,
+                publications=pubs,
+                supporting_text=supp,
+            )
+        )
 
 
 # ---------- driver ----------
+
 
 def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
     """Walk kb_dir/*.yaml; write nodes.tsv + edges.tsv to output_dir.
@@ -297,9 +318,16 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
 
     # Write edges.tsv
     edge_cols = [
-        "id", "subject", "predicate", "object", "category",
-        "publications", "supporting_text",
-        "knowledge_level", "agent_type", "primary_knowledge_source",
+        "id",
+        "subject",
+        "predicate",
+        "object",
+        "category",
+        "publications",
+        "supporting_text",
+        "knowledge_level",
+        "agent_type",
+        "primary_knowledge_source",
     ]
     edges_path = output_dir / "edges.tsv"
     seen_ids: set[str] = set()
@@ -310,14 +338,25 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
             if e.id in seen_ids:
                 continue
             seen_ids.add(e.id)
-            w.writerow([e.id, e.subject, e.predicate, e.object, e.category,
-                        e.publications, e.supporting_text,
-                        e.knowledge_level, e.agent_type,
-                        e.primary_knowledge_source])
+            w.writerow(
+                [
+                    e.id,
+                    e.subject,
+                    e.predicate,
+                    e.object,
+                    e.category,
+                    e.publications,
+                    e.supporting_text,
+                    e.knowledge_level,
+                    e.agent_type,
+                    e.primary_knowledge_source,
+                ]
+            )
 
     # Provenance manifest
     manifest_path = output_dir / "manifest.json"
     import json
+
     manifest = {
         "generator": "communitymech.export.kgx_export",
         "generated_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),

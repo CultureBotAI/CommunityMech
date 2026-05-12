@@ -2,7 +2,6 @@
 
 import tempfile
 from pathlib import Path
-from unittest.mock import MagicMock
 
 import pytest
 import yaml
@@ -60,9 +59,7 @@ def test_community():
         ],
         "environmental_factors": {
             "habitat": [{"id": "ENVO:00002001", "label": "freshwater"}],
-            "physical_parameters": [
-                {"parameter_type": "temperature", "value": "25", "unit": "°C"}
-            ],
+            "physical_parameters": [{"parameter_type": "temperature", "value": "25", "unit": "°C"}],
         },
     }
 

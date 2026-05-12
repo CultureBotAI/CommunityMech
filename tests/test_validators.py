@@ -1,11 +1,8 @@
 """Tests for suggestion validators."""
 
-import tempfile
-from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import pytest
-import yaml
 
 from communitymech.network.validators import SuggestionValidator, ValidationError
 
@@ -59,9 +56,7 @@ def valid_suggestion():
                         "direction": "bidirectional",
                     }
                 ],
-                "biological_processes": [
-                    {"id": "GO:0008150", "label": "biological_process"}
-                ],
+                "biological_processes": [{"id": "GO:0008150", "label": "biological_process"}],
                 "evidence": [
                     {
                         "reference": "PMID:12345678",

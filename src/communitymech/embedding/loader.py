@@ -3,7 +3,6 @@
 import gzip
 import pickle
 from pathlib import Path
-from typing import Dict, List, Optional
 
 import numpy as np
 from tqdm import tqdm
@@ -25,9 +24,9 @@ class EmbeddingLoader:
 
     def load_embeddings(
         self,
-        prefixes: Optional[List[str]] = None,
+        prefixes: list[str] | None = None,
         force_reload: bool = False,
-    ) -> Dict[str, np.ndarray]:
+    ) -> dict[str, np.ndarray]:
         """Load embeddings filtered by node ID prefixes.
 
         Args:
@@ -93,7 +92,7 @@ class EmbeddingLoader:
 
         return embeddings
 
-    def get_embedding_dim(self, embeddings: Dict[str, np.ndarray]) -> int:
+    def get_embedding_dim(self, embeddings: dict[str, np.ndarray]) -> int:
         """Get dimensionality of embeddings.
 
         Args:

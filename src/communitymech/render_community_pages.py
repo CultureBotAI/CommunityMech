@@ -8,6 +8,7 @@ the shared `kg_microbe_browser.graph` module in claw.
 Phase 5 of the dismech-pattern port; see
 ../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
 """
+
 from __future__ import annotations
 
 import argparse
@@ -22,14 +23,14 @@ from markupsafe import Markup
 
 # Make the shared kg_microbe_browser package importable. PYTHONPATH is
 # set by the justfile recipe; this fallback covers `python -m` runs.
-CLAW_SRC = (Path(__file__).resolve().parents[3].parent
-            / "culturebotai-claw" / "src")
+CLAW_SRC = Path(__file__).resolve().parents[3].parent / "culturebotai-claw" / "src"
 if CLAW_SRC.is_dir():
     sys.path.insert(0, str(CLAW_SRC))
 
 try:
     from kg_microbe_browser import build_community_membership_graph
 except ImportError:
+
     def build_community_membership_graph(community: dict) -> str:  # type: ignore
         return ""
 
@@ -77,7 +78,7 @@ def safe_mermaid(value: str) -> Markup:
         return Markup("")
     s = value.strip()
     if s.startswith("```mermaid"):
-        s = s[len("```mermaid"):].lstrip()
+        s = s[len("```mermaid") :].lstrip()
     if s.endswith("```"):
         s = s[:-3].rstrip()
     return Markup(f'<pre class="mermaid">\n{s}\n</pre>')
@@ -95,8 +96,9 @@ def make_env() -> Environment:
     return env
 
 
-def render_one(env: Environment, source_path: Path, out_dir: Path,
-               force: bool = False) -> tuple[str, dict | None, str]:
+def render_one(
+    env: Environment, source_path: Path, out_dir: Path, force: bool = False
+) -> tuple[str, dict | None, str]:
     try:
         with open(source_path) as f:
             community = yaml.safe_load(f) or {}
@@ -146,21 +148,21 @@ def _section(category: str, items: list[tuple[str, str, str]]) -> str:
         f'<span class="muted">— <code>{cid}</code></span></li>'
         for (cid, slug, name) in sorted(items, key=lambda x: x[2].lower())
     )
-    return (f'<section><h2>{category} '
-            f'<small class="muted">({len(items)})</small></h2>'
-            f'<ul class="medium-index">{rows}</ul></section>')
+    return (
+        f"<section><h2>{category} "
+        f'<small class="muted">({len(items)})</small></h2>'
+        f'<ul class="medium-index">{rows}</ul></section>'
+    )
 
 
 def write_index(out_dir: Path, all_records: list[dict]) -> None:
     by_cat: dict[str, list[tuple[str, str, str]]] = {}
     for r in all_records:
-        cat = (r["community"].get("community_category") or "(uncategorized)")
+        cat = r["community"].get("community_category") or "(uncategorized)"
         by_cat.setdefault(cat, []).append(
-            (r["community"].get("id") or "", r["slug"],
-             r["community"].get("name") or r["slug"]))
-    sections = "\n".join(
-        _section(c, items) for c, items in sorted(by_cat.items())
-    )
+            (r["community"].get("id") or "", r["slug"], r["community"].get("name") or r["slug"])
+        )
+    sections = "\n".join(_section(c, items) for c, items in sorted(by_cat.items()))
     rows_total = sum(len(v) for v in by_cat.values())
     html = INDEX_TEMPLATE.format(
         count=rows_total,
@@ -194,8 +196,7 @@ def main() -> int:
     rendered = skipped = errors = 0
     successful: list[dict] = []
     for path in files:
-        status, community, slug = render_one(
-            env, path, args.out_dir, force=args.force)
+        status, community, slug = render_one(env, path, args.out_dir, force=args.force)
         if status == "rendered":
             rendered += 1
         elif status == "skipped":

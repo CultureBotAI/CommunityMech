@@ -1,9 +1,9 @@
 """Tests for community vector aggregator."""
 
-import numpy as np
-import pytest
 import tempfile
 from pathlib import Path
+
+import numpy as np
 
 from communitymech.embedding.aggregator import CommunityVectorAggregator
 
