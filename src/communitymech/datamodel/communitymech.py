@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-11T22:45:13
+# Generation date: 2026-05-11T23:05:18
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -495,7 +495,7 @@ class EcologicalInteraction(YAMLRoot):
             self.interaction_type = InteractionTypeEnum(self.interaction_type)
 
         if self.scope is not None and not isinstance(self.scope, InteractionScopeEnum):
-            self.scope = getattr(InteractionScopeEnum, self.scope)
+            self.scope = InteractionScopeEnum(self.scope)
 
         if self.source_taxon is not None and not isinstance(self.source_taxon, TaxonDescriptor):
             self.source_taxon = TaxonDescriptor(**as_dict(self.source_taxon))
@@ -1908,8 +1908,8 @@ slots.growthMediaComponent__unit = Slot(uri=COMMUNITYMECH.unit, name="growthMedi
 slots.growthMediaComponent__chebi_term = Slot(uri=COMMUNITYMECH.chebi_term, name="growthMediaComponent__chebi_term", curie=COMMUNITYMECH.curie('chebi_term'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__chebi_term, domain=None, range=Optional[Union[dict, MetaboliteDescriptor]])
 
-slots.growthMediaComponent__from = Slot(uri=getattr(COMMUNITYMECH, 'from'), name="growthMediaComponent__from", curie=COMMUNITYMECH.curie('from'),
-                   model_uri=COMMUNITYMECH.growthMediaComponent__from, domain=None, range=Optional[str])
+slots.growthMediaComponent__from_source = Slot(uri=COMMUNITYMECH.from_source, name="growthMediaComponent__from_source", curie=COMMUNITYMECH.curie('from_source'),
+                   model_uri=COMMUNITYMECH.growthMediaComponent__from_source, domain=None, range=Optional[str])
 
 slots.growthMedia__name = Slot(uri=COMMUNITYMECH.name, name="growthMedia__name", curie=COMMUNITYMECH.curie('name'),
                    model_uri=COMMUNITYMECH.growthMedia__name, domain=None, range=str)
