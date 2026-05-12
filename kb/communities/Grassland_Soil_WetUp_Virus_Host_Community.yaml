@@ -1,0 +1,164 @@
+id: CommunityMech:000224
+name: Grassland Soil Wet-Up Virus-Host Community
+description: >
+  A grassland soil virus-host community whose dynamics were measured following
+  rewetting of a seasonally dry California Mediterranean-climate soil. Dry
+  soil holds a diverse but low-biomass reservoir of virions, of which only a
+  subset thrives following wet-up. Quantitative isotope tracing, time-resolved
+  metagenomics, and viromics show viral richness declines by 50 percent within
+  24 hours post wet-up while viral biomass increases four-fold within one week.
+  Lytic, not lysogenic, cycles dominate the response. Viruses drive a
+  measurable and continuous rate of cell lysis, accounting for up to 46
+  percent of microbial death one week after wet-up, contributing to microbial
+  biomass turnover and the widely reported post-wet-up CO2 efflux.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: CARBON_SEQUESTRATION
+environment_term:
+  preferred_term: California Mediterranean-climate grassland soil
+  term:
+    id: ENVO:00005750
+    label: grassland soil
+  notes: Seasonally dry grassland soil rewetted in the laboratory to track
+    virus-host dynamics across the first week after wet-up.
+taxonomy:
+- taxon_term:
+    preferred_term: soil DNA viruses (virions)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+    notes: A diverse but low-biomass reservoir of soil virions; a subset thrives
+      following wet-up.
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: dry soil holds a diverse but low biomass reservoir of virions, of
+      which only a subset thrives following wet-up
+    explanation: Supports the dry-soil virion reservoir and post-wet-up subset
+      expansion.
+- taxon_term:
+    preferred_term: grassland soil bacterial hosts
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Soil bacterial hosts resuscitated and lysed during wet-up; specific
+      taxa are not enumerated in the abstract.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: resident microbes are both resuscitated and lysed after a prolonged
+      dry period
+    explanation: Supports the bacterial host membership and their wet-up dynamics.
+ecological_interactions:
+- name: Lytic Virus Activity Dominates Wet-Up Response
+  description: After wet-up, lytic rather than lysogenic cycles dominate, with
+    viral richness declining by 50 percent within 24 hours and viral biomass
+    increasing four-fold within one week.
+  interaction_type: PREDATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: viruses in lytic cycles dominate the response to wet-up
+    explanation: Supports the dominance of lytic over lysogenic cycles.
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Viral richness decreases by 50% within 24 h post wet-up, while
+      viral biomass increases four-fold within one week
+    explanation: Supports the time-course richness and biomass dynamics.
+- name: Viral Lysis Drives Microbial Death and CO2 Efflux
+  description: Viruses drive measurable and continuous cell lysis, accounting
+    for up to 46 percent of microbial death one week after wet-up and
+    contributing to soil microbial biomass turnover and the widely reported
+    wet-up CO2 efflux.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: soil DNA viruses (virions)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: grassland soil bacterial hosts
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: virus-host interaction
+    term:
+      id: GO:0019048
+      label: modulation by virus of host process
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: up to 46% of microbial death driven by viral lysis one week
+      following wet-up
+    explanation: Supports the curated quantitative attribution of microbial
+      death to viral lysis.
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: viruses contribute to turnover of soil microbial biomass and the
+      widely reported CO2 efflux following wet-up of seasonally dry soils
+    explanation: Supports the ecosystem-level CO2-efflux contribution.
+environmental_factors:
+- name: Wet-up event
+  value: prolonged dry period followed by laboratory rewetting
+  description: Wet-up after a prolonged dry period drives resuscitation and lysis
+    of resident soil microbes and the viral response.
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: how they respond to perturbation of soil ecosystems is essentially
+      unknown
+    explanation: Supports the wet-up perturbation focus of the study.
+- name: Time course post wet-up
+  value: 24 h to one week post wet-up
+  description: Viral richness and biomass were tracked from 24 hours through
+    one week after wet-up.
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 50% within 24 h post wet-up, while viral biomass increases four-fold
+      within one week
+    explanation: Supports the time-course sampling design.
+growth_media: []
+external_resources:
+- name: Primary publication for the grassland wet-up virus-host community
+  repository: OTHER
+  resource_id: PMID:37730729
+  url: https://pubmed.ncbi.nlm.nih.gov/37730729/
+  description: PubMed record for the Nicolas et al. 2023 Nat Commun paper on
+    soil viruses thriving following microbial resuscitation during rewetting.
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: lineage-specific virus-host dynamics in grassland soil following
+      "wet-up"
+    explanation: Lists the primary publication for the curated virus-host
+      community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-023-40835-4
+  url: https://doi.org/10.1038/s41467-023-40835-4
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  grassland soil virus-host community.

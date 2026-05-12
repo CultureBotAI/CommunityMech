@@ -1,0 +1,162 @@
+id: CommunityMech:000226
+name: Lac Pavin Permanently Stratified Lake Community
+description: >
+  A depth-stratified microbial community in Lac Pavin, a deep, permanently
+  stratified lake in central France. Genome-resolved analyses across the
+  oxygen gradient reveal enrichment of distinct C1 and CO2 fixation pathways
+  in the oxic lake interface and the anoxic zone and sediments, with oxygen
+  shaping non-CPR bacterial and archaeal metabolic strategies. RuBisCO genes
+  are detected throughout the water column and sediments, including form
+  II/III and form III-related enzymes encoded by Candidate Phyla Radiation
+  (CPR) bacteria in the water column and DPANN archaea in the sediments.
+  Methane oxidation and its byproducts are largely spatially separated from
+  methane production, which is mediated by diverse sediment methanogens that
+  vary on the centimeter scale.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: permanently stratified freshwater lake
+  term:
+    id: ENVO:00000035
+    label: lake
+  notes: Deep, permanently stratified Lac Pavin in central France, sampled
+    across the oxygen gradient from the oxic interface through the anoxic
+    zone and sediments.
+taxonomy:
+- taxon_term:
+    preferred_term: water-column Candidate Phyla Radiation (CPR) bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+    notes: CPR bacteria in the water column encode form II/III and form
+      III-related RuBisCO enzymes.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: form II/III and form III-related enzymes encoded by CPR bacteria
+      in the water column
+    explanation: Supports CPR bacteria in the water column and their RuBisCO
+      forms.
+- taxon_term:
+    preferred_term: sediment DPANN archaea
+    term:
+      id: NCBITaxon:1934217
+      label: DPANN group
+    notes: DPANN archaea recovered from Lac Pavin sediments encode RuBisCO
+      enzymes, suggesting CO2-fixation potential.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: form II/III and form III-related enzymes encoded by CPR bacteria in
+      the water column and DPANN archaea in
+    explanation: Supports DPANN archaeal RuBisCO in sediments.
+- taxon_term:
+    preferred_term: sediment methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Diverse sediment methanogens vary on the centimeter scale and drive
+      depth-stratified methane production.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: methane production, which is mediated by diverse communities of
+      sediment methanogens that vary on the centimeter scale
+    explanation: Supports the diverse sediment methanogen community.
+ecological_interactions:
+- name: Oxygen-Driven Carbon-Fixation Niche Partitioning
+  description: Distinct C1 and CO2 fixation pathways are enriched in the oxic
+    lake interface versus the anoxic zone and sediments, indicating
+    oxygen-dependent niche partitioning among non-CPR bacteria and archaea.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enrichment of distinct C1 and CO2 fixation pathways in the oxic
+      lake interface and anoxic zone/sediments
+    explanation: Supports the oxygen-driven niche partitioning of carbon fixation.
+- name: Spatial Separation of Methane Oxidation and Production
+  description: Methane oxidation and its byproducts are largely spatially
+    separated from methane production, indicating depth-resolved compartments
+    for the two halves of the methane cycle.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the oxidation of methane and its byproducts is largely spatially
+      separated from methane production
+    explanation: Supports the spatial separation of methane oxidation and
+      production.
+environmental_factors:
+- name: Oxygen gradient
+  value: oxic interface to anoxic sediments
+  description: A persistent oxygen gradient from oxic surface waters through
+    the anoxic zone and sediments structures the metabolic strategies of the
+    community.
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the distribution of microbial lineages along an oxygen gradient in
+      Lac Pavin
+    explanation: Supports the curated oxygen gradient as a structuring factor.
+growth_media: []
+external_resources:
+- name: Primary publication for the Lac Pavin stratified lake community
+  repository: OTHER
+  resource_id: PMID:36694212
+  url: https://pubmed.ncbi.nlm.nih.gov/36694212/
+  description: PubMed record for the 2023 Microbiome paper on geochemical
+    gradient impacts on Lac Pavin microbial community function.
+  evidence:
+  - reference: PMID:36694212
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: deep, stratified lake in central France
+    explanation: Lists the primary publication for the curated stratified-lake
+      community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-022-01416-7
+  url: https://doi.org/10.1186/s40168-022-01416-7
+  description: DOI link to the Microbiome paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  stratified-lake community.

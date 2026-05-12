@@ -1,0 +1,165 @@
+id: CommunityMech:000223
+name: Infant Gut DNA Phageome Succession Community
+description: >
+  A longitudinal infant gut DNA bacteriophage community reconstructed from 819
+  fecal metagenomes from 28 full-term and 24 preterm infants and their mothers
+  across the first 3 years of life, using a large phage sequence database and
+  strain-resolved analyses. Early-life phageome richness increases over time
+  and reaches adult-like complexity by age 3. Approximately 9 percent of early
+  phage colonizers persist for 3 years and are predominantly maternally
+  transmitted phages infecting Bacteroides, with higher persistence in
+  full-term infants. Phages with stop-codon reassignment are more likely to
+  persist than non-recoded phages, and in-frame reassigned stop codons increase
+  over the 3-year window. Maternal seeding, stop-codon reassignment, host
+  CRISPR-Cas locus prevalence, and phage diversity together drive stable viral
+  colonization.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: OTHER
+environment_term:
+  preferred_term: infant gut microbiome
+  term:
+    id: ENVO:00002009
+    label: feces environment
+  notes: Infant fecal samples collected longitudinally from full-term and
+    preterm infants and their mothers across the first 3 years of life.
+taxonomy:
+- taxon_term:
+    preferred_term: maternally transmitted DNA bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+    notes: Early DNA phage colonizers, ~9 percent of which persist for 3 years
+      and most of which are maternally transmitted and infect Bacteroides.
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 9% of early phage colonizers, which are mostly maternally transmitted
+      and infect Bacteroides, persist for 3 years
+    explanation: Supports the persistent, maternally seeded Bacteroides-infecting
+      phage population.
+- taxon_term:
+    preferred_term: infant Bacteroides hosts
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: early phage colonizers, which are mostly maternally transmitted and
+      infect Bacteroides
+    explanation: Supports Bacteroides as the persistent host for the early
+      phage colonizers.
+ecological_interactions:
+- name: Maternal Phage Seeding and Long-Term Persistence
+  description: Mothers seed infants with DNA phages that preferentially infect
+    Bacteroides, with about 9 percent of these early colonizers persisting for
+    3 years and reaching adult-like phageome complexity.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: maternally transmitted DNA bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: infant Bacteroides hosts
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+  biological_processes:
+  - preferred_term: virus-host interaction
+    term:
+      id: GO:0019048
+      label: modulation by virus of host process
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: early phage colonizers, which are mostly maternally transmitted and
+      infect Bacteroides, persist for 3 years
+    explanation: Supports the maternal-seeding and persistence dynamics.
+- name: Stop-Codon Reassignment Promotes Phage Persistence
+  description: Phages with stop-codon reassignment are more likely to persist
+    than non-recoded phages, and in-frame reassigned stop codons increase over
+    3 years.
+  interaction_type: PREDATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: phages with stop codon reassignment are more likely to persist than
+      non-recoded phages
+    explanation: Supports the link between stop-codon reassignment and persistence.
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: an increase in in-frame reassigned stop codons over 3 years
+    explanation: Supports the longitudinal increase of in-frame reassigned stop
+      codons.
+- name: Increasing Phageome Richness Toward Adulthood
+  description: Phageome richness increases during the first 3 years and reaches
+    adult-like complexity by age 3.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: early-life phageome richness increases over time and reaches
+      adult-like complexity by age 3
+    explanation: Supports the developmental trajectory of the infant phageome.
+environmental_factors:
+- name: Birth status
+  value: full-term versus preterm infants
+  description: Persistent phage colonization is more prevalent in full-term
+    than in preterm infants, indicating birth status as a structuring factor.
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: more prevalent in full-term than in preterm infants
+    explanation: Supports the birth-status effect.
+- name: Host CRISPR-Cas locus prevalence
+  value: maternal seeding plus CRISPR-Cas and stop-codon recoding
+  description: Maternal seeding, host CRISPR-Cas locus prevalence, phage
+    stop-codon reassignment, and phage diversity together contribute to stable
+    viral colonization.
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: maternal seeding, stop codon reassignment, host CRISPR-Cas locus
+      prevalence, and diverse phage populations contribute to stable viral
+      colonization
+    explanation: Supports the four interacting determinants of stable
+      colonization.
+growth_media: []
+external_resources:
+- name: Primary publication for the infant gut DNA phageome succession community
+  repository: OTHER
+  resource_id: PMID:38096814
+  url: https://pubmed.ncbi.nlm.nih.gov/38096814/
+  description: PubMed record for the Lou et al. 2024 Cell Host & Microbe paper.
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: phage colonization process in the infant gut
+    explanation: Lists the primary publication for the curated phageome
+      community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1016/j.chom.2023.11.015
+  url: https://doi.org/10.1016/j.chom.2023.11.015
+  description: DOI link to the Cell Host & Microbe paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  infant gut phageome community.
