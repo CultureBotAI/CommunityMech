@@ -1,0 +1,213 @@
+id: CommunityMech:000218
+name: Horonobe and Mizunami Underground Research Laboratory Subsurface Microbiome
+description: >
+  A multi-year, depth-resolved groundwater microbiome study of the Horonobe
+  (sedimentary rock) and Mizunami (granitic rock) Underground Research
+  Laboratories in Japan, sampling defined intervals between 140 and 400 m
+  below the surface over four years. Draft genomes were reconstructed for more
+  than 90 percent of all detected organisms. The Horonobe and Mizunami
+  microbiomes are dissimilar at the community level, but hydrogen metabolism,
+  rubisco-based CO2 fixation, reduction of nitrogen compounds, and sulfate
+  reduction are well represented in both, while methane metabolism is more
+  prevalent at the organic- and CO2-rich Horonobe URL. High fluid flow zones
+  and tunnel proximity select for candidate phyla radiation bacteria in the
+  Mizunami URL. Approximately one third of genomically defined organisms have
+  near-identical genotypes at multiple depths within Horonobe, and
+  closely-related species recur in three other USA subsurface environments,
+  constraining expectations of global subsurface biodiversity.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: deep subsurface groundwater (URL)
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: Groundwater sampled from defined intervals between 140 and 400 m below
+    the surface of the Horonobe (sedimentary) and Mizunami (granitic) URLs in
+    Japan, over a four-year sampling campaign.
+taxonomy:
+- taxon_term:
+    preferred_term: Horonobe sedimentary URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Sedimentary-rock URL groundwater community, organic- and CO2-rich,
+      with prominent methane metabolism among its members.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: methane metabolism is more prevalent at the organic- and CO2-rich
+      Horonobe URL
+    explanation: Supports the Horonobe sedimentary URL community and its
+      methane-metabolism enrichment.
+- taxon_term:
+    preferred_term: Mizunami granitic URL groundwater microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Granitic-rock URL groundwater community in which candidate phyla
+      radiation bacteria are selected at high fluid-flow zones and near tunnels.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: High fluid flow zones and proximity to subsurface tunnels select
+      for candidate phyla radiation bacteria in the Mizunami URL
+    explanation: Supports the Mizunami granitic URL community and CPR selection
+      at high-flow zones.
+ecological_interactions:
+- name: Lithology-Driven Community Divergence
+  description: Sedimentary versus granitic host rock yields dissimilar URL
+    microbiomes despite shared deep-subsurface chemistry, indicating lithology
+    as a primary structuring factor.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The Horonobe and Mizunami microbiomes are dissimilar, likely because
+      the Mizunami URL is hosted in granitic rock and the Horonobe URL in
+      sedimentary rock
+    explanation: Supports lithology as the divergence driver.
+- name: Shared Deep-Subsurface Functional Core
+  description: Despite community-level dissimilarity, both URLs share well-
+    represented hydrogen metabolism, rubisco-based CO2 fixation, nitrogen
+    reduction, and sulfate reduction functions.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: hydrogen metabolism, rubisco-based CO2 fixation, reduction of
+      nitrogen compounds and sulfate reduction are well represented functions
+      in microbiomes from both URLs
+    explanation: Supports the shared deep-subsurface functional repertoire.
+- name: Genotypic Homogeneity Across Depths in Horonobe
+  description: Near-identical genotypes for approximately one third of detected
+    organisms recur at multiple Horonobe depths with detectable but slow in
+    situ growth, suggesting historical dispersal under different hydrological
+    regimes.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: near-identical genotypes for approximately one third of all
+      genomically defined organisms at multiple depths within the Horonobe URL
+    explanation: Supports cross-depth genotypic homogeneity.
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the Horonobe URL microbiome homogeneity may be explained by higher
+      groundwater mobility during the last glacial period
+    explanation: Supports paleo-hydrological dispersal as the proposed mechanism.
+- name: Trans-Continental Genotypic Overlap
+  description: Species closely related to those detected in the URLs are
+    identified in three other USA subsurface environments, suggesting dispersal
+    rates fast enough relative to mutation rates to preclude substantial
+    divergence.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Genotypically-defined species closely related to those detected in
+      the URLs were identified in three other subsurface environments in the USA
+    explanation: Supports trans-continental subsurface species overlap.
+environmental_factors:
+- name: Depth interval
+  value: 140 to 400 m below surface
+  description: Groundwater samples were collected from defined intervals between
+    140 and 400 m below the surface across both URLs.
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: defined intervals between 140 and 400 m below the surface of the
+      Horonobe and Mizunami URLs, Japan
+    explanation: Supports the depth sampling range.
+- name: Sampling duration
+  value: four-year multi-year campaign
+  description: The first multi-year study of URL groundwater microbiomes,
+    sampling repeatedly over four years.
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the first multi-year study of groundwater microbiomes sampled from
+      defined intervals between 140 and 400 m below the surface of the Horonobe
+      and Mizunami URLs
+    explanation: Supports the multi-year sampling design.
+- name: Hydrological regime
+  value: low current hydraulic conductivity; paleo-glacial mobility
+  description: Current hydraulic conductivity is low, but past glacial-period
+    groundwater mobility may explain genotypic homogeneity across depths.
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: current low hydraulic conductivity and groundwater compositional
+      heterogeneity
+    explanation: Supports the constraints used to argue against ongoing
+      inter-site dispersal.
+growth_media: []
+external_resources:
+- name: Primary publication for the Horonobe and Mizunami URL microbiome
+  repository: OTHER
+  resource_id: PMID:39696556
+  url: https://pubmed.ncbi.nlm.nih.gov/39696556/
+  description: PubMed record for the Amano et al. 2024 Environmental Microbiome
+    paper.
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: microbiome stability in the sedimentary rocks and surprising
+      microbial community compositional and genotypic overlap over sites
+      separated by hundreds of meters of rock
+    explanation: Lists the primary publication for the curated deep-subsurface
+      community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40793-024-00649-3
+  url: https://doi.org/10.1186/s40793-024-00649-3
+  description: DOI link to the Environmental Microbiome paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  deep-subsurface groundwater microbiome.

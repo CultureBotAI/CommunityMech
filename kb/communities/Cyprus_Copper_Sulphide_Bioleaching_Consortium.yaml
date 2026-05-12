@@ -1,0 +1,203 @@
+id: CommunityMech:000217
+name: Cyprus Copper Sulphide Bioleaching Consortium
+description: >
+  An acidophilic copper bioleaching consortium established from a copper
+  bioleaching column in Cyprus on chalcopyrite (CuFeS2) and sub-cultured to
+  chalcocite (Cu2S) to test how mineral type and surface chemistry shape
+  community composition. Genome-resolved metagenomics after 4 and 8 weeks of
+  cultivation identified dominant members including Acidithiobacillus species
+  and strains, a Rhodospirilales, Leptospirillum ferrodiazotrophum, and
+  Thermoplasmatales archaea, with abundance trends linked to mineralogy and to
+  surface-attached versus planktonic lifestyles. Many bacteria carried plasmids
+  encoding metal resistance, sulphur metabolism, and CRISPR-Cas loci, with
+  evidence of intra-plasmid competition via CRISPR spacers on an
+  Acidithiobacillus plasmid targeting plasmid-borne conjugal transfer genes.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOMINING
+engineering_design:
+  objective: Determine how copper sulphide mineral type and surface chemistry
+    shape the composition and metabolism of an acidophilic bioleaching
+    consortium.
+  assembly_strategy: Establish a consortium from a copper bioleaching column in
+    Cyprus on chalcopyrite and sub-culture the same community onto chalcocite,
+    a Fe-free Cu-sulphide mineral.
+  perturbation_design: Switch the mineral substrate between chalcopyrite and
+    chalcocite, and compare surface-attached versus planktonic subpopulations
+    at 4 and 8 weeks.
+  measurement_endpoints:
+  - Community composition shifts by mineral type
+  - Surface-attached versus planktonic differential abundance
+  - Plasmid content and encoded metal resistance, sulphur metabolism, CRISPR-Cas
+    loci
+  - Inferred intra-plasmid competition via CRISPR spacers
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: established a microbial consortium from a copper bioleaching column
+      in Cyprus on chalcopyrite and then sub-cultured it to chalcocite
+    explanation: Supports the consortium origin and substrate-switching design.
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the structure and composition of metal sulphide minerals select for
+      distinct consortia
+    explanation: Supports the mineral-driven community assembly objective.
+environment_term:
+  preferred_term: copper bioleaching column laboratory enrichment
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Acidophilic enrichments on chalcopyrite or chalcocite ores under
+    bioleaching conditions, characterized by genome-resolved metagenomics at 4
+    and 8 weeks.
+taxonomy:
+- taxon_term:
+    preferred_term: Acidithiobacillus species
+    term:
+      id: NCBITaxon:119977
+      label: Acidithiobacillus
+    notes: Acidithiobacillus species and strains dominated the enrichments on
+      both chalcopyrite and chalcocite.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acidithiobacillus species and strains, a Rhodospirilales,
+      Leptospirillum ferrodiazotrophum and Thermoplasmatales archaea dominated
+      all enrichments
+    explanation: Supports Acidithiobacillus dominance across mineral types.
+- taxon_term:
+    preferred_term: Leptospirillum ferrodiazotrophum
+    term:
+      id: NCBITaxon:412449
+      label: Leptospirillum ferrodiazotrophum
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Leptospirillum ferrodiazotrophum
+    explanation: Supports the Leptospirillum ferrodiazotrophum member.
+- taxon_term:
+    preferred_term: Rhodospirillales bacterium
+    term:
+      id: NCBITaxon:204441
+      label: Rhodospirillales
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a Rhodospirilales
+    explanation: Supports the Rhodospirillales member.
+- taxon_term:
+    preferred_term: Thermoplasmatales archaea
+    term:
+      id: NCBITaxon:51571
+      label: Thermoplasmatales
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thermoplasmatales archaea
+    explanation: Supports the Thermoplasmatales archaeal member.
+ecological_interactions:
+- name: Mineral-Type-Dependent Community Composition
+  description: Switching between chalcopyrite and chalcocite reshapes member
+    abundances in the bioleaching consortium, reflecting differences in mineral
+    structure and Fe availability.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: trends in abundance patterns were observed with mineralogy and
+      surface-attached versus planktonic conditions
+    explanation: Supports mineralogy and lifestyle as drivers of abundance
+      patterns.
+- name: Plasmid-Borne Metal Resistance and Sulphur Metabolism
+  description: Plasmid-encoded metal resistance pathways, sulphur metabolic
+    capacities, and CRISPR-Cas loci are widespread in the bioleaching consortium
+    and may modulate microbial activity during sulphide ore dissolution.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: encoded metal resistance pathways, sulphur metabolic capacities and
+      CRISPR-Cas loci
+    explanation: Supports the plasmid-encoded functional repertoire.
+- name: Intra-Plasmid CRISPR Competition
+  description: CRISPR spacers on an Acidithiobacillus plasmid target plasmid-
+    borne conjugal transfer genes from the same genus, indicating intra-plasmid
+    competition among co-resident mobile elements.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CRISPR spacers on an Acidithiobacillus plasmid targeted plasmid-borne
+      conjugal transfer genes found in the same genus, likely belonging to
+      another plasmid, evidence of intra-plasmid competition
+    explanation: Supports the CRISPR-spacer-based plasmid competition.
+environmental_factors:
+- name: Mineral substrate
+  value: chalcopyrite (CuFeS2) and chalcocite (Cu2S)
+  description: Enrichments were maintained on chalcopyrite (Fe-bearing) and on
+    chalcocite (Fe-free) copper sulphide minerals.
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: chalcopyrite (CuFeS2) and chalcocite (Cu2S) ores
+    explanation: Supports the curated mineral substrates.
+- name: Cultivation time points
+  value: 4 and 8 weeks
+  description: Communities were sampled and genome-resolved at 4 and 8 weeks of
+    cultivation.
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: after 4 and 8 weeks of cultivation
+    explanation: Supports the time-course sampling design.
+growth_media: []
+external_resources:
+- name: Primary publication for the Cyprus Cu sulphide bioleaching consortium
+  repository: OTHER
+  resource_id: PMID:41381092
+  url: https://pubmed.ncbi.nlm.nih.gov/41381092/
+  description: PubMed record for the Lane et al. 2025 Environmental Microbiology
+    Reports paper.
+  evidence:
+  - reference: PMID:41381092
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioleaching Microbial Community Metabolism and Composition Driven
+      by Copper Sulphide Mineral Type
+    explanation: Lists the primary publication for the curated consortium.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1111/1758-2229.70261
+  url: https://doi.org/10.1111/1758-2229.70261
+  description: DOI link to the Environmental Microbiology Reports paper.
+associated_datasets: []
+metals_present:
+- COPPER
+- IRON
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: Copper recovery from sulphide ores is the primary biotechnological
+  motivation; iron availability differs between chalcopyrite and chalcocite and
+  shapes consortium composition.
