@@ -1,0 +1,290 @@
+id: CommunityMech:000205
+name: Trichoderma-E. coli Cellulosic Isobutanol Coculture
+description: >
+  A synthetic fungal-bacterial consortium designed for direct conversion of cellulosic
+  biomass to isobutanol. The community divides labor between Trichoderma reesei, which
+  secretes cellulases that hydrolyze lignocellulosic biomass into soluble saccharides,
+  and Escherichia coli, which metabolizes those saccharides into the target biofuel
+  product. The study demonstrated conversion of microcrystalline cellulose and pretreated
+  corn stover to isobutanol, making the system relevant to DOE lignocellulosic biofuel
+  and consolidated bioprocessing goals.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Convert microcrystalline cellulose and pretreated corn stover directly to
+    isobutanol using a two-member fungal-bacterial consortium with divided hydrolysis and
+    fermentation functions.
+  assembly_strategy: Pair a cellulase-secreting Trichoderma reesei cellulolytic specialist
+    with an Escherichia coli fermentation specialist that consumes soluble saccharides.
+  perturbation_design: Mathematical modeling and experimental tests were used to evaluate
+    population stability, composition tuning, and bioprocessing performance.
+  measurement_endpoints:
+  - Cellulose and pretreated corn stover conversion
+  - Isobutanol titer
+  - Isobutanol yield
+  - Population composition and stability
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic fungal-bacterial consortia
+    explanation: Supports the engineered two-member synthetic consortium design.
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct conversion of microcrystalline cellulose and pretreated corn stover to isobutanol
+    explanation: Supports the cellulosic biomass-to-isobutanol engineering objective.
+environment_term:
+  preferred_term: cellulosic biomass laboratory bioprocess
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory fungal-bacterial consortium culture for cellulosic biomass
+    hydrolysis and isobutanol fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichoderma reesei
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+    notes: Cellulolytic fungal member; source abstract supports species-level identity.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fungus Trichoderma reesei
+    explanation: Supports T. reesei as the fungal member of the consortium.
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: secretes cellulase enzymes
+    explanation: Supports the assigned cellulolytic primary-degrader role.
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Bacterial fermentation specialist; source abstract supports species-level identity.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacterium Escherichia coli
+    explanation: Supports E. coli as the bacterial member of the consortium.
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metabolizes soluble saccharides into desired products
+    explanation: Supports E. coli as the soluble-saccharide-consuming fermentation partner.
+ecological_interactions:
+- name: Fungal Cellulase Hydrolysis
+  description: Trichoderma reesei secretes cellulase enzymes that hydrolyze lignocellulosic
+    biomass into soluble saccharides available to the bacterial partner.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Trichoderma reesei
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: cellulase activity
+    term:
+      id: GO:0008810
+      label: cellulase activity
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrolyze lignocellulosic biomass into soluble saccharides
+    explanation: Supports the T. reesei cellulase-mediated hydrolysis interaction.
+- name: Bacterial Isobutanol Production From Soluble Saccharides
+  description: Escherichia coli consumes the soluble saccharides released by fungal
+    hydrolysis and converts them into isobutanol as the target biofuel product.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Trichoderma reesei
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: isobutanol
+    term:
+      id: CHEBI:46645
+      label: isobutanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metabolizes soluble saccharides into desired products
+    explanation: Supports the bacterial conversion of released saccharides into engineered products.
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: titers up to 1.88 g/L
+    explanation: Supports measured isobutanol production by the consortium.
+- name: Cooperator-Cheater Population Stability
+  description: The consortium exhibits cooperator-cheater dynamics, with cellulase-producing
+    T. reesei acting as the public-goods producer and E. coli benefiting from soluble
+    saccharides; the study reported stable population equilibria and tunable composition.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Trichoderma reesei
+    term:
+      id: NCBITaxon:51453
+      label: Trichoderma reesei
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cooperator-cheater dynamics within T. reesei/E. coli consortia
+    explanation: Supports the ecological interpretation of the interaction.
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable population equilibria
+    explanation: Supports stable coexistence as an observed consortium property.
+environmental_factors:
+- name: Cellulosic feedstock
+  value: microcrystalline cellulose and pretreated corn stover
+  description: The consortium was tested on model cellulose and pretreated agricultural
+    residue feedstock.
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microcrystalline cellulose and pretreated corn stover
+    explanation: Supports the curated feedstock condition.
+- name: Nutrient supplementation
+  value: no costly nutrient supplementation
+  description: The reported isobutanol production did not require costly nutrient
+    supplementation.
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Without costly nutrient supplementation
+    explanation: Supports the nutrient-supplementation condition for the reported titers and yields.
+- name: Product performance
+  value: up to 1.88 g/L isobutanol and up to 62% theoretical yield
+  description: The synthetic consortium achieved gram-per-liter isobutanol titers and
+    high fraction of theoretical maximum yield.
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yields up to 62% of theoretical maximum
+    explanation: Supports the reported product-yield performance.
+growth_media:
+- name: Cellulosic biomass-to-isobutanol coculture conditions
+  composition:
+  - name: microcrystalline cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: pretreated corn stover
+  - name: glucose
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  atmosphere: AEROBIC
+  preparation_notes: The PubMed abstract supports microcrystalline cellulose and pretreated
+    corn stover as feedstocks and does not provide complete medium composition. The full
+    article reports Trichoderma minimal medium and engineered E. coli strains, but this
+    record keeps the curated growth condition at the abstract-supported species and
+    feedstock level.
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct conversion of microcrystalline cellulose and pretreated corn stover to isobutanol
+    explanation: Supports the growth substrate and product context for the coculture.
+external_resources:
+- name: Exact-system primary publication - fungal-bacterial isobutanol consortium
+  repository: OTHER
+  resource_id: PMID:23959872
+  url: https://pubmed.ncbi.nlm.nih.gov/23959872/
+  description: PubMed record for the synthetic Trichoderma reesei and Escherichia coli
+    consortium for direct isobutanol production from cellulosic biomass.
+  evidence:
+  - reference: PMID:23959872
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. reesei/E. coli consortia
+    explanation: Lists the primary publication for this exact species-pair consortium.
+- name: Full-text open-access article
+  repository: OTHER
+  resource_id: PMCID:PMC3767521
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3767521/
+  description: Full-text article with strain, medium, and reactor details for the Trichoderma
+    reesei and E. coli cellulosic isobutanol consortium.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1073/pnas.1218447110
+  url: https://doi.org/10.1073/pnas.1218447110
+  description: DOI for the primary PNAS publication.
+- name: OSTI record
+  repository: OTHER
+  resource_id: OSTI:1152950
+  url: https://www.osti.gov/biblio/1152950
+  description: DOE OSTI record identifying the Great Lakes Bioenergy Research Center
+    publication and USDOE Office of Science Biological and Environmental Research sponsorship.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this cellulosic
+  biofuel production consortium.
