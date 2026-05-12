@@ -1,0 +1,249 @@
+id: CommunityMech:000204
+name: Methylocystis-Rhodococcus Methane VFA PHBV Coculture
+description: >
+  A defined synthetic coculture pairing the type II methanotroph Methylocystis parvus with
+  the heterotrophic bacterium Rhodococcus opacus for methane-linked polyhydroxyalkanoate
+  production. The coculture was first evaluated for methane-to-poly(3-hydroxybutyrate)
+  conversion and then used in a two-stage PHBV accumulation strategy with nutrient starvation,
+  methane, oxygen or air, valeric acid, and a volatile fatty acid mixture containing acetic,
+  propionic, butyric, and valeric acids. The system is relevant to methane valorization,
+  waste-derived volatile fatty acid upgrading, and biopolymer production.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Convert methane and volatile fatty acid cosubstrates into microbial
+    polyhydroxyalkanoate biopolymer, especially PHBV, using a defined methanotroph-heterotroph
+    coculture.
+  assembly_strategy: Bottom-up coculture of Methylocystis parvus and Rhodococcus opacus,
+    selected from prior methane-to-PHB coculture tests for follow-up PHBV accumulation.
+  perturbation_design: Methane-grown biomass was transferred to nutrient-starved mineral medium
+    with valeric acid or a mixed VFA cosubstrate and incubated under CH4:O2 or air headspace.
+  measurement_endpoints:
+  - Methane, oxygen, and carbon dioxide dynamics
+  - Total suspended solids
+  - PHA concentration and composition
+  - PHBV content under VFA and methane conditions
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic coculture and a mixed methanotrophic consortium
+    explanation: Supports the engineered synthetic coculture design evaluated against a mixed consortium.
+environment_term:
+  preferred_term: methane-fed laboratory bioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled laboratory coculture with methane, oxygen or air headspace, mineral
+    salt medium, and volatile fatty acid cosubstrates.
+taxonomy:
+- taxon_term:
+    preferred_term: Methylocystis parvus
+    term:
+      id: NCBITaxon:134
+      label: Methylocystis parvus
+    notes: NCBI Taxonomy lists Methylocystis parvus at taxon 134; the PHBV study used
+      M. parvus as the methanotrophic PHA-producing member.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methylocystis parvus
+    explanation: Supports M. parvus as one member of the exact coculture.
+- taxon_term:
+    preferred_term: Rhodococcus opacus
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+    notes: NCBI Taxonomy lists Rhodococcus opacus at taxon 37919; the PHBV study used
+      R. opacus as the cocultivated partner microbe.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus
+    explanation: Supports R. opacus as the partner member of the exact coculture.
+ecological_interactions:
+- name: Methane-Linked PHBV Accumulation
+  description: The M. parvus and R. opacus coculture accumulated PHBV during nutrient starvation
+    when methane and mixed volatile fatty acids were supplied, indicating methane-dependent
+    biopolymer production by the assembled community.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylocystis parvus
+    term:
+      id: NCBITaxon:134
+      label: Methylocystis parvus
+  target_taxon:
+    preferred_term: Rhodococcus opacus
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: valeric acid
+    term:
+      id: CHEBI:17418
+      label: valeric acid
+  - preferred_term: poly(3-hydroxybutyrate)
+    term:
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mixture of VFAs supported PHBV accumulation
+    explanation: Supports VFA-dependent PHBV accumulation in the tested coculture system.
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: only in the presence of methane
+    explanation: Supports methane dependence for the mixed-VFA PHBV accumulation condition.
+environmental_factors:
+- name: Methane and oxygen headspace
+  value: CH4:O2 headspace or air
+  description: PHBV accumulation tests compared CH4:O2 and air atmospheres after methane-fed
+    growth and nutrient-starvation transfer.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: under a CH4:O2 or air atmosphere
+    explanation: Supports methane/oxygen and air headspace as experimental factors.
+- name: VFA cosubstrate composition
+  value: valeric acid or mixed acetate, propionate, butyrate, and valeric acid
+  description: The PHBV study supplied valeric acid alone or a VFA mixture simulating
+    waste-derived fermentation effluent.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetic, propionic, butyric, and valeric acids
+    explanation: Supports the mixed VFA cosubstrate composition.
+- name: Nutrient starvation and pH control
+  value: nitrogen-free medium with pH adjusted to 7
+  description: The accumulation stage used nutrient starvation and pH adjustment after
+    cosubstrate addition.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: subjected to nutrient starvation
+    explanation: Supports nutrient starvation as the PHBV accumulation condition.
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pH was adjusted to 7
+    explanation: Supports pH adjustment during the test series.
+growth_media:
+- name: Methane-fed VFA PHBV accumulation medium
+  composition:
+  - name: methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: oxygen
+    chebi_term:
+      preferred_term: oxygen
+      term:
+        id: CHEBI:15379
+        label: dioxygen
+  - name: acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  - name: propionate
+    chebi_term:
+      preferred_term: propionate
+      term:
+        id: CHEBI:17272
+        label: propionate
+  - name: butyrate
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:17968
+        label: butyrate
+  - name: valeric acid
+    chebi_term:
+      preferred_term: valeric acid
+      term:
+        id: CHEBI:17418
+        label: valeric acid
+  atmosphere: AEROBIC
+  headspace_gas: CH4:O2 at 33.3:66.6% v/v or air
+  preparation_notes: M. parvus and R. opacus were grown as active inocula, then coculture
+    biomass was transferred to nitrogen-free mineral salt medium supplemented with valeric
+    acid or a mixed VFA cosubstrate for PHBV accumulation; pH was adjusted to 7.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nutrient starvation in a medium enriched
+    explanation: Supports the nutrient-starved medium used for the accumulation stage.
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: under a CH4:O2 or air atmosphere
+    explanation: Supports the headspace conditions for the PHBV accumulation stage.
+external_resources:
+- name: Exact-system PHBV primary publication
+  repository: OTHER
+  resource_id: PMID:38516398
+  url: https://pubmed.ncbi.nlm.nih.gov/38516398/
+  description: Primary 2024 publication reporting M. parvus and R. opacus cocultivation
+    for PHBV accumulation from methane and volatile fatty acid cosubstrates.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthesize poly(3-hydroxybutyrate-co-3-hydroxyvalerate)
+    explanation: Lists the exact-system PHBV publication.
+- name: Exact-system DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1021/acssuschemeng.3c08570
+  url: https://doi.org/10.1021/acssuschemeng.3c08570
+  description: DOI for the ACS Sustainable Chemistry and Engineering PHBV coculture study.
+  evidence:
+  - reference: PMID:38516398
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1021/acssuschemeng.3c08570'
+    explanation: Supports the DOI link for the exact-system PHBV publication.
+- name: Earlier exact-species methane-to-PHB coculture publication
+  repository: OTHER
+  resource_id: doi:10.1016/j.cej.2023.146646
+  url: https://doi.org/10.1016/j.cej.2023.146646
+  description: Earlier Chemical Engineering Journal study that included the same exact
+    Methylocystis parvus and Rhodococcus opacus species-pair composition for methane-to-PHB
+    conversion, before the PHBV/VFA follow-up.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this methane-fed
+  biopolymer production coculture.
