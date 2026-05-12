@@ -1,11 +1,14 @@
 """Batch report generation for network repair suggestions."""
 
+import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime
 from pathlib import Path
 from typing import Any
 
 import yaml
+
+logger = logging.getLogger(__name__)
 
 from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
@@ -352,6 +355,11 @@ class BatchReporter:
 
                 except Exception:
                     error_count += 1
+                    logger.exception(
+                        "Failed to apply suggestion for %s (suggestion entry: %r)",
+                        yaml_path,
+                        suggestion_entry.get("suggestion", suggestion_entry),
+                    )
 
         return {
             "applied": applied_count,

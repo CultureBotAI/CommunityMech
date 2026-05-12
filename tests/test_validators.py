@@ -61,7 +61,7 @@ def valid_suggestion():
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Test snippet from abstract",
                     }
                 ],
@@ -247,7 +247,7 @@ def test_evidence_validation_snippet_match(mock_fetcher_class, test_community):
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Test snippet from abstract",
                     }
                 ],
@@ -292,7 +292,7 @@ def test_evidence_validation_snippet_mismatch(mock_fetcher_class, test_community
                     {
                         "reference": "PMID:12345678",
                         "supports": "SUPPORT",
-                        "evidence_source": "LITERATURE",
+                        "evidence_source": "REVIEW",
                         "snippet": "Completely different snippet",
                     }
                 ],

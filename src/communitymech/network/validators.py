@@ -4,7 +4,26 @@ from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
 
+from communitymech.datamodel.communitymech import (
+    EvidenceItemSupportEnum,
+    EvidenceSourceEnum,
+    InteractionTypeEnum,
+)
 from communitymech.literature import LiteratureFetcher
+
+
+def _enum_values(enum_cls: type) -> list[str]:
+    """Return permissible values of a LinkML-generated EnumDefinitionImpl class.
+
+    Reads uppercase class attributes so the validator stays in sync with the
+    schema (regen via `just gen-python`) instead of duplicating enum values.
+    """
+    return [name for name in dir(enum_cls) if not name.startswith("_") and name.isupper()]
+
+
+_INTERACTION_TYPE_VALUES = _enum_values(InteractionTypeEnum)
+_SUPPORTS_VALUES = _enum_values(EvidenceItemSupportEnum)
+_EVIDENCE_SOURCE_VALUES = _enum_values(EvidenceSourceEnum)
 
 
 class ValidationError:
@@ -160,21 +179,12 @@ class SuggestionValidator:
                 errors.extend(target_errors)
 
             # Validate interaction_type is valid enum
-            valid_types = [
-                "MUTUALISM",
-                "SYNTROPHY",
-                "COMPETITION",
-                "PREDATION",
-                "PARASITISM",
-                "COMMENSALISM",
-                "AMENSALISM",
-            ]
-            if interaction.get("interaction_type") not in valid_types:
+            if interaction.get("interaction_type") not in _INTERACTION_TYPE_VALUES:
                 errors.append(
                     ValidationError(
                         layer="schema",
                         field=f"suggested_interactions[{idx}].interaction_type",
-                        message=f"Invalid interaction type. Must be one of: {', '.join(valid_types)}",
+                        message=f"Invalid interaction type. Must be one of: {', '.join(_INTERACTION_TYPE_VALUES)}",
                         severity="error",
                     )
                 )
@@ -258,23 +268,23 @@ class SuggestionValidator:
                     )
                 )
 
-        # Validate enums
-        if evidence.get("supports") not in ["SUPPORT", "REFUTE", "NO_EVIDENCE"]:
+        # Validate enums (sourced from the LinkML datamodel so they track the schema).
+        if evidence.get("supports") not in _SUPPORTS_VALUES:
             errors.append(
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.supports",
-                    message="Invalid value for 'supports'",
+                    message=f"Invalid value for 'supports'. Must be one of: {', '.join(_SUPPORTS_VALUES)}",
                     severity="error",
                 )
             )
 
-        if evidence.get("evidence_source") not in ["LITERATURE", "DATABASE", "EXPERIMENTAL"]:
+        if evidence.get("evidence_source") not in _EVIDENCE_SOURCE_VALUES:
             errors.append(
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.evidence_source",
-                    message="Invalid value for 'evidence_source'",
+                    message=f"Invalid value for 'evidence_source'. Must be one of: {', '.join(_EVIDENCE_SOURCE_VALUES)}",
                     severity="error",
                 )
             )
