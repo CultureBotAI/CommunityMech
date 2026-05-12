@@ -1,0 +1,314 @@
+id: CommunityMech:000207
+name: Synechococcus-Azotobacter Photoproduction Mutualism
+description: >
+  A designed two-member light-driven microbial mutualism pairing sucrose-exporting
+  cscB Synechococcus elongatus PCC 7942 with the diazotroph Azotobacter
+  vinelandii AV3. The engineered cyanobacterium fixes carbon under illumination
+  and exports sucrose, while A. vinelandii fixes nitrogen and can produce
+  industrially relevant biopolymers such as polyhydroxybutyrate and alginate.
+  The coculture was engineered to grow without added fixed carbon or fixed
+  nitrogen and is relevant to DOE interests in photosynthetic bioproduction,
+  carbon utilization, and nitrogen self-sufficient synthetic consortia.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Engineer a nitrogen- and carbon-self-sufficient photosynthetic coculture for chemical
+    photoproduction from simple inorganic inputs.
+  assembly_strategy: Pair sucrose-exporting cscB S. elongatus with diazotrophic A. vinelandii AV3 so
+    that photosynthetic carbon export and biological nitrogen fixation support mutual growth.
+  perturbation_design: Compare coculture growth with and without fixed carbon or nitrogen and test
+    dependence on a sucrose-exporting S. elongatus partner.
+  measurement_endpoints:
+  - Coculture growth without fixed carbon or nitrogen
+  - Sucrose-exporter dependence
+  - Polyhydroxybutyrate production
+  - Potential alginate production
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a new microbial mutualism between Azotobacter vinelandii AV3 and cscB Synechococcus elongatus
+    explanation: Supports the engineered exact-member mutualism curated in this record.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows in the absence of fixed carbon or nitrogen
+    explanation: Supports the design objective of carbon- and nitrogen-self-sufficient coculture growth.
+environment_term:
+  preferred_term: illuminated laboratory photobioreactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled synthetic illuminated coculture for photosynthetic sucrose transfer, nitrogen fixation,
+    and PHB production.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942 = FACHB-805
+    notes: Engineered PCC 7942 derivative expressing cscB for sucrose export.
+  strain_designation:
+    strain_name: PCC 7942 cscB
+    culture_collections:
+    - collection: PCC
+      accession: '7942'
+      url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
+    genetic_modification: Heterologous cscB sucrose permease enabling sucrose export.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synechococcus elongatus PCC 7942
+    explanation: Supports S. elongatus PCC 7942 as the cyanobacterial member.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cscB Synechococcus elongatus
+    explanation: Supports the engineered sucrose-exporting cyanobacterial member.
+- taxon_term:
+    preferred_term: Azotobacter vinelandii AV3
+    term:
+      id: NCBITaxon:354
+      label: Azotobacter vinelandii
+    notes: The primary publication specifies strain AV3; NCBI Taxonomy resolves the organism at species
+      level for this record.
+  strain_designation:
+    strain_name: AV3
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Azotobacter vinelandii AV3
+    explanation: Supports A. vinelandii AV3 as the diazotrophic heterotrophic member.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a diazotroph, Azotobacter vinelandii
+    explanation: Supports the nitrogen-fixing functional role of A. vinelandii in the coculture design.
+ecological_interactions:
+- name: Photosynthetic Sucrose Transfer To Azotobacter
+  description: Engineered S. elongatus PCC 7942 cscB fixes inorganic carbon under illumination and exports
+    sucrose that supports A. vinelandii growth when fixed carbon is absent.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942 = FACHB-805
+  target_taxon:
+    preferred_term: Azotobacter vinelandii AV3
+    term:
+      id: NCBITaxon:354
+      label: Azotobacter vinelandii
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: sucrose biosynthetic process
+    term:
+      id: GO:0005986
+      label: sucrose biosynthetic process
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cannot grow in the absence of a sucrose-exporting S. elongatus
+    explanation: Supports sucrose export from S. elongatus as required for coculture growth.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We investigate the growth of a photosynthetic cyanobacterium
+    explanation: Supports the photosynthetic role of the cyanobacterial member.
+- name: Diazotrophic Nitrogen Support
+  description: A. vinelandii provides biological nitrogen fixation capacity in the mutualism, enabling
+    coculture growth in the absence of added fixed nitrogen.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Azotobacter vinelandii AV3
+    term:
+      id: NCBITaxon:354
+      label: Azotobacter vinelandii
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942 = FACHB-805
+  metabolites:
+  - preferred_term: nitrogen
+    term:
+      id: CHEBI:17997
+      label: nitrogen
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a diazotroph, Azotobacter vinelandii
+    explanation: Supports biological nitrogen fixation capacity from the Azotobacter member.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: neither organism can grow alone without fixed carbon or nitrogen
+    explanation: Supports mutual dependence under fixed-carbon and fixed-nitrogen omission.
+- name: Light-Driven PHB Production
+  description: The designed mutualism produced polyhydroxybutyrate, linking photosynthetic carbon capture
+    and diazotrophic growth support to biopolymer production.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB
+    term:
+      id: NCBITaxon:1140
+      label: Synechococcus elongatus PCC 7942 = FACHB-805
+  target_taxon:
+    preferred_term: Azotobacter vinelandii AV3
+    term:
+      id: NCBITaxon:354
+      label: Azotobacter vinelandii
+  metabolites:
+  - preferred_term: poly(3-hydroxybutyrate)
+    term:
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We demonstrate the ability of the coculture to produce PHB in this work.
+    explanation: Supports PHB production by the designed coculture.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: industrially relevant products, such as polyhydroxybutyrate (PHB) and alginate
+    explanation: Supports the bioproduct relevance of PHB and alginate in the designed system.
+environmental_factors:
+- name: Illumination
+  value: sunlight or laboratory illumination
+  description: The coculture is a chemical photoproduction system using photosynthetic cyanobacterial
+    carbon fixation.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from air, water, phosphate, trace metals, and sunlight
+    explanation: Supports light as a required input for photoproduction.
+- name: Absence of fixed carbon and nitrogen
+  value: no added fixed carbon or fixed nitrogen
+  description: The engineered mutualism was tested for growth without added fixed carbon or nitrogen.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows in the absence of fixed carbon or nitrogen
+    explanation: Supports omission of fixed carbon and fixed nitrogen as a defining culture condition.
+- name: Trace metals
+  value: trace metals as inorganic input
+  description: Trace metals were reported as part of the simple-input photoproduction concept; specific
+    metal identities are not resolved from the abstract and are not curated here.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from air, water, phosphate, trace metals, and sunlight
+    explanation: Supports trace metals as reported inorganic inputs.
+growth_media:
+- name: Light-driven Synechococcus-Azotobacter coculture
+  composition:
+  - name: carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: nitrogen
+    chebi_term:
+      preferred_term: nitrogen
+      term:
+        id: CHEBI:17997
+        label: nitrogen
+  - name: water
+    chebi_term:
+      preferred_term: water
+      term:
+        id: CHEBI:15377
+        label: water
+  - name: sucrose
+    chebi_term:
+      preferred_term: sucrose
+      term:
+        id: CHEBI:17992
+        label: sucrose
+  light_regime: sunlight or laboratory illumination
+  atmosphere: AEROBIC
+  inoculum_source: Engineered cscB S. elongatus PCC 7942 and A. vinelandii AV3 cultures.
+  preparation_notes: >
+    The primary abstract supports a designed coculture grown without fixed carbon or nitrogen and
+    supplied conceptually by air, water, phosphate, trace metals, and sunlight; this record does not
+    assert the complete salts, induction, or incubation protocol.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows in the absence of fixed carbon or nitrogen
+    explanation: Supports the defining carbon- and nitrogen-omission culture condition.
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from air, water, phosphate, trace metals, and sunlight
+    explanation: Supports the simple inorganic and light inputs for the photoproduction concept.
+external_resources:
+- name: Exact-system primary publication - A. vinelandii/S. elongatus photoproduction coculture
+  repository: OTHER
+  resource_id: PMID:27232890
+  url: https://pubmed.ncbi.nlm.nih.gov/27232890/
+  description: Primary publication reporting the designed A. vinelandii AV3 and cscB S. elongatus
+    mutualism for PHB photoproduction.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A Designed A. vinelandii-S. elongatus Coculture for Chemical Photoproduction
+    explanation: Supports the PubMed record as the source for this exact community.
+- name: Exact-system DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1021/acssynbio.6b00107
+  url: https://doi.org/10.1021/acssynbio.6b00107
+  description: DOI landing page for the same ACS Synthetic Biology exact-system publication.
+  evidence:
+  - reference: PMID:27232890
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A Designed A. vinelandii-S. elongatus Coculture for Chemical Photoproduction
+    explanation: Supports the DOI source for the exact-system publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: Trace metals are reported as inorganic inputs in the photoproduction concept, but no
+  specific metal species or metal-cycling mechanism is curated from the available abstract.
