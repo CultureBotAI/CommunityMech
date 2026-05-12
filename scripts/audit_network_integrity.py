@@ -72,15 +72,17 @@ class NetworkIntegrityAuditor:
 
         for idx, interaction in enumerate(interactions):
             int_name = interaction.get("name", f"Interaction {idx+1}")
+            scope = interaction.get("scope", "PAIRWISE")
 
-            # Check source_taxon
+            # Check source_taxon (only required for PAIRWISE interactions)
             source = interaction.get("source_taxon")
             if not source:
-                issues.append({
-                    "type": "MISSING_SOURCE",
-                    "interaction": int_name,
-                    "message": "Interaction has no source_taxon"
-                })
+                if scope != "COMMUNITY_LEVEL":
+                    issues.append({
+                        "type": "MISSING_SOURCE",
+                        "interaction": int_name,
+                        "message": "Interaction has no source_taxon"
+                    })
             else:
                 source_term = source.get("preferred_term") or source.get("term", {}).get("label")
                 source_id = source.get("term", {}).get("id")

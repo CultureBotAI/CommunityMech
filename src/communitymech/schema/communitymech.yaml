@@ -164,6 +164,17 @@ enums:
           colonization, cross-feeding that supports establishment, or metabolic cooperation during
           initial colonization phases. Can be inter- or intraspecific.
 
+  InteractionScopeEnum:
+    description: Whether an interaction is a pairwise organism-to-organism edge or a community-level phenomenon
+    permissible_values:
+      PAIRWISE:
+        description: Standard pairwise interaction between a source organism and (usually) a target. Requires source_taxon.
+      COMMUNITY_LEVEL:
+        description: >-
+          Community-wide or emergent phenomenon (e.g., division of labor, host-microbiota
+          colonization patterns, abiotic-input-driven processes such as electrolysis-supplied H2).
+          source_taxon may be omitted because no single organism is the source.
+
   AbundanceEnum:
     description: Relative abundance categories
     permissible_values:
@@ -604,8 +615,17 @@ classes:
       interaction_type:
         description: Type of ecological interaction
         range: InteractionTypeEnum
+      scope:
+        description: Whether this interaction is a pairwise organism-to-organism edge
+          or a community-level/emergent phenomenon. PAIRWISE interactions require a
+          source_taxon. COMMUNITY_LEVEL interactions describe behaviors that emerge
+          from the whole consortium (or are driven by abiotic inputs such as
+          electrolysis-supplied H2) and need not have source_taxon set.
+        range: InteractionScopeEnum
+        ifabsent: string(PAIRWISE)
       source_taxon:
-        description: Source organism (if applicable)
+        description: Source organism (if applicable; required for PAIRWISE interactions,
+          omitted for COMMUNITY_LEVEL interactions)
         range: TaxonDescriptor
       target_taxon:
         description: Target organism (if applicable)
