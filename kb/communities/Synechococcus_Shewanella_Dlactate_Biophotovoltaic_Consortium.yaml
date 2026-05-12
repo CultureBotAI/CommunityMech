@@ -1,0 +1,309 @@
+id: CommunityMech:000211
+name: Synechococcus-Shewanella D-Lactate Biophotovoltaic Consortium
+description: >
+  A two-species engineered biophotovoltaic consortium pairing engineered
+  Synechococcus elongatus UTEX 2973 with engineered Shewanella oneidensis MR-1.
+  The cyanobacterium converts light and carbon dioxide into D-lactate, and the
+  exoelectrogenic Shewanella partner oxidizes D-lactate and transfers electrons
+  to an anode. The system is relevant to DOE bioenergy and bioelectrochemical
+  research because it demonstrates division of labor for renewable electricity
+  production from photosynthesis, metabolite transfer, and extracellular electron
+  transfer.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a durable biophotovoltaic consortium by separating photosynthetic
+    light harvesting from extracellular electron transfer.
+  assembly_strategy: Pair D-lactate-producing S. elongatus UTEX 2973 Syn2973-omcS-ldh
+    with a S. oneidensis MR-1 napA deletion mutant in an electrochemical device.
+  perturbation_design: Compare temporal separation, spatial separation, and spatial-temporal
+    separation with medium replenishment to manage oxygen, light stress, and electron flow.
+  measurement_endpoints:
+  - Current density
+  - Power density
+  - D-lactate production
+  - Coculture operating lifetime
+  - Dissolved oxygen and light stress responses
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic two-species microbial consortium is designed and constructed for electricity production from light
+    explanation: Supports the overall engineering objective and synthetic two-species design.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: directing solar energy from photons to D-lactate, then to electricity
+    explanation: Supports the intended constrained electron-flow design.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: spatial-temporal separation setup with medium replenishment enables stable operation for over 40 days
+    explanation: Supports the device-level perturbation strategy and long-duration operation.
+environment_term:
+  preferred_term: biophotovoltaic laboratory electrochemical coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Controlled light-driven laboratory bioelectrochemical device with separated cyanobacterial
+    and anode-associated Shewanella functions.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus elongatus UTEX 2973
+    term:
+      id: NCBITaxon:1350461
+      label: Synechococcus elongatus UTEX 2973
+    notes: Engineered Syn2973-omcS-ldh cyanobacterial charging unit that produces D-lactate.
+  strain_designation:
+    strain_name: UTEX 2973
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synechococcus elongatus UTEX 2973
+    explanation: Supports S. elongatus UTEX 2973 as the cyanobacterial community member.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syn2973-omcS-ldh, equipped with the photosynthetic machinery and a D-lactate synthesis pathway
+    explanation: Supports the engineered photosynthetic D-lactate-producing role.
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+    notes: Engineered napA deletion discharging unit used for D-lactate oxidation and anode electron transfer.
+  strain_designation:
+    strain_name: MR-1
+    culture_collections:
+    - collection: ATCC
+      accession: ATCC 700550
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Shewanella oneidensis MR-1
+    explanation: Supports S. oneidensis MR-1 as the exoelectrogenic community member.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: napA deletion mutant
+    explanation: Supports the engineered nitrate-reductase mutant used as the Shewanella partner.
+ecological_interactions:
+- name: Photosynthetic D-Lactate Cross-Feeding
+  description: Engineered S. elongatus UTEX 2973 converts light and carbon dioxide into D-lactate,
+    which serves as the transferred energy carrier for S. oneidensis MR-1.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Synechococcus elongatus UTEX 2973
+    term:
+      id: NCBITaxon:1350461
+      label: Synechococcus elongatus UTEX 2973
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  metabolites:
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+    notes: Source uses D-lactate as the transferred energy carrier; CHEBI:42111 represents D-lactic acid.
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D-lactate mediated microbial consortium consisting of photosynthetic cyanobacteria and exoelectrogenic Shewanella
+    explanation: Supports D-lactate-mediated cross-feeding between the photosynthetic and exoelectrogenic partners.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: D-lactate is selected as the energy carrier
+    explanation: Supports D-lactate as the curated exchanged metabolite.
+- name: Shewanella Anode Electron Transfer
+  description: S. oneidensis MR-1 oxidizes D-lactate and uses its extracellular electron transfer
+    machinery to release electrons to the anode for current production.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  target_taxon:
+    preferred_term: Synechococcus elongatus UTEX 2973
+    term:
+      id: NCBITaxon:1350461
+      label: Synechococcus elongatus UTEX 2973
+  metabolites:
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: releases electrons from D-lactate and transfers them to the anode
+    explanation: Supports the Shewanella D-lactate oxidation and anode electron transfer role.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converting organic compounds into electricity using its efficient EET capacity
+    explanation: Supports the exoelectrogenic function assigned to S. oneidensis MR-1.
+- name: Spatial-Temporal Separation for Compatibility
+  description: Light and oxygen produced during photosynthesis damaged or inhibited S. oneidensis,
+    so temporal and spatial separation protected the exoelectrogenic partner while allowing D-lactate
+    transfer to support durable power generation.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Synechococcus elongatus UTEX 2973
+    term:
+      id: NCBITaxon:1350461
+      label: Synechococcus elongatus UTEX 2973
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:211586
+      label: Shewanella oneidensis MR-1
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Light-induced damage was also reflected in increased intracellular reactive oxygen species
+    explanation: Supports the need to protect the Shewanella partner from illumination-associated stress.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: temporal/spatial separation design conquered the physiological incompatibility
+    explanation: Supports the spatial-temporal device organization as the compatibility mechanism.
+environmental_factors:
+- name: Light-driven charging phase
+  value: Continuous illumination with 3 percent carbon dioxide for cyanobacterial D-lactate production
+  description: The cyanobacterial member was cultivated under light and carbon dioxide to generate D-lactate
+    for the Shewanella discharging phase.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light incubator with 3% CO2 and a continuous illumination
+    explanation: Supports light and carbon dioxide as key operating conditions.
+- name: Medium and device compatibility
+  value: MBG11 medium with temporal, spatial, and spatial-temporal separation variants
+  description: MBG11 and device separation were used to satisfy the cyanobacterial and Shewanella partners
+    while reducing nitrate, light, and oxygen incompatibilities.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: modified medium suitable for two species was established, which was named MBG11
+    explanation: Supports MBG11 as the compatible coculture medium.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: created a compatible extracellular environment for two species
+    explanation: Supports the combined medium and device strategy.
+- name: Long-duration power output
+  value: over 40 days with average power density of 135 mW per square meter
+  description: The spatial-temporal setup with replenishment sustained power generation for over 40 days.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable operation for over 40 days with an average power density of 135
+    explanation: Supports the curated longevity and average power-density condition.
+growth_media:
+- name: MBG11 biophotovoltaic consortium medium
+  atmosphere: AEROBIC
+  headspace_gas: 3 percent CO2 for illuminated cyanobacterial cultivation
+  light_regime: Continuous illumination for cyanobacterial charging; dark or shielded anode for Shewanella discharging
+  inoculum_source: Engineered Syn2973-omcS-ldh and S. oneidensis napA deletion mutant cultures.
+  preparation_notes: >
+    MBG11 is a modified BG11-based medium adjusted to support both the cyanobacterium
+    and Shewanella in the electrochemical device. The full component table is in
+    the source supplementary material and is not reasserted here.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cyanobacterial medium BG11
+    explanation: Supports BG11 as the starting cyanobacterial medium.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a modified medium suitable for two species was established, which was named MBG11
+    explanation: Supports MBG11 as the coculture-compatible medium.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. oneidensis cells were subsequently inoculated at an OD600 of 0.1
+    explanation: Supports the Shewanella inoculation condition for temporal separation assays.
+external_resources:
+- name: Primary publication - Synechococcus-Shewanella biophotovoltaic consortium
+  repository: OTHER
+  resource_id: PMID:31537786
+  url: https://pubmed.ncbi.nlm.nih.gov/31537786/
+  description: Primary publication reporting a D-lactate-mediated photosynthetic cyanobacteria-Shewanella
+    biophotovoltaic consortium.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Development of a longevous two-species biophotovoltaics with constrained electron flow
+    explanation: Supports this publication as the exact source for the curated system.
+- name: Open full text - Synechococcus-Shewanella biophotovoltaic consortium
+  repository: OTHER
+  resource_id: PMCID:PMC6753107
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC6753107/
+  description: Open-access full text with methods, engineered strain descriptions, and device organization.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The microbial consortium comprises an engineered cyanobacterium
+    explanation: Supports the open full text as the source for engineered-strain and consortium-design details.
+- name: DOI landing page - Synechococcus-Shewanella biophotovoltaic consortium
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-019-12190-w
+  url: https://doi.org/10.1038/s41467-019-12190-w
+  description: DOI landing page for the Nature Communications publication.
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Development of a longevous two-species biophotovoltaics with constrained electron flow
+    explanation: Supports the DOI resource for the exact publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: The community uses Shewanella extracellular electron transfer to an electrode; no metal
+  or rare earth extraction, cycling, or stress mechanism is curated for this record.
