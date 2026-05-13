@@ -1,0 +1,163 @@
+id: CommunityMech:000243
+name: Ngawha Geothermal Acidic Springs Mercury Cycling Community
+description: >
+  An acidic warm spring microbial community from the Ngawha Geothermal Field
+  (Northland Region, Aotearoa New Zealand) characterized by genome-resolved
+  metagenomics and mercury speciation analysis. Two adjacent springs differ in
+  mercury speciation, with dissolved total and methylated mercury
+  concentrations among the highest reported from natural sources (250 to
+  16,000 ng/L total; 0.5 to 13.9 ng/L methylmercury). Sediment total mercury
+  ranges from 1,274 to 7,000 ug/g. Despite ultrahigh mercury levels, the
+  geothermal microbiome is unexpectedly diverse and dominated by acidophilic
+  and mesophilic sulfur- and iron-cycling bacteria, mercury- and arsenic-
+  resistant bacteria, and thermophilic and acidophilic archaea. A conceptual
+  model integrates community structure and metagenomic potential with abiotic
+  and biotic controls on Hg methylation, demethylation, and reduction to
+  volatile Hg(0).
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: acidic geothermal warm spring
+  term:
+    id: ENVO:00000051
+    label: hot spring
+  notes: Acidic warm springs (<55 C, pH <4.5) in the Ngawha Geothermal Field,
+    Northland Region, New Zealand, with ultrahigh mercury content.
+taxonomy:
+- taxon_term:
+    preferred_term: acidophilic sulfur- and iron-cycling bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Acidophilic and mesophilic sulfur- and iron-cycling bacteria
+      dominate the geothermal microbiome.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: acidophilic and mesophilic sulfur- and iron-cycling bacteria
+    explanation: Supports the S/Fe-cycling bacterial members.
+- taxon_term:
+    preferred_term: mercury- and arsenic-resistant bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Mercury- and arsenic-resistant bacteria persist under ultrahigh
+      mercury and arsenic exposure.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: mercury- and arsenic-resistant bacteria
+    explanation: Supports the Hg/As-resistant bacterial members.
+- taxon_term:
+    preferred_term: thermophilic and acidophilic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Thermophilic and acidophilic archaeal members of the geothermal
+      community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: thermophilic and acidophilic archaea
+    explanation: Supports the archaeal members.
+ecological_interactions:
+- name: Mercury Methylation, Demethylation, and Reduction
+  description: Genome-resolved analysis identifies microorganisms genetically
+    equipped for mercury methylation, demethylation, or Hg(II) reduction to
+    volatile Hg(0).
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: mercury(2+)
+    term:
+      id: CHEBI:16793
+      label: mercury(2+)
+  - preferred_term: methylmercury
+    term:
+      id: CHEBI:25196
+      label: methylmercury(1+)
+  biological_processes:
+  - preferred_term: mercury ion transport
+    term:
+      id: GO:0015694
+      label: mercury ion transport
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: microorganisms genetically equipped for mercury methylation,
+      demethylation, or Hg(II) reduction to volatile Hg(0)
+    explanation: Supports the three curated Hg-cycling activities.
+- name: Diverse Community Despite Ultrahigh Hg
+  description: Despite ultrahigh dissolved and solid mercury concentrations,
+    the geothermal microbiome is unexpectedly diverse.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In the context of such ultrahigh mercury levels, the geothermal
+      microbiome was unexpectedly diverse
+    explanation: Supports the curated high-diversity-under-high-Hg observation.
+environmental_factors:
+- name: Mercury concentration
+  value: ultrahigh dissolved and solid Hg
+  description: Dissolved total mercury 250-16,000 ng/L; dissolved methylmercury
+    0.5-13.9 ng/L; sediment total mercury 1,274-7,000 ug/g.
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: among the highest reported from natural sources (250 to
+      16,000 ng liter-1 and 0.5 to 13.9 ng liter-1, respectively)
+    explanation: Supports the dissolved Hg concentrations.
+- name: Spring chemistry
+  value: pH <4.5, temperature <55 C
+  description: Acidic warm springs with low pH and moderate temperature provide
+    the extreme habitat.
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: acidic warm springs in the Ngawha Geothermal Field
+    explanation: Supports the spring chemistry.
+growth_media: []
+external_resources:
+- name: Primary publication for the Ngawha Hg-cycling community
+  repository: OTHER
+  resource_id: PMID:32414793
+  url: https://pubmed.ncbi.nlm.nih.gov/32414793/
+  description: PubMed record for the Gionfriddo et al. 2020 Appl Environ
+    Microbiol paper.
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Genome-Resolved Metagenomics and Detailed Geochemical Speciation
+      Analyses Yield New Insights into Microbial Mercury Cycling in Geothermal
+      Springs
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1128/AEM.00176-20
+  url: https://doi.org/10.1128/AEM.00176-20
+  description: DOI link to the Applied and Environmental Microbiology paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: Mercury is the central metal driving community structure and the
+  curated biogeochemical cycle, but the schema's metals_present enum does not
+  include mercury; the metal is described in metal_notes only.

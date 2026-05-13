@@ -1,0 +1,180 @@
+id: CommunityMech:000244
+name: Anammox Bioreactor DNRA Destabilization Community
+description: >
+  A laboratory-scale anaerobic ammonium oxidation (anammox) bioreactor
+  community followed from inoculation through a performance destabilization
+  event and back to robust steady-state operation, characterized by
+  metagenomics. Metabolic analyses showed selection for nutrient-acquisition
+  capacities in the core community. Dissimilatory nitrate reduction to
+  ammonium (DNRA) was the primary nitrogen-removal pathway that competed with
+  anammox, and increased replication of DNRA-capable bacteria out-competed
+  anammox bacteria, causing the loss of nitrogen-removal capacity. The
+  DNRA-capable bacteria were closely associated with the anammox bacterium
+  and are considered part of the core microbial community, underscoring how
+  bacteria that are otherwise core members can be detrimental.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Resolve the metabolic roles of core microbial community members
+    in an anammox bioreactor across stable and destabilized performance.
+  assembly_strategy: Operate a laboratory-scale anammox bioreactor and follow
+    it metagenomically from inoculation through destabilization to recovery.
+  perturbation_design: Observe a natural performance destabilization event
+    and the associated shift in community composition and gene replication
+    rates.
+  measurement_endpoints:
+  - Nitrogen-removal performance over time
+  - Core community member identity and abundance
+  - Replication rates of DNRA vs anammox bacteria
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we used metagenomics to study the microbial community of a
+      laboratory-scale anammox bioreactor from inoculation, through a
+      performance destabilization event, to robust steady-state performance
+    explanation: Supports the destabilization-and-recovery design.
+environment_term:
+  preferred_term: laboratory anammox bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Laboratory-scale anammox bioreactor treating reactive nitrogen,
+    followed by metagenomics through destabilization and recovery.
+taxonomy:
+- taxon_term:
+    preferred_term: anammox bacterium
+    term:
+      id: NCBITaxon:67854
+      label: Planctomycetota
+    notes: Anaerobic ammonium-oxidizing bacterium that drives nitrogen removal
+      in the bioreactor; outcompeted during destabilization.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: out-competition of anammox bacteria, and the loss of the
+      bioreactor's nitrogen removal capacity
+    explanation: Supports the anammox-bacterium member and its destabilization
+      dynamics.
+- taxon_term:
+    preferred_term: dissimilatory nitrate reducing (DNRA) bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Core community bacteria capable of dissimilatory nitrate reduction
+      to ammonium; their replication outcompetes anammox during destabilization.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increased replication of bacteria capable of DNRA led to the
+      out-competition of anammox bacteria
+    explanation: Supports the DNRA-capable bacterial members and their
+      competitive impact.
+ecological_interactions:
+- name: DNRA Competes with Anammox for Nitrogen Removal
+  description: Dissimilatory nitrate reduction to ammonium (DNRA) is the
+    primary nitrogen-removal pathway competing with anammox, and increased
+    replication of DNRA bacteria leads to out-competition of anammox bacteria.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: dissimilatory nitrate reducing (DNRA) bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: anammox bacterium
+    term:
+      id: NCBITaxon:67854
+      label: Planctomycetota
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen compound metabolic process
+    term:
+      id: GO:0006807
+      label: nitrogen compound metabolic process
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dissimilatory nitrate reduction to ammonium (DNRA) was the primary
+      nitrogen removal pathway that competed with anammox
+    explanation: Supports DNRA as the curated competitive pathway.
+- name: Nutrient Acquisition Selects Core Community Members
+  description: Metabolic analyses revealed that nutrient acquisition from the
+    environment is selected for in the anammox community.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nutrient acquisition from the environment is selected for in the
+      anammox community
+    explanation: Supports nutrient-acquisition selection of core members.
+- name: DNRA Bacteria Associated with Anammox Core
+  description: The DNRA-capable bacteria are highly associated with the
+    anammox bacterium and are considered part of the core microbial community,
+    illustrating that core members can be detrimental.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These bacteria were highly associated with the anammox bacterium
+      and considered part of the core microbial community
+    explanation: Supports the core-association status of DNRA bacteria.
+environmental_factors:
+- name: Bioreactor performance state
+  value: stable -> destabilized -> recovered
+  description: The community was followed through inoculation, a destabilization
+    event, and back to robust steady-state performance.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: from inoculation, through a performance destabilization event,
+      to robust steady-state performance
+    explanation: Supports the curated performance trajectory.
+growth_media: []
+external_resources:
+- name: Primary publication for the anammox/DNRA destabilization community
+  repository: OTHER
+  resource_id: PMID:31980038
+  url: https://pubmed.ncbi.nlm.nih.gov/31980038/
+  description: PubMed record for the Keren et al. 2020 Microbiome paper.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increased replication of dissimilatory nitrate-reducing bacteria
+      leads to decreased anammox bioreactor performance
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-020-0786-3
+  url: https://doi.org/10.1186/s40168-020-0786-3
+  description: DOI link to the Microbiome paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  anammox/DNRA community.

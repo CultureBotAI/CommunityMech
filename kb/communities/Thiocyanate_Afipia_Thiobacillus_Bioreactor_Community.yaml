@@ -1,0 +1,214 @@
+id: CommunityMech:000239
+name: Thiocyanate-Degrading Afipia and Thiobacillus Bioreactor Community
+description: >
+  A laboratory bioreactor microbial community derived from consortia used to
+  treat thiocyanate-contaminated water, perturbed by systematically increased
+  SCN- input loading and the presence or absence of molasses as organic
+  carbon. Five experiments over 790 days with genome-resolved metagenomics
+  showed that a single Thiobacillus strain proliferated in all reactors at
+  high SCN- loading, while a single Afipia variant dominated the molasses-
+  free reactor at moderate loadings. The Afipia variant is predicted to
+  degrade SCN- via a novel thiocyanate desulfurase, oxidize the resulting
+  reduced sulfur, degrade the cyanate product to ammonia and CO2 via cyanate
+  hydratase, and fix CO2 via the Calvin-Benson-Bassham cycle. Removal of
+  molasses reproducibly selects for this autotrophic strain, although
+  molasses-free reactors did not sustain high-loading SCN- degradation,
+  possibly due to loss of biofilm-associated niche diversity.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Test whether specific strains capable of degrading thiocyanate
+    can be reproducibly selected by SCN- loading and the presence or absence
+    of added organic carbon (molasses).
+  assembly_strategy: Use complex microbial communities derived from those
+    used to treat thiocyanate-contaminated water as the starting inoculum and
+    perturb with systematically varied SCN- and molasses inputs.
+  perturbation_design: Increase SCN- input concentration over time in
+    molasses-amended and unamended reactors, and switch some reactors to
+    unamended conditions after the active SCN- degrading consortium has
+    established.
+  measurement_endpoints:
+  - Reproducibility of strain-level selection across reactors
+  - Thiobacillus and Afipia abundance across SCN- loadings
+  - Strain-level community composition over 790 days
+  - SCN- degradation performance under molasses removal
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Complex microbial communities derived from those used to treat
+      SCN--contaminated water were exposed to systematically increased input
+      SCN concentrations in molasses-amended and -unamended reactors
+    explanation: Supports the SCN- consortium and molasses perturbation design.
+environment_term:
+  preferred_term: thiocyanate-fed laboratory bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Laboratory bioreactor cultivations of SCN- degrading consortia over
+    790 days with molasses-amended and molasses-free reactors.
+taxonomy:
+- taxon_term:
+    preferred_term: Thiobacillus thiocyanate-degrader strain
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+    notes: A single Thiobacillus strain proliferated in all reactors at high
+      SCN- loadings.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A single Thiobacillus strain proliferated in all reactors at high
+      loadings
+    explanation: Supports Thiobacillus dominance at high SCN- loading.
+- taxon_term:
+    preferred_term: Afipia thiocyanate-degrader variant
+    term:
+      id: NCBITaxon:1033
+      label: Afipia
+    notes: A single Afipia variant dominated the molasses-free reactor at
+      moderately high SCN- loadings.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a single Afipia variant dominated the molasses-free reactor at
+      moderately high loadings
+    explanation: Supports Afipia dominance under molasses removal.
+- taxon_term:
+    preferred_term: Rhizobiales background strains
+    term:
+      id: NCBITaxon:356
+      label: Rhizobiales
+    notes: Many Rhizobiales strains were present but did not dominate; Afipia
+      (within Rhizobiales) was the molasses-free winner.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Despite the presence of many Rhizobiales strains
+    explanation: Supports Rhizobiales background membership.
+ecological_interactions:
+- name: Thiocyanate Degradation and Autotrophic CO2 Fixation by Afipia
+  description: The Afipia variant degrades SCN- via a novel thiocyanate
+    desulfurase, oxidizes the resulting reduced sulfur, breaks down the
+    cyanate product to ammonia and CO2 via cyanate hydratase, and refixes CO2
+    via the Calvin-Benson-Bassham cycle.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: thiocyanate
+    term:
+      id: CHEBI:18022
+      label: thiocyanate
+  - preferred_term: cyanate
+    term:
+      id: CHEBI:29195
+      label: cyanate
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: predicted to break down SCN- using a novel thiocyanate desulfurase,
+      oxidize resulting reduced sulfur, degrade product cyanate to ammonia and
+      CO2 via cyanate hydratase, and fix CO2 via the Calvin-Benson-Bassham
+      cycle
+    explanation: Supports the curated four-step Afipia metabolic pathway.
+- name: Molasses Removal Selects for Afipia
+  description: Removal of molasses from input feed solutions reproducibly led
+    to dominance of the autotrophic Afipia variant over heterotrophic
+    competitors.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Removal of molasses from input feed solutions reproducibly led to
+      dominance of this strain
+    explanation: Supports the molasses-driven Afipia selection.
+- name: Loss of Biofilm Niche Diversity Without Molasses
+  description: Although sustained by autotrophy, molasses-free reactors did not
+    stably degrade SCN- at high loading rates, possibly due to loss of
+    biofilm-associated niche diversity.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reactors without molasses did not stably degrade SCN- at high
+      loading rates, perhaps due to loss of biofilm-associated niche diversity
+    explanation: Supports the curated niche-diversity rationale.
+environmental_factors:
+- name: Thiocyanate loading
+  value: systematically increased SCN- input concentration
+  description: SCN- input concentration was increased systematically over
+    790 days across five experiments.
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: systematically increased input SCN concentrations
+    explanation: Supports the SCN- loading perturbation design.
+- name: Molasses amendment
+  value: molasses-amended vs molasses-free
+  description: Reactors were run with or without molasses as organic carbon
+    supplement.
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: molasses-amended and -unamended reactors
+    explanation: Supports the molasses-amendment perturbation.
+growth_media: []
+external_resources:
+- name: Primary publication for the Afipia/Thiobacillus thiocyanate community
+  repository: OTHER
+  resource_id: PMID:33897653
+  url: https://pubmed.ncbi.nlm.nih.gov/33897653/
+  description: PubMed record for the Huddy et al. 2021 Frontiers in Microbiology
+    paper.
+  evidence:
+  - reference: PMID:33897653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thiocyanate and Organic Carbon Inputs Drive Convergent Selection
+      for Specific Autotrophic Afipia and Thiobacillus Strains
+    explanation: Lists the primary publication for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2021.643368
+  url: https://doi.org/10.3389/fmicb.2021.643368
+  description: DOI link to the Frontiers in Microbiology paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  thiocyanate bioremediation community.
