@@ -1,0 +1,181 @@
+id: CommunityMech:000240
+name: Infant Gut Strain Persistence and Maternal Seeding Community
+description: >
+  A longitudinal infant gut bacterial community studied at strain resolution
+  over the first year of life across 13 full-term and 9 preterm infants and 17
+  mother-infant pairs. Infants' initially distinct microbiomes converge by age
+  1 year. Approximately 11 percent of early colonizers, primarily Bacteroides
+  and Bifidobacterium, persist through the first year and are more prevalent
+  in full-term than in preterm infants. Maternal gut strains are significantly
+  more likely to persist in the infant gut than other strains. Enrichment in
+  genes for surface adhesion, iron acquisition, and carbohydrate degradation
+  may explain why some strains persist through the first year of life.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: OTHER
+environment_term:
+  preferred_term: infant gut microbiome
+  term:
+    id: ENVO:00002009
+    label: feces environment
+  notes: Longitudinal fecal metagenome series from full-term and preterm
+    infants and 17 mother-infant pairs across the first year of life.
+taxonomy:
+- taxon_term:
+    preferred_term: persistent infant Bacteroides colonizers
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+    notes: Bacteroides is one of the two main genera among ~11 percent of
+      early colonizers that persist through the first year of life.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 11% of early colonizers, primarily Bacteroides and Bifidobacterium,
+      persist during the first year of life
+    explanation: Supports Bacteroides as a persistent early colonizer.
+- taxon_term:
+    preferred_term: persistent infant Bifidobacterium colonizers
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+    notes: Bifidobacterium is the second main genus among ~11 percent of
+      persistent early colonizers.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacteroides and Bifidobacterium, persist during the first year of
+      life
+    explanation: Supports Bifidobacterium as a persistent early colonizer.
+- taxon_term:
+    preferred_term: maternal-origin gut bacterial strains
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Maternal gut strains transferred to the infant; significantly more
+      likely to persist in the infant gut than other strains.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: maternal gut strains are significantly more likely to persist in
+      the infant gut than other strains
+    explanation: Supports maternal-origin strains as a privileged class.
+ecological_interactions:
+- name: Maternal Strain Seeding Drives Persistence
+  description: Maternal gut strains are significantly more likely to persist
+    in the infant gut than other strains, indicating maternal seeding as a
+    driver of long-term colonization.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: maternal gut strains are significantly more likely to persist in
+      the infant gut than other strains
+    explanation: Supports maternal seeding as the dominant persistence driver.
+- name: Persistence Traits Encoded in Genomes
+  description: Enrichment in genes for surface adhesion, iron acquisition, and
+    carbohydrate degradation may explain persistence of some strains through
+    the first year.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Enrichment in genes for surface adhesion, iron acquisition, and
+      carbohydrate degradation may explain persistence
+    explanation: Supports the three genomic trait categories curated as
+      persistence determinants.
+- name: Microbiome Convergence by Age One
+  description: Infants' initially distinct microbiomes converge by age 1 year.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: infants' initially distinct microbiomes converge by age 1 year
+    explanation: Supports the developmental convergence trajectory.
+- name: Full-Term Versus Preterm Persistence Disparity
+  description: Persistent early colonizers are more prevalent in full-term
+    than in preterm infants, indicating birth status as a structuring factor.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: those are more prevalent in full-term, compared with preterm
+      infants
+    explanation: Supports the birth-status disparity in persistence.
+environmental_factors:
+- name: Birth status
+  value: full-term (n=13) vs preterm (n=9) infants
+  description: Birth status (full-term vs preterm) shapes the early gut
+    microbiome and persistence of early colonizers.
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: fecal metagenomes collected from 13 full-term and 9 preterm
+      infants
+    explanation: Supports the curated cohort design.
+- name: Mother-infant pairing
+  value: 17 mother-infant pairs
+  description: 17 paired mother-infant fecal metagenome series were used to
+    identify maternal-origin strains.
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Examination of 17 mother-infant pairs reveals maternal gut strains
+    explanation: Supports the mother-infant pair design.
+growth_media: []
+external_resources:
+- name: Primary publication for the infant gut strain persistence community
+  repository: OTHER
+  resource_id: PMID:34622230
+  url: https://pubmed.ncbi.nlm.nih.gov/34622230/
+  description: PubMed record for the Lou et al. 2021 Cell Rep Med paper.
+  evidence:
+  - reference: PMID:34622230
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Infant gut strain persistence is associated with maternal origin,
+      phylogeny, and traits including surface adhesion and iron acquisition
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1016/j.xcrm.2021.100393
+  url: https://doi.org/10.1016/j.xcrm.2021.100393
+  description: DOI link to the Cell Rep Med paper.
+associated_datasets: []
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: Iron acquisition genes are among the three trait categories
+  associated with strain persistence in the infant gut.

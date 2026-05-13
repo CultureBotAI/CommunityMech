@@ -1,0 +1,239 @@
+id: CommunityMech:000241
+name: Rifle Aquifer Bioanode Extracellular Electron Transfer Community
+description: >
+  An electroactive microbial community established and maintained for almost
+  four years in microbial electrochemical cells (MXCs) inoculated with a
+  well-studied aquifer near Rifle, CO. Anodes were poised mostly at -0.2 to
+  -0.25 V vs SHE to mimic iron-oxide mineral redox potentials, with acetate
+  as the sole carbon source. Genome-resolved metagenomics of two biofilm and
+  26 planktonic samples yielded 84 bacterial and 2 archaeal near-complete
+  draft genomes. A novel Geobacter sp. with at least 72 putative multiheme
+  c-type cytochromes dominated the electrode-attached community, while
+  diverse other organisms (Actinobacteria, Ignavibacteria, Chloroflexi,
+  Acidobacteria, Firmicutes, Beta- and Gammaproteobacteria) also encoded
+  multiheme cytochromes, porin-cytochrome complexes, and electrically
+  conductive pili (e-pili), identifying a small subset of Rifle aquifer
+  organisms that may mediate mineral redox transformations.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Use microbial electrochemical cells (MXCs) coupled with
+    genome-resolved metagenomics to enrich for and study organisms in the
+    Rifle aquifer capable of extracellular electron transfer (EET).
+  assembly_strategy: Inoculate MXCs with Rifle, CO aquifer material and
+    cultivate electroactive biofilms on anodes poised at iron-oxide-like
+    redox potentials with acetate as sole carbon source.
+  perturbation_design: Maintain biofilms for nearly 4 years and sample two
+    biofilm and 26 planktonic time points for metagenomic reconstruction.
+  measurement_endpoints:
+  - Genome-resolved EET-capable organisms in biofilm and planktonic phases
+  - Multiheme c-type cytochrome inventories per genome
+  - Identification of porin-cytochrome complexes and e-pili
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electroactive biofilms were established and maintained for almost
+      4 years on anodes poised mostly at -0.2 to -0.25 V vs. SHE
+    explanation: Supports the long-term anode-poised electroactive enrichment.
+environment_term:
+  preferred_term: microbial electrochemical cell anode biofilm
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Acetate-fed microbial electrochemical cells inoculated with Rifle, CO
+    aquifer material; anodes poised at iron-oxide-like redox potentials.
+taxonomy:
+- taxon_term:
+    preferred_term: novel multiheme-cytochrome Geobacter sp.
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+    notes: Dominant electrode-attached organism encoding at least 72 putative
+      multiheme c-type cytochromes.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A novel Geobacter sp. with at least 72 putative multiheme c-type
+      cytochromes (MHCs) was the dominant electrode-attached organism
+    explanation: Supports the Geobacter dominant member.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a diverse range of other electrode-associated organisms also
+      harbored putative MHCs with at least 10 heme-binding motifs, as well as
+      porin-cytochrome complexes and e-pili, including Actinobacteria
+    explanation: Supports Actinobacteria membership with EET capacity.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Ignavibacteria
+    term:
+      id: NCBITaxon:1648176
+      label: Ignavibacteriota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ignavibacteria
+    explanation: Supports the Ignavibacteria EET membership.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Chloroflexi
+    term:
+      id: NCBITaxon:200795
+      label: Chloroflexota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chloroflexi
+    explanation: Supports the Chloroflexi EET membership.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Acidobacteria
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acidobacteria
+    explanation: Supports the Acidobacteria EET membership.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Firmicutes
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Firmicutes
+    explanation: Supports the Firmicutes EET membership.
+- taxon_term:
+    preferred_term: EET-capable Rifle aquifer Beta- and Gammaproteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Beta- and Gammaproteobacteria
+    explanation: Supports the Proteobacteria classes with EET capacity.
+ecological_interactions:
+- name: Acetate Oxidation Coupled to Anode Electron Donation
+  description: Geobacter and other EET-capable organisms oxidize acetate and
+    transfer electrons to the poised anode via multiheme cytochromes,
+    porin-cytochrome complexes, and e-pili.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using acetate as the sole carbon source
+    explanation: Supports acetate as the sole electron donor.
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: putative MHCs with at least 10 heme-binding motifs, as well as
+      porin-cytochrome complexes and e-pili
+    explanation: Supports the multiheme-cytochrome, porin-cytochrome, and
+      e-pili EET machinery.
+- name: Subset of Rifle Aquifer Organisms Mediates EET
+  description: Only a small subset of the thousands of organisms previously
+    detected in the Rifle aquifer have the genetic potential to mediate
+    mineral redox transformations.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a small subset of the thousands of organisms previously detected
+      in the Rifle aquifer that may have the potential to mediate mineral redox
+      transformations
+    explanation: Supports the selective enrichment of EET-capable organisms.
+environmental_factors:
+- name: Anode redox potential
+  value: -0.2 to -0.25 V vs SHE
+  description: Anodes were poised at potentials that mimic iron-oxide mineral
+    redox potentials.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anodes poised mostly at -0.2 to -0.25 V vs. SHE, a range that
+      mimics the redox potential of iron-oxide minerals
+    explanation: Supports the curated anode redox potential range.
+- name: Operating duration
+  value: nearly 4 years of continuous operation
+  description: The biofilms were maintained on poised anodes for almost 4
+    years before metagenomic sampling.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: maintained for almost 4 years on anodes
+    explanation: Supports the operating duration.
+growth_media: []
+external_resources:
+- name: Primary publication for the Rifle bioanode community
+  repository: OTHER
+  resource_id: PMID:32849356
+  url: https://pubmed.ncbi.nlm.nih.gov/32849356/
+  description: PubMed record for the Arbour et al. 2020 Frontiers in
+    Microbiology paper.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Diverse Microorganisms in Sediment and Groundwater Are Implicated
+      in Extracellular Redox Processes Based on Genomic Analysis of Bioanode
+      Communities
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.3389/fmicb.2020.01694
+  url: https://doi.org/10.3389/fmicb.2020.01694
+  description: DOI link to the Frontiers in Microbiology paper.
+associated_datasets: []
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: Anode potentials mimic iron-oxide mineral redox; the EET-capable
+  organisms may mediate mineral redox transformations in the Rifle aquifer.

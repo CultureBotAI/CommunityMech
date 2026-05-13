@@ -1,0 +1,189 @@
+id: CommunityMech:000242
+name: Groundwater Elusimicrobia Diverse Metabolisms Community
+description: >
+  A genomic survey of 94 draft-quality, non-redundant Elusimicrobia genomes
+  (30 newly reconstructed) from diverse animal-associated and natural
+  environments. Genomes group into 12 clades, 10 previously lacking
+  reference genomes. Groundwater-associated Elusimicrobia are predicted to be
+  capable of heterotrophic or autotrophic lifestyles, oxygen- or
+  nitrate/nitrite-dependent respiration, degradation of a variety of organic
+  compounds, and Rhodobacter nitrogen fixation (Rnf) complex-dependent
+  acetogenesis using hydrogen and carbon dioxide. Two groundwater-associated
+  clades often encode a new nitrogenase paralog co-occurring with an
+  extensive suite of radical S-Adenosylmethionine (SAM) proteins. Similar
+  genomic loci occur in Gracilibacteria and Myxococcales genomes and are
+  predicted to reduce a tetrapyrrole, possibly to form a novel cofactor. The
+  animal-associated clades nest within free-living clades, supporting an
+  evolutionary trajectory from free-living to animal-associated lifestyles
+  via genome reduction.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: groundwater Elusimicrobia habitat
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: 94 Elusimicrobia genomes from diverse animal-associated and natural
+    environments including groundwater, sediments, and soils.
+taxonomy:
+- taxon_term:
+    preferred_term: groundwater-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobiota
+    notes: Groundwater Elusimicrobia clades with diverse metabolic strategies
+      including aerobic and anaerobic respiration and Rnf-dependent acetogenesis.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Groundwater-associated Elusimicrobia are predicted to be capable
+      of heterotrophic or autotrophic lifestyles
+    explanation: Supports the heterotrophic/autotrophic versatility.
+- taxon_term:
+    preferred_term: animal-associated Elusimicrobia
+    term:
+      id: NCBITaxon:641853
+      label: Elusimicrobiota
+    notes: Animal-associated Elusimicrobia clades whose phylogenetic placement
+      within free-living clades supports an evolutionary trajectory from
+      free-living to animal-associated lifestyles via genome reduction.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The animal-associated Elusimicrobia clades nest phylogenetically
+      within two free-living-associated clades
+    explanation: Supports the animal-associated clades and their nested
+      phylogenetic placement.
+ecological_interactions:
+- name: Versatile Heterotrophic/Autotrophic Respiration
+  description: Groundwater Elusimicrobia can perform heterotrophic or
+    autotrophic respiration with oxygen or nitrate/nitrite as terminal
+    electron acceptors and a variety of organic compounds as substrates.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: reliant on oxygen or nitrate/nitrite-dependent respiration, or a
+      variety of organic compounds
+    explanation: Supports the curated heterotrophic/autotrophic respiration
+      modes.
+- name: Rnf-Dependent Acetogenesis from H2 and CO2
+  description: Some groundwater Elusimicrobia encode Rhodobacter nitrogen
+    fixation (Rnf) complex-dependent acetogenesis using H2 and CO2 as
+    substrates.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Rhodobacter nitrogen fixation (Rnf) complex-dependent acetogenesis
+      with hydrogen and carbon dioxide as the substrates
+    explanation: Supports Rnf-dependent acetogenesis from H2 and CO2.
+- name: Novel Nitrogenase Paralog and Radical SAM Cluster
+  description: Two groundwater Elusimicrobia clades encode a novel nitrogenase
+    paralog co-occurring with an extensive suite of radical S-Adenosylmethionine
+    proteins; similar genomic loci occur in Gracilibacteria and Myxococcales
+    and are predicted to reduce a tetrapyrrole, possibly to form a novel
+    cofactor.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a new group of nitrogenase paralogs that co-occur with an
+      extensive suite of radical S-Adenosylmethionine (SAM) proteins
+    explanation: Supports the curated nitrogenase-paralog and radical-SAM
+      cluster.
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: predict that the gene clusters reduce a tetrapyrrole, possibly to
+      form a novel cofactor
+    explanation: Supports the predicted tetrapyrrole-reductase function.
+environmental_factors:
+- name: Habitat diversity
+  value: animal-associated, sediments, soils, groundwater
+  description: 94 Elusimicrobia genomes were analyzed across multiple habitat
+    types.
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 94 draft-quality, non-redundant genomes, including 30 newly
+      reconstructed genomes, from diverse animal-associated and natural
+      environments
+    explanation: Supports the curated multi-habitat genome set.
+growth_media: []
+external_resources:
+- name: Primary publication for the groundwater Elusimicrobia community
+  repository: OTHER
+  resource_id: PMID:32681159
+  url: https://pubmed.ncbi.nlm.nih.gov/32681159/
+  description: PubMed record for the Meheust et al. 2020 ISME J paper.
+  evidence:
+  - reference: PMID:32681159
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Groundwater Elusimicrobia are metabolically diverse compared to
+      gut microbiome Elusimicrobia
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41396-020-0716-1
+  url: https://doi.org/10.1038/s41396-020-0716-1
+  description: DOI link to the ISME J paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  Elusimicrobia community.

@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-11T23:05:18
+# Generation date: 2026-05-13T00:24:48
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
@@ -495,7 +495,7 @@ class EcologicalInteraction(YAMLRoot):
             self.interaction_type = InteractionTypeEnum(self.interaction_type)
 
         if self.scope is not None and not isinstance(self.scope, InteractionScopeEnum):
-            self.scope = InteractionScopeEnum(self.scope)
+            self.scope = getattr(InteractionScopeEnum, self.scope)
 
         if self.source_taxon is not None and not isinstance(self.source_taxon, TaxonDescriptor):
             self.source_taxon = TaxonDescriptor(**as_dict(self.source_taxon))
@@ -1615,6 +1615,10 @@ class MetalElementEnum(EnumDefinitionImpl):
         text="TITANIUM",
         description="Titanium atom",
         meaning=CHEBI["33341"])
+    MERCURY = PermissibleValue(
+        text="MERCURY",
+        description="Mercury(2+) cation",
+        meaning=CHEBI["16793"])
 
     _defn = EnumDefinition(
         name="MetalElementEnum",
