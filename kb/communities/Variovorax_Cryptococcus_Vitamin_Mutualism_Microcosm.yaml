@@ -95,16 +95,12 @@ ecological_interactions:
   description: A Variovorax species produces thiamine at high levels and supports
     growth of correlated thiamine auxotrophs in the laboratory consortium.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Variovorax species
     term:
       id: NCBITaxon:34072
       label: Variovorax
-  target_taxon:
-    preferred_term: Cryptococcus yeast
-    term:
-      id: NCBITaxon:5206
-      label: Cryptococcus
   metabolites:
   - preferred_term: thiamine
     term:
@@ -225,22 +221,12 @@ environmental_factors:
     explanation: Supports minimal-media growth as the assay for thiamine production.
 growth_media:
 - name: Mine-tailings-derived consortium growth media (minimal, defined)
-  composition:
-  - name: thiamine
-    chebi_term:
-      preferred_term: thiamine
-      term:
-        id: CHEBI:18385
-        label: thiamine
-  - name: pantothenate
-    chebi_term:
-      preferred_term: pantothenate
-      term:
-        id: CHEBI:7916
-        label: pantothenate(1-)
+  composition: []
   atmosphere: AEROBIC
-  preparation_notes: Minimal defined media with controlled vitamin availability
-    were used; the abstract does not enumerate full media composition.
+  preparation_notes: Minimal defined media were used to assay vitamin-driven
+    dependencies; thiamine and pantothenate are produced by community members
+    (Variovorax and Cryptococcus respectively) rather than added exogenously,
+    and full media composition is not enumerated in the abstract.
   evidence:
   - reference: PMID:37553333
     supports: SUPPORT
