@@ -130,15 +130,16 @@ class NetworkIntegrityAuditor:
                 source_id = source.get("term", {}).get("id")
 
                 if source_term not in taxonomy_by_term:
-                    issues.append(
-                        {
-                            "type": IssueType.UNKNOWN_SOURCE,
-                            "interaction": int_name,
-                            "interaction_index": idx,
-                            "taxon": source_term,
-                            "message": f"Source taxon '{source_term}' not found in taxonomy section",
-                        }
-                    )
+                    if scope != "COMMUNITY_LEVEL":
+                        issues.append(
+                            {
+                                "type": IssueType.UNKNOWN_SOURCE,
+                                "interaction": int_name,
+                                "interaction_index": idx,
+                                "taxon": source_term,
+                                "message": f"Source taxon '{source_term}' not found in taxonomy section",
+                            }
+                        )
                 else:
                     connected_taxa.add(source_term)
                     # Check ID mismatch
@@ -164,15 +165,16 @@ class NetworkIntegrityAuditor:
                 target_id = target.get("term", {}).get("id")
 
                 if target_term not in taxonomy_by_term:
-                    issues.append(
-                        {
-                            "type": IssueType.UNKNOWN_TARGET,
-                            "interaction": int_name,
-                            "interaction_index": idx,
-                            "taxon": target_term,
-                            "message": f"Target taxon '{target_term}' not found in taxonomy section",
-                        }
-                    )
+                    if scope != "COMMUNITY_LEVEL":
+                        issues.append(
+                            {
+                                "type": IssueType.UNKNOWN_TARGET,
+                                "interaction": int_name,
+                                "interaction_index": idx,
+                                "taxon": target_term,
+                                "message": f"Target taxon '{target_term}' not found in taxonomy section",
+                            }
+                        )
                 else:
                     connected_taxa.add(target_term)
                     # Check ID mismatch

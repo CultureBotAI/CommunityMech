@@ -141,6 +141,54 @@ def test_unknown_source_detected(temp_communities_dir, valid_community):
     assert unknown_issues[0]["taxon"] == "Unknown bacterium"
 
 
+def test_unknown_source_skipped_for_community_level_scope(
+    temp_communities_dir, valid_community
+):
+    """COMMUNITY_LEVEL interactions can use aggregate source descriptors that
+    don't appear in the taxonomy section without raising UNKNOWN_SOURCE."""
+    valid_community["ecological_interactions"][0]["source_taxon"] = {
+        "preferred_term": "aggregate community descriptor",
+        "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
+    }
+    valid_community["ecological_interactions"][0]["scope"] = "COMMUNITY_LEVEL"
+    # Mark the formerly-source taxon as a community member so it doesn't
+    # become DISCONNECTED and confound the test.
+    valid_community["taxonomy"][0]["functional_role"] = ["PRIMARY_DEGRADER"]
+
+    test_file = temp_communities_dir / "test_unknown_source_community.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(valid_community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    issues = auditor.audit_community(test_file)
+
+    assert issues == []
+
+
+def test_unknown_target_skipped_for_community_level_scope(
+    temp_communities_dir, valid_community
+):
+    """COMMUNITY_LEVEL interactions can use aggregate target descriptors that
+    don't appear in the taxonomy section without raising UNKNOWN_TARGET."""
+    valid_community["ecological_interactions"][0]["target_taxon"] = {
+        "preferred_term": "external host or aggregate community",
+        "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
+    }
+    valid_community["ecological_interactions"][0]["scope"] = "COMMUNITY_LEVEL"
+    # Mark the formerly-target taxon as a community member so it doesn't
+    # become DISCONNECTED and confound the test.
+    valid_community["taxonomy"][1]["functional_role"] = ["PRIMARY_DEGRADER"]
+
+    test_file = temp_communities_dir / "test_unknown_target_community.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(valid_community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    issues = auditor.audit_community(test_file)
+
+    assert issues == []
+
+
 def test_disconnected_taxon_detected(temp_communities_dir, valid_community):
     """Test that disconnected taxa are detected."""
     # Add a taxon that's not in any interactions
