@@ -151,6 +151,9 @@ def test_unknown_source_skipped_for_community_level_scope(
         "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
     }
     valid_community["ecological_interactions"][0]["scope"] = "COMMUNITY_LEVEL"
+    # Mark the formerly-source taxon as a community member so it doesn't
+    # become DISCONNECTED and confound the test.
+    valid_community["taxonomy"][0]["functional_role"] = ["PRIMARY_DEGRADER"]
 
     test_file = temp_communities_dir / "test_unknown_source_community.yaml"
     with open(test_file, "w") as f:
@@ -159,8 +162,7 @@ def test_unknown_source_skipped_for_community_level_scope(
     auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
     issues = auditor.audit_community(test_file)
 
-    unknown_issues = [i for i in issues if i["type"] == IssueType.UNKNOWN_SOURCE]
-    assert unknown_issues == []
+    assert issues == []
 
 
 def test_unknown_target_skipped_for_community_level_scope(
@@ -173,6 +175,9 @@ def test_unknown_target_skipped_for_community_level_scope(
         "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
     }
     valid_community["ecological_interactions"][0]["scope"] = "COMMUNITY_LEVEL"
+    # Mark the formerly-target taxon as a community member so it doesn't
+    # become DISCONNECTED and confound the test.
+    valid_community["taxonomy"][1]["functional_role"] = ["PRIMARY_DEGRADER"]
 
     test_file = temp_communities_dir / "test_unknown_target_community.yaml"
     with open(test_file, "w") as f:
@@ -181,8 +186,7 @@ def test_unknown_target_skipped_for_community_level_scope(
     auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
     issues = auditor.audit_community(test_file)
 
-    unknown_issues = [i for i in issues if i["type"] == IssueType.UNKNOWN_TARGET]
-    assert unknown_issues == []
+    assert issues == []
 
 
 def test_disconnected_taxon_detected(temp_communities_dir, valid_community):
