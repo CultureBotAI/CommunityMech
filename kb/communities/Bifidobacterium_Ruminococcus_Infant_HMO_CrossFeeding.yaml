@@ -1,0 +1,167 @@
+id: CommunityMech:000220
+name: Bifidobacterium-Ruminococcus Infant HMO Cross-Feeding Coculture
+description: >
+  An infant gut microbiome cross-feeding system reconstructed from
+  individualized cultivations with three infant fecal inocula and supplemented
+  with the human milk oligosaccharide 2'-fucosyllactose (2'FL). Bifidobacterium
+  breve typically cannot metabolize 2'FL on its own, but extracellular
+  fucosidases encoded by coexisting Ruminococcus gnavus release lactose from
+  2'FL and unlock extensive B. breve growth. Targeted cocultures and
+  supplementation of R. gnavus into an infant microbiome showed that R. gnavus
+  promotes B. breve growth through HMO breakdown, demonstrating that infant
+  HMO utilization depends on synergistic interactions among coexisting species.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Establish whether human milk oligosaccharide (2'FL) utilization in
+    the infant gut can be mediated by synergistic interactions among coexisting
+    species rather than by isolated metabolizers.
+  assembly_strategy: Establish individualized microbiomes from three infant
+    fecal inocula and supplement with 2'FL; complement with targeted cocultures
+    of Bifidobacterium breve and Ruminococcus gnavus and with R. gnavus
+    supplementation into an infant microbiome.
+  perturbation_design: Compare B. breve growth with and without R. gnavus, and
+    measure microbiome responses to 2'FL across individualized infant inocula.
+  measurement_endpoints:
+  - B. breve growth on 2'FL with and without R. gnavus
+  - Microbiome compositional response to 2'FL
+  - Genomically predicted extracellular fucosidase activity
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: establishing individualized microbiomes using fecal samples from
+      three infants as the inocula
+    explanation: Supports the individualized-microbiome cultivation design.
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. gnavus can promote extensive growth of B. breve through the
+      release of lactose from 2'FL
+    explanation: Supports the cross-feeding mechanism as the curated objective.
+environment_term:
+  preferred_term: infant gut HMO cultivation
+  term:
+    id: ENVO:00002009
+    label: feces environment
+  notes: In vitro cultivation of infant gut microbial communities from three
+    infant fecal inocula in HMO-supplemented media.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bifidobacterium breve, a prominent member of infant microbiomes,
+      typically cannot metabolize 2'FL
+    explanation: Supports B. breve as the HMO-dependent recipient.
+- taxon_term:
+    preferred_term: Ruminococcus gnavus
+    term:
+      id: NCBITaxon:33038
+      label: Ruminococcus gnavus
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: extracellular fucosidases encoded by co-existing members such as
+      Ruminococcus gnavus initiate 2'FL breakdown
+    explanation: Supports R. gnavus as the extracellular fucosidase producer.
+ecological_interactions:
+- name: R. gnavus 2'FL Hydrolysis Feeds B. breve
+  description: Ruminococcus gnavus produces extracellular fucosidases that
+    hydrolyze 2'-fucosyllactose, releasing lactose that supports B. breve growth.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Ruminococcus gnavus
+    term:
+      id: NCBITaxon:33038
+      label: Ruminococcus gnavus
+  target_taxon:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+  metabolites:
+  - preferred_term: 2'-fucosyllactose
+    term:
+      id: CHEBI:62122
+      label: 2'-fucosyllactose
+  - preferred_term: lactose
+    term:
+      id: CHEBI:36219
+      label: lactose
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. gnavus can promote extensive growth of B. breve through the
+      release of lactose from 2'FL
+    explanation: Supports the lactose-mediated cross-feeding from R. gnavus to
+      B. breve.
+- name: Individualized HMO Utilization Capacity
+  description: HMO utilization varies with the individual infant microbiome
+    composition, reflecting whether coexisting species can supply extracellular
+    fucosidase activity.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HMO utilization can vary with an individual's microbiome
+    explanation: Supports the inter-individual variability of HMO utilization.
+environmental_factors:
+- name: 2'-fucosyllactose supplementation
+  value: 2'FL HMO substrate
+  description: Cultivations were supplemented with 2'-fucosyllactose, a prevalent
+    HMO and a common infant formula additive.
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2'-fucosyllactose (2'FL), a prevalent HMO and a common infant
+      formula additive
+    explanation: Supports 2'FL as the curated substrate.
+growth_media: []
+external_resources:
+- name: Primary publication for the infant HMO cross-feeding coculture
+  repository: OTHER
+  resource_id: PMID:37973815
+  url: https://pubmed.ncbi.nlm.nih.gov/37973815/
+  description: PubMed record for the Lou et al. 2023 Nature Communications paper
+    on Bifidobacterium breve - Ruminococcus gnavus 2'FL cross-feeding.
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbiome cultivation combined with genome-resolved metagenomics
+      demonstrates that HMO utilization can vary with an individual's microbiome
+    explanation: Lists the primary publication and central finding.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-023-43279-y
+  url: https://doi.org/10.1038/s41467-023-43279-y
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  infant gut HMO cross-feeding system.

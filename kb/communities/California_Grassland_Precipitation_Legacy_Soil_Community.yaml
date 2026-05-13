@@ -1,0 +1,210 @@
+id: CommunityMech:000215
+name: California Grassland Precipitation Legacy Soil Community
+description: >
+  A semiarid California Mediterranean-climate grassland soil microbial community
+  studied under two field-imposed precipitation regimes (100 percent versus
+  50 percent of mean annual precipitation) and assayed during the first autumn
+  rewet. Quantitative H2-18O stable-isotope-probing, 16S rRNA amplicon
+  sequencing, metagenomics, and metatranscriptomics revealed that reduced
+  winter precipitation imposed a lasting legacy on community turnover:
+  microbial growth declined by about one order of magnitude and mortality by
+  about two orders of magnitude relative to ambient plots, lowering community
+  growth efficiency (new biomass growth divided by respiration). Soil organic
+  carbon shifted from microbial-necromass-derived lipid-, amino-sugar-, and
+  protein-like compounds toward more oxidized lignin- and tannin-like plant
+  detritus compounds. Meta-omics linked high-CGE communities to N-rich
+  necromass consumption with elevated amino acid and peptidoglycan biosynthesis
+  and aromatic compound degradation, while low-CGE communities had elevated
+  carbohydrate metabolism and lipid turnover consistent with plant-detritus
+  processing and membrane maintenance.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: CARBON_SEQUESTRATION
+environment_term:
+  preferred_term: California Mediterranean-climate grassland soil
+  term:
+    id: ENVO:00005750
+    label: grassland soil
+  notes: Field plots in a semiarid California Mediterranean-climate grassland
+    subjected to imposed precipitation regimes; soils rewetted in the laboratory
+    with H2-18O after the dry season and sampled at 0, 3, 24, 48, 72, and 168 h
+    post-rewet.
+taxonomy:
+- taxon_term:
+    preferred_term: grassland soil bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Bacterial members of the grassland soil community recovered by 16S
+      rRNA amplicon sequencing and meta-omics; specific taxa are not enumerated
+      in the abstract.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: measured microbial growth and mortality via quantitative 18O stable
+      isotope probing and 16S rRNA gene amplicon sequencing
+    explanation: Supports the bacterial community membership tracked by 16S
+      sequencing and qSIP.
+ecological_interactions:
+- name: Necromass Cross-Feeding at High Community Growth Efficiency
+  description: At high community growth efficiency, microbes consumed more
+    energetically favorable N-rich necromass released through high microbial
+    turnover, supporting amino acid and peptidoglycan biosynthesis and aromatic
+    compound degradation.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  - preferred_term: peptidoglycan
+    term:
+      id: CHEBI:8005
+      label: peptidoglycan
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  - preferred_term: amino acid biosynthetic process
+    term:
+      id: GO:0008652
+      label: amino acid biosynthetic process
+  - preferred_term: peptidoglycan biosynthetic process
+    term:
+      id: GO:0009252
+      label: peptidoglycan biosynthetic process
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: microbes appeared to consume more energetically favorable N-rich
+      necromass
+    explanation: Supports necromass-based cross-feeding at high CGE.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased amino acids and peptidoglycan biosynthesis and greater
+      aromatic compound degradation
+    explanation: Supports the high-CGE metabolic strategy.
+- name: Plant Detritus Degradation at Low Community Growth Efficiency
+  description: At low community growth efficiency, communities exhibited elevated
+    carbohydrate metabolism and lipid turnover consistent with increased
+    investment in plant detritus degradation and membrane repair and maintenance
+    rather than growth.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: communities had elevated carbohydrate metabolism and lipid turnover
+    explanation: Supports the low-CGE metabolic shift toward plant detritus and
+      membrane maintenance.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased investment in plant detritus degradation and membrane
+      repair and maintenance rather than growth
+    explanation: Supports the resource-allocation interpretation at low CGE.
+- name: Precipitation-Legacy Turnover Suppression
+  description: Reduced winter precipitation imposed a strong legacy effect on
+    microbial turnover. Respiration rates remained similar, but microbial growth
+    dropped by about one order of magnitude and mortality dropped by about two
+    orders of magnitude, lowering community growth efficiency.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: microbial growth declined by ~1 order of magnitude, yielding
+      decreased community growth efficiency
+    explanation: Supports the precipitation-legacy effect on growth efficiency.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: microbial mortality declined by ~2 orders of magnitude
+    explanation: Supports the parallel decline in microbial mortality under
+      reduced legacy precipitation.
+environmental_factors:
+- name: Imposed precipitation regime
+  value: 100 percent vs 50 percent mean annual precipitation
+  description: Field plots received either ambient or half of ambient annual
+    precipitation across winters to impose a long-term legacy effect on the
+    soil community.
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: two precipitation regimes (100% vs. 50% mean annual precipitation)
+    explanation: Supports the precipitation perturbation design.
+- name: Autumn rewetting with H2-18O
+  value: laboratory rewet with isotopically labeled water
+  description: After the dry season, soils were rewetted with H2-18O and sampled
+    across a time course to quantify community growth and mortality.
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: soils were rewetted in the laboratory with H218O and sampled at 0
+      h, 3 h, 24 h, 48 h, 72 h, and 168 h post rewet
+    explanation: Supports the rewetting and time-course sampling design.
+- name: Soil organic carbon composition shift
+  value: necromass-like to plant-detritus-like compounds
+  description: Soil organic carbon composition shifted from lipid-, amino-sugar-,
+    and protein-like compounds indicative of microbial necromass to more
+    oxidized lignin-like and tannin-like compounds indicative of decomposing
+    plant detritus under reduced precipitation.
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: shifted from lipid-like, amino-sugar-like, and protein-like compounds
+      (indicative of microbial necromass) to more oxidized lignin-like and
+      tannin-like compounds (indicative of decomposing plant-derived compounds)
+    explanation: Supports the SOC compositional shift driven by the precipitation
+      legacy.
+growth_media: []
+external_resources:
+- name: Primary publication for the California grassland precipitation legacy
+    community
+  repository: OTHER
+  resource_id: PMID:41964077
+  url: https://pubmed.ncbi.nlm.nih.gov/41964077/
+  description: PubMed record for the Hernandez et al. 2026 Microbiome paper on
+    precipitation-legacy effects on grassland soil microbial community growth
+    efficiency.
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: reduced winter rainfall decreases microbial turnover following
+      rewetting without a concurrent reduction in CO2 emissions
+    explanation: Lists the primary publication and the headline finding.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-026-02395-9
+  url: https://doi.org/10.1186/s40168-026-02395-9
+  description: DOI link to the Microbiome paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  grassland soil precipitation-legacy community.

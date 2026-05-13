@@ -1,0 +1,207 @@
+id: CommunityMech:000219
+name: Asgard Archaea Wetland Soil Methanogenesis-Substrate Community
+description: >
+  A wetland soil community in which terrestrial Asgard archaea modulate
+  potential methanogenesis substrates. Two complete genomes were reconstructed
+  for soil-associated Atabeyarchaeia, a newly defined Asgard lineage, alongside
+  a complete genome for Freyarchaeia. Metatranscriptomic data show in situ
+  expression of [NiFe]-hydrogenases, pyruvate oxidation, Wood-Ljungdahl-pathway
+  carbon fixation, amino acid metabolism, anaerobic aldehyde oxidation,
+  hydrogen peroxide detoxification, and carbohydrate breakdown to acetate and
+  formate. Soil-associated Asgard archaea are predicted to act as
+  non-methanogenic acetogens, suggesting they compete with methanogens for
+  shared substrates (H2, acetate, formate) and shape terrestrial carbon cycling.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: wetland soil
+  term:
+    id: ENVO:00000044
+    label: wetland
+  notes: Wetland soil ecosystem with anaerobic and microaerobic microsites
+    supporting Asgard archaeal lineages and methanogens.
+taxonomy:
+- taxon_term:
+    preferred_term: Atabeyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1655434
+      label: Asgard group
+    notes: Two complete genomes were reconstructed for soil-associated
+      Atabeyarchaeia, a new Asgard lineage described in this study.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: two complete genomes for soil-associated Atabeyarchaeia, a new
+      Asgard lineage
+    explanation: Supports the Atabeyarchaeia member and its novel Asgard lineage.
+- taxon_term:
+    preferred_term: Freyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1655434
+      label: Asgard group
+    notes: A complete Freyarchaeia genome was reconstructed for the wetland
+      soil community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a complete genome of Freyarchaeia
+    explanation: Supports the Freyarchaeia member.
+- taxon_term:
+    preferred_term: wetland soil methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Co-resident methanogenic archaea whose substrate availability is
+      modulated by the Asgard-mediated metabolic activity inferred from this
+      study.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Asgard archaea modulate potential methanogenesis substrates in
+      wetland soil
+    explanation: Supports the methanogenic neighbours implied by substrate
+      modulation.
+ecological_interactions:
+- name: Asgard Acetogenesis Competes for Methanogenic Substrates
+  description: Soil-associated Asgard archaea are predicted to include
+    non-methanogenic acetogens that draw on H2, formate, and acetate, thereby
+    modulating substrate availability for methanogens.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Atabeyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1655434
+      label: Asgard group
+  target_taxon:
+    preferred_term: wetland soil methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: soil-associated Asgard archaea are predicted to include
+      non-methanogenic acetogens
+    explanation: Supports the acetogenic non-methanogenic role of soil Asgard
+      archaea.
+- name: Wood-Ljungdahl Carbon Fixation and Hydrogen Cycling
+  description: Asgard archaea express [NiFe]-hydrogenases and the Wood-Ljungdahl
+    pathway, indicating active H2 cycling and CO2 fixation in wetland soil.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: expression of genes for [NiFe]-hydrogenases, pyruvate oxidation and
+      carbon fixation via the Wood-Ljungdahl pathway
+    explanation: Supports active H2 cycling and Wood-Ljungdahl carbon fixation.
+- name: Carbohydrate Breakdown to Acetate and Formate
+  description: Asgard archaea express enzymes for carbohydrate breakdown to
+    acetate and formate, releasing common methanogenic substrates that the same
+    organisms can also consume acetogenically.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: carbohydrate breakdown to acetate and formate
+    explanation: Supports the carbohydrate-to-acetate/formate metabolic
+      contribution.
+environmental_factors:
+- name: Wetland soil anaerobic niche
+  value: wetland soil
+  description: The community is sampled from wetland soil where anaerobic and
+    microaerobic processes coexist.
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: contributions in soil ecosystems remain unknown
+    explanation: Supports terrestrial soil as the focus environment.
+growth_media: []
+external_resources:
+- name: Primary publication for the Asgard wetland soil methanogenesis-substrate
+    community
+  repository: OTHER
+  resource_id: PMID:39085194
+  url: https://pubmed.ncbi.nlm.nih.gov/39085194/
+  description: PubMed record for the Valentin-Alvarado et al. 2024 Nat Commun
+    paper on Asgard archaeal contributions to wetland-soil methanogenesis
+    substrate cycling.
+  evidence:
+  - reference: PMID:39085194
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Asgard archaea modulate potential methanogenesis substrates
+    explanation: Lists the primary publication for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-024-49872-z
+  url: https://doi.org/10.1038/s41467-024-49872-z
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  Asgard archaeal wetland-soil community.

@@ -1,0 +1,262 @@
+id: CommunityMech:000213
+name: Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm
+description: >
+  A two-member vitamin cross-feeding microcosm derived from mine tailings
+  laboratory microbial consortia, in which a Variovorax species produces
+  thiamine (vitamin B1) as a community hub for correlated thiamine auxotrophs
+  and a Cryptococcus yeast supplies pantothenate (vitamin B5) required by
+  Variovorax. Co-culture of the two members yielded a 90-130 fold fitness
+  increase for both organisms, supporting the bidirectional vitamin-dependent
+  mutualism predicted from metagenome-informed abundance correlation networks
+  of mine-tailings-derived consortia grown under dozens of conditions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Experimentally validate vitamin-dependent mutualistic interactions
+    predicted from metagenome-informed organism abundance correlation networks
+    in mine-tailings-derived microbial consortia.
+  assembly_strategy: Pair a thiamine-producing Variovorax species with a
+    pantothenate-producing Cryptococcus yeast as a minimal co-culture and
+    measure fitness changes relative to monocultures.
+  perturbation_design: Grow Variovorax in minimal media to quantify thiamine
+    production, and compare Variovorax and Cryptococcus growth in mono- versus
+    co-culture conditions to assess mutual fitness benefit.
+  measurement_endpoints:
+  - Thiamine production by Variovorax
+  - Pantothenate requirement of Variovorax
+  - Fitness change of each organism in mono- versus co-culture
+  - Predictive value of correlation network for vitamin interactions
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an organism abundance correlation network to investigate factors that
+      control community organization in mine tailings-derived laboratory microbial
+      consortia
+    explanation: Supports the metagenome-informed correlation-network approach to
+      the mine-tailings consortia microcosm design.
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vitamin-dependent interactions are mutualistic
+    explanation: Supports the mutualistic vitamin-cross-feeding objective of the
+      curated microcosm.
+environment_term:
+  preferred_term: mine-tailings-derived laboratory microbial consortium microcosm
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Laboratory microbial consortia derived from mine tailings and propagated
+    under dozens of growth conditions in defined media, with monoculture and
+    co-culture growth assays used to validate predicted interactions.
+taxonomy:
+- taxon_term:
+    preferred_term: Variovorax species
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+    notes: The study identifies a Variovorax species as a thiamine-producing hub
+      in the correlation network; species-level identity is not resolved in the
+      abstract beyond the genus.
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a Variovorax species is a hub as an important source of thiamine
+    explanation: Supports Variovorax as a thiamine-producing community hub.
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pantothenate, which we show is required for growth of Variovorax
+    explanation: Supports the pantothenate requirement that makes Variovorax the
+      cross-feeding recipient in the mutualism.
+- taxon_term:
+    preferred_term: Cryptococcus yeast
+    term:
+      id: NCBITaxon:5206
+      label: Cryptococcus
+    notes: The study identifies a Cryptococcus yeast that produces the B-vitamin
+      pantothenate; species-level identity is not resolved in the abstract.
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A Cryptococcus yeast produces the B-vitamin pantothenate
+    explanation: Supports the pantothenate-producing role of the Cryptococcus partner.
+ecological_interactions:
+- name: Variovorax Thiamine Provision to Auxotrophs
+  description: A Variovorax species produces thiamine at high levels and supports
+    growth of correlated thiamine auxotrophs in the laboratory consortium.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Variovorax species
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  metabolites:
+  - preferred_term: thiamine
+    term:
+      id: CHEBI:18385
+      label: thiamine
+  biological_processes:
+  - preferred_term: thiamine biosynthetic process
+    term:
+      id: GO:0009228
+      label: thiamine biosynthetic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Quantification of thiamine during the growth of Variovorax in minimal
+      media show high levels of thiamine production
+    explanation: Supports the thiamine-production capacity of Variovorax that
+      underpins the cross-feeding.
+- name: Cryptococcus Pantothenate Provision to Variovorax
+  description: A Cryptococcus yeast produces pantothenate that is required for
+    growth of Variovorax, making the vitamin exchange bidirectional.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Cryptococcus yeast
+    term:
+      id: NCBITaxon:5206
+      label: Cryptococcus
+  target_taxon:
+    preferred_term: Variovorax species
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  metabolites:
+  - preferred_term: pantothenate
+    term:
+      id: CHEBI:7916
+      label: pantothenate(1-)
+  biological_processes:
+  - preferred_term: pantothenate biosynthetic process
+    term:
+      id: GO:0015940
+      label: pantothenate biosynthetic process
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A Cryptococcus yeast produces the B-vitamin pantothenate
+    explanation: Supports Cryptococcus pantothenate production as the basis for
+      cross-feeding to Variovorax.
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pantothenate, which we show is required for growth of Variovorax
+    explanation: Supports the Variovorax requirement for the Cryptococcus-supplied
+      pantothenate.
+- name: Bidirectional Vitamin Mutualism in Coculture
+  description: Co-culturing Variovorax and Cryptococcus yields large fitness gains
+    for both organisms, demonstrating an experimentally validated mutualistic
+    vitamin exchange.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Variovorax species
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  target_taxon:
+    preferred_term: Cryptococcus yeast
+    term:
+      id: NCBITaxon:5206
+      label: Cryptococcus
+  metabolites:
+  - preferred_term: thiamine
+    term:
+      id: CHEBI:18385
+      label: thiamine
+  - preferred_term: pantothenate
+    term:
+      id: CHEBI:7916
+      label: pantothenate(1-)
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culturing with Variovorax leads to a 90-130-fold fitness increase
+      for both organisms
+    explanation: Supports the bidirectional mutualism with quantified fitness gains.
+environmental_factors:
+- name: Minimal vitamin-defined media
+  value: minimal medium with controlled vitamin availability
+  description: Variovorax was grown in minimal media without exogenous pantothenate
+    to assess vitamin-driven dependencies, and the consortium was probed under
+    dozens of growth conditions to construct the abundance correlation network.
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grown under dozens of conditions
+    explanation: Supports the broad-condition design used to build the abundance
+      correlation network.
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Quantification of thiamine during the growth of Variovorax in minimal
+      media
+    explanation: Supports minimal-media growth as the assay for thiamine production.
+growth_media:
+- name: Mine-tailings-derived consortium growth media (minimal, defined)
+  composition: []
+  atmosphere: AEROBIC
+  preparation_notes: Minimal defined media were used to assay vitamin-driven
+    dependencies; thiamine and pantothenate are produced by community members
+    (Variovorax and Cryptococcus respectively) rather than added exogenously,
+    and full media composition is not enumerated in the abstract.
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Variovorax in minimal media
+    explanation: Supports minimal-media cultivation as the basis for the growth
+      assays.
+external_resources:
+- name: Primary publication for the vitamin-interdependency microcosm
+  repository: OTHER
+  resource_id: PMID:37553333
+  url: https://pubmed.ncbi.nlm.nih.gov/37553333/
+  description: PubMed record for the Hessler et al. 2023 Nature Communications
+    paper validating predicted vitamin cross-feeding in mine-tailings-derived
+    microcosms.
+  evidence:
+  - reference: PMID:37553333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metagenome-informed, microbial consortia-based network analyses
+    explanation: Lists the primary publication for the curated microcosm.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-023-40360-4
+  url: https://doi.org/10.1038/s41467-023-40360-4
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  vitamin-mutualism microcosm; the system is derived from mine tailings but the
+  reported interaction is vitamin-mediated.

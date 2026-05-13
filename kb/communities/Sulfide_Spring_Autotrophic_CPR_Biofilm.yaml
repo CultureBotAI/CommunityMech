@@ -1,0 +1,175 @@
+id: CommunityMech:000222
+name: Sulfide Spring Autotrophic CPR-Hosting Biofilm
+description: >
+  An autotrophic biofilm community in sulfide-rich springs sustained by deeply
+  sourced groundwater. Genome-resolved metagenomics combined with bulk
+  geochemistry and scanning transmission X-ray microscopy (STXM) at room
+  temperature and 87 K reveals biofilms dominated by chemolithotrophic
+  sulfur-oxidizing bacteria including Thiothrix and Beggiatoa, with diverse
+  Candidate Phyla Radiation (CPR) bacteria (Gracilibacteria, Absconditabacteria,
+  Saccharibacteria, Peregrinibacteria, Berkelbacteria, Microgenomates,
+  Parcubacteria). STXM imaging shows ultra-small cells adhered near filamentous
+  bacteria, suggesting CPR episymbiosis. Carbon K and sulfur L2,3 edge NEXAFS
+  spectroscopy indicates that filamentous bacteria contain protein-encapsulated
+  elemental sulfur granules consistent with Thiothrix-like sulfur oxidation,
+  and Berkelbacteria and Moranbacteria are predicted to encode a novel electron
+  bifurcation system.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: sulfide-rich spring biofilm
+  term:
+    id: ENVO:01001063
+    label: sulfide-rich spring
+  notes: Biofilms in sulfide-rich springs sustained by deeply sourced groundwater.
+taxonomy:
+- taxon_term:
+    preferred_term: Thiothrix
+    term:
+      id: NCBITaxon:1031
+      label: Thiothrix
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and
+      Beggiatoa, dominate the biofilms
+    explanation: Supports Thiothrix dominance among the chemolithotrophic
+      sulfur-oxidizing bacteria.
+- taxon_term:
+    preferred_term: Beggiatoa
+    term:
+      id: NCBITaxon:1021
+      label: Beggiatoa
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Chemolithotrophic sulfur-oxidizing bacteria, including Thiothrix and
+      Beggiatoa, dominate the biofilms
+    explanation: Supports Beggiatoa as a co-dominant sulfur-oxidizing member.
+- taxon_term:
+    preferred_term: Candidate Phyla Radiation (CPR) bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+    notes: The biofilm hosts diverse CPR lineages (Gracilibacteria,
+      Absconditabacteria, Saccharibacteria, Peregrinibacteria, Berkelbacteria,
+      Microgenomates, Parcubacteria), with imaging suggesting episymbiotic
+      association with filamentous bacteria.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: CPR Gracilibacteria, Absconditabacteria, Saccharibacteria,
+      Peregrinibacteria, Berkelbacteria, Microgenomates, and Parcubacteria
+    explanation: Supports the diverse CPR membership of the biofilm.
+ecological_interactions:
+- name: Filamentous Sulfur Oxidation with Encapsulated S Granules
+  description: Filamentous bacteria, likely Thiothrix, contain
+    protein-encapsulated spherical elemental sulfur granules consistent with
+    sulfur-oxidizing chemolithotrophy.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Thiothrix
+    term:
+      id: NCBITaxon:1031
+      label: Thiothrix
+  metabolites:
+  - preferred_term: sulfide
+    term:
+      id: CHEBI:15138
+      label: sulfide(2-)
+  - preferred_term: elemental sulfur
+    term:
+      id: CHEBI:26833
+      label: sulfur atom
+  biological_processes:
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: filamentous bacteria contain protein-encapsulated spherical
+      elemental sulfur granules, indicating that they are sulfur oxidizers,
+      likely Thiothrix
+    explanation: Supports the curated sulfur-oxidizing role of the filamentous
+      Thiothrix-like bacteria.
+- name: CPR Episymbiosis with Filamentous Hosts
+  description: STXM imaging reveals ultra-small cells near the surfaces of
+    filamentous bacteria, suggesting CPR bacterial episymbionts attached to the
+    sulfur-oxidizing hosts.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Candidate Phyla Radiation (CPR) bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+  target_taxon:
+    preferred_term: Thiothrix
+    term:
+      id: NCBITaxon:1031
+      label: Thiothrix
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: STXM imaging revealed ultra-small cells near the surfaces of
+      filamentous bacteria that may be CPR bacterial episymbionts
+    explanation: Supports the proposed CPR episymbiotic association.
+environmental_factors:
+- name: Sulfide-rich groundwater
+  value: deeply sourced sulfide-rich spring water
+  description: Spring discharges of deeply sourced groundwater rich in sulfide
+    sustain the autotrophic biofilm and its sulfur cycling.
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Biofilms in sulfide-rich springs present intricate microbial
+      communities
+    explanation: Supports the sulfide-rich-spring environmental niche.
+growth_media: []
+external_resources:
+- name: Primary publication for the autotrophic sulfide-spring CPR biofilm
+  repository: OTHER
+  resource_id: PMID:38273328
+  url: https://pubmed.ncbi.nlm.nih.gov/38273328/
+  description: PubMed record for the Valentin-Alvarado et al. 2024 Microbiome
+    paper on sulfide-spring biofilms hosting diverse CPR bacteria.
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: chemoautotrophically based biofilms that host diverse CPR bacteria
+    explanation: Lists the primary publication for the curated biofilm.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-023-01704-w
+  url: https://doi.org/10.1186/s40168-023-01704-w
+  description: DOI link to the Microbiome paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  sulfide-spring biofilm.
