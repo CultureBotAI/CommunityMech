@@ -1,0 +1,219 @@
+id: CommunityMech:000236
+name: Avena Rhizosphere Cross-Kingdom 13C-SIP Community
+description: >
+  A rhizosphere community of Avena fatua traced with stable isotope probing
+  (SIP) by growing the plant in a 13CO2 atmosphere. Paired rhizosphere and
+  nonrhizosphere soils sampled at 6 and 9 weeks were density-fractionated and
+  sequenced to recover 55 bacterial genomes (>=70 percent complete), complete
+  18S rRNA sequences of 13C-enriched microeukaryotic bacterivores and fungi,
+  and 10 circularized bacteriophage genomes. Some phages were the most labeled
+  entities in the rhizosphere, suggesting phage are important agents of
+  turnover of plant-derived carbon in soil. CRISPR spacer targeting linked one
+  phage to a Burkholderiales host predicted to be a plant pathogen and another
+  to a Catenulispora sp. predicted to be a plant growth-promoting bacterium.
+  Heavily 13C-labeled bacterial genes include those involved in modulating
+  plant signaling hormones, plant pathogenicity, and defense against
+  microeukaryote grazing.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: Avena fatua root rhizosphere
+  term:
+    id: ENVO:00002233
+    label: rhizosphere
+  notes: Rhizosphere and nonrhizosphere soils collected at 6 and 9 weeks from
+    Avena fatua grown in a 13CO2 atmosphere for genome-resolved SIP.
+taxonomy:
+- taxon_term:
+    preferred_term: 13C-labeled rhizosphere bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: 55 bacterial genomes at least 70 percent complete were recovered from
+      density-fractionated SIP samples.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 55 unique bacterial genomes
+    explanation: Supports the bacterial members recovered.
+- taxon_term:
+    preferred_term: 13C-labeled rhizosphere microeukaryotic bacterivores and
+      fungi
+    term:
+      id: NCBITaxon:2759
+      label: Eukaryota
+    notes: 18S rRNA gene sequences of 13C-enriched microeukaryotic bacterivores
+      and fungi were identified in the SIP fractions.
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: complete 18S rRNA sequences of several 13C-enriched microeukaryotic
+      bacterivores and fungi
+    explanation: Supports the microeukaryotic membership.
+- taxon_term:
+    preferred_term: 13C-labeled rhizosphere bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+    notes: 10 circularized phage genomes were recovered; some were the most
+      labeled entities in the rhizosphere.
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 10 circularized bacteriophage (phage) genomes, some of which were
+      the most labeled entities in the rhizosphere
+    explanation: Supports the phage members and their high 13C labeling.
+- taxon_term:
+    preferred_term: Burkholderiales (predicted plant pathogen)
+    term:
+      id: NCBITaxon:80840
+      label: Burkholderiales
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a Burkholderiales host predicted to be a plant pathogen
+    explanation: Supports the Burkholderiales pathogenic host.
+- taxon_term:
+    preferred_term: Catenulispora sp. (predicted PGPR)
+    term:
+      id: NCBITaxon:223957
+      label: Catenulispora
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a Catenulispora sp., a possible plant growth-promoting bacterium
+    explanation: Supports the Catenulispora PGPR member.
+ecological_interactions:
+- name: Phage Lysis Turns Over Plant-Derived Carbon
+  description: Phages with high 13C labeling rapidly turn over plant-derived
+    carbon in the rhizosphere, supporting an important agent role for phage in
+    carbon cycling.
+  interaction_type: PREDATION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: phage may be important agents of turnover of plant-derived C in soil
+    explanation: Supports the phage role in plant-derived C turnover.
+- name: Phage Targets Burkholderiales Plant Pathogen
+  description: CRISPR spacer targeting connected one phage to a Burkholderiales
+    host predicted to be a plant pathogen.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: 13C-labeled rhizosphere bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: Burkholderiales (predicted plant pathogen)
+    term:
+      id: NCBITaxon:80840
+      label: Burkholderiales
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: CRISPR locus targeting connected one of these phage to a
+      Burkholderiales host predicted to be a plant pathogen
+    explanation: Supports the CRISPR-based phage-host linkage to Burkholderiales.
+- name: Phage Replicates in Catenulispora PGPR
+  description: Another highly labeled phage is predicted to replicate in a
+    Catenulispora sp. predicted to be a plant growth-promoting bacterium.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: 13C-labeled rhizosphere bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: Catenulispora sp. (predicted PGPR)
+    term:
+      id: NCBITaxon:223957
+      label: Catenulispora
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Another highly labeled phage is predicted to replicate in a
+      Catenulispora sp.
+    explanation: Supports the predicted Catenulispora phage host.
+- name: 13C-Labeled Plant-Signaling and Defense Functions
+  description: 13C-labeled bacterial genomes encode genes involved in
+    modulating plant signaling hormones, plant pathogenicity, and defense
+    against microeukaryote grazing.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacterial genes thought to be involved in modulating plant
+      signaling hormones, plant pathogenicity, and defense against
+      microeukaryote grazing
+    explanation: Supports the curated cross-kingdom interaction functions.
+environmental_factors:
+- name: Plant growth atmosphere
+  value: 13CO2 labeling
+  description: Avena fatua was grown in a 13CO2 atmosphere to trace plant-
+    fixed carbon into the rhizosphere community.
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Avena fatua grown in a 13CO2 atmosphere
+    explanation: Supports the 13CO2 SIP design.
+- name: Sampling time
+  value: 6 and 9 weeks of growth
+  description: Paired rhizosphere and nonrhizosphere soils were sampled at 6
+    and 9 weeks of plant growth.
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: paired rhizosphere and nonrhizosphere soil at 6 and 9 weeks of
+      plant growth
+    explanation: Supports the time-course sampling design.
+growth_media: []
+external_resources:
+- name: Primary publication for the Avena rhizosphere cross-kingdom SIP community
+  repository: OTHER
+  resource_id: PMID:34468166
+  url: https://pubmed.ncbi.nlm.nih.gov/34468166/
+  description: PubMed record for the Starr et al. 2021 mSphere paper on
+    stable-isotope-informed genome-resolved metagenomics of the Avena fatua
+    rhizosphere.
+  evidence:
+  - reference: PMID:34468166
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Cross-Kingdom Interactions in Rhizosphere Soil
+    explanation: Lists the primary publication for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1128/mSphere.00085-21
+  url: https://doi.org/10.1128/mSphere.00085-21
+  description: DOI link to the mSphere paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  rhizosphere SIP community.

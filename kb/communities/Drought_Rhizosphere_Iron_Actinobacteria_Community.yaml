@@ -1,0 +1,172 @@
+id: CommunityMech:000235
+name: Drought-Induced Rhizosphere Iron-Enriched Actinobacteria Community
+description: >
+  A root-associated rhizosphere microbial community in which drought stress
+  drives reproducible enrichment of bacterial lineages whose iron transport
+  and metabolism functionalities are overrepresented. Genome-resolved
+  metagenomics and comparative genomics show carbohydrate and secondary-
+  metabolite transport functions also dominate drought-enriched taxa. Time-
+  series root RNA-Seq data show that root iron homeostasis is impacted by
+  drought, and loss of a plant phytosiderophore iron transporter increases
+  Actinobacteria abundance. Exogenous iron application disrupts the drought-
+  induced Actinobacteria enrichment and removes their host phenotype
+  improvement, implicating iron metabolism as a microbiome-drought axis.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: drought-stressed root rhizosphere
+  term:
+    id: ENVO:00002233
+    label: rhizosphere
+  notes: Plant root rhizosphere under imposed drought stress, with
+    phytosiderophore-transporter mutants and exogenous iron amendments used
+    to test iron-dependent microbial enrichment.
+taxonomy:
+- taxon_term:
+    preferred_term: drought-enriched rhizosphere Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+    notes: Drought-enriched Actinobacteria lineage whose abundance is amplified
+      by loss of a plant phytosiderophore iron transporter and suppressed by
+      exogenous iron amendment.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: leading to significant increases in the drought-enriched lineage,
+      Actinobacteria
+    explanation: Supports the drought-enriched Actinobacteria lineage.
+ecological_interactions:
+- name: Drought Selection on Iron- and Carbohydrate-Transport Functions
+  description: Drought stress enriches rhizosphere taxa whose genomes are
+    enriched in carbohydrate transport, secondary-metabolite transport, and
+    iron transport and metabolism functions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: iron
+    term:
+      id: CHEBI:24875
+      label: iron atom
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: carbohydrate transport
+    term:
+      id: GO:0008643
+      label: carbohydrate transport
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacterial iron transport and metabolism functionality is highly
+      correlated with drought enrichment
+    explanation: Supports iron metabolism as a drought-enrichment correlate.
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: carbohydrate and secondary metabolite transport functionalities
+      are overrepresented within drought-enriched taxa
+    explanation: Supports carbohydrate and secondary-metabolite transport
+      overrepresentation.
+- name: Plant Phytosiderophore Transporter Loss Promotes Actinobacteria
+  description: Loss of a plant phytosiderophore iron transporter alters root
+    iron homeostasis under drought stress and reshapes the microbiome,
+    increasing Actinobacteria abundance.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: loss of a plant phytosiderophore iron transporter impacts microbial
+      community composition
+    explanation: Supports the host-transporter knockout effect on community
+      composition.
+- name: Exogenous Iron Disrupts Drought-Induced Actinobacteria
+  description: Exogenous application of iron disrupts the drought-induced
+    enrichment of Actinobacteria and abolishes their improvement of host
+    phenotype during drought stress.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: iron
+    term:
+      id: CHEBI:24875
+      label: iron atom
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: exogenous application of iron disrupts the drought-induced
+      enrichment of Actinobacteria, as well as their improvement in host
+      phenotype during drought stress
+    explanation: Supports the iron-amendment disruption of the drought-induced
+      enrichment.
+environmental_factors:
+- name: Drought stress
+  value: drought versus well-watered conditions
+  description: Drought stress is the primary perturbation driving rhizosphere
+    microbiome shifts.
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: drought leads to dramatic, highly conserved shifts in the root
+      microbiome
+    explanation: Supports drought as the curated perturbation.
+- name: Plant phytosiderophore transporter genotype
+  value: phytosiderophore-transporter mutant versus wild type
+  description: Plant phytosiderophore transporter genotype modulates root iron
+    homeostasis and microbiome composition.
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: iron homeostasis within the root is impacted by drought stress
+    explanation: Supports root iron homeostasis as a drought-modulated factor.
+- name: Iron amendment
+  value: exogenous iron application
+  description: Exogenous iron amendment was used to test the iron-dependent
+    drought enrichment of Actinobacteria.
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: exogenous application of iron disrupts the drought-induced
+      enrichment of Actinobacteria
+    explanation: Supports the iron-amendment perturbation design.
+growth_media: []
+external_resources:
+- name: Primary publication for the drought rhizosphere iron community
+  repository: OTHER
+  resource_id: PMID:34050180
+  url: https://pubmed.ncbi.nlm.nih.gov/34050180/
+  description: PubMed record for the Xu et al. 2021 Nature Communications paper
+    on iron metabolism in drought-induced rhizosphere microbiome dynamics.
+  evidence:
+  - reference: PMID:34050180
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: iron metabolism in the root microbiome's response to drought
+    explanation: Lists the primary publication for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-021-23553-7
+  url: https://doi.org/10.1038/s41467-021-23553-7
+  description: DOI link to the Nature Communications paper.
+associated_datasets: []
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: Iron transport and metabolism are central to the drought-induced
+  microbiome enrichment, and exogenous iron disrupts the drought-induced
+  Actinobacteria enrichment.

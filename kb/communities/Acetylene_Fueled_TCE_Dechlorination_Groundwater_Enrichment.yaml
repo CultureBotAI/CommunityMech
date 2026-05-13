@@ -1,0 +1,189 @@
+id: CommunityMech:000238
+name: Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment
+description: >
+  A microbial community enriched from TCE/PCE-contaminated groundwater and
+  amended with acetylene (C2H2) as the sole electron donor and organic
+  carbon source. The stable enrichment performs reductive dechlorination of
+  trichloroethene (TCE) and tetrachloroethene (PCE), coupling acetylenotrophy
+  to organohalide respiration. Metagenomic analysis of the stable community
+  identified a novel anaerobic acetylenotroph in the phylum Actinobacteria,
+  expanding the known diversity of this metabolism beyond previously
+  documented Pelobacter SFB93 + Dehalococcoides mccartyi laboratory cocultures.
+ecological_state: ENGINEERED
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Demonstrate that the coupling of acetylenotrophy and reductive
+    dechlorination, previously documented in synthetic cocultures, can occur
+    in a native community enriched from contaminated groundwater.
+  assembly_strategy: Enrich a microbial community from contaminated groundwater
+    by repeated transfer with acetylene as the sole electron donor and organic
+    carbon source.
+  perturbation_design: Provide C2H2 as the sole electron donor and organic
+    carbon source while supplying TCE and PCE as electron acceptors for
+    reductive dechlorination.
+  measurement_endpoints:
+  - TCE reductive dechlorination
+  - PCE reductive dechlorination
+  - Metagenome-resolved community composition and function
+  - Identification of anaerobic acetylenotroph lineages
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a microbial community enriched from contaminated groundwater and
+      amended with C2H2 as the sole electron donor and organic carbon source
+    explanation: Supports the enrichment design and C2H2 sole-substrate
+      strategy.
+environment_term:
+  preferred_term: contaminated groundwater enrichment culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: Stable laboratory enrichment from TCE/PCE-contaminated groundwater fed
+    with C2H2 as sole electron donor and carbon source.
+taxonomy:
+- taxon_term:
+    preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+    notes: A novel anaerobic acetylenotroph in the phylum Actinobacteria was
+      identified by metagenomic analysis of the stable enrichment.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A novel anaerobic acetylenotroph in the phylum Actinobacteria was
+      identified using metagenomic analysis
+    explanation: Supports the novel Actinobacteria acetylenotroph member.
+- taxon_term:
+    preferred_term: reductive dechlorinating community members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Community members that perform reductive dechlorination of TCE and
+      PCE. Previous synthetic-coculture work used Dehalococcoides mccartyi
+      strains 195 and BAV1; the abstract does not explicitly enumerate the
+      dechlorinating members of this native enrichment.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TCE and perchloroethene (PCE) reductive dechlorination by a
+      microbial community enriched from contaminated groundwater
+    explanation: Supports the dechlorinating function of the enrichment members.
+ecological_interactions:
+- name: Acetylenotrophy Provides Reductant for Dechlorination
+  description: An Actinobacteria acetylenotroph oxidizes C2H2 to provide
+    reductant and organic carbon that support reductive dechlorination of TCE
+    and PCE by the community.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  target_taxon:
+    preferred_term: reductive dechlorinating community members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: acetylene
+    term:
+      id: CHEBI:27518
+      label: acetylene
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  - preferred_term: tetrachloroethene
+    term:
+      id: CHEBI:17300
+      label: tetrachloroethene
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the coupling of acetylenotrophy and reductive dechlorination can
+      occur in the environment with native bacteria
+    explanation: Supports the curated syntrophic coupling.
+- name: Acetylene as Sole Electron Donor and Carbon Source
+  description: C2H2 alone supports the stable enrichment as the sole electron
+    donor and organic carbon source.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetylene
+    term:
+      id: CHEBI:27518
+      label: acetylene
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: amended with C2H2 as the sole electron donor and organic carbon
+      source
+    explanation: Supports C2H2 as the sole substrate.
+environmental_factors:
+- name: Acetylene source
+  value: C2H2 supplied as sole electron donor and carbon source
+  description: Acetylene is supplied as the sole electron donor and organic
+    carbon source, simulating in situ TCE abiotic-degradation products in
+    aquifers.
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetylene (C2H2) is a product of abiotic degradation of
+      trichloroethene (TCE) catalyzed by in situ minerals
+    explanation: Supports the in situ origin of C2H2 as a TCE degradation
+      product.
+- name: Chlorinated electron acceptors
+  value: TCE and PCE
+  description: TCE and PCE are supplied as electron acceptors for reductive
+    dechlorination by the enrichment.
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TCE and perchloroethene (PCE) reductive dechlorination
+    explanation: Supports the chlorinated electron acceptors.
+growth_media: []
+external_resources:
+- name: Primary publication for the acetylene TCE-dechlorination community
+  repository: OTHER
+  resource_id: PMID:33531396
+  url: https://pubmed.ncbi.nlm.nih.gov/33531396/
+  description: PubMed record for the Gushgari-Doyle et al. 2021 mBio paper on
+    acetylene-fueled TCE reductive dechlorination in a groundwater enrichment
+    culture.
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetylene-Fueled Trichloroethene Reductive Dechlorination in a
+      Groundwater Enrichment Culture
+    explanation: Lists the primary publication for the curated enrichment.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1128/mBio.02724-20
+  url: https://doi.org/10.1128/mBio.02724-20
+  description: DOI link to the mBio paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  acetylene/TCE enrichment.
