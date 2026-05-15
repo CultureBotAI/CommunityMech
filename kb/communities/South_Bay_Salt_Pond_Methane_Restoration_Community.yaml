@@ -1,0 +1,282 @@
+id: CommunityMech:000246
+name: South Bay Salt Pond Methane Restoration Microbial Community
+description: >
+  Natural sediment microbial communities from former industrial salt ponds,
+  a restored salt pond, and a reference tidal wetland in the San Francisco
+  South Bay Ravenswood complex. DOE JGI-supported 16S rRNA amplicon and
+  shotgun metagenomic analyses linked wetland restoration state to microbial
+  composition, metabolic potential, and methane flux. Unrestored salt ponds
+  had elevated methane emissions that were positively correlated with salinity
+  and sulfate, while the restored pond resembled the reference wetland more
+  closely and showed lower salinity, sulfate, and methane emissions. The study
+  implicates archaeal methanogenesis and bacterial methylphosphonate degradation
+  as methane-generating mechanisms in these coastal wetland sediments.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: former industrial salt pond sediment
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: Sediment cores were collected from unrestored former industrial salt
+    ponds, a restored salt pond, and a reference tidal wetland in the South Bay
+    Ravenswood complex near Menlo Park, California.
+taxonomy:
+- taxon_term:
+    preferred_term: South Bay salt pond sediment microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of bacteria and archaea recovered
+      by 16S rRNA amplicon sequencing and shotgun metagenomics from salt pond
+      and reference wetland sediments.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 16S rRNA gene amplicon and shotgun metagenomic data
+    explanation: Supports a sequence-backed microbial community record for the sediment system.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: sediment cores from two unrestored former industrial salt ponds
+    explanation: Supports the environmental sampling design across salt pond and wetland sites.
+- taxon_term:
+    preferred_term: unrestored salt pond methane-linked bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Bacterial methylphosphonate degradation genes were correlated with
+      methane flux, supporting a bacterial methane-generating mechanism in the
+      salt pond sediment community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes encoding enzymes for bacterial methylphosphonate degradation
+    explanation: Supports bacteria as a methane-linked functional guild in the salt pond sediments.
+- taxon_term:
+    preferred_term: salt pond methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Archaeal methanogenesis genes were correlated with methane flux in
+      the salt pond and wetland sediment communities.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_level: COMMON
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Archaeal methanogenesis genes were positively correlated with methane flux
+    explanation: Supports methanogenic archaea as a detected guild in unrestored salt pond sediments.
+ecological_interactions:
+- name: Restoration-State Niche Filtering
+  description: Restoration status and associated hydrologic/geochemical changes
+    partition the sediment community into unrestored hypersaline salt pond
+    communities and restored/reference wetland-like communities.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: restored salt pond harbored communities more phylogenetically and functionally similar
+    explanation: Supports restoration-state structuring of community composition.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: restoration effectively converted industrial salt pond microbial communities
+    explanation: Supports compositional separation among unrestored, restored, and reference sites.
+- name: Archaeal Methanogenesis Coupled to Methane Flux
+  description: Archaeal methanogenesis genes were associated with methane flux,
+    implicating methanogenic archaea in methane emissions from salt pond and
+    wetland sediments.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: salt pond methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Archaeal methanogenesis genes were positively correlated with methane flux
+    explanation: Supports methanogenesis as a methane-linked functional mechanism.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis
+    explanation: Supports methanogenesis as one of the inferred methane-generating pathways.
+- name: Bacterial Methylphosphonate Methane Pathway
+  description: Bacterial genes encoding methylphosphonate degradation enzymes
+    were correlated with methane flux, suggesting a bacterial source of methane
+    alongside archaeal methanogenesis in salt pond sediments.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: unrestored salt pond methane-linked bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes encoding enzymes for bacterial methylphosphonate degradation
+    explanation: Supports bacterial methylphosphonate degradation as a methane-linked mechanism.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis
+    explanation: Supports both bacterial and archaeal methane-generating pathways in the community.
+- name: Sulfate and Methanogenesis Competition
+  description: Methane emissions were positively correlated with salinity and
+    sulfate across the sampled salt pond and wetland sediments, linking the
+    geochemical gradient to methane-generating community functions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: positively correlated with salinity and sulfate across all samples
+    explanation: Supports salinity and sulfate as field correlates of methane emissions.
+environmental_factors:
+- name: Restoration management state
+  value: two unrestored salt ponds, restored salt pond, and reference wetland
+  description: The study compared sediment communities across three restoration
+    states in adjacent South Bay sites.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: two unrestored former industrial salt ponds
+    explanation: Supports inclusion of unrestored former industrial salt ponds.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a restored former industrial salt pond, and a reference wetland
+    explanation: Supports inclusion of restored and reference wetland sites.
+- name: Salinity gradient
+  value: salinity positively correlated with methane flux
+  description: Salinity was positively correlated with methane flux across the
+    sampled salt pond and reference wetland sediments.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: positively correlated with salinity and sulfate across all samples
+    explanation: Supports salinity as a key environmental gradient.
+- name: Sulfate concentration
+  value: sulfate positively correlated with methane flux
+  description: Sulfate was positively correlated with methane flux across the
+    sampled salt pond and reference wetland sediments.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: positively correlated with salinity and sulfate across all samples
+    explanation: Supports sulfate as a key geochemical gradient.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: elevated methane emissions from unrestored salt ponds
+    explanation: Supports the methane-flux relationship with measured geochemical variables.
+- name: Methane flux
+  value: elevated in unrestored salt ponds
+  description: Unrestored salt ponds emitted more methane than restored pond
+    and reference wetland sediments, linking community structure to greenhouse
+    gas flux.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: elevated methane emissions from unrestored salt ponds
+    explanation: Supports elevated methane emissions in unrestored salt pond sediments.
+growth_media: []
+associated_datasets: []
+external_resources:
+- name: Primary publication for South Bay salt pond methane communities
+  repository: OTHER
+  resource_id: doi:10.1038/s41396-021-01067-w
+  url: https://doi.org/10.1038/s41396-021-01067-w
+  description: ISME Journal article reporting 16S rRNA amplicon, shotgun
+    metagenomic, methane flux, and sediment geochemistry analyses across
+    unrestored, restored, and reference South Bay wetland sites.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: We investigated the impact of restoration on microbial community composition
+    explanation: Supports this DOI as the primary publication for the curated community.
+- name: DOE PAGES record
+  repository: OTHER
+  resource_id: OSTI:1893114
+  url: https://www.osti.gov/pages/biblio/1893114
+  description: DOE PAGES record for the South Bay salt pond methane-emissions
+    microbial community study.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 16S rRNA gene amplicon and shotgun metagenomic data
+    explanation: Supports DOE/JGI relevance and source linkage for this community record.
+- name: Supplementary sample accession table
+  repository: OTHER
+  resource_id: Table S1
+  url: https://www.nature.com/articles/s41396-021-01067-w#Sec12
+  description: Supplementary table listing sample identifiers and accession
+    information for 16S rRNA and metagenomic data; specific accessions are not
+    repeated here because they were not verified individually during this pass.
+  evidence:
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 16S rRNA gene amplicon and shotgun metagenomic data
+    explanation: Supports the availability of accession-linked supplemental data.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Metals and trace elements were measured or discussed in the source
+  geochemical context, but metal or rare earth element processing is not curated
+  as a primary function of this methane-restoration community.
