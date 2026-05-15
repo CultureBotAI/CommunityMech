@@ -1,0 +1,63 @@
+---
+reference_id: DOI:10.1038/s41559-022-01923-8
+title: Mutualism-enhancing mutations dominate early adaptation in a two-species microbial community
+authors:
+- Sandeep Venkataram
+- Huan-Yu Kuo
+- Erik F. Y. Hom
+- Sergey Kryazhimskiy
+journal: "Nature Ecology &amp; Evolution"
+year: '2023'
+doi: 10.1038/s41559-022-01923-8
+content_type: abstract_only
+---
+
+# Mutualism-enhancing mutations dominate early adaptation in a two-species microbial community
+**Authors:** Sandeep Venkataram, Huan-Yu Kuo, Erik F. Y. Hom, Sergey Kryazhimskiy
+**Journal:** Nature Ecology &amp; Evolution (2023)
+**DOI:** [10.1038/s41559-022-01923-8](https://doi.org/10.1038/s41559-022-01923-8)
+
+## Content
+
+1. Nat Ecol Evol. 2023 Jan;7(1):143-154. doi: 10.1038/s41559-022-01923-8. Epub
+2023  Jan 2.
+
+Mutualism-enhancing mutations dominate early adaptation in a two-species 
+microbial community.
+
+Venkataram S(1), Kuo HY(1)(2), Hom EFY(3), Kryazhimskiy S(4).
+
+Author information:
+(1)Department of Ecology, Behavior and Evolution, University of California San 
+Diego, La Jolla, CA, USA.
+(2)Department of Physics, University of California San Diego, La Jolla, CA, USA.
+(3)Department of Biology and Center for Biodiversity and Conservation Research, 
+University of Mississippi, University, MS, USA.
+(4)Department of Ecology, Behavior and Evolution, University of California San 
+Diego, La Jolla, CA, USA. skryazhi@ucsd.edu.
+
+Species interactions drive evolution while evolution shapes these interactions. 
+The resulting eco-evolutionary dynamics and their repeatability depend on how 
+adaptive mutations available to community members affect fitness and 
+ecologically relevant traits. However, the diversity of adaptive mutations is 
+not well characterized, and we do not know how this diversity is affected by the 
+ecological milieu. Here we use barcode lineage tracking to address this question 
+in a community of yeast Saccharomyces cerevisiae and alga Chlamydomonas 
+reinhardtii that have a net commensal relationship that results from a balance 
+between competitive and mutualistic interactions. We find that yeast has access 
+to many adaptive mutations with diverse ecological consequences, in particular 
+those that increase and reduce the yields of both species. The presence of the 
+alga does not change which mutations are adaptive in yeast (that is, there is no 
+fitness trade-off for yeast between growing alone or with alga), but rather 
+shifts selection to favour yeast mutants that increase the yields of both 
+species and make the mutualism stronger. Thus, in the presence of the alga, 
+adaptative mutations contending for fixation in yeast are more likely to enhance 
+the mutualism, even though cooperativity is not directly favoured by natural 
+selection in our system. Our results demonstrate that ecological interactions 
+not only alter the trajectory of evolution but also dictate its repeatability; 
+in particular, weak mutualisms can repeatably evolve to become stronger.
+
+© 2023. The Author(s), under exclusive licence to Springer Nature Limited.
+
+DOI: 10.1038/s41559-022-01923-8
+PMID: 36593292 [Indexed for MEDLINE]

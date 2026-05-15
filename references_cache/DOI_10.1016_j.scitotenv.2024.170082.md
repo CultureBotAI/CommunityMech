@@ -11,7 +11,7 @@ authors:
 journal: Science of The Total Environment
 year: '2024'
 doi: 10.1016/j.scitotenv.2024.170082
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Impacts of atmospheric deposition on the heavy metal mobilization and bioavailability in soils amended by lime
@@ -20,3 +20,61 @@ content_type: unavailable
 **DOI:** [10.1016/j.scitotenv.2024.170082](https://doi.org/10.1016/j.scitotenv.2024.170082)
 
 ## Content
+
+1. Sci Total Environ. 2024 Mar 1;914:170082. doi:
+10.1016/j.scitotenv.2024.170082.  Epub 2024 Jan 13.
+
+Impacts of atmospheric deposition on the heavy metal mobilization and 
+bioavailability in soils amended by lime.
+
+Cui H(1), Zhao Y(1), Hu K(2), Xia R(3), Zhou J(3), Zhou J(4).
+
+Author information:
+(1)School of Earth and Environment, Anhui University of Science and Technology, 
+Huainan 232001, China.
+(2)School of Earth and Environment, Anhui University of Science and Technology, 
+Huainan 232001, China; State Key Laboratory of Soil and Sustainable Agriculture, 
+Institute of Soil Science, Chinese Academy of Sciences, Nanjing 210008, China.
+(3)State Key Laboratory of Soil and Sustainable Agriculture, Institute of Soil 
+Science, Chinese Academy of Sciences, Nanjing 210008, China; University of 
+Chinese Academy of Sciences, Beijing 100049, China.
+(4)State Key Laboratory of Soil and Sustainable Agriculture, Institute of Soil 
+Science, Chinese Academy of Sciences, Nanjing 210008, China; University of 
+Chinese Academy of Sciences, Beijing 100049, China. Electronic address: 
+zhoujun@issas.ac.cn.
+
+Atmospheric deposition is an important source of heavy metal in agricultural 
+soils, but there is limited research on the mobility of these metals in soil and 
+their impact on soil amendment. Here, we performed a dust incubation experiment 
+in soils in the laboratory and a factorial transplant experiment at three field 
+sites with a gradient of atmospheric deposition to examine the impacts of 
+atmospherically deposited heavy metals (Cu, Cd, and Pb) on the mobility and 
+bioavailability in soils with and without lime applications. Results showed that 
+the atmospherically deposited heavy metals showed high mobility and were 
+primarily presented in the soluble ionic fractions in the wet part and 
+acid-exchangeable and reducible fractions in the dry part of atmospheric 
+deposition. Atmospheric dust addition caused the 2p3/2 and 2p1/2 electrons of Cu 
+atoms in uncontaminated soils to transition the 3d vacant states, resulting in 
+similar copper absorption peaks as atmospheric particles by the observation of 
+X-ray absorption near-edge spectroscopy (XANES). In the field, atmospheric 
+deposition can only increase the mobile fractions in the surface soils, but not 
+in the deeper layers. However, the deposition can increase the soluble and 
+diffusive gradients in thin films (DGT)-measured bioavailable fractions in 
+profile along with the soil depth. Lime applications cannot significantly reduce 
+the mobile fractions of heavy metals in the surface soils exposed to atmospheric 
+deposition, but significantly reduce the heavy metal concentrations in soil 
+solutions and the DGT-measured bioavailable concentrations, particularly in the 
+deeper layer (6-10 cm). The major implication is that atmospherically deposited 
+heavy metals can significantly increase their bioavailable concentrations in the 
+plough horizon of soil and constrain the effects of soil amendments on heavy 
+metal immobilization, thereby increasing the risks of crop uptake.
+
+Copyright © 2024 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.scitotenv.2024.170082
+PMID: 38220003
+
+Conflict of interest statement: Declaration of competing interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

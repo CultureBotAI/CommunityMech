@@ -15,7 +15,7 @@ authors:
 journal: Microbial Ecology
 year: '2013'
 doi: 10.1007/s00248-013-0274-4
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Uneven Distribution of Halobacillus trueperi Species in Arid Natural Saline Systems of Southern Tunisian Sahara
@@ -24,3 +24,42 @@ content_type: unavailable
 **DOI:** [10.1007/s00248-013-0274-4](https://doi.org/10.1007/s00248-013-0274-4)
 
 ## Content
+
+1. Microb Ecol. 2013 Nov;66(4):831-9. doi: 10.1007/s00248-013-0274-4. Epub 2013
+Aug  16.
+
+Uneven distribution of Halobacillus trueperi species in arid natural saline 
+systems of Southern Tunisian Sahara.
+
+Guesmi A(1), Ettoumi B, El Hidri D, Essanaa J, Cherif H, Mapelli F, Marasco R, 
+Rolli E, Boudabous A, Cherif A.
+
+Author information:
+(1)Laboratoire MBA, Département de Biologie, Faculté des Sciences de Tunis, 
+Université de Tunis El Manar, Campus Universitaire, 2092, Tunis, Tunisia.
+
+The genetic diversity of a collection of 336 spore-forming isolates recovered 
+from five salt-saturated brines and soils (Chott and Sebkhas) mainly located in 
+the hyper-arid regions of the southern Tunisian Sahara has been assessed. 
+Requirements and abilities for growth at a wide range of salinities\ showed that 
+44.3 % of the isolates were extremely halotolerant, 23 % were moderate 
+halotolerant, and 32.7 % were strict halophiles, indicating that they are 
+adapted to thrive in these saline ecosystems. A wide genetic diversity was 
+documented based on 16S-23S rRNA internal transcribed spacer fingerprinting 
+profiles (ITS) and 16S rRNA gene sequences that clustered the strains into seven 
+genera: Bacillus, Gracilibacillus, Halobacillus, Oceanobacillus, Paenibacillus, 
+Pontibacillus, and Virgibacillus. Halobacillus trueperi was the most encountered 
+species in all the sites and presented a large intraspecific diversity with a 
+multiplicity of ITS types. The most frequent ITS type included 42 isolates that 
+were chosen for assessing of the intraspecific diversity by BOX-PCR 
+fingerprinting. A high intraspecific microdiversity was documented by 14 BOX-PCR 
+genotypes whose distribution correlated with the strain geographic origin. 
+Interestingly, H. trueperi isolates presented an uneven geographic distribution 
+among sites with the highest frequency of isolation from the coastal sites, 
+suggesting a marine rather than terrestrial origin of the strains. The high 
+frequency and diversity of H. trueperi suggest that it is a major 
+ecosystem-adapted microbial component of the Tunisian Sahara harsh saline 
+systems of marine origin.
+
+DOI: 10.1007/s00248-013-0274-4
+PMID: 23949950 [Indexed for MEDLINE]

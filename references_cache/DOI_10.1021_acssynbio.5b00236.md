@@ -1,0 +1,70 @@
+---
+reference_id: DOI:10.1021/acssynbio.5b00236
+title: Exometabolomics Assisted Design and Validation of Synthetic Obligate Mutualism
+authors:
+- Suzanne M. Kosina
+- Megan A. Danielewicz
+- Mujahid Mohammed
+- Jayashree Ray
+- Yumi Suh
+- Suzan Yilmaz
+- Anup K. Singh
+- Adam P. Arkin
+- Adam M. Deutschbauer
+- Trent R. Northen
+journal: ACS Synthetic Biology
+year: '2016'
+doi: 10.1021/acssynbio.5b00236
+content_type: abstract_only
+---
+
+# Exometabolomics Assisted Design and Validation of Synthetic Obligate Mutualism
+**Authors:** Suzanne M. Kosina, Megan A. Danielewicz, Mujahid Mohammed, Jayashree Ray, Yumi Suh, Suzan Yilmaz, Anup K. Singh, Adam P. Arkin, Adam M. Deutschbauer, Trent R. Northen
+**Journal:** ACS Synthetic Biology (2016)
+**DOI:** [10.1021/acssynbio.5b00236](https://doi.org/10.1021/acssynbio.5b00236)
+
+## Content
+
+1. ACS Synth Biol. 2016 Jul 15;5(7):569-76. doi: 10.1021/acssynbio.5b00236. Epub 
+2016 Feb 17.
+
+Exometabolomics Assisted Design and Validation of Synthetic Obligate Mutualism.
+
+Kosina SM(1), Danielewicz MA(1), Mohammed M(1), Ray J(1), Suh Y(1), Yilmaz S(2), 
+Singh AK(2), Arkin AP(1)(3), Deutschbauer AM(1), Northen TR(1).
+
+Author information:
+(1)Lawrence Berkeley National Laboratory , Berkeley, California 94720, United 
+States.
+(2)Sandia National Laboratory , Livermore, California 94550, United States.
+(3)University of California Berkeley , Berkeley, California 94720, United 
+States.
+
+Synthetic microbial ecology has the potential to enhance the productivity and 
+resiliency of biotechnology processes compared to approaches using single 
+isolates. Engineering microbial consortia is challenging; however, one approach 
+that has attracted significant attention is the creation of synthetic obligate 
+mutualism using auxotrophic mutants that depend on each other for exchange or 
+cross-feeding of metabolites. Here, we describe the integration of mutant 
+library fitness profiling with mass spectrometry based exometabolomics as a 
+method for constructing synthetic mutualism based on cross-feeding. Two 
+industrially important species lacking known ecological interactions, Zymomonas 
+mobilis and Escherichia coli, were selected as the test species. Amino acid 
+exometabolites identified in the spent medium of Z. mobilis were used to select 
+three corresponding E. coli auxotrophs (proA, pheA and IlvA), as potential E. 
+coli counterparts for the coculture. A pooled mutant fitness assay with a Z. 
+mobilis transposon mutant library was used to identify mutants with improved 
+growth in the presence of E. coli. An auxotroph mutant in a gene (ZMO0748) with 
+sequence similarity to cysteine synthase A (cysK), was selected as the Z. 
+mobilis counterpart for the coculture. Exometabolomic analysis of spent E. coli 
+medium identified glutathione related metabolites as potentially available for 
+rescue of the Z. mobilis cysteine synthase mutant. Three sets of cocultures 
+between the Z. mobilis auxotroph and each of the three E. coli auxotrophs were 
+monitored by optical density for growth and analyzed by flow cytometry to 
+confirm high cell counts for each species. Taken together, our methods provide a 
+technological framework for creating synthetic mutualisms combining existing 
+screening based methods and exometabolomics for both the selection of obligate 
+mutualism partners and elucidation of metabolites involved in auxotroph rescue.
+
+DOI: 10.1021/acssynbio.5b00236
+PMID: 26885935 [Indexed for MEDLINE]
