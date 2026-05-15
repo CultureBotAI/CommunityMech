@@ -18,7 +18,7 @@ authors:
 journal: PLoS ONE
 year: '2014'
 doi: 10.1371/journal.pone.0106618
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Culturable Heavy Metal-Resistant and Plant Growth Promoting Bacteria in V-Ti Magnetite Mine Tailing Soil from Panzhihua, China
@@ -27,3 +27,44 @@ content_type: unavailable
 **DOI:** [10.1371/journal.pone.0106618](https://doi.org/10.1371/journal.pone.0106618)
 
 ## Content
+
+1. PLoS One. 2014 Sep 4;9(9):e106618. doi: 10.1371/journal.pone.0106618. 
+eCollection 2014.
+
+Culturable heavy metal-resistant and plant growth promoting bacteria in V-Ti 
+magnetite mine tailing soil from Panzhihua, China.
+
+Yu X(1), Li Y(1), Zhang C(1), Liu H(1), Liu J(1), Zheng W(1), Kang X(1), Leng 
+X(2), Zhao K(1), Gu Y(1), Zhang X(1), Xiang Q(1), Chen Q(1).
+
+Author information:
+(1)Department of Microbiology, College of Resource and Environmental Sciences, 
+Sichuan Agricultural University, Chengdu, China.
+(2)Department of Microbiology, College of Resource and Environmental Sciences, 
+Sichuan Agricultural University, Chengdu, China; Environmental Monitoring 
+Station, Panzhihua Municipal Environmental Protection Bureau, Panzhihua, China.
+
+To provide a basis for using indigenous bacteria for bioremediation of heavy 
+metal contaminated soil, the heavy metal resistance and plant growth-promoting 
+activity of 136 isolates from V-Ti magnetite mine tailing soil were 
+systematically analyzed. Among the 13 identified bacterial genera, the most 
+abundant genus was Bacillus (79 isolates) out of which 32 represented B. 
+subtilis and 14 B. pumilus, followed by Rhizobium sp. (29 isolates) and 
+Ochrobactrum intermedium (13 isolates). Altogether 93 isolates tolerated the 
+highest concentration (1000 mg kg(-1)) of at least one of the six tested heavy 
+metals. Five strains were tolerant against all the tested heavy metals, 71 
+strains tolerated 1,000 mg kg(-1) cadmium whereas only one strain tolerated 
+1,000 mg kg(-1) cobalt. Altogether 67% of the bacteria produced indoleacetic 
+acid (IAA), a plant growth-promoting phytohormone. The concentration of IAA 
+produced by 53 isolates was higher than 20 µg ml(-1). In total 21% of the 
+bacteria produced siderophore (5.50-167.67 µg ml(-1)) with two Bacillus sp. 
+producing more than 100 µg ml(-1). Eighteen isolates produced both IAA and 
+siderophore. The results suggested that the indigenous bacteria in the soil have 
+beneficial characteristics for remediating the contaminated mine tailing soil.
+
+DOI: 10.1371/journal.pone.0106618
+PMCID: PMC4154735
+PMID: 25188470 [Indexed for MEDLINE]
+
+Conflict of interest statement: Competing Interests: The authors have declared 
+that no competing interests exist.

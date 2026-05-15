@@ -8,7 +8,7 @@ authors:
 journal: Journal of Environmental Management
 year: '2019'
 doi: 10.1016/j.jenvman.2019.04.081
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Column bioleaching of metals from refinery spent catalyst by Acidithiobacillus thiooxidans: Effect of operational modifications on metal extraction, metal precipitation, and bacterial attachment
@@ -17,3 +17,47 @@ content_type: unavailable
 **DOI:** [10.1016/j.jenvman.2019.04.081](https://doi.org/10.1016/j.jenvman.2019.04.081)
 
 ## Content
+
+1. J Environ Manage. 2019 Jul 15;242:372-383. doi: 10.1016/j.jenvman.2019.04.081.
+ Epub 2019 May 3.
+
+Column bioleaching of metals from refinery spent catalyst by Acidithiobacillus 
+thiooxidans: Effect of operational modifications on metal extraction, metal 
+precipitation, and bacterial attachment.
+
+Pathak A(1), Srichandan H(2), Kim DJ(3).
+
+Author information:
+(1)Petroleum Research Center, Kuwait Institute for Scientific Research, P.O. Box 
+24885, Safat, 13109, Kuwait.
+(2)School of Biotechnology, KIIT University, Patia, Bhubaneswar, 751024, India. 
+Electronic address: buna.biot@gmail.com.
+(3)Mineral Resource Research Division, Korea Institute of Geoscience and Mineral 
+Resources (KIGAM), 124 Gwahang-no, Yuseong-gu, Daejeon, 305-350, South Korea.
+
+The feasibility of column bioleaching in the recovery of valuable metals (Ni, V, 
+Mo, and Al) from an uncrushed petroleum refinery spent hydroprocessing catalyst 
+using Acidithiobacillus thiooxidans has been reported. Different operational 
+strategies such as submerged bioleaching in continuous mode, submerged 
+bioleaching in resting period mode, free flow bioleaching in continuous mode, 
+and free flow bioleaching in resting period mode were tested to find out the 
+optimum bioleaching strategy for the recovery of metals from spent 
+hydroprocessing catalyst. Among various operational modifications, submerged 
+bioleaching in continuous mode was considered as the best strategy in which 
+about 82.9% of Ni, 33.4% of Al, and 22.7% of Mo were leached after 315 h of 
+column operation. The maximum yield of V (53.6%) in this column was achieved in 
+105 h, after which, a rapid decrease in its yield was observed, possibly due to 
+its precipitation. The field emission scanning electron microscopy (FESEM) 
+analysis revealed the presence of V in precipitates. The modified kinetic models 
+showed that the leaching of Al, V and Mo followed the chemical control model, 
+whereas the dissolution of Ni was controlled by diffusion control reaction. The 
+bacterial attachment study with FESEM indicated that the metal toxicity was 
+induced on bacterial cells attached to the sulfur particles. The results of the 
+current study indicate that column bioleaching of spent hydroprocessing catalyst 
+is effective in leaching of Ni and V, whereas leaching of Al and Mo require 
+further treatments.
+
+Copyright © 2019 Elsevier Ltd. All rights reserved.
+
+DOI: 10.1016/j.jenvman.2019.04.081
+PMID: 31059950 [Indexed for MEDLINE]

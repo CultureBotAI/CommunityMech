@@ -1,0 +1,50 @@
+---
+reference_id: DOI:10.1021/acssynbio.6b00107
+title: "A Designed <i>A. vinelandii</i>–<i>S. elongatus</i> Coculture for Chemical Photoproduction from Air, Water, Phosphate, and Trace Metals"
+authors:
+- Matthew J. Smith
+- Matthew B. Francis
+journal: ACS Synthetic Biology
+year: '2016'
+doi: 10.1021/acssynbio.6b00107
+content_type: abstract_only
+---
+
+# A Designed <i>A. vinelandii</i>–<i>S. elongatus</i> Coculture for Chemical Photoproduction from Air, Water, Phosphate, and Trace Metals
+**Authors:** Matthew J. Smith, Matthew B. Francis
+**Journal:** ACS Synthetic Biology (2016)
+**DOI:** [10.1021/acssynbio.6b00107](https://doi.org/10.1021/acssynbio.6b00107)
+
+## Content
+
+1. ACS Synth Biol. 2016 Sep 16;5(9):955-61. doi: 10.1021/acssynbio.6b00107. Epub 
+2016 Jun 6.
+
+A Designed A. vinelandii-S. elongatus Coculture for Chemical Photoproduction 
+from Air, Water, Phosphate, and Trace Metals.
+
+Smith MJ(1), Francis MB(1)(2).
+
+Author information:
+(1)Department of Chemistry, University of California , Berkeley, California 
+94720-1460, United States.
+(2)The Molecular Foundry, Materials Sciences Division, Lawrence Berkeley 
+National Laboratories , Berkeley, California 94720-1460, United States.
+
+Microbial mutualisms play critical roles in a diverse number of ecosystems and 
+have the potential to improve the efficiency of bioproduction for desirable 
+chemicals. We investigate the growth of a photosynthetic cyanobacterium, 
+Synechococcus elongatus PCC 7942, and a diazotroph, Azotobacter vinelandii, in 
+coculture. From initial studies of the coculture grown in media with glutamate, 
+we proposed a model of cross-feeding between these organisms. We then engineer a 
+new microbial mutualism between Azotobacter vinelandii AV3 and cscB 
+Synechococcus elongatus that grows in the absence of fixed carbon or nitrogen. 
+The coculture cannot grow in the absence of a sucrose-exporting S. elongatus, 
+and neither organism can grow alone without fixed carbon or nitrogen. This new 
+system has the potential to produce industrially relevant products, such as 
+polyhydroxybutyrate (PHB) and alginate, from air, water, phosphate, trace 
+metals, and sunlight. We demonstrate the ability of the coculture to produce PHB 
+in this work.
+
+DOI: 10.1021/acssynbio.6b00107
+PMID: 27232890 [Indexed for MEDLINE]

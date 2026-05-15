@@ -12,7 +12,7 @@ authors:
 journal: Journal of Hazardous Materials
 year: '2023'
 doi: 10.1016/j.jhazmat.2023.130774
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Genome-resolved metagenomics reveals depth-related patterns of microbial community structure and functions in a highly stratified, AMD overlaying mine tailings
@@ -21,3 +21,49 @@ content_type: unavailable
 **DOI:** [10.1016/j.jhazmat.2023.130774](https://doi.org/10.1016/j.jhazmat.2023.130774)
 
 ## Content
+
+1. J Hazard Mater. 2023 Apr 5;447:130774. doi: 10.1016/j.jhazmat.2023.130774.
+Epub  2023 Jan 10.
+
+Genome-resolved metagenomics reveals depth-related patterns of microbial 
+community structure and functions in a highly stratified, AMD overlaying mine 
+tailings.
+
+Luo ZH(1), Li Q(1), Chen N(1), Tang LY(1), Liao B(1), Yang TT(2), Huang LN(3).
+
+Author information:
+(1)State Key Laboratory of Biocontrol, School of Life Sciences, Sun Yat-sen 
+University, Guangzhou, China.
+(2)Guangdong Heavy Metal Mine Ecological Restoration Engineering Technology 
+Research Center, Shaoguan, China.
+(3)State Key Laboratory of Biocontrol, School of Life Sciences, Sun Yat-sen 
+University, Guangzhou, China. Electronic address: eseshln@mail.sysu.edu.cn.
+
+Acid mine drainage (AMD) is a worldwide environmental problem, yet 
+bioremediation is hampered by a limited knowledge of the reductive microbial 
+processes in the AMD ecosystem. Here, we generate extensive metagenome and 
+geochemical datasets to investigate how microbial populations and metabolic 
+capacities driving major element cycles are structured in a highly stratified, 
+AMD overlaying tailings environment. The results demonstrated an explicit 
+depth-dependent differentiation of microbial community composition and function 
+profiles between the surface and deeper tailings layers, paralleling the 
+dramatic shifts in major physical and geochemical properties. Specifically, key 
+genes involved in sulfur and iron oxidation were significantly enriched in the 
+surface tailings, whereas those associated with reductive nitrogen, sulfur, and 
+iron processes were enriched in the deeper layers. Genome-resolved metagenomics 
+retrieved 406 intermediate or high-quality genomes spanning 26 phyla, including 
+major new groups (e.g., Patescibacteria and DPANN). Metabolic models involving 
+nitrogen, sulfur, iron, and carbon cycles were proposed based on the functional 
+potentials of the abundant microbial genomes, emphasizing syntrophy and the 
+importance of lesser-known taxa in the degradation of complex carbon compounds. 
+These results have implications for in situ AMD bioremediation.
+
+Copyright © 2023 Elsevier B.V. All rights reserved.
+
+DOI: 10.1016/j.jhazmat.2023.130774
+PMID: 36641850 [Indexed for MEDLINE]
+
+Conflict of interest statement: Declaration of Competing Interest The authors 
+declare that they have no known competing financial interests or personal 
+relationships that could have appeared to influence the work reported in this 
+paper.

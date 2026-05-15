@@ -11,7 +11,7 @@ authors:
 journal: International Journal of Systematic Bacteriology
 year: '1998'
 doi: 10.1099/00207713-48-4-1383
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Syntrophobacter fumaroxidans sp. nov., a syntrophic propionate-degrading sulfate-reducing bacterium
@@ -20,3 +20,32 @@ content_type: unavailable
 **DOI:** [10.1099/00207713-48-4-1383](https://doi.org/10.1099/00207713-48-4-1383)
 
 ## Content
+
+1. Int J Syst Bacteriol. 1998 Oct;48 Pt 4:1383-7. doi:
+10.1099/00207713-48-4-1383.
+
+Syntrophobacter fumaroxidans sp. nov., a syntrophic propionate-degrading 
+sulfate-reducing bacterium.
+
+Harmsen HJ(1), Van Kuijk BL, Plugge CM, Akkermans AD, De Vos WM, Stams AJ.
+
+Author information:
+(1)Laboratory of Microbiology, Wageningen Agricultural University, The 
+Netherlands.
+
+A syntrophic propionate-oxidizing bacterium, strain MPOBT, was isolated from a 
+culture enriched from anaerobic granular sludge. It oxidized propionate 
+syntrophically in co-culture with the hydrogen- and formate-utilizing 
+Methanospirillum hungateii, and was able to oxidize propionate and other organic 
+compounds in pure culture with sulfate or fumarate as the electron acceptor. 
+Additionally, it fermented fumarate. 16S rRNA sequence analysis revealed a 
+relationship with Syntrophobacter wolinii and Syntrophobacter pfennigii. The G + 
+C content of its DNA was 60.6 mol%, which is in the same range as that of other 
+Syntrophobacter species. DNA-DNA hybridization studies showed less than 26% 
+hybridization among the different genomes of Syntrophobacter species and strain 
+MPOBT. This justifies the assignment of strain MPOBT to the genus 
+Syntrophobacter as a new species. The name Syntrophobacter fumaroxidans is 
+proposed; strain MPOBT (= DSM 10017T) is the type strain.
+
+DOI: 10.1099/00207713-48-4-1383
+PMID: 9828440 [Indexed for MEDLINE]

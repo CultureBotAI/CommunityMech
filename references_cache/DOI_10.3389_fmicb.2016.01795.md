@@ -1,0 +1,74 @@
+---
+reference_id: DOI:10.3389/fmicb.2016.01795
+title: Membrane Complexes of Syntrophomonas wolfei Involved in Syntrophic Butyrate Degradation and Hydrogen Formation
+authors:
+- Bryan R. Crable
+- Jessica R. Sieber
+- Xinwei Mao
+- Lisa Alvarez-Cohen
+- Robert Gunsalus
+- Rachel R. Ogorzalek Loo
+- Hong Nguyen
+- Michael J. McInerney
+journal: Frontiers in Microbiology
+year: '2016'
+doi: 10.3389/fmicb.2016.01795
+content_type: abstract_only
+---
+
+# Membrane Complexes of Syntrophomonas wolfei Involved in Syntrophic Butyrate Degradation and Hydrogen Formation
+**Authors:** Bryan R. Crable, Jessica R. Sieber, Xinwei Mao, Lisa Alvarez-Cohen, Robert Gunsalus, Rachel R. Ogorzalek Loo, Hong Nguyen, Michael J. McInerney
+**Journal:** Frontiers in Microbiology (2016)
+**DOI:** [10.3389/fmicb.2016.01795](https://doi.org/10.3389/fmicb.2016.01795)
+
+## Content
+
+1. Front Microbiol. 2016 Nov 9;7:1795. doi: 10.3389/fmicb.2016.01795. eCollection
+ 2016.
+
+Membrane Complexes of Syntrophomonas wolfei Involved in Syntrophic Butyrate 
+Degradation and Hydrogen Formation.
+
+Crable BR(1), Sieber JR(1), Mao X(2), Alvarez-Cohen L(2), Gunsalus R(3), 
+Ogorzalek Loo RR(4), Nguyen H(4), McInerney MJ(1).
+
+Author information:
+(1)Department of Microbiology and Plant Biology, University of Oklahoma, Norman 
+OK, USA.
+(2)Department of Civil and Environmental Engineering, University of California, 
+Berkeley, Berkeley CA, USA.
+(3)Department of Microbiology, Immunology, and Molecular Genetics, University of 
+California, Los Angeles, Los Angeles CA, USA.
+(4)Department of Biological Chemistry, University of California, Los Angeles, 
+Los Angeles CA, USA.
+
+Syntrophic butyrate metabolism involves the thermodynamically unfavorable 
+production of hydrogen and/or formate from the high potential electron donor, 
+butyryl-CoA. Such redox reactions can occur only with energy input by a process 
+called reverse electron transfer. Previous studies have demonstrated that 
+hydrogen production from butyrate requires the presence of a proton gradient, 
+but the biochemical machinery involved has not been clearly elucidated. In this 
+study, the gene and enzyme systems involved in reverse electron transfer by 
+Syntrophomonas wolfei were investigated using proteomic and gene expression 
+approaches. S. wolfei was grown in co-culture with Methanospirillum hungatei or 
+Dehalococcoides mccartyi under conditions requiring reverse electron transfer 
+and compared to both axenic S. wolfei cultures and co-cultures grown in 
+conditions that do not require reverse electron transfer. Blue native gel 
+analysis of membranes solubilized from syntrophically grown cells revealed the 
+presence of a membrane-bound hydrogenase, Hyd2, which exhibited hydrogenase 
+activity during in gel assays. Bands containing a putative iron-sulfur (FeS) 
+oxidoreductase were detected in membranes of crotonate-grown and butyrate grown 
+S. wolfei cells. The genes for the corresponding hydrogenase subunits, hyd2ABC, 
+were differentially expressed at higher levels during syntrophic butyrate growth 
+when compared to growth on crotonate. The expression of the FeS oxidoreductase 
+gene increased when S. wolfei was grown with M. hungatei. Additional 
+membrane-associated proteins detected included FoF1 ATP synthase subunits and 
+several membrane transporters that may aid syntrophic growth. Furthermore, 
+syntrophic butyrate metabolism can proceed exclusively by interspecies hydrogen 
+transfer, as demonstrated by growth with D. mccartyi, which is unable to use 
+formate. These results argue for the importance of Hyd2 and FeS oxidoreductase 
+in reverse electron transfer during syntrophic butyrate degradation.
+
+DOI: 10.3389/fmicb.2016.01795
+PMCID: PMC5101538
+PMID: 27881975

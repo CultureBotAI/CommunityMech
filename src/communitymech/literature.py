@@ -102,6 +102,41 @@ class LiteratureFetcher:
             print(f"Error fetching DOI {doi}: {e}")
             return None
 
+    def fetch_pmid_for_doi(self, doi: str) -> str | None:
+        """
+        Resolve a DOI to its corresponding PubMed ID via NCBI esearch.
+
+        Many DOIs that are paywalled on the publisher side and lack a
+        CrossRef abstract still have a PubMed record with a free abstract.
+        This helper looks up the PMID so the caller can fall back to
+        fetch_pubmed_abstract for the abstract text.
+
+        Args:
+            doi: DOI string (with or without "doi:" prefix)
+
+        Returns:
+            PMID string (no prefix) or None
+        """
+        doi = doi.replace("doi:", "").replace("https://doi.org/", "").strip()
+
+        url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
+        params = {
+            "db": "pubmed",
+            "term": f"{doi}[doi]",
+            "retmode": "json",
+            "retmax": "1",
+        }
+
+        try:
+            response = self.session.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            id_list = data.get("esearchresult", {}).get("idlist", [])
+            return id_list[0] if id_list else None
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error mapping DOI {doi} to PMID: {e}")
+            return None
+
     def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> str | None:
         """
         Try to fetch open access PDF URL from Unpaywall.
@@ -166,6 +201,14 @@ class LiteratureFetcher:
             # Get metadata (may contain abstract)
             metadata = self.fetch_doi_metadata(doi)
             abstract = metadata.get("abstract") if metadata else None
+
+            # Fallback: many paywalled DOIs still have a free PubMed abstract.
+            # If CrossRef didn't return an abstract, try to resolve the DOI
+            # to a PMID and fetch the abstract from PubMed.
+            if not abstract:
+                pmid = self.fetch_pmid_for_doi(doi)
+                if pmid:
+                    abstract = self.fetch_pubmed_abstract(pmid)
 
             return (abstract, pdf_url)
 

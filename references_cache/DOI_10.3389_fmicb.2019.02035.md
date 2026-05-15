@@ -1,0 +1,69 @@
+---
+reference_id: DOI:10.3389/fmicb.2019.02035
+title: Exploring the Relationship Between Clostridium thermocellum JN4 and Thermoanaerobacterium thermosaccharolyticum GD17
+authors:
+- Fangzhong Wang
+- Mingyu Wang
+- Qi Zhao
+- Kangle Niu
+- Shasha Liu
+- Didi He
+- Yan Liu
+- Shiping Xu
+- Xu Fang
+journal: Frontiers in Microbiology
+year: '2019'
+doi: 10.3389/fmicb.2019.02035
+content_type: abstract_only
+---
+
+# Exploring the Relationship Between Clostridium thermocellum JN4 and Thermoanaerobacterium thermosaccharolyticum GD17
+**Authors:** Fangzhong Wang, Mingyu Wang, Qi Zhao, Kangle Niu, Shasha Liu, Didi He, Yan Liu, Shiping Xu, Xu Fang
+**Journal:** Frontiers in Microbiology (2019)
+**DOI:** [10.3389/fmicb.2019.02035](https://doi.org/10.3389/fmicb.2019.02035)
+
+## Content
+
+1. Front Microbiol. 2019 Sep 10;10:2035. doi: 10.3389/fmicb.2019.02035.
+eCollection  2019.
+
+Exploring the Relationship Between Clostridium thermocellum JN4 and 
+Thermoanaerobacterium thermosaccharolyticum GD17.
+
+Wang F(1)(2), Wang M(1), Zhao Q(1), Niu K(1), Liu S(1), He D(1), Liu Y(3), Xu 
+S(4), Fang X(1).
+
+Author information:
+(1)State Key Laboratory of Microbial Technology, Shandong University, Qingdao, 
+China.
+(2)Center for Biosafety Research and Strategy, Tianjin University, Tianjin, 
+China.
+(3)College of Life Science, Qufu Normal University, Qufu, China.
+(4)School of Environmental Science and Engineering, Shandong University, 
+Qingdao, China.
+
+Characterizing and engineering microbial communities for lignocellulosic biofuel 
+production has received widespread attention. Previous research has established 
+that Clostridium thermocellum JN4 and Thermoanaerobacterium 
+thermosaccharolyticum GD17 coculture significantly improves overall cellulosic 
+biofuel production efficiency. Here, we investigated this interaction and 
+revealed the mechanism underlying the improved efficiency observed. In contrast 
+to the previously reported mutualistic relationship, a harmful effect toward C. 
+thermocellum JN4 was observed in these microbial consortia. Although T. 
+thermosaccharolyticum GD17 relieves the carbon catabolite repression of C. 
+thermocellum JN4 regarding obtaining more cellobiose or glucose released from 
+lignocellulose, T. thermosaccharolyticum GD17 significantly hampers the growth 
+of C. thermocellum JN4 in coculture. The increased formation of end products is 
+due to the strong competitive metabolic advantage of T. thermosaccharolyticum 
+GD17 over C. thermocellum JN4 in the conversion of glucose or cellobiose into 
+final products. The possibility of controlling and rebalancing these microbial 
+consortia to modulate cellulose degradation was achieved by adding T. 
+thermosaccharolyticum GD17 stimulants into the system. As cellulolytic bacteria 
+are usually at a metabolic disadvantage, these discoveries may apply to a large 
+proportion of cellulosic biofuel-producing microbial consortia. These findings 
+provide a reference for engineering efficient and modular microbial consortia 
+for modulating cellulosic conversion.
+
+DOI: 10.3389/fmicb.2019.02035
+PMCID: PMC6746925
+PMID: 31551972

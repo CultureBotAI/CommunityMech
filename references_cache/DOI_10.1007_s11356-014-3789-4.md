@@ -10,7 +10,7 @@ authors:
 journal: Environmental Science and Pollution Research
 year: '2015'
 doi: 10.1007/s11356-014-3789-4
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Diversity of acidophilic prokaryotes at two acid mine drainage sites in Turkey
@@ -19,3 +19,38 @@ content_type: unavailable
 **DOI:** [10.1007/s11356-014-3789-4](https://doi.org/10.1007/s11356-014-3789-4)
 
 ## Content
+
+1. Environ Sci Pollut Res Int. 2015 Apr;22(8):5995-6003. doi: 
+10.1007/s11356-014-3789-4. Epub 2014 Nov 9.
+
+Diversity of acidophilic prokaryotes at two acid mine drainage sites in Turkey.
+
+Aytar P(1), Kay CM, Mutlu MB, Çabuk A, Johnson DB.
+
+Author information:
+(1)Department of Biotechnology and Biosafety, Graduate School of Natural and 
+Applied Sciences, Eskisehir Osmangazi University, 26480, Eskisehir, Turkey, 
+pinaraytar@gmail.com.
+
+The biodiversity of acidophilic prokaryotes in two acidic (pH 2.8-3.05) mine 
+drainage (AMD) sites (Balya and Çan) in Turkey was examined using a combined 
+cultivation-based and cultivation-independent approach. The latter included 
+analyzing microbial diversity using fluorescent in situ hybridization (FISH), 
+terminal restriction enzyme fragment length polymorphism (`T-RFLP), and 
+quantitative PCR (qPCR). Numbers of cultivatable heterotrophic acidophilic 
+bacteria were over an order of magnitude greater than those of chemolithotrophic 
+acidophiles in both AMD ponds examined. Isolates identified as strains of 
+Acidithiobacillus ferrivorans, Acidiphilium organovorum, and Ferrimicrobium 
+acidiphilum were isolated from the Balya AMD pond, and others identified as 
+strains of Leptospirillum ferriphilum, Acidicapsa ligni, and Acidiphilium rubrum 
+from Çan AMD. Other isolates were too distantly related (from analysis of their 
+16S rRNA genes) to be identified at the species level. Archaeal diversity in the 
+two ponds appeared to be far more limited. T-RFLP and qPCR confirmed the 
+presence of Ferroplasma-like prokaryotes, but no archaea were isolated from the 
+two sites. qPCR generated semiquantitative data for genera of some of the 
+iron-oxidizing acidophiles isolated and/or detected, suggesting the order of 
+abundance was Leptospirillum > Ferroplasma > Acidithiobacillus (Balya AMD) and 
+Ferroplasma > Leptospirillum > Acidithiobacillus (Çan AMD).
+
+DOI: 10.1007/s11356-014-3789-4
+PMID: 25380633 [Indexed for MEDLINE]

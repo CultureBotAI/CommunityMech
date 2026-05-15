@@ -19,7 +19,7 @@ authors:
 journal: Nature
 year: '2015'
 doi: 10.1038/nature16192
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Functional overlap of the Arabidopsis leaf and root microbiota
@@ -28,3 +28,51 @@ content_type: unavailable
 **DOI:** [10.1038/nature16192](https://doi.org/10.1038/nature16192)
 
 ## Content
+
+1. Nature. 2015 Dec 17;528(7582):364-9. doi: 10.1038/nature16192. Epub 2015 Dec
+2.
+
+Functional overlap of the Arabidopsis leaf and root microbiota.
+
+Bai Y(1), Müller DB(2), Srinivas G(1), Garrido-Oter R(1)(3)(4), Potthoff E(2), 
+Rott M(1), Dombrowski N(1), Münch PC(5)(6)(7), Spaepen S(1), Remus-Emsermann 
+M(2), Hüttel B(8), McHardy AC(4)(5), Vorholt JA(2), Schulze-Lefert P(1)(4).
+
+Author information:
+(1)Department of Plant Microbe Interactions, Max Planck Institute for Plant 
+Breeding Research, 50829 Cologne, Germany.
+(2)Institute of Microbiology, ETH Zurich, 8093 Zurich, Switzerland.
+(3)Department of Algorithmic Bioinformatics, Heinrich Heine University 
+Düsseldorf, 40225 Düsseldorf, Germany.
+(4)Cluster of Excellence on Plant Sciences (CEPLAS), Max Planck Institute for 
+Plant Breeding Research, 50829 Cologne, Germany.
+(5)Computational Biology of Infection Research, Helmholtz Center for Infection 
+Research, 38124 Braunschweig, Germany.
+(6)Max-von-Pettenkofer Institute, Ludwig Maximilian University, German Center 
+for Infection Research (DZIF), partner site LMU Munich, 80336 Munich, Germany.
+(7)German Center for Infection Research (DZIF), partner site 
+Hannover-Braunschweig, 38124 Braunschweig, Germany.
+(8)Max Planck Genome Center, Max Planck Institute for Plant Breeding Research, 
+50829 Cologne, Germany.
+
+Comment in
+    Nature. 2015 Dec 17;528(7582):340-1. doi: 10.1038/nature16319.
+
+Roots and leaves of healthy plants host taxonomically structured bacterial 
+assemblies, and members of these communities contribute to plant growth and 
+health. We established Arabidopsis leaf- and root-derived microbiota culture 
+collections representing the majority of bacterial species that are reproducibly 
+detectable by culture-independent community sequencing. We found an extensive 
+taxonomic overlap between the leaf and root microbiota. Genome drafts of 400 
+isolates revealed a large overlap of genome-encoded functional capabilities 
+between leaf- and root-derived bacteria with few significant differences at the 
+level of individual functional categories. Using defined bacterial communities 
+and a gnotobiotic Arabidopsis plant system we show that the isolates form 
+assemblies resembling natural microbiota on their cognate host organs, but are 
+also capable of ectopic leaf or root colonization. While this raises the 
+possibility of reciprocal relocation between root and leaf microbiota members, 
+genome information and recolonization experiments also provide evidence for 
+microbiota specialization to their respective niche.
+
+DOI: 10.1038/nature16192
+PMID: 26633631 [Indexed for MEDLINE]
