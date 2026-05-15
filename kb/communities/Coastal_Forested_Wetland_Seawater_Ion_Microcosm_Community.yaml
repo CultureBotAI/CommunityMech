@@ -1,0 +1,302 @@
+id: CommunityMech:000258
+name: Coastal Forested Wetland Seawater-Ion Microcosm Community
+description: >
+  A restored coastal forested freshwater wetland soil community from the
+  Timberlake Observatory for Wetland Restoration in North Carolina, curated
+  around a manipulative laboratory microcosm experiment that disentangled
+  sulfate from other seawater ions. Intact wetland soil cores received
+  deionized water, artificial seawater, artificial seawater without sulfate, or
+  sulfate alone, followed by DNA sequencing, biogeochemical measurements, and
+  greenhouse gas flux measurements. The experiment found that artificial
+  seawater altered microbial richness, composition, functional genes, and
+  emissions of carbon dioxide, methane, and nitrous oxide whether sulfate was
+  present or absent, whereas sulfate alone did not alter emissions or enrich
+  sulfate-reducing bacteria or sulfur cycling genes. The record is DOE-relevant
+  because authors were affiliated with the DOE Joint Genome Institute and
+  Lawrence Berkeley National Laboratory, and sequencing followed DOE JGI
+  methods.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: coastal forested freshwater wetland soil
+  term:
+    id: ENVO:00000044
+    label: wetland
+  notes: Restored coastal forested freshwater wetland soil represented by
+    laboratory microcosms that simulate seawater intrusion and sulfate exposure.
+taxonomy:
+- taxon_term:
+    preferred_term: coastal forested wetland soil microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of wetland soil microbes measured by
+      DNA sequencing and biogeochemical assays after seawater-ion perturbation.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: manipulative laboratory microcosm experiment
+    explanation: Supports the experimental microcosm community context.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: combined with DNA sequencing and biogeochemical measurements
+    explanation: Supports the sequencing and biogeochemical basis for the community record.
+- taxon_term:
+    preferred_term: coastal wetland sulfate-reducing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Sulfate-reducing bacteria are represented broadly because the source
+      tests sulfate reducer responses without reporting a concise exact species
+      composition.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: sulfate reducing bacteria or sulfur cycling genes
+    explanation: Supports sulfate-reducing bacteria and sulfur genes as tracked community features.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of sulfate alone did not lead to increases in the abundance of sulfate reducing bacteria
+    explanation: Supports the sulfate-only response of sulfate-reducing bacteria.
+- taxon_term:
+    preferred_term: coastal wetland carbon nitrogen phosphorus cycling guilds
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Broad microbial functional guilds whose carbon, nitrogen, and
+      phosphorus cycling genes responded to artificial seawater more strongly
+      than sulfate alone.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes involved in carbon, nitrogen, and phosphorus cycling responded more strongly to artificial seawater than to sulfate
+    explanation: Supports carbon, nitrogen, and phosphorus cycling guild responses to artificial seawater.
+ecological_interactions:
+- name: Non-Sulfate Seawater Ions Drive Community And Emission Responses
+  description: Artificial seawater changed greenhouse gas emissions and microbial
+    richness and composition regardless of sulfate presence, indicating that
+    non-sulfate seawater ions can dominate the microbial response to seawater
+    intrusion.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0071704
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Greenhouse gas emissions and microbial richness and composition were altered by artificial seawater regardless of whether sulfate was present
+    explanation: Supports non-sulfate seawater ion effects on community structure and emissions.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: other ions present in seawater, not sulfate, drive ecological and biogeochemical responses
+    explanation: Supports the inferred importance of non-sulfate seawater ions.
+- name: Sulfate Alone Does Not Enrich Sulfate-Reduction Features
+  description: In contrast to the common hypothesis that sulfate controls
+    saltwater-intrusion responses, sulfate-only addition did not alter emissions
+    or communities and did not increase sulfate-reducing bacteria or sulfur
+    cycling genes.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: coastal wetland sulfate-reducing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sulfate alone did not alter emissions or communities
+    explanation: Supports sulfate-only treatment as a weak driver in this microcosm.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: addition of sulfate alone did not lead to increases in the abundance of sulfate reducing bacteria or sulfur cycling genes
+    explanation: Supports the lack of sulfate-reducer enrichment under sulfate-only addition.
+- name: Artificial Seawater Alters Carbon Nitrogen And Phosphorus Gene Response
+  description: Genes associated with carbon, nitrogen, and phosphorus cycling
+    responded more strongly to artificial seawater than to sulfate alone,
+    indicating a broader ionic control on microbial functional potential.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: coastal wetland carbon nitrogen phosphorus cycling guilds
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0071704
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes involved in carbon, nitrogen, and phosphorus cycling responded more strongly to artificial seawater than to sulfate
+    explanation: Supports artificial-seawater effects on functional cycling genes.
+- name: Seawater-Ion Perturbation Of Greenhouse Gas Outputs
+  description: The microcosm measured carbon dioxide, methane, and nitrous oxide
+    emissions in response to ion treatments, linking microbial community shifts
+    to greenhouse gas feedbacks from coastal wetland salinization.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: emissions of carbon dioxide, methane, and nitrous oxide
+    explanation: Supports greenhouse gas emission endpoints for the perturbation.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: may be drivers of increased methane emissions in soils that received artificial seawater addition
+    explanation: Supports artificial seawater as a potential methane-emission driver.
+environmental_factors:
+- name: Seawater intrusion simulation
+  value: artificial seawater, artificial seawater without sulfate, sulfate only,
+    and deionized-water control
+  description: The experiment manipulated seawater ion composition to isolate
+    sulfate effects from other seawater ions.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tease apart the effects of sulfate from other seawater ions
+    explanation: Supports seawater-ion composition as the key experimental factor.
+- name: Coastal wetland salinization
+  value: salt water components altering microbial community composition and function
+  description: The experiment was designed to forecast microbial and
+    biogeochemical consequences of coastal wetland salinization.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consequences of coastal wetland salinization
+    explanation: Supports coastal salinization as the environmental context.
+- name: Greenhouse gases
+  value: carbon dioxide, methane, and nitrous oxide
+  description: CO2, CH4, and N2O emissions were measured after ion additions to
+    connect microbial responses with greenhouse gas feedbacks.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: emissions of carbon dioxide, methane, and nitrous oxide
+    explanation: Supports greenhouse gas endpoints.
+growth_media: []
+associated_datasets: []
+external_resources:
+- name: Primary publication for coastal forested wetland seawater-ion microcosms
+  repository: OTHER
+  resource_id: PMID:38628812
+  url: https://pubmed.ncbi.nlm.nih.gov/38628812/
+  description: PubMed record for the ISME Communications article on sulfate and
+    non-sulfate seawater ion effects on microbial communities and greenhouse gas
+    emissions in a coastal forested wetland microcosm.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Disentangling the effects of sulfate and other seawater ions
+    explanation: Supports the primary publication link for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1093/ismeco/ycae040
+  url: https://doi.org/10.1093/ismeco/ycae040
+  description: DOI for the ISME Communications publication.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "DOI: 10.1093/ismeco/ycae040"
+    explanation: Supports the DOI for the primary publication.
+- name: PubMed Central full text
+  repository: OTHER
+  resource_id: PMCID:PMC11020224
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11020224/
+  description: Open-access full text with methods and discussion for the
+    seawater-ion wetland microcosm study.
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Department of Energy Joint Genome Institute
+    explanation: Supports DOE JGI involvement in the study.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  coastal forested wetland seawater-ion microcosm community.
