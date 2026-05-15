@@ -1,0 +1,282 @@
+id: CommunityMech:000254
+name: Stordalen Mire Methylotrophic Methanogenesis Community
+description: >
+  Natural thaw-gradient peat microbial communities from Stordalen Mire in
+  Arctic Sweden, curated around genome-resolved multi-omics evidence for direct
+  and indirect methylotrophic routes to methane production. The study expanded
+  genomic representation of native methanogens, identified methanogenic MAGs
+  with methylotrophic potential and transcriptional activity, detected broad
+  bacterial anaerobic methylotrophic potential, and observed active
+  methylotrophy across palsa, bog, and fen stages of permafrost thaw. The
+  community is DOE-relevant through USDOE Office of Science BER, PNNL EMSL, and
+  JGI involvement and links permafrost thaw, wetland carbon cycling, and methane
+  emissions.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: thawing permafrost peatland
+  term:
+    id: ENVO:00000044
+    label: bog
+  notes: Stordalen Mire is represented as a thawing permafrost peatland mosaic
+    with palsa, bog, and fen habitats; ENVO bog is used as the closest validated
+    wetland habitat term already used in this repository for peat methanogenesis
+    communities.
+taxonomy:
+- taxon_term:
+    preferred_term: Stordalen Mire thaw-gradient microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of genome-resolved microbial
+      communities sampled across palsa, bog, and fen stages of Stordalen Mire.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genome-resolved multi-omics
+    explanation: Supports a multi-omics microbial community record for the Stordalen Mire thaw gradient.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: across all stages of a permafrost thaw gradient in Stordalen
+    explanation: Supports the palsa-bog-fen thaw-gradient sampling context.
+- taxon_term:
+    preferred_term: Stordalen Mire methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Methanogenic archaea are curated at domain level because the source
+      reports multiple methanogen orders and genome-resolved methylotrophic
+      methanogenesis potential across the native methanogen community.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: nearly 20% of the metagenome-assembled genomes (MAGs) encoded the potential
+      for methylotrophic methanogenesis
+    explanation: Supports methanogenic archaea with methylotrophic methanogenesis potential.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 27% of the transcriptionally active methanogens expressed methylotrophic genes
+    explanation: Supports active methylotrophic gene expression by methanogens.
+- taxon_term:
+    preferred_term: Stordalen Mire anaerobic methylotrophic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Bacterial MAGs across many phyla encoded and expressed anaerobic
+      methylotrophic potential, providing an indirect route that can feed carbon
+      cycling and greenhouse gas production in the mire.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ">1,700 bacterial MAGs across 19 phyla encoded anaerobic methylotrophic potential"
+    explanation: Supports broad bacterial methylotrophic potential across the community.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: with expression across 12 phyla
+    explanation: Supports transcriptional activity of bacterial anaerobic methylotrophy.
+ecological_interactions:
+- name: Methanogenic Methylotrophy Across Thaw Gradient
+  description: Methanogenic archaea encode and express methylotrophic genes,
+    revising Stordalen Mire methanogenesis from only hydrogenotrophic and
+    acetoclastic pathways to co-occurring methylotrophic methane production
+    across permafrost thaw stages.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Stordalen Mire methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Methanogenesis across increasing permafrost thaw is thus revised
+    explanation: Supports the revised methanogenesis model across the thaw gradient.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: co-occurrence of methylotrophy throughout
+    explanation: Supports methylotrophy as a co-occurring methanogenesis mode.
+- name: Bacterial Anaerobic Methylotrophy
+  description: Bacterial MAGs encode and express anaerobic methylotrophic
+    potential across Stordalen Mire, indicating a bacterial route for processing
+    methylated compounds that can interact with methane-generating carbon flow.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Stordalen Mire anaerobic methylotrophic bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0071704
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In addition to methanogenic methylotrophy, >1,700 bacterial MAGs
+    explanation: Supports bacterial methylotrophy alongside methanogenic methylotrophy.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: bacterial methylotrophy may be an important and previously underappreciated component
+    explanation: Supports bacterial methylotrophy as a meaningful community process.
+- name: Methylated-Compound Substrate Niche Partitioning
+  description: Metabolomics detected diverse methylated compounds, and
+    methanogen orders differed in inferred methylated substrate use, suggesting
+    substrate-based partitioning of methylotrophic activity in bog and fen
+    methanogen communities.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metabolomic analyses revealed the presence of diverse methylated compounds in the Mire
+    explanation: Supports availability of methylated substrates in the community environment.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Methanosarcinales and Methanobacteriales MAGs, these data indicated the use of
+      methylated oxygen compounds
+    explanation: Supports substrate differentiation among methanogenic groups.
+- name: Thaw-Stage Activity Gradient
+  description: Palsa hosted bacterial methylotrophy, while partially thawed bog
+    and fully thawed fen hosted both methanogenic and bacterial methylotrophic
+    activity, indicating functional changes along the permafrost thaw gradient.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the most frozen non-methanogenic palsa found to host bacterial methylotrophy
+    explanation: Supports palsa-stage bacterial methylotrophic activity.
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: partially thawed bog and fully thawed fen seen to house both methanogenic and
+      bacterial methylotrophic activities
+    explanation: Supports bog and fen stages with both methanogenic and bacterial methylotrophy.
+environmental_factors:
+- name: Permafrost thaw stage
+  value: palsa, bog, and fen thaw-gradient habitats
+  description: Stordalen Mire contains thaw-gradient habitats that differ in
+    permafrost status, hydrology, and methane-cycling activity.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: across all stages of a permafrost thaw gradient in Stordalen
+    explanation: Supports thaw stage as the organizing environmental gradient.
+- name: Methylated compounds
+  value: diverse methylated compounds, including known methylotrophic substrates
+  description: Methylated compounds detected by metabolomics provide substrate
+    context for methanogenic and bacterial methylotrophy.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: diverse methylated compounds in the Mire, including some known methylotrophic substrates
+    explanation: Supports methylated substrate availability in Stordalen Mire.
+- name: Methane emissions
+  value: wetland methane emissions under climate change
+  description: Stordalen Mire methylotrophic metabolism is curated in the
+    context of wetland methane emissions and thawing permafrost carbon cycling.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: wetlands are major sources of biogenic methane
+    explanation: Supports methane emissions as the climate-relevant context for this wetland community.
+growth_media: []
+associated_datasets: []
+external_resources:
+- name: Primary publication for Stordalen Mire methylotrophic methanogenesis
+  repository: OTHER
+  resource_id: PMID:38063415
+  url: https://pubmed.ncbi.nlm.nih.gov/38063415/
+  description: PubMed record for the mSystems paper reporting genome-resolved
+    multi-omics of methylotrophic methanogenesis and bacterial methylotrophy in
+    Stordalen Mire.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Methylotrophy in the Mire
+    explanation: Supports the primary publication link for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1128/msystems.00698-23
+  url: https://doi.org/10.1128/msystems.00698-23
+  description: DOI for the mSystems publication on methylotrophic methane
+    production in Stordalen Mire.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "doi: 10.1128/msystems.00698-23"
+    explanation: Supports the DOI for the primary publication.
+- name: DOE OSTI record
+  repository: OTHER
+  resource_id: OSTI:2377155
+  url: https://www.osti.gov/pages/biblio/2377155
+  description: DOE PAGES/OSTI record listing PNNL EMSL, USDOE JGI, and BER
+    support for the Stordalen Mire methylotrophy study.
+  evidence:
+  - reference: PMID:38063415
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: genome-resolved multi-omics
+    explanation: Links the curated multi-omics community record to the DOE-indexed publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: This community is curated for permafrost wetland carbon cycling and
+  methane emissions; no metal or rare earth element process is curated as a
+  primary function.
