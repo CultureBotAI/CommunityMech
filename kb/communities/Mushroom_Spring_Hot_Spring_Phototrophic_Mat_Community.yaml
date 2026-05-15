@@ -1,0 +1,293 @@
+id: CommunityMech:000260
+name: Mushroom Spring Hot-Spring Phototrophic Mat Community
+description: >
+  A natural alkaline geothermal microbial mat community from Mushroom Spring in
+  Yellowstone National Park. The community is structured around thermophilic
+  Synechococcus cyanobacteria, filamentous anoxygenic phototrophs related to
+  Roseiflexus and Chloroflexus, and an undermat community that includes
+  Thermodesulfovibrio-like sulfate reducers. It is a DOE-relevant model for
+  high-temperature photosynthesis, diel carbon and nitrogen cycling,
+  metagenome-resolved community metabolism, and carbon flow in phototrophic
+  microbial mats.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: alkaline geothermal hot spring microbial mat
+  term:
+    id: ENVO:00000051
+    label: hot spring
+  notes: Mushroom Spring is an alkaline geothermal spring in the Lower Geyser
+    Basin of Yellowstone National Park with stratified phototrophic microbial
+    mats.
+taxonomy:
+- taxon_term:
+    preferred_term: Mushroom Spring Synechococcus spp.
+    term:
+      id: NCBITaxon:1129
+      label: Synechococcus
+    notes: >
+      Thermophilic unicellular cyanobacteria in the upper mat; publications
+      describe Synechococcus ecotypes and strains A and B-prime in Mushroom and
+      Octopus Spring mats.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: unicellular cyanobacteria related to Synechococcus spp. strains A and B'
+    explanation: Supports Synechococcus-like cyanobacteria as key members of the Mushroom Spring phototrophic mat.
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Nitrogen fixation appears to be limited to Synechococcus spp. in the upper mat layer
+    explanation: Supports Synechococcus spp. as an upper-mat nitrogen-cycling member.
+- taxon_term:
+    preferred_term: Mushroom Spring Roseiflexus spp.
+    term:
+      id: NCBITaxon:120961
+      label: Roseiflexus
+    notes: >
+      Filamentous anoxygenic phototrophic Chloroflexi that dominate parts of
+      the Mushroom Spring undermat and participate in diel carbon and energy
+      metabolism.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: FAPs related to Chloroflexus spp. and Roseiflexus spp.
+    explanation: Supports Roseiflexus-related filamentous anoxygenic phototrophs in the mat.
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: dominated by Roseiflexus members, filamentous anoxygenic chlorophototrophs
+    explanation: Supports Roseiflexus dominance in the Mushroom Spring undermat community.
+- taxon_term:
+    preferred_term: Mushroom Spring Chloroflexus spp.
+    term:
+      id: NCBITaxon:1107
+      label: Chloroflexus
+    notes: Filamentous anoxygenic phototrophs in the Mushroom Spring phototrophic mat.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Both Roseiflexus spp. and Chloroflexus spp.
+    explanation: Supports Chloroflexus spp. as a phototrophic Chloroflexi member group in the mat.
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Chloroflexus spp. and Roseiflexus spp. synthesize BChl
+    explanation: Supports diel phototrophy-related gene expression in Chloroflexus and Roseiflexus populations.
+- taxon_term:
+    preferred_term: Mushroom Spring Thermodesulfovibrio sp.
+    term:
+      id: NCBITaxon:28261
+      label: Thermodesulfovibrio
+    notes: >
+      Thermophilic sulfate-reducing bacterial lineage detected in the Mushroom
+      Spring undermat, where nitrogen fixation potential was inferred from
+      genome-centric analyses.
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Thermodesulfovibrio sp. in the undermat
+    explanation: Supports Thermodesulfovibrio as an undermat member in the Mushroom Spring community.
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metagenome binning recovered partial genomes of all abundant community members
+    explanation: Supports genome-resolved assignment of abundant undermat community members.
+ecological_interactions:
+- name: Diel Phototrophic Carbon Fixation
+  description: >
+    Roseiflexus and Chloroflexus populations show diel expression of
+    bacteriochlorophyll, reaction-center, and 3-hydroxypropionate carbon
+    dioxide fixation genes, indicating time-resolved phototrophic carbon
+    metabolism in the mat.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: expressed key genes involved in the 3-hydroxypropionate (3-OHP) carbon dioxide fixation bi-cycle during the day
+    explanation: Supports daytime carbon dioxide fixation by phototrophic Chloroflexi populations.
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Transcripts for genes involved in the biosynthesis of bacteriochlorophylls
+    explanation: Supports diel expression of phototrophy genes in the mat community.
+- name: Phototroph Storage Polymer Cycling
+  description: >
+    Filamentous anoxygenic phototrophs shift between synthesis and use of
+    storage polymers across the diel cycle, coupling light availability to
+    community carbon and energy flow.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: storage polymers, including glycogen, polyhydroxyalkanoates and wax esters
+    explanation: Supports storage polymer metabolism as a diel feature of the phototrophic mat.
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: in daytime, polyhydroxyalkanoates and wax esters are degraded
+    explanation: Supports daytime use of storage polymers by phototrophic Chloroflexi.
+- name: Upper-Mat and Undermat Nitrogen Fixation Partitioning
+  description: >
+    Nitrogen fixation potential is spatially partitioned between Synechococcus
+    spp. in the upper phototrophic layer and Thermodesulfovibrio sp. in the
+    undermat, while nitrate and nitrite metabolism appears limited.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Mushroom Spring Synechococcus spp.
+    term:
+      id: NCBITaxon:1129
+      label: Synechococcus
+  target_taxon:
+    preferred_term: Mushroom Spring Thermodesulfovibrio sp.
+    term:
+      id: NCBITaxon:28261
+      label: Thermodesulfovibrio
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Nitrogen fixation appears to be limited to Synechococcus spp. in the upper mat layer and Thermodesulfovibrio sp. in the undermat
+    explanation: Supports spatial niche partitioning of nitrogen fixation potential.
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: nitrate/nitrite metabolism was limited
+    explanation: Supports the limited nitrate/nitrite metabolism context for nitrogen cycling.
+- name: Stratified Chlorophototrophic Community Structure
+  description: >
+    The Mushroom Spring mat is a stratified, highly uneven phototrophic
+    community in which upper-layer cyanobacteria coexist with abundant
+    filamentous anoxygenic phototrophs and an undermat assemblage resolved by
+    amplicon and metagenomic sequencing.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: diverse but extremely uneven microbial assemblage in the undermat of Mushroom Spring
+    explanation: Supports the stratified and uneven community organization.
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metagenome binning recovered partial genomes of all abundant community members
+    explanation: Supports genome-resolved analysis of abundant community members.
+environmental_factors:
+- name: Geothermal spring temperature and chemistry
+  value: neutral to alkaline geothermal spring mat
+  description: >
+    The community inhabits a neutral to alkaline geothermal spring mat where
+    thermophilic phototrophs are abundant.
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: microbial mat communities inhabiting neutral and alkaline geothermal springs
+    explanation: Supports the hot-spring geochemical context.
+- name: Diel light regime
+  value: day-night light cycle
+  description: >
+    Diel variation in light and resource availability structures phototrophic
+    gene expression and central carbon metabolism.
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: fluctuating environmental conditions and resource availability over a diel period
+    explanation: Supports the diel environmental driver.
+- name: Mat depth
+  value: upper phototrophic layer and orange undermat
+  description: >
+    Community members and metabolic potentials differ between the upper mat
+    layer and the undermat.
+  evidence:
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: analyzed the orange-colored undermat portion of the community of Mushroom Spring mats
+    explanation: Supports the undermat sampling context.
+growth_media: []
+associated_datasets:
+- name: Mushroom Spring Chloroflexi diel metatranscriptomics publication
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: PMID:23575369
+  url: https://pubmed.ncbi.nlm.nih.gov/23575369/
+  description: >
+    PubMed-indexed metatranscriptomic study of phototrophic Chloroflexi in the
+    Mushroom Spring microbial mat over a diel period.
+  evidence:
+  - reference: PMID:23575369
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metatranscriptomic sequencing was applied to the microbial community
+    explanation: Links the metatranscriptomic publication to the curated community.
+- name: Mushroom Spring undermat genome-centric publication
+  dataset_type: METAGENOME
+  repository: OTHER
+  accession: PMID:28634470
+  url: https://pubmed.ncbi.nlm.nih.gov/28634470/
+  description: >
+    PubMed-indexed genome-centric metagenomic analysis of abundant members in
+    the Mushroom Spring undermat community.
+  evidence:
+  - reference: PMID:28634470
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In this study, we analyzed the orange-colored undermat portion of the community of Mushroom Spring mats in a genome-centric approach
+    explanation: Links the genome-centric undermat publication to the curated community.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth processing role is curated for this hot-spring
+  phototrophic mat community.
