@@ -85,8 +85,13 @@ taxonomy:
 
     try:
         aggregator = CommunityVectorAggregator(embeddings)
-        # Only 1/3 taxa have embeddings, below 0.5 threshold
-        result = aggregator.aggregate_community(yaml_path, min_coverage=0.5)
+        # Only 1/3 taxa have embeddings, below 0.5 threshold.
+        # Pass exclude_hosts=False so the strict coverage check applies;
+        # the default exclude_hosts=True treats missing taxa as hosts and
+        # would consider this community fully covered.
+        result = aggregator.aggregate_community(
+            yaml_path, min_coverage=0.5, exclude_hosts=False
+        )
 
         assert result is None
 

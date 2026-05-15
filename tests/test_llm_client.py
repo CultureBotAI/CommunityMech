@@ -5,9 +5,15 @@ from unittest.mock import MagicMock, patch
 
 import pytest
 
-# Try to import anthropic, but don't fail if not installed
+# Try to import anthropic, but don't fail if not installed.
+# Importing AnthropicClient succeeds even without the anthropic package
+# (the wrapper module sets `anthropic = None` in its own try/except), so
+# additionally probe for the underlying package — the tests in this file
+# patch `anthropic.Anthropic` and need the real symbol to exist.
 try:
-    from communitymech.llm.anthropic_client import AnthropicClient
+    import anthropic  # noqa: F401
+
+    from communitymech.llm.anthropic_client import AnthropicClient  # noqa: F401
 
     ANTHROPIC_AVAILABLE = True
 except ImportError:
