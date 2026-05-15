@@ -1,0 +1,174 @@
+id: CommunityMech:000252
+name: Crystal Geyser CO2-Rich Aquifer Autotrophic CPR Lysolipid Community
+description: >
+  A deep CO2-rich subsurface aquifer community below the Colorado Plateau,
+  sampled from groundwater brought to the surface by eruptions of Crystal
+  Geyser. Coupled lipidomic and metagenomic analyses show that bacterial and
+  archaeal CO2 fixation in the deep subsurface provides the organic carbon
+  pool, supporting an autotrophy-based deep biosphere. Candidate Phyla
+  Radiation (CPR) bacterial putative symbionts lack complete lipid
+  biosynthesis pathways but still possess regular lipid membranes, which may
+  originate from other community members; these other members also adapt to
+  high in situ pressure by increasing fatty acid unsaturation. An unusually
+  high abundance of lysolipids attributed to CPR bacteria may represent an
+  adaptation to membrane curvature stress induced by their small cell sizes.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: EXTREME_ENVIRONMENT
+environment_term:
+  preferred_term: deep CO2-rich subsurface aquifer
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: Sediment-hosted CO2-rich aquifers deep below the Colorado Plateau,
+    sampled at Crystal Geyser eruptions.
+taxonomy:
+- taxon_term:
+    preferred_term: deep-aquifer CPR bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+    notes: CPR bacterial putative symbionts unable to synthesize complete
+      membrane lipids; carry unusually abundant lysolipids.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Candidate Phyla Radiation (CPR) bacteria that are putative
+      symbionts unable to synthesize membrane lipids
+    explanation: Supports the CPR bacterial members and their lipid-synthesis
+      deficit.
+- taxon_term:
+    preferred_term: deep-aquifer CO2-fixing bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Bacteria and archaea performing CO2 fixation in the deep
+      subsurface and contributing membrane lipids to CPR partners.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacterial and archaeal CO2 fixation ongoing in the deep subsurface
+      provides organic carbon
+    explanation: Supports the CO2-fixing autotrophic members.
+ecological_interactions:
+- name: Autotrophy-Based Deep Biosphere
+  description: Microbial lipid stable-carbon-isotope compositions show that
+    bacterial and archaeal CO2 fixation in the deep subsurface provides the
+    organic carbon for the complex communities residing there.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bacterial and archaeal CO2 fixation ongoing in the deep
+      subsurface provides organic carbon for the complex communities that
+      reside there
+    explanation: Supports the curated autotrophy-driven carbon source.
+- name: Lipid Redistribution to CPR Symbionts
+  description: CPR bacteria possess regular lipid membranes despite lacking
+    complete lipid biosynthesis pathways; lipids likely originate from other
+    community members, with the partner bacteria/archaea also adapting to
+    high in situ pressure via increased fatty acid unsaturation.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: deep-aquifer CO2-fixing bacteria and archaea
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  target_taxon:
+    preferred_term: deep-aquifer CPR bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: CPR bacteria lack complete lipid biosynthesis pathways but still
+      possess regular lipid membranes
+    explanation: Supports the curated CPR lipid sourcing.
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: adapt to high in situ pressure by increasing fatty acid
+      unsaturation
+    explanation: Supports the pressure-adaptive unsaturation of partner lipids.
+- name: CPR Lysolipid Enrichment as Curvature Adaptation
+  description: Unusually high abundance of lysolipids attributed to CPR
+    bacteria may represent an adaptation to membrane curvature stress induced
+    by their small cell sizes.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: An unusually high abundance of lysolipids attributed to CPR
+      bacteria may represent an adaptation to membrane curvature stress
+      induced by their small cell sizes
+    explanation: Supports the curated lysolipid-curvature-adaptation hypothesis.
+environmental_factors:
+- name: Aquifer chemistry
+  value: CO2-rich Colorado Plateau aquifers
+  description: Sediment-hosted CO2-rich aquifers below the Colorado Plateau
+    sustain the deep-biosphere community.
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sediment-hosted CO2-rich aquifers deep below the Colorado Plateau
+    explanation: Supports the curated aquifer setting.
+- name: Sampling vehicle
+  value: Crystal Geyser eruptions
+  description: Cells were collected from deep groundwater brought to the
+    surface by eruptions of Crystal Geyser.
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: deep groundwater brought to the surface by eruptions of Crystal
+      Geyser
+    explanation: Supports the curated sampling locale.
+growth_media: []
+external_resources:
+- name: Primary publication for the Crystal Geyser CPR lipid community
+  repository: OTHER
+  resource_id: PMID:32203118
+  url: https://pubmed.ncbi.nlm.nih.gov/32203118/
+  description: PubMed record for the Probst et al. 2020 ISME J paper.
+  evidence:
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Lipid analysis of CO(2)-rich subsurface aquifers suggests an
+      autotrophy-based deep biosphere with lysolipids enriched in CPR
+      bacteria
+    explanation: Lists the primary publication.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41396-020-0624-4
+  url: https://doi.org/10.1038/s41396-020-0624-4
+  description: DOI link to the ISME J paper.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  deep-biosphere CPR community.
