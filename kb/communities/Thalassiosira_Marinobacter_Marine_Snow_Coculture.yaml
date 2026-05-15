@@ -1,0 +1,317 @@
+id: CommunityMech:000259
+name: Thalassiosira-Marinobacter Marine Snow Coculture
+description: >
+  A defined marine diatom-bacterium coculture pairing the centric diatom
+  Thalassiosira weissflogii, currently represented in NCBI Taxonomy as
+  Conticribra weissflogii, with the diatom-attaching heterotrophic bacterium
+  Marinobacter adhaerens HP15. The system is used to study phycosphere
+  attachment, transparent exopolymer particle formation, aggregate formation,
+  and sinking-particle processes relevant to the marine biological carbon pump.
+  Multiple publications use the same exact diatom-bacterium model, including
+  studies of aggregation requirements, chemotaxis-mediated attachment, and
+  temperature/pCO2 perturbations.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: >
+    Establish a tractable two-member diatom-bacterium model for testing how
+    diatom-attaching bacteria alter TEP production, aggregation, attachment,
+    and sinking-particle dynamics.
+  assembly_strategy: >
+    Incubate photosynthetically active T. weissflogii cultures with the
+    attaching bacterial strain Marinobacter adhaerens HP15 in controlled
+    laboratory marine coculture assays.
+  perturbation_design: >
+    Compare axenic diatom controls and cocultures with attaching or
+    non-attaching bacterial isolates; follow-up exact-composition studies
+    tested chemotaxis mutants and varied temperature and pCO2.
+  measurement_endpoints:
+  - diatom aggregate formation
+  - transparent exopolymer particle abundance
+  - aggregate sinking velocity
+  - bacterial attachment to diatom cells and TEP aggregates
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The role of individual T. weissflogii-attaching and free-living new bacterial isolates for TEP production and diatom aggregation was investigated in vitro.
+    explanation: Supports the laboratory design around T. weissflogii-attaching bacterial isolates and aggregation endpoints.
+environment_term:
+  preferred_term: laboratory marine phycosphere coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled laboratory coculture modeling a marine phycosphere and marine
+    snow formation process; the environmental context is marine particulate
+    organic matter and sinking diatom aggregates.
+taxonomy:
+- taxon_term:
+    preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+    notes: >
+      Sources use the name Thalassiosira weissflogii. NCBI Taxonomy currently
+      treats Thalassiosira weissflogii as a homotypic synonym of Conticribra
+      weissflogii.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thalassiosira weissflogii might interact
+    explanation: Supports T. weissflogii as the diatom member in the aggregation model.
+- taxon_term:
+    preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
+    notes: >
+      Diatom-attaching marine gammaproteobacterium originally isolated from
+      marine particles in the German Wadden Sea and used as a model bacterium
+      for T. weissflogii interactions.
+  strain_designation:
+    strain_name: HP15
+    culture_collections:
+    - collection: DSM
+      accession: DSM 23420
+    type_strain: true
+    isolation_source: Marine particles sampled in the German Wadden Sea.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:22820333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Marinobacter adhaerens HP15 has been demonstrated to attach to the diatom Thalassiosira weissflogii
+    explanation: Supports M. adhaerens HP15 as the bacterial member in the exact model.
+ecological_interactions:
+- name: Bacteria-Dependent Diatom Aggregation
+  description: >
+    Photosynthetically active T. weissflogii and specific diatom-attaching
+    bacteria, including M. adhaerens HP15, are required for strong aggregate
+    formation; axenic T. weissflogii did not aggregate in the same assay.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
+  target_taxon:
+    preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: specific diatom-attaching bacteria were required for aggregation
+    explanation: Supports the requirement for attaching bacteria in T. weissflogii aggregation.
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: T. weissflogii did not aggregate in axenic culture
+    explanation: Supports the contrast between axenic diatom controls and bacteria-containing treatments.
+- name: Transparent Exopolymer Particle Enhancement
+  description: >
+    M. adhaerens HP15 is linked to transparent exopolymeric particle formation
+    and aggregate formation during interaction with T. weissflogii.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+  target_taxon:
+    preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: extracellular matrix organization
+    term:
+      id: GO:0030198
+      label: extracellular matrix organization
+  evidence:
+  - reference: PMID:22820333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: induce transparent exopolymeric particle and aggregate formation
+    explanation: Supports HP15-associated TEP and aggregate formation in the exact model.
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TEP formation and phytoplankton aggregation
+    explanation: Supports TEP formation and aggregation as measured outcomes in the interaction.
+- name: Chemotaxis-Mediated Attachment
+  description: >
+    Chemotaxis and surface attachment functions in M. adhaerens contribute to
+    physical association with diatom cells and TEP aggregates, providing a
+    mechanistic basis for initiation of the two-member interaction.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Marinobacter adhaerens HP15
+    term:
+      id: NCBITaxon:225937
+      label: Marinobacter adhaerens HP15
+  target_taxon:
+    preferred_term: Thalassiosira weissflogii
+    term:
+      id: NCBITaxon:1577725
+      label: Conticribra weissflogii
+  biological_processes:
+  - preferred_term: chemotaxis
+    term:
+      id: GO:0006935
+      label: chemotaxis
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:22820333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: chemotaxis might be important for the interaction of M. adhaerens with diatoms
+    explanation: Supports chemotaxis as an interaction mechanism in M. adhaerens.
+  - reference: PMID:22820333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the fraction of bacteria attaching to the diatom decreased significantly for mutants
+    explanation: Supports attachment impairment in chemotaxis mutants relative to wild-type HP15.
+- name: Marine Snow Carbon Flux Model
+  description: >
+    The coculture is used to model microbial control of diatom aggregation and
+    sinking particles, a process connected to export of particulate organic
+    carbon and the biological carbon pump.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: may enhance the efficiency of the biological pump
+    explanation: Supports the carbon-export relevance of bacteria-enhanced aggregation and sinking.
+  - reference: PMID:25375640
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: potentially reduced carbon sequestration after diatom blooms
+    explanation: Supports use of the exact system to test future-ocean effects on carbon sequestration.
+environmental_factors:
+- name: Photosynthetic activity
+  value: photosynthetically active versus inactivated diatom cells
+  description: >
+    Photosynthetically active T. weissflogii was required for aggregation with
+    attaching bacteria; photosynthetically inactivated diatom cells did not
+    aggregate in the assay.
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: photosynthetically inactivated T. weissflogii cells did not aggregate
+    explanation: Supports photosynthetic activity as a condition affecting aggregation.
+- name: Temperature and pCO2
+  value: two temperature and three pCO2 scenarios
+  description: >
+    A follow-up exact-composition study tested TEP and aggregate formation under
+    warmer and more acidified future-ocean scenarios.
+  evidence:
+  - reference: PMID:25375640
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: under two temperature and three pCO2 scenarios
+    explanation: Supports temperature and pCO2 as experimental perturbations of the exact community.
+growth_media:
+- name: Marine diatom-bacterium aggregation assay
+  atmosphere: AEROBIC
+  preparation_notes: >
+    Controlled marine laboratory cocultures of T. weissflogii with M. adhaerens
+    HP15 were incubated in aggregation and exudation assays. Detailed medium
+    recipes are not asserted beyond the source-supported marine coculture
+    context.
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: investigated in vitro
+    explanation: Supports controlled in vitro coculture assays.
+associated_datasets:
+- name: Exact-composition publication - diatom aggregation requirement
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:20827289
+  url: https://pubmed.ncbi.nlm.nih.gov/20827289/
+  description: >
+    Primary study showing that photosynthetically active T. weissflogii and
+    specific diatom-attaching bacteria, including HP15, were required for
+    aggregation.
+  evidence:
+  - reference: PMID:20827289
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interactions between heterotrophic bacteria and diatoms increased aggregate formation
+    explanation: Lists the primary aggregation publication for the T. weissflogii-attaching-bacteria model.
+- name: Exact-composition publication - chemotaxis and attachment
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:22820333
+  url: https://pubmed.ncbi.nlm.nih.gov/22820333/
+  description: >
+    Exact-system mechanistic study testing M. adhaerens chemotaxis and
+    attachment to T. weissflogii cells and TEP aggregates.
+  evidence:
+  - reference: PMID:22820333
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we investigated bacterial chemotaxis within a bilateral model system
+    explanation: Lists a mechanistic publication using the exact T. weissflogii and M. adhaerens HP15 model.
+- name: Exact-composition publication - future-ocean aggregation perturbation
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:25375640
+  url: https://pubmed.ncbi.nlm.nih.gov/25375640/
+  description: >
+    Exact-system study of T. weissflogii aggregation and sedimentation with or
+    without M. adhaerens HP15 under temperature and pCO2 scenarios.
+  evidence:
+  - reference: PMID:25375640
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the presence or absence of bacteria under two temperature and three pCO2 scenarios
+    explanation: Lists a follow-up perturbation publication for the same diatom-bacterium model.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth processing role is curated for this marine
+  diatom-bacterium aggregation model.
