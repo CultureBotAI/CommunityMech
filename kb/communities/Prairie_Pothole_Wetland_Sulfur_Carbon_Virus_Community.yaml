@@ -1,0 +1,349 @@
+id: CommunityMech:000256
+name: Prairie Pothole Wetland Sulfur-Carbon Virus-Host Community
+description: >
+  Natural wetland sediment microbial and viral communities from the Prairie
+  Pothole Region of North America, curated around genome-resolved metagenomic
+  evidence for high-rate sulfur and carbon cycling. The study recovered
+  sulfate-reduction marker genes, candidate sulfate-reducing genomes,
+  methanogenesis marker genes, putative methanogen genomes, and abundant novel
+  viral populations predicted to target dominant sulfate reducers and
+  methanogens. The community is DOE-relevant because DNA sequencing and
+  analysis were conducted by the DOE Joint Genome Institute and because the
+  system links wetland methane emissions, sulfate reduction, carbon
+  mineralization, and virus-host controls.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: Prairie Pothole wetland sediment
+  term:
+    id: ENVO:00000044
+    label: wetland
+  notes: Prairie Pothole Region wetland sediments with high dissolved organic
+    carbon, sulfur species, methane fluxes, and sulfate reduction rates.
+taxonomy:
+- taxon_term:
+    preferred_term: Prairie Pothole wetland sediment microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of wetland sediment bacteria and
+      archaea profiled by genome-resolved metagenomics.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: utilized metagenomics to investigate candidate sulfate reducers and methanogens
+    explanation: Supports the microbial community record and genome-resolved metagenomic basis.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Prairie Pothole Region of North America
+    explanation: Supports the geographic wetland ecosystem context.
+- taxon_term:
+    preferred_term: Prairie Pothole candidate sulfate reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Candidate sulfate-reducing microorganisms are represented broadly
+      because the study recovered diverse candidate SRB genomes across multiple
+      phyla rather than a fixed culture composition.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: recovered 162 dsrA and 206 dsrD sequences
+    explanation: Supports sulfate-reduction marker-gene diversity.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: reconstructed 24 candidate sulfate reducer genomes assigned to seven phyla
+    explanation: Supports diverse candidate sulfate-reducing genomes in the community.
+- taxon_term:
+    preferred_term: Prairie Pothole methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Methanogens are represented at archaeal domain level because the
+      paper reports diverse mcrA sequences and putative methanogen genomes
+      across multiple orders.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - PRIMARY_PRODUCER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: identified 37 mcrA sequences spanning five orders
+    explanation: Supports diverse methanogenesis marker-gene representation.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: recovered two putative methanogen genomes
+    explanation: Supports reconstructed methanogen genomes in the wetland sediments.
+- taxon_term:
+    preferred_term: Prairie Pothole wetland sediment viruses
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+    notes: Viral populations are curated as broad wetland sediment viruses
+      because most viral populations were novel and unclassified.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: approximately 80% of viral populations being unclassified
+    explanation: Supports abundant novel viral populations in the wetland sediment metagenomes.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: viral populations were predicted to target dominant sulfate reducers and methanogens
+    explanation: Supports virus-host relationships with key sulfur- and methane-cycling guilds.
+ecological_interactions:
+- name: Diverse Sulfate-Reduction Guild
+  description: Candidate sulfate reducers encode sulfate-reduction marker genes
+    and span multiple bacterial phyla, supporting high sulfate reduction and
+    carbon mineralization in Prairie Pothole wetland sediments.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Prairie Pothole candidate sulfate reducers
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0071704
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: recovered 162 dsrA and 206 dsrD sequences
+    explanation: Supports sulfate-reduction marker genes as a basis for the inferred guild.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: utilizing a wide variety of electron donors, such as methanol and other alcohols
+    explanation: Supports metabolic versatility among candidate sulfate reducers.
+- name: Alcohol-Linked Methanogenesis Potential
+  description: Methanogen marker genes and reconstructed methanogen genomes
+    suggest that multiple methanogenesis pathways operate in these sediments,
+    with ethanol and 2-propanol hypothesized as important substrates.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Prairie Pothole wetland sediment microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  target_taxon:
+    preferred_term: Prairie Pothole methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: identified 37 mcrA sequences spanning five orders
+    explanation: Supports diverse methanogenesis potential.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: these alcohols may drive a significant fraction of methanogenesis
+    explanation: Supports the alcohol-linked methanogenesis hypothesis in this ecosystem.
+- name: Viral Control Of Sulfate Reducers And Methanogens
+  description: Novel viral populations were predicted to infect dominant
+    sulfate-reducing and methanogenic hosts, suggesting top-down viral control
+    over sulfur and carbon cycling guilds.
+  interaction_type: PREDATION
+  source_taxon:
+    preferred_term: Prairie Pothole wetland sediment viruses
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: Prairie Pothole wetland sediment microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+  biological_processes:
+  - preferred_term: virus-host interaction
+    term:
+      id: GO:0019048
+      label: modulation by virus of host process
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: viral populations were predicted to target dominant sulfate reducers and methanogens
+    explanation: Supports virus-host targeting of key sulfur- and methane-cycling guilds.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: approximately 80% of viral populations being unclassified
+    explanation: Supports novelty of the viral populations involved in the interaction.
+- name: Niche Differentiation In Heterogeneous Wetland Sediment
+  description: The source study concludes that microbial diversity, metabolic
+    versatility, dynamic environmental conditions, viral infection, and sediment
+    niche differentiation together modulate carbon and sulfur cycling.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: diversity is likely key to extremely high rates of methanogenesis and sulfate reduction
+    explanation: Supports diversity as a mechanism for high biogeochemical rates.
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: modulating carbon and sulfur cycling in this ecosystem
+    explanation: Supports ecosystem-scale relevance of the inferred interactions.
+environmental_factors:
+- name: Prairie Pothole wetland sediment
+  value: North American Prairie Pothole Region
+  description: The community was studied in wetland sediments from the Prairie
+    Pothole Region, a major North American wetland ecosystem.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Prairie Pothole Region of North America
+    explanation: Supports the geographic and ecosystem context.
+- name: High sulfate reduction
+  value: high sulfate reduction rates in wetland sediment
+  description: The ecosystem is characterized by high sulfate reduction rates
+    that motivate the candidate sulfate-reducer analysis.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sulfate reduction rates up to 22
+    explanation: Supports sulfate reduction as a prominent process in these sediments.
+- name: Methane emissions
+  value: high wetland methane flux
+  description: Prairie Pothole wetlands emit methane at high rates, motivating
+    metagenomic analysis of methanogens and methane cycling.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: methane fluxes up to 160
+    explanation: Supports methane emissions as a major ecosystem output.
+- name: Dissolved organic carbon and sulfur species
+  value: high pore-water sulfur species and dissolved organic carbon
+  description: Pore waters contain high dissolved organic carbon and sulfur
+    species that shape microbial activity.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: high concentrations of sulfur species and dissolved organic carbon
+    explanation: Supports sulfur and organic-carbon availability as key environmental factors.
+growth_media: []
+associated_datasets:
+- name: Prairie Pothole sulfur-cycling metagenomes
+  dataset_type: METAGENOME
+  repository: OTHER
+  accession: JGI proposal ID 2025
+  url: https://genome.jgi.doe.gov/portal/Seasulecosystems/Seasulecosystems.info.html
+  description: DOE JGI Genome Portal project for raw reads, trimmed reads,
+    assemblies, and quality-control reports from "Seasonal Sulfur Cycling as a
+    Control on Methane Flux in Carbon-Rich Prairie Pothole Sediment Ecosystems."
+external_resources:
+- name: Primary publication for Prairie Pothole wetland sulfur-carbon virus-host
+    community
+  repository: OTHER
+  resource_id: PMID:30086797
+  url: https://pubmed.ncbi.nlm.nih.gov/30086797/
+  description: PubMed record for the Microbiome paper reporting viral and
+    metabolic controls on high rates of microbial sulfur and carbon cycling in
+    Prairie Pothole wetland ecosystems.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Viral and metabolic controls on high rates of microbial sulfur and carbon cycling
+    explanation: Supports the primary publication link for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-018-0522-4
+  url: https://doi.org/10.1186/s40168-018-0522-4
+  description: DOI for the open-access Microbiome publication.
+  evidence:
+  - reference: PMID:30086797
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "DOI: 10.1186/s40168-018-0522-4"
+    explanation: Supports the DOI for the primary publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  Prairie Pothole wetland sulfur-carbon virus-host community.
