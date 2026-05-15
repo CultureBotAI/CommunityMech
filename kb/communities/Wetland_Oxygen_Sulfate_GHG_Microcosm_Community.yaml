@@ -1,0 +1,303 @@
+id: CommunityMech:000255
+name: Wetland Oxygen-Sulfate Greenhouse Gas Microcosm Community
+description: >
+  Freshwater wetland soil microbial microcosms incubated under anoxic
+  non-sulfate, anoxic sulfate-addition, oxic non-sulfate, and oxic
+  sulfate-addition conditions to resolve how climate-linked oxygen and sulfate
+  exposures alter methane and carbon dioxide emissions. The study integrated
+  geochemical measurements, proteogenomics, metaproteomics, and stoichiometric
+  modeling to identify altered microbial guilds and metabolic processes driving
+  CH4 and CO2 emissions. Sulfate exposure reduced methane production, oxygen
+  shifted greenhouse gas emissions from CH4 toward CO2, and the combined
+  exposure resembled oxygen exposure alone.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: freshwater wetland soil
+  term:
+    id: ENVO:00000044
+    label: wetland
+  notes: Freshwater lacustrine wetland soil community represented by laboratory
+    microcosms that perturb wetland redox and sulfate availability.
+taxonomy:
+- taxon_term:
+    preferred_term: wetland soil microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of freshwater wetland soil microbes
+      profiled by geochemistry, proteogenomics, metaproteomics, and
+      stoichiometric modeling.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: geochemical analysis, proteogenomics, and stoichiometric modeling
+    explanation: Supports a multi-omics and modeling record for the wetland soil microbial community.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wetland soil may be exposed to oxygen (O2) during droughts
+    explanation: Supports wetland soil as the environmental source and oxygen perturbation context.
+- taxon_term:
+    preferred_term: wetland soil methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Methanogenic archaea are curated at domain level because the abstract
+      distinguishes hydrogenotrophic and acetoclastic methanogenesis responses
+      without providing a compact exact taxon list.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogenesis more suppressed than acetoclastic
+    explanation: Supports methanogenic archaea as a responsive guild in the microcosms.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Elevated SO42- reduced CH4 emissions
+    explanation: Supports methane-producing guild suppression under sulfate addition.
+- taxon_term:
+    preferred_term: wetland soil bacterial guilds
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Bacterial guilds are curated broadly because the study reports
+      altered microbial guilds and metabolic subnetworks rather than a defined
+      synthetic species composition.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: identified altered microbial guilds and metabolic processes
+    explanation: Supports bacterial and mixed microbial guild restructuring under oxygen and sulfate exposure.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: converts lactate and SO42- to produce acetate, H2S, and CO2
+    explanation: Supports bacterial carbon and sulfur metabolic guild activity in the modeled subnetwork.
+ecological_interactions:
+- name: Sulfate Suppression Of Methanogenesis
+  description: Elevated sulfate reduced methane emissions, with hydrogenotrophic
+    methanogenesis more strongly suppressed than acetoclastic methanogenesis,
+    consistent with competition between sulfate-linked respiratory guilds and
+    methanogenic carbon flow.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: wetland soil bacterial guilds
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: wetland soil methanogenic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Elevated SO42- reduced CH4 emissions
+    explanation: Supports suppression of methane emissions under elevated sulfate.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogenesis more suppressed than acetoclastic
+    explanation: Supports pathway-specific methanogenesis suppression.
+- name: Oxygen Shift From Methane To Carbon Dioxide
+  description: Oxygen exposure shifted greenhouse gas emissions from CH4 toward
+    CO2, reflecting redox-driven restructuring of carbon flow in the wetland
+    soil community.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Elevated O2 shifted the greenhouse gas emissions from CH4 to CO2
+    explanation: Supports oxygen-driven redirection of greenhouse gas emissions.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combined SO42- and O2 exposures on CH4 and CO2 emissions were similar to those of O2 exposure alone
+    explanation: Supports oxygen exposure as the dominant perturbation in the combined treatment.
+- name: Lactate-Sulfate Carbon And Sulfur Subnetwork
+  description: Under elevated sulfate and oxic conditions, metaproteomics and
+    stoichiometric modeling resolved a subnetwork that converts lactate and
+    sulfate into acetate, hydrogen sulfide, and carbon dioxide.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: wetland soil bacterial guilds
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0071704
+      label: organic substance catabolic process
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metaproteomics and stoichiometric modeling revealed a unique subnetwork involving carbon metabolism
+    explanation: Supports the modeled community-level subnetwork.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: converts lactate and SO42- to produce acetate, H2S, and CO2
+    explanation: Supports the lactate-sulfate-to-acetate/H2S/CO2 transformation.
+environmental_factors:
+- name: Oxygen exposure
+  value: oxic microcosm treatment
+  description: Oxygen exposure models drought-linked aeration of wetland soil and
+    shifts greenhouse gas emissions toward CO2.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wetland soil may be exposed to oxygen (O2) during droughts
+    explanation: Supports oxygen as a climate-linked wetland soil perturbation.
+- name: Sulfate exposure
+  value: elevated sulfate microcosm treatment
+  description: Sulfate exposure models sea-level-rise or seawater-intrusion
+    effects on freshwater wetland soil chemistry and suppresses methane
+    emissions.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: to sulfate (SO42-) as a result of sea level rise
+    explanation: Supports sulfate as a climate-linked wetland soil perturbation.
+- name: Greenhouse gas emissions
+  value: methane and carbon dioxide
+  description: The microcosms quantify CH4 and CO2 responses to oxygen, sulfate,
+    and combined oxygen-plus-sulfate exposure.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbial methane (CH4) and carbon dioxide (CO2) emissions
+    explanation: Supports methane and carbon dioxide emissions as measured community outputs.
+growth_media: []
+associated_datasets:
+- name: Wetland oxygen-sulfate metagenome BioProject
+  dataset_type: METAGENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1112840
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1112840
+  description: NCBI BioProject for metagenome data from the wetland soil
+    incubation treated with sulfate and oxygen.
+- name: Wetland oxygen-sulfate metaproteome dataset
+  dataset_type: METAPROTEOME
+  repository: OTHER
+  accession: PXD047453
+  url: https://www.ebi.ac.uk/pride/archive/projects/PXD047453
+  description: ProteomeXchange/PRIDE dataset linked to the wetland soil
+    incubation treated with sulfate and oxygen.
+external_resources:
+- name: Primary publication for wetland oxygen-sulfate greenhouse gas microcosms
+  repository: OTHER
+  resource_id: PMID:38961111
+  url: https://pubmed.ncbi.nlm.nih.gov/38961111/
+  description: PubMed record for the npj Biofilms and Microbiomes article
+    reporting metaproteomics-informed stoichiometric modeling of wetland
+    microbial community responses to oxygen and sulfate exposure.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Metaproteomics-informed stoichiometric modeling reveals the responses
+    explanation: Supports the primary publication link for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41522-024-00525-5
+  url: https://doi.org/10.1038/s41522-024-00525-5
+  description: DOI landing page for the npj Biofilms and Microbiomes publication.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "doi: 10.1038/s41522-024-00525-5"
+    explanation: Supports the DOI for the primary publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  wetland oxygen-sulfate greenhouse gas microcosm community.
