@@ -1,0 +1,356 @@
+id: CommunityMech:000257
+name: MUCC Freshwater Wetland Methane-Cycling Network Community
+description: >
+  A multi-site terrestrial freshwater wetland microbial community synthesis
+  curated around the Multi-Omics for Understanding Climate Change (MUCC)
+  v2.0.0 database. The study integrates 16S rRNA amplicon datasets,
+  metagenomes, metatranscriptomes, and annual methane flux measurements across
+  nine wetlands to link microbial community structure, methane-cycling guilds,
+  decomposition networks, and methane emissions. It identifies eight
+  methane-cycling genera shared across wetlands, highlights wetland-specific
+  metabolic interactions in marshes, and reports Methanoregula as a hub
+  methanogen and predictor of methane flux. The record is DOE-relevant because
+  the study was supported by DOE Office of Science BER awards and included
+  metagenomic and metatranscriptomic sequencing at the DOE Joint Genome
+  Institute.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: terrestrial freshwater wetland
+  term:
+    id: ENVO:00000044
+    label: wetland
+  notes: Multi-site freshwater wetland synthesis spanning marsh, swamp, fen, and
+    bog systems represented in the MUCC v2.0.0 database.
+taxonomy:
+- taxon_term:
+    preferred_term: MUCC freshwater wetland microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of wetland soil microbes across nine
+      terrestrial freshwater wetlands in the MUCC v2.0.0 synthesis.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: integrate 16S rRNA amplicon datasets, metagenomes, metatranscriptomes, and annual methane flux data across 9 wetlands
+    explanation: Supports a multi-omics, multi-wetland microbial community record.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: creating the Multi-Omics for Understanding Climate Change (MUCC) v2.0.0 database
+    explanation: Supports the MUCC v2.0.0 integrated database as the curated community context.
+- taxon_term:
+    preferred_term: MUCC wetland methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+    notes: Methanogenic archaea are curated broadly because the study emphasizes
+      methanogen networks and conserved methane-cycling genera across many
+      wetlands rather than one fixed species composition.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - PRIMARY_PRODUCER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methane-cycling microbes and the networks driving carbon decomposition
+    explanation: Supports methanogens as methane-cycling members in decomposition networks.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methanogens and methanotrophs in high-emitting wetlands
+    explanation: Supports methanogens as a tracked methane-cycling guild.
+- taxon_term:
+    preferred_term: Methanoregula
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+    notes: Methanoregula is curated at genus level because the study reports it
+      as a hub methanogen across networks and a predictor of methane flux.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - PRIMARY_PRODUCER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Methanoregula emerged as a hub methanogen across networks
+    explanation: Supports Methanoregula as a hub methanogen in the MUCC networks.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: strong predictor of methane flux
+    explanation: Supports Methanoregula as predictive of methane flux in the study.
+- taxon_term:
+    preferred_term: MUCC wetland methanotrophs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: Methanotrophic bacteria are represented broadly because the abstract
+      reports methanogen-methanotroph network relationships across wetlands.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: identify eight methane-cycling genera shared across wetlands
+    explanation: Supports conserved methane-cycling members that include methanotrophic guilds.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: low connections between methanogens and methanotrophs in high-emitting wetlands
+    explanation: Supports methanotrophs as a network-resolved guild.
+ecological_interactions:
+- name: Conserved Methane-Cycling Genera Across Wetlands
+  description: MUCC v2.0.0 integrates wetland microbiome and flux datasets to
+    identify conserved methane-cycling genera shared across multiple wetland
+    types.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: identify eight methane-cycling genera shared across wetlands
+    explanation: Supports conserved methane-cycling genera across the wetland synthesis.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Microorganisms drive methane cycling
+    explanation: Supports the microbial basis of wetland methane cycling.
+- name: Marsh Metabolic Interaction Networks
+  description: Marsh wetland networks show wetland-specific metabolic
+    interactions, including low methanogen-methanotroph connectivity in
+    high-emitting wetlands.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: MUCC wetland methanogens
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  target_taxon:
+    preferred_term: MUCC wetland methanotrophs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: wetland-specific metabolic interactions in marshes
+    explanation: Supports marsh-specific metabolic interaction networks.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: low connections between methanogens and methanotrophs in high-emitting wetlands
+    explanation: Supports reduced methanogen-methanotroph connectivity in high-emitting wetlands.
+- name: Methanoregula Hub Methanogen And Flux Predictor
+  description: Methanoregula is identified as a network hub and predictor of
+    methane flux, linking methanogen network structure to wetland methane
+    emissions.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Methanoregula
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Methanoregula emerged as a hub methanogen across networks
+    explanation: Supports Methanoregula as a hub methanogen.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: strong predictor of methane flux
+    explanation: Supports the Methanoregula-methane flux relationship.
+- name: Methylotrophic Methanogenesis Potential
+  description: In the MUCC wetlands, Methanoregula shows functional potential
+    for methylotrophic methanogenesis, highlighting a methane production
+    pathway that can contribute to wetland emissions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Methanoregula
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: functional potential for methylotrophic methanogenesis
+    explanation: Supports methylotrophic methanogenesis potential in Methanoregula.
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: highlighting the importance of this pathway
+    explanation: Supports the pathway relevance for these wetlands.
+environmental_factors:
+- name: Wetland type
+  value: marsh, swamp, fen, and bog
+  description: The MUCC v2.0.0 database spans multiple freshwater wetland types
+    to compare conserved and wetland-specific methane-cycling networks.
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: across 9 wetlands
+    explanation: Supports multi-wetland scope.
+- name: Annual methane flux
+  value: annual methane flux data
+  description: Annual methane flux measurements are integrated with amplicon,
+    metagenomic, and metatranscriptomic data to relate microbial networks to
+    emissions.
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: annual methane flux data
+    explanation: Supports methane flux as a measured environmental response variable.
+- name: High methane-emitting wetlands
+  value: high methane emission context
+  description: The study focuses on improving understanding of microbial
+    networks in high methane-emitting wetlands.
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: high methane-emitting wetlands
+    explanation: Supports the high-emission wetland context.
+growth_media: []
+associated_datasets:
+- name: MUCC v2.0.0 Zenodo database
+  dataset_type: OTHER
+  repository: ZENODO
+  accession: 10.5281/zenodo.14532347
+  url: https://doi.org/10.5281/zenodo.14532347
+  description: Zenodo archive for MUCC v2.0.0 processed MAGs, 16S rRNA tables,
+    metatranscriptomic abundance tables, DRAM annotations, and analysis files.
+- name: MUCC BioProject PRJNA330672
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA330672
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA330672
+  description: NCBI BioProject listed by the MUCC v2.0.0 Nature Communications
+    data availability statement.
+- name: MUCC BioProject PRJNA1007388
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1007388
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1007388
+  description: NCBI BioProject listed by the MUCC v2.0.0 Nature Communications
+    data availability statement.
+- name: MUCC BioProject PRJNA216952
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA216952
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA216952
+  description: NCBI BioProject listed by the MUCC v2.0.0 Nature Communications
+    data availability statement.
+- name: MUCC BioProject PRJNA638786
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA638786
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA638786
+  description: NCBI BioProject listed by the MUCC v2.0.0 Nature Communications
+    data availability statement.
+external_resources:
+- name: Primary publication for MUCC freshwater wetland methane networks
+  repository: OTHER
+  resource_id: PMID:39843444
+  url: https://pubmed.ncbi.nlm.nih.gov/39843444/
+  description: PubMed record for the Nature Communications paper describing
+    MUCC v2.0.0 and metabolic interactions underpinning high methane fluxes
+    across terrestrial freshwater wetlands.
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Metabolic interactions underpinning high methane fluxes across terrestrial freshwater wetlands
+    explanation: Supports the primary publication link for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1038/s41467-025-56133-0
+  url: https://doi.org/10.1038/s41467-025-56133-0
+  description: DOI for the Nature Communications publication.
+  evidence:
+  - reference: PMID:39843444
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "DOI: 10.1038/s41467-025-56133-0"
+    explanation: Supports the DOI for the primary publication.
+- name: USGS Publications Warehouse record
+  repository: OTHER
+  resource_id: USGS:70268258
+  url: https://pubs.usgs.gov/publication/70268258
+  description: USGS Publications Warehouse record for the Nature Communications
+    MUCC v2.0.0 wetland methane-cycling article.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  MUCC freshwater wetland methane-cycling network community.
