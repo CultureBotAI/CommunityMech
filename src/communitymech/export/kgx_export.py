@@ -79,6 +79,7 @@ _ELEMENT_CHEBI: dict[str, tuple[str, str]] = {
     "COBALT": ("CHEBI:27638", "cobalt atom"),
     "URANIUM": ("CHEBI:27214", "uranium atom"),
     "LITHIUM": ("CHEBI:30145", "lithium atom"),
+    "MERCURY": ("CHEBI:16793", "mercury(2+) cation"),
     # Rare earths
     "CERIUM": ("CHEBI:33369", "cerium"),
     "LANTHANUM": ("CHEBI:33336", "lanthanum atom"),

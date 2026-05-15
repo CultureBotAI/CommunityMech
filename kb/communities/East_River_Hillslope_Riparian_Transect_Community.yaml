@@ -1,0 +1,282 @@
+id: CommunityMech:000233
+name: East River Hillslope Riparian Transect Microbial Community
+description: >
+  A natural, depth-resolved microbial community from a hillslope-to-riparian
+  transect in the DOE-supported East River watershed near Crested Butte,
+  Colorado. Metagenomic and geochemical analyses showed that distance from the
+  East River, proximity to the groundwater table, and underlying weathered
+  shale strongly structure microbial community composition and metabolic
+  potential. Riparian-zone communities are compositionally distinct from
+  hillslope communities and are functionally differentiated by capacities for
+  carbon fixation, nitrogen fixation, sulfate reduction, Candidate Phyla
+  Radiation bacteria in saturated sediments, and selenium reduction at depth.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: CARBON_SEQUESTRATION
+environment_term:
+  preferred_term: montane hillslope and riparian soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The record covers soil, saturated riparian sediment, and weathered shale
+    contexts along a hillslope-to-riparian transect in the East River watershed.
+taxonomy:
+- taxon_term:
+    preferred_term: East River hillslope-riparian transect microbiome
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Community-level representation of the depth-resolved metagenomic
+      hillslope-to-riparian transect.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: microbial community structure and metabolic potential
+    explanation: Supports a genome-resolved microbial community record for the transect.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: depth-resolved, hillslope to riparian zone transect study
+    explanation: Supports the transect sampling design.
+- taxon_term:
+    preferred_term: riparian zone microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Riparian-zone communities are treated as a distinct functional
+      compartment relative to hillslope communities.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - PRIMARY_PRODUCER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Riparian zone microbial communities are compositionally distinct
+    explanation: Supports riparian-zone communities as a distinct community compartment.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: functionally differentiated from hillslope communities
+    explanation: Supports distinct riparian-zone functional potential.
+- taxon_term:
+    preferred_term: riparian saturated sediment Candidate Phyla Radiation bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+    notes: The article reports Candidate Phyla Radiation bacteria in riparian
+      saturated sediments.
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Candidate Phyla Radiation bacteria
+    explanation: Supports CPR/Patescibacteria presence in the riparian saturated sediment compartment.
+- taxon_term:
+    preferred_term: hillslope microbial communities
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: Hillslope communities provide the comparison set for riparian-zone
+      compositional and functional differentiation.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: all hillslope communities
+    explanation: Supports hillslope communities as a compared community compartment.
+ecological_interactions:
+- name: Groundwater and Weathered Shale Niche Filtering
+  description: Proximity to the stream, groundwater table, and weathered shale
+    strongly structures community composition and metabolic potential along the
+    hillslope-to-riparian transect.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: proximity to groundwater and underlying weathered shale
+    explanation: Supports groundwater and weathered shale as major structuring factors.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: strongly impact microbial community structure and metabolic potential
+    explanation: Supports niche filtering across the transect.
+- name: Riparian Carbon Nitrogen and Sulfur Functional Zone
+  description: Riparian-zone communities differ from hillslope communities in
+    capacities for carbon fixation, nitrogen fixation, and sulfate reduction,
+    suggesting that riparian saturated soils and sediments act as a biogeochemical
+    functional zone in the watershed.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019419
+      label: sulfate reduction
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: capacities for carbon and nitrogen fixation and sulfate reduction
+    explanation: Supports the inferred riparian functional capacities.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: functionally differentiated from hillslope communities
+    explanation: Supports functional differentiation from hillslope communities.
+- name: Depth-Enriched Uncultivated Bacterial Lineages
+  description: Bacteria from phyla lacking isolated representatives increase in
+    abundance with depth, and CPR bacteria were detected in saturated riparian
+    sediments, linking vertical hydrologic gradients to uncultivated bacterial
+    community structure.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: riparian saturated sediment Candidate Phyla Radiation bacteria
+    term:
+      id: NCBITaxon:1783234
+      label: Patescibacteria
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: consistently increase in abundance with increasing depth
+    explanation: Supports depth-related enrichment of uncultivated bacterial phyla.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: riparian zone saturated sediments we found Candidate Phyla Radiation bacteria
+    explanation: Supports CPR presence specifically in saturated riparian sediments.
+- name: Weathered Shale and Saturated Sediment Selenium Reduction
+  description: Selenium reduction is prominent at depth in weathered shale and
+    saturated riparian sediments, indicating a water-quality-relevant redox
+    function associated with the deeper transect microbiome.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Selenium reduction is prominent at depth
+    explanation: Supports selenium reduction as a depth-associated metabolic potential.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: weathered shale and saturated riparian zone sediments
+    explanation: Supports the environmental location of selenium-reduction potential.
+environmental_factors:
+- name: Hillslope-to-riparian transect position
+  value: depth-resolved hillslope to riparian zone transect
+  description: Transect position captures distance from the East River and
+    transition from hillslope to riparian-zone communities.
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: depth-resolved, hillslope to riparian zone transect study
+    explanation: Supports the sampled spatial design.
+- name: Groundwater table proximity
+  value: proximity to groundwater table
+  description: Proximity to groundwater is one of the major controls on
+    community structure and metabolic potential.
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: proximity to groundwater
+    explanation: Supports groundwater proximity as a structuring factor.
+- name: Weathered shale
+  value: underlying weathered shale
+  description: Weathered shale controls microbial community structure and is
+    associated with selenium-reduction potential at depth.
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: underlying weathered shale
+    explanation: Supports weathered shale as a structuring factor.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Selenium reduction is prominent at depth in weathered shale
+    explanation: Supports selenium reduction in the weathered shale portion of the transect.
+growth_media: []
+associated_datasets:
+- name: East River hillslope metagenome BioProject example
+  dataset_type: METAGENOME
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA444173
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA444173
+  description: NCBI BioProject record for a DOE JGI East River watershed
+    hillslope metagenome sample associated with groundwater sediment microbial
+    communities from the East River, Colorado.
+external_resources:
+- name: Primary publication for the East River hillslope-riparian transect community
+  repository: OTHER
+  resource_id: PMID:31380022
+  url: https://pubmed.ncbi.nlm.nih.gov/31380022/
+  description: PubMed record for the East River hillslope-to-riparian transect
+    metagenomic and geochemical community study.
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Microbial communities across a hillslope-riparian transect
+    explanation: Supports this publication as the primary source for the curated community.
+- name: DOI landing page
+  repository: OTHER
+  resource_id: doi:10.1002/ece3.5254
+  url: https://doi.org/10.1002/ece3.5254
+  description: DOI landing page for the Ecology and Evolution article.
+  evidence:
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: "10.1002/ece3.5254"
+    explanation: Supports the DOI for the exact article.
+- name: DOE PAGES record
+  repository: OTHER
+  resource_id: OSTI:1560176
+  url: https://www.osti.gov/pages/biblio/1560176
+  description: DOE PAGES record for the East River hillslope-riparian transect
+    article.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Selenium reduction is noted as a water-quality-relevant metalloid
+  redox function, but no metal or rare earth element is curated as a primary
+  community function.
