@@ -368,6 +368,72 @@ class LiteratureFetcher:
             print(f"Error fetching Europe PMC for {doi}: {e}")
             return None
 
+    def fetch_publisher_meta_abstract(self, doi: str) -> str | None:
+        """
+        Last-resort scrape of the DOI landing page for an abstract excerpt.
+
+        Most publishers expose the abstract (or its first ~200 chars) in
+        page-level meta tags - typically `twitter:description`,
+        `og:description`, or the standard `<meta name="description">` -
+        even when the article itself is paywalled and Crossref / OpenAlex /
+        Semantic Scholar / Europe PMC carry no abstract. Springer/Nature
+        is the most reliable source for this pattern; Elsevier
+        ScienceDirect serves a bot-detection page and yields nothing.
+
+        Args:
+            doi: DOI string (with or without "doi:" prefix)
+
+        Returns:
+            Abstract excerpt (may be truncated to ~200 chars by the
+            publisher) or None.
+        """
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        cache_file = self._abstract_cache_path("publisher", doi)
+        if cache_file.exists():
+            return cache_file.read_text() or None
+
+        try:
+            response = self.session.get(
+                f"https://doi.org/{doi}",
+                headers={"User-Agent": "Mozilla/5.0 (Macintosh)"},
+                allow_redirects=True,
+                timeout=30,
+            )
+            response.raise_for_status()
+            html = response.text
+        except requests.exceptions.RequestException as e:
+            print(f"Error scraping publisher page for {doi}: {e}")
+            return None
+
+        for tag in ("twitter:description", "og:description", "description"):
+            match = re.search(
+                rf'<meta\s+[^>]*name=["\']?{tag}["\']?\s+content=["\']([^"\']+)["\']',
+                html,
+                re.IGNORECASE,
+            )
+            if not match:
+                match = re.search(
+                    rf'<meta\s+[^>]*property=["\']?{tag}["\']?\s+content=["\']([^"\']+)["\']',
+                    html,
+                    re.IGNORECASE,
+                )
+            if match:
+                text = match.group(1)
+                # Decode common HTML entities
+                text = (
+                    text.replace("&amp;", "&")
+                    .replace("&quot;", '"')
+                    .replace("&#x27;", "'")
+                    .replace("&lt;", "<")
+                    .replace("&gt;", ">")
+                )
+                # Strip Springer's "Journal Name - " prefix and trailing ellipsis
+                text = re.sub(r"^[^-]+-\s*", "", text).rstrip(" .")
+                if len(text) > 80:  # skip nav-text and similar short snippets
+                    cache_file.write_text(text)
+                    return text
+        return None
+
     def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> str | None:
         """
         Try to fetch open access PDF URL from Unpaywall.
@@ -458,6 +524,8 @@ class LiteratureFetcher:
                 abstract = self.fetch_semantic_scholar_abstract(doi)
             if not abstract:
                 abstract = self.fetch_europepmc_abstract(doi)
+            if not abstract:
+                abstract = self.fetch_publisher_meta_abstract(doi)
 
             return (abstract, pdf_url)
 

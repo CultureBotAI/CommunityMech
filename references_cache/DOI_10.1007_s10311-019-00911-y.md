@@ -7,7 +7,7 @@ authors:
 journal: Environmental Chemistry Letters
 year: '2019'
 doi: 10.1007/s10311-019-00911-y
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Enhanced bioleaching of copper from circuit boards of computer waste by Acidithiobacillus ferrooxidans
@@ -16,3 +16,5 @@ content_type: unavailable
 **DOI:** [10.1007/s10311-019-00911-y](https://doi.org/10.1007/s10311-019-00911-y)
 
 ## Content
+
+Computer circuit boards are a major electronic waste containing higher concentrations of copper, gold and silver. These metals may be recovered by bioleaching, an
