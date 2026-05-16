@@ -31,18 +31,38 @@ types:
 
 enums:
   EvidenceItemSupportEnum:
-    description: The level of support for an evidence item
+    description: >-
+      How the cited reference relates to the curated claim. Distinct from the
+      validity of the claim itself: REFUTE means the cited paper actively
+      contradicts the claim, while WRONG_STATEMENT means the cited paper is
+      misattributed (it does not address the claim).
     permissible_values:
       SUPPORT:
-        description: Evidence supports the claim
+        description: >-
+          The cited reference directly supports the claim; the snippet is a
+          substring of the reference and the surrounding context endorses
+          the interaction or property as stated.
       REFUTE:
-        description: Evidence refutes the claim
+        description: >-
+          The cited reference actively contradicts the claim (e.g., reports
+          the opposite effect, or shows the proposed mechanism does not occur
+          under the cited conditions).
       PARTIAL:
-        description: Evidence partially supports the claim
+        description: >-
+          The cited reference supports part but not all of the claim. Common
+          cases: snippet supports the mechanism but not the specific site,
+          taxa, or quantitative figure asserted; or the reference supports a
+          related but weaker version of the claim.
       NO_EVIDENCE:
-        description: No evidence found
+        description: >-
+          The claim is curated as a placeholder or hypothesis with no
+          supporting reference found.
       WRONG_STATEMENT:
-        description: Statement is incorrect
+        description: >-
+          The cited reference is misattributed - the paper does not address
+          the curated claim at all (e.g., wrong DOI/PMID, paper about a
+          different system). Distinct from REFUTE, which is reserved for
+          references that actively contradict the claim.
 
   EvidenceSourceEnum:
     description: The provenance/source of the evidence
