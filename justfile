@@ -25,14 +25,14 @@ validate-all:
 
 # Validate evidence references in a community file
 validate-references FILE:
-    uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml
+    uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
 
 # Validate references in all community files
 validate-references-all:
     #!/usr/bin/env bash
     for file in kb/communities/*.yaml; do
         echo "\\nValidating references in $file..."
-        uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml
+        uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
     done
 
 # Validate ontology terms in a community file
