@@ -1,23 +1,29 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-16T01:40:35
+# Generation date: 2026-05-16T01:52:45
 # Schema: communitymech
 #
 # id: https://w3id.org/culturebot-ai/communitymech
 # description: Schema for modeling microbial community structure, function, and ecological interactions
 # license: BSD-3-Clause
 
+import dataclasses
 import re
 from dataclasses import dataclass
-from typing import Any, ClassVar, Optional, Union
+from datetime import date, datetime, time
+from typing import Any, ClassVar, Dict, List, Optional, Union
 
-from jsonasobj2 import as_dict
-from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue
+from jsonasobj2 import JsonObj, as_dict
+from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 from linkml_runtime.utils.curienamespace import CurieNamespace
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
-from linkml_runtime.utils.metamodelcore import Bool, empty_list
+from linkml_runtime.utils.formatutils import camelcase, sfx, underscore
+from linkml_runtime.utils.metamodelcore import bnode, empty_dict, empty_list
 from linkml_runtime.utils.slot import Slot
-from linkml_runtime.utils.yamlutils import YAMLRoot, extended_str
-from rdflib import URIRef
+from linkml_runtime.utils.yamlutils import YAMLRoot, extended_float, extended_int, extended_str
+from rdflib import Namespace, URIRef
+
+from linkml_runtime.linkml_model.types import Boolean, Float, String
+from linkml_runtime.utils.metamodelcore import Bool
 
 metamodel_version = "1.7.0"
 version = None
@@ -97,8 +103,8 @@ class EvidenceItem(YAMLRoot):
     supports: Union[str, "EvidenceItemSupportEnum"] = None
     evidence_source: Union[str, "EvidenceSourceEnum"] = None
     snippet: str = None
-    explanation: str | None = None
-    confidence_score: float | None = None
+    explanation: Optional[str] = None
+    confidence_score: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.reference):
@@ -144,8 +150,8 @@ class TaxonDescriptor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TaxonDescriptor
 
     preferred_term: str = None
-    term: dict | Term = None
-    notes: str | None = None
+    term: Union[dict, Term] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -178,9 +184,9 @@ class MetaboliteDescriptor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.MetaboliteDescriptor
 
     preferred_term: str = None
-    term: dict | Term = None
-    concentration: str | None = None
-    notes: str | None = None
+    term: Union[dict, Term] = None
+    concentration: Optional[str] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -216,8 +222,8 @@ class BiologicalProcessDescriptor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.BiologicalProcessDescriptor
 
     preferred_term: str = None
-    term: dict | Term = None
-    notes: str | None = None
+    term: Union[dict, Term] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -250,8 +256,8 @@ class EnvironmentDescriptor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.EnvironmentDescriptor
 
     preferred_term: str = None
-    term: dict | Term = None
-    notes: str | None = None
+    term: Union[dict, Term] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -285,8 +291,8 @@ class CultureCollectionID(YAMLRoot):
 
     collection: Union[str, "CultureCollectionEnum"] = None
     accession: str = None
-    url: str | None = None
-    notes: str | None = None
+    url: Optional[str] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.collection):
@@ -321,16 +327,16 @@ class StrainDesignation(YAMLRoot):
     class_name: ClassVar[str] = "StrainDesignation"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.StrainDesignation
 
-    strain_name: str | None = None
-    culture_collections: dict | CultureCollectionID | list[dict | CultureCollectionID] | None = (
-        empty_list()
-    )
-    type_strain: bool | Bool | None = None
-    genome_accession: str | None = None
-    genome_url: str | None = None
-    genetic_modification: str | None = None
-    isolation_source: str | None = None
-    notes: str | None = None
+    strain_name: Optional[str] = None
+    culture_collections: Optional[
+        Union[Union[dict, CultureCollectionID], list[Union[dict, CultureCollectionID]]]
+    ] = empty_list()
+    type_strain: Optional[Union[bool, Bool]] = None
+    genome_accession: Optional[str] = None
+    genome_url: Optional[str] = None
+    genetic_modification: Optional[str] = None
+    isolation_source: Optional[str] = None
+    notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.strain_name is not None and not isinstance(self.strain_name, str):
@@ -377,14 +383,16 @@ class TaxonomicComposition(YAMLRoot):
     class_name: ClassVar[str] = "TaxonomicComposition"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.TaxonomicComposition
 
-    taxon_term: dict | TaxonDescriptor = None
-    strain_designation: dict | StrainDesignation | None = None
-    abundance_level: Union[str, "AbundanceEnum"] | None = None
-    abundance_value: str | None = None
-    functional_role: (
-        Union[str, "FunctionalRoleEnum"] | list[Union[str, "FunctionalRoleEnum"]] | None
-    ) = empty_list()
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    taxon_term: Union[dict, TaxonDescriptor] = None
+    strain_designation: Optional[Union[dict, StrainDesignation]] = None
+    abundance_level: Optional[Union[str, "AbundanceEnum"]] = None
+    abundance_value: Optional[str] = None
+    functional_role: Optional[
+        Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]
+    ] = empty_list()
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.taxon_term):
@@ -433,7 +441,7 @@ class InteractionDownstream(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.InteractionDownstream
 
     target: str = None
-    description: str | None = None
+    description: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.target):
@@ -461,21 +469,25 @@ class EcologicalInteraction(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.EcologicalInteraction
 
     name: str = None
-    description: str | None = None
-    interaction_type: Union[str, "InteractionTypeEnum"] | None = None
-    scope: Union[str, "InteractionScopeEnum"] | None = "PAIRWISE"
-    source_taxon: dict | TaxonDescriptor | None = None
-    target_taxon: dict | TaxonDescriptor | None = None
-    metabolites: dict | MetaboliteDescriptor | list[dict | MetaboliteDescriptor] | None = (
+    description: Optional[str] = None
+    interaction_type: Optional[Union[str, "InteractionTypeEnum"]] = None
+    scope: Optional[Union[str, "InteractionScopeEnum"]] = "PAIRWISE"
+    source_taxon: Optional[Union[dict, TaxonDescriptor]] = None
+    target_taxon: Optional[Union[dict, TaxonDescriptor]] = None
+    metabolites: Optional[
+        Union[Union[dict, MetaboliteDescriptor], list[Union[dict, MetaboliteDescriptor]]]
+    ] = empty_list()
+    biological_processes: Optional[
+        Union[
+            Union[dict, BiologicalProcessDescriptor], list[Union[dict, BiologicalProcessDescriptor]]
+        ]
+    ] = empty_list()
+    downstream: Optional[
+        Union[Union[dict, InteractionDownstream], list[Union[dict, InteractionDownstream]]]
+    ] = empty_list()
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
         empty_list()
     )
-    biological_processes: (
-        dict | BiologicalProcessDescriptor | list[dict | BiologicalProcessDescriptor] | None
-    ) = empty_list()
-    downstream: dict | InteractionDownstream | list[dict | InteractionDownstream] | None = (
-        empty_list()
-    )
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -539,10 +551,12 @@ class EnvironmentalFactor(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.EnvironmentalFactor
 
     name: str = None
-    value: str | None = None
-    unit: str | None = None
-    description: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    value: Optional[str] = None
+    unit: Optional[str] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -580,12 +594,12 @@ class GrowthMediaComponent(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GrowthMediaComponent
 
     name: str = None
-    media_ingredient_mech_id: str | None = None
-    media_ingredient_mech_url: str | None = None
-    concentration: str | None = None
-    unit: str | None = None
-    chebi_term: dict | MetaboliteDescriptor | None = None
-    from_source: str | None = None
+    media_ingredient_mech_id: Optional[str] = None
+    media_ingredient_mech_url: Optional[str] = None
+    concentration: Optional[str] = None
+    unit: Optional[str] = None
+    chebi_term: Optional[Union[dict, MetaboliteDescriptor]] = None
+    from_source: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -632,38 +646,40 @@ class GrowthMedia(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GrowthMedia
 
     name: str = None
-    culturemech_id: str | None = None
-    culturemech_url: str | None = None
-    composition: dict | GrowthMediaComponent | list[dict | GrowthMediaComponent] | None = (
+    culturemech_id: Optional[str] = None
+    culturemech_url: Optional[str] = None
+    composition: Optional[
+        Union[Union[dict, GrowthMediaComponent], list[Union[dict, GrowthMediaComponent]]]
+    ] = empty_list()
+    ph: Optional[str] = None
+    ph_range: Optional[str] = None
+    temperature: Optional[str] = None
+    temperature_unit: Optional[str] = None
+    temperature_range: Optional[str] = None
+    atmosphere: Optional[Union[str, "AtmosphereEnum"]] = None
+    headspace_gas: Optional[str] = None
+    salinity: Optional[str] = None
+    salinity_unit: Optional[str] = None
+    pressure: Optional[str] = None
+    pressure_unit: Optional[str] = None
+    light_regime: Optional[str] = None
+    light_intensity: Optional[str] = None
+    light_intensity_unit: Optional[str] = None
+    redox_potential: Optional[str] = None
+    redox_potential_unit: Optional[str] = None
+    inoculum_source: Optional[str] = None
+    inoculum_size: Optional[str] = None
+    inoculum_unit: Optional[str] = None
+    incubation_time: Optional[str] = None
+    incubation_time_unit: Optional[str] = None
+    shaking_speed: Optional[str] = None
+    shaking_speed_unit: Optional[str] = None
+    vessel_type: Optional[str] = None
+    preparation_notes: Optional[str] = None
+    protocol_url: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
         empty_list()
     )
-    ph: str | None = None
-    ph_range: str | None = None
-    temperature: str | None = None
-    temperature_unit: str | None = None
-    temperature_range: str | None = None
-    atmosphere: Union[str, "AtmosphereEnum"] | None = None
-    headspace_gas: str | None = None
-    salinity: str | None = None
-    salinity_unit: str | None = None
-    pressure: str | None = None
-    pressure_unit: str | None = None
-    light_regime: str | None = None
-    light_intensity: str | None = None
-    light_intensity_unit: str | None = None
-    redox_potential: str | None = None
-    redox_potential_unit: str | None = None
-    inoculum_source: str | None = None
-    inoculum_size: str | None = None
-    inoculum_unit: str | None = None
-    incubation_time: str | None = None
-    incubation_time_unit: str | None = None
-    shaking_speed: str | None = None
-    shaking_speed_unit: str | None = None
-    vessel_type: str | None = None
-    preparation_notes: str | None = None
-    protocol_url: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -782,11 +798,13 @@ class RelatedMedia(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.RelatedMedia
 
     preferred_term: str = None
-    culturemech_id: str | None = None
-    relationship_type: Union[str, "MediaRelationshipEnum"] | None = None
-    shared_environment_term: dict | Term | None = None
-    relevance_notes: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    culturemech_id: Optional[str] = None
+    relationship_type: Optional[Union[str, "MediaRelationshipEnum"]] = None
+    shared_environment_term: Optional[Union[dict, Term]] = None
+    relevance_notes: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -833,10 +851,12 @@ class RelatedIngredient(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.RelatedIngredient
 
     preferred_term: str = None
-    mediaingredientmech_id: str | None = None
-    chebi_term: dict | Term | None = None
-    relevance: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    mediaingredientmech_id: Optional[str] = None
+    chebi_term: Optional[Union[dict, Term]] = None
+    relevance: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preferred_term):
@@ -878,10 +898,12 @@ class AssociatedDataset(YAMLRoot):
     name: str = None
     dataset_type: Union[str, "DatasetTypeEnum"] = None
     accession: str = None
-    repository: Union[str, "DatasetRepositoryEnum"] | None = None
-    url: str | None = None
-    description: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    repository: Optional[Union[str, "DatasetRepositoryEnum"]] = None
+    url: Optional[str] = None
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -932,8 +954,10 @@ class ExternalResource(YAMLRoot):
     repository: Union[str, "ExternalResourceRepositoryEnum"] = None
     resource_id: str = None
     url: str = None
-    description: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    description: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
@@ -979,15 +1003,17 @@ class CommunityEngineeringDesign(YAMLRoot):
     class_name: ClassVar[str] = "CommunityEngineeringDesign"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CommunityEngineeringDesign
 
-    objective: str | None = None
-    assembly_strategy: str | None = None
-    inoculation_strategy: str | None = None
-    passaging_regimen: str | None = None
-    perturbation_design: str | None = None
-    measurement_endpoints: str | list[str] | None = empty_list()
-    protocol_url: str | None = None
-    notes: str | None = None
-    evidence: dict | EvidenceItem | list[dict | EvidenceItem] | None = empty_list()
+    objective: Optional[str] = None
+    assembly_strategy: Optional[str] = None
+    inoculation_strategy: Optional[str] = None
+    passaging_regimen: Optional[str] = None
+    perturbation_design: Optional[str] = None
+    measurement_endpoints: Optional[Union[str, list[str]]] = empty_list()
+    protocol_url: Optional[str] = None
+    notes: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.objective is not None and not isinstance(self.objective, str):
@@ -1039,40 +1065,46 @@ class MicrobialCommunity(YAMLRoot):
     class_name: ClassVar[str] = "MicrobialCommunity"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.MicrobialCommunity
 
-    id: str | MicrobialCommunityId = None
+    id: Union[str, MicrobialCommunityId] = None
     name: str = None
-    description: str | None = None
-    ecological_state: Union[str, "EcologicalStateEnum"] | None = None
-    community_origin: Union[str, "CommunityOriginEnum"] | None = None
-    community_category: Union[str, "CommunityCategoryEnum"] | None = None
-    engineering_design: dict | CommunityEngineeringDesign | None = None
-    environment_term: dict | EnvironmentDescriptor | None = None
-    taxonomy: dict | TaxonomicComposition | list[dict | TaxonomicComposition] | None = empty_list()
-    ecological_interactions: (
-        dict | EcologicalInteraction | list[dict | EcologicalInteraction] | None
-    ) = empty_list()
-    environmental_factors: dict | EnvironmentalFactor | list[dict | EnvironmentalFactor] | None = (
+    description: Optional[str] = None
+    ecological_state: Optional[Union[str, "EcologicalStateEnum"]] = None
+    community_origin: Optional[Union[str, "CommunityOriginEnum"]] = None
+    community_category: Optional[Union[str, "CommunityCategoryEnum"]] = None
+    engineering_design: Optional[Union[dict, CommunityEngineeringDesign]] = None
+    environment_term: Optional[Union[dict, EnvironmentDescriptor]] = None
+    taxonomy: Optional[
+        Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
+    ] = empty_list()
+    ecological_interactions: Optional[
+        Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]
+    ] = empty_list()
+    environmental_factors: Optional[
+        Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]
+    ] = empty_list()
+    growth_media: Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]] = (
         empty_list()
     )
-    growth_media: dict | GrowthMedia | list[dict | GrowthMedia] | None = empty_list()
-    related_media: dict | RelatedMedia | list[dict | RelatedMedia] | None = empty_list()
-    related_ingredients: dict | RelatedIngredient | list[dict | RelatedIngredient] | None = (
+    related_media: Optional[Union[Union[dict, RelatedMedia], list[Union[dict, RelatedMedia]]]] = (
         empty_list()
     )
-    associated_datasets: dict | AssociatedDataset | list[dict | AssociatedDataset] | None = (
-        empty_list()
-    )
-    external_resources: dict | ExternalResource | list[dict | ExternalResource] | None = (
-        empty_list()
-    )
-    metals_present: Union[str, "MetalElementEnum"] | list[Union[str, "MetalElementEnum"]] | None = (
-        empty_list()
-    )
-    rare_earth_elements_present: (
-        Union[str, "RareEarthElementEnum"] | list[Union[str, "RareEarthElementEnum"]] | None
-    ) = empty_list()
-    metal_relevance: Union[str, "MetalRelevanceEnum"] | None = None
-    metal_notes: str | None = None
+    related_ingredients: Optional[
+        Union[Union[dict, RelatedIngredient], list[Union[dict, RelatedIngredient]]]
+    ] = empty_list()
+    associated_datasets: Optional[
+        Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]
+    ] = empty_list()
+    external_resources: Optional[
+        Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]
+    ] = empty_list()
+    metals_present: Optional[
+        Union[Union[str, "MetalElementEnum"], list[Union[str, "MetalElementEnum"]]]
+    ] = empty_list()
+    rare_earth_elements_present: Optional[
+        Union[Union[str, "RareEarthElementEnum"], list[Union[str, "RareEarthElementEnum"]]]
+    ] = empty_list()
+    metal_relevance: Optional[Union[str, "MetalRelevanceEnum"]] = None
+    metal_notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.id):
@@ -1213,7 +1245,7 @@ class EvidenceItemSupportEnum(EnumDefinitionImpl):
     )
     NO_EVIDENCE = PermissibleValue(
         text="NO_EVIDENCE",
-        description="The claim is curated as a placeholder or hypothesis with no supporting reference found.",
+        description="""The cited reference does not contain a passage that addresses the claim. Used when the paper is on-topic and a reference is required by the schema, but the curator could not locate a supporting (or contradicting) excerpt; the snippet records the closest on-topic excerpt examined. Stronger than WRONG_STATEMENT (which signals misattribution) and weaker than REFUTE.""",
     )
     WRONG_STATEMENT = PermissibleValue(
         text="WRONG_STATEMENT",
@@ -1996,7 +2028,7 @@ slots.strainDesignation__culture_collections = Slot(
     curie=COMMUNITYMECH.curie("culture_collections"),
     model_uri=COMMUNITYMECH.strainDesignation__culture_collections,
     domain=None,
-    range=Optional[dict | CultureCollectionID | list[dict | CultureCollectionID]],
+    range=Optional[Union[Union[dict, CultureCollectionID], list[Union[dict, CultureCollectionID]]]],
 )
 
 slots.strainDesignation__type_strain = Slot(
@@ -2005,7 +2037,7 @@ slots.strainDesignation__type_strain = Slot(
     curie=COMMUNITYMECH.curie("type_strain"),
     model_uri=COMMUNITYMECH.strainDesignation__type_strain,
     domain=None,
-    range=Optional[bool | Bool],
+    range=Optional[Union[bool, Bool]],
 )
 
 slots.strainDesignation__genome_accession = Slot(
@@ -2068,7 +2100,7 @@ slots.taxonomicComposition__strain_designation = Slot(
     curie=COMMUNITYMECH.curie("strain_designation"),
     model_uri=COMMUNITYMECH.taxonomicComposition__strain_designation,
     domain=None,
-    range=Optional[dict | StrainDesignation],
+    range=Optional[Union[dict, StrainDesignation]],
 )
 
 slots.taxonomicComposition__abundance_level = Slot(
@@ -2095,7 +2127,7 @@ slots.taxonomicComposition__functional_role = Slot(
     curie=COMMUNITYMECH.curie("functional_role"),
     model_uri=COMMUNITYMECH.taxonomicComposition__functional_role,
     domain=None,
-    range=Optional[Union[str, "FunctionalRoleEnum"] | list[Union[str, "FunctionalRoleEnum"]]],
+    range=Optional[Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]],
 )
 
 slots.taxonomicComposition__evidence = Slot(
@@ -2104,7 +2136,7 @@ slots.taxonomicComposition__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.taxonomicComposition__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.interactionDownstream__target = Slot(
@@ -2167,7 +2199,7 @@ slots.ecologicalInteraction__source_taxon = Slot(
     curie=COMMUNITYMECH.curie("source_taxon"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__source_taxon,
     domain=None,
-    range=Optional[dict | TaxonDescriptor],
+    range=Optional[Union[dict, TaxonDescriptor]],
 )
 
 slots.ecologicalInteraction__target_taxon = Slot(
@@ -2176,7 +2208,7 @@ slots.ecologicalInteraction__target_taxon = Slot(
     curie=COMMUNITYMECH.curie("target_taxon"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__target_taxon,
     domain=None,
-    range=Optional[dict | TaxonDescriptor],
+    range=Optional[Union[dict, TaxonDescriptor]],
 )
 
 slots.ecologicalInteraction__metabolites = Slot(
@@ -2185,7 +2217,9 @@ slots.ecologicalInteraction__metabolites = Slot(
     curie=COMMUNITYMECH.curie("metabolites"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__metabolites,
     domain=None,
-    range=Optional[dict | MetaboliteDescriptor | list[dict | MetaboliteDescriptor]],
+    range=Optional[
+        Union[Union[dict, MetaboliteDescriptor], list[Union[dict, MetaboliteDescriptor]]]
+    ],
 )
 
 slots.ecologicalInteraction__biological_processes = Slot(
@@ -2194,7 +2228,11 @@ slots.ecologicalInteraction__biological_processes = Slot(
     curie=COMMUNITYMECH.curie("biological_processes"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__biological_processes,
     domain=None,
-    range=Optional[dict | BiologicalProcessDescriptor | list[dict | BiologicalProcessDescriptor]],
+    range=Optional[
+        Union[
+            Union[dict, BiologicalProcessDescriptor], list[Union[dict, BiologicalProcessDescriptor]]
+        ]
+    ],
 )
 
 slots.ecologicalInteraction__downstream = Slot(
@@ -2203,7 +2241,9 @@ slots.ecologicalInteraction__downstream = Slot(
     curie=COMMUNITYMECH.curie("downstream"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__downstream,
     domain=None,
-    range=Optional[dict | InteractionDownstream | list[dict | InteractionDownstream]],
+    range=Optional[
+        Union[Union[dict, InteractionDownstream], list[Union[dict, InteractionDownstream]]]
+    ],
 )
 
 slots.ecologicalInteraction__evidence = Slot(
@@ -2212,7 +2252,7 @@ slots.ecologicalInteraction__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.ecologicalInteraction__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.environmentalFactor__name = Slot(
@@ -2257,7 +2297,7 @@ slots.environmentalFactor__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.environmentalFactor__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.growthMediaComponent__name = Slot(
@@ -2311,7 +2351,7 @@ slots.growthMediaComponent__chebi_term = Slot(
     curie=COMMUNITYMECH.curie("chebi_term"),
     model_uri=COMMUNITYMECH.growthMediaComponent__chebi_term,
     domain=None,
-    range=Optional[dict | MetaboliteDescriptor],
+    range=Optional[Union[dict, MetaboliteDescriptor]],
 )
 
 slots.growthMediaComponent__from_source = Slot(
@@ -2356,7 +2396,9 @@ slots.growthMedia__composition = Slot(
     curie=COMMUNITYMECH.curie("composition"),
     model_uri=COMMUNITYMECH.growthMedia__composition,
     domain=None,
-    range=Optional[dict | GrowthMediaComponent | list[dict | GrowthMediaComponent]],
+    range=Optional[
+        Union[Union[dict, GrowthMediaComponent], list[Union[dict, GrowthMediaComponent]]]
+    ],
 )
 
 slots.growthMedia__ph = Slot(
@@ -2599,7 +2641,7 @@ slots.growthMedia__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.growthMedia__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.relatedMedia__preferred_term = Slot(
@@ -2636,7 +2678,7 @@ slots.relatedMedia__shared_environment_term = Slot(
     curie=COMMUNITYMECH.curie("shared_environment_term"),
     model_uri=COMMUNITYMECH.relatedMedia__shared_environment_term,
     domain=None,
-    range=Optional[dict | Term],
+    range=Optional[Union[dict, Term]],
 )
 
 slots.relatedMedia__relevance_notes = Slot(
@@ -2654,7 +2696,7 @@ slots.relatedMedia__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.relatedMedia__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.relatedIngredient__preferred_term = Slot(
@@ -2682,7 +2724,7 @@ slots.relatedIngredient__chebi_term = Slot(
     curie=COMMUNITYMECH.curie("chebi_term"),
     model_uri=COMMUNITYMECH.relatedIngredient__chebi_term,
     domain=None,
-    range=Optional[dict | Term],
+    range=Optional[Union[dict, Term]],
 )
 
 slots.relatedIngredient__relevance = Slot(
@@ -2700,7 +2742,7 @@ slots.relatedIngredient__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.relatedIngredient__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.associatedDataset__name = Slot(
@@ -2763,7 +2805,7 @@ slots.associatedDataset__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.associatedDataset__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.externalResource__name = Slot(
@@ -2817,7 +2859,7 @@ slots.externalResource__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.externalResource__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.communityEngineeringDesign__objective = Slot(
@@ -2871,7 +2913,7 @@ slots.communityEngineeringDesign__measurement_endpoints = Slot(
     curie=COMMUNITYMECH.curie("measurement_endpoints"),
     model_uri=COMMUNITYMECH.communityEngineeringDesign__measurement_endpoints,
     domain=None,
-    range=Optional[str | list[str]],
+    range=Optional[Union[str, list[str]]],
 )
 
 slots.communityEngineeringDesign__protocol_url = Slot(
@@ -2898,7 +2940,7 @@ slots.communityEngineeringDesign__evidence = Slot(
     curie=COMMUNITYMECH.curie("evidence"),
     model_uri=COMMUNITYMECH.communityEngineeringDesign__evidence,
     domain=None,
-    range=Optional[dict | EvidenceItem | list[dict | EvidenceItem]],
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
 slots.microbialCommunity__id = Slot(
@@ -2962,7 +3004,7 @@ slots.microbialCommunity__engineering_design = Slot(
     curie=COMMUNITYMECH.curie("engineering_design"),
     model_uri=COMMUNITYMECH.microbialCommunity__engineering_design,
     domain=None,
-    range=Optional[dict | CommunityEngineeringDesign],
+    range=Optional[Union[dict, CommunityEngineeringDesign]],
 )
 
 slots.microbialCommunity__environment_term = Slot(
@@ -2971,7 +3013,7 @@ slots.microbialCommunity__environment_term = Slot(
     curie=COMMUNITYMECH.curie("environment_term"),
     model_uri=COMMUNITYMECH.microbialCommunity__environment_term,
     domain=None,
-    range=Optional[dict | EnvironmentDescriptor],
+    range=Optional[Union[dict, EnvironmentDescriptor]],
 )
 
 slots.microbialCommunity__taxonomy = Slot(
@@ -2980,7 +3022,9 @@ slots.microbialCommunity__taxonomy = Slot(
     curie=COMMUNITYMECH.curie("taxonomy"),
     model_uri=COMMUNITYMECH.microbialCommunity__taxonomy,
     domain=None,
-    range=Optional[dict | TaxonomicComposition | list[dict | TaxonomicComposition]],
+    range=Optional[
+        Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
+    ],
 )
 
 slots.microbialCommunity__ecological_interactions = Slot(
@@ -2989,7 +3033,9 @@ slots.microbialCommunity__ecological_interactions = Slot(
     curie=COMMUNITYMECH.curie("ecological_interactions"),
     model_uri=COMMUNITYMECH.microbialCommunity__ecological_interactions,
     domain=None,
-    range=Optional[dict | EcologicalInteraction | list[dict | EcologicalInteraction]],
+    range=Optional[
+        Union[Union[dict, EcologicalInteraction], list[Union[dict, EcologicalInteraction]]]
+    ],
 )
 
 slots.microbialCommunity__environmental_factors = Slot(
@@ -2998,7 +3044,7 @@ slots.microbialCommunity__environmental_factors = Slot(
     curie=COMMUNITYMECH.curie("environmental_factors"),
     model_uri=COMMUNITYMECH.microbialCommunity__environmental_factors,
     domain=None,
-    range=Optional[dict | EnvironmentalFactor | list[dict | EnvironmentalFactor]],
+    range=Optional[Union[Union[dict, EnvironmentalFactor], list[Union[dict, EnvironmentalFactor]]]],
 )
 
 slots.microbialCommunity__growth_media = Slot(
@@ -3007,7 +3053,7 @@ slots.microbialCommunity__growth_media = Slot(
     curie=COMMUNITYMECH.curie("growth_media"),
     model_uri=COMMUNITYMECH.microbialCommunity__growth_media,
     domain=None,
-    range=Optional[dict | GrowthMedia | list[dict | GrowthMedia]],
+    range=Optional[Union[Union[dict, GrowthMedia], list[Union[dict, GrowthMedia]]]],
 )
 
 slots.microbialCommunity__related_media = Slot(
@@ -3016,7 +3062,7 @@ slots.microbialCommunity__related_media = Slot(
     curie=COMMUNITYMECH.curie("related_media"),
     model_uri=COMMUNITYMECH.microbialCommunity__related_media,
     domain=None,
-    range=Optional[dict | RelatedMedia | list[dict | RelatedMedia]],
+    range=Optional[Union[Union[dict, RelatedMedia], list[Union[dict, RelatedMedia]]]],
 )
 
 slots.microbialCommunity__related_ingredients = Slot(
@@ -3025,7 +3071,7 @@ slots.microbialCommunity__related_ingredients = Slot(
     curie=COMMUNITYMECH.curie("related_ingredients"),
     model_uri=COMMUNITYMECH.microbialCommunity__related_ingredients,
     domain=None,
-    range=Optional[dict | RelatedIngredient | list[dict | RelatedIngredient]],
+    range=Optional[Union[Union[dict, RelatedIngredient], list[Union[dict, RelatedIngredient]]]],
 )
 
 slots.microbialCommunity__associated_datasets = Slot(
@@ -3034,7 +3080,7 @@ slots.microbialCommunity__associated_datasets = Slot(
     curie=COMMUNITYMECH.curie("associated_datasets"),
     model_uri=COMMUNITYMECH.microbialCommunity__associated_datasets,
     domain=None,
-    range=Optional[dict | AssociatedDataset | list[dict | AssociatedDataset]],
+    range=Optional[Union[Union[dict, AssociatedDataset], list[Union[dict, AssociatedDataset]]]],
 )
 
 slots.microbialCommunity__external_resources = Slot(
@@ -3043,7 +3089,7 @@ slots.microbialCommunity__external_resources = Slot(
     curie=COMMUNITYMECH.curie("external_resources"),
     model_uri=COMMUNITYMECH.microbialCommunity__external_resources,
     domain=None,
-    range=Optional[dict | ExternalResource | list[dict | ExternalResource]],
+    range=Optional[Union[Union[dict, ExternalResource], list[Union[dict, ExternalResource]]]],
 )
 
 slots.microbialCommunity__metals_present = Slot(
@@ -3052,7 +3098,7 @@ slots.microbialCommunity__metals_present = Slot(
     curie=COMMUNITYMECH.curie("metals_present"),
     model_uri=COMMUNITYMECH.microbialCommunity__metals_present,
     domain=None,
-    range=Optional[Union[str, "MetalElementEnum"] | list[Union[str, "MetalElementEnum"]]],
+    range=Optional[Union[Union[str, "MetalElementEnum"], list[Union[str, "MetalElementEnum"]]]],
 )
 
 slots.microbialCommunity__rare_earth_elements_present = Slot(
@@ -3061,7 +3107,9 @@ slots.microbialCommunity__rare_earth_elements_present = Slot(
     curie=COMMUNITYMECH.curie("rare_earth_elements_present"),
     model_uri=COMMUNITYMECH.microbialCommunity__rare_earth_elements_present,
     domain=None,
-    range=Optional[Union[str, "RareEarthElementEnum"] | list[Union[str, "RareEarthElementEnum"]]],
+    range=Optional[
+        Union[Union[str, "RareEarthElementEnum"], list[Union[str, "RareEarthElementEnum"]]]
+    ],
 )
 
 slots.microbialCommunity__metal_relevance = Slot(
