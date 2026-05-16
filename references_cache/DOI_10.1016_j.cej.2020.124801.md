@@ -2,7 +2,14 @@
 reference_id: DOI:10.1016/j.cej.2020.124801
 title: "Driving microbial sulfur cycle for phenol degradation coupled with Cr(VI) reduction via Fe(III)/Fe(II) transformation"
 authors:
-- Anonymous
+- Zhiqiang Zhao
+- Cheng Sun
+- Yang Li
+- Qilin Yu
+- Zhen Jin
+- Mingwei Wang
+- Lianfu Liang
+- Yaobin Zhang
 journal: Chemical Engineering Journal
 year: '2020'
 doi: 10.1016/j.cej.2020.124801

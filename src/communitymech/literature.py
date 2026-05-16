@@ -241,6 +241,17 @@ class LiteratureFetcher:
             print(f"Error fetching PMC {pmcid} XML: {e}")
             return None
 
+    def _abstract_cache_path(self, source: str, doi: str) -> Path:
+        """
+        Filesystem path for a per-source abstract cache file.
+
+        Mirrors the on-disk caching pattern used by fetch_pubmed_abstract
+        and fetch_pmc_abstract so repeated runs (validator, refresh
+        scripts, smoke tests) do not re-hit rate-limited external APIs.
+        """
+        safe_doi = doi.replace("/", "_")
+        return self.cache_dir / f"{source}_{safe_doi}.txt"
+
     def fetch_openalex_abstract(self, doi: str) -> str | None:
         """
         Fetch abstract from OpenAlex by DOI.
@@ -258,6 +269,10 @@ class LiteratureFetcher:
             Abstract text or None
         """
         doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        cache_file = self._abstract_cache_path("openalex", doi)
+        if cache_file.exists():
+            return cache_file.read_text() or None
+
         url = f"https://api.openalex.org/works/doi:{doi}"
         try:
             response = self.session.get(url, timeout=30)
@@ -269,7 +284,10 @@ class LiteratureFetcher:
             # Reconstruct linear text from inverted index
             words = {pos: w for w, positions in inv.items() for pos in positions}
             text = " ".join(words[i] for i in sorted(words))
-            return text or None
+            if not text:
+                return None
+            cache_file.write_text(text)
+            return text
         except (requests.exceptions.RequestException, ValueError) as e:
             print(f"Error fetching OpenAlex for {doi}: {e}")
             return None
@@ -290,12 +308,20 @@ class LiteratureFetcher:
             Abstract text or None
         """
         doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        cache_file = self._abstract_cache_path("semanticscholar", doi)
+        if cache_file.exists():
+            return cache_file.read_text() or None
+
         url = f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}"
         try:
             response = self.session.get(url, params={"fields": "abstract"}, timeout=30)
             response.raise_for_status()
             data = response.json()
-            return data.get("abstract") or None
+            abstract = data.get("abstract")
+            if not abstract:
+                return None
+            cache_file.write_text(abstract)
+            return abstract
         except (requests.exceptions.RequestException, ValueError) as e:
             print(f"Error fetching Semantic Scholar for {doi}: {e}")
             return None
@@ -315,6 +341,10 @@ class LiteratureFetcher:
             Abstract text or None
         """
         doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        cache_file = self._abstract_cache_path("europepmc", doi)
+        if cache_file.exists():
+            return cache_file.read_text() or None
+
         url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
         params = {
             "query": f"DOI:{doi}",
@@ -329,7 +359,11 @@ class LiteratureFetcher:
             results = data.get("resultList", {}).get("result", [])
             if not results:
                 return None
-            return results[0].get("abstractText") or None
+            abstract = results[0].get("abstractText")
+            if not abstract:
+                return None
+            cache_file.write_text(abstract)
+            return abstract
         except (requests.exceptions.RequestException, ValueError) as e:
             print(f"Error fetching Europe PMC for {doi}: {e}")
             return None
