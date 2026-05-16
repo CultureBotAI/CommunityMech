@@ -224,9 +224,7 @@ class LiteratureFetcher:
             # Extract the <abstract>...</abstract> element. The JATS schema
             # nests text inside <p>, <sec>, etc.; strip XML tags for a
             # plain-text representation.
-            abs_match = re.search(
-                r"<abstract\b[^>]*>(.*?)</abstract>", xml_text, re.DOTALL
-            )
+            abs_match = re.search(r"<abstract\b[^>]*>(.*?)</abstract>", xml_text, re.DOTALL)
             if not abs_match:
                 return None
             inner = abs_match.group(1)

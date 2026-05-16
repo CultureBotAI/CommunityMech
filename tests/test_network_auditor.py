@@ -102,9 +102,7 @@ def test_missing_source_detected(temp_communities_dir, valid_community):
     assert len(source_issues) == 1
 
 
-def test_missing_source_skipped_for_community_level_scope(
-    temp_communities_dir, valid_community
-):
+def test_missing_source_skipped_for_community_level_scope(temp_communities_dir, valid_community):
     """COMMUNITY_LEVEL interactions describe emergent/community-wide phenomena
     and need not have source_taxon set."""
     del valid_community["ecological_interactions"][0]["source_taxon"]
@@ -141,9 +139,7 @@ def test_unknown_source_detected(temp_communities_dir, valid_community):
     assert unknown_issues[0]["taxon"] == "Unknown bacterium"
 
 
-def test_unknown_source_skipped_for_community_level_scope(
-    temp_communities_dir, valid_community
-):
+def test_unknown_source_skipped_for_community_level_scope(temp_communities_dir, valid_community):
     """COMMUNITY_LEVEL interactions can use aggregate source descriptors that
     don't appear in the taxonomy section without raising UNKNOWN_SOURCE."""
     valid_community["ecological_interactions"][0]["source_taxon"] = {
@@ -165,9 +161,7 @@ def test_unknown_source_skipped_for_community_level_scope(
     assert issues == []
 
 
-def test_unknown_target_skipped_for_community_level_scope(
-    temp_communities_dir, valid_community
-):
+def test_unknown_target_skipped_for_community_level_scope(temp_communities_dir, valid_community):
     """COMMUNITY_LEVEL interactions can use aggregate target descriptors that
     don't appear in the taxonomy section without raising UNKNOWN_TARGET."""
     valid_community["ecological_interactions"][0]["target_taxon"] = {
@@ -229,9 +223,7 @@ def test_no_disconnected_if_no_interactions(temp_communities_dir, valid_communit
     assert len(disconnected_issues) == 0, "Should not flag disconnected if no interactions"
 
 
-def test_disconnected_skipped_when_abundance_or_role_present(
-    temp_communities_dir, valid_community
-):
+def test_disconnected_skipped_when_abundance_or_role_present(temp_communities_dir, valid_community):
     """Taxa carrying abundance_level or functional_role describe community
     membership and should not be flagged as DISCONNECTED."""
     valid_community["taxonomy"].append(
