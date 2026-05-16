@@ -9,7 +9,7 @@ authors:
 journal: Mine Water and the Environment
 year: '2009'
 doi: 10.1007/s10230-008-0059-z
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Physico-chemical gradients and meromictic stratification in Cueva de la Mora and other acidic pit lakes of the Iberian Pyrite Belt
@@ -18,3 +18,5 @@ content_type: unavailable
 **DOI:** [10.1007/s10230-008-0059-z](https://doi.org/10.1007/s10230-008-0059-z)
 
 ## Content
+
+A marked vertical trend of increasing temperature and dissolved metal concentrations is observed in the monimolimnia of some meromictic pit lakes of the Iberian

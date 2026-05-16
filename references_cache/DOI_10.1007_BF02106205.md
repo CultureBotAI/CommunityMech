@@ -8,7 +8,7 @@ authors:
 journal: Current Microbiology
 year: '1991'
 doi: 10.1007/BF02106205
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Acidobacterium capsulatum gen. nov., sp. nov.: An acidophilic chemoorganotrophic bacterium containing menaquinone from acidic mineral environment
@@ -17,3 +17,5 @@ content_type: unavailable
 **DOI:** [10.1007/BF02106205](https://doi.org/10.1007/BF02106205)
 
 ## Content
+
+Acidobacterium is proposed as a new genus for the acidophilic, chemoorganotrophic bacteria containing menaquinone isolated from acidic mineral environments.Acidobacterium
