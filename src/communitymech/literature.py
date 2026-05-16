@@ -140,11 +140,19 @@ class LiteratureFetcher:
 
     def fetch_pmcid_for_doi(self, doi: str) -> str | None:
         """
-        Resolve a DOI to its PubMed Central (PMC) ID via NCBI esearch.
+        Resolve a DOI to its PubMed Central (PMC) ID via the PMC ID
+        Converter API.
 
         Some DOIs that don't have a PubMed record do have a PMC record
         (for example, non-MEDLINE-indexed OA preprints). PMC content is
         free full-text XML, which contains an extractable abstract.
+
+        The ID converter API performs an exact DOI lookup and returns an
+        explicit `errmsg: "Identifier not found in PMC"` for DOIs that
+        aren't in PMC. This avoids the silent fuzzy fallback that NCBI
+        esearch performs on `[DOI]`-tagged terms (which strips DOI
+        punctuation and re-runs as an `[All Fields]` token search,
+        producing wrong-paper matches).
 
         Args:
             doi: DOI string (with or without "doi:" prefix)
@@ -154,20 +162,24 @@ class LiteratureFetcher:
         """
         doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
 
-        url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
-        params = {
-            "db": "pmc",
-            "term": f"{doi}[DOI]",
-            "retmode": "json",
-            "retmax": "1",
-        }
+        url = "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/"
+        params = {"ids": doi, "format": "json", "idtype": "doi"}
 
         try:
             response = self.session.get(url, params=params, timeout=30)
             response.raise_for_status()
             data = response.json()
-            id_list = data.get("esearchresult", {}).get("idlist", [])
-            return id_list[0] if id_list else None
+            records = data.get("records", [])
+            if not records:
+                return None
+            record = records[0]
+            if record.get("status") == "error":
+                return None
+            pmcid = record.get("pmcid")
+            if not pmcid:
+                return None
+            # Strip "PMC" prefix to return the numeric id
+            return pmcid.replace("PMC", "").strip() or None
         except (requests.exceptions.RequestException, ValueError) as e:
             print(f"Error mapping DOI {doi} to PMCID: {e}")
             return None
@@ -187,7 +199,10 @@ class LiteratureFetcher:
         Returns:
             Abstract text or None
         """
-        pmcid = pmcid.replace("PMC", "").replace("PMCID:", "").strip()
+        # Normalize: strip the "PMCID:" prefix first, then the bare "PMC"
+        # prefix. The reverse order would mangle "PMCID:3035377" into
+        # "ID:3035377" since the inner "PMC" would be removed first.
+        pmcid = pmcid.replace("PMCID:", "").replace("PMC", "").strip()
 
         cache_file = self.cache_dir / f"pmc_{pmcid}.txt"
         if cache_file.exists():
@@ -209,8 +224,6 @@ class LiteratureFetcher:
             # Extract the <abstract>...</abstract> element. The JATS schema
             # nests text inside <p>, <sec>, etc.; strip XML tags for a
             # plain-text representation.
-            import re
-
             abs_match = re.search(
                 r"<abstract\b[^>]*>(.*?)</abstract>", xml_text, re.DOTALL
             )
