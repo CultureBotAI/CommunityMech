@@ -4,6 +4,7 @@ Literature fetching utilities for CommunityMech.
 Fetches papers from PubMed, DOI, and other sources with caching.
 """
 
+import re
 from pathlib import Path
 
 import requests
@@ -73,7 +74,7 @@ class LiteratureFetcher:
             Metadata dict or None
         """
         # Clean DOI
-        doi = doi.replace("doi:", "").replace("https://doi.org/", "").strip()
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
 
         # Check cache
         cache_file = self.cache_dir / f"doi_{doi.replace('/', '_')}.json"
@@ -117,7 +118,7 @@ class LiteratureFetcher:
         Returns:
             PMID string (no prefix) or None
         """
-        doi = doi.replace("doi:", "").replace("https://doi.org/", "").strip()
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
 
         url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
         params = {
@@ -137,6 +138,111 @@ class LiteratureFetcher:
             print(f"Error mapping DOI {doi} to PMID: {e}")
             return None
 
+    def fetch_pmcid_for_doi(self, doi: str) -> str | None:
+        """
+        Resolve a DOI to its PubMed Central (PMC) ID via the PMC ID
+        Converter API.
+
+        Some DOIs that don't have a PubMed record do have a PMC record
+        (for example, non-MEDLINE-indexed OA preprints). PMC content is
+        free full-text XML, which contains an extractable abstract.
+
+        The ID converter API performs an exact DOI lookup and returns an
+        explicit `errmsg: "Identifier not found in PMC"` for DOIs that
+        aren't in PMC. This avoids the silent fuzzy fallback that NCBI
+        esearch performs on `[DOI]`-tagged terms (which strips DOI
+        punctuation and re-runs as an `[All Fields]` token search,
+        producing wrong-paper matches).
+
+        Args:
+            doi: DOI string (with or without "doi:" prefix)
+
+        Returns:
+            PMC ID (no prefix; numeric) or None
+        """
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+
+        url = "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/"
+        params = {"ids": doi, "format": "json", "idtype": "doi"}
+
+        try:
+            response = self.session.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            records = data.get("records", [])
+            if not records:
+                return None
+            record = records[0]
+            if record.get("status") == "error":
+                return None
+            pmcid = record.get("pmcid")
+            if not pmcid:
+                return None
+            # Strip "PMC" prefix to return the numeric id
+            return pmcid.replace("PMC", "").strip() or None
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error mapping DOI {doi} to PMCID: {e}")
+            return None
+
+    def fetch_pmc_abstract(self, pmcid: str) -> str | None:
+        """
+        Fetch the abstract portion of a PMC full-text XML record.
+
+        PMC stores OA articles as JATS XML; the <abstract> element holds
+        the abstract. This is a lighter-weight alternative to parsing the
+        whole full-text body when only the abstract is needed for
+        downstream snippet validation.
+
+        Args:
+            pmcid: PMC ID (with or without "PMC" prefix)
+
+        Returns:
+            Abstract text or None
+        """
+        # Normalize: strip the "PMCID:" prefix first, then the bare "PMC"
+        # prefix. The reverse order would mangle "PMCID:3035377" into
+        # "ID:3035377" since the inner "PMC" would be removed first.
+        pmcid = pmcid.replace("PMCID:", "").replace("PMC", "").strip()
+
+        cache_file = self.cache_dir / f"pmc_{pmcid}.txt"
+        if cache_file.exists():
+            return cache_file.read_text()
+
+        url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"
+        params = {
+            "db": "pmc",
+            "id": pmcid,
+            "rettype": "xml",
+            "retmode": "xml",
+        }
+
+        try:
+            response = self.session.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            xml_text = response.text
+
+            # Extract the <abstract>...</abstract> element. The JATS schema
+            # nests text inside <p>, <sec>, etc.; strip XML tags for a
+            # plain-text representation.
+            abs_match = re.search(
+                r"<abstract\b[^>]*>(.*?)</abstract>", xml_text, re.DOTALL
+            )
+            if not abs_match:
+                return None
+            inner = abs_match.group(1)
+            # Strip tags
+            plain = re.sub(r"<[^>]+>", " ", inner)
+            # Collapse whitespace
+            plain = re.sub(r"\s+", " ", plain).strip()
+            if not plain:
+                return None
+
+            cache_file.write_text(plain)
+            return plain
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error fetching PMC {pmcid} XML: {e}")
+            return None
+
     def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> str | None:
         """
         Try to fetch open access PDF URL from Unpaywall.
@@ -148,7 +254,7 @@ class LiteratureFetcher:
         Returns:
             PDF URL or None
         """
-        doi = doi.replace("doi:", "").replace("https://doi.org/", "").strip()
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
 
         url = f"https://api.unpaywall.org/v2/{doi}"
         params = {"email": email}
@@ -193,7 +299,7 @@ class LiteratureFetcher:
             return (abstract, None)
 
         elif "doi" in reference.lower() or reference.startswith("10."):
-            doi = reference.replace("doi:", "").replace("https://doi.org/", "").strip()
+            doi = re.sub(r"^(?i:doi:)", "", reference).replace("https://doi.org/", "").strip()
 
             # Try Unpaywall for OA PDF
             pdf_url = self.fetch_unpaywall(doi, email=email)
@@ -202,13 +308,20 @@ class LiteratureFetcher:
             metadata = self.fetch_doi_metadata(doi)
             abstract = metadata.get("abstract") if metadata else None
 
-            # Fallback: many paywalled DOIs still have a free PubMed abstract.
-            # If CrossRef didn't return an abstract, try to resolve the DOI
-            # to a PMID and fetch the abstract from PubMed.
+            # Fallback chain for paywalled DOIs with no CrossRef abstract:
+            # (a) Try DOI -> PMID -> PubMed abstract.
+            # (b) If still no abstract, try DOI -> PMCID -> PMC OA full-text
+            #     XML and extract the <abstract> element. This covers OA
+            #     papers (preprints, BMC, PLoS, Frontiers, etc.) that are in
+            #     PMC but for which CrossRef returned no abstract.
             if not abstract:
                 pmid = self.fetch_pmid_for_doi(doi)
                 if pmid:
                     abstract = self.fetch_pubmed_abstract(pmid)
+            if not abstract:
+                pmcid = self.fetch_pmcid_for_doi(doi)
+                if pmcid:
+                    abstract = self.fetch_pmc_abstract(pmcid)
 
             return (abstract, pdf_url)
 
