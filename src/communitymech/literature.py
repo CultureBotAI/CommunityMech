@@ -241,6 +241,99 @@ class LiteratureFetcher:
             print(f"Error fetching PMC {pmcid} XML: {e}")
             return None
 
+    def fetch_openalex_abstract(self, doi: str) -> str | None:
+        """
+        Fetch abstract from OpenAlex by DOI.
+
+        OpenAlex stores abstracts as an inverted index (term -> [positions])
+        for licensing reasons; we reconstruct the linear text by sorting on
+        positions. Covers many older non-OA papers that Crossref/DataCite
+        do not have abstracts for (e.g., legacy IJSEM, Springer, Elsevier
+        titles indexed pre-1995).
+
+        Args:
+            doi: DOI string (with or without "doi:" prefix)
+
+        Returns:
+            Abstract text or None
+        """
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        url = f"https://api.openalex.org/works/doi:{doi}"
+        try:
+            response = self.session.get(url, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            inv = data.get("abstract_inverted_index")
+            if not inv:
+                return None
+            # Reconstruct linear text from inverted index
+            words = {pos: w for w, positions in inv.items() for pos in positions}
+            text = " ".join(words[i] for i in sorted(words))
+            return text or None
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error fetching OpenAlex for {doi}: {e}")
+            return None
+
+    def fetch_semantic_scholar_abstract(self, doi: str) -> str | None:
+        """
+        Fetch abstract from Semantic Scholar by DOI.
+
+        Semantic Scholar's coverage overlaps with Crossref+OpenAlex but
+        sometimes carries an abstract when those do not (recent Elsevier
+        titles where the publisher disclosed the abstract to Semantic
+        Scholar but not Crossref).
+
+        Args:
+            doi: DOI string
+
+        Returns:
+            Abstract text or None
+        """
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        url = f"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}"
+        try:
+            response = self.session.get(url, params={"fields": "abstract"}, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            return data.get("abstract") or None
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error fetching Semantic Scholar for {doi}: {e}")
+            return None
+
+    def fetch_europepmc_abstract(self, doi: str) -> str | None:
+        """
+        Fetch abstract from Europe PMC by DOI.
+
+        Europe PMC indexes a broader set of life-science abstracts than
+        US PMC, including some Springer/Wiley records where the abstract
+        is mirrored to Europe PMC but the paper itself is not OA.
+
+        Args:
+            doi: DOI string
+
+        Returns:
+            Abstract text or None
+        """
+        doi = re.sub(r"^(?i:doi:)", "", doi).replace("https://doi.org/", "").strip()
+        url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
+        params = {
+            "query": f"DOI:{doi}",
+            "format": "json",
+            "resultType": "core",
+            "pageSize": "1",
+        }
+        try:
+            response = self.session.get(url, params=params, timeout=30)
+            response.raise_for_status()
+            data = response.json()
+            results = data.get("resultList", {}).get("result", [])
+            if not results:
+                return None
+            return results[0].get("abstractText") or None
+        except (requests.exceptions.RequestException, ValueError) as e:
+            print(f"Error fetching Europe PMC for {doi}: {e}")
+            return None
+
     def fetch_unpaywall(self, doi: str, email: str = "noreply@example.com") -> str | None:
         """
         Try to fetch open access PDF URL from Unpaywall.
@@ -308,10 +401,15 @@ class LiteratureFetcher:
 
             # Fallback chain for paywalled DOIs with no CrossRef abstract:
             # (a) Try DOI -> PMID -> PubMed abstract.
-            # (b) If still no abstract, try DOI -> PMCID -> PMC OA full-text
-            #     XML and extract the <abstract> element. This covers OA
-            #     papers (preprints, BMC, PLoS, Frontiers, etc.) that are in
-            #     PMC but for which CrossRef returned no abstract.
+            # (b) Try DOI -> PMCID -> PMC OA full-text XML and extract the
+            #     <abstract> element. Covers OA papers (preprints, BMC, PLoS,
+            #     Frontiers, etc.) in PMC but missing from CrossRef.
+            # (c) Try OpenAlex (broad coverage of legacy non-OA titles
+            #     including pre-1995 IJSEM, Springer, Elsevier).
+            # (d) Try Semantic Scholar (sometimes carries abstracts for
+            #     recent Elsevier titles when Crossref does not).
+            # (e) Try Europe PMC (broader life-science coverage than US PMC,
+            #     mirrors abstracts for some Springer/Wiley records).
             if not abstract:
                 pmid = self.fetch_pmid_for_doi(doi)
                 if pmid:
@@ -320,6 +418,12 @@ class LiteratureFetcher:
                 pmcid = self.fetch_pmcid_for_doi(doi)
                 if pmcid:
                     abstract = self.fetch_pmc_abstract(pmcid)
+            if not abstract:
+                abstract = self.fetch_openalex_abstract(doi)
+            if not abstract:
+                abstract = self.fetch_semantic_scholar_abstract(doi)
+            if not abstract:
+                abstract = self.fetch_europepmc_abstract(doi)
 
             return (abstract, pdf_url)
 
