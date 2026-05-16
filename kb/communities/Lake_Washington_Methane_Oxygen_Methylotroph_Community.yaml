@@ -1,0 +1,423 @@
+id: CommunityMech:000261
+name: Lake Washington Methane-Oxygen Methylotroph Community
+description: >
+  A methane-consuming freshwater lake sediment community from Lake Washington,
+  Seattle, represented by methane-fed sediment microcosms and follow-up
+  community modeling studies. Methane addition selects both bona fide
+  methane-oxidizing Methylococcaceae and non-methanotrophic methylotrophic
+  Methylophilaceae, supporting a guild-based community rather than a
+  single-organism methane oxidation model. Oxygen tension structures specific
+  partnerships: Methylosarcina and Methylophilus dominate higher-oxygen
+  microcosms, whereas Methylobacter and Methylotenera dominate lower-oxygen
+  microcosms. The system is DOE-relevant because it links methane mitigation,
+  freshwater sediment carbon cycling, methylotroph ecology, and genome-scale
+  modeling of methane-cycling communities.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: CARBON_SEQUESTRATION
+engineering_design:
+  objective: >
+    Enrich Lake Washington sediment microbial communities with methane under
+    controlled oxygen tensions to identify functional methane-consuming guilds
+    and oxygen-dependent methanotroph-methylotroph partnerships.
+  assembly_strategy: >
+    Incubate Lake Washington sediment samples in methane-fed microcosms while
+    varying oxygen tension, then profile community composition through 16S rRNA
+    gene amplicon sequencing.
+  perturbation_design: >
+    Methane was supplied at the same concentration across microcosms while five
+    different oxygen tensions were imposed; community composition was assessed
+    after 10 and 16 weeks.
+  measurement_endpoints:
+  - methane-consuming community composition
+  - 16S rRNA gene amplicon profiles
+  - oxygen-tension-dependent guild dominance
+  - genome-scale metabolic model exchange predictions
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microcosm incubations with sediment samples from Lake Washington at five different oxygen tensions
+    explanation: Supports the methane-fed oxygen-gradient microcosm design.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Community composition was determined through 16S rRNA gene amplicon sequencing after 10 and 16 weeks
+    explanation: Supports the sequencing endpoint and sampling schedule.
+environment_term:
+  preferred_term: freshwater lake sediment
+  term:
+    id: ENVO:00002007
+    label: sediment
+  notes: >
+    Sediment from Lake Washington, a freshwater lake in Seattle, Washington,
+    was used in methane-fed microcosm incubations. The curated ENVO term is
+    sediment with freshwater lake sediment context in notes.
+taxonomy:
+- taxon_term:
+    preferred_term: Lake Washington methane-consuming microbial community
+    term:
+      id: NCBITaxon:131567
+      label: cellular organisms
+    notes: >
+      Community-level representation of methane-consuming bacteria enriched
+      from Lake Washington sediment under methane and oxygen treatments.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane supplied to lake sediment microbial communities
+    explanation: Supports the broader lake sediment methane-consuming community context.
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Lake Washington is a freshwater lake characterized by a methane-oxygen countergradient
+    explanation: Supports the lake community context in the modeling study.
+- taxon_term:
+    preferred_term: Methylococcaceae methanotrophs
+    term:
+      id: NCBITaxon:403
+      label: Methylococcaceae
+    notes: >
+      Type I methanotroph family represented in methane-consuming Lake
+      Washington sediment microcosms; includes oxygen-dependent genera such as
+      Methylobacter, Methylomonas, and Methylosarcina.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the methanotrophs of the family Methylococcaceae
+    explanation: Supports Methylococcaceae as one of the two major methane-consuming community guilds.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane-consuming communities were represented by two major types
+    explanation: Supports Methylococcaceae as a major component of the enriched methane-consuming community.
+- taxon_term:
+    preferred_term: Methylophilaceae non-methanotrophic methylotrophs
+    term:
+      id: NCBITaxon:32011
+      label: Methylophilaceae
+    notes: >
+      Non-methane-oxidizing methylotrophic family that co-enriches with
+      Methylococcaceae in methane-fed Lake Washington sediment microcosms.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: non-methane-oxidizing bacteria, especially by members of the family Methylophilaceae
+    explanation: Supports Methylophilaceae as non-methane-oxidizing responders to methane-fed sediment microcosms.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: non-methanotrophic methylotrophs of the family Methylophilaceae
+    explanation: Supports Methylophilaceae as the methylotrophic partner guild.
+- taxon_term:
+    preferred_term: Methylobacter
+    term:
+      id: NCBITaxon:429
+      label: Methylobacter
+    notes: Low-oxygen methanotrophic genus in Lake Washington methane-fed microcosms.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: major players were Methylobacter and Methylotenera
+    explanation: Supports Methylobacter as a major low-oxygen methanotroph in the microcosms.
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Two significant methanotrophic species in this community are Methylobacter and Methylomonas
+    explanation: Supports Methylobacter as a significant Lake Washington methanotroph in the community model.
+- taxon_term:
+    preferred_term: Methylotenera
+    term:
+      id: NCBITaxon:359407
+      label: Methylotenera
+    notes: Low-oxygen non-methanotrophic methylotroph genus partnered with Methylobacter.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: major players were Methylobacter and Methylotenera
+    explanation: Supports Methylotenera as a major low-oxygen methylotroph partner.
+  - reference: PMID:25058595
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: novel Methylophilaceae ecotypes from a single ecological niche in Lake Washington
+    explanation: Supports Lake Washington Methylophilaceae ecotypes as part of the methylotrophy-active community at this site.
+- taxon_term:
+    preferred_term: Methylomonas
+    term:
+      id: NCBITaxon:416
+      label: Methylomonas
+    notes: Methanotrophic genus included in genome-scale modeling of the Lake Washington methane-cycling community.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Two significant methanotrophic species in this community are Methylobacter and Methylomonas
+    explanation: Supports Methylomonas as a significant methanotroph in the modeled community.
+- taxon_term:
+    preferred_term: Methylosarcina
+    term:
+      id: NCBITaxon:105972
+      label: Methylosarcina
+    notes: Higher-oxygen methanotrophic genus in Lake Washington methane-fed microcosms.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: species of the genera Methylosarcina and Methylophilus
+    explanation: Supports Methylosarcina as a higher-oxygen methanotrophic player.
+- taxon_term:
+    preferred_term: Methylophilus
+    term:
+      id: NCBITaxon:16
+      label: Methylophilus
+    notes: Higher-oxygen non-methanotrophic methylotroph genus partnered with Methylosarcina.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: species of the genera Methylosarcina and Methylophilus
+    explanation: Supports Methylophilus as a higher-oxygen methylotroph partner.
+ecological_interactions:
+- name: Methanotroph-Methylotroph Guild Coupling
+  description: >
+    Methane-fed Lake Washington sediment communities consistently include both
+    methane-oxidizing Methylococcaceae and non-methanotrophic methylotrophs in
+    Methylophilaceae, supporting a coupled guild model for methane oxidation.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Methylococcaceae methanotrophs
+    term:
+      id: NCBITaxon:403
+      label: Methylococcaceae
+  target_taxon:
+    preferred_term: Methylophilaceae non-methanotrophic methylotrophs
+    term:
+      id: NCBITaxon:32011
+      label: Methylophilaceae
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: methanol
+    term:
+      id: CHEBI:17790
+      label: methanol
+    notes: Likely one-carbon intermediate supporting methylotroph partners.
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: likely involves communities composed of different functional guilds
+    explanation: Supports the guild-coupling interpretation for methane oxidation.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: rather than a single type of microbe
+    explanation: Supports a community-level methane oxidation model instead of a single taxon model.
+- name: Oxygen-Tension Specific Partnerships
+  description: >
+    Oxygen availability determines which methanotroph and methylotroph genera
+    dominate methane-fed microcosms: Methylosarcina with Methylophilus at higher
+    oxygen tension and Methylobacter with Methylotenera at lower oxygen tension.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: different species persisted under different oxygen tensions
+    explanation: Supports oxygen-tension-dependent membership.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: oxygen availability is at least one major factor determining specific partnerships in methane oxidation
+    explanation: Supports oxygen availability as a driver of partnership composition.
+- name: Modeled Methylobacter-Methylomonas Exchange
+  description: >
+    Genome-scale metabolic modeling of Lake Washington methanotrophs predicts
+    competitive and mutualistic interactions between Methylobacter and
+    Methylomonas and condition-dependent extracellular metabolite exchanges.
+  interaction_type: NICHE_PARTITIONING
+  source_taxon:
+    preferred_term: Methylobacter
+    term:
+      id: NCBITaxon:429
+      label: Methylobacter
+  target_taxon:
+    preferred_term: Methylomonas
+    term:
+      id: NCBITaxon:416
+      label: Methylomonas
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  evidence:
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: competitive and mutualistic metabolic interactions among Methylobacter and Methylomonas
+    explanation: Supports modeled interaction types between the two methanotroph genera.
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: excretion of formaldehyde and carbon di-oxide in the community
+    explanation: Supports predicted extracellular metabolite exchange in the community model.
+environmental_factors:
+- name: Methane amendment
+  value: methane supplied at the same concentration in each microcosm
+  description: Methane was the selective carbon and energy substrate for methane-consuming guilds.
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane was supplied at the same concentration in each
+    explanation: Supports methane amendment as the controlled substrate.
+- name: Oxygen tension
+  value: five different oxygen tensions
+  description: >
+    Oxygen tension structured which Methylococcaceae and Methylophilaceae
+    genera persisted during methane-fed incubation.
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: five different oxygen tensions
+    explanation: Supports oxygen tension as a controlled environmental factor.
+- name: Methane-oxygen countergradient
+  value: freshwater lake methane-oxygen countergradient
+  description: >
+    Lake Washington is characterized by methane and oxygen gradients that shape
+    methane-cycling community ecology.
+  evidence:
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methane-oxygen countergradient
+    explanation: Supports the natural gradient context used in the modeling study.
+growth_media:
+- name: Lake Washington methane-fed sediment microcosm
+  atmosphere: AEROBIC
+  composition:
+  - name: Methane
+    chebi_term:
+      preferred_term: methane
+      term:
+        id: CHEBI:16183
+        label: methane
+  - name: Oxygen
+    chebi_term:
+      preferred_term: dioxygen
+      term:
+        id: CHEBI:15379
+        label: dioxygen
+  preparation_notes: >
+    Lake Washington sediment was incubated in microcosms with methane supplied
+    at a fixed concentration and oxygen supplied across five different tension
+    treatments. Detailed medium chemistry beyond sediment, methane, and oxygen
+    is not asserted here.
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microcosm incubations with sediment samples from Lake Washington
+    explanation: Supports sediment microcosm cultivation context.
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: methane was supplied at the same concentration in each
+    explanation: Supports methane as the supplied substrate.
+associated_datasets:
+- name: Oxygen-gradient Lake Washington methane-consuming microcosms
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  accession: PMID:25755930
+  url: https://pubmed.ncbi.nlm.nih.gov/25755930/
+  description: >
+    PubMed-indexed PeerJ study of oxygen availability and community composition
+    in methane-fed Lake Washington sediment microcosms.
+  evidence:
+  - reference: PMID:25755930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Community composition was determined through 16S rRNA gene amplicon sequencing
+    explanation: Links the amplicon study to the curated community.
+- name: Lake Washington methanotroph genome-scale community modeling
+  dataset_type: OTHER
+  repository: OTHER
+  accession: PMID:32655999
+  url: https://pubmed.ncbi.nlm.nih.gov/32655999/
+  description: >
+    Genome-scale metabolic modeling study of Lake Washington Methylobacter and
+    Methylomonas methane-cycling interactions.
+  evidence:
+  - reference: PMID:32655999
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: developing highly curated genome-scale metabolic models
+    explanation: Links the metabolic modeling publication to this community.
+- name: Lake Washington Methylophilaceae ecotype genomics
+  dataset_type: GENOME
+  repository: OTHER
+  accession: PMID:25058595
+  url: https://pubmed.ncbi.nlm.nih.gov/25058595/
+  description: >
+    Cultivation and genome sequencing study of Lake Washington Methylophilaceae
+    ecotypes relevant to methane oxidation-associated methylotroph communities.
+  evidence:
+  - reference: PMID:25058595
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genome-based metabolic reconstruction highlights metabolic versatility of Methylophilaceae
+    explanation: Links Methylophilaceae genomic evidence to the curated methylotroph guild.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  methane-consuming freshwater sediment community.
