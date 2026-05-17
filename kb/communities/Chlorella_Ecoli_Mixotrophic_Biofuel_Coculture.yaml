@@ -1,0 +1,306 @@
+id: CommunityMech:000269
+name: Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture
+description: >
+  A defined algal-bacterial coculture in which Chlorella minutissima was grown
+  with Escherichia coli in airlift reactors under mixotrophic glucose,
+  glycerol, and acetate conditions. The coculture produced more algal biomass,
+  consumed more carbon substrate, and increased lipid and starch productivity
+  relative to axenic algal cultures. This system is relevant to DOE-aligned
+  algal biofuel biotechnology because it tests whether bacterial contamination
+  or partnership can improve production of algal biofuel precursors rather than
+  suppressing algal biomass.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Test how E. coli affects mixotrophic Chlorella minutissima growth and
+    production of biofuel precursors under glucose, glycerol, and acetate
+    conditions.
+  assembly_strategy: >
+    Assemble a two-member algal-bacterial coculture in airlift reactors by
+    pairing Chlorella minutissima with Escherichia coli.
+  perturbation_design: >
+    Compare cocultures and axenic cultures across mixotrophic carbon substrates
+    and substrate concentrations.
+  measurement_endpoints:
+  - algal biomass production
+  - carbon substrate consumption
+  - total lipid productivity
+  - starch productivity
+  - biofouling and acid formation
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorella minutissima was co-cultured with Escherichia coli in airlift reactors under mixotrophic conditions
+    explanation: Supports the exact two-member coculture and reactor design.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose, glycerol, and acetate substrates
+    explanation: Supports the tested mixotrophic carbon-substrate perturbations.
+environment_term:
+  preferred_term: mixotrophic algal-bacterial airlift reactor coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Laboratory airlift reactor system used to study algal-bacterial coculture
+    effects on biofuel-precursor production.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella minutissima
+    term:
+      id: NCBITaxon:3071
+      label: Chlorella
+    notes: >
+      The publication identifies the algal member as Chlorella minutissima.
+      Genus-level NCBITaxon grounding is used because a verified NCBI species
+      taxon for this legacy strain name was not asserted.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chlorella minutissima was co-cultured with Escherichia coli
+    explanation: Supports Chlorella minutissima as the algal member.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. minutissima grew more rapidly and to higher densities in the presence of E. coli
+    explanation: Supports the algal growth response in coculture.
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Bacterial partner in the mixotrophic algal-bacterial coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-cultured with Escherichia coli
+    explanation: Supports E. coli as the bacterial coculture partner.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: suggesting a symbiotic relationship between the organisms
+    explanation: Supports treating E. coli as an interacting partner rather than only a contaminant.
+ecological_interactions:
+- name: Bacterial Enhancement of Algal Biomass
+  description: >
+    E. coli presence was associated with faster C. minutissima growth and
+    higher algal biomass density than axenic algal cultures under mixotrophic
+    substrate conditions.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Chlorella minutissima
+    term:
+      id: NCBITaxon:3071
+      label: Chlorella
+  metabolites:
+  - preferred_term: D-glucose
+    term:
+      id: CHEBI:4167
+      label: D-glucose
+  - preferred_term: glycerol
+    term:
+      id: CHEBI:17754
+      label: glycerol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grew more rapidly and to higher densities in the presence of E. coli
+    explanation: Supports positive bacterial effect on algal growth.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced 200-587% more algal biomass than the axenic C. minutissima cultures
+    explanation: Supports increased algal biomass in coculture.
+- name: Enhanced Mixotrophic Carbon Substrate Consumption
+  description: >
+    Cocultures consumed more of the available mixotrophic carbon substrate than
+    the combined substrate consumption of the two members grown separately.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Chlorella minutissima
+    term:
+      id: NCBITaxon:3071
+      label: Chlorella
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: D-glucose
+    term:
+      id: CHEBI:4167
+      label: D-glucose
+  - preferred_term: glycerol
+    term:
+      id: CHEBI:17754
+      label: glycerol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consumed 23-737% more of the available carbon substrate
+    explanation: Supports enhanced carbon substrate consumption in coculture.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: than the sum of substrate consumed by E. coli and C. minutissima alone
+    explanation: Supports community-level enhancement beyond additive monoculture consumption.
+- name: Increased Biofuel-Precursor Productivity
+  description: >
+    Cocultivation increased total lipid and starch productivity, indicating
+    improved biofuel-precursor production under the tested mixotrophic
+    conditions.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lipid
+    term:
+      id: CHEBI:18059
+      label: lipid
+  - preferred_term: starch
+    term:
+      id: CHEBI:28017
+      label: starch
+  biological_processes:
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  - preferred_term: starch metabolic process
+    term:
+      id: GO:0005982
+      label: starch metabolic process
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: total lipid and starch productivity were elevated in co-cultures compared to axenic cultures
+    explanation: Supports increased lipid and starch productivity in coculture.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacterial contamination was not detrimental to the production of biofuel precursors
+    explanation: Supports the biofuel-precursor interpretation of the coculture phenotype.
+environmental_factors:
+- name: Mixotrophic carbon substrates
+  value: glucose, glycerol, and acetate
+  description: The coculture was evaluated under mixotrophic growth with three organic carbon substrates.
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mixotrophic conditions (glucose, glycerol, and acetate substrates)
+    explanation: Supports the substrate set used in the study.
+- name: Initial substrate concentration
+  value: 1%
+  description: Reported biomass and productivity effects were highlighted at 1% initial substrate concentration.
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At an initial 1% substrate concentration
+    explanation: Supports the relevant substrate concentration context.
+- name: Scale-up constraints
+  value: biofouling and acid formation
+  description: Reactor biofouling and acid formation were observed as possible engineering challenges.
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bio-fouling of the reactors observed in co-cultures and acid formation in all mixotrophic cultures
+    explanation: Supports process constraints observed in the coculture system.
+growth_media:
+- name: Mixotrophic airlift reactor substrate assay
+  atmosphere: AEROBIC
+  light_regime: mixotrophic algal cultivation
+  composition:
+  - name: D-glucose
+    chebi_term:
+      preferred_term: D-glucose
+      term:
+        id: CHEBI:4167
+        label: D-glucose
+  - name: glycerol
+    chebi_term:
+      preferred_term: glycerol
+      term:
+        id: CHEBI:17754
+        label: glycerol
+  - name: acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  preparation_notes: >
+    The abstract supports airlift reactor cocultures tested under mixotrophic
+    glucose, glycerol, and acetate conditions; exact mineral medium formulation
+    is not asserted here.
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in airlift reactors under mixotrophic conditions
+    explanation: Supports the reactor and cultivation context.
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glucose, glycerol, and acetate substrates
+    explanation: Supports the curated medium substrate components.
+associated_datasets:
+- name: Chlorella-Ecoli mixotrophic biofuel precursor publication
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:24805253
+  url: https://pubmed.ncbi.nlm.nih.gov/24805253/
+  description: >
+    PubMed and PMC-indexed PLOS ONE study reporting algal biomass, substrate
+    consumption, lipid, starch, biofouling, and acid-formation phenotypes for
+    Chlorella minutissima and E. coli cocultures.
+  evidence:
+  - reference: PMID:24805253
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Effects of Escherichia coli on mixotrophic growth of Chlorella minutissima and production of biofuel precursors
+    explanation: Lists the primary publication for this exact algal-bacterial coculture.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  mixotrophic algal-bacterial biofuel-precursor coculture.
