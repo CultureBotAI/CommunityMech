@@ -1,0 +1,266 @@
+id: CommunityMech:000267
+name: Sphingobium-Rhodococcus Lignin-Dimer Valorization Coculture
+description: >
+  A defined synthetic lignin-valorization coculture pairing a lignin-derived
+  dimer-cleaving Sphingobium sp. with the aromatic-monomer-converting bacterium
+  Rhodococcus opacus. The coculture was designed to funnel multiple
+  low-molecular-weight lignin-derived dimers into cis,cis-muconate and gallate,
+  addressing a key bottleneck in biological lignin conversion. The system is
+  DOE-relevant because it targets lignin, a major underutilized component of
+  lignocellulosic biomass, and demonstrates division of labor for microbial
+  production of renewable chemical intermediates from lignin-derived aromatics.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >
+    Develop a two-member bacterial coculture that combines lignin-dimer cleavage
+    with aromatic monomer funneling to produce cis,cis-muconate and gallate.
+  assembly_strategy: >
+    Pair Sphingobium sp., the lignin-derived dimer cleavage partner, with
+    Rhodococcus opacus, the monomer-conversion partner, in designed coculture
+    systems for lignin-derived dimer bioconversion.
+  perturbation_design: >
+    Test several representative lignin-derived dimer linkage classes and track
+    conversion into target aromatic products.
+  measurement_endpoints:
+  - conversion of lignin-derived dimers
+  - cis,cis-muconate production
+  - gallate production
+  - substrate-range across lignin-dimer linkage classes
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture systems were designed and developed
+    explanation: Supports deliberate synthetic-coculture engineering.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combining lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium Rhodococcus opacus
+    explanation: Supports the exact division of labor and species composition used in the coculture.
+environment_term:
+  preferred_term: laboratory lignin-dimer bioconversion culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled laboratory coculture system for bioconversion of lignin-derived
+    aromatic dimers. The broad laboratory bioreactor term is used for the
+    engineered cultivation context.
+taxonomy:
+- taxon_term:
+    preferred_term: Sphingobium sp.
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+    notes: >
+      The publication identifies the dimer-cleaving partner at genus level as
+      Sphingobium sp.; no species name is asserted here.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin-derived dimers cleavage bacterium Sphingobium sp.
+    explanation: Supports Sphingobium sp. as the lignin-dimer cleavage partner.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin-derived dimers, has been rarely systematically studied
+    explanation: Supports the lignin-dimer substrate context for the Sphingobium partner.
+- taxon_term:
+    preferred_term: Rhodococcus opacus
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+    notes: Aromatic-monomer conversion partner in the designed lignin-dimer coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: monomers conversion bacterium Rhodococcus opacus
+    explanation: Supports R. opacus as the monomer-conversion partner.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: funnel multiple lignin-derived dimers to cis, cis-muconate and gallate
+    explanation: Supports the R. opacus role in product funneling within the coculture system.
+ecological_interactions:
+- name: Lignin-Dimer Cleavage Feeds Aromatic Monomer Funneling
+  description: >
+    Sphingobium sp. cleaves lignin-derived dimers, supplying aromatic
+    intermediates that R. opacus can funnel into target products.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Sphingobium sp.
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+  target_taxon:
+    preferred_term: Rhodococcus opacus
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  - preferred_term: guaiacylglycerol-beta-guaiacyl ether
+    term:
+      id: CHEBI:53650
+      label: guaiacylglycerol-beta-guaiacyl ether
+    notes: Representative beta-O-4 lignin-derived dimer substrate tested in the study.
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: combining lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium Rhodococcus opacus
+    explanation: Supports cross-feeding between the dimer-cleaving and monomer-converting partners.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin-derived aromatic monomers have been funneled to target compounds
+    explanation: Supports aromatic monomer funneling as the downstream conversion task.
+- name: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
+  description: >
+    The coculture converts multiple lignin-derived dimers with different linkage
+    classes into cis,cis-muconate and gallate.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cis,cis-muconate
+    term:
+      id: CHEBI:32379
+      label: cis,cis-muconate
+  - preferred_term: gallic acid
+    term:
+      id: CHEBI:30778
+      label: gallic acid
+    notes: The publication reports gallate as a target product.
+  biological_processes:
+  - preferred_term: aromatic compound catabolic process
+    term:
+      id: GO:0019439
+      label: aromatic compound catabolic process
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: funnel multiple lignin-derived dimers to cis, cis-muconate and gallate
+    explanation: Supports the target product profile for the coculture.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were converted to cis, cis-muconate
+    explanation: Supports conversion of several lignin-derived dimer classes to cis,cis-muconate.
+- name: Lignin-Dimer Linkage-Class Substrate Range
+  description: >
+    The coculture system was tested across several low-molecular-weight
+    lignin-derived dimer linkage types, broadening biological funneling beyond
+    aromatic monomers.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: beta-O-4 type dimer guaiacylglycerol-beta-guaiacyl ether
+    explanation: Supports beta-O-4 dimer coverage.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 4-O-5 type dimer 4,4'-dihydroxydiphenyl ether
+    explanation: Supports 4-O-5 dimer coverage.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: beta-5 type dimer balanophonin
+    explanation: Supports beta-5 dimer coverage.
+environmental_factors:
+- name: Lignin-derived dimer substrates
+  value: multiple low-molecular-weight lignin-derived dimers
+  description: The coculture was evaluated on several representative lignin-derived dimer substrates.
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: multiple lignin-derived dimers
+    explanation: Supports lignin-derived dimers as the tested substrate class.
+- name: Product-funneling objective
+  value: cis,cis-muconate and gallate target products
+  description: The designed coculture funnels heterogeneous lignin-derived dimers to defined chemical products.
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: to cis, cis-muconate and gallate
+    explanation: Supports target-product selection as an engineering factor.
+growth_media:
+- name: Lignin-derived dimer bioconversion coculture
+  atmosphere: AEROBIC
+  composition:
+  - name: Guaiacylglycerol-beta-guaiacyl ether
+    chebi_term:
+      preferred_term: guaiacylglycerol-beta-guaiacyl ether
+      term:
+        id: CHEBI:53650
+        label: guaiacylglycerol-beta-guaiacyl ether
+  - name: Lignin
+    chebi_term:
+      preferred_term: lignin
+      term:
+        id: CHEBI:6457
+        label: lignin
+  preparation_notes: >
+    The publication supports coculture systems fed lignin-derived dimers; exact
+    mineral medium salts and aeration details are not asserted here.
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: coculture systems were designed and developed to funnel multiple lignin-derived dimers
+    explanation: Supports the substrate-fed coculture context.
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lignin-derived dimers cleavage bacterium Sphingobium sp. and monomers conversion bacterium Rhodococcus opacus
+    explanation: Supports the two-member culture composition.
+associated_datasets:
+- name: Rhodococcus opacus and Sphingobium sp. lignin-dimer coculture publication
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:36030484
+  url: https://pubmed.ncbi.nlm.nih.gov/36030484/
+  description: >
+    PubMed-indexed Biotechnology and Bioengineering study developing
+    Rhodococcus opacus and Sphingobium sp. coculture systems for lignin-derived
+    dimer valorization.
+  evidence:
+  - reference: PMID:36030484
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Developing Rhodococcus opacus and Sphingobium sp. coculture systems for valorization of lignin-derived dimers
+    explanation: Lists the exact-system primary publication.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  lignin-dimer valorization coculture.
