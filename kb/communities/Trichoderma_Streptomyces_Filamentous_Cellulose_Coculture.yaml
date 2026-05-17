@@ -1,0 +1,278 @@
+id: CommunityMech:000270
+name: Trichoderma-Streptomyces Filamentous Cellulose Coculture
+description: >
+  A synthetic filamentous coculture pairing the cellulolytic fungus
+  Trichoderma reesei RUT-C30 with the noncellulolytic bacterium Streptomyces
+  coelicolor A3(2). The coculture was designed to use cellulose as the carbon
+  source, making S. coelicolor dependent on hydrolysate sugars released by T.
+  reesei cellulases. The system is DOE-relevant as a controllable model for
+  lignocellulose-oriented coculture bioprocessing, where population dynamics,
+  cellulase formation, and secondary-metabolite/pigment production can be tuned
+  through inoculation ratio and abiotic process parameters.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >
+    Develop a tractable filamentous coculture model for controlling population
+    dynamics while linking cellulose hydrolysis by T. reesei to S. coelicolor
+    growth and pigment production.
+  assembly_strategy: >
+    Pair cellulolytic Trichoderma reesei RUT-C30 with noncellulolytic
+    Streptomyces coelicolor A3(2) in a cellulose-fed synthetic coculture.
+  perturbation_design: >
+    Tune the community using different inoculation ratios and abiotic factors,
+    including osmolality and shaking frequency.
+  measurement_endpoints:
+  - respiration rate
+  - mCherry fluorescence from T. reesei
+  - mNeonGreen fluorescence from S. coelicolor
+  - cellulase formation
+  - pigment production
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: developed a model filamentous coculture of the cellulolytic fungus Trichoderma reesei RUT-C30 and the noncellulolytic bacterium Streptomyces coelicolor A3(2)
+    explanation: Supports the exact two-member synthetic filamentous coculture design.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: applied high-throughput online monitoring of the respiration rate and fluorescence of the tagged strains
+    explanation: Supports the curated monitoring endpoints.
+environment_term:
+  preferred_term: cellulose-fed filamentous laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled laboratory coculture designed for studying tunable filamentous
+    population dynamics and cellulose-supported cross-feeding.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichoderma reesei RUT-C30
+    term:
+      id: NCBITaxon:1344414
+      label: Trichoderma reesei RUT C-30
+    notes: Cellulolytic fungal member supplying cellulases and hydrolysate sugars.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulolytic fungus Trichoderma reesei RUT-C30
+    explanation: Supports T. reesei RUT-C30 as the cellulolytic fungal member.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrolysate sugars released by T. reesei cellulases
+    explanation: Supports T. reesei as the cellulase-driven sugar-releasing partner.
+- taxon_term:
+    preferred_term: Streptomyces coelicolor A3(2)
+    term:
+      id: NCBITaxon:100226
+      label: Streptomyces coelicolor A3(2)
+    notes: Noncellulolytic bacterial member dependent on cellulase-derived hydrolysate sugars.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: noncellulolytic bacterium Streptomyces coelicolor A3(2)
+    explanation: Supports S. coelicolor A3(2) as the bacterial coculture member.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dependency of S. coelicolor on hydrolysate sugars
+    explanation: Supports dependence of S. coelicolor on cellulase-derived sugars.
+ecological_interactions:
+- name: Cellulase-Driven Hydrolysate Cross-Feeding
+  description: >
+    T. reesei cellulases hydrolyze cellulose, releasing hydrolysate sugars that
+    enable growth of noncellulolytic S. coelicolor in the coculture.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Trichoderma reesei RUT-C30
+    term:
+      id: NCBITaxon:1344414
+      label: Trichoderma reesei RUT C-30
+  target_taxon:
+    preferred_term: Streptomyces coelicolor A3(2)
+    term:
+      id: NCBITaxon:100226
+      label: Streptomyces coelicolor A3(2)
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as a carbon source
+    explanation: Supports cellulose as the shared substrate driving cross-feeding.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrolysate sugars released by T. reesei cellulases
+    explanation: Supports cellulase-mediated sugar release by T. reesei.
+- name: Noncellulolytic Partner Dependency
+  description: >
+    Because S. coelicolor is noncellulolytic in this system, its growth depends
+    on sugars released from cellulose by the T. reesei partner.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Trichoderma reesei RUT-C30
+    term:
+      id: NCBITaxon:1344414
+      label: Trichoderma reesei RUT C-30
+  target_taxon:
+    preferred_term: Streptomyces coelicolor A3(2)
+    term:
+      id: NCBITaxon:100226
+      label: Streptomyces coelicolor A3(2)
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dependency of S. coelicolor on hydrolysate sugars
+    explanation: Supports the dependent relationship of S. coelicolor on T. reesei-derived sugars.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: noncellulolytic bacterium Streptomyces coelicolor A3(2)
+    explanation: Supports why S. coelicolor requires the cellulolytic partner on cellulose.
+- name: Tunable Filamentous Population Dynamics
+  description: >
+    Population balance, cellulase formation, and pigment production were tuned
+    by inoculation ratio, osmolality, and shaking frequency.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: secondary metabolite biosynthetic process
+    term:
+      id: GO:0044550
+      label: secondary metabolite biosynthetic process
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both partners outcompete the other when given a high inoculation advantage
+    explanation: Supports inoculation-ratio-dependent competition.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous growth of both partners, cellulase, and pigment production could be determined
+    explanation: Supports tunable coexistence with cellulase and pigment production.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: population dynamics were also tuned by modulating abiotic factors
+    explanation: Supports abiotic tuning of the coculture.
+environmental_factors:
+- name: Cellulose carbon source
+  value: cellulose
+  description: Cellulose was used as the carbon source to force dependency on T. reesei cellulase activity.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as a carbon source
+    explanation: Supports cellulose as the principal carbon substrate.
+- name: Inoculation ratio
+  value: varied
+  description: Different starting ratios shifted competitive outcomes and coexistence conditions.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: evaluating varying inoculation ratios
+    explanation: Supports inoculation ratio as a designed perturbation.
+- name: Osmolality
+  value: increased osmolality favored S. coelicolor
+  description: Osmolality was an abiotic process factor used to tune population balance.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increased osmolality provided a growth advantage to S. coelicolor
+    explanation: Supports osmolality as a tunable environmental factor.
+- name: Shaking frequency
+  value: increased shaking frequency reduced S. coelicolor biomass formation
+  description: Shaking frequency was an abiotic process factor used to tune the two filamentous populations.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increase in shaking frequency had a negative effect on S. coelicolor biomass formation
+    explanation: Supports shaking frequency as a tunable process factor.
+growth_media:
+- name: Cellulose-fed filamentous coculture assay
+  atmosphere: AEROBIC
+  composition:
+  - name: cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  preparation_notes: >
+    The abstract supports a cellulose-fed synthetic filamentous coculture but
+    does not specify the full mineral medium formulation in the PubMed text.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as a carbon source
+    explanation: Supports cellulose as the feed substrate for the coculture.
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulase formation
+    explanation: Supports the cellulose-degradation cultivation context.
+associated_datasets:
+- name: Trichoderma-Streptomyces filamentous coculture publication
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:36314761
+  url: https://pubmed.ncbi.nlm.nih.gov/36314761/
+  description: >
+    PubMed and PMC-indexed MicrobiologyOpen study reporting respiration,
+    fluorescence, inoculation-ratio, osmolality, shaking-frequency, cellulase,
+    and pigment-production phenotypes for the T. reesei RUT-C30 and
+    S. coelicolor A3(2) coculture.
+  evidence:
+  - reference: PMID:36314761
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Tunable population dynamics in a synthetic filamentous coculture
+    explanation: Lists the primary publication for this exact synthetic filamentous coculture.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  cellulose-fed filamentous coculture.
