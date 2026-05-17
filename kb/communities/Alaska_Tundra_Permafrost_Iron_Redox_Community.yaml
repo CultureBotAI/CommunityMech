@@ -1,0 +1,246 @@
+id: CommunityMech:000262
+name: Alaska Tundra Permafrost Iron-Redox Community
+description: >
+  A northern Alaska wet sedge tundra microbial community studied across the
+  permafrost thaw gradient, where iron-cycling Gammaproteobacteria - the
+  heterotrophic Fe(III)-reducing Rhodoferax sp. and the chemoautotrophic
+  Fe(II)-oxidizing Gallionella sp. - become numerically dominant during
+  extended anaerobic thaw of transition-zone and permafrost soils. Functional
+  gene abundance shows that Fe(III) reduction and Fe(II) oxidation increase
+  in lockstep with benzoate degradation and pyruvate metabolism, supporting
+  a carbon-cycling model in which acetate and benzoate are oxidized to CO2
+  coupled to Fe(III) reduction. Concurrent decreases in CH4-metabolism gene
+  abundance suggest that dissimilatory Fe(III) reduction competitively
+  suppresses acetoclastic methanogenesis under the reducing thaw conditions
+  examined.
+ecological_state: PERTURBED
+community_origin: NATURAL
+community_category: METAL_REDUCTION
+environment_term:
+  preferred_term: wet sedge tundra permafrost soil
+  term:
+    id: ENVO:00002179
+    label: permafrost
+  notes: Organic soils from active-layer (0-50 cm), transition-zone (50-70 cm),
+    and permafrost (70+ cm) depths of wet sedge tundra in northern Alaska,
+    incubated under reducing conditions at 4 deg C for 30 days to mimic
+    extended thaw.
+taxonomy:
+- taxon_term:
+    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+    term:
+      id: NCBITaxon:28065
+      label: Rhodoferax
+    notes: Iron-cycling Gammaproteobacteria-lineage Rhodoferax sp. that
+      becomes numerically dominant in transition-zone and permafrost
+      microbiomes following extended anaerobic thaw.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Following extended thaw, we found that iron (Fe)-cycling Gammaproteobacteria,
+      specifically the heterotrophic Fe(III)-reducing Rhodoferax sp. and chemoautotrophic
+      Fe(II)-oxidizing Gallionella sp., increased by 3-5 orders of magnitude in absolute
+      abundance
+    explanation: Establishes Rhodoferax as a heterotrophic Fe(III)-reducer and a
+      numerically dominant member of the post-thaw microbiome.
+- taxon_term:
+    preferred_term: chemoautotrophic Fe(II)-oxidizing Gallionella sp.
+    term:
+      id: NCBITaxon:96
+      label: Gallionella
+    notes: Iron-cycling Gammaproteobacteria-lineage Gallionella sp. that, with
+      Rhodoferax sp., accounts for 65% of community abundance in the
+      transition-zone and permafrost depths after extended thaw.
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: chemoautotrophic Fe(II)-oxidizing Gallionella sp., increased by 3-5
+      orders of magnitude in absolute abundance within the transition-zone and permafrost
+      microbiomes, accounting for 65% of community abundance
+    explanation: Establishes Gallionella as the chemoautotrophic Fe(II)-oxidizer
+      partner and quantifies the combined dominance of the Fe-cycling pair.
+- taxon_term:
+    preferred_term: wet sedge tundra methanogens
+    term:
+      id: NCBITaxon:224756
+      label: Methanomicrobia
+    notes: Co-resident acetoclastic methanogenic archaea whose CH4-metabolism
+      gene abundance decreased during extended thaw, consistent with competitive
+      suppression by Fe(III) reduction. Methanomicrobia is used as the closest
+      class-level representation of acetoclastic methanogens (Methanosarcinales);
+      the abstract does not resolve specific genera.
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Gene abundance for CH4 metabolism decreased following extended thaw,
+      suggesting dissimilatory Fe(III) reduction suppresses acetoclastic methanogenesis
+    explanation: Supports a co-resident methanogenic guild whose activity is
+      suppressed by Fe(III) reduction during anaerobic thaw.
+ecological_interactions:
+- name: Fe(III) Reduction Coupled to Organic Acid Oxidation
+  description: Heterotrophic Fe(III)-reducing Rhodoferax sp. oxidizes pyruvate-derived
+    acetate and benzoate to CO2, with electrons accepted by Fe(III); this coupling
+    is supported by concurrent increases in Fe(III)-reduction, benzoate-degradation,
+    and pyruvate-metabolism gene abundance during extended thaw.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+    term:
+      id: NCBITaxon:28065
+      label: Rhodoferax
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:16150
+      label: benzoate
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  - preferred_term: oxidation-reduction process
+    term:
+      id: GO:0055114
+      label: oxidation-reduction process
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II)
+      oxidation (e.g., Cyc1) increased concurrently with genes for benzoate degradation
+      and pyruvate metabolism, in which pyruvate is used to generate acetate that
+      can be oxidized, along with benzoate, to CO2 when coupled with Fe(III) reduction
+    explanation: Directly supports Fe(III) reduction coupled to acetate and benzoate
+      oxidation as the dominant carbon-cycling pathway.
+- name: Fe(III) Reduction Suppresses Acetoclastic Methanogenesis
+  description: Dissimilatory Fe(III) reduction by Rhodoferax sp. competes for
+    acetate with acetoclastic methanogens; under the reducing thaw conditions
+    examined, the iron-cycling guild outcompetes methanogens, reducing CH4
+    metabolism gene abundance.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+    term:
+      id: NCBITaxon:28065
+      label: Rhodoferax
+  target_taxon:
+    preferred_term: wet sedge tundra methanogens
+    term:
+      id: NCBITaxon:224756
+      label: Methanomicrobia
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methane biosynthetic process
+    term:
+      id: GO:0015948
+      label: methane biosynthetic process
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: dissimilatory Fe(III) reduction suppresses acetoclastic methanogenesis
+      under reducing conditions
+    explanation: Directly states the competitive-suppression mechanism between
+      Fe(III) reduction and acetoclastic methanogenesis in post-thaw permafrost.
+- name: Fe(II) Oxidation by Chemoautotrophic Gallionella
+  description: Chemoautotrophic Fe(II)-oxidizing Gallionella sp. regenerates
+    Fe(III) from Fe(II), closing the iron redox cycle that supports the
+    heterotrophic Fe(III)-reducer's carbon-oxidation activity.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: chemoautotrophic Fe(II)-oxidizing Gallionella sp.
+    term:
+      id: NCBITaxon:96
+      label: Gallionella
+  target_taxon:
+    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+    term:
+      id: NCBITaxon:28065
+      label: Rhodoferax
+  metabolites:
+  - preferred_term: iron(2+)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
+  - preferred_term: iron ion transport
+    term:
+      id: GO:0006826
+      label: iron ion transport
+  evidence:
+  - reference: PMID:37996661
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: the abundance of genes for Fe(III) reduction (e.g., MtrE) and Fe(II)
+      oxidation (e.g., Cyc1) increased concurrently
+    explanation: Supports the simultaneous activation of Fe(III)-reduction and
+      Fe(II)-oxidation gene abundance, consistent with an iron redox cycle linking
+      the two dominant taxa. Partial because the abstract does not explicitly trace
+      the Fe(II)/Fe(III) exchange between specific cells.
+environmental_factors:
+- name: Anaerobic thaw incubation
+  value: 30 days at 4 deg C under reducing conditions
+  description: Wet sedge tundra organic soils from three depths were incubated
+    under reducing conditions at 4 deg C for 30 days to mimic extended thaw.
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Organic soils from the tundra active-layer (0-50 cm), transition-zone
+      (50-70 cm), and permafrost (70+ cm) depths were incubated under reducing conditions
+      at 4 °C for 30 days to mimic an extended thaw duration
+    explanation: Defines the experimental perturbation applied to the natural
+      permafrost community.
+- name: Permafrost depth gradient
+  value: active-layer / transition-zone / permafrost
+  description: Three depth horizons of wet sedge tundra organic soil provide a
+    natural thaw gradient over which microbial community composition and Fe-cycling
+    activity were measured.
+  evidence:
+  - reference: PMID:37996661
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: relative and absolute changes in microbiome composition and functional
+      gene abundance during thaw incubations of wet sedge tundra collected from northern
+      Alaska, USA
+    explanation: Supports the wet-sedge-tundra and Alaska site identification.
