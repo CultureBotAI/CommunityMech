@@ -1,0 +1,279 @@
+id: CommunityMech:000264
+name: Clostridium cellulovorans-Rhodopseudomonas palustris Cellulose Biohydrogen Coculture
+description: >
+  A defined two-member cellulose-to-biohydrogen coculture combining the
+  cellulolytic dark-fermentative bacterium Clostridium cellulovorans 743B with
+  the purple nonsulfur photosynthetic bacterium Rhodopseudomonas palustris
+  CGA009. The coculture links cellulose degradation, volatile-fatty-acid
+  exchange, pH stabilization, and photofermentative hydrogen production. It is
+  DOE-relevant as a genetically tractable model for lignocellulosic bioenergy,
+  integrated dark/photo fermentation, and mechanistic design of biohydrogen
+  consortia.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >
+    Establish a defined, genetically tractable coculture model for enhanced
+    hydrogen production from cellulose by coupling dark fermentation and
+    photofermentation.
+  assembly_strategy: >
+    Pair cellulose-degrading C. cellulovorans 743B with photosynthetic
+    R. palustris CGA009 in defined anaerobic, illuminated serum-bottle
+    cocultures with cellulose as the primary substrate.
+  perturbation_design: >
+    Compare monocultures and cocultures across different initial cellulose
+    concentrations, then profile transcriptional responses in the same
+    two-strain coculture.
+  measurement_endpoints:
+  - hydrogen production
+  - cellulose degradation
+  - volatile fatty acid concentrations
+  - pH stabilization
+  - cell abundance
+  - transcriptomic response
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: next-generation sequencing was used to query the global transcriptomic responses of an artificial coculture of Clostridium cellulovorans 743B and Rhodopseudomonas palustris CGA009
+    explanation: Supports the exact two-member coculture design and biohydrogen model objective.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: artificial coculture of Clostridium cellulovorans 743B and Rhodopseudomonas palustris CGA009
+    explanation: Supports the same exact two-strain composition in the transcriptomic follow-up study.
+environment_term:
+  preferred_term: anaerobic illuminated laboratory serum-bottle culture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Defined laboratory serum-bottle cocultures were grown anaerobically with
+    cellulose, light, and argon headspace to support integrated dark and photo
+    fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+    notes: Cellulolytic dark-fermentative bacterium that degrades cellulose and produces volatile fatty acids.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: artificial coculture of Clostridium cellulovorans 743B and Rhodopseudomonas palustris CGA009
+    explanation: Supports C. cellulovorans 743B as the cellulolytic member of the exact coculture.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulosomal genes in C. cellulovorans were upregulated
+    explanation: Supports the cellulose-degradation role of C. cellulovorans during cocultivation.
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris CGA009
+    term:
+      id: NCBITaxon:258594
+      label: Rhodopseudomonas palustris CGA009
+    notes: Purple nonsulfur phototroph that consumes fermentation products and contributes to hydrogen production.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: artificial coculture of Clostridium cellulovorans 743B and Rhodopseudomonas palustris CGA009
+    explanation: Supports R. palustris CGA009 as the phototrophic member of the exact coculture.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogen fixation genes in R. palustris
+    explanation: Supports the R. palustris nitrogenase-linked contribution to coculture biohydrogen physiology.
+ecological_interactions:
+- name: VFA Cross-Feeding and pH Stabilization
+  description: >
+    C. cellulovorans degrades cellulose and releases volatile fatty acids, while
+    R. palustris consumes some of those acids, stabilizing pH and allowing
+    greater cellulose consumption.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+  target_taxon:
+    preferred_term: Rhodopseudomonas palustris CGA009
+    term:
+      id: NCBITaxon:258594
+      label: Rhodopseudomonas palustris CGA009
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Representative volatile fatty acid produced during cellulose fermentation and consumed by R. palustris.
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: genes related to biosynthesis of volatile fatty acids (VFAs) in C. cellulovorans were upregulated
+    explanation: Supports C. cellulovorans production of VFA-related fermentation products in coculture.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a gene that mediates organic compound catabolism in R. palustris was also upregulated
+    explanation: Supports R. palustris catabolism of organic compounds produced in the coculture.
+- name: Integrated Dark and Photo Fermentation for Hydrogen
+  description: >
+    Dark fermentation by C. cellulovorans and photofermentative metabolism by
+    R. palustris jointly enhance hydrogen production from cellulose relative to
+    monocultures.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consistent with the physiological observations of enhanced H 2 production and cellulose degradation
+    explanation: Supports prior physiological observations of enhanced hydrogen production and cellulose degradation in coculture.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the enhanced H 2 yield was contributed mainly by R. palustris
+    explanation: Supports R. palustris nitrogenase activity as a major contributor to enhanced hydrogen production.
+- name: Transcriptomic Division of Labor
+  description: >
+    Cocultivation upregulates C. cellulovorans cellulosomal genes and
+    R. palustris nitrogen fixation genes, indicating complementary functional
+    responses during cellulose-grown hydrogen production.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogen fixation genes in R. palustris and the cellulosomal genes in C. cellulovorans were upregulated
+    explanation: Supports complementary transcriptional responses in the two coculture members.
+environmental_factors:
+- name: Renewable cellulose substrate
+  value: cellulose-grown coculture
+  description: Cellulose was the renewable substrate context for the hydrogen-producing coculture.
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biohydrogen production using renewable cellulose
+    explanation: Supports renewable cellulose as the substrate context for the biohydrogen coculture.
+- name: Coculture VFA gradient
+  value: VFA concentration gradient
+  description: A VFA gradient created by C. cellulovorans is implicated in R. palustris chemotactic response.
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: VFA concentration gradient created by C. cellulovorans
+    explanation: Supports VFA gradients as an environmental/metabolic factor structuring the coculture.
+growth_media:
+- name: Cellulose-fed dark/photo-fermentation defined medium
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  - name: Acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  preparation_notes: >
+    Detailed medium formulation is not asserted here because the validator-visible
+    source text is abstract-only. The record curates cellulose and representative
+    volatile-fatty-acid exchange supported by the abstract.
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biohydrogen production using renewable cellulose
+    explanation: Supports cellulose as the renewable substrate for the coculture.
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: genes related to biosynthesis of volatile fatty acids (VFAs) in C. cellulovorans were upregulated
+    explanation: Supports volatile-fatty-acid metabolism as part of the culture interaction.
+associated_datasets:
+- name: Cellulose-concentration physiology publication for C. cellulovorans-R. palustris coculture
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: doi:10.1016/j.ijhydene.2015.05.135
+  url: https://doi.org/10.1016/j.ijhydene.2015.05.135
+  description: >
+    Primary physiology paper establishing the exact C. cellulovorans 743B and
+    R. palustris CGA009 cellulose-fed biohydrogen coculture.
+- name: Transcriptomic publication for the same C. cellulovorans-R. palustris coculture
+  dataset_type: METATRANSCRIPTOME
+  repository: OTHER
+  accession: doi:10.1128/AEM.00789-16
+  url: https://doi.org/10.1128/AEM.00789-16
+  description: >
+    Follow-up transcriptomics paper using the same exact C. cellulovorans 743B
+    and R. palustris CGA009 cellulose-grown coculture.
+  evidence:
+  - reference: doi:10.1128/AEM.00789-16
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: next-generation sequencing was used to query the global transcriptomic responses of an artificial coculture
+    explanation: Lists the follow-up exact-composition transcriptomic publication.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this cellulose-fed
+  biohydrogen coculture.
