@@ -10,7 +10,7 @@ authors:
 journal: Marine Ecology Progress Series
 year: '2012'
 doi: 10.3354/meps09894
-content_type: unavailable
+content_type: abstract_only
 ---
 
 # Effects of Marinobacter adhaerens HP15 on polymer exudation by Thalassiosira weissflogii at different N:P ratios
@@ -19,3 +19,5 @@ content_type: unavailable
 **DOI:** [10.3354/meps09894](https://doi.org/10.3354/meps09894)
 
 ## Content
+
+Scanning electron micrograph of a co-incubation sample containing the diatom Thalassiosira weissflogii (left) and Marinobacter adhaerens HP15 embedded in a network of chitincontaining fibres extruding from the diatom cell.
