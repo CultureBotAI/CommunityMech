@@ -1,0 +1,176 @@
+id: CommunityMech:000263
+name: Saccharomyces-Acinetobacter Lignocellulose Hydrolysate Detoxification Coculture
+description: >
+  A defined two-member synthetic coculture pairing engineered Saccharomyces
+  cerevisiae and engineered Acinetobacter baylyi ADP1 for upgrading a
+  synthetic lignocellulosic hydrolysate. A. baylyi ADP1 bioconverts the furan
+  aldehyde inhibitors furfural and 5-hydroxymethylfurfural that are present
+  in lignocellulose hydrolysates without competing with S. cerevisiae for
+  substrates, while also redirecting S. cerevisiae's residual carbon sources
+  and byproducts into wax esters. The detoxification function raises
+  S. cerevisiae's lactic acid productivity approximately 1.5-fold compared to
+  a monoculture, making the coculture a candidate platform for
+  inhibitor-tolerant lignocellulose conversion.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Establish a two-member coculture that simultaneously detoxifies
+    furan aldehydes in lignocellulose hydrolysates and produces lactic acid
+    and wax esters as value products.
+  assembly_strategy: Pair engineered S. cerevisiae with engineered A. baylyi
+    ADP1 in synthetic lignocellulosic hydrolysate; rely on A. baylyi for
+    inhibitor bioconversion and accessory wax-ester production while
+    S. cerevisiae produces lactic acid from the same hydrolysate.
+  perturbation_design: Compare monoculture S. cerevisiae versus coculture with
+    A. baylyi ADP1 in synthetic hydrolysate containing furfural and
+    5-hydroxymethylfurfural as model inhibitors.
+  measurement_endpoints:
+  - Lactic acid productivity (g/L/h)
+  - Wax ester production
+  - Furfural and 5-hydroxymethylfurfural bioconversion
+  - Substrate utilization profile
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous inhibitor detoxification and production of lactic acid
+      and wax esters from a synthetic lignocellulosic hydrolysate by a defined coculture
+      of engineered Saccharomyces cerevisiae and Acinetobacter baylyi ADP1
+    explanation: Establishes the engineering objective and the two-member assembly
+      strategy of the coculture.
+environment_term:
+  preferred_term: synthetic lignocellulosic hydrolysate laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Laboratory coculture in a synthetic lignocellulosic hydrolysate medium
+    containing furan aldehyde inhibitors (furfural and 5-hydroxymethylfurfural).
+taxonomy:
+- taxon_term:
+    preferred_term: engineered Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    notes: Engineered strain producing lactic acid as the target product from
+      lignocellulosic hydrolysate sugars.
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The lactic acid productivity of S. cerevisiae was improved approximately
+      1.5-fold
+    explanation: Supports S. cerevisiae as the lactic-acid-producing member of the
+      coculture.
+- taxon_term:
+    preferred_term: engineered Acinetobacter baylyi ADP1
+    term:
+      id: NCBITaxon:202950
+      label: Acinetobacter baylyi
+    notes: Engineered ADP1 strain that bioconverts furan aldehyde inhibitors and
+      diverts residual S. cerevisiae carbon into wax esters.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A. baylyi ADP1 showed efficient bioconversion of furan aldehydes present
+      in the hydrolysate, namely furfural and 5-hydroxymethylfurfural
+    explanation: Supports A. baylyi ADP1 as the furan-aldehyde detoxifier in the
+      coculture.
+ecological_interactions:
+- name: Furan Aldehyde Detoxification Cross-Protection
+  description: A. baylyi ADP1 bioconverts furfural and 5-hydroxymethylfurfural
+    from the lignocellulosic hydrolysate, reducing inhibitor concentrations that
+    would otherwise limit S. cerevisiae growth and product formation; the
+    detoxification activity is the mechanistic basis for the coculture's
+    improved lactic acid productivity over S. cerevisiae monoculture.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: engineered Acinetobacter baylyi ADP1
+    term:
+      id: NCBITaxon:202950
+      label: Acinetobacter baylyi
+  target_taxon:
+    preferred_term: engineered Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: furfural
+    term:
+      id: CHEBI:34768
+      label: furfural
+  - preferred_term: 5-hydroxymethylfurfural
+    term:
+      id: CHEBI:34717
+      label: 5-(hydroxymethyl)furan-2-carbaldehyde
+  biological_processes:
+  - preferred_term: response to xenobiotic stimulus
+    term:
+      id: GO:0009410
+      label: response to xenobiotic stimulus
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A. baylyi ADP1 showed efficient bioconversion of furan aldehydes present
+      in the hydrolysate, namely furfural and 5-hydroxymethylfurfural, and did not
+      compete for substrates with S. cerevisiae
+    explanation: Directly supports furan-aldehyde detoxification by A. baylyi and
+      lack of substrate competition with S. cerevisiae.
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The lactic acid productivity of S. cerevisiae was improved approximately
+      1.5-fold (to 0.41 ± 0.08 g/L/h) in the coculture with A. baylyi ADP1, compared
+      to a monoculture of S. cerevisiae
+    explanation: Quantifies the productivity benefit of the detoxification cross-protection.
+- name: Carbon Diversion to Wax Esters
+  description: Residual carbon sources and S. cerevisiae byproducts in the
+    hydrolysate are channelled by A. baylyi ADP1 into wax ester biosynthesis,
+    providing a secondary high-value product stream alongside S. cerevisiae's
+    lactic acid output.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: engineered Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: engineered Acinetobacter baylyi ADP1
+    term:
+      id: NCBITaxon:202950
+      label: Acinetobacter baylyi
+  biological_processes:
+  - preferred_term: wax biosynthetic process
+    term:
+      id: GO:0010025
+      label: wax biosynthetic process
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the remaining carbon sources and byproducts of S. cerevisiae were directed
+      to wax ester production by A. baylyi ADP1
+    explanation: Directly supports cross-feeding of residual S. cerevisiae carbon
+      into A. baylyi wax ester biosynthesis.
+environmental_factors:
+- name: Furan aldehyde inhibitors in synthetic lignocellulosic hydrolysate
+  value: furfural and 5-hydroxymethylfurfural present
+  description: The synthetic lignocellulosic hydrolysate contains the furan
+    aldehyde inhibitors furfural and 5-hydroxymethylfurfural that limit
+    fermentation efficiency in monoculture systems and motivate the
+    detoxification-coculture design.
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of inhibitory compounds, such as furan aldehydes
+    explanation: Documents the inhibitor challenge in lignocellulose hydrolysates
+      that the coculture is designed to overcome.
