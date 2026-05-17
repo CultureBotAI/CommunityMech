@@ -1,0 +1,279 @@
+id: CommunityMech:000265
+name: Cellulomonas-Rhodobacter Cellulose Photohydrogen Coculture
+description: >
+  A defined anaerobic cellulose-to-hydrogen coculture pairing cellulolytic
+  Cellulomonas sp. strain ATCC 21399 with the purple nonsulfur phototroph
+  Rhodopseudomonas capsulata, now classified as Rhodobacter capsulatus. The
+  Cellulomonas partner ferments cellulose to organic acids, while R. capsulata
+  grows photoheterotrophically on those products and evolves molecular hydrogen
+  through nitrogenase. The system is DOE-relevant as an early model for
+  lignocellulosic biohydrogen production by division of labor between cellulose
+  fermentation and phototrophic hydrogen evolution.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >
+    Couple cellulose fermentation to phototrophic nitrogenase-driven hydrogen
+    evolution using a defined two-member anaerobic bacterial coculture.
+  assembly_strategy: >
+    Combine Cellulomonas sp. strain ATCC 21399 with wild-type R. capsulata or
+    an uptake-hydrogenase-negative R. capsulata mutant in anaerobic coculture
+    with cellulose as the sole carbon source.
+  perturbation_design: >
+    Compare wild-type R. capsulata and a mutant strain lacking uptake hydrogenase
+    as phototrophic partners for cellulose-dependent hydrogen evolution.
+  measurement_endpoints:
+  - cellulose-dependent hydrogen production
+  - hydrogen yield per glucose equivalent
+  - organic acid cross-feeding
+  - effect of uptake hydrogenase loss
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This report describes an anaerobic coculture of the Cellulomonas strain with wild-type R. capsulata or a mutant strain lacking uptake hydrogenase
+    explanation: Supports the defined coculture composition and engineered comparison between wild-type and uptake-hydrogenase mutant phototrophs.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as the sole carbon source
+    explanation: Supports cellulose as the selective substrate for the coculture.
+environment_term:
+  preferred_term: anaerobic illuminated laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Laboratory anaerobic coculture for cellulose-dependent photohydrogen
+    production; the broad ENVO laboratory bioreactor term is used for a
+    controlled culture system.
+taxonomy:
+- taxon_term:
+    preferred_term: Cellulomonas sp. strain ATCC 21399
+    term:
+      id: NCBITaxon:1707
+      label: Cellulomonas
+    notes: >
+      The source identifies the cellulolytic member as Cellulomonas sp. strain
+      ATCC 21399; curated at the genus level because the publication does not
+      assign a species name.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cellulomonas sp. strain ATCC 21399 is a facultatively anaerobic, cellulose-degrading microorganism
+    explanation: Supports the identity and cellulolytic role of the Cellulomonas partner.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produces organic acids during cellulose fermentation
+    explanation: Supports Cellulomonas as the fermentative source of cross-fed organic acids.
+- taxon_term:
+    preferred_term: Rhodopseudomonas capsulata
+    term:
+      id: NCBITaxon:1061
+      label: Rhodobacter capsulatus
+    notes: >
+      The publication uses Rhodopseudomonas capsulata; NCBI Taxonomy now
+      records this organism as Rhodobacter capsulatus.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodopseudomonas capsulata cannot utilize cellulose
+    explanation: Supports R. capsulata as a non-cellulolytic partner dependent on Cellulomonas fermentation products.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows photoheterotrophically under anaerobic conditions on organic acids or sugars
+    explanation: Supports the phototrophic cross-feeder role of R. capsulata.
+ecological_interactions:
+- name: Cellulose Fermentation to Organic Acid Cross-Feeding
+  description: >
+    Cellulomonas sp. ATCC 21399 ferments cellulose to organic acids that can
+    support anaerobic photoheterotrophic growth by R. capsulata.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Cellulomonas sp. strain ATCC 21399
+    term:
+      id: NCBITaxon:1707
+      label: Cellulomonas
+  target_taxon:
+    preferred_term: Rhodopseudomonas capsulata
+    term:
+      id: NCBITaxon:1061
+      label: Rhodobacter capsulatus
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Representative organic acid fermentation product; the abstract reports organic acids collectively.
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produces organic acids during cellulose fermentation
+    explanation: Supports organic-acid production from cellulose by Cellulomonas.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows photoheterotrophically under anaerobic conditions on organic acids or sugars
+    explanation: Supports R. capsulata utilization of organic acids or sugars released by the cellulolytic partner.
+- name: Nitrogenase-Driven Photohydrogen Evolution
+  description: >
+    R. capsulata converts Cellulomonas-derived fermentation products into
+    molecular hydrogen under anaerobic illuminated conditions through its
+    nitrogenase system.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: cellulose
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: photoevolves molecular hydrogen by the nitrogenase system of R. capsulata
+    explanation: Supports nitrogenase-mediated hydrogen evolution by the phototrophic partner.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as the sole carbon source
+    explanation: Supports cellulose-dependent community-level hydrogen production.
+- name: Uptake Hydrogenase Loss Increases Hydrogen Yield
+  description: >
+    The R. capsulata mutant lacking uptake hydrogenase produced more hydrogen
+    per glucose equivalent than the wild-type phototrophic partner in coculture.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenase-negative mutant produced 4.6 to 6.2 mol of H(2) per mol of glucose equivalent
+    explanation: Supports improved hydrogen yield for the uptake-hydrogenase mutant partner.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: compared with 1.2 to 4.3 mol for the wild type
+    explanation: Supports the contrast between mutant and wild-type R. capsulata cocultures.
+environmental_factors:
+- name: Cellulose substrate
+  value: cellulose as sole carbon source
+  description: Cellulose supplied the carbon flow for the defined coculture.
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as the sole carbon source
+    explanation: Supports cellulose as the culture substrate.
+- name: Anaerobic photoheterotrophic condition
+  value: anaerobic phototrophic growth on organic acids or sugars
+  description: >
+    R. capsulata grows photoheterotrophically under anaerobic conditions on
+    Cellulomonas fermentation products.
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grows photoheterotrophically under anaerobic conditions on organic acids or sugars
+    explanation: Supports anaerobic light-driven heterotrophy as a key environmental/culture condition.
+- name: Uptake hydrogenase genotype
+  value: wild-type versus uptake-hydrogenase-negative R. capsulata
+  description: >
+    The phototrophic partner genotype was varied to test effects on hydrogen
+    accumulation.
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: wild-type R. capsulata or a mutant strain lacking uptake hydrogenase
+    explanation: Supports the genetic perturbation tested in the coculture.
+growth_media:
+- name: Anaerobic cellulose photohydrogen coculture
+  atmosphere: ANAEROBIC
+  composition:
+  - name: Cellulose
+    chebi_term:
+      preferred_term: cellulose
+      term:
+        id: CHEBI:18246
+        label: cellulose
+  preparation_notes: >
+    Detailed medium salts and illumination parameters are not asserted from the
+    abstract. The curated medium context is anaerobic coculture with cellulose
+    as the sole carbon source.
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic coculture of the Cellulomonas strain with wild-type R. capsulata
+    explanation: Supports the anaerobic coculture context.
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cellulose as the sole carbon source
+    explanation: Supports cellulose as the supplied carbon source.
+associated_datasets:
+- name: Photoproduction of H2 from cellulose by an anaerobic bacterial coculture
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:16346269
+  url: https://pubmed.ncbi.nlm.nih.gov/16346269/
+  description: >
+    PubMed- and PMC-indexed Applied and Environmental Microbiology study of
+    cellulose-dependent hydrogen production by Cellulomonas sp. ATCC 21399 and
+    R. capsulata cocultures.
+  evidence:
+  - reference: PMID:16346269
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Photoproduction of h(2) from cellulose by an anaerobic bacterial coculture
+    explanation: Lists the primary exact-system publication for this community.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  cellulose-fed photohydrogen coculture.
