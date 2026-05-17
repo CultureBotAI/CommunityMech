@@ -1,0 +1,352 @@
+id: CommunityMech:000266
+name: Clostridium carboxidivorans-Clostridium kluyveri CO Chain-Elongation Coculture
+description: >
+  A defined anaerobic synthetic coculture pairing the autotrophic solventogenic
+  acetogen Clostridium carboxidivorans with the chain-elongating bacterium
+  Clostridium kluyveri. In CO/CO2-fed stirred-tank bioreactors, C. kluyveri
+  elongates C2 products to organic acids, and C. carboxidivorans reduces those
+  acids to longer-chain alcohols such as butanol and hexanol. The system is
+  DOE-relevant because it couples waste-gas/syngas fermentation, carbon
+  utilization, and production of liquid fuels and platform chemicals.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Convert CO-rich gas into longer-chain alcohols by coupling autotrophic
+    acetogenesis/solventogenesis with microbial chain elongation.
+  assembly_strategy: >
+    Assemble a bottom-up two-species clostridial coculture from C.
+    carboxidivorans and C. kluyveri in anaerobic stirred-tank bioreactors with
+    continuous CO/CO2 gas supply.
+  perturbation_design: >
+    Compare CO partial pressures, pH, sulfide supply, and batch versus
+    continuously operated stirred-tank reactor cascades to identify conditions
+    supporting both chain elongation and alcohol formation.
+  measurement_endpoints:
+  - species-resolved cell counts by FISH-FC
+  - CO conversion
+  - acetate and ethanol concentrations
+  - butyrate and hexanoate concentrations
+  - butanol and hexanol concentrations
+  - alcohol-to-acid ratios
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synthetic co-cultures with identical initial cell concentrations of Clostridium carboxidivorans and Clostridium kluyveri were studied
+    explanation: Supports the exact two-species synthetic coculture and controlled bioreactor study design.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a continuously operated cascade of two stirred-tank reactors was established with a synthetic co-culture of both Clostridia
+    explanation: Supports the follow-up continuous reactor design for the same C. carboxidivorans/C. kluyveri clostridial coculture.
+environment_term:
+  preferred_term: anaerobic CO-fed laboratory stirred-tank bioreactor
+  term:
+    id: ENVO:01001405
+    label: laboratory bioreactor
+  notes: >
+    Controlled anaerobic stirred-tank bioreactor system with continuous carbon
+    monoxide/carbon dioxide gassing for synthetic clostridial cocultivation.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium carboxidivorans
+    term:
+      id: NCBITaxon:217159
+      label: Clostridium carboxidivorans
+    notes: Autotrophic acetogenic/solventogenic partner that reduces C. kluyveri-derived organic acids to alcohols.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium carboxidivorans and Clostridium kluyveri
+    explanation: Supports C. carboxidivorans as one member of the exact coculture.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased autotrophic growth and ethanol formation by Clostridium carboxidivorans
+    explanation: Supports the autotrophic solventogenic role of C. carboxidivorans under CO-fed conditions.
+- taxon_term:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+    notes: Chain-elongating partner that generates organic acids from C2 substrates in the coculture.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium carboxidivorans and Clostridium kluyveri
+    explanation: Supports C. kluyveri as one member of the exact coculture.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium kluyveri monocultures in batch operated stirred-tank bioreactors
+    explanation: Supports C. kluyveri as the chain-elongating organism whose CO sensitivity and process role were studied.
+ecological_interactions:
+- name: Acetogen-Chain Elongator Product Coupling
+  description: >
+    C. carboxidivorans provides acetate and ethanol from CO/CO2 gas
+    fermentation, while C. kluyveri uses these C2 products for chain elongation
+    to organic acids.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium carboxidivorans
+    term:
+      id: NCBITaxon:217159
+      label: Clostridium carboxidivorans
+  target_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syngas fermentation with acetogens is known to produce mainly acetate and ethanol efficiently
+    explanation: Supports C2 product formation by the acetogenic side of the coculture.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: growth and chain elongation in the first bioreactor
+    explanation: Supports chain elongation as a reactor-stage process in the C. carboxidivorans/C. kluyveri system.
+- name: Organic Acid Reduction to Longer-Chain Alcohols
+  description: >
+    Organic acids formed by C. kluyveri are reduced by C. carboxidivorans to
+    alcohols, increasing butanol and enabling hexanol production relative to
+    C. carboxidivorans monoculture.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+  target_taxon:
+    preferred_term: Clostridium carboxidivorans
+    term:
+      id: NCBITaxon:217159
+      label: Clostridium carboxidivorans
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: hexanoate
+    term:
+      id: CHEBI:30776
+      label: hexanoate
+  - preferred_term: 1-butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  - preferred_term: 1-hexanol
+    term:
+      id: CHEBI:87393
+      label: hexan-1-ol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Organic acids produced by C. kluyveri were reduced by C. carboxidivorans to the corresponding alcohols butanol and hexanol
+    explanation: Supports the central cross-feeding mechanism from chain-elongated acids to alcohols.
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: threefold increase in final butanol concentration and enabled hexanol production
+    explanation: Supports increased longer-chain alcohol production in coculture.
+- name: Two-Stage CO Partial Pressure Division of Labor
+  description: >
+    In the continuous reactor cascade, lower CO and sulfide supply supported
+    growth and chain elongation in the first reactor, while higher CO in the
+    second reactor supported organic-acid reduction and de novo C2-C6 alcohol
+    synthesis.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: 1-butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  - preferred_term: 1-hexanol
+    term:
+      id: CHEBI:87393
+      label: hexan-1-ol
+  evidence:
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 100 mbar CO and additional sulfide supply enabled growth and chain elongation in the first bioreactor
+    explanation: Supports low-CO, sulfide-supported chain elongation in the first reactor.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 800 mbar CO resulted in an efficient reduction of organic acids and de-novo synthesis of C2-C6 alcohols
+    explanation: Supports the high-CO second reactor role in organic-acid reduction and alcohol synthesis.
+environmental_factors:
+- name: CO partial pressure
+  value: 100 mbar and 800 mbar CO process zones
+  description: >
+    CO partial pressure structured growth, chain elongation, and alcohol
+    formation in batch and continuous reactor studies.
+  evidence:
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 100 mbar CO and additional sulfide supply enabled growth and chain elongation
+    explanation: Supports low CO as a process condition in the first reactor.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 800 mbar CO resulted in an efficient reduction of organic acids
+    explanation: Supports high CO as a process condition in the second reactor.
+- name: Continuous CO/CO2 gassing
+  value: continuous CO/CO2 gassing
+  description: Synthetic cocultures were operated under continuous CO/CO2 gas supply.
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuous CO/CO2 -gassing
+    explanation: Supports continuous CO/CO2 gassing as an environmental/process factor.
+- name: Sulfide supply
+  value: additional sulfide supply
+  description: Sulfide addition improved C. carboxidivorans autotrophic growth and ethanol formation under low CO.
+  evidence:
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A continuous supply of sulfide led to increased autotrophic growth and ethanol formation by Clostridium carboxidivorans
+    explanation: Supports sulfide supply as a process factor.
+- name: pH
+  value: pH 6.0 chain elongation condition
+  description: The batch study observed chain elongation at pH 6.0 under high CO.
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: chain elongation activity was observed at pH 6.0
+    explanation: Supports pH as a curated cultivation factor.
+growth_media:
+- name: Anaerobic CO/CO2-fed clostridial stirred-tank coculture
+  atmosphere: ANAEROBIC
+  headspace_gas: CO/CO2
+  vessel_type: stirred-tank bioreactor
+  composition:
+  - name: Carbon monoxide
+    chebi_term:
+      preferred_term: carbon monoxide
+      term:
+        id: CHEBI:17245
+        label: carbon monoxide
+  - name: Carbon dioxide
+    chebi_term:
+      preferred_term: carbon dioxide
+      term:
+        id: CHEBI:16526
+        label: carbon dioxide
+  - name: Ethanol
+    chebi_term:
+      preferred_term: ethanol
+      term:
+        id: CHEBI:16236
+        label: ethanol
+  - name: Acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  preparation_notes: >
+    The curated culture context is anaerobic stirred-tank bioreactor
+    cocultivation with continuous CO/CO2 gassing; exact mineral salts are not
+    asserted here.
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: batch-operated stirred-tank bioreactors with continuous CO/CO2 -gassing
+    explanation: Supports stirred-tank reactor cultivation with continuous CO/CO2 gas supply.
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuously operated cascade of two stirred-tank reactors
+    explanation: Supports the continuous stirred-tank cascade culture format.
+associated_datasets:
+- name: Batch stirred-tank C. carboxidivorans-C. kluyveri FISH-FC coculture study
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:34669248
+  url: https://pubmed.ncbi.nlm.nih.gov/34669248/
+  description: >
+    PubMed/PMC-indexed synthetic coculture study using FISH-FC to monitor
+    C. carboxidivorans and C. kluyveri under CO/CO2-fed batch bioreactor
+    conditions.
+  evidence:
+  - reference: PMID:34669248
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: monitoring of the cell counts of both clostridia by flow cytometry after fluorescence in situ hybridization
+    explanation: Lists the exact-composition FISH-FC batch bioreactor publication.
+- name: Continuous reactor cascade C. carboxidivorans-C. kluyveri alcohol production study
+  dataset_type: PHENOTYPE
+  repository: OTHER
+  accession: PMID:37110426
+  url: https://pubmed.ncbi.nlm.nih.gov/37110426/
+  description: >
+    PubMed/PMC-indexed follow-up using the same C. carboxidivorans and
+    C. kluyveri species pair in a two-stage continuous stirred-tank reactor
+    cascade for ethanol, butanol, and hexanol production from CO.
+  evidence:
+  - reference: PMID:37110426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Continuous Production of Ethanol, 1-Butanol and 1-Hexanol from CO with a Synthetic Co-Culture of Clostridia
+    explanation: Lists the continuous coculture reactor publication for the same two-clostridia system.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this CO-fed
+  clostridial chain-elongation coculture.
