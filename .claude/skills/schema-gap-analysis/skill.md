@@ -29,6 +29,10 @@ LinkML lives in `.venv/`:
 
 CommunityMech has no top-level collection file; everything is per-record.
 
+Both `kb/communities/*.yaml` and `data/isolates/**/*.yaml` validate against the **same** `MicrobialCommunity` class — per `data/isolates/README.md`, isolates are single-organism communities kept in the same schema for interoperability. The schema only declares one `tree_root: true` class (`MicrobialCommunity`); there is no `IsolateRecord`.
+
+The pipelines below `tee` validator output to a log **and** to your terminal — if `linkml-validate` itself errors out (missing schema path, wrong class name, broken venv), you want to see the message immediately, not have it swallowed into a `0` error count. The `|| true` on `grep -c` keeps the exit status at 0 when there are no errors (`grep -c` exits 1 on zero matches, which would break `set -e` recipes).
+
 ### 1. Validate the community knowledge base
 
 ```bash
@@ -36,25 +40,23 @@ find kb/communities -name "*.yaml" -print0 \
   | xargs -0 .venv/bin/linkml-validate \
       -s src/communitymech/schema/communitymech.yaml \
       -C MicrobialCommunity \
-      2>&1 | tee /tmp/cme_validate.out > /dev/null
-grep -c "^\[ERROR\]" /tmp/cme_validate.out
+      2>&1 | tee /tmp/cme_validate.out
+ERRORS=$(grep -c "^\[ERROR\]" /tmp/cme_validate.out || true)
+echo "kb/communities errors: $ERRORS"
 ```
 
 ### 2. Validate the isolate records
 
-Isolates use a different class — find the right one in the schema first if needed:
+Same class as step 1 — `MicrobialCommunity`. Isolates differ from communities in cardinality (one member, not many), not in schema.
 
 ```bash
-# Identify the isolate root class
-grep -B1 "tree_root: true\|^  Isolate" src/communitymech/schema/communitymech.yaml | head -20
-
-# Then validate (adjust -C to match)
 find data/isolates -name "*.yaml" -print0 \
   | xargs -0 .venv/bin/linkml-validate \
       -s src/communitymech/schema/communitymech.yaml \
-      -C IsolateRecord \
-      2>&1 | tee /tmp/cme_isolates_validate.out > /dev/null
-grep -c "^\[ERROR\]" /tmp/cme_isolates_validate.out
+      -C MicrobialCommunity \
+      2>&1 | tee /tmp/cme_isolates_validate.out
+ERRORS=$(grep -c "^\[ERROR\]" /tmp/cme_isolates_validate.out || true)
+echo "data/isolates errors: $ERRORS"
 ```
 
 ### 3. Histogram the errors
@@ -72,29 +74,33 @@ done
 
 ### 4. Cross-check generator drift (Axis 3)
 
+CommunityMech YAMLs are currently hand-curated — there are no programmatic writers in `src/` or `scripts/`. The greps below are forward-looking: they fire when someone adds an auto-writer that emits the wrong shape. As long as they print nothing, the corpus's "process axis" is clean by construction.
+
 ```bash
 # Naive datetimes
 grep -rnE 'datetime\.now\(\)\.isoformat\b' \
   src/ scripts/ --include='*.py' | grep -v "timezone"
 
-# yaml.dump that drops collection metadata (CommunityMech keys: communities/isolates)
-grep -rnE 'yaml\.dump\(\s*\{\s*["\047](communities|isolates)["\047]\s*:' \
-  src/ scripts/ --include='*.py'
+# Any write to kb/communities/ or data/isolates/ that isn't via a curator helper.
+# Covers `open(..., "w"/"a"/"x"...)`, `Path(...).open(...)`, and `Path.write_text(...)`.
+grep -rnE '(open\([^)]*(kb/communities|data/isolates)|(kb/communities|data/isolates)[^)]*\.write_text\()' \
+  scripts/ src/ --include='*.py'
 
-# Direct writes to kb/communities/ that skip the curator
-grep -rnE 'open\([^)]*kb/communities/[^)]*["\047][wa][bt]?["\047]' \
+# Any yaml.dump / yaml.safe_dump that writes to the community or isolate trees
+grep -rnE 'yaml\.(safe_)?dump\([^)]*(kb/communities|data/isolates)' \
   scripts/ src/ --include='*.py'
 ```
 
 ### 5. Re-validate after fixes
 
 ```bash
-find kb/communities -name "*.yaml" -print0 \
+find kb/communities data/isolates -name "*.yaml" -print0 \
   | xargs -0 .venv/bin/linkml-validate \
       -s src/communitymech/schema/communitymech.yaml \
       -C MicrobialCommunity \
-      2>&1 | grep -c "^\[ERROR\]"
-# target: 0
+      2>&1 | tee /tmp/cme_revalidate.out
+ERRORS=$(grep -c "^\[ERROR\]" /tmp/cme_revalidate.out || true)
+echo "total errors after fixes: $ERRORS"   # target: 0
 ```
 
 ## CommunityMech-specific state (as of 2026-05-17 pass)
@@ -102,9 +108,9 @@ find kb/communities -name "*.yaml" -print0 \
 | Surface | Records | Errors |
 |---|---:|---:|
 | `kb/communities/*.yaml` | 261 | 0 (clean) |
-| `data/isolates/**/*.yaml` | _(re-run step 2 to populate)_ | _(unknown until run)_ |
+| `data/isolates/**/*.yaml` | 5 | 4 (`'id' is a required property`) |
 
-The community knowledge base passes cleanly under `linkml-validate -C MicrobialCommunity`. If you add new classes/slots to `src/communitymech/schema/communitymech.yaml`, re-run this skill before committing.
+The community knowledge base passes cleanly under `linkml-validate -C MicrobialCommunity`. The isolate tree shares the same class but 4 of 5 files are missing the required `id` slot — likely an instance-axis gap (just add the missing `id:` to each isolate YAML and re-run step 2). If you add new classes/slots to `src/communitymech/schema/communitymech.yaml`, re-run this skill before committing.
 
 ## Pointers
 
