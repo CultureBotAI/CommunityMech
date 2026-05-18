@@ -92,7 +92,9 @@ def test_openalex_handles_request_exception(fetcher):
 def test_openalex_strips_doi_prefix_case_insensitively(fetcher):
     """Both "doi:" and "DOI:" prefixes are stripped before hitting the API."""
     payload = {"abstract_inverted_index": {"abstract": [0]}}
-    with patch.object(fetcher.session, "get", return_value=_mock_json_response(payload)) as mock_get:
+    with patch.object(
+        fetcher.session, "get", return_value=_mock_json_response(payload)
+    ) as mock_get:
         fetcher.fetch_openalex_abstract("DOI:10.1234/example")
     called_url = mock_get.call_args[0][0]
     assert called_url == "https://api.openalex.org/works/doi:10.1234/example"
@@ -149,7 +151,9 @@ def test_europepmc_empty_result_list_returns_none(fetcher):
 def test_europepmc_passes_doi_query_param(fetcher):
     """The DOI lookup is encoded as a DOI: query, format=json."""
     payload = {"resultList": {"result": []}}
-    with patch.object(fetcher.session, "get", return_value=_mock_json_response(payload)) as mock_get:
+    with patch.object(
+        fetcher.session, "get", return_value=_mock_json_response(payload)
+    ) as mock_get:
         fetcher.fetch_europepmc_abstract("10.1234/example")
     params = mock_get.call_args.kwargs["params"]
     assert params["query"] == "DOI:10.1234/example"
@@ -196,9 +200,7 @@ def test_publisher_meta_skips_short_descriptions(fetcher):
 
 
 def test_publisher_meta_handles_request_exception(fetcher):
-    with patch.object(
-        fetcher.session, "get", side_effect=requests.exceptions.HTTPError("403")
-    ):
+    with patch.object(fetcher.session, "get", side_effect=requests.exceptions.HTTPError("403")):
         result = fetcher.fetch_publisher_meta_abstract("10.1234/blocked")
     assert result is None
 
