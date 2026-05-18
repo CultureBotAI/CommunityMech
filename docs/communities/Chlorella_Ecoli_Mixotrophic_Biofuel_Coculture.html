@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: var(--card);
+            border-bottom: 2px solid var(--primary);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: #fafafa;
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: #fefce8;
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Back to Communities</a>
+            <h1>Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000269</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        mixotrophic algal-bacterial airlift reactor coculture
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A defined algal-bacterial coculture in which Chlorella minutissima was grown with Escherichia coli in airlift reactors under mixotrophic glucose, glycerol, and acetate conditions. The coculture produced more algal biomass, consumed more carbon substrate, and increased lipid and starch productivity relative to axenic algal cultures. This system is relevant to DOE-aligned algal biofuel biotechnology because it tests whether bacterial contamination or partnership can improve production of algal biofuel precursors rather than suppressing algal biomass.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Chlorella minutissima</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=3071"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:3071
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"Chlorella minutissima was co-cultured with Escherichia coli"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"C. minutissima grew more rapidly and to higher densities in the presence of E. coli"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Escherichia coli</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=562"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:562
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>ABUNDANT</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"co-cultured with Escherichia coli"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"suggesting a symbiotic relationship between the organisms"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+        
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #a855f7;"></span> Syntrophy
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #ef4444;"></span> Competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #14b8a6;"></span> Niche partitioning
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #eab308;"></span> Colonization facilitation
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #fb7185;"></span> Strain competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #dc2626;"></span> Predation
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Bacterial Enhancement of Algal Biomass</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Escherichia coli</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Chlorella minutissima</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    D-glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=4167"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:4167</a>), 
+                    
+                    glycerol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17754"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17754</a>), 
+                    
+                    acetate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        photosynthesis
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015979"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015979</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"grew more rapidly and to higher densities in the presence of E. coli"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"produced 200-587% more algal biomass than the axenic C. minutissima cultures"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Enhanced Mixotrophic Carbon Substrate Consumption</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Chlorella minutissima</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Escherichia coli</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    D-glucose
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=4167"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:4167</a>), 
+                    
+                    glycerol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17754"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17754</a>), 
+                    
+                    acetate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30089</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        carbohydrate metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0005975"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0005975</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"consumed 23-737% more of the available carbon substrate"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"than the sum of substrate consumed by E. coli and C. minutissima alone"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Increased Biofuel-Precursor Productivity</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    lipid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18059"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18059</a>), 
+                    
+                    starch
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28017"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28017</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        lipid metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006629"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006629</a>)
+                    </li>
+                    
+                    <li>
+                        starch metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0005982"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0005982</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"total lipid and starch productivity were elevated in co-cultures compared to axenic cultures"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"bacterial contamination was not detrimental to the production of biofuel precursors"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        
+        </section>
+
+        <!-- Associated Datasets -->
+        
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Chlorella-Ecoli mixotrophic biofuel precursor publication</strong>
+                            
+                            <br><span class="dataset-description">PubMed and PMC-indexed PLOS ONE study reporting algal biomass, substrate consumption, lipid, starch, biofouling, and acid-formation phenotypes for Chlorella minutissima and E. coli cocultures.
+</span>
+                            
+                        </td>
+                        <td><span class="role-badge">PHENOTYPE</span></td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Mixotrophic carbon substrates</strong></td>
+                        <td>glucose, glycerol, and acetate</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"mixotrophic conditions (glucose, glycerol, and acetate substrates)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Initial substrate concentration</strong></td>
+                        <td>1%</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"At an initial 1% substrate concentration"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Scale-up constraints</strong></td>
+                        <td>biofouling and acid formation</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/24805253/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:24805253</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"Bio-fouling of the reactors observed in co-cultures and acid formation in all mixotrophic cultures"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    Mixotrophic airlift reactor substrate assay
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">AEROBIC</span>
+                    </div>
+                    
+                </div>
+
+                
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><strong>D-glucose</strong></td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=4167"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:4167
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>glycerol</strong></td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17754"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:17754
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>acetate</strong></td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30089"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:30089
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                    <strong>Preparation notes:</strong> The abstract supports airlift reactor cocultures tested under mixotrophic glucose, glycerol, and acetate conditions; exact mineral medium formulation is not asserted here.
+
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/24805253"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:24805253
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"in airlift reactors under mixotrophic conditions"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/24805253"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:24805253
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"glucose, glycerol, and acetate substrates"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            CROSS_FEEDING: "#22c55e",
+            MUTUALISM: "#3b82f6",
+            SYNTROPHY: "#a855f7",
+            COMPETITION: "#ef4444",
+            COMMENSALISM: "#f97316",
+            PREDATION: "#dc2626",
+            NICHE_PARTITIONING: "#14b8a6",
+            STRAIN_COMPETITION: "#fb7185",
+            COLONIZATION_FACILITATION: "#eab308"
+        };
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+        
+        taxonData["Chlorella minutissima"] = {
+            id: "NCBITaxon:3071",
+            label: "Chlorella minutissima",
+            abundance: "ABUNDANT",
+            roles: ["PRIMARY_PRODUCER"]
+        };
+        
+        taxonData["Escherichia coli"] = {
+            id: "NCBITaxon:562",
+            label: "Escherichia coli",
+            abundance: "ABUNDANT",
+            roles: ["CROSS_FEEDER"]
+        };
+        
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+        
+        (function() {
+            var intId = "interaction:0";
+            var intType = "COMMENSALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("D-glucose");
+            
+            metabolites.push("glycerol");
+            
+            metabolites.push("acetate");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("photosynthesis");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Bacterial Enhancement of Algal Biomass",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Escherichia coli";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Chlorella minutissima";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("D-glucose");
+            
+            metabolites.push("glycerol");
+            
+            metabolites.push("acetate");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("carbohydrate metabolic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Enhanced Mixotrophic Carbon Substrate Consumption",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Chlorella minutissima";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Escherichia coli";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("lipid");
+            
+            metabolites.push("starch");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("lipid metabolic process");
+            
+            processes.push("starch metabolic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Increased Biofuel-Precursor Productivity",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 5;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#3b82f6")
+            .attr("stroke", "#1e40af")
+            .attr("stroke-width", 1.5);
+
+        // Interaction nodes: rounded rects
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("rect")
+            .attr("width", 28)
+            .attr("height", 18)
+            .attr("x", -14)
+            .attr("y", -9)
+            .attr("rx", 5)
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || "#6b7280"; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || "#6b7280");
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .attr("fill", "#475569");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .attr("fill", "#475569")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+    
+</body>
+</html>

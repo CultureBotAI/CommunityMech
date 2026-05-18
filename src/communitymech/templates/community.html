@@ -431,6 +431,31 @@
                         </td>
                         <td>{{ taxon.abundance_level or 'N/A' }}</td>
                     </tr>
+                    {% if taxon.evidence %}
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                {% for ev in taxon.evidence %}
+                                <li class="evidence-item">
+                                    {% if ev.reference.startswith('PMID:') %}
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.split(':')[1] }}/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% elif ev.reference.lower().startswith('doi:') %}
+                                    <a href="https://doi.org/{{ ev.reference.split(':', 1)[1] }}"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% else %}
+                                    <strong>{{ ev.reference }}</strong>
+                                    {% endif %}
+                                    - {{ ev.supports }} ({{ ev.evidence_source }})
+                                    {% if ev.snippet %}
+                                    <div class="snippet">"{{ ev.snippet }}"</div>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -467,6 +492,18 @@
                     </div>
                     <div class="legend-item">
                         <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #14b8a6;"></span> Niche partitioning
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #eab308;"></span> Colonization facilitation
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #fb7185;"></span> Strain competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #dc2626;"></span> Predation
                     </div>
                 </div>
             </div>
@@ -593,6 +630,66 @@
         {% endif %}
 
         <!-- Environmental Factors -->
+        {% if community.external_resources %}
+        <section>
+            <h2>External Resources</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for resource in community.external_resources %}
+                    <tr>
+                        <td>
+                            <strong>{{ resource.name }}</strong>
+                            {% if resource.description %}
+                            <br><span class="dataset-description">{{ resource.description }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{% if resource.repository %}{{ resource.repository }}{% endif %}</td>
+                        <td>
+                            {% if resource.url %}
+                            <a href="{{ resource.url }}" class="term-link" target="_blank" rel="noopener noreferrer">{{ resource.resource_id }}</a>
+                            {% else %}
+                            {{ resource.resource_id }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% if resource.evidence %}
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                {% for ev in resource.evidence %}
+                                <li class="evidence-item">
+                                    {% if ev.reference.startswith('PMID:') %}
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.split(':')[1] }}/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% elif ev.reference.lower().startswith('doi:') %}
+                                    <a href="https://doi.org/{{ ev.reference.split(':', 1)[1] }}"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% else %}
+                                    <strong>{{ ev.reference }}</strong>
+                                    {% endif %}
+                                    - {{ ev.supports }} ({{ ev.evidence_source }})
+                                    {% if ev.snippet %}
+                                    <div class="snippet">"{{ ev.snippet }}"</div>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% endif %}
+
         {% if community.environmental_factors %}
         <section>
             <h2>Environmental Factors</h2>
@@ -611,6 +708,31 @@
                         <td>{{ factor.value }}</td>
                         <td>{{ factor.unit or 'N/A' }}</td>
                     </tr>
+                    {% if factor.evidence %}
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                {% for ev in factor.evidence %}
+                                <li class="evidence-item">
+                                    {% if ev.reference.startswith('PMID:') %}
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/{{ ev.reference.split(':')[1] }}/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% elif ev.reference.lower().startswith('doi:') %}
+                                    <a href="https://doi.org/{{ ev.reference.split(':', 1)[1] }}"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">{{ ev.reference }}</a>
+                                    {% else %}
+                                    <strong>{{ ev.reference }}</strong>
+                                    {% endif %}
+                                    - {{ ev.supports }} ({{ ev.evidence_source }})
+                                    {% if ev.snippet %}
+                                    <div class="snippet">"{{ ev.snippet }}"</div>
+                                    {% endif %}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    {% endif %}
                     {% endfor %}
                 </tbody>
             </table>
@@ -749,7 +871,11 @@
             MUTUALISM: "#3b82f6",
             SYNTROPHY: "#a855f7",
             COMPETITION: "#ef4444",
-            COMMENSALISM: "#f97316"
+            COMMENSALISM: "#f97316",
+            PREDATION: "#dc2626",
+            NICHE_PARTITIONING: "#14b8a6",
+            STRAIN_COMPETITION: "#fb7185",
+            COLONIZATION_FACILITATION: "#eab308"
         };
 
         // Build taxon lookup keyed by preferred_term
