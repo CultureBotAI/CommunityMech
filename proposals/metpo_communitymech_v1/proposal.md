@@ -36,20 +36,23 @@ level assertions the same way.
 | `AtmosphereEnum` (v1.1) | `atmosphere requirement` (`METPO:1007301`) | 6 | 0 (flat) | 228–243 |
 | `MediaRelationshipEnum` (v1.1) | `growth media relationship type` (`METPO:1007310`) | 5 | 0 (flat) | 107–121 |
 
-Plus three new **top-level domain classes** (children of `METPO:1000000`):
+Plus four new **top-level domain classes** (children of `METPO:1000000`):
 
-| ID | Label | Lifts CommunityMech class |
-| --- | --- | --- |
-| `METPO:1007100` | microbial community | `MicrobialCommunity` |
-| `METPO:1007101` | microbial community ecological interaction | `EcologicalInteraction` |
-| `METPO:1007102` | microbial community evidence item | `EvidenceItem` |
+| ID | Label | Lifts CommunityMech class | Added in |
+| --- | --- | --- | --- |
+| `METPO:1007100` | microbial community | `MicrobialCommunity` | v1 |
+| `METPO:1007101` | microbial community ecological interaction | `EcologicalInteraction` | v1 |
+| `METPO:1007102` | microbial community evidence item | `EvidenceItem` | v1 |
+| `METPO:1007300` | community-relevant growth medium | `GrowthMedia` and `RelatedMedia` | v1.1 |
 
-Each `enum-parent` class is a child of one of those three domain classes (e.g.,
+Each `enum-parent` class is a child of one of those four domain classes (e.g.,
 `community functional category` sits under `microbial community`;
-`evidence item support level` sits under `microbial community evidence item`).
+`evidence item support level` sits under `microbial community evidence item`;
+`atmosphere requirement` sits under `community-relevant growth medium`).
 
-Total class rows: **74** (3 top-level domain + 9 enum-parents + 10 intermediate
-groupings + 52 leaves from enums).
+Total class rows: **88** (4 top-level domain + 11 enum-parents + 10 intermediate
+groupings + 63 leaves from enums; the v1.1 extension added 1 top-level + 2
+enum-parents + 11 leaves on top of v1's 3 + 9 + 10 + 52 = 74).
 
 ## Hierarchy decisions
 
