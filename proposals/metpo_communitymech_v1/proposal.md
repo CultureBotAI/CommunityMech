@@ -5,9 +5,11 @@
 The [CommunityMech](https://github.com/CultureBotAI/CommunityMech) LinkML schema
 (`src/communitymech/schema/communitymech.yaml`) defines 13 enums that classify
 microbial community members, their interactions, and the evidence supporting
-claims about them. The
-[METPO proposal pipeline](../../../kg-microbe/.claude/skills/metpo-proposal/SKILL.md)
-in `kg-microbe/mappings/` currently covers phenotypic traits, tolerance ranges,
+claims about them. The METPO proposal pipeline at
+[kg-microbe/mappings/](https://github.com/Knowledge-Graph-Hub/kg-microbe/tree/main/mappings)
+(with conventions documented in
+[kg-microbe/.claude/skills/metpo-proposal/SKILL.md](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/main/.claude/skills/metpo-proposal/SKILL.md))
+currently covers phenotypic traits, tolerance ranges,
 and enzyme assays — but has **zero** coverage of community-level roles,
 interaction types, and evidence framing. This proposal closes that gap by
 lifting 9 community-shaped enums into METPO classes (with grouping parents to
@@ -175,10 +177,11 @@ Manual cross-checks:
 2. Every CommunityMech slot exercised by the community YAML corpus
    (e.g., `EcologicalInteraction.source_taxon`) maps to a property row.
 3. Round-trip on three community YAMLs that span the scope:
-   `Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml` (Fe-redox cycling,
-   metal-reduction category), `BioModels_MODEL2204300001_Kefir_Community_Model.yaml`
+   `kb/communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml`
+   (Fe-redox cycling, metal-reduction category),
+   `kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml`
    (engineered metabolic, with external_resources evidence), and
-   `Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml`
+   `kb/communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml`
    (bioremediation category, COMPETITION + CROSS_FEEDING interactions, PARTIAL
    and SUPPORT evidence levels). Confirm every enum value cited in these YAMLs
    resolves to a class in this proposal.
