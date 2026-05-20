@@ -102,19 +102,22 @@ All have `MicrobialCommunity` (`METPO:1007100`) as domain.
 
 | Property | Range | Source slot |
 | --- | --- | --- |
-| `has metal element present` (`METPO:2008000`) | `CHEBI:33521` (metal cation) | `MicrobialCommunity.metals_present` |
-| `has rare earth element present` (`METPO:2008001`) | `CHEBI:33530` (rare earth atom) | `MicrobialCommunity.rare_earth_elements_present` |
+| `has metal element present` (`METPO:2008000`) | `CHEBI:24431` (chemical entity) | `MicrobialCommunity.metals_present` |
+| `has rare earth element present` (`METPO:2008001`) | `CHEBI:24431` (chemical entity) | `MicrobialCommunity.rare_earth_elements_present` |
 | `has metal relevance` (`METPO:2008002`) | `METPO:1008003` (metal relevance level) | `MicrobialCommunity.metal_relevance` |
 
-The first two predicates deliberately point their `RANGE` at a CHEBI
-parent class (`CHEBI:33521` metal cation; `CHEBI:33530` rare earth
-atom group) so that:
-
-1. Per-element edges in community YAMLs (e.g.,
-   `Alaska_Tundra ... CHEBI:29033`) validate as `CHEBI:29033 ⊑
-   CHEBI:33521` already known to CHEBI.
-2. No METPO per-element leaf needs to be minted just to satisfy the
-   predicate's range constraint.
+The first two predicates use the broad `CHEBI:24431` (chemical
+entity) as range because the schema-side enums mix atom-form and
+cation-form CHEBI values: `MetalElementEnum` includes atom-form
+entries (`URANIUM` → `CHEBI:27214` uranium atom, `GOLD` → `CHEBI:29287`
+gold atom, `CHROMIUM` → `CHEBI:28073`, `TITANIUM` → `CHEBI:33341`,
+`PALLADIUM` → `CHEBI:33373`) alongside cation-form entries
+(`IRON` → `CHEBI:29033` iron(2+) cation, etc.); narrower CHEBI parents
+like `CHEBI:33521` (metal cation) or `CHEBI:33709` (metal atom) would
+reject some valid existing data. The intent is to keep per-element
+edges as CHEBI IRIs (no METPO per-element leaves minted); the range
+type-hint is deliberately loose to accommodate the heterogeneous
+schema values.
 
 ## ID space and subset
 
