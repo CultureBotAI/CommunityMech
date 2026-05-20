@@ -33,6 +33,8 @@ level assertions the same way.
 | `CommunityCategoryEnum` | `community functional category` (`METPO:1007200`) | 15 | 5 (thematic groupings) | 123–155 |
 | `CommunityOriginEnum` | `community origin type` (`METPO:1007190`) | 3 | 0 (flat) | 97–105 |
 | `EcologicalStateEnum` | `community ecological state` (`METPO:1007180`) | 4 | 0 (flat) | 85–95 |
+| `AtmosphereEnum` (v1.1) | `atmosphere requirement` (`METPO:1007301`) | 6 | 0 (flat) | 228–243 |
+| `MediaRelationshipEnum` (v1.1) | `growth media relationship type` (`METPO:1007310`) | 5 | 0 (flat) | 107–121 |
 
 Plus three new **top-level domain classes** (children of `METPO:1000000`):
 
@@ -127,22 +129,25 @@ semantically meaningful.
 
 ## ID space and subset
 
-- **Classes**: `METPO:1007100`–`METPO:1007220` (placeholder, within the
-  KG-Microbe-reserved 1007xxx range per the SKILL.md placeholder policy)
-- **Properties**: `METPO:2007100`–`METPO:2007113` (placeholder)
+- **Classes**:
+  - v1: `METPO:1007100`–`METPO:1007220` (placeholder, within the KG-Microbe-reserved 1007xxx range per the SKILL.md placeholder policy)
+  - v1.1 extension: `METPO:1007300`–`METPO:1007315` (AtmosphereEnum + MediaRelationshipEnum + shared top-level domain class `community-relevant growth medium` at `METPO:1007300`)
+- **Properties**:
+  - v1: `METPO:2007100`–`METPO:2007113`
+  - v1.1 extension: `METPO:2007200`–`METPO:2007201`
 - **Subset tag** on every row: `metpo_communitymech_2026_05`
 - **Definition source** on every leaf row: `CommunityMech:communitymech.yaml#<enum-name>.<value>`
-  for direct enum lifts; `TODO:add_citation` for the 10 intermediate grouping
-  parents (which are introduced in this proposal, not lifted from the schema).
+  for direct enum lifts; `CommunityMech:proposals/metpo_communitymech_v1/proposal.md#hierarchy-decisions`
+  for the 10 intermediate grouping parents introduced in this proposal.
 - **Priority**: `HIGH` on all rows that come directly from CommunityMech enums;
-  `MEDIUM` on `OTHER` catch-all leaves.
+  `MEDIUM` on `OTHER` catch-all leaves and `REFERENCED_IN_STUDY` medium-relationship value.
 
 ## Files
 
 | File | Rows | Notes |
 | --- | --- | --- |
-| `metpo_proposal_classes_robot.tsv` | 1 column header + 1 ROBOT header + 74 class rows = 76 lines | mirror of `kg-microbe/mappings/metpo_proposal_classes_robot.tsv` schema |
-| `metpo_proposal_properties_robot.tsv` | 1 column header + 1 ROBOT header + 14 property rows = 16 lines | mirror of `kg-microbe/mappings/metpo_proposal_properties_robot.tsv` schema |
+| `metpo_proposal_classes_robot.tsv` | 1 column header + 1 ROBOT header + 88 class rows = 90 lines (74 in v1 + 14 in v1.1 extension) | mirror of `kg-microbe/mappings/metpo_proposal_classes_robot.tsv` schema |
+| `metpo_proposal_properties_robot.tsv` | 1 column header + 1 ROBOT header + 16 property rows = 18 lines (14 in v1 + 2 in v1.1 extension) | mirror of `kg-microbe/mappings/metpo_proposal_properties_robot.tsv` schema |
 | `proposal.md` | (this file) | narrative for reviewer |
 
 ## Verification
@@ -203,3 +208,22 @@ When this proposal is approved here in CommunityMech:
 
 - **v1, 2026-05**: Initial proposal. 74 class rows (9 enums, 3 top-level
   domain classes, 10 intermediate grouping parents) + 14 property rows.
+- **v1.0.1, 2026-05 (revised)**: Addressed Copilot review on PR #74.
+  Replaced kg-microbe relative link with absolute GitHub URL; added
+  `kb/communities/` prefixes to verification example YAMLs; narrowed
+  `has supporting evidence` (METPO:2007106) definition to match its
+  domain METPO:1007101; replaced 10 `TODO:add_citation` placeholders
+  with the proposal-narrative anchor URL; replaced overbroad
+  `ecological interaction` synonym on METPO:1007101 with two precise
+  variants.
+- **v1.1, 2026-05**: Path B extension. Added `AtmosphereEnum`
+  (`METPO:1007301`–`METPO:1007307`, 1 enum-parent + 6 leaves) and
+  `MediaRelationshipEnum` (`METPO:1007310`–`METPO:1007315`, 1
+  enum-parent + 5 leaves), under a shared new top-level domain class
+  `community-relevant growth medium` (`METPO:1007300`). Added 2 new
+  predicates: `has atmosphere requirement` (`METPO:2007200`) and
+  `has growth media relationship` (`METPO:2007201`). New ID block
+  starts at `1007300` / `2007200` per the skill's Path B rule
+  (at least 10 above the v1 high-water marks of `1007220` /
+  `2007113`). Total now: 88 class rows + 16 property rows. Same
+  subset tag.
