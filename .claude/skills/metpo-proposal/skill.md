@@ -45,7 +45,7 @@ under `proposals/metpo_communitymech_v1/`.
 
 Do NOT use for: lifting PATO/GO/CHEBI cross-references (those already exist
 upstream), lifting tolerance ranges (use the upstream
-[kg-microbe metpo-proposal skill](../../../../../kg-microbe/.claude/skills/metpo-proposal/SKILL.md)
+[kg-microbe metpo-proposal skill](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/main/.claude/skills/metpo-proposal/SKILL.md)
 which handles the paired positive/negative predicate convention).
 
 ---
@@ -54,7 +54,8 @@ which handles the paired positive/negative predicate convention).
 
 Before generating a proposal, read:
 
-1. **`/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/kg-microbe/.claude/skills/metpo-proposal/SKILL.md`** —
+1. **[kg-microbe/.claude/skills/metpo-proposal/SKILL.md](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/main/.claude/skills/metpo-proposal/SKILL.md)**
+   (local clone path: `~/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/kg-microbe/.claude/skills/metpo-proposal/SKILL.md`) —
    the upstream metpo-proposal skill. Defines:
    - Aristotelian definition style
    - `definition_source` citation forms (PMID, DOI, BacDive, `TODO:add_citation`)
@@ -62,9 +63,9 @@ Before generating a proposal, read:
    - Parent-class selection (audit for siblings before falling back to
      `METPO:1000000`)
    - The 12-point pre-submission checklist
-2. **`/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/kg-microbe/mappings/metpo_proposal_classes_robot.tsv`** —
+2. **[kg-microbe/mappings/metpo_proposal_classes_robot.tsv](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/main/mappings/metpo_proposal_classes_robot.tsv)** —
    the canonical 11-column class template. Copy the two-row header verbatim.
-3. **`/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/kg-microbe/mappings/metpo_proposal_properties_robot.tsv`** —
+3. **[kg-microbe/mappings/metpo_proposal_properties_robot.tsv](https://github.com/Knowledge-Graph-Hub/kg-microbe/blob/main/mappings/metpo_proposal_properties_robot.tsv)** —
    the canonical 12-column property template.
 4. **`proposals/metpo_communitymech_v1/`** in this repo — the reference
    example. Read all three files end-to-end before writing a new cohort.
