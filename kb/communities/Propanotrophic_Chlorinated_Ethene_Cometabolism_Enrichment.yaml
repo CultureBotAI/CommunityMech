@@ -109,9 +109,12 @@ taxonomy:
       id: NCBITaxon:1866885
       label: Mycolicibacterium
     notes: Dominant genus across all four cDCE-amended enrichments and the
-      most abundant in the TCE-amended enrichment from impacted-site
-      sediment; carries propane monooxygenase operons with prmACDB ordering
-      consistent with group-6 SDIMOs.
+      most abundant in the TCE-amended enrichment from impacted-site sediment
+      by community-composition analysis. MAG-level propane monooxygenase
+      operons in the paper are reported for Rhodococcus, Mycobacterium, and
+      Pseudonocardia (plus two Proteobacteria), not Mycolicibacterium; the
+      prmACDB-ordered operons consistent with group-6 SDIMOs are specifically
+      attributed to Mycobacterium MAGs.
   functional_role:
   - PRIMARY_DEGRADER
   abundance_level: DOMINANT
@@ -221,10 +224,12 @@ taxonomy:
 ecological_interactions:
 - name: Propane-Cometabolic TCE Degradation by Rhodococcus
   description: Rhodococcus opacus and R. wratislaviensis populations dominate
-    TCE-amended enrichments and degrade TCE cometabolically while growing on
-    propane as the sole carbon and energy source; the group-5 propane
-    monooxygenase (prmABCD) is implicated as the enzyme that fortuitously
-    oxidizes TCE.
+    TCE-amended enrichments and degrade TCE while propane is supplied as the
+    growth substrate. The Rhodococcus MAGs carry the group-5 propane
+    monooxygenase operon (prmABCD); functional gene analysis identified both
+    group 5 and putative group 6 propane monooxygenases in the community
+    but expression was not examined, so the specific enzyme responsible for
+    TCE oxidation in vivo is not directly demonstrated.
   interaction_type: CROSS_FEEDING
   source_taxon:
     preferred_term: Rhodococcus opacus
@@ -234,7 +239,7 @@ ecological_interactions:
   metabolites:
   - preferred_term: trichloroethene
     term:
-      id: CHEBI:18045
+      id: CHEBI:16602
       label: trichloroethene
   - preferred_term: propane
     term:
@@ -317,7 +322,7 @@ ecological_interactions:
   metabolites:
   - preferred_term: trichloroethene
     term:
-      id: CHEBI:18045
+      id: CHEBI:16602
       label: trichloroethene
   - preferred_term: cis-1,2-dichloroethene
     term:
@@ -351,9 +356,10 @@ ecological_interactions:
 - name: 1,1-DCE-Driven Inhibition of Propanotrophs
   description: 1,1-DCE biodegradation is restricted to a subset of cultures
     and stalls at elevated concentrations; propane biodegradation slowed
-    during 1,1-DCE exposure and resumed when TCE was substituted, indicating
-    transient inhibition or toxicity of propanotrophs by 1,1-DCE itself
-    rather than its irreversible transformation products.
+    during 1,1-DCE exposure and resumed when TCE was substituted, consistent
+    with inhibitory or toxic effects on propanotrophs at the elevated
+    concentrations tested. The paper does not separate inhibition by the
+    parent 1,1-DCE from inhibition by its transformation products.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   metabolites:
