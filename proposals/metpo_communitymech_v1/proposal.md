@@ -12,8 +12,18 @@ claims about them. The METPO proposal pipeline at
 currently covers phenotypic traits, tolerance ranges,
 and enzyme assays — but has **zero** coverage of community-level roles,
 interaction types, and evidence framing. This proposal closes that gap by
-lifting 9 community-shaped enums into METPO classes (with grouping parents to
-give them a hierarchy) and proposing 14 object properties that connect them.
+lifting 12 community-shaped enums (across the v1, v1.1, and v1.2 cohorts:
+`FunctionalRoleEnum`, `InteractionTypeEnum`, `InteractionScopeEnum`,
+`EvidenceItemSupportEnum`, `EvidenceSourceEnum`, `AbundanceEnum`,
+`CommunityCategoryEnum`, `CommunityOriginEnum`, `EcologicalStateEnum`,
+`AtmosphereEnum`, `MediaRelationshipEnum`, `MetalRelevanceEnum`) plus
+two enums that anchor CHEBI-reused per-element values (`MetalElementEnum`,
+`RareEarthElementEnum`) into METPO classes with grouping parents, and
+proposing 19 object properties that connect them. The schema's
+remaining enums (`DatasetTypeEnum`, `DatasetRepositoryEnum`,
+`ExternalResourceRepositoryEnum`, `CultureCollectionEnum`) are pure
+machine-identifier categories and out of scope for METPO per the
+skill's "what not to lift" rule.
 
 After upstream sign-off and ID minting, KGs in the KG-Microbe ecosystem will
 be able to express CommunityMech assertions as METPO triples, so reasoners
