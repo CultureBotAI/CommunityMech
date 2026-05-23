@@ -187,7 +187,7 @@ related_media:
 ### SPARQL: Find Media for Peatland Communities
 
 ```sparql
-PREFIX cm: <https://w3id.org/culturebot-ai/communitymech/>
+PREFIX cm: <https://w3id.org/communitymech/>
 
 SELECT ?community_name ?media_name ?culturemech_id ?relationship
 WHERE {
@@ -203,7 +203,7 @@ WHERE {
 ### SPARQL: Find Ingredients for an Environment
 
 ```sparql
-PREFIX cm: <https://w3id.org/culturebot-ai/communitymech/>
+PREFIX cm: <https://w3id.org/communitymech/>
 
 SELECT ?community_name ?ingredient ?mim_id ?relevance
 WHERE {
@@ -219,7 +219,7 @@ WHERE {
 ### SPARQL: Full Cross-Repo Join via Shared ENVO Terms
 
 ```sparql
-PREFIX cm: <https://w3id.org/culturebot-ai/communitymech/>
+PREFIX cm: <https://w3id.org/communitymech/>
 PREFIX cult: <https://w3id.org/culturebot-ai/culturemech/>
 PREFIX mim: <https://w3id.org/culturebot-ai/mediaingredientmech/>
 
@@ -240,7 +240,7 @@ WHERE {
 ### SPARQL: Reverse Lookup -- Communities for a CultureMech Medium
 
 ```sparql
-PREFIX cm: <https://w3id.org/culturebot-ai/communitymech/>
+PREFIX cm: <https://w3id.org/communitymech/>
 
 SELECT ?community_name ?environment ?relationship
 WHERE {

@@ -1,0 +1,35 @@
+# Redirect rules for https://w3id.org/communitymech/
+#
+# Owner: CultureBotAI (https://github.com/CultureBotAI)
+# Contact: marcinjoachimiak@gmail.com
+# Source repo: https://github.com/CultureBotAI/CommunityMech
+#
+# Pattern summary:
+#   /                              -> CommunityMech docs landing page
+#   /<Name>                        -> Per-community HTML page on github.io
+#   /<Name>.html                   -> Same as /<Name>, idempotent
+#   /<Name>.yaml                   -> Source YAML on GitHub raw
+#   /schema/communitymech.yaml     -> LinkML schema source
+#
+# CommunityMech identifiers in the LinkML schema use the CURIE form
+# `CommunityMech:NNNNNN` (e.g., CommunityMech:000024). The community
+# slug (filename without .yaml) is what resolves here; the numeric ID
+# is recorded in the YAML body. See the project's docs for the mapping.
+
+Options +FollowSymLinks
+RewriteEngine On
+
+# Schema source
+RewriteRule ^schema/communitymech\.yaml$ https://raw.githubusercontent.com/CultureBotAI/CommunityMech/main/src/communitymech/schema/communitymech.yaml [R=302,L]
+
+# Per-community source YAML
+RewriteRule ^([A-Za-z0-9_]+)\.yaml$ https://raw.githubusercontent.com/CultureBotAI/CommunityMech/main/kb/communities/$1.yaml [R=302,L]
+
+# Per-community HTML page (canonical)
+RewriteRule ^([A-Za-z0-9_]+)\.html$ https://culturebotai.github.io/CommunityMech/communities/$1.html [R=302,L]
+
+# Per-community HTML page (extensionless CURIE local part)
+RewriteRule ^([A-Za-z0-9_]+)$ https://culturebotai.github.io/CommunityMech/communities/$1.html [R=302,L]
+
+# Landing page
+RewriteRule ^$ https://culturebotai.github.io/CommunityMech/ [R=302,L]

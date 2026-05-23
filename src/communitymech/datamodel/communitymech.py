@@ -1,8 +1,8 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-16T01:52:45
+# Generation date: 2026-05-23T01:23:35
 # Schema: communitymech
 #
-# id: https://w3id.org/culturebot-ai/communitymech
+# id: https://w3id.org/communitymech
 # description: Schema for modeling microbial community structure, function, and ecological interactions
 # license: BSD-3-Clause
 
@@ -36,7 +36,7 @@ GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
 UBERON = CurieNamespace("UBERON", "http://purl.obolibrary.org/obo/UBERON_")
-COMMUNITYMECH = CurieNamespace("communitymech", "https://w3id.org/culturebot-ai/communitymech/")
+COMMUNITYMECH = CurieNamespace("communitymech", "https://w3id.org/communitymech/")
 DOI = CurieNamespace("doi", "https://doi.org/")
 LINKML = CurieNamespace("linkml", "https://w3id.org/linkml/")
 XSD = CurieNamespace("xsd", "http://www.w3.org/2001/XMLSchema#")
