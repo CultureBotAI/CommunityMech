@@ -256,6 +256,72 @@ environmental_factors:
     snippet: microbial methane (CH4) and carbon dioxide (CO2) emissions
     explanation: Supports methane and carbon dioxide emissions as measured community outputs.
 growth_media: []
+related_ingredients:
+- preferred_term: sulfate
+  chebi_term:
+    id: CHEBI:16189
+    label: sulfate
+  relevance: Sulfate is one of the two explicitly manipulated stressors in
+    this microcosm study; elevated sulfate reshapes the community's CH4/CO2
+    partitioning and selectively suppresses hydrogenotrophic methanogenesis,
+    so an environment-analog medium must support sulfate concentration as a
+    primary independent variable.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Elevated SO42- reduced CH4 emissions, with hydrogenotrophic
+      methanogenesis more suppressed than acetoclastic
+    explanation: Anchors sulfate as the central electron-acceptor stressor
+      driving the methanogenic response in this microcosm community.
+- preferred_term: oxygen
+  chebi_term:
+    id: CHEBI:15379
+    label: dioxygen
+  relevance: Oxygen exposure (e.g., drought-induced) is the second manipulated
+    stressor and shifts the community's greenhouse-gas output from methane to
+    carbon dioxide; any environment-analog cultivation medium would need
+    controllable oxygen tension rather than strict anoxia.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Elevated O2 shifted the greenhouse gas emissions from CH4 to CO2
+    explanation: Anchors O2 as a controllable stressor reshaping the community's
+      carbon-cycling output.
+- preferred_term: lactate
+  chebi_term:
+    id: CHEBI:24996
+    label: lactate
+  relevance: Lactate is the upstream organic substrate the stoichiometric
+    model identifies as feeding the SO4-coupled subnetwork that produces
+    acetate, H2S, and CO2 under combined oxic/sulfate conditions; a
+    cultivation medium for the SO4-stressed subcommunity would need lactate
+    as the primary carbon source.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: converts lactate and SO42- to produce acetate, H2S, and CO2 when
+      SO42- is elevated under oxic conditions
+    explanation: Anchors lactate as the headline organic substrate in the
+      SO4-coupled metabolic subnetwork identified by stoichiometric modeling.
+- preferred_term: hydrogen sulfide
+  chebi_term:
+    id: CHEBI:16136
+    label: hydrogen sulfide
+  relevance: H2S is the headline reduced-sulfur product of the SO4-coupled
+    subnetwork and is the metabolite that closes the sulfur cycle in this
+    community; any medium designed around the SO4-amended subcommunity should
+    accommodate H2S accumulation or trapping.
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: converts lactate and SO42- to produce acetate, H2S, and CO2 when
+      SO42- is elevated under oxic conditions
+    explanation: Anchors H2S as a key product of the SO4-coupled subnetwork
+      central to this microcosm community.
 associated_datasets:
 - name: Wetland oxygen-sulfate metagenome BioProject
   dataset_type: METAGENOME

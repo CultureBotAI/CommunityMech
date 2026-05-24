@@ -47,8 +47,11 @@ class EmbeddingLoader:
         # Try loading from cache
         if not force_reload and cache_path.exists():
             print(f"📦 Loading embeddings from cache: {cache_path}")
+            # S301: cache file is written by this same module to a path
+            # under self.cache_dir (a developer-controlled location); never
+            # loaded from an untrusted source.
             with open(cache_path, "rb") as f:
-                embeddings = pickle.load(f)
+                embeddings = pickle.load(f)  # noqa: S301
             print(f"✅ Loaded {len(embeddings):,} embeddings from cache")
             return embeddings
 

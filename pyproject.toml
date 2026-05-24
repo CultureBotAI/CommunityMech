@@ -74,8 +74,18 @@ target-version = "py310"
 extend-exclude = ["src/communitymech/datamodel/communitymech.py"]
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "UP", "N", "S", "B", "A", "C4", "T20", "SIM"]
+# T20 (print) is deliberately omitted: src/communitymech/ ships CLI
+# entry points (cli.py, render_*, export/*, embedding/*, validators)
+# that legitimately use print for user output, and tagging each call
+# with `# noqa: T201` is louder than the rule is worth here.
+select = ["E", "F", "I", "UP", "N", "S", "B", "A", "C4", "SIM"]
 ignore = ["S101", "S603", "S607"]
+
+[tool.ruff.lint.per-file-ignores]
+# E501 (line-too-long) is suppressed in prompt-template modules because
+# the strings are LLM prompt content; wrapping or splitting them would
+# alter the rendered prompt.
+"src/communitymech/llm/prompts.py" = ["E501"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

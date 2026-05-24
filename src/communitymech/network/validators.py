@@ -184,7 +184,10 @@ class SuggestionValidator:
                     ValidationError(
                         layer="schema",
                         field=f"suggested_interactions[{idx}].interaction_type",
-                        message=f"Invalid interaction type. Must be one of: {', '.join(_INTERACTION_TYPE_VALUES)}",
+                        message=(
+                            "Invalid interaction type. Must be one of: "
+                            f"{', '.join(_INTERACTION_TYPE_VALUES)}"
+                        ),
                         severity="error",
                     )
                 )
@@ -274,7 +277,10 @@ class SuggestionValidator:
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.supports",
-                    message=f"Invalid value for 'supports'. Must be one of: {', '.join(_SUPPORTS_VALUES)}",
+                    message=(
+                        "Invalid value for 'supports'. Must be one of: "
+                        f"{', '.join(_SUPPORTS_VALUES)}"
+                    ),
                     severity="error",
                 )
             )
@@ -284,7 +290,10 @@ class SuggestionValidator:
                 ValidationError(
                     layer="schema",
                     field=f"{field_path}.evidence_source",
-                    message=f"Invalid value for 'evidence_source'. Must be one of: {', '.join(_EVIDENCE_SOURCE_VALUES)}",
+                    message=(
+                        "Invalid value for 'evidence_source'. Must be one of: "
+                        f"{', '.join(_EVIDENCE_SOURCE_VALUES)}"
+                    ),
                     severity="error",
                 )
             )
@@ -433,7 +442,10 @@ class SuggestionValidator:
                             ValidationError(
                                 layer="evidence",
                                 field=f"suggested_interactions[{idx}].evidence[{ev_idx}].snippet",
-                                message=f"Snippet does not match abstract (< {self.min_snippet_match_score*100}% similarity)",
+                                message=(
+                                    "Snippet does not match abstract "
+                                    f"(< {self.min_snippet_match_score*100}% similarity)"
+                                ),
                                 severity="error",
                             )
                         )
@@ -536,7 +548,10 @@ class SuggestionValidator:
                     ValidationError(
                         layer="plausibility",
                         field=f"suggested_interactions[{idx}].metabolites_exchanged",
-                        message=f"{interaction_type} interaction typically involves metabolite exchange",
+                        message=(
+                            f"{interaction_type} interaction typically involves "
+                            "metabolite exchange"
+                        ),
                         severity="warning",
                     )
                 )

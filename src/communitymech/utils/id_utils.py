@@ -202,8 +202,9 @@ def find_highest_id_multi_file(directory: Path, prefix: str, pattern: str = "*.y
             id_str = data.get("id", "")
             if id_num := parse_xmech_id(id_str, prefix):
                 max_id = max(max_id, id_num)
-        except Exception:
-            # Skip files that can't be parsed
+        except Exception:  # noqa: S112
+            # Skip files that can't be parsed; the goal here is to find the
+            # max valid ID, so unparseable entries are intentionally ignored.
             continue
 
     return max_id

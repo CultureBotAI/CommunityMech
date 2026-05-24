@@ -137,7 +137,9 @@ class NetworkIntegrityAuditor:
                                 "interaction": int_name,
                                 "interaction_index": idx,
                                 "taxon": source_term,
-                                "message": f"Source taxon '{source_term}' not found in taxonomy section",
+                                "message": (
+                                    f"Source taxon '{source_term}' not found in " "taxonomy section"
+                                ),
                             }
                         )
                 else:
@@ -154,7 +156,10 @@ class NetworkIntegrityAuditor:
                                 "role": "source",
                                 "expected_id": expected_id,
                                 "actual_id": source_id,
-                                "message": f"Source '{source_term}' has ID {source_id}, expected {expected_id}",
+                                "message": (
+                                    f"Source '{source_term}' has ID {source_id}, "
+                                    f"expected {expected_id}"
+                                ),
                             }
                         )
 
@@ -172,7 +177,9 @@ class NetworkIntegrityAuditor:
                                 "interaction": int_name,
                                 "interaction_index": idx,
                                 "taxon": target_term,
-                                "message": f"Target taxon '{target_term}' not found in taxonomy section",
+                                "message": (
+                                    f"Target taxon '{target_term}' not found in " "taxonomy section"
+                                ),
                             }
                         )
                 else:
@@ -189,7 +196,10 @@ class NetworkIntegrityAuditor:
                                 "role": "target",
                                 "expected_id": expected_id,
                                 "actual_id": target_id,
-                                "message": f"Target '{target_term}' has ID {target_id}, expected {expected_id}",
+                                "message": (
+                                    f"Target '{target_term}' has ID {target_id}, "
+                                    f"expected {expected_id}"
+                                ),
                             }
                         )
 

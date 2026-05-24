@@ -13,7 +13,6 @@ from communitymech.network.auditor import NetworkIntegrityAuditor
 try:
     from rich.console import Console
     from rich.panel import Panel
-    from rich.progress import Progress, SpinnerColumn, TextColumn
     from rich.prompt import Confirm
     from rich.syntax import Syntax
     from rich.table import Table
@@ -156,10 +155,7 @@ def repair_network(file: Path, auto_approve: bool, dry_run: bool, max_repairs: i
         sys.exit(1)
 
     # Initialize console
-    if RICH_AVAILABLE:
-        console = Console()
-    else:
-        console = None
+    console = Console() if RICH_AVAILABLE else None
 
     try:
         # Initialize repairer
@@ -478,7 +474,8 @@ def _generate_batch_report(output_path: Path, max_communities: int, max_issues: 
         console.print(f"1. Review the report: {result['report_path']}")
         console.print("2. Set 'approved: true' for suggestions you want to apply")
         console.print(
-            f"3. Apply approved: communitymech repair-network-batch --apply-from {result['report_path']}"
+            "3. Apply approved: communitymech repair-network-batch "
+            f"--apply-from {result['report_path']}"
         )
         console.print()
 

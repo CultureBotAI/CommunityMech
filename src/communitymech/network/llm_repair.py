@@ -244,7 +244,7 @@ class LLMNetworkRepairer:
             # Restore from backup on failure
             if backup_path.exists():
                 shutil.copy(backup_path, yaml_path)
-            raise RuntimeError(f"Failed to apply suggestion: {e}")
+            raise RuntimeError(f"Failed to apply suggestion: {e}") from e
 
     def _create_backup(self, yaml_path: Path) -> Path:
         """

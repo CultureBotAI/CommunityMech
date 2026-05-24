@@ -20,7 +20,10 @@ class UMAPVisualizationGenerator:
     def generate(
         self,
         communities_dir: str = "kb/communities",
-        embeddings_path: str = "data/embeddings/DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz",
+        embeddings_path: str = (
+            "data/embeddings/"
+            "DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz"
+        ),
         output_path: str = "docs/community_umap.html",
         template_dir: str | None = None,
         cache_dir: str = ".umap_cache",
@@ -62,14 +65,11 @@ class UMAPVisualizationGenerator:
         )
 
         print(f"\n📦 Aggregated {len(community_vectors)} communities")
+        skipped = self._count_yaml_files(communities_dir) - len(community_vectors)
         if exclude_hosts:
-            print(
-                f"   (excluded non-microbial host taxa from {self._count_yaml_files(communities_dir) - len(community_vectors)} communities)"
-            )
+            print(f"   (excluded non-microbial host taxa from {skipped} communities)")
         else:
-            print(
-                f"   (skipped {self._count_yaml_files(communities_dir) - len(community_vectors)} due to low coverage)"
-            )
+            print(f"   (skipped {skipped} due to low coverage)")
 
         # Step 3: Run UMAP
         reducer = UMAPReducer(n_neighbors=n_neighbors, min_dist=min_dist, random_state=42)
@@ -177,8 +177,12 @@ class UMAPVisualizationGenerator:
         if template_dir is None:
             template_dir = str(Path(__file__).parent.parent / "templates")
 
-        # Set up Jinja2 environment
-        env = Environment(loader=FileSystemLoader(template_dir))
+        # Set up Jinja2 environment. autoescape is left at the default
+        # (False) because the template renders a JSON blob into a <script>
+        # block; HTML-escaping it would break the embedded JSON. The
+        # rendered output is also written to a local file and not served
+        # to untrusted users.
+        env = Environment(loader=FileSystemLoader(template_dir))  # noqa: S701
         template = env.get_template("community_umap.html")
 
         # Render template
