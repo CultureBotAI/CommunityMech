@@ -7,6 +7,7 @@ using a three-tiered approach:
 3. Description keyword matching with context validation
 """
 
+import re
 from pathlib import Path
 
 import yaml
@@ -98,6 +99,19 @@ GENERIC_REE_KEYWORDS = ["rare earth", "ree", "lanthanide"]
 METAL_KEYWORDS_FLAT = [kw for keywords in METAL_KEYWORDS.values() for kw in keywords]
 REE_KEYWORDS_FLAT = [kw for keywords in REE_KEYWORDS.values() for kw in keywords]
 
+
+def _keyword_in_text(keyword: str, text: str) -> bool:
+    """Return True if keyword occurs in text as a standalone token.
+
+    Plain substring matching falsely fires when short element symbols like
+    'ti' or 'au' appear inside unrelated words ('characteristic',
+    'Australia'). Anchor on non-alphanumeric boundaries (so 'au3+' still
+    matches; '+' is non-alphanumeric). Case-insensitive.
+    """
+    pattern = rf"(?<![A-Za-z0-9]){re.escape(keyword)}(?![A-Za-z0-9])"
+    return re.search(pattern, text, re.IGNORECASE) is not None
+
+
 # Strong evidence context keywords for tier 3 extraction
 STRONG_CONTEXT_KEYWORDS = [
     "bioleaching",
@@ -165,7 +179,7 @@ def extract_metals_from_community(yaml_path: Path) -> tuple[list[str], list[str]
     # Combine notes
     notes = "; ".join(notes_parts) if notes_parts else ""
 
-    return sorted(list(metals)), sorted(list(ree)), relevance, notes
+    return sorted(metals), sorted(ree), relevance, notes
 
 
 def _extract_from_chebi_terms(data: dict) -> tuple[set[str], set[str]]:
@@ -201,12 +215,12 @@ def _extract_from_environmental_factors(data: dict) -> tuple[set[str], set[str]]
 
         # Check for metal keywords
         for metal, keywords in METAL_KEYWORDS.items():
-            if any(kw in name for kw in keywords):
+            if any(_keyword_in_text(kw, name) for kw in keywords):
                 metals.add(metal)
 
         # Check for REE keywords
         for element, keywords in REE_KEYWORDS.items():
-            if any(kw in name for kw in keywords):
+            if any(_keyword_in_text(kw, name) for kw in keywords):
                 ree.add(element)
 
     return metals, ree
@@ -231,22 +245,22 @@ def _extract_from_description(data: dict) -> tuple[set[str], set[str], str]:
     search_text = " ".join(text_parts).lower()
 
     # Check for strong evidence context
-    has_strong_context = any(keyword in search_text for keyword in STRONG_CONTEXT_KEYWORDS)
+    has_strong_context = any(_keyword_in_text(kw, search_text) for kw in STRONG_CONTEXT_KEYWORDS)
 
     if not has_strong_context:
         return metals, ree, notes
 
     # Only extract if strong context is present
     for metal, keywords in METAL_KEYWORDS.items():
-        if any(kw in search_text for kw in keywords):
+        if any(_keyword_in_text(kw, search_text) for kw in keywords):
             metals.add(metal)
 
     for element, keywords in REE_KEYWORDS.items():
-        if any(kw in search_text for kw in keywords):
+        if any(_keyword_in_text(kw, search_text) for kw in keywords):
             ree.add(element)
 
     # Check for generic REE mentions
-    if any(kw in search_text for kw in GENERIC_REE_KEYWORDS):
+    if any(_keyword_in_text(kw, search_text) for kw in GENERIC_REE_KEYWORDS):
         notes = "Generic REE mention detected in description - manual curation recommended"
 
     if metals or ree:
@@ -266,9 +280,10 @@ def _compute_relevance(data: dict, metals: set[str], ree: set[str]) -> str:
         return "PRIMARY"
 
     # Check for explicit biomining/bioleaching mentions
-    if any(kw in description for kw in ["biomining", "bioleaching", "metal extraction"]):
-        if metals or ree:
-            return "PRIMARY"
+    if (metals or ree) and any(
+        kw in description for kw in ["biomining", "bioleaching", "metal extraction"]
+    ):
+        return "PRIMARY"
 
     # SIGNIFICANT: Metal/REE plays an important but not primary role
     if (metals or ree) and category not in ["RHIZOSPHERE", "LIGNOCELLULOSE", "OTHER"]:

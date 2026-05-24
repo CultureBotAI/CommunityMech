@@ -478,7 +478,7 @@ def _informative_tokens(value: str) -> set[str]:
     raw_tokens = re.findall(r"[a-z0-9]+", value.lower())
     fused_tokens: list[str] = []
 
-    for left, right in zip(raw_tokens, raw_tokens[1:]):
+    for left, right in zip(raw_tokens, raw_tokens[1:], strict=False):
         if (left.isalpha() and right.isdigit()) or (left.isdigit() and right.isalpha()):
             fused_tokens.append(f"{left}{right}")
 

@@ -81,7 +81,10 @@ def safe_mermaid(value: str) -> Markup:
         s = s[len("```mermaid") :].lstrip()
     if s.endswith("```"):
         s = s[:-3].rstrip()
-    return Markup(f'<pre class="mermaid">\n{s}\n</pre>')
+    # S704: input `s` is the Mermaid diagram body written by curators in
+    # community YAML, not user-supplied at runtime; rendering it as-is is
+    # required so Mermaid can render the diagram. Treat as trusted.
+    return Markup(f'<pre class="mermaid">\n{s}\n</pre>')  # noqa: S704
 
 
 def make_env() -> Environment:
@@ -108,9 +111,8 @@ def render_one(
         return "error:no-id", None, ""
     slug = slug_for(community, source_path)
     out_path = out_dir / f"{slug}.html"
-    if not force and out_path.exists():
-        if out_path.stat().st_mtime >= source_path.stat().st_mtime:
-            return "skipped", community, slug
+    if not force and out_path.exists() and out_path.stat().st_mtime >= source_path.stat().st_mtime:
+        return "skipped", community, slug
     template = env.get_template("community.html.j2")
     html = template.render(
         community=community,

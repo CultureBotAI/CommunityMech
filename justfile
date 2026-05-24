@@ -35,6 +35,16 @@ validate-references-all:
         uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
     done
 
+# Validate cross-repo IDs (CultureMech, MediaIngredientMech) in one community file.
+# Pattern checks always run; existence checks run when sibling-repo paths are
+# configured via COMMUNITYMECH_SIBLING_REPOS env (Name=path,Name=path).
+validate-cross-repo-ids FILE:
+    PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py {{FILE}}
+
+# Validate cross-repo IDs across all community files.
+validate-cross-repo-ids-all:
+    PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/*.yaml
+
 # Validate ontology terms in a community file
 validate-terms FILE:
     uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels

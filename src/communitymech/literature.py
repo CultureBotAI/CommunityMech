@@ -561,10 +561,7 @@ class LiteratureFetcher:
         ratio = SequenceMatcher(
             None, snippet_normalized.lower(), abstract_normalized.lower()
         ).ratio()
-        if ratio > 0.95:
-            return True
-
-        return False
+        return ratio > 0.95
 
 
 def main():

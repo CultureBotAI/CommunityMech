@@ -299,6 +299,8 @@ All new fields are optional:
 
 ## Validation
 
+### Schema-level tests
+
 Run the cross-repo linking tests:
 
 ```bash
@@ -310,6 +312,31 @@ Test data files are in `tests/data/test_cross_repo_linking/`:
 - `spruce_with_links.yaml` -- Full example with all features
 - `community_no_links.yaml` -- Backward compatibility
 - `community_all_relationship_types.yaml` -- All 5 enum values
+
+### Cross-repo ID validator
+
+`just validate-cross-repo-ids FILE` checks that `culturemech_id` /
+`mediaingredientmech_id` values match their CURIE patterns and, when
+sibling-repo paths are configured, that the referenced IDs actually
+exist in those repos.
+
+```bash
+# Pattern check only (no sibling-repo paths)
+just validate-cross-repo-ids kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml
+
+# Pattern + existence check
+COMMUNITYMECH_SIBLING_REPOS="CultureMech=../CultureMech/kb/media,MediaIngredientMech=../MediaIngredientMech/kb/ingredients" \
+    just validate-cross-repo-ids-all
+```
+
+The validator returns:
+- `error` for malformed CURIEs or IDs missing from a configured sibling repo
+- `info` for IDs whose existence check was skipped because the relevant
+  sibling-repo path wasn't configured
+- nothing if a community has no cross-repo IDs at all
+
+Sibling-repo paths can also be passed via `--culturemech` /
+`--mediaingredientmech` flags to `scripts/validate_cross_repo_ids.py`.
 
 ## See Also
 

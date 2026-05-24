@@ -8,12 +8,12 @@ from typing import Any
 
 import yaml
 
-logger = logging.getLogger(__name__)
-
 from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
 from communitymech.network.repair_strategies import StrategySelector
 from communitymech.network.validators import SuggestionValidator
+
+logger = logging.getLogger(__name__)
 
 
 class BatchReporter:

@@ -156,7 +156,7 @@ class AnthropicClient(LLMClient):
         try:
             formatted_prompt = prompt.format(**context)
         except KeyError as e:
-            raise ValueError(f"Missing context key for prompt: {e}")
+            raise ValueError(f"Missing context key for prompt: {e}") from e
 
         # Make API call
         try:
@@ -186,9 +186,9 @@ class AnthropicClient(LLMClient):
             return suggestion
 
         except anthropic.APIError as e:
-            raise RuntimeError(f"Anthropic API error: {e}")
+            raise RuntimeError(f"Anthropic API error: {e}") from e
         except Exception as e:
-            raise RuntimeError(f"Error generating suggestion: {e}")
+            raise RuntimeError(f"Error generating suggestion: {e}") from e
 
     def _parse_yaml_response(self, response_text: str) -> dict[str, Any]:
         """
@@ -232,7 +232,7 @@ class AnthropicClient(LLMClient):
                 raise ValueError(f"Expected dict, got {type(parsed)}")
             return parsed
         except yaml.YAMLError as e:
-            raise ValueError(f"Failed to parse YAML: {e}\n\nContent:\n{yaml_content}")
+            raise ValueError(f"Failed to parse YAML: {e}\n\nContent:\n{yaml_content}") from e
 
     def get_cost_estimate(self) -> dict[str, Any]:
         """
