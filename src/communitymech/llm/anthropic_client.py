@@ -8,9 +8,9 @@ from typing import Any
 import yaml
 
 try:
-    import anthropic
+    import anthropic  # type: ignore[import-not-found]
 except ImportError:
-    anthropic = None
+    anthropic = None  # type: ignore[assignment]
 
 from communitymech.llm.client import LLMClient
 from communitymech.llm.prompts import SYSTEM_MESSAGE
@@ -68,8 +68,8 @@ class AnthropicClient(LLMClient):
         self.total_output_tokens = 0
 
         # Rate limiting state
-        self._last_request_time = 0
-        self._requests_this_minute = []
+        self._last_request_time: float = 0
+        self._requests_this_minute: list[float] = []
 
     def _load_config(self) -> dict[str, Any]:
         """Load configuration from conf/llm_config.yaml."""

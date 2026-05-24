@@ -202,7 +202,7 @@ class ContextBuilder:
         summary_parts = []
 
         # Count interaction types
-        interaction_types = Counter()
+        interaction_types: Counter[str] = Counter()
         metabolites_used = set()
         processes_involved = set()
 

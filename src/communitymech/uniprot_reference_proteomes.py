@@ -124,7 +124,7 @@ class UniProtProteomeClient:
 
         query = f"taxonomy_id:{taxonomy_id} AND reference:true"
         params = {"query": query, "format": "json", "size": "500"}
-        url = f"{self.BASE_URL}?{urllib.parse.urlencode(params)}"
+        url: str | None = f"{self.BASE_URL}?{urllib.parse.urlencode(params)}"
         results: list[ProteomeSummary] = []
 
         while url:

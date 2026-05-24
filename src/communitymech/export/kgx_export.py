@@ -335,22 +335,22 @@ def export_kgx(kb_dir: Path, output_dir: Path) -> tuple[int, int]:
     with open(edges_path, "w", newline="") as f:
         w = csv.writer(f, delimiter="\t")
         w.writerow(edge_cols)
-        for e in sorted(edges, key=lambda x: (x.subject, x.predicate, x.object, x.id)):
-            if e.id in seen_ids:
+        for edge in sorted(edges, key=lambda x: (x.subject, x.predicate, x.object, x.id)):
+            if edge.id in seen_ids:
                 continue
-            seen_ids.add(e.id)
+            seen_ids.add(edge.id)
             w.writerow(
                 [
-                    e.id,
-                    e.subject,
-                    e.predicate,
-                    e.object,
-                    e.category,
-                    e.publications,
-                    e.supporting_text,
-                    e.knowledge_level,
-                    e.agent_type,
-                    e.primary_knowledge_source,
+                    edge.id,
+                    edge.subject,
+                    edge.predicate,
+                    edge.object,
+                    edge.category,
+                    edge.publications,
+                    edge.supporting_text,
+                    edge.knowledge_level,
+                    edge.agent_type,
+                    edge.primary_knowledge_source,
                 ]
             )
 

@@ -100,7 +100,7 @@ METAL_KEYWORDS_FLAT = [kw for keywords in METAL_KEYWORDS.values() for kw in keyw
 REE_KEYWORDS_FLAT = [kw for keywords in REE_KEYWORDS.values() for kw in keywords]
 
 
-def _keyword_in_text(keyword: str, text: str) -> bool:
+def keyword_in_text(keyword: str, text: str) -> bool:
     """Return True if keyword occurs in text as a standalone token.
 
     Plain substring matching falsely fires when short element symbols like
@@ -215,12 +215,12 @@ def _extract_from_environmental_factors(data: dict) -> tuple[set[str], set[str]]
 
         # Check for metal keywords
         for metal, keywords in METAL_KEYWORDS.items():
-            if any(_keyword_in_text(kw, name) for kw in keywords):
+            if any(keyword_in_text(kw, name) for kw in keywords):
                 metals.add(metal)
 
         # Check for REE keywords
         for element, keywords in REE_KEYWORDS.items():
-            if any(_keyword_in_text(kw, name) for kw in keywords):
+            if any(keyword_in_text(kw, name) for kw in keywords):
                 ree.add(element)
 
     return metals, ree
@@ -245,22 +245,22 @@ def _extract_from_description(data: dict) -> tuple[set[str], set[str], str]:
     search_text = " ".join(text_parts).lower()
 
     # Check for strong evidence context
-    has_strong_context = any(_keyword_in_text(kw, search_text) for kw in STRONG_CONTEXT_KEYWORDS)
+    has_strong_context = any(keyword_in_text(kw, search_text) for kw in STRONG_CONTEXT_KEYWORDS)
 
     if not has_strong_context:
         return metals, ree, notes
 
     # Only extract if strong context is present
     for metal, keywords in METAL_KEYWORDS.items():
-        if any(_keyword_in_text(kw, search_text) for kw in keywords):
+        if any(keyword_in_text(kw, search_text) for kw in keywords):
             metals.add(metal)
 
     for element, keywords in REE_KEYWORDS.items():
-        if any(_keyword_in_text(kw, search_text) for kw in keywords):
+        if any(keyword_in_text(kw, search_text) for kw in keywords):
             ree.add(element)
 
     # Check for generic REE mentions
-    if any(_keyword_in_text(kw, search_text) for kw in GENERIC_REE_KEYWORDS):
+    if any(keyword_in_text(kw, search_text) for kw in GENERIC_REE_KEYWORDS):
         notes = "Generic REE mention detected in description - manual curation recommended"
 
     if metals or ree:
@@ -298,11 +298,12 @@ def _compute_relevance(data: dict, metals: set[str], ree: set[str]) -> str:
     return "NOT_APPLICABLE"
 
 
-def extract_all_metals_summary() -> dict[str, int]:
+def extract_all_metals_summary() -> dict[str, dict[str, int]]:
     """Generate a summary of all metals/REE across all communities.
 
     Returns:
-        Dictionary mapping metal/REE names to their occurrence counts
+        Dict with two keys ("metals", "ree") each mapping element name
+        to its occurrence count across the community corpus.
     """
     community_dir = Path("kb/communities")
     metal_counts: dict[str, int] = {}

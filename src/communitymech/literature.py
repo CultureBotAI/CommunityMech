@@ -481,6 +481,7 @@ class LiteratureFetcher:
             Tuple of (abstract_text, pdf_url)
         """
         # Determine reference type
+        pmid: str | None
         if reference.startswith("PMID:") or reference.isdigit():
             pmid = reference.replace("PMID:", "").strip()
             abstract = self.fetch_pubmed_abstract(pmid)

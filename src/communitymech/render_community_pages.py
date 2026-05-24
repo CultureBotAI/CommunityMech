@@ -28,7 +28,9 @@ if CLAW_SRC.is_dir():
     sys.path.insert(0, str(CLAW_SRC))
 
 try:
-    from kg_microbe_browser import build_community_membership_graph
+    from kg_microbe_browser import (
+        build_community_membership_graph,  # type: ignore[import-not-found]
+    )
 except ImportError:
 
     def build_community_membership_graph(community: dict) -> str:  # type: ignore
