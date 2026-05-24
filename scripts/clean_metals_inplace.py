@@ -31,8 +31,11 @@ Out of scope deliberately:
   short enough to false-match the substring pattern that affects metals.
 
 Usage:
-    PYTHONPATH=src uv run python scripts/clean_metals_inplace.py --dry-run
-    PYTHONPATH=src uv run python scripts/clean_metals_inplace.py
+    uv run python scripts/clean_metals_inplace.py --dry-run
+    uv run python scripts/clean_metals_inplace.py
+
+The script self-bootstraps `src/` onto `sys.path`, so PYTHONPATH does
+not need to be set when invoking it directly.
 """
 
 import argparse
