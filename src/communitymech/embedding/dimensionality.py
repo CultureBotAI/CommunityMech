@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-import umap
+import umap  # type: ignore[import-untyped]
 
 
 class UMAPReducer:

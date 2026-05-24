@@ -20,7 +20,7 @@ try:
     RICH_AVAILABLE = True
 except ImportError:
     RICH_AVAILABLE = False
-    Console = None
+    Console = None  # type: ignore[assignment,misc]
 
 
 @click.group()
@@ -57,7 +57,9 @@ def cli():
     type=click.Path(dir_okay=False, path_type=Path),
     help="Write detailed report to file",
 )
-def audit_network(communities_dir: Path, check_only: bool, output_json: bool, report: Path = None):
+def audit_network(
+    communities_dir: Path, check_only: bool, output_json: bool, report: Path | None = None
+):
     """Audit network integrity for all community YAML files.
 
     Checks for:
@@ -162,13 +164,13 @@ def repair_network(file: Path, auto_approve: bool, dry_run: bool, max_repairs: i
         repairer = LLMNetworkRepairer()
 
         # Run repair with interactive UI
-        if RICH_AVAILABLE and not auto_approve and not dry_run:
+        if RICH_AVAILABLE and console is not None and not auto_approve and not dry_run:
             result = _interactive_repair(console, repairer, file, max_repairs)
         else:
             result = _non_interactive_repair(repairer, file, auto_approve, dry_run, max_repairs)
 
         # Display summary
-        if RICH_AVAILABLE:
+        if RICH_AVAILABLE and console is not None:
             _display_repair_summary(console, result)
         else:
             _display_repair_summary_plain(result)

@@ -31,13 +31,20 @@ Out of scope deliberately:
   short enough to false-match the substring pattern that affects metals.
 
 Usage:
-    PYTHONPATH=src uv run python scripts/clean_metals_inplace.py --dry-run
-    PYTHONPATH=src uv run python scripts/clean_metals_inplace.py
+    uv run python scripts/clean_metals_inplace.py --dry-run
+    uv run python scripts/clean_metals_inplace.py
+
+The script self-bootstraps `src/` onto `sys.path`, so PYTHONPATH does
+not need to be set when invoking it directly.
 """
 
 import argparse
-import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from communitymech.metal_extraction import keyword_in_text
 
 # Metals whose keyword list contains a short symbol that the old buggy
 # substring matcher false-fired on. For each, the "unambiguous" tokens
@@ -48,20 +55,6 @@ AMBIGUOUS_METAL_KEYWORDS: dict[str, list[str]] = {
     "GOLD": ["gold", "au3+"],
     "PALLADIUM": ["palladium", "pd2+"],
 }
-
-
-def _has_unambiguous_evidence(file_text: str, keywords: list[str]) -> bool:
-    """Return True if any keyword appears in file_text as a standalone token.
-
-    Anchored on non-alphanumeric boundaries so 'ti4+' matches (the '+'
-    is non-alphanumeric) but 'titanium' does not match inside 'titanic'.
-    Case-insensitive.
-    """
-    for kw in keywords:
-        pattern = rf"(?<![A-Za-z0-9]){re.escape(kw)}(?![A-Za-z0-9])"
-        if re.search(pattern, file_text, re.IGNORECASE):
-            return True
-    return False
 
 
 def _read_metals_block(lines: list[str]) -> tuple[int, int, list[str]] | None:
@@ -103,7 +96,7 @@ def clean_file(path: Path, dry_run: bool) -> tuple[bool, str]:
         if unambig is None:
             kept.append(entry)
             continue
-        if _has_unambiguous_evidence(evidence_text, unambig):
+        if any(keyword_in_text(kw, evidence_text) for kw in unambig):
             kept.append(entry)
         else:
             removed.append(entry)

@@ -28,7 +28,12 @@ if CLAW_SRC.is_dir():
     sys.path.insert(0, str(CLAW_SRC))
 
 try:
-    from kg_microbe_browser import build_community_membership_graph
+    # The mypy override in pyproject already covers kg_microbe_browser;
+    # the ignore here is a belt-and-suspenders for the from-line itself,
+    # which is where mypy emits the import-not-found diagnostic.
+    from kg_microbe_browser import (  # type: ignore[import-not-found]
+        build_community_membership_graph,
+    )
 except ImportError:
 
     def build_community_membership_graph(community: dict) -> str:  # type: ignore
