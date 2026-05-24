@@ -1,11 +1,34 @@
 #!/usr/bin/env python3
-"""Non-destructive cleanup of metals_present / rare_earth_elements_present blocks.
+"""Surgical removal of false-positive entries from metals_present.
 
-Runs `extract_metals_from_community` against every community YAML and, when
-the extracted lists differ from what's written on disk, rewrites only the
-relevant blocks via line-based regex substitution. Comments, blank lines,
-key order, and unrelated whitespace are preserved (unlike pyyaml's
-dump-and-rewrite path used by `backfill_metals.py`).
+The original `metal_extraction.py` used plain substring matching against
+2-character element symbols ('ti' for TITANIUM, 'au' for GOLD, 'pd' for
+PALLADIUM). Those symbols matched inside unrelated words like
+'characteristic', 'australia', 'phosphodiesterase' and salted
+`metals_present` with elements the source paper never discusses.
+
+This script removes those false positives **only**. Specifically: for
+each metal currently listed in a community's `metals_present`, if its
+keyword set contains a known-ambiguous short symbol (`ti`, `au`, `pd`)
+and *none* of its unambiguous keywords (full word, ionic forms with
+charge characters, +ous/+ic adjectival forms) appears anywhere in the
+file as a word-bounded token, the entry is removed. Everything else is
+left exactly as found.
+
+Out of scope deliberately:
+
+- `metal_notes` and `metal_relevance` are never touched. Curator-authored
+  values in those fields would otherwise be silently clobbered, and
+  rewriting a multi-line YAML scalar from a key-line regex is unsafe
+  (it leaves orphaned continuation lines that get re-folded into the
+  new value).
+- Adding new metal entries is also out of scope. The fixed extractor
+  may find legitimate metals the old buggy run missed (e.g., via CHEBI
+  tier-1 matching), but adding them here would surprise curators and
+  conflate "fix bug" with "expand annotations." Run
+  `scripts/backfill_metals.py --dry-run` to inspect missing additions.
+- `rare_earth_elements_present` is left alone because no REE keyword is
+  short enough to false-match the substring pattern that affects metals.
 
 Usage:
     PYTHONPATH=src uv run python scripts/clean_metals_inplace.py --dry-run
@@ -14,89 +37,92 @@ Usage:
 
 import argparse
 import re
-import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+# Metals whose keyword list contains a short symbol that the old buggy
+# substring matcher false-fired on. For each, the "unambiguous" tokens
+# are the keywords that are safe to match with word boundaries because
+# they cannot appear inside an unrelated English or scientific word.
+AMBIGUOUS_METAL_KEYWORDS: dict[str, list[str]] = {
+    "TITANIUM": ["titanium", "ti4+"],
+    "GOLD": ["gold", "au3+"],
+    "PALLADIUM": ["palladium", "pd2+"],
+}
 
-from communitymech.metal_extraction import extract_metals_from_community
 
+def _has_unambiguous_evidence(file_text: str, keywords: list[str]) -> bool:
+    """Return True if any keyword appears in file_text as a standalone token.
 
-def _read_block(text: str, key: str) -> tuple[int, int, list[str]]:
-    """Locate `{key}:` block and return (start_line, end_line, current_values).
-
-    Returns (-1, -1, []) if the key is not present.
+    Anchored on non-alphanumeric boundaries so 'ti4+' matches (the '+'
+    is non-alphanumeric) but 'titanium' does not match inside 'titanic'.
+    Case-insensitive.
     """
-    lines = text.splitlines(keepends=True)
-    start = None
+    for kw in keywords:
+        pattern = rf"(?<![A-Za-z0-9]){re.escape(kw)}(?![A-Za-z0-9])"
+        if re.search(pattern, file_text, re.IGNORECASE):
+            return True
+    return False
+
+
+def _read_metals_block(lines: list[str]) -> tuple[int, int, list[str]] | None:
+    """Locate the metals_present block. Returns (start_idx, end_idx, entries)."""
     for i, line in enumerate(lines):
-        if line.rstrip("\n") == f"{key}:" or line.startswith(f"{key}: "):
-            start = i
-            break
-    if start is None:
-        return -1, -1, []
-    inline = lines[start].rstrip("\n").removeprefix(f"{key}:").strip()
-    if inline and inline != "":
-        return start, start + 1, [v.strip() for v in inline.strip("[]").split(",") if v.strip()]
-    end = start + 1
-    values: list[str] = []
-    while end < len(lines):
-        if lines[end].startswith("- "):
-            values.append(lines[end][2:].strip())
-            end += 1
-        elif lines[end].strip() == "":
-            end += 1
-        else:
-            break
-    return start, end, values
-
-
-def _format_list_block(key: str, values: list[str]) -> str:
-    if not values:
-        return f"{key}: []\n"
-    body = "\n".join(f"- {v}" for v in values)
-    return f"{key}:\n{body}\n"
-
-
-def _replace_block(text: str, key: str, values: list[str]) -> str:
-    start, end, _ = _read_block(text, key)
-    if start == -1:
-        return text
-    lines = text.splitlines(keepends=True)
-    new_block = _format_list_block(key, values)
-    return "".join(lines[:start]) + new_block + "".join(lines[end:])
-
-
-def _replace_scalar(text: str, key: str, value: str) -> str:
-    pattern = re.compile(rf"^{re.escape(key)}:.*$", re.MULTILINE)
-    if pattern.search(text):
-        return pattern.sub(f"{key}: {value}", text, count=1)
-    return text + f"{key}: {value}\n"
+        if line.rstrip("\n") == "metals_present:" or line.startswith("metals_present: "):
+            inline = line.rstrip("\n").removeprefix("metals_present:").strip()
+            if inline:
+                # Inline scalar form (e.g., `metals_present: []`) — nothing to clean.
+                return i, i + 1, []
+            entries: list[str] = []
+            end = i + 1
+            while end < len(lines) and lines[end].startswith("- "):
+                entries.append(lines[end][2:].strip())
+                end += 1
+            return i, end, entries
+    return None
 
 
 def clean_file(path: Path, dry_run: bool) -> tuple[bool, str]:
-    metals, ree, relevance, notes = extract_metals_from_community(path)
     text = path.read_text()
-
-    _, _, current_metals = _read_block(text, "metals_present")
-    _, _, current_ree = _read_block(text, "rare_earth_elements_present")
-
-    diff_metals = sorted(current_metals) != sorted(metals)
-    diff_ree = sorted(current_ree) != sorted(ree)
-    if not (diff_metals or diff_ree):
+    lines = text.splitlines(keepends=True)
+    located = _read_metals_block(lines)
+    if located is None:
+        return False, ""
+    start, end, entries = located
+    if not entries:
         return False, ""
 
-    new_text = text
-    new_text = _replace_block(new_text, "metals_present", sorted(metals))
-    new_text = _replace_block(new_text, "rare_earth_elements_present", sorted(ree))
-    new_text = _replace_scalar(new_text, "metal_relevance", relevance)
-    if notes:
-        new_text = _replace_scalar(new_text, "metal_notes", notes)
+    # Exclude the metals_present block itself when searching for evidence —
+    # otherwise the `- TITANIUM` entry we're trying to validate would match
+    # its own keywords and never be flagged as a false positive.
+    evidence_text = "".join(lines[:start] + lines[end:])
 
-    summary = (
-        f"  metals: {sorted(current_metals)} -> {sorted(metals)}\n"
-        f"  ree:    {sorted(current_ree)} -> {sorted(ree)}"
-    )
+    kept: list[str] = []
+    removed: list[str] = []
+    for entry in entries:
+        unambig = AMBIGUOUS_METAL_KEYWORDS.get(entry)
+        if unambig is None:
+            kept.append(entry)
+            continue
+        if _has_unambiguous_evidence(evidence_text, unambig):
+            kept.append(entry)
+        else:
+            removed.append(entry)
+
+    if not removed:
+        return False, ""
+
+    # Rebuild only the metals_present block; everything else (including
+    # metal_relevance, metal_notes, and any comments) is preserved.
+    if kept:
+        body = "".join(f"- {e}\n" for e in kept)
+        new_block = "metals_present:\n" + body
+    else:
+        new_block = "metals_present: []\n"
+
+    new_lines = lines[:start] + [new_block] + lines[end:]
+    new_text = "".join(new_lines)
+
+    summary = f"  removed: {removed}; kept: {kept}"
     if not dry_run:
         path.write_text(new_text)
     return True, summary
