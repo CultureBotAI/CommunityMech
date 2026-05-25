@@ -24,12 +24,16 @@ import yaml
 # Add src to path so we can import from communitymech
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from communitymech.curate.curation_event import record_curation_event
 from communitymech.utils.media_linker import (
     CompositionMerger,
     MediaFetcher,
     MediaMatcher,
 )
-
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 # ANSI color codes
 GREEN = "\033[92m"
@@ -251,20 +255,14 @@ def load_manual_overrides(config_path: Path) -> dict:
 def update_yaml_with_media(yaml_path: Path, data: dict) -> None:
     """Update a YAML file with community data including growth media.
 
+    Routes through ``write_validated_community`` so the doc is refused
+    if it would violate the closed-schema contract.
+
     Args:
         yaml_path: Path to community YAML file to write
         data: Community data dict with updated growth_media
     """
-    # Write with clean formatting (same pattern as backfill_metals.py)
-    with open(yaml_path, "w") as f:
-        yaml.dump(
-            data,
-            f,
-            default_flow_style=False,
-            sort_keys=False,
-            allow_unicode=True,
-            width=100,
-        )
+    write_validated_community(data, yaml_path)
 
 
 def process_single_community(
@@ -383,7 +381,30 @@ def process_single_community(
         if yaml_file.exists():
             yaml_file.rename(backup_path)
 
-        update_yaml_with_media(yaml_file, data)
+        media_names = [m.get("name", "") for m in growth_media if m.get("name")]
+        record_curation_event(
+            data,
+            curator="link_growth_media",
+            action="LINK_GROWTH_MEDIA",
+            changes=(
+                f"Linked growth media to CultureMech / MediaIngredientMech for "
+                f"{len(media_names)} media record(s): "
+                + ", ".join(media_names[:5])
+                + (f", +{len(media_names) - 5} more" if len(media_names) > 5 else "")
+            ),
+        )
+        try:
+            update_yaml_with_media(yaml_file, data)
+        except ValidationFailedError as exc:
+            # Restore backup so the original file isn't left missing.
+            if backup_path.exists():
+                backup_path.rename(yaml_file)
+            print(
+                f"  {RED}✗ validation failed for {yaml_file.name}: {exc.summary()}{RESET} "
+                "(original restored from backup)",
+                file=sys.stderr,
+            )
+            return
         print(f"  {GREEN}✓ Updated {yaml_file.name}{RESET}")
     elif updated:
         print(f"  {YELLOW}Would update {yaml_file.name}{RESET}")
@@ -572,7 +593,30 @@ def process_all_communities(
                 if yaml_file.exists():
                     yaml_file.rename(backup_path)
 
-                update_yaml_with_media(yaml_file, data)
+                media_names = [m.get("name", "") for m in growth_media if m.get("name")]
+                record_curation_event(
+                    data,
+                    curator="link_growth_media",
+                    action="LINK_GROWTH_MEDIA",
+                    changes=(
+                        f"Linked growth media to CultureMech / MediaIngredientMech for "
+                        f"{len(media_names)} media record(s): "
+                        + ", ".join(media_names[:5])
+                        + (f", +{len(media_names) - 5} more" if len(media_names) > 5 else "")
+                    ),
+                )
+                try:
+                    update_yaml_with_media(yaml_file, data)
+                except ValidationFailedError as exc:
+                    # Restore backup so the original file isn't left missing.
+                    if backup_path.exists():
+                        backup_path.rename(yaml_file)
+                    print(
+                        f"  {RED}✗ validation failed for {yaml_file.name}: "
+                        f"{exc.summary()}{RESET} (original restored from backup)",
+                        file=sys.stderr,
+                    )
+                    continue
                 print(f"  {GREEN}✓ Updated{RESET}")
 
     # Print summary

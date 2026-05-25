@@ -23,6 +23,22 @@ validate-all:
         uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file"
     done
 
+# Strict in-process validation in *closed* mode (rejects unknown fields).
+# Emits reports/instance_validation_failures.tsv and exits 1 on any ERROR.
+# Catches the same drift class that gave CultureMech 59k silent errors;
+# closed-mode + non-zero exit is what the per-file linkml-validate loop
+# above silently passes today. Use this for the corpus-wide health check.
+validate-strict *args:
+    uv run python scripts/validate_strict.py {{args}}
+
+# Audit every YAML-writing Python module under scripts/ and
+# src/communitymech/ for safeguards (curation_history append,
+# --dry-run/--apply, validates before write, wired into justfile).
+# Writes reports/pipeline_writers_audit.tsv. Useful for tracking
+# adoption of write_validated_community + record_curation_event.
+audit-writers *args:
+    uv run python scripts/audit_writers.py {{args}}
+
 # Validate evidence references in a community file
 validate-references FILE:
     uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
@@ -111,8 +127,8 @@ lint:
     uv run ruff check src/ tests/
     uv run mypy src/
 
-# Full QC (validate + lint + test)
-qc: validate-all validate-terms-all validate-references-all lint test
+# Full QC (validate + strict validate + lint + test)
+qc: validate-all validate-strict validate-terms-all validate-references-all lint test
     @echo "✅ All QC checks passed!"
 
 # Check which community strains are represented in UniProt reference proteomes

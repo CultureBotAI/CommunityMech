@@ -7,10 +7,17 @@ Fixes:
 2. Reports disconnected taxa and missing source/target for manual review
 """
 
-import yaml
-from pathlib import Path
+import sys
 from collections import defaultdict
-from typing import Dict, List, Set
+from pathlib import Path
+
+import yaml
+
+from communitymech.curate.curation_event import record_curation_event
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 
 class NetworkIntegrityFixer:
@@ -128,8 +135,25 @@ class NetworkIntegrityFixer:
 
         # Write back if fixes were made and not dry run
         if fixes > 0 and not dry_run:
-            with open(yaml_path, 'w') as f:
-                yaml.dump(data, f, default_flow_style=False, sort_keys=False, allow_unicode=True)
+            applied = self.fixes_applied.get(yaml_path.stem, [])
+            record_curation_event(
+                data,
+                curator="fix_network_integrity",
+                action="FIX_NETWORK_INTEGRITY",
+                changes=(
+                    f"Repaired {fixes} taxon ID mismatch(es) in ecological_interactions: "
+                    + "; ".join(applied[:5])
+                    + (f"; +{len(applied) - 5} more" if len(applied) > 5 else "")
+                ),
+            )
+            try:
+                write_validated_community(data, yaml_path)
+            except ValidationFailedError as exc:
+                print(
+                    f"  ✗ validation failed for {yaml_path.name}: {exc.summary()}",
+                    file=sys.stderr,
+                )
+                return fixes
             print(f"    Wrote {fixes} fixes to {yaml_path.name}")
 
         return fixes

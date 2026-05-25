@@ -7,10 +7,15 @@ from typing import Any
 
 import yaml
 
+from communitymech.curate.curation_event import record_curation_event
 from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
 from communitymech.network.repair_strategies import StrategySelector
 from communitymech.network.validators import SuggestionValidator
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 
 class LLMNetworkRepairer:
@@ -234,12 +239,26 @@ class LLMNetworkRepairer:
 
             community_data["ecological_interactions"].extend(suggested_interactions)
 
-            # Write back
-            with open(yaml_path, "w") as f:
-                yaml.dump(
-                    community_data, f, default_flow_style=False, sort_keys=False, allow_unicode=True
-                )
+            # Record curation event for the LLM-driven change
+            record_curation_event(
+                community_data,
+                curator="llm_repair",
+                action="LLM_REPAIR_APPLIED",
+                changes=(
+                    f"Accepted {len(suggested_interactions)} LLM-suggested "
+                    f"ecological interaction(s) for network repair"
+                ),
+                llm_assisted=True,
+            )
 
+            # Write back via validated writer (closed-schema gate)
+            write_validated_community(community_data, yaml_path)
+
+        except ValidationFailedError as e:
+            # Restore from backup on validation failure
+            if backup_path.exists():
+                shutil.copy(backup_path, yaml_path)
+            raise RuntimeError(f"Failed to apply suggestion: {e}") from e
         except Exception as e:
             # Restore from backup on failure
             if backup_path.exists():
