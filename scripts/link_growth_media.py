@@ -396,8 +396,12 @@ def process_single_community(
         try:
             update_yaml_with_media(yaml_file, data)
         except ValidationFailedError as exc:
+            # Restore backup so the original file isn't left missing.
+            if backup_path.exists():
+                backup_path.rename(yaml_file)
             print(
-                f"  {RED}✗ validation failed for {yaml_file.name}: {exc.summary()}{RESET}",
+                f"  {RED}✗ validation failed for {yaml_file.name}: {exc.summary()}{RESET} "
+                "(original restored from backup)",
                 file=sys.stderr,
             )
             return
@@ -604,9 +608,12 @@ def process_all_communities(
                 try:
                     update_yaml_with_media(yaml_file, data)
                 except ValidationFailedError as exc:
+                    # Restore backup so the original file isn't left missing.
+                    if backup_path.exists():
+                        backup_path.rename(yaml_file)
                     print(
                         f"  {RED}✗ validation failed for {yaml_file.name}: "
-                        f"{exc.summary()}{RESET}",
+                        f"{exc.summary()}{RESET} (original restored from backup)",
                         file=sys.stderr,
                     )
                     continue

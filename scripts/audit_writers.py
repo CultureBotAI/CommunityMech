@@ -93,10 +93,28 @@ def audit(path: Path, justfile_text: str) -> dict | None:
         "appends_curation_history": "yes" if _CURATION_APPEND.search(text) else "no",
         "has_write_safeguard": "yes" if _WRITE_SAFEGUARD.search(text) else "no",
         "validates_before_write": "yes" if _VALIDATE_BEFORE_WRITE.search(text) else "no",
-        "wired_into_just": (
-            "yes" if path.stem in justfile_text or path.name in justfile_text else "no"
-        ),
+        "wired_into_just": "yes" if _is_wired_into_just(path, justfile_text) else "no",
     }
+
+
+def _is_wired_into_just(path: Path, justfile_text: str) -> bool:
+    """Detect whether a justfile recipe actually invokes this script.
+
+    The earlier substring check (``path.stem in justfile_text``) had false
+    positives — e.g. ``write_validated.py`` matched a justfile comment
+    referencing ``write_validated_community``. Require the filename to
+    appear as an explicit ``python ... <name>.py`` invocation, which is
+    how every justfile recipe actually runs a script.
+    """
+    needle = re.compile(rf"\b{re.escape(path.name)}\b")
+    for line in justfile_text.splitlines():
+        stripped = line.strip()
+        # Ignore comment-only lines so a mention in docs doesn't count.
+        if stripped.startswith("#"):
+            continue
+        if needle.search(stripped):
+            return True
+    return False
 
 
 def main() -> int:

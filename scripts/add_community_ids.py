@@ -27,7 +27,17 @@ def add_ids_to_communities(communities_dir: Path = Path("kb/communities"), dry_r
         with open(yaml_file) as f:
             data = yaml.safe_load(f)
 
-        # Add ID as first field
+        # If a file already has an id, leave it alone — this script is
+        # an id-minter, not a re-assignment tool. Without this guard the
+        # `{"id": ...}; data_with_id.update(data)` sequence below silently
+        # took the source file's existing id while the curation event
+        # still claimed "Assigned id=<new>" — misleading audit trail.
+        if data.get("id"):
+            print(f"  · {yaml_file.name} already has id={data['id']}, skipping")
+            continue
+
+        # Add ID as first field (data has no `id` per the guard above,
+        # so the .update() will not clobber it).
         data_with_id = {"id": community_id}
         data_with_id.update(data)
 

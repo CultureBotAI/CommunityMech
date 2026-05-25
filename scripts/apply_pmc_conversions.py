@@ -136,12 +136,16 @@ def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> dict:
             ),
         )
 
-        # Write updated via validated writer
+        # Write updated via validated writer. Restore the backup on
+        # validation failure so the original file isn't left missing
+        # (it's still on disk as backup_path until the write succeeds).
         try:
             write_validated_community(data, yaml_path)
         except ValidationFailedError as exc:
+            backup_path.rename(yaml_path)
             print(
-                f"  ✗ validation failed for {yaml_path.name}: {exc.summary()}",
+                f"  ✗ validation failed for {yaml_path.name}: {exc.summary()} "
+                "(original restored from backup)",
                 file=sys.stderr,
             )
 
