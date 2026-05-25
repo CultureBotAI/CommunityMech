@@ -1006,3 +1006,38 @@ classes:
       metal_notes:
         description: Additional context on metal/REE processing mechanisms or significance
         range: string
+      curation_history:
+        description: >-
+          Append-only audit trail of curation actions that modified this
+          community record. Populated by ``record_curation_event()`` from
+          ``communitymech.curate.curation_event``.
+        range: CurationEvent
+        multivalued: true
+        inlined_as_list: true
+
+  CurationEvent:
+    description: >-
+      A timestamped curator action on a MicrobialCommunity. Mirrors the
+      shape used by sibling Mech repos (CultureMech, MediaIngredientMech,
+      TraitMech) so cross-repo tooling can read curation events uniformly.
+    attributes:
+      timestamp:
+        range: datetime
+        required: true
+        description: When this action occurred (ISO-8601 UTC).
+      curator:
+        required: true
+        description: Who performed this action (script name or human identifier).
+      action:
+        range: string
+        required: true
+        pattern: "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"
+        description: >-
+          SCREAMING_SNAKE_CASE action label minted by the curation tool
+          that produced this event (e.g. ``"ADD_COMMUNITY_IDS"``,
+          ``"FIX_NETWORK_INTEGRITY"``).
+      changes:
+        description: Description of what changed.
+      llm_assisted:
+        range: boolean
+        description: Whether LLM assistance was used.

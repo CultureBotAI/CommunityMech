@@ -17,12 +17,16 @@ Known conversions:
 - PMC4187173 → PMID:25369810
 """
 
-import yaml
-import re
+import sys
 from pathlib import Path
-from typing import Dict, List
-from collections import defaultdict
 
+import yaml
+
+from communitymech.curate.curation_event import record_curation_event
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 # Known PMC → PMID conversions from special_references_report.txt
 PMC_TO_PMID = {
@@ -38,10 +42,10 @@ PMC_TO_PMID = {
 }
 
 
-def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> Dict:
+def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> dict:
     """Apply PMC→PMID conversions to a YAML file"""
 
-    with open(yaml_path, 'r') as f:
+    with open(yaml_path) as f:
         data = yaml.safe_load(f)
 
     changes = []
@@ -120,14 +124,26 @@ def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> Dict:
         backup_path = yaml_path.with_suffix('.yaml.bak_pmc')
         yaml_path.rename(backup_path)
 
-        # Write updated
-        with open(yaml_path, 'w') as f:
-            yaml.dump(data, f,
-                     default_flow_style=False,
-                     sort_keys=False,
-                     allow_unicode=True,
-                     width=120,
-                     indent=2)
+        # Record curation event before writing
+        contexts = sorted({ctx for _, _, ctx in changes})
+        record_curation_event(
+            data,
+            curator="apply_pmc_conversions",
+            action="CONVERT_PMC_TO_PMID",
+            changes=(
+                f"Converted {len(changes)} PMC reference(s) to PMID across "
+                f"{', '.join(contexts) if contexts else 'no'} section(s)"
+            ),
+        )
+
+        # Write updated via validated writer
+        try:
+            write_validated_community(data, yaml_path)
+        except ValidationFailedError as exc:
+            print(
+                f"  ✗ validation failed for {yaml_path.name}: {exc.summary()}",
+                file=sys.stderr,
+            )
 
     return {
         'file': yaml_path.name,
