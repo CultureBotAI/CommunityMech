@@ -26,7 +26,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+from communitymech.literature import LiteratureFetcher
 
 from communitymech.curate.curation_event import record_curation_event
 from communitymech.validation.write_validated import (
@@ -39,10 +39,13 @@ class EvidenceSourceAdder:
     """Add evidence_source to evidence items"""
 
     def __init__(self):
-        self.fetcher = EnhancedLiteratureFetcher(
-            cache_dir=".literature_cache",
-            use_fallback_pdf=False
-        )
+        # Previously imported a sibling EnhancedLiteratureFetcher class that
+        # was never committed to the repo; the LiteratureFetcher in
+        # communitymech.literature exposes the same fetch_pubmed_abstract +
+        # fetch_paper surface (plus a richer DOI fallback chain through
+        # CrossRef / PMC / OpenAlex / Semantic Scholar / Europe PMC) which
+        # is what these scripts actually need.
+        self.fetcher = LiteratureFetcher(cache_dir=".literature_cache")
         self.stats = {
             'total_evidence': 0,
             'already_has_source': 0,
@@ -78,13 +81,12 @@ class EvidenceSourceAdder:
         self,
         snippet: str,
         abstract: str = None,
-        title: str = None,
         community_origin: str = None
     ) -> Optional[str]:
         """Guess evidence source using heuristics"""
 
         # Combine text for keyword matching
-        text = ' '.join(filter(None, [snippet, abstract, title])).lower()
+        text = ' '.join(filter(None, [snippet, abstract])).lower()
 
         # Check for review first (highest specificity)
         if any(kw in text for kw in self.review_keywords):
@@ -147,18 +149,19 @@ class EvidenceSourceAdder:
                     reference = ev.get('reference', '')
 
                     # Try to fetch abstract for better classification
+                    # Title is not threaded into the classifier — PubMed
+                    # abstracts already embed the title, and CrossRef
+                    # titles for DOIs are available via fetch_doi_metadata()
+                    # if richer classification is wanted later.
                     abstract = None
-                    title = None
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        abstract = paper.get('abstract')
-                        title = paper.get('title')
-                    except:
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                    except Exception:
                         pass
 
                     # Guess evidence source
                     guessed_source = self.guess_evidence_source(
-                        snippet, abstract, title, community_origin
+                        snippet, abstract, community_origin
                     )
 
                     if auto_mode and guessed_source:
@@ -220,17 +223,18 @@ class EvidenceSourceAdder:
                     snippet = ev.get('snippet', '')
                     reference = ev.get('reference', '')
 
+                    # Title is not threaded into the classifier — PubMed
+                    # abstracts already embed the title, and CrossRef
+                    # titles for DOIs are available via fetch_doi_metadata()
+                    # if richer classification is wanted later.
                     abstract = None
-                    title = None
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        abstract = paper.get('abstract')
-                        title = paper.get('title')
-                    except:
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                    except Exception:
                         pass
 
                     guessed_source = self.guess_evidence_source(
-                        snippet, abstract, title, community_origin
+                        snippet, abstract, community_origin
                     )
 
                     if auto_mode and guessed_source:
