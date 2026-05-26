@@ -19,14 +19,20 @@ Usage:
 """
 
 import sys
-import yaml
 from pathlib import Path
-from typing import Dict, List, Optional
-import re
+from typing import Dict, Optional
+
+import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+
+from communitymech.curate.curation_event import record_curation_event
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 
 class EvidenceSourceAdder:
@@ -269,18 +275,40 @@ class EvidenceSourceAdder:
 
         # Write back if changes made
         if changes:
-            # Backup
+            # Summarize the changes for the curation trail.
+            auto_count = sum(1 for c in changes if c.get('confidence') == 'auto')
+            manual_count = sum(1 for c in changes if c.get('confidence') == 'manual')
+            change_summary = (
+                f"Backfilled evidence_source on {len(changes)} evidence item(s) "
+                f"(auto={auto_count}, manual={manual_count})"
+            )
+            record_curation_event(
+                data,
+                curator="add_evidence_source",
+                action="BACKFILL_EVIDENCE_SOURCE",
+                changes=change_summary,
+            )
+
+            # Backup then write via closed-schema-gated writer. If validation
+            # fails, restore the backup so the loop can continue on the next
+            # community without leaving the disk in a torn state.
             backup_path = yaml_path.with_suffix('.yaml.bak_source')
             yaml_path.rename(backup_path)
-
-            # Write updated
-            with open(yaml_path, 'w') as f:
-                yaml.dump(data, f,
-                         default_flow_style=False,
-                         sort_keys=False,
-                         allow_unicode=True,
-                         width=120,
-                         indent=2)
+            try:
+                write_validated_community(data, yaml_path)
+            except ValidationFailedError as exc:
+                backup_path.rename(yaml_path)
+                print(
+                    f"  ✗ validation failed for {yaml_path.name}: {exc.summary()} "
+                    "(original restored)",
+                    file=sys.stderr,
+                )
+                return {
+                    'file': yaml_path.name,
+                    'changes': [],
+                    'count': 0,
+                    'validation_failed': True,
+                }
 
         return {
             'file': yaml_path.name,
