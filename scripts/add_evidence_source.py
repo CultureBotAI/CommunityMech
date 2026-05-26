@@ -81,13 +81,12 @@ class EvidenceSourceAdder:
         self,
         snippet: str,
         abstract: str = None,
-        title: str = None,
         community_origin: str = None
     ) -> Optional[str]:
         """Guess evidence source using heuristics"""
 
         # Combine text for keyword matching
-        text = ' '.join(filter(None, [snippet, abstract, title])).lower()
+        text = ' '.join(filter(None, [snippet, abstract])).lower()
 
         # Check for review first (highest specificity)
         if any(kw in text for kw in self.review_keywords):
@@ -150,12 +149,11 @@ class EvidenceSourceAdder:
                     reference = ev.get('reference', '')
 
                     # Try to fetch abstract for better classification
+                    # Title is not threaded into the classifier — PubMed
+                    # abstracts already embed the title, and CrossRef
+                    # titles for DOIs are available via fetch_doi_metadata()
+                    # if richer classification is wanted later.
                     abstract = None
-                    title = None  # LiteratureFetcher.fetch_paper returns
-                                  # (abstract, pdf_url); the title is embedded
-                                  # in PubMed abstracts and can be pulled from
-                                  # CrossRef metadata via fetch_doi_metadata()
-                                  # if richer classification is needed later.
                     try:
                         abstract, _ = self.fetcher.fetch_paper(reference)
                     except Exception:
@@ -163,7 +161,7 @@ class EvidenceSourceAdder:
 
                     # Guess evidence source
                     guessed_source = self.guess_evidence_source(
-                        snippet, abstract, title, community_origin
+                        snippet, abstract, community_origin
                     )
 
                     if auto_mode and guessed_source:
@@ -225,19 +223,18 @@ class EvidenceSourceAdder:
                     snippet = ev.get('snippet', '')
                     reference = ev.get('reference', '')
 
+                    # Title is not threaded into the classifier — PubMed
+                    # abstracts already embed the title, and CrossRef
+                    # titles for DOIs are available via fetch_doi_metadata()
+                    # if richer classification is wanted later.
                     abstract = None
-                    title = None  # LiteratureFetcher.fetch_paper returns
-                                  # (abstract, pdf_url); the title is embedded
-                                  # in PubMed abstracts and can be pulled from
-                                  # CrossRef metadata via fetch_doi_metadata()
-                                  # if richer classification is needed later.
                     try:
                         abstract, _ = self.fetcher.fetch_paper(reference)
                     except Exception:
                         pass
 
                     guessed_source = self.guess_evidence_source(
-                        snippet, abstract, title, community_origin
+                        snippet, abstract, community_origin
                     )
 
                     if auto_mode and guessed_source:
