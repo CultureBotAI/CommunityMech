@@ -91,9 +91,16 @@ def _evidence_text(doc: dict) -> str:
     self-satisfy by matching its own listing. We mirror that exclusion
     here by stripping the key from a shallow copy before dumping.
 
-    ``keyword_in_text`` anchors on non-alphanumeric boundaries, so YAML
-    structural characters (``:``, ``-``, newlines, quotes) do not affect
-    match outcomes versus the original raw-text view.
+    Caveat — this is a near-but-not-perfect equivalent of the raw-text
+    view: ``yaml.safe_dump`` drops YAML comments and may reflow scalars
+    (e.g. line widths on long descriptions). Practically, the keywords
+    we search for (``zinc``, ``copper``, ``calcium``, …) live in
+    ``description``, ``ecological_state``, evidence ``snippet`` values,
+    and other YAML *content* — never in YAML comments. So the on-disk
+    behavior is identical for the corpus today. If a future workflow
+    starts encoding evidence in YAML comments, this assumption breaks
+    and the function should switch to ``path.read_text()`` with a
+    ``metals_present`` line-strip filter to preserve full fidelity.
     """
     scratch = {k: v for k, v in doc.items() if k != "metals_present"}
     return yaml.safe_dump(scratch, allow_unicode=True, sort_keys=False)
@@ -163,7 +170,12 @@ def clean_file(path: Path, apply: bool) -> tuple[bool, str]:
 
     # Restore-on-failure pattern (matches apply_pmc_conversions /
     # link_growth_media from PR #85): rename to .bak first so a failed
-    # validation doesn't leave the original missing on disk.
+    # write doesn't leave the original missing on disk. Catch BOTH
+    # ValidationFailedError (the expected-error case, surfaced with a
+    # short summary) and *any other* exception (disk error, permission
+    # denied, unexpected serializer fault) so the bak file always gets
+    # rolled back rather than leaving the user with `.yaml.bak_metals`
+    # and no `.yaml`.
     backup = path.with_suffix(".yaml.bak_metals")
     path.rename(backup)
     try:
@@ -176,6 +188,12 @@ def clean_file(path: Path, apply: bool) -> tuple[bool, str]:
             file=sys.stderr,
         )
         return False, summary
+    except BaseException:
+        # Restore the backup before re-raising so the corpus is never
+        # left with a missing canonical file.
+        if backup.exists() and not path.exists():
+            backup.rename(path)
+        raise
     backup.unlink()  # success — drop the backup
     return True, summary
 
