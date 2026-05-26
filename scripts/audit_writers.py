@@ -38,6 +38,12 @@ SEARCH_DIRS = [
 
 # Patterns
 _WRITE_TEXT_OF_YAML = re.compile(r"\.write_text\s*\(\s*yaml\.(?:safe_)?dump")
+# Match the path literal "kb/communities" appearing in source — used to
+# anchor the in-place-mutation heuristic below to scripts that actually
+# operate on community YAMLs.
+_COMMUNITIES_PATH_LITERAL = re.compile(r"kb/communities")
+_READ_TEXT_VAR = re.compile(r"(\w+)\.read_text\s*\(")
+_WRITE_TEXT_VAR = re.compile(r"(\w+)\.write_text\s*\(")
 _CURATION_APPEND = re.compile(
     r"curation_history.*?(append|\+=|\.insert)"
     r"|['\"]curator['\"]\s*:"
@@ -73,7 +79,20 @@ def looks_like_yaml_writer(text: str) -> bool:
         return True
     # write_validated_community is the closed-schema-gated wrapper that
     # callers route through instead of yaml.dump directly.
-    return "write_validated_community(" in text
+    if "write_validated_community(" in text:
+        return True
+    # Text-templated in-place writers: scripts that round-trip the same
+    # path variable through .read_text() and .write_text(...) AND
+    # reference the kb/communities directory are mutating community
+    # YAMLs via raw text surgery (e.g. clean_metals_inplace.py uses
+    # regex/line edits + path.write_text(string)). They bypass yaml.dump
+    # but are still community-YAML writers and must be audited.
+    if _COMMUNITIES_PATH_LITERAL.search(text):
+        read_vars = set(_READ_TEXT_VAR.findall(text))
+        write_vars = set(_WRITE_TEXT_VAR.findall(text))
+        if read_vars & write_vars:
+            return True
+    return False
 
 
 def audit(path: Path, justfile_text: str) -> dict | None:
