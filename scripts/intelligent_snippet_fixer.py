@@ -25,7 +25,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.curate.curation_event import record_curation_event
-from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+from communitymech.literature import LiteratureFetcher
 from communitymech.validation.write_validated import (
     ValidationFailedError,
     write_validated_community,
@@ -59,7 +59,12 @@ class IntelligentSnippetFixer:
     """Intelligent snippet fixer with context-aware abstract analysis."""
 
     def __init__(self, verbose: bool = False):
-        self.fetcher = EnhancedLiteratureFetcher()
+        # Previously imported a sibling EnhancedLiteratureFetcher class
+        # that was never committed; LiteratureFetcher exposes the same
+        # fetch_pubmed_abstract + fetch_paper surface plus a richer DOI
+        # fallback chain (CrossRef / PMC / OpenAlex / Semantic Scholar /
+        # Europe PMC) which subsumes what fetch_abstract_for_doi did.
+        self.fetcher = LiteratureFetcher()
         self.verbose = verbose
 
     def extract_relevant_sentences(
@@ -210,12 +215,13 @@ class IntelligentSnippetFixer:
         if reference.upper().startswith("PMID:"):
             pmid = reference.replace("PMID:", "").replace("pmid:", "").strip()
             abstract = self.fetcher.fetch_pubmed_abstract(pmid)
-        elif "doi" in reference.lower() or reference.startswith("10."):
-            doi = reference.replace("doi:", "").replace("https://doi.org/", "").strip()
-            abstract = self.fetcher.fetch_abstract_for_doi(doi)
         else:
-            paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-            abstract = paper.get("abstract")
+            # fetch_paper auto-detects PMID vs DOI and runs the full
+            # DOI fallback chain (CrossRef → PMID via DOI lookup → PMC
+            # full-text → OpenAlex → Semantic Scholar → Europe PMC →
+            # publisher meta-tag scrape). Returns (abstract, pdf_url);
+            # we don't need the pdf here.
+            abstract, _ = self.fetcher.fetch_paper(reference)
 
         if not abstract:
             if self.verbose:

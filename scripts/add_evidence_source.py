@@ -26,7 +26,7 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+from communitymech.literature import LiteratureFetcher
 
 from communitymech.curate.curation_event import record_curation_event
 from communitymech.validation.write_validated import (
@@ -39,10 +39,13 @@ class EvidenceSourceAdder:
     """Add evidence_source to evidence items"""
 
     def __init__(self):
-        self.fetcher = EnhancedLiteratureFetcher(
-            cache_dir=".literature_cache",
-            use_fallback_pdf=False
-        )
+        # Previously imported a sibling EnhancedLiteratureFetcher class that
+        # was never committed to the repo; the LiteratureFetcher in
+        # communitymech.literature exposes the same fetch_pubmed_abstract +
+        # fetch_paper surface (plus a richer DOI fallback chain through
+        # CrossRef / PMC / OpenAlex / Semantic Scholar / Europe PMC) which
+        # is what these scripts actually need.
+        self.fetcher = LiteratureFetcher(cache_dir=".literature_cache")
         self.stats = {
             'total_evidence': 0,
             'already_has_source': 0,
@@ -148,12 +151,14 @@ class EvidenceSourceAdder:
 
                     # Try to fetch abstract for better classification
                     abstract = None
-                    title = None
+                    title = None  # LiteratureFetcher.fetch_paper returns
+                                  # (abstract, pdf_url); the title is embedded
+                                  # in PubMed abstracts and can be pulled from
+                                  # CrossRef metadata via fetch_doi_metadata()
+                                  # if richer classification is needed later.
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        abstract = paper.get('abstract')
-                        title = paper.get('title')
-                    except:
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                    except Exception:
                         pass
 
                     # Guess evidence source
@@ -221,12 +226,14 @@ class EvidenceSourceAdder:
                     reference = ev.get('reference', '')
 
                     abstract = None
-                    title = None
+                    title = None  # LiteratureFetcher.fetch_paper returns
+                                  # (abstract, pdf_url); the title is embedded
+                                  # in PubMed abstracts and can be pulled from
+                                  # CrossRef metadata via fetch_doi_metadata()
+                                  # if richer classification is needed later.
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        abstract = paper.get('abstract')
-                        title = paper.get('title')
-                    except:
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                    except Exception:
                         pass
 
                     guessed_source = self.guess_evidence_source(
