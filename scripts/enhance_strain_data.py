@@ -18,15 +18,26 @@ Sources (in priority order):
 4. ATCC catalog (type strains, genome links)
 """
 
+import argparse
 import re
-import yaml
-import duckdb
+import sys
+from collections import defaultdict
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
-from dataclasses import dataclass, field
-import requests
-import time
-from collections import defaultdict
+
+import duckdb
+import yaml
+
+# Add src to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
+
+from communitymech.curate.curation_event import record_curation_event
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
+
 
 # Color codes for output
 class Colors:
@@ -343,13 +354,111 @@ class StrainExtractor:
         print(f"  Taxa with culture collections: {self.stats['strains_with_collections']}")
         print(f"  Taxa with genome accessions: {self.stats['strains_with_genome']}")
 
+    def apply_strain_data_to_community(
+        self,
+        yaml_path: Path,
+        strain_data: Dict[str, StrainInfo],
+        *,
+        overwrite: bool = False,
+    ) -> int:
+        """Write extracted strain_designation entries back into a community YAML.
+
+        Loads ``yaml_path``, attaches a ``strain_designation`` to each
+        matching ``taxonomy[*].taxon_term`` (matched by ``preferred_term``),
+        appends a ``CurationEvent``, and writes via
+        :func:`write_validated_community` so closed-schema LinkML validation
+        gates the disk write. Returns the number of taxa updated.
+
+        Args:
+            yaml_path: Community YAML to update.
+            strain_data: Mapping ``preferred_term -> StrainInfo`` produced by
+                :meth:`extract_strain_from_yaml`.
+            overwrite: When False (default), skip taxa that already carry a
+                ``strain_designation`` so curator-authored data is preserved.
+
+        Raises:
+            ValidationFailedError: re-raised by the caller for visibility;
+                callers in a batch loop should ``except`` and continue.
+        """
+        with open(yaml_path) as f:
+            data = yaml.safe_load(f)
+
+        if 'taxonomy' not in data:
+            return 0
+
+        updated_taxa = []
+        for taxon_entry in data['taxonomy']:
+            taxon_term = taxon_entry.get('taxon_term') or {}
+            preferred_term = taxon_term.get('preferred_term', '')
+            if preferred_term not in strain_data:
+                continue
+
+            if 'strain_designation' in taxon_entry and not overwrite:
+                continue
+
+            snippet = self.generate_yaml_snippet(strain_data[preferred_term])
+            if not snippet:
+                continue
+
+            taxon_entry['strain_designation'] = snippet
+            updated_taxa.append(preferred_term)
+
+        if not updated_taxa:
+            return 0
+
+        record_curation_event(
+            data,
+            curator="enhance_strain_data",
+            action="ENHANCE_STRAIN_DATA",
+            changes=(
+                f"Added strain_designation for {len(updated_taxa)} taxa: "
+                f"{', '.join(updated_taxa[:5])}"
+                + ("..." if len(updated_taxa) > 5 else "")
+            ),
+        )
+
+        write_validated_community(data, yaml_path)
+        return len(updated_taxa)
+
 
 def main():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Phase 2: extract strain designations and (optionally) apply "
+            "them to community YAMLs"
+        )
+    )
+    parser.add_argument(
+        '--apply',
+        action='store_true',
+        help=(
+            "Write extracted strain_designation entries back into "
+            "kb/communities/*.yaml via write_validated_community(). "
+            "Without this flag the script only emits the report + snippets "
+            "files for human review (the historical default)."
+        ),
+    )
+    parser.add_argument(
+        '--overwrite',
+        action='store_true',
+        help=(
+            "With --apply, replace existing strain_designation entries. "
+            "Default behavior preserves curator-authored values."
+        ),
+    )
+    parser.add_argument(
+        '--kb-dir',
+        type=Path,
+        default=Path('kb/communities'),
+        help="Path to community YAML directory (default: kb/communities)",
+    )
+    args = parser.parse_args()
+
     print(f"{Colors.BOLD}{Colors.CYAN}Phase 2: Data Enhancement - Strain Resolution{Colors.RESET}")
     print(f"{Colors.CYAN}Strategy: Literature → kg-microbe → APIs{Colors.RESET}\n")
 
     # Paths
-    kb_dir = Path('/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities')
+    kb_dir = args.kb_dir
     kgm_db = Path('kgm_taxonomy.duckdb')
     output_dir = Path('.')
 
@@ -420,6 +529,47 @@ def main():
 
     print(f"{Colors.GREEN}✓{Colors.RESET} Written: {snippets_path}")
 
+    # Apply strain designations to community YAMLs when --apply is set.
+    # Without --apply the script keeps its historical "extract + report"
+    # behavior and writes nothing to kb/communities/. With --apply each
+    # community is loaded, mutated in-memory, gets a CurationEvent appended,
+    # and is written via write_validated_community() so closed-schema
+    # validation refuses any doc that drifted into an invalid shape.
+    if args.apply:
+        print(f"\n{Colors.CYAN}Applying strain designations to community YAMLs...{Colors.RESET}")
+        applied_total = 0
+        applied_files = 0
+        failed_files = 0
+        for yaml_path, strain_data in sorted(all_strain_data.items()):
+            try:
+                count = extractor.apply_strain_data_to_community(
+                    yaml_path,
+                    strain_data,
+                    overwrite=args.overwrite,
+                )
+            except ValidationFailedError as exc:
+                print(
+                    f"  {Colors.RED}✗{Colors.RESET} validation failed for "
+                    f"{yaml_path.name}: {exc.summary()}",
+                    file=sys.stderr,
+                )
+                failed_files += 1
+                continue
+
+            if count > 0:
+                applied_total += count
+                applied_files += 1
+                print(
+                    f"  {Colors.GREEN}✓{Colors.RESET} {yaml_path.name}: "
+                    f"applied strain_designation to {count} taxa"
+                )
+
+        print(
+            f"\n{Colors.GREEN}Applied strain_designation to {applied_total} "
+            f"taxa across {applied_files} community file(s); "
+            f"{failed_files} file(s) failed validation.{Colors.RESET}"
+        )
+
     # Print summary
     extractor.print_summary()
 
@@ -427,7 +577,8 @@ def main():
     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
     print(f"  1. Review {report_path}")
     print(f"  2. Review {snippets_path}")
-    print(f"  3. Apply strain designations to YAML files (Phase 2B)")
+    if not args.apply:
+        print(f"  3. Apply strain designations to YAML files: re-run with --apply")
     print(f"  4. Query BacDive/ATCC APIs for additional metadata (Phase 2C)")
 
 if __name__ == '__main__':

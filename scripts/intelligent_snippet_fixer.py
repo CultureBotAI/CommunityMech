@@ -17,13 +17,19 @@ import re
 import shutil
 import sys
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Optional, Tuple
+
 import yaml
 
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from communitymech.curate.curation_event import record_curation_event
 from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 
 class SnippetSuggestion:
@@ -471,9 +477,34 @@ def apply_snippet_fix_to_yaml(
         print(f"  ❌ Could not find evidence item with name='{organism}' and reference='{reference}' in section='{section}'")
         return False
 
-    # Write back to YAML with nice formatting
-    with open(yaml_path, 'w', encoding='utf-8') as f:
-        yaml.dump(data, f, default_flow_style=False, allow_unicode=True, sort_keys=False, width=120)
+    # Record curation event for the LLM-driven snippet fix. ``skip_if_recent``
+    # collapses repeated per-snippet events in the same session into a single
+    # FIX_SNIPPETS_LLM trail entry so the history doesn't balloon when a user
+    # auto-approves dozens of fixes in one run.
+    record_curation_event(
+        data,
+        curator="intelligent_snippet_fixer",
+        action="FIX_SNIPPETS_LLM",
+        changes=(
+            f"Replaced evidence snippet for {organism} "
+            f"(reference={reference}, section={section})"
+        ),
+        llm_assisted=True,
+        skip_if_recent=True,
+    )
+
+    # Write back via closed-schema-gated writer (replaces direct yaml.dump).
+    # The ``.yaml.bak_intelligent`` backup created at the start of
+    # ``interactive_fix_workflow`` is the safety net if validation refuses
+    # the doc — the user can restore from it manually, just like before.
+    try:
+        write_validated_community(data, yaml_path)
+    except ValidationFailedError as exc:
+        print(
+            f"  ✗ validation failed for {yaml_path.name}: {exc.summary()}",
+            file=sys.stderr,
+        )
+        return False
 
     return True
 
