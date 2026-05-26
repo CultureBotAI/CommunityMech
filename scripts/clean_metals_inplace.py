@@ -18,10 +18,7 @@ left exactly as found.
 Out of scope deliberately:
 
 - `metal_notes` and `metal_relevance` are never touched. Curator-authored
-  values in those fields would otherwise be silently clobbered, and
-  rewriting a multi-line YAML scalar from a key-line regex is unsafe
-  (it leaves orphaned continuation lines that get re-folded into the
-  new value).
+  values in those fields would otherwise be silently clobbered.
 - Adding new metal entries is also out of scope. The fixed extractor
   may find legitimate metals the old buggy run missed (e.g., via CHEBI
   tier-1 matching), but adding them here would surprise curators and
@@ -31,20 +28,48 @@ Out of scope deliberately:
   short enough to false-match the substring pattern that affects metals.
 
 Usage:
-    uv run python scripts/clean_metals_inplace.py --dry-run
-    uv run python scripts/clean_metals_inplace.py
+    uv run python scripts/clean_metals_inplace.py            # dry-run (default)
+    uv run python scripts/clean_metals_inplace.py --apply    # write changes
 
 The script self-bootstraps `src/` onto `sys.path`, so PYTHONPATH does
 not need to be set when invoking it directly.
+
+History
+-------
+Originally this script mutated each YAML in place via regex/line edits
+on the raw text and `path.write_text(string)`. That bypassed the
+write-time validation gate and never recorded a CurationEvent — both
+flagged by the writers audit (PR #85). This rewrite loads the document
+through `yaml.safe_load`, mutates the in-memory dict, records a
+`CLEAN_METAL_FIELDS` curation event, and writes back through
+`write_validated_community` (with backup-restore on validation failure,
+matching the apply_pmc_conversions / link_growth_media pattern).
+
+The cleaning semantics are preserved verbatim: the same ambiguous-symbol
+table is consulted, and the same word-bounded evidence search runs over
+the document minus its `metals_present` block. The only externally
+visible difference is that the file is now re-emitted as canonical YAML
+(comments and incidental formatting are not preserved across the
+roundtrip — this is the same cost paid by every other validated-writer
+script in the repo).
 """
+
+from __future__ import annotations
 
 import argparse
 import sys
 from pathlib import Path
 
+import yaml
+
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
+from communitymech.curate.curation_event import record_curation_event
 from communitymech.metal_extraction import keyword_in_text
+from communitymech.validation.write_validated import (
+    ValidationFailedError,
+    write_validated_community,
+)
 
 # Metals whose keyword list contains a short symbol that the old buggy
 # substring matcher false-fired on. For each, the "unambiguous" tokens
@@ -57,37 +82,36 @@ AMBIGUOUS_METAL_KEYWORDS: dict[str, list[str]] = {
 }
 
 
-def _read_metals_block(lines: list[str]) -> tuple[int, int, list[str]] | None:
-    """Locate the metals_present block. Returns (start_idx, end_idx, entries)."""
-    for i, line in enumerate(lines):
-        if line.rstrip("\n") == "metals_present:" or line.startswith("metals_present: "):
-            inline = line.rstrip("\n").removeprefix("metals_present:").strip()
-            if inline:
-                # Inline scalar form (e.g., `metals_present: []`) — nothing to clean.
-                return i, i + 1, []
-            entries: list[str] = []
-            end = i + 1
-            while end < len(lines) and lines[end].startswith("- "):
-                entries.append(lines[end][2:].strip())
-                end += 1
-            return i, end, entries
-    return None
+def _evidence_text(doc: dict) -> str:
+    """Serialize ``doc`` minus ``metals_present`` for word-bounded keyword search.
+
+    The original (text-based) implementation built the evidence string by
+    concatenating every line of the source file *except* the
+    ``metals_present:`` block, so that an ambiguous entry would never
+    self-satisfy by matching its own listing. We mirror that exclusion
+    here by stripping the key from a shallow copy before dumping.
+
+    ``keyword_in_text`` anchors on non-alphanumeric boundaries, so YAML
+    structural characters (``:``, ``-``, newlines, quotes) do not affect
+    match outcomes versus the original raw-text view.
+    """
+    scratch = {k: v for k, v in doc.items() if k != "metals_present"}
+    return yaml.safe_dump(scratch, allow_unicode=True, sort_keys=False)
 
 
-def clean_file(path: Path, dry_run: bool) -> tuple[bool, str]:
-    text = path.read_text()
-    lines = text.splitlines(keepends=True)
-    located = _read_metals_block(lines)
-    if located is None:
-        return False, ""
-    start, end, entries = located
+def clean_metal_fields_in_doc(doc: dict) -> tuple[list[str], list[str]]:
+    """Remove false-positive ambiguous metals from ``doc['metals_present']``.
+
+    Mutates ``doc`` in place. Returns ``(removed, kept)`` so callers can
+    log what changed. When ``metals_present`` is missing, empty, or has
+    no entries to drop, returns ``([], existing_list)`` and leaves the
+    doc untouched.
+    """
+    entries = doc.get("metals_present")
     if not entries:
-        return False, ""
+        return [], list(entries or [])
 
-    # Exclude the metals_present block itself when searching for evidence —
-    # otherwise the `- TITANIUM` entry we're trying to validate would match
-    # its own keywords and never be flagged as a false positive.
-    evidence_text = "".join(lines[:start] + lines[end:])
+    evidence = _evidence_text(doc)
 
     kept: list[str] = []
     removed: list[str] = []
@@ -96,47 +120,97 @@ def clean_file(path: Path, dry_run: bool) -> tuple[bool, str]:
         if unambig is None:
             kept.append(entry)
             continue
-        if any(keyword_in_text(kw, evidence_text) for kw in unambig):
+        if any(keyword_in_text(kw, evidence) for kw in unambig):
             kept.append(entry)
         else:
             removed.append(entry)
 
+    if removed:
+        doc["metals_present"] = kept
+    return removed, kept
+
+
+def clean_file(path: Path, apply: bool) -> tuple[bool, str]:
+    """Load, clean, and (if ``apply``) write a single community YAML.
+
+    Returns ``(changed, summary)``. ``changed`` is True iff at least one
+    false-positive metal was removed. ``summary`` is a human-readable
+    one-liner suitable for printing alongside the file name.
+    """
+    with path.open() as f:
+        doc = yaml.safe_load(f)
+    if not isinstance(doc, dict):
+        return False, ""
+
+    removed, kept = clean_metal_fields_in_doc(doc)
     if not removed:
         return False, ""
 
-    # Rebuild only the metals_present block; everything else (including
-    # metal_relevance, metal_notes, and any comments) is preserved.
-    if kept:
-        body = "".join(f"- {e}\n" for e in kept)
-        new_block = "metals_present:\n" + body
-    else:
-        new_block = "metals_present: []\n"
-
-    new_lines = lines[:start] + [new_block] + lines[end:]
-    new_text = "".join(new_lines)
-
     summary = f"  removed: {removed}; kept: {kept}"
-    if not dry_run:
-        path.write_text(new_text)
+
+    if not apply:
+        return True, summary
+
+    record_curation_event(
+        doc,
+        curator="clean_metals_inplace",
+        action="CLEAN_METAL_FIELDS",
+        changes=(
+            f"Removed {len(removed)} false-positive metal(s) from metals_present: "
+            f"{', '.join(removed)}"
+        ),
+    )
+
+    # Restore-on-failure pattern (matches apply_pmc_conversions /
+    # link_growth_media from PR #85): rename to .bak first so a failed
+    # validation doesn't leave the original missing on disk.
+    backup = path.with_suffix(".yaml.bak_metals")
+    path.rename(backup)
+    try:
+        write_validated_community(doc, path)
+    except ValidationFailedError as exc:
+        backup.rename(path)
+        print(
+            f"  ✗ validation failed for {path.name}: {exc.summary()} "
+            "(original restored from backup)",
+            file=sys.stderr,
+        )
+        return False, summary
+    backup.unlink()  # success — drop the backup
     return True, summary
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--dry-run", action="store_true")
+    parser = argparse.ArgumentParser(description=__doc__)
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Preview changes without writing (default).",
+    )
+    group.add_argument(
+        "--apply",
+        action="store_true",
+        help="Actually write changes back to disk.",
+    )
     args = parser.parse_args()
+
+    apply = args.apply  # dry-run is the default; --apply is the explicit opt-in
 
     community_dir = Path("kb/communities")
     files = sorted(community_dir.glob("*.yaml"))
     changed = 0
     for f in files:
-        did_change, summary = clean_file(f, dry_run=args.dry_run)
+        did_change, summary = clean_file(f, apply=apply)
         if did_change:
             changed += 1
             print(f"{f.name}")
             print(summary)
-    verb = "would change" if args.dry_run else "changed"
+
+    verb = "changed" if apply else "would change"
     print(f"\n{verb} {changed}/{len(files)} files")
+    if not apply:
+        print("(dry-run; re-run with --apply to write)")
 
 
 if __name__ == "__main__":
