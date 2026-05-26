@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-25T01:44:55
+# Generation date: 2026-05-25T18:12:41
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1949,7 +1949,8 @@ slots.growthMediaComponent__name = Slot(uri=COMMUNITYMECH.name, name="growthMedi
                    model_uri=COMMUNITYMECH.growthMediaComponent__name, domain=None, range=str)
 
 slots.growthMediaComponent__media_ingredient_mech_id = Slot(uri=COMMUNITYMECH.media_ingredient_mech_id, name="growthMediaComponent__media_ingredient_mech_id", curie=COMMUNITYMECH.curie('media_ingredient_mech_id'),
-                   model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_id, domain=None, range=Optional[str])
+                   model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^MediaIngredientMech:\d{6}$'))
 
 slots.growthMediaComponent__media_ingredient_mech_url = Slot(uri=COMMUNITYMECH.media_ingredient_mech_url, name="growthMediaComponent__media_ingredient_mech_url", curie=COMMUNITYMECH.curie('media_ingredient_mech_url'),
                    model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_url, domain=None, range=Optional[str])
@@ -1970,7 +1971,8 @@ slots.growthMedia__name = Slot(uri=COMMUNITYMECH.name, name="growthMedia__name",
                    model_uri=COMMUNITYMECH.growthMedia__name, domain=None, range=str)
 
 slots.growthMedia__culturemech_id = Slot(uri=COMMUNITYMECH.culturemech_id, name="growthMedia__culturemech_id", curie=COMMUNITYMECH.curie('culturemech_id'),
-                   model_uri=COMMUNITYMECH.growthMedia__culturemech_id, domain=None, range=Optional[str])
+                   model_uri=COMMUNITYMECH.growthMedia__culturemech_id, domain=None, range=Optional[str],
+                   pattern=re.compile(r'^CultureMech:\d{6}$'))
 
 slots.growthMedia__culturemech_url = Slot(uri=COMMUNITYMECH.culturemech_url, name="growthMedia__culturemech_url", curie=COMMUNITYMECH.curie('culturemech_url'),
                    model_uri=COMMUNITYMECH.growthMedia__culturemech_url, domain=None, range=Optional[str])
