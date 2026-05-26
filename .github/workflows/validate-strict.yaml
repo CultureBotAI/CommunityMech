@@ -2,16 +2,19 @@ name: validate-strict
 
 on:
   pull_request:
-    paths:
+    paths: &trigger_paths
       - "kb/communities/**"
       - "src/communitymech/schema/**"
-      - "src/communitymech/**.py"
-      - "scripts/**.py"
+      - "src/communitymech/**/*.py"
+      - "scripts/**/*.py"
+      - "tests/**/*.py"
       - "justfile"
       - "pyproject.toml"
+      - "uv.lock"
       - ".github/workflows/validate-strict.yaml"
   push:
     branches: [main]
+    paths: *trigger_paths
   workflow_dispatch:
 
 permissions:
@@ -37,7 +40,11 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --all-extras
+        # --frozen fails the workflow if uv.lock is stale (don't silently
+        # re-resolve in CI). --all-extras keeps parity with the existing
+        # network-quality.yml workflow and ensures pytest + optional deps
+        # are available for the test step below.
+        run: uv sync --frozen --all-extras
 
       - name: Run validate-strict (closed-schema LinkML validation)
         run: just validate-strict
