@@ -43,6 +43,7 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -212,9 +213,7 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
         "sidecar_files": ec._existing_sidecars(out_dir, stem),  # pylint: disable=protected-access
         "artifacts_fetched": [a for a in artifacts_manifest if a.get("status") == "fetched"],
         "artifacts_skipped": [a for a in artifacts_manifest if a.get("status") != "fetched"],
-        "enriched_at": ec._to_iso(
-            __import__("datetime").datetime.now(__import__("datetime").timezone.utc)  # pylint: disable=protected-access
-        ),
+        "enriched_at": ec._to_iso(datetime.now(timezone.utc)),
     }
     # Preserve existing query_sha256, but stamp it in if missing.
     if not meta.get("query_sha256") and meta.get("query"):
@@ -273,7 +272,11 @@ def main(argv: list[str] | None = None) -> int:
         print(f"No metas matched {args.pattern} under {args.research_dir}")
         return 0
 
-    print(f"Considering {len(meta_paths)} meta yamls in " f"{args.research_dir.relative_to(REPO_ROOT)}/")
+    try:
+        shown = args.research_dir.relative_to(REPO_ROOT)
+    except ValueError:
+        shown = args.research_dir
+    print(f"Considering {len(meta_paths)} meta yamls in {shown}/")
 
     client = None
     if not args.dry_run:

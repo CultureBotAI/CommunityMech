@@ -103,13 +103,18 @@ def load_api_key() -> str:
     return key
 
 
-def render_query(community_path: Path, template_path: Path) -> tuple[str, dict[str, str]]:
+def render_query(
+    community_path: Path, template_path: Path, doc: dict[str, Any] | None = None
+) -> tuple[str, dict[str, str]]:
     """Render the deep-research template for a single community.
 
     Returns ``(query_text, template_vars)`` so callers can stamp the
-    variables into the meta file alongside the rendered query.
+    variables into the meta file alongside the rendered query. ``doc``
+    may be passed in to reuse an already-parsed YAML and avoid a second
+    read.
     """
-    doc = rc.load_community(community_path)
+    if doc is None:
+        doc = rc.load_community(community_path)
     variables = rc.template_vars(doc, community_path)
     template = template_path.read_text()
     return template.format_map(_DefaultEmpty(variables)), variables
@@ -157,16 +162,19 @@ def run_one(
     """
     from edison_client import TaskRequest
 
-    query, variables = render_query(community_path, template_path)
+    doc = rc.load_community(community_path)
+    query, variables = render_query(community_path, template_path, doc)
     slug = slug_for(community_path)
     job_short = _short_job(job)
     stem = f"{slug}-edison-{job_short}"
     meta_path = out_dir / f"{stem}-meta.yaml"
 
     def _safe_rel(p: Path) -> str:
-        return str(p.relative_to(REPO_ROOT)) if str(p).startswith(str(REPO_ROOT)) else str(p)
+        try:
+            return str(p.resolve().relative_to(REPO_ROOT))
+        except ValueError:
+            return str(p)
 
-    doc = rc.load_community(community_path)
     base_meta: dict[str, Any] = {
         "slug": slug,
         "community_path": _safe_rel(community_path),
