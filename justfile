@@ -183,6 +183,30 @@ research-community provider target *args="":
 # Alias for repo-specific entity research.
 research-entity provider target *args="": (research-community provider target args)
 
+# Edison Scientific deep research (PaperQA3) for one community record.
+# target = filename stem, CommunityMech id, or YAML path.
+# Examples:
+#   just research-community-edison Yogurt_TwoSpecies_Starter_Culture --dry-run
+#   just research-community-edison CommunityMech:000164 --job literature-high
+research-community-edison target *args="":
+    uv run --extra dev python scripts/research_community_edison.py \
+      --target {{target}} \
+      --template {{templates_dir}}/community_mechanism_research.md \
+      --out-dir {{research_dir}}/communities \
+      {{args}}
+
+# Edison deep research for a batch of communities (JSON list of stems/ids/paths).
+research-community-edison-batch batch *args="":
+    uv run --extra dev python scripts/research_community_edison.py \
+      --batch {{batch}} \
+      --template {{templates_dir}}/community_mechanism_research.md \
+      --out-dir {{research_dir}}/communities \
+      {{args}}
+
+# Retroactively backfill Edison provenance sidecars (no re-billing).
+enrich-edison-response *args="":
+    uv run --extra dev python scripts/enrich_edison_response.py {{args}}
+
 # List available deep-research-client providers.
 research-providers:
     #!/usr/bin/env bash
