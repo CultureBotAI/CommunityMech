@@ -89,6 +89,11 @@ REPOINT = {
     ("CHEBI:28115", "cob(I)alamin"): "CHEBI:15982",
     ("CHEBI:78320", "sodium L-lactate"): "CHEBI:232798",
     ("CHEBI:26156", "palladium atom"): "CHEBI:33363",
+    # third batch (residuals resolvable on closer search)
+    ("CHEBI:31437", "iron(II) sulfate (anhydrous)"): "CHEBI:75832",
+    ("CHEBI:87659", "(2Z)-2-dodecenoic acid"): "CHEBI:38372",
+    ("CHEBI:30320", "vanadyl cation"): "CHEBI:30046",
+    ("CHEBI:49782", "dysprosium(3+)"): "CHEBI:33377",
 }
 
 # (old_id, old_label) where id is the correct compound; relabel to canon[old_id]
