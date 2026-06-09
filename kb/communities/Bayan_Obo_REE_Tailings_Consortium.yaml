@@ -32,11 +32,15 @@ engineering_design:
   perturbation_design: 'Designed condition space included: pH, Bioleaching Duration.'
   evidence:
   - reference: doi:10.1016/j.cej.2024.153492
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VITRO
     snippet: The acid-producing bacterial consortium leached rare earth elements from Bayan Obo tailings
       primarily through acidolysis of bastnaesite and monazite.
-    explanation: Establishes acidolysis as primary bioleaching mechanism
+    explanation: Misattributed. doi:10.1016/j.cej.2024.153492 is an MXene (Ti3C2Tx)
+      materials-science review and does not contain this passage about REE bioleaching
+      of Bayan Obo tailings. Same DOI this PR identifies as off-topic. No verified
+      replacement reference is available for this item, so it is marked WRONG_STATEMENT
+      rather than fabricating one.
 environment_term:
   preferred_term: mine tailing
   term:
@@ -75,17 +79,23 @@ taxonomy:
   abundance_value: Dominant autotrophic member of consortium
   evidence:
   - reference: PMID:38310848
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VIVO
     snippet: Functionality analysis suggests the capability of these microorganisms
       to leach PTE and REE
-    explanation: Cebekhulu et al. 2024 document the indigenous functional bacterial
-      community's REE-leaching capability from alkaline mine tailings.
+    explanation: Cebekhulu et al. 2024 document an indigenous functional bacterial
+      community's REE-leaching capability, but from a different consortium and site
+      (alkaline South African mine tailings), not Acidithiobacillus ferrooxidans at
+      Bayan Obo. Given the taxa and site mismatch this is downgraded to PARTIAL for
+      consistency with how the same reference is treated elsewhere in this file.
   - reference: doi:10.1016/j.cej.2024.153492
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VITRO
     snippet: acid bioleaching functional bacteria consortium
-    explanation: Establishes acid-producing bacterial consortium composition
+    explanation: Misattributed. doi:10.1016/j.cej.2024.153492 is an MXene (Ti3C2Tx)
+      materials-science review and does not address an acid-bioleaching bacterial
+      consortium. Same off-topic DOI flagged by this PR. No verified replacement
+      available, so marked WRONG_STATEMENT rather than fabricating one.
 - taxon_term:
     preferred_term: Acidiphilium cryptum
     term:
@@ -321,7 +331,7 @@ ecological_interactions:
   evidence:
   - reference: PMID:38702568
     supports: PARTIAL
-    evidence_source: IN_VITRO
+    evidence_source: REVIEW
     snippet: The review outlines the principles and distinctions of bioleaching,
       biosorption, and bioaccumulation, offering a comparative analysis of their
       potential and limitations
@@ -329,11 +339,14 @@ ecological_interactions:
       process configurations for REE recovery — abstract doesn't quote specific Bayan
       Obo efficiencies (PARTIAL).
   - reference: doi:10.1016/j.cej.2024.153492
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VITRO
     snippet: rare earth elements in Bayan Obo RERT could be high-efficiently bioleached by acid bioleaching
       functional bacteria consortium
-    explanation: Establishes high-efficiency REE mobilization by consortium
+    explanation: Misattributed. doi:10.1016/j.cej.2024.153492 is an MXene (Ti3C2Tx)
+      materials-science review and does not contain this Bayan Obo RERT bioleaching
+      passage. Same off-topic DOI flagged by this PR. No verified replacement
+      available, so marked WRONG_STATEMENT rather than fabricating one.
 - name: Synergistic Two-Step Process Enhancement
   description: 'The two-step bioleaching process (Acidiphilium pre-culture followed by At. ferrooxidans
     addition) achieves 83.51% REE recovery versus 82.78% for one-step simultaneous inoculation, demonstrating
@@ -441,7 +454,7 @@ environmental_factors:
   evidence:
   - reference: PMID:38702568
     supports: PARTIAL
-    evidence_source: IN_VITRO
+    evidence_source: REVIEW
     snippet: The review outlines the principles and distinctions of bioleaching,
       biosorption, and bioaccumulation
     explanation: Vítová & Mezricky 2024 outline bioleaching principles for REE
@@ -501,7 +514,7 @@ environmental_factors:
   evidence:
   - reference: PMID:38702568
     supports: PARTIAL
-    evidence_source: IN_VITRO
+    evidence_source: REVIEW
     snippet: successful methods, including advanced techniques for enhancing microbial
       strains to achieve higher REE recovery
     explanation: Vítová & Mezricky 2024 review REE-recovery enhancement methods —
@@ -528,7 +541,7 @@ environmental_factors:
   evidence:
   - reference: PMID:38702568
     supports: PARTIAL
-    evidence_source: IN_VITRO
+    evidence_source: REVIEW
     snippet: principles and distinctions of bioleaching, biosorption, and bioaccumulation,
       offering a comparative analysis of their potential and limitations
     explanation: Vítová & Mezricky 2024 compare the three REE-recovery process
@@ -564,11 +577,13 @@ related_ingredients:
     82-83% recovery.
   evidence:
   - reference: doi:10.1016/j.cej.2024.153492
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VITRO
     snippet: rare-earth metals acid bioleaching from the rare-earth-rich tailings
-    explanation: Anchors the rare-earth metals (dominated by Ce) as the central target
-      compounds recovered by acid bioleaching from the tailings.
+    explanation: Misattributed. doi:10.1016/j.cej.2024.153492 is an MXene (Ti3C2Tx)
+      materials-science review and does not contain this passage about acid bioleaching
+      of rare-earth-rich tailings. Same off-topic DOI flagged by this PR. No verified
+      replacement available, so marked WRONG_STATEMENT rather than fabricating one.
 - preferred_term: lanthanum(3+)
   chebi_term:
     id: CHEBI:49701
@@ -578,11 +593,13 @@ related_ingredients:
     bioleaching of the rare-earth-rich tailings.
   evidence:
   - reference: doi:10.1016/j.cej.2024.153492
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VITRO
     snippet: rare-earth metals acid bioleaching from the rare-earth-rich tailings
-    explanation: Anchors the rare-earth metals (La among the light REE) as the central
-      target compounds recovered from the tailings.
+    explanation: Misattributed. doi:10.1016/j.cej.2024.153492 is an MXene (Ti3C2Tx)
+      materials-science review and does not contain this passage about acid bioleaching
+      of rare-earth-rich tailings. Same off-topic DOI flagged by this PR. No verified
+      replacement available, so marked WRONG_STATEMENT rather than fabricating one.
 metals_present:
 - IRON
 rare_earth_elements_present:
