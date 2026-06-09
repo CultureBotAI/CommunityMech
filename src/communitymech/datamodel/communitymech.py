@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-25T18:12:41
+# Generation date: 2026-06-08T21:28:17
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -73,6 +73,7 @@ UBERON = CurieNamespace('UBERON', 'http://purl.obolibrary.org/obo/UBERON_')
 COMMUNITYMECH = CurieNamespace('communitymech', 'https://w3id.org/communitymech/')
 DOI = CurieNamespace('doi', 'https://doi.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
+RDFS = CurieNamespace('rdfs', 'http://www.w3.org/2000/01/rdf-schema#')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = COMMUNITYMECH
 
@@ -1779,7 +1780,7 @@ class slots:
 slots.term__id = Slot(uri=COMMUNITYMECH.id, name="term__id", curie=COMMUNITYMECH.curie('id'),
                    model_uri=COMMUNITYMECH.term__id, domain=None, range=str)
 
-slots.term__label = Slot(uri=COMMUNITYMECH.label, name="term__label", curie=COMMUNITYMECH.curie('label'),
+slots.term__label = Slot(uri=RDFS.label, name="term__label", curie=RDFS.curie('label'),
                    model_uri=COMMUNITYMECH.term__label, domain=None, range=str)
 
 slots.evidenceItem__reference = Slot(uri=COMMUNITYMECH.reference, name="evidenceItem__reference", curie=COMMUNITYMECH.curie('reference'),
