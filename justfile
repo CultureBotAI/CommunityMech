@@ -65,13 +65,28 @@ validate-cross-repo-ids-all:
 validate-terms FILE:
     uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels
 
-# Validate terms in all community files
+# Validate terms in all community files. Now that the schema binds the
+# descriptor `term` slots, --labels verifies term.label is the CANONICAL
+# ontology label for term.id. Fails (non-zero) if any file has label drift.
 validate-terms-all:
     #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
     for file in kb/communities/*.yaml; do
-        echo "\\nValidating terms in $file..."
-        uv run linkml-term-validator validate-data "$file" -s src/communitymech/schema/communitymech.yaml --labels
+        echo "Validating terms in $file..."
+        uv run linkml-term-validator validate-data "$file" -s src/communitymech/schema/communitymech.yaml --labels || rc=1
     done
+    exit $rc
+
+# id↔label gate (Engine B): verify (id,label) pairs in DATA PRODUCTS
+# (KGX node export) correspond to the ontology. Exits 2 on any mismatch.
+validate-products:
+    uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml
+
+# Baseline (non-failing): unified id↔label drift report across community
+# YAMLs + KGX products to reports/label_drift.tsv. Use before enforcing.
+report-label-drift:
+    uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml --report reports/label_drift.tsv
 
 # Validate schema-level ontology term meanings
 validate-schema-terms:

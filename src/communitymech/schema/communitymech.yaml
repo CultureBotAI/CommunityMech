@@ -21,6 +21,7 @@ prefixes:
   PMID: http://www.ncbi.nlm.nih.gov/pubmed/
   doi: https://doi.org/
   xsd: http://www.w3.org/2001/XMLSchema#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
 
 default_prefix: communitymech
 
@@ -472,7 +473,11 @@ classes:
         description: The ontology term ID (e.g., NCBITaxon:1140, CHEBI:17992)
         required: true
       label:
-        description: The human-readable label for the term
+        slot_uri: rdfs:label
+        description: >-
+          The CANONICAL ontology label for `id` (e.g. "activated sludge" for
+          ENVO:00002046). Verified against the ontology by the id↔label gate;
+          free/project names belong in the sibling `preferred_term`, not here.
         required: true
 
   EvidenceItem:
@@ -516,6 +521,10 @@ classes:
         description: NCBITaxon ontology term
         range: Term
         required: true
+        # id↔label gate (range-less binding → label check, no enum expansion)
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       notes:
         description: Additional notes about this organism
 
@@ -529,6 +538,9 @@ classes:
         description: CHEBI ontology term
         range: Term
         required: true
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       concentration:
         description: Measured concentration or amount
       notes:
@@ -544,6 +556,9 @@ classes:
         description: GO biological process term
         range: Term
         required: true
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       notes:
         description: Additional notes
 
@@ -557,6 +572,9 @@ classes:
         description: ENVO ontology term
         range: Term
         required: true
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       notes:
         description: Additional notes
 
@@ -812,6 +830,9 @@ classes:
           CultureMech source_environment.
         range: Term
         required: false
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       relevance_notes:
         description: Why this medium is relevant to the community
         range: string
@@ -841,6 +862,9 @@ classes:
         description: CHEBI ontology term for the ingredient compound
         range: Term
         required: false
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       relevance:
         description: Why this ingredient is relevant to the community
         required: false

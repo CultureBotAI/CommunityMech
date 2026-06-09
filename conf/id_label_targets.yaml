@@ -1,0 +1,31 @@
+# Targets for scripts/validate_id_label_correspondence.py (Engine B).
+# See docs/ID_LABEL_CORRESPONDENCE.md. Prefixes not in `adapters` (e.g.
+# CommunityMech:, CultureMech:, MediaIngredientMech:) are SKIPPED_NO_ADAPTER.
+
+adapters:
+  NCBITaxon: sqlite:obo:ncbitaxon
+  ENVO: sqlite:obo:envo
+  CHEBI: sqlite:obo:chebi
+  GO: sqlite:obo:go
+  UBERON: sqlite:obo:uberon
+  CL: sqlite:obo:cl
+
+synonym_scope: exact_related
+
+targets:
+  # data inputs (community YAMLs) — term.{id,label} blocks — strict canonical
+  - name: communities_yaml
+    kind: yaml
+    glob: "kb/communities/*.yaml"
+    policy: canonical
+    pairs:
+      - [id, label]
+
+  # data product: KGX node export carries (id, name) — canonical OR synonym
+  - name: kgx_nodes
+    kind: tabular
+    format: tsv
+    glob: "output/kgx/nodes.tsv"
+    policy: canonical_or_synonym
+    pairs:
+      - [id, name]
