@@ -1,0 +1,79 @@
+# Targets for scripts/validate_id_label_correspondence.py (Engine B).
+# See docs/ID_LABEL_CORRESPONDENCE.md. Prefixes not in `adapters` (e.g.
+# CommunityMech:, CultureMech:, MediaIngredientMech:) are SKIPPED_NO_ADAPTER.
+
+adapters:
+  NCBITaxon: sqlite:obo:ncbitaxon
+  ENVO: sqlite:obo:envo
+  CHEBI: sqlite:obo:chebi
+  GO: sqlite:obo:go
+  UBERON: sqlite:obo:uberon
+  CL: sqlite:obo:cl
+
+synonym_scope: exact_related
+
+targets:
+  # data inputs (community YAMLs) — term.{id,label} blocks — strict canonical
+  - name: communities_yaml
+    kind: yaml
+    glob: "kb/communities/*.yaml"
+    policy: canonical
+    pairs:
+      - [id, label]
+    # Curator-accepted residuals: (id, label) pairs that survive every audit
+    # cycle because the ontology has no clean replacement (true terminal
+    # obsoletes, MF-vs-BP context mismatches, taxa absent from the current
+    # OAK snapshot). Each entry includes a one-line `reason` for review.
+    # Verdict for matching pairs: OK_EXCEPTION (non-error).
+    exceptions:
+      # --- CHEBI (11) ---
+      - { id: "CHEBI:33104", label: "chromium(III) hydroxide", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:34818", label: "humic acid", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:38292", label: "uranyl(2+)", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:46662", label: "organic matter", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:75315", label: "N-tetradecanoyl-L-homoserine lactone", reason: "CHEBI id resolves to no canonical label in OAK" }
+      - { id: "CHEBI:75317", label: "N-(3-hydroxy-dodecanoyl)-L-homoserine lactone", reason: "CHEBI id resolves to an unrelated compound" }
+      - { id: "CHEBI:75318", label: "N-(3-hydroxy-tetradecanoyl)-L-homoserine lactone", reason: "CHEBI id resolves to an unrelated compound" }
+      - { id: "CHEBI:82328", label: "lead sulfide", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:82332", label: "zinc sulfide", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:86154", label: "sodium metasilicate", reason: "no clean CHEBI term; needs minting" }
+      - { id: "CHEBI:89981", label: "yeast extract", reason: "no clean CHEBI term; canonical (LPS with O-antigen) is wrong" }
+      # --- ENVO (3) ---
+      - { id: "ENVO:00000274", label: "soda lake", reason: "no clean ENVO term; canonical (continental rise) is wrong" }
+      - { id: "ENVO:00002229", label: "anaerobic environment", reason: "no clean ENVO term; canonical (arenosol) is wrong" }
+      - { id: "ENVO:01001442", label: "phyllosphere", reason: "no clean ENVO term; canonical (agriculture) is wrong" }
+      # --- GO (12) ---
+      - { id: "GO:0015103", label: "inorganic anion transmembrane transporter activity", reason: "obsolete; OAK canonical is the obsolete-prefixed string itself; no clean current MF term" }
+      - { id: "GO:0019439", label: "aromatic compound catabolic process", reason: "obsolete; replaced_by (catabolic process) is too broad" }
+      - { id: "GO:0050151", label: "nitrite oxidoreductase activity", reason: "no current GO term for nitrite oxidase activity" }
+      - { id: "GO:0051238", label: "sequestering of metal ion", reason: "obsolete; replaced_by is a molecular-function term (PR #105 already reverted)" }
+      - { id: "GO:0051704", label: "multi-organism process", reason: "true terminal obsolete; no replaced_by" }
+      - { id: "GO:0055114", label: "oxidation-reduction process", reason: "true terminal obsolete; no replaced_by" }
+      - { id: "GO:0070812", label: "organohalide respiration", reason: "no replaced_by; closest is GO:0090345 organohalogen metabolic (not respiration)" }
+      - { id: "GO:0071704", label: "organic substance catabolic process", reason: "obsolete; no clean replaced_by" }
+      - { id: "GO:0071704", label: "organic substance metabolic process", reason: "obsolete; no clean replaced_by" }
+      - { id: "GO:0080001", label: "regulation of primary cell wall biogenesis", reason: "no current GO term; only plant-type variant exists" }
+      - { id: "GO:0140352", label: "regulation of microbial community composition", reason: "no GO term for this concept" }
+      - { id: "GO:1901575", label: "organic substance catabolic process", reason: "obsolete; no clean replaced_by" }
+      # --- NCBITaxon (2) ---
+      - { id: "NCBITaxon:1807132", label: "Candidatus Phormidium alkaliphilum", reason: "absent from current OAK ncbitaxon snapshot and kg-microbe ncbitaxon TSV" }
+      - { id: "NCBITaxon:3050471", label: "Stenotrophomonas goyi", reason: "absent from current OAK ncbitaxon snapshot and kg-microbe ncbitaxon TSV" }
+
+  # data product: KGX node export carries (id, name) — canonical OR synonym
+  - name: kgx_nodes
+    kind: tabular
+    format: tsv
+    glob: "output/kgx/nodes.tsv"
+    policy: canonical_or_synonym
+    pairs:
+      - [id, name]
+    # Residuals that flow into the KGX export from the community YAMLs, plus
+    # one exporter-side label choice ("mercury(2+) cation") that diverges
+    # from OAK canonical by design.
+    exceptions:
+      - { id: "CHEBI:16793", label: "mercury(2+) cation", reason: "exporter-side label (kgx_export.py line 82) uses the +cation suffix; OAK canonical is mercury(2+)" }
+      - { id: "ENVO:00000274", label: "soda lake", reason: "see communities_yaml exception" }
+      - { id: "ENVO:00002229", label: "anaerobic environment", reason: "see communities_yaml exception" }
+      - { id: "ENVO:01001442", label: "phyllosphere", reason: "see communities_yaml exception" }
+      - { id: "NCBITaxon:1807132", label: "Candidatus Phormidium alkaliphilum", reason: "see communities_yaml exception" }
+      - { id: "NCBITaxon:3050471", label: "Stenotrophomonas goyi", reason: "see communities_yaml exception" }
