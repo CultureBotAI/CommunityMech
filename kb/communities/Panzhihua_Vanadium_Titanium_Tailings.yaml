@@ -531,21 +531,31 @@ ecological_interactions:
     description: Improved soil carbon supports rhizobial populations and symbiosis
   evidence:
   - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VIVO
     snippet: We found that the area mapped as WUI within all four municipalities ranged from about 400
       km2 to 1135 km2 depending on the radius size
-    explanation: Establishes microbial role in carbon transformation
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: WRONG_STATEMENT
+    explanation: Misattributed. doi:10.1016/j.jenvman.2024.122098 is a wildland-urban
+      interface (WUI) mapping study of Portuguese municipalities; the snippet is about
+      WUI area, not microbial carbon transformation in V-Ti tailings. This is the same
+      DOI this PR already identifies as wrongly cited. No verified replacement reference
+      is available, so the item is marked WRONG_STATEMENT rather than fabricating one.
+  - reference: PMID:38744211
+    supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Mapping the wildland-urban interface
-    explanation: Quantifies carbon improvement during phytoremediation
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: WRONG_STATEMENT
+    snippet: four soil active organic carbon components (ROC, POC, DOC, and MBC)
+      and three carbon transformation related enzymes (S-CL, S-SC, and S-PPO) in
+      vanadium titanium magnetite tailings significantly (P < 0.05) increased with
+      P. pinnata remediation
+    explanation: Zeng et al. 2024 quantifies the active carbon and enzyme increase
+      driven by Pongamia pinnata phytoremediation of V-Ti tailings.
+  - reference: PMID:38744211
+    supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Mapping the wildland-urban interface
-    explanation: Documents carbon sequestration enhancement
+    snippet: phytoremediation to drive soil carbon transformation for carbon sequestration
+      enhancement through the remediation of degraded ecosystems in mining areas
+    explanation: Zeng et al. 2024 explicitly frame the carbon transformation
+      mechanism as carbon sequestration enhancement via phytoremediation.
 - name: Rhizobial Functional Redundancy in Nitrogen Fixation
   description: 'Rhizobium selenitireducens and R. pisi provide functional redundancy in nitrogen fixation
     alongside the dominant Bradyrhizobium pachyrhizi. Three R. selenitireducens isolates and one R. pisi
@@ -678,11 +688,14 @@ environmental_factors:
     '
   evidence:
   - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VIVO
     snippet: We tested the procedure in four municipalities of mainland Portugal with different fire history,
       biophysical conditions, and sociodemographic contexts
-    explanation: Establishes pH range in Panzhihua tailings
+    explanation: Misattributed. doi:10.1016/j.jenvman.2024.122098 is a wildland-urban
+      interface fire-risk study of Portuguese municipalities; the snippet says nothing
+      about pH range in Panzhihua tailings. Same DOI this PR identifies as wrongly cited.
+      No verified replacement available, so marked WRONG_STATEMENT rather than fabricating.
 - name: Total Vanadium Concentration
   value: '340'
   unit: mg/kg
@@ -779,12 +792,16 @@ environmental_factors:
       analyses of 16S rRNA, housekeeping and nitrogen fixation genes
     explanation: Demonstrates L. leucocephala phytostabilization approach
   - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: SUPPORT
+    supports: WRONG_STATEMENT
     evidence_source: IN_VIVO
     snippet: Within each radius, we evaluated the total area and spatial distribution of the WUI types,
       as well as the number of buildings within WUI and within the fire perimeters recorded between the
       years 2000 and 2022 and analysed the differences between municipalities
-    explanation: Quantifies temporal dynamics of phytoremediation
+    explanation: Misattributed. doi:10.1016/j.jenvman.2024.122098 is a wildland-urban
+      interface mapping/fire-perimeter study; the snippet describes building counts and
+      fire perimeters, not temporal dynamics of phytoremediation. Same DOI this PR
+      identifies as wrongly cited. No verified replacement available, so marked
+      WRONG_STATEMENT rather than fabricating one.
 - name: Tailings Scale and Origin
   value: 570 million tons accumulated
   unit: metric tons
