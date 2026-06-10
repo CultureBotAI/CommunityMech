@@ -26,6 +26,7 @@ repos already use, and classifies the pair:
     MISMATCH            label is neither canonical nor an accepted synonym  (ERROR)
     ID_NOT_FOUND        id has an adapter but is absent from the ontology   (ERROR)
     EMPTY_LABEL         id present, label blank                             (ERROR)
+    ADAPTER_ERROR       a CONFIGURED adapter failed to load                 (ERROR)
     SKIPPED_NO_ADAPTER  prefix has no configured OAK adapter (cas:, MIM:, …)
 
 Policy (per target, ``conf/id_label_targets.yaml``)
@@ -112,6 +113,11 @@ class AdapterPool:
     ``DSMZ``, …) are never looked up — they are reported as
     ``SKIPPED_NO_ADAPTER`` instead of triggering a futile ontology download.
 
+    Prefix matching is case-insensitive: data carries lowercase ``mesh:`` while
+    the allowlist (and OAK's OBO CURIEs) use uppercase ``MESH:``. ``get`` keys
+    on the canonical allowlist case, and callers can rewrite the CURIE prefix
+    via ``canonical_prefix`` so the lookup actually resolves.
+
     ``get`` returns one of three things:
 
     * ``None``          — prefix is not in the allowlist (legitimate skip).
@@ -125,32 +131,44 @@ class AdapterPool:
 
     def __init__(self, adapters: dict[str, str]):
         self._selectors = adapters
+        # Case-insensitive prefix lookup: data carries lowercase `mesh:` while
+        # the allowlist (and OAK's OBO CURIEs) use uppercase `MESH:`. Map any
+        # casing of a data prefix back to its canonical allowlist key.
+        self._canonical: dict[str, str] = {key.casefold(): key for key in adapters}
         self._cache: dict[str, Any] = {}
 
-    def get(self, prefix: str | None):
-        if not prefix or prefix not in self._selectors:
+    def canonical_prefix(self, prefix: str | None) -> str | None:
+        """Return the allowlist key matching ``prefix`` case-insensitively."""
+        if not prefix:
             return None
-        if prefix not in self._cache:
+        return self._canonical.get(prefix.casefold())
+
+    def get(self, prefix: str | None):
+        key = self.canonical_prefix(prefix)
+        if key is None:
+            return None
+        if key not in self._cache:
             try:
                 from oaklib import get_adapter
 
-                self._cache[prefix] = get_adapter(self._selectors[prefix])
+                self._cache[key] = get_adapter(self._selectors[key])
             except Exception as exc:  # pragma: no cover - environment dependent
-                print(f"  ! failed to load adapter for {prefix}: {exc}", file=sys.stderr)
-                self._cache[prefix] = LOAD_FAILED
-        return self._cache[prefix]
+                print(f"  ! failed to load adapter for {key}: {exc}", file=sys.stderr)
+                self._cache[key] = LOAD_FAILED
+        return self._cache[key]
 
 
 def accepted_labels(
-    adapter: Any, curie: str, scope: str, policy: str = "canonical_or_synonym"
+    adapter: Any, curie: str, scope: str, *, include_synonyms: bool = True
 ) -> tuple[str | None, set[str], bool]:
     """Return (canonical_label, accepted_normalized_set, id_found).
 
-    ``accepted_normalized_set`` always contains the canonical label; with a
-    non-``canonical`` policy it is widened via ``scope`` synonyms. Under the
-    strict ``canonical`` policy synonyms are never accepted, so the (potentially
-    expensive) ``entity_alias_map`` lookup is skipped entirely.
-    ``id_found`` is False when the id is absent from the ontology.
+    ``accepted_normalized_set`` always contains the canonical label; when
+    ``include_synonyms`` is set it is widened via ``scope`` synonyms. Callers
+    using a strict ``canonical`` policy never consult synonyms, so they pass
+    ``include_synonyms=False`` to skip the (potentially expensive)
+    ``entity_alias_map`` lookup entirely. ``id_found`` is False when the id is
+    absent from the ontology.
     """
     try:
         canonical = adapter.label(curie)
@@ -159,7 +177,7 @@ def accepted_labels(
     if canonical is None:
         return None, set(), False
     accepted = {normalize(canonical)}
-    if policy != "canonical":
+    if include_synonyms:
         alias_map: dict[str, list[str]] = {}
         try:
             alias_map = adapter.entity_alias_map(curie) or {}
@@ -178,9 +196,19 @@ def classify(
     adapter: Any,
     policy: str,
     scope: str,
+    lookup_curie: str | None = None,
 ) -> dict[str, Any]:
-    """Classify one (id, label) pair into a verdict dict."""
-    canonical, accepted, found = accepted_labels(adapter, curie, scope, policy)
+    """Classify one (id, label) pair into a verdict dict.
+
+    ``curie`` is reported verbatim; ``lookup_curie`` (when given) is the
+    case-normalized CURIE actually passed to the adapter so that, e.g., a
+    lowercase ``mesh:`` row resolves against OAK's uppercase ``MESH:`` ids.
+    Synonyms are only built when the policy actually consults them.
+    """
+    include_synonyms = policy != "canonical"
+    canonical, accepted, found = accepted_labels(
+        adapter, lookup_curie or curie, scope, include_synonyms=include_synonyms
+    )
     base = {"id": curie, "label": label, "canonical": canonical or ""}
     if not found:
         return {**base, "verdict": "ID_NOT_FOUND"}
@@ -198,83 +226,109 @@ def classify(
 
 def _read_tabular_rows(
     path: Path, fmt: str
-) -> tuple[list[str], list[tuple[int, dict[str, str]]]]:
+) -> tuple[list[str], list[dict[str, str]], list[int]]:
     """Read a TSV/CSV, skipping ONLY the leading SSSOM ``#`` comment prelude.
 
-    Returns ``(fieldnames, [(true_line_number, row), …])``. The line numbers are
-    the row's 1-based position in the original file, so locators stay accurate
-    even after the prelude is removed. ``#`` lines that appear *after* the header
-    are NOT stripped (only the contiguous top-of-file prelude is), matching the
-    SSSOM convention where the metadata block precedes the table.
+    Returns ``(fieldnames, rows, data_line_numbers)`` where each entry of
+    ``data_line_numbers`` is the TRUE 1-based physical file line where the
+    corresponding data row begins, so locators stay accurate even after the
+    prelude is removed. ``#`` lines that appear *after* the header are NOT
+    stripped (only the contiguous top-of-file prelude is), matching the SSSOM
+    convention where the metadata block precedes the table.
+
+    The physical line numbers come from the original file, so a quoted
+    multiline field could desync ``len(data_line_numbers)`` from ``len(rows)``;
+    the caller falls back to a post-header ordinal in that case.
     """
     delim = "," if fmt == "csv" else "\t"
     with path.open(newline="", encoding="utf-8") as fh:
-        raw = fh.readlines()
+        raw = list(enumerate(fh, start=1))  # (physical_line_number, text)
     # Strip only the contiguous prelude of ``#`` lines at the top of the file.
     start = 0
-    while start < len(raw) and raw[start].lstrip().startswith("#"):
+    while start < len(raw) and raw[start][1].lstrip().startswith("#"):
         start += 1
     body = raw[start:]
     if not body:
-        return [], []
-    reader = csv.DictReader(body, delimiter=delim)
-    fields = list(reader.fieldnames or [])
-    # body[0] is the header at file line (start + 1); first data row at start + 2.
-    numbered = [(start + 2 + i, row) for i, row in enumerate(reader)]
-    return fields, numbered
+        return [], [], []
+    lines = [text for _, text in body]
+    # body[0] is the header; data rows begin at the next physical line.
+    data_line_numbers = [phys for phys, _ in body[1:]]
+    reader = csv.DictReader(lines, delimiter=delim)
+    return list(reader.fieldnames or []), list(reader), data_line_numbers
 
 
 def iter_tabular(path: Path, fmt: str, pairs: list[list[str]]) -> Iterator[tuple[str, str, str]]:
     """Yield (locator, id, label) for each configured id/label column pair."""
-    fields, rows = _read_tabular_rows(path, fmt)
+    fields, rows, line_numbers = _read_tabular_rows(path, fmt)
     field_set = set(fields)
-    usable = [(i, l) for (i, l) in pairs if i in field_set and l in field_set]
-    # RISK: a configured pair whose columns are absent must NOT vanish silently.
-    # Warn loudly when the file has rows but a configured pair can't be applied.
+    # Keep any pair whose id column exists; a missing label column is allowed
+    # so an id present without its label still gets an EMPTY_LABEL verdict
+    # rather than being silently dropped.
+    usable = [(i, l) for (i, l) in pairs if i in field_set]
+    # RISK: a configured pair whose ID column is absent must NOT vanish silently.
+    # Warn loudly when the file has rows but a configured pair can't be applied
+    # at all. (A missing LABEL column alone is fine — it yields EMPTY_LABEL.)
     if rows:
         for (i, l) in pairs:
             if i not in field_set or l not in field_set:
                 missing = [c for c in (i, l) if c not in field_set]
                 print(
                     f"  ! {_safe_rel(path)}: configured id/label pair "
-                    f"[{i}/{l}] skipped — missing column(s) {missing}; "
+                    f"[{i}/{l}] — missing column(s) {missing}; "
                     f"present columns: {sorted(field_set)}",
                     file=sys.stderr,
                 )
-    for lineno, row in rows:
+    for idx, row in enumerate(rows):
+        # True physical line number when available (a quoted multiline field
+        # could desync the count); else fall back to the post-header ordinal.
+        line_no = line_numbers[idx] if idx < len(line_numbers) else idx + 2
         for id_col, label_col in usable:
             curie = (row.get(id_col) or "").strip()
             if not curie:
                 continue
             label = (row.get(label_col) or "").strip()
-            yield f"line {lineno} [{id_col}/{label_col}]", curie, label
+            yield f"line {line_no} [{id_col}/{label_col}]", curie, label
 
 
-def _walk_yaml(node: Any, pairs: list[tuple[str, str]], path: str) -> Iterator[tuple[str, str, str]]:
+def _walk_yaml(
+    node: Any,
+    pairs: list[tuple[str, str]],
+    path: str,
+    exclude_keys: frozenset[str] = frozenset(),
+) -> Iterator[tuple[str, str, str]]:
     if isinstance(node, dict):
         for id_key, label_key in pairs:
-            if id_key in node and label_key in node:
+            # An id present without its sibling label must still be checked
+            # (yields EMPTY_LABEL), so we do NOT require label_key to exist.
+            if id_key in node:
                 curie = node.get(id_key)
                 if isinstance(curie, str) and curie.strip():
                     label = node.get(label_key)
                     label = label if isinstance(label, str) else ""
                     yield f"{path}.{id_key}", curie.strip(), (label or "").strip()
         for k, v in node.items():
-            yield from _walk_yaml(v, pairs, f"{path}.{k}")
+            # Skip excluded grounding blocks (e.g. mediaingredientmech_chebi_term,
+            # whose label is intentionally MIM's preferred_term, not the OBO
+            # canonical label, so a `canonical` policy would false-MISMATCH it).
+            if k in exclude_keys:
+                continue
+            yield from _walk_yaml(v, pairs, f"{path}.{k}", exclude_keys)
     elif isinstance(node, list):
         for idx, item in enumerate(node):
-            yield from _walk_yaml(item, pairs, f"{path}[{idx}]")
+            yield from _walk_yaml(item, pairs, f"{path}[{idx}]", exclude_keys)
 
 
-def iter_yaml(path: Path, pairs: list[list[str]]) -> Iterator[tuple[str, str, str]]:
+def iter_yaml(
+    path: Path, pairs: list[list[str]], exclude_keys: frozenset[str] = frozenset()
+) -> Iterator[tuple[str, str, str]]:
     """Yield (locator, id, label) from a YAML doc by recursively finding dicts
-    that carry BOTH an id key and its sibling label key."""
+    that carry an id key (and, when present, its sibling label key)."""
     try:
         doc = yaml.safe_load(path.read_text())
     except Exception as exc:  # pragma: no cover
         print(f"  ! failed to parse {path}: {exc}", file=sys.stderr)
         return
-    yield from _walk_yaml(doc, [(a, b) for a, b in pairs], path.name)
+    yield from _walk_yaml(doc, [(a, b) for a, b in pairs], path.name, exclude_keys)
 
 
 # -- driver ---------------------------------------------------------------
@@ -302,6 +356,7 @@ def run(config_path: Path, report_path: Path | None) -> int:
         policy = target.get("policy", "canonical_or_synonym")
         scope = target.get("synonym_scope", default_scope)
         pairs = target.get("pairs", [])
+        exclude_keys = frozenset(target.get("exclude_keys", []) or [])
         globs = target.get("glob")
         glob_list = globs if isinstance(globs, list) else [globs]
         paths: list[Path] = []
@@ -313,7 +368,7 @@ def run(config_path: Path, report_path: Path | None) -> int:
         for path in paths:
             rel = _safe_rel(path)
             if kind == "yaml":
-                pairs_iter = iter_yaml(path, pairs)
+                pairs_iter = iter_yaml(path, pairs, exclude_keys)
             else:
                 pairs_iter = iter_tabular(path, target.get("format", "tsv"), pairs)
             for locator, curie, label in pairs_iter:
@@ -326,8 +381,16 @@ def run(config_path: Path, report_path: Path | None) -> int:
                     rec = {"id": curie, "label": label, "canonical": "",
                            "verdict": "ADAPTER_ERROR"}
                 else:
+                    # Rewrite the CURIE prefix to the canonical allowlist case
+                    # (e.g. mesh: -> MESH:) so OAK, which keys on uppercase OBO
+                    # prefixes, resolves the label instead of returning None.
+                    canonical_prefix = pool.canonical_prefix(prefix)
+                    lookup_curie = curie
+                    if canonical_prefix and prefix != canonical_prefix:
+                        lookup_curie = f"{canonical_prefix}:{curie.split(':', 1)[1]}"
                     rec = classify(
-                        curie=curie, label=label, adapter=adapter, policy=policy, scope=scope
+                        curie=curie, label=label, adapter=adapter, policy=policy,
+                        scope=scope, lookup_curie=lookup_curie,
                     )
                 counts[rec["verdict"]] = counts.get(rec["verdict"], 0) + 1
                 if rec["verdict"] not in ("OK_CANONICAL", "OK_SYNONYM", "SKIPPED_NO_ADAPTER"):
