@@ -1,0 +1,15 @@
+id: CommunityMech:999999
+name: Optional-Binding Regression Community
+description: >-
+  Fixture for the optional-slot binding regression test. It exercises the two
+  optional slots that carry an id↔label binding with obligation_level REQUIRED
+  (RelatedMedia.shared_environment_term and RelatedIngredient.chebi_term) by
+  OMITTING both. An absent optional slot must NOT trip the REQUIRED obligation,
+  so linkml-term-validator --labels must pass on this instance.
+related_media:
+- preferred_term: Test Medium
+  culturemech_id: CultureMech:000001
+  # shared_environment_term deliberately omitted (optional; REQUIRED binding)
+related_ingredients:
+- preferred_term: Test Ingredient
+  # chebi_term deliberately omitted (optional; REQUIRED binding)
