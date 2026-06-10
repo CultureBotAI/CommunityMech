@@ -23,7 +23,7 @@ import requests
 #
 # Two metadata shapes are supported:
 #   1. NCBI efetch `rettype=abstract&retmode=text` (MEDLINE-ish plain text),
-#      which is what fetch_pubmed_abstract caches as pmid_<id>.txt.
+#      which is what fetch_pubmed_abstract caches as PMID_<id>.txt.
 #   2. A free-form author string ("Surname AB, Other CD, ...") such as the
 #      Europe PMC `authorString` field or a CrossRef author list joined into
 #      one line — see parse_first_author_from_author_string.
@@ -173,7 +173,7 @@ def format_citation(text: str, *, author_string: str | None = None) -> str | Non
     """Build the canonical "(Surname et al. Year)" citation deterministically.
 
     Args:
-        text: MEDLINE-format abstract text (as cached in pmid_<id>.txt). May
+        text: MEDLINE-format abstract text (as cached in PMID_<id>.txt). May
             be empty if only an author_string is available.
         author_string: Optional explicit author list (Europe PMC
             ``authorString`` / CrossRef joined list). Preferred over parsing
@@ -231,10 +231,22 @@ class LiteratureFetcher:
         # Clean PMID
         pmid = pmid.replace("PMID:", "").strip()
 
-        # Check cache first
-        cache_file = self.cache_dir / f"pmid_{pmid}.txt"
+        # Check cache first.
+        #
+        # Use the uppercase `PMID_<id>.txt` convention so the cached abstract is
+        # ALSO discoverable by the external linkml-reference-validator, whose
+        # ReferenceFetcher.get_cache_path() normalizes "PMID:<id>" to
+        # `PMID_<id>.md` (primary) with a legacy fallback to `PMID_<id>.txt`.
+        # The old lowercase `pmid_<id>.txt` name was invisible to the validator
+        # on case-sensitive filesystems (Linux/CI), forcing a network re-fetch
+        # and "Could not fetch" warnings every run.
+        cache_file = self.cache_dir / f"PMID_{pmid}.txt"
         if cache_file.exists():
             return cache_file.read_text()
+        # Legacy lowercase fallback (pre-rename caches); read-only.
+        legacy_cache_file = self.cache_dir / f"pmid_{pmid}.txt"
+        if legacy_cache_file.exists():
+            return legacy_cache_file.read_text()
 
         # Fetch from PubMed E-utilities
         url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi"

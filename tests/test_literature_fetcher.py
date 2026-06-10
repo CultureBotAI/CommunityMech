@@ -71,6 +71,49 @@ def test_openalex_cache_hit_skips_http(fetcher):
     assert result == "cached abstract text"
 
 
+# ---------------------------------------------------------------------------
+# fetch_pubmed_abstract cache naming (validator-visible PMID_<id>.txt)
+# ---------------------------------------------------------------------------
+
+
+def test_pubmed_abstract_reads_uppercase_cache_skips_http(fetcher):
+    """A committed PMID_<id>.txt cache is read directly; no HTTP request."""
+    (fetcher.cache_dir / "PMID_12345678.txt").write_text("cached abstract")
+    with patch.object(fetcher.session, "get") as mock_get:
+        result = fetcher.fetch_pubmed_abstract("PMID:12345678")
+    mock_get.assert_not_called()
+    assert result == "cached abstract"
+
+
+def test_pubmed_abstract_writes_uppercase_cache(fetcher):
+    """A network fetch caches under the validator-visible PMID_<id>.txt name.
+
+    The external linkml-reference-validator resolves "PMID:<id>" to
+    PMID_<id>.md (primary) with a legacy fallback to PMID_<id>.txt, so the
+    abstract must be written uppercase to be discoverable on case-sensitive
+    filesystems (Linux/CI).
+    """
+    with patch.object(
+        fetcher.session, "get", return_value=_mock_text_response("fresh abstract")
+    ):
+        result = fetcher.fetch_pubmed_abstract("87654321")
+    assert result == "fresh abstract"
+    # The abstract is cached under the uppercase, validator-visible name.
+    # (We assert path existence rather than the directory-entry casing:
+    # macOS dev disks are case-insensitive and report whichever casing the
+    # entry was first created with, which is unreliable across machines.)
+    assert (fetcher.cache_dir / "PMID_87654321.txt").read_text() == "fresh abstract"
+
+
+def test_pubmed_abstract_reads_legacy_lowercase_cache(fetcher):
+    """Pre-rename lowercase pmid_<id>.txt caches are still read (fallback)."""
+    (fetcher.cache_dir / "pmid_55555555.txt").write_text("legacy abstract")
+    with patch.object(fetcher.session, "get") as mock_get:
+        result = fetcher.fetch_pubmed_abstract("55555555")
+    mock_get.assert_not_called()
+    assert result == "legacy abstract"
+
+
 def test_openalex_no_abstract_returns_none(fetcher):
     """Records without abstract_inverted_index return None without caching."""
     payload = {"title": "Paper without abstract"}

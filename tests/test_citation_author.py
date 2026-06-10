@@ -41,7 +41,7 @@ REAL_CASES = {
     (p, e, y, w) for p, (e, y, w) in REAL_CASES.items()
 ])
 def test_first_author_from_real_medline_cache(pmid, expected, year, wrong):
-    cache_file = CACHE_DIR / f"pmid_{pmid}.txt"
+    cache_file = CACHE_DIR / f"PMID_{pmid}.txt"
     if not cache_file.exists():
         pytest.skip(f"cache file for PMID {pmid} not present")
     text = cache_file.read_text()
@@ -103,7 +103,7 @@ def test_empty_inputs_return_none():
 
 def test_validate_citation_author_gate(tmp_path):
     fetcher = LiteratureFetcher(cache_dir=str(tmp_path))
-    (tmp_path / "pmid_999.txt").write_text(
+    (tmp_path / "PMID_999.txt").write_text(
         "1. J. 2024 Apr;1(1):1. doi: 10.1/x.\n\nTitle.\n\n"
         "Luo DL(1), Huang SY(1).\n\nAuthor information:\n(1)X.\nPMID: 999"
     )
@@ -116,7 +116,7 @@ def test_validate_citation_author_gate(tmp_path):
 
 def test_citation_for_pmid_uses_cache(tmp_path):
     fetcher = LiteratureFetcher(cache_dir=str(tmp_path))
-    (tmp_path / "pmid_42.txt").write_text(
+    (tmp_path / "PMID_42.txt").write_text(
         "1. J. 2023 Apr;1(1):1. doi: 10.1/y.\n\nTitle.\n\n"
         "Wang D(1), Hunt KA(2).\n\nAuthor information:\n(1)X.\nPMID: 42"
     )
