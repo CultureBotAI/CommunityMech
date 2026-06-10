@@ -187,8 +187,8 @@ taxonomy:
 - taxon_term:
     preferred_term: Ochrobactrum intermedium
     term:
-      id: NCBITaxon:194708
-      label: Ochrobactrum intermedium
+      id: NCBITaxon:94625
+      label: Brucella intermedia
     notes: 'Alphaproteobacterium (13 isolates) with exceptional heavy metal tolerance and plant growth-promoting
       capabilities in V-Ti tailings. Four Ochrobactrum isolates from P. pinnata nodules were initially
       identified as O. anthropi, closely related to O. intermedium. Ochrobactrum species are known for
@@ -451,7 +451,7 @@ ecological_interactions:
   - preferred_term: dissimilatory reduction
     term:
       id: GO:0019645
-      label: dissimilatory reduction
+      label: anaerobic electron transport chain
   - preferred_term: cellular detoxification
     term:
       id: GO:1990748
@@ -524,28 +524,37 @@ ecological_interactions:
       label: organic substance catabolic process
   - preferred_term: cellular carbohydrate metabolic process
     term:
-      id: GO:0044262
-      label: cellular carbohydrate metabolic process
+      id: GO:0005975
+      label: carbohydrate metabolic process
   downstream:
   - target: Nitrogen Fixation and Plant Growth Promotion
     description: Improved soil carbon supports rhizobial populations and symbiosis
   evidence:
-  - reference: doi:10.1016/j.jenvman.2024.122098
+  - reference: PMID:38744211
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We found that the area mapped as WUI within all four municipalities ranged from about 400
-      km2 to 1135 km2 depending on the radius size
-    explanation: Establishes microbial role in carbon transformation
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: WRONG_STATEMENT
+    snippet: The abundance of carbon transformation functional genes such as carbon
+      degradation, carbon fixation, and methane oxidation were also significantly
+      (P < 0.05) enriched
+    explanation: Zeng et al. 2024 directly document the bacterial community's role
+      in carbon transformation via enriched degradation/fixation/methane-oxidation
+      gene abundances after V-Ti tailings phytoremediation.
+  - reference: PMID:38744211
+    supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Mapping the wildland-urban interface
-    explanation: Quantifies carbon improvement during phytoremediation
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: WRONG_STATEMENT
+    snippet: four soil active organic carbon components (ROC, POC, DOC, and MBC)
+      and three carbon transformation related enzymes (S-CL, S-SC, and S-PPO) in
+      vanadium titanium magnetite tailings significantly (P < 0.05) increased with
+      P. pinnata remediation
+    explanation: Zeng et al. 2024 quantifies the active carbon and enzyme increase
+      driven by Pongamia pinnata phytoremediation of V-Ti tailings.
+  - reference: PMID:38744211
+    supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Mapping the wildland-urban interface
-    explanation: Documents carbon sequestration enhancement
+    snippet: phytoremediation to drive soil carbon transformation for carbon sequestration
+      enhancement through the remediation of degraded ecosystems in mining areas
+    explanation: Zeng et al. 2024 explicitly frame the carbon transformation
+      mechanism as carbon sequestration enhancement via phytoremediation.
 - name: Rhizobial Functional Redundancy in Nitrogen Fixation
   description: 'Rhizobium selenitireducens and R. pisi provide functional redundancy in nitrogen fixation
     alongside the dominant Bradyrhizobium pachyrhizi. Three R. selenitireducens isolates and one R. pisi
@@ -621,8 +630,8 @@ ecological_interactions:
   source_taxon:
     preferred_term: Ochrobactrum intermedium
     term:
-      id: NCBITaxon:194708
-      label: Ochrobactrum intermedium
+      id: NCBITaxon:94625
+      label: Brucella intermedia
   target_taxon:
     preferred_term: Bradyrhizobium pachyrhizi
     term:
@@ -677,12 +686,15 @@ environmental_factors:
 
     '
   evidence:
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: SUPPORT
+  - reference: PMID:38181847
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: We tested the procedure in four municipalities of mainland Portugal with different fire history,
-      biophysical conditions, and sociodemographic contexts
-    explanation: Establishes pH range in Panzhihua tailings
+    snippet: In this alkaline V tailing pond, V and pH are major drivers to induce
+      community variation, particularly for functional bacteria
+    explanation: Zhang et al. 2024 frame pH (alongside V) as a primary community
+      driver in a Panzhihua-region alkaline V tailing pond — supports pH as a
+      controlling parameter but does not quote a specific Panzhihua pH range
+      (PARTIAL).
 - name: Total Vanadium Concentration
   value: '340'
   unit: mg/kg
@@ -778,13 +790,15 @@ environmental_factors:
     snippet: leucocephala, was classified as Sinorhizobium saheli according to similarity and phylogenetic
       analyses of 16S rRNA, housekeeping and nitrogen fixation genes
     explanation: Demonstrates L. leucocephala phytostabilization approach
-  - reference: doi:10.1016/j.jenvman.2024.122098
-    supports: SUPPORT
+  - reference: PMID:38744211
+    supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Within each radius, we evaluated the total area and spatial distribution of the WUI types,
-      as well as the number of buildings within WUI and within the fire perimeters recorded between the
-      years 2000 and 2022 and analysed the differences between municipalities
-    explanation: Quantifies temporal dynamics of phytoremediation
+    snippet: this study aimed to explore the effects of long-term Pongamia pinnata
+      remediation on soil organic carbon transformation of V-Ti magnetite tailing
+      to reveal the bacterial community driving mechanism
+    explanation: Zeng et al. 2024 study the long-term effects of Pongamia pinnata
+      remediation on V-Ti tailings — supports the temporal-dynamics framing but the
+      abstract does not enumerate specific timepoints (PARTIAL).
 - name: Tailings Scale and Origin
   value: 570 million tons accumulated
   unit: metric tons

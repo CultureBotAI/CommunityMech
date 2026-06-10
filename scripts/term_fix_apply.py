@@ -17,46 +17,37 @@ from pathlib import Path
 
 DRY = "--dry-run" in sys.argv
 COMM = Path("kb/communities")
-ADAPTER = "sqlite:obo:envo"
-PREFIX = "ENVO"
+ADAPTER = "sqlite:obo:ncbitaxon"
+PREFIX = "NCBITaxon"
 
 # (old_id, old_label) -> new_id   (label becomes canon[new_id])
+# Replacement ids cross-checked against the kg-microbe ncbitaxon snapshot
+# (/Users/marcin/.../kg-microbe/data/transformed/ontologies/ncbitaxon_nodes.tsv),
+# then verified to exist in OAK's current sqlite:obo:ncbitaxon adapter.
 REPOINT = {
-    ("ENVO:00000035", "lake"): "ENVO:00000020",
-    ("ENVO:00000044", "wetland"): "ENVO:00000043",
-    ("ENVO:00000072", "mine tailing"): "ENVO:00000003",
-    ("ENVO:00002001", "wastewater treatment plant"): "ENVO:00002043",
-    ("ENVO:00002019", "hypersaline water"): "ENVO:00002012",
-    ("ENVO:00002047", "waste water"): "ENVO:00002001",
-    ("ENVO:00002149", "marine environment"): "ENVO:01000320",
-    ("ENVO:00002179", "permafrost"): "ENVO:00000134",
-    ("ENVO:00002186", "acid mine drainage"): "ENVO:00001997",
-    ("ENVO:00002230", "regolith"): "ENVO:01000747",
-    ("ENVO:00002233", "rhizosphere"): "ENVO:00005801",
-    ("ENVO:00002874", "contaminated soil"): "ENVO:00002116",
-    ("ENVO:01000605", "bioreactor"): "ENVO:00002123",
-    ("ENVO:01000650", "mine tailings"): "ENVO:00000003",
-    ("ENVO:01001063", "sulfide-rich spring"): "ENVO:00000126",
-    ("ENVO:01001242", "freshwater environment"): "ENVO:01000306",
-    ("ENVO:01000017", "subsurface environment"): "ENVO:01000942",
-    ("ENVO:0001998", "human gut environment"): "ENVO:2100002",
-    ("ENVO:00002009", "feces environment"): "ENVO:00002003",
-    ("ENVO:00002359", "river sediment"): "ENVO:00002127",
+    ("NCBITaxon:1379270", "Candidatus Nitrosotalea devanaterra"): "NCBITaxon:1078905",  # → Nitrosotalea devaniterrae (spelling correction)
+    ("NCBITaxon:1380867", "Kazachstania exigua"): "NCBITaxon:34358",                    # → Maudiozyma exigua (genus rename)
+    ("NCBITaxon:1655434", "Asgard group"): "NCBITaxon:1935183",                          # → Promethearchaeati (phylum rename)
+    ("NCBITaxon:1798711", "Dormibacterota"): "NCBITaxon:2052312",                        # → Candidatus Dormiibacterota
+    ("NCBITaxon:1930587", "Eisenbacteria"): "NCBITaxon:1817801",                         # → Candidatus Eiseniibacteriota
+    ("NCBITaxon:1934217", "DPANN group"): "NCBITaxon:1783276",                           # → Nanobdellati
+    ("NCBITaxon:194708",  "Ochrobactrum intermedium"): "NCBITaxon:94625",                # → Brucella intermedia (genus rename)
+    ("NCBITaxon:221109",  "Ochrobactrum pituitosum"): "NCBITaxon:571256",                # → Brucella pituitosa (genus rename)
+    ("NCBITaxon:2426",    "Syntrophus"): "NCBITaxon:43773",                              # → Syntrophus <bacteria> (id 2426 now points to Teredinibacter)
+    ("NCBITaxon:283683",  "Clostridium straminisolvens"): "NCBITaxon:253314",            # → Acetivibrio straminisolvens (genus rename)
+    ("NCBITaxon:445709",  "candidate division OP3"): "NCBITaxon:67812",                  # → Candidatus Omnitrophota
+    ("NCBITaxon:655028",  "Rhizobium pusense"): "NCBITaxon:648995",                      # → Agrobacterium pusense (genus rename)
 }
 
-# (old_id, old_label) where id is the correct/acceptable term; relabel to canon[old_id]
+# (old_id, old_label) where the id is correct/current; relabel to OAK canonical.
 RELABEL = {
-    ("ENVO:00000044", "bog"),               # canon: peatland (peat bog)
-    ("ENVO:00002046", "sludge"),            # canon: activated sludge
-    ("ENVO:01001405", "laboratory bioreactor"),  # canon: laboratory environment
-    ("ENVO:01001405", "laboratory culture"),     # canon: laboratory environment
+    ("NCBITaxon:1801631", "Candidatus Micrarchaeota"),  # canon is now "Microcaldota" (same id)
 }
 
-# Intentionally left for manual curation (no clean ENVO term):
-#   ENVO:00000274 "soda lake" (=continental rise), ENVO:00002009 "feces environment"
-#   (=obsolete), ENVO:00002229 "anaerobic environment" (=arenosol), ENVO:00002359
-#   "river sediment" (=None), ENVO:0001998 "human gut environment" (=None),
-#   ENVO:01001442 "phyllosphere" (=agriculture)
+# Intentionally left for the conf/id_label_targets.yaml exceptions list
+# (not in current OAK ncbitaxon snapshot, even after kg-microbe cross-check):
+#   NCBITaxon:1807132 "Candidatus Phormidium alkaliphilum"
+#   NCBITaxon:3050471 "Stenotrophomonas goyi"
 
 ID_RE = re.compile(rf"^(\s*)id:\s*({PREFIX}:\d+)\s*$")
 LBL_RE = re.compile(r"^(\s*)label:\s*(.+?)\s*$")
