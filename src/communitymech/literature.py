@@ -9,6 +9,203 @@ from pathlib import Path
 
 import requests
 
+# ---------------------------------------------------------------------------
+# Citation / first-author derivation
+# ---------------------------------------------------------------------------
+#
+# Background: the related_ingredients backfill writes `relevance` prose that
+# ends with a short citation of the form "(Surname et al. Year)". When that
+# string is composed by hand (or from an LLM's memory of the paper) the
+# first-author surname is frequently WRONG — it names a non-first or
+# non-present author. The functions below derive the citation
+# DETERMINISTICALLY from the authoritative metadata that the fetcher already
+# caches, so the cited surname is always the paper's real first author.
+#
+# Two metadata shapes are supported:
+#   1. NCBI efetch `rettype=abstract&retmode=text` (MEDLINE-ish plain text),
+#      which is what fetch_pubmed_abstract caches as pmid_<id>.txt.
+#   2. A free-form author string ("Surname AB, Other CD, ...") such as the
+#      Europe PMC `authorString` field or a CrossRef author list joined into
+#      one line — see parse_first_author_from_author_string.
+
+# A MEDLINE author line looks like:
+#   "Luo DL(1), Huang SY(1), Ma CY(1), ..., Dai CC(1)."
+# i.e. "Surname INITIALS" tokens (initials are 1-3 uppercase letters,
+# optionally with parenthetical affiliation markers) separated by commas. A
+# single-author paper has no comma. Collective/consortium authors appear as a
+# capitalized phrase ending in a keyword like "Group"/"Consortium" and have
+# no initials token.
+_AUTHOR_TOKEN_RE = re.compile(
+    r"^([A-Z][\w'\-]+(?:\s+[A-Z][\w'\-]+)*)"  # surname (may be multi-word, e.g. "Van Dyk")
+    r"\s+([A-Z][A-Za-z]{0,2}(?:\s+[A-Z][A-Za-z]{0,2})*)"  # given-name initials
+    r"(?:\([\d,\s]+\))*$"  # optional affiliation markers like "(1)(2)"
+)
+_COLLECTIVE_KEYWORDS = (
+    "group",
+    "consortium",
+    "collaboration",
+    "network",
+    "team",
+    "study",
+    "investigators",
+)
+
+
+def _strip_affiliation_markers(token: str) -> str:
+    """Remove trailing "(1)(2)" affiliation superscripts from a name token."""
+    return re.sub(r"\([\d,\s]+\)", "", token).strip()
+
+
+def parse_first_author_from_author_string(author_string: str) -> str | None:
+    """Return the first author's surname from a comma-separated author string.
+
+    Handles the Europe PMC ``authorString`` shape ("Luo DL, Huang SY, ...")
+    and a CrossRef author list joined as "Surname GivenInitials, ...".
+    Returns the surname only (no initials). Returns ``None`` when no author
+    can be parsed.
+    """
+    if not author_string:
+        return None
+    first = author_string.split(",")[0].strip().rstrip(".")
+    first = _strip_affiliation_markers(first)
+    if not first:
+        return None
+
+    # Collective/consortium author (e.g. "The Human Microbiome Consortium"):
+    # keep the whole phrase, it has no surname/initials split.
+    if any(kw in first.lower() for kw in _COLLECTIVE_KEYWORDS):
+        return first
+
+    m = _AUTHOR_TOKEN_RE.match(first)
+    if m:
+        return m.group(1)
+    # Fallback: first whitespace-delimited token is the surname for most
+    # "Surname Initials" forms even if initials look unusual.
+    return first.split()[0] if first.split() else None
+
+
+def parse_first_author_from_medline(text: str) -> str | None:
+    """Extract the first author's surname from MEDLINE-format abstract text.
+
+    The NCBI efetch text layout is:
+
+        <ordinal>. <Journal>. <Year> ... doi: ...
+        <Title spanning one or more lines>
+        <Author line: "Surname AB(1), Other CD(2), ...">
+        Author information:
+        ...
+
+    The author line is the first non-empty line *after* the title that parses
+    as a list of "Surname Initials" tokens. We find it by scanning for the
+    first line whose leading comma-separated token matches an author token (or
+    is a collective author). This is robust to multi-line titles and to the
+    leading "N." reference ordinal that efetch prepends in batch mode.
+    """
+    if not text:
+        return None
+    lines = text.splitlines()
+    # Skip the journal/citation line(s) and title; find the author line.
+    for raw in lines:
+        line = raw.strip()
+        if not line:
+            continue
+        # The author line ends with a period and its first token parses as an
+        # author. Reject the journal line (contains "doi:" / volume colons)
+        # and "Author information:" / "PMID:" administrative lines.
+        low = line.lower()
+        if low.startswith(("author information", "pmid", "doi", "©", "free", "copyright")):
+            continue
+        first_token = line.split(",")[0].strip().rstrip(".")
+        first_token_clean = _strip_affiliation_markers(first_token)
+        if not first_token_clean:
+            continue
+        if any(kw in first_token_clean.lower() for kw in _COLLECTIVE_KEYWORDS):
+            # Only treat as a collective author if it sits where the author
+            # line is expected (not the title). Require it to be followed by
+            # "Author information:" within the next few lines, or be the last
+            # name-like line — heuristic, but collective-only papers are rare.
+            return first_token_clean
+        if _AUTHOR_TOKEN_RE.match(first_token_clean):
+            return _AUTHOR_TOKEN_RE.match(first_token_clean).group(1)
+    return None
+
+
+def parse_year_from_medline(text: str) -> str | None:
+    """Extract the 4-digit publication year from MEDLINE-format text.
+
+    The year follows the journal name in the first citation line, e.g.
+    "J Appl Microbiol. 2024 Apr 1;135(4)..." -> "2024".
+    """
+    if not text:
+        return None
+    m = re.search(r"\b(19|20)\d{2}\b", text)
+    return m.group(0) if m else None
+
+
+def _author_count_medline(text: str) -> int:
+    """Best-effort count of authors on the MEDLINE author line.
+
+    Used to decide whether "et al." is warranted (>1 author).
+    """
+    if not text:
+        return 0
+    for raw in text.splitlines():
+        line = raw.strip()
+        if not line:
+            continue
+        low = line.lower()
+        if low.startswith(("author information", "pmid", "doi", "©", "free", "copyright")):
+            continue
+        first_token = _strip_affiliation_markers(line.split(",")[0].strip().rstrip("."))
+        if not first_token:
+            continue
+        if any(kw in first_token.lower() for kw in _COLLECTIVE_KEYWORDS):
+            return 1
+        if _AUTHOR_TOKEN_RE.match(first_token):
+            # Author line may wrap across lines; collect until a blank line or
+            # an "Author information:" sentinel.
+            buf = [line]
+            return buf[0].count(",") + 1 if buf[0].endswith(".") else max(1, buf[0].count(",") + 1)
+    return 0
+
+
+def format_citation(text: str, *, author_string: str | None = None) -> str | None:
+    """Build the canonical "(Surname et al. Year)" citation deterministically.
+
+    Args:
+        text: MEDLINE-format abstract text (as cached in pmid_<id>.txt). May
+            be empty if only an author_string is available.
+        author_string: Optional explicit author list (Europe PMC
+            ``authorString`` / CrossRef joined list). Preferred over parsing
+            the MEDLINE text when supplied.
+
+    Returns:
+        A citation string like "(Luo et al. 2024)", or "(Luo 2024)" for a
+        single-author paper, or just "(Luo)" when no year is parseable.
+        Returns ``None`` when no first author can be derived.
+    """
+    surname = (
+        parse_first_author_from_author_string(author_string)
+        if author_string
+        else parse_first_author_from_medline(text)
+    )
+    if not surname:
+        return None
+
+    year = parse_year_from_medline(text) if text else None
+
+    # Decide "et al." — only for multi-author papers.
+    if author_string:
+        n_authors = len([p for p in author_string.split(",") if p.strip()])
+    else:
+        n_authors = _author_count_medline(text)
+    is_collective = any(kw in surname.lower() for kw in _COLLECTIVE_KEYWORDS)
+    etal = " et al." if (n_authors > 1 and not is_collective) else ""
+
+    if year:
+        return f"({surname}{etal} {year})"
+    return f"({surname}{etal})"
+
 
 class LiteratureFetcher:
     """Fetch and cache scientific literature."""
@@ -563,6 +760,43 @@ class LiteratureFetcher:
             None, snippet_normalized.lower(), abstract_normalized.lower()
         ).ratio()
         return ratio > 0.95
+
+    def citation_for_pmid(self, pmid: str) -> str | None:
+        """Return the canonical "(Surname et al. Year)" citation for a PMID.
+
+        Fetches (or reads from cache) the PubMed abstract text and derives the
+        citation DETERMINISTICALLY from the paper's real first author. This is
+        the function backfill tooling should call to produce the relevance
+        citation, instead of composing the author name by hand.
+
+        Returns ``None`` when the abstract cannot be fetched or no author can
+        be parsed.
+        """
+        abstract = self.fetch_pubmed_abstract(pmid)
+        if not abstract:
+            return None
+        return format_citation(abstract)
+
+    def first_author_for_pmid(self, pmid: str) -> str | None:
+        """Return just the first-author surname for a PMID (from cached text)."""
+        abstract = self.fetch_pubmed_abstract(pmid)
+        if not abstract:
+            return None
+        return parse_first_author_from_medline(abstract)
+
+    def validate_citation_author(self, pmid: str, cited_surname: str) -> bool:
+        """Check a hand-written cited surname against the paper's real first author.
+
+        Returns ``True`` when ``cited_surname`` matches the first author parsed
+        from the cached PubMed metadata (case-insensitive). Use this as an
+        anti-hallucination gate before committing relevance prose.
+        Returns ``False`` when they differ OR when the author cannot be parsed
+        (fail-closed: an unverifiable citation should not silently pass).
+        """
+        actual = self.first_author_for_pmid(pmid)
+        if not actual or not cited_surname:
+            return False
+        return actual.strip().lower() == cited_surname.strip().lower()
 
 
 def main():
