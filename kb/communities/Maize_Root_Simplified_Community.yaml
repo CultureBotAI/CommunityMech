@@ -43,9 +43,22 @@ taxonomy:
     term:
       id: NCBITaxon:550
       label: Enterobacter cloacae
+    notes: 'Keystone species of the SF7-style 7-member maize root SynCom (Niu et al. 2017, PNAS). Its
+      removal causes complete community collapse and takeover by Curtobacterium pusillum on maize roots
+      (host-dependent — the takeover does NOT occur in axenic MS agar without seedlings). In addition
+      to its community-structuring role, E. cloacae is the single most effective biocontrol agent in
+      the consortium, providing the strongest delay of Fusarium verticillioides colonization and the
+      best suppression of seedling blight among the seven members. Niu & Kolter (2018) Bio-protocol
+      designates this strain as ZK5345 (alias used here: AA4).'
+  strain_designation:
+    strain_name: ZK5345 (alias AA4)
+    isolation_source: Maize root host-mediated SynCom selection
+    notes: Strain ID ZK5345 from Niu & Kolter 2018 Bio-protocol; legacy alias AA4 retained from
+      pre-2018 curation.
   abundance_level: DOMINANT
   functional_role:
   - SYNTROPHIC_PARTNER
+  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -55,6 +68,21 @@ taxonomy:
       (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
       Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
       of the four most dominant phyla found in maize roots
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
+      ecosystem
+    explanation: Establishes E. cloacae as the keystone species whose presence maintains community
+      composition.
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
+      Fusarium verticillioides, indicating a clear benefit to the host
+    explanation: Supports E. cloacae's PRIMARY_DEGRADER role within the consortium that inhibits
+      F. verticillioides; per the Niu 2017 PNAS full text, E. cloacae is the single most effective
+      biocontrol member.
 - taxon_term:
     preferred_term: Stenotrophomonas maltophilia AA1
     term:
@@ -137,6 +165,22 @@ taxonomy:
       (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
       Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
       of the four most dominant phyla found in maize roots
+- taxon_term:
+    preferred_term: Fusarium verticillioides
+    term:
+      id: NCBITaxon:5550
+      label: Fusarium verticillioides
+    notes: Target phytopathogenic fungus — NOT a SynCom member; included here as the antagonism
+      target of the community's biocontrol activity. Both the whole 7-member consortium and the
+      keystone member E. cloacae individually inhibit F. verticillioides growth in planta and in
+      vitro.
+  evidence:
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
+      Fusarium verticillioides, indicating a clear benefit to the host
+    explanation: Establishes F. verticillioides as the antagonism target the SynCom suppresses.
 ecological_interactions:
 - name: Root Colonization and Community Assembly
   interaction_type: MUTUALISM
@@ -168,7 +212,13 @@ ecological_interactions:
       (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
       Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
       of the four most dominant phyla found in maize roots
-- name: Fusarium Suppression
+- name: Host Protection from Fusarium verticillioides Disease
+  description: 'E. cloacae provides Zea mays with protection from F. verticillioides-caused
+    seedling blight; the host provides E. cloacae with a root-surface habitat. The direct
+    antagonism against F. verticillioides is captured separately as a COMPETITION edge between
+    E. cloacae and the pathogen.
+
+    '
   interaction_type: MUTUALISM
   source_taxon:
     preferred_term: Enterobacter cloacae AA4
@@ -347,6 +397,106 @@ ecological_interactions:
       (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
       Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
       of the four most dominant phyla found in maize roots
+- name: Antifungal Biocontrol of Fusarium verticillioides
+  description: 'The 7-member SynCom directly antagonizes the phytopathogenic fungus Fusarium
+    verticillioides — both in planta and in vitro — providing biocontrol against maize seedling blight.
+    E. cloacae is the most effective individual antagonist; the consortium as a whole acts as a
+    community-level biocontrol agent. This is the defining biocontrol mechanism of the community.
+
+    '
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Enterobacter cloacae AA4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  target_taxon:
+    preferred_term: Fusarium verticillioides
+    term:
+      id: NCBITaxon:5550
+      label: Fusarium verticillioides
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
+      Fusarium verticillioides, indicating a clear benefit to the host
+    explanation: Establishes E. cloacae-led community antagonism against F. verticillioides as the
+      biocontrol mechanism of the SynCom.
+- name: Keystone Stabilization Against Curtobacterium pusillum Takeover
+  description: 'E. cloacae is the keystone species of the consortium — its presence prevents
+    Curtobacterium pusillum from out-competing the rest of the community on maize roots. Removal of
+    E. cloacae causes complete community collapse with C. pusillum dominating, while removal of any
+    other member leaves the community intact. The takeover is host-dependent (does NOT occur on
+    axenic MS agar without maize seedlings), evidencing a host-conditioned keystone effect rather
+    than a direct in-vitro competitive interaction.
+
+    '
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Enterobacter cloacae AA4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  target_taxon:
+    preferred_term: Curtobacterium pusillum
+    term:
+      id: NCBITaxon:69373
+      label: Curtobacterium pusillum
+  evidence:
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Only the removal of E. cloacae led to the complete loss of the community, and C. pusillum
+      took over
+    explanation: Establishes the keystone-effect interaction — E. cloacae suppresses C. pusillum
+      takeover and thereby stabilizes community composition.
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
+      ecosystem
+    explanation: Names the interaction as a keystone effect.
+- name: Community-Level Biocontrol and Keystone Maintenance
+  description: 'Community-wide emergent phenomenon — the 7-member assembly reproducibly self-organizes
+    on maize roots and exerts biocontrol against F. verticillioides only when E. cloacae is present.
+    This combines the keystone effect with the biocontrol outcome as a community-level property
+    rather than a pairwise source/target edge.
+
+    '
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
+      Fusarium verticillioides, indicating a clear benefit to the host
+    explanation: Frames F. verticillioides suppression as a community-level emergent property of the
+      assembled 7-member consortium.
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
+      ecosystem
+    explanation: Frames the keystone effect as inseparable from the community-level biocontrol
+      function — both depend on E. cloacae's presence.
 environmental_factors:
 - name: Target pathogen
   value: Fusarium verticillioides
