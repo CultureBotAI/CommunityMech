@@ -23,6 +23,17 @@ permissions:
   contents: read
 
 jobs:
+  # Cross-repo durability guard: the validator is vendored byte-identical across
+  # the Mech repos, so fail fast if this copy drifts from its pinned sha256.
+  # Fast and dependency-free (no uv / OAK), so it blocks even though the drift
+  # report below is non-blocking.
+  validator-pin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify validator pin
+        run: sha256sum -c scripts/.validate_id_label_correspondence.sha256
+
   label-drift-report:
     runs-on: ubuntu-latest
     steps:
