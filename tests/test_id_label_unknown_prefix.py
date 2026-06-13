@@ -51,7 +51,8 @@ def test_typoed_prefix_fails_enforce(tmp_path, monkeypatch):
 def test_ignored_and_prefixless_pass_enforce(tmp_path, monkeypatch):
     # cas:/MIM: are explicitly ignored; UNMAPPED_1 has no CURIE prefix at all.
     cfg = _setup(
-        tmp_path, monkeypatch,
+        tmp_path,
+        monkeypatch,
         "cas:50-00-0\tformaldehyde\nMIM:000123\tfoo\nUNMAPPED_1\tmystery\n",
     )
     assert mod.run(cfg, report_path=None) == 0

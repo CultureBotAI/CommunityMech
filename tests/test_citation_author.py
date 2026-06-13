@@ -37,9 +37,9 @@ REAL_CASES = {
 }
 
 
-@pytest.mark.parametrize("pmid,expected,year,wrong", [
-    (p, e, y, w) for p, (e, y, w) in REAL_CASES.items()
-])
+@pytest.mark.parametrize(
+    "pmid,expected,year,wrong", [(p, e, y, w) for p, (e, y, w) in REAL_CASES.items()]
+)
 def test_first_author_from_real_medline_cache(pmid, expected, year, wrong):
     cache_file = CACHE_DIR / f"PMID_{pmid}.txt"
     if not cache_file.exists():
@@ -86,9 +86,10 @@ def test_collective_author_preserved():
 
 
 def test_author_string_path_multi_author():
-    assert format_citation(
-        "J. 2020 Feb;...", author_string="Luo DL, Huang SY, Dai CC"
-    ) == "(Luo et al. 2020)"
+    assert (
+        format_citation("J. 2020 Feb;...", author_string="Luo DL, Huang SY, Dai CC")
+        == "(Luo et al. 2020)"
+    )
 
 
 def test_format_citation_no_year():
@@ -109,7 +110,7 @@ def test_validate_citation_author_gate(tmp_path):
     )
     assert fetcher.validate_citation_author("999", "Luo") is True
     assert fetcher.validate_citation_author("999", "luo") is True  # case-insensitive
-    assert fetcher.validate_citation_author("999", "Yu") is False   # the bug
+    assert fetcher.validate_citation_author("999", "Yu") is False  # the bug
     # Unparseable / missing -> fail closed.
     assert fetcher.validate_citation_author("absent", "Anyone") is False
 

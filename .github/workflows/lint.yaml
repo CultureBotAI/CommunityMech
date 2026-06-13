@@ -1,0 +1,44 @@
+name: lint
+
+# Style + type gate (black --check, ruff, mypy). Previously `just lint` was
+# only ever run locally, so formatting/type debt accumulated unnoticed; this
+# job keeps it from regressing.
+
+on:
+  pull_request:
+    paths: &trigger_paths
+      - "src/**/*.py"
+      - "tests/**/*.py"
+      - "scripts/**/*.py"
+      - "pyproject.toml"
+      - "uv.lock"
+      - ".github/workflows/lint.yaml"
+  push:
+    branches: [main]
+    paths: *trigger_paths
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: uv sync --frozen --all-extras
+      - name: black + ruff + mypy
+        run: |
+          uv run black --check src/ tests/
+          uv run ruff check src/ tests/
+          uv run mypy src/

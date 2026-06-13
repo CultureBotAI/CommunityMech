@@ -126,6 +126,9 @@ test:
 # Generate Python datamodel from schema
 gen-python:
     uv run gen-python src/communitymech/schema/communitymech.yaml > src/communitymech/datamodel/communitymech.py
+    # Format the generated file so `black --check src/` (just lint) stays green
+    # without a manual `just format` after every regen.
+    uv run black -q src/communitymech/datamodel/communitymech.py
 
 # Generate schema documentation
 gen-doc:

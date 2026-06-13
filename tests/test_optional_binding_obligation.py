@@ -17,6 +17,7 @@ optional slot into a de-facto required slot. This test pins that contract:
 The test shells out to ``linkml-term-validator validate-data --labels`` (the
 same gate ``just validate`` uses) and is skipped when that CLI is unavailable.
 """
+
 from __future__ import annotations
 
 import shutil

@@ -93,9 +93,7 @@ def test_pubmed_abstract_writes_uppercase_cache(fetcher):
     abstract must be written uppercase to be discoverable on case-sensitive
     filesystems (Linux/CI).
     """
-    with patch.object(
-        fetcher.session, "get", return_value=_mock_text_response("fresh abstract")
-    ):
+    with patch.object(fetcher.session, "get", return_value=_mock_text_response("fresh abstract")):
         result = fetcher.fetch_pubmed_abstract("87654321")
     assert result == "fresh abstract"
     # The abstract is cached under the uppercase, validator-visible name.

@@ -174,11 +174,15 @@ class AnthropicClient(LLMClient):
                 self.total_input_tokens += response.usage.input_tokens
                 self.total_output_tokens += response.usage.output_tokens
 
-            # Extract text response
+            # Extract text response. The first content block is only a
+            # TextBlock for normal completions; other block types (tool use,
+            # thinking, …) have no `.text`, so guard rather than assume.
             if not response.content or len(response.content) == 0:
                 raise ValueError("Empty response from API")
 
-            response_text = response.content[0].text
+            response_text = getattr(response.content[0], "text", None)
+            if response_text is None:
+                raise ValueError("Expected a text block in API response")
 
             # Parse YAML from response
             suggestion = self._parse_yaml_response(response_text)
