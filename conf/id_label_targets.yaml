@@ -54,13 +54,10 @@ targets:
     # cycle because the ontology has no clean replacement (true terminal
     # obsoletes, MF-vs-BP context mismatches, taxa absent from the current
     # OAK snapshot). Each entry includes a one-line `reason` for review.
-    #
-    # NOT ENFORCED by the current shared validator: the byte-identical script
-    # ported in PR #132 dropped the `exceptions`/OK_EXCEPTION mechanism, so
-    # these entries are inert and surface as MISMATCH/ID_NOT_FOUND findings in
-    # report mode. Retained as triage documentation; restoring an enforcement
-    # path is tracked in issue #134 (must be resolved before `validate-products`
-    # is switched to a blocking gate).
+    # Matching pairs are accepted as OK_EXCEPTION (non-error). The match is
+    # EXACT on (id, label), so a different wrong label on the same id still
+    # fails as MISMATCH — the allow-list can't mask drift it didn't accept.
+    # (Enforcement restored in the shared validator per issue #134.)
     exceptions:
       # --- CHEBI (11) ---
       - { id: "CHEBI:33104", label: "chromium(III) hydroxide", reason: "no clean CHEBI term; needs minting" }
@@ -105,9 +102,8 @@ targets:
       - [id, name]
     # Residuals that flow into the KGX export from the community YAMLs, plus
     # one exporter-side label choice ("mercury(2+) cation") that diverges
-    # from OAK canonical by design.
-    # NOT ENFORCED by the current shared validator — see communities_yaml note
-    # above and issue #134.
+    # from OAK canonical by design. Accepted as OK_EXCEPTION (see communities_yaml
+    # note above; enforcement restored per issue #134).
     exceptions:
       - { id: "CHEBI:16793", label: "mercury(2+) cation", reason: "exporter-side label (kgx_export.py line 82) uses the +cation suffix; OAK canonical is mercury(2+)" }
       - { id: "ENVO:00000274", label: "soda lake", reason: "see communities_yaml exception" }
