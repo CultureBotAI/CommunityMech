@@ -24,6 +24,12 @@ dependencies = [
     "pandas>=2.0.0",
     "umap-learn>=0.5.0",
     "tqdm>=4.66.0",
+    # Provides pkg_resources, imported at load time by eutils (a transitive
+    # oaklib dep). uv does not install setuptools into the venv unless declared,
+    # so without this `from oaklib import get_adapter` fails in CI with
+    # ModuleNotFoundError: No module named 'pkg_resources'. Capped <81 because
+    # setuptools 81 removed pkg_resources entirely.
+    "setuptools>=61.0,<81",
 ]
 
 [project.optional-dependencies]
