@@ -54,6 +54,7 @@ _NO_SUCH_TABLE = Exception("(sqlite3.OperationalError) no such table: node")
 
 # -- _is_uninitialized_stub: the positive empty-stub check ------------------
 
+
 def test_stub_true_for_zero_byte_file(tmp_path):
     p = tmp_path / "micro.db"
     p.touch()  # 0 bytes
@@ -86,6 +87,7 @@ def test_stub_false_when_no_engine():
 
 # -- _is_empty: combines the probe with the positive stub check -------------
 
+
 def test_empty_when_no_entities():
     assert mod.AdapterPool._is_empty(_Adapter(items=[]), "x") is True
 
@@ -96,7 +98,7 @@ def test_empty_when_probe_raises_and_db_is_zero_byte(tmp_path):
     assert mod.AdapterPool._is_empty(_Adapter(exc=_NO_SUCH_TABLE, db=str(p)), "micro") is True
 
 
-def test_NOT_empty_when_probe_raises_but_db_has_tables(tmp_path):
+def test_not_empty_when_probe_raises_but_db_has_tables(tmp_path):
     # THE REGRESSION GUARD: partially-migrated live db (tables present, one
     # missing) raises "no such table" yet must NOT be masked as empty.
     p = tmp_path / "chebi.db"
@@ -107,7 +109,7 @@ def test_NOT_empty_when_probe_raises_but_db_has_tables(tmp_path):
     assert mod.AdapterPool._is_empty(_Adapter(exc=_NO_SUCH_TABLE, db=str(p)), "chebi") is False
 
 
-def test_NOT_empty_on_no_such_table_without_resolvable_db():
+def test_not_empty_on_no_such_table_without_resolvable_db():
     # error text alone is never enough — no path to confirm a stub → not empty.
     assert mod.AdapterPool._is_empty(_Adapter(exc=_NO_SUCH_TABLE), "chebi") is False
 
@@ -115,13 +117,14 @@ def test_NOT_empty_on_no_such_table_without_resolvable_db():
 def test_empty_vs_nonempty_with_arbitrary_error(tmp_path):
     p = tmp_path / "x.db"
     p.touch()  # 0-byte stub still wins regardless of error text
-    assert mod.AdapterPool._is_empty(_Adapter(exc=Exception("disk I/O error"), db=str(p)), "x") is True
+    err = Exception("disk I/O error")
+    assert mod.AdapterPool._is_empty(_Adapter(exc=err, db=str(p)), "x") is True
     con = sqlite3.connect(str(p))  # now give it a table
     con.execute("CREATE TABLE t (x)")
     con.commit()
     con.close()
     # non-stub db + arbitrary probe error → stays non-empty (not masked)
-    assert mod.AdapterPool._is_empty(_Adapter(exc=Exception("disk I/O error"), db=str(p)), "x") is False
+    assert mod.AdapterPool._is_empty(_Adapter(exc=err, db=str(p)), "x") is False
 
 
 def test_populated_adapter_not_empty():

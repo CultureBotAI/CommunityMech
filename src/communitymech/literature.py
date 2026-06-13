@@ -125,8 +125,9 @@ def parse_first_author_from_medline(text: str) -> str | None:
             # "Author information:" within the next few lines, or be the last
             # name-like line — heuristic, but collective-only papers are rare.
             return first_token_clean
-        if _AUTHOR_TOKEN_RE.match(first_token_clean):
-            return _AUTHOR_TOKEN_RE.match(first_token_clean).group(1)
+        author_match = _AUTHOR_TOKEN_RE.match(first_token_clean)
+        if author_match:
+            return author_match.group(1)
     return None
 
 

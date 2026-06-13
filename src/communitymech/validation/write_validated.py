@@ -40,9 +40,9 @@ from threading import Lock
 from typing import Any
 
 import yaml
-from linkml.validator import Validator
-from linkml.validator.plugins import JsonschemaValidationPlugin
-from linkml.validator.report import Severity, ValidationResult
+from linkml.validator import Validator  # type: ignore[import-untyped]
+from linkml.validator.plugins import JsonschemaValidationPlugin  # type: ignore[import-untyped]
+from linkml.validator.report import Severity, ValidationResult  # type: ignore[import-untyped]
 
 DEFAULT_SCHEMA_PATH = Path(__file__).resolve().parents[1] / "schema" / "communitymech.yaml"
 DEFAULT_TARGET_CLASS = "MicrobialCommunity"
