@@ -33,8 +33,17 @@ Open issue: enhance environment/isolation-source links between CommunityMech,
 CultureMech, and MIM (shared ENVO grounding, cross-references). Scope and
 sequence against the MIM single-source-of-truth direction before building.
 
-## 3. Cross-Mech validator pin guard covers only the .py (cross-repo)
+## 3. Cross-Mech validator pin guard covers only the .py — DONE
 
-`verify-validator-pin` pins the validator **script** but not the vendored tests
-or conf, which can silently drift. Tracked in culturebotai-claw#6 — fix across
-all Mech copies together.
+**Done** (2026-06-15, culturebotai-claw#6 Option 1): the pin now covers the full
+vendored set via a `VENDORED_IDLABEL_FILES` manifest — the validator `.py` **plus**
+the two byte-identical shared tests (`tests/test_id_label_empty_adapter.py`,
+`tests/test_id_label_unknown_prefix.py`). CommunityMech's two test copies had
+drifted (cosmetic: a `not_empty`→`NOT_empty` rename + whitespace); resynced to the
+CultureMech/MIM canonical bytes (`55a432e0…` / `f01d2264…`) and re-pinned, so all
+three Mechs now share an identical 3-line `.sha256` manifest. CI's `sha256sum -c`
+step enforces all three; `verify-validator-pin` passes; the 17 vendored tests pass.
+`conf/id_label_targets.yaml` stays **unpinned** (intentionally per-repo).
+
+TraitMech remains outside the trio (no validator yet) — adoption is its own task,
+not a sync; see TraitMech `NEXT_TASKS.md` item 2.
