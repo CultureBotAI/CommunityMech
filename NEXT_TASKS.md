@@ -9,16 +9,23 @@ Last reconciled: 2026-06-14.
 
 ## 1. Phase-2 id↔label enforcement rollout (report-only → blocking)
 
-The id↔label validator is vendored and in sync (byte-identical `.py` with
-MIM/CultureMech; `just verify-validator-pin` passes), and the `exceptions` /
-`OK_EXCEPTION` enforcement path is restored (issue #134). But the gate is still
-**Phase-1 report-only**: `.github/workflows/label-correspondence.yaml` runs
-`just report-label-drift`, not the blocking `just validate-products`.
+**`validate-products` is now a BLOCKING gate** (done 2026-06-14):
+`.github/workflows/label-correspondence.yaml` still generates + uploads the
+drift report, then runs `just validate-products` as a failing step. Verified
+locally: 5362 OK_CANONICAL, 184 OK_EXCEPTION, 0 errors (exit 0). The 34
+curator-accepted residuals in `conf/id_label_targets.yaml` (`exceptions:`) all
+resolve as OK_EXCEPTION (184 pair-instances across files).
 
-- Triage `reports/label_drift.tsv`; confirm the curator-accepted residuals in
-  `conf/id_label_targets.yaml` (`exceptions:`) still resolve as OK_EXCEPTION.
-- Then switch CI to `just validate-products` (blocking) and add
-  `validate-terms-all` for the community YAMLs.
+**Deferred — `validate-terms-all` as a blocking gate.** linkml-term-validator
+(`--labels`) has NO exceptions mechanism, so it fails on exactly those residuals
+(confirmed: it errors on obsolete `GO:0055114` "oxidation-reduction process",
+and would also flag the CHEBI mislabels needing minting and the taxa absent
+from the OAK snapshot). Enabling it as blocking requires one of:
+  - mint/clean the 34 residuals (see chebi-mislabels backlog — 11 CHEBI need
+    minted terms; obsolete GO terms; 2 absent NCBITaxon), then drop them from
+    `exceptions:`; or
+  - teach the LinkML gate to consume a shared waiver (a feature the vendored
+    Engine-B script already has but linkml-term-validator does not).
 
 ## 2. Cross-repository environmental linking (issue #30)
 

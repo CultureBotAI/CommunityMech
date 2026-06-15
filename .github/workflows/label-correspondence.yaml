@@ -1,9 +1,19 @@
 name: label-correspondence
 
-# Phase 1 (report-only): generate the id↔label drift report and upload it as an
-# artifact. Does NOT fail the build — it surfaces existing label drift for
-# triage. Phase 2 will switch to the blocking gates (`just validate-terms-all`
-# + `just validate-products`).
+# Phase 2 (enforcing): `just validate-products` is now a BLOCKING gate — an
+# id↔label MISMATCH / ID_NOT_FOUND / UNKNOWN_PREFIX in the community YAMLs or
+# KGX products fails the build. Curator-accepted residuals stay green via the
+# `exceptions:` allow-list in conf/id_label_targets.yaml (OK_EXCEPTION; restored
+# in issue #134). The drift report (reports/label_drift.tsv) is still generated
+# and uploaded as an artifact for triage, even when the gate passes.
+#
+# NOT enabled here: `just validate-terms-all` (the LinkML-native binding gate).
+# linkml-term-validator has no exceptions mechanism, so it fails on the 34
+# curator-accepted residuals that `validate-products` accepts (e.g. obsolete
+# GO:0055114, CHEBI mislabels needing minting, taxa absent from the OAK
+# snapshot). Enabling it as blocking is deferred until those residuals are
+# minted/cleaned (see NEXT_TASKS.md and the chebi-mislabels backlog) or the
+# vendored validator grows a shared waiver the LinkML tool can consume.
 
 on:
   pull_request:
@@ -34,7 +44,7 @@ jobs:
       - name: Verify validator pin
         run: sha256sum -c scripts/.validate_id_label_correspondence.sha256
 
-  label-drift-report:
+  label-correspondence:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -58,7 +68,9 @@ jobs:
           path: ~/.data/oaklib
           key: oaklib-${{ runner.os }}-v1
 
-      - name: Generate id↔label drift report (non-blocking)
+      # Always generate + upload the drift report first, so the triage artifact
+      # exists even when the enforce step below fails the build.
+      - name: Generate id↔label drift report
         run: just report-label-drift
 
       - name: Upload drift report
@@ -68,3 +80,9 @@ jobs:
           name: label-drift-report-${{ github.run_id }}
           path: reports/label_drift.tsv
           if-no-files-found: warn
+
+      # Phase 2 blocking gate: fail on any id↔label error-class verdict
+      # (MISMATCH / ID_NOT_FOUND / UNKNOWN_PREFIX / ADAPTER_ERROR /
+      # MISSING_COLUMN). Curator-accepted residuals pass as OK_EXCEPTION.
+      - name: Enforce id↔label correspondence
+        run: just validate-products
