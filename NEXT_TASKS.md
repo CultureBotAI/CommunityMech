@@ -51,3 +51,12 @@ invariant**. TraitMech vendored the validator + tests byte-identical (same
 `validate-products` gate (TraitMech PR #110 Phase 1, PR #111 Phase 2 — 14 wrong
 CURIEs in `node_grounding.tsv` fixed, gate green). The pin invariant now covers
 CultureMech, MIM, CommunityMech, and TraitMech.
+
+Follow-up (2026-06-15): the resync reintroduced the canonical test bytes
+(`test_NOT_empty_*`, long asserts) which violate CommunityMech's ruff (N802/E501)
+and black — breaking the `lint` CI gate (a conflict between the byte-pin and the
+local style gate). Resolved by EXCLUDING the two vendored test files from both
+ruff and black in `pyproject.toml` (they are externally-canonical and pin-locked;
+local restyling would break the pin). `lint` + `verify-validator-pin` are both
+green again. NOTE for sibling Mech repos: if any also run a ruff/black gate, apply
+the same exclude.
