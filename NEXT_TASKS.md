@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-06-14.
+Last reconciled: 2026-06-15.
 
 ## 1. Phase-2 id↔label enforcement rollout (report-only → blocking)
 
@@ -33,7 +33,7 @@ Open issue: enhance environment/isolation-source links between CommunityMech,
 CultureMech, and MIM (shared ENVO grounding, cross-references). Scope and
 sequence against the MIM single-source-of-truth direction before building.
 
-## 3. Cross-Mech validator pin guard covers only the .py — DONE
+## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
 **Done** (2026-06-15, culturebotai-claw#6 Option 1): the pin now covers the full
 vendored set via a `VENDORED_IDLABEL_FILES` manifest — the validator `.py` **plus**
@@ -45,5 +45,9 @@ three Mechs now share an identical 3-line `.sha256` manifest. CI's `sha256sum -c
 step enforces all three; `verify-validator-pin` passes; the 17 vendored tests pass.
 `conf/id_label_targets.yaml` stays **unpinned** (intentionally per-repo).
 
-TraitMech remains outside the trio (no validator yet) — adoption is its own task,
-not a sync; see TraitMech `NEXT_TASKS.md` item 2.
+Update (2026-06-15): **TraitMech has now joined** — the trio is a **4-repo
+invariant**. TraitMech vendored the validator + tests byte-identical (same
+`142bbe1…` / `55a432…` / `f01d22…` manifest) and enforces a blocking
+`validate-products` gate (TraitMech PR #110 Phase 1, PR #111 Phase 2 — 14 wrong
+CURIEs in `node_grounding.tsv` fixed, gate green). The pin invariant now covers
+CultureMech, MIM, CommunityMech, and TraitMech.
