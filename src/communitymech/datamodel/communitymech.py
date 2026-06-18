@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-17T20:06:08
+# Generation date: 2026-06-17T20:26:35
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1756,6 +1756,22 @@ class FunctionalRoleEnum(EnumDefinitionImpl):
     )
     CROSS_FEEDER = PermissibleValue(
         text="CROSS_FEEDER", description="Utilizes metabolites from other taxa"
+    )
+    ELECTRON_DONOR = PermissibleValue(
+        text="ELECTRON_DONOR",
+        description="""Donates electrons in interspecies or extracellular electron transfer (e.g. the electron-donating partner in DIET).""",
+    )
+    ELECTRON_ACCEPTOR = PermissibleValue(
+        text="ELECTRON_ACCEPTOR",
+        description="""Accepts electrons in interspecies or extracellular electron transfer (e.g. the electron-accepting methanogen in DIET).""",
+    )
+    ELECTROGEN = PermissibleValue(
+        text="ELECTROGEN",
+        description="""Exoelectrogen; transfers electrons to an extracellular solid acceptor such as an anode or a metal (Fe/Mn) oxide.""",
+    )
+    ELECTROTROPH = PermissibleValue(
+        text="ELECTROTROPH",
+        description="""Takes up electrons from an extracellular donor such as a cathode (electrotrophy / extracellular electron uptake).""",
     )
 
     _defn = EnumDefinition(
