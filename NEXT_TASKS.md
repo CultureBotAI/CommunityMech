@@ -81,3 +81,20 @@ ruff and black in `pyproject.toml` (they are externally-canonical and pin-locked
 local restyling would break the pin). `lint` + `verify-validator-pin` are both
 green again. NOTE for sibling Mech repos: if any also run a ruff/black gate, apply
 the same exclude.
+
+## Adopt DisMech knowledge-gaps + datasets + QC dashboard (claw#7)
+
+Coordinated cross-Mech adoption of DisMech's domain-general features. Full plan,
+locked decisions, and DisMech schema references live in culturebotai-claw#7 (the
+shared, pinned LinkML module is authored once and vendored across all four Mechs).
+This repo's slice:
+- Knowledge gaps — add a `discussions` slot (broad `Discussion` supertype; `kind`
+  incl. KNOWLEDGE_GAP / OPEN_QUESTION / CONTROVERSY / CURATION_TODO) to
+  `MicrobialCommunity`, imported from the shared module; bind `attaches_to`
+  anchors to `ecological_interactions#…`. Wire a `knowledge-gap-scan` recipe over
+  the existing Edison harness.
+- Datasets — migrate the existing `AssociatedDataset` (DatasetRepositoryEnum) to
+  the canonical shared `Dataset` (data-preserving; reconcile repository/accession
+  into the canonical enum, which also carries omics `data_type`).
+- QC dashboard — adopt the generalized dashboard from Phase 3 (CommunityMech
+  currently has only the `qc` recipe, no rendered dashboard).
