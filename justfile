@@ -136,6 +136,27 @@ refresh-validator-pin:
     done
     echo "re-pinned $f to $h"
 
+# Durability guard for the shared LinkML module (Discussion + Dataset), vendored
+# byte-identical across the Mech repos — see culturebotai-claw#7.
+SHARED_SCHEMA_MODULE := "src/communitymech/schema/mech_shared.yaml"
+verify-schema-pin:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if command -v sha256sum >/dev/null 2>&1; then
+        sha256sum -c src/communitymech/schema/.mech_shared.sha256
+    else
+        shasum -a 256 -c src/communitymech/schema/.mech_shared.sha256
+    fi
+
+# Intentional sync only: re-pin after a deliberate, all-repos byte-identical update.
+refresh-schema-pin:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    f={{SHARED_SCHEMA_MODULE}}
+    if command -v sha256sum >/dev/null 2>&1; then h=$(sha256sum "$f" | cut -d' ' -f1); else h=$(shasum -a 256 "$f" | cut -d' ' -f1); fi
+    printf '%s  %s\n' "$h" "$f" > src/communitymech/schema/.mech_shared.sha256
+    echo "re-pinned $f to $h"
+
 # Validate schema-level ontology term meanings
 validate-schema-terms:
     uv run linkml-term-validator validate-schema src/communitymech/schema/communitymech.yaml
