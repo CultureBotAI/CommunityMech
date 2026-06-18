@@ -193,6 +193,12 @@ gen-umap:
     uv run communitymech generate-umap
     @echo "✅ UMAP visualization generated at docs/community_umap.html"
 
+# QC coverage dashboard (shared kg_microbe_qc generator in culturebotai-claw).
+# This repo is nested one level deeper, so PYTHONPATH is ../../culturebotai-claw/src.
+gen-qc-dashboard:
+    PYTHONPATH=../../culturebotai-claw/src /opt/homebrew/bin/python3.13 \
+      -m kg_microbe_qc --config conf/qc_config.yaml --output dashboard
+
 # Generate all HTML (communities + UMAP)
 gen-all: gen-html gen-umap
     @echo "✅ All HTML pages regenerated"

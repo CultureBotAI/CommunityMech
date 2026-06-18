@@ -1,0 +1,60 @@
+# CommunityMech QC config — drives the kg_microbe_qc dashboard generator
+# (lives in culturebotai-claw/src/kg_microbe_qc/; invoked via `just gen-qc-dashboard`).
+#
+# Each slot is checked against every MicrobialCommunity YAML in kb/communities.
+# threshold = coverage required to pass (0.0-1.0); required=true reports FAIL,
+# false reports WARN.
+
+repo_name: CommunityMech
+yaml_dir: ../kb/communities
+pattern: "*.yaml"
+
+slots:
+  # core identity (must be 100%)
+  - path: id
+    threshold: 1.0
+    required: true
+  - path: name
+    threshold: 1.0
+    required: true
+  - path: description
+    threshold: 1.0
+    required: true
+
+  # classification (high coverage expected)
+  - path: ecological_state
+    threshold: 0.90
+    required: false
+  - path: community_category
+    threshold: 0.90
+    required: false
+  - path: environment_term
+    threshold: 0.85
+    required: false
+
+  # biology (high coverage expected)
+  - path: taxonomy
+    threshold: 0.90
+    required: false
+  - path: ecological_interactions
+    threshold: 0.85
+    required: false
+  - path: curation_history
+    threshold: 0.90
+    required: false
+
+  # enrichment (partial coverage acceptable)
+  - path: environmental_factors
+    threshold: 0.50
+    required: false
+  - path: related_ingredients
+    threshold: 0.40
+    required: false
+  - path: associated_datasets
+    threshold: 0.30
+    required: false
+
+  # new shared section (no data yet → low bar, never blocking)
+  - path: discussions
+    threshold: 0.0
+    required: false
