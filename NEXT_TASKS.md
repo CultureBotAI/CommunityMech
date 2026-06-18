@@ -27,6 +27,27 @@ from the OAK snapshot). Enabling it as blocking requires one of:
   - teach the LinkML gate to consume a shared waiver (a feature the vendored
     Engine-B script already has but linkml-term-validator does not).
 
+**Triage 2026-06-17 (option 2 attempt):** re-checked all 34 residuals against the
+CURRENT OAK snapshot (`/tmp/triage.py`). Finding is sharper (and worse) than
+"needs minting": every residual id resolves to an UNRELATED entity in the current
+build, and broad `runoak search` finds NO repoint target for the intended label —
+i.e. the compound/environment is genuinely absent from ChEBI/ENVO, and the
+placeholder id is semantically wrong. Examples: CHEBI:33104 "chromium(III)
+hydroxide"→*hydridoarsenic*; CHEBI:34818 "humic acid"→*Leucomycin A8*; CHEBI:38292
+"uranyl(2+)"→*nido-undecaborane*; CHEBI:89981 "yeast extract"→*LPS with O-antigen*;
+ENVO:00000274 "soda lake"→*continental rise*; ENVO:01001442 "phyllosphere"→
+*agriculture*; NCBITaxon:3050471 "Stenotrophomonas goyi"→*unclassified
+Dissulfuribacter*. Only near-repoint found: sodium metasilicate (CHEBI:86154) →
+CHEBI:60720 "sodium silicate" (a generalization, label changes; not applied).
+**Conclusion: option 2 is genuinely upstream-blocked** — I cannot mint
+ChEBI/ENVO/GO/NCBITaxon terms. validate-terms-all stays deferred. The real fixes
+are external: (a) submit the ~9 CHEBI + 3 ENVO + 2 NCBITaxon compounds/taxa as
+term requests (ROBOT template / OBO issue), (b) repoint the ~12 obsolete GO ids to
+current terms where a curator accepts a replacement, then (c) drop resolved
+entries from `exceptions:`. The `exceptions` allow-list keeps `validate-products`
+green meanwhile, but note these groundings are semantically wrong in the KGX
+export (the id ≠ the labelled compound) — a data-quality item worth tracking.
+
 ## 2. Cross-repository environmental linking (issue #30)
 
 Open issue: enhance environment/isolation-source links between CommunityMech,
