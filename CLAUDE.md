@@ -35,7 +35,9 @@ src/communitymech/
 │   └── reference_validator.py   # Validates evidence items in YAML files
 └── cli.py                       # Entry point (not yet implemented)
 
-kb/communities/                  # 60 curated community YAML files
+kb/communities/                  # curated community YAML files (root class MicrobialCommunity)
+kb/taxa/                          # reusable per-taxon gene records (root class CommonTaxon);
+                                  #   referenced from taxonomy[].common_taxon; `just validate-taxa`
 conf/oak_config.yaml             # OAK ontology adapter config (NCBITaxon, ENVO, CHEBI, GO)
 references_cache/                # Cached PubMed abstracts (committed for reproducibility)
 scripts/                         # Utility scripts for curation (not part of package)
