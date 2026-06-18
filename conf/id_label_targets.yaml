@@ -92,6 +92,18 @@ targets:
       - { id: "NCBITaxon:1807132", label: "Candidatus Phormidium alkaliphilum", reason: "absent from current OAK ncbitaxon snapshot and kg-microbe ncbitaxon TSV" }
       - { id: "NCBITaxon:3050471", label: "Stenotrophomonas goyi", reason: "absent from current OAK ncbitaxon snapshot and kg-microbe ncbitaxon TSV" }
 
+  # data inputs (reusable per-taxon gene records) — taxon_term.term (NCBITaxon)
+  # and gene go_terms (GO) must be canonical. genome {id,label} are NCBI Assembly
+  # accessions (no CURIE prefix → benign SKIPPED_NO_ADAPTER) and the record's own
+  # CommunityMech:taxon:* id is an ignored prefix, so only the ontology terms are
+  # checked here.
+  - name: taxa_yaml
+    kind: yaml
+    glob: "kb/taxa/*.yaml"
+    policy: canonical
+    pairs:
+      - [id, label]
+
   # data product: KGX node export carries (id, name) — canonical OR synonym
   - name: kgx_nodes
     kind: tabular

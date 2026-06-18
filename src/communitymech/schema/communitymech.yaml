@@ -630,7 +630,43 @@ classes:
         description: Relative abundance category
         range: AbundanceEnum
       abundance_value:
-        description: Quantitative abundance (%, cell count, etc.)
+        description: >-
+          DEPRECATED free-text quantitative abundance. Prefer the typed
+          absolute_abundance / relative_abundance fields below; retained for
+          back-compatibility with records that used a single combined value.
+      absolute_abundance:
+        description: >-
+          Absolute abundance of this taxon (e.g. cell count, CFU/mL, read count,
+          gene copies). Optional and independent of relative_abundance; pair with
+          absolute_abundance_unit.
+        range: float
+        required: false
+      absolute_abundance_unit:
+        description: >-
+          Unit/basis for absolute_abundance (e.g. cells/mL, CFU/mL, reads,
+          copies/g).
+        required: false
+      relative_abundance:
+        description: >-
+          Relative abundance of this taxon within the community. Optional and
+          independent of absolute_abundance. Interpreted as a fraction in [0, 1]
+          unless relative_abundance_unit says otherwise (e.g. percent).
+        range: float
+        required: false
+        minimum_value: 0
+      relative_abundance_unit:
+        description: >-
+          Unit/basis for relative_abundance (e.g. "fraction", "percent",
+          "16S rRNA reads", "metagenome relative abundance"). Defaults to a
+          fraction in [0, 1] when omitted.
+        required: false
+      common_taxon:
+        description: >-
+          Reference to a reusable CommonTaxon record (kb/taxa/) that holds the
+          genome and gene annotations for this organism, so the same curated gene
+          set can be shared across community records.
+        required: false
+        pattern: "^CommunityMech:taxon:\\d{6}$"
       functional_role:
         description: Role(s) in the community
         range: FunctionalRoleEnum
@@ -1067,3 +1103,112 @@ classes:
       llm_assisted:
         range: boolean
         description: Whether LLM assistance was used.
+
+  # -- Reusable per-taxon gene records ------------------------------------
+  # CommonTaxon records live as standalone YAML files under kb/taxa/ and are
+  # referenced from MicrobialCommunity.taxonomy[].common_taxon, so a curated set
+  # of genome + gene annotations for an organism can be shared across community
+  # records instead of being duplicated in each one. Validate these files with
+  # ``just validate-taxa`` (linkml-validate --target-class CommonTaxon).
+  CommonTaxon:
+    description: >-
+      A reusable taxon record: an NCBITaxon-grounded organism together with its
+      reference genome(s) and the genes known to support its community role(s) or
+      specific ecological interactions. Maintained once and referenced by many
+      community records.
+    attributes:
+      id:
+        description: Unique identifier for this common-taxon record.
+        identifier: true
+        required: true
+        pattern: "^CommunityMech:taxon:\\d{6}$"
+      taxon_term:
+        description: NCBITaxon-grounded organism this record describes.
+        range: TaxonDescriptor
+        required: true
+      genomes:
+        description: Reference genome assembly(ies) for this taxon.
+        range: GenomeRecord
+        multivalued: true
+        inlined_as_list: true
+      genes:
+        description: >-
+          Genes known to support this taxon's community role(s) or specific
+          interactions, with standardized gene/genome ids and evidence.
+        range: GeneAnnotation
+        multivalued: true
+        inlined_as_list: true
+      notes:
+        description: Additional notes about this taxon record.
+      curation_history:
+        description: Append-only audit trail of curation actions on this record.
+        range: CurationEvent
+        multivalued: true
+        inlined_as_list: true
+
+  GenomeRecord:
+    description: A reference genome assembly for a taxon.
+    attributes:
+      id:
+        description: >-
+          NCBI Assembly accession for the genome (RefSeq GCF_ or GenBank GCA_),
+          e.g. GCF_000005845.2.
+        required: true
+        pattern: "^GC[AF]_[0-9]{9}\\.[0-9]+$"
+      label:
+        description: Human-readable assembly name (e.g. "ASM584v2").
+      strain_designation:
+        description: Strain this assembly corresponds to.
+        range: StrainDesignation
+      notes:
+        description: Notes about this assembly (assembly level, source, etc.).
+
+  GeneAnnotation:
+    description: >-
+      A gene that supports a taxon's community role or a specific ecological
+      interaction, with standardized identifiers and supporting evidence.
+    attributes:
+      gene_id:
+        description: >-
+          Primary standardized gene/protein identifier, as a CURIE. Accepted
+          prefixes: NCBIGene (e.g. NCBIGene:948242), UniProtKB
+          (e.g. UniProtKB:P0A6F5), or KEGG gene (e.g. KEGG:eco:b3987). For genes
+          best identified per-assembly, give locus_tag; for the orthologous
+          function, give kegg_ortholog.
+        required: true
+      gene_symbol:
+        description: Gene symbol / short name (e.g. dsrA, nifH, mtrC).
+      locus_tag:
+        description: >-
+          Genome locus tag tying the gene to a specific assembly
+          (e.g. b3987, SO_1776).
+      product:
+        description: Gene product or functional description.
+      genome:
+        description: >-
+          NCBI Assembly accession (GCF_/GCA_) of the genome this gene is annotated
+          in; should match one of the parent CommonTaxon.genomes[].id.
+        pattern: "^GC[AF]_[0-9]{9}\\.[0-9]+$"
+      kegg_ortholog:
+        description: KEGG Orthology id for the gene's function (e.g. K00370).
+        pattern: "^K[0-9]{5}$"
+      go_terms:
+        description: >-
+          GO molecular-function / biological-process terms describing this gene's
+          activity (canonical id↔label, checked by the term gate).
+        range: Term
+        multivalued: true
+        inlined_as_list: true
+      supports_roles:
+        description: Community functional role(s) this gene supports.
+        range: FunctionalRoleEnum
+        multivalued: true
+      supports_interaction:
+        description: >-
+          Specific community interaction(s) this gene mediates, as a free-text
+          description (may name an EcologicalInteraction from a community record).
+      evidence:
+        description: Evidence linking this gene to the role/interaction.
+        range: EvidenceItem
+        multivalued: true
+        inlined_as_list: true

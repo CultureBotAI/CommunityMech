@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T21:28:17
+# Generation date: 2026-06-17T20:06:08
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -54,6 +54,10 @@ class PMID(str):
 
 # Class references
 class MicrobialCommunityId(extended_str):
+    pass
+
+
+class CommonTaxonId(extended_str):
     pass
 
 
@@ -388,6 +392,11 @@ class TaxonomicComposition(YAMLRoot):
     strain_designation: Optional[Union[dict, StrainDesignation]] = None
     abundance_level: Optional[Union[str, "AbundanceEnum"]] = None
     abundance_value: Optional[str] = None
+    absolute_abundance: Optional[float] = None
+    absolute_abundance_unit: Optional[str] = None
+    relative_abundance: Optional[float] = None
+    relative_abundance_unit: Optional[str] = None
+    common_taxon: Optional[str] = None
     functional_role: Optional[
         Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]
     ] = empty_list()
@@ -411,6 +420,25 @@ class TaxonomicComposition(YAMLRoot):
 
         if self.abundance_value is not None and not isinstance(self.abundance_value, str):
             self.abundance_value = str(self.abundance_value)
+
+        if self.absolute_abundance is not None and not isinstance(self.absolute_abundance, float):
+            self.absolute_abundance = float(self.absolute_abundance)
+
+        if self.absolute_abundance_unit is not None and not isinstance(
+            self.absolute_abundance_unit, str
+        ):
+            self.absolute_abundance_unit = str(self.absolute_abundance_unit)
+
+        if self.relative_abundance is not None and not isinstance(self.relative_abundance, float):
+            self.relative_abundance = float(self.relative_abundance)
+
+        if self.relative_abundance_unit is not None and not isinstance(
+            self.relative_abundance_unit, str
+        ):
+            self.relative_abundance_unit = str(self.relative_abundance_unit)
+
+        if self.common_taxon is not None and not isinstance(self.common_taxon, str):
+            self.common_taxon = str(self.common_taxon)
 
         if not isinstance(self.functional_role, list):
             self.functional_role = (
@@ -1277,6 +1305,183 @@ class CurationEvent(YAMLRoot):
 
         if self.llm_assisted is not None and not isinstance(self.llm_assisted, Bool):
             self.llm_assisted = Bool(self.llm_assisted)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CommonTaxon(YAMLRoot):
+    """
+    A reusable taxon record: an NCBITaxon-grounded organism together with its reference genome(s) and the genes known
+    to support its community role(s) or specific ecological interactions. Maintained once and referenced by many
+    community records.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["CommonTaxon"]
+    class_class_curie: ClassVar[str] = "communitymech:CommonTaxon"
+    class_name: ClassVar[str] = "CommonTaxon"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CommonTaxon
+
+    id: Union[str, CommonTaxonId] = None
+    taxon_term: Union[dict, TaxonDescriptor] = None
+    genomes: Optional[Union[Union[dict, "GenomeRecord"], list[Union[dict, "GenomeRecord"]]]] = (
+        empty_list()
+    )
+    genes: Optional[Union[Union[dict, "GeneAnnotation"], list[Union[dict, "GeneAnnotation"]]]] = (
+        empty_list()
+    )
+    notes: Optional[str] = None
+    curation_history: Optional[
+        Union[Union[dict, CurationEvent], list[Union[dict, CurationEvent]]]
+    ] = empty_list()
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CommonTaxonId):
+            self.id = CommonTaxonId(self.id)
+
+        if self._is_empty(self.taxon_term):
+            self.MissingRequiredField("taxon_term")
+        if not isinstance(self.taxon_term, TaxonDescriptor):
+            self.taxon_term = TaxonDescriptor(**as_dict(self.taxon_term))
+
+        if not isinstance(self.genomes, list):
+            self.genomes = [self.genomes] if self.genomes is not None else []
+        self.genomes = [
+            v if isinstance(v, GenomeRecord) else GenomeRecord(**as_dict(v)) for v in self.genomes
+        ]
+
+        if not isinstance(self.genes, list):
+            self.genes = [self.genes] if self.genes is not None else []
+        self.genes = [
+            v if isinstance(v, GeneAnnotation) else GeneAnnotation(**as_dict(v)) for v in self.genes
+        ]
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        if not isinstance(self.curation_history, list):
+            self.curation_history = (
+                [self.curation_history] if self.curation_history is not None else []
+            )
+        self.curation_history = [
+            v if isinstance(v, CurationEvent) else CurationEvent(**as_dict(v))
+            for v in self.curation_history
+        ]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GenomeRecord(YAMLRoot):
+    """
+    A reference genome assembly for a taxon.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GenomeRecord"]
+    class_class_curie: ClassVar[str] = "communitymech:GenomeRecord"
+    class_name: ClassVar[str] = "GenomeRecord"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GenomeRecord
+
+    id: str = None
+    label: Optional[str] = None
+    strain_designation: Optional[Union[dict, StrainDesignation]] = None
+    notes: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, str):
+            self.id = str(self.id)
+
+        if self.label is not None and not isinstance(self.label, str):
+            self.label = str(self.label)
+
+        if self.strain_designation is not None and not isinstance(
+            self.strain_designation, StrainDesignation
+        ):
+            self.strain_designation = StrainDesignation(**as_dict(self.strain_designation))
+
+        if self.notes is not None and not isinstance(self.notes, str):
+            self.notes = str(self.notes)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GeneAnnotation(YAMLRoot):
+    """
+    A gene that supports a taxon's community role or a specific ecological interaction, with standardized identifiers
+    and supporting evidence.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GeneAnnotation"]
+    class_class_curie: ClassVar[str] = "communitymech:GeneAnnotation"
+    class_name: ClassVar[str] = "GeneAnnotation"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GeneAnnotation
+
+    gene_id: str = None
+    gene_symbol: Optional[str] = None
+    locus_tag: Optional[str] = None
+    product: Optional[str] = None
+    genome: Optional[str] = None
+    kegg_ortholog: Optional[str] = None
+    go_terms: Optional[Union[Union[dict, Term], list[Union[dict, Term]]]] = empty_list()
+    supports_roles: Optional[
+        Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]
+    ] = empty_list()
+    supports_interaction: Optional[str] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.gene_id):
+            self.MissingRequiredField("gene_id")
+        if not isinstance(self.gene_id, str):
+            self.gene_id = str(self.gene_id)
+
+        if self.gene_symbol is not None and not isinstance(self.gene_symbol, str):
+            self.gene_symbol = str(self.gene_symbol)
+
+        if self.locus_tag is not None and not isinstance(self.locus_tag, str):
+            self.locus_tag = str(self.locus_tag)
+
+        if self.product is not None and not isinstance(self.product, str):
+            self.product = str(self.product)
+
+        if self.genome is not None and not isinstance(self.genome, str):
+            self.genome = str(self.genome)
+
+        if self.kegg_ortholog is not None and not isinstance(self.kegg_ortholog, str):
+            self.kegg_ortholog = str(self.kegg_ortholog)
+
+        if not isinstance(self.go_terms, list):
+            self.go_terms = [self.go_terms] if self.go_terms is not None else []
+        self.go_terms = [v if isinstance(v, Term) else Term(**as_dict(v)) for v in self.go_terms]
+
+        if not isinstance(self.supports_roles, list):
+            self.supports_roles = [self.supports_roles] if self.supports_roles is not None else []
+        self.supports_roles = [
+            v if isinstance(v, FunctionalRoleEnum) else FunctionalRoleEnum(v)
+            for v in self.supports_roles
+        ]
+
+        if self.supports_interaction is not None and not isinstance(self.supports_interaction, str):
+            self.supports_interaction = str(self.supports_interaction)
+
+        if not isinstance(self.evidence, list):
+            self.evidence = [self.evidence] if self.evidence is not None else []
+        self.evidence = [
+            v if isinstance(v, EvidenceItem) else EvidenceItem(**as_dict(v)) for v in self.evidence
+        ]
 
         super().__post_init__(**kwargs)
 
@@ -2177,6 +2382,52 @@ slots.taxonomicComposition__abundance_value = Slot(
     model_uri=COMMUNITYMECH.taxonomicComposition__abundance_value,
     domain=None,
     range=Optional[str],
+)
+
+slots.taxonomicComposition__absolute_abundance = Slot(
+    uri=COMMUNITYMECH.absolute_abundance,
+    name="taxonomicComposition__absolute_abundance",
+    curie=COMMUNITYMECH.curie("absolute_abundance"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__absolute_abundance,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.taxonomicComposition__absolute_abundance_unit = Slot(
+    uri=COMMUNITYMECH.absolute_abundance_unit,
+    name="taxonomicComposition__absolute_abundance_unit",
+    curie=COMMUNITYMECH.curie("absolute_abundance_unit"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__absolute_abundance_unit,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.taxonomicComposition__relative_abundance = Slot(
+    uri=COMMUNITYMECH.relative_abundance,
+    name="taxonomicComposition__relative_abundance",
+    curie=COMMUNITYMECH.curie("relative_abundance"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__relative_abundance,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.taxonomicComposition__relative_abundance_unit = Slot(
+    uri=COMMUNITYMECH.relative_abundance_unit,
+    name="taxonomicComposition__relative_abundance_unit",
+    curie=COMMUNITYMECH.curie("relative_abundance_unit"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__relative_abundance_unit,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.taxonomicComposition__common_taxon = Slot(
+    uri=COMMUNITYMECH.common_taxon,
+    name="taxonomicComposition__common_taxon",
+    curie=COMMUNITYMECH.curie("common_taxon"),
+    model_uri=COMMUNITYMECH.taxonomicComposition__common_taxon,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^CommunityMech:taxon:\d{6}$"),
 )
 
 slots.taxonomicComposition__functional_role = Slot(
@@ -3243,4 +3494,188 @@ slots.curationEvent__llm_assisted = Slot(
     model_uri=COMMUNITYMECH.curationEvent__llm_assisted,
     domain=None,
     range=Optional[Union[bool, Bool]],
+)
+
+slots.commonTaxon__id = Slot(
+    uri=COMMUNITYMECH.id,
+    name="commonTaxon__id",
+    curie=COMMUNITYMECH.curie("id"),
+    model_uri=COMMUNITYMECH.commonTaxon__id,
+    domain=None,
+    range=URIRef,
+    pattern=re.compile(r"^CommunityMech:taxon:\d{6}$"),
+)
+
+slots.commonTaxon__taxon_term = Slot(
+    uri=COMMUNITYMECH.taxon_term,
+    name="commonTaxon__taxon_term",
+    curie=COMMUNITYMECH.curie("taxon_term"),
+    model_uri=COMMUNITYMECH.commonTaxon__taxon_term,
+    domain=None,
+    range=Union[dict, TaxonDescriptor],
+)
+
+slots.commonTaxon__genomes = Slot(
+    uri=COMMUNITYMECH.genomes,
+    name="commonTaxon__genomes",
+    curie=COMMUNITYMECH.curie("genomes"),
+    model_uri=COMMUNITYMECH.commonTaxon__genomes,
+    domain=None,
+    range=Optional[Union[Union[dict, GenomeRecord], list[Union[dict, GenomeRecord]]]],
+)
+
+slots.commonTaxon__genes = Slot(
+    uri=COMMUNITYMECH.genes,
+    name="commonTaxon__genes",
+    curie=COMMUNITYMECH.curie("genes"),
+    model_uri=COMMUNITYMECH.commonTaxon__genes,
+    domain=None,
+    range=Optional[Union[Union[dict, GeneAnnotation], list[Union[dict, GeneAnnotation]]]],
+)
+
+slots.commonTaxon__notes = Slot(
+    uri=COMMUNITYMECH.notes,
+    name="commonTaxon__notes",
+    curie=COMMUNITYMECH.curie("notes"),
+    model_uri=COMMUNITYMECH.commonTaxon__notes,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.commonTaxon__curation_history = Slot(
+    uri=COMMUNITYMECH.curation_history,
+    name="commonTaxon__curation_history",
+    curie=COMMUNITYMECH.curie("curation_history"),
+    model_uri=COMMUNITYMECH.commonTaxon__curation_history,
+    domain=None,
+    range=Optional[Union[Union[dict, CurationEvent], list[Union[dict, CurationEvent]]]],
+)
+
+slots.genomeRecord__id = Slot(
+    uri=COMMUNITYMECH.id,
+    name="genomeRecord__id",
+    curie=COMMUNITYMECH.curie("id"),
+    model_uri=COMMUNITYMECH.genomeRecord__id,
+    domain=None,
+    range=str,
+    pattern=re.compile(r"^GC[AF]_[0-9]{9}\.[0-9]+$"),
+)
+
+slots.genomeRecord__label = Slot(
+    uri=COMMUNITYMECH.label,
+    name="genomeRecord__label",
+    curie=COMMUNITYMECH.curie("label"),
+    model_uri=COMMUNITYMECH.genomeRecord__label,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.genomeRecord__strain_designation = Slot(
+    uri=COMMUNITYMECH.strain_designation,
+    name="genomeRecord__strain_designation",
+    curie=COMMUNITYMECH.curie("strain_designation"),
+    model_uri=COMMUNITYMECH.genomeRecord__strain_designation,
+    domain=None,
+    range=Optional[Union[dict, StrainDesignation]],
+)
+
+slots.genomeRecord__notes = Slot(
+    uri=COMMUNITYMECH.notes,
+    name="genomeRecord__notes",
+    curie=COMMUNITYMECH.curie("notes"),
+    model_uri=COMMUNITYMECH.genomeRecord__notes,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geneAnnotation__gene_id = Slot(
+    uri=COMMUNITYMECH.gene_id,
+    name="geneAnnotation__gene_id",
+    curie=COMMUNITYMECH.curie("gene_id"),
+    model_uri=COMMUNITYMECH.geneAnnotation__gene_id,
+    domain=None,
+    range=str,
+)
+
+slots.geneAnnotation__gene_symbol = Slot(
+    uri=COMMUNITYMECH.gene_symbol,
+    name="geneAnnotation__gene_symbol",
+    curie=COMMUNITYMECH.curie("gene_symbol"),
+    model_uri=COMMUNITYMECH.geneAnnotation__gene_symbol,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geneAnnotation__locus_tag = Slot(
+    uri=COMMUNITYMECH.locus_tag,
+    name="geneAnnotation__locus_tag",
+    curie=COMMUNITYMECH.curie("locus_tag"),
+    model_uri=COMMUNITYMECH.geneAnnotation__locus_tag,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geneAnnotation__product = Slot(
+    uri=COMMUNITYMECH.product,
+    name="geneAnnotation__product",
+    curie=COMMUNITYMECH.curie("product"),
+    model_uri=COMMUNITYMECH.geneAnnotation__product,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geneAnnotation__genome = Slot(
+    uri=COMMUNITYMECH.genome,
+    name="geneAnnotation__genome",
+    curie=COMMUNITYMECH.curie("genome"),
+    model_uri=COMMUNITYMECH.geneAnnotation__genome,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^GC[AF]_[0-9]{9}\.[0-9]+$"),
+)
+
+slots.geneAnnotation__kegg_ortholog = Slot(
+    uri=COMMUNITYMECH.kegg_ortholog,
+    name="geneAnnotation__kegg_ortholog",
+    curie=COMMUNITYMECH.curie("kegg_ortholog"),
+    model_uri=COMMUNITYMECH.geneAnnotation__kegg_ortholog,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^K[0-9]{5}$"),
+)
+
+slots.geneAnnotation__go_terms = Slot(
+    uri=COMMUNITYMECH.go_terms,
+    name="geneAnnotation__go_terms",
+    curie=COMMUNITYMECH.curie("go_terms"),
+    model_uri=COMMUNITYMECH.geneAnnotation__go_terms,
+    domain=None,
+    range=Optional[Union[Union[dict, Term], list[Union[dict, Term]]]],
+)
+
+slots.geneAnnotation__supports_roles = Slot(
+    uri=COMMUNITYMECH.supports_roles,
+    name="geneAnnotation__supports_roles",
+    curie=COMMUNITYMECH.curie("supports_roles"),
+    model_uri=COMMUNITYMECH.geneAnnotation__supports_roles,
+    domain=None,
+    range=Optional[Union[Union[str, "FunctionalRoleEnum"], list[Union[str, "FunctionalRoleEnum"]]]],
+)
+
+slots.geneAnnotation__supports_interaction = Slot(
+    uri=COMMUNITYMECH.supports_interaction,
+    name="geneAnnotation__supports_interaction",
+    curie=COMMUNITYMECH.curie("supports_interaction"),
+    model_uri=COMMUNITYMECH.geneAnnotation__supports_interaction,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.geneAnnotation__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="geneAnnotation__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.geneAnnotation__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )

@@ -23,6 +23,20 @@ validate-all:
         uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file"
     done
 
+# Validate the reusable per-taxon gene records (kb/taxa/) against CommonTaxon.
+# These files have CommonTaxon as their root, not MicrobialCommunity, so the
+# target class must be given explicitly.
+validate-taxa:
+    #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
+    for file in kb/taxa/*.yaml; do
+        echo "Validating $file..."
+        uv run linkml-validate -s src/communitymech/schema/communitymech.yaml \
+            --target-class CommonTaxon "$file" || rc=1
+    done
+    exit $rc
+
 # Strict in-process validation in *closed* mode (rejects unknown fields).
 # Emits reports/instance_validation_failures.tsv and exits 1 on any ERROR.
 # Catches the same drift class that gave CultureMech 59k silent errors;
