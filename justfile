@@ -382,3 +382,9 @@ kgx-validate:
 # ../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
 gen-community-pages *args:
     /opt/homebrew/bin/python3.13 src/communitymech/render_community_pages.py {{args}}
+
+# Discussions / knowledge-gap browser (shared kg_microbe_discussions in claw).
+# Nested repo → PYTHONPATH is ../../culturebotai-claw/src.
+gen-discussions-data:
+    PYTHONPATH=../../culturebotai-claw/src /opt/homebrew/bin/python3.13 \
+      -m kg_microbe_discussions --config conf/discussions_config.yaml --output app/discussions
