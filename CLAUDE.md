@@ -38,6 +38,9 @@ src/communitymech/
 kb/communities/                  # curated community YAML files (root class MicrobialCommunity)
 kb/taxa/                          # reusable per-taxon gene records (root class CommonTaxon);
                                   #   referenced from taxonomy[].common_taxon; `just validate-taxa`
+vocab/                            # controlled-vocabulary staging files (e.g. cultivation_terms.yaml):
+                                  #   definitions/synonyms/ontology-mapping for METPO proposals;
+                                  #   kept in sync with the schema enums by tests/
 conf/oak_config.yaml             # OAK ontology adapter config (NCBITaxon, ENVO, CHEBI, GO)
 references_cache/                # Cached PubMed abstracts (committed for reproducibility)
 scripts/                         # Utility scripts for curation (not part of package)
