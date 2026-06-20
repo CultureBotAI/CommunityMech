@@ -22,6 +22,7 @@ prefixes:
   GO: http://purl.obolibrary.org/obo/GO_
   UBERON: http://purl.obolibrary.org/obo/UBERON_
   CL: http://purl.obolibrary.org/obo/CL_
+  OBI: http://purl.obolibrary.org/obo/OBI_
   PMID: http://www.ncbi.nlm.nih.gov/pubmed/
   doi: https://doi.org/
   xsd: http://www.w3.org/2001/XMLSchema#
@@ -434,6 +435,82 @@ enums:
         description: Incidental metal/REE interaction
       NOT_APPLICABLE:
         description: No significant metal/REE relevance
+
+  CultivationModeEnum:
+    description: >-
+      Operating mode / approach used to cultivate the community. Standardized
+      terms maintained in vocab/cultivation_terms.yaml (kept in sync by
+      tests/test_cultivation_vocab_sync.py) and staged for a METPO proposal.
+    permissible_values:
+      BATCH:
+        description: Closed culture with no nutrient addition or removal after inoculation.
+      FED_BATCH:
+        description: Nutrients fed during the run, with no removal of culture broth.
+      CONTINUOUS:
+        description: >-
+          Fresh medium added and culture withdrawn continuously, typically at
+          steady state.
+      SEMI_CONTINUOUS:
+        description: Periodic partial harvest and replacement of medium (draw-and-fill).
+      CHEMOSTAT:
+        description: >-
+          Continuous culture held at steady state by a fixed dilution rate and a
+          growth-limiting nutrient.
+      TURBIDOSTAT:
+        description: >-
+          Continuous culture controlled to hold constant turbidity / cell density.
+      PERFUSION:
+        description: >-
+          Continuous medium exchange with biomass retention (cells retained while
+          spent medium is removed).
+      SEQUENCING_BATCH:
+        description: Repeated fill / react / settle / draw cycles in a single vessel.
+      RETENTOSTAT:
+        description: >-
+          Continuous culture with complete biomass retention, approaching
+          near-zero growth rate.
+      OTHER:
+        description: Other cultivation mode not covered by the listed values.
+
+  CultivationSystemEnum:
+    description: >-
+      Instrumentation / vessel system used to grow the community. Standardized
+      terms maintained in vocab/cultivation_terms.yaml (kept in sync by
+      tests/test_cultivation_vocab_sync.py) and staged for a METPO proposal.
+    permissible_values:
+      STIRRED_TANK_BIOREACTOR:
+        description: Mechanically stirred tank reactor (CSTR-type).
+      PHOTOBIOREACTOR:
+        description: Light-driven reactor for cultivating phototrophic organisms.
+      MICROBIAL_FUEL_CELL:
+        description: >-
+          Bioelectrochemical system that generates electric current from
+          microbial metabolism.
+      BIOELECTROCHEMICAL_SYSTEM:
+        description: >-
+          Electrode-coupled reactor (broader than a microbial fuel cell), e.g.
+          microbial electrolysis or electrosynthesis cells.
+      CHEMOSTAT_VESSEL:
+        description: A vessel configured for chemostat (dilution-rate-controlled) continuous culture.
+      MEMBRANE_BIOREACTOR:
+        description: Reactor coupling cultivation with a membrane for biomass/liquid separation.
+      SERUM_BOTTLE:
+        description: Sealed serum bottle, commonly used for anaerobic cultivation.
+      FLASK:
+        description: Erlenmeyer / shake flask.
+      GAS_LIFT_REACTOR:
+        description: Pneumatically mixed reactor (airlift / gas-lift).
+      PACKED_BED_REACTOR:
+        description: Reactor with a fixed packed support matrix for biofilm growth.
+      MICROFLUIDIC_DEVICE:
+        description: Microfluidic cultivation chip / device.
+      HOLLOW_FIBER_REACTOR:
+        description: Hollow-fiber membrane cultivation system.
+      BIOREACTOR_UNSPECIFIED:
+        meaning: OBI:0001046
+        description: Bioreactor of unspecified type.
+      OTHER:
+        description: Other cultivation system not covered by the listed values.
 
 classes:
   Term:
@@ -928,6 +1005,80 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  CultivationSetup:
+    description: >-
+      Hardware/instrumentation and cultivation mode used to grow or sustain the
+      community. Optional — not all communities have a defined setup. Captures
+      both the system (e.g. stirred-tank bioreactor, photobioreactor, microbial
+      fuel cell) and the operating approach (batch, fed-batch, continuous, …).
+      Complements GrowthMedia (medium composition/conditions); the controlled
+      cultivation_mode/system_type values are the preferred standardized home for
+      vessel/reactor information going forward (vs the legacy free-text
+      GrowthMedia.vessel_type).
+    attributes:
+      cultivation_mode:
+        description: Operating mode / approach used to cultivate the community.
+        range: CultivationModeEnum
+      system_type:
+        description: Instrumentation / vessel system used.
+        range: CultivationSystemEnum
+      instrument_detail:
+        description: Distinguishing detail about the system not captured by system_type.
+      manufacturer_model:
+        description: Manufacturer and/or model designation of the instrument.
+      working_volume:
+        description: Working (culture) volume.
+        range: float
+      working_volume_unit:
+        description: Unit for working_volume (e.g. mL, L).
+      operating_temperature:
+        description: Operating/setpoint temperature of the cultivation system.
+        range: float
+      operating_temperature_unit:
+        description: Unit for operating_temperature (e.g. C, K).
+      feed_or_dilution_rate:
+        description: >-
+          Feed rate (fed-batch) or dilution rate (continuous/chemostat); disambiguated
+          by cultivation_mode.
+        range: float
+      feed_or_dilution_rate_unit:
+        description: Unit for feed_or_dilution_rate (e.g. h^-1, mL/h).
+      retention_time:
+        description: Hydraulic or solids retention time (see retention_time_type).
+        range: float
+      retention_time_unit:
+        description: Unit for retention_time (e.g. h, d).
+      retention_time_type:
+        description: Which retention time is reported (e.g. "HRT" or "SRT").
+      applied_potential:
+        description: Applied electrode potential (bioelectrochemical / fuel-cell systems).
+        range: float
+      applied_potential_unit:
+        description: Unit/reference for applied_potential (e.g. "mV vs SHE", V).
+      electrode_detail:
+        description: >-
+          Electrode configuration/materials for bioelectrochemical systems
+          (anode/cathode material, surface area, etc.).
+      ph_controlled:
+        description: Whether pH was actively controlled.
+        range: boolean
+      do_controlled:
+        description: Whether dissolved oxygen was actively controlled.
+        range: boolean
+      temperature_controlled:
+        description: Whether temperature was actively controlled.
+        range: boolean
+      controls_notes:
+        description: Free-text notes on process control not captured by the boolean flags.
+      protocol_url:
+        description: URL to the cultivation protocol.
+      notes:
+        description: Additional notes about the cultivation setup.
+      evidence:
+        description: Evidence supporting the cultivation-setup description.
+        range: EvidenceItem
+        multivalued: true
+
   MicrobialCommunity:
     tree_root: true
     description: A microbial community with composition and interactions
@@ -973,6 +1124,14 @@ classes:
         description: Growth media used for cultivation
         range: GrowthMedia
         multivalued: true
+      cultivation_setup:
+        description: >-
+          Hardware setup and cultivation mode(s) used to grow/sustain the
+          community. Optional; not all communities have a defined setup.
+        range: CultivationSetup
+        multivalued: true
+        required: false
+        inlined_as_list: true
       related_media:
         description: >-
           CultureMech media relevant to this community through shared environment,

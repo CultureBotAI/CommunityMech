@@ -1,0 +1,168 @@
+# Controlled vocabulary for cultivation hardware/mode terms.
+#
+# The INLINE enums in src/communitymech/schema/communitymech.yaml
+# (CultivationModeEnum / CultivationSystemEnum) are CANONICAL for LinkML
+# validation. This file is canonical for term metadata used in ontology
+# standardization: definition, synonyms, candidate ontology mapping, and status.
+# It stages these terms for a future METPO proposal (see the metpo-proposal skill
+# and proposals/).
+#
+# INVARIANT (enforced by tests/test_cultivation_vocab_sync.py): the keys under
+# each enum here MUST exactly equal that enum's permissible-value keys, and any
+# enum value carrying a `meaning:` CURIE in the schema must appear here with the
+# same `mapping` and `status: mapped`.
+#
+# Per-term fields:
+#   label      human-readable term label
+#   definition one-sentence definition
+#   synonyms   list of alternative labels (may be empty [])
+#   mapping    confirmed existing ontology CURIE, or the literal "metpo-candidate"
+#   status     proposed (no confirmed mapping) | mapped (existing ontology IRI) | minted (METPO id assigned)
+
+CultivationModeEnum:
+  BATCH:
+    label: batch culture
+    definition: Closed culture with no nutrient addition or removal after inoculation.
+    synonyms: [batch cultivation, closed culture]
+    mapping: metpo-candidate
+    status: proposed
+  FED_BATCH:
+    label: fed-batch culture
+    definition: Cultivation in which nutrients are fed during the run with no removal of culture broth.
+    synonyms: [fed-batch cultivation, fed batch culture]
+    mapping: metpo-candidate
+    status: proposed
+  CONTINUOUS:
+    label: continuous culture
+    definition: Cultivation in which fresh medium is added and culture is withdrawn continuously, typically at steady state.
+    synonyms: [continuous cultivation, open continuous culture]
+    mapping: metpo-candidate
+    status: proposed
+  SEMI_CONTINUOUS:
+    label: semi-continuous culture
+    definition: Cultivation with periodic partial harvest and replacement of medium.
+    synonyms: [draw-and-fill culture, repeated batch culture]
+    mapping: metpo-candidate
+    status: proposed
+  CHEMOSTAT:
+    label: chemostat culture
+    definition: Continuous culture held at steady state by a fixed dilution rate and a growth-limiting nutrient.
+    synonyms: [chemostat cultivation]
+    mapping: metpo-candidate
+    status: proposed
+  TURBIDOSTAT:
+    label: turbidostat culture
+    definition: Continuous culture controlled to hold constant turbidity / cell density.
+    synonyms: [turbidostat cultivation]
+    mapping: metpo-candidate
+    status: proposed
+  PERFUSION:
+    label: perfusion culture
+    definition: Continuous medium exchange with biomass retention (cells retained while spent medium is removed).
+    synonyms: [perfusion cultivation]
+    mapping: metpo-candidate
+    status: proposed
+  SEQUENCING_BATCH:
+    label: sequencing batch culture
+    definition: Repeated fill / react / settle / draw cycles in a single vessel.
+    synonyms: [sequencing batch reactor operation, SBR operation]
+    mapping: metpo-candidate
+    status: proposed
+  RETENTOSTAT:
+    label: retentostat culture
+    definition: Continuous culture with complete biomass retention, approaching near-zero growth rate.
+    synonyms: [retentostat cultivation]
+    mapping: metpo-candidate
+    status: proposed
+  OTHER:
+    label: other cultivation mode
+    definition: Cultivation mode not covered by the listed values.
+    synonyms: []
+    mapping: metpo-candidate
+    status: proposed
+
+CultivationSystemEnum:
+  STIRRED_TANK_BIOREACTOR:
+    label: stirred-tank bioreactor
+    definition: Mechanically stirred tank reactor (CSTR-type).
+    synonyms: [CSTR, stirred bioreactor, continuous stirred-tank reactor]
+    mapping: metpo-candidate
+    status: proposed
+  PHOTOBIOREACTOR:
+    label: photobioreactor
+    definition: Light-driven reactor for cultivating phototrophic organisms.
+    synonyms: [PBR]
+    mapping: metpo-candidate
+    status: proposed
+  MICROBIAL_FUEL_CELL:
+    label: microbial fuel cell
+    definition: Bioelectrochemical system that generates electric current from microbial metabolism.
+    synonyms: [MFC]
+    mapping: metpo-candidate
+    status: proposed
+  BIOELECTROCHEMICAL_SYSTEM:
+    label: bioelectrochemical system
+    definition: Electrode-coupled reactor (broader than a microbial fuel cell), e.g. microbial electrolysis or electrosynthesis cells.
+    synonyms: [BES, microbial electrochemical system]
+    mapping: metpo-candidate
+    status: proposed
+  CHEMOSTAT_VESSEL:
+    label: chemostat vessel
+    definition: A vessel configured for chemostat (dilution-rate-controlled) continuous culture.
+    synonyms: [chemostat]
+    mapping: metpo-candidate
+    status: proposed
+  MEMBRANE_BIOREACTOR:
+    label: membrane bioreactor
+    definition: Reactor coupling cultivation with a membrane for biomass/liquid separation.
+    synonyms: [MBR]
+    mapping: metpo-candidate
+    status: proposed
+  SERUM_BOTTLE:
+    label: serum bottle
+    definition: Sealed serum bottle, commonly used for anaerobic cultivation.
+    synonyms: [anaerobic serum bottle]
+    mapping: metpo-candidate
+    status: proposed
+  FLASK:
+    label: culture flask
+    definition: Erlenmeyer / shake flask used for cultivation.
+    synonyms: [Erlenmeyer flask, shake flask]
+    mapping: metpo-candidate
+    status: proposed
+  GAS_LIFT_REACTOR:
+    label: gas-lift reactor
+    definition: Pneumatically mixed reactor (airlift / gas-lift).
+    synonyms: [airlift reactor, gas lift bioreactor]
+    mapping: metpo-candidate
+    status: proposed
+  PACKED_BED_REACTOR:
+    label: packed-bed reactor
+    definition: Reactor with a fixed packed support matrix for biofilm growth.
+    synonyms: [fixed-bed reactor]
+    mapping: metpo-candidate
+    status: proposed
+  MICROFLUIDIC_DEVICE:
+    label: microfluidic cultivation device
+    definition: Microfluidic cultivation chip / device.
+    synonyms: [microfluidic chip, lab-on-a-chip cultivation device]
+    mapping: metpo-candidate
+    status: proposed
+  HOLLOW_FIBER_REACTOR:
+    label: hollow-fiber reactor
+    definition: Hollow-fiber membrane cultivation system.
+    synonyms: [hollow fibre bioreactor]
+    mapping: metpo-candidate
+    status: proposed
+  BIOREACTOR_UNSPECIFIED:
+    label: bioreactor
+    definition: Bioreactor of unspecified type.
+    synonyms: [bioreactor, fermenter, fermentor]
+    mapping: OBI:0001046
+    status: mapped
+  OTHER:
+    label: other cultivation system
+    definition: Cultivation system not covered by the listed values.
+    synonyms: []
+    mapping: metpo-candidate
+    status: proposed
