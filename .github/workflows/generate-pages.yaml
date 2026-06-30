@@ -1,60 +1,48 @@
-name: Generate per-community pages
+name: Deploy GitHub Pages
 
-# Renders Phase 5 per-community HTML pages with embedded Mermaid
-# membership graphs. Uploads as workflow artifact (no Pages deploy
-# yet — flip to actions/deploy-pages once you've enabled Pages in
-# repo settings).
-#
-# Phase 5 of the dismech-pattern port; see
-# ../../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
+# Publishes CommunityMech's static site (the committed `docs/` web root:
+# landing page, faceted community browser, per-community pages, community
+# UMAP, and data) to GitHub Pages via the Actions deploy path. `docs/` is
+# generated locally (`just gen-html` / `just gen-umap`) and committed; the
+# site is served verbatim (docs/.nojekyll).
 
 on:
   push:
     branches: [main]
     paths:
-      - "kb/communities/**.yaml"
-      - "src/communitymech/templates/**"
-      - "src/communitymech/render_community_pages.py"
+      - "docs/**"
       - ".github/workflows/generate-pages.yaml"
   workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout CommunityMech
+      - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
         with:
-          path: CommunityMech
+          enablement: true
 
-      - name: Checkout claw (kg_microbe_browser)
-        uses: actions/checkout@v4
+      - name: Upload docs/ artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          repository: CultureBotAI/culturebotai-claw
-          path: culturebotai-claw
+          path: docs
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install pyyaml jinja2 markupsafe
-
-      - name: Render per-community pages
-        env:
-          PYTHONPATH: ${{ github.workspace }}/culturebotai-claw/src
-        run: |
-          cd CommunityMech
-          python src/communitymech/render_community_pages.py
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: community-pages-${{ github.run_id }}
-          path: CommunityMech/pages/
-          retention-days: 30
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
