@@ -1,0 +1,125 @@
+id: CommunityMech:000302
+name: SynCom MetG2 Rhizobacteria Sugarcane Stress Resilience
+description: A rhizobacteria synthetic community (SynCom) named MetG2 inoculated onto sugarcane in a
+  greenhouse experiment to enhance stress resilience through targeted modulation of plant-microbe
+  interactions. Shotgun metagenome and metatranscriptome sequencing revealed temporal shifts in the
+  rhizosphere microbial community, with up-regulation of genes for flagellar assembly, chemotaxis,
+  quorum sensing, and biofilm formation (particularly within Proteobacteria), indicating active
+  microbial movement toward root surfaces, alongside enrichment of genes for nutrient acquisition,
+  hormone synthesis, siderophore production, and VOC synthesis. Sugarcane responded with up-regulation
+  of hormone-related and nutrient-transporter genes and induction of stress-resistance genes,
+  supporting MetG2 as a sustainable strategy to enhance crop productivity and resilience.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: sugarcane rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Greenhouse sugarcane rhizosphere following inoculation with the MetG2 rhizobacteria SynCom.
+taxonomy:
+- taxon_term:
+    preferred_term: sugarcane (Saccharum officinarum)
+    term:
+      id: NCBITaxon:4547
+      label: Saccharum officinarum
+    notes: Plant host of the rhizosphere community. The abstract refers only to "sugarcane"; commercial
+      sugarcane is typically Saccharum officinarum or an interspecific hybrid, grounded here at
+      S. officinarum.
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_value: Plant host whose rhizosphere is colonized by the SynCom.
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This study investigated the molecular mechanisms underlying sugarcane responses and the
+      dynamics of its rhizosphere microbial community following inoculation with a SynCom called MetG2
+    explanation: Identifies sugarcane as the plant host of the rhizosphere community.
+- taxon_term:
+    preferred_term: Proteobacteria (rhizosphere community members)
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+    gtdb_classification:
+      gtdb_id: GTDB:p__Pseudomonadota
+      gtdb_taxon: Pseudomonadota
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota
+      ncbi_source_id: NCBITaxon:1224
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at p__ rank; 14 GTDB taxa under the NCBI taxon]
+    notes: The abstract names no individual SynCom member species; it reports that flagellar assembly,
+      chemotaxis, quorum sensing, and biofilm-formation genes were up-regulated particularly within
+      Proteobacteria. Grounded at phylum rank. NCBITaxon canonical label for Proteobacteria is
+      "Pseudomonadota".
+  abundance_value: Microbial group within the rhizosphere community showing the strongest
+    transcriptional response to inoculation.
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: particularly within Proteobacteria, indicating active microbial movement toward root
+      surfaces
+    explanation: Identifies Proteobacteria as the microbial group with up-regulated motility/colonization
+      genes.
+ecological_interactions:
+- name: Microbial colonization of sugarcane roots
+  description: Following MetG2 inoculation, genes for flagellar assembly, chemotaxis, quorum sensing,
+    and biofilm formation were up-regulated (particularly within Proteobacteria), indicating active
+    microbial movement toward and colonization of sugarcane root surfaces.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Proteobacteria (rhizosphere community members)
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  target_taxon:
+    preferred_term: sugarcane (Saccharum officinarum)
+    term:
+      id: NCBITaxon:4547
+      label: Saccharum officinarum
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: an up-regulation of genes related to flagellar assembly, chemotaxis, quorum sensing, and
+      biofilm formation, particularly within Proteobacteria, indicating active microbial movement toward
+      root surfaces
+    explanation: Motility, chemotaxis and biofilm genes up-regulated in Proteobacteria drive colonization
+      of root surfaces.
+- name: SynCom-stimulated enhancement of sugarcane stress resilience
+  description: Enrichment of microbial genes for nutrient acquisition, hormone synthesis, siderophore
+    production, and VOC synthesis accompanies sugarcane up-regulation of hormone (auxin, cytokinin,
+    salicylic acid) and nutrient-transporter genes and induction of stress-resistance genes, a mutualistic
+    modulation of plant-microbe interactions that enhances stress resilience.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Proteobacteria (rhizosphere community members)
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  target_taxon:
+    preferred_term: sugarcane (Saccharum officinarum)
+    term:
+      id: NCBITaxon:4547
+      label: Saccharum officinarum
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: genes associated with nutrient acquisition, hormone synthesis, siderophore production, and
+      volatile organic compound (VOC) synthesis were enriched, suggesting stimulated beneficial microbial
+      activities
+    explanation: Beneficial microbial activities (nutrient acquisition, hormones, siderophores, VOCs)
+      stimulated by the SynCom underpin the mutualistic support of the plant.
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of
+      hormone-related genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
+    explanation: Plant-side response (hormone and nutrient-transporter genes) to the SynCom completes the
+      mutualistic modulation.
