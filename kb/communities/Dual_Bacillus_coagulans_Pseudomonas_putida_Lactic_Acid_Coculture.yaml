@@ -1,0 +1,171 @@
+id: CommunityMech:000286
+name: Dual Bacillus coagulans + Pseudomonas putida Lactic-acid Co-culture
+description: Engineered artificial microbial consortium for L-lactic acid (LA) fermentation
+  directly from undetoxified lignocellulosic (corncob) hydrolysates. A dual Bacillus coagulans
+  (Heyndrickxia coagulans) system pairs a phenolic acid decarboxylase (PAD)-overexpressing
+  biodetoxifying strain, DSM1-25280, with a high-yield LA producer, CC17B-1, and reaches
+  124.72 g/L LA from undetoxified hydrolysate via a sequential-inoculation division of labor.
+  Multidimensional analysis supports a niche-succession model transitioning from
+  biodetoxification-mediated commensalism to competitive exclusion. A sugar-metabolism-deficient
+  engineered Pseudomonas putida KT2440 ZL added as a heterologous aromatic scavenger reinforces
+  the system, raising the LA titer to 146.00 g/L at 98.9% yield.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+environment_term:
+  preferred_term: bioreactor fermentation of undetoxified lignocellulosic (corncob) hydrolysate
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Co-culture fermentation of undetoxified corncob (lignocellulosic) hydrolysate in a
+    bioreactor; no ENVO term for lignocellulosic hydrolysate, so grounded to the containing
+    bioreactor environment.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+    notes: Strain DSM1-25280, engineered to overexpress phenolic acid decarboxylase (PAD).
+      NCBITaxon canonical label is "Heyndrickxia coagulans"; "Bacillus coagulans" (used in the
+      source paper) is a synonym for the reclassified species.
+  strain_designation:
+    strain_name: DSM1-25280
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Biodetoxifying member of the dual Bacillus coagulans consortium; first inoculant
+    in the sequential strategy.
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a phenolic acid decarboxylase (PAD)-overexpressing engineered strain, DSM1-25280
+    explanation: Identifies DSM1-25280 as the PAD-overexpressing biodetoxifying Bacillus coagulans
+      member.
+- taxon_term:
+    preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+    notes: Strain CC17B-1, a high-yield L-lactic acid producer. NCBITaxon canonical label is
+      "Heyndrickxia coagulans"; "Bacillus coagulans" (source paper) is a synonym for the
+      reclassified species.
+  strain_designation:
+    strain_name: CC17B-1
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: High-yield L-lactic acid producing member of the dual Bacillus coagulans
+    consortium.
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a high-yield L-lactic acid (LA) producer, CC17B-1
+    explanation: Identifies CC17B-1 as the high-yield L-lactic acid producing Bacillus coagulans
+      member.
+- taxon_term:
+    preferred_term: Pseudomonas putida KT2440 ZL
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    notes: Strain KT2440 ZL, a sugar-metabolism-deficient engineered derivative of P. putida
+      KT2440 (NCBITaxon:160488) added as a heterologous aromatic scavenger. Grounded at the
+      species rank; strain-specific NCBITaxon for the engineered ZL derivative is not available.
+  strain_designation:
+    strain_name: KT2440 ZL
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Third member added to reinforce the consortium as a heterologous aromatic
+    scavenger.
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incorporating a sugar-metabolism-deficient engineered Pseudomonas putida KT2440 ZL
+      as a heterologous aromatic scavenger
+    explanation: Identifies P. putida KT2440 ZL as the aromatic-scavenging third member.
+ecological_interactions:
+- name: Biodetoxification-mediated commensalism (DSM1-25280 to CC17B-1)
+  description: The PAD-overexpressing strain DSM1-25280 degrades inhibitory phenolic compounds
+    (including accelerated vanillin degradation) in the undetoxified hydrolysate, relieving toxicity
+    for the LA producer CC17B-1. This is the early commensalism phase of the niche-succession model.
+  interaction_type: COMMENSALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  target_taxon:
+    preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  metabolites:
+  - preferred_term: vanillin
+    term:
+      id: CHEBI:18346
+      label: vanillin
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a strongly supported model of niche succession process within the system, transitioning
+      from biodetoxification-mediated commensalism to competitive exclusion
+    explanation: Abstract describes the early biodetoxification-mediated commensalism phase between
+      the two strains.
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: overexpression of PAD in the engineered strain DSM1-25280 not only enhanced tolerance
+      to phenolic acids but also significantly accelerated vanillin degradation
+    explanation: Mechanism of biodetoxification (phenolic/vanillin degradation) provided by DSM1-25280.
+- name: Competitive exclusion in the dual Bacillus coagulans consortium
+  description: Following the biodetoxification phase, the two Bacillus coagulans strains transition
+    to competition, with competitive exclusion as the late phase of the induced niche succession.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus coagulans DSM1-25280 (PAD-overexpressing)
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  target_taxon:
+    preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transitioning from biodetoxification-mediated commensalism to competitive exclusion
+    explanation: Late phase of the niche-succession model is competitive exclusion between the strains.
+- name: Aromatic scavenging by P. putida KT2440 ZL reinforces LA fermentation
+  description: The sugar-metabolism-deficient engineered P. putida KT2440 ZL acts as a heterologous
+    aromatic scavenger, removing aromatic inhibitors without competing for sugars, which reinforces
+    the consortium and further elevates LA titer for the Bacillus coagulans producers.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Pseudomonas putida KT2440 ZL
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Bacillus coagulans CC17B-1
+    term:
+      id: NCBITaxon:1398
+      label: Heyndrickxia coagulans
+  evidence:
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an enhanced three-strain co-culture system by incorporating a sugar-metabolism-deficient
+      engineered Pseudomonas putida KT2440 ZL as a heterologous aromatic scavenger
+    explanation: P. putida ZL scavenges aromatics without consuming sugars, reinforcing the system.
+  - reference: PMID:42098792
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This system further elevated the LA titer to 146.00 g/L with a yield of 98.9%
+    explanation: Adding the aromatic scavenger raised LA titer/yield, evidencing the beneficial effect.

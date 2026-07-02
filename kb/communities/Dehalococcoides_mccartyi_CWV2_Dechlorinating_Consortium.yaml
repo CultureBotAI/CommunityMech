@@ -1,0 +1,67 @@
+id: CommunityMech:000301
+name: Dehalococcoides mccartyi CWV2 Dechlorinating Consortium
+description: A native groundwater microbial consortium enriched in Dehalococcoides mccartyi
+  (Dhc) strain CWV2, a strain capable of completely dechlorinating vinyl chloride (VC) to
+  non-toxic ethene. The consortium remediates trichloroethene (TCE)-contaminated groundwater;
+  amendment with biochar (BC600) derived from Zizania latifolia husks enhances microbial
+  colonization and activity, accelerating TCE degradation and reducing VC accumulation.
+  Community analysis indicates biochar promotes syntrophic hydrogen producers and electroactive
+  bacteria that supply reducing equivalents and ensure long-term dechlorination stability.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: TCE-contaminated groundwater (biochar-amended enrichment)
+  term:
+    id: ENVO:01001004
+    label: groundwater
+  notes: Groundwater aquifer contaminated with trichloroethene; consortium enriched with
+    Zizania latifolia husk biochar (BC600).
+taxonomy:
+- taxon_term:
+    preferred_term: Dehalococcoides mccartyi strain CWV2
+    term:
+      id: NCBITaxon:61435
+      label: Dehalococcoides mccartyi
+    notes: Strain CWV2; the only named organism in the source. Other consortium members
+      (syntrophic hydrogen producers, electroactive bacteria) are described only as unnamed
+      functional guilds and are not grounded.
+  strain_designation:
+    strain_name: CWV2
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Keystone dechlorinator enriched in the native consortium.
+  evidence:
+  - reference: PMID:41442978
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a native microbial consortium enriched in Dehalococcoides mccartyi (Dhc) strain
+      CWV2, a strain capable of completely dechlorinating VC to non-toxic ethene
+    explanation: Identifies D. mccartyi strain CWV2 as the keystone dechlorinating member.
+ecological_interactions:
+- name: Syntrophic hydrogen supply supporting reductive dechlorination
+  description: Biochar amendment promotes syntrophic hydrogen-producing and electroactive
+    bacteria that supply reducing equivalents (H2) to D. mccartyi CWV2, sustaining complete
+    reductive dechlorination of TCE/VC to ethene and ensuring long-term dechlorination stability.
+    Partner producers are described only as unnamed functional guilds.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Dehalococcoides mccartyi strain CWV2
+    term:
+      id: NCBITaxon:61435
+      label: Dehalococcoides mccartyi
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:41442978
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microbial community analysis further indicated that biochar promoted syntrophic
+      hydrogen producers and electroactive bacteria, ensuring long-term dechlorination stability.
+    explanation: Abstract reports syntrophic H2 producers and electroactive bacteria stabilize
+      long-term dechlorination by the Dhc-containing consortium.

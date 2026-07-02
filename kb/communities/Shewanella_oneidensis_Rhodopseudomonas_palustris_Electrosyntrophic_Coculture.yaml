@@ -1,0 +1,96 @@
+id: CommunityMech:000279
+name: Shewanella oneidensis MR-1 - Rhodopseudomonas palustris Electro-syntrophic Co-culture
+description: Engineered two-species electro-syntrophic co-culture of Shewanella oneidensis MR-1 (the
+  electron-donating partner) and Rhodopseudomonas palustris (the electron-accepting partner) built to
+  study and enhance artificial interspecies electron transfer (IET). In-situ polydopamine (PDA)
+  nano-encapsulation of the S. oneidensis MR-1 surface created a conductive, adhesive cell-to-cell
+  interface that promoted stable coaggregation of the two partners and shifted the dominant IET mode
+  from H2-mediated MIET toward contact-dependent direct electron transfer involving outer-membrane
+  c-type cytochromes. Nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency,
+  increased by roughly 380% in the engineered community.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: engineered electro-syntrophic co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled laboratory two-species electro-syntrophic system for engineering artificial
+    interspecies electron transfer; no natural habitat.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    notes: Strain MR-1. Electron-donating partner; surface nano-encapsulated in-situ with polydopamine.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped via
+        NCBI species name — no species-level NCBI id in table]
+  strain_designation:
+    strain_name: MR-1
+  functional_role:
+  - ELECTRON_DONOR
+  - ELECTROGEN
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the engineered co-culture.
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in-situ polydopamine (PDA) nano-encapsulation of Shewanella oneidensis MR-1 (SW, electron
+      donating partner) surfaces
+    explanation: Identifies S. oneidensis MR-1 as the electron-donating member of the co-culture.
+- taxon_term:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+    notes: Electron-accepting partner (RP); nitrogenase-derived CH4 used as IET-efficiency indicator.
+  functional_role:
+  - ELECTRON_ACCEPTOR
+  - ELECTROTROPH
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the engineered co-culture.
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable and intimate coaggregation of SW with Rhodopseudomonas palustris (RP, electron
+      accepting partner)
+    explanation: Identifies R. palustris as the electron-accepting member of the co-culture.
+ecological_interactions:
+- name: Engineered interspecies electron transfer (MIET-to-DIET shift)
+  description: A conductive, adhesive polydopamine interface on S. oneidensis MR-1 drives stable
+    coaggregation with R. palustris and shifts the dominant IET mode from H2-mediated MIET toward
+    contact-dependent direct electron transfer via outer-membrane c-type cytochromes, increasing
+    nitrogenase-derived CH4 (an IET-efficiency indicator) by ~380%.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This cell-to-cell PDA interface promoted a shift in the dominant IET mode from H2-mediated
+      MIET toward contact-dependent electron transfer involving outer membrane C-type cytochromes.
+    explanation: Documents engineered electron transfer from the donor S. oneidensis to the acceptor
+      R. palustris, shifting from mediated to direct IET.
+    confidence_score: 0.9

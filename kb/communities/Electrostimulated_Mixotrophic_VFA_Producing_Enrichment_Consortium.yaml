@@ -1,0 +1,108 @@
+id: CommunityMech:000287
+name: Electrostimulated Mixotrophic VFA-producing Enrichment Consortium
+description: A specialized mixotrophic microbial consortium enriched in a continuous electrostimulated
+  bioreactor operated at a constant potential of 300 mV for CO2 conversion into volatile fatty acids.
+  Decreasing hydraulic retention time (HRT) selected for a spatially organized community in which
+  Enterococcus and Clostridium dominated the planktonic phase while Desulfovibrio and Enterococcus were
+  enriched in the electrode biofilm. This syntrophic organization enhanced biomass-specific inorganic
+  carbon removal and redirected carbon flux toward acetate, a key product of acetogenic pathways, with
+  electrode-associated taxa contributing reducing equivalents that supported autotrophic CO2/HCO3-
+  fixation.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: continuous electrostimulated bioreactor (bioelectrochemical CO2 conversion)
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Continuous bioelectrochemical system operated at 300 mV under varying hydraulic retention
+    times (33, 19, 14 h) for CO2 valorization to volatile fatty acids.
+taxonomy:
+- taxon_term:
+    preferred_term: Enterococcus
+    term:
+      id: NCBITaxon:1350
+      label: Enterococcus
+    notes: Grounded at genus rank; the source reports the taxon only as "Enterococcus". Dominant in
+      the planktonic phase and also enriched in the electrode biofilm.
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Dominant in the planktonic phase; also enriched in the electrode biofilm.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enterococcus and Clostridium dominating the planktonic phase and Desulfovibrio and Enterococcus
+      enriched in the electrode biofilm
+    explanation: Identifies Enterococcus as a dominant member of both the planktonic and biofilm phases.
+- taxon_term:
+    preferred_term: Clostridium
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+    notes: Grounded at genus rank; the source reports the taxon only as "Clostridium". Dominant in the
+      planktonic phase; associated with acetogenic carbon-fixation pathways.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - SYNTROPHIC_PARTNER
+  abundance_value: Dominant in the planktonic phase.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enterococcus and Clostridium dominating the planktonic phase and Desulfovibrio and Enterococcus
+      enriched in the electrode biofilm
+    explanation: Identifies Clostridium as a dominant planktonic member, linked to acetogenic pathways.
+- taxon_term:
+    preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+    notes: Grounded at genus rank; the source reports the taxon only as "Desulfovibrio". Enriched in
+      the electrode biofilm, where electrode-associated taxa generate reducing equivalents supporting
+      autotrophic metabolism.
+  functional_role:
+  - ELECTROTROPH
+  - SYNTROPHIC_PARTNER
+  abundance_value: Enriched in the electrode biofilm.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio and Enterococcus enriched in the electrode biofilm
+    explanation: Identifies Desulfovibrio as a member enriched in the electrode biofilm.
+ecological_interactions:
+- name: Spatially organized syntrophy enhancing inorganic carbon removal
+  description: Reduced HRT enriched a spatially organized consortium (planktonic Enterococcus/Clostridium;
+    electrode-biofilm Desulfovibrio/Enterococcus) whose syntrophic organization enhanced biomass-specific
+    inorganic carbon removal 2.6-fold and redirected carbon flux toward acetate.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+  target_taxon:
+    preferred_term: Enterococcus
+    term:
+      id: NCBITaxon:1350
+      label: Enterococcus
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This syntrophic organization enhanced biomass-specific IC removal by 2.6-fold
+    explanation: States that the community's syntrophic organization enhanced inorganic carbon removal.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: redirected carbon flux toward acetate, a key product of acetogenic pathways
+    explanation: Identifies acetate as the redirected carbon-flux product of the syntrophic consortium.

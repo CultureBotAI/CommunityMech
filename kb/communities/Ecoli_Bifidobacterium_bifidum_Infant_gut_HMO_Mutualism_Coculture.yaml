@@ -1,0 +1,133 @@
+id: CommunityMech:000296
+name: Escherichia coli + Bifidobacterium bifidum Infant-gut Mutualistic Co-culture
+description: Two-member infant-gut co-culture of Escherichia coli and Bifidobacterium bifidum. In
+  healthy, term-born, breastfed infants these genera co-exist despite differing ecological
+  strategies and share evolutionary adaptations for lactose acquisition. In vitro co-culture
+  demonstrates a mutualistic cross-feeding interaction in which E. coli supplies cysteine to its
+  auxotrophic partner B. bifidum, facilitating cooperative degradation of 2'-fucosyllactose (the
+  predominant human milk oligosaccharide), and the liberated monosaccharides in turn sustain E.
+  coli growth, potentially helping regulate E. coli abundance in the infant gut.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+environment_term:
+  preferred_term: infant gut (in vitro co-culture)
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: Naturally co-existing infant-gut pair; the mutualism was demonstrated in an in vitro
+    two-member co-culture.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the co-culture; derives from external sources but often
+    persists within individuals.
+  evidence:
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In vitro, we demonstrate that interactions between E. coli and Bifidobacterium bifidum
+      are mutualistic in co-culture, where E. coli supplies cysteine to its auxotrophic partner
+    explanation: Identifies E. coli as a member and cysteine donor of the mutualistic co-culture.
+- taxon_term:
+    preferred_term: Bifidobacterium bifidum
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bifidobacterium_bifidum
+      gtdb_taxon: Bifidobacterium bifidum
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Bifidobacterium;s__Bifidobacterium
+        bifidum
+      ncbi_source_id: NCBITaxon:1681
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_value: One of two members of the co-culture; frequently shared within families. Cysteine
+    auxotroph dependent on E. coli-supplied cysteine.
+  evidence:
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In vitro, we demonstrate that interactions between E. coli and Bifidobacterium bifidum
+      are mutualistic in co-culture, where E. coli supplies cysteine to its auxotrophic partner
+    explanation: Identifies B. bifidum as the auxotrophic partner in the mutualistic co-culture.
+ecological_interactions:
+- name: Cysteine provision enabling cooperative 2'-fucosyllactose degradation
+  description: E. coli supplies cysteine to the auxotrophic B. bifidum, facilitating cooperative
+    degradation of 2'-fucosyllactose, the predominant human milk oligosaccharide.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Bifidobacterium bifidum
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  metabolites:
+  - preferred_term: cysteine
+    term:
+      id: CHEBI:15356
+      label: cysteine
+  - preferred_term: 2'-fucosyllactose
+    term:
+      id: CHEBI:147155
+      label: 2'-fucosyllactose
+  evidence:
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli supplies cysteine to its auxotrophic partner, facilitating cooperative
+      degradation of 2'-fucosyllactose, the predominant human milk oligosaccharide
+    explanation: E. coli-to-B. bifidum cysteine cross-feeding drives cooperative HMO degradation.
+- name: Monosaccharide return sustaining E. coli growth
+  description: Monosaccharides liberated from cooperative 2'-fucosyllactose degradation sustain E.
+    coli growth, completing a cooperative cross-feeding loop that may help regulate E. coli
+    abundance in the infant gut.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bifidobacterium bifidum
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: monosaccharide
+    term:
+      id: CHEBI:35381
+      label: monosaccharide
+  evidence:
+  - reference: PMID:42020426
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the liberated monosaccharides sustain E. coli growth, highlighting a cooperative
+      cross-feeding interaction that may contribute to regulating E. coli abundance within the
+      infant host
+    explanation: Monosaccharides released during HMO degradation feed back to sustain E. coli.

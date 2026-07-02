@@ -1,0 +1,120 @@
+id: CommunityMech:000288
+name: Shewanella oneidensis + Pseudomonas aeruginosa Fe0-dependent Electro-syntrophic Denitrifying Consortium
+description: Engineered two-member denitrifying consortium of the electroactive bacterium Shewanella
+  oneidensis and the denitrifier Pseudomonas aeruginosa, operated in anaerobic conditions with
+  metallic iron (Fe0) as the sole electron donor. S. oneidensis acts as a bio-engine, using its
+  membrane-bound CymA-OmcA-MtrC complexes to harvest electrons from Fe0 biocorrosion and transfer
+  them to P. aeruginosa. P. aeruginosa accepts these electrons for nitrate reduction, accomplishing
+  microbial denitrification via a Fe0-S. oneidensis-P. aeruginosa electron-transfer system. This
+  Fe0-dependent electro-syntrophy defines a metabolic window for denitrifier growth relevant to
+  nitrate removal in water/wastewater treatment and the global nitrogen cycle.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anaerobic Fe0-fed denitrification system (water/wastewater treatment)
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Engineered anaerobic denitrifying consortium fed metallic iron (Fe0); models nitrate removal
+    in water/wastewater treatment.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    notes: Electroactive microorganism; harvests electrons from Fe0 biocorrosion via CymA-OmcA-MtrC
+      complexes.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped via
+        NCBI species name — no species-level NCBI id in table]
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the model denitrifying consortium.
+  evidence:
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In a model denitrifying consortium of Shewanella oneidensis and Pseudomonas aeruginosa
+    explanation: Identifies S. oneidensis as a member of the two-species denitrifying consortium.
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using Fe0 as the sole electron donor, S. oneidensis can act as a bio-engine to harvest
+      electrons and conserve energy from Fe0 biocorrosion
+    explanation: Establishes S. oneidensis as the electrogenic, electron-donating partner oxidizing Fe0.
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    notes: Denitrifier; accepts electrons for nitrate reduction.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas
+        aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - ELECTROTROPH
+  - ELECTRON_ACCEPTOR
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the model denitrifying consortium.
+  evidence:
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In a model denitrifying consortium of Shewanella oneidensis and Pseudomonas aeruginosa
+    explanation: Identifies P. aeruginosa as a member of the two-species denitrifying consortium.
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. aeruginosa can accept electrons for nitrate reduction via the constructed electron
+      transfer system of Fe0-S. oneidensis-P. aeruginosa
+    explanation: Establishes P. aeruginosa as the electron-accepting denitrifier.
+ecological_interactions:
+- name: Fe0-dependent electro-syntrophic electron transfer
+  description: Direct electron cross-feeding in which S. oneidensis harvests electrons from Fe0
+    biocorrosion via its CymA-OmcA-MtrC complexes and transfers them to P. aeruginosa, which uses
+    them to reduce nitrate and accomplish denitrification. The direct electron cross-feeding also
+    facilitates expression of P. aeruginosa denitrification enzymes, intracellular electron-transfer
+    proteins, and quorum-sensing genes.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  evidence:
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electrons released by S. oneidensis are utilized by P. aeruginosa for accomplishing
+      microbial denitrification.
+    explanation: Direct interspecies electron transfer from S. oneidensis to P. aeruginosa driving denitrification.
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the direct electron cross-feeding process facilitates the expression of genes encoding
+      for denitrification enzymes, intracellular electron transfer proteins, and quorum sensing of
+      P. aeruginosa
+    explanation: Electron cross-feeding upregulates denitrification and electron-transfer gene expression in P. aeruginosa.

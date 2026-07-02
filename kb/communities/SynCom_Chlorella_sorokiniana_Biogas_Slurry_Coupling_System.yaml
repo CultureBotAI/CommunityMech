@@ -1,0 +1,73 @@
+id: CommunityMech:000285
+name: SynCom + Chlorella sorokiniana Biogas-slurry Coupling System
+description: A sequential synthetic microbial community (SynCom)-microalga coupling system engineered
+  to treat livestock biogas slurry. An autochthonous microalga, Chlorella sorokiniana, isolated from
+  the slurry is coupled with a SynCom pretreatment stage. The system operated stably for 60 days,
+  achieving 94.41% nitrate-nitrogen removal, 81.84% total-phosphorus removal, and 6.31% chemical
+  oxygen demand removal. SynCom pretreatment increased the biomass and soluble protein content of
+  C. sorokiniana (by 27.15% and 488.10% vs the BG11 control), upregulating Rubisco and glutamine
+  synthetase, providing a strategy for simultaneous pollutant abatement and resource recovery.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: livestock biogas slurry treatment bioreactor
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Sequential SynCom-microalga coupling reactor treating livestock biogas slurry (high total
+    nitrogen and total phosphorus effluent).
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella sorokiniana
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+    notes: Autochthonous microalga isolated from the biogas slurry; the downstream member of the
+      coupling system.
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_value: Sole microalgal member; grown on SynCom-pretreated slurry.
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an autochthonous microalga Chlorella sorokiniana isolated from the slurry
+    explanation: Identifies C. sorokiniana as the microalgal member of the coupling system.
+- taxon_term:
+    preferred_term: SynCom bacterial members (unnamed)
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    notes: The abstract describes a "synthetic microbial community (SynCom)" pretreatment stage but
+      does not name its constituent bacterial taxa; grounded only at the domain rank (Bacteria) as
+      a placeholder for the unnamed SynCom.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: SynCom pretreatment stage; individual members not reported.
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this study constructed a sequential synthetic microbial community (SynCom)-microalgae coupling
+      system
+    explanation: Identifies an unnamed constructed SynCom as the bacterial pretreatment component.
+ecological_interactions:
+- name: SynCom pretreatment facilitates Chlorella sorokiniana growth
+  description: SynCom pretreatment of the biogas slurry enhances the microalga's growth, increasing
+    C. sorokiniana biomass and soluble protein content relative to the BG11 control, consistent with
+    the SynCom conditioning the medium to benefit the downstream microalga.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Chlorella sorokiniana
+    term:
+      id: NCBITaxon:3076
+      label: Chlorella sorokiniana
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom pretreatment increased the biomass and soluble protein content of C. sorokiniana
+      by 27.15% and 488.10%, respectively
+    explanation: Measured facilitation of C. sorokiniana biomass and protein by SynCom pretreatment.

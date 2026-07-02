@@ -1,0 +1,103 @@
+id: CommunityMech:000290
+name: Phosphitivorax-Methanoculleus Lithosyntrophic Phosphite-Oxidizing Methanogenic Culture
+description: An anoxic, methanogenic enrichment culture defining "lithosyntrophy," an obligate
+  syntrophic interaction in which the electrons driving hydrogenotrophic methanogenesis originate
+  from an inorganic compound. Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite
+  (oxidation state +3) to phosphate coupled to hydrogenogenesis, in an obligate energetic dependency
+  on a hydrogenotrophic methanogen, Methanoculleus sp. Electrons derived from phosphite drive H2
+  production via an electron-confurcating hydrogenase; the methanogen consumes the H2 to keep the
+  reaction thermodynamically favorable, establishing interspecies electron transfer that links the
+  phosphorus and carbon redox cycles in anoxic ecosystems.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anoxic phosphite-oxidizing methanogenic enrichment culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Obligate syntrophic co-culture maintained as an anoxic methanogenic laboratory enrichment.
+taxonomy:
+- taxon_term:
+    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
+    term:
+      id: NCBITaxon:1918507
+      label: Candidatus Phosphitivorax anaerolimi
+    notes: Strain Phox-21; uncultured Candidatus taxon, grounded at species rank.
+    gtdb_classification:
+      gtdb_id: GTDB:s__UBA1062_sp001896555
+      gtdb_taxon: UBA1062 sp001896555
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfomonilia;o__UBA1062;f__UBA1062;g__UBA1062;s__UBA1062
+        sp001896555
+      ncbi_source_id: NCBITaxon:1918507
+      majority_fraction: 1.0
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  strain_designation:
+    strain_name: Phox-21
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  abundance_value: Phosphite-oxidizing, H2-producing partner of the two-member syntrophic culture.
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite (HPO32-, oxidation state
+      +3) to phosphate coupled to hydrogenogenesis in an obligate energetic dependency on a hydrogenotrophic
+      methanogen, Methanoculleus sp.
+    explanation: Identifies Phox-21 as the phosphite-oxidizing, H2-producing member of the culture.
+- taxon_term:
+    preferred_term: Methanoculleus sp.
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+    notes: Grounded at genus rank; the paper reports only "Methanoculleus sp." with no species assignment.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  abundance_value: Hydrogenotrophic methanogen partner of the two-member syntrophic culture.
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an obligate energetic dependency on a hydrogenotrophic methanogen, Methanoculleus sp.
+    explanation: Identifies Methanoculleus sp. as the hydrogenotrophic methanogenic member.
+ecological_interactions:
+- name: Lithosyntrophic interspecies H2 transfer
+  description: Obligate syntrophy in which phosphite-derived electrons drive H2 production in Phox-21
+    via an electron-confurcating hydrogenase; the hydrogenotrophic methanogen Methanoculleus sp.
+    consumes the H2, keeping phosphite oxidation thermodynamically favorable. This "lithosyntrophy"
+    sources the reducing equivalents for methanogenesis from an inorganic compound rather than
+    canonical organic substrates.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
+    term:
+      id: NCBITaxon:1918507
+      label: Candidatus Phosphitivorax anaerolimi
+  target_taxon:
+    preferred_term: Methanoculleus sp.
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+  metabolites:
+  - preferred_term: hydrogen (H2)
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'we describe "lithosyntrophy," a mode of syntrophic interaction in which electrons that
+      drive hydrogenotrophic methanogenesis originate from an inorganic compound rather than from
+      the canonical organic substrates.'
+    explanation: Defines the obligate lithosyntrophic H2-mediated electron transfer between the two members.
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this pathway, electrons derived from phosphite drive H2 production via an electron-confurcating
+      hydrogenase.
+    explanation: H2 is the interspecies electron carrier produced by Phox-21 and consumed by the methanogen.

@@ -1,0 +1,169 @@
+id: CommunityMech:000298
+name: Shewanella-Acetogen Electrosynthetic Consortia for CO2-to-Acetate
+description: Defined synthetic microbial electrosynthesis (MES) consortia constructed by pairing the
+  model bidirectional electroactive bacterium Shewanella oneidensis MR-1 with either the electroactive
+  acetogen Clostridium aceticum or the nonelectroactive acetogen Acetobacterium woodii, mimicking
+  functional guilds of natural MES communities. Co-cultivation boosts CO2-to-acetate production by up
+  to 88%. The two pairings use distinct interspecies electron transfer (IET) modes, namely direct
+  interspecies electron transfer (DIET) via cytochrome c and riboflavin at the biofilm-electrode interface in the
+  S. oneidensis-C. aceticum consortium, versus H2/formate-mediated IET in the planktonic phase for the
+  S. oneidensis-A. woodii consortium. This metabolic stratification lets S. oneidensis act as an
+  "ecosystem engineer" orchestrating electron flow across biofilm and suspension niches.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: CARBON_SEQUESTRATION
+environment_term:
+  preferred_term: microbial electrosynthesis reactor (CO2-to-acetate bioreactor)
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Bioelectrochemical microbial electrosynthesis system driving CO2 bioconversion to acetate.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    notes: Strain MR-1. Model bidirectional electroactive bacterium; grounded at species rank.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped via
+        NCBI species name — no species-level NCBI id in table]
+  strain_designation:
+    strain_name: MR-1
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  - SYNTROPHIC_PARTNER
+  abundance_value: Shared electroactive partner in both defined two-species consortia.
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: defined synthetic consortia are constructed by pairing Shewanella oneidensis MR-1, a model
+      bidirectional electroactive bacterium
+    explanation: Identifies S. oneidensis MR-1 as the shared electroactive partner of the consortia.
+- taxon_term:
+    preferred_term: Clostridium aceticum (electroactive acetogen)
+    term:
+      id: NCBITaxon:84022
+      label: Andreesenella acetica
+    notes: The source paper uses "Clostridium aceticum"; the current NCBITaxon canonical label for this
+      taxon is "Andreesenella acetica" (Clostridium aceticum is a synonym; reclassified 2026).
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_W_aceticum
+      gtdb_taxon: Clostridium_W aceticum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Peptostreptococcales;f__Natronincolaceae;g__Clostridium_W;s__Clostridium_W
+        aceticum
+      ncbi_source_id: NCBITaxon:84022
+      majority_fraction: 1.0
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - ELECTROTROPH
+  - ELECTRON_ACCEPTOR
+  - SYNTROPHIC_PARTNER
+  abundance_value: Electroactive acetogen partner in the S. oneidensis-C. aceticum consortium.
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with Clostridium aceticum (electroactive acetogen) or Acetobacterium woodii (nonelectroactive
+      acetogen)
+    explanation: Identifies C. aceticum as the electroactive acetogen partner of the consortium.
+- taxon_term:
+    preferred_term: Acetobacterium woodii (nonelectroactive acetogen)
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+    notes: Nonelectroactive acetogen; grounded at species rank.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Acetobacterium_woodii
+      gtdb_taxon: Acetobacterium woodii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Eubacteriales;f__Eubacteriaceae;g__Acetobacterium;s__Acetobacterium
+        woodii
+      ncbi_source_id: NCBITaxon:33952
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped via
+        NCBI species name — no species-level NCBI id in table]
+  functional_role:
+  - ELECTRON_ACCEPTOR
+  - SYNTROPHIC_PARTNER
+  abundance_value: Nonelectroactive acetogen partner in the S. oneidensis-A. woodii consortium.
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with Clostridium aceticum (electroactive acetogen) or Acetobacterium woodii (nonelectroactive
+      acetogen)
+    explanation: Identifies A. woodii as the nonelectroactive acetogen partner of the consortium.
+ecological_interactions:
+- name: DIET from S. oneidensis to C. aceticum
+  description: In the S. oneidensis-C. aceticum consortium, direct interspecies electron transfer (DIET)
+    mediated by cytochrome c and riboflavin dominates at the biofilm-electrode interface, driving
+    CO2-to-acetate conversion.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Clostridium aceticum (electroactive acetogen)
+    term:
+      id: NCBITaxon:84022
+      label: Andreesenella acetica
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DIET via cytochrome c and riboflavin dominates at the biofilm-electrode interface in S.
+      oneidensis-C. aceticum consortia
+    explanation: DIET (cytochrome c/riboflavin) as the electron-transfer mode of the S. oneidensis-C.
+      aceticum consortium.
+- name: H2/formate-mediated IET from S. oneidensis to A. woodii
+  description: In the S. oneidensis-A. woodii consortium, interspecies electron transfer proceeds via
+    H2/formate shuttling in the planktonic phase rather than direct contact, supporting acetate
+    production.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Acetobacterium woodii (nonelectroactive acetogen)
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: whereas S. oneidensis-A. woodii consortia prefer H2/formate-mediated IET in the planktonic
+      phase
+    explanation: H2/formate-mediated IET as the electron-transfer mode of the S. oneidensis-A. woodii
+      consortium.

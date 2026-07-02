@@ -1,0 +1,118 @@
+id: CommunityMech:000294
+name: Corynebacterium glutamicum + Shewanella oneidensis Succinic-acid Co-culture
+description: Engineered two-member co-culture pairing the succinic-acid producer Corynebacterium
+  glutamicum (including an ldhA-deleted, lactate-deficient strain K1) with the electroactive
+  bacterium Shewanella oneidensis to enhance anaerobic succinic acid biosynthesis through
+  interspecies interactions. Co-cultivation raised succinic acid yield markedly over monoculture
+  without altering glucose consumption, and supplementation with riboflavin (the most effective
+  of five screened redox-active additives) further improved production. Transcriptomics showed
+  co-culture reprogrammed C. glutamicum metabolism, reinforcing its electron transport system and
+  redistributing carbon flux toward the reductive TCA pathway.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: anaerobic bioreactor (succinic acid fermentation)
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Anaerobic co-culture fermentation system for succinic acid production.
+taxonomy:
+- taxon_term:
+    preferred_term: Corynebacterium glutamicum (ldhA-deleted strain K1)
+    term:
+      id: NCBITaxon:1718
+      label: Corynebacterium glutamicum
+    notes: Succinic-acid producing partner. Study used C. glutamicum and an engineered
+      lactate-deficient (ldhA-deleted) derivative designated strain K1.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Corynebacterium_glutamicum
+      gtdb_taxon: Corynebacterium glutamicum
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Corynebacterium;s__Corynebacterium
+        glutamicum
+      ncbi_source_id: NCBITaxon:1718
+      majority_fraction: 0.99
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  strain_designation:
+    strain_name: K1
+  functional_role:
+  - PRIMARY_PRODUCER
+  abundance_value: One of two members of the engineered co-culture.
+  evidence:
+  - reference: PMID:42203120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an engineered co-culture system was developed by pairing C. glutamicum with the
+      electroactive bacterium Shewanella oneidensis to enhance succinic acid biosynthesis
+      through interspecies interactions
+    explanation: Identifies C. glutamicum as the succinic-acid producing member of the co-culture.
+- taxon_term:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    notes: Electroactive partner contributing interspecies electron transfer / redox coupling.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped
+        via NCBI species name — no species-level NCBI id in table]
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  abundance_value: One of two members of the engineered co-culture.
+  evidence:
+  - reference: PMID:42203120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an engineered co-culture system was developed by pairing C. glutamicum with the
+      electroactive bacterium Shewanella oneidensis to enhance succinic acid biosynthesis
+      through interspecies interactions
+    explanation: Identifies the electroactive bacterium S. oneidensis as the second member of the
+      co-culture.
+ecological_interactions:
+- name: Riboflavin-mediated interspecies electron transfer enhancing succinic acid production
+  description: Pairing C. glutamicum with electroactive S. oneidensis enhances succinic acid
+    biosynthesis through interspecies interactions; riboflavin was the most effective of five
+    screened redox-active additives and further improved production. Co-culture reprogrammed
+    C. glutamicum metabolism, reinforcing its electron transport system and shifting carbon flux
+    toward the reductive TCA pathway.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Corynebacterium glutamicum (ldhA-deleted strain K1)
+    term:
+      id: NCBITaxon:1718
+      label: Corynebacterium glutamicum
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  evidence:
+  - reference: PMID:42203120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Screening of five redox-active compounds identified riboflavin as the most effective
+      additive, and supplementation with 0.1 mM riboflavin further improved production performance.
+    explanation: Riboflavin acts as a redox mediator supporting interspecies electron transfer that
+      boosts succinic acid production.
+  - reference: PMID:42203120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transcriptomic analysis revealed that co-culture induced global metabolic reprogramming
+      in C. glutamicum, including reinforcement of the electron transport system, redistribution of
+      carbon flux toward the reductive TCA pathway
+    explanation: Co-culture reprograms C. glutamicum metabolism, reinforcing electron transport and
+      the reductive TCA pathway consistent with interspecies redox coupling.

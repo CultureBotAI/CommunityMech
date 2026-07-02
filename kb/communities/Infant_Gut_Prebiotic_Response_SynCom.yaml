@@ -1,0 +1,170 @@
+id: CommunityMech:000281
+name: Infant-gut Prebiotic-response SynCom
+description: A defined synthetic microbial community (SynCom) modeling the early-life (infant) gut,
+  studied alongside donor-derived infant faecal fermentations to dissect how prebiotic substrates
+  reshape microbial and metabolic responses. Human milk oligosaccharides (HMOs) and
+  galacto-oligosaccharides (GOS) robustly promote bifidobacterial expansion, while Bacteroides/Phocaeicola
+  species are modulated in a feeding-mode- and substrate-dependent manner. The SynCom reveals extensive
+  cross-feeding networks and substrate-dependent interaction rewiring, with Phocaeicola vulgatus acting
+  as a context-dependent ecological hub that disproportionately shapes succinate and propionate production
+  and alters Escherichia coli metabolic activity. Competitive outcomes are driven not only by acidification
+  but by the chemical identity of fermentation products, with lactate exerting species-specific inhibition
+  independent of bulk pH.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+environment_term:
+  preferred_term: early-life (infant) gut; donor-derived faecal fermentations
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: Defined SynCom modeling the infant gut, studied in parallel with donor-derived infant faecal
+    fermentations.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium spp.
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+    notes: Grounded at genus rank; the source reports HMO/GOS-driven bifidobacterial expansion without
+      resolving a single species for the SynCom member.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_value: Expands robustly under HMO and GOS supplementation (bifidogenic response).
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both human milk oligosaccharides (HMOs) and galacto-oligosaccharides (GOS) robustly promoted
+      bifidobacterial expansion
+    explanation: Identifies Bifidobacterium as a prebiotic-responsive member of the community.
+- taxon_term:
+    preferred_term: Bacteroides/Phocaeicola spp.
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+    notes: Grounded at genus rank (Bacteroides); the source discusses the Bacteroides/Phocaeicola group,
+      with Phocaeicola vulgatus resolved separately as a distinct member below.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_value: Modulated according to feeding background and substrate identity.
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides/Phocaeicola species varied according to feeding background and substrate identity
+    explanation: Identifies the Bacteroides/Phocaeicola group as a feeding- and substrate-dependent member.
+- taxon_term:
+    preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+    notes: Identified as a context-dependent ecological hub within the SynCom.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Phocaeicola_vulgatus
+      gtdb_taxon: Phocaeicola vulgatus
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Bacteroidales;f__Bacteroidaceae;g__Phocaeicola;s__Phocaeicola
+        vulgatus
+      ncbi_source_id: NCBITaxon:821
+      majority_fraction: 0.86
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: Context-dependent ecological hub shaping succinate and propionate production.
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phocaeicola vulgatus as a context-dependent ecological hub that disproportionately shaped
+      succinate and propionate production
+    explanation: Identifies Phocaeicola vulgatus as an ecological hub member of the SynCom.
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: Its metabolic activity is altered by Phocaeicola vulgatus without a change in its abundance.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Abundance unchanged; metabolic activity altered by the P. vulgatus hub.
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: altered  Escherichia coli metabolic activity without affecting its abundance
+    explanation: Identifies Escherichia coli as a member whose metabolic activity is modulated within
+      the SynCom.
+ecological_interactions:
+- name: Substrate-dependent cross-feeding network
+  description: Mechanistic dissection using the defined SynCom revealed extensive cross-feeding networks
+    and substrate-dependent interaction rewiring among community members in response to HMO, GOS, and 2'FL.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mechanistic dissection using SynCom revealed extensive cross-feeding networks and
+      substrate-dependent interaction rewiring
+    explanation: Community-level cross-feeding network that rewires depending on the prebiotic substrate.
+- name: Phocaeicola vulgatus hub modulates Escherichia coli metabolism
+  description: Phocaeicola vulgatus acts as a context-dependent ecological hub that disproportionately
+    shapes succinate and propionate production and alters Escherichia coli metabolic activity without
+    changing its abundance.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Phocaeicola vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: succinate
+    term:
+      id: CHEBI:26806
+      label: succinate
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: disproportionately shaped succinate and propionate production and altered  Escherichia coli
+      metabolic activity without affecting its abundance
+    explanation: P. vulgatus hub shapes succinate/propionate and modulates E. coli metabolism.
+- name: Lactate-mediated species-specific inhibition
+  description: Competitive outcomes were determined not only by environmental acidification but by the
+    chemical identity of fermentation products, with lactate exerting species-specific inhibitory effects
+    independent of bulk pH changes.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  evidence:
+  - reference: doi:10.64898/2026.05.29.728681
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with lactate exerting species-specific inhibitory effects independent of bulk pH changes
+    explanation: Fermentation-product (lactate) driven, species-specific competitive inhibition beyond pH.

@@ -1,0 +1,67 @@
+id: CommunityMech:000274
+name: Multi-stage Anaerobic-Digestion SynCom-YSJ and SynCom-J
+description: Two function-driven synthetic microbial communities (SynComs) constructed for
+  bioaugmentation of food-waste anaerobic digestion. SynCom-J is a methanogen-only consortium,
+  whereas SynCom-YSJ is a multi-stage consortium comprising hydrolytic, acidogenic, and
+  methanogenic members. Both were introduced into semi-continuous reactors already harboring a
+  metabolically complete native microbiome. The multi-stage SynCom-YSJ increased methane yield by
+  22% (vs 8% for SynCom-J), nearly eliminated the start-up lag phase, reduced propionate
+  accumulation, and reshaped the digester microenvironment (elevated acetate, reduced propionate),
+  upregulating genes for hydrolysis, acidogenesis, interspecies electron transfer, energy
+  metabolism, and acetoclastic/hydrogenotrophic methanogenesis. Individual member species are not
+  named in the source abstract, so no NCBITaxon-grounded members are asserted here.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: METHANOGENESIS
+environment_term:
+  preferred_term: semi-continuous anaerobic digester treating food waste
+  term:
+    id: ENVO:00002124
+    label: anaerobic bioreactor
+  notes: Bioaugmented anaerobic digestion of food waste in semi-continuous reactors. The abstract
+    names no individual member organisms of either SynCom.
+ecological_interactions:
+- name: Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members
+  description: SynCom-YSJ is organized as a multi-stage consortium in which hydrolytic, acidogenic
+    and methanogenic members carry out sequential steps of anaerobic digestion, remodeling
+    metabolism so that hydrolysis and acidogenesis feed downstream methanogenesis. This staged
+    division of labor underlies its superior methane yield and reduced propionate accumulation
+    relative to the methanogen-only SynCom-J.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members
+      (SynCom-YSJ)
+    explanation: Defines the staged functional membership (hydrolytic, acidogenic, methanogenic)
+      that hands metabolites down the anaerobic-digestion chain.
+- name: Interspecies electron transfer supporting methanogenesis
+  description: Metagenomic analysis of the SynCom-YSJ-bioaugmented digester showed upregulation of
+    genes for interspecies electron transfer alongside energy metabolism and acetoclastic and
+    hydrogenotrophic methanogenesis, indicating syntrophic electron exchange between acid-forming
+    members and methanogens.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: upregulating genes involved in hydrolysis, acidogenesis, interspecies electron
+      transfer, energy metabolism, and acetoclastic/hydrogenotrophic methanogenesis
+    explanation: Metagenomic evidence for interspecies electron transfer coupled to methanogenesis
+      within the bioaugmented consortium.
+- name: Deterministic selection of the resident community by SynCom colonization
+  description: Successful colonization by the SynComs reshaped the anaerobic-digestion
+    microenvironment (elevated acetate, reduced propionate, moderate non-inhibitory ammonia
+    increase), imposing deterministic selection on the resident native community.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: thereby imposing deterministic selection on the resident community
+    explanation: The introduced SynComs altered the shared microenvironment and deterministically
+      selected among resident taxa.

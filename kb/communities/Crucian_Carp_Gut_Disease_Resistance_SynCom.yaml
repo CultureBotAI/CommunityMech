@@ -1,0 +1,84 @@
+id: CommunityMech:000293
+name: Crucian Carp Gut Disease-resistance SynCom
+description: A simplified synthetic microbial community of three gut genera (Cetobacterium,
+  Paraclostridium, and Pseudomonas) assembled from the intestinal microbiota of crucian carp
+  (Carassius auratus). These genera were enriched in fish that displayed mild symptoms after
+  Aeromonas hydrophila infection, and fecal microbiota transplantation from mild-symptom fish
+  conferred enhanced resistance to the pathogen. The reconstituted SynCom significantly reduced
+  A. hydrophila abundance by activating intestinal immune responses and reinforcing the gut
+  barrier, supporting microbiome-based disease prevention in aquaculture.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+environment_term:
+  preferred_term: crucian carp (Carassius auratus) intestine
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: Intestinal microbiota of the freshwater fish crucian carp (Carassius auratus, NCBITaxon:7957),
+    the host modeled for gut-microbiota-mediated resistance to Aeromonas hydrophila.
+taxonomy:
+- taxon_term:
+    preferred_term: Cetobacterium
+    term:
+      id: NCBITaxon:180162
+      label: Cetobacterium
+    notes: Grounded at genus rank; the source reports the genus Cetobacterium (no species/strain
+      given). Enriched in mild-symptom fish and part of the disease-resistance SynCom.
+  abundance_value: Enriched genus in mild-symptom crucian carp gut (p = 0.013).
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Further microbial analysis identified Cetobacterium (p = 0.013), Paraclostridium
+    explanation: Identifies Cetobacterium as a member genus enriched in disease-resistant fish.
+- taxon_term:
+    preferred_term: Paraclostridium
+    term:
+      id: NCBITaxon:1849822
+      label: Paraclostridium
+    notes: Grounded at genus rank; the source reports the genus Paraclostridium (no species/strain
+      given). Part of the disease-resistance SynCom.
+  abundance_value: Genus enriched in mild-symptom crucian carp gut.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Further microbial analysis identified Cetobacterium (p = 0.013), Paraclostridium
+    explanation: Identifies Paraclostridium as a member genus of the disease-resistance SynCom.
+- taxon_term:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    notes: Grounded at genus rank; the source reports the genus Pseudomonas (no species/strain
+      given). Part of the disease-resistance SynCom.
+  abundance_value: Genus enriched in mild-symptom crucian carp gut.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Paraclostridium (p Pseudomonas (p A. hydrophila (p < 0.05) by activating intestinal
+      immune responses and reinforcing the gut barrier.'
+    explanation: Identifies Pseudomonas as a member genus of the disease-resistance SynCom.
+ecological_interactions:
+- name: SynCom-mediated suppression of Aeromonas hydrophila
+  description: The three-genus SynCom (Cetobacterium, Paraclostridium, Pseudomonas) significantly
+    reduced the abundance of the pathogen Aeromonas hydrophila by activating intestinal immune
+    responses and reinforcing the gut barrier, an emergent host-mediated antagonism rather than a
+    direct pairwise microbe-microbe interaction.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Paraclostridium (p Pseudomonas (p A. hydrophila (p < 0.05) by activating intestinal
+      immune responses and reinforcing the gut barrier.'
+    explanation: Community-level reduction of A. hydrophila via host immune activation and gut-barrier
+      reinforcement.
