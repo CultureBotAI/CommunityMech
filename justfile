@@ -308,6 +308,18 @@ research-community-edison-batch batch *args="":
 enrich-edison-response *args="":
     uv run --extra dev python scripts/enrich_edison_response.py {{args}}
 
+# Scout recent literature for NEW communities (Europe PMC, free; dedups vs kb/communities).
+#   just scout-communities --preset syntrophy --since 2024
+#   just scout-communities --query "gut butyrate cross-feeding consortium" --emit-stubs
+scout-communities *args="":
+    uv run python scripts/scout_communities.py {{args}}
+
+# Ground taxa in GTDB via the local kg-microbe NCBI<->GTDB mapping (no network).
+#   just ground-taxa-gtdb --community kb/communities/Foo.yaml --emit-yaml
+#   just ground-taxa-gtdb --ncbi-id NCBITaxon:492670 --emit-yaml
+ground-taxa-gtdb *args="":
+    uv run python scripts/gtdb_ground.py {{args}}
+
 # List available deep-research-client providers.
 research-providers:
     #!/usr/bin/env bash

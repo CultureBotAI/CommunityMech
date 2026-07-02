@@ -1,0 +1,220 @@
+id: CommunityMech:000272
+name: SynCom Y Agrobacterium-Bacillus Biofilm Biocontrol Co-culture
+description: Two-species synthetic bacterial community (SynCom Y) of Agrobacterium deltaense LSQ16 and
+  Bacillus velezensis WB, simplified from a larger biocontrol SynCom Q by stepwise strain omission.
+  Co-cultivation synergistically enhances multispecies biofilm formation, extracellular polysaccharide
+  production, and metabolic activity, improving suppression of watermelon Fusarium wilt. Genome-scale
+  modeling predicts interspecies metabolite exchange (amino acids, purines, phosphates); exogenous
+  L-ornithine and guanine enhance B. velezensis biofilm formation, consistent with cross-feeding-supported
+  cooperation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+environment_term:
+  preferred_term: rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Rhizosphere biocontrol SynCom targeting watermelon Fusarium wilt.
+taxonomy:
+- taxon_term:
+    preferred_term: Agrobacterium deltaense LSQ16
+    term:
+      id: NCBITaxon:1183412
+      label: Agrobacterium deltae
+    notes: Strain LSQ16. NCBITaxon canonical label is "Agrobacterium deltae"; "Agrobacterium deltaense"
+      is a synonym used in the source paper.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Agrobacterium_leguminum
+      gtdb_taxon: Agrobacterium leguminum
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Agrobacterium;s__Agrobacterium
+        leguminum
+      ncbi_source_id: NCBITaxon:1183412
+      majority_fraction: 1.0
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  strain_designation:
+    strain_name: LSQ16
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two members of the synthetic co-culture.
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultivation of A. deltaense LSQ16 and B. velezensis WB significantly enhanced biofilm
+      formation.
+    explanation: Identifies A. deltaense LSQ16 as a member strain of the co-culture.
+- taxon_term:
+    preferred_term: Bacillus velezensis WB
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+    notes: Strain WB.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_velezensis
+      gtdb_taxon: Bacillus velezensis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus
+        velezensis
+      ncbi_source_id: NCBITaxon:492670
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  strain_designation:
+    strain_name: WB
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two members of the synthetic co-culture.
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultivation of A. deltaense LSQ16 and B. velezensis WB significantly enhanced biofilm
+      formation.
+    explanation: Identifies B. velezensis WB as a member strain of the co-culture.
+ecological_interactions:
+- name: Synergistic biofilm and EPS formation in co-culture
+  description: Co-cultivation of the two strains synergistically enhances multispecies biofilm
+    formation, extracellular polysaccharide (EPS) production, and metabolic activity relative to
+    monocultures (measured, emergent).
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Agrobacterium deltaense LSQ16
+    term:
+      id: NCBITaxon:1183412
+      label: Agrobacterium deltae
+  target_taxon:
+    preferred_term: Bacillus velezensis WB
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Compared with monocultures, co-cultivation also markedly increased extracellular
+      polysaccharide production and metabolic activity.
+    explanation: Measured emergent synergy (biofilm, EPS, metabolic activity) in co-culture vs monocultures.
+    confidence_score: 0.9
+- name: Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB
+  description: Genome-scale metabolic modeling predicts LSQ16 donates metabolites to WB (including
+    L-ornithine, guanine, guanosine, malate, phosphate). Two predicted donations (L-ornithine,
+    guanine) were experimentally confirmed to enhance WB biofilm; the remainder are model-only.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Agrobacterium deltaense LSQ16
+    term:
+      id: NCBITaxon:1183412
+      label: Agrobacterium deltae
+  target_taxon:
+    preferred_term: Bacillus velezensis WB
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  metabolites:
+  - preferred_term: L-ornithine
+    term:
+      id: CHEBI:15729
+      label: L-ornithine
+  - preferred_term: guanine
+    term:
+      id: CHEBI:16235
+      label: guanine
+  - preferred_term: guanosine
+    term:
+      id: CHEBI:16750
+      label: guanosine
+  - preferred_term: (S)-malate
+    term:
+      id: CHEBI:15589
+      label: (S)-malate(2-)
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:26020
+      label: phosphate
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Moreover, exogenous supplementation of l-ornithine and guanine further enhanced the
+      biofilm-forming capacity of B. velezensis WB.
+    explanation: Experimental validation that two predicted LSQ16->WB donations (L-ornithine, guanine)
+      enhance WB biofilm formation.
+    confidence_score: 0.9
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Predictive results indicated metabolite exchange between the two strains involved amino
+      acids, purines, phosphates, and other compounds.
+    explanation: Model-predicted (not measured) donations; guanosine, malate and phosphate are model-only.
+    confidence_score: 0.4
+    computational_provenance:
+      prediction_type: FLUX_BALANCE_ANALYSIS
+      tools:
+      - tool_name: CarveMe
+        tool_reference: PMID:30192979
+        role: draft genome-scale metabolic model reconstruction
+      - tool_name: COBRA Toolbox
+        tool_version: '3.0'
+        tool_reference: PMID:30787451
+        role: model refinement and validation
+      - tool_name: Flux Balance Analysis (FBA)
+        tool_reference: PMID:20212490
+        role: prediction of exchangeable metabolites
+      model_source: de-novo draft genome-scale metabolic models reconstructed from the two strain
+        genomes (no published model identifier)
+      input_accession: SRA:SRR33382738-SRR33382752
+      simulated_medium: LBGM
+      parameters: FBA to identify all potentially exchangeable metabolites in the two-species consortium;
+        CarveMe version not reported in source.
+- name: Predicted metabolite return from B. velezensis WB to A. deltaense LSQ16
+  description: Genome-scale metabolic modeling predicts WB returns metabolites to LSQ16 (including
+    L-serine, pyroglutamic acid, myristic acid, suberoylglycine). Model-only; no experimental
+    validation reported for this direction.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus velezensis WB
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+  target_taxon:
+    preferred_term: Agrobacterium deltaense LSQ16
+    term:
+      id: NCBITaxon:1183412
+      label: Agrobacterium deltae
+  metabolites:
+  - preferred_term: L-serine
+    term:
+      id: CHEBI:17115
+      label: L-serine
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Predictive results indicated metabolite exchange between the two strains involved amino
+      acids, purines, phosphates, and other compounds.
+    explanation: Model-predicted WB->LSQ16 return fluxes (L-serine and others); no experimental
+      validation reported for this direction.
+    confidence_score: 0.3
+    computational_provenance:
+      prediction_type: FLUX_BALANCE_ANALYSIS
+      tools:
+      - tool_name: CarveMe
+        tool_reference: PMID:30192979
+        role: draft genome-scale metabolic model reconstruction
+      - tool_name: COBRA Toolbox
+        tool_version: '3.0'
+        tool_reference: PMID:30787451
+        role: model refinement and validation
+      - tool_name: Flux Balance Analysis (FBA)
+        tool_reference: PMID:20212490
+        role: prediction of exchangeable metabolites
+      model_source: de-novo draft genome-scale metabolic models reconstructed from the two strain
+        genomes (no published model identifier)
+      input_accession: SRA:SRR33382738-SRR33382752
+      simulated_medium: LBGM
+      parameters: FBA to identify all potentially exchangeable metabolites in the two-species consortium;
+        CarveMe version not reported in source.
