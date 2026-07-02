@@ -83,28 +83,53 @@ uv run python scripts/gtdb_ground.py --name "Bacillus velezensis"
 
 ### 3. Apply to the record
 
-Paste each block into the matching `taxon_term` (as a sibling of
-`preferred_term`/`term`/`notes`). Then validate:
+Fastest: let the script write the blocks in place (add-only text edits — it does
+not reflow or reformat anything else, and skips taxa already grounded):
+
+```bash
+uv run python scripts/gtdb_ground.py --community kb/communities/<File>.yaml --apply
+```
+
+Or paste each `--emit-yaml` block into the matching `taxon_term` (as a sibling of
+`preferred_term`/`term`/`notes`) by hand. Then validate:
 
 ```bash
 just validate kb/communities/<File>.yaml          # schema
 just validate-terms kb/communities/<File>.yaml    # id↔label (GTDB ignored, as intended)
 ```
 
+## Rank-aware grounding
+
+Grounding happens at the **rank of the input**:
+
+- **Species** (binomial label) → `GTDB:s__...`, via exact NCBI id, else NCBI
+  species-name fallback (the mapping is strain/genome-keyed, so species ids often
+  miss on id alone). GTDB species split → AMBIGUOUS.
+- **Genus / family / order / …** (single-name label) → `GTDB:g__...` (or
+  `f__`/`o__`/…): the script aggregates the GTDB rank column over all genomes
+  under the NCBI taxon and grounds to the GTDB taxon holding a **majority (≥50%)**
+  of genomes; otherwise AMBIGUOUS. `mapping_source` records the rank and how many
+  GTDB taxa fall under the NCBI taxon (e.g. NCBI genus *Bacillus* → `g__Bacillus`
+  at 51%, noted as 102 GTDB genera).
+
 ## Interpreting the output
 
-- **`majority_fraction` < 1.0** — the NCBI taxon's genomes split across GTDB
-  taxa; the highest-majority GTDB taxon is shown and the split is flagged.
-  Record it as-is; low values warrant a curator note.
-- **`is_reclassified: true`** — GTDB uses a different species name than NCBI.
-  Keep both groundings; the disagreement is the point.
-- **No mapping** — the taxon is above species rank (e.g. a genus/family/domain
-  placeholder) or absent from GTDB. Skip GTDB grounding for that taxon; the
-  mapping is genome- (species-) level.
+- **`majority_fraction`** — for species, the mapping's majority fraction; for
+  genus/higher, the share of the NCBI taxon's genomes that land on the chosen
+  GTDB taxon. Lower values (e.g. *Bacillus* 0.51) warrant a curator glance.
+- **`is_reclassified: true`** — GTDB uses a different name than NCBI at that rank
+  (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
+  both groundings; the disagreement is the point.
+- **AMBIGUOUS** — GTDB splits the NCBI taxon into several with no majority
+  (e.g. *E. coli* at species; *Bacillus* group members). No block is emitted; a
+  curator picks or leaves it ungrounded.
+- **No mapping** — rank absent from the NCBI2GTDB table, or a eukaryote (GTDB is
+  bacteria/archaea only).
 
 ## Notes & limitations
 
-- Species-level mapping only; higher-rank NCBI taxa usually won't resolve.
+- GTDB is **bacteria/archaea only** — eukaryotic taxa (fungi, microalgae) never
+  ground.
 - Requires the local kg-microbe checkout with `data/raw/NCBI2GTDB.tsv.gz`
   present (it is a large gzipped TSV; the script streams it, matching only the
   requested ids/names — memory-safe).
