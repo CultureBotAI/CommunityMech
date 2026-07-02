@@ -30,7 +30,6 @@ from __future__ import annotations
 import argparse
 import gzip
 import os
-import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -65,8 +64,10 @@ def resolve_kg_microbe_dir(explicit: str | None) -> Path:
         if (c / MAPPING_REL).exists():
             return c
     tried = "\n  ".join(str(c / MAPPING_REL) for c in candidates)
-    sys.exit(f"[gtdb] NCBI2GTDB mapping not found. Tried:\n  {tried}\n"
-             f"Pass --kg-microbe-dir or set KG_MICROBE_DIR.")
+    sys.exit(
+        f"[gtdb] NCBI2GTDB mapping not found. Tried:\n  {tried}\n"
+        f"Pass --kg-microbe-dir or set KG_MICROBE_DIR."
+    )
 
 
 def _gtdb_curie(species_name: str) -> str:
@@ -74,56 +75,92 @@ def _gtdb_curie(species_name: str) -> str:
 
 
 def _lineage(cells: list[str]) -> str:
-    ranks = cells[COL_GTDB_DOMAIN:COL_GTDB_SPECIES + 1]
-    return ";".join(f"{p}{r}" for p, r in zip(RANK_PREFIXES, ranks) if r)
+    ranks = cells[COL_GTDB_DOMAIN : COL_GTDB_SPECIES + 1]
+    return ";".join(f"{p}{r}" for p, r in zip(RANK_PREFIXES, ranks, strict=False) if r)
 
 
-def stream_rows(mapping_path: Path, want_ids: set[str] | None, want_names: set[str] | None):
-    """Yield matching rows from the gzipped TSV. Matches by NCBI id or NCBI species name."""
-    want_names_lc = {n.lower() for n in want_names} if want_names else None
+def _maj(c: list[str]) -> float:
+    try:
+        return float(c[COL_MAJORITY])
+    except (ValueError, IndexError):
+        return 0.0
+
+
+def collect_rows(mapping_path: Path, want_ids: set[str], want_names_lc: set[str]):
+    """One pass over the gzipped TSV; index matching rows by NCBI id and by NCBI species name."""
+    by_id: dict[str, list[list[str]]] = {}
+    by_name: dict[str, list[list[str]]] = {}
     with gzip.open(mapping_path, "rt") as fh:
         next(fh)  # header
         for line in fh:
             cells = line.rstrip("\n").split("\t")
             if len(cells) <= COL_GTDB_SPECIES:
                 continue
-            ncbi_id = cells[COL_NCBI_ID].strip()
-            if want_ids and ncbi_id in want_ids:
-                yield ncbi_id, cells
-            elif want_names_lc and cells[COL_NCBI_SPECIES].strip().lower() in want_names_lc:
-                yield ncbi_id, cells
+            nid = cells[COL_NCBI_ID].strip()
+            if nid in want_ids:
+                by_id.setdefault(nid, []).append(cells)
+            nlc = cells[COL_NCBI_SPECIES].strip().lower()
+            if nlc and nlc in want_names_lc:
+                by_name.setdefault(nlc, []).append(cells)
+    return by_id, by_name
 
 
-def best_per_id(matches: list[tuple[str, list[str]]]) -> dict[str, dict]:
-    """Collapse multiple GTDB rows per NCBI id to the highest-majority one; flag splits."""
-    by_id: dict[str, list[list[str]]] = {}
-    for ncbi_id, cells in matches:
-        by_id.setdefault(ncbi_id, []).append(cells)
-    out: dict[str, dict] = {}
-    for ncbi_id, rows in by_id.items():
-        def maj(c):
-            try:
-                return float(c[COL_MAJORITY])
-            except ValueError:
-                return 0.0
-        rows.sort(key=maj, reverse=True)
-        top = rows[0]
-        gtdb_species = top[COL_GTDB_SPECIES].strip()
-        ncbi_species = top[COL_NCBI_SPECIES].strip()
-        out[ncbi_id] = {
-            "ncbi_source_id": f"NCBITaxon:{ncbi_id}",
-            "ncbi_species": ncbi_species,
-            "gtdb_id": _gtdb_curie(gtdb_species) if gtdb_species else None,
-            "gtdb_taxon": gtdb_species or None,
-            "gtdb_lineage": _lineage(top),
-            "majority_fraction": maj(top),
-            "is_reclassified": bool(gtdb_species and ncbi_species and gtdb_species != ncbi_species),
-            "n_gtdb_mappings": len(rows),
-        }
-    return out
+def _ground(rows: list[list[str]], source_id: str | None, our_label: str | None, via: str) -> dict:
+    """Build a grounding dict from rows that all share one GTDB species (highest majority wins)."""
+    rows = sorted(rows, key=_maj, reverse=True)
+    top = rows[0]
+    gtdb_species = top[COL_GTDB_SPECIES].strip()
+    ref_name = our_label or top[COL_NCBI_SPECIES].strip()
+    return {
+        "ncbi_source_id": source_id,
+        "ncbi_species": ref_name,
+        "gtdb_id": _gtdb_curie(gtdb_species) if gtdb_species else None,
+        "gtdb_taxon": gtdb_species or None,
+        "gtdb_lineage": _lineage(top),
+        "majority_fraction": _maj(top),
+        "is_reclassified": bool(gtdb_species and ref_name and gtdb_species != ref_name),
+        "via": via,
+        "n_rows": len(rows),
+    }
+
+
+def resolve_target(
+    ncbi_id: str | None, label: str | None, by_id: dict, by_name: dict
+) -> dict | None:
+    """Resolve one taxon: exact NCBI id first, then NCBI species-name fallback (ambiguity-aware)."""
+    source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
+    # Genus-rank (or higher) inputs have single-word labels; the mapping is
+    # species-keyed, so grounding a genus term to one species would be spurious.
+    if label and len(label.strip().split()) < 2:
+        return None
+    if ncbi_id and ncbi_id in by_id:
+        return _ground(by_id[ncbi_id], source_id, label, "ncbi_id")
+    nlc = (label or "").strip().lower()
+    if nlc and nlc in by_name:
+        # Group name-matched rows by GTDB species; GTDB may split one NCBI species.
+        species: dict[str, list[list[str]]] = {}
+        for c in by_name[nlc]:
+            sp = c[COL_GTDB_SPECIES].strip()
+            if sp:
+                species.setdefault(sp, []).append(c)
+        if len(species) == 1:
+            rows = next(iter(species.values()))
+            return _ground(rows, source_id, label, "ncbi_name")
+        if len(species) > 1:
+            return {
+                "ambiguous": True,
+                "via": "ncbi_name",
+                "ncbi_source_id": source_id,
+                "ncbi_species": label,
+                "gtdb_options": sorted(species),
+            }
+    return None
 
 
 def emit_block(g: dict, mapping_source: str) -> str:
+    src = mapping_source
+    if g.get("via") == "ncbi_name":
+        src += " [mapped via NCBI species name — no species-level NCBI id in table]"
     d = {
         "gtdb_classification": {
             "gtdb_id": g["gtdb_id"],
@@ -132,14 +169,14 @@ def emit_block(g: dict, mapping_source: str) -> str:
             "ncbi_source_id": g["ncbi_source_id"],
             "majority_fraction": g["majority_fraction"],
             "is_reclassified": g["is_reclassified"],
-            "mapping_source": mapping_source,
+            "mapping_source": src,
         }
     }
     return yaml.dump(d, default_flow_style=False, sort_keys=False, allow_unicode=True, width=100)
 
 
-def community_ncbi_ids(path: Path) -> list[tuple[str, str]]:
-    """Return (ncbi_id, preferred_term) for each taxonomy[].taxon_term in a community YAML."""
+def community_taxa(path: Path) -> list[tuple[str, str]]:
+    """Return (ncbi_id, canonical_label) for each taxonomy[].taxon_term in a community YAML."""
     doc = yaml.safe_load(path.read_text())
     out = []
     for tc in doc.get("taxonomy", []) or []:
@@ -147,18 +184,25 @@ def community_ncbi_ids(path: Path) -> list[tuple[str, str]]:
         term = tt.get("term", {}) or {}
         tid = term.get("id", "")
         if tid.startswith("NCBITaxon:"):
-            out.append((tid.split(":", 1)[1], tt.get("preferred_term", term.get("label", ""))))
+            out.append((tid.split(":", 1)[1], term.get("label", tt.get("preferred_term", ""))))
     return out
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     src = p.add_mutually_exclusive_group(required=True)
     src.add_argument("--ncbi-id", action="append", help="NCBITaxon:NNN (repeatable).")
     src.add_argument("--name", action="append", help="NCBI species name (repeatable).")
     src.add_argument("--community", type=Path, help="Community YAML — ground all its taxa.")
-    p.add_argument("--kg-microbe-dir", help="Path to kg-microbe checkout (else $KG_MICROBE_DIR or ../../kg-microbe).")
-    p.add_argument("--emit-yaml", action="store_true", help="Print ready-to-paste gtdb_classification blocks.")
+    p.add_argument(
+        "--kg-microbe-dir",
+        help="Path to kg-microbe checkout (else $KG_MICROBE_DIR or ../../kg-microbe).",
+    )
+    p.add_argument(
+        "--emit-yaml", action="store_true", help="Print ready-to-paste gtdb_classification blocks."
+    )
     args = p.parse_args(argv)
 
     kg_dir = resolve_kg_microbe_dir(args.kg_microbe_dir)
@@ -167,43 +211,51 @@ def main(argv: list[str] | None = None) -> int:
     mapping_source = f"kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built {built})"
     print(f"[gtdb] mapping: {mapping_path}  ({mapping_source})", file=sys.stderr)
 
-    want_ids: set[str] = set()
-    want_names: set[str] = set()
-    labels: dict[str, str] = {}
+    # Build targets: (ncbi_id | None, label | None). Community mode carries both
+    # id and canonical label so we can fall back from id to species-name matching.
+    targets: list[tuple[str | None, str | None]] = []
     if args.community:
-        for nid, term in community_ncbi_ids(args.community):
-            want_ids.add(nid)
-            labels[nid] = term
-        print(f"[gtdb] {args.community.name}: {len(want_ids)} NCBITaxon taxa", file=sys.stderr)
+        targets = [(nid, lab) for nid, lab in community_taxa(args.community)]
+        print(f"[gtdb] {args.community.name}: {len(targets)} NCBITaxon taxa", file=sys.stderr)
     if args.ncbi_id:
-        for x in args.ncbi_id:
-            want_ids.add(x.split(":", 1)[1] if ":" in x else x)
+        targets += [(x.split(":", 1)[1] if ":" in x else x, None) for x in args.ncbi_id]
     if args.name:
-        want_names.update(args.name)
+        targets += [(None, n) for n in args.name]
 
-    matches = list(stream_rows(mapping_path, want_ids or None, want_names or None))
-    grounded = best_per_id(matches)
+    want_ids = {nid for nid, _ in targets if nid}
+    want_names_lc = {lab.lower() for _, lab in targets if lab}
+    by_id, by_name = collect_rows(mapping_path, want_ids, want_names_lc)
 
-    if not grounded:
-        print("[gtdb] no GTDB mapping found (taxon may be above species rank or absent from GTDB).",
-              file=sys.stderr)
-        return 1
-
-    for nid, g in sorted(grounded.items()):
+    n_ok = 0
+    for ncbi_id, label in targets:
+        g = resolve_target(ncbi_id, label, by_id, by_name)
+        head = f"\nNCBITaxon:{ncbi_id}" if ncbi_id else f"\n{label}"
+        if label and ncbi_id:
+            head += f"  {label}"
+        if g is None:
+            print(head)
+            print("  no GTDB mapping (above species rank, fungal/eukaryote, or absent from GTDB).")
+            continue
+        if g.get("ambiguous"):
+            opts = ", ".join(g["gtdb_options"])
+            print(head)
+            print(f"  ⚠ AMBIGUOUS — GTDB splits this species into: {opts}")
+            print("  (no single grounding emitted; a curator should pick or leave ungrounded.)")
+            continue
+        n_ok += 1
         flag = "  ⚠ RECLASSIFIED" if g["is_reclassified"] else ""
-        split = f"  (⚠ {g['n_gtdb_mappings']} GTDB mappings — showing highest majority)" if g["n_gtdb_mappings"] > 1 else ""
-        lab = labels.get(nid, g["ncbi_species"])
-        print(f"\nNCBITaxon:{nid}  {lab}")
-        print(f"  NCBI species : {g['ncbi_species']}")
+        via = "" if g["via"] == "ncbi_id" else "  (via NCBI species name / strain rows)"
+        print(f"{head}")
         print(f"  GTDB taxon   : {g['gtdb_taxon']}{flag}")
         print(f"  GTDB CURIE   : {g['gtdb_id']}")
         print(f"  GTDB lineage : {g['gtdb_lineage']}")
-        print(f"  majority     : {g['majority_fraction']}{split}")
+        print(f"  majority     : {g['majority_fraction']}{via}")
         if args.emit_yaml:
             print("  --- gtdb_classification block ---")
             for line in emit_block(g, mapping_source).splitlines():
                 print(f"  {line}")
-    return 0
+    print(f"\n[gtdb] grounded {n_ok}/{len(targets)} taxa", file=sys.stderr)
+    return 0 if n_ok else 1
 
 
 if __name__ == "__main__":
