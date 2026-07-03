@@ -37,6 +37,21 @@ validate-taxa:
     done
     exit $rc
 
+# id↔label gate for kb/taxa/ CommonTaxon records (enforces the GeneAnnotation.go_terms
+# binding: go_terms[].label must be the canonical GO label). Needs --target-class
+# CommonTaxon since these files are not MicrobialCommunity (the schema tree_root).
+validate-terms-taxa:
+    #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
+    for file in kb/taxa/*.yaml; do
+        echo "Validating terms in $file..."
+        uv run linkml-term-validator validate-data "$file" \
+            -s src/communitymech/schema/communitymech.yaml --labels \
+            --target-class CommonTaxon || rc=1
+    done
+    exit $rc
+
 # Strict in-process validation in *closed* mode (rejects unknown fields).
 # Emits reports/instance_validation_failures.tsv and exits 1 on any ERROR.
 # Catches the same drift class that gave CultureMech 59k silent errors;
