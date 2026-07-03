@@ -590,9 +590,9 @@ def _apply_batch_report(report_path: Path):
 )
 @click.option(
     "--method",
-    type=click.Choice(["pacmap", "umap"]),
+    type=click.Choice(["pacmap", "umap", "sfdp"]),
     default="pacmap",
-    help="2D reduction method (pacmap default, or umap)",
+    help="2D reduction method (pacmap default; umap; or sfdp graph layout)",
 )
 @click.option(
     "--n-neighbors",

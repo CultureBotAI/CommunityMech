@@ -75,6 +75,12 @@ class UMAPReducer:
                 n_components=self.n_components,
                 random_state=self.random_state,
             ).fit_transform(X, init="pca")
+        elif self.method == "sfdp":
+            # Force-directed (Graphviz sfdp) layout of the mutual-kNN graph over
+            # the KG embeddings — a global-structure-first graph view.
+            from communitymech.embedding.graph_layout import sfdp_layout
+
+            coords = sfdp_layout(vectors_matrix, k=15, seed=self.random_state)
         else:
             reducer = umap.UMAP(
                 n_neighbors=self.n_neighbors,
