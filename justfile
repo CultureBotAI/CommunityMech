@@ -18,10 +18,13 @@ validate FILE:
 # Validate all community files
 validate-all:
     #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
     for file in kb/communities/*.yaml; do
         echo "Validating $file..."
-        uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file"
+        uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file" || rc=1
     done
+    exit $rc
 
 # Validate the reusable per-taxon gene records (kb/taxa/) against CommonTaxon.
 # These files have CommonTaxon as their root, not MicrobialCommunity, so the
@@ -75,10 +78,13 @@ validate-references FILE:
 # Validate references in all community files
 validate-references-all:
     #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
     for file in kb/communities/*.yaml; do
         echo "\\nValidating references in $file..."
-        uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+        uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml || rc=1
     done
+    exit $rc
 
 # Validate cross-repo IDs (CultureMech, MediaIngredientMech) in one community file.
 # Pattern checks always run; existence checks run when sibling-repo paths are

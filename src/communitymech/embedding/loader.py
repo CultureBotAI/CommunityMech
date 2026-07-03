@@ -1,6 +1,7 @@
 """Efficient loading of KG-Microbe embeddings with caching."""
 
 import gzip
+import hashlib
 import pickle
 from pathlib import Path
 
@@ -40,8 +41,19 @@ class EmbeddingLoader:
         if prefixes is None:
             prefixes = ["NCBITaxon"]  # Default to taxonomy only
 
-        # Generate cache filename based on prefixes
-        cache_name = "_".join(sorted(prefixes)) + "_embeddings.pkl"
+        # Generate cache filename keyed on (embeddings-file identity, prefixes)
+        # so swapping the embeddings file (e.g. v2 → v3) automatically
+        # invalidates the cache instead of silently reusing stale vectors.
+        prefix_tag = "_".join(sorted(prefixes))
+        try:
+            st = self.embeddings_path.stat()
+            fp = f"{st.st_size}-{int(st.st_mtime)}"
+        except OSError:
+            fp = "nostat"
+        digest = hashlib.sha1(
+            f"{self.embeddings_path.name}|{fp}|{prefix_tag}".encode()
+        ).hexdigest()[:12]
+        cache_name = f"{prefix_tag}_embeddings__{digest}.pkl"
         cache_path = self.cache_dir / cache_name
 
         # Try loading from cache

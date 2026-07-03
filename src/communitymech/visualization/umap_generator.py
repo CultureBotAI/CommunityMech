@@ -22,7 +22,7 @@ class UMAPVisualizationGenerator:
         communities_dir: str = "kb/communities",
         embeddings_path: str = (
             "data/embeddings/"
-            "DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v2_2026-04-25_20_44_08.tsv.gz"
+            "DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v3_2026-06-26_12_55_27.tsv.gz"
         ),
         output_path: str = "docs/community_umap.html",
         template_dir: str | None = None,

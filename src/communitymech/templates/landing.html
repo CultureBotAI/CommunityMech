@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CommunityMech — microbial communities</title>
+<style>
+  :root{
+    --pastel-a:#FBD3E3;      /* pastel pink */
+    --pastel-b:#CBDDF6;      /* pastel blue */
+    --accent:#3D7DD6;
+    --ink:#1a1a1a;
+    --muted:#555;
+    --card:#ffffff;
+    --line:rgba(0,0,0,.10);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--pastel-b);line-height:1.55}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,var(--pastel-a),var(--pastel-b));
+        padding:64px 24px 52px;text-align:center;border-bottom:1px solid var(--line)}
+  .hero h1{margin:0 0 .2em;font-size:2.7rem;letter-spacing:-.02em}
+  .hero .tagline{margin:0 auto;max-width:660px;font-size:1.15rem}
+  .stats{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:30px}
+  .stat{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:12px;
+        padding:12px 22px;min-width:120px}
+  .stat b{display:block;font-size:1.7rem;line-height:1.1}
+  .stat span{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .wrap{max-width:980px;margin:0 auto;padding:48px 24px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;
+        box-shadow:0 1px 3px rgba(0,0,0,.05);transition:transform .15s ease,box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.10)}
+  .card .ic{font-size:2.1rem}
+  .card .actions{margin:.55em 0 .9em;display:flex;flex-wrap:wrap;gap:.5em}
+  .card h2{margin:.1em 0 .35em;font-size:1.25rem}
+  .card p{margin:0;color:var(--muted);font-size:.95rem}
+  .btn{display:inline-block;background:var(--accent);color:#fff;padding:.5em 1.15em;
+       border-radius:999px;font-size:.9rem;font-weight:600}
+  .btn:hover{filter:brightness(.93);text-decoration:none}
+  footer{border-top:1px solid var(--line);background:rgba(255,255,255,.45);
+         padding:30px 24px;text-align:center;font-size:.9rem;color:var(--muted)}
+  footer .fam{margin:.2em 0}
+  footer .fam a{margin:0 .45em;white-space:nowrap}
+  footer strong{color:var(--ink)}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <h1>CommunityMech</h1>
+    <p class="tagline">Microbial community knowledge base — curated, evidence-backed interaction networks.</p>
+    <div class="stats">
+      <div class="stat"><b>{{ num_communities }}</b><span>communities</span></div>
+      <div class="stat"><b>16</b><span>categories</span></div>
+      <div class="stat"><b>512-D</b><span>v3 embeddings</span></div>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="cards">
+      <div class="card">
+        <div class="ic">&#128270;</div>
+        <div class="actions"><a class="btn" href="browser.html">Browse records &rarr;</a></div>
+        <h2>Record browser</h2>
+        <p>Faceted browser of microbial communities — filter by category, ecological state, metals, and rare-earth elements.</p>
+      </div>
+      <div class="card">
+        <div class="ic">&#128506;&#65039;</div>
+        <div class="actions"><a class="btn" href="community_umap.html">Explore UMAP &rarr;</a></div>
+        <h2>Embedding browser</h2>
+        <p>Interactive UMAP of community embedding space from taxonomic composition.</p>
+      </div>
+      <div class="card">
+        <div class="ic">&#128187;</div>
+        <div class="actions"><a class="btn" href="https://github.com/CultureBotAI/CommunityMech">View on GitHub &rarr;</a></div>
+        <h2>GitHub</h2>
+        <p>Source code, data, schema, and the curation workflow.</p>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="fam"><strong>KG-Microbe Mechs:</strong>
+      <a href="https://culturebotai.github.io/CultureMech/">CultureMech</a>&middot;<a href="https://culturebotai.github.io/MediaIngredientMech/">MediaIngredientMech</a>&middot;<a href="https://culturebotai.github.io/CommunityMech/">CommunityMech</a>&middot;<a href="https://culturebotai.github.io/TraitMech/">TraitMech</a>
+    </div>
+    <div class="fam">
+      <a href="https://github.com/Knowledge-Graph-Hub/kg-microbe">kg-microbe</a>&middot;<a href="https://bioportal.bioontology.org/ontologies/METPO">METPO</a>
+    </div>
+  </footer>
+</body>
+</html>

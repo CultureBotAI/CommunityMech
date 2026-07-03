@@ -128,19 +128,26 @@ class CommunityRenderer:
                     }
                 )
 
-        # Load index template
-        template = self.env.get_template("index.html")
+        # Render the faceted browser (templates/index.html) to docs/browser.html
+        browser_template = self.env.get_template("index.html")
+        browser_html = browser_template.render(communities=communities)
 
-        # Render index page
-        index_html = template.render(communities=communities)
+        browser_path = output_dir.parent / "browser.html"  # docs/browser.html
+        browser_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(browser_path, "w") as f:
+            f.write(browser_html)
 
-        # Write to file
+        print(f"  ✓ Generated browser at {browser_path}")
+
+        # Render the landing page (templates/landing.html) to docs/index.html
+        landing_template = self.env.get_template("landing.html")
+        landing_html = landing_template.render(num_communities=len(communities))
+
         index_path = output_dir.parent / "index.html"  # docs/index.html
-        index_path.parent.mkdir(parents=True, exist_ok=True)
         with open(index_path, "w") as f:
-            f.write(index_html)
+            f.write(landing_html)
 
-        print(f"  ✓ Generated index at {index_path}")
+        print(f"  ✓ Generated landing at {index_path}")
 
 
 def main():
