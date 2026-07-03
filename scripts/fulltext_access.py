@@ -91,7 +91,13 @@ def try_unpaywall(doi: str | None) -> str | None:
     if not d or not d.get("is_oa"):
         return None
     loc = d.get("best_oa_location") or {}
-    return loc.get("url_for_pdf") or loc.get("url")
+    url = loc.get("url_for_pdf") or loc.get("url")
+    # Reject the DOI resolver itself — Unpaywall sometimes reports it as the
+    # "OA location" for bronze/hybrid records, but it just redirects to the
+    # publisher paywall (observed for Elsevier). Not a real full-text copy.
+    if url and re.match(r"https?://(dx\.)?doi\.org/", url):
+        return loc.get("url_for_pdf") if loc.get("url_for_pdf") not in (None, url) else None
+    return url
 
 
 def try_core(doi: str | None, title: str | None) -> str | None:
