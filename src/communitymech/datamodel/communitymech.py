@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-19T17:47:32
+# Generation date: 2026-07-03T11:17:23
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -112,6 +112,7 @@ class EvidenceItem(YAMLRoot):
     snippet: str = None
     explanation: Optional[str] = None
     confidence_score: Optional[float] = None
+    computational_provenance: Optional[Union[dict, "ComputationalProvenance"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.reference):
@@ -140,6 +141,106 @@ class EvidenceItem(YAMLRoot):
         if self.confidence_score is not None and not isinstance(self.confidence_score, float):
             self.confidence_score = float(self.confidence_score)
 
+        if self.computational_provenance is not None and not isinstance(
+            self.computational_provenance, ComputationalProvenance
+        ):
+            self.computational_provenance = ComputationalProvenance(
+                **as_dict(self.computational_provenance)
+            )
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ComputationalProvenance(YAMLRoot):
+    """
+    Provenance for a computationally derived claim — the method category, the tool chain (each with an optional
+    version and citation), and the model / inputs / simulated conditions behind a prediction. Attach to an
+    EvidenceItem whose evidence_source is COMPUTATIONAL (e.g. cross-feeding predicted from a genome-scale metabolic
+    model under flux balance analysis).
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["ComputationalProvenance"]
+    class_class_curie: ClassVar[str] = "communitymech:ComputationalProvenance"
+    class_name: ClassVar[str] = "ComputationalProvenance"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.ComputationalProvenance
+
+    prediction_type: Optional[Union[str, "ComputationalPredictionTypeEnum"]] = None
+    tools: Optional[
+        Union[Union[dict, "ComputationalTool"], list[Union[dict, "ComputationalTool"]]]
+    ] = empty_list()
+    model_name: Optional[str] = None
+    model_source: Optional[str] = None
+    input_accession: Optional[str] = None
+    simulated_medium: Optional[str] = None
+    parameters: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.prediction_type is not None and not isinstance(
+            self.prediction_type, ComputationalPredictionTypeEnum
+        ):
+            self.prediction_type = ComputationalPredictionTypeEnum(self.prediction_type)
+
+        if not isinstance(self.tools, list):
+            self.tools = [self.tools] if self.tools is not None else []
+        self.tools = [
+            v if isinstance(v, ComputationalTool) else ComputationalTool(**as_dict(v))
+            for v in self.tools
+        ]
+
+        if self.model_name is not None and not isinstance(self.model_name, str):
+            self.model_name = str(self.model_name)
+
+        if self.model_source is not None and not isinstance(self.model_source, str):
+            self.model_source = str(self.model_source)
+
+        if self.input_accession is not None and not isinstance(self.input_accession, str):
+            self.input_accession = str(self.input_accession)
+
+        if self.simulated_medium is not None and not isinstance(self.simulated_medium, str):
+            self.simulated_medium = str(self.simulated_medium)
+
+        if self.parameters is not None and not isinstance(self.parameters, str):
+            self.parameters = str(self.parameters)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ComputationalTool(YAMLRoot):
+    """
+    A single software tool used in a computational prediction, with optional version and citation.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["ComputationalTool"]
+    class_class_curie: ClassVar[str] = "communitymech:ComputationalTool"
+    class_name: ClassVar[str] = "ComputationalTool"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.ComputationalTool
+
+    tool_name: str = None
+    tool_version: Optional[str] = None
+    tool_reference: Optional[str] = None
+    role: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.tool_name):
+            self.MissingRequiredField("tool_name")
+        if not isinstance(self.tool_name, str):
+            self.tool_name = str(self.tool_name)
+
+        if self.tool_version is not None and not isinstance(self.tool_version, str):
+            self.tool_version = str(self.tool_version)
+
+        if self.tool_reference is not None and not isinstance(self.tool_reference, str):
+            self.tool_reference = str(self.tool_reference)
+
+        if self.role is not None and not isinstance(self.role, str):
+            self.role = str(self.role)
+
         super().__post_init__(**kwargs)
 
 
@@ -158,6 +259,7 @@ class TaxonDescriptor(YAMLRoot):
 
     preferred_term: str = None
     term: Union[dict, Term] = None
+    gtdb_classification: Optional[Union[dict, "GtdbClassification"]] = None
     notes: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -171,8 +273,63 @@ class TaxonDescriptor(YAMLRoot):
         if not isinstance(self.term, Term):
             self.term = Term(**as_dict(self.term))
 
+        if self.gtdb_classification is not None and not isinstance(
+            self.gtdb_classification, GtdbClassification
+        ):
+            self.gtdb_classification = GtdbClassification(**as_dict(self.gtdb_classification))
+
         if self.notes is not None and not isinstance(self.notes, str):
             self.notes = str(self.notes)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class GtdbClassification(YAMLRoot):
+    """
+    GTDB grounding for a taxon: the canonical GTDB CURIE, its taxon name and full lineage, the NCBITaxon id it was
+    mapped from, and the mapping confidence. GTDB CURIEs follow the kg-microbe / Bioregistry scheme
+    (GTDB:<rank>__<name-with-underscores>, e.g. GTDB:s__Bacillus_velezensis) and resolve at
+    https://gtdb.ecogenomic.org/tree?r={id}. GTDB names are only best-effort stable across releases, so mapping_source
+    records the release/provenance. Not an OAK-validated ontology term (no id↔label gate).
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["GtdbClassification"]
+    class_class_curie: ClassVar[str] = "communitymech:GtdbClassification"
+    class_name: ClassVar[str] = "GtdbClassification"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GtdbClassification
+
+    gtdb_id: Optional[str] = None
+    gtdb_taxon: Optional[str] = None
+    gtdb_lineage: Optional[str] = None
+    ncbi_source_id: Optional[str] = None
+    majority_fraction: Optional[float] = None
+    is_reclassified: Optional[Union[bool, Bool]] = None
+    mapping_source: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.gtdb_id is not None and not isinstance(self.gtdb_id, str):
+            self.gtdb_id = str(self.gtdb_id)
+
+        if self.gtdb_taxon is not None and not isinstance(self.gtdb_taxon, str):
+            self.gtdb_taxon = str(self.gtdb_taxon)
+
+        if self.gtdb_lineage is not None and not isinstance(self.gtdb_lineage, str):
+            self.gtdb_lineage = str(self.gtdb_lineage)
+
+        if self.ncbi_source_id is not None and not isinstance(self.ncbi_source_id, str):
+            self.ncbi_source_id = str(self.ncbi_source_id)
+
+        if self.majority_fraction is not None and not isinstance(self.majority_fraction, float):
+            self.majority_fraction = float(self.majority_fraction)
+
+        if self.is_reclassified is not None and not isinstance(self.is_reclassified, Bool):
+            self.is_reclassified = Bool(self.is_reclassified)
+
+        if self.mapping_source is not None and not isinstance(self.mapping_source, str):
+            self.mapping_source = str(self.mapping_source)
 
         super().__post_init__(**kwargs)
 
@@ -2502,6 +2659,55 @@ class CultivationSystemEnum(EnumDefinitionImpl):
     )
 
 
+class ComputationalPredictionTypeEnum(EnumDefinitionImpl):
+    """
+    Category of computational method that produced a predicted claim. Used to make model-derived evidence (e.g.
+    cross-feeding predicted from a genome-scale metabolic model) queryable rather than buried in free text. Populate
+    ComputationalProvenance.prediction_type when EvidenceItem.evidence_source is COMPUTATIONAL.
+    """
+
+    GENOME_SCALE_METABOLIC_MODEL = PermissibleValue(
+        text="GENOME_SCALE_METABOLIC_MODEL",
+        description="""Prediction derived from a genome-scale metabolic model (GEM), e.g. a draft reconstruction of an organism's metabolic network.""",
+    )
+    FLUX_BALANCE_ANALYSIS = PermissibleValue(
+        text="FLUX_BALANCE_ANALYSIS",
+        description="""Constraint-based flux simulation (FBA / community FBA) over a metabolic model, e.g. to identify exchangeable metabolites between members.""",
+    )
+    METABOLIC_INTERACTION_SIMULATION = PermissibleValue(
+        text="METABOLIC_INTERACTION_SIMULATION",
+        description="""Community-level metabolic exchange / cross-feeding simulation (e.g. SMETANA, MICOM) that predicts interspecies interactions.""",
+    )
+    SEQUENCE_HOMOLOGY = PermissibleValue(
+        text="SEQUENCE_HOMOLOGY",
+        description="Prediction from sequence similarity / homology search (e.g. BLAST, DIAMOND, HMM).",
+    )
+    PHYLOGENETIC_INFERENCE = PermissibleValue(
+        text="PHYLOGENETIC_INFERENCE",
+        description="Prediction from phylogenetic placement or comparative genomics.",
+    )
+    STATISTICAL_INFERENCE = PermissibleValue(
+        text="STATISTICAL_INFERENCE",
+        description="""Prediction from a statistical model (e.g. co-occurrence, correlation networks, differential abundance).""",
+    )
+    MACHINE_LEARNING = PermissibleValue(
+        text="MACHINE_LEARNING",
+        description="Prediction from a trained machine-learning / deep-learning model.",
+    )
+    THERMODYNAMIC = PermissibleValue(
+        text="THERMODYNAMIC", description="Prediction from thermodynamic feasibility analysis."
+    )
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other computational prediction method not covered by the listed values.",
+    )
+
+    _defn = EnumDefinition(
+        name="ComputationalPredictionTypeEnum",
+        description="""Category of computational method that produced a predicted claim. Used to make model-derived evidence (e.g. cross-feeding predicted from a genome-scale metabolic model) queryable rather than buried in free text. Populate ComputationalProvenance.prediction_type when EvidenceItem.evidence_source is COMPUTATIONAL.""",
+    )
+
+
 class DiscussionKindEnum(EnumDefinitionImpl):
     """
     Kind of unresolved / in-progress item captured by a Discussion. Knowledge gaps are represented as a discussion
@@ -2785,6 +2991,115 @@ slots.evidenceItem__confidence_score = Slot(
     range=Optional[float],
 )
 
+slots.evidenceItem__computational_provenance = Slot(
+    uri=COMMUNITYMECH.computational_provenance,
+    name="evidenceItem__computational_provenance",
+    curie=COMMUNITYMECH.curie("computational_provenance"),
+    model_uri=COMMUNITYMECH.evidenceItem__computational_provenance,
+    domain=None,
+    range=Optional[Union[dict, ComputationalProvenance]],
+)
+
+slots.computationalProvenance__prediction_type = Slot(
+    uri=COMMUNITYMECH.prediction_type,
+    name="computationalProvenance__prediction_type",
+    curie=COMMUNITYMECH.curie("prediction_type"),
+    model_uri=COMMUNITYMECH.computationalProvenance__prediction_type,
+    domain=None,
+    range=Optional[Union[str, "ComputationalPredictionTypeEnum"]],
+)
+
+slots.computationalProvenance__tools = Slot(
+    uri=COMMUNITYMECH.tools,
+    name="computationalProvenance__tools",
+    curie=COMMUNITYMECH.curie("tools"),
+    model_uri=COMMUNITYMECH.computationalProvenance__tools,
+    domain=None,
+    range=Optional[Union[Union[dict, ComputationalTool], list[Union[dict, ComputationalTool]]]],
+)
+
+slots.computationalProvenance__model_name = Slot(
+    uri=COMMUNITYMECH.model_name,
+    name="computationalProvenance__model_name",
+    curie=COMMUNITYMECH.curie("model_name"),
+    model_uri=COMMUNITYMECH.computationalProvenance__model_name,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalProvenance__model_source = Slot(
+    uri=COMMUNITYMECH.model_source,
+    name="computationalProvenance__model_source",
+    curie=COMMUNITYMECH.curie("model_source"),
+    model_uri=COMMUNITYMECH.computationalProvenance__model_source,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalProvenance__input_accession = Slot(
+    uri=COMMUNITYMECH.input_accession,
+    name="computationalProvenance__input_accession",
+    curie=COMMUNITYMECH.curie("input_accession"),
+    model_uri=COMMUNITYMECH.computationalProvenance__input_accession,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalProvenance__simulated_medium = Slot(
+    uri=COMMUNITYMECH.simulated_medium,
+    name="computationalProvenance__simulated_medium",
+    curie=COMMUNITYMECH.curie("simulated_medium"),
+    model_uri=COMMUNITYMECH.computationalProvenance__simulated_medium,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalProvenance__parameters = Slot(
+    uri=COMMUNITYMECH.parameters,
+    name="computationalProvenance__parameters",
+    curie=COMMUNITYMECH.curie("parameters"),
+    model_uri=COMMUNITYMECH.computationalProvenance__parameters,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalTool__tool_name = Slot(
+    uri=COMMUNITYMECH.tool_name,
+    name="computationalTool__tool_name",
+    curie=COMMUNITYMECH.curie("tool_name"),
+    model_uri=COMMUNITYMECH.computationalTool__tool_name,
+    domain=None,
+    range=str,
+)
+
+slots.computationalTool__tool_version = Slot(
+    uri=COMMUNITYMECH.tool_version,
+    name="computationalTool__tool_version",
+    curie=COMMUNITYMECH.curie("tool_version"),
+    model_uri=COMMUNITYMECH.computationalTool__tool_version,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.computationalTool__tool_reference = Slot(
+    uri=COMMUNITYMECH.tool_reference,
+    name="computationalTool__tool_reference",
+    curie=COMMUNITYMECH.curie("tool_reference"),
+    model_uri=COMMUNITYMECH.computationalTool__tool_reference,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^(PMID:|doi:|bioproject:).*"),
+)
+
+slots.computationalTool__role = Slot(
+    uri=COMMUNITYMECH.role,
+    name="computationalTool__role",
+    curie=COMMUNITYMECH.curie("role"),
+    model_uri=COMMUNITYMECH.computationalTool__role,
+    domain=None,
+    range=Optional[str],
+)
+
 slots.taxonDescriptor__preferred_term = Slot(
     uri=COMMUNITYMECH.preferred_term,
     name="taxonDescriptor__preferred_term",
@@ -2803,11 +3118,85 @@ slots.taxonDescriptor__term = Slot(
     range=Union[dict, Term],
 )
 
+slots.taxonDescriptor__gtdb_classification = Slot(
+    uri=COMMUNITYMECH.gtdb_classification,
+    name="taxonDescriptor__gtdb_classification",
+    curie=COMMUNITYMECH.curie("gtdb_classification"),
+    model_uri=COMMUNITYMECH.taxonDescriptor__gtdb_classification,
+    domain=None,
+    range=Optional[Union[dict, GtdbClassification]],
+)
+
 slots.taxonDescriptor__notes = Slot(
     uri=COMMUNITYMECH.notes,
     name="taxonDescriptor__notes",
     curie=COMMUNITYMECH.curie("notes"),
     model_uri=COMMUNITYMECH.taxonDescriptor__notes,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.gtdbClassification__gtdb_id = Slot(
+    uri=COMMUNITYMECH.gtdb_id,
+    name="gtdbClassification__gtdb_id",
+    curie=COMMUNITYMECH.curie("gtdb_id"),
+    model_uri=COMMUNITYMECH.gtdbClassification__gtdb_id,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^GTDB:[cdfgops]__.+"),
+)
+
+slots.gtdbClassification__gtdb_taxon = Slot(
+    uri=COMMUNITYMECH.gtdb_taxon,
+    name="gtdbClassification__gtdb_taxon",
+    curie=COMMUNITYMECH.curie("gtdb_taxon"),
+    model_uri=COMMUNITYMECH.gtdbClassification__gtdb_taxon,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.gtdbClassification__gtdb_lineage = Slot(
+    uri=COMMUNITYMECH.gtdb_lineage,
+    name="gtdbClassification__gtdb_lineage",
+    curie=COMMUNITYMECH.curie("gtdb_lineage"),
+    model_uri=COMMUNITYMECH.gtdbClassification__gtdb_lineage,
+    domain=None,
+    range=Optional[str],
+)
+
+slots.gtdbClassification__ncbi_source_id = Slot(
+    uri=COMMUNITYMECH.ncbi_source_id,
+    name="gtdbClassification__ncbi_source_id",
+    curie=COMMUNITYMECH.curie("ncbi_source_id"),
+    model_uri=COMMUNITYMECH.gtdbClassification__ncbi_source_id,
+    domain=None,
+    range=Optional[str],
+    pattern=re.compile(r"^NCBITaxon:[0-9]+$"),
+)
+
+slots.gtdbClassification__majority_fraction = Slot(
+    uri=COMMUNITYMECH.majority_fraction,
+    name="gtdbClassification__majority_fraction",
+    curie=COMMUNITYMECH.curie("majority_fraction"),
+    model_uri=COMMUNITYMECH.gtdbClassification__majority_fraction,
+    domain=None,
+    range=Optional[float],
+)
+
+slots.gtdbClassification__is_reclassified = Slot(
+    uri=COMMUNITYMECH.is_reclassified,
+    name="gtdbClassification__is_reclassified",
+    curie=COMMUNITYMECH.curie("is_reclassified"),
+    model_uri=COMMUNITYMECH.gtdbClassification__is_reclassified,
+    domain=None,
+    range=Optional[Union[bool, Bool]],
+)
+
+slots.gtdbClassification__mapping_source = Slot(
+    uri=COMMUNITYMECH.mapping_source,
+    name="gtdbClassification__mapping_source",
+    curie=COMMUNITYMECH.curie("mapping_source"),
+    model_uri=COMMUNITYMECH.gtdbClassification__mapping_source,
     domain=None,
     range=Optional[str],
 )

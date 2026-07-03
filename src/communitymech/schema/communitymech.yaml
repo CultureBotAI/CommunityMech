@@ -512,6 +512,41 @@ enums:
       OTHER:
         description: Other cultivation system not covered by the listed values.
 
+  ComputationalPredictionTypeEnum:
+    description: >-
+      Category of computational method that produced a predicted claim. Used to
+      make model-derived evidence (e.g. cross-feeding predicted from a
+      genome-scale metabolic model) queryable rather than buried in free text.
+      Populate ComputationalProvenance.prediction_type when
+      EvidenceItem.evidence_source is COMPUTATIONAL.
+    permissible_values:
+      GENOME_SCALE_METABOLIC_MODEL:
+        description: >-
+          Prediction derived from a genome-scale metabolic model (GEM), e.g. a
+          draft reconstruction of an organism's metabolic network.
+      FLUX_BALANCE_ANALYSIS:
+        description: >-
+          Constraint-based flux simulation (FBA / community FBA) over a metabolic
+          model, e.g. to identify exchangeable metabolites between members.
+      METABOLIC_INTERACTION_SIMULATION:
+        description: >-
+          Community-level metabolic exchange / cross-feeding simulation (e.g.
+          SMETANA, MICOM) that predicts interspecies interactions.
+      SEQUENCE_HOMOLOGY:
+        description: Prediction from sequence similarity / homology search (e.g. BLAST, DIAMOND, HMM).
+      PHYLOGENETIC_INFERENCE:
+        description: Prediction from phylogenetic placement or comparative genomics.
+      STATISTICAL_INFERENCE:
+        description: >-
+          Prediction from a statistical model (e.g. co-occurrence, correlation
+          networks, differential abundance).
+      MACHINE_LEARNING:
+        description: Prediction from a trained machine-learning / deep-learning model.
+      THERMODYNAMIC:
+        description: Prediction from thermodynamic feasibility analysis.
+      OTHER:
+        description: Other computational prediction method not covered by the listed values.
+
 classes:
   Term:
     description: An ontology term with ID and label
@@ -557,6 +592,68 @@ classes:
         range: float
         minimum_value: 0.0
         maximum_value: 1.0
+      computational_provenance:
+        description: >-
+          Structured provenance for a computationally predicted claim (tool
+          chain, versions, model, in-silico medium). Populate when
+          evidence_source is COMPUTATIONAL so model-derived claims are queryable
+          rather than described only in prose.
+        range: ComputationalProvenance
+
+  ComputationalProvenance:
+    description: >-
+      Provenance for a computationally derived claim — the method category, the
+      tool chain (each with an optional version and citation), and the model /
+      inputs / simulated conditions behind a prediction. Attach to an
+      EvidenceItem whose evidence_source is COMPUTATIONAL (e.g. cross-feeding
+      predicted from a genome-scale metabolic model under flux balance analysis).
+    attributes:
+      prediction_type:
+        description: Category of computational method that produced the prediction.
+        range: ComputationalPredictionTypeEnum
+      tools:
+        description: >-
+          Software/tools in the prediction chain, in order of use (e.g. GEM
+          reconstruction, model refinement, flux simulation).
+        range: ComputationalTool
+        multivalued: true
+        inlined_as_list: true
+      model_name:
+        description: >-
+          Name of a specific published/named model used, if any (e.g. iML1515).
+          Leave empty for de-novo reconstructions with no published identifier.
+      model_source:
+        description: >-
+          How the model was obtained (e.g. "de-novo draft genome-scale models
+          reconstructed from strain genomes").
+      input_accession:
+        description: >-
+          Accession(s) or DOI for the model or its input data (e.g. genome/SRA
+          accessions, a model repository DOI). Free text to allow ranges.
+      simulated_medium:
+        description: In-silico medium / condition under which the prediction was run (e.g. LBGM).
+      parameters:
+        description: >-
+          Other salient method parameters or objective (e.g. "FBA to identify all
+          potentially exchangeable metabolites"); free text.
+
+  ComputationalTool:
+    description: A single software tool used in a computational prediction, with optional version and citation.
+    attributes:
+      tool_name:
+        description: Tool / software name (e.g. CarveMe, COBRA Toolbox, SMETANA).
+        required: true
+      tool_version:
+        description: >-
+          Version string if reported (e.g. "3.0"). Leave empty when the source
+          does not report a version — do not infer one.
+      tool_reference:
+        description: "Citation for the tool itself (PMID:/doi:/bioproject: format)."
+        pattern: "^(PMID:|doi:|bioproject:).*"
+      role:
+        description: >-
+          What this tool did in the chain (e.g. "GEM reconstruction", "model
+          refinement/validation", "flux balance analysis").
 
   TaxonDescriptor:
     description: Describes an organism with NCBITaxon term
@@ -572,8 +669,59 @@ classes:
         bindings:
           - binds_value_of: id
             obligation_level: REQUIRED
+      gtdb_classification:
+        description: >-
+          Optional GTDB (Genome Taxonomy Database) grounding for this taxon,
+          derived from the NCBITaxon term via the kg-microbe NCBI2GTDB mapping.
+          Complements the NCBITaxon term with a genome-based classification —
+          useful because GTDB frequently renames/reclassifies relative to NCBI
+          (e.g. NCBITaxon "Agrobacterium deltae" -> GTDB "Agrobacterium
+          leguminum"). Populate with the ground-taxa-gtdb skill.
+        range: GtdbClassification
       notes:
         description: Additional notes about this organism
+
+  GtdbClassification:
+    description: >-
+      GTDB grounding for a taxon: the canonical GTDB CURIE, its taxon name and
+      full lineage, the NCBITaxon id it was mapped from, and the mapping
+      confidence. GTDB CURIEs follow the kg-microbe / Bioregistry scheme
+      (GTDB:<rank>__<name-with-underscores>, e.g. GTDB:s__Bacillus_velezensis)
+      and resolve at https://gtdb.ecogenomic.org/tree?r={id}. GTDB names are
+      only best-effort stable across releases, so mapping_source records the
+      release/provenance. Not an OAK-validated ontology term (no id↔label gate).
+    attributes:
+      gtdb_id:
+        description: >-
+          Canonical GTDB CURIE (spaces in the taxon name become underscores),
+          e.g. GTDB:s__Bacillus_velezensis or GTDB:g__Agrobacterium.
+        pattern: "^GTDB:[cdfgops]__.+"
+      gtdb_taxon:
+        description: GTDB taxon name (human-readable, spaces preserved), e.g. "Bacillus velezensis".
+      gtdb_lineage:
+        description: >-
+          Full GTDB lineage string (domain..species), e.g.
+          "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus velezensis".
+      ncbi_source_id:
+        description: The NCBITaxon id this GTDB classification was mapped from.
+        pattern: "^NCBITaxon:[0-9]+$"
+      majority_fraction:
+        description: >-
+          Fraction of genomes under the NCBI taxon that map to this GTDB taxon
+          (0.0-1.0), from the kg-microbe NCBI2GTDB table — a confidence for the
+          mapping. 1.0 means an unambiguous 1:1 correspondence.
+        range: float
+        minimum_value: 0.0
+        maximum_value: 1.0
+      is_reclassified:
+        description: >-
+          True when the GTDB species name differs from the NCBITaxon species
+          name (a GTDB reclassification/rename), so consumers can flag it.
+        range: boolean
+      mapping_source:
+        description: >-
+          Provenance of the mapping (source table + GTDB release/build), e.g.
+          "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-18)".
 
   MetaboliteDescriptor:
     description: Describes a metabolite with CHEBI term
@@ -1303,6 +1451,10 @@ classes:
         range: Term
         multivalued: true
         inlined_as_list: true
+        # id↔label gate (range-less binding → label check, no enum expansion)
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       supports_roles:
         description: Community functional role(s) this gene supports.
         range: FunctionalRoleEnum

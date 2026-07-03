@@ -1,0 +1,153 @@
+id: CommunityMech:000295
+name: Parachlorella kessleri + Saccharomyces cerevisiae Mutualistic Co-culture
+description: Two-member engineered co-culture of the green microalga Parachlorella kessleri and the
+  yeast Saccharomyces cerevisiae, established to enhance microalgal lipid productivity. The partners
+  form a mutualistic relationship based on reciprocal oxygen/carbon dioxide gas exchange. Under
+  co-culture, biomass and lipid production increased 4-fold relative to microalgal monoculture. Yeast
+  sustained microalgal growth during the transition to phototrophy after glucose depletion and promoted
+  lipid accumulation through nutrient competition, while microalgae are inferred to provide metabolic
+  support to the yeast via exopolysaccharide (EPS)-derived molecules. Nanomechanical analyses (AFM,
+  FluidFM) showed increased EPS production and stronger, longer microalga-yeast cell-cell interactions
+  in co-culture.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: co-culture bioreactor for microalgal lipid production
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Laboratory microalga-yeast co-culture grown in BBM + NO3 medium for lipid production.
+taxonomy:
+- taxon_term:
+    preferred_term: Parachlorella kessleri
+    term:
+      id: NCBITaxon:3074
+      label: Parachlorella kessleri
+    notes: Green microalga; the lipid-producing partner in the co-culture.
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  abundance_value: One of two members of the co-culture (the microalgal partner).
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study examines the physiological and biophysical responses of Parachlorella kessleri
+      when co-cultured with Saccharomyces cerevisiae to enhance lipid productivity
+    explanation: Identifies Parachlorella kessleri as the microalgal member of the co-culture.
+- taxon_term:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    notes: Yeast partner; consumes glucose and provides CO2 to the microalga.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of two members of the co-culture (the yeast partner).
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study examines the physiological and biophysical responses of Parachlorella kessleri
+      when co-cultured with Saccharomyces cerevisiae to enhance lipid productivity
+    explanation: Identifies Saccharomyces cerevisiae as the yeast member of the co-culture.
+ecological_interactions:
+- name: Reciprocal oxygen/carbon dioxide gas exchange
+  description: The microalga and yeast establish a mutualistic relationship based on reciprocal exchange
+    of oxygen and carbon dioxide, offering a strategy to overcome productivity limits caused by the
+    slow growth of the microalga.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Parachlorella kessleri
+    term:
+      id: NCBITaxon:3074
+      label: Parachlorella kessleri
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microalgae and yeasts can establish a mutualistic relationship based on reciprocal
+      oxygen/carbon dioxide exchange, offering a strategy to overcome productivity limits caused by the
+      slow growth of microalgae.
+    explanation: States the mutualistic O2/CO2 gas-exchange interaction underlying the co-culture.
+- name: Yeast support of microalgal growth and lipid accumulation
+  description: Yeast sustained microalgal growth during the transition to phototrophy after glucose
+    depletion (day 6) and promoted lipid accumulation through nutrient competition.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Parachlorella kessleri
+    term:
+      id: NCBITaxon:3074
+      label: Parachlorella kessleri
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose
+      depletion (day 6) and promoted lipid accumulation through nutrient competition.
+    explanation: Yeast supports microalgal growth and drives lipid accumulation via nutrient competition.
+- name: EPS-mediated metabolic support of yeast by microalgae
+  description: Despite prolonged nutrient limitation, yeast viability remained above 68%, indicating
+    possible metabolic support from microalgae via exopolysaccharide (EPS)-derived molecules; FluidFM
+    revealed stronger and longer microalga-yeast interactions linked to enhanced EPS production in
+    co-culture.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Parachlorella kessleri
+    term:
+      id: NCBITaxon:3074
+      label: Parachlorella kessleri
+  target_taxon:
+    preferred_term: Saccharomyces cerevisiae
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yeast viability remained above 68%, indicating possible metabolic support from microalgae
+      via exopolysaccharides (EPS) - derived molecules
+    explanation: Inferred microalga-to-yeast metabolic support via EPS-derived molecules sustaining
+      yeast viability.
+growth_media:
+- name: BBM + NO3 medium
+  preparation_notes: 'Microalga-yeast co-culture; yeast supplied with glucose as initial carbon source,
+    which was depleted by day 6, after which the microalga transitioned to phototrophy; culture experienced
+    ~8 days of nutrient limitation. Microalgal monoculture reference grown in the same BBM + NO3 medium.'
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biomass and lipid production increased 4-fold compared to microalgal monoculture grown in
+      BBM + NO3 medium
+    explanation: Names BBM + NO3 as the cultivation medium for the co-culture and monoculture reference.
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Yeast sustained microalgal growth during the transition to phototrophy after glucose depletion
+      (day 6)
+    explanation: Documents glucose as the initial carbon source, depleted at day 6.

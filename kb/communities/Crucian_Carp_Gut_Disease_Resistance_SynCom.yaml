@@ -1,0 +1,127 @@
+id: CommunityMech:000293
+name: Crucian Carp Gut Disease-resistance SynCom
+description: A simplified synthetic microbial community of three gut genera (Cetobacterium,
+  Paraclostridium, and Pseudomonas) assembled from the intestinal microbiota of crucian carp
+  (Carassius auratus). These genera were enriched in fish that displayed mild symptoms after
+  Aeromonas hydrophila infection, and fecal microbiota transplantation from mild-symptom fish
+  conferred enhanced resistance to the pathogen. The reconstituted SynCom significantly reduced
+  A. hydrophila abundance by activating intestinal immune responses and reinforcing the gut
+  barrier, supporting microbiome-based disease prevention in aquaculture.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+environment_term:
+  preferred_term: crucian carp (Carassius auratus) intestine
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: Intestinal microbiota of the freshwater fish crucian carp (Carassius auratus, NCBITaxon:7957),
+    the host modeled for gut-microbiota-mediated resistance to Aeromonas hydrophila.
+taxonomy:
+- taxon_term:
+    preferred_term: Cetobacterium
+    term:
+      id: NCBITaxon:180162
+      label: Cetobacterium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Cetobacterium_A
+      gtdb_taxon: Cetobacterium_A
+      gtdb_lineage: d__Bacteria;p__Fusobacteriota;c__Fusobacteriia;o__Fusobacteriales;f__Fusobacteriaceae;g__Cetobacterium_A
+      ncbi_source_id: NCBITaxon:180162
+      majority_fraction: 0.927
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+    notes: Grounded at genus rank; the source reports the genus Cetobacterium (no species/strain
+      given). Enriched in mild-symptom fish and part of the disease-resistance SynCom.
+  abundance_value: Enriched genus in mild-symptom crucian carp gut (p = 0.013).
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Further microbial analysis identified Cetobacterium (p = 0.013), Paraclostridium
+    explanation: Identifies Cetobacterium as a member genus enriched in disease-resistant fish.
+- taxon_term:
+    preferred_term: Paraclostridium
+    term:
+      id: NCBITaxon:1849822
+      label: Paraclostridium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Paraclostridium
+      gtdb_taxon: Paraclostridium
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Peptostreptococcales;f__Peptostreptococcaceae;g__Paraclostridium
+      ncbi_source_id: NCBITaxon:1849822
+      majority_fraction: 0.995
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+    notes: Grounded at genus rank; the source reports the genus Paraclostridium (no species/strain
+      given). Part of the disease-resistance SynCom.
+  abundance_value: Genus enriched in mild-symptom crucian carp gut.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Further microbial analysis identified Cetobacterium (p = 0.013), Paraclostridium
+    explanation: Identifies Paraclostridium as a member genus of the disease-resistance SynCom.
+- taxon_term:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.596
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 17 GTDB taxa under the NCBI taxon]
+    notes: Grounded at genus rank; the source reports the genus Pseudomonas (no species/strain
+      given). Part of the disease-resistance SynCom.
+  abundance_value: Genus enriched in mild-symptom crucian carp gut.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Paraclostridium (p Pseudomonas (p A. hydrophila (p < 0.05) by activating intestinal
+      immune responses and reinforcing the gut barrier.'
+    explanation: Identifies Pseudomonas as a member genus of the disease-resistance SynCom.
+ecological_interactions:
+- name: SynCom-mediated suppression of Aeromonas hydrophila
+  description: The three-genus SynCom (Cetobacterium, Paraclostridium, Pseudomonas) significantly
+    reduced the abundance of the pathogen Aeromonas hydrophila by activating intestinal immune
+    responses and reinforcing the gut barrier, an emergent host-mediated antagonism rather than a
+    direct pairwise microbe-microbe interaction.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Paraclostridium (p Pseudomonas (p A. hydrophila (p < 0.05) by activating intestinal
+      immune responses and reinforcing the gut barrier.'
+    explanation: Community-level reduction of A. hydrophila via host immune activation and gut-barrier
+      reinforcement.
+growth_media:
+- name: "BHI and LB (brain heart infusion and Luria-Bertani)"
+  temperature: '28'
+  temperature_unit: °C
+  incubation_time: '48'
+  incubation_time_unit: h
+  inoculum_source: "crucian carp intestinal isolates (Cetobacterium, Paraclostridium, Pseudomonas)"
+  preparation_notes: "SynCom strains isolated on BHI and LB agar (48 h, anaerobic at 28 C and aerobic), then expanded in 5 mL BHI/LB broth with overnight shaking to OD600 1.0 before combining."
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Plates were incubated for 48 h under both anaerobic conditions at 28 °C and aerobic conditions"
+    explanation: "Documents isolation medium, temperature (28 C), and incubation time (48 h)."
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "inoculated into 5 mL of BHI and LB broth for expansion"
+    explanation: "Documents broth expansion of the SynCom member strains."

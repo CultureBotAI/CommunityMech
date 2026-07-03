@@ -1,0 +1,125 @@
+id: CommunityMech:000284
+name: Black Soldier Fly Larvae Gut SynCom (Bacillus + Lactobacillus + Issatchenkia)
+description: A tripartite synthetic microbial community (SynCom) engineered from the core gut microbiota
+  of black soldier fly larvae (BSFL) to enhance protein bioconversion from organic wastes. The SynCom
+  combines the bacteria Bacillus and Lactobacillus with the yeast Issatchenkia and was assembled and
+  tested in germ-free (gnotobiotic) larval hosts using multi-omics. Bacillus provides direct proteolytic
+  activity, whereas Lactobacillus and Issatchenkia are associated with improved protein-conversion
+  performance and amino-acid metabolic responses. The tripartite SynCom showed the highest protein
+  conversion performance and distinct spatiotemporal distribution along the gut pH gradient, increasing
+  final larval protein content by 63%.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+environment_term:
+  preferred_term: black soldier fly larvae gut (gnotobiotic host)
+  term:
+    id: ENVO:01001033
+    label: digestive tract environment
+  notes: Gut of black soldier fly larvae (Hermetia illucens) established as a germ-free / gnotobiotic
+    model host; grounded to the general ENVO digestive tract environment (no insect-gut-specific ENVO
+    term).
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.508
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 102 GTDB taxa under the NCBI taxon]
+    notes: Grounded at genus rank; the source paper names the functionally relevant taxon only as
+      "Bacillus". Canonical NCBITaxon label carries the "<firmicutes>" homonym disambiguation.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of three members of the tripartite gnotobiotic SynCom.
+  evidence:
+  - reference: PMID:42167379
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacillus showed direct proteolytic activity, whereas Lactobacillus and Issatchenkia were
+      associated with improved protein conversion performance in the tested SynCom.
+    explanation: Identifies Bacillus as a SynCom member with direct proteolytic (protein-degrading)
+      activity.
+- taxon_term:
+    preferred_term: Lactobacillus
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+    gtdb_classification:
+      gtdb_id: GTDB:g__Lactobacillus
+      gtdb_taxon: Lactobacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lactobacillus
+      ncbi_source_id: NCBITaxon:1578
+      majority_fraction: 0.971
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 16 GTDB taxa under the NCBI taxon]
+    notes: Grounded at genus rank; the source paper names the functionally relevant taxon only as
+      "Lactobacillus".
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of three members of the tripartite gnotobiotic SynCom.
+  evidence:
+  - reference: PMID:42167379
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We identified the bacteria Bacillus and Lactobacillus and the yeast Issatchenkia functionally
+      relevant taxa associated with improved host protein conversion and amino-acid metabolic responses
+      under the tested gnotobiotic conditions.
+    explanation: Identifies Lactobacillus as a functionally relevant SynCom member linked to protein
+      conversion and amino-acid metabolism.
+- taxon_term:
+    preferred_term: Issatchenkia (yeast)
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+    notes: The paper names the yeast member as "Issatchenkia"; the genus Issatchenkia is a synonym of
+      the NCBITaxon genus Pichia (NCBITaxon:4919), which is the canonical label. Grounded at genus rank.
+  functional_role:
+  - CROSS_FEEDER
+  abundance_value: One of three members of the tripartite gnotobiotic SynCom.
+  evidence:
+  - reference: PMID:42167379
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We identified the bacteria Bacillus and Lactobacillus and the yeast Issatchenkia functionally
+      relevant taxa associated with improved host protein conversion and amino-acid metabolic responses
+      under the tested gnotobiotic conditions.
+    explanation: Identifies the yeast Issatchenkia (Pichia) as a functionally relevant SynCom member
+      linked to protein conversion and amino-acid metabolism.
+ecological_interactions:
+- name: Spatiotemporal niche partitioning along the gut pH gradient
+  description: In the tripartite SynCom the three taxa show distinct spatiotemporal distribution patterns
+    along the black soldier fly larva gut pH gradient, coinciding with the highest protein conversion
+    performance (community-level, emergent).
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42167379
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a tripartite SynCom comprising these taxa showed the highest protein conversion performance
+      and was associated with distinct spatiotemporal distribution patterns along the gut pH gradient,
+      increasing final larval protein content by 63%.
+    explanation: Members occupy distinct spatial/temporal niches along the gut pH gradient, associated
+      with peak protein conversion.
+- name: Proteolysis-driven division of labor for protein conversion
+  description: Functional complementarity within the SynCom, where Bacillus supplies direct proteolytic
+    activity (liberating amino acids) while Lactobacillus and Issatchenkia are associated with the
+    downstream improvement in protein conversion and amino-acid metabolism (community-level division
+    of labor / inferred cross-feeding of proteolysis products).
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42167379
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacillus showed direct proteolytic activity, whereas Lactobacillus and Issatchenkia were
+      associated with improved protein conversion performance in the tested SynCom.
+    explanation: Bacillus proteolysis and the partners' protein-conversion association imply a division
+      of labor / cross-feeding of proteolysis-derived amino acids.

@@ -1,0 +1,159 @@
+id: CommunityMech:000299
+name: Ensifer YF2 + Sphingobacterium Y2 Polyethylene-degrading Consortium
+description: Synthetic bacterial consortium for polyethylene (PE) biodegradation, built from three
+  strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium sp. MF1-isolated from
+  plastic-contaminated agricultural soils. A dual-strain consortium of YF2 and Y2 degraded PE more
+  efficiently than individual strains or the full three-strain combination, using PE as the sole
+  carbon source and inducing oxidative modifications and physical erosion of the polymer. Genomic
+  analysis showed a complementary enzymatic division of labor - YF2 (oxidases LadA, AlkB, CYP450)
+  performs backbone cleavage as the primary degrader, while Y2 (esterases and lipases) carries out
+  intermediate metabolism through cross-feeding.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: plastic-contaminated agricultural soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: Strains were isolated from polyethylene mulch-film contaminated agricultural soils.
+taxonomy:
+- taxon_term:
+    preferred_term: Ensifer sp. YF2
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+    gtdb_classification:
+      gtdb_id: GTDB:g__Ensifer
+      gtdb_taxon: Ensifer
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Ensifer
+      ncbi_source_id: NCBITaxon:106591
+      majority_fraction: 0.745
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+    notes: Strain YF2 identified only to genus Ensifer in the source; grounded at genus rank.
+  strain_designation:
+    strain_name: YF2
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of two members of the effective dual-strain PE-degrading consortium.
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three bacterial strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium
+      sp. MF1-were isolated from plastic-contaminated soils.
+    explanation: Identifies Ensifer sp. YF2 as an isolated consortium member.
+- taxon_term:
+    preferred_term: Sphingobacterium sp. Y2
+    term:
+      id: NCBITaxon:28453
+      label: Sphingobacterium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingobacterium
+      gtdb_taxon: Sphingobacterium
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Sphingobacteriales;f__Sphingobacteriaceae;g__Sphingobacterium
+      ncbi_source_id: NCBITaxon:28453
+      majority_fraction: 0.996
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
+    notes: Strain Y2 identified only to genus Sphingobacterium in the source; grounded at genus rank.
+  strain_designation:
+    strain_name: Y2
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  abundance_value: One of two members of the effective dual-strain PE-degrading consortium.
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three bacterial strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium
+      sp. MF1-were isolated from plastic-contaminated soils.
+    explanation: Identifies Sphingobacterium sp. Y2 as an isolated consortium member.
+- taxon_term:
+    preferred_term: Chryseobacterium sp. MF1
+    term:
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+    notes: Strain MF1 identified only to genus Chryseobacterium; grounded at genus rank. Isolated and
+      tested in the three-strain combination, but the effective consortium was the dual-strain YF2+Y2.
+    gtdb_classification:
+      gtdb_id: GTDB:s__Chryseobacterium_indologenes
+      gtdb_taxon: Chryseobacterium indologenes
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Weeksellaceae;g__Chryseobacterium;s__Chryseobacterium
+        indologenes
+      ncbi_source_id: NCBITaxon:59732
+      majority_fraction: 1.0
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
+  strain_designation:
+    strain_name: MF1
+  abundance_value: Isolated candidate member; part of the three-strain combination only.
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three bacterial strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium
+      sp. MF1-were isolated from plastic-contaminated soils.
+    explanation: Identifies Chryseobacterium sp. MF1 as an isolated consortium candidate.
+ecological_interactions:
+- name: Metabolic division of labor in polyethylene degradation
+  description: Complementary enzymatic repertoire drives synergistic PE degradation. Ensifer YF2, the
+    primary degrader, performs backbone cleavage via oxidases (LadA, AlkB, CYP450); Sphingobacterium
+    Y2, enriched in esterases and lipases, metabolizes the resulting intermediates through
+    cross-feeding.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ensifer sp. YF2
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  target_taxon:
+    preferred_term: Sphingobacterium sp. Y2
+    term:
+      id: NCBITaxon:28453
+      label: Sphingobacterium
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: YF2, encoding key oxidases (LadA, AlkB, CYP450), served as the primary degrader for
+      backbone cleavage, while Y2, enriched with esterases and lipases, facilitated intermediate
+      metabolism through cross-feeding.
+    explanation: Genomic evidence for YF2 backbone cleavage feeding intermediates to Y2.
+- name: Synergistic enhancement of PE degradation in the dual-strain consortium
+  description: Co-culture of Ensifer YF2 and Sphingobacterium Y2 degraded polyethylene more
+    efficiently than either strain alone or the full three-strain combination, indicating emergent
+    synergy from functional compatibility rather than taxonomic richness.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ensifer sp. YF2
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  target_taxon:
+    preferred_term: Sphingobacterium sp. Y2
+    term:
+      id: NCBITaxon:28453
+      label: Sphingobacterium
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A dual-strain consortium (YF2 +Y2) demonstrated enhanced degradation compared to
+      individual strains and the three-strain combination, indicating that functional compatibility
+      rather than taxonomic richness drives consortium performance.
+    explanation: Measured emergent synergy of the YF2+Y2 co-culture over monocultures and the 3-strain mix.
+growth_media:
+- name: polyethylene as sole carbon source (medium composition not specified in abstract)
+  preparation_notes: Consortium cultivated with polyethylene (PE) provided as the sole carbon source;
+    full medium, temperature and pH are not reported in the open-access abstract (article paywalled).
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium utilized PE as the sole carbon source, inducing oxidative modifications and physical erosion of the polymer surface.
+    explanation: Source reports polyethylene as the sole carbon source of the cultivation; no further growth conditions are given in the accessible abstract.

@@ -1,0 +1,150 @@
+---
+name: ground-taxa-gtdb
+description: Ground CommunityMech taxa in GTDB (Genome Taxonomy Database) alongside their NCBITaxon term, using the local kg-microbe NCBI<->GTDB mapping. Resolves an NCBITaxon id (or species name) to its canonical GTDB CURIE, taxon name, full lineage, and mapping confidence; flags GTDB reclassifications/renames (e.g. NCBITaxon "Agrobacterium deltae" -> GTDB "Agrobacterium leguminum"); and emits a ready-to-paste gtdb_classification block for the taxon.
+category: workflow
+requires_database: false
+requires_internet: false
+version: 1.0.0
+---
+
+# Ground Taxa in GTDB (kg-microbe local mapping)
+
+## Overview
+
+CommunityMech taxa are grounded in **NCBITaxon**. GTDB (the Genome Taxonomy
+Database) is a genome-based, phylogenetically-consistent taxonomy that
+frequently **renames or reclassifies** relative to NCBI. Adding a GTDB
+classification alongside the NCBITaxon term gives each taxon a second,
+genome-based identity — valuable for cross-referencing against kg-microbe's KG
+and for catching NCBI/GTDB disagreements.
+
+This skill resolves a taxon's NCBITaxon id (or species name) to its GTDB
+classification using the **local kg-microbe** mapping (no network, no API), and
+writes it into the record's `gtdb_classification` slot.
+
+Worked example: `CommunityMech:000272` SynCom Y — *A. deltae* (NCBITaxon:1183412)
+grounds to **GTDB:s__Agrobacterium_leguminum** (a GTDB rename, flagged
+`is_reclassified: true`); *B. velezensis* (NCBITaxon:492670) grounds to
+**GTDB:s__Bacillus_velezensis** (unchanged).
+
+## Data source (local, no network)
+
+`<kg-microbe>/data/raw/NCBI2GTDB.tsv.gz` — kg-microbe's precomputed NCBI→GTDB
+mapping with per-rank lineages and a `majority fraction` (share of genomes under
+the NCBI taxon that land on the GTDB taxon = mapping confidence). Companion
+files in the same dir: `GTDB2NCBI.tsv.gz`, `gtdb/bac120_taxonomy.tsv`,
+`gtdb/ar53_taxonomy.tsv`, `gtdb_{species,genus,family}_summary.jsonl.gz`.
+
+`<kg-microbe>` is resolved as: `--kg-microbe-dir`, else `$KG_MICROBE_DIR`, else
+`../../kg-microbe` (walking up from the repo to tolerate the nested
+`CommunityMech/CommunityMech` layout). Default local checkout:
+`/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/kg-microbe`.
+
+## GTDB CURIE scheme
+
+Matches kg-microbe / Bioregistry: the species name with spaces replaced by
+underscores, prefixed `GTDB:`, e.g. `s__Bacillus velezensis` ->
+`GTDB:s__Bacillus_velezensis`. Resolvable at
+`https://gtdb.ecogenomic.org/tree?r={id}`. GTDB names are only **best-effort
+stable across releases**, so `gtdb_classification.mapping_source` records the
+release/build provenance — always keep it.
+
+## Schema
+
+`gtdb_classification` lives on **`TaxonDescriptor`** (so it attaches to
+`taxonomy[].taxon_term`, and optionally to interaction `source_taxon`/
+`target_taxon`). Fields: `gtdb_id` (CURIE), `gtdb_taxon` (name), `gtdb_lineage`
+(full lineage string), `ncbi_source_id` (the NCBITaxon it mapped from),
+`majority_fraction` (0-1 confidence), `is_reclassified` (GTDB name ≠ NCBI name),
+`mapping_source` (provenance). It is **not** an OAK-validated term — GTDB is not
+in `conf/oak_config.yaml`, and the id↔label validator deliberately ignores it
+(the `gtdb_id` is a pattern-checked plain string, not a bound `Term`).
+
+## Workflow
+
+### 1. Ground a whole community (usual case)
+
+```bash
+just ground-taxa-gtdb --community kb/communities/<File>.yaml --emit-yaml
+# or:
+uv run python scripts/gtdb_ground.py --community kb/communities/<File>.yaml --emit-yaml
+```
+
+Prints, per `taxonomy[].taxon_term`, the GTDB taxon / CURIE / lineage /
+confidence, flags reclassifications, and (with `--emit-yaml`) prints a
+paste-ready `gtdb_classification` block.
+
+### 2. Ground a single taxon
+
+```bash
+uv run python scripts/gtdb_ground.py --ncbi-id NCBITaxon:492670 --emit-yaml
+uv run python scripts/gtdb_ground.py --name "Bacillus velezensis"
+```
+
+### 3. Apply to the record
+
+Fastest: let the script write the blocks in place (add-only text edits — it does
+not reflow or reformat anything else, and skips taxa already grounded):
+
+```bash
+uv run python scripts/gtdb_ground.py --community kb/communities/<File>.yaml --apply
+```
+
+Or paste each `--emit-yaml` block into the matching `taxon_term` (as a sibling of
+`preferred_term`/`term`/`notes`) by hand. Then validate:
+
+```bash
+just validate kb/communities/<File>.yaml          # schema
+just validate-terms kb/communities/<File>.yaml    # id↔label (GTDB ignored, as intended)
+```
+
+## Rank-aware grounding
+
+Grounding happens at the **rank of the input**:
+
+- **Species** (binomial label) → `GTDB:s__...`, via exact NCBI id, else NCBI
+  species-name fallback (the mapping is strain/genome-keyed, so species ids often
+  miss on id alone). GTDB species split → AMBIGUOUS.
+- **Genus / family / order / …** (single-name label) → `GTDB:g__...` (or
+  `f__`/`o__`/…): the script aggregates the GTDB rank column over all genomes
+  under the NCBI taxon and grounds to the GTDB taxon holding a **majority (≥50%)**
+  of genomes; otherwise AMBIGUOUS. `mapping_source` records the rank and how many
+  GTDB taxa fall under the NCBI taxon (e.g. NCBI genus *Bacillus* → `g__Bacillus`
+  at 51%, noted as 102 GTDB genera).
+
+## Interpreting the output
+
+- **`majority_fraction`** — for species, the mapping's majority fraction; for
+  genus/higher, the share of the NCBI taxon's genomes that land on the chosen
+  GTDB taxon. Lower values (e.g. *Bacillus* 0.51) warrant a curator glance.
+- **`is_reclassified: true`** — GTDB uses a different name than NCBI at that rank
+  (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
+  both groundings; the disagreement is the point.
+- **AMBIGUOUS** — GTDB splits the NCBI taxon into several with no majority
+  (e.g. *E. coli* at species; *Bacillus* group members). No block is emitted; a
+  curator picks or leaves it ungrounded.
+- **No mapping** — rank absent from the NCBI2GTDB table, or a eukaryote (GTDB is
+  bacteria/archaea only).
+
+## Notes & limitations
+
+- GTDB is **bacteria/archaea only** — eukaryotic taxa (fungi, microalgae) never
+  ground.
+- Requires the local kg-microbe checkout with `data/raw/NCBI2GTDB.tsv.gz`
+  present (it is a large gzipped TSV; the script streams it, matching only the
+  requested ids/names — memory-safe).
+- Refreshing GTDB: re-run kg-microbe's `download_gtdb.yaml` there; `mapping_source`
+  will pick up the new build date automatically.
+
+## Related
+
+- `manage-identifiers`, `review-communities`, `id-label-correspondence` —
+  minting, QC, and NCBITaxon id↔label validation.
+- `scout-communities`, `deep-research-community` — discovery + enrichment that
+  produce the taxa this skill then grounds in GTDB.
+
+## Related scripts
+
+- `scripts/gtdb_ground.py` — this skill's runner (streams the kg-microbe
+  NCBI2GTDB mapping; resolves by NCBITaxon id, name, or whole community; emits
+  `gtdb_classification` blocks).

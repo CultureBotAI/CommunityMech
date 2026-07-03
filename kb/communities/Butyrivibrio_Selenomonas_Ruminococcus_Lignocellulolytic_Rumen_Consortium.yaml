@@ -1,0 +1,120 @@
+id: CommunityMech:000275
+name: Butyrivibrio fibrisolvens + Selenomonas ruminantium + Ruminococcus albus Lignocellulolytic
+  Rumen Consortium
+description: A synthetic lignocellulolytic bacterial consortium designed from six bovine rumen
+  microbial strains to enhance lignocellulose degradation for biofuel and enzyme production. Genome-scale
+  community metabolic models were used with flux-based parameters (pairwise metabolic assistance, PMA;
+  growth support index, PGSI) to predict compatible, mutualistic pairs, which were validated in
+  experimentally grown cocultures. The strongest pairwise enzymatic synergism was observed for
+  Butyrivibrio fibrisolvens with Selenomonas ruminantium (a 41% increase in endoglucanase activity), and
+  a three-membered community of B. fibrisolvens, S. ruminantium, and Ruminococcus albus showed
+  synergistic activity across all lignocellulosic substrates, indicating strong metabolic interplay
+  among compatible species.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+environment_term:
+  preferred_term: bovine rumen microbial strains grown in in vitro cocultures
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Members are bovine-rumen-associated bacteria, but this record curates the constructed in vitro
+    coculture / in silico community-model study. ENVO has no dedicated rumen environment term.
+taxonomy:
+- taxon_term:
+    preferred_term: Butyrivibrio fibrisolvens
+    term:
+      id: NCBITaxon:831
+      label: Butyrivibrio fibrisolvens
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of six rumen strains screened; member of the strongest pairwise and the
+    synergistic three-membered consortium.
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest degree of enzymatic synergism has been achieved through the pairwise coculture
+      of Butyrivibrio fibrisolvens and Selenomonas ruminantium, resulting in a 41% increase in the
+      endoglucanase activity.
+    explanation: Identifies B. fibrisolvens as a member strain of the highest-synergy coculture pair.
+- taxon_term:
+    preferred_term: Selenomonas ruminantium
+    term:
+      id: NCBITaxon:971
+      label: Selenomonas ruminantium
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  abundance_value: One of six rumen strains screened; partner in the strongest pairwise and the
+    synergistic three-membered consortium.
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest degree of enzymatic synergism has been achieved through the pairwise coculture
+      of Butyrivibrio fibrisolvens and Selenomonas ruminantium, resulting in a 41% increase in the
+      endoglucanase activity.
+    explanation: Identifies S. ruminantium as the synergistic partner of B. fibrisolvens.
+- taxon_term:
+    preferred_term: Ruminococcus albus
+    term:
+      id: NCBITaxon:1264
+      label: Hominimerdicola alba
+    notes: Paper names this strain "Ruminococcus albus"; NCBITaxon:1264 canonical label is
+      "Hominimerdicola alba" (reclassified). "Ruminococcus albus" is the source synonym.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Third member added to the B. fibrisolvens + S. ruminantium pair to form the
+    synergistic three-membered community.
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a combination of B. fibrisolvens, S. ruminantium, and Ruminococcus albus exhibited
+      synergistic activity across all lignocellulosic substrates
+    explanation: Identifies R. albus as the third member of the synergistic three-membered consortium.
+ecological_interactions:
+- name: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
+  description: Pairwise coculture of Butyrivibrio fibrisolvens and Selenomonas ruminantium produced the
+    highest degree of enzymatic synergism among the screened rumen strains, yielding a 41% increase in
+    endoglucanase activity relative to monocultures. Compatibility and metabolic synergy were predicted
+    in silico (PMA/PGSI) and validated experimentally.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Butyrivibrio fibrisolvens
+    term:
+      id: NCBITaxon:831
+      label: Butyrivibrio fibrisolvens
+  target_taxon:
+    preferred_term: Selenomonas ruminantium
+    term:
+      id: NCBITaxon:971
+      label: Selenomonas ruminantium
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest degree of enzymatic synergism has been achieved through the pairwise coculture
+      of Butyrivibrio fibrisolvens and Selenomonas ruminantium, resulting in a 41% increase in the
+      endoglucanase activity.
+    explanation: Measured pairwise enzymatic synergy (41% endoglucanase increase) between the two
+      strains.
+    confidence_score: 0.9
+- name: Three-membered lignocellulolytic synergy
+  description: A three-membered community of B. fibrisolvens, S. ruminantium, and Ruminococcus albus
+    exhibited synergistic lignocellulolytic activity across all tested lignocellulosic substrates,
+    indicating strong metabolic interplay among the compatible species (community-level, emergent).
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a combination of B. fibrisolvens, S. ruminantium, and Ruminococcus albus exhibited
+      synergistic activity across all lignocellulosic substrates, suggesting the strong metabolic
+      interplay between compatible species
+    explanation: Community-level synergy of the three-membered consortium across all lignocellulosic
+      substrates.
+    confidence_score: 0.85

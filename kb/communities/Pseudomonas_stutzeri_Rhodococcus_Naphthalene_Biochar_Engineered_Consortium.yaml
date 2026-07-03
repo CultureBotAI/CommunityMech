@@ -1,0 +1,148 @@
+id: CommunityMech:000291
+name: Pseudomonas stutzeri + Rhodococcus Naphthalene-degrading Biochar-bridged Engineered Consortium
+description: Two-member engineered bioremediation consortium in which genetically engineered
+  Pseudomonas stutzeri (overexpressing nahAc and nahB) and a Rhodococcus strain (overexpressing
+  nahH and catA) are co-anchored on S-N-doped biochar to mineralize naphthalene. Pseudomonas
+  stutzeri acts as an oxidative bio-anode that initiates naphthalene degradation and releases
+  electrons, while the conductive biochar matrix mediates direct interspecies electron transfer
+  (DIET) and extracellular electron transfer (EET) to Rhodococcus, which serves as a reductive
+  bio-cathode driving oxygenolytic ring-cleavage catalysis. The resulting bioelectrochemical
+  syntrophic circuit achieved >98.3% naphthalene removal and 89.5% mineralization by circumventing
+  diffusive bottlenecks.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: engineered consortium immobilized on S-N-doped biochar (naphthalene bioremediation
+    reactor)
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Engineered, immobilized bioremediation system (imGEM) co-anchoring the two strains on
+    S-N-doped biochar; grounded to bioreactor as the closest ENVO habitat for the engineered
+    degradation setup.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+    notes: Source paper uses "Pseudomonas stutzeri"; NCBITaxon canonical label is "Stutzerimonas
+      stutzeri" (reclassified genus). Engineered strain overexpressing nahAc and nahB.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - ELECTRON_DONOR
+  - ELECTROGEN
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the engineered consortium (oxidative bio-anode).
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-anchoring engineered Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    explanation: Identifies engineered P. stutzeri as a member of the consortium.
+- taxon_term:
+    preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+    gtdb_classification:
+      gtdb_id: GTDB:g__Rhodococcus
+      gtdb_taxon: Rhodococcus
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus
+      ncbi_source_id: NCBITaxon:1827
+      majority_fraction: 0.996
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 4 GTDB taxa under the NCBI taxon]
+    notes: Source paper names the strain "Rhodococcus rhodococcus", which is not a valid NCBITaxon
+      species name; grounded at the genus rank Rhodococcus. Engineered strain overexpressing nahH
+      and catA.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - ELECTRON_ACCEPTOR
+  - ELECTROTROPH
+  - SYNTROPHIC_PARTNER
+  abundance_value: One of two members of the engineered consortium (reductive bio-cathode).
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    explanation: Identifies the engineered Rhodococcus strain as a member of the consortium.
+ecological_interactions:
+- name: Biochar-bridged direct interspecies electron transfer (DIET)
+  description: The conductive S-N-doped biochar matrix bridges the two strains, facilitating direct
+    interspecies electron transfer (DIET) and extracellular electron transfer (EET). Pseudomonas
+    stutzeri acts as an oxidative bio-anode releasing electrons that are harnessed by the Rhodococcus
+    reductive bio-cathode.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  target_taxon:
+    preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: facilitating direct interspecies electron transfer (DIET) and enhancing extracellular
+      electron transfer (EET)
+    explanation: States the biochar-mediated DIET/EET electron transfer between the two members.
+- name: Syntrophic naphthalene mineralization circuit
+  description: Pseudomonas stutzeri initiates naphthalene degradation and releases electrons; the
+    directed electron flux is harnessed by Rhodococcus to drive oxygenolytic ring-cleavage catalysis,
+    establishing a syntrophic circuit that mineralizes naphthalene while minimizing intermediate
+    accumulation.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas stutzeri (overexpressing nahAc and nahB)
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  target_taxon:
+    preferred_term: Rhodococcus rhodococcus (overexpressing nahH and catA)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electrochemical and multi-omics analyses confirmed the establishment of this syntrophic
+      circuit, demonstrating elevated electron flux, coordinated upregulation of catabolic genes
+    explanation: Confirms the syntrophic naphthalene-mineralizing circuit between the two members.
+cultivation_setup:
+- system_type: BIOELECTROCHEMICAL_SYSTEM
+  instrument_detail: Immobilized engineered microbial system (imGEM) co-anchoring engineered Pseudomonas
+    stutzeri (oxidative bio-anode) and Rhodococcus (reductive bio-cathode) on S-N-doped biochar (S-N-BC)
+    acting as an electron-conductive interface for DIET/EET.
+  electrode_detail: S-N-doped biochar (S-N-BC) conductive matrix bridging the bio-anode (P. stutzeri)
+    and bio-cathode (Rhodococcus)
+  notes: Immobilized bioelectrochemical consortium; maintained high naphthalene degradation efficiency
+    over 30 days under varying environmental conditions.
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas stutzeri acts as an oxidative bio‑anode that initiates naphthalene degradation
+      and releases electrons
+    explanation: Bioelectrochemical system with P. stutzeri bio-anode and (per abstract) Rhodococcus
+      bio-cathode on conductive S-N-doped biochar.
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the immobilized system exhibited outstanding operational stability, maintaining high degradation
+      efficiency over 30 days under varying environmental conditions
+    explanation: Immobilized bioelectrochemical consortium operated over a 30-day period.

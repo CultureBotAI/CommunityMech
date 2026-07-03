@@ -40,6 +40,21 @@ validate-taxa:
     done
     exit $rc
 
+# id↔label gate for kb/taxa/ CommonTaxon records (enforces the GeneAnnotation.go_terms
+# binding: go_terms[].label must be the canonical GO label). Needs --target-class
+# CommonTaxon since these files are not MicrobialCommunity (the schema tree_root).
+validate-terms-taxa:
+    #!/usr/bin/env bash
+    set -uo pipefail
+    rc=0
+    for file in kb/taxa/*.yaml; do
+        echo "Validating terms in $file..."
+        uv run linkml-term-validator validate-data "$file" \
+            -s src/communitymech/schema/communitymech.yaml --labels \
+            --target-class CommonTaxon || rc=1
+    done
+    exit $rc
+
 # Strict in-process validation in *closed* mode (rejects unknown fields).
 # Emits reports/instance_validation_failures.tsv and exits 1 on any ERROR.
 # Catches the same drift class that gave CultureMech 59k silent errors;
@@ -313,6 +328,18 @@ research-community-edison-batch batch *args="":
 # Retroactively backfill Edison provenance sidecars (no re-billing).
 enrich-edison-response *args="":
     uv run --extra dev python scripts/enrich_edison_response.py {{args}}
+
+# Scout recent literature for NEW communities (Europe PMC, free; dedups vs kb/communities).
+#   just scout-communities --preset syntrophy --since 2024
+#   just scout-communities --query "gut butyrate cross-feeding consortium" --emit-stubs
+scout-communities *args="":
+    uv run python scripts/scout_communities.py {{args}}
+
+# Ground taxa in GTDB via the local kg-microbe NCBI<->GTDB mapping (no network).
+#   just ground-taxa-gtdb --community kb/communities/Foo.yaml --emit-yaml
+#   just ground-taxa-gtdb --ncbi-id NCBITaxon:492670 --emit-yaml
+ground-taxa-gtdb *args="":
+    uv run python scripts/gtdb_ground.py {{args}}
 
 # List available deep-research-client providers.
 research-providers:

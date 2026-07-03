@@ -19,8 +19,8 @@ community_category: CARBON_SEQUESTRATION
 environment_term:
   preferred_term: soda lake
   term:
-    id: ENVO:00000274
-    label: soda lake
+    id: ENVO:00002121
+    label: alkaline salt lake
   notes: 'Highly alkaline lake environment with pH >11, rich in sodium carbonate. The extreme alkalinity
     permits direct CO2 capture from air and selects for specialized alkaliphilic microorganisms. The consortium
     was cultivated in laboratory conditions simulating soda lake chemistry and maintained stable growth
@@ -248,8 +248,8 @@ ecological_interactions:
   biological_processes:
   - preferred_term: organic substance catabolic process
     term:
-      id: GO:1901575
-      label: organic substance catabolic process
+      id: GO:0009056
+      label: catabolic process
   downstream:
   - target: Nutrient Remineralization
     description: Heterotrophs remineralize nutrients for cyanobacterial reuse
@@ -545,3 +545,43 @@ related_ingredients:
 metals_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
+growth_media:
+- name: alkaline soda-lake medium (bicarbonate/carbonate-buffered)
+  temperature: '25'
+  temperature_unit: °C
+  ph_range: '8.3-10.4'
+  light_regime: '16 h : 8 h light:dark'
+  atmosphere: AEROBIC
+  vessel_type: photobioreactor (PBR)
+  preparation_notes: 'Consortium enriched from alkaline soda-lake microbial mats and grown in laboratory
+    photobioreactors. Illumination by full-spectrum LED (6400 K). Sodium bicarbonate and sodium carbonate
+    were mixed to set the initial medium pH; four regimes tested (low-pH ammonium/nitrate pH 8.3, high-pH
+    nitrate/urea pH 10.4). Sustained biomass productivity ~15.2 g/m2/day over 4 years of crash-free growth.'
+  evidence:
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'All experiments where performed at ∼25°C. Light was provided with full spectrum LED lights
+      (Model T5H0; 6400K, Sunblaster Holdings ULC, Langley, BC, Canada) using a 16 h: 8 h light to dark
+      cycle.'
+    explanation: Reports cultivation temperature, LED illumination, and 16:8 light:dark photoperiod.
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sodium bicarbonate and sodium carbonate concentrations were mixed to adjust the initial pH
+      of the medium
+    explanation: Documents the bicarbonate/carbonate buffering used to set the alkaline medium pH.
+cultivation_setup:
+- system_type: PHOTOBIOREACTOR
+  operating_temperature: 25.0
+  operating_temperature_unit: °C
+  instrument_detail: Planar and tubular photobioreactors (PBRs); consortium grown as biofilms on a mesh.
+  notes: 'Full-spectrum LED (6400 K), 16 h:8 h light:dark; open laboratory culture maintained crash-free
+    for 4 years at ~15.2 g/m2/day productivity.'
+  evidence:
+  - reference: doi:10.3389/fmicb.2022.780346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 1 year of enrichment, the culture was transferred to tubular PBRs and was grown as
+      biofilms on a mesh
+    explanation: Defines the photobioreactor (PBR) cultivation system used for the consortium.

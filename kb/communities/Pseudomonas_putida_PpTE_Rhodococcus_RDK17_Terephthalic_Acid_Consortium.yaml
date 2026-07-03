@@ -1,0 +1,141 @@
+id: CommunityMech:000289
+name: Pseudomonas putida Pp-TE + Rhodococcus sp. RDK17 Terephthalic-acid Consortium
+description: Two-strain synthetic consortium of an engineered degrader (Pseudomonas putida strain
+  Pp-TE) and a native degrader (Rhodococcus sp. strain RDK17) grown with terephthalic acid (TPA),
+  a primary polyethylene terephthalate (PET) monomer, as the sole carbon and energy source. Although
+  both strains utilize TPA at comparable rates in monoculture, Pp-TE consistently outcompetes RDK17
+  in batch and multitransfer coculture fermentations. Dominance is driven jointly by exploitative
+  competition for TPA and by interference competition through the Pp-TE type VI secretion system,
+  which impairs RDK17 growth via contact-dependent inhibition. Loss of TPA metabolism in Pp-TE
+  abolishes its dominance, illustrating how interspecies interaction and metabolic capability
+  co-determine consortium structure and overall TPA degradation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+environment_term:
+  preferred_term: TPA-fed coculture fermentation (bioreactor)
+  term:
+    id: ENVO:00002123
+    label: bioreactor
+  notes: Batch and multitransfer coculture fermentations with terephthalic acid (a PET monomer)
+    as the sole carbon and energy source; a laboratory-engineered consortium.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas putida strain Pp-TE (engineered)
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+    notes: Engineered TPA degrader, strain Pp-TE.
+  strain_designation:
+    strain_name: Pp-TE
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of two members of the synthetic coculture; outcompetes RDK17 to dominance.
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we investigated the coculture dynamics of an engineered degrader (Pseudomonas putida strain
+      Pp-TE) and a native degrader (Rhodococcus sp. strain RDK17) in the presence of TPA as the sole
+      carbon and energy source
+    explanation: Identifies Pseudomonas putida strain Pp-TE as the engineered member of the coculture.
+- taxon_term:
+    preferred_term: Rhodococcus sp. strain RDK17 (native)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+    gtdb_classification:
+      gtdb_id: GTDB:g__Rhodococcus
+      gtdb_taxon: Rhodococcus
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Mycobacteriales;f__Mycobacteriaceae;g__Rhodococcus
+      ncbi_source_id: NCBITaxon:1827
+      majority_fraction: 0.996
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 4 GTDB taxa under the NCBI taxon]
+    notes: Native TPA degrader, strain RDK17. Grounded at genus rank (Rhodococcus sp.) because the
+      source does not resolve a species; OAK canonical NCBITaxon label carries the "<high G+C
+      Gram-positive bacteria>" disambiguation.
+  strain_designation:
+    strain_name: RDK17
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: One of two members of the synthetic coculture; outcompeted by Pp-TE.
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we investigated the coculture dynamics of an engineered degrader (Pseudomonas putida strain
+      Pp-TE) and a native degrader (Rhodococcus sp. strain RDK17) in the presence of TPA as the sole
+      carbon and energy source
+    explanation: Identifies Rhodococcus sp. strain RDK17 as the native member of the coculture.
+ecological_interactions:
+- name: Exploitative competition for terephthalic acid
+  description: Both strains utilize TPA at comparable rates in monoculture, but they compete for TPA
+    as the shared sole carbon and energy source in coculture; Pp-TE consistently outcompetes RDK17,
+    partly through relative growth kinetics.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas putida strain Pp-TE (engineered)
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Rhodococcus sp. strain RDK17 (native)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: terephthalic acid (TPA)
+    term:
+      id: CHEBI:15702
+      label: terephthalic acid
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations,
+      even when RDK17 was inoculated at a significantly higher initial abundance
+    explanation: Exploitative competition for the shared TPA carbon source drives Pp-TE dominance.
+- name: Interference competition via type VI secretion system
+  description: Pp-TE inhibits RDK17 through contact-dependent inhibition mediated by its type VI
+    secretion system, which impairs RDK17 growth and reinforces Pp-TE dominance in coculture.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas putida strain Pp-TE (engineered)
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Rhodococcus sp. strain RDK17 (native)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the dominance of Pp-TE was primarily conferred by its type VI secretion system, which
+      impaired the growth of RDK17 via contact-dependent inhibition
+    explanation: Contact-dependent inhibition through the Pp-TE T6SS is interference competition
+      against RDK17.
+growth_media:
+- name: minimal medium with terephthalic acid (TPA) as the sole carbon and energy
+    source
+  preparation_notes: Batch and multitransfer (serial-transfer) coculture fermentations
+    of Pseudomonas putida strain Pp-TE with Rhodococcus sp. strain RDK17.
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the presence of TPA as the sole carbon and energy source
+    explanation: Terephthalic acid supplied as the sole carbon and energy source defines
+      the coculture growth medium.
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture
+      fermentations
+    explanation: Cultivation was by batch and multitransfer (serial-transfer) coculture
+      fermentation.

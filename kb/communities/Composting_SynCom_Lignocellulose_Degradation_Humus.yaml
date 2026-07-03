@@ -1,0 +1,93 @@
+id: CommunityMech:000277
+name: Five-member bacterial-fungal composting SynCom for lignocellulose degradation
+description: A rationally designed five-member bacterial-fungal synthetic microbial community (SynCom)
+  used to bioaugment the co-composting of cattle manure and mulberry branches. Inoculation acts as an
+  ecological engineer that elevates pile temperatures, shortens the maturation period by roughly 7 days,
+  and enhances degradation of lignin, cellulose, and hemicellulose while boosting humus content.
+  Metagenomics shows the SynCom restructures the native microbiome, enriching key lignocellulose-degrading
+  functional genera such as Thermobifida and Actinomadura and increasing the abundance of carbohydrate-active
+  enzymes (cellulases, hemicellulases, and lignin-modifying auxiliary-activity enzymes).
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: LIGNOCELLULOSE
+environment_term:
+  preferred_term: co-composting of cattle manure and mulberry branches
+  term:
+    id: ENVO:00002170
+    label: compost
+  notes: Thermophilic composting pile bioaugmented with a synthetic microbial community.
+taxonomy:
+- taxon_term:
+    preferred_term: Thermobifida
+    term:
+      id: NCBITaxon:83677
+      label: Thermobifida
+    gtdb_classification:
+      gtdb_id: GTDB:g__Thermobifida
+      gtdb_taxon: Thermobifida
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptosporangiales;f__Streptosporangiaceae;g__Thermobifida
+      ncbi_source_id: NCBITaxon:83677
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: Native lignocellulose-degrading actinobacterial genus enriched by SynCom inoculation. The five
+      SynCom member strains are not individually named in the source abstract; grounded taxa here are the
+      enriched functional genera reported by metagenomics.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Enriched functional genus after SynCom inoculation.
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enriching for key functional genera such as Thermobifida and Actinomadura
+    explanation: Metagenomics identifies Thermobifida as an enriched functional genus in the SynCom-treated
+      compost.
+- taxon_term:
+    preferred_term: Actinomadura
+    term:
+      id: NCBITaxon:1988
+      label: Actinomadura
+    gtdb_classification:
+      gtdb_id: GTDB:g__Spirillospora
+      gtdb_taxon: Spirillospora
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptosporangiales;f__Streptosporangiaceae;g__Spirillospora
+      ncbi_source_id: NCBITaxon:1988
+      majority_fraction: 0.953
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 4 GTDB taxa under the NCBI taxon]
+    notes: Native lignocellulose-degrading actinobacterial genus enriched by SynCom inoculation.
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Enriched functional genus after SynCom inoculation.
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enriching for key functional genera such as Thermobifida and Actinomadura
+    explanation: Metagenomics identifies Actinomadura as an enriched functional genus in the SynCom-treated
+      compost.
+ecological_interactions:
+- name: SynCom-driven restructuring and enrichment of native degraders
+  description: SynCom inoculation restructures the indigenous composting microbiome, enriching key
+    lignocellulose-degrading functional genera (Thermobifida, Actinomadura) and increasing the abundance
+    of carbohydrate-active enzymes, thereby accelerating lignocellulose degradation.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the SynCom profoundly restructured the native microbiome, enriching for key functional genera
+      such as Thermobifida and Actinomadura
+    explanation: Community-level facilitation in which the engineered SynCom enriches native functional
+      degraders.
+growth_media:
+- name: "co-composting substrate (cattle manure and mulberry branches)"
+  preparation_notes: "Thermophilic solid-state co-composting; SynCom bioaugmentation significantly elevated pile temperatures and shortened the maturation period by ~7 days."
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "significantly elevating pile temperatures and shortening the maturation period"
+    explanation: "Reports elevated (thermophilic) pile temperatures during co-composting cultivation."
