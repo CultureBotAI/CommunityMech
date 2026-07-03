@@ -1451,6 +1451,10 @@ classes:
         range: Term
         multivalued: true
         inlined_as_list: true
+        # id↔label gate (range-less binding → label check, no enum expansion)
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
       supports_roles:
         description: Community functional role(s) this gene supports.
         range: FunctionalRoleEnum
