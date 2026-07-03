@@ -1,0 +1,5301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Embedding Space - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --primary-dark: #2f63ac;
+            --secondary: #64748b;
+            --background: #ffffff;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-light: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            align-items: center;
+        }
+
+        .controls label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .controls select,
+        .controls input[type="search"] {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .controls input[type="search"] {
+            min-width: 250px;
+        }
+
+        #umap-plot {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--surface);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+        }
+
+        .info-panel {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-panel h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .info-panel ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-panel li {
+            padding: 0.3rem 0;
+        }
+
+        .info-panel strong {
+            color: var(--primary);
+        }
+
+        .tooltip {
+            position: absolute;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            border-radius: 6px;
+            pointer-events: none;
+            font-size: 0.85rem;
+            max-width: 300px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            color: #60a5fa;
+        }
+
+        .tooltip-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 0.2rem 0;
+        }
+
+        .tooltip-label {
+            color: #94a3b8;
+        }
+
+        .point {
+            cursor: pointer;
+            stroke: white;
+            stroke-width: 1.5px;
+        }
+
+        .point:hover {
+            stroke: #fbbf24;
+            stroke-width: 2.5px;
+        }
+
+        .point.highlighted {
+            stroke: #fbbf24;
+            stroke-width: 3px;
+        }
+
+        /* Two-column layout */
+        .main-container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .plot-container {
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        #umap-plot svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Filter panel */
+        .filter-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+            max-height: calc(100vh - 4rem);
+            overflow-y: auto;
+            align-self: start;
+        }
+
+        /* Search container */
+        .search-container {
+            position: relative;
+            margin-bottom: 0.75rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .clear-btn {
+            position: absolute;
+            right: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.25rem 0.5rem;
+            line-height: 1;
+        }
+
+        .clear-btn:hover {
+            color: var(--text);
+        }
+
+        .search-results-count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* Facet sections */
+        .facet-section {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .facet-section:last-child {
+            border-bottom: none;
+        }
+
+        .facet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0.5rem 0;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+            text-align: left;
+        }
+
+        .facet-header:hover {
+            background: var(--surface);
+        }
+
+        .facet-header:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        .facet-header h3 {
+            font-size: 1rem;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .facet-toggle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            user-select: none;
+        }
+
+        .facet-body {
+            padding-left: 0.5rem;
+        }
+
+        .facet-body.collapsed {
+            display: none;
+        }
+
+        .facet-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .facet-actions button {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            border: 1px solid var(--border);
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .facet-actions button:hover {
+            background: var(--surface);
+        }
+
+        /* Checkboxes */
+        .facet-checkboxes {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .facet-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.25rem 0;
+        }
+
+        .facet-checkbox:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        .facet-checkbox input[type="checkbox"] {
+            cursor: pointer;
+        }
+
+        .facet-label {
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .facet-count {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Active filters */
+        .active-filters {
+            background: #fef3c7;
+            border: 1px solid #fbbf24;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .active-filters-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-reset {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            background: white;
+            border: 1px solid #f59e0b;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-reset:hover {
+            background: #fef3c7;
+        }
+
+        #active-filter-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .filter-tag {
+            background: white;
+            border: 1px solid #d1d5db;
+            border-radius: 12px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .filter-tag-remove {
+            cursor: pointer;
+            color: var(--text-light);
+            font-weight: bold;
+        }
+
+        .filter-tag-remove:hover {
+            color: var(--error);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-panel {
+                position: relative;
+                top: 0;
+                max-height: none;
+            }
+        }
+    </style>
+    <script src="d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔬 Community Embedding Space</h1>
+            <p class="subtitle">UMAP projection of 292 microbial communities based on taxonomic composition</p>
+            <a href="index.html" class="nav-link">← Back to Community Index</a>
+        </header>
+
+        <div class="controls">
+            <label>
+                Color by:
+                <select id="color-by">
+                    <option value="category">Category</option>
+                    <option value="ecological_state">Ecological State</option>
+                    <option value="origin">Origin</option>
+                </select>
+            </label>
+
+            <label>
+                Size by:
+                <select id="size-by">
+                    <option value="num_taxa">Number of Taxa</option>
+                    <option value="num_interactions">Interactions</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="main-container">
+            <!-- Left sidebar: Filter panel -->
+            <div class="filter-panel">
+                <!-- Enhanced search -->
+                <div class="search-container">
+                    <input type="search" id="search"
+                        placeholder="Search by name, category, or environment..."
+                        autocomplete="off">
+                    <button id="search-clear" class="clear-btn" title="Clear search">✕</button>
+                </div>
+                <div class="search-results-count">
+                    Showing <span id="results-count">292</span> of 292 communities
+                </div>
+
+                <!-- Active filters summary -->
+                <div id="active-filters" class="active-filters" style="display: none;">
+                    <div class="active-filters-header">
+                        <strong>Active Filters:</strong>
+                        <button id="reset-all" class="btn-reset">Clear All</button>
+                    </div>
+                    <div id="active-filter-tags"></div>
+                </div>
+
+                <!-- Category facet -->
+                <div class="facet-section">
+                    <button class="facet-header" onclick="toggleFacet('category-facet')" aria-expanded="true" aria-controls="category-facet">
+                        <h3>Category</h3>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
+                    <div id="category-facet" class="facet-body">
+                        <div class="facet-actions">
+                            <button class="select-all" data-facet="category">All</button>
+                            <button class="clear-all" data-facet="category">None</button>
+                        </div>
+                        <div id="category-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Ecological state facet -->
+                <div class="facet-section">
+                    <button class="facet-header" onclick="toggleFacet('state-facet')" aria-expanded="true" aria-controls="state-facet">
+                        <h3>Ecological State</h3>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
+                    <div id="state-facet" class="facet-body">
+                        <div id="state-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+
+                <!-- Origin facet -->
+                <div class="facet-section">
+                    <button class="facet-header" onclick="toggleFacet('origin-facet')" aria-expanded="true" aria-controls="origin-facet">
+                        <h3>Origin</h3>
+                        <span class="facet-toggle" aria-hidden="true">−</span>
+                    </button>
+                    <div id="origin-facet" class="facet-body">
+                        <div id="origin-checkboxes" class="facet-checkboxes"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right side: UMAP plot and legend -->
+            <div class="plot-container">
+                <div id="umap-plot"></div>
+                <div class="legend" id="legend"></div>
+            </div>
+        </div>
+
+        <div class="info-panel">
+            <h2>How to Interpret This Visualization</h2>
+            <ul>
+                <li><strong>Proximity:</strong> Communities close together have similar taxonomic composition in embedding space</li>
+                <li><strong>Color:</strong> Categorical grouping (default: community category like AMD, DIET, SynCom)</li>
+                <li><strong>Size:</strong> Metric of interest (default: number of unique taxa)</li>
+                <li><strong>Hover:</strong> View detailed metadata tooltip</li>
+                <li><strong>Click:</strong> Navigate to the community's detail page</li>
+                <li><strong>Zoom/Pan:</strong> Use mouse wheel to zoom, click and drag to pan</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Data from Jinja2 template
+        const communityData = [
+  {
+    "id": "AMD_Acidophile_Heterotroph_Network",
+    "name": "AMD Acidophile Heterotroph Network",
+    "umap_x": 6.4293999671936035,
+    "umap_y": 4.309500217437744,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/AMD_Acidophile_Heterotroph_Network.html"
+  },
+  {
+    "id": "AMD_Nitrososphaerota_Archaeal",
+    "name": "AMD Nitrososphaerota Archaeal Community",
+    "umap_x": 8.279600143432617,
+    "umap_y": 3.103800058364868,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 4,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/AMD_Nitrososphaerota_Archaeal.html"
+  },
+  {
+    "id": "ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia",
+    "name": "ANME/SRB Anaerobic Methanotrophic Syntrophic Consortia",
+    "umap_x": 10.57800006866455,
+    "umap_y": 6.169099807739258,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine sediment",
+    "num_taxa": 6,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia.html"
+  },
+  {
+    "id": "ANME_SRB_Marine_Methane_Seep_Consortium",
+    "name": "ANME-SRB Marine Methane Seep Consortium",
+    "umap_x": 12.28600025177002,
+    "umap_y": 1.873900055885315,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine sediment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/ANME_SRB_Marine_Methane_Seep_Consortium.html"
+  },
+  {
+    "id": "Aalborg_East_Full_Scale_EBPR_Community",
+    "name": "Aalborg East Full-Scale EBPR Activated Sludge Community",
+    "umap_x": 18.60700035095215,
+    "umap_y": 6.196199893951416,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "full-scale enhanced biological phosphorus removal activated sludge",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Aalborg_East_Full_Scale_EBPR_Community.html"
+  },
+  {
+    "id": "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture",
+    "name": "Acetobacterium woodii-Clostridium drakei CO2 Electrolysis Coculture",
+    "umap_x": 6.609399795532227,
+    "umap_y": 12.020999908447266,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic laboratory bioreactor with in situ electrolysis",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.html"
+  },
+  {
+    "id": "Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment",
+    "name": "Acetylene-Fueled Trichloroethene Dechlorination Groundwater Enrichment",
+    "umap_x": 21.281999588012695,
+    "umap_y": 9.424400329589844,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "contaminated groundwater enrichment culture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.html"
+  },
+  {
+    "id": "Aerobic_Denitrification_Disturbance_SynCom",
+    "name": "Aerobic Denitrification Disturbance-Stable SynCom",
+    "umap_x": 15.20199966430664,
+    "umap_y": 13.387999534606934,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Aerobic_Denitrification_Disturbance_SynCom.html"
+  },
+  {
+    "id": "Aerobic_Denitrification_QQ_SynCom",
+    "name": "Aerobic Denitrification Quorum-Quenching SynCom",
+    "umap_x": 15.300000190734863,
+    "umap_y": 12.404999732971191,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Aerobic_Denitrification_QQ_SynCom.html"
+  },
+  {
+    "id": "Alaska_Tundra_Permafrost_Iron_Redox_Community",
+    "name": "Alaska Tundra Permafrost Iron-Redox Community",
+    "umap_x": 8.28950023651123,
+    "umap_y": 4.326700210571289,
+    "category": "METAL_REDUCTION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "wet sedge tundra permafrost soil",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Alaska_Tundra_Permafrost_Iron_Redox_Community.html"
+  },
+  {
+    "id": "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community",
+    "name": "Altered Schaedler Flora Gnotobiotic Mouse Community",
+    "umap_x": 9.875699996948242,
+    "umap_y": 5.4415998458862305,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "gnotobiotic mouse gastrointestinal tract",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.html"
+  },
+  {
+    "id": "Anammox_Bioreactor_DNRA_Destabilization_Community",
+    "name": "Anammox Bioreactor DNRA Destabilization Community",
+    "umap_x": 21.176000595092773,
+    "umap_y": 8.083999633789062,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "laboratory anammox bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Anammox_Bioreactor_DNRA_Destabilization_Community.html"
+  },
+  {
+    "id": "Anammox_Granule_Metabolic_Interaction_Community",
+    "name": "Anammox Granule Metabolic Interaction Community",
+    "umap_x": 20.04800033569336,
+    "umap_y": 8.807299613952637,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "anammox granular sludge bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Anammox_Granule_Metabolic_Interaction_Community.html"
+  },
+  {
+    "id": "Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community",
+    "name": "Angelarchaeales Thermoplasmata CuMMO Soil and Sediment Community",
+    "umap_x": 12.253000259399414,
+    "umap_y": 1.2623000144958496,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "grassland and hillslope soils and aquifer sediments",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Angelarchaeales_Thermoplasmata_CuMMO_Soil_Sediment_Community.html"
+  },
+  {
+    "id": "Arabidopsis_Coumarin_Root_SynCom",
+    "name": "Arabidopsis Coumarin Root SynCom",
+    "umap_x": 21.253999710083008,
+    "umap_y": 6.054900169372559,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Arabidopsis_Coumarin_Root_SynCom.html"
+  },
+  {
+    "id": "Arabidopsis_Phyllosphere_SynCom7",
+    "name": "Arabidopsis Phyllosphere SynCom7",
+    "umap_x": 24.143999099731445,
+    "umap_y": 6.557600021362305,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "phyllosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Arabidopsis_Phyllosphere_SynCom7.html"
+  },
+  {
+    "id": "Asgard_Wetland_Soil_Methanogenesis_Substrate_Community",
+    "name": "Asgard Archaea Wetland Soil Methanogenesis-Substrate Community",
+    "umap_x": 14.086999893188477,
+    "umap_y": 0.3140999972820282,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "wetland soil",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Asgard_Wetland_Soil_Methanogenesis_Substrate_Community.html"
+  },
+  {
+    "id": "At_RSPHERE_SynCom",
+    "name": "At-RSPHERE SynCom",
+    "umap_x": 19.00200080871582,
+    "umap_y": 13.380000114440918,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/At_RSPHERE_SynCom.html"
+  },
+  {
+    "id": "Australian_Lead_Zinc_Polymetallic",
+    "name": "Australian Lead Zinc Polymetallic Tailings Consortium",
+    "umap_x": 6.429299831390381,
+    "umap_y": 5.0117998123168945,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailing",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Australian_Lead_Zinc_Polymetallic.html"
+  },
+  {
+    "id": "Avena_Rhizosphere_CrossKingdom_SIP_Community",
+    "name": "Avena Rhizosphere Cross-Kingdom 13C-SIP Community",
+    "umap_x": 16.716999053955078,
+    "umap_y": 5.343999862670898,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Avena fatua root rhizosphere",
+    "num_taxa": 5,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Avena_Rhizosphere_CrossKingdom_SIP_Community.html"
+  },
+  {
+    "id": "Avena_Rhizosphere_Detritusphere_Niche_Succession",
+    "name": "Avena Rhizosphere and Detritusphere Niche-Differentiated Decomposer Guilds",
+    "umap_x": 23.937999725341797,
+    "umap_y": 7.1722002029418945,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Avena fatua rhizosphere and detritusphere",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Avena_Rhizosphere_Detritusphere_Niche_Succession.html"
+  },
+  {
+    "id": "BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia",
+    "name": "Black Soldier Fly Larvae Gut SynCom (Bacillus + Lactobacillus + Issatchenkia)",
+    "umap_x": 14.394000053405762,
+    "umap_y": 9.723299980163574,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "black soldier fly larvae gut (gnotobiotic host)",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.html"
+  },
+  {
+    "id": "Bacillus_Bradyrhizobium_Straw_Humification_SynCom",
+    "name": "Bacillus-Bradyrhizobium Straw Humification SynCom",
+    "umap_x": 9.750300407409668,
+    "umap_y": 9.17240047454834,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soil",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Bacillus_Bradyrhizobium_Straw_Humification_SynCom.html"
+  },
+  {
+    "id": "Bacteroides_Eubacterium_Gnotobiotic_Gut_Model",
+    "name": "Bacteroides-Eubacterium Gnotobiotic Gut Model",
+    "umap_x": 6.629700183868408,
+    "umap_y": 10.390999794006348,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "gnotobiotic mouse gut environment",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.html"
+  },
+  {
+    "id": "Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism",
+    "name": "Bacteroides-Methanobrevibacter Gnotobiotic Mouse Mutualism",
+    "umap_x": 7.390500068664551,
+    "umap_y": 7.805300235748291,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "gnotobiotic mouse gut environment",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.html"
+  },
+  {
+    "id": "Banana_Fusarium_Biocontrol_SynCom12",
+    "name": "Banana Fusarium Wilt Biocontrol SynCom1.2",
+    "umap_x": 13.961999893188477,
+    "umap_y": 11.232000350952148,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Banana_Fusarium_Biocontrol_SynCom12.html"
+  },
+  {
+    "id": "Bayan_Obo_REE_Tailings_Consortium",
+    "name": "Bayan Obo REE Tailings Consortium",
+    "umap_x": 8.961700439453125,
+    "umap_y": 2.473099946975708,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 3,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Bayan_Obo_REE_Tailings_Consortium.html"
+  },
+  {
+    "id": "Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding",
+    "name": "Bifidobacterium-Ruminococcus Infant HMO Cross-Feeding Coculture",
+    "umap_x": 11.74899959564209,
+    "umap_y": 10.213000297546387,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "infant gut HMO cultivation",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.html"
+  },
+  {
+    "id": "BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis",
+    "name": "BioModels MODEL1806250003 Spittlebug Sulcia-Sodalis Symbiosis",
+    "umap_x": 12.913000106811523,
+    "umap_y": 6.588699817657471,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Not specified",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL1806250003_Spittlebug_Sulcia_Sodalis.html"
+  },
+  {
+    "id": "BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia",
+    "name": "BioModels MODEL1806250004 Sharpshooter Sulcia-Baumannia Symbiosis",
+    "umap_x": 8.878700256347656,
+    "umap_y": 8.556300163269043,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Not specified",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL1806250004_Sharpshooter_Sulcia_Baumannia.html"
+  },
+  {
+    "id": "BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia",
+    "name": "BioModels MODEL1806250005 Cicada Sulcia-Hodgkinia Symbiosis",
+    "umap_x": 11.25,
+    "umap_y": 4.819699764251709,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Not specified",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL1806250005_Cicada_Sulcia_Hodgkinia.html"
+  },
+  {
+    "id": "BioModels_MODEL2204300001_Kefir_Community_Model",
+    "name": "BioModels MODEL2204300001 Kefir Community Model",
+    "umap_x": 14.859000205993652,
+    "umap_y": 11.788999557495117,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 6,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2204300001_Kefir_Community_Model.html"
+  },
+  {
+    "id": "BioModels_MODEL2209060002_DPigrum_SAureus_Community",
+    "name": "BioModels MODEL2209060002 D pigrum - S aureus Community",
+    "umap_x": 11.869999885559082,
+    "umap_y": 14.444999694824219,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2209060002_DPigrum_SAureus_Community.html"
+  },
+  {
+    "id": "BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom",
+    "name": "BioModels MODEL2405300001 Infant Gut HMO SynCom",
+    "umap_x": 13.694999694824219,
+    "umap_y": 12.085000038146973,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory environment",
+    "num_taxa": 13,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.html"
+  },
+  {
+    "id": "BioModels_MODEL2407300002_Sponge_Holobiont_Network",
+    "name": "BioModels MODEL2407300002 Sponge Holobiont Network",
+    "umap_x": 19.302000045776367,
+    "umap_y": 4.9369001388549805,
+    "category": "OTHER",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Not specified",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/BioModels_MODEL2407300002_Sponge_Holobiont_Network.html"
+  },
+  {
+    "id": "Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community",
+    "name": "Brachypodium Young Root Rhizosphere EcoFAB Community",
+    "umap_x": 14.069999694824219,
+    "umap_y": 2.8290998935699463,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "young Brachypodium primary-root rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.html"
+  },
+  {
+    "id": "Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium",
+    "name": "Buchnera-Serratia Cinara cedri Endosymbiont Consortium",
+    "umap_x": 9.716500282287598,
+    "umap_y": 6.0528998374938965,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "cedar aphid animal-associated intracellular symbiosis",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.html"
+  },
+  {
+    "id": "Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium",
+    "name": "Butyrivibrio fibrisolvens + Selenomonas ruminantium + Ruminococcus albus Lignocellulolytic Rumen Consortium",
+    "umap_x": 6.214099884033203,
+    "umap_y": 12.904000282287598,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "bovine rumen microbial strains grown in in vitro cocultures",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.html"
+  },
+  {
+    "id": "CRC_Fusobacterium_Control_SynCom",
+    "name": "CRC Fusobacterium Control SynCom",
+    "umap_x": 22.150999069213867,
+    "umap_y": 6.651400089263916,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "colorectal gut microbiome",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/CRC_Fusobacterium_Control_SynCom.html"
+  },
+  {
+    "id": "Cable_Bacteria_Photosynthetic_Biofilm_Sediment",
+    "name": "Cable Bacteria beneath Photosynthetic Biofilm Sediment Community",
+    "umap_x": 19.93400001525879,
+    "umap_y": 6.856400012969971,
+    "category": "OTHER",
+    "ecological_state": "TRANSIENT",
+    "origin": "NATURAL",
+    "environment": "marine surface sediment beneath photosynthetic biofilm",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cable_Bacteria_Photosynthetic_Biofilm_Sediment.html"
+  },
+  {
+    "id": "Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture",
+    "name": "Caldibacillus-Clostridium Aerotolerant Cellulose Coculture",
+    "umap_x": 4.737599849700928,
+    "umap_y": 9.854599952697754,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "aerobic cellulose-fed laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Caldibacillus_Clostridium_Aerotolerant_Cellulose_Coculture.html"
+  },
+  {
+    "id": "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture",
+    "name": "Caldicellulosiruptor Two-Species Hydrogen Coculture",
+    "umap_x": 5.272500038146973,
+    "umap_y": 11.583000183105469,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "thermophilic anaerobic continuous-flow laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.html"
+  },
+  {
+    "id": "California_Grassland_Precipitation_Legacy_Soil_Community",
+    "name": "California Grassland Precipitation Legacy Soil Community",
+    "umap_x": 22.038000106811523,
+    "umap_y": 7.748899936676025,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "California Mediterranean-climate grassland soil",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/California_Grassland_Precipitation_Legacy_Soil_Community.html"
+  },
+  {
+    "id": "Candida_Parapsilosis_Hospitalized_Infant_Microbiome",
+    "name": "Candida parapsilosis Hospitalized Infant Gut Microbiome Community",
+    "umap_x": 14.300000190734863,
+    "umap_y": 5.3130998611450195,
+    "category": "OTHER",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "hospitalized infant gut microbiome",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Candida_Parapsilosis_Hospitalized_Infant_Microbiome.html"
+  },
+  {
+    "id": "CeMbio_Caenorhabditis_Elegans_Microbiome",
+    "name": "CeMbio Caenorhabditis elegans Microbiome",
+    "umap_x": 23.0049991607666,
+    "umap_y": 8.989800453186035,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "Caenorhabditis elegans intestine",
+    "num_taxa": 1,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/CeMbio_Caenorhabditis_Elegans_Microbiome.html"
+  },
+  {
+    "id": "Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture",
+    "name": "Cellulomonas-Rhodobacter Cellulose Photohydrogen Coculture",
+    "umap_x": 4.007699966430664,
+    "umap_y": 4.633399963378906,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic illuminated laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cellulomonas_Rhodobacter_Cellulose_Photohydrogen_Coculture.html"
+  },
+  {
+    "id": "Cellulose_Methane_Quad_Culture_SynCom",
+    "name": "Cellulose-to-Methane Quad-Culture SynCom",
+    "umap_x": 1.891700029373169,
+    "umap_y": 8.590200424194336,
+    "category": "METHANOGENESIS",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Cellulose_Methane_Quad_Culture_SynCom.html"
+  },
+  {
+    "id": "Cheese_Rind_InSitu_InVitro_Model_Community",
+    "name": "Cheese Rind In Situ-In Vitro Model Community",
+    "umap_x": 16.04800033569336,
+    "umap_y": 8.27560043334961,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory reconstructed cheese rind biofilm",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cheese_Rind_InSitu_InVitro_Model_Community.html"
+  },
+  {
+    "id": "Chlamydomonas_Bacterial_H2_Consortium",
+    "name": "Chlamydomonas-Bacterial Hydrogen Production Consortium",
+    "umap_x": 19.66900062561035,
+    "umap_y": 11.545000076293945,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlamydomonas_Bacterial_H2_Consortium.html"
+  },
+  {
+    "id": "Chlamydomonas_Methylobacterium_Mutualism",
+    "name": "Chlamydomonas-Methylobacterium Mutualistic Consortium",
+    "umap_x": 12.263999938964844,
+    "umap_y": 8.117400169372559,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "freshwater environment",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlamydomonas_Methylobacterium_Mutualism.html"
+  },
+  {
+    "id": "Chlorella_Azospirillum_Synthetic_Mutualism",
+    "name": "Chlorella-Azospirillum Synthetic Mutualism",
+    "umap_x": 10.541000366210938,
+    "umap_y": 8.195500373840332,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "algal-bacterial laboratory culture",
+    "num_taxa": 1,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlorella_Azospirillum_Synthetic_Mutualism.html"
+  },
+  {
+    "id": "Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture",
+    "name": "Chlorella-Ecoli Mixotrophic Biofuel Precursor Coculture",
+    "umap_x": 12.107000350952148,
+    "umap_y": 13.21399974822998,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "mixotrophic algal-bacterial airlift reactor coculture",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlorella_Ecoli_Mixotrophic_Biofuel_Coculture.html"
+  },
+  {
+    "id": "Chlorella_Rhizobium_Bioflocculation",
+    "name": "Chlorella-Rhizobium Bioflocculation",
+    "umap_x": 5.428100109100342,
+    "umap_y": 4.597400188446045,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "wastewater treatment plant",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlorella_Rhizobium_Bioflocculation.html"
+  },
+  {
+    "id": "Chlorochromatium_Aggregatum_Phototrophic_Consortium",
+    "name": "Chlorochromatium aggregatum Phototrophic Consortium",
+    "umap_x": 7.180500030517578,
+    "umap_y": 6.911600112915039,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anoxic sulfide-containing freshwater lake sediment",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Chlorochromatium_Aggregatum_Phototrophic_Consortium.html"
+  },
+  {
+    "id": "Chromium_Sulfur_Reduction_Enrichment",
+    "name": "Chromium Sulfur Reduction Enrichment",
+    "umap_x": 17.770999908447266,
+    "umap_y": 9.09939956665039,
+    "category": "METAL_REDUCTION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailings",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Chromium_Sulfur_Reduction_Enrichment.html"
+  },
+  {
+    "id": "Cinnamate_Degradation_Consortium",
+    "name": "Cinnamate \u03b2-Oxidation Consortium",
+    "umap_x": 2.148099899291992,
+    "umap_y": 6.0594000816345215,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cinnamate_Degradation_Consortium.html"
+  },
+  {
+    "id": "Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture",
+    "name": "Clostridium autoethanogenum-Clostridium kluyveri Syngas Coculture",
+    "umap_x": 4.759900093078613,
+    "umap_y": 12.24899959564209,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic syngas-fed laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Autoethanogenum_Kluyveri_Syngas_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture",
+    "name": "Clostridium-Caldicellulosiruptor Minimal Medium Coculture",
+    "umap_x": 5.654600143432617,
+    "umap_y": 12.279000282287598,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "thermophilic anaerobic laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture",
+    "name": "Clostridium carboxidivorans-Clostridium kluyveri CO Chain-Elongation Coculture",
+    "umap_x": 5.1975998878479,
+    "umap_y": 12.994000434875488,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic CO-fed laboratory stirred-tank bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Carboxidivorans_Kluyveri_CO_Chain_Elongation_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture",
+    "name": "Clostridium cellulolyticum-Geobacter sulfurreducens Cellulose MFC Coculture",
+    "umap_x": 7.490900039672852,
+    "umap_y": 10.416000366210938,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cellulose-fed microbial fuel cell anode chamber",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture",
+    "name": "Clostridium cellulovorans-Methanosarcina barkeri Cellulose Methane Coculture",
+    "umap_x": 4.357699871063232,
+    "umap_y": 10.715999603271484,
+    "category": "METHANOGENESIS",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic cellulose-fed laboratory serum bottle culture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Cellulovorans_Methanosarcina_Cellulose_Methane_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture",
+    "name": "Clostridium cellulovorans-Rhodopseudomonas palustris Cellulose Biohydrogen Coculture",
+    "umap_x": 3.5894999504089355,
+    "umap_y": 9.073200225830078,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic illuminated laboratory serum-bottle culture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Cellulovorans_Rhodopseudomonas_Cellulose_Biohydrogen_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture",
+    "name": "Clostridium ljungdahlii-Clostridium kluyveri Syngas Alcohol Coculture",
+    "umap_x": 3.8317999839782715,
+    "umap_y": 12.335000038146973,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic syngas-fed laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Ljungdahlii_Kluyveri_Syngas_Alcohol_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium",
+    "name": "Clostridium phytofermentans-E. coli Cellobiose Biofilm Consortium",
+    "umap_x": 3.4944000244140625,
+    "umap_y": 11.07699966430664,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory cellobiose biofilm consortium",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.html"
+  },
+  {
+    "id": "Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture",
+    "name": "Clostridium-Saccharomyces Cellulose Ethanol Coculture",
+    "umap_x": 15.42199993133545,
+    "umap_y": 7.17140007019043,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "oxygen-controlled cellulose-fed laboratory bioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Saccharomyces_Cellulose_Ethanol_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture",
+    "name": "Clostridium-Thermoanaerobacter Cellulosic Bioethanol Coculture",
+    "umap_x": 2.406599998474121,
+    "umap_y": 7.978700160980225,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Thermoanaerobacter_Cellulosic_Bioethanol_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture",
+    "name": "Clostridium-Thermoanaerobacterium JN4-GD17 Cellulosic Biofuel Coculture",
+    "umap_x": 4.410799980163574,
+    "umap_y": 11.63700008392334,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic cellulose-fed laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Thermoanaerobacterium_JN4_GD17_Cellulosic_Biofuel_Coculture.html"
+  },
+  {
+    "id": "Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture",
+    "name": "Clostridium Thermocellum-Saccharoperbutylacetonicum Cellulosic Butanol Coculture",
+    "umap_x": 5.22760009765625,
+    "umap_y": 10.496000289916992,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cellulose-fed laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.html"
+  },
+  {
+    "id": "Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community",
+    "name": "Coastal Forested Wetland Seawater-Ion Microcosm Community",
+    "umap_x": 19.85099983215332,
+    "umap_y": 3.7767999172210693,
+    "category": "METHANOGENESIS",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "coastal forested freshwater wetland soil",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.html"
+  },
+  {
+    "id": "Composting_SynCom_Lignocellulose_Degradation_Humus",
+    "name": "Five-member bacterial-fungal composting SynCom for lignocellulose degradation",
+    "umap_x": 8.343700408935547,
+    "umap_y": 12.413999557495117,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "co-composting of cattle manure and mulberry branches",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Composting_SynCom_Lignocellulose_Degradation_Humus.html"
+  },
+  {
+    "id": "Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium",
+    "name": "Coniochaeta-Sphingobacterium-Citrobacter Wheat Straw Consortium",
+    "umap_x": 20.288999557495117,
+    "umap_y": 9.424500465393066,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "wheat-straw laboratory culture",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.html"
+  },
+  {
+    "id": "Copper_Biomining_Heap_Leach",
+    "name": "Copper Biomining Heap Leach Consortium",
+    "umap_x": 6.029399871826172,
+    "umap_y": 3.6981000900268555,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Copper_Biomining_Heap_Leach.html"
+  },
+  {
+    "id": "Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture",
+    "name": "Corynebacterium glutamicum + Shewanella oneidensis Succinic-acid Co-culture",
+    "umap_x": 11.873000144958496,
+    "umap_y": 9.58549976348877,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic bioreactor (succinic acid fermentation)",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.html"
+  },
+  {
+    "id": "Coscinodiscus_Synthetic_Community",
+    "name": "Coscinodiscus Synthetic Community",
+    "umap_x": 11.305999755859375,
+    "umap_y": 7.500199794769287,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "marine environment",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Coscinodiscus_Synthetic_Community.html"
+  },
+  {
+    "id": "Crucian_Carp_Gut_Disease_Resistance_SynCom",
+    "name": "Crucian Carp Gut Disease-resistance SynCom",
+    "umap_x": 15.185999870300293,
+    "umap_y": 8.394499778747559,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "crucian carp (Carassius auratus) intestine",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Crucian_Carp_Gut_Disease_Resistance_SynCom.html"
+  },
+  {
+    "id": "Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community",
+    "name": "Crystal Geyser CO2-Rich Aquifer Autotrophic CPR Lysolipid Community",
+    "umap_x": 13.61400032043457,
+    "umap_y": 1.4915000200271606,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "deep CO2-rich subsurface aquifer",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Crystal_Geyser_CO2_Aquifer_CPR_Lipid_Community.html"
+  },
+  {
+    "id": "Cyprus_Copper_Sulphide_Bioleaching_Consortium",
+    "name": "Cyprus Copper Sulphide Bioleaching Consortium",
+    "umap_x": 9.915300369262695,
+    "umap_y": 3.590399980545044,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "copper bioleaching column laboratory enrichment",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Cyprus_Copper_Sulphide_Bioleaching_Consortium.html"
+  },
+  {
+    "id": "DIETsimp_Lignocellulose_to_Methane_DIET_Consortia",
+    "name": "DIET-based Simplified Lignocellulose-to-Methane Consortia (DIETsimp)",
+    "umap_x": 3.0097999572753906,
+    "umap_y": 5.792699813842773,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "anaerobic digestion of lignocellulose (cow manure + paddy soil/marine sediment inocula)",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/DIETsimp_Lignocellulose_to_Methane_DIET_Consortia.html"
+  },
+  {
+    "id": "DVM_Triculture",
+    "name": "DVM Tri-culture",
+    "umap_x": 1.3686000108718872,
+    "umap_y": 7.120999813079834,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/DVM_Triculture.html"
+  },
+  {
+    "id": "Dangl_SynComm_35",
+    "name": "Jeff Dangl's SynComm 35",
+    "umap_x": 16.90999984741211,
+    "umap_y": 8.64780044555664,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 7,
+    "num_interactions": 7,
+    "coverage_pct": 100.0,
+    "url": "communities/Dangl_SynComm_35.html"
+  },
+  {
+    "id": "Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession",
+    "name": "Deepwater Horizon Deep-Sea Oil Plume Succession",
+    "umap_x": 9.179900169372559,
+    "umap_y": 7.071100234985352,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "deep marine hydrocarbon plume",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.html"
+  },
+  {
+    "id": "Defined_Multispecies_Enamel_Caries_Model",
+    "name": "Defined Multispecies Enamel Caries Model",
+    "umap_x": 13.241000175476074,
+    "umap_y": 12.696999549865723,
+    "category": "ORAL",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cariogenic enamel biofilm on tooth surface",
+    "num_taxa": 4,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/Defined_Multispecies_Enamel_Caries_Model.html"
+  },
+  {
+    "id": "Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy",
+    "name": "Dehalococcoides-Desulfovibrio Lactate-Fed TCE Dechlorination Coculture",
+    "umap_x": 3.8761000633239746,
+    "umap_y": 10.093000411987305,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic chlorinated-ethene laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy.html"
+  },
+  {
+    "id": "Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture",
+    "name": "Dehalococcoides-Desulfovibrio-Pelosinus Corrinoid Triculture",
+    "umap_x": 4.9552998542785645,
+    "umap_y": 8.62399959564209,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic chlorinated-ethene laboratory triculture",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_Desulfovibrio_Pelosinus_Corrinoid_Triculture.html"
+  },
+  {
+    "id": "Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture",
+    "name": "Dehalococcoides-Methanosarcina DMB-Guided Cobalamin Coculture",
+    "umap_x": 1.4763000011444092,
+    "umap_y": 10.045999526977539,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "chlorinated-ethene laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_Methanosarcina_DMB_Cobalamin_Coculture.html"
+  },
+  {
+    "id": "Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture",
+    "name": "Dehalococcoides-Pelobacter Acetylene TCE Coculture",
+    "umap_x": 2.5868000984191895,
+    "umap_y": 11.642999649047852,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic chlorinated-solvent laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.html"
+  },
+  {
+    "id": "Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture",
+    "name": "Dehalococcoides-Syntrophomonas TCE Dechlorination Coculture",
+    "umap_x": 1.023900032043457,
+    "umap_y": 8.881500244140625,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic chlorinated-ethene laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture.html"
+  },
+  {
+    "id": "Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium",
+    "name": "Dehalococcoides mccartyi CWV2 Dechlorinating Consortium",
+    "umap_x": 2.0882999897003174,
+    "umap_y": 10.836000442504883,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "TCE-contaminated groundwater (biochar-amended enrichment)",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Dehalococcoides_mccartyi_CWV2_Dechlorinating_Consortium.html"
+  },
+  {
+    "id": "Desert_Tomato_Salt_Stress_SynCom5",
+    "name": "Desert-Derived Tomato Salt Stress SynCom5",
+    "umap_x": 22.114999771118164,
+    "umap_y": 5.743199825286865,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Desert_Tomato_Salt_Stress_SynCom5.html"
+  },
+  {
+    "id": "Desulfovibrio_Methanococcus_Syntrophy",
+    "name": "Desulfovibrio-Methanococcus Syntrophic Consortium",
+    "umap_x": 4.759399890899658,
+    "umap_y": 9.23799991607666,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sulfate-free anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Desulfovibrio_Methanococcus_Syntrophy.html"
+  },
+  {
+    "id": "Desulfovibrio_Methanosarcina_Lactate_Syntrophy",
+    "name": "Desulfovibrio-Methanosarcina Lactate Syntrophy",
+    "umap_x": 2.6363000869750977,
+    "umap_y": 10.142999649047852,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic laboratory rumen-fluid coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Desulfovibrio_Methanosarcina_Lactate_Syntrophy.html"
+  },
+  {
+    "id": "Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota",
+    "name": "Drosophila Five-Species Gnotobiotic Gut Microbiota",
+    "umap_x": 10.612000465393066,
+    "umap_y": 8.990300178527832,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "Drosophila melanogaster gut",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota.html"
+  },
+  {
+    "id": "Drought_Rhizosphere_Iron_Actinobacteria_Community",
+    "name": "Drought-Induced Rhizosphere Iron-Enriched Actinobacteria Community",
+    "umap_x": 12.335000038146973,
+    "umap_y": 3.7081000804901123,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "drought-stressed root rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Drought_Rhizosphere_Iron_Actinobacteria_Community.html"
+  },
+  {
+    "id": "Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture",
+    "name": "Dual Bacillus coagulans + Pseudomonas putida Lactic-acid Co-culture",
+    "umap_x": 18.868000030517578,
+    "umap_y": 7.472099781036377,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "bioreactor fermentation of undetoxified lignocellulosic (corncob) hydrolysate",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Dual_Bacillus_coagulans_Pseudomonas_putida_Lactic_Acid_Coculture.html"
+  },
+  {
+    "id": "ENIGMA_Denitrifying_SynCom",
+    "name": "ENIGMA Denitrifying SynCom",
+    "umap_x": 14.848999977111816,
+    "umap_y": 7.782800197601318,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "contaminated soil",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/ENIGMA_Denitrifying_SynCom.html"
+  },
+  {
+    "id": "Early_Dental_Biofilm_FiveSpecies",
+    "name": "Early Dental Biofilm Five-Species Model",
+    "umap_x": 14.437999725341797,
+    "umap_y": 12.697999954223633,
+    "category": "ORAL",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "dental plaque biofilm on tooth surface",
+    "num_taxa": 5,
+    "num_interactions": 0,
+    "coverage_pct": 100.0,
+    "url": "communities/Early_Dental_Biofilm_FiveSpecies.html"
+  },
+  {
+    "id": "East_River_Floodplain_Core_Microbiome",
+    "name": "East River Floodplain Core Microbiome",
+    "umap_x": 11.116999626159668,
+    "umap_y": 1.8723000288009644,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "floodplain soil",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/East_River_Floodplain_Core_Microbiome.html"
+  },
+  {
+    "id": "East_River_Hillslope_Riparian_Transect_Community",
+    "name": "East River Hillslope Riparian Transect Microbial Community",
+    "umap_x": 15.14799976348877,
+    "umap_y": 0.8820400238037109,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "montane hillslope and riparian soil",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/East_River_Hillslope_Riparian_Transect_Community.html"
+  },
+  {
+    "id": "EcoFAB_Ring_Trial_SynCom17",
+    "name": "EcoFAB 2.0 Root Microbiome Ring Trial SynCom17",
+    "umap_x": 17.424999237060547,
+    "umap_y": 10.675999641418457,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "EcoFAB 2.0 hydroponic device",
+    "num_taxa": 16,
+    "num_interactions": 15,
+    "coverage_pct": 100.0,
+    "url": "communities/EcoFAB_Ring_Trial_SynCom17.html"
+  },
+  {
+    "id": "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture",
+    "name": "Escherichia coli + Bifidobacterium bifidum Infant-gut Mutualistic Co-culture",
+    "umap_x": 11.470000267028809,
+    "umap_y": 13.829000473022461,
+    "category": "DIET",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "infant gut (in vitro co-culture)",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.html"
+  },
+  {
+    "id": "Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium",
+    "name": "Electrostimulated Mixotrophic VFA-producing Enrichment Consortium",
+    "umap_x": 7.478099822998047,
+    "umap_y": 12.456000328063965,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "continuous electrostimulated bioreactor (bioelectrochemical CO2 conversion)",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.html"
+  },
+  {
+    "id": "Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate",
+    "name": "Shewanella-Acetogen Electrosynthetic Consortia for CO2-to-Acetate",
+    "umap_x": 6.134200096130371,
+    "umap_y": 11.003000259399414,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "microbial electrosynthesis reactor (CO2-to-acetate bioreactor)",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Electrosynthetic_Consortia_Shewanella_Clostridium_Acetobacterium_Acetate.html"
+  },
+  {
+    "id": "Emiliania_Phaeobacter_Dynamic_Interaction",
+    "name": "Emiliania huxleyi-Phaeobacter inhibens Dynamic Interaction",
+    "umap_x": 13.125,
+    "umap_y": 7.88730001449585,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "marine coccolithophore-bacterium co-culture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Emiliania_Phaeobacter_Dynamic_Interaction.html"
+  },
+  {
+    "id": "Engineered_Gut_Amino_Acid_CrossFeeding_Consortium",
+    "name": "Engineered Gut Amino Acid Cross-Feeding Consortium",
+    "umap_x": 11.107000350952148,
+    "umap_y": 12.579000473022461,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "gnotobiotic mouse gut environment",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Engineered_Gut_Amino_Acid_CrossFeeding_Consortium.html"
+  },
+  {
+    "id": "Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium",
+    "name": "Ensifer YF2 + Sphingobacterium Y2 Polyethylene-degrading Consortium",
+    "umap_x": 14.300000190734863,
+    "umap_y": 5.942599773406982,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "plastic-contaminated agricultural soil",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Ensifer_YF2_Sphingobacterium_Y2_Polyethylene_Degrading_Consortium.html"
+  },
+  {
+    "id": "Episymbiotic_CPR_DPANN_Groundwater_Community",
+    "name": "Episymbiotic CPR Bacteria and DPANN Archaea Groundwater Community",
+    "umap_x": 12.279000282287598,
+    "umap_y": 0.25,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "pristine and agricultural groundwater aquifer",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Episymbiotic_CPR_DPANN_Groundwater_Community.html"
+  },
+  {
+    "id": "Ewaste_Bioleaching_Consortium",
+    "name": "E-waste Bioleaching Consortium",
+    "umap_x": 5.168000221252441,
+    "umap_y": 3.742000102996826,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ewaste_Bioleaching_Consortium.html"
+  },
+  {
+    "id": "Ferroplasma_Leptospirillum_Syntrophy",
+    "name": "Ferroplasma-Leptospirillum Iron-Cycling Syntrophy",
+    "umap_x": 8.49530029296875,
+    "umap_y": 1.8478000164031982,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 2,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ferroplasma_Leptospirillum_Syntrophy.html"
+  },
+  {
+    "id": "GLBRC_Exometabolite_Transwell_SynCom",
+    "name": "GLBRC Exometabolite Transwell SynCom System",
+    "umap_x": 23.040000915527344,
+    "umap_y": 6.950300216674805,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/GLBRC_Exometabolite_Transwell_SynCom.html"
+  },
+  {
+    "id": "GLBRC_Populus_Variovorax_SynCom28",
+    "name": "GLBRC Populus Variovorax SynCom28",
+    "umap_x": 12.052000045776367,
+    "umap_y": 6.764699935913086,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 28,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/GLBRC_Populus_Variovorax_SynCom28.html"
+  },
+  {
+    "id": "GLBRC_UFMP_Fermentation_Community",
+    "name": "GLBRC Ultra-Filtered Milk Permeate Fermentation Community",
+    "umap_x": 9.281200408935547,
+    "umap_y": 11.621999740600586,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Anaerobic bioreactor (35C, pH 5.5, 6-day retention time)",
+    "num_taxa": 10,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/GLBRC_UFMP_Fermentation_Community.html"
+  },
+  {
+    "id": "GOM_Oil_Degrading_Consortium",
+    "name": "Gulf of Mexico Oil-Degrading Consortium",
+    "umap_x": 20.79800033569336,
+    "umap_y": 11.350000381469727,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine environment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/GOM_Oil_Degrading_Consortium.html"
+  },
+  {
+    "id": "Garlic_Pseudomonas_SynCom6",
+    "name": "Garlic Rhizosphere Pseudomonas SynCom6",
+    "umap_x": 21.65999984741211,
+    "umap_y": 11.385000228881836,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Garlic_Pseudomonas_SynCom6.html"
+  },
+  {
+    "id": "Geobacter_Clostridium_DIET",
+    "name": "Geobacter-Clostridium DIET Community",
+    "umap_x": 3.9540998935699463,
+    "umap_y": 7.226500034332275,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "laboratory culture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Clostridium_DIET.html"
+  },
+  {
+    "id": "Geobacter_Methanosaeta_DIET",
+    "name": "Geobacter-Methanosaeta DIET Community",
+    "umap_x": 3.797800064086914,
+    "umap_y": 8.461999893188477,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sediment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Methanosaeta_DIET.html"
+  },
+  {
+    "id": "Geobacter_Methanosarcina_DIET",
+    "name": "Geobacter-Methanosarcina DIET Community",
+    "umap_x": 2.7276999950408936,
+    "umap_y": 9.531599998474121,
+    "category": "DIET",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sediment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Methanosarcina_DIET.html"
+  },
+  {
+    "id": "Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture",
+    "name": "Geobacter-Pseudomonas Formate-Fumarate Electroactive Coculture",
+    "umap_x": 16.160999298095703,
+    "umap_y": 12.779000282287598,
+    "category": "DIET",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "electroactive laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Geobacter_Pseudomonas_Formate_Fumarate_Electroactive_Coculture.html"
+  },
+  {
+    "id": "Grassland_Soil_WetUp_Virus_Host_Community",
+    "name": "Grassland Soil Wet-Up Virus-Host Community",
+    "umap_x": 21.05900001525879,
+    "umap_y": 4.355400085449219,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "California Mediterranean-climate grassland soil",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Grassland_Soil_WetUp_Virus_Host_Community.html"
+  },
+  {
+    "id": "Groundwater_Elusimicrobia_Diverse_Metabolisms",
+    "name": "Groundwater Elusimicrobia Diverse Metabolisms Community",
+    "umap_x": 14.73799991607666,
+    "umap_y": 3.695199966430664,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "groundwater Elusimicrobia habitat",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Groundwater_Elusimicrobia_Diverse_Metabolisms.html"
+  },
+  {
+    "id": "Hanford_300_Area_Unconfined_Aquifer_Community",
+    "name": "Hanford 300 Area Unconfined Aquifer Community",
+    "umap_x": 14.788000106811523,
+    "umap_y": 2.162400007247925,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "unconfined aquifer groundwater",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Hanford_300_Area_Unconfined_Aquifer_Community.html"
+  },
+  {
+    "id": "High_Solids_Switchgrass_Methanogenic_Microbiome",
+    "name": "High-Solids Switchgrass Methanogenic Microbiome",
+    "umap_x": 13.869999885559082,
+    "umap_y": 4.090400218963623,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "STABLE",
+    "origin": "ENGINEERED",
+    "environment": "thermophilic anaerobic laboratory bioreactor",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/High_Solids_Switchgrass_Methanogenic_Microbiome.html"
+  },
+  {
+    "id": "Honeybee_Core20_Defined_Microbiota",
+    "name": "Honeybee Core-20 Defined Microbiota",
+    "umap_x": 22.940000534057617,
+    "umap_y": 7.853099822998047,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "honeybee intestine",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Honeybee_Core20_Defined_Microbiota.html"
+  },
+  {
+    "id": "Horonobe_Mizunami_URL_Subsurface_Microbiome",
+    "name": "Horonobe and Mizunami Underground Research Laboratory Subsurface Microbiome",
+    "umap_x": 15.545999526977539,
+    "umap_y": 1.520400047302246,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "deep subsurface groundwater (URL)",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Horonobe_Mizunami_URL_Subsurface_Microbiome.html"
+  },
+  {
+    "id": "Iberian_Pit_Lake_Stratified_Community",
+    "name": "Iberian Pit Lake Stratified Community",
+    "umap_x": 9.014200210571289,
+    "umap_y": 5.019700050354004,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 7,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Iberian_Pit_Lake_Stratified_Community.html"
+  },
+  {
+    "id": "Industrial_Bioreactor_Consortium",
+    "name": "Industrial Bioleaching Reactor Consortium",
+    "umap_x": 7.291200160980225,
+    "umap_y": 4.484499931335449,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "bioreactor",
+    "num_taxa": 8,
+    "num_interactions": 9,
+    "coverage_pct": 100.0,
+    "url": "communities/Industrial_Bioreactor_Consortium.html"
+  },
+  {
+    "id": "Industrial_Milk_Line_FourSpecies_Model_Biofilm",
+    "name": "Industrial Milk-Line Four-Species Model Biofilm",
+    "umap_x": 17.895000457763672,
+    "umap_y": 12.73900032043457,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory dairy-processing biofilm model",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Industrial_Milk_Line_FourSpecies_Model_Biofilm.html"
+  },
+  {
+    "id": "Infant_Gut_DNA_Phage_Succession_Community",
+    "name": "Infant Gut DNA Phageome Succession Community",
+    "umap_x": 16.575000762939453,
+    "umap_y": 2.893399953842163,
+    "category": "OTHER",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "infant gut microbiome",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Infant_Gut_DNA_Phage_Succession_Community.html"
+  },
+  {
+    "id": "Infant_Gut_Prebiotic_Response_SynCom",
+    "name": "Infant-gut Prebiotic-response SynCom",
+    "umap_x": 10.642999649047852,
+    "umap_y": 13.1899995803833,
+    "category": "DIET",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "early-life (infant) gut; donor-derived faecal fermentations",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Infant_Gut_Prebiotic_Response_SynCom.html"
+  },
+  {
+    "id": "Infant_Gut_Strain_Persistence_Maternal_Community",
+    "name": "Infant Gut Strain Persistence and Maternal Seeding Community",
+    "umap_x": 20.39299964904785,
+    "umap_y": 6.244699954986572,
+    "category": "OTHER",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "infant gut microbiome",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Infant_Gut_Strain_Persistence_Maternal_Community.html"
+  },
+  {
+    "id": "Ion_Adsorption_REE_Indigenous_Community",
+    "name": "Ion-Adsorption REE Indigenous Community",
+    "umap_x": 13.256999969482422,
+    "umap_y": 5.132199764251709,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "weathering crust",
+    "num_taxa": 7,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Ion_Adsorption_REE_Indigenous_Community.html"
+  },
+  {
+    "id": "Jala_Maize_PGPB_SynCom",
+    "name": "Jala Maize PGPB SynCom",
+    "umap_x": 14.560999870300293,
+    "umap_y": 4.701900005340576,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Jala_Maize_PGPB_SynCom.html"
+  },
+  {
+    "id": "KB1_Chlorinated_Ethene_Dechlorinating_Consortium",
+    "name": "KB-1 Chlorinated Ethene Dechlorinating Consortium",
+    "umap_x": 7.223800182342529,
+    "umap_y": 11.40999984741211,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "contaminated groundwater",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/KB1_Chlorinated_Ethene_Dechlorinating_Consortium.html"
+  },
+  {
+    "id": "KBase_Models_for_Zahmeeth_Original_PLOS",
+    "name": "KBase Models for Zahmeeth Original PLOS",
+    "umap_x": 14.288000106811523,
+    "umap_y": 14.14799976348877,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory environment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_Models_for_Zahmeeth_Original_PLOS.html"
+  },
+  {
+    "id": "KBase_ORT_Workflow_Community_Model",
+    "name": "KBase ORT Workflow Community Model",
+    "umap_x": 14.932000160217285,
+    "umap_y": 3.0838000774383545,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "river sediment",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_ORT_Workflow_Community_Model.html"
+  },
+  {
+    "id": "KBase_Synthetic_Bacterial_Community_R2A",
+    "name": "KBase Synthetic Bacterial Community in R2A Medium",
+    "umap_x": 20.763999938964844,
+    "umap_y": 10.03600025177002,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/KBase_Synthetic_Bacterial_Community_R2A.html"
+  },
+  {
+    "id": "Kombucha_KMC_IMBG1_Fermentation_Community",
+    "name": "Kombucha KMC-IMBG1 Fermentation Community",
+    "umap_x": 13.774999618530273,
+    "umap_y": 6.559800148010254,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "laboratory kombucha fermentation culture",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Kombucha_KMC_IMBG1_Fermentation_Community.html"
+  },
+  {
+    "id": "LBNL_Brachypodium_Drought_SynCom15",
+    "name": "LBNL Brachypodium Drought SynCom15",
+    "umap_x": 22.68899917602539,
+    "umap_y": 5.13129997253418,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/LBNL_Brachypodium_Drought_SynCom15.html"
+  },
+  {
+    "id": "LBNL_Human_Gut_Interaction_SynCom",
+    "name": "LBNL Human Gut Interaction SynCom",
+    "umap_x": 23.113000869750977,
+    "umap_y": 6.111599922180176,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "human gut microbiome",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/LBNL_Human_Gut_Interaction_SynCom.html"
+  },
+  {
+    "id": "LBNL_Switchgrass_Soil_SynCom16",
+    "name": "LBNL Switchgrass Soil SynCom16",
+    "umap_x": 23.868000030517578,
+    "umap_y": 8.389800071716309,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soil",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/LBNL_Switchgrass_Soil_SynCom16.html"
+  },
+  {
+    "id": "Lac_Pavin_Stratified_Lake_Community",
+    "name": "Lac Pavin Permanently Stratified Lake Community",
+    "umap_x": 13.199000358581543,
+    "umap_y": 0.8791900277137756,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "permanently stratified freshwater lake",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Lac_Pavin_Stratified_Lake_Community.html"
+  },
+  {
+    "id": "Lake_Washington_Methane_Oxygen_Methylotroph_Community",
+    "name": "Lake Washington Methane-Oxygen Methylotroph Community",
+    "umap_x": 11.361000061035156,
+    "umap_y": 3.714099884033203,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "freshwater lake sediment",
+    "num_taxa": 8,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.html"
+  },
+  {
+    "id": "Lotus_LjSC3",
+    "name": "Lotus Lj-SC3 Synthetic Community",
+    "umap_x": 13.383999824523926,
+    "umap_y": 5.869200229644775,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 9,
+    "num_interactions": 9,
+    "coverage_pct": 100.0,
+    "url": "communities/Lotus_LjSC3.html"
+  },
+  {
+    "id": "MAMC_M48_Lignocellulose",
+    "name": "MAMC-M48 Lignocellulose-Degrading Consortium",
+    "umap_x": 20.530000686645508,
+    "umap_y": 12.12600040435791,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "soil",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/MAMC_M48_Lignocellulose.html"
+  },
+  {
+    "id": "MSC1_Dominant_Core",
+    "name": "MSC-1 Dominant Core",
+    "umap_x": 16.256999969482422,
+    "umap_y": 13.989999771118164,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "arid grassland soil",
+    "num_taxa": 12,
+    "num_interactions": 11,
+    "coverage_pct": 100.0,
+    "url": "communities/MSC1_Dominant_Core.html"
+  },
+  {
+    "id": "MSC2_Model_Soil_Consortium",
+    "name": "Model Soil Consortium-2 (MSC-2)",
+    "umap_x": 17.024999618530273,
+    "umap_y": 13.378999710083008,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "grassland soil",
+    "num_taxa": 8,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/MSC2_Model_Soil_Consortium.html"
+  },
+  {
+    "id": "MUCC_Freshwater_Wetland_Methane_Network_Community",
+    "name": "MUCC Freshwater Wetland Methane-Cycling Network Community",
+    "umap_x": 16.885000228881836,
+    "umap_y": 6.179599761962891,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "terrestrial freshwater wetland",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/MUCC_Freshwater_Wetland_Methane_Network_Community.html"
+  },
+  {
+    "id": "Maize_Benzoxazinoid_Metabolizing_SynComs",
+    "name": "Maize Benzoxazinoid-Metabolizing SynComs",
+    "umap_x": 24.729000091552734,
+    "umap_y": 8.059499740600586,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Maize_Benzoxazinoid_Metabolizing_SynComs.html"
+  },
+  {
+    "id": "Maize_Drought_Response_SynCom",
+    "name": "Maize Drought Response SynCom",
+    "umap_x": 24.40999984741211,
+    "umap_y": 9.001299858093262,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Maize_Drought_Response_SynCom.html"
+  },
+  {
+    "id": "Maize_Root_Simplified_Community",
+    "name": "Maize Root Simplified Bacterial Community",
+    "umap_x": 18.84600067138672,
+    "umap_y": 10.934000015258789,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 8,
+    "num_interactions": 11,
+    "coverage_pct": 100.0,
+    "url": "communities/Maize_Root_Simplified_Community.html"
+  },
+  {
+    "id": "Medicago_Nodule_Biofertilizer_SynCom",
+    "name": "Medicago Nodule Biofertilizer SynCom",
+    "umap_x": 21.656999588012695,
+    "umap_y": 11.996000289916992,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soil",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Medicago_Nodule_Biofertilizer_SynCom.html"
+  },
+  {
+    "id": "Mediterranean_Grassland_qSIP_Rainfall_Community",
+    "name": "Mediterranean Grassland qSIP Rainfall-Gradient Community",
+    "umap_x": 24.01099967956543,
+    "umap_y": 9.685400009155273,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Mediterranean grassland soil along rainfall gradient",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Mediterranean_Grassland_qSIP_Rainfall_Community.html"
+  },
+  {
+    "id": "Mercury_SFA_EFPC_Sediment_Community",
+    "name": "Mercury SFA East Fork Poplar Creek Sediment Community",
+    "umap_x": 10.380999565124512,
+    "umap_y": 4.310400009155273,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "Mercury-contaminated creek sediment",
+    "num_taxa": 11,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Mercury_SFA_EFPC_Sediment_Community.html"
+  },
+  {
+    "id": "Methane_Oxidation_CrVI_Reduction_SynCom",
+    "name": "Methane Oxidation-Cr(VI) Reduction SynCom",
+    "umap_x": 8.152899742126465,
+    "umap_y": 4.938300132751465,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Methane_Oxidation_CrVI_Reduction_SynCom.html"
+  },
+  {
+    "id": "Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture",
+    "name": "Methylacidiphilum-Galdieria Thermoacidophilic Methane Coculture",
+    "umap_x": 9.679800033569336,
+    "umap_y": 7.943999767303467,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "thermoacidophilic methane-fed photobioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.html"
+  },
+  {
+    "id": "Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture",
+    "name": "Methylocaldum-Cupriavidus Methane Acetate Cross-Feeding Coculture",
+    "umap_x": 8.855400085449219,
+    "umap_y": 6.159299850463867,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "methane-fed aerobic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylocaldum_Cupriavidus_Methane_Acetate_Crossfeeding_Coculture.html"
+  },
+  {
+    "id": "Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture",
+    "name": "Methylocaldum-Methyloceanibacter Methane Cross-Feeding Coculture",
+    "umap_x": 7.929299831390381,
+    "umap_y": 5.688499927520752,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "methane-fed laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylocaldum_Methyloceanibacter_Methane_Crossfeeding_Coculture.html"
+  },
+  {
+    "id": "Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture",
+    "name": "Methylocystis-Rhodococcus Methane VFA PHBV Coculture",
+    "umap_x": 12.262999534606934,
+    "umap_y": 7.376299858093262,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "methane-fed laboratory bioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylocystis_Rhodococcus_Methane_VFA_PHBV_Coculture.html"
+  },
+  {
+    "id": "Methylomicrobium_Chlorella_Methane_Sequestration_Coculture",
+    "name": "Methylomicrobium-Chlorella Methane Sequestration Coculture",
+    "umap_x": 3.0922999382019043,
+    "umap_y": 6.6493000984191895,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "saline methane-fed laboratory coculture",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylomicrobium_Chlorella_Methane_Sequestration_Coculture.html"
+  },
+  {
+    "id": "Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture",
+    "name": "Methylotuvimicrobium-Synechococcus Gas Feedstock Coculture",
+    "umap_x": 5.474999904632568,
+    "umap_y": 8.012200355529785,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "illuminated gas-fed laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Methylotuvimicrobium_Synechococcus_Gas_Feedstock_Coculture.html"
+  },
+  {
+    "id": "Microcoleus_Massilia_Cyanosphere_Urea_Mutualism",
+    "name": "Microcoleus-Massilia Cyanosphere Urea Mutualism",
+    "umap_x": 18.006000518798828,
+    "umap_y": 7.404300212860107,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soil biocrust",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Microcoleus_Massilia_Cyanosphere_Urea_Mutualism.html"
+  },
+  {
+    "id": "Miscanthus_REE_Tailings_Nitrogen_SynCom10",
+    "name": "Miscanthus REE Tailings Nitrogen SynCom10",
+    "umap_x": 15.255000114440918,
+    "umap_y": 11.027999877929688,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "contaminated soil",
+    "num_taxa": 5,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Miscanthus_REE_Tailings_Nitrogen_SynCom10.html"
+  },
+  {
+    "id": "Mixed_Gallium_LED_Recovery_Consortium",
+    "name": "Mixed Gallium LED Recovery Consortium",
+    "umap_x": 7.690999984741211,
+    "umap_y": 2.492500066757202,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Mixed_Gallium_LED_Recovery_Consortium.html"
+  },
+  {
+    "id": "Model_Cyanobacterial_Consortia_Core_Microbiome",
+    "name": "Model Cyanobacterial Consortia Core Microbiome",
+    "umap_x": 22.14299964904785,
+    "umap_y": 9.23330020904541,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory cyanobacteria-heterotroph coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Model_Cyanobacterial_Consortia_Core_Microbiome.html"
+  },
+  {
+    "id": "Model_Lignocellulose_Formaldehyde_Crossfeeding_Community",
+    "name": "Model Lignocellulose Formaldehyde Cross-Feeding Community",
+    "umap_x": 19.729000091552734,
+    "umap_y": 7.584499835968018,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "defined model lignocellulose laboratory culture",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Model_Lignocellulose_Formaldehyde_Crossfeeding_Community.html"
+  },
+  {
+    "id": "Multiomics_Corn_Straw_Degradation_SynCom",
+    "name": "Multiomics Corn Straw Degradation SynCom",
+    "umap_x": 26.336999893188477,
+    "umap_y": 7.505300045013428,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Multiomics_Corn_Straw_Degradation_SynCom.html"
+  },
+  {
+    "id": "Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community",
+    "name": "Mushroom Spring Hot-Spring Phototrophic Mat Community",
+    "umap_x": 8.817700386047363,
+    "umap_y": 7.938499927520752,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "alkaline geothermal hot spring microbial mat",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Mushroom_Spring_Hot_Spring_Phototrophic_Mat_Community.html"
+  },
+  {
+    "id": "NCycle_Bioflocculation_Model_Consortium",
+    "name": "N-Cycle Bioflocculation Model Consortium",
+    "umap_x": 26.172000885009766,
+    "umap_y": 9.168100357055664,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "activated sludge floc model",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/NCycle_Bioflocculation_Model_Consortium.html"
+  },
+  {
+    "id": "Naica_Deep_Subsurface_Thermophilic",
+    "name": "Naica Deep Subsurface Thermophilic Community",
+    "umap_x": 12.444999694824219,
+    "umap_y": 3.0964999198913574,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "deep subsurface environment",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Naica_Deep_Subsurface_Thermophilic.html"
+  },
+  {
+    "id": "Neocallimastix_Methanobrevibacter_Xylan_Coculture",
+    "name": "Neocallimastix-Methanobrevibacter Xylanolytic Coculture",
+    "umap_x": 4.613500118255615,
+    "umap_y": 7.843599796295166,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory anaerobic rumen coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Neocallimastix_Methanobrevibacter_Xylan_Coculture.html"
+  },
+  {
+    "id": "Ngawha_Geothermal_Mercury_Cycling_Community",
+    "name": "Ngawha Geothermal Acidic Springs Mercury Cycling Community",
+    "umap_x": 20.163999557495117,
+    "umap_y": 4.393799781799316,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acidic geothermal warm spring",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Ngawha_Geothermal_Mercury_Cycling_Community.html"
+  },
+  {
+    "id": "OMM12_Gnotobiotic_Mouse_Gut_Community",
+    "name": "OMM12 Gnotobiotic Mouse Gut Community",
+    "umap_x": 25.347000122070312,
+    "umap_y": 6.197000026702881,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "mouse intestine",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/OMM12_Gnotobiotic_Mouse_Gut_Community.html"
+  },
+  {
+    "id": "ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model",
+    "name": "ORNL Clostridium-Desulfovibrio-Geobacter Trophic Model Community",
+    "umap_x": 5.721700191497803,
+    "umap_y": 9.854499816894531,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic continuous-flow laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model.html"
+  },
+  {
+    "id": "ORNL_PMI_Populus_PD10_SynCom",
+    "name": "ORNL PMI Populus PD10 SynCom",
+    "umap_x": 18.285999298095703,
+    "umap_y": 10.321999549865723,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 10,
+    "num_interactions": 9,
+    "coverage_pct": 100.0,
+    "url": "communities/ORNL_PMI_Populus_PD10_SynCom.html"
+  },
+  {
+    "id": "Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community",
+    "name": "Oak Ridge FRC Uranium-Nitrate Groundwater Community",
+    "umap_x": 15.255000114440918,
+    "umap_y": 9.633500099182129,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "contaminated groundwater",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Oak_Ridge_FRC_Uranium_Nitrate_Groundwater_Community.html"
+  },
+  {
+    "id": "Okeke_Lu_Cellulolytic_Consortium",
+    "name": "Okeke-Lu Cellulolytic-Xylanolytic Consortium",
+    "umap_x": 16.30299949645996,
+    "umap_y": 10.503999710083008,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "soil",
+    "num_taxa": 5,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Okeke_Lu_Cellulolytic_Consortium.html"
+  },
+  {
+    "id": "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism",
+    "name": "Ostreococcus-Dinoroseobacter B-Vitamin Mutualism",
+    "umap_x": 5.5680999755859375,
+    "umap_y": 5.2093000411987305,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory marine phytoplankton coculture",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.html"
+  },
+  {
+    "id": "PET_Artificial_FourSpecies_Degradation_Consortium",
+    "name": "PET Artificial Four-Species Degradation Consortium",
+    "umap_x": 20.908000946044922,
+    "umap_y": 12.737000465393066,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory PET degradation culture",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/PET_Artificial_FourSpecies_Degradation_Consortium.html"
+  },
+  {
+    "id": "PGM_Spent_Catalyst_Bioleaching",
+    "name": "PGM Spent Catalyst Bioleaching Consortium",
+    "umap_x": 9.513199806213379,
+    "umap_y": 4.34060001373291,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "contaminated soil",
+    "num_taxa": 4,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/PGM_Spent_Catalyst_Bioleaching.html"
+  },
+  {
+    "id": "PMI_Variovorax_Thermotolerance_Collection",
+    "name": "PMI Variovorax Thermotolerance Collection",
+    "umap_x": 11.402999877929688,
+    "umap_y": 8.378800392150879,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 6,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/PMI_Variovorax_Thermotolerance_Collection.html"
+  },
+  {
+    "id": "PSY_Transgenic_Rice_Rhizosphere_Methane_Community",
+    "name": "PSY Transgenic Rice Rhizosphere Methane-Mitigating Community",
+    "umap_x": 19.488000869750977,
+    "umap_y": 6.179999828338623,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "PSY transgenic rice paddy rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/PSY_Transgenic_Rice_Rhizosphere_Methane_Community.html"
+  },
+  {
+    "id": "Panzhihua_Vanadium_Titanium_Tailings",
+    "name": "Panzhihua Vanadium Titanium Tailings Community",
+    "umap_x": 15.057000160217285,
+    "umap_y": 9.020500183105469,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailings",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Panzhihua_Vanadium_Titanium_Tailings.html"
+  },
+  {
+    "id": "Parachlorella_Saccharomyces_Mutualistic_Coculture",
+    "name": "Parachlorella kessleri + Saccharomyces cerevisiae Mutualistic Co-culture",
+    "umap_x": 15.843999862670898,
+    "umap_y": 5.113999843597412,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "co-culture bioreactor for microalgal lipid production",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Parachlorella_Saccharomyces_Mutualistic_Coculture.html"
+  },
+  {
+    "id": "Peanut_Seed_Bacterial_CS_SynCom",
+    "name": "Peanut Seed Bacterial CS SynCom",
+    "umap_x": 24.613000869750977,
+    "umap_y": 5.4496002197265625,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Peanut_Seed_Bacterial_CS_SynCom.html"
+  },
+  {
+    "id": "Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture",
+    "name": "Pelotomaculum-Methanocella Propionate RNA-Seq Coculture",
+    "umap_x": 0.9003900289535522,
+    "umap_y": 8.055999755859375,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic methanogenic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture.html"
+  },
+  {
+    "id": "Pelotomaculum_Methanothermobacter_Syntrophy",
+    "name": "Pelotomaculum-Methanothermobacter Syntrophic Consortium",
+    "umap_x": 2.0053000450134277,
+    "umap_y": 4.62939977645874,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "thermophilic anaerobic digester",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pelotomaculum_Methanothermobacter_Syntrophy.html"
+  },
+  {
+    "id": "Pepper_Growth_Rhizosphere_SynCom",
+    "name": "Pepper Growth Rhizosphere SynCom",
+    "umap_x": 26.253000259399414,
+    "umap_y": 6.692399978637695,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Pepper_Growth_Rhizosphere_SynCom.html"
+  },
+  {
+    "id": "Pepper_Phytophthora_SynCom5",
+    "name": "Pepper Phytophthora-Resistance SynCom5",
+    "umap_x": 18.413999557495117,
+    "umap_y": 14.003999710083008,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Pepper_Phytophthora_SynCom5.html"
+  },
+  {
+    "id": "Phenol_Carboxylation_Consortium",
+    "name": "Phenol Carboxylation Consortium",
+    "umap_x": 20.90999984741211,
+    "umap_y": 8.81309986114502,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 4,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Phenol_Carboxylation_Consortium.html"
+  },
+  {
+    "id": "Phormidium_Alkaline_Consortium",
+    "name": "Phormidium Alkaline Consortium",
+    "umap_x": 13.5649995803833,
+    "umap_y": 3.4667999744415283,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "soda lake",
+    "num_taxa": 5,
+    "num_interactions": 7,
+    "coverage_pct": 100.0,
+    "url": "communities/Phormidium_Alkaline_Consortium.html"
+  },
+  {
+    "id": "Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture",
+    "name": "Phosphitivorax-Methanoculleus Lithosyntrophic Phosphite-Oxidizing Methanogenic Culture",
+    "umap_x": 8.290800094604492,
+    "umap_y": 7.26800012588501,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anoxic phosphite-oxidizing methanogenic enrichment culture",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Phosphitivorax_Methanoculleus_Lithosyntrophy_Phosphite_Coculture.html"
+  },
+  {
+    "id": "Phylogenetically_Diverse_Denitrifying_SynCom",
+    "name": "Phylogenetically Diverse Denitrifying SynCom",
+    "umap_x": 7.99370002746582,
+    "umap_y": 6.300000190734863,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Phylogenetically_Diverse_Denitrifying_SynCom.html"
+  },
+  {
+    "id": "Pinus_armandii_Endophytic_Biocontrol_SynCom",
+    "name": "Pinus armandii Endophytic Biocontrol SynCom",
+    "umap_x": 17.023000717163086,
+    "umap_y": 12.517000198364258,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "Pinus armandii endosphere (endophytic host tissues)",
+    "num_taxa": 5,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pinus_armandii_Endophytic_Biocontrol_SynCom.html"
+  },
+  {
+    "id": "Pleuromutilin_Degrading_Artificial_Consortium_5_Strain",
+    "name": "Pleuromutilin-degrading Artificial Consortium (5-strain)",
+    "umap_x": 18.704999923706055,
+    "umap_y": 11.906000137329102,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "pleuromutilin-contaminated environment (enrichment-derived)",
+    "num_taxa": 5,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Pleuromutilin_Degrading_Artificial_Consortium_5_Strain.html"
+  },
+  {
+    "id": "Polaromonas_Vanadium_Reduction_Community",
+    "name": "Polaromonas Vanadium Reduction Community",
+    "umap_x": 7.445400238037109,
+    "umap_y": 9.193300247192383,
+    "category": "OTHER",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "mine tailings",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Polaromonas_Vanadium_Reduction_Community.html"
+  },
+  {
+    "id": "Populus_Salt_Tolerant_SynComs",
+    "name": "Populus Salt-Tolerant Rhizosphere SynComs",
+    "umap_x": 26.45199966430664,
+    "umap_y": 8.25570011138916,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Populus_Salt_Tolerant_SynComs.html"
+  },
+  {
+    "id": "Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community",
+    "name": "Prairie Pothole Wetland Sulfur-Carbon Virus-Host Community",
+    "umap_x": 16.73200035095215,
+    "umap_y": 4.399199962615967,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "Prairie Pothole wetland sediment",
+    "num_taxa": 4,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Prairie_Pothole_Wetland_Sulfur_Carbon_Virus_Community.html"
+  },
+  {
+    "id": "Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community",
+    "name": "Premature Infant Gut Escherichia In-Situ Physiological-Condition Community",
+    "umap_x": 13.333999633789062,
+    "umap_y": 8.654899597167969,
+    "category": "OTHER",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "premature infant gut microbiome",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Premature_Infant_Gut_Escherichia_Diametric_Ratio_Community.html"
+  },
+  {
+    "id": "Prochlorococcus_Alteromonas_Helper_Coculture",
+    "name": "Prochlorococcus-Alteromonas Helper Coculture",
+    "umap_x": 7.067299842834473,
+    "umap_y": 6.0381999015808105,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "marine environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Prochlorococcus_Alteromonas_Helper_Coculture.html"
+  },
+  {
+    "id": "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment",
+    "name": "Propanotrophic Chlorinated Ethene Cometabolism Enrichment Cultures",
+    "umap_x": 11.968999862670898,
+    "umap_y": 12.097000122070312,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "aerobic propane-amended chlorinated-ethene enrichment culture",
+    "num_taxa": 8,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.html"
+  },
+  {
+    "id": "Pseudomonas_Pedobacter_Social_Spreading_Coculture",
+    "name": "Pseudomonas-Pedobacter Social Spreading Coculture",
+    "umap_x": 18.749000549316406,
+    "umap_y": 8.814900398254395,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soil",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudomonas_Pedobacter_Social_Spreading_Coculture.html"
+  },
+  {
+    "id": "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture",
+    "name": "Pseudomonas-Rhodococcus Chloronitrobenzene Coculture",
+    "umap_x": 17.57900047302246,
+    "umap_y": 5.060400009155273,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "chloronitrobenzene-fed laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.html"
+  },
+  {
+    "id": "Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium",
+    "name": "Pseudomonas putida Pp-TE + Rhodococcus sp. RDK17 Terephthalic-acid Consortium",
+    "umap_x": 17.746000289916992,
+    "umap_y": 5.671800136566162,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "TPA-fed coculture fermentation (bioreactor)",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudomonas_putida_PpTE_Rhodococcus_RDK17_Terephthalic_Acid_Consortium.html"
+  },
+  {
+    "id": "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium",
+    "name": "Pseudomonas stutzeri + Rhodococcus Naphthalene-degrading Biochar-bridged Engineered Consortium",
+    "umap_x": 10.95300006866455,
+    "umap_y": 9.60159969329834,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "engineered consortium immobilized on S-N-doped biochar (naphthalene bioremediation reactor)",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.html"
+  },
+  {
+    "id": "Pseudonitzschia_Sulfitobacter_Association",
+    "name": "Pseudo-nitzschia-Sulfitobacter Marine Association",
+    "umap_x": 14.63700008392334,
+    "umap_y": 6.555200099945068,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "marine environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Pseudonitzschia_Sulfitobacter_Association.html"
+  },
+  {
+    "id": "Rammelsberg_Cobalt_Nickel_Tailings",
+    "name": "Rammelsberg Cobalt-Nickel Tailings Consortium",
+    "umap_x": 6.770500183105469,
+    "umap_y": 3.085200071334839,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Rammelsberg_Cobalt_Nickel_Tailings.html"
+  },
+  {
+    "id": "Rhodopseudomonas_Ecoli_CrossFeeding_Coculture",
+    "name": "Rhodopseudomonas-E. coli Cross-Feeding Coculture",
+    "umap_x": 10.17199993133545,
+    "umap_y": 13.802000045776367,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Rhodopseudomonas_Ecoli_CrossFeeding_Coculture.html"
+  },
+  {
+    "id": "Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture",
+    "name": "Rhodopseudomonas-Geobacter Magnetite Redox Coculture",
+    "umap_x": 3.8714001178741455,
+    "umap_y": 5.58459997177124,
+    "category": "METAL_REDUCTION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "magnetite-amended laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture.html"
+  },
+  {
+    "id": "Rice_Acid_Soil_Bioinoculant_SynCom",
+    "name": "Rice Acid Soil Bioinoculant SynCom",
+    "umap_x": 25.59000015258789,
+    "umap_y": 8.15839958190918,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "contaminated soil",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Rice_Acid_Soil_Bioinoculant_SynCom.html"
+  },
+  {
+    "id": "Rice_Duckweed_Bacillus_SynCom",
+    "name": "Rice-Duckweed Bacillus Biocontrol SynCom",
+    "umap_x": 16.14299964904785,
+    "umap_y": 11.630999565124512,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rice rhizosphere in rice-duckweed agroecosystem",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Rice_Duckweed_Bacillus_SynCom.html"
+  },
+  {
+    "id": "Rice_P_Uptake_Intercropping_SynCom4",
+    "name": "Rice Phosphorus Uptake Intercropping SynCom4",
+    "umap_x": 13.987000465393066,
+    "umap_y": 8.04319953918457,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Rice_P_Uptake_Intercropping_SynCom4.html"
+  },
+  {
+    "id": "Richmond_Mine_AMD_Biofilm",
+    "name": "Richmond Mine AMD Biofilm",
+    "umap_x": 10.251999855041504,
+    "umap_y": 2.0416998863220215,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Richmond_Mine_AMD_Biofilm.html"
+  },
+  {
+    "id": "Rifle_Aquifer_Bioanode_EET_Community",
+    "name": "Rifle Aquifer Bioanode Extracellular Electron Transfer Community",
+    "umap_x": 12.946000099182129,
+    "umap_y": 2.4853999614715576,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "microbial electrochemical cell anode biofilm",
+    "num_taxa": 7,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Rifle_Aquifer_Bioanode_EET_Community.html"
+  },
+  {
+    "id": "Rifle_Uranium_Reducing_Community",
+    "name": "Rifle Uranium-Reducing Community",
+    "umap_x": 6.031400203704834,
+    "umap_y": 6.704100131988525,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "contaminated soil",
+    "num_taxa": 5,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Rifle_Uranium_Reducing_Community.html"
+  },
+  {
+    "id": "SF356_Cellulose_Degrader",
+    "name": "SF356 Thermophilic Cellulose-Degrading Community",
+    "umap_x": 10.84000015258789,
+    "umap_y": 10.616999626159668,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "compost",
+    "num_taxa": 5,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/SF356_Cellulose_Degrader.html"
+  },
+  {
+    "id": "SIHUMIx_Human_Intestinal_Model_Community",
+    "name": "SIHUMIx Human Intestinal Model Community",
+    "umap_x": 10.404000282287598,
+    "umap_y": 11.967000007629395,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "human gut environment",
+    "num_taxa": 8,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SIHUMIx_Human_Intestinal_Model_Community.html"
+  },
+  {
+    "id": "SMutans_CAlbicans_ECC_Biofilm",
+    "name": "Streptococcus mutans - Candida albicans ECC Biofilm Model",
+    "umap_x": 13.279000282287598,
+    "umap_y": 10.399999618530273,
+    "category": "ORAL",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cariogenic plaque biofilm on tooth surface",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/SMutans_CAlbicans_ECC_Biofilm.html"
+  },
+  {
+    "id": "SMutans_SSputigena_ECC_Pathobiont",
+    "name": "Streptococcus mutans - Selenomonas sputigena ECC Pathobiont Model",
+    "umap_x": 9.789899826049805,
+    "umap_y": 11.010000228881836,
+    "category": "ORAL",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "supragingival cariogenic plaque biofilm",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SMutans_SSputigena_ECC_Pathobiont.html"
+  },
+  {
+    "id": "SMutans_VParvula_ASC_Biofilm",
+    "name": "Streptococcus mutans - Veillonella parvula Adult Severe Caries Model",
+    "umap_x": 10.090999603271484,
+    "umap_y": 9.787099838256836,
+    "category": "ORAL",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "adult severe caries plaque biofilm",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SMutans_VParvula_ASC_Biofilm.html"
+  },
+  {
+    "id": "SPRUCE_Peatland_Methane_Cycling_Community",
+    "name": "SPRUCE Peatland Methane-Cycling Microbial Community",
+    "umap_x": 21.93400001525879,
+    "umap_y": 3.8041000366210938,
+    "category": "METHANOGENESIS",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "bog",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SPRUCE_Peatland_Methane_Cycling_Community.html"
+  },
+  {
+    "id": "Saanich_Inlet_OMZ_Redox_Gradient_Community",
+    "name": "Saanich Inlet Oxygen Minimum Zone Redox-Gradient Community",
+    "umap_x": 22.923999786376953,
+    "umap_y": 9.844499588012695,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "seasonally anoxic marine fjord water column",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Saanich_Inlet_OMZ_Redox_Gradient_Community.html"
+  },
+  {
+    "id": "Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture",
+    "name": "Saccharomyces-Acinetobacter Lignocellulose Hydrolysate Detoxification Coculture",
+    "umap_x": 16.283000946044922,
+    "umap_y": 7.30709981918335,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "synthetic lignocellulosic hydrolysate laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Saccharomyces_Acinetobacter_Lignocellulose_Detox_Coculture.html"
+  },
+  {
+    "id": "Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism",
+    "name": "Saccharomyces-Chlamydomonas Fungal-Algal Mutualism",
+    "umap_x": 16.023000717163086,
+    "umap_y": 6.133299827575684,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory fungal-algal coculture",
+    "num_taxa": 1,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Saccharomyces_Chlamydomonas_Fungal_Algal_Mutualism.html"
+  },
+  {
+    "id": "Salar_Atacama_Lithium_Brine_Community",
+    "name": "Salar de Atacama Lithium Brine Community",
+    "umap_x": 11.873000144958496,
+    "umap_y": 5.541800022125244,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "hypersaline brine",
+    "num_taxa": 6,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Salar_Atacama_Lithium_Brine_Community.html"
+  },
+  {
+    "id": "Shewanella_Denitrifying_Richness_SynComs",
+    "name": "Shewanella Denitrifying Richness SynComs",
+    "umap_x": 9.064599990844727,
+    "umap_y": 10.397000312805176,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Shewanella_Denitrifying_Richness_SynComs.html"
+  },
+  {
+    "id": "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community",
+    "name": "Shewanella-Geobacter Three-Species Exoelectrogenic Biofilm Community",
+    "umap_x": 6.098800182342529,
+    "umap_y": 8.623499870300293,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anode-associated bioelectrochemical reactor biofilm",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.html"
+  },
+  {
+    "id": "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium",
+    "name": "Shewanella oneidensis + Pseudomonas aeruginosa Fe0-dependent Electro-syntrophic Denitrifying Consortium",
+    "umap_x": 17.55299949645996,
+    "umap_y": 11.904999732971191,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic Fe0-fed denitrification system (water/wastewater treatment)",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.html"
+  },
+  {
+    "id": "Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell",
+    "name": "Shewanella-Streptococcus Starch-Fueled Microbial Fuel Cell Coculture",
+    "umap_x": 9.925999641418457,
+    "umap_y": 10.39900016784668,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "starch-fed laboratory microbial fuel cell",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Shewanella_Streptococcus_Starch_Microbial_Fuel_Cell.html"
+  },
+  {
+    "id": "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture",
+    "name": "Shewanella oneidensis MR-1 - Rhodopseudomonas palustris Electro-syntrophic Co-culture",
+    "umap_x": 6.317299842834473,
+    "umap_y": 7.4004998207092285,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "engineered electro-syntrophic co-culture",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.html"
+  },
+  {
+    "id": "SkinCom_Synthetic_Skin_Community",
+    "name": "SkinCom Synthetic Skin Community",
+    "umap_x": 25.27199935913086,
+    "umap_y": 9.26099967956543,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "skin-associated microbial habitat",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/SkinCom_Synthetic_Skin_Community.html"
+  },
+  {
+    "id": "Soil_BGC_Phylum_Depth_Vegetation_Community",
+    "name": "Soil Biosynthetic Gene Cluster Phylum-Depth-Vegetation Community",
+    "umap_x": 15.793000221252441,
+    "umap_y": 3.673099994659424,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "California Critical Zone Observatory soil and saprolite",
+    "num_taxa": 4,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Soil_BGC_Phylum_Depth_Vegetation_Community.html"
+  },
+  {
+    "id": "Soil_CPR_Nanoarchaea_Rare_Biosphere_Community",
+    "name": "Soil CPR Bacteria and Nanoarchaea Rare-Biosphere Community",
+    "umap_x": 14.532999992370605,
+    "umap_y": 1.4936000108718872,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "grassland soil rare biosphere (< 0.2 um fraction)",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Soil_CPR_Nanoarchaea_Rare_Biosphere_Community.html"
+  },
+  {
+    "id": "Soil_Corrinoid_B12_Reservoir_Community",
+    "name": "Soil Corrinoid Reservoir Microbial Community",
+    "umap_x": 13.807999610900879,
+    "umap_y": 2.10509991645813,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "grassland soil",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Soil_Corrinoid_B12_Reservoir_Community.html"
+  },
+  {
+    "id": "Sorghum_SRC1_Subset",
+    "name": "Sorghum SRC1 Subset Community",
+    "umap_x": 17.974000930786133,
+    "umap_y": 11.293000221252441,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 6,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Sorghum_SRC1_Subset.html"
+  },
+  {
+    "id": "South_Bay_Salt_Pond_Methane_Restoration_Community",
+    "name": "South Bay Salt Pond Methane Restoration Microbial Community",
+    "umap_x": 17.777000427246094,
+    "umap_y": 4.449100017547607,
+    "category": "METHANOGENESIS",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "former industrial salt pond sediment",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/South_Bay_Salt_Pond_Methane_Restoration_Community.html"
+  },
+  {
+    "id": "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom",
+    "name": "Soybean Chlorophyll-Selected Biofertilizer SynCom",
+    "umap_x": 21.99799919128418,
+    "umap_y": 10.052000045776367,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "soybean rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.html"
+  },
+  {
+    "id": "Soybean_N_Fixation_sfSynCom",
+    "name": "Soybean N-Fixation Simplified SynCom",
+    "umap_x": 17.143999099731445,
+    "umap_y": 7.316100120544434,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Soybean_N_Fixation_sfSynCom.html"
+  },
+  {
+    "id": "Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture",
+    "name": "Sphingobium-Rhodococcus Lignin-Dimer Valorization Coculture",
+    "umap_x": 13.531999588012695,
+    "umap_y": 9.723099708557129,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory lignin-dimer bioconversion culture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Sphingobium_Rhodococcus_Lignin_Dimer_Valorization_Coculture.html"
+  },
+  {
+    "id": "Stordalen_Mire_Methylotrophic_Methanogenesis_Community",
+    "name": "Stordalen Mire Methylotrophic Methanogenesis Community",
+    "umap_x": 21.020999908447266,
+    "umap_y": 3.1823999881744385,
+    "category": "METHANOGENESIS",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "thawing permafrost peatland",
+    "num_taxa": 3,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Stordalen_Mire_Methylotrophic_Methanogenesis_Community.html"
+  },
+  {
+    "id": "Subsurface_Carboxydocella_CO_Aquifer_Community",
+    "name": "Subsurface Carboxydocella CO-Oxidation Aquifer Community",
+    "umap_x": 6.583700180053711,
+    "umap_y": 9.282400131225586,
+    "category": "CARBON_SEQUESTRATION",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "deep aquifer geosequestration test bed",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Subsurface_Carboxydocella_CO_Aquifer_Community.html"
+  },
+  {
+    "id": "Sulfide_Spring_Autotrophic_CPR_Biofilm",
+    "name": "Sulfide Spring Autotrophic CPR-Hosting Biofilm",
+    "umap_x": 12.869000434875488,
+    "umap_y": 4.319499969482422,
+    "category": "EXTREME_ENVIRONMENT",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "sulfide-rich spring biofilm",
+    "num_taxa": 3,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Sulfide_Spring_Autotrophic_CPR_Biofilm.html"
+  },
+  {
+    "id": "SynComBac10_Chicken_Intestinal_SynCom",
+    "name": "SynComBac10 Chicken Intestinal SynCom",
+    "umap_x": 24.11400032043457,
+    "umap_y": 10.312000274658203,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "chicken intestine",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/SynComBac10_Chicken_Intestinal_SynCom.html"
+  },
+  {
+    "id": "SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation",
+    "name": "SynCom BsBv Cigar Tobacco Leaf Fermentation",
+    "umap_x": 12.831000328063965,
+    "umap_y": 11.48799991607666,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cigar tobacco leaves (cultivar QX204) undergoing fermentation",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_BsBv_Cigar_Tobacco_Leaf_Fermentation.html"
+  },
+  {
+    "id": "SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System",
+    "name": "SynCom + Chlorella sorokiniana Biogas-slurry Coupling System",
+    "umap_x": 25.451000213623047,
+    "umap_y": 7.333899974822998,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "livestock biogas slurry treatment bioreactor",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_Chlorella_sorokiniana_Biogas_Slurry_Coupling_System.html"
+  },
+  {
+    "id": "SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience",
+    "name": "SynCom MetG2 Rhizobacteria Sugarcane Stress Resilience",
+    "umap_x": 11.954999923706055,
+    "umap_y": 2.4853999614715576,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "sugarcane rhizosphere",
+    "num_taxa": 1,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience.html"
+  },
+  {
+    "id": "SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation",
+    "name": "Pseudomonas-Rahnella native rhizosphere SynCom for Artemisia argyi phytoremediation",
+    "umap_x": 19.263999938964844,
+    "umap_y": 8.196000099182129,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere of Artemisia argyi in Cd-contaminated agricultural soil",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.html"
+  },
+  {
+    "id": "SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus",
+    "name": "Sesame-flavor Baijiu Fuqu SynCom (13-genus)",
+    "umap_x": 14.196000099182129,
+    "umap_y": 8.989299774169922,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "sesame flavor-type baijiu fermentation (Fuqu starter)",
+    "num_taxa": 13,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus.html"
+  },
+  {
+    "id": "SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture",
+    "name": "SynCom Y Agrobacterium-Bacillus Biofilm Biocontrol Co-culture",
+    "umap_x": 11.4399995803833,
+    "umap_y": 11.227999687194824,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/SynCom_Y_Agrobacterium_Bacillus_Biofilm_Biocontrol_Coculture.html"
+  },
+  {
+    "id": "Synechococcus_Azotobacter_Photoproduction_Mutualism",
+    "name": "Synechococcus-Azotobacter Photoproduction Mutualism",
+    "umap_x": 6.205699920654297,
+    "umap_y": 5.8206000328063965,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "illuminated laboratory photobioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Azotobacter_Photoproduction_Mutualism.html"
+  },
+  {
+    "id": "Synechococcus_Bacillus_SPC",
+    "name": "Synechococcus-Bacillus Synthetic Photosynthetic Consortium",
+    "umap_x": 20.392000198364258,
+    "umap_y": 13.380000114440918,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Bacillus_SPC.html"
+  },
+  {
+    "id": "Synechococcus_Ecoli_SPC",
+    "name": "Synechococcus-E.coli Synthetic Photosynthetic Consortium",
+    "umap_x": 6.960700035095215,
+    "umap_y": 8.54170036315918,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Ecoli_SPC.html"
+  },
+  {
+    "id": "Synechococcus_Halomonas_Light_Driven_PHB_Coculture",
+    "name": "Synechococcus-Halomonas Light-Driven PHB Coculture",
+    "umap_x": 10.109999656677246,
+    "umap_y": 7.105999946594238,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "illuminated laboratory photobioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Halomonas_Light_Driven_PHB_Coculture.html"
+  },
+  {
+    "id": "Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture",
+    "name": "Synechococcus-Pseudomonas Phototrophic PHA and DNT Coculture",
+    "umap_x": 19.66200065612793,
+    "umap_y": 5.560299873352051,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "illuminated laboratory photobioreactor coculture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.html"
+  },
+  {
+    "id": "Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium",
+    "name": "Synechococcus-Shewanella D-Lactate Biophotovoltaic Consortium",
+    "umap_x": 7.822000026702881,
+    "umap_y": 8.557900428771973,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "biophotovoltaic laboratory electrochemical coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Shewanella_Dlactate_Biophotovoltaic_Consortium.html"
+  },
+  {
+    "id": "Synechococcus_Yarrowia_SPC",
+    "name": "Synechococcus-Yarrowia Synthetic Photosynthetic Consortium",
+    "umap_x": 11.4399995803833,
+    "umap_y": 6.15339994430542,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Synechococcus_Yarrowia_SPC.html"
+  },
+  {
+    "id": "Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture",
+    "name": "Synthetic Lichen Synechococcus-Rhodotorula Coculture",
+    "umap_x": 12.173999786376953,
+    "umap_y": 4.930600166320801,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory phototrophic coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Synthetic_Lichen_Synechococcus_Rhodotorula_Coculture.html"
+  },
+  {
+    "id": "Synthetic_Periphyton_Freshwater_Biofilm",
+    "name": "Synthetic Periphyton Freshwater Biofilm",
+    "umap_x": 15.52400016784668,
+    "umap_y": 4.443600177764893,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "freshwater periphyton biofilm",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Synthetic_Periphyton_Freshwater_Biofilm.html"
+  },
+  {
+    "id": "Syntrophobacter_Methanobacterium_Syntrophy",
+    "name": "Syntrophobacter-Methanobacterium Syntrophic Consortium",
+    "umap_x": 1.2918000221252441,
+    "umap_y": 4.0177001953125,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophobacter_Methanobacterium_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophobacter_Methanospirillum_Syntrophy",
+    "name": "Syntrophobacter-Methanospirillum Syntrophic Consortium",
+    "umap_x": 2.86680006980896,
+    "umap_y": 5.170100212097168,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic environment",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophobacter_Methanospirillum_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture",
+    "name": "Syntrophomonas-Methanococcus Butyrate Growth Coordination Coculture",
+    "umap_x": 3.0922999382019043,
+    "umap_y": 7.34250020980835,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic methanogenic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.html"
+  },
+  {
+    "id": "Syntrophomonas_Methanospirillum_Syntrophy",
+    "name": "Syntrophomonas-Methanospirillum Syntrophic Consortium",
+    "umap_x": 1.2237000465393066,
+    "umap_y": 6.464099884033203,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic digester",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophomonas_Methanospirillum_Syntrophy.html"
+  },
+  {
+    "id": "Syntrophus_Benzoate_Degrader",
+    "name": "Syntrophus Benzoate Degrader",
+    "umap_x": 2.2304000854492188,
+    "umap_y": 6.887499809265137,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "anaerobic sediments",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophus_Benzoate_Degrader.html"
+  },
+  {
+    "id": "Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture",
+    "name": "Syntrophus-Methanospirillum Gentianae Benzoate Coculture",
+    "umap_x": 0.375,
+    "umap_y": 5.852700233459473,
+    "category": "SYNTROPHY",
+    "ecological_state": "STABLE",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic methanogenic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Syntrophus_Methanospirillum_Gentianae_Benzoate_Coculture.html"
+  },
+  {
+    "id": "THOR_Rhizosphere_Model_Community",
+    "name": "THOR Rhizosphere Model Community",
+    "umap_x": 19.65999984741211,
+    "umap_y": 12.156999588012695,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/THOR_Rhizosphere_Model_Community.html"
+  },
+  {
+    "id": "TYQ1_Nematode_Biocontrol_SynCom",
+    "name": "TYQ1 Nematode Biocontrol SynCom",
+    "umap_x": 14.269000053405762,
+    "umap_y": 10.616999626159668,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "cucumber rhizosphere",
+    "num_taxa": 8,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/TYQ1_Nematode_Biocontrol_SynCom.html"
+  },
+  {
+    "id": "Teosinte_Maize_Biofertilizer_SynCom7",
+    "name": "Teosinte-Derived Maize Biofertilizer SynCom7",
+    "umap_x": 19.410999298095703,
+    "umap_y": 10.116999626159668,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Teosinte_Maize_Biofertilizer_SynCom7.html"
+  },
+  {
+    "id": "Thalassiosira_Marinobacter_Marine_Snow_Coculture",
+    "name": "Thalassiosira-Marinobacter Marine Snow Coculture",
+    "umap_x": 7.501500129699707,
+    "umap_y": 3.7153000831604004,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory marine phycosphere coculture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Thalassiosira_Marinobacter_Marine_Snow_Coculture.html"
+  },
+  {
+    "id": "Thalassiosira_Ruegeria_Phycosphere_Coculture",
+    "name": "Thalassiosira-Ruegeria Phycosphere Coculture",
+    "umap_x": 11.01099967956543,
+    "umap_y": 5.48199987411499,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory marine phytoplankton coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Thalassiosira_Ruegeria_Phycosphere_Coculture.html"
+  },
+  {
+    "id": "Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture",
+    "name": "Thermacetogenium-Methanothermobacter Acetate Oxidation Coculture",
+    "umap_x": 1.2315000295639038,
+    "umap_y": 5.241199970245361,
+    "category": "METHANOGENESIS",
+    "ecological_state": "STABLE",
+    "origin": "SYNTHETIC",
+    "environment": "thermophilic anaerobic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Thermacetogenium_Methanothermobacter_Acetate_Oxidation_Coculture.html"
+  },
+  {
+    "id": "Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization",
+    "name": "Thermophilic Lignocellulose-degrading Composting SynCom",
+    "umap_x": 18.764999389648438,
+    "umap_y": 12.574999809265137,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "manure composting",
+    "num_taxa": 5,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Thermophilic_Lignocellulose_Composting_SynCom_Biosanitization.html"
+  },
+  {
+    "id": "Thermophilic_Pyrite_QS_Consortium",
+    "name": "Thermophilic Pyrite Quorum Sensing Consortium",
+    "umap_x": 6.7469000816345215,
+    "umap_y": 2.4721999168395996,
+    "category": "BIOMINING",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "mine tailing",
+    "num_taxa": 3,
+    "num_interactions": 6,
+    "coverage_pct": 100.0,
+    "url": "communities/Thermophilic_Pyrite_QS_Consortium.html"
+  },
+  {
+    "id": "Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy",
+    "name": "Thermotoga-Methanocaldococcus Hyperthermophilic Syntrophy",
+    "umap_x": 5.621300220489502,
+    "umap_y": 9.235899925231934,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "hyperthermophilic anaerobic laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Thermotoga_Methanocaldococcus_Hyperthermophilic_Syntrophy.html"
+  },
+  {
+    "id": "Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community",
+    "name": "Thiocyanate-Degrading Afipia and Thiobacillus Bioreactor Community",
+    "umap_x": 11.067000389099121,
+    "umap_y": 3.0002999305725098,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "NATURAL",
+    "environment": "thiocyanate-fed laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.html"
+  },
+  {
+    "id": "Tinto_River_Iron_Cycling_Community",
+    "name": "Tinto River Iron Cycling Community",
+    "umap_x": 9.05210018157959,
+    "umap_y": 3.7153000831604004,
+    "category": "AMD",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "acid mine drainage",
+    "num_taxa": 5,
+    "num_interactions": 5,
+    "coverage_pct": 100.0,
+    "url": "communities/Tinto_River_Iron_Cycling_Community.html"
+  },
+  {
+    "id": "Tobacco_Chemotactic_Biocontrol_SynCom",
+    "name": "Tobacco Chemotactic Biocontrol SynCom",
+    "umap_x": 20.20400047302246,
+    "umap_y": 10.73799991607666,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Tobacco_Chemotactic_Biocontrol_SynCom.html"
+  },
+  {
+    "id": "Tomato_Oxylipin_SynCom3",
+    "name": "Tomato Oxylipin-Protective SynCom3",
+    "umap_x": 14.119999885559082,
+    "umap_y": 7.17140007019043,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Tomato_Oxylipin_SynCom3.html"
+  },
+  {
+    "id": "Tribromophenol_Anaerobic_Bioremediation_SynCom",
+    "name": "Tribromophenol Anaerobic Bioremediation SynCom",
+    "umap_x": 8.196599960327148,
+    "umap_y": 11.461999893188477,
+    "category": "BIOREMEDIATION",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Tribromophenol_Anaerobic_Bioremediation_SynCom.html"
+  },
+  {
+    "id": "Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture",
+    "name": "Trichococcus-Syntrophomonas-Methanospirillum Butyrate Coculture",
+    "umap_x": 4.732800006866455,
+    "umap_y": 5.821400165557861,
+    "category": "SYNTROPHY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "anaerobic wastewater bioreactor model coculture",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture.html"
+  },
+  {
+    "id": "Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture",
+    "name": "Trichoderma-E. coli Cellulosic Isobutanol Coculture",
+    "umap_x": 12.845999717712402,
+    "umap_y": 13.92300033569336,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cellulosic biomass laboratory bioprocess",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichoderma_Ecoli_Cellulosic_Isobutanol_Coculture.html"
+  },
+  {
+    "id": "Trichoderma_Lactate_Platform",
+    "name": "Trichoderma Lactate Platform for SCFA Production",
+    "umap_x": 8.20300006866455,
+    "umap_y": 9.804499626159668,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichoderma_Lactate_Platform.html"
+  },
+  {
+    "id": "Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture",
+    "name": "Trichoderma-Streptomyces Filamentous Cellulose Coculture",
+    "umap_x": 5.16949987411499,
+    "umap_y": 6.432799816131592,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "cellulose-fed filamentous laboratory coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichoderma_Streptomyces_Filamentous_Cellulose_Coculture.html"
+  },
+  {
+    "id": "Trichodesmium_Alteromonas_Marine_Consortium",
+    "name": "Trichodesmium-Alteromonas Marine Consortium",
+    "umap_x": 19.07200050354004,
+    "umap_y": 6.807600021362305,
+    "category": "PHYTOPLANKTON",
+    "ecological_state": "STABLE",
+    "origin": "NATURAL",
+    "environment": "warm oligotrophic marine water column",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Trichodesmium_Alteromonas_Marine_Consortium.html"
+  },
+  {
+    "id": "Urine_Nitrification_SynCom",
+    "name": "Urine Nitrification Synthetic Microbial Community",
+    "umap_x": 18.549999237060547,
+    "umap_y": 9.710599899291992,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 5,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Urine_Nitrification_SynCom.html"
+  },
+  {
+    "id": "Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm",
+    "name": "Variovorax-Cryptococcus Vitamin Cross-Feeding Microcosm",
+    "umap_x": 15.16100025177002,
+    "umap_y": 5.7266998291015625,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "mine-tailings-derived laboratory microbial consortium microcosm",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Variovorax_Cryptococcus_Vitamin_Mutualism_Microcosm.html"
+  },
+  {
+    "id": "Watermelon_Rhizosphere_Fusarium_SynCom8",
+    "name": "Watermelon Rhizosphere Fusarium-Protective SynCom8",
+    "umap_x": 20.593000411987305,
+    "umap_y": 7.467899799346924,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Watermelon_Rhizosphere_Fusarium_SynCom8.html"
+  },
+  {
+    "id": "Wetland_Oxygen_Sulfate_GHG_Microcosm_Community",
+    "name": "Wetland Oxygen-Sulfate Greenhouse Gas Microcosm Community",
+    "umap_x": 20.06599998474121,
+    "umap_y": 3.160900115966797,
+    "category": "METHANOGENESIS",
+    "ecological_state": "PERTURBED",
+    "origin": "NATURAL",
+    "environment": "freshwater wetland soil",
+    "num_taxa": 3,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.html"
+  },
+  {
+    "id": "Wheat_Consortium_C1",
+    "name": "Wheat Synthetic Consortium C1",
+    "umap_x": 15.246000289916992,
+    "umap_y": 10.335000038146973,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Wheat_Consortium_C1.html"
+  },
+  {
+    "id": "Wheat_Consortium_C6",
+    "name": "Wheat Synthetic Consortium C6",
+    "umap_x": 21.667999267578125,
+    "umap_y": 10.722000122070312,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "rhizosphere",
+    "num_taxa": 2,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/Wheat_Consortium_C6.html"
+  },
+  {
+    "id": "Wheat_Straw_Biogas_Pretreatment_SynCom",
+    "name": "Wheat Straw Biogas Pretreatment SynCom",
+    "umap_x": 19.760000228881836,
+    "umap_y": 12.767999649047852,
+    "category": "LIGNOCELLULOSE",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory bioreactor",
+    "num_taxa": 4,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/Wheat_Straw_Biogas_Pretreatment_SynCom.html"
+  },
+  {
+    "id": "Yogurt_TwoSpecies_Starter_Culture",
+    "name": "Yogurt Two-Species Starter Culture",
+    "umap_x": 12.321000099182129,
+    "umap_y": 10.876999855041504,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "laboratory yogurt fermentation culture",
+    "num_taxa": 2,
+    "num_interactions": 4,
+    "coverage_pct": 100.0,
+    "url": "communities/Yogurt_TwoSpecies_Starter_Culture.html"
+  },
+  {
+    "id": "Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism",
+    "name": "Zymomonas-E. coli Exometabolomics-Designed Obligate Mutualism",
+    "umap_x": 13.57699966430664,
+    "umap_y": 13.309000015258789,
+    "category": "BIOTECHNOLOGY",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "synthetic laboratory auxotroph coculture",
+    "num_taxa": 2,
+    "num_interactions": 3,
+    "coverage_pct": 100.0,
+    "url": "communities/Zymomonas_Ecoli_Exometabolomics_Obligate_Mutualism.html"
+  },
+  {
+    "id": "hCom2_Complex_Gut_Microbiome",
+    "name": "hCom2 Complex Gut Microbiome",
+    "umap_x": 25.107999801635742,
+    "umap_y": 9.916000366210938,
+    "category": "OTHER",
+    "ecological_state": "ENGINEERED",
+    "origin": "SYNTHETIC",
+    "environment": "human gut",
+    "num_taxa": 1,
+    "num_interactions": 1,
+    "coverage_pct": 100.0,
+    "url": "communities/hCom2_Complex_Gut_Microbiome.html"
+  },
+  {
+    "id": "mCAFEs_Brachypodium_RCC",
+    "name": "m-CAFEs Brachypodium Reduced Complexity Consortia",
+    "umap_x": 17.0049991607666,
+    "umap_y": 11.288000106811523,
+    "category": "RHIZOSPHERE",
+    "ecological_state": "ENGINEERED",
+    "origin": "ENGINEERED",
+    "environment": "Brachypodium distachyon rhizosphere",
+    "num_taxa": 10,
+    "num_interactions": 2,
+    "coverage_pct": 100.0,
+    "url": "communities/mCAFEs_Brachypodium_RCC.html"
+  }
+];
+
+        // Configuration
+        const width = 1200;
+        const height = 700;
+        const margin = { top: 20, right: 20, bottom: 40, left: 40 };
+
+        // Color schemes for different attributes with semantic, non-clashing colors
+        const categoryColors = {
+            'AMD': '#e74c3c',                    // Red - extreme acidic
+            'BIOMINING': '#f39c12',              // Orange - metal extraction
+            'BIOREMEDIATION': '#27ae60',         // Green - cleanup/restoration
+            'BIOTECHNOLOGY': '#3498db',          // Blue - engineered systems
+            'CARBON_SEQUESTRATION': '#16a085',   // Teal - carbon cycling
+            'DIET': '#9b59b6',                   // Purple - electron transfer
+            'EXTREME_ENVIRONMENT': '#c0392b',    // Dark red - extreme
+            'LIGNOCELLULOSE': '#d35400',         // Brown-orange - plant matter
+            'METAL_REDUCTION': '#95a5a6',        // Gray - metal cycling
+            'METHANOGENESIS': '#8e44ad',         // Dark purple - methane
+            'OTHER': '#7f8c8d',                  // Medium gray - uncategorized
+            'PHYTOPLANKTON': '#1abc9c',          // Cyan - marine/aquatic
+            'RHIZOSPHERE': '#2ecc71',            // Bright green - plant roots
+            'SYNTROPHY': '#e67e22'               // Orange-red - partnerships
+        };
+
+        const stateColors = {
+            'STABLE': '#27ae60',        // Green - stable
+            'PERTURBED': '#f39c12',     // Orange - disturbed
+            'ENGINEERED': '#3498db'     // Blue - designed
+        };
+
+        const originColors = {
+            'NATURAL': '#27ae60',       // Green - natural
+            'ENGINEERED': '#3498db',    // Blue - human-designed
+            'SYNTHETIC': '#9b59b6'      // Purple - fully synthetic
+        };
+
+        // Symbol shapes for each category (accessibility!)
+        const categorySymbols = {
+            'AMD': d3.symbolCircle,              // ● Circle
+            'BIOMINING': d3.symbolSquare,        // ■ Square
+            'BIOREMEDIATION': d3.symbolTriangle, // ▲ Triangle
+            'BIOTECHNOLOGY': d3.symbolDiamond,   // ◆ Diamond
+            'CARBON_SEQUESTRATION': d3.symbolCross, // + Cross
+            'DIET': d3.symbolStar,               // ★ Star
+            'EXTREME_ENVIRONMENT': d3.symbolWye, // Y Wye
+            'LIGNOCELLULOSE': d3.symbolCircle,   // ● Circle (different color from AMD)
+            'METAL_REDUCTION': d3.symbolSquare,  // ■ Square (different color from BIOMINING)
+            'METHANOGENESIS': d3.symbolTriangle, // ▲ Triangle (different color from BIOREMEDIATION)
+            'OTHER': d3.symbolDiamond,           // ◆ Diamond (different color from BIOTECHNOLOGY)
+            'PHYTOPLANKTON': d3.symbolCross,     // + Cross (different color from CARBON_SEQ)
+            'RHIZOSPHERE': d3.symbolStar,        // ★ Star (different color from DIET)
+            'SYNTROPHY': d3.symbolWye            // Y Wye (different color from EXTREME)
+        };
+
+        const colorSchemes = {
+            category: d3.scaleOrdinal()
+                .domain(Object.keys(categoryColors))
+                .range(Object.values(categoryColors)),
+            ecological_state: d3.scaleOrdinal()
+                .domain(Object.keys(stateColors))
+                .range(Object.values(stateColors)),
+            origin: d3.scaleOrdinal()
+                .domain(Object.keys(originColors))
+                .range(Object.values(originColors))
+        };
+
+        const symbolScale = d3.scaleOrdinal()
+            .domain(Object.keys(categorySymbols))
+            .range(Object.values(categorySymbols));
+
+        // Initialize
+        let currentColorBy = 'category';
+        let currentSizeBy = 'num_taxa';
+
+        // Create SVG
+        const svg = d3.select('#umap-plot')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height);
+
+        const g = svg.append('g');
+
+        // Zoom behavior
+        const zoom = d3.zoom()
+            .scaleExtent([0.5, 10])
+            .on('zoom', (event) => {
+                g.attr('transform', event.transform);
+            });
+
+        svg.call(zoom);
+
+        // Tooltip
+        const tooltip = d3.select('body')
+            .append('div')
+            .attr('class', 'tooltip')
+            .style('opacity', 0);
+
+        // Scales
+        const xExtent = d3.extent(communityData, d => d.umap_x);
+        const yExtent = d3.extent(communityData, d => d.umap_y);
+
+        const xScale = d3.scaleLinear()
+            .domain([xExtent[0] - 0.5, xExtent[1] + 0.5])
+            .range([margin.left, width - margin.right]);
+
+        const yScale = d3.scaleLinear()
+            .domain([yExtent[0] - 0.5, yExtent[1] + 0.5])
+            .range([height - margin.bottom, margin.top]);
+
+        // Size scale (area-based for symbols)
+        function getSizeScale(attr) {
+            const extent = d3.extent(communityData, d => d[attr]);
+            return d3.scaleSqrt()
+                .domain(extent)
+                .range([60, 200]); // Larger values for symbol size (area in pixels)
+        }
+
+        let sizeScale = getSizeScale(currentSizeBy);
+
+        // Draw points using symbols
+        function updateVisualization() {
+            const colorScale = colorSchemes[currentColorBy];
+            sizeScale = getSizeScale(currentSizeBy);
+
+            const points = g.selectAll('.point')
+                .data(communityData, d => d.id);
+
+            // Exit
+            points.exit().remove();
+
+            // Enter + Update
+            const pointsEnter = points.enter()
+                .append('path')
+                .attr('class', 'point')
+                .on('mouseover', showTooltip)
+                .on('mousemove', moveTooltip)
+                .on('mouseout', hideTooltip)
+                .on('click', navigateToCommunity);
+
+            points.merge(pointsEnter)
+                .attr('transform', d => `translate(${xScale(d.umap_x)},${yScale(d.umap_y)})`)
+                .attr('d', d => {
+                    const symbolType = currentColorBy === 'category'
+                        ? symbolScale(d.category)
+                        : d3.symbolCircle;
+                    return d3.symbol()
+                        .type(symbolType)
+                        .size(sizeScale(d[currentSizeBy]))();
+                })
+                .attr('fill', d => colorScale(d[currentColorBy]))
+                .attr('opacity', 0.8);
+
+            updateLegend(colorScale);
+
+            // Re-apply filters to maintain filter state after visualization update
+            if (filterState.hasActiveFilters()) {
+                updateFiltering();
+            }
+        }
+
+        // Tooltip functions
+        function showTooltip(event, d) {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 1);
+
+            tooltip.html(`
+                <div class="tooltip-title">${d.name}</div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Category:</span>
+                    <span>${d.category}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">State:</span>
+                    <span>${d.ecological_state}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Origin:</span>
+                    <span>${d.origin}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Taxa:</span>
+                    <span>${d.num_taxa}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Interactions:</span>
+                    <span>${d.num_interactions}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Coverage:</span>
+                    <span>${d.coverage_pct.toFixed(1)}%</span>
+                </div>
+                <div style="margin-top: 0.5rem; color: #60a5fa;">Click to view details →</div>
+            `);
+        }
+
+        function moveTooltip(event) {
+            tooltip
+                .style('left', (event.pageX + 15) + 'px')
+                .style('top', (event.pageY - 28) + 'px');
+        }
+
+        function hideTooltip() {
+            tooltip.transition()
+                .duration(200)
+                .style('opacity', 0);
+        }
+
+        function navigateToCommunity(event, d) {
+            window.location.href = d.url;
+        }
+
+        // Legend with symbols
+        function updateLegend(colorScale) {
+            const legendDiv = d3.select('#legend');
+            legendDiv.html('');
+
+            const values = [...new Set(communityData.map(d => d[currentColorBy]))].sort();
+
+            const title = currentColorBy === 'category'
+                ? 'Legend (Color + Shape):'
+                : `Color Legend (${currentColorBy.replace('_', ' ')}):`;
+
+            legendDiv.append('div')
+                .style('font-weight', 'bold')
+                .style('margin-bottom', '0.5rem')
+                .text(title);
+
+            const items = legendDiv.selectAll('.legend-item')
+                .data(values)
+                .enter()
+                .append('div')
+                .attr('class', 'legend-item')
+                .style('display', 'flex')
+                .style('align-items', 'center')
+                .style('gap', '0.5rem');
+
+            // Add SVG symbol for categories, colored box for others
+            if (currentColorBy === 'category') {
+                items.append('svg')
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .append('path')
+                    .attr('d', d => {
+                        const symbolType = symbolScale(d);
+                        return d3.symbol().type(symbolType).size(150)();
+                    })
+                    .attr('transform', 'translate(10,10)')
+                    .attr('fill', d => colorScale(d))
+                    .attr('stroke', '#fff')
+                    .attr('stroke-width', 1);
+            } else {
+                items.append('div')
+                    .attr('class', 'legend-color')
+                    .style('background-color', d => colorScale(d));
+            }
+
+            items.append('span')
+                .text(d => d);
+        }
+
+        // Event listeners
+        d3.select('#color-by').on('change', function() {
+            currentColorBy = this.value;
+            updateVisualization();
+        });
+
+        d3.select('#size-by').on('change', function() {
+            currentSizeBy = this.value;
+            updateVisualization();
+        });
+
+        // ===== FILTERING SYSTEM =====
+
+        // Filter state
+        const filterState = {
+            searchTerm: '',
+            categories: new Set(),
+            ecologicalStates: new Set(),
+            origins: new Set(),
+
+            hasActiveFilters() {
+                return this.searchTerm || this.categories.size > 0 ||
+                       this.ecologicalStates.size > 0 || this.origins.size > 0;
+            },
+
+            reset() {
+                this.searchTerm = '';
+                this.categories.clear();
+                this.ecologicalStates.clear();
+                this.origins.clear();
+            }
+        };
+
+        // Helper function to count communities by facet values (DRY principle)
+        function countByFacets(data) {
+            const categoryCounts = {};
+            const stateCounts = {};
+            const originCounts = {};
+
+            data.forEach(d => {
+                categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
+                stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
+                originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
+            });
+
+            return { categoryCounts, stateCounts, originCounts };
+        }
+
+        // Initialize facets on page load
+        function initializeFacets() {
+            // Count communities per category
+            const { categoryCounts, stateCounts, originCounts } = countByFacets(communityData);
+
+            // Generate category checkboxes sorted by count (descending)
+            const categoryContainer = d3.select('#category-checkboxes');
+            Object.entries(categoryCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([category, count]) => {
+                    const label = categoryContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', category)
+                        .attr('data-facet', 'category')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(category.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-category', category)
+                        .text(`(${count})`);
+                });
+
+            // Generate ecological state checkboxes
+            const stateContainer = d3.select('#state-checkboxes');
+            Object.entries(stateCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([state, count]) => {
+                    const label = stateContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', state)
+                        .attr('data-facet', 'ecologicalState')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(state.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-state', state)
+                        .text(`(${count})`);
+                });
+
+            // Generate origin checkboxes
+            const originContainer = d3.select('#origin-checkboxes');
+            Object.entries(originCounts)
+                .sort((a, b) => b[1] - a[1])
+                .forEach(([origin, count]) => {
+                    const label = originContainer.append('label').attr('class', 'facet-checkbox');
+                    label.append('input')
+                        .attr('type', 'checkbox')
+                        .attr('value', origin)
+                        .attr('data-facet', 'origin')
+                        .on('change', handleFilterChange);
+                    label.append('span').attr('class', 'facet-label')
+                        .text(origin.replace(/_/g, ' '));
+                    label.append('span').attr('class', 'facet-count')
+                        .attr('data-origin', origin)
+                        .text(`(${count})`);
+                });
+        }
+
+        // Core filtering function
+        function applyFilters() {
+            return communityData.filter(d => {
+                // Search filter (multi-field)
+                if (filterState.searchTerm) {
+                    const term = filterState.searchTerm.toLowerCase();
+                    const matches = d.name.toLowerCase().includes(term) ||
+                                  d.id.toLowerCase().includes(term) ||
+                                  (d.environment && d.environment.toLowerCase().includes(term)) ||
+                                  d.category.toLowerCase().includes(term);
+                    if (!matches) return false;
+                }
+
+                // Category filter (OR logic within facet)
+                if (filterState.categories.size > 0 &&
+                    !filterState.categories.has(d.category)) return false;
+
+                // State filter
+                if (filterState.ecologicalStates.size > 0 &&
+                    !filterState.ecologicalStates.has(d.ecological_state)) return false;
+
+                // Origin filter
+                if (filterState.origins.size > 0 &&
+                    !filterState.origins.has(d.origin)) return false;
+
+                return true;
+            });
+        }
+
+        // Update visualization with filtered data
+        function updateFiltering() {
+            const filteredData = applyFilters();
+            const filteredIds = new Set(filteredData.map(fd => fd.id));
+
+            // Update point visibility and highlighting
+            g.selectAll('.point')
+                .classed('highlighted', d => {
+                    return filterState.searchTerm && filteredIds.has(d.id);
+                })
+                .attr('opacity', d => {
+                    return filteredIds.has(d.id) ? 0.8 : 0.1;
+                });
+
+            // Update counts
+            d3.select('#results-count').text(filteredData.length);
+            updateFilterCounts(filteredData);
+            updateActiveFiltersSummary();
+        }
+
+        // Update facet counts based on current filters
+        function updateFilterCounts(filteredData) {
+            // Count within filtered data
+            const categoryCounts = {};
+            const stateCounts = {};
+            const originCounts = {};
+
+            filteredData.forEach(d => {
+                categoryCounts[d.category] = (categoryCounts[d.category] || 0) + 1;
+                stateCounts[d.ecological_state] = (stateCounts[d.ecological_state] || 0) + 1;
+                originCounts[d.origin] = (originCounts[d.origin] || 0) + 1;
+            });
+
+            // Update category counts
+            d3.selectAll('[data-category]').each(function() {
+                const category = d3.select(this).attr('data-category');
+                const count = categoryCounts[category] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+
+            // Update state counts
+            d3.selectAll('[data-state]').each(function() {
+                const state = d3.select(this).attr('data-state');
+                const count = stateCounts[state] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+
+            // Update origin counts
+            d3.selectAll('[data-origin]').each(function() {
+                const origin = d3.select(this).attr('data-origin');
+                const count = originCounts[origin] || 0;
+                d3.select(this).text(`(${count})`);
+            });
+        }
+
+        // Update active filters summary
+        function updateActiveFiltersSummary() {
+            const container = d3.select('#active-filters');
+            const tagsContainer = d3.select('#active-filter-tags');
+            tagsContainer.html('');
+
+            if (!filterState.hasActiveFilters()) {
+                container.style('display', 'none');
+                return;
+            }
+
+            container.style('display', 'block');
+
+            // Add search tag
+            if (filterState.searchTerm) {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(`Search: "${filterState.searchTerm}"`);
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        d3.select('#search').node().value = '';
+                        filterState.searchTerm = '';
+                        updateFiltering();
+                    });
+            }
+
+            // Add category tags
+            filterState.categories.forEach(cat => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(cat.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.categories.delete(cat);
+                        d3.select(`input[value="${cat}"][data-facet="category"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+
+            // Add state tags
+            filterState.ecologicalStates.forEach(state => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(state.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.ecologicalStates.delete(state);
+                        d3.select(`input[value="${state}"][data-facet="ecologicalState"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+
+            // Add origin tags
+            filterState.origins.forEach(origin => {
+                const tag = tagsContainer.append('div').attr('class', 'filter-tag');
+                tag.append('span').text(origin.replace(/_/g, ' '));
+                tag.append('span')
+                    .attr('class', 'filter-tag-remove')
+                    .text('✕')
+                    .on('click', () => {
+                        filterState.origins.delete(origin);
+                        d3.select(`input[value="${origin}"][data-facet="origin"]`).property('checked', false);
+                        updateFiltering();
+                    });
+            });
+        }
+
+        // Event handlers
+        let searchTimeout;
+        d3.select('#search').on('input', function() {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                filterState.searchTerm = this.value.trim();
+                updateFiltering();
+            }, 150); // 150ms debounce
+        });
+
+        d3.select('#search-clear').on('click', () => {
+            d3.select('#search').node().value = '';
+            filterState.searchTerm = '';
+            updateFiltering();
+        });
+
+        function handleFilterChange(event) {
+            const checkbox = event.target;
+            const facetType = checkbox.dataset.facet;
+            const value = checkbox.value;
+
+            let setName;
+            if (facetType === 'category') {
+                setName = 'categories';
+            } else if (facetType === 'ecologicalState') {
+                setName = 'ecologicalStates';
+            } else if (facetType === 'origin') {
+                setName = 'origins';
+            }
+
+            if (checkbox.checked) {
+                filterState[setName].add(value);
+            } else {
+                filterState[setName].delete(value);
+            }
+
+            updateFiltering();
+        }
+
+        // Select All / Clear All buttons (optimized with batch updates)
+        d3.selectAll('.select-all').on('click', function() {
+            const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
+            d3.selectAll(`input[data-facet="${facetType}"]`)
+                .each(function() {
+                    this.checked = true;
+                    filterState[setName].add(this.value);
+                });
+
+            // Single visualization update
+            updateFiltering();
+        });
+
+        d3.selectAll('.clear-all').on('click', function() {
+            const facetType = this.dataset.facet;
+            const setName = facetType === 'category' ? 'categories' :
+                           facetType === 'ecologicalState' ? 'ecologicalStates' : 'origins';
+
+            // Batch update all checkboxes without triggering individual change events
+            d3.selectAll(`input[data-facet="${facetType}"]`)
+                .each(function() {
+                    this.checked = false;
+                    filterState[setName].delete(this.value);
+                });
+
+            // Single visualization update
+            updateFiltering();
+        });
+
+        // Reset all filters
+        d3.select('#reset-all').on('click', () => {
+            filterState.reset();
+            d3.select('#search').node().value = '';
+            d3.selectAll('input[type="checkbox"]').property('checked', false);
+            updateFiltering();
+        });
+
+        // Toggle facet collapse/expand
+        function toggleFacet(facetId) {
+            const facetBody = d3.select(`#${facetId}`);
+            const button = facetBody.node().previousElementSibling;
+            const toggle = button.querySelector('.facet-toggle');
+
+            if (facetBody.classed('collapsed')) {
+                facetBody.classed('collapsed', false);
+                toggle.textContent = '−';
+                button.setAttribute('aria-expanded', 'true');
+            } else {
+                facetBody.classed('collapsed', true);
+                toggle.textContent = '+';
+                button.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Initialize facets when page loads
+        initializeFacets();
+
+        // Initial render
+        updateVisualization();
+
+        // Add axes
+        const xAxis = d3.axisBottom(xScale).ticks(5);
+        const yAxis = d3.axisLeft(yScale).ticks(5);
+
+        svg.append('g')
+            .attr('transform', `translate(0,${height - margin.bottom})`)
+            .call(xAxis)
+            .append('text')
+            .attr('x', width / 2)
+            .attr('y', 35)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 1');
+
+        svg.append('g')
+            .attr('transform', `translate(${margin.left},0)`)
+            .call(yAxis)
+            .append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -height / 2)
+            .attr('y', -30)
+            .attr('fill', 'currentColor')
+            .attr('text-anchor', 'middle')
+            .text('UMAP Dimension 2');
+    </script>
+</body>
+</html>
