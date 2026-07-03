@@ -28,6 +28,7 @@ class UMAPVisualizationGenerator:
         template_dir: str | None = None,
         cache_dir: str = ".umap_cache",
         force_reload: bool = False,
+        method: str = "pacmap",
         n_neighbors: int = 15,
         min_dist: float = 0.1,
         min_coverage: float = 0.5,
@@ -42,6 +43,7 @@ class UMAPVisualizationGenerator:
             template_dir: Template directory (auto-detected if None)
             cache_dir: Cache directory for embeddings
             force_reload: Force reload embeddings from TSV.gz
+            method: 2D reduction method ("pacmap" default, or "umap")
             n_neighbors: UMAP n_neighbors parameter
             min_dist: UMAP min_dist parameter
             min_coverage: Minimum embedding coverage for communities
@@ -71,8 +73,10 @@ class UMAPVisualizationGenerator:
         else:
             print(f"   (skipped {skipped} due to low coverage)")
 
-        # Step 3: Run UMAP
-        reducer = UMAPReducer(n_neighbors=n_neighbors, min_dist=min_dist, random_state=42)
+        # Step 3: Run dimensionality reduction (PaCMAP default, UMAP optional)
+        reducer = UMAPReducer(
+            method=method, n_neighbors=n_neighbors, min_dist=min_dist, random_state=42
+        )
         umap_df = reducer.fit_transform(community_vectors)
 
         # Step 4: Extract metadata from community YAMLs

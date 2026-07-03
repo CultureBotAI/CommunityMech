@@ -589,6 +589,12 @@ def _apply_batch_report(report_path: Path):
     help="Force reload embeddings (ignore cache)",
 )
 @click.option(
+    "--method",
+    type=click.Choice(["pacmap", "umap"]),
+    default="pacmap",
+    help="2D reduction method (pacmap default, or umap)",
+)
+@click.option(
     "--n-neighbors",
     type=int,
     default=15,
@@ -617,6 +623,7 @@ def generate_umap(
     output: Path,
     cache_dir: Path,
     force_reload: bool,
+    method: str,
     n_neighbors: int,
     min_dist: float,
     min_coverage: float,
@@ -658,6 +665,7 @@ def generate_umap(
             output_path=str(output),
             cache_dir=str(cache_dir),
             force_reload=force_reload,
+            method=method,
             n_neighbors=n_neighbors,
             min_dist=min_dist,
             min_coverage=min_coverage,
