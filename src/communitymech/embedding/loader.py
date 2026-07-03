@@ -50,8 +50,10 @@ class EmbeddingLoader:
             fp = f"{st.st_size}-{int(st.st_mtime)}"
         except OSError:
             fp = "nostat"
+        # Non-cryptographic cache key (content fingerprint), not a security digest.
         digest = hashlib.sha1(
-            f"{self.embeddings_path.name}|{fp}|{prefix_tag}".encode()
+            f"{self.embeddings_path.name}|{fp}|{prefix_tag}".encode(),
+            usedforsecurity=False,
         ).hexdigest()[:12]
         cache_name = f"{prefix_tag}_embeddings__{digest}.pkl"
         cache_path = self.cache_dir / cache_name
