@@ -63,6 +63,20 @@ def epmc_core(pmid: str | None, doi: str | None) -> dict:
     return r
 
 
+def crossref_meta(doi: str | None) -> dict:
+    """Title + author string from CrossRef, for records not in Europe PMC (e.g. DOI-only)."""
+    if not doi:
+        return {}
+    d = _get_json(f"https://api.crossref.org/works/{urllib.parse.quote(doi)}")
+    m = (d or {}).get("message", {})
+    if not m:
+        return {}
+    authors = ", ".join(
+        " ".join(x for x in (a.get("given"), a.get("family")) if x) for a in m.get("author", [])[:6]
+    )
+    return {"title": (m.get("title") or [""])[0], "authorString": authors}
+
+
 def try_europepmc(rec: dict) -> str | None:
     pmcid = rec.get("pmcid")
     if pmcid and rec.get("isOpenAccess") == "Y":
@@ -125,6 +139,8 @@ def main(argv: list[str] | None = None) -> int:
 
     rec = epmc_core(args.pmid, args.doi)
     doi = args.doi or rec.get("doi")
+    if not rec.get("title"):  # DOI-only / not in Europe PMC — fall back to CrossRef
+        rec = {**crossref_meta(doi), **rec}
     title = args.title or re.sub(r"<[^>]+>", "", rec.get("title", "") or "")
 
     ladder = [
