@@ -83,20 +83,41 @@ PRESETS = {
 }
 
 STOPWORDS = {
-    "the", "a", "an", "of", "and", "in", "on", "for", "with", "to", "from",
-    "community", "communities", "consortium", "consortia", "coculture",
-    "co", "culture", "microbial", "synthetic", "syncom", "defined", "system",
-    "model", "based", "using", "study", "novel", "new",
+    "the",
+    "a",
+    "an",
+    "of",
+    "and",
+    "in",
+    "on",
+    "for",
+    "with",
+    "to",
+    "from",
+    "community",
+    "communities",
+    "consortium",
+    "consortia",
+    "coculture",
+    "co",
+    "culture",
+    "microbial",
+    "synthetic",
+    "syncom",
+    "defined",
+    "system",
+    "model",
+    "based",
+    "using",
+    "study",
+    "novel",
+    "new",
 }
 
 
 def _tokens(text: str) -> set[str]:
     """Lowercase alphanumeric tokens minus stopwords, length >= 4."""
-    return {
-        t
-        for t in re.findall(r"[a-z0-9]+", text.lower())
-        if len(t) >= 4 and t not in STOPWORDS
-    }
+    return {t for t in re.findall(r"[a-z0-9]+", text.lower()) if len(t) >= 4 and t not in STOPWORDS}
 
 
 def build_dedup_index(communities_dir: Path) -> dict:
@@ -190,7 +211,9 @@ def query_epmc(query: str, since: int, limit: int) -> list[dict]:
                 {
                     "pmid": r.get("pmid", ""),
                     "doi": r.get("doi", ""),
-                    "title": re.sub(r"<[^>]+>", "", html.unescape(r.get("title") or "")).rstrip("."),
+                    "title": re.sub(r"<[^>]+>", "", html.unescape(r.get("title") or "")).rstrip(
+                        "."
+                    ),
                     "abstract": re.sub(r"<[^>]+>", "", html.unescape(r.get("abstractText") or "")),
                     "year": r.get("pubYear", ""),
                     "journal": (r.get("journalInfo", {}) or {}).get("journal", {}).get("title", ""),
@@ -205,6 +228,49 @@ def query_epmc(query: str, since: int, limit: int) -> list[dict]:
     return hits[:limit]
 
 
+def crossref_doi_for_title(title: str, session: requests.Session) -> str:
+    """Best-effort DOI for a title via CrossRef, so ref-less hits can dedup by DOI.
+
+    Europe PMC AGR-source records often carry no PMID/DOI; without one a hit for an
+    already-curated paper re-surfaces as NEW. Resolving the DOI lets dedup_status
+    catch it against cited_dois. Requires a high title-token overlap to avoid
+    grabbing an unrelated DOI.
+    """
+    if not title:
+        return ""
+    try:
+        resp = session.get(
+            "https://api.crossref.org/works",
+            params={"query.bibliographic": title, "rows": "1"},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        items = resp.json().get("message", {}).get("items", [])
+    except (requests.exceptions.RequestException, ValueError):
+        return ""
+    if not items:
+        return ""
+    it = items[0]
+    cand_title = (it.get("title") or [""])[0]
+    # Require the CrossRef hit's title to substantially match the query title.
+    q, c = _tokens(title), _tokens(cand_title)
+    if q and len(q & c) / len(q) >= 0.7:
+        return (it.get("DOI") or "").strip()
+    return ""
+
+
+def backfill_missing_dois(hits: list[dict], session: requests.Session) -> int:
+    """Fill hit['doi'] from CrossRef for hits lacking both PMID and DOI. Returns count filled."""
+    filled = 0
+    for h in hits:
+        if not (h.get("pmid") or "").strip() and not (h.get("doi") or "").strip():
+            doi = crossref_doi_for_title(h.get("title", ""), session)
+            if doi:
+                h["doi"] = doi
+                filled += 1
+    return filled
+
+
 def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "scout"
 
@@ -213,7 +279,11 @@ def emit_stub(hit: dict, out_dir: Path) -> Path:
     """Write a minimal review-only draft record (placeholder id, NOT minted)."""
     stub_dir = out_dir / "stubs"
     stub_dir.mkdir(parents=True, exist_ok=True)
-    ref = f"PMID:{hit['pmid']}" if hit.get("pmid") else (f"doi:{hit['doi']}" if hit.get("doi") else "")
+    ref = (
+        f"PMID:{hit['pmid']}"
+        if hit.get("pmid")
+        else (f"doi:{hit['doi']}" if hit.get("doi") else "")
+    )
     name = hit["title"][:120]
     stub = {
         "id": "CommunityMech:XXXXXX",  # placeholder — mint via manage-identifiers
@@ -235,14 +305,24 @@ def emit_stub(hit: dict, out_dir: Path) -> Path:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
     grp = p.add_mutually_exclusive_group(required=True)
     grp.add_argument("--query", help="Free-text Europe PMC query.")
     grp.add_argument("--preset", choices=sorted(PRESETS), help="Ready-made query angle.")
-    p.add_argument("--since", type=int, default=2024, help="Earliest first-publication year (default 2024).")
-    p.add_argument("--limit", type=int, default=40, help="Max Europe PMC hits to fetch (default 40).")
-    p.add_argument("--min-score", type=int, default=1, help="Drop hits below this community-signal score.")
-    p.add_argument("--include-cited", action="store_true", help="Keep hits already cited by a record.")
+    p.add_argument(
+        "--since", type=int, default=2024, help="Earliest first-publication year (default 2024)."
+    )
+    p.add_argument(
+        "--limit", type=int, default=40, help="Max Europe PMC hits to fetch (default 40)."
+    )
+    p.add_argument(
+        "--min-score", type=int, default=1, help="Drop hits below this community-signal score."
+    )
+    p.add_argument(
+        "--include-cited", action="store_true", help="Keep hits already cited by a record."
+    )
     p.add_argument("--emit-stubs", action="store_true", help="Write review-only draft stub YAMLs.")
     p.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     args = p.parse_args(argv)
@@ -259,6 +339,12 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[scout] Europe PMC request failed: {e}", file=sys.stderr)
         return 1
     print(f"[scout] fetched {len(hits)} hits", file=sys.stderr)
+
+    # Ref-less hits (e.g. Europe PMC AGR source) can't dedup by PMID/DOI; try to
+    # resolve a DOI via CrossRef so already-curated papers don't re-surface as NEW.
+    n_filled = backfill_missing_dois(hits, requests.Session())
+    if n_filled:
+        print(f"[scout] backfilled DOIs for {n_filled} ref-less hits (CrossRef)", file=sys.stderr)
 
     index = build_dedup_index(COMMUNITIES_DIR)
     print(
@@ -306,14 +392,20 @@ def main(argv: list[str] | None = None) -> int:
             (f"_{h['dedup_detail']}_  " if h["dedup_detail"] else ""),
             f"Signals: {', '.join(h['signals']) or '—'}  ",
             "",
-            (h["abstract"][:600] + ("…" if len(h["abstract"]) > 600 else "")) if h["abstract"] else "_(no abstract)_",
+            (
+                (h["abstract"][:600] + ("…" if len(h["abstract"]) > 600 else ""))
+                if h["abstract"]
+                else "_(no abstract)_"
+            ),
             "",
         ]
     report_path.write_text("\n".join(lines))
 
     queue = [
         {
-            "reference": f"PMID:{h['pmid']}" if h["pmid"] else (f"doi:{h['doi']}" if h["doi"] else ""),
+            "reference": (
+                f"PMID:{h['pmid']}" if h["pmid"] else (f"doi:{h['doi']}" if h["doi"] else "")
+            ),
             "title": h["title"],
             "year": h["year"],
             "journal": h["journal"],
@@ -334,8 +426,7 @@ def main(argv: list[str] | None = None) -> int:
 
     n_new = sum(1 for h in candidates if h["dedup"] == "NEW")
     print(
-        f"[scout] {len(candidates)} candidates ({n_new} NEW). "
-        f"Report: {report_path}{stub_note}",
+        f"[scout] {len(candidates)} candidates ({n_new} NEW). " f"Report: {report_path}{stub_note}",
         file=sys.stderr,
     )
     return 0

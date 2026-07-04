@@ -250,7 +250,7 @@ lint:
     uv run mypy src/
 
 # Full QC (validate + strict validate + lint + test)
-qc: validate-all validate-strict validate-terms-all validate-references-all lint test
+qc: validate-all validate-taxa validate-strict validate-terms-all validate-terms-taxa validate-references-all lint test
     @echo "✅ All QC checks passed!"
 
 # Check which community strains are represented in UniProt reference proteomes
