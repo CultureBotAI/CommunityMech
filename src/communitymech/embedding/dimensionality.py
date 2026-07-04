@@ -3,7 +3,7 @@
 import numpy as np
 import pandas as pd
 import umap  # type: ignore[import-untyped]
-from sklearn.preprocessing import normalize
+from sklearn.preprocessing import normalize  # type: ignore[import-untyped]
 
 
 class UMAPReducer:
@@ -70,11 +70,11 @@ class UMAPReducer:
             import pacmap  # type: ignore[import-untyped]
 
             # L2-normalize rows to mirror cosine geometry, then PCA-init + fixed seed.
-            X = normalize(vectors_matrix.astype("float32"))
+            normalized_vectors = normalize(vectors_matrix.astype("float32"))
             coords = pacmap.PaCMAP(
                 n_components=self.n_components,
                 random_state=self.random_state,
-            ).fit_transform(X, init="pca")
+            ).fit_transform(normalized_vectors, init="pca")
         elif self.method == "sfdp":
             # Force-directed (Graphviz sfdp) layout of the mutual-kNN graph over
             # the KG embeddings — a global-structure-first graph view.
