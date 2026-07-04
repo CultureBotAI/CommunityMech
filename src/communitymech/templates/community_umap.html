@@ -442,7 +442,29 @@
                 flex: 0 0 100%;
             }
         }
-    </style>
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+  :root:not([data-theme="light"]) #umap-plot{background:var(--surface)}
+  :root:not([data-theme="light"]) .point{stroke:var(--surface)}
+  :root:not([data-theme="light"]) .facet-actions button{background:var(--background);color:var(--text)}
+  :root:not([data-theme="light"]) .btn-reset{background:var(--background);color:var(--text)}
+  :root:not([data-theme="light"]) .filter-tag{background:var(--background);border-color:var(--border);color:var(--text)}
+  :root:not([data-theme="light"]) .active-filters{background:rgba(251,191,36,.12)}
+  :root:not([data-theme="light"]) .facet-checkbox:hover{background:rgba(255,255,255,.04)}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+:root[data-theme="dark"] #umap-plot{background:var(--surface)}
+:root[data-theme="dark"] .point{stroke:var(--surface)}
+:root[data-theme="dark"] .facet-actions button{background:var(--background);color:var(--text)}
+:root[data-theme="dark"] .btn-reset{background:var(--background);color:var(--text)}
+:root[data-theme="dark"] .filter-tag{background:var(--background);border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .active-filters{background:rgba(251,191,36,.12)}
+:root[data-theme="dark"] .facet-checkbox:hover{background:rgba(255,255,255,.04)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
     <script src="d3.v7.min.js"></script>
 </head>
 <body>
@@ -805,7 +827,7 @@
                     })
                     .attr('transform', 'translate(10,10)')
                     .attr('fill', d => colorScale(d))
-                    .attr('stroke', '#fff')
+                    .style('stroke', 'var(--point-stroke, #fff)')
                     .attr('stroke-width', 1);
             } else {
                 items.append('div')
@@ -1207,5 +1229,6 @@
             .attr('text-anchor', 'middle')
             .text('UMAP Dimension 2');
     </script>
+    <script src="theme-toggle.js"></script>
 </body>
 </html>
