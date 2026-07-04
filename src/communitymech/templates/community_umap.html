@@ -199,10 +199,10 @@
             stroke-width: 3px;
         }
 
-        /* Two-column layout */
+        /* Stacked layout: plot on top, facets below */
         .main-container {
-            display: grid;
-            grid-template-columns: 320px 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 1.5rem;
             margin-top: 1rem;
         }
@@ -217,17 +217,24 @@
             height: auto;
         }
 
-        /* Filter panel */
+        /* Filter panel (below the plot, full width) */
         .filter-panel {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 1.5rem;
-            position: sticky;
-            top: 2rem;
-            max-height: calc(100vh - 4rem);
-            overflow-y: auto;
-            align-self: start;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.75rem;
+            align-items: flex-start;
+        }
+
+        /* Search + summary rows span the full width of the panel */
+        .filter-panel > .search-container,
+        .filter-panel > .search-results-count,
+        .filter-panel > .active-filters {
+            flex: 0 0 100%;
+            width: 100%;
         }
 
         /* Search container */
@@ -270,14 +277,12 @@
             border-bottom: 1px solid var(--border);
         }
 
-        /* Facet sections */
+        /* Facet sections — flow horizontally below the plot */
         .facet-section {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .facet-section:last-child {
+            flex: 1 1 200px;
+            min-width: 180px;
+            margin-bottom: 0;
+            padding-bottom: 0;
             border-bottom: none;
         }
 
@@ -431,16 +436,10 @@
             color: var(--error);
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
-
-            .filter-panel {
-                position: relative;
-                top: 0;
-                max-height: none;
+        /* Responsive: stack facet columns on narrow screens */
+        @media (max-width: 700px) {
+            .facet-section {
+                flex: 0 0 100%;
             }
         }
     </style>
@@ -450,7 +449,7 @@
     <div class="container">
         <header>
             <h1>🔬 Community Embedding Space</h1>
-            <p class="subtitle">UMAP projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
+            <p class="subtitle">2D projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
         </header>
 
@@ -474,7 +473,13 @@
         </div>
 
         <div class="main-container">
-            <!-- Left sidebar: Filter panel -->
+            <!-- Plot and legend on top -->
+            <div class="plot-container">
+                <div id="umap-plot"></div>
+                <div class="legend" id="legend"></div>
+            </div>
+
+            <!-- Facet/search panel below the plot -->
             <div class="filter-panel">
                 <!-- Enhanced search -->
                 <div class="search-container">
@@ -532,12 +537,6 @@
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Right side: UMAP plot and legend -->
-            <div class="plot-container">
-                <div id="umap-plot"></div>
-                <div class="legend" id="legend"></div>
             </div>
         </div>
 

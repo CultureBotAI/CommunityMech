@@ -86,3 +86,10 @@ jobs:
       # MISSING_COLUMN). Curator-accepted residuals pass as OK_EXCEPTION.
       - name: Enforce id↔label correspondence
         run: just validate-products
+
+      # Engine A (LinkML-native) for the CommonTaxon gene records: enforce that
+      # GeneAnnotation.go_terms[].label is the canonical GO label (the
+      # go_terms id↔label binding). kb/taxa/ roots are CommonTaxon, not the
+      # schema tree_root, so this uses --target-class CommonTaxon.
+      - name: Enforce id↔label correspondence (kb/taxa go_terms)
+        run: just validate-terms-taxa
