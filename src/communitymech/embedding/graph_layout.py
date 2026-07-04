@@ -4,10 +4,12 @@ Self-contained: scikit-learn (kNN) + the `sfdp` binary (Graphviz). No pygraphviz
 pydot needed. Deterministic-ish via -Gstart=<seed>. Rows are L2-normalized so the
 Euclidean kNN mirrors the cosine metric used elsewhere. Output row order == input.
 """
+
 import subprocess
+
 import numpy as np
-from sklearn.preprocessing import normalize
-from sklearn.neighbors import kneighbors_graph
+from sklearn.neighbors import kneighbors_graph  # type: ignore[import-untyped]
+from sklearn.preprocessing import normalize  # type: ignore[import-untyped]
 
 
 def sfdp_layout(matrix, k=15, seed=42, sfdp_bin="sfdp"):
@@ -17,15 +19,23 @@ def sfdp_layout(matrix, k=15, seed=42, sfdp_bin="sfdp"):
     if n == 0:
         return np.zeros((0, 2), dtype="float32")
     k = min(k, max(1, n - 1))
-    A = kneighbors_graph(matrix, n_neighbors=k, mode="connectivity")
-    A = A.maximum(A.T)  # symmetric union-kNN graph
-    coo = A.tocoo()
-    edges = {(min(i, j), max(i, j)) for i, j in zip(coo.row.tolist(), coo.col.tolist()) if i != j}
-    dot = "\n".join(["graph G {"] + [f"{i};" for i in range(n)]
-                    + [f"{i}--{j};" for i, j in edges] + ["}"])
+    adj = kneighbors_graph(matrix, n_neighbors=k, mode="connectivity")
+    adj = adj.maximum(adj.T)  # symmetric union-kNN graph
+    coo = adj.tocoo()
+    edges = {
+        (min(i, j), max(i, j))
+        for i, j in zip(coo.row.tolist(), coo.col.tolist(), strict=True)
+        if i != j
+    }
+    dot = "\n".join(
+        ["graph G {"] + [f"{i};" for i in range(n)] + [f"{i}--{j};" for i, j in edges] + ["}"]
+    )
     out = subprocess.run(
         [sfdp_bin, "-Tplain", f"-Gstart={seed}", "-Goverlap=prism", "-Gsmoothing=triangle"],
-        input=dot, capture_output=True, text=True, timeout=900,
+        input=dot,
+        capture_output=True,
+        text=True,
+        timeout=900,
     )
     if out.returncode != 0:
         raise RuntimeError(f"sfdp failed (is graphviz installed?): {out.stderr[:300]}")
@@ -33,5 +43,7 @@ def sfdp_layout(matrix, k=15, seed=42, sfdp_bin="sfdp"):
     for ln in out.stdout.splitlines():
         if ln.startswith("node "):
             p = ln.split()
-            idx = int(p[1]); xy[idx, 0] = float(p[2]); xy[idx, 1] = float(p[3])
+            idx = int(p[1])
+            xy[idx, 0] = float(p[2])
+            xy[idx, 1] = float(p[3])
     return xy
