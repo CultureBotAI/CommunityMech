@@ -15,6 +15,7 @@
             --text-muted: #64748b;
             --success: #10b981;
             --warning: #f59e0b;
+            --surface: #f8fafc;
         }
 
         * {
@@ -131,7 +132,7 @@
         }
 
         th {
-            background: #f1f5f9;
+            background: var(--surface);
             font-weight: 600;
             color: var(--text);
             border-bottom: 2px solid var(--border);
@@ -177,7 +178,7 @@
         }
 
         .interaction-flow {
-            background: #fafafa;
+            background: var(--surface);
             border-left: 3px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
@@ -323,6 +324,25 @@
 
         .network-tooltip strong {
             color: #93c5fd;
+        }
+
+        /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+        @media (prefers-color-scheme: dark){
+            :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --surface:#232a3a;}
+            :root:not([data-theme="light"]) .badge-engineered{background:#1d3358; color:#bcd4ff;}
+            :root:not([data-theme="light"]) .badge-natural{background:#143a2c; color:#9ff0c9;}
+            :root:not([data-theme="light"]) .interaction-type{background:#14351f; color:#86efac;}
+            :root:not([data-theme="light"]) .evidence-item{background:#2e2a12;}
+            :root:not([data-theme="light"]) .role-badge{background:#29224a; color:#cbb8ff;}
+        }
+        :root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --surface:#232a3a;}
+        :root[data-theme="dark"] .badge-engineered{background:#1d3358; color:#bcd4ff;}
+        :root[data-theme="dark"] .badge-natural{background:#143a2c; color:#9ff0c9;}
+        :root[data-theme="dark"] .interaction-type{background:#14351f; color:#86efac;}
+        :root[data-theme="dark"] .evidence-item{background:#2e2a12;}
+        :root[data-theme="dark"] .role-badge{background:#29224a; color:#cbb8ff;}
+        @media (prefers-reduced-motion: reduce){
+            *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
         }
     </style>
 </head>
@@ -520,7 +540,7 @@
                 
 
                 
-                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--surface); border-radius: 4px;">
                     <strong>Preparation notes:</strong> Layer ~1 cm air-dried sieved garden loam, add deionised water to 7-10 cm depth. Autoclave 15 min at 15 psi on 2 consecutive days. Add ampicillin from filter-sterilized stock.
                 </p>
                 
@@ -631,7 +651,7 @@
                 
 
                 
-                <p style="margin-top: 1rem; padding: 0.75rem; background: #f8fafc; border-radius: 4px;">
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--surface); border-radius: 4px;">
                     <strong>Preparation notes:</strong> Modified with reduced NaCl concentration for low-salt adaptation.
                 </p>
                 
@@ -667,6 +687,6 @@
         </div>
     </footer>
 
-    
+    <script src="../theme-toggle.js"></script>
 </body>
 </html>
