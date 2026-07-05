@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Knowledge gaps & discussions</title>
 <style>
-  :root { --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#2a6; --bg:#fff; }
+  :root { --fg:#1a1a1a; --muted:#666; --line:#e2e2e2; --accent:#2a6; --bg:#fff; --card:#fff; }
   * { box-sizing: border-box; }
   body { font-family: -apple-system, system-ui, sans-serif; color: var(--fg); margin: 0; background: var(--bg); }
   header { padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); }
@@ -27,6 +27,20 @@
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .empty { color: var(--muted); padding: 2rem; text-align: center; }
+  /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){--fg:#e8ecf4; --muted:#99a2b5; --line:#2a3142; --accent:#5fbf90; --bg:#101420; --card:#1a1f2e;}
+    :root:not([data-theme="light"]) .badge{background:#243044; color:#cdd7ff;}
+    :root:not([data-theme="light"]) .badge.gap{background:#3a2330; color:#f2b8c6;}
+    :root:not([data-theme="light"]) .rationale{color:#c9d2e3;}
+  }
+  :root[data-theme="dark"]{--fg:#e8ecf4; --muted:#99a2b5; --line:#2a3142; --accent:#5fbf90; --bg:#101420; --card:#1a1f2e;}
+  :root[data-theme="dark"] .badge{background:#243044; color:#cdd7ff;}
+  :root[data-theme="dark"] .badge.gap{background:#3a2330; color:#f2b8c6;}
+  :root[data-theme="dark"] .rationale{color:#c9d2e3;}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+  }
 </style>
 </head>
 <body>
@@ -123,5 +137,6 @@
   renderFacets(); render();
 })();
 </script>
+<script src="theme-toggle.js"></script>
 </body>
 </html>

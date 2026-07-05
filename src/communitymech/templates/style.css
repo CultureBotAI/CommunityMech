@@ -86,3 +86,22 @@ a { color: var(--accent); }
 .interaction h3 { margin: 0 0 0.4em 0; font-size: 1.05em; }
 details.evidence-list summary { cursor: pointer; padding: 0.3em 0; }
 .description { color: #444; max-width: 70ch; }
+
+/* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--fg:#e8ecf4; --muted:#99a2b5; --line:#2a3142; --bg-soft:#1a1f2e; --accent:#6ea6f0; --pass:#34d399; --warn:#fbbf24; --fail:#f87171;}
+  :root:not([data-theme="light"]) .badge{color:#cbd5e1}
+  :root:not([data-theme="light"]) .evidence blockquote.snippet{color:#cbd5e1}
+  :root:not([data-theme="light"]) .evidence p.explanation{color:#cbd5e1}
+  :root:not([data-theme="light"]) .description{color:#cbd5e1}
+  :root:not([data-theme="light"]) .interaction{background:#1a1f2e}
+}
+:root[data-theme="dark"]{--fg:#e8ecf4; --muted:#99a2b5; --line:#2a3142; --bg-soft:#1a1f2e; --accent:#6ea6f0; --pass:#34d399; --warn:#fbbf24; --fail:#f87171;}
+:root[data-theme="dark"] .badge{color:#cbd5e1}
+:root[data-theme="dark"] .evidence blockquote.snippet{color:#cbd5e1}
+:root[data-theme="dark"] .evidence p.explanation{color:#cbd5e1}
+:root[data-theme="dark"] .description{color:#cbd5e1}
+:root[data-theme="dark"] .interaction{background:#1a1f2e}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}

@@ -85,7 +85,11 @@ class UMAPVisualizationGenerator:
         print(f"\n📝 Generated data for {len(community_data)} communities")
 
         # Step 5: Render HTML template
-        self._render_html(community_data, output_path, template_dir)
+        # User-facing projection label (axis captions); drives the PaCMAP vs
+        # UMAP vs graph-layout wording from the actual reduction method.
+        projection_labels = {"pacmap": "PaCMAP", "umap": "UMAP", "sfdp": "Layout"}
+        projection_label = projection_labels.get(method, method.upper())
+        self._render_html(community_data, output_path, template_dir, projection_label)
 
         print(f"\n✅ UMAP visualization generated: {output_path}")
         print("=" * 60)
@@ -169,6 +173,7 @@ class UMAPVisualizationGenerator:
         community_data: list[dict[str, Any]],
         output_path: str,
         template_dir: str | None = None,
+        projection_label: str = "PaCMAP",
     ):
         """Render HTML template with community data.
 
@@ -176,6 +181,7 @@ class UMAPVisualizationGenerator:
             community_data: List of community data dictionaries
             output_path: Output HTML file path
             template_dir: Template directory (auto-detected if None)
+            projection_label: User-facing name for the 2D projection axes
         """
         # Auto-detect template directory
         if template_dir is None:
@@ -193,6 +199,7 @@ class UMAPVisualizationGenerator:
         html_content = template.render(
             community_data_json=json.dumps(community_data, indent=2),
             num_communities=len(community_data),
+            projection_label=projection_label,
         )
 
         # Write output

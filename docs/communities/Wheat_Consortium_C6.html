@@ -342,7 +342,29 @@
         .network-tooltip strong {
             color: #93c5fd;
         }
-    </style>
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
 </head>
 <body>
     <header>
@@ -1006,7 +1028,7 @@
             .attr("text-anchor", "middle")
             .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
             .attr("font-size", "10px")
-            .attr("fill", "#475569");
+            .style("fill", "var(--net-label, #475569)");
 
         // Labels for interactions (multi-line, centered in rectangle)
         node.filter(function(d) { return d.type === "interaction"; })
@@ -1014,7 +1036,7 @@
                 var textElem = d3.select(this).append("text")
                     .attr("text-anchor", "middle")
                     .attr("font-size", "9px")
-                    .attr("fill", "#475569")
+                    .style("fill", "var(--net-label, #475569)")
                     .style("pointer-events", "none");
 
                 // Word-wrap text to fit in rectangle (max ~24 chars per line)
@@ -1132,5 +1154,6 @@
     })();
     </script>
     
+    <script src="../theme-toggle.js"></script>
 </body>
 </html>

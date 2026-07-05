@@ -442,13 +442,79 @@
                 flex: 0 0 100%;
             }
         }
-    </style>
+        /* Accessible data-table fallback (dataviz #10) */
+        .data-table-details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-table-details summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .data-table-wrap {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        #data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        #data-table th,
+        #data-table td {
+            text-align: left;
+            padding: 0.4rem 0.6rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        #data-table th {
+            position: sticky;
+            top: 0;
+            background: var(--surface);
+        }
+
+        #data-table a {
+            color: var(--primary);
+        }
+
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+  :root:not([data-theme="light"]) #umap-plot{background:var(--surface)}
+  :root:not([data-theme="light"]) .point{stroke:var(--surface)}
+  :root:not([data-theme="light"]) .facet-actions button{background:var(--background);color:var(--text)}
+  :root:not([data-theme="light"]) .btn-reset{background:var(--background);color:var(--text)}
+  :root:not([data-theme="light"]) .filter-tag{background:var(--background);border-color:var(--border);color:var(--text)}
+  :root:not([data-theme="light"]) .active-filters{background:rgba(251,191,36,.12)}
+  :root:not([data-theme="light"]) .facet-checkbox:hover{background:rgba(255,255,255,.04)}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+:root[data-theme="dark"] #umap-plot{background:var(--surface)}
+:root[data-theme="dark"] .point{stroke:var(--surface)}
+:root[data-theme="dark"] .facet-actions button{background:var(--background);color:var(--text)}
+:root[data-theme="dark"] .btn-reset{background:var(--background);color:var(--text)}
+:root[data-theme="dark"] .filter-tag{background:var(--background);border-color:var(--border);color:var(--text)}
+:root[data-theme="dark"] .active-filters{background:rgba(251,191,36,.12)}
+:root[data-theme="dark"] .facet-checkbox:hover{background:rgba(255,255,255,.04)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
     <script src="d3.v7.min.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🔬 Community Embedding Space</h1>
+            <h1>Community Embedding Space</h1>
             <p class="subtitle">sfdp force-directed layout of 292 microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
         </header>
@@ -539,6 +605,27 @@
                 </div>
             </div>
         </div>
+
+        <details class="data-table-details">
+            <summary>View data as table</summary>
+            <div class="data-table-wrap">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th>Community</th>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Ecological state</th>
+                            <th>Origin</th>
+                            <th>Taxa</th>
+                            <th>Interactions</th>
+                            <th>Coverage %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body"></tbody>
+                </table>
+            </div>
+        </details>
 
         <div class="info-panel">
             <h2>How to Interpret This Visualization</h2>
@@ -4652,21 +4739,25 @@
         const margin = { top: 20, right: 20, bottom: 40, left: 40 };
 
         // Color schemes for different attributes with semantic, non-clashing colors
+        // Categorical 8 (CVD-safe, ordered by frequency) + Other (grey).
+        // The 8 most frequent categories get a distinct colour; the rest
+        // (and OTHER) collapse to grey. Order is the colourblind-safety mechanism.
         const categoryColors = {
-            'AMD': '#e74c3c',                    // Red - extreme acidic
-            'BIOMINING': '#f39c12',              // Orange - metal extraction
-            'BIOREMEDIATION': '#27ae60',         // Green - cleanup/restoration
-            'BIOTECHNOLOGY': '#3498db',          // Blue - engineered systems
-            'CARBON_SEQUESTRATION': '#16a085',   // Teal - carbon cycling
-            'DIET': '#9b59b6',                   // Purple - electron transfer
-            'EXTREME_ENVIRONMENT': '#c0392b',    // Dark red - extreme
-            'LIGNOCELLULOSE': '#d35400',         // Brown-orange - plant matter
-            'METAL_REDUCTION': '#95a5a6',        // Gray - metal cycling
-            'METHANOGENESIS': '#8e44ad',         // Dark purple - methane
-            'OTHER': '#7f8c8d',                  // Medium gray - uncategorized
-            'PHYTOPLANKTON': '#1abc9c',          // Cyan - marine/aquatic
-            'RHIZOSPHERE': '#2ecc71',            // Bright green - plant roots
-            'SYNTROPHY': '#e67e22'               // Orange-red - partnerships
+            'RHIZOSPHERE': '#2a78d6',            // blue
+            'BIOTECHNOLOGY': '#1baf7a',          // aqua
+            'BIOREMEDIATION': '#eda100',         // yellow
+            'LIGNOCELLULOSE': '#008300',         // green
+            'SYNTROPHY': '#4a3aa7',              // violet
+            'METHANOGENESIS': '#e34948',         // red
+            'PHYTOPLANKTON': '#e87ba4',          // magenta
+            'CARBON_SEQUESTRATION': '#eb6834',   // orange
+            'OTHER': '#898781',                  // grey - collapsed
+            'EXTREME_ENVIRONMENT': '#898781',    // grey - collapsed
+            'BIOMINING': '#898781',              // grey - collapsed
+            'DIET': '#898781',                   // grey - collapsed
+            'AMD': '#898781',                    // grey - collapsed
+            'ORAL': '#898781',                   // grey - collapsed
+            'METAL_REDUCTION': '#898781'         // grey - collapsed
         };
 
         const stateColors = {
@@ -4682,21 +4773,24 @@
         };
 
         // Symbol shapes for each category (accessibility!)
+        // Unique shape per surviving (coloured) category; grey categories reuse
+        // the shapes but are distinguished from each other by shape alone.
         const categorySymbols = {
-            'AMD': d3.symbolCircle,              // ● Circle
-            'BIOMINING': d3.symbolSquare,        // ■ Square
-            'BIOREMEDIATION': d3.symbolTriangle, // ▲ Triangle
-            'BIOTECHNOLOGY': d3.symbolDiamond,   // ◆ Diamond
-            'CARBON_SEQUESTRATION': d3.symbolCross, // + Cross
-            'DIET': d3.symbolStar,               // ★ Star
-            'EXTREME_ENVIRONMENT': d3.symbolWye, // Y Wye
-            'LIGNOCELLULOSE': d3.symbolCircle,   // ● Circle (different color from AMD)
-            'METAL_REDUCTION': d3.symbolSquare,  // ■ Square (different color from BIOMINING)
-            'METHANOGENESIS': d3.symbolTriangle, // ▲ Triangle (different color from BIOREMEDIATION)
-            'OTHER': d3.symbolDiamond,           // ◆ Diamond (different color from BIOTECHNOLOGY)
-            'PHYTOPLANKTON': d3.symbolCross,     // + Cross (different color from CARBON_SEQ)
-            'RHIZOSPHERE': d3.symbolStar,        // ★ Star (different color from DIET)
-            'SYNTROPHY': d3.symbolWye            // Y Wye (different color from EXTREME)
+            'RHIZOSPHERE': d3.symbolCircle,          // ● Circle
+            'BIOTECHNOLOGY': d3.symbolSquare,        // ■ Square
+            'BIOREMEDIATION': d3.symbolTriangle,     // ▲ Triangle
+            'LIGNOCELLULOSE': d3.symbolDiamond,      // ◆ Diamond
+            'SYNTROPHY': d3.symbolCross,             // + Cross
+            'METHANOGENESIS': d3.symbolStar,         // ★ Star
+            'PHYTOPLANKTON': d3.symbolWye,           // Y Wye
+            'CARBON_SEQUESTRATION': d3.symbolCircle, // ● Circle (distinct colour)
+            'OTHER': d3.symbolDiamond,               // ◆ grey
+            'EXTREME_ENVIRONMENT': d3.symbolWye,     // Y grey
+            'BIOMINING': d3.symbolSquare,            // ■ grey
+            'DIET': d3.symbolStar,                   // ★ grey
+            'AMD': d3.symbolCircle,                  // ● grey
+            'ORAL': d3.symbolTriangle,               // ▲ grey
+            'METAL_REDUCTION': d3.symbolCross        // + grey
         };
 
         const colorSchemes = {
@@ -4894,7 +4988,7 @@
                     })
                     .attr('transform', 'translate(10,10)')
                     .attr('fill', d => colorScale(d))
-                    .attr('stroke', '#fff')
+                    .style('stroke', 'var(--point-stroke, #fff)')
                     .attr('stroke-width', 1);
             } else {
                 items.append('div')
@@ -5271,6 +5365,29 @@
         // Initial render
         updateVisualization();
 
+        // Populate the accessible data-table fallback (dataviz #10) from the
+        // same data the plot renders.
+        (function buildDataTable() {
+            const tbody = document.getElementById('data-table-body');
+            if (!tbody) return;
+            const esc = s => String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const rows = communityData.slice().sort((a, b) => a.name.localeCompare(b.name));
+            tbody.innerHTML = rows.map(d =>
+                '<tr>' +
+                '<td><a href="' + esc(d.url) + '">' + esc(d.name) + '</a></td>' +
+                '<td>' + esc(d.id) + '</td>' +
+                '<td>' + esc(d.category) + '</td>' +
+                '<td>' + esc(d.ecological_state) + '</td>' +
+                '<td>' + esc(d.origin) + '</td>' +
+                '<td>' + esc(d.num_taxa) + '</td>' +
+                '<td>' + esc(d.num_interactions) + '</td>' +
+                '<td>' + (typeof d.coverage_pct === 'number'
+                    ? d.coverage_pct.toFixed(1) : esc(d.coverage_pct)) + '</td>' +
+                '</tr>'
+            ).join('');
+        })();
+
         // Add axes
         const xAxis = d3.axisBottom(xScale).ticks(5);
         const yAxis = d3.axisLeft(yScale).ticks(5);
@@ -5283,7 +5400,7 @@
             .attr('y', 35)
             .attr('fill', 'currentColor')
             .attr('text-anchor', 'middle')
-            .text('UMAP Dimension 1');
+            .text('Layout Dimension 1');
 
         svg.append('g')
             .attr('transform', `translate(${margin.left},0)`)
@@ -5294,7 +5411,8 @@
             .attr('y', -30)
             .attr('fill', 'currentColor')
             .attr('text-anchor', 'middle')
-            .text('UMAP Dimension 2');
+            .text('Layout Dimension 2');
     </script>
+    <script src="theme-toggle.js"></script>
 </body>
 </html>
