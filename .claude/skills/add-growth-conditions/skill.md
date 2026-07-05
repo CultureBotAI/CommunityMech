@@ -49,9 +49,15 @@ numerics are floats.
 2. Fetch the abstract — Europe PMC core:
    `…/webservices/rest/search?query=EXT_ID:<pmid>%20AND%20SRC:MED&format=json&resultType=core`
    (DOI: `query=DOI:"<doi>"`).
-3. If open-access, fetch Methods from full text: get `pmcid` from the core
-   result, then `…/webservices/rest/<PMCID>/fullTextXML` (`curl --compressed`).
-   Optionally WebSearch/WebFetch for the Methods if not OA.
+3. Locate legal full text via the access ladder — `scripts/fulltext_access.py
+   --pmid <pmid>` (or `--doi <doi>`). It tries, in order: **Europe PMC OA**
+   (`fullTextXML`) → **Unpaywall** best OA location (free) → **CORE** (set
+   `CORE_API_KEY`) → and if none, prints an **author-request email draft**.
+   - `ACCESS <method> <url>` → fetch that URL for the Methods (`curl --compressed`
+     for the EPMC XML).
+   - `NO_LEGAL_OA` → the paper is closed-access with no legal OA copy; use only
+     abstract-level conditions, and surface the author-request draft to the
+     curator. **Never** use Sci-Hub or other gray-area sources.
 4. Extract conditions → one `growth_media` entry (+ `cultivation_setup` if a
    defined reactor). Insert as new top-level keys (append near end of file);
    keep existing content byte-for-byte.
