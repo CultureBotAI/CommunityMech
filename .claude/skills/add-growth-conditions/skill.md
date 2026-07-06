@@ -4,7 +4,7 @@ description: Deep-research and add source-backed growth/cultivation conditions (
 category: research
 requires_database: false
 requires_internet: true
-version: 1.0.0
+version: 1.1.0
 ---
 
 # Add Growth Conditions to Community Records
@@ -87,19 +87,44 @@ growth_media:
 
 ## Running for the whole KB (sweep)
 
-1. Enumerate records lacking `growth_media`:
+Use the **sweep runner** — `scripts/growth_conditions_sweep.py` — to do the
+deterministic prep (enumerate candidates, resolve each record's primary
+reference, fetch the abstract, run the access ladder) *once*, so extraction
+agents start from a ready source bundle instead of each re-fetching. The runner
+**never edits `kb/`**; it only writes staging files under
+`reports/growth_conditions_sweep/`, so a curator can review the prep first.
+
+1. **List** candidates (records with neither `growth_media` nor
+   `cultivation_setup`):
    ```bash
-   for f in kb/communities/*.yaml; do
-     grep -qE '^growth_media:|^cultivation_setup:' "$f" || echo "$f"
-   done
+   uv run python scripts/growth_conditions_sweep.py --list
    ```
-2. Fan out one agent per record (or a few records per agent), each following the
-   per-record workflow. Cap concurrency; process in waves.
-3. **Expect partial yield.** Many sources are paywalled, so a large fraction will
+2. **Prep** the source bundles (live network fetch; `--limit N` for a test batch,
+   or pass explicit record paths):
+   ```bash
+   uv run python scripts/growth_conditions_sweep.py --prep            # all missing
+   uv run python scripts/growth_conditions_sweep.py --prep --limit 5  # test batch
+   ```
+   This writes one `reports/growth_conditions_sweep/<Record>.md` per record
+   (primary ref, title, **frequency-ranked list of every cited ref**, abstract,
+   and either the OA Methods URL to `curl --compressed` or an author-request
+   draft) plus an **`INDEX.md`** progress report bucketing each record as
+   `OA_FULLTEXT` / `ABSTRACT_ONLY` / `NO_REFERENCE` with counts.
+3. **Read `INDEX.md`.** Start with the `OA_FULLTEXT` rows — Methods are reachable,
+   so those yield the richest blocks. `ABSTRACT_ONLY` rows are paywalled: extract
+   only abstract-level conditions (often just `atmosphere` + notes) or leave
+   unchanged and keep the author-request draft.
+4. **Fan out** one agent per record (or a few per agent), each fed its bundle +
+   the per-record workflow above. Cap concurrency; process in waves. ⚠️ The
+   *primary* (most-cited) ref is sometimes a **review**, not the community's
+   methods paper — if its abstract/full text describes no cultivation of *this*
+   community, have the agent pick a better ref from the ranked list in the bundle.
+5. **Expect partial yield.** Many sources are paywalled, so a large fraction will
    legitimately get no conditions — that is the correct outcome, not a failure.
-   Track: enriched vs. no-conditions-reported vs. paywalled.
-4. After each wave, run `just validate-all` + `just validate-terms-all` and
-   commit the enriched records.
+   The `INDEX.md` buckets set the expectation up front.
+6. After each wave, run `just validate-all` + `just validate-terms-all` and
+   commit the enriched records. Re-running `--prep` regenerates `INDEX.md`, and
+   enriched records drop out of `--list` automatically (they now have a block).
 
 ## Interpreting results
 
@@ -118,6 +143,8 @@ growth_media:
 
 ## Related scripts / schema
 
+- `scripts/growth_conditions_sweep.py` — sweep prep runner (`--list` / `--prep`);
+  reuses `scripts/fulltext_access.py` for the access ladder.
 - Slots: `MicrobialCommunity.growth_media` (`GrowthMedia`),
   `MicrobialCommunity.cultivation_setup` (`CultivationSetup`) — see
   `src/communitymech/schema/communitymech.yaml`.
