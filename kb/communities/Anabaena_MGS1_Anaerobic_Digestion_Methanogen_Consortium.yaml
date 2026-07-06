@@ -1,0 +1,269 @@
+id: CommunityMech:000307
+name: Anabaena / MGS-1 Anaerobic-Digestion Methanogen Consortium
+description: >
+  An anaerobic-digestion microbial consortium studied as part of a bioregenerative
+  life-support concept for Mars: cyanobacterial biomass (Anabaena sp.), which can be
+  grown on Martian resources, is anaerobically digested to mobilize nutrients
+  (ammonium and phosphate) for use as a crop fertilizer, with biogas as a co-product.
+  Ramalho et al. (2025, Bioresource Technology) tested three microbial communities
+  for their ability to digest Anabaena biomass in three matrices — a minimal medium,
+  200 g/L MGS-1 Mars regolith simulant, and water. In minimal medium the taxonomic
+  (16S) analysis revealed a SYNTROPHIC community: fermentative bacteria degrade the
+  cyanobacterial biomass and cross-feed hydrogenotrophic methanogenic archaea
+  (interspecies H2/CO2 transfer driving methanogenesis). In the MGS-1 regolith
+  matrix, however, the methanogens were outcompeted by sulfate-reducing bacteria, and
+  the regolith also adsorbed organics and lowered phosphate/ammonium recovery. The
+  Anabaena biomass here is the digestion FEEDSTOCK (substrate) rather than a live
+  member of the digesting consortium. All communities produced ammonium and removed
+  organic carbon, supporting the viability of a Mars-relevant bioprocess for
+  fertilizer production. The specific dominant genera resolved by the paper's 16S
+  analysis are reported in the full text, which is paywalled; only the functional
+  guilds (fermentative bacteria, hydrogenotrophic methanogens, sulfate-reducing
+  bacteria) are named in the openly available abstract and are therefore represented
+  here as interactions/roles rather than as NCBITaxon-grounded members.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: SYNTROPHY
+engineering_design:
+  objective: >
+    Determine whether the nutrients mobilized by Mars-grown cyanobacteria can be
+    extracted through anaerobic digestion of the cyanobacterial biomass and used as a
+    crop fertilizer, including under a Mars regolith-simulant matrix.
+  assembly_strategy: >
+    Inoculate three microbial communities into three matrices — a minimal medium,
+    200 g/L MGS-1 Mars regolith simulant, and water — each supplied with Anabaena sp.
+    cyanobacterial biomass as the digestion feedstock, and follow ammonium production,
+    organic-carbon removal, and community composition (16S taxonomic analysis).
+  measurement_endpoints:
+  - Ammonium production
+  - Organic carbon removal
+  - Phosphate and ammonium recovery efficiency
+  - Microbial community composition (16S taxonomic analysis)
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We therefore tested the abilities of three microbial communities to
+    explanation: States the study design of testing three microbial communities for anaerobic digestion.
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nutrients they mobilize could be extracted through anaerobic digestion and used
+    explanation: States the fertilizer-production objective driving the community design.
+environment_term:
+  preferred_term: anaerobic-digestion laboratory culture (Mars regolith-simulant context)
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled laboratory anaerobic-digestion experiment rather than a sampled natural
+    community. The applied context is a Mars bioregenerative life-support system in
+    which cyanobacterial biomass is digested in a 200 g/L MGS-1 Mars regolith-simulant
+    matrix; the Mars/simulant context is captured in the description and environmental
+    factors rather than as an ENVO term.
+taxonomy:
+- taxon_term:
+    preferred_term: Anabaena sp. (cyanobacterial digestion feedstock)
+    term:
+      id: NCBITaxon:1163
+      label: Anabaena
+    notes: >
+      FEEDSTOCK / SUBSTRATE, not a live member of the digesting consortium: Anabaena
+      sp. biomass is the cyanobacterial material that the anaerobic-digestion
+      communities break down. Grounded at genus level because the source reports only
+      "Anabaena sp." (no species/strain in the openly available abstract). Listed under
+      taxonomy so the feedstock organism is captured with its NCBITaxon grounding.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: digest the biomass of Anabaena sp. in minimal medium,
+    explanation: Names Anabaena sp. biomass as the feedstock digested by the communities.
+ecological_interactions:
+- name: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+  description: >
+    In minimal medium, fermentative bacteria degrade the Anabaena biomass and their
+    fermentation products (notably H2 and CO2, and acetate) are consumed by
+    hydrogenotrophic methanogenic archaea, forming a syntrophic cross-feeding loop that
+    drives methanogenesis. Both partners are named only as functional guilds in the
+    openly available abstract, so this is captured as a community-level interaction
+    without NCBITaxon-grounded source/target taxa.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: taxonomic analysis revealed a syntrophic fermentative community and
+    explanation: Identifies a syntrophic fermentative community in the minimal-medium digestion.
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
+    explanation: Identifies hydrogenotrophic methanogens as the syntrophic partners, consistent with interspecies H2 transfer and methanogenesis.
+- name: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
+  description: >
+    In the 200 g/L MGS-1 Mars regolith-simulant matrix, sulfate-reducing bacteria
+    outcompeted the hydrogenotrophic methanogens — a competition for shared electron
+    donors (H2/acetate) in which dissimilatory sulfate reduction displaces
+    methanogenesis. Represented as a community-level interaction because the competing
+    guilds are not resolved to NCBITaxon-grounded taxa in the available abstract.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in MGS-1 by sulfate-reducing bacteria.
+    explanation: States that sulfate-reducing bacteria outcompeted the methanogens in the MGS-1 regolith matrix.
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
+    explanation: States that methanogens were outcompeted in MGS-1, the basis for the competition interaction.
+environmental_factors:
+- name: MGS-1 Mars regolith simulant matrix
+  value: 200 g/L MGS-1 Mars global simulant
+  description: >
+    Anaerobic digestion was tested in a 200 g/L MGS-1 Mars regolith-simulant matrix
+    (alongside minimal medium and water). The regolith adsorbed organics and reduced
+    phosphate and ammonium recovery efficiency, and shifted the community toward
+    sulfate-reducing bacteria over methanogens.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simulant (MGS-1), and water.
+    explanation: Names the MGS-1 Mars regolith simulant as one of the tested digestion matrices.
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: adsorbed organics and reduced the phosphate and ammonium recovery efficiency. A
+    explanation: Describes the effect of the MGS-1 regolith on organics and nutrient recovery.
+- name: Anaerobic-digestion nutrient outputs
+  value: ammonium production and organic-carbon removal
+  description: >
+    All three communities produced ammonium and removed organic carbon across the
+    tested media, the fertilizer-relevant outputs of the bioprocess.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All communities produced ammonium and removed organic carbon in all
+    explanation: States ammonium production and organic-carbon removal as the community outputs.
+growth_media:
+- name: Anabaena anaerobic-digestion assay (minimal medium / MGS-1 / water)
+  atmosphere: ANAEROBIC
+  preparation_notes: >
+    Three matrices were tested for anaerobic digestion of Anabaena sp. biomass: a
+    minimal medium, 200 g/L MGS-1 Mars regolith simulant, and water. Detailed medium
+    composition, temperature, pH, and incubation parameters are in the paper's Methods,
+    which is paywalled and therefore not asserted here.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: digest the biomass of Anabaena sp. in minimal medium,
+    explanation: Names the minimal medium matrix used for the digestion assay.
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simulant (MGS-1), and water.
+    explanation: Completes the set of three tested matrices (adds water) for the digestion assay.
+external_resources:
+- name: Primary publication - anaerobic digestion of cyanobacterial biomass for Mars fertilizer
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2025.132383
+  url: https://doi.org/10.1016/j.biortech.2025.132383
+  description: >
+    Ramalho et al. 2025, Bioresource Technology — tests three microbial communities for
+    anaerobic digestion of Anabaena sp. biomass in minimal medium, 200 g/L MGS-1 Mars
+    regolith simulant, and water, for Mars crop-fertilizer production.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this study suggests the viability of a bioprocess which could
+    explanation: Identifies this publication as the primary source describing the community and bioprocess.
+- name: NCBI Taxonomy - Anabaena
+  repository: OTHER
+  resource_id: NCBITaxon:1163
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1163
+  description: NCBI Taxonomy record for the genus Anabaena (cyanobacterial digestion feedstock).
+related_ingredients:
+- preferred_term: ammonium
+  chebi_term:
+    id: CHEBI:28938
+    label: ammonium
+  relevance: >
+    Ammonium is the key fertilizer-relevant nutrient released by anaerobic digestion of
+    the Anabaena biomass; MGS-1 regolith reduced its recovery efficiency.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All communities produced ammonium and removed organic carbon in all
+    explanation: Names ammonium as a produced nutrient output of the digestion communities.
+- preferred_term: methane
+  chebi_term:
+    id: CHEBI:16183
+    label: methane
+  relevance: >
+    Methane is the biogas product of the hydrogenotrophic methanogens in the syntrophic
+    minimal-medium community.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
+    explanation: Names hydrogenotrophic methanogens whose metabolic product is methane.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  Not a metals community. MGS-1 Mars regolith simulant is used here as a physical
+  digestion matrix, not for metal extraction or bioleaching; no metal or rare-earth
+  transformation role is curated.
