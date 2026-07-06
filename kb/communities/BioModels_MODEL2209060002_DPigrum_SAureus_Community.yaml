@@ -118,6 +118,52 @@ associated_datasets:
   accession: doi:10.3389/fcimb.2022.925215
   url: https://doi.org/10.3389/fcimb.2022.925215
   description: Community GEM and use-case for nasal microbiome-relevant interaction modeling.
+growth_media:
+- name: SNM3 (synthetic nasal medium, in silico)
+  composition:
+  - name: oxygen
+  - name: iron
+  headspace_gas: Oxygen available in silico (nose provides both aerobic and anaerobic conditions);
+    oxygen exchange lower bound set to -20 mmol/(gDW*h)
+  preparation_notes: In silico constraint-based (FBA/FVA) medium, not a bench culture. Main
+    medium is SNM3, a defined synthetic medium developed to mimic the human nose environment;
+    exchange-reaction lower bounds for metabolites present in SNM3 were set to -10 mmol/(gDW*h),
+    except -20 (oxygen) and -0.1 (iron); all other exchanges set to 0. Two additional derived
+    media were also used - a rich medium (COMPM) and a poor medium (COOPM). No temperature, pH,
+    or physical cultivation parameters are reported because the study is purely computational.
+  evidence:
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The main medium applied herein is SNM3
+    explanation: Names SNM3 as the defined medium used for the community metabolic model.
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: a unique SNM3 has been developed
+    explanation: Establishes SNM3 as a defined medium formulated to mimic the human nasal habitat.
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: to mimic the human nose environment
+    explanation: SNM3 was designed to represent the nasal environment simulated by this community model.
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: except oxygen and iron
+    explanation: Oxygen and iron receive special exchange bounds in the SNM3 medium definition,
+      indicating oxygen availability in the model.
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: provides both aerobic and anaerobic living conditions
+    explanation: The modeled nasal habitat provides both aerobic and anaerobic conditions, so no
+      single atmosphere enum is asserted.
+  - reference: doi:10.3389/fcimb.2022.925215
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: one medium as rich in the nutrients of the human nose and the other one as poor in the nutrients
+    explanation: Two additional derived media (rich COMPM and poor COOPM) were used alongside SNM3.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS

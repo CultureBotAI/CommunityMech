@@ -177,7 +177,8 @@
         }
 
         .interaction-flow {
-            background: #fafafa;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
@@ -199,7 +200,8 @@
         }
 
         .evidence-item {
-            background: #fefce8;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid #ca8a04;
             padding: 0.75rem;
             margin: 0.5rem 0;
@@ -381,7 +383,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Community ID</span>
                     <span class="metadata-value">
-                        <code style="background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000139</code>
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000139</code>
                     </span>
                 </div>
 
@@ -761,17 +763,6 @@
                 
 
                 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-                    
-                    <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
-                    
-                </ul>
-                
 
                 
 
@@ -984,6 +975,69 @@
 
         <!-- Growth Media -->
         
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    domestic wastewater (full-scale EBPR activated sludge)
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+
+                    
+                </div>
+
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Municipal EBPR plant fed mainly domestic wastewater; influent phosphorus 10-20 mg P/L with &gt;95% removal and effluent below 0.5 mg P/L. No incubation temperature, pH, or defined atmosphere reported for this full-scale in situ community.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/22170425"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:22170425
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"Activated sludge was taken from the aeration tank at Aalborg East WWTP, Denmark (57.044565° N, 10.047598° E) on 4 August 2009."</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/22170425"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:22170425
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"The plant had stable EBPR performance for several years prior to the time of sampling removing &gt;95% of the incoming P (10-20 mg P l-1) resulting in effluent concentrations below 0.5 mg P l-1."</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
     </main>
 
     <footer>
@@ -1109,10 +1163,6 @@
             
             
             var processes = [];
-            
-            
-            processes.push("oxidation-reduction process");
-            
             
             var evidenceCount = 1;
 
