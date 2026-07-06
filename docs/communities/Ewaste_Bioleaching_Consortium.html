@@ -177,7 +177,8 @@
         }
 
         .interaction-flow {
-            background: #fafafa;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
@@ -199,7 +200,8 @@
         }
 
         .evidence-item {
-            background: #fefce8;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid #ca8a04;
             padding: 0.75rem;
             margin: 0.5rem 0;
@@ -381,7 +383,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Community ID</span>
                     <span class="metadata-value">
-                        <code style="background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000026</code>
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000026</code>
                     </span>
                 </div>
 
@@ -769,12 +771,6 @@
                 <ul>
                     
                     <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
-                    
-                    <li>
                         iron ion transport
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0006826"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0006826</a>)
@@ -875,17 +871,6 @@
                 
 
                 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-                    
-                    <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
-                    
-                </ul>
-                
 
                 
 
@@ -952,12 +937,6 @@
                 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-                    
-                    <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
                     
                     <li>
                         sulfur compound metabolic process
@@ -1112,12 +1091,6 @@
                 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-                    
-                    <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
                     
                     <li>
                         nitrogen fixation
@@ -1332,6 +1305,84 @@
 
         <!-- Growth Media -->
         
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    0Cm mineral salts medium (acidophilic iron-oxidizing culture)
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">1.2</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">35 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">AEROBIC</span>
+                    </div>
+                    
+                </div>
+
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> 0Cm basal salts medium derived from 0Km with reduced (NH4)2SO4; pH maintained at 1.2 with H2SO4.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmicb.2021.669738
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"The temperature of the reactor was maintained at 35°C with a thermostatic bath (Lauda), and the pH was daily adjusted to 1.2 with H2SO4"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmicb.2021.669738"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmicb.2021.669738
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"mixing of gas, liquid, and solids with a stirring speed of 650 rpm"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
     </main>
 
     <footer>
@@ -1433,8 +1484,6 @@
             var processes = [];
             
             
-            processes.push("oxidation-reduction process");
-            
             processes.push("iron ion transport");
             
             processes.push("carbon fixation");
@@ -1481,10 +1530,6 @@
             
             var processes = [];
             
-            
-            processes.push("oxidation-reduction process");
-            
-            
             var evidenceCount = 2;
 
             nodes.push({
@@ -1525,8 +1570,6 @@
             
             var processes = [];
             
-            
-            processes.push("oxidation-reduction process");
             
             processes.push("sulfur compound metabolic process");
             
@@ -1610,8 +1653,6 @@
             
             var processes = [];
             
-            
-            processes.push("oxidation-reduction process");
             
             processes.push("nitrogen fixation");
             

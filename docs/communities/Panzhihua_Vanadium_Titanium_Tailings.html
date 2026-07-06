@@ -177,7 +177,8 @@
         }
 
         .interaction-flow {
-            background: #fafafa;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
@@ -199,7 +200,8 @@
         }
 
         .evidence-item {
-            background: #fefce8;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid #ca8a04;
             padding: 0.75rem;
             margin: 0.5rem 0;
@@ -381,7 +383,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Community ID</span>
                     <span class="metadata-value">
-                        <code style="background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000051</code>
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000051</code>
                     </span>
                 </div>
 
@@ -1029,12 +1031,6 @@
                 <ul>
                     
                     <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
-                    
-                    <li>
                         dissimilatory reduction
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0019645"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0019645</a>)
@@ -1130,12 +1126,6 @@
                         carbon utilization
                         (<a href="http://amigo.geneontology.org/amigo/term/GO:0015976"
                             class="term-link" target="_blank" rel="noopener noreferrer">GO:0015976</a>)
-                    </li>
-                    
-                    <li>
-                        organic substance catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:1901575"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:1901575</a>)
                     </li>
                     
                     <li>
@@ -1319,12 +1309,6 @@
                 
                 <p><strong>Biological Processes:</strong></p>
                 <ul>
-                    
-                    <li>
-                        oxidation-reduction process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0055114"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0055114</a>)
-                    </li>
                     
                     <li>
                         cellular response to metal ion
@@ -1626,6 +1610,87 @@
 
         <!-- Growth Media -->
         
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    yeast mannitol agar (YMA)
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">28 °C</span>
+                    </div>
+                    
+
+                    
+                </div>
+
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Rhizobia isolated from surface-sterilized P. pinnata root nodules and streaked on Congo red YMA (mannitol/yeast extract, pH 7.0-7.2); heavy-metal tolerance assayed in YMA liquid medium (pH 7.0). Host P. pinnata plants were cultivated in pots of VTM tailings in a greenhouse (day 25°C for 16 h, night 17°C for 8 h) until nodulation.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmicb.2023.1078333"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmicb.2023.1078333
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"after incubation in an orbital shaker (28°C, 150 rpm) for seven days"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmicb.2023.1078333"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmicb.2023.1078333
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"Congo red-containing yeast mannitol agar (YMA, 10.0 g/L mannitol, 1.0 g/L yeast extract"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmicb.2023.1078333"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmicb.2023.1078333
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"The pots were kept in a greenhouse with a day temperature of 25°C for 16 h and a night temperature of 17°C for 8 h"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
     </main>
 
     <footer>
@@ -1830,8 +1895,6 @@
             var processes = [];
             
             
-            processes.push("oxidation-reduction process");
-            
             processes.push("dissimilatory reduction");
             
             processes.push("cellular detoxification");
@@ -1874,8 +1937,6 @@
             
             
             processes.push("carbon utilization");
-            
-            processes.push("organic substance catabolic process");
             
             processes.push("cellular carbohydrate metabolic process");
             
@@ -1966,8 +2027,6 @@
             
             var processes = [];
             
-            
-            processes.push("oxidation-reduction process");
             
             processes.push("cellular response to metal ion");
             

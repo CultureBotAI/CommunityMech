@@ -177,7 +177,8 @@
         }
 
         .interaction-flow {
-            background: #fafafa;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid var(--primary);
             padding: 1rem;
             margin: 1rem 0;
@@ -199,7 +200,8 @@
         }
 
         .evidence-item {
-            background: #fefce8;
+            background: var(--background);
+            color: var(--text);
             border-left: 3px solid #ca8a04;
             padding: 0.75rem;
             margin: 0.5rem 0;
@@ -381,7 +383,7 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Community ID</span>
                     <span class="metadata-value">
-                        <code style="background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000030</code>
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000030</code>
                     </span>
                 </div>
 
@@ -763,17 +765,6 @@
                 
 
                 
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-                    
-                    <li>
-                        aromatic compound catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0019439"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0019439</a>)
-                    </li>
-                    
-                </ul>
-                
 
                 
 
@@ -854,6 +845,66 @@
         
 
         <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    marine medium (filtered-sterilized seawater) with API 35 crude oil as sole carbon source
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">30 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">AEROBIC</span>
+                    </div>
+                    
+                </div>
+
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> 0.5 g/L sterile API 35 GoM crude oil supplied as the sole carbon source; N and P added at a 100:10:1 C:N:P ratio.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://doi.org/10.3389/fmars.2022.962071"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            doi:10.3389/fmars.2022.962071
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"Glass flasks containing 20 mL of marine medium were inoculated with each consortium and incubated for 75 days at 30°C, 180 RPM."</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
         
     </main>
 
@@ -993,10 +1044,6 @@
             
             
             var processes = [];
-            
-            
-            processes.push("aromatic compound catabolic process");
-            
             
             var evidenceCount = 1;
 
