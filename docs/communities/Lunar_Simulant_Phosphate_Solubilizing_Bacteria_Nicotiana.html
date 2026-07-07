@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Regolith Simulant Phosphorus-Solubilizing Bacteria for Nicotiana benthamiana - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <h1>Lunar Regolith Simulant Phosphorus-Solubilizing Bacteria for Nicotiana benthamiana</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000306</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        lunar regolith simulant plant-cultivation laboratory experiment
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A defined set of phosphorus-solubilizing bacteria (PSBs) assembled to improve the fertility of lunar regolith simulant for in-situ resource utilization (ISRU) agriculture in bioregenerative life support systems. Five commonly used microbial-fertilizer strains were tested on a CAS-1 lunar soil simulant: Bacillus mucilaginosus (AS1.232), Bacillus megaterium (AS1.217), Bacillus subtilis (CMCC 63501), Bacillus licheniformis (ATCC 11946), and Pseudomonas fluorescens (ATCC 13525). In a 21-day bio-improving experiment followed by a 24-day Nicotiana benthamiana cultivation experiment, three of the strains - Bacillus mucilaginosus, Bacillus megaterium, and Pseudomonas fluorescens - tolerated the lunar regolith simulant conditions and dissociated insoluble inorganic phosphorus from the simulant. The mechanism is chemolithoheterotrophic organic-acid production: the bacteria synthesize organic acids (e.g. oxalic, citric, tartaric acids) from carbon sources in the medium, lowering the pH and chelating metal ions in insoluble phosphates such as Ca3(PO4)2, FePO4, and AlPO4, thereby releasing available phosphate. PSB treatment raised the available phosphorus content of the simulant and promoted Nicotiana benthamiana growth, with the largest improvement when the simulant was pre-cultured with PSBs 18 days before sowing. The work establishes a microbiological route to convert lunar regolith into a plant-cultivation substrate for future lunar bases.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus mucilaginosus (AS1.232)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=61624"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:61624
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"the phosphorus-solublizing bacteria Bacillus mucilaginosus, Bacillus megaterium, and Pseudomonas fluorescens can tolerate the lunar regolith simulant conditions and dissociate the insoluble phosphorus from the regolith simulant"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus megaterium (AS1.217)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1404"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1404
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"the phosphorus-solublizing bacteria Bacillus mucilaginosus, Bacillus megaterium, and Pseudomonas fluorescens can tolerate the lunar regolith simulant conditions and dissociate the insoluble phosphorus from the regolith simulant"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Pseudomonas fluorescens (ATCC 13525)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=294"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:294
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"the phosphorus-solublizing bacteria Bacillus mucilaginosus, Bacillus megaterium, and Pseudomonas fluorescens can tolerate the lunar regolith simulant conditions and dissociate the insoluble phosphorus from the regolith simulant"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus subtilis (CMCC 63501)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1423"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1423
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Bacillus licheniformis (ATCC 11946)</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1402"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1402
+                            </a>
+                        </td>
+                        <td>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+        
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Lunar Regolith Simulant Phosphorus-Solubilizing Bacteria for Nicotiana benthamiana</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #a855f7;"></span> Syntrophy
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #ef4444;"></span> Competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #14b8a6;"></span> Niche partitioning
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #eab308;"></span> Colonization facilitation
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #fb7185;"></span> Strain competition
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-swatch" style="background: #dc2626;"></span> Predation
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Phosphorus solubilization from lunar regolith simulant via organic-acid secretion</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    phosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18367</a>), 
+                    
+                    oxalic acid
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16995"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16995</a>), 
+                    
+                    citrate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16947"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16947</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        organic acid biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0016053"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0016053</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"PSBs to synthesize organic acids by using carbon sources in the medium to reduce regolith pH, thus activating insoluble inorganic phosphorus in lunar regolith simulant"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"organic acid ions also facilitate the dissolution of phosphate minerals through chelating with the metal ions in Ca 3 (PO 4 ) 2 , FePO 4 , AlPO 4"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Phosphorus-enabled promotion of Nicotiana benthamiana growth</h3>
+                    <span class="interaction-type">COLONIZATION_FACILITATION</span>
+                </div>
+
+                
+
+                
+                <p><strong>Target Taxon:</strong> Nicotiana benthamiana</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    phosphate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18367</a>)
+                    
+                </p>
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The phosphorus-solubilizing bacteria treatment improves the available phosphorus content of the regolith simulant, promoting the growth of Nicotiana benthamiana"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"the growth of Nicotiana benthamiana could be most improved by treating the regolith simulant with PSBs 18 days before sowing"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        
+        </section>
+
+        <!-- Associated Datasets -->
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>External Resources</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Primary publication - phosphorus-solubilizing bacteria improve Nicotiana benthamiana on lunar regolith simulant</strong>
+                            
+                            <br><span class="dataset-description">Xia et al., Communications Biology (2023). Primary source describing the five tested PSB strains, phosphorus solubilization from CAS-1 lunar regolith simulant, and improved Nicotiana benthamiana growth.
+</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://doi.org/10.1038/s42003-023-05391-z" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.1038/s42003-023-05391-z</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"five species of phosphorus-solubilizing bacteria are used as test strains"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>NCBI Taxonomy - Paenibacillus mucilaginosus</strong>
+                            
+                            <br><span class="dataset-description">NCBI Taxonomy record for Paenibacillus mucilaginosus (reported as Bacillus mucilaginosus).</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=61624" class="term-link" target="_blank" rel="noopener noreferrer">NCBITaxon:61624</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>NCBI Taxonomy - Priestia megaterium</strong>
+                            
+                            <br><span class="dataset-description">NCBI Taxonomy record for Priestia megaterium (reported as Bacillus megaterium).</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1404" class="term-link" target="_blank" rel="noopener noreferrer">NCBITaxon:1404</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>NCBI Taxonomy - Pseudomonas fluorescens</strong>
+                            
+                            <br><span class="dataset-description">NCBI Taxonomy record for Pseudomonas fluorescens.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=294" class="term-link" target="_blank" rel="noopener noreferrer">NCBITaxon:294</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Lunar regolith simulant substrate</strong></td>
+                        <td>CAS-1 lunar soil simulant</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"The simulant used in our study is a copy of the CAS-1 lunar soil simulant"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Available phosphorus increase in liquid medium</strong></td>
+                        <td>soluble inorganic phosphorus increased by 212 percent</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"soluble inorganic phosphorus in the liquid medium was significantly increased by 212"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Acidification as the phosphorus-dissolving factor</strong></td>
+                        <td>bacterial acidic substances lower pH</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/37945659/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37945659</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"the acidic substances were the key factor in dissolving inorganic phosphorus from the simulant"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    PSB phosphorus-solubilization liquid medium (shaking-flask assay)
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">pH</span>
+                        <span class="metadata-value">7.0</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">30 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">AEROBIC</span>
+                    </div>
+                    
+                </div>
+
+                
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><strong>glucose</strong></td>
+                            <td>10</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td><strong>Ca3(PO4)2 (insoluble inorganic phosphorus source)</strong></td>
+                            <td>5</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                <a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18367"
+                                   class="term-link" target="_blank" rel="noopener">
+                                    CHEBI:18367
+                                </a>
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> Strains were cultured overnight in a shaking flask at 180 rpm and 30 C. The phosphorus-solubilization assay used a liquid medium containing glucose 10 g/L, (NH4)2SO4 0.5 g/L, Ca3(PO4)2 5 g/L (insoluble inorganic phosphorus source), NaCl 0.3 g/L, FeSO4 0.03 g/L, KCl 0.3 g/L, MgSO4 0.3 g/L, MnSO4 0.03 g/L, at pH 7.0.
+
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/37945659"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:37945659
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"cultured overnight in a shaking flask at 180 rpm and 30 °C"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/37945659"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:37945659
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"glucose 10 g/L"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            CROSS_FEEDING: "#22c55e",
+            MUTUALISM: "#3b82f6",
+            SYNTROPHY: "#a855f7",
+            COMPETITION: "#ef4444",
+            COMMENSALISM: "#f97316",
+            PREDATION: "#dc2626",
+            NICHE_PARTITIONING: "#14b8a6",
+            STRAIN_COMPETITION: "#fb7185",
+            COLONIZATION_FACILITATION: "#eab308"
+        };
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+        
+        taxonData["Bacillus mucilaginosus (AS1.232)"] = {
+            id: "NCBITaxon:61624",
+            label: "Bacillus mucilaginosus (AS1.232)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+        
+        taxonData["Bacillus megaterium (AS1.217)"] = {
+            id: "NCBITaxon:1404",
+            label: "Bacillus megaterium (AS1.217)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+        
+        taxonData["Pseudomonas fluorescens (ATCC 13525)"] = {
+            id: "NCBITaxon:294",
+            label: "Pseudomonas fluorescens (ATCC 13525)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+        
+        taxonData["Bacillus subtilis (CMCC 63501)"] = {
+            id: "NCBITaxon:1423",
+            label: "Bacillus subtilis (CMCC 63501)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+        
+        taxonData["Bacillus licheniformis (ATCC 11946)"] = {
+            id: "NCBITaxon:1402",
+            label: "Bacillus licheniformis (ATCC 11946)",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+        
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+        
+        (function() {
+            var intId = "interaction:0";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("phosphate");
+            
+            metabolites.push("oxalic acid");
+            
+            metabolites.push("citrate");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("organic acid biosynthetic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Phosphorus solubilization from lunar regolith simulant via organic-acid secretion",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "COLONIZATION_FACILITATION";
+            var metabolites = [];
+            
+            
+            metabolites.push("phosphate");
+            
+            
+            var processes = [];
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Phosphorus-enabled promotion of Nicotiana benthamiana growth",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+            var tgtKey = "Nicotiana benthamiana";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 7;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#3b82f6")
+            .attr("stroke", "#1e40af")
+            .attr("stroke-width", 1.5);
+
+        // Interaction nodes: rounded rects
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("rect")
+            .attr("width", 28)
+            .attr("height", 18)
+            .attr("x", -14)
+            .attr("y", -9)
+            .attr("rx", 5)
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || "#6b7280"; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || "#6b7280");
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+    
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>

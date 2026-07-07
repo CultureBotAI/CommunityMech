@@ -1,0 +1,468 @@
+id: CommunityMech:000305
+name: BioAsteroid ISS Chondrite Biomining Consortium
+description: >
+  The BioAsteroid experiment tested microbial biomining of asteroidal
+  (L-chondrite) material under microgravity aboard the International Space
+  Station (ISS). Two heterotrophic microorganisms — the bacterium Sphingomonas
+  desiccabilis CP1D and the fungus Penicillium simplicissimum DSM 1078 — were
+  flown both as single strains and as an artificial two-member consortium on
+  crushed Northwest Africa (NWA) 869 L-chondrite meteorite fragments, in a 50%
+  v/v R2A medium, inside BioMining Reactors housed in KUBIK incubators. The
+  study measured leaching of 44 elements (including the platinum-group elements
+  ruthenium, palladium and platinum, and other elements of industrial interest)
+  from the meteorite and compared microbial versus abiotic (non-biological)
+  leaching under microgravity and terrestrial gravity. Penicillium
+  simplicissimum was the most effective bioleaching organism in microgravity,
+  enhancing release of palladium, platinum and other elements relative to
+  non-biological controls, while Sphingomonas desiccabilis formed a contiguous
+  biofilm on the rock surface but performed similarly or worse than the abiotic
+  control for most platinum-group elements. In the consortium, the fungus alone
+  outperformed the mixture for palladium, suggesting an antagonistic effect of
+  the bacterium. Metabolomic analysis showed distinct, microgravity-dependent
+  changes in microbial metabolism, particularly for P. simplicissimum, with
+  increased production of carboxylic acids and other molecules of potential
+  biomining or pharmaceutical interest. The work demonstrates proof of principle
+  for microbe-driven transformation of asteroidal material for in situ resource
+  utilization in space.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOMINING
+engineering_design:
+  objective: >
+    Test whether heterotrophic microorganisms (a bacterium and a fungus), alone
+    and as an artificial consortium, can catalyse the release of technologically
+    and economically important elements — including platinum-group elements —
+    from L-chondrite asteroidal material under microgravity aboard the ISS, for
+    in situ resource utilization in space.
+  assembly_strategy: >
+    Defined two-member artificial consortium of the bacterium Sphingomonas
+    desiccabilis CP1D and the fungus Penicillium simplicissimum DSM 1078,
+    desiccated onto crushed sterile L-chondrite meteorite fragments and grown in
+    50% v/v R2A medium; single-strain cultures and non-biological controls were
+    run in parallel, in microgravity (ISS) and terrestrial-gravity (Earth)
+    conditions.
+  perturbation_design: >
+    Compared microbial versus abiotic leaching and microgravity (ISS) versus
+    terrestrial gravity (Earth) for each treatment (bacterium, fungus,
+    consortium, non-biological control).
+  measurement_endpoints:
+  - Dissolution of 44 elements from the meteorite (ICP-MS/ICP-OES of the liquid
+    fraction), including platinum-group elements
+  - Microbe-mineral interaction and biofilm/mycelium formation (SEM/EDS)
+  - Microbial metabolome under microgravity versus terrestrial gravity
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tested the use of microorganisms (bacteria and fungi) to extract 44 elements from L-chondrite asteroidal material
+    explanation: States the objective of extracting elements from L-chondrite asteroidal material with bacteria and fungi.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: An artificial microbial consortium, a common strategy in terrestrial biomining
+    explanation: Supports the artificial-consortium assembly strategy.
+environment_term:
+  preferred_term: BioAsteroid ISS microgravity biomining hardware
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    The community is a controlled experimental cultivation rather than a sampled
+    natural community. Cultivation took place inside BioMining Reactors within
+    KUBIK incubators aboard the International Space Station under microgravity
+    (with terrestrial-gravity controls on Earth). The microbe-mineral substrate
+    was crushed Northwest Africa (NWA) 869 L-chondrite meteorite. The generic
+    laboratory-environment ENVO term is used because no ontology term captures
+    the spaceflight/microgravity biomining hardware context.
+taxonomy:
+- taxon_term:
+    preferred_term: Sphingomonas desiccabilis CP1D
+    term:
+      id: NCBITaxon:429134
+      label: Sphingomonas desiccabilis
+    notes: >
+      Gram-negative, non-motile, non-spore-forming bacterium originally isolated
+      from soil crusts on the Colorado plateau, with demonstrated capacity to
+      extract metals during spaceflight. Ontology grounding is species-level;
+      the source uses strain designation CP1D.
+  strain_designation:
+    strain_name: CP1D
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a Gram-negative, non-motile and non-spore-forming bacterium, first isolated from soil crusts in the Colorado plateau
+    explanation: Identifies Sphingomonas desiccabilis CP1D as the bacterial member and its characteristics.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: extract rare earth elements and vanadium from basalt rock under microgravity
+    explanation: Establishes S. desiccabilis as a metal-extracting bacterium used in space biomining.
+- taxon_term:
+    preferred_term: Penicillium simplicissimum DSM 1078
+    term:
+      id: NCBITaxon:69488
+      label: Penicillium simplicissimum
+    notes: >
+      Ascomycete fungus (DSMZ strain DSM 1078) known for its capacity to perform
+      bioleaching. In this experiment it was the most effective bioleaching
+      organism under microgravity, enhancing release of platinum-group and other
+      elements. Ontology grounding is species-level.
+  strain_designation:
+    strain_name: DSM 1078
+    culture_collections:
+    - collection: DSM
+      accession: '1078'
+      notes: DSMZ strain designation reported in the source (Penicillium simplicissimum DSM 1078).
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DSM 1078 (DSMZ), an Ascomycota known for its capacity to perform bioleaching
+    explanation: Identifies Penicillium simplicissimum DSM 1078 as the fungal member and its bioleaching capacity.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Penicillium simplicissimum enhanced the release of palladium, platinum and other elements in microgravity
+    explanation: Establishes the fungus as the primary bioleaching driver for platinum-group elements in microgravity.
+ecological_interactions:
+- name: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+  description: >
+    Penicillium simplicissimum catalyses the release of platinum-group elements
+    (palladium, platinum, ruthenium) and other critical elements (including
+    phosphorus, vanadium and copper) from the L-chondrite meteorite, enhancing
+    leaching relative to non-biological controls under microgravity. This is
+    interpreted as heterotrophic bioleaching through proton, organic-acid and
+    complexing-compound release.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Penicillium simplicissimum DSM 1078
+    term:
+      id: NCBITaxon:69488
+      label: Penicillium simplicissimum
+  metabolites:
+  - preferred_term: palladium
+    term:
+      id: CHEBI:33363
+      label: palladium
+  - preferred_term: vanadium
+    term:
+      id: CHEBI:27698
+      label: vanadium atom
+  - preferred_term: copper(2+)
+    term:
+      id: CHEBI:29036
+      label: copper(2+)
+  - preferred_term: carboxylic acid
+    term:
+      id: CHEBI:33575
+      label: carboxylic acid
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Penicillium simplicissimum enhanced the release of palladium, platinum and other elements in microgravity
+    explanation: Documents fungal enhancement of platinum-group element release in microgravity.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhanced bioleaching of phosphorus, vanadium and copper compared to the bacterium
+    explanation: Documents fungal enhancement of phosphorus, vanadium and copper leaching.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased production of carboxylic acids
+    explanation: Links the fungus to increased carboxylic acid production, a candidate leaching mechanism.
+- name: Bacterial and fungal biofilm colonization of the meteorite surface
+  description: >
+    Both the bacterium Sphingomonas desiccabilis and the fungus Penicillium
+    simplicissimum colonize the L-chondrite surface. In consortium, the bacterium
+    and the fungus interact in a similar fashion in both gravity conditions,
+    forming a mixed filamentous (fungus) and rod-shaped-cell (bacterium) biofilm
+    on the rock, providing the physical microbe-mineral contact required for
+    bioleaching.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Sphingomonas desiccabilis CP1D
+    term:
+      id: NCBITaxon:429134
+      label: Sphingomonas desiccabilis
+  target_taxon:
+    preferred_term: Penicillium simplicissimum DSM 1078
+    term:
+      id: NCBITaxon:69488
+      label: Penicillium simplicissimum
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: formed a contiguous biofilm across many areas of the rock
+    explanation: Documents S. desiccabilis biofilm formation on the meteorite surface.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the bacterium and the fungus interacting in a similar fashion in both gravity conditions
+    explanation: Documents co-colonization of the rock by the bacterium and the fungus in the consortium.
+- name: Bacterial antagonism of fungal palladium leaching in the consortium
+  description: >
+    In the two-member consortium, palladium leaching was lower than for the
+    fungus alone: Penicillium simplicissimum alone outperformed the consortium
+    for palladium, an outcome the authors attribute to an antagonistic effect of
+    the bacterium Sphingomonas desiccabilis on fungal palladium extraction.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Sphingomonas desiccabilis CP1D
+    term:
+      id: NCBITaxon:429134
+      label: Sphingomonas desiccabilis
+  target_taxon:
+    preferred_term: Penicillium simplicissimum DSM 1078
+    term:
+      id: NCBITaxon:69488
+      label: Penicillium simplicissimum
+  metabolites:
+  - preferred_term: palladium
+    term:
+      id: CHEBI:33363
+      label: palladium
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the fungus alone outperformed the consortium, possibly due to the antagonistic effects of the bacterium
+    explanation: Documents bacterial antagonism of fungal palladium leaching in the consortium.
+environmental_factors:
+- name: Microgravity (ISS spaceflight)
+  value: microgravity
+  description: >
+    The experiment was conducted under microgravity aboard the International
+    Space Station, with samples installed in non-centrifuged (microgravity)
+    slots of KUBIK incubators; terrestrial-gravity controls were run on Earth.
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: installation into the microgravity (non-centrifuged) slots within the two KUBIK (ESA) incubators
+    explanation: Documents the microgravity cultivation condition aboard the ISS.
+- name: Meteorite substrate (L-chondrite, NWA 869)
+  value: Northwest Africa (NWA) 869 L3-6 chondrite regolith breccia
+  description: >
+    The microbe-mineral substrate was crushed Northwest Africa (NWA) 869
+    meteorite, an L3-6 (L-chondrite) regolith breccia, fragmented to ~1-3.5 mm
+    pieces; its dominant mineral phases are olivine and pyroxene with minor
+    feldspar, melilite and iron sulfides.
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was the Northwest Africa (NWA) 869 meteorite, a L3-6 chondrite regolith breccia
+    explanation: Identifies the L-chondrite meteorite used as the leaching substrate.
+- name: Incubation temperature and duration
+  value: ~19.5-20 °C for 19 days
+  description: >
+    Samples were incubated for 19 days at approximately 19.5-20 °C (ISS incubator
+    setpoint 20 °C; logged flight temperature 19.5 °C).
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Samples grew for 19 days at 19.5
+    explanation: Documents the 19-day incubation at ~19.5 °C.
+- name: Medium pH
+  value: '7.2'
+  unit: pH
+  description: >
+    Cultivation used a near-neutral 50% v/v R2A medium at pH 7.2, chosen to
+    encourage the microorganisms to extract nutrients from the meteorite
+    (heterotrophic, non-acidophilic bioleaching).
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The medium used for this experiment was a solution of 50% v/v R2A medium
+    explanation: Documents the 50% v/v R2A medium; the source reports its pH as 7.2.
+growth_media:
+- name: BioAsteroid 50% v/v R2A biomining medium
+  ph: '7.2'
+  temperature: '20'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  incubation_time: '19'
+  incubation_time_unit: days
+  vessel_type: BioMining Reactor (BMR) within KUBIK incubator
+  inoculum_source: >
+    Sphingomonas desiccabilis CP1D stationary-phase R2A culture and/or
+    sonicated/filtered Penicillium simplicissimum mycelial suspension desiccated
+    onto crushed sterile meteorite fragments
+  preparation_notes: >
+    50% v/v R2A medium, 5 mL per sample. Reported composition (g/L): yeast
+    extract 0.25; peptone 0.25; casamino acids 0.25; glucose 0.25; soluble starch
+    0.25; Na-pyruvate 0.15; K2HPO4 0.15; MgSO4.7H2O 0.025; pH 7.2.
+  composition:
+  - name: glucose
+    concentration: '0.25'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: soluble starch
+    concentration: '0.25'
+    unit: g/L
+    chebi_term:
+      preferred_term: starch
+      term:
+        id: CHEBI:28017
+        label: starch
+  - name: sodium pyruvate
+    concentration: '0.15'
+    unit: g/L
+    chebi_term:
+      preferred_term: pyruvate
+      term:
+        id: CHEBI:15361
+        label: pyruvate
+  - name: yeast extract
+    concentration: '0.25'
+    unit: g/L
+  - name: peptone
+    concentration: '0.25'
+    unit: g/L
+  - name: casamino acids
+    concentration: '0.25'
+    unit: g/L
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The medium used for this experiment was a solution of 50% v/v R2A medium
+    explanation: Documents the 50% v/v R2A cultivation medium.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'yeast extract 0.25; peptone 0.25; casamino acids 0.25; glucose 0.25, soluble starch 0.25, Na-pyruvate 0.15'
+    explanation: Documents the medium composition (g/L).
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: >
+    BioMining Reactor (BMR) culture chamber inside an Experiment Unit
+    (KEU-RK, Kayser Italia), incubated in KUBIK (ESA) incubators aboard the ISS;
+    5 mL medium injected once and 1 mL fixative injected at the end.
+  manufacturer_model: Kayser Italia KEU-RK Experiment Unit; ESA KUBIK incubator
+  working_volume: 5.0
+  working_volume_unit: mL
+  operating_temperature: 20.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  notes: >
+    Closed batch cultivation under microgravity (non-centrifuged KUBIK slots) on
+    the ISS, with terrestrial-gravity controls on Earth; 19-day incubation.
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: installation into the microgravity (non-centrifuged) slots within the two KUBIK (ESA) incubators
+    explanation: Documents the KUBIK incubator hardware used for cultivation aboard the ISS.
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Samples grew for 19 days at 19.5
+    explanation: Documents the 19-day batch incubation.
+external_resources:
+- name: Primary publication - BioAsteroid ISS microbial biomining (npj Microgravity 2026)
+  repository: OTHER
+  resource_id: doi:10.1038/s41526-026-00567-3
+  url: https://doi.org/10.1038/s41526-026-00567-3
+  description: >
+    Version-of-record publication reporting the BioAsteroid experiment: microbial
+    biomining of 44 elements from L-chondrite asteroidal material aboard the ISS
+    under microgravity (PMID:41617698).
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tested the use of microorganisms (bacteria and fungi) to extract 44 elements from L-chondrite asteroidal material
+    explanation: Primary source for the BioAsteroid community record.
+- name: bioRxiv preprint - BioAsteroid experiment
+  repository: OTHER
+  resource_id: doi:10.1101/2024.01.13.575412
+  url: https://doi.org/10.1101/2024.01.13.575412
+  description: >
+    bioRxiv preprint of the same BioAsteroid experiment; the npj Microgravity
+    version of record (doi:10.1038/s41526-026-00567-3) is preferred for evidence.
+- name: NCBI Taxonomy - Sphingomonas desiccabilis
+  repository: OTHER
+  resource_id: NCBITaxon:429134
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=429134
+  description: NCBI Taxonomy record for Sphingomonas desiccabilis.
+- name: NCBI Taxonomy - Penicillium simplicissimum
+  repository: OTHER
+  resource_id: NCBITaxon:69488
+  url: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=69488
+  description: NCBI Taxonomy record for Penicillium simplicissimum.
+related_ingredients:
+- preferred_term: palladium
+  chebi_term:
+    id: CHEBI:33363
+    label: palladium
+  relevance: >
+    Palladium is a platinum-group element and a primary target of the BioAsteroid
+    biomining experiment; Penicillium simplicissimum enhanced its release from the
+    L-chondrite in microgravity relative to non-biological controls.
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Penicillium simplicissimum enhanced the release of palladium, platinum and other elements in microgravity
+    explanation: Names palladium as a fungally enhanced leaching target.
+- preferred_term: carboxylic acid
+  chebi_term:
+    id: CHEBI:33575
+    label: carboxylic acid
+  relevance: >
+    Carboxylic acids were produced at increased levels by the fungus in
+    microgravity and are a candidate mechanism (organic-acid leaching) for
+    heterotrophic bioleaching of the meteorite.
+  evidence:
+  - reference: PMID:41617698
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased production of carboxylic acids
+    explanation: Names carboxylic acids as fungal metabolites increased in microgravity.
+associated_datasets: []
+metals_present:
+- PALLADIUM
+- IRON
+- COPPER
+- NICKEL
+- COBALT
+- VANADIUM
+- ZINC
+rare_earth_elements_present:
+- EUROPIUM
+- LUTETIUM
+metal_relevance: PRIMARY
+metal_notes: >
+  Biomining of asteroidal L-chondrite material. The platinum-group element
+  palladium was a primary target, with Penicillium simplicissimum enhancing its
+  release in microgravity. Other elements with reported microbial leaching
+  effects include iron, copper, nickel, cobalt, vanadium and zinc; only the
+  metal/REE elements that map to schema enum values are listed here. Two rare
+  earth elements — europium and lutetium — were bioleached in this study.
+  Platinum, ruthenium, molybdenum and manganese are also reported in the source
+  but have no corresponding schema enum value and are therefore omitted from the
+  structured metal lists.
