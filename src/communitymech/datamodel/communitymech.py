@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-03T11:17:23
+# Generation date: 2026-07-07T13:23:20
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2440,7 +2440,7 @@ class MetalElementEnum(EnumDefinitionImpl):
         text="SILVER", description="Silver(1+) cation", meaning=CHEBI["30512"]
     )
     PALLADIUM = PermissibleValue(
-        text="PALLADIUM", description="Palladium atom", meaning=CHEBI["33373"]
+        text="PALLADIUM", description="Palladium atom", meaning=CHEBI["33363"]
     )
     GALLIUM = PermissibleValue(
         text="GALLIUM", description="Gallium(3+) cation", meaning=CHEBI["49631"]
