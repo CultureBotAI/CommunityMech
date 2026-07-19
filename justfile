@@ -96,6 +96,13 @@ validate-cross-repo-ids FILE:
 validate-cross-repo-ids-all:
     PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/*.yaml
 
+# Environmental coverage dashboard: per-ENVO counts of communities vs CultureMech
+# media vs MediaIngredientMech ingredients (issue #30). Reads sibling repos from
+# COMMUNITYMECH_SIBLING_REPOS env (Name=path,Name=path); pass --tsv to also write
+# a report. Without siblings configured it lists community ENVO terms only.
+env-coverage *args:
+    PYTHONPATH=src uv run python scripts/env_coverage_dashboard.py {{args}}
+
 # Validate ontology terms in a community file
 validate-terms FILE:
     uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels
