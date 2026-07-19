@@ -196,8 +196,19 @@ a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
   future-proofs as coverage grows. NB: some intuitive relations aren't `is_a` in
   ENVO (rhizosphere is *not* a subtype of soil), so those still won't match — an
   ontology limitation, not a bug.
-- **`ENVO:01001405` "laboratory environment" over-applied (110 communities)** —
-  grounding-quality item, addressed next (over-applied-term report).
+- **`ENVO:01001405` over-application report — DONE (2026-07-19, PR #214).**
+  `scripts/env_grounding_quality.py` + `just env-grounding-quality`: ranks
+  community `environment_term` usage and flags **generic** (curated set incl.
+  ENVO:01001405 "laboratory environment") and **over-applied** (>= `--threshold`,
+  default 15) groundings for curator review; `--list` names the affected records,
+  `--strict` exits 1 on any generic grounding. Report-only (edits nothing). Current
+  state: **110 communities** on "laboratory environment" (GENERIC + over-applied)
+  and 42 on "rhizosphere" (over-applied but legitimate). The generic set is shared
+  with the suggester (`cross_repo_environment.GENERIC_ENVIRONMENT_TERMS`). (ENVO
+  `is_a` depth was tried as a genericness signal and rejected — "laboratory
+  environment" is deeper than "soil".) **Still a curation task:** re-ground the 110
+  lab-env records that model a knowable habitat (rumen, gut, groundwater, ISS/space,
+  cheese, …) — needs per-record source review, out of scope for an automated pass.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 

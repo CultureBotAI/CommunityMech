@@ -34,6 +34,15 @@ _COMMUNITY_FIELD = b"environment_term"
 _CULTUREMECH_FIELD = b"source_environment"
 _MIM_FIELD = b"environmental_context"
 
+# Over-generic ENVO environments that describe a *study/lab* setting rather than a
+# meaningful natural/source environment. As a community's primary environment they
+# carry little signal (they cannot be re-derived to a specific habitat), and as a
+# cross-repo match key they only add noise. The suggester skips them; the
+# grounding-quality report flags community records grounded to them for review.
+GENERIC_ENVIRONMENT_TERMS = {
+    "ENVO:01001405",  # laboratory environment (applied to ~110 communities)
+}
+
 
 def _iter_prefiltered(root: Path, needle: bytes) -> Iterator[tuple[Path, dict]]:
     """Yield ``(path, parsed_yaml)`` for every ``*.yaml`` under ``root`` whose raw

@@ -39,6 +39,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.cross_repo_environment import (  # noqa: E402
+    GENERIC_ENVIRONMENT_TERMS as GENERIC_ENVIRONMENTS,
     culturemech_media_by_environment,
     envo_subtypes,
     get_envo_adapter,
@@ -48,13 +49,9 @@ from communitymech.cross_repo_environment import (  # noqa: E402
 REPO_ROOT = Path(__file__).parent.parent
 COMMUNITY_DIR = REPO_ROOT / "kb" / "communities"
 
-# Over-generic environments where a shared tag does not imply a meaningful
-# environment analog (e.g. every lab-grown community shares "laboratory
-# environment", so matching on it just yields noise). Skipped by default;
-# override with --include-generic. See NEXT_TASKS.md §2b (grounding-quality note).
-GENERIC_ENVIRONMENTS = {
-    "ENVO:01001405",  # laboratory environment (applied to ~110 communities)
-}
+# GENERIC_ENVIRONMENTS (imported above): over-generic environments where a shared
+# tag doesn't imply a meaningful environment analog. Skipped by default; override
+# with --include-generic. Shared with the grounding-quality report.
 
 
 def _linked_culturemech_ids(data: dict) -> set[str]:
