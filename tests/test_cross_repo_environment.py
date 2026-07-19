@@ -13,8 +13,20 @@ import textwrap
 from communitymech.cross_repo_environment import (
     build_coverage,
     culturemech_media_by_environment,
+    envo_subtypes,
     sibling_repos_from_env,
 )
+
+
+class _FakeEnvoAdapter:
+    """Minimal ENVO adapter: ``_SUB[id]`` are the is_a descendants of ``id``."""
+
+    _SUB = {
+        "ENVO:00002007": {"ENVO:03000033", "ENVO:00002007"},  # sediment -> marine sediment
+    }
+
+    def descendants(self, envo_id, predicates=None):
+        return self._SUB.get(envo_id, {envo_id})
 
 
 def _write(path, text):
@@ -162,6 +174,20 @@ def test_culturemech_media_by_environment(tmp_path):
     hit = peat[0]
     assert hit.name and hit.env_label == "peatland"
     assert "CultureMech:009999" not in {h.culturemech_id for v in by_env.values() for h in v}
+
+
+def test_envo_subtypes_excludes_self_and_handles_errors():
+    adapter = _FakeEnvoAdapter()
+    # sediment -> {marine sediment} (self stripped)
+    assert envo_subtypes("ENVO:00002007", adapter) == {"ENVO:03000033"}
+    # unknown term -> only self in fake -> stripped -> empty
+    assert envo_subtypes("ENVO:99999999", adapter) == set()
+
+    class _Broken:
+        def descendants(self, *a, **k):
+            raise RuntimeError("no hierarchy")
+
+    assert envo_subtypes("ENVO:00002007", _Broken()) == set()
 
 
 def test_sibling_repos_from_env(monkeypatch):
