@@ -180,10 +180,20 @@ actioned (2026-07-19, PR #212).**
   ingredient's `CHEBI:` id (already supported by `RelatedIngredient.chebi_term`) is
   an acceptable equivalent link — the likely fast path.
 
-**Remaining before emitting ingredient suggestions:** decide the id per MIM#119.
-The **CHEBI route works today** — env-matched MIM ingredients that `skos:exactMatch`
-a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
-`shared_environment_term`) with no id decision needed; build once MIM confirms (c).
+**Ingredient suggester — DRAFTED, awaiting MIM#119 (PR #215, draft).**
+`scripts/suggest_related_ingredients.py` + `just suggest-related-ingredients`: the
+CHEBI-route analog of the media suggester. For each community it matches
+`environment_term` against MIM `environmental_context` and emits `RelatedIngredient`
+blocks (`chebi_term` + `shared_environment_term`, no `mediaingredientmech_id`) for
+MIM records whose `identifier` is a CHEBI CURIE. `chebi_term.label` is resolved to
+the **canonical** ChEBI label (not MIM's free-text name) so the id↔label gate stays
+green; records without a resolvable label are skipped and reported. Supports
+`--subsumption`. Verified an emitted block LinkML-validates in a real record (Sulfur
+CHEBI:26833 for a hot-spring mat community). **Held as a draft PR — do not merge
+until MIM confirms the CHEBI route (#119 ask c).** Current real yield is tiny (~3
+CHEBI-identified MIM env-context ingredients today); it scales as MIM populates
+`environmental_context`. Reuses `cross_repo_environment.mim_ingredients_by_environment`;
+tests in `tests/test_suggest_related_ingredients.py`.
 **Other follow-ups (grounding-quality):**
 - **ENVO subsumption matching — DONE (2026-07-19, PR #213).** `suggest-related-media
   --subsumption` also matches media whose environment is an ENVO `is_a` *subtype*

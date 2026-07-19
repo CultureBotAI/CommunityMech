@@ -228,18 +228,70 @@ def envo_subtypes(envo_id: str, adapter: Any) -> set[str]:
     return {d for d in descendants if d != envo_id}
 
 
+def _cached_oak_adapter(db_name: str) -> Any | None:
+    """OAK adapter for a locally-cached sqlite under ~/.data/oaklib/, or None."""
+    db = Path.home() / ".data" / "oaklib" / db_name
+    if not db.exists():
+        return None
+    from oaklib import get_adapter  # type: ignore[import-untyped]
+
+    return get_adapter(f"sqlite:{db}")
+
+
 def get_envo_adapter() -> Any | None:
     """Return an OAK adapter for the locally-cached ENVO sqlite, or None.
 
     Skips (returns None) when the ENVO build isn't cached, so callers can widen
     matching when the ontology is present without forcing a download in CI.
     """
-    envo_db = Path.home() / ".data" / "oaklib" / "envo.db"
-    if not envo_db.exists():
-        return None
-    from oaklib import get_adapter  # type: ignore[import-untyped]
+    return _cached_oak_adapter("envo.db")
 
-    return get_adapter(f"sqlite:{envo_db}")
+
+def get_chebi_adapter() -> Any | None:
+    """Return an OAK adapter for the locally-cached ChEBI sqlite, or None."""
+    return _cached_oak_adapter("chebi.db")
+
+
+@dataclass(frozen=True)
+class IngredientHit:
+    """A MediaIngredientMech ingredient grounded to a given ENVO environment.
+
+    ``chebi_id`` is set only when the MIM record's ``identifier`` is a CHEBI CURIE
+    (the "CHEBI route"); other MIM id schemes (kgmicrobe.ingredient:, ENVO:,
+    MICRO:) leave it None. ``source_identifier`` preserves the raw MIM identifier.
+    """
+
+    name: str
+    chebi_id: str | None
+    env_id: str
+    env_label: str
+    source_identifier: str
+
+
+def mim_ingredients_by_environment(root: Path) -> dict[str, list[IngredientHit]]:
+    """Map ENVO id -> MIM ingredients grounded to it (for the ingredient suggester).
+
+    Reads ``environmental_context[].environment_term`` and the record ``identifier``
+    (setting ``chebi_id`` when that identifier is a CHEBI CURIE), byte-prefiltered.
+    """
+    by_env: dict[str, list[IngredientHit]] = {}
+    for path, data in _iter_prefiltered(root, _MIM_FIELD):
+        ident = str(data.get("identifier") or "")
+        name = data.get("preferred_term") or data.get("name") or path.stem
+        chebi_id = ident if ident.startswith("CHEBI:") else None
+        for entry in data.get("environmental_context") or []:
+            if not isinstance(entry, dict):
+                continue
+            envo_id = _envo(entry.get("environment_term"))
+            if envo_id is None:
+                continue
+            hit = IngredientHit(
+                str(name), chebi_id, envo_id, entry.get("environment_label") or "", ident
+            )
+            bucket = by_env.setdefault(envo_id, [])
+            if hit not in bucket:
+                bucket.append(hit)
+    return by_env
 
 
 def sibling_repos_from_env() -> dict[str, Path]:

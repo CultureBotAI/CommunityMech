@@ -116,6 +116,12 @@ suggest-related-media *args:
 env-grounding-quality *args:
     PYTHONPATH=src uv run python scripts/env_grounding_quality.py {{args}}
 
+# DRAFT (pending MediaIngredientMech#119): suggest env-matched MIM ingredients as
+# related_ingredients blocks via the CHEBI route. Needs a MIM path via
+# COMMUNITYMECH_SIBLING_REPOS or --mediaingredientmech. Suggestion-only.
+suggest-related-ingredients *args:
+    PYTHONPATH=src uv run python scripts/suggest_related_ingredients.py {{args}}
+
 # Validate ontology terms in a community file
 validate-terms FILE:
     uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels

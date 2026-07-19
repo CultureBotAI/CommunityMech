@@ -14,6 +14,7 @@ from communitymech.cross_repo_environment import (
     build_coverage,
     culturemech_media_by_environment,
     envo_subtypes,
+    mim_ingredients_by_environment,
     sibling_repos_from_env,
 )
 
@@ -174,6 +175,37 @@ def test_culturemech_media_by_environment(tmp_path):
     hit = peat[0]
     assert hit.name and hit.env_label == "peatland"
     assert "CultureMech:009999" not in {h.culturemech_id for v in by_env.values() for h in v}
+
+
+def test_mim_ingredients_by_environment_sets_chebi_only_for_chebi_ids(tmp_path):
+    mim = tmp_path / "MIM"
+    _write(
+        mim / "data" / "sulfur.yaml",
+        """
+        identifier: CHEBI:26833
+        preferred_term: Sulfur
+        environmental_context:
+        - environment_term: ENVO:00000051
+          environment_label: hot spring
+        """,
+    )
+    _write(
+        mim / "data" / "seawater.yaml",
+        """
+        identifier: kgmicrobe.ingredient:natural_sea_water
+        preferred_term: Natural sea water
+        environmental_context:
+        - environment_term: ENVO:00002149
+          environment_label: sea water
+        """,
+    )
+    by_env = mim_ingredients_by_environment(mim)
+    assert set(by_env) == {"ENVO:00000051", "ENVO:00002149"}
+    sulfur = by_env["ENVO:00000051"][0]
+    assert sulfur.chebi_id == "CHEBI:26833" and sulfur.name == "Sulfur"
+    seawater = by_env["ENVO:00002149"][0]
+    assert seawater.chebi_id is None  # non-CHEBI identifier -> CHEBI route can't use it
+    assert seawater.source_identifier == "kgmicrobe.ingredient:natural_sea_water"
 
 
 def test_envo_subtypes_excludes_self_and_handles_errors():
