@@ -145,19 +145,34 @@ both media+ingredients, 34 with neither** — sibling ENVO fields are still spar
 so the near-term value is showing *where* to populate. Offline unit tests in
 `tests/test_cross_repo_environment.py`.
 
-**Item b — ENVO-based suggester — NEXT.** For a community, emit suggested
-`related_media` / `related_ingredients` blocks (with `shared_environment_term`)
-from ENVO matches, for curator review. **Open problem to resolve first: the MIM id
-scheme.** MIM env-context records carry `identifier: kgmicrobe.ingredient:…` /
-`CHEBI:…` / `ENVO:…`, **not** `MediaIngredientMech:NNNNNN` (the schema pattern for
-`mediaingredientmech_id`); 802 `MediaIngredientMech:NNNNNN` ids live in a separate
-MIM crosswalk. CommunityMech's 222 existing `related_ingredients` don't populate
-`mediaingredientmech_id` at all. Decide how (or whether) to reconcile these before
-emitting ingredient ids — this is the "MIM single-source-of-truth direction" the
-scoping note flagged. Exact-ENVO matching is sparse; consider ENVO subsumption
-(e.g. rhizosphere media for a soil community) as a follow-up. Note also
-`ENVO:01001405` "laboratory environment" is over-applied (110 communities) — a
-grounding-quality item, not part of #30.
+**Item b — ENVO-based media suggester — DONE (2026-07-19, PR #211).**
+`scripts/suggest_related_media.py` + `just suggest-related-media`: for each
+community, matches its `environment_term` against CultureMech
+`source_environment` and emits paste-ready `related_media` blocks
+(`relationship_type: ENVIRONMENT_ANALOG`, `shared_environment_term`,
+`culturemech_id`), skipping media already linked via `related_media`/`growth_media`.
+Suggestion-only (edits nothing). Over-generic environments (`ENVO:01001405`
+"laboratory environment", ~110 communities) are excluded by default — `--include-generic`
+to override — and the skipped count is reported (no silent drop). First real run:
+**351 suggestions across 60 communities** (rhizosphere/sediment/compost/freshwater),
+110 lab-only communities skipped. Verified a suggested block LinkML-validates when
+pasted into a real record. Reuses `cross_repo_environment.culturemech_media_by_environment`;
+tests in `tests/test_suggest_related_media.py` + `tests/test_cross_repo_environment.py`.
+
+**Item c — ENVO-based INGREDIENT suggester — DEFERRED (two blockers).**
+(1) *Schema:* `RelatedIngredient` has **no `shared_environment_term` slot** (only
+`chebi_term` for the compound), so an environment→ingredient link isn't even
+expressible — it would need a schema addition. (2) *MIM id scheme:* MIM env-context
+records carry `identifier: kgmicrobe.ingredient:…` / `CHEBI:…` / `ENVO:…`, **not**
+`MediaIngredientMech:NNNNNN` (the `mediaingredientmech_id` pattern); the 802
+`MediaIngredientMech:NNNNNN` ids live only in MIM *analysis/reconciliation reports*,
+and CommunityMech's 222 existing `related_ingredients` don't populate
+`mediaingredientmech_id` at all. Both are the "MIM single-source-of-truth
+direction" the scoping note flagged — resolve on the MIM side (or add the schema
+slot + a crosswalk) before building. **Follow-ups regardless:** exact-ENVO matching
+is sparse — consider ENVO subsumption (rhizosphere media for a soil community); and
+`ENVO:01001405` over-application (110 communities) is a grounding-quality item to
+fix separately.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
