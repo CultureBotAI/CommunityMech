@@ -143,6 +143,43 @@ def mim_environments(root: Path, coverage: EnvCoverage) -> None:
                 coverage.labels.setdefault(envo_id, entry["environment_label"])
 
 
+@dataclass(frozen=True)
+class MediaHit:
+    """A CultureMech medium grounded to a given ENVO environment."""
+
+    culturemech_id: str
+    name: str
+    env_id: str
+    env_label: str
+
+
+def culturemech_media_by_environment(root: Path) -> dict[str, list[MediaHit]]:
+    """Map ENVO id -> CultureMech media grounded to it, for the suggester.
+
+    Unlike :func:`culturemech_environments` (which only counts record ids for the
+    coverage table) this keeps each medium's name and the shared-environment
+    label so a suggestion can be rendered without re-reading the record.
+    """
+    by_env: dict[str, list[MediaHit]] = {}
+    for path, data in _iter_prefiltered(root, _CULTUREMECH_FIELD):
+        cid = data.get("id")
+        if not (isinstance(cid, str) and cid.startswith("CultureMech:")):
+            continue
+        name = data.get("name") or path.stem
+        for entry in data.get("source_environment") or []:
+            term = entry.get("term") if isinstance(entry, dict) else None
+            if not isinstance(term, dict):
+                continue
+            envo_id = _envo(term.get("id"))
+            if envo_id is None:
+                continue
+            hit = MediaHit(cid, str(name), envo_id, term.get("label") or "")
+            bucket = by_env.setdefault(envo_id, [])
+            if hit not in bucket:
+                bucket.append(hit)
+    return by_env
+
+
 def build_coverage(
     community_dir: Path,
     sibling_repos: dict[str, Path] | None = None,

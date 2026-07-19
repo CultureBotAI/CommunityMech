@@ -12,6 +12,7 @@ import textwrap
 
 from communitymech.cross_repo_environment import (
     build_coverage,
+    culturemech_media_by_environment,
     sibling_repos_from_env,
 )
 
@@ -144,6 +145,23 @@ def test_prefilter_skips_records_without_the_field(tmp_path):
     cov = build_coverage(comm, {"CultureMech": cm, "MediaIngredientMech": mim})
     media_ids = {rid for ids in cov.media_records.values() for rid in ids}
     assert "CultureMech:009999" not in media_ids
+
+
+def test_culturemech_media_by_environment(tmp_path):
+    cm = tmp_path / "CultureMech"
+    _make_media(cm / "data", "CultureMech:000001", "ENVO:00000044", "peatland")
+    _make_media(cm / "data", "CultureMech:000002", "ENVO:00000044", "peatland")
+    _make_media(cm / "data", "CultureMech:000003", "ENVO:00001998", "soil")
+    # a record with no source_environment must be prefiltered out
+    _write(cm / "data" / "bare.yaml", "id: CultureMech:009999\nname: bare\n")
+
+    by_env = culturemech_media_by_environment(cm)
+    assert set(by_env) == {"ENVO:00000044", "ENVO:00001998"}
+    peat = by_env["ENVO:00000044"]
+    assert {h.culturemech_id for h in peat} == {"CultureMech:000001", "CultureMech:000002"}
+    hit = peat[0]
+    assert hit.name and hit.env_label == "peatland"
+    assert "CultureMech:009999" not in {h.culturemech_id for v in by_env.values() for h in v}
 
 
 def test_sibling_repos_from_env(monkeypatch):

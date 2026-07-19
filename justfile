@@ -103,6 +103,12 @@ validate-cross-repo-ids-all:
 env-coverage *args:
     PYTHONPATH=src uv run python scripts/env_coverage_dashboard.py {{args}}
 
+# Suggest environment-matched CultureMech media as related_media blocks for
+# review (issue #30, Use Case 1). Needs a CultureMech path via
+# COMMUNITYMECH_SIBLING_REPOS or --culturemech. Suggestion-only; edits nothing.
+suggest-related-media *args:
+    PYTHONPATH=src uv run python scripts/suggest_related_media.py {{args}}
+
 # Validate ontology terms in a community file
 validate-terms FILE:
     uv run linkml-term-validator validate-data {{FILE}} -s src/communitymech/schema/communitymech.yaml --labels
