@@ -46,22 +46,36 @@ their cation ids. Three lanthanides have **no `(3+)` term in ChEBI** — DYSPROS
 atom-grounded with descriptions annotated to say so. Re-audit: 0 mismatches;
 validate-all + 197 tests green.
 
-**Item 2 — STILL DEFERRED — close the systemic gap:** enum `meaning:` groundings
-are **not** covered by
-   any id↔label gate — `validate-products` only checks record-level
-   `term.{id,label}` pairs, so these drifted wrong undetected while the gated
-   record pairs stayed correct (spot-checked: `Ion_Adsorption_REE_Indigenous_`
-   `Community.yaml` uses the *correct* CHEBI:33377/CHEBI:49962). **Follow-up:** add
-   a small test (or extend the label gate) that validates every enum `meaning:` id
-   against its canonical ChEBI/ENVO/etc. label so this class of bug can't recur —
-   without it, item 1 could silently regress on the next hand-edit. See
-   [[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
+**Item 2 — close the systemic gap — DONE for the element enums (2026-07-18, PR
+#208).** The root cause was that enum `meaning:` groundings are **not** covered by
+any id↔label gate — `validate-products` only checks record-level
+`term.{id,label}` pairs, so these drifted wrong undetected while the gated record
+pairs stayed correct (spot-checked: `Ion_Adsorption_REE_Indigenous_Community.yaml`
+uses the *correct* CHEBI:33377/CHEBI:49962). Added
+`tests/test_element_enum_groundings.py` — runs in the `validate-strict` pytest
+step (already a blocking gate) with no network: (a) freezes the verified `meaning:`
+ids for `MetalElementEnum` + `RareEarthElementEnum` so a bad hand-edit fails, (b)
+asserts no two element PVs share a CHEBI id (catches the swap/dup pattern
+directly), and (c) resolves each id against its canonical ChEBI label — element
+name must appear — but only when the ChEBI sqlite is already cached locally, so it
+never forces a multi-GB download in CI. Verified the label check would have
+flagged all three historical bugs (PALLADIUM→promethium, INDIUM→aluminium
+trifluoride, YTTRIUM→zinc dichloride).
+
+**Still deferred — generalise beyond the element enums.** The new test is scoped
+to the two element enums (kept clean and exception-free on purpose). A KB-wide
+guard over *every* enum `meaning:` (via `just validate-schema-terms` /
+`linkml-term-validator validate-schema`) is still blocked by the same thing that
+defers `validate-terms-all`: linkml-term-validator has no exceptions mechanism, so
+it fails on obsolete/unminted meanings elsewhere in the schema. Enable it once
+those residuals are minted/cleaned or the LinkML tool grows a waiver. See
+[[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
 
 **Impact:** shipped community records mostly ground REEs via their own (correct)
 `term.{id,label}` pairs, so the KGX export from those is largely fine; the wrong
 groundings live in the schema enum + `metal_extraction.py` map (any enum-driven
 export/analysis inherits them). Low blast radius today, but a latent correctness
-bug and a clear gate gap.
+bug and a clear gate gap — now guarded for the element enums.
 
 ## 1. Phase-2 id↔label enforcement rollout (report-only → blocking)
 
