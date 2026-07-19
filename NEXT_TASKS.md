@@ -5,7 +5,63 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-06-15.
+Last reconciled: 2026-07-18.
+
+## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
+
+**Trigger:** `MetalElementEnum.PALLADIUM` was grounded to `CHEBI:33373`
+(*promethium atom*), not palladium — fixed to `CHEBI:33363` (PR #206). An audit
+of the full `MetalElementEnum` + `RareEarthElementEnum` (`meaning:` id → current
+ChEBI label, via the local `~/.data/oaklib/chebi.db`) then found **13 more wrong
+groundings**, almost all in the rare-earth block:
+
+| enum value | current (wrong) id → label | correct id (candidate) |
+|---|---|---|
+| INDIUM | CHEBI:49464 → *aluminium trifluoride* | CHEBI:49664 indium(3+) |
+| LANTHANUM | CHEBI:32359 → *dodecanoyl group* | CHEBI:49701 lanthanum(3+) |
+| CERIUM | CHEBI:32998 → *(not in build)* | CHEBI:48782 cerium(3+) |
+| PRASEODYMIUM | CHEBI:49648 → *holmium atom* | CHEBI:229784 praseodymium(3+) |
+| SAMARIUM | CHEBI:33376 → *terbium atom* | CHEBI:49890 samarium(3+) |
+| EUROPIUM | CHEBI:30688 → *(not in build)* | CHEBI:49591 europium(3+) |
+| TERBIUM | CHEBI:33374 → *samarium atom* | CHEBI:49902 terbium(3+) |
+| DYSPROSIUM | CHEBI:49782 → *(not in build)* | CHEBI:33377 dysprosium atom |
+| HOLMIUM | CHEBI:49649 → *(not in build)* | CHEBI:49650 holmium(3+) |
+| ERBIUM | CHEBI:49650 → *holmium(3+)* | CHEBI:33379 erbium |
+| THULIUM | CHEBI:33377 → *dysprosium atom* | CHEBI:33380 thulium atom |
+| YTTERBIUM | CHEBI:33378 → *(not in build)* | CHEBI:49980 ytterbium(3+) |
+| YTTRIUM | CHEBI:49976 → *zinc dichloride* | CHEBI:49962 yttrium(3+) |
+
+The pattern is off-by-one shifts within the CHEBI:333xx lanthanide block plus a
+couple of digit transpositions — a copy/paste grounding error, same class as
+PALLADIUM.
+
+**Item 1 — fix the groundings — DONE (2026-07-18, PR #207).** All 13 REE/INDIUM
+`meaning:` ids in `schema/communitymech.yaml` (both element enums) and the mirror
+`REE_CHEBI_MAP`/`METAL_CHEBI_MAP` in `src/communitymech/metal_extraction.py` were
+repointed and the datamodel regenerated. **Curation decision taken: ground REEs as
+the `(3+)` cation** (matches every `description:` "X(3+) cation"); this also
+normalised the previously-atom-grounded NEODYMIUM/GADOLINIUM/LUTETIUM/SCANDIUM to
+their cation ids. Three lanthanides have **no `(3+)` term in ChEBI** — DYSPROSIUM
+(CHEBI:33377 atom), ERBIUM (CHEBI:33379), THULIUM (CHEBI:33380) — so they stay
+atom-grounded with descriptions annotated to say so. Re-audit: 0 mismatches;
+validate-all + 197 tests green.
+
+**Item 2 — STILL DEFERRED — close the systemic gap:** enum `meaning:` groundings
+are **not** covered by
+   any id↔label gate — `validate-products` only checks record-level
+   `term.{id,label}` pairs, so these drifted wrong undetected while the gated
+   record pairs stayed correct (spot-checked: `Ion_Adsorption_REE_Indigenous_`
+   `Community.yaml` uses the *correct* CHEBI:33377/CHEBI:49962). **Follow-up:** add
+   a small test (or extend the label gate) that validates every enum `meaning:` id
+   against its canonical ChEBI/ENVO/etc. label so this class of bug can't recur —
+   without it, item 1 could silently regress on the next hand-edit. See
+   [[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
+
+**Impact:** shipped community records mostly ground REEs via their own (correct)
+`term.{id,label}` pairs, so the KGX export from those is largely fine; the wrong
+groundings live in the schema enum + `metal_extraction.py` map (any enum-driven
+export/analysis inherits them). Low blast radius today, but a latent correctness
+bug and a clear gate gap.
 
 ## 1. Phase-2 id↔label enforcement rollout (report-only → blocking)
 

@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-07T13:23:20
+# Generation date: 2026-07-18T19:47:03
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2446,7 +2446,7 @@ class MetalElementEnum(EnumDefinitionImpl):
         text="GALLIUM", description="Gallium(3+) cation", meaning=CHEBI["49631"]
     )
     INDIUM = PermissibleValue(
-        text="INDIUM", description="Indium(3+) cation", meaning=CHEBI["49464"]
+        text="INDIUM", description="Indium(3+) cation", meaning=CHEBI["49664"]
     )
     TITANIUM = PermissibleValue(
         text="TITANIUM", description="Titanium atom", meaning=CHEBI["33341"]
@@ -2467,52 +2467,58 @@ class RareEarthElementEnum(EnumDefinitionImpl):
     """
 
     LANTHANUM = PermissibleValue(
-        text="LANTHANUM", description="Lanthanum(3+) cation", meaning=CHEBI["32359"]
+        text="LANTHANUM", description="Lanthanum(3+) cation", meaning=CHEBI["49701"]
     )
     CERIUM = PermissibleValue(
-        text="CERIUM", description="Cerium(3+) cation", meaning=CHEBI["32998"]
+        text="CERIUM", description="Cerium(3+) cation", meaning=CHEBI["48782"]
     )
     PRASEODYMIUM = PermissibleValue(
-        text="PRASEODYMIUM", description="Praseodymium(3+) cation", meaning=CHEBI["49648"]
+        text="PRASEODYMIUM", description="Praseodymium(3+) cation", meaning=CHEBI["229784"]
     )
     NEODYMIUM = PermissibleValue(
-        text="NEODYMIUM", description="Neodymium(3+) cation", meaning=CHEBI["33372"]
+        text="NEODYMIUM", description="Neodymium(3+) cation", meaning=CHEBI["229785"]
     )
     SAMARIUM = PermissibleValue(
-        text="SAMARIUM", description="Samarium(3+) cation", meaning=CHEBI["33376"]
+        text="SAMARIUM", description="Samarium(3+) cation", meaning=CHEBI["49890"]
     )
     EUROPIUM = PermissibleValue(
-        text="EUROPIUM", description="Europium(3+) cation", meaning=CHEBI["30688"]
+        text="EUROPIUM", description="Europium(3+) cation", meaning=CHEBI["49591"]
     )
     GADOLINIUM = PermissibleValue(
-        text="GADOLINIUM", description="Gadolinium(3+) cation", meaning=CHEBI["33375"]
+        text="GADOLINIUM", description="Gadolinium(3+) cation", meaning=CHEBI["49618"]
     )
     TERBIUM = PermissibleValue(
-        text="TERBIUM", description="Terbium(3+) cation", meaning=CHEBI["33374"]
+        text="TERBIUM", description="Terbium(3+) cation", meaning=CHEBI["49902"]
     )
     DYSPROSIUM = PermissibleValue(
-        text="DYSPROSIUM", description="Dysprosium(3+) cation", meaning=CHEBI["49782"]
+        text="DYSPROSIUM",
+        description="Dysprosium atom (ChEBI has no dysprosium(3+) cation term)",
+        meaning=CHEBI["33377"],
     )
     HOLMIUM = PermissibleValue(
-        text="HOLMIUM", description="Holmium(3+) cation", meaning=CHEBI["49649"]
+        text="HOLMIUM", description="Holmium(3+) cation", meaning=CHEBI["49650"]
     )
     ERBIUM = PermissibleValue(
-        text="ERBIUM", description="Erbium(3+) cation", meaning=CHEBI["49650"]
+        text="ERBIUM",
+        description="Erbium atom (ChEBI has no erbium(3+) cation term)",
+        meaning=CHEBI["33379"],
     )
     THULIUM = PermissibleValue(
-        text="THULIUM", description="Thulium(3+) cation", meaning=CHEBI["33377"]
+        text="THULIUM",
+        description="Thulium atom (ChEBI has no thulium(3+) cation term)",
+        meaning=CHEBI["33380"],
     )
     YTTERBIUM = PermissibleValue(
-        text="YTTERBIUM", description="Ytterbium(3+) cation", meaning=CHEBI["33378"]
+        text="YTTERBIUM", description="Ytterbium(3+) cation", meaning=CHEBI["49980"]
     )
     LUTETIUM = PermissibleValue(
-        text="LUTETIUM", description="Lutetium(3+) cation", meaning=CHEBI["33382"]
+        text="LUTETIUM", description="Lutetium(3+) cation", meaning=CHEBI["49746"]
     )
     YTTRIUM = PermissibleValue(
-        text="YTTRIUM", description="Yttrium(3+) cation", meaning=CHEBI["49976"]
+        text="YTTRIUM", description="Yttrium(3+) cation", meaning=CHEBI["49962"]
     )
     SCANDIUM = PermissibleValue(
-        text="SCANDIUM", description="Scandium(3+) cation", meaning=CHEBI["33330"]
+        text="SCANDIUM", description="Scandium(3+) cation", meaning=CHEBI["231857"]
     )
 
     _defn = EnumDefinition(
