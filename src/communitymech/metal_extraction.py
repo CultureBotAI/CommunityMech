@@ -28,28 +28,28 @@ METAL_CHEBI_MAP = {
     "CHEBI:30512": "SILVER",
     "CHEBI:33363": "PALLADIUM",
     "CHEBI:49631": "GALLIUM",
-    "CHEBI:49464": "INDIUM",
+    "CHEBI:49664": "INDIUM",
     "CHEBI:33341": "TITANIUM",
 }
 
 # Mapping from CHEBI IDs to RareEarthElementEnum values
 REE_CHEBI_MAP = {
-    "CHEBI:32359": "LANTHANUM",
-    "CHEBI:32998": "CERIUM",
-    "CHEBI:49648": "PRASEODYMIUM",
-    "CHEBI:33372": "NEODYMIUM",
-    "CHEBI:33376": "SAMARIUM",
-    "CHEBI:30688": "EUROPIUM",
-    "CHEBI:33375": "GADOLINIUM",
-    "CHEBI:33374": "TERBIUM",
-    "CHEBI:49782": "DYSPROSIUM",
-    "CHEBI:49649": "HOLMIUM",
-    "CHEBI:49650": "ERBIUM",
-    "CHEBI:33377": "THULIUM",
-    "CHEBI:33378": "YTTERBIUM",
-    "CHEBI:33382": "LUTETIUM",
-    "CHEBI:49976": "YTTRIUM",
-    "CHEBI:33330": "SCANDIUM",
+    "CHEBI:49701": "LANTHANUM",
+    "CHEBI:48782": "CERIUM",
+    "CHEBI:229784": "PRASEODYMIUM",
+    "CHEBI:229785": "NEODYMIUM",
+    "CHEBI:49890": "SAMARIUM",
+    "CHEBI:49591": "EUROPIUM",
+    "CHEBI:49618": "GADOLINIUM",
+    "CHEBI:49902": "TERBIUM",
+    "CHEBI:33377": "DYSPROSIUM",  # atom; ChEBI has no dysprosium(3+) cation
+    "CHEBI:49650": "HOLMIUM",
+    "CHEBI:33379": "ERBIUM",  # atom; ChEBI has no erbium(3+) cation
+    "CHEBI:33380": "THULIUM",  # atom; ChEBI has no thulium(3+) cation
+    "CHEBI:49980": "YTTERBIUM",
+    "CHEBI:49746": "LUTETIUM",
+    "CHEBI:49962": "YTTRIUM",
+    "CHEBI:231857": "SCANDIUM",
 }
 
 # Keywords for metal detection in environmental factors and descriptions
