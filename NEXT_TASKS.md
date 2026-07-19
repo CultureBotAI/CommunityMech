@@ -184,10 +184,20 @@ actioned (2026-07-19, PR #212).**
 The **CHEBI route works today** — env-matched MIM ingredients that `skos:exactMatch`
 a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
 `shared_environment_term`) with no id decision needed; build once MIM confirms (c).
-**Other follow-ups (grounding-quality, addressed separately):** exact-ENVO
-matching is sparse — consider ENVO subsumption (rhizosphere media for a soil
-community); and `ENVO:01001405` "laboratory environment" is over-applied (110
-communities).
+**Other follow-ups (grounding-quality):**
+- **ENVO subsumption matching — DONE (2026-07-19, PR #213).** `suggest-related-media
+  --subsumption` also matches media whose environment is an ENVO `is_a` *subtype*
+  of the community's (e.g. "marine sediment" medium for a "sediment" community),
+  via a locally-cached ENVO adapter (skips gracefully in CI). Ancestors are
+  intentionally excluded (they'd match super-generic parents), and generic media
+  envs (`ENVO:01001405`) are filtered from subtype expansion too. Current
+  real-data yield is ~0 extra non-generic matches (CultureMech `source_environment`
+  is too sparse to have `is_a`-subtype overlap yet) — the capability is correct and
+  future-proofs as coverage grows. NB: some intuitive relations aren't `is_a` in
+  ENVO (rhizosphere is *not* a subtype of soil), so those still won't match — an
+  ontology limitation, not a bug.
+- **`ENVO:01001405` "laboratory environment" over-applied (110 communities)** —
+  grounding-quality item, addressed next (over-applied-term report).
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 

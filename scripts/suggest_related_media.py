@@ -19,10 +19,14 @@ link, and (b) MIM ingredient records don't carry `MediaIngredientMech:NNNNNN` id
 Sibling repo path comes from ``COMMUNITYMECH_SIBLING_REPOS`` (``Name=path``) or
 ``--culturemech``; point it at the CultureMech repo root.
 
+Matching is exact-ENVO by default. `--subsumption` also matches media whose
+environment is an ENVO *subtype* of the community's (e.g. a "marine sediment"
+medium for a "sediment" community), when the ENVO sqlite is cached locally.
+
 Usage:
     COMMUNITYMECH_SIBLING_REPOS="CultureMech=../CultureMech" \\
         PYTHONPATH=src uv run python scripts/suggest_related_media.py
-    PYTHONPATH=src uv run python scripts/suggest_related_media.py \\
+    PYTHONPATH=src uv run python scripts/suggest_related_media.py --subsumption \\
         --culturemech ../CultureMech kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml
 """
 
@@ -36,6 +40,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.cross_repo_environment import (  # noqa: E402
     culturemech_media_by_environment,
+    envo_subtypes,
+    get_envo_adapter,
     sibling_repos_from_env,
 )
 
@@ -73,24 +79,59 @@ def _community_env(data: dict) -> tuple[str, str] | None:
     return None
 
 
-def _suggestion_block(hits, envo_id, env_label):
-    """Render a list of related_media dicts for the given media hits."""
+def _suggestion_block(matches, envo_id, env_label):
+    """Render related_media dicts for (MediaHit, relation) matches.
+
+    ``relation`` is "exact" or "subtype" (the medium's environment is a subtype of
+    the community's). For subtype matches the shared_environment_term is the
+    community's own (broader) ENVO term — the valid join key — and the medium's
+    more-specific environment is recorded in the notes.
+    """
     blocks = []
-    for hit in sorted(hits, key=lambda h: h.culturemech_id):
+    for hit, relation in sorted(matches, key=lambda m: m[0].culturemech_id):
+        if relation == "exact":
+            note = (
+                f"Shares environment '{env_label or hit.env_label}' ({envo_id}) with this "
+                "community; surfaced by env-based cross-repo match against CultureMech "
+                "source_environment."
+            )
+        else:
+            note = (
+                f"CultureMech source_environment '{hit.env_label}' ({hit.env_id}) is a subtype "
+                f"of this community's environment '{env_label}' ({envo_id}); surfaced by "
+                "ENVO-subsumption cross-repo match."
+            )
         blocks.append(
             {
                 "preferred_term": hit.name,
                 "culturemech_id": hit.culturemech_id,
                 "relationship_type": "ENVIRONMENT_ANALOG",
                 "shared_environment_term": {"id": envo_id, "label": env_label or hit.env_label},
-                "relevance_notes": (
-                    f"Shares environment '{env_label or hit.env_label}' ({envo_id}) with this "
-                    "community; surfaced by env-based cross-repo match against CultureMech "
-                    "source_environment."
-                ),
+                "relevance_notes": note,
             }
         )
     return blocks
+
+
+def _matches_for(envo_id, media_by_env, envo_adapter, exclude_subtype_envs=frozenset()):
+    """Return [(MediaHit, relation)] for a community ENVO term.
+
+    Always includes exact matches; when ``envo_adapter`` is provided, also includes
+    media whose environment is an ENVO subtype of ``envo_id`` — except subtypes in
+    ``exclude_subtype_envs`` (e.g. the over-generic "laboratory environment", which
+    subsumption would otherwise pull in as a media env). Each medium appears once,
+    preferring an exact match over a subtype match.
+    """
+    seen: dict[str, tuple] = {}
+    for hit in media_by_env.get(envo_id, []):
+        seen[hit.culturemech_id] = (hit, "exact")
+    if envo_adapter is not None:
+        for sub in envo_subtypes(envo_id, envo_adapter):
+            if sub in exclude_subtype_envs:
+                continue
+            for hit in media_by_env.get(sub, []):
+                seen.setdefault(hit.culturemech_id, (hit, "subtype"))
+    return list(seen.values())
 
 
 def main() -> int:
@@ -106,6 +147,12 @@ def main() -> int:
         "--include-generic",
         action="store_true",
         help="Also match over-generic environments like 'laboratory environment'",
+    )
+    parser.add_argument(
+        "--subsumption",
+        action="store_true",
+        help="Also match media whose environment is an ENVO subtype of the community's "
+        "(needs the ENVO sqlite cached locally)",
     )
     args = parser.parse_args()
 
@@ -123,6 +170,16 @@ def main() -> int:
 
     media_by_env = culturemech_media_by_environment(cm_path)
 
+    envo_adapter = None
+    if args.subsumption:
+        envo_adapter = get_envo_adapter()
+        if envo_adapter is None:
+            print(
+                "--subsumption requested but ENVO sqlite not cached locally; "
+                "falling back to exact matches only.",
+                file=sys.stderr,
+            )
+
     paths = args.yaml_paths or sorted(COMMUNITY_DIR.glob("*.yaml"))
     total_suggestions = 0
     communities_with_suggestions = 0
@@ -139,16 +196,19 @@ def main() -> int:
         if envo_id in GENERIC_ENVIRONMENTS and not args.include_generic:
             skipped_generic += 1
             continue
-        candidates = media_by_env.get(envo_id, [])
+        exclude_subtypes = frozenset() if args.include_generic else GENERIC_ENVIRONMENTS
+        matches = _matches_for(envo_id, media_by_env, envo_adapter, exclude_subtypes)
         already = _linked_culturemech_ids(data)
-        fresh = [h for h in candidates if h.culturemech_id not in already]
+        fresh = [(h, rel) for h, rel in matches if h.culturemech_id not in already]
         if not fresh:
             continue
         communities_with_suggestions += 1
         total_suggestions += len(fresh)
+        n_sub = sum(1 for _, rel in fresh if rel == "subtype")
         blocks = _suggestion_block(fresh, envo_id, env_label)
+        sub_note = f" ({n_sub} via ENVO subtype)" if n_sub else ""
         print(f"\n# {path.name}  —  environment {envo_id} ({env_label})")
-        print(f"# {len(fresh)} suggested related_media (paste under `related_media:`)")
+        print(f"# {len(fresh)} suggested related_media{sub_note} (paste under `related_media:`)")
         print(yaml.safe_dump(blocks, sort_keys=False, allow_unicode=True).rstrip())
 
     note = ""

@@ -25,6 +25,7 @@ import os
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from pathlib import Path
+from typing import Any
 
 import yaml
 
@@ -200,6 +201,36 @@ def build_coverage(
     if mim is not None:
         mim_environments(mim, coverage)
     return coverage
+
+
+def envo_subtypes(envo_id: str, adapter: Any) -> set[str]:
+    """ENVO ids that are ``is_a`` (rdfs:subClassOf) descendants of ``envo_id``.
+
+    Used to widen environment matching: a medium grounded to a *subtype* of the
+    community's environment (e.g. medium "marine sediment" for a "sediment"
+    community) is a specific analog. Ancestors are intentionally NOT returned —
+    broadening to super-generic parents ("environmental system", …) would
+    over-match. ``adapter`` is an OAK adapter for ENVO.
+    """
+    try:
+        descendants = adapter.descendants(envo_id, predicates=["rdfs:subClassOf"])
+    except Exception:
+        return set()
+    return {d for d in descendants if d != envo_id}
+
+
+def get_envo_adapter() -> Any | None:
+    """Return an OAK adapter for the locally-cached ENVO sqlite, or None.
+
+    Skips (returns None) when the ENVO build isn't cached, so callers can widen
+    matching when the ontology is present without forcing a download in CI.
+    """
+    envo_db = Path.home() / ".data" / "oaklib" / "envo.db"
+    if not envo_db.exists():
+        return None
+    from oaklib import get_adapter  # type: ignore[import-untyped]
+
+    return get_adapter(f"sqlite:{envo_db}")
 
 
 def sibling_repos_from_env() -> dict[str, Path]:
