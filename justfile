@@ -106,8 +106,15 @@ env-coverage *args:
 # Suggest environment-matched CultureMech media as related_media blocks for
 # review (issue #30, Use Case 1). Needs a CultureMech path via
 # COMMUNITYMECH_SIBLING_REPOS or --culturemech. Suggestion-only; edits nothing.
+# Add --subsumption to also match ENVO subtype environments.
 suggest-related-media *args:
     PYTHONPATH=src uv run python scripts/suggest_related_media.py {{args}}
+
+# Environment-grounding quality report: rank community environment_term usage and
+# flag generic (e.g. laboratory environment) / over-applied groundings for review
+# (issue #30 follow-up). Report-only; edits nothing. --list shows affected records.
+env-grounding-quality *args:
+    PYTHONPATH=src uv run python scripts/env_grounding_quality.py {{args}}
 
 # Validate ontology terms in a community file
 validate-terms FILE:
