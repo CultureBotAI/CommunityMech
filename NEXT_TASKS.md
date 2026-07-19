@@ -125,9 +125,39 @@ export (the id ≠ the labelled compound) — a data-quality item worth tracking
 
 ## 2. Cross-repository environmental linking (issue #30)
 
-Open issue: enhance environment/isolation-source links between CommunityMech,
-CultureMech, and MIM (shared ENVO grounding, cross-references). Scope and
-sequence against the MIM single-source-of-truth direction before building.
+**Scoping finding (2026-07-19):** most of #30's *schema* is already built — the
+`RelatedMedia` / `RelatedIngredient` classes, `related_media` /
+`related_ingredients` slots, `GrowthMedia.culturemech_id`, and
+`GrowthMediaComponent.mediaingredientmech_id` all exist, and cross-repo **ID**
+existence checks ship in `scripts/validate_cross_repo_ids.py`. The name-based
+`scripts/link_growth_media.py` links growth_media → CultureMech recipes. What was
+missing is the **ENVO-based** cross-repo layer (issue Use Cases 1–2): match a
+community's `environment_term` against CultureMech `source_environment[].term.id`
+and MIM `environmental_context[].environment_term`. Both sibling env fields now
+exist (CultureMech 18 real records, MIM ~44); read siblings from local paths via
+`COMMUNITYMECH_SIBLING_REPOS`.
+
+**Item a — ENVO coverage dashboard — DONE (2026-07-19, PR #210).**
+`src/communitymech/cross_repo_environment.py` (byte-prefiltered ENVO index across
+the three repos, no network) + `scripts/env_coverage_dashboard.py` +
+`just env-coverage`. First real run: **41 community ENVO terms, only 1 (soil) with
+both media+ingredients, 34 with neither** — sibling ENVO fields are still sparse,
+so the near-term value is showing *where* to populate. Offline unit tests in
+`tests/test_cross_repo_environment.py`.
+
+**Item b — ENVO-based suggester — NEXT.** For a community, emit suggested
+`related_media` / `related_ingredients` blocks (with `shared_environment_term`)
+from ENVO matches, for curator review. **Open problem to resolve first: the MIM id
+scheme.** MIM env-context records carry `identifier: kgmicrobe.ingredient:…` /
+`CHEBI:…` / `ENVO:…`, **not** `MediaIngredientMech:NNNNNN` (the schema pattern for
+`mediaingredientmech_id`); 802 `MediaIngredientMech:NNNNNN` ids live in a separate
+MIM crosswalk. CommunityMech's 222 existing `related_ingredients` don't populate
+`mediaingredientmech_id` at all. Decide how (or whether) to reconcile these before
+emitting ingredient ids — this is the "MIM single-source-of-truth direction" the
+scoping note flagged. Exact-ENVO matching is sparse; consider ENVO subsumption
+(e.g. rhizosphere media for a soil community) as a follow-up. Note also
+`ENVO:01001405` "laboratory environment" is over-applied (110 communities) — a
+grounding-quality item, not part of #30.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
