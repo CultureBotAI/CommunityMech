@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-18T19:47:03
+# Generation date: 2026-07-19T15:13:06
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1041,6 +1041,7 @@ class RelatedIngredient(YAMLRoot):
     preferred_term: str = None
     mediaingredientmech_id: Optional[str] = None
     chebi_term: Optional[Union[dict, Term]] = None
+    shared_environment_term: Optional[Union[dict, Term]] = None
     relevance: Optional[str] = None
     evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
         empty_list()
@@ -1059,6 +1060,11 @@ class RelatedIngredient(YAMLRoot):
 
         if self.chebi_term is not None and not isinstance(self.chebi_term, Term):
             self.chebi_term = Term(**as_dict(self.chebi_term))
+
+        if self.shared_environment_term is not None and not isinstance(
+            self.shared_environment_term, Term
+        ):
+            self.shared_environment_term = Term(**as_dict(self.shared_environment_term))
 
         if self.relevance is not None and not isinstance(self.relevance, str):
             self.relevance = str(self.relevance)
@@ -4091,6 +4097,15 @@ slots.relatedIngredient__chebi_term = Slot(
     name="relatedIngredient__chebi_term",
     curie=COMMUNITYMECH.curie("chebi_term"),
     model_uri=COMMUNITYMECH.relatedIngredient__chebi_term,
+    domain=None,
+    range=Optional[Union[dict, Term]],
+)
+
+slots.relatedIngredient__shared_environment_term = Slot(
+    uri=COMMUNITYMECH.shared_environment_term,
+    name="relatedIngredient__shared_environment_term",
+    curie=COMMUNITYMECH.curie("shared_environment_term"),
+    model_uri=COMMUNITYMECH.relatedIngredient__shared_environment_term,
     domain=None,
     range=Optional[Union[dict, Term]],
 )

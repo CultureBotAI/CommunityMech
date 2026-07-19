@@ -159,20 +159,35 @@ to override — and the skipped count is reported (no silent drop). First real r
 pasted into a real record. Reuses `cross_repo_environment.culturemech_media_by_environment`;
 tests in `tests/test_suggest_related_media.py` + `tests/test_cross_repo_environment.py`.
 
-**Item c — ENVO-based INGREDIENT suggester — DEFERRED (two blockers).**
-(1) *Schema:* `RelatedIngredient` has **no `shared_environment_term` slot** (only
-`chebi_term` for the compound), so an environment→ingredient link isn't even
-expressible — it would need a schema addition. (2) *MIM id scheme:* MIM env-context
-records carry `identifier: kgmicrobe.ingredient:…` / `CHEBI:…` / `ENVO:…`, **not**
-`MediaIngredientMech:NNNNNN` (the `mediaingredientmech_id` pattern); the 802
-`MediaIngredientMech:NNNNNN` ids live only in MIM *analysis/reconciliation reports*,
-and CommunityMech's 222 existing `related_ingredients` don't populate
-`mediaingredientmech_id` at all. Both are the "MIM single-source-of-truth
-direction" the scoping note flagged — resolve on the MIM side (or add the schema
-slot + a crosswalk) before building. **Follow-ups regardless:** exact-ENVO matching
-is sparse — consider ENVO subsumption (rhizosphere media for a soil community); and
-`ENVO:01001405` over-application (110 communities) is a grounding-quality item to
-fix separately.
+**Item c — ENVO-based INGREDIENT suggester — was DEFERRED (two blockers); both now
+actioned (2026-07-19, PR #212).**
+
+- **Blocker 1 (schema, ours) — RESOLVED.** Added `shared_environment_term` (Term,
+  id-binding REQUIRED) to `RelatedIngredient`, mirroring `RelatedMedia`, so an
+  environment→ingredient link is now expressible. Datamodel regenerated; verified a
+  `related_ingredient` with `shared_environment_term` + `chebi_term`
+  LinkML-validates; regression test in `tests/test_cross_repo_linking.py`.
+- **Blocker 2 (MIM id scheme) — RAISED with MIM (MediaIngredientMech#119).**
+  Investigation resolved the *facts*: MIM's canonical ingredient CURIE is
+  **`MIM:<name>`** (2200 SSSOM subjects; `MIM:` expands to
+  `.../data/ingredients/mapped/`), mapped to CHEBI/FOODON via SSSOM —
+  **not** `MediaIngredientMech:NNNNNN` (that style exists only in two MIM
+  `analysis/` reports and in zero canonical records / the unified mapping TSV). So
+  CommunityMech's `RelatedIngredient.mediaingredientmech_id` pattern references a
+  scheme MIM never adopted; its docstring now says so and points at #119. MIM#119
+  asks MIM to confirm (a) `MIM:<name>` as the stable cross-repo id, (b)
+  `environmental_context` durability/coverage, and (c) whether citing the
+  ingredient's `CHEBI:` id (already supported by `RelatedIngredient.chebi_term`) is
+  an acceptable equivalent link — the likely fast path.
+
+**Remaining before emitting ingredient suggestions:** decide the id per MIM#119.
+The **CHEBI route works today** — env-matched MIM ingredients that `skos:exactMatch`
+a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
+`shared_environment_term`) with no id decision needed; build once MIM confirms (c).
+**Other follow-ups (grounding-quality, addressed separately):** exact-ENVO
+matching is sparse — consider ENVO subsumption (rhizosphere media for a soil
+community); and `ENVO:01001405` "laboratory environment" is over-applied (110
+communities).
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
