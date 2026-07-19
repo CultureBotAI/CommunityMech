@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-18.
+Last reconciled: 2026-07-19.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -51,31 +51,36 @@ validate-all + 197 tests green.
 any id↔label gate — `validate-products` only checks record-level
 `term.{id,label}` pairs, so these drifted wrong undetected while the gated record
 pairs stayed correct (spot-checked: `Ion_Adsorption_REE_Indigenous_Community.yaml`
-uses the *correct* CHEBI:33377/CHEBI:49962). Added
-`tests/test_element_enum_groundings.py` — runs in the `validate-strict` pytest
-step (already a blocking gate) with no network: (a) freezes the verified `meaning:`
-ids for `MetalElementEnum` + `RareEarthElementEnum` so a bad hand-edit fails, (b)
-asserts no two element PVs share a CHEBI id (catches the swap/dup pattern
-directly), and (c) resolves each id against its canonical ChEBI label — element
-name must appear — but only when the ChEBI sqlite is already cached locally, so it
-never forces a multi-GB download in CI. Verified the label check would have
-flagged all three historical bugs (PALLADIUM→promethium, INDIUM→aluminium
-trifluoride, YTTRIUM→zinc dichloride).
+uses the *correct* CHEBI:33377/CHEBI:49962). Added the guard test (PR #208, then
+generalised in PR #209) — runs in the `validate-strict` pytest step (already a
+blocking gate) with no network.
 
-**Still deferred — generalise beyond the element enums.** The new test is scoped
-to the two element enums (kept clean and exception-free on purpose). A KB-wide
-guard over *every* enum `meaning:` (via `just validate-schema-terms` /
-`linkml-term-validator validate-schema`) is still blocked by the same thing that
-defers `validate-terms-all`: linkml-term-validator has no exceptions mechanism, so
-it fails on obsolete/unminted meanings elsewhere in the schema. Enable it once
-those residuals are minted/cleaned or the LinkML tool grows a waiver. See
-[[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
+**Item 2b — generalise the guard — DONE (2026-07-19, PR #209).** A survey found
+only **3 enums carry `meaning:` groundings** at all — `MetalElementEnum` (17
+CHEBI), `RareEarthElementEnum` (16 CHEBI), and `CultivationSystemEnum` (1 OBI:
+BIOREACTOR_UNSPECIFIED → OBI:0001046 "bioreactor"). (The `validate-terms-all`
+blocker is about *data-level* `term.id` bindings across community files — a
+different surface — so it does **not** block an enum-meaning guard.) Renamed the
+test to `tests/test_enum_groundings.py` and made it **auto-discover** every
+grounded enum from the schema, so a newly grounded enum/value is covered
+automatically (or fails until registered in `EXPECTED`): (a) full discovered
+`{enum: {value: meaning}}` must equal the frozen `EXPECTED`; (b) no two values
+inside one enum share an id; (c) each id resolves to a non-obsolete term whose
+canonical label fits (element name must appear for the element enums), per prefix,
+skipped when that ontology's sqlite isn't cached locally. Covers CHEBI + OBI;
+verified the label check flags all three historical bugs.
+
+**Note (not the same task):** a full LinkML-native schema gate over term.id
+*data* bindings (`just validate-terms-all` / `linkml-term-validator`) is still
+deferred — that tool has no exceptions mechanism and fails on the 34
+curator-accepted residuals. Unblock by minting/cleaning them or teaching the gate
+a shared waiver (see §1). See [[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
 
 **Impact:** shipped community records mostly ground REEs via their own (correct)
 `term.{id,label}` pairs, so the KGX export from those is largely fine; the wrong
 groundings live in the schema enum + `metal_extraction.py` map (any enum-driven
 export/analysis inherits them). Low blast radius today, but a latent correctness
-bug and a clear gate gap — now guarded for the element enums.
+bug and a clear gate gap — now guarded for every grounded enum (CHEBI + OBI).
 
 ## 1. Phase-2 id↔label enforcement rollout (report-only → blocking)
 
