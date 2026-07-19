@@ -1085,12 +1085,27 @@ classes:
         required: true
         range: string
       mediaingredientmech_id:
-        description: MediaIngredientMech identifier
+        description: >-
+          MediaIngredientMech identifier. NOTE: MIM's canonical ingredient CURIE
+          is `MIM:<name>` (SSSOM registry), not `MediaIngredientMech:NNNNNN`;
+          reconciliation is tracked in MediaIngredientMech#119 / NEXT_TASKS §2c.
+          Prefer `chebi_term` for the compound identity until that resolves.
         required: false
         range: string
         pattern: "^MediaIngredientMech:\\d{6}$"
       chebi_term:
         description: CHEBI ontology term for the ingredient compound
+        range: Term
+        required: false
+        bindings:
+          - binds_value_of: id
+            obligation_level: REQUIRED
+      shared_environment_term:
+        description: >-
+          ENVO term for the shared environment linking this ingredient to the
+          community. Enables environment-based joins between CommunityMech
+          environment_term and MediaIngredientMech environmental_context, mirroring
+          RelatedMedia.shared_environment_term.
         range: Term
         required: false
         bindings:

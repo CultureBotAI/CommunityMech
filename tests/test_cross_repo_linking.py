@@ -287,6 +287,16 @@ class TestDataclassEdgeCases:
         )
         assert ri.chebi_term.id == "CHEBI:34818"
 
+    def test_related_ingredient_with_shared_environment_term(self):
+        """RelatedIngredient carries an ENVO shared_environment_term (issue #30,
+        constraint A) — the env join key, mirroring RelatedMedia."""
+        ri = RelatedIngredient(
+            preferred_term="Humic acid",
+            chebi_term=Term(id="CHEBI:34818", label="humic acid"),
+            shared_environment_term=Term(id="ENVO:00000044", label="peatland"),
+        )
+        assert ri.shared_environment_term.id == "ENVO:00000044"
+
     def test_community_with_both_growth_and_related(self):
         """MicrobialCommunity can have both growth_media and related_media."""
         mc = MicrobialCommunity(
