@@ -343,6 +343,19 @@ research-community-edison target *args="":
       --out-dir {{research_dir}}/communities \
       {{args}}
 
+# Edison deep research in CAUSAL-GRAPH mode for ONE community: extracts
+# source-backed interaction nodes + directed causal edges (ecological_interactions
+# + InteractionDownstream). Same Edison plumbing as research-community-edison, with
+# the causal template + a `causal` label so it does NOT overwrite the mechanism run.
+#   just research-community-causal Cellulose_Methane_Quad_Culture_SynCom --dry-run
+research-community-causal target *args="":
+    uv run --extra dev python scripts/research_community_edison.py \
+      --target {{target}} \
+      --template {{templates_dir}}/community_causal_graph_research.md \
+      --label causal \
+      --out-dir {{research_dir}}/communities \
+      {{args}}
+
 # Edison deep research for a batch of communities (JSON list of stems/ids/paths).
 research-community-edison-batch batch *args="":
     uv run --extra dev python scripts/research_community_edison.py \

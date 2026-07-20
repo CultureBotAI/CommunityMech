@@ -1,6 +1,6 @@
 ---
 name: deep-research-community
-description: Run Edison Scientific deep research (PaperQA3) for a CommunityMech microbial-community record to gather source-backed composition, ecological interactions/mechanisms, environment, cultivation conditions, and ontology grounding (NCBITaxon/ENVO/CHEBI/GO). Captures a full provenance bundle and produces a curation-focused report for a curator to review and apply.
+description: Run Edison Scientific deep research (PaperQA3) for a CommunityMech microbial-community record to gather source-backed composition, ecological interactions/mechanisms, environment, cultivation conditions, and ontology grounding (NCBITaxon/ENVO/CHEBI/GO). Captures a full provenance bundle and produces a curation-focused report for a curator to review and apply. Includes a causal-edge mode that, for one community, extracts a source-backed causal interaction graph (interaction nodes + directed causal edges → ecological_interactions + downstream).
 category: research
 requires_database: false
 requires_internet: true
@@ -129,6 +129,40 @@ Do **not** mutate `kb/communities/` files in this skill — that is the
 curator's call after reading the report. The per-task markdown + meta
 files are the audit trail and source of truth for citations.
 
+## Causal-edge mode (one community at a time)
+
+The **default** mode (above) produces a broad mechanism report. **Causal-edge
+mode** instead asks Edison to build a source-backed **causal interaction graph**
+for a single community — the nodes are mechanistic interactions, the edges are
+directed causal links ("interaction A enables / drives / suppresses interaction
+B"). It maps directly onto the schema: interaction nodes →
+`ecological_interactions[]` (with `interaction_type`, `scope`,
+`source_taxon`→`target_taxon`, `metabolites`, `biological_processes`, sign), and
+causal edges → `EcologicalInteraction.downstream[]` (`InteractionDownstream`:
+`target` + causal-link `description`).
+
+**When to use it**: when the curation goal is the *wiring* — how the mechanisms
+chain into the community's emergent function — rather than a general
+composition/conditions sweep. Same one-community scope, same Edison plumbing and
+provenance bundle.
+
+Run it (dry-run first to audit the query before spending credits):
+
+```bash
+just research-community-causal <stem-or-id> --dry-run
+just research-community-causal <stem-or-id>
+# deeper (more reads, higher cost):
+just research-community-causal <stem-or-id> --job literature-high
+```
+
+This uses `templates/community_causal_graph_research.md` and a `--label causal`
+suffix, so its outputs are **`<stem>-edison-<job>-causal.*`** and do **not**
+overwrite the default mechanism run's `<stem>-edison-<job>.*`. Everything else —
+Steps 1–2 (resolve + check-existing), the cost/safety rules, and the
+hand-off-to-curator discipline (Step 4: do **not** mutate `kb/communities/`) —
+applies unchanged. The report's node/edge tables + DOT sketch are what a curator
+reviews before writing an `ecological_interactions` block.
+
 ## File outputs at a glance
 
 ```
@@ -182,6 +216,10 @@ research/communities/
 # Single community (dry-run to audit the query first):
 just research-community-edison <stem-or-id> --dry-run
 just research-community-edison <stem-or-id>
+
+# Causal-graph mode for one community (interaction nodes + directed causal edges):
+just research-community-causal <stem-or-id> --dry-run
+just research-community-causal <stem-or-id>
 
 # Deeper job:
 just research-community-edison <stem-or-id> --job literature-high
