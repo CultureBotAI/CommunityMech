@@ -82,7 +82,7 @@ target-version = ["py310", "py311", "py312"]
 # Vendored, byte-pinned id-label validator tests — must not be reformatted here
 # (would break the cross-Mech sha256 pin). See [tool.ruff] extend-exclude note.
 extend-exclude = '''
-/tests/test_id_label_(empty_adapter|unknown_prefix)\.py$
+/tests/test_id_label_(empty_adapter|unknown_prefix|plausibility)\.py$
 '''
 
 [tool.ruff]
@@ -100,6 +100,7 @@ extend-exclude = [
     "src/communitymech/datamodel/communitymech.py",
     "tests/test_id_label_empty_adapter.py",
     "tests/test_id_label_unknown_prefix.py",
+    "tests/test_id_label_plausibility.py",
 ]
 
 [tool.ruff.lint]
