@@ -41,6 +41,7 @@ Usage::
     # have been sent without spending credits.
     python scripts/research_community_edison.py --target <target> --dry-run
 """
+
 from __future__ import annotations
 
 import argparse
@@ -56,8 +57,8 @@ from dotenv import load_dotenv
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
-import research_community as rc  # noqa: E402  -- reuse template_vars + loaders
 import _edison_capture as ec  # noqa: E402  -- response/citation/agent capture
+import research_community as rc  # noqa: E402  -- reuse template_vars + loaders
 
 DEFAULT_TEMPLATE = REPO_ROOT / "templates" / "community_mechanism_research.md"
 DEFAULT_OUT_DIR = REPO_ROOT / "research" / "communities"
@@ -152,6 +153,7 @@ def run_one(
     template_path: Path,
     out_dir: Path,
     dry_run: bool,
+    label: str = "",
 ) -> dict[str, Any]:
     """Submit one task; write results to out_dir; return a stats dict.
 
@@ -166,7 +168,11 @@ def run_one(
     query, variables = render_query(community_path, template_path, doc)
     slug = slug_for(community_path)
     job_short = _short_job(job)
-    stem = f"{slug}-edison-{job_short}"
+    # An optional --label keeps parallel runs of the same (community, job) from
+    # clobbering each other, e.g. `-causal` for the causal-graph template vs the
+    # default mechanism template.
+    label_suffix = f"-{label}" if label else ""
+    stem = f"{slug}-edison-{job_short}{label_suffix}"
     meta_path = out_dir / f"{stem}-meta.yaml"
 
     def _safe_rel(p: Path) -> str:
@@ -181,6 +187,7 @@ def run_one(
         "community_id": str(doc.get("id") or ""),
         "job": job.name,
         "job_id": job.value,
+        "label": label,
         "template_path": _safe_rel(template_path),
         "template_vars": variables,
         "query_chars": len(query),
@@ -194,9 +201,7 @@ def run_one(
         # identical re-runs). No .md is written; only meta.
         meta = ec.capture_dry_run(out_dir=out_dir, stem=stem, query=query, base_meta=base_meta)
         out_dir.mkdir(parents=True, exist_ok=True)
-        meta_path.write_text(
-            yaml.safe_dump(meta, sort_keys=False, allow_unicode=True, width=100)
-        )
+        meta_path.write_text(yaml.safe_dump(meta, sort_keys=False, allow_unicode=True, width=100))
         md_path = out_dir / f"{stem}.md"
         print(f"[DRY RUN] {_display_path(community_path)} -> {_display_path(md_path)}")
         print(f"          job={job.name} query_chars={len(query)} meta={_display_path(meta_path)}")
@@ -259,6 +264,12 @@ def main(argv: list[str] | None = None) -> int:
         help="literature (paperqa3, default) | literature-high | precedent | phoenix",
     )
     ap.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
+    ap.add_argument(
+        "--label",
+        default="",
+        help="Optional suffix on output filenames (e.g. 'causal') so a non-default "
+        "template's run doesn't overwrite the default one for the same community+job.",
+    )
     ap.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     ap.add_argument(
         "--limit", type=int, default=None, help="When using --batch, cap the number researched."
@@ -317,7 +328,15 @@ def main(argv: list[str] | None = None) -> int:
     try:
         for community_path in targets:
             results.append(
-                run_one(client, community_path, job, args.template, args.out_dir, args.dry_run)
+                run_one(
+                    client,
+                    community_path,
+                    job,
+                    args.template,
+                    args.out_dir,
+                    args.dry_run,
+                    args.label,
+                )
             )
     finally:
         if client is not None:
