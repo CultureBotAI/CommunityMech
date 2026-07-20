@@ -206,9 +206,22 @@ a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
   and 42 on "rhizosphere" (over-applied but legitimate). The generic set is shared
   with the suggester (`cross_repo_environment.GENERIC_ENVIRONMENT_TERMS`). (ENVO
   `is_a` depth was tried as a genericness signal and rejected — "laboratory
-  environment" is deeper than "soil".) **Still a curation task:** re-ground the 110
-  lab-env records that model a knowable habitat (rumen, gut, groundwater, ISS/space,
-  cheese, …) — needs per-record source review, out of scope for an automated pass.
+  environment" is deeper than "soil".)
+
+- **Lab-env re-grounding via a new `modeled_environment` slot — IN PROGRESS
+  (2026-07-19).** Rather than overwrite `environment_term` (which honestly records
+  the *study setting*, often "laboratory environment"), a new **`modeled_environment`**
+  slot on `MicrobialCommunity` (multivalued, optional, `EnvironmentDescriptor`,
+  ENVO-grounded) captures the natural/applied habitat an engineered community
+  derives from or represents. **PR #216 (this)**: adds the schema slot + test.
+  **Follow-up PR**: populate it for the ~23 triaged records — 18 clear
+  (groundwater/regolith/dairy/marine/gut/anaerobic-digester) + 5 REVIEW
+  enrichments (rumen→digestive tract, Cu-bioleaching→AMD, two thiocyanate/UFMP
+  bioreactors, switchgrass methanogenic→digester); the other ~67 de-novo cocultures
+  keep only `environment_term: laboratory environment`. Triage detail in the report
+  produced 2026-07-19 (buckets REGROUND 18 / REVIEW 25 / LAB-KEEP 67). Then teach
+  the media/ingredient suggester to also match on `modeled_environment`, which
+  un-skips the lab-env communities that have a real modeled habitat.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 

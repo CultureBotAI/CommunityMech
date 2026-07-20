@@ -1271,6 +1271,21 @@ classes:
       environment_term:
         description: Environment where community exists
         range: EnvironmentDescriptor
+      modeled_environment:
+        description: >-
+          The natural or applied environment(s) this community derives from,
+          models, or represents — as distinct from `environment_term` (where it
+          physically exists / was studied). For an engineered or synthetic
+          community, `environment_term` is often "laboratory environment" while
+          this captures the real habitat it stands in for (e.g. a groundwater
+          enrichment → groundwater; a synthetic infant-gut consortium → intestine
+          environment; a space-agriculture SynCom → regolith). Leave empty for
+          de-novo assemblies with no specific habitat. ENVO-grounded, so it also
+          serves as an environment-based cross-repo join key (issue #30).
+        range: EnvironmentDescriptor
+        multivalued: true
+        required: false
+        inlined_as_list: true
       taxonomy:
         description: Organisms present in the community
         range: TaxonomicComposition
