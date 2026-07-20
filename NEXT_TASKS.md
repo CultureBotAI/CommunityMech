@@ -213,15 +213,18 @@ a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
   the *study setting*, often "laboratory environment"), a new **`modeled_environment`**
   slot on `MicrobialCommunity` (multivalued, optional, `EnvironmentDescriptor`,
   ENVO-grounded) captures the natural/applied habitat an engineered community
-  derives from or represents. **PR #216 (this)**: adds the schema slot + test.
-  **Follow-up PR**: populate it for the ~23 triaged records — 18 clear
-  (groundwater/regolith/dairy/marine/gut/anaerobic-digester) + 5 REVIEW
-  enrichments (rumen→digestive tract, Cu-bioleaching→AMD, two thiocyanate/UFMP
-  bioreactors, switchgrass methanogenic→digester); the other ~67 de-novo cocultures
-  keep only `environment_term: laboratory environment`. Triage detail in the report
-  produced 2026-07-19 (buckets REGROUND 18 / REVIEW 25 / LAB-KEEP 67). Then teach
-  the media/ingredient suggester to also match on `modeled_environment`, which
-  un-skips the lab-env communities that have a real modeled habitat.
+  derives from or represents. **DONE:** schema slot + test (PR #216); populated for
+  the 23 triaged records (PR #217) — groundwater×2, anaerobic digester×3,
+  bioreactor×3, regolith×4, dairy×4, intestine×2, marine×3, digestive-tract×1,
+  AMD×1; the other ~67 de-novo cocultures keep only `laboratory environment`.
+  Triage buckets REGROUND 18 / REVIEW 25 / LAB-KEEP 67. **Suggester now matches on
+  `modeled_environment`** (PR #218): the media suggester's env keys are
+  `environment_term` + every `modeled_environment`, so the 23 lab-env communities
+  are no longer skipped (skip count 110 → 87) — they'll match media automatically as
+  CultureMech populates `source_environment` for those habitats (0 today; data-limited,
+  not logic-limited). **Remaining:** regenerate `docs/` pages for the 23 records;
+  optionally apply the same `modeled_environment` matching to the (draft) ingredient
+  suggester.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
