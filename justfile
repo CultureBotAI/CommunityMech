@@ -71,6 +71,13 @@ validate-strict *args:
 audit-writers *args:
     uv run python scripts/audit_writers.py {{args}}
 
+# Append open-access full text (Europe PMC) to a PMID's reference cache, so
+# `validate-references` can verify snippets taken from a paper's Methods/Results,
+# not just its abstract. Only OA papers are cached; idempotent. e.g.:
+#   just cache-fulltext PMID:36847519
+cache-fulltext *pmids:
+    PYTHONPATH=src uv run python scripts/cache_fulltext.py {{pmids}}
+
 # Validate evidence references in a community file
 validate-references FILE:
     uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
