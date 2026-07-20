@@ -31,7 +31,8 @@ from communitymech.datamodel.communitymech import (
 TEST_DATA_DIR = Path(__file__).parent / "data" / "test_cross_repo_linking"
 
 CULTUREMECH_ID_PATTERN = re.compile(r"^CultureMech:\d{6}$")
-MEDIAINGREDIENTMECH_ID_PATTERN = re.compile(r"^MediaIngredientMech:\d{6}$")
+# The MediaIngredientMech:NNNNNN scheme is retired (vestigial per
+# MediaIngredientMech#119); ingredient linking joins on chebi_term.
 
 
 # ---------------------------------------------------------------------------
@@ -96,14 +97,6 @@ class TestSPRUCEWithLinks:
     def test_related_ingredients_present(self):
         assert "related_ingredients" in self.data
         assert len(self.data["related_ingredients"]) == 2
-
-    def test_related_ingredients_mim_ids(self):
-        for ri in self.data["related_ingredients"]:
-            mid = ri.get("mediaingredientmech_id")
-            if mid is not None:
-                assert MEDIAINGREDIENTMECH_ID_PATTERN.match(
-                    mid
-                ), f"Invalid MediaIngredientMech ID: {mid}"
 
     def test_related_ingredients_chebi_term(self):
         humic = self.data["related_ingredients"][0]
@@ -198,10 +191,6 @@ class TestAllRelationshipTypes:
         for rm in self.data["related_media"]:
             assert CULTUREMECH_ID_PATTERN.match(rm["culturemech_id"])
 
-    def test_all_mim_ids_valid(self):
-        for ri in self.data["related_ingredients"]:
-            assert MEDIAINGREDIENTMECH_ID_PATTERN.match(ri["mediaingredientmech_id"])
-
 
 # ---------------------------------------------------------------------------
 # Cross-repo ID pattern validation
@@ -226,28 +215,6 @@ class TestIDPatternValidation:
         ]
         for cid in invalid:
             assert not CULTUREMECH_ID_PATTERN.match(cid), f"Should be invalid: {cid}"
-
-    def test_valid_mim_ids(self):
-        valid = [
-            "MediaIngredientMech:000001",
-            "MediaIngredientMech:000523",
-            "MediaIngredientMech:999999",
-        ]
-        for mid in valid:
-            assert MEDIAINGREDIENTMECH_ID_PATTERN.match(mid), f"Should be valid: {mid}"
-
-    def test_invalid_mim_ids(self):
-        invalid = [
-            "MediaIngredientMech:12345",
-            "MediaIngredientMech:1234567",
-            "mediaingredientmech:000001",
-            "CultureMech:000001",
-            "MediaIngredientMech:abcdef",
-            "MIM:000001",
-            "",
-        ]
-        for mid in invalid:
-            assert not MEDIAINGREDIENTMECH_ID_PATTERN.match(mid), f"Should be invalid: {mid}"
 
 
 # ---------------------------------------------------------------------------

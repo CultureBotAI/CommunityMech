@@ -1,17 +1,22 @@
-"""Cross-repository ID validation for related_media and related_ingredients.
+"""Cross-repository ID validation for related_media.
 
-When a community YAML references a `culturemech_id` or `mediaingredientmech_id`
-under `related_media` / `related_ingredients`, two things should hold:
+When a community YAML references a `culturemech_id` under `related_media`, two
+things should hold:
 
-1. The ID matches its CURIE pattern (`CultureMech:NNNNNN` /
-   `MediaIngredientMech:NNNNNN`). LinkML's schema-level pattern check
-   covers this, but mirroring it here surfaces issues without booting
-   the full validator and lets callers act on individual offenders.
+1. The ID matches its CURIE pattern (`CultureMech:NNNNNN`). LinkML's schema-level
+   pattern check covers this, but mirroring it here surfaces issues without
+   booting the full validator and lets callers act on individual offenders.
 
 2. The ID actually exists in the sibling repository. This requires a
    path to the sibling repo and is therefore opt-in — if no sibling-repo
    path is supplied, existence checks are skipped (and the validator
    says so explicitly rather than silently passing).
+
+`related_ingredients` is intentionally NOT validated here: the
+`MediaIngredientMech:NNNNNN` scheme is vestigial (MediaIngredientMech#119 — MIM's
+canonical CURIE is `MIM:<name>`, absent from canonical records), so there is no
+cross-repo id to verify. Ingredient linking now joins on `chebi_term`, whose
+id↔label correctness is covered by the id-label validator, not this one.
 
 Usage:
 
@@ -20,10 +25,7 @@ Usage:
 
     issues = validate_cross_repo_ids(
         Path("kb/communities/SPRUCE_Peatland_Methane_Cycling_Community.yaml"),
-        sibling_repos={
-            "CultureMech": Path("../CultureMech/kb/media"),
-            "MediaIngredientMech": Path("../MediaIngredientMech/kb/ingredients"),
-        },
+        sibling_repos={"CultureMech": Path("../CultureMech/kb/media")},
     )
     for i in issues:
         print(i.severity, i.message)
@@ -39,7 +41,6 @@ from pathlib import Path
 import yaml
 
 CULTUREMECH_ID_RE = re.compile(r"^CultureMech:\d{6}$")
-MEDIAINGREDIENTMECH_ID_RE = re.compile(r"^MediaIngredientMech:\d{6}$")
 
 
 @dataclass
@@ -106,10 +107,10 @@ def validate_cross_repo_ids(
     Args:
         yaml_path: Path to the community YAML.
         sibling_repos: Optional dict mapping repo name to the directory
-            holding the sibling repo's record YAMLs. Recognized keys:
-            ``CultureMech``, ``MediaIngredientMech``. If a key is missing
-            or its path doesn't exist, the existence check for that repo
-            is skipped (with an info-level note in the issue list).
+            holding the sibling repo's record YAMLs. Recognized key:
+            ``CultureMech``. If it is missing or its path doesn't exist, the
+            existence check is skipped (with an info-level note in the issue
+            list).
 
     Returns:
         List of CrossRepoIssue. Empty if everything checks out (or if
@@ -118,7 +119,6 @@ def validate_cross_repo_ids(
     """
     sibling_repos = sibling_repos or {}
     culturemech = SiblingRepoIndex(path=sibling_repos.get("CultureMech"))
-    mim = SiblingRepoIndex(path=sibling_repos.get("MediaIngredientMech"))
 
     data = yaml.safe_load(yaml_path.read_text()) or {}
     issues: list[CrossRepoIssue] = []
@@ -154,41 +154,6 @@ def validate_cross_repo_ids(
                     message=(
                         f"existence check for '{cid}' skipped: no CultureMech "
                         "sibling-repo path configured"
-                    ),
-                )
-            )
-
-    for idx, entry in _iter_entries(data, "related_ingredients"):
-        mid = entry.get("mediaingredientmech_id")
-        if mid is None:
-            continue
-        field_path = f"related_ingredients[{idx}].mediaingredientmech_id"
-        if not MEDIAINGREDIENTMECH_ID_RE.match(mid):
-            issues.append(
-                CrossRepoIssue(
-                    severity="error",
-                    field_path=field_path,
-                    message=f"'{mid}' does not match pattern MediaIngredientMech:NNNNNN",
-                )
-            )
-            continue
-        if mim.available:
-            if mid not in mim:
-                issues.append(
-                    CrossRepoIssue(
-                        severity="error",
-                        field_path=field_path,
-                        message=f"'{mid}' not found in MediaIngredientMech repo at {mim.path}",
-                    )
-                )
-        else:
-            issues.append(
-                CrossRepoIssue(
-                    severity="info",
-                    field_path=field_path,
-                    message=(
-                        f"existence check for '{mid}' skipped: no "
-                        "MediaIngredientMech sibling-repo path configured"
                     ),
                 )
             )
