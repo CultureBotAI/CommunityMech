@@ -409,6 +409,22 @@
                     </span>
                 </div>
                 {% endif %}
+                {% if community.modeled_environment %}
+                <div class="metadata-item">
+                    <span class="metadata-label">Modeled Environment</span>
+                    <span class="metadata-value">
+                        {% for me in community.modeled_environment %}
+                        {{ me.preferred_term or me.term.label }}
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/{{ me.term.id.replace(':', '_') }}"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            {{ me.term.id }}
+                        </a>
+                        {% if not loop.last %}<br>{% endif %}
+                        {% endfor %}
+                    </span>
+                </div>
+                {% endif %}
             </div>
         </section>
 
