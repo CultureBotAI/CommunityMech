@@ -194,9 +194,17 @@ record (`MIM:<file-stem>` subject) to it; emits `RelatedIngredient`
 env keys from `environment_term` + `modeled_environment`, supports `--subsumption`.
 Real yield today: 1 suggestion (Sulfur CHEBI:26833 → the hot-spring mat community) —
 data-limited by MIM's 10 context records, correct + scales. Supersedes draft PR #215.
-**Follow-up:** drop the vestigial `^MediaIngredientMech:\d{6}$` pattern from
-`RelatedIngredient.mediaingredientmech_id` (per #119 §1); a rename-stable MIM
-surrogate id would need its own MIM issue if we later want to persist `MIM:<name>`.
+**Vestigial-pattern drop — DONE (2026-07-20, PR #223).** Removed the
+`^MediaIngredientMech:\d{6}$` pattern from **both** schema fields
+(`RelatedIngredient.mediaingredientmech_id`, `GrowthMediaComponent.media_ingredient_mech_id`)
+per #119 §1; descriptions mark the scheme vestigial/deprecated and point to
+`chebi_term` as the join. Datamodel regenerated; a `MIM:<name>` value now validates.
+**Remaining (smaller follow-up):** `src/communitymech/validators/cross_repo_ids.py`
+still enforces `MediaIngredientMech:NNNNNN` on `related_ingredients[].mediaingredientmech_id`
+(a local, non-CI tool with ~6 dedicated tests) — retire or repoint that branch to
+`chebi_term` when convenient; 0 records populate the field so it's inert today. A
+rename-stable MIM surrogate id would need its own MIM issue if we later want to
+persist `MIM:<name>` as a key.
 **Other follow-ups (grounding-quality):**
 - **ENVO subsumption matching — DONE (2026-07-19, PR #213).** `suggest-related-media
   --subsumption` also matches media whose environment is an ENVO `is_a` *subtype*
