@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-19T15:13:06
+# Generation date: 2026-07-19T17:42:00
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1343,6 +1343,9 @@ class MicrobialCommunity(YAMLRoot):
     community_category: Optional[Union[str, "CommunityCategoryEnum"]] = None
     engineering_design: Optional[Union[dict, CommunityEngineeringDesign]] = None
     environment_term: Optional[Union[dict, EnvironmentDescriptor]] = None
+    modeled_environment: Optional[
+        Union[Union[dict, EnvironmentDescriptor], list[Union[dict, EnvironmentDescriptor]]]
+    ] = empty_list()
     taxonomy: Optional[
         Union[Union[dict, TaxonomicComposition], list[Union[dict, TaxonomicComposition]]]
     ] = empty_list()
@@ -1420,6 +1423,15 @@ class MicrobialCommunity(YAMLRoot):
             self.environment_term, EnvironmentDescriptor
         ):
             self.environment_term = EnvironmentDescriptor(**as_dict(self.environment_term))
+
+        if not isinstance(self.modeled_environment, list):
+            self.modeled_environment = (
+                [self.modeled_environment] if self.modeled_environment is not None else []
+            )
+        self.modeled_environment = [
+            v if isinstance(v, EnvironmentDescriptor) else EnvironmentDescriptor(**as_dict(v))
+            for v in self.modeled_environment
+        ]
 
         self._normalize_inlined_as_dict(
             slot_name="taxonomy", slot_type=TaxonomicComposition, key_name="taxon_term", keyed=False
@@ -4541,6 +4553,17 @@ slots.microbialCommunity__environment_term = Slot(
     model_uri=COMMUNITYMECH.microbialCommunity__environment_term,
     domain=None,
     range=Optional[Union[dict, EnvironmentDescriptor]],
+)
+
+slots.microbialCommunity__modeled_environment = Slot(
+    uri=COMMUNITYMECH.modeled_environment,
+    name="microbialCommunity__modeled_environment",
+    curie=COMMUNITYMECH.curie("modeled_environment"),
+    model_uri=COMMUNITYMECH.microbialCommunity__modeled_environment,
+    domain=None,
+    range=Optional[
+        Union[Union[dict, EnvironmentDescriptor], list[Union[dict, EnvironmentDescriptor]]]
+    ],
 )
 
 slots.microbialCommunity__taxonomy = Slot(
