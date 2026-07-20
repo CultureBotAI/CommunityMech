@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-19T22:00:47
+# Generation date: 2026-07-20T15:22:57
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1381,6 +1381,9 @@ class MicrobialCommunity(YAMLRoot):
     ] = empty_list()
     metal_relevance: Optional[Union[str, "MetalRelevanceEnum"]] = None
     metal_notes: Optional[str] = None
+    discussions: Optional[Union[Union[dict, "Discussion"], list[Union[dict, "Discussion"]]]] = (
+        empty_list()
+    )
     curation_history: Optional[
         Union[Union[dict, "CurationEvent"], list[Union[dict, "CurationEvent"]]]
     ] = empty_list()
@@ -1517,6 +1520,12 @@ class MicrobialCommunity(YAMLRoot):
 
         if self.metal_notes is not None and not isinstance(self.metal_notes, str):
             self.metal_notes = str(self.metal_notes)
+
+        if not isinstance(self.discussions, list):
+            self.discussions = [self.discussions] if self.discussions is not None else []
+        self.discussions = [
+            v if isinstance(v, Discussion) else Discussion(**as_dict(v)) for v in self.discussions
+        ]
 
         if not isinstance(self.curation_history, list):
             self.curation_history = (
@@ -4685,6 +4694,15 @@ slots.microbialCommunity__metal_notes = Slot(
     model_uri=COMMUNITYMECH.microbialCommunity__metal_notes,
     domain=None,
     range=Optional[str],
+)
+
+slots.microbialCommunity__discussions = Slot(
+    uri=COMMUNITYMECH.discussions,
+    name="microbialCommunity__discussions",
+    curie=COMMUNITYMECH.curie("discussions"),
+    model_uri=COMMUNITYMECH.microbialCommunity__discussions,
+    domain=None,
+    range=Optional[Union[Union[dict, Discussion], list[Union[dict, Discussion]]]],
 )
 
 slots.microbialCommunity__curation_history = Slot(
