@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 """Suggest environment-matched CultureMech media for CommunityMech communities (issue #30, Use Case 1).
 
-For each community, match its ``environment_term`` ENVO id against CultureMech
-media that declare the same ``source_environment`` term, and emit ready-to-review
+For each community, match its ENVO environment(s) against CultureMech media that
+declare the same ``source_environment`` term, and emit ready-to-review
 ``related_media`` YAML blocks (with ``shared_environment_term``) for a curator to
-paste. Media already linked from the community (via ``related_media.culturemech_id``
-or ``growth_media.culturemech_id``) are skipped, so re-runs only surface new
-matches.
+paste. A community's environment keys are its ``environment_term`` **and** every
+``modeled_environment`` entry — so an engineered community whose ``environment_term``
+is the generic "laboratory environment" still matches media via the real habitat it
+models (e.g. groundwater, regolith, dairy). Media already linked from the community
+(via ``related_media.culturemech_id`` or ``growth_media.culturemech_id``) are
+skipped, so re-runs only surface new matches.
 
 This is suggestion-only: it prints blocks for review and never edits records —
 mirroring `scripts/suggest_missing_interactions.py`.
@@ -64,16 +67,36 @@ def _linked_culturemech_ids(data: dict) -> set[str]:
     return linked
 
 
-def _community_env(data: dict) -> tuple[str, str] | None:
-    """(ENVO id, label) from environment_term, or None."""
-    et = data.get("environment_term")
-    term = (et or {}).get("term") if isinstance(et, dict) else None
+def _env_from_descriptor(desc) -> tuple[str, str] | None:
+    """(ENVO id, label) from an EnvironmentDescriptor mapping, or None."""
+    term = desc.get("term") if isinstance(desc, dict) else None
     if not isinstance(term, dict):
         return None
     envo_id = term.get("id")
     if isinstance(envo_id, str) and envo_id.startswith("ENVO:"):
         return envo_id, term.get("label") or ""
     return None
+
+
+def _community_envs(data: dict) -> list[tuple[str, str]]:
+    """All ENVO (id, label) match keys for a community — `environment_term` plus
+    every `modeled_environment` entry (the habitat an engineered community derives
+    from / represents). De-duplicated, order preserved. This is what lets a
+    community whose `environment_term` is the generic "laboratory environment"
+    still match media via its real modeled habitat.
+    """
+    envs: list[tuple[str, str]] = []
+    seen: set[str] = set()
+    et = _env_from_descriptor(data.get("environment_term"))
+    if et:
+        envs.append(et)
+        seen.add(et[0])
+    for desc in data.get("modeled_environment") or []:
+        me = _env_from_descriptor(desc)
+        if me and me[0] not in seen:
+            envs.append(me)
+            seen.add(me[0])
+    return envs
 
 
 def _suggestion_block(matches, envo_id, env_label):
@@ -186,27 +209,45 @@ def main() -> int:
             data = yaml.safe_load(path.read_bytes()) or {}
         except (OSError, yaml.YAMLError):
             continue
-        env = _community_env(data)
-        if env is None:
-            continue
-        envo_id, env_label = env
-        if envo_id in GENERIC_ENVIRONMENTS and not args.include_generic:
+        envs = _community_envs(data)
+        if not envs:
+            continue  # no ENVO environment to match on
+        active = [
+            (eid, lbl)
+            for eid, lbl in envs
+            if args.include_generic or eid not in GENERIC_ENVIRONMENTS
+        ]
+        if not active:
+            # every env key is over-generic (e.g. only "laboratory environment"
+            # with no modeled_environment) — nothing meaningful to match on
             skipped_generic += 1
             continue
         exclude_subtypes = frozenset() if args.include_generic else GENERIC_ENVIRONMENTS
-        matches = _matches_for(envo_id, media_by_env, envo_adapter, exclude_subtypes)
         already = _linked_culturemech_ids(data)
-        fresh = [(h, rel) for h, rel in matches if h.culturemech_id not in already]
-        if not fresh:
+        seen_media = set(already)
+        env_groups = []  # [(envo_id, label, [(hit, rel), ...])]
+        for eid, lbl in active:
+            matches = _matches_for(eid, media_by_env, envo_adapter, exclude_subtypes)
+            fresh = [(h, rel) for h, rel in matches if h.culturemech_id not in seen_media]
+            for h, _ in fresh:
+                seen_media.add(h.culturemech_id)
+            if fresh:
+                env_groups.append((eid, lbl, fresh))
+        if not env_groups:
             continue
         communities_with_suggestions += 1
-        total_suggestions += len(fresh)
-        n_sub = sum(1 for _, rel in fresh if rel == "subtype")
-        blocks = _suggestion_block(fresh, envo_id, env_label)
-        sub_note = f" ({n_sub} via ENVO subtype)" if n_sub else ""
-        print(f"\n# {path.name}  —  environment {envo_id} ({env_label})")
-        print(f"# {len(fresh)} suggested related_media{sub_note} (paste under `related_media:`)")
-        print(yaml.safe_dump(blocks, sort_keys=False, allow_unicode=True).rstrip())
+        n_fresh = sum(len(g[2]) for g in env_groups)
+        total_suggestions += n_fresh
+        et = _env_from_descriptor(data.get("environment_term"))
+        et_id = et[0] if et else None
+        print(f"\n# {path.name}")
+        for eid, lbl, fresh in env_groups:
+            n_sub = sum(1 for _, rel in fresh if rel == "subtype")
+            sub_note = f" ({n_sub} via ENVO subtype)" if n_sub else ""
+            via = "environment_term" if eid == et_id else "modeled_environment"
+            blocks = _suggestion_block(fresh, eid, lbl)
+            print(f"#   {eid} ({lbl}) via {via} — {len(fresh)} related_media{sub_note}")
+            print(yaml.safe_dump(blocks, sort_keys=False, allow_unicode=True).rstrip())
 
     note = ""
     if skipped_generic and not args.include_generic:

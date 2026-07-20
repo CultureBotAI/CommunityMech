@@ -16,14 +16,37 @@ sug = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(sug)
 
 
-def test_community_env_extracts_envo():
+def test_community_envs_extracts_environment_term():
     data = {"environment_term": {"term": {"id": "ENVO:00000044", "label": "peatland"}}}
-    assert sug._community_env(data) == ("ENVO:00000044", "peatland")
+    assert sug._community_envs(data) == [("ENVO:00000044", "peatland")]
 
 
-def test_community_env_ignores_non_envo_and_missing():
-    assert sug._community_env({"environment_term": {"term": {"id": "UBERON:1"}}}) is None
-    assert sug._community_env({}) is None
+def test_community_envs_includes_modeled_environment():
+    # a lab-grounded community with a real modeled habitat exposes BOTH keys, so it
+    # can be matched via the modeled_environment even though environment_term is generic
+    data = {
+        "environment_term": {"term": {"id": "ENVO:01001405", "label": "laboratory environment"}},
+        "modeled_environment": [
+            {"term": {"id": "ENVO:01001004", "label": "groundwater"}},
+            {"term": {"id": "ENVO:2100002", "label": "intestine environment"}},
+        ],
+    }
+    assert sug._community_envs(data) == [
+        ("ENVO:01001405", "laboratory environment"),
+        ("ENVO:01001004", "groundwater"),
+        ("ENVO:2100002", "intestine environment"),
+    ]
+
+
+def test_community_envs_dedups_and_ignores_non_envo_and_missing():
+    assert sug._community_envs({"environment_term": {"term": {"id": "UBERON:1"}}}) == []
+    assert sug._community_envs({}) == []
+    # a modeled_environment duplicating environment_term is not repeated
+    data = {
+        "environment_term": {"term": {"id": "ENVO:00001998", "label": "soil"}},
+        "modeled_environment": [{"term": {"id": "ENVO:00001998", "label": "soil"}}],
+    }
+    assert sug._community_envs(data) == [("ENVO:00001998", "soil")]
 
 
 def test_linked_culturemech_ids_spans_related_and_growth_media():
