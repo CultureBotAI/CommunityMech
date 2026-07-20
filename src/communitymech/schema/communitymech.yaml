@@ -947,8 +947,11 @@ classes:
         description: Name of the component
         required: true
       media_ingredient_mech_id:
-        description: Identifier in MediaIngredientMech database (e.g., MediaIngredientMech:000001)
-        pattern: "^MediaIngredientMech:\\d{6}$"
+        description: >-
+          MediaIngredientMech identifier. NOTE: the `MediaIngredientMech:NNNNNN`
+          scheme is vestigial — MIM's canonical ingredient CURIE is `MIM:<name>`
+          (confirmed MediaIngredientMech#119), so no pattern is enforced. Prefer
+          `chebi_term` for the compound identity.
       media_ingredient_mech_url:
         description: URL to MediaIngredientMech ingredient entry
       concentration:
@@ -1086,13 +1089,14 @@ classes:
         range: string
       mediaingredientmech_id:
         description: >-
-          MediaIngredientMech identifier. NOTE: MIM's canonical ingredient CURIE
-          is `MIM:<name>` (SSSOM registry), not `MediaIngredientMech:NNNNNN`;
-          reconciliation is tracked in MediaIngredientMech#119 / NEXT_TASKS §2c.
-          Prefer `chebi_term` for the compound identity until that resolves.
+          MediaIngredientMech identifier. NOTE: the `MediaIngredientMech:NNNNNN`
+          scheme is **vestigial** — MIM confirmed (MediaIngredientMech#119) its
+          canonical ingredient CURIE is `MIM:<name>` (SSSOM registry) and the
+          `NNNNNN` form appears in zero canonical records. No schema pattern is
+          enforced. The equivalence-safe join is `chebi_term` (MIM's
+          `skos:exactMatch` CHEBI); prefer it. Deprecated — likely to be removed.
         required: false
         range: string
-        pattern: "^MediaIngredientMech:\\d{6}$"
       chebi_term:
         description: CHEBI ontology term for the ingredient compound
         range: Term

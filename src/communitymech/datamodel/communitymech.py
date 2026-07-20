@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-19T17:42:00
+# Generation date: 2026-07-19T22:00:47
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -3700,7 +3700,6 @@ slots.growthMediaComponent__media_ingredient_mech_id = Slot(
     model_uri=COMMUNITYMECH.growthMediaComponent__media_ingredient_mech_id,
     domain=None,
     range=Optional[str],
-    pattern=re.compile(r"^MediaIngredientMech:\d{6}$"),
 )
 
 slots.growthMediaComponent__media_ingredient_mech_url = Slot(
@@ -4101,7 +4100,6 @@ slots.relatedIngredient__mediaingredientmech_id = Slot(
     model_uri=COMMUNITYMECH.relatedIngredient__mediaingredientmech_id,
     domain=None,
     range=Optional[str],
-    pattern=re.compile(r"^MediaIngredientMech:\d{6}$"),
 )
 
 slots.relatedIngredient__chebi_term = Slot(
