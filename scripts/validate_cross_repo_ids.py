@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-"""CLI: validate cross-repo IDs (CultureMech, MediaIngredientMech) in one or more community YAMLs.
+"""CLI: validate cross-repo CultureMech IDs (related_media) in one or more community YAMLs.
 
-Pattern checks always run. Existence checks run only when sibling-repo
-paths are supplied via flags or via the COMMUNITYMECH_SIBLING_REPOS
-environment variable (comma-separated `Name=path` pairs).
+Pattern checks always run. Existence checks run only when a CultureMech sibling-repo
+path is supplied via flag or via the COMMUNITYMECH_SIBLING_REPOS environment
+variable (comma-separated `Name=path` pairs). `related_ingredients` is no longer
+checked — the MediaIngredientMech:NNNNNN scheme is vestigial (MediaIngredientMech#119).
 
 Usage:
     PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/X.yaml
     PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/X.yaml \\
-        --culturemech ../CultureMech/kb/media \\
-        --mediaingredientmech ../MediaIngredientMech/kb/ingredients
+        --culturemech ../CultureMech/kb/media
     PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/*.yaml
 """
 
@@ -40,16 +40,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("yaml_paths", nargs="+", type=Path)
     parser.add_argument("--culturemech", type=Path, help="Path to CultureMech kb/ dir")
-    parser.add_argument(
-        "--mediaingredientmech", type=Path, help="Path to MediaIngredientMech kb/ dir"
-    )
     args = parser.parse_args()
 
     sibling_repos = _sibling_repos_from_env()
     if args.culturemech is not None:
         sibling_repos["CultureMech"] = args.culturemech
-    if args.mediaingredientmech is not None:
-        sibling_repos["MediaIngredientMech"] = args.mediaingredientmech
 
     total_errors = 0
     for yaml_path in args.yaml_paths:

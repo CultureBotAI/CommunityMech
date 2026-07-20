@@ -1,4 +1,9 @@
-"""Tests for the cross-repo ID validator."""
+"""Tests for the cross-repo ID validator (related_media / CultureMech).
+
+`related_ingredients` is no longer validated here — the `MediaIngredientMech:NNNNNN`
+scheme is vestigial (MediaIngredientMech#119); ingredient linking joins on
+`chebi_term`, covered by the id-label validator.
+"""
 
 from pathlib import Path
 
@@ -12,7 +17,7 @@ from communitymech.validators.cross_repo_ids import (
 
 @pytest.fixture
 def community_with_ids(tmp_path: Path) -> Path:
-    """A community YAML that references both kinds of sibling-repo IDs."""
+    """A community YAML that references CultureMech media IDs."""
     path = tmp_path / "community.yaml"
     path.write_text("""
 id: CommunityMech:000999
@@ -22,11 +27,6 @@ related_media:
   culturemech_id: CultureMech:010001
 - preferred_term: Iron Selective Medium
   culturemech_id: CultureMech:010002
-related_ingredients:
-- preferred_term: Humic acid
-  mediaingredientmech_id: MediaIngredientMech:000523
-- preferred_term: Ferrous sulfate
-  mediaingredientmech_id: MediaIngredientMech:000089
 """.strip())
     return path
 
@@ -37,15 +37,6 @@ def culturemech_repo(tmp_path: Path) -> Path:
     repo = tmp_path / "culturemech_kb"
     repo.mkdir()
     (repo / "medium_a.yaml").write_text("id: CultureMech:010001\nname: Acidic Peatland Medium\n")
-    return repo
-
-
-@pytest.fixture
-def mediaingredientmech_repo(tmp_path: Path) -> Path:
-    """A sibling MIM kb/ dir with one of the two IDs above."""
-    repo = tmp_path / "mim_kb"
-    repo.mkdir()
-    (repo / "humic.yaml").write_text("id: MediaIngredientMech:000523\nname: Humic acid\n")
     return repo
 
 
@@ -67,26 +58,13 @@ class TestPatternCheck:
         assert len(errors) == 1
         assert "does not match pattern" in errors[0].message
 
-    def test_malformed_mim_id_reports_error(self, tmp_path: Path) -> None:
-        path = tmp_path / "bad.yaml"
-        path.write_text(
-            "id: CommunityMech:000001\n"
-            "related_ingredients:\n"
-            "- preferred_term: X\n"
-            "  mediaingredientmech_id: bogus\n"
-        )
-        issues = validate_cross_repo_ids(path)
-        errors = [i for i in issues if i.severity == "error"]
-        assert len(errors) == 1
-        assert "MediaIngredientMech:NNNNNN" in errors[0].message
-
 
 class TestExistenceCheck:
     def test_no_sibling_repo_emits_info_per_id(self, community_with_ids: Path) -> None:
         issues = validate_cross_repo_ids(community_with_ids, sibling_repos={})
         infos = [i for i in issues if i.severity == "info"]
-        # 2 culturemech + 2 mim IDs = 4 info notices
-        assert len(infos) == 4
+        # 2 culturemech IDs = 2 info notices
+        assert len(infos) == 2
 
     def test_sibling_repo_finds_missing_culturemech_id(
         self, community_with_ids: Path, culturemech_repo: Path
@@ -100,34 +78,28 @@ class TestExistenceCheck:
         assert "CultureMech:010002" in errors[0].message
         assert "not found" in errors[0].message
 
-    def test_sibling_repo_finds_missing_mim_id(
-        self, community_with_ids: Path, mediaingredientmech_repo: Path
+    def test_configured_repo_leaves_only_real_errors(
+        self, community_with_ids: Path, culturemech_repo: Path
     ) -> None:
         issues = validate_cross_repo_ids(
             community_with_ids,
-            sibling_repos={"MediaIngredientMech": mediaingredientmech_repo},
-        )
-        errors = [i for i in issues if i.severity == "error"]
-        assert len(errors) == 1
-        assert "MediaIngredientMech:000089" in errors[0].message
-
-    def test_both_repos_configured_only_real_errors_remain(
-        self,
-        community_with_ids: Path,
-        culturemech_repo: Path,
-        mediaingredientmech_repo: Path,
-    ) -> None:
-        issues = validate_cross_repo_ids(
-            community_with_ids,
-            sibling_repos={
-                "CultureMech": culturemech_repo,
-                "MediaIngredientMech": mediaingredientmech_repo,
-            },
+            sibling_repos={"CultureMech": culturemech_repo},
         )
         infos = [i for i in issues if i.severity == "info"]
         errors = [i for i in issues if i.severity == "error"]
-        assert not infos  # both repos configured, no skip notices
-        assert len(errors) == 2  # 010002 + 000089 missing
+        assert not infos  # repo configured, no skip notices
+        assert len(errors) == 1  # 010002 missing
+
+    def test_related_ingredients_are_not_validated(self, tmp_path: Path) -> None:
+        # a bogus mediaingredientmech_id (vestigial scheme) must NOT be flagged
+        path = tmp_path / "ingredients.yaml"
+        path.write_text(
+            "id: CommunityMech:000001\n"
+            "related_ingredients:\n"
+            "- preferred_term: X\n"
+            "  mediaingredientmech_id: bogus\n"
+        )
+        assert validate_cross_repo_ids(path) == []
 
 
 class TestEdgeCases:
