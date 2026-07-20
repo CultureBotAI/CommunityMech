@@ -405,23 +405,32 @@ def _plausibility_verdict(
         if cmp == "CONFLICT":
             return "IMPLAUSIBLE_LABEL", f"label elements conflict with {formula}"
 
-    # Lexical fallback: any shared content word is enough.
+    # Lexical fallback: any shared content word. Deliberately permissive —
+    # tightening it (requiring two shared words or head-word agreement) was
+    # measured at 26k false positives, because correct chemical names routinely
+    # share only the stem: "L-Cysteine HCl x H2O" vs "L-cysteine hydrochloride
+    # hydrate" shares just "cysteine". The cost is that a one-word overlap on a
+    # wrong term slips through ("Magnesium citrate" on "magnesium dihydroxide");
+    # that residue is left to curation rather than paid for 26k times over.
     label_words = {w for w in re.split(r"[^a-z0-9]+", normalize(label)) if len(w) > 2}
     if not label_words:
+        # No comparable content (blank or purely numeric label). The id resolved,
+        # and an absent label is EMPTY_LABEL's business, not plausibility's.
         return "OK_ID_ONLY", "no comparable label content"
     for candidate in {normalize(canonical or "")} | accepted:
         cand_words = {w for w in re.split(r"[^a-z0-9]+", candidate) if len(w) > 2}
         if label_words & cand_words:
             return "OK_ID_ONLY", "shares a term word"
 
-    if not formula and not chem_formula.looks_like_formula(label):
-        # Prose label, no formula to check against, no shared word. This is the
-        # genuinely suspicious case the waiver used to hide.
-        return "IMPLAUSIBLE_LABEL", f"no word shared with '{canonical or ''}'"
+    # No lexical support and no formula agreement. Formula evidence being
+    # UNAVAILABLE is not innocence: a formula-shaped label grounded to a term
+    # that publishes no formula (a polymer, a FOODON class) is unverifiable in
+    # both directions, which is exactly how "ZnCl .6H O" sat undetected on
+    # peptidoglycosaminoglycan. Flag it rather than wave it through.
     if chem_formula.looks_like_formula(label) and not formula:
-        # Formula-style label but the term publishes no formula (e.g. FOODON,
-        # UBERON, a CHEBI class). Nothing to compare — accept.
-        return "OK_ID_ONLY", "no ontology formula to compare"
+        return ("IMPLAUSIBLE_LABEL",
+                f"formula-style label, but '{canonical or ''}' publishes no "
+                "molecular formula — grounding cannot be verified either way")
     return "IMPLAUSIBLE_LABEL", f"no word shared with '{canonical or ''}'"
 
 
