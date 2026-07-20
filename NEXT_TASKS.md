@@ -180,10 +180,23 @@ actioned (2026-07-19, PR #212).**
   ingredient's `CHEBI:` id (already supported by `RelatedIngredient.chebi_term`) is
   an acceptable equivalent link — the likely fast path.
 
-**Remaining before emitting ingredient suggestions:** decide the id per MIM#119.
-The **CHEBI route works today** — env-matched MIM ingredients that `skos:exactMatch`
-a CHEBI term can be emitted as `RelatedIngredient` (`chebi_term` +
-`shared_environment_term`) with no id decision needed; build once MIM confirms (c).
+**Ingredient suggester — DONE (2026-07-20, PR #220; MIM#119 CLOSED as answered).**
+MIM confirmed: (1) `MediaIngredientMech:NNNNNN` is vestigial — drop the pattern;
+(2) the equivalence-safe join is the ingredient's CHEBI term from MIM's SSSOM
+**`skos:exactMatch`** rows (NOT the record `identifier`, NOT close/narrowMatch —
+those would generalise); (3) `environmental_context` coverage is **10 records, not
+~44** (a seawater/soil/sulfur cluster). `scripts/suggest_related_ingredients.py` +
+`just suggest-related-ingredients` implement the CHEBI route accordingly:
+`cross_repo_environment.mim_exactmatch_chebi` parses the SSSOM (exactMatch→CHEBI
+only) and `mim_ingredients_by_environment` joins each `environmental_context`
+record (`MIM:<file-stem>` subject) to it; emits `RelatedIngredient`
+(`chebi_term` with the **canonical** ChEBI label + `shared_environment_term`), reads
+env keys from `environment_term` + `modeled_environment`, supports `--subsumption`.
+Real yield today: 1 suggestion (Sulfur CHEBI:26833 → the hot-spring mat community) —
+data-limited by MIM's 10 context records, correct + scales. Supersedes draft PR #215.
+**Follow-up:** drop the vestigial `^MediaIngredientMech:\d{6}$` pattern from
+`RelatedIngredient.mediaingredientmech_id` (per #119 §1); a rename-stable MIM
+surrogate id would need its own MIM issue if we later want to persist `MIM:<name>`.
 **Other follow-ups (grounding-quality):**
 - **ENVO subsumption matching — DONE (2026-07-19, PR #213).** `suggest-related-media
   --subsumption` also matches media whose environment is an ENVO `is_a` *subtype*

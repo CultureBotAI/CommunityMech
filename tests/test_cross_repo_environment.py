@@ -14,6 +14,8 @@ from communitymech.cross_repo_environment import (
     build_coverage,
     culturemech_media_by_environment,
     envo_subtypes,
+    mim_exactmatch_chebi,
+    mim_ingredients_by_environment,
     sibling_repos_from_env,
 )
 
@@ -174,6 +176,49 @@ def test_culturemech_media_by_environment(tmp_path):
     hit = peat[0]
     assert hit.name and hit.env_label == "peatland"
     assert "CultureMech:009999" not in {h.culturemech_id for v in by_env.values() for h in v}
+
+
+_SSSOM = """\
+# curie_map:
+#   MIM: "https://example/"
+subject_id\tsubject_label\tpredicate_id\tobject_id\tobject_label
+MIM:Sulfur\tSulfur\tskos:exactMatch\tCHEBI:26833\tsulfur atom
+MIM:Nacl\tNaCl\tskos:exactMatch\tCHEBI:26710\tsodium chloride
+MIM:Tryptone\tTryptone\tskos:exactMatch\tMICRO:1\ttryptone
+MIM:Casein\tCasein\tskos:narrowMatch\tCHEBI:99999\tprotein
+"""
+
+
+def _make_mim(tmp_path):
+    mim = tmp_path / "MIM"
+    (mim / "mappings").mkdir(parents=True)
+    (mim / "mappings" / "ingredient_mappings.sssom.tsv").write_text(_SSSOM)
+    _make_ingredient(mim / "data" / "ingredients", "Sulfur", "ENVO:00000051", "hot spring")
+    _make_ingredient(mim / "data" / "ingredients", "Nacl", "ENVO:00002149", "sea water")
+    _make_ingredient(mim / "data" / "ingredients", "Tryptone", "ENVO:00002149", "sea water")
+    _make_ingredient(mim / "data" / "ingredients", "Casein", "ENVO:00002149", "sea water")
+    return mim
+
+
+def test_mim_exactmatch_chebi_filters_predicate_and_prefix(tmp_path):
+    mim = _make_mim(tmp_path)
+    em = mim_exactmatch_chebi(mim)
+    # only skos:exactMatch rows whose object is CHEBI:
+    assert em == {"MIM:Sulfur": "CHEBI:26833", "MIM:Nacl": "CHEBI:26710"}
+    # narrowMatch (Casein->CHEBI) excluded; exactMatch to non-CHEBI (Tryptone->MICRO) excluded
+    assert "MIM:Casein" not in em and "MIM:Tryptone" not in em
+
+
+def test_mim_ingredients_by_environment_joins_via_sssom(tmp_path):
+    mim = _make_mim(tmp_path)
+    by = mim_ingredients_by_environment(mim)
+    # chebi_id comes from the SSSOM exactMatch, keyed by MIM:<file-stem>
+    sulfur = next(h for h in by["ENVO:00000051"] if h.mim_subject == "MIM:Sulfur")
+    assert sulfur.chebi_id == "CHEBI:26833"
+    sea = {h.mim_subject: h.chebi_id for h in by["ENVO:00002149"]}
+    assert sea["MIM:Nacl"] == "CHEBI:26710"
+    # non-exactMatch / non-CHEBI ingredients present but with chebi_id None (filtered by the tool)
+    assert sea["MIM:Tryptone"] is None and sea["MIM:Casein"] is None
 
 
 def test_envo_subtypes_excludes_self_and_handles_errors():
