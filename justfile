@@ -110,6 +110,12 @@ env-coverage *args:
 suggest-related-media *args:
     PYTHONPATH=src uv run python scripts/suggest_related_media.py {{args}}
 
+# Suggest environment-matched MIM ingredients as related_ingredients blocks (CHEBI
+# route via SSSOM skos:exactMatch, per MediaIngredientMech#119). Needs a MIM repo
+# path via COMMUNITYMECH_SIBLING_REPOS or --mediaingredientmech. Suggestion-only.
+suggest-related-ingredients *args:
+    PYTHONPATH=src uv run python scripts/suggest_related_ingredients.py {{args}}
+
 # Environment-grounding quality report: rank community environment_term usage and
 # flag generic (e.g. laboratory environment) / over-applied groundings for review
 # (issue #30 follow-up). Report-only; edits nothing. --list shows affected records.

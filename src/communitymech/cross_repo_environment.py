@@ -228,18 +228,103 @@ def envo_subtypes(envo_id: str, adapter: Any) -> set[str]:
     return {d for d in descendants if d != envo_id}
 
 
-def get_envo_adapter() -> Any | None:
-    """Return an OAK adapter for the locally-cached ENVO sqlite, or None.
-
-    Skips (returns None) when the ENVO build isn't cached, so callers can widen
-    matching when the ontology is present without forcing a download in CI.
-    """
-    envo_db = Path.home() / ".data" / "oaklib" / "envo.db"
-    if not envo_db.exists():
+def _cached_oak_adapter(db_name: str) -> Any | None:
+    """OAK adapter for a locally-cached sqlite under ~/.data/oaklib/, or None."""
+    db = Path.home() / ".data" / "oaklib" / db_name
+    if not db.exists():
         return None
     from oaklib import get_adapter  # type: ignore[import-untyped]
 
-    return get_adapter(f"sqlite:{envo_db}")
+    return get_adapter(f"sqlite:{db}")
+
+
+def get_envo_adapter() -> Any | None:
+    """OAK adapter for the locally-cached ENVO sqlite, or None if not cached."""
+    return _cached_oak_adapter("envo.db")
+
+
+def get_chebi_adapter() -> Any | None:
+    """OAK adapter for the locally-cached ChEBI sqlite, or None if not cached."""
+    return _cached_oak_adapter("chebi.db")
+
+
+@dataclass(frozen=True)
+class IngredientHit:
+    """A MediaIngredientMech ingredient grounded to a given ENVO environment.
+
+    ``chebi_id`` is the CHEBI term the MIM subject ``skos:exactMatch``-es (per MIM's
+    SSSOM mappings) — the only equivalence-safe join per MediaIngredientMech#119 —
+    or None when the MIM ingredient has no exactMatch CHEBI (e.g. an environment
+    material grounded to ENVO/MICRO, or a close/narrowMatch). ``mim_subject`` is the
+    provenance CURIE (``MIM:<name>``).
+    """
+
+    name: str
+    chebi_id: str | None
+    env_id: str
+    env_label: str
+    mim_subject: str
+
+
+def mim_exactmatch_chebi(mim_root: Path) -> dict[str, str]:
+    """Map ``MIM:<name>`` subject -> CHEBI id for ``skos:exactMatch`` rows only.
+
+    Reads ``mappings/ingredient_mappings.sssom.tsv`` (skipping its ``#`` preamble).
+    Per MediaIngredientMech#119, only ``skos:exactMatch`` is an equivalence-safe
+    link — ``close``/``narrowMatch`` are excluded (a narrowMatch to CHEBI would
+    silently generalise the ingredient). Returns {} if the SSSOM file is absent.
+    """
+    sssom = mim_root / "mappings" / "ingredient_mappings.sssom.tsv"
+    if not sssom.exists():
+        return {}
+    import csv
+    import io
+
+    body = "".join(
+        ln for ln in sssom.read_text().splitlines(keepends=True) if not ln.startswith("#")
+    )
+    out: dict[str, str] = {}
+    for row in csv.DictReader(io.StringIO(body), delimiter="\t"):
+        if row.get("predicate_id") == "skos:exactMatch" and str(
+            row.get("object_id", "")
+        ).startswith("CHEBI:"):
+            out.setdefault(row["subject_id"], row["object_id"])
+    return out
+
+
+def mim_ingredients_by_environment(mim_root: Path) -> dict[str, list[IngredientHit]]:
+    """Map ENVO id -> MIM ingredients grounded to it, with the exactMatch CHEBI.
+
+    Joins each ``environmental_context`` record (``MIM:<file-stem>`` subject) to the
+    SSSOM ``skos:exactMatch`` CHEBI map, so ``chebi_id`` follows MIM's authoritative
+    mapping rather than the record's ``identifier`` field (which can differ from,
+    or be a broken stand-in for, the real ontology mapping — see #119).
+    """
+    exact = mim_exactmatch_chebi(mim_root)
+    by_env: dict[str, list[IngredientHit]] = {}
+    # scan the per-ingredient record tree, not the whole repo: MIM keeps multi-MB
+    # aggregate/backup dumps under data/curated/ that also mention the field and
+    # would blow up YAML parsing.
+    records_root = mim_root / "data" / "ingredients"
+    if not records_root.exists():
+        records_root = mim_root
+    for path, data in _iter_prefiltered(records_root, _MIM_FIELD):
+        subject = f"MIM:{path.stem}"
+        chebi_id = exact.get(subject)
+        name = data.get("preferred_term") or data.get("name") or path.stem
+        for entry in data.get("environmental_context") or []:
+            if not isinstance(entry, dict):
+                continue
+            envo_id = _envo(entry.get("environment_term"))
+            if envo_id is None:
+                continue
+            hit = IngredientHit(
+                str(name), chebi_id, envo_id, entry.get("environment_label") or "", subject
+            )
+            bucket = by_env.setdefault(envo_id, [])
+            if hit not in bucket:
+                bucket.append(hit)
+    return by_env
 
 
 def sibling_repos_from_env() -> dict[str, Path]:
