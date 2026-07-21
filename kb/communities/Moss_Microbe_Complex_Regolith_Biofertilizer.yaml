@@ -1,0 +1,202 @@
+id: CommunityMech:000310
+name: Moss-Microbe Complex Regolith Biofertilizer
+description: >
+  A moss-microbe complex evaluated as a bio-based biofertilizer for improving crop
+  growth on lunar and Martian soil simulants. The complex comprises the moss Hypnum
+  plumaeforme together with plant growth-promoting bacteria isolated from it —
+  Pseudomonas monteilii and Bacillus cereus — selected for phosphate solubilization,
+  indole-3-acetic acid (IAA) production, and siderophore synthesis. Using barley
+  (Hordeum vulgare) as a model crop, the study compared moss alone, microbes alone, and
+  their combined application under extreme edaphic conditions represented by lunar
+  (LHS) and Martian (MGS) soil simulants. The moss-microbe co-treatment significantly
+  enhanced shoot biomass, dry weight, organic matter, available phosphate, and cation
+  exchange capacity; in the dense, low-porosity Martian simulant the moss functioned as
+  a biological buffer that facilitated microbial colonization and restored plant growth.
+  16S rRNA profiling confirmed the stable presence of the genera Pseudomonas, Bacillus,
+  and Devosia in moss-treated soils, and metabolite profiling revealed accumulation of
+  growth-related compounds (D-ribose, D-gluconate), suggesting the complex reprograms
+  rhizosphere metabolism. The system is an In-Situ Resource Utilization model for
+  extraterrestrial farming and land restoration.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >
+    Test whether a moss-microbe complex (Hypnum plumaeforme plus moss-derived plant
+    growth-promoting bacteria) can act as a biofertilizer that improves crop growth and
+    soil quality on lunar and Martian soil simulants.
+  assembly_strategy: >
+    Isolate plant growth-promoting bacteria (Pseudomonas monteilii, Bacillus cereus)
+    from the moss Hypnum plumaeforme, selecting for phosphate solubilization, IAA
+    production, and siderophore synthesis; then apply moss alone, microbes alone, and
+    the combined moss-microbe complex to barley grown on lunar (LHS) and Martian (MGS)
+    soil simulants.
+  perturbation_design: >
+    Treatment (moss alone / microbes alone / combined moss-microbe complex) and
+    simulant type (lunar LHS vs Martian MGS) were the designed variables, tested for
+    effects on barley growth and soil properties under extreme edaphic conditions.
+  measurement_endpoints:
+  - Barley shoot biomass, dry weight, and growth response on LHS/MGS simulants
+  - Soil organic matter, available phosphate, and cation exchange capacity (CEC)
+  - Microbial colonization and stable genus presence by 16S rRNA profiling
+  - Rhizosphere metabolite accumulation (D-ribose, D-gluconate)
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: moss-microbe complex, composed of Hypnum plumaeforme and its associated microorganisms, as a bio-based biofertilizer
+    explanation: States the design goal of testing a moss-microbe complex as a biofertilizer.
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: assessed the effects of moss alone, microbes alone, and their combined application
+    explanation: Supports the moss-alone / microbes-alone / combined assembly-and-perturbation design.
+environment_term:
+  preferred_term: lunar/Martian soil-simulant biofertilizer pot assay (laboratory culture)
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    The community is a controlled biofertilizer pot assay on lunar (LHS) and Martian
+    (MGS) soil simulants, not a sampled natural community. The ENVO grounding reflects
+    the controlled experimental setting; the extraterrestrial regolith-simulant context
+    is captured in modeled_environment and environmental_factors.
+modeled_environment:
+- preferred_term: regolith
+  term:
+    id: ENVO:01000747
+    label: regolith
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas monteilii
+    term:
+      id: NCBITaxon:76759
+      label: Pseudomonas monteilii
+    notes: >
+      A plant growth-promoting bacterium isolated from the moss Hypnum plumaeforme;
+      selected for phosphate solubilization, IAA production, and siderophore synthesis.
+      Ontology grounding is species-level.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Beneficial microbial strains (Pseudomonas monteilii and Bacillus cereus) were isolated from the moss
+    explanation: Names Pseudomonas monteilii as a moss-derived plant growth-promoting strain.
+- taxon_term:
+    preferred_term: Bacillus cereus
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+    notes: >
+      A plant growth-promoting bacterium isolated from the moss Hypnum plumaeforme;
+      selected for phosphate solubilization, IAA production, and siderophore synthesis.
+      Ontology grounding is species-level.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Beneficial microbial strains (Pseudomonas monteilii and Bacillus cereus) were isolated from the moss
+    explanation: Names Bacillus cereus as a moss-derived plant growth-promoting strain.
+- taxon_term:
+    preferred_term: Devosia sp.
+    term:
+      id: NCBITaxon:46913
+      label: Devosia
+    notes: >
+      Detected by 16S rRNA profiling as a stably present genus in moss-treated soils
+      (not isolated/selected as an inoculant); ontology grounding is genus-level.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stable presence of key genera, including Pseudomonas, Bacillus, and Devosia, in moss-treated soils
+    explanation: Names Devosia among the genera stably present in moss-treated simulant soils.
+ecological_interactions:
+- name: Moss-facilitated microbial colonization on Martian simulant
+  description: >
+    In the Martian (MGS) simulant, whose high bulk density and low porosity impeded
+    microbial effectiveness, the moss Hypnum plumaeforme functioned as a biological
+    buffer that facilitated colonization by the plant growth-promoting bacteria and
+    restored plant growth responses. The moss thereby acts as a key facilitator of
+    plant-microbe interactions under harsh regolith-simulant conditions.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Hypnum plumaeforme (moss host)
+    term:
+      id: NCBITaxon:49761
+      label: Hypnum
+    notes: >
+      Source names the moss Hypnum plumaeforme; NCBI Taxonomy has the genus Hypnum but
+      not this species, so ontology grounding is genus-level.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: moss functioned as a biological buffer that facilitated microbial colonization
+    explanation: Supports the moss facilitating microbial colonization on the Martian simulant.
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: moss acts not merely as an organic input but as a key facilitator of plant-microbe interactions under harsh conditions
+    explanation: Supports the moss as a facilitator of plant-microbe interactions under harsh regolith-simulant conditions.
+- name: Moss-microbe co-treatment enhances barley growth and soil quality
+  description: >
+    Combined application of moss and its associated bacteria (versus moss alone or
+    microbes alone) significantly enhanced barley shoot biomass, dry weight, soil
+    organic matter, available phosphate, and cation exchange capacity, indicating a
+    community-level synergy of the moss-microbe complex improving plant growth and soil
+    functionality on the simulants.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Hordeum vulgare (barley model crop)
+    term:
+      id: NCBITaxon:4513
+      label: Hordeum vulgare
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: moss-microbe co-treatment significantly enhanced shoot biomass, dry weight, organic matter content, available phosphate, and cation exchange capacity
+    explanation: Supports the community-level synergy of moss plus microbes enhancing plant growth and soil quality.
+environmental_factors:
+- name: Lunar (LHS) and Martian (MGS) soil simulants
+  value: LHS and MGS soil simulants
+  description: >
+    The moss-microbe complex was tested on lunar (LHS) and Martian (MGS) soil simulants
+    as extreme edaphic conditions; the Martian simulant's high bulk density and low
+    porosity impeded microbial effectiveness until buffered by the moss.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: extreme edaphic conditions represented by lunar (LHS) and Martian (MGS) soil simulants
+    explanation: Supports the lunar and Martian soil simulants as the extreme edaphic growth substrates.
+related_ingredients:
+- preferred_term: D-ribose
+  chebi_term:
+    id: CHEBI:16988
+    label: D-ribose
+  relevance: >
+    D-ribose accumulated as a growth-related metabolite in moss-microbe-treated
+    rhizosphere, part of the metabolic reprogramming attributed to the complex.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: accumulation of growth-related compounds such as D-ribose and D-gluconate
+    explanation: Names D-ribose among the accumulated growth-related rhizosphere metabolites.
+- preferred_term: D-gluconic acid
+  chebi_term:
+    id: CHEBI:33198
+    label: D-gluconic acid
+  relevance: >
+    D-gluconate accumulated as a growth-related metabolite in moss-microbe-treated
+    rhizosphere; gluconate is a hallmark of bacterial phosphate solubilization.
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: accumulation of growth-related compounds such as D-ribose and D-gluconate
+    explanation: Names D-gluconate among the accumulated growth-related rhizosphere metabolites.
