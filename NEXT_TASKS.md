@@ -245,9 +245,11 @@ own MIM issue if we later want to persist `MIM:<name>` as a key.
   `environment_term` + every `modeled_environment`, so the 23 lab-env communities
   are no longer skipped (skip count 110 → 87) — they'll match media automatically as
   CultureMech populates `source_environment` for those habitats (0 today; data-limited,
-  not logic-limited). **Remaining:** regenerate `docs/` pages for the 23 records;
-  optionally apply the same `modeled_environment` matching to the (draft) ingredient
-  suggester.
+  not logic-limited). **`docs/` page regen — DONE:** the 23 triaged records rendered in
+  #221; the 4 later regolith records (000308–000311) rendered in **PR #239** (304 pages
+  total; `modeled_environment → regolith` blocks render). The template already supports
+  the slot, so future records render automatically. **Remaining (optional):** apply the
+  same `modeled_environment` matching to the (draft) ingredient suggester.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
@@ -292,20 +294,28 @@ the same exclude.
 Coordinated cross-Mech adoption of DisMech's domain-general features. Full plan,
 locked decisions, and DisMech schema references live in culturebotai-claw#7 (the
 shared, pinned LinkML module is authored once and vendored across all four Mechs).
-This repo's slice:
+This repo's slice — **ALL DONE** (reconciled 2026-07-21; the section had gone
+stale marking the last two "pending" when they had already shipped):
 - Knowledge gaps — **DONE (2026-07-20, PR #226).** Added the `discussions` slot
   (broad `Discussion` supertype; `kind` incl. KNOWLEDGE_GAP / OPEN_QUESTION /
   CONTROVERSY / CURATION_TODO) to `MicrobialCommunity`, imported from the shared
   module, with `attaches_to` anchors bound to `ecological_interactions#…`. First
-  real use: a KNOWLEDGE_GAP block in `Cellulose_Methane_Quad_Culture_SynCom`.
-  **Still pending:** a standing `knowledge-gap-scan` recipe over the Edison harness
-  (the causal-graph mode below is the closest existing capability).
-- Datasets — **STILL PENDING.** Migrate the existing `AssociatedDataset`
-  (DatasetRepositoryEnum) to the canonical shared `Dataset` (data-preserving;
-  reconcile repository/accession into the canonical enum, which also carries omics
-  `data_type`).
-- QC dashboard — **STILL PENDING.** Adopt the generalized dashboard from Phase 3
-  (CommunityMech currently has only the `qc` recipe, no rendered dashboard).
+  real use: a KNOWLEDGE_GAP block in `Cellulose_Methane_Quad_Culture_SynCom`. The
+  standing **`knowledge-gap-scan` recipe** (Europe PMC, free; shared
+  `kg_microbe_kgscan` in claw; `conf/kgscan_config.yaml`) shipped in **PR #166** —
+  dry-runs to `reports/knowledge_gap_scan.{json,md}`, `--apply` seeds
+  `Discussion(kind=KNOWLEDGE_GAP)`.
+- Datasets — **DONE (PR #163).** The shared Discussion + Dataset module was
+  adopted and `associated_datasets` migrated from the former local
+  `AssociatedDataset` to the canonical shared `Dataset` (mech_shared.yaml). No
+  records use the old fields; the 149 records with `associated_datasets`
+  LinkML-validate against the shared class. `DatasetTypeEnum`/`DatasetRepositoryEnum`
+  come from the shared module.
+- QC dashboard — **DONE (PR #165).** `just gen-qc-dashboard` (shared
+  `kg_microbe_qc` generator in claw; `conf/qc_config.yaml`) renders
+  `dashboard/index.html` + `dashboard/coverage.png`. Current run: 304 records,
+  13 slots, 0 FAIL, overall 75.7% coverage. Regenerate periodically to track the
+  growing record set.
 
 ## Causal-graph curation over ecological_interactions (in progress)
 
@@ -322,10 +332,17 @@ for chemical perturbations). Supporting work: `templates/community_causal_graph_
 
 **Done so far:** `Cellulose_Methane_Quad_Culture_SynCom` (#226; + acetate→CHEBI:30089
 in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
-`ANME_SRB_Marine_Methane_Seep_Consortium` (#230). **58/300 records** now carry
+`ANME_SRB_Marine_Methane_Seep_Consortium` (#230). ~58/304 records now carry
 `downstream` causal edges. **Next:** continue on high-value syntrophies; always use
 the RECORD's canonical taxon ids (Edison groundings have had errors, e.g. sulfite →
 CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359).
+
+**Blocked 2026-07-21:** next target `Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture`
+(CommunityMech:000190, PMID:30038609) — the Edison causal run failed at
+authentication ("Failed to authenticate"; `EDISON_API_KEY` present in `.env` but
+rejected — expired/revoked key or an Edison auth outage). Nothing billed; the
+dry-run query is audited and correct. Re-run `just research-community-causal
+CommunityMech:000190` once the key is refreshed.
 
 ## Space-regolith community curation (curatable subset DONE, 9/16)
 
