@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-19.
+Last reconciled: 2026-07-20.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -283,13 +283,57 @@ Coordinated cross-Mech adoption of DisMech's domain-general features. Full plan,
 locked decisions, and DisMech schema references live in culturebotai-claw#7 (the
 shared, pinned LinkML module is authored once and vendored across all four Mechs).
 This repo's slice:
-- Knowledge gaps — add a `discussions` slot (broad `Discussion` supertype; `kind`
-  incl. KNOWLEDGE_GAP / OPEN_QUESTION / CONTROVERSY / CURATION_TODO) to
-  `MicrobialCommunity`, imported from the shared module; bind `attaches_to`
-  anchors to `ecological_interactions#…`. Wire a `knowledge-gap-scan` recipe over
-  the existing Edison harness.
-- Datasets — migrate the existing `AssociatedDataset` (DatasetRepositoryEnum) to
-  the canonical shared `Dataset` (data-preserving; reconcile repository/accession
-  into the canonical enum, which also carries omics `data_type`).
-- QC dashboard — adopt the generalized dashboard from Phase 3 (CommunityMech
-  currently has only the `qc` recipe, no rendered dashboard).
+- Knowledge gaps — **DONE (2026-07-20, PR #226).** Added the `discussions` slot
+  (broad `Discussion` supertype; `kind` incl. KNOWLEDGE_GAP / OPEN_QUESTION /
+  CONTROVERSY / CURATION_TODO) to `MicrobialCommunity`, imported from the shared
+  module, with `attaches_to` anchors bound to `ecological_interactions#…`. First
+  real use: a KNOWLEDGE_GAP block in `Cellulose_Methane_Quad_Culture_SynCom`.
+  **Still pending:** a standing `knowledge-gap-scan` recipe over the Edison harness
+  (the causal-graph mode below is the closest existing capability).
+- Datasets — **STILL PENDING.** Migrate the existing `AssociatedDataset`
+  (DatasetRepositoryEnum) to the canonical shared `Dataset` (data-preserving;
+  reconcile repository/accession into the canonical enum, which also carries omics
+  `data_type`).
+- QC dashboard — **STILL PENDING.** Adopt the generalized dashboard from Phase 3
+  (CommunityMech currently has only the `qc` recipe, no rendered dashboard).
+
+## Causal-graph curation over ecological_interactions (in progress)
+
+New capability built this session: the `deep-research-community` skill gained a
+**causal-edge mode** (scoped to one community at a time) that runs an Edison
+PaperQA3 causal-graph template and returns node/edge/DOT artifacts under
+`research/communities/<slug>-*-causal-artifacts/` (gitignored). Curated records
+get directed `downstream` edges on their `ecological_interactions` (and, where the
+causal branch has no taxon↔taxon `interaction_type` home, `environmental_factors`
+for chemical perturbations). Supporting work: `templates/community_causal_graph_research.md`
+(PR #225), `scripts/cache_fulltext.py` for OA full-text snippet validation (PR #227;
+**cache-path fix PR #230** — append to the file the reference validator reads,
+`PMID_<id>.md` when present else legacy `.txt`).
+
+**Done so far:** `Cellulose_Methane_Quad_Culture_SynCom` (#226; + acetate→CHEBI:30089
+in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
+`ANME_SRB_Marine_Methane_Seep_Consortium` (#230). **58/300 records** now carry
+`downstream` causal edges. **Next:** continue on high-value syntrophies; always use
+the RECORD's canonical taxon ids (Edison groundings have had errors, e.g. sulfite →
+CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359).
+
+## Space-regolith community curation (in progress — branch `feat/space-regolith-records`)
+
+Scout report `reports/scout_space_regolith.md` lists **16 defined-community
+candidates**. **5 curated** (CommunityMech:000303–000307): BioRock basalt biomining
+(#1; folds in vanadium #6 PMID:33868198 + cell-conc #7 PMID:33154740 as evidence),
+lettuce PGPB SynCom (#2), P-solubilizers for *N. benthamiana* (#3), Anabaena/MGS-1
+anaerobic-digestion methanogen consortium (#4), BioAsteroid ISS chondrite biomining
+(#5; #16 is its preprint — cite the published npj Microgravity version).
+
+**Remaining candidates to curate** (~8 distinct new records; prioritize defined
+multi-microbe communities): #10 cyanobacteria panel (PMID:35865930), #11 Mars-meteorite
+4-organism panel (PMID:38665180), #9 AMF+PGPB tomato multi-kingdom (PMID:41597718),
+#8 moss-derived microbiome (EPMC AGRICOLA IND609292674), #15 sealed mini-ecosystems
+(PMID:39487149), #12 legume–rhizobia mutualism (PMID:34879082), #13 microbial-fertilizer
+consortia (PMID:41829787; composition partly undefined — lower priority), #14 AMF chickpea
+(PMID:41786794; loosely defined — lower priority). Match the existing regolith records'
+house style: `ecological_state: ENGINEERED`, `community_origin: SYNTHETIC`,
+`environment_term` → ENVO:01001405 "laboratory environment" with `modeled_environment`
+→ ENVO:01000747 "regolith"; every member/interaction evidence snippet fuzzy-matches a
+cached abstract/OA full text. See [[space-regolith-scouting-gap]].
