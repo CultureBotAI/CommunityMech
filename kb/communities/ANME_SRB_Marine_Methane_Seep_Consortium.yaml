@@ -109,7 +109,9 @@ ecological_interactions:
 - name: Direct Interspecies Electron Transfer
   description: Comparative genomics indicates that conserved protein complexes move electrons from ANME
     cells to the SRB outer membrane, providing a mechanistic basis for partner coupling in sulfate-reducing
-    methane-oxidizing consortia.
+    methane-oxidizing consortia. The hypothesized conduit involves electrically conductive pili and
+    multiheme (S-layer-associated) cytochromes, proposed as the principal mechanism of sulfate-dependent
+    AOM.
   interaction_type: SYNTROPHY
   source_taxon:
     preferred_term: anaerobic methanotrophic archaea
@@ -129,12 +131,21 @@ ecological_interactions:
   downstream:
   - target: SRB sulfate reduction
     description: Electrons derived from methane oxidation are transferred to the sulfate-reducing partner.
+  - target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: HYPOTHESIZED — the conductive-pili / multiheme-cytochrome DIET conduit is proposed as
+      the principal mechanism enabling sulfate-dependent AOM syntrophy.
   evidence:
   - reference: PMID:37747940
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: direct interspecies electron transfer (DIET) from ANME to the SRB outer membrane
     explanation: Supports DIET as a candidate mechanism linking ANME and SRB metabolism.
+  - reference: PMID:33975943
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: multiheme cytochromes containing putative S-layer domains
+    explanation: Supports the hypothesized conductive conduit (multiheme cytochromes / conductive pili)
+      as the principal DIET mechanism for sulfate-dependent AOM.
 environmental_factors:
 - name: Methane-rich anoxic marine sediment
   value: Gas-hydrate-rich and methane-seep sediments
@@ -156,6 +167,28 @@ environmental_factors:
     evidence_source: COMPUTATIONAL
     snippet: anaerobic oxidation of methane coupled to sulfate reduction
     explanation: Supports sulfate as the electron-accepting process coupled to methane oxidation.
+- name: Sulfite inhibition of anaerobic methane oxidation
+  value: Sulfite (1.0 mM) inhibitory to ANME
+  description: Millimolar sulfite (CHEBI:17359) directly inhibits the ANME partner, causing an immediate
+    drop in the rate of sulfate-coupled anaerobic methane oxidation, while the syntrophic SRB partner is
+    comparatively unaffected — a chemical perturbation that suppresses consortium AOM function.
+  evidence:
+  - reference: PMID:30559729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sulfite at concentration of 1.0 mM was found to be inhibitory to ANME, leading to an immediate decrease in the rate of AOM
+    explanation: Supports sulfite as an inhibitory chemical perturbation that suppresses ANME-driven AOM.
+- name: Zero-valent sulfur inhibition of anaerobic methane oxidation
+  value: Polythionate/polysulfide (0.25-1.0 mM) inhibitory to ANME
+  description: Zero-valent sulfur supplied as polythionate and polysulfide inhibits methane oxidation by
+    the ANME-2a/2c partner while the syntrophic SRB partner is comparatively unaffected, identifying
+    reactive sulfur intermediates as chemical perturbations on consortium AOM.
+  evidence:
+  - reference: PMID:30559729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: zero-valent sulfur amendments were inhibitory to ANME-2a/2c while growth in their syntrophic SRB partner was not observed
+    explanation: Supports zero-valent sulfur (polythionate/polysulfide) as an inhibitory perturbation on ANME AOM.
 related_ingredients:
 - preferred_term: methane
   chebi_term:

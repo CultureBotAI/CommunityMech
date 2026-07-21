@@ -63,9 +63,20 @@ def _fulltext(pmcid: str) -> str:
     return text.strip()
 
 
+def _cache_path(pmid: str) -> Path:
+    """The cache file the reference validator actually reads for this PMID.
+
+    linkml-reference-validator reads ``PMID_<id>.md`` and only falls back to a
+    legacy ``.txt`` when no ``.md`` exists. Append full text to whichever it
+    reads, otherwise the appended text is silently ignored during validation.
+    """
+    md = CACHE_DIR / f"PMID_{pmid}.md"
+    return md if md.exists() else CACHE_DIR / f"PMID_{pmid}.txt"
+
+
 def cache_one(pmid: str) -> str:
     pmid = pmid.replace("PMID:", "").strip()
-    cache = CACHE_DIR / f"PMID_{pmid}.txt"
+    cache = _cache_path(pmid)
     if not cache.exists():
         return f"[skip] {pmid}: no abstract cache ({cache.name}); fetch the abstract first"
     if MARKER in cache.read_text(encoding="utf-8"):
