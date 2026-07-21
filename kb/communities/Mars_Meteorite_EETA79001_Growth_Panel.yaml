@@ -1,0 +1,155 @@
+id: CommunityMech:000308
+name: Mars Meteorite EETA79001 Microbial Growth Panel
+description: >
+  A defined four-member panel of microorganisms tested for their ability to grow on
+  actual martian regolith, supplied as sawdust of the Mars meteorite EETA79001, rather
+  than on a terrestrial simulant. The panel comprises the bacterium Escherichia coli B,
+  the two cyanobacteria Eucapsis sp. and Chroococcidiopsis sp. strain
+  Chr20-20201027-1, and the cold-adapted bacterium Planococcus halocryophilus. Each
+  organism was cultivated separately on EETA79001 sawdust for up to 23 days under
+  terrestrial conditions across regolith:water ratios from 4:1 to 1:10; the study
+  demonstrates that real martian regolith can support microbial growth and does not
+  contain bactericidal agents. The panel is an astrobiology / In-Situ Resource
+  Utilization model relevant to putative martian life and to bio-sustainable human
+  habitats on Mars. Members were assayed individually, so the record captures a shared
+  capacity to grow on martian regolith rather than measured interspecies interactions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: EXTREME_ENVIRONMENT
+engineering_design:
+  objective: >
+    Determine whether actual martian regolith (Mars meteorite EETA79001 sawdust) can
+    support the growth of microorganisms, using a panel of four organisms tested on
+    real martian material instead of a terrestrial simulant.
+  assembly_strategy: >
+    Assemble a four-member panel spanning a model bacterium (Escherichia coli B), two
+    cyanobacteria (Eucapsis sp.; Chroococcidiopsis sp. Chr20-20201027-1), and a
+    cold-adapted environmental bacterium (Planococcus halocryophilus), and cultivate
+    each organism separately on EETA79001 regolith sawdust across a range of
+    regolith:water ratios.
+  perturbation_design: >
+    Regolith:water ratio was the primary designed variable, spanning 4:1 to 1:10, with
+    growth followed for up to 23 days under terrestrial conditions.
+  measurement_endpoints:
+  - Growth and survival of each organism on EETA79001 regolith over 23 days
+  - Dependence of growth on regolith:water ratio (4:1 to 1:10)
+  - Absence of bactericidal activity in the martian regolith
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: actual martian regolith, in the form of Mars meteorite EETA79001 sawdust
+    explanation: States the objective of testing growth on actual martian regolith supplied as EETA79001 meteorite sawdust.
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: support the growth of four microorganisms
+    explanation: Supports the four-member panel design tested on martian regolith.
+environment_term:
+  preferred_term: Mars meteorite EETA79001 regolith growth assay (laboratory culture)
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    The community is a controlled laboratory growth assay on actual martian regolith
+    (Mars meteorite EETA79001 sawdust) under terrestrial conditions, not a sampled
+    natural community. The ENVO grounding reflects the controlled experimental setting;
+    the extraterrestrial regolith substrate is captured in modeled_environment and
+    environmental_factors.
+modeled_environment:
+- preferred_term: regolith
+  term:
+    id: ENVO:01000747
+    label: regolith
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli B
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    notes: >
+      Source uses Escherichia coli B as a model bacterium; ontology grounding is
+      species-level to the stable NCBI Taxonomy term Escherichia coli.
+  strain_designation:
+    strain_name: B
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Escherichia coli B
+    explanation: Names Escherichia coli B as a member of the growth panel.
+- taxon_term:
+    preferred_term: Eucapsis sp.
+    term:
+      id: NCBITaxon:1521555
+      label: Eucapsis
+    notes: >
+      Source identifies the member only to the cyanobacterial genus Eucapsis; ontology
+      grounding is genus-level.
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the two cyanobacteria, Eucapsis and Chr20
+    explanation: Names Eucapsis as one of the two cyanobacteria in the panel.
+- taxon_term:
+    preferred_term: Chroococcidiopsis sp. Chr20-20201027-1
+    term:
+      id: NCBITaxon:54298
+      label: Chroococcidiopsis
+    notes: >
+      Source designates this cyanobacterium Chr20-20201027-1 (abbreviated Chr20) and
+      identifies it as a Chroococcidiopsis sp.; ontology grounding is genus-level.
+  strain_designation:
+    strain_name: Chr20-20201027-1
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chr20-20201027-1, and P. halocryophilus
+    explanation: Names Chr20-20201027-1 (Chroococcidiopsis sp.) as a member of the panel.
+- taxon_term:
+    preferred_term: Planococcus halocryophilus
+    term:
+      id: NCBITaxon:1215089
+      label: Planococcus halocryophilus
+    notes: >
+      A cold-adapted (psychrophilic, halotolerant) bacterium; ontology grounding is
+      species-level.
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Planococcus halocryophilus
+    explanation: Names Planococcus halocryophilus as the cold-adapted bacterial member of the panel.
+# No ecological_interactions block: the four members were assayed individually on the
+# regolith (never co-cultured), so no interspecies interaction was measured. The shared
+# community-level capacity to grow on martian regolith is captured in the description
+# and environmental_factors instead.
+environmental_factors:
+- name: Actual martian regolith substrate (Mars meteorite EETA79001)
+  value: EETA79001 meteorite sawdust
+  description: >
+    Growth was tested on sawdust of the Mars meteorite EETA79001, a sample of actual
+    martian material used in place of a terrestrial simulant to duplicate martian
+    mineralogy and chemistry.
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: actual martian regolith, in the form of Mars meteorite EETA79001 sawdust
+    explanation: Supports the actual martian regolith (EETA79001 meteorite sawdust) as the growth substrate.
+- name: Regolith-to-water ratio
+  value: 4:1 to 1:10 (regolith:water)
+  description: >
+    Growth was assayed across regolith:water ratios ranging from 4:1 to 1:10 over up to
+    23 days, defining the moisture regime supporting microbial growth on the martian
+    material.
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: regolith:water ratios from 4:1 to 1:10
+    explanation: Supports the range of regolith:water ratios tested.
+# No associated_datasets block: the study reports growth/survival measurements, not an
+# omics dataset, and DatasetTypeEnum covers only omics data types.
