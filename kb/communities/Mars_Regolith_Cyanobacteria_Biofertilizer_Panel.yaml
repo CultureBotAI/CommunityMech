@@ -1,0 +1,155 @@
+id: CommunityMech:000309
+name: Mars Regolith Cyanobacteria/Microalga Biofertilizer Panel
+description: >
+  A defined four-member panel of photosynthetic microorganisms evaluated for their
+  ability to grow using only martian resources (water and Mars Global Simulant MGS-1
+  regolith extract) under an Earth-like atmosphere, as candidates to support Mars
+  colonization through oxygen and biomass production. The panel comprises three
+  cyanobacteria — Anabaena cylindrica, Nostoc muscorum (NCBI Taxonomy: Desmonostoc
+  muscorum), and Arthrospira platensis (NCBI Taxonomy: Limnospira platensis) — and the
+  green microalga Chlorella vulgaris. Each species was grown separately in a martian
+  regolith extract culture medium and monitored for 25 days by optical density and
+  fluorometric parameters; Nostoc muscorum grew best, while Arthrospira platensis and
+  Chlorella vulgaris did not thrive on the regolith extract. End-of-life biomass was
+  then tested as a biofertilizing agent for the macrophyte Lemna minor, stimulating
+  plant biomass to levels comparable to standard synthetic medium. The panel is an
+  In-Situ Resource Utilization model for bioregenerative life support on Mars. Members
+  were assayed individually, so the record captures a shared capacity to grow on
+  martian regolith resources rather than measured interspecies interactions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: EXTREME_ENVIRONMENT
+engineering_design:
+  objective: >
+    Evaluate whether cyanobacteria and a green microalga can grow using only martian
+    resources (water plus Mars regolith simulant MGS-1 extract) under an Earth-like
+    atmosphere, and whether their end-of-life biomass can act as a biofertilizer, as
+    candidates to support Mars colonization.
+  assembly_strategy: >
+    Assemble a four-member photosynthetic panel (Anabaena cylindrica, Nostoc muscorum,
+    Arthrospira platensis, Chlorella vulgaris), produce a martian regolith (MGS-1)
+    extract as culture medium, and grow each species separately; then apply end-of-life
+    biomass as a biofertilizing agent to the macrophyte model Lemna minor.
+  perturbation_design: >
+    Culture medium was the primary designed variable: a Mars regolith (MGS-1) extract
+    versus standard synthetic medium, with growth monitored for 25 days.
+  measurement_endpoints:
+  - Growth of each species on Mars regolith extract over 25 days (optical density, fluorometric parameters)
+  - Biofertilizing effect of end-of-life biomass on Lemna minor dry-weight biomass
+  - FTIR-ATR spectral differences (polysaccharide-related) in plants grown with vs without regolith
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grow using only the resources existing in Mars, i.e., water and Martian regolith stimulant (MGS-1)
+    explanation: States the objective of growing the panel using only martian resources (water plus MGS-1 regolith).
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: possible contribution of end-of-life cyanobacteria/microalga as biofertilizing agents
+    explanation: Supports the biofertilizer arm of the design using end-of-life biomass.
+environment_term:
+  preferred_term: Mars regolith (MGS-1) extract culture assay (laboratory culture)
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    The community is a controlled laboratory culture assay in a Mars regolith simulant
+    (MGS-1) extract under an Earth-like atmosphere, not a sampled natural community. The
+    ENVO grounding reflects the controlled experimental setting; the martian regolith
+    resource context is captured in modeled_environment and environmental_factors.
+modeled_environment:
+- preferred_term: regolith
+  term:
+    id: ENVO:01000747
+    label: regolith
+taxonomy:
+- taxon_term:
+    preferred_term: Anabaena cylindrica
+    term:
+      id: NCBITaxon:1165
+      label: Anabaena cylindrica
+    notes: >
+      A filamentous, heterocyst-forming, nitrogen-fixing cyanobacterium; ontology
+      grounding is species-level.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three species of cyanobacteria (Anabaena cylindrica, Nostoc muscorum, and Arthrospira platensis)
+    explanation: Names Anabaena cylindrica as one of the three cyanobacteria in the panel.
+- taxon_term:
+    preferred_term: Nostoc muscorum
+    term:
+      id: NCBITaxon:1179
+      label: Desmonostoc muscorum
+    notes: >
+      Source names the strain Nostoc muscorum; NCBI Taxonomy has reclassified this
+      species as Desmonostoc muscorum (NCBITaxon:1179), so the canonical ontology label
+      used here is Desmonostoc muscorum. It showed the best growth on the regolith
+      extract.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: N. muscorum showed the best growth performance
+    explanation: Names Nostoc muscorum as the best-growing panel member on Mars regolith extract.
+- taxon_term:
+    preferred_term: Arthrospira platensis
+    term:
+      id: NCBITaxon:118562
+      label: Limnospira platensis
+    notes: >
+      Source names the strain Arthrospira platensis (spirulina); NCBI Taxonomy has
+      reclassified this species as Limnospira platensis (NCBITaxon:118562), so the
+      canonical ontology label used here is Limnospira platensis. It did not thrive on
+      the regolith extract but performed best as a biofertilizer.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A. platensis and C. vulgaris were not able to thrive on Mars regolith extract
+    explanation: Names Arthrospira platensis as a panel member that did not thrive on the regolith extract.
+- taxon_term:
+    preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
+    notes: >
+      A green microalga (not a cyanobacterium); ontology grounding is species-level. It
+      did not thrive on the regolith extract.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a green microalga (Chlorella vulgaris)
+    explanation: Names Chlorella vulgaris as the green-microalga member of the panel.
+# No ecological_interactions block: the four members were assayed individually in the
+# regolith extract (never co-cultured), so no interspecies interaction was measured. The
+# biofertilizer effect on Lemna minor is a downstream application of end-of-life biomass,
+# captured in the description and environmental_factors rather than as an interaction.
+environmental_factors:
+- name: Mars regolith simulant (MGS-1) extract as sole nutrient resource
+  value: MGS-1 regolith extract culture medium
+  description: >
+    The panel was grown using only martian resources — water and a Mars Global Simulant
+    (MGS-1) regolith extract used as culture medium — under an Earth-like atmosphere,
+    testing In-Situ Resource Utilization for phototroph cultivation on Mars.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: grow using only the resources existing in Mars, i.e., water and Martian regolith stimulant (MGS-1)
+    explanation: Supports MGS-1 regolith extract plus water as the sole nutrient resource.
+- name: End-of-life biomass biofertilization of Lemna minor
+  value: Lemna minor dry-weight stimulation
+  description: >
+    End-of-life cyanobacteria/microalga biomass was applied as a biofertilizing agent to
+    the macrophyte Lemna minor, stimulating dry-weight biomass to levels comparable to
+    standard synthetic medium; the highest yield was reached with Arthrospira platensis.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: possible contribution of end-of-life cyanobacteria/microalga as biofertilizing agents
+    explanation: Supports the biofertilizing use of end-of-life biomass on the Lemna minor plant model.
