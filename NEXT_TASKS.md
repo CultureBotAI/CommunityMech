@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-20.
+Last reconciled: 2026-07-21.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -260,6 +260,16 @@ CultureMech/MIM canonical bytes (`55a432e0…` / `f01d2264…`) and re-pinned, s
 three Mechs now share an identical 3-line `.sha256` manifest. CI's `sha256sum -c`
 step enforces all three; `verify-validator-pin` passes; the 17 vendored tests pass.
 `conf/id_label_targets.yaml` stays **unpinned** (intentionally per-repo).
+
+**Phase 0 vendored-sync — DONE (2026-07-21, PR #235 + #236).** #235 brought
+`scripts/validate_id_label_correspondence.py` to fleet-canonical `1775583c`
+(merges TraitMech's `_LABEL_CACHE`/`_FORMULA_LOOKUPS` clear-in-`run()` fix +
+CultureMech's drop of `ID_OUT_OF_RANGE` from waivable exceptions) and refreshed
+the validator `.sha256` line; #236 synced `chem_formula.py` (R-prefixed elements +
+hydrate separators, a different pin line). Prerequisite for replacing the
+self-referential per-repo pin with a shared-reference cross-repo drift check
+(plan: `culturebotai-claw/.../vendored_sync_action_plan_2026-07-21.md`) — that
+shared-reference drift check is the remaining follow-up.
 
 Update (2026-06-15): **TraitMech has now joined** — the trio is a **4-repo
 invariant**. TraitMech vendored the validator + tests byte-identical (same
