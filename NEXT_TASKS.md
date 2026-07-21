@@ -317,23 +317,38 @@ in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
 the RECORD's canonical taxon ids (Edison groundings have had errors, e.g. sulfite →
 CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359).
 
-## Space-regolith community curation (in progress — branch `feat/space-regolith-records`)
+## Space-regolith community curation (curatable subset DONE, 9/16)
 
 Scout report `reports/scout_space_regolith.md` lists **16 defined-community
-candidates**. **5 curated** (CommunityMech:000303–000307): BioRock basalt biomining
-(#1; folds in vanadium #6 PMID:33868198 + cell-conc #7 PMID:33154740 as evidence),
-lettuce PGPB SynCom (#2), P-solubilizers for *N. benthamiana* (#3), Anabaena/MGS-1
-anaerobic-digestion methanogen consortium (#4), BioAsteroid ISS chondrite biomining
-(#5; #16 is its preprint — cite the published npj Microgravity version).
+candidates**. **9 curated** (CommunityMech:000303–000311):
+- **000303–000307** (earlier): BioRock basalt biomining (#1; folds in vanadium #6
+  PMID:33868198 + cell-conc #7 PMID:33154740 as evidence), lettuce PGPB SynCom (#2),
+  P-solubilizers for *N. benthamiana* (#3), Anabaena/MGS-1 anaerobic-digestion
+  methanogen consortium (#4), BioAsteroid ISS chondrite biomining (#5; #16 is its
+  preprint — cite the published npj Microgravity version).
+- **000308 Mars Meteorite EETA79001 Growth Panel** (#11, PMID:38665180) and **000309
+  Mars Regolith Cyanobacteria/Microalga Biofertilizer Panel** (#10, PMID:35865930) —
+  PR #232. Both are individual-screening panels (members never co-cultured) → no
+  `ecological_interactions` block (accepted honest pattern; 3 other records also have
+  none).
+- **000310 Moss-Microbe Complex Regolith Biofertilizer** (#8,
+  doi:10.1016/j.ecolind.2025.114023; abstract cached via OpenAlex→DOI `.md`) and
+  **000311 Legume-Rhizobia Mars Simulant Symbiosis** (#12, PMID:34879082) — PR #233.
+  These carry real grounded interactions (COLONIZATION_FACILITATION / MUTUALISM;
+  nodulation GO:0009877 + N-fixation GO:0009399).
 
-**Remaining candidates to curate** (~8 distinct new records; prioritize defined
-multi-microbe communities): #10 cyanobacteria panel (PMID:35865930), #11 Mars-meteorite
-4-organism panel (PMID:38665180), #9 AMF+PGPB tomato multi-kingdom (PMID:41597718),
-#8 moss-derived microbiome (EPMC AGRICOLA IND609292674), #15 sealed mini-ecosystems
-(PMID:39487149), #12 legume–rhizobia mutualism (PMID:34879082), #13 microbial-fertilizer
-consortia (PMID:41829787; composition partly undefined — lower priority), #14 AMF chickpea
-(PMID:41786794; loosely defined — lower priority). Match the existing regolith records'
-house style: `ecological_state: ENGINEERED`, `community_origin: SYNTHETIC`,
-`environment_term` → ENVO:01001405 "laboratory environment" with `modeled_environment`
-→ ENVO:01000747 "regolith"; every member/interaction evidence snippet fuzzy-matches a
-cached abstract/OA full text. See [[space-regolith-scouting-gap]].
+**Remaining 4 candidates are NOT curatable as defined microbial communities** — their
+membership is commercial or undefined, so members can't be grounded to NCBITaxon:
+- #9 AMF+PGPB tomato (PMID:41597718): commercial AMF formulation "TM-73MR" + undefined
+  "PBB"; no named species.
+- #13 microbial-fertilizer consortia (PMID:41829787): three commercial fertilizer
+  products, composition undefined.
+- #14 AMF chickpea (PMID:41786794): AMF + vermicompost microbiome, community loosely
+  defined.
+- #15 sealed mini-ecosystems (PMID:39487149): Biosphere-2-style enclosures that
+  *quantify proliferating* communities without defined membership.
+These are logged for completeness; revisit only if a follow-up study names their
+members. **The defined-community subset of the scout report is complete.** House style
+for any future regolith record: `ecological_state: ENGINEERED`, `community_origin:
+SYNTHETIC`, `environment_term` → ENVO:01001405 "laboratory environment" with
+`modeled_environment` → ENVO:01000747 "regolith". See [[space-regolith-scouting-gap]].
