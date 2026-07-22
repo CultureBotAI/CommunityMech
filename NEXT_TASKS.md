@@ -345,11 +345,14 @@ in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
 syntrophic loop 1→2→3→1 + negative product-inhibition edge from the Edison graph on
 PMID:30038609), `Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture` (#246;
 CommunityMech:000268, reversible magnetite-"battery" loop 2⇄3 + both half-reactions →
-battery, PMID:25814583). ~60/304 records now carry `downstream` causal edges. **Next:**
-continue on high-value syntrophies (e.g. `ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model`
-000176, 4 nodes/0 downstream); always use the RECORD's canonical taxon ids (Edison
-groundings have had errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of
-CHEBI:17359).
+battery, PMID:25814583), `ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model` (#249;
+CommunityMech:000176 — conservative: full text unretrievable, so 2 directly-implied
+donor→partner edges + a KNOWLEDGE_GAP discussion, modeled-limitation node left isolated).
+~61/304 records now carry `downstream` causal edges. **Next:** continue on high-value
+syntrophies; always use the RECORD's canonical taxon ids (Edison groundings have had
+errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359). NB: when
+the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
+claims and file the rest as a KNOWLEDGE_GAP (000176 is the worked example).
 
 **Edison auth (resolved 2026-07-21):** the key was refreshed in `.env`
 (`EDISON_API_KEY`) and authenticates (HTTP 200). The stale-key shadowing footgun is
