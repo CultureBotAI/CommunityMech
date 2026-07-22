@@ -53,7 +53,7 @@ from pathlib import Path
 from typing import Any
 
 import yaml
-from dotenv import load_dotenv
+from dotenv import dotenv_values, load_dotenv
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "scripts"))
@@ -88,13 +88,24 @@ def resolve_job(name: str):
 
 
 def load_api_key() -> str:
-    """Pick up the Edison key from env (with the legacy alias).
+    """Pick up the Edison key, treating the repo ``.env`` as the source of truth.
 
-    The SDK natively reads ``EDISON_PLATFORM_API_KEY``; this repo's
-    ``.env`` sets ``EDISON_API_KEY``. Honor both.
+    The SDK natively reads ``EDISON_PLATFORM_API_KEY``; this repo's ``.env`` sets
+    ``EDISON_API_KEY``. Honor both — but prefer whatever the ``.env`` FILE
+    provides over an ambient/inherited ``EDISON_PLATFORM_API_KEY``. A stale
+    exported ``EDISON_PLATFORM_API_KEY`` (e.g. left in a terminal session) would
+    otherwise silently shadow a freshly-updated ``.env`` key, because
+    ``load_dotenv`` does not override already-exported vars — a 403-at-login
+    footgun. Ambient env is used only when ``.env`` supplies no key.
     """
     load_dotenv(REPO_ROOT / ".env")
-    key = os.environ.get("EDISON_PLATFORM_API_KEY") or os.environ.get("EDISON_API_KEY")
+    file_vals = dotenv_values(REPO_ROOT / ".env")
+    key = (
+        file_vals.get("EDISON_PLATFORM_API_KEY")
+        or file_vals.get("EDISON_API_KEY")
+        or os.environ.get("EDISON_PLATFORM_API_KEY")
+        or os.environ.get("EDISON_API_KEY")
+    )
     if not key:
         raise SystemExit(
             "EDISON_PLATFORM_API_KEY (or EDISON_API_KEY) is not set. "
