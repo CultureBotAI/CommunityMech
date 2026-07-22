@@ -348,8 +348,14 @@ CommunityMech:000268, reversible magnetite-"battery" loop 2⇄3 + both half-reac
 battery, PMID:25814583), `ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model` (#249;
 CommunityMech:000176 — conservative: full text unretrievable, so 2 directly-implied
 donor→partner edges + a KNOWLEDGE_GAP discussion, modeled-limitation node left isolated).
-~61/304 records now carry `downstream` causal edges. **Next:** continue on high-value
-syntrophies; always use the RECORD's canonical taxon ids (Edison groundings have had
+**Syntrophy/DIET batch (#251):** `Dehalococcoides_Syntrophomonas_TCE_Dechlorination_Coculture`
+(000183, 2 edges), `Trichococcus_Syntrophomonas_Methanospirillum_Butyrate_Coculture`
+(000188, 2 HYPOTHESIZED mediator edges + KG), `Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture`
+(000189, 1 edge + KG), `DIETsimp_Lignocellulose_to_Methane_DIET_Consortia` (000297, NO edge
+justified — parallel proposed DIET pathways — KG only). The 6 already-wired matches
+(000031–033 DIET, 000068–070 syntrophies) were left as-is. ~65/304 records now carry
+`downstream` causal edges. **Next:** continue on high-value syntrophies; always use the
+RECORD's canonical taxon ids (Edison groundings have had
 errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359). NB: when
 the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
 claims and file the rest as a KNOWLEDGE_GAP (000176 is the worked example).
