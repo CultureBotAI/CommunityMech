@@ -360,6 +360,20 @@ errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359
 the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
 claims and file the rest as a KNOWLEDGE_GAP (000176 is the worked example).
 
+**PENDING — enrich the single-edge records via a full causal-graph run.** Six 2-node
+records already carry one hand-authored `downstream` edge (donor→acceptor) from original
+curation but have not had an Edison causal-graph pass: the DIET trio
+`Geobacter_Clostridium_DIET` (000031, PMID:28287150),
+`Geobacter_Methanosaeta_DIET` (000032, doi:10.1039/C3EE42189A),
+`Geobacter_Methanosarcina_DIET` (000033, PMID:24837373); and the syntrophies
+`Syntrophobacter_Methanobacterium_Syntrophy` (000068), `Syntrophobacter_Methanospirillum_Syntrophy`
+(000069), `Syntrophomonas_Methanospirillum_Syntrophy` (000070). A full run could add
+mechanistic nodes/edges (e.g. conductive pili / OmcS-OmcZ cytochromes, conductive-material
+mediation, formate-vs-H2 routes, reverse/feedback edges) beyond the single existing edge.
+Run `just research-community-causal CommunityMech:0000NN` per record, then curate
+conservatively as usual. NB: stray untracked `*.yaml.bak` backups exist alongside these in
+`kb/communities/` (gitignored, not in the repo) — target the `.yaml` files.
+
 **Edison auth (resolved 2026-07-21):** the key was refreshed in `.env`
 (`EDISON_API_KEY`) and authenticates (HTTP 200). The stale-key shadowing footgun is
 **fixed in the runner** (#245): `load_api_key()` now treats the repo `.env` FILE as the
