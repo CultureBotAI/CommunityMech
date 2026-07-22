@@ -34,7 +34,7 @@ permissions:
 
 jobs:
   # Cross-repo durability guard: the validator is vendored byte-identical across
-  # the Mech repos, so fail fast if this copy drifts from its pinned sha256.
+  # the Mech repos, so fail fast if this copy drifts from the canonical hub's copy.
   # Fast and dependency-free (no uv / OAK), so it blocks even though the drift
   # report below is non-blocking.
   vendored-sync:
