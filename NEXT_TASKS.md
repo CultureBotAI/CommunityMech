@@ -340,17 +340,21 @@ for chemical perturbations). Supporting work: `templates/community_causal_graph_
 
 **Done so far:** `Cellulose_Methane_Quad_Culture_SynCom` (#226; + acetate→CHEBI:30089
 in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
-`ANME_SRB_Marine_Methane_Seep_Consortium` (#230). ~58/304 records now carry
-`downstream` causal edges. **Next:** continue on high-value syntrophies; always use
-the RECORD's canonical taxon ids (Edison groundings have had errors, e.g. sulfite →
-CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359).
+`ANME_SRB_Marine_Methane_Seep_Consortium` (#230),
+`Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture` (#243; CommunityMech:000190,
+syntrophic loop 1→2→3→1 + negative product-inhibition edge from the Edison graph on
+PMID:30038609). ~59/304 records now carry `downstream` causal edges. **Next:** continue
+on high-value syntrophies; always use the RECORD's canonical taxon ids (Edison
+groundings have had errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of
+CHEBI:17359).
 
-**Blocked 2026-07-21:** next target `Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture`
-(CommunityMech:000190, PMID:30038609) — the Edison causal run failed at
-authentication ("Failed to authenticate"; `EDISON_API_KEY` present in `.env` but
-rejected — expired/revoked key or an Edison auth outage). Nothing billed; the
-dry-run query is audited and correct. Re-run `just research-community-causal
-CommunityMech:000190` once the key is refreshed.
+**Edison auth (resolved 2026-07-21):** the key was refreshed in `.env`
+(`EDISON_API_KEY`) and now authenticates (HTTP 200). **Gotcha:** the shell profile
+exports a stale `EDISON_PLATFORM_API_KEY` that the runner prefers over `.env`
+(`load_dotenv` does not override an already-exported var), and it still 403s — so run
+causal jobs with `env -u EDISON_PLATFORM_API_KEY just research-community-causal <id>`
+until that profile export is updated/removed, or add the good key to `.env` as
+`EDISON_PLATFORM_API_KEY=`.
 
 ## Space-regolith community curation (curatable subset DONE, 9/16)
 
