@@ -343,18 +343,22 @@ in #228), `Dehalococcoides_Desulfovibrio_Lactate_TCE_Syntrophy` (#229),
 `ANME_SRB_Marine_Methane_Seep_Consortium` (#230),
 `Pelotomaculum_Methanocella_Propionate_RNASeq_Coculture` (#243; CommunityMech:000190,
 syntrophic loop 1→2→3→1 + negative product-inhibition edge from the Edison graph on
-PMID:30038609). ~59/304 records now carry `downstream` causal edges. **Next:** continue
-on high-value syntrophies; always use the RECORD's canonical taxon ids (Edison
+PMID:30038609), `Rhodopseudomonas_Geobacter_Magnetite_Redox_Coculture` (#246;
+CommunityMech:000268, reversible magnetite-"battery" loop 2⇄3 + both half-reactions →
+battery, PMID:25814583). ~60/304 records now carry `downstream` causal edges. **Next:**
+continue on high-value syntrophies (e.g. `ORNL_Clostridium_Desulfovibrio_Geobacter_Trophic_Model`
+000176, 4 nodes/0 downstream); always use the RECORD's canonical taxon ids (Edison
 groundings have had errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of
 CHEBI:17359).
 
 **Edison auth (resolved 2026-07-21):** the key was refreshed in `.env`
-(`EDISON_API_KEY`) and now authenticates (HTTP 200). **Gotcha:** the shell profile
-exports a stale `EDISON_PLATFORM_API_KEY` that the runner prefers over `.env`
-(`load_dotenv` does not override an already-exported var), and it still 403s — so run
-causal jobs with `env -u EDISON_PLATFORM_API_KEY just research-community-causal <id>`
-until that profile export is updated/removed, or add the good key to `.env` as
-`EDISON_PLATFORM_API_KEY=`.
+(`EDISON_API_KEY`) and authenticates (HTTP 200). The stale-key shadowing footgun is
+**fixed in the runner** (#245): `load_api_key()` now treats the repo `.env` FILE as the
+source of truth (via `dotenv_values`), preferring it over any ambient/inherited
+`EDISON_PLATFORM_API_KEY`. So a plain `just research-community-causal <id>` now works —
+**no `env -u` workaround needed** (000268 was curated this way). See
+[[edison-auth-env-shadowing]]. NB: `.bash_profile`'s export was already commented out;
+the stale value was only inherited into the launching terminal session.
 
 ## Space-regolith community curation (curatable subset DONE, 9/16)
 
