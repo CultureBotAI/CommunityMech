@@ -199,6 +199,13 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Fermenter-Stimulated Butyrate Oxidation and Methane Production
+    description: >
+      HYPOTHESIZED — ES5 co-aggregation with S. wolfei and M. hungatei may
+      spatially facilitate the improved butyrate oxidation and methane
+      production, but the aggregation is an observed correlate of the ES5 effect
+      and was NOT demonstrated to causally mediate the rate increases.
   evidence:
   - reference: PMID:35699440
     supports: SUPPORT
@@ -231,6 +238,14 @@ ecological_interactions:
     term:
       id: GO:0006635
       label: fatty acid beta-oxidation
+  downstream:
+  - target: Fermenter-Stimulated Butyrate Oxidation and Methane Production
+    description: >
+      HYPOTHESIZED — the ES5-associated proteomic changes (activation of
+      additional butyryl-CoA dehydrogenase and electron-transfer flavoprotein in
+      S. wolfei; signal-transducing systems in M. hungatei) may underlie the
+      improved butyrate oxidation, but the proteome response is correlative and
+      was NOT shown to be the causal mediator of the improved performance.
   evidence:
   - reference: PMID:35699440
     supports: SUPPORT
@@ -416,3 +431,29 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   fermenter-stimulated methanogenic butyrate coculture.
+discussions:
+- discussion_id: kg-es5-mediation-mechanism-unresolved
+  prompt: >
+    Does T. flocculiformis ES5 improve the S. wolfei / M. hungatei syntrophy via
+    co-aggregation-based spatial bridging (possible DIET) or via the observed
+    proteomic changes, and is either mechanism causal rather than correlative?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Aggregation With Syntrophic Partners
+  - ecological_interactions#Proteome Response in the Syntrophic Partners
+  rationale: >
+    The ES5-driven increase in butyrate consumption (120%) and methane (150%) is
+    perturbation-supported, but the mediating mechanism is unresolved: aggregation
+    and the partner proteome response are observed correlates, not demonstrated
+    causal mediators (the two `downstream` edges here are flagged HYPOTHESIZED
+    accordingly). Direct interspecies electron transfer was not experimentally
+    demonstrated for this tri-culture, and the exact ES5 bridging role remains an
+    open question per the source.
+  evidence:
+  - reference: PMID:35699440
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: T. flocculiformis ES5 to aggregate with the syntrophic partners
+    explanation: Aggregation is reported as an association accompanying the ES5 effect, without a
+      demonstrated causal-mediation or DIET mechanism — the basis for the knowledge gap.
