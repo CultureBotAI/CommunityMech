@@ -237,3 +237,32 @@ growth_media:
     snippet: during anaerobic digestion of lignocellulose that S. globosa and C. aceticum
       metabolized intermediates
     explanation: Confirms cultivation is anaerobic (anaerobic digestion of lignocellulose).
+discussions:
+- discussion_id: kg-dietsimp-proposed-diet-no-causal-edge
+  prompt: >
+    Are the S. globosa→M. mazei and C. aceticum→M. mazei DIET pathways
+    experimentally validated (direct interspecies electron transfer vs
+    H2/formate mediation), and is there any causal dependency between the two
+    parallel donor→methanogen relationships?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#DIET syntrophy from S. globosa to M. mazei
+  - ecological_interactions#DIET syntrophy from C. aceticum to M. mazei
+  rationale: >
+    An Edison causal-graph pass (PMID:42229598) found no justifiable directed
+    causal edge for this consortium: both interactions are recorded as "Proposed
+    DIET pathway", the primary full text was inaccessible, and no perturbation
+    (donor-removal, inhibitor, mono-/co-culture, or knockout) evidence was
+    retrieved. The source supports two parallel donor→methanogen proposals, not a
+    causal dependency of one on the other, so no `downstream` edge was added.
+    Neutral-red-mediated electron delivery to M. mazei reported in a different
+    system must not be imported here without exact-system verification.
+  evidence:
+  - reference: PMID:42229598
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: during anaerobic digestion of lignocellulose that S. globosa and C. aceticum
+      metabolized intermediates
+    explanation: The consortium role is stated at the level of intermediate metabolism / proposed
+      DIET, without a validated or perturbation-tested causal mechanism — the basis for the knowledge gap.

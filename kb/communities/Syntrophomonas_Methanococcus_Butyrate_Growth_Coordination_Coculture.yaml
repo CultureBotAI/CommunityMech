@@ -133,6 +133,13 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Population Ratio Convergence During Growth
+    description: >
+      The thermodynamically required syntrophic coupling of butyrate oxidation to
+      hydrogenotrophic methanogenesis drives coordinated partner growth — cultures
+      inoculated at different initial cell ratios converge to a relatively constant
+      Syntrophomonas:Methanococcus ratio over time.
   evidence:
   - reference: PMID:34603271
     supports: SUPPORT
@@ -362,3 +369,29 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element transformation role is curated for this
   methanogenic butyrate-oxidizing coculture.
+discussions:
+- discussion_id: kg-aggregation-and-diet-unverified
+  prompt: >
+    Does syntrophic aggregation / cell-to-cell attraction causally enhance
+    butyrate oxidation or methanogenesis in this coculture, and is direct
+    interspecies electron transfer (e.g. the reported carbon-nanotube methane
+    stimulation) involved rather than only H2/formate transfer?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Syntrophic Aggregation and Cell-to-Cell Attraction
+  rationale: >
+    Aggregation and disturbance-resistant cell-to-cell attraction are observed,
+    but no experiment demonstrates that aggregation increases butyrate oxidation or
+    methane production in this exact coculture, so no aggregation→enhancement
+    `downstream` edge was added. Likewise, carbon-nanotube acceleration of methane
+    production is reported, but DIET "does not always explain the enhancement of
+    methane production" and was not directly proven here, so a DIET mechanism is
+    not asserted.
+  evidence:
+  - reference: PMID:34603271
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: suggesting the cell-to-cell attraction between Syntrophomonas and Methanococcus
+    explanation: Attraction/aggregation is observed, but its causal contribution to metabolic
+      performance is untested — the basis for the knowledge gap.
