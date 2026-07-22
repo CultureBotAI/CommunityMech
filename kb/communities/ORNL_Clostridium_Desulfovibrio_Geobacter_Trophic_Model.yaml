@@ -166,6 +166,20 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Sulfate-Linked Dependence of D. vulgaris
+    description: >
+      C. cellulolyticum cellobiose-fermentation products are the carbon/energy
+      (electron-donor) source D. vulgaris consumes while reducing its supplied
+      sulfate acceptor; the fermentation cross-feeding is required for
+      D. vulgaris's sulfate-linked growth. (Abstract-level / directly implied,
+      not perturbation-demonstrated.)
+  - target: Fumarate-Linked Dependence of G. sulfurreducens
+    description: >
+      The same fermentation products support G. sulfurreducens, which reduces
+      its supplied fumarate acceptor; the cross-feeding is required for its
+      fumarate-linked growth. (Abstract-level / directly implied, not
+      perturbation-demonstrated.)
   evidence:
   - reference: doi:10.1186/1471-2180-10-149
     supports: SUPPORT
@@ -404,3 +418,31 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth amendments or direct metal-reduction measurements are curated for this
   abstract-supported record.
+discussions:
+- discussion_id: kg-ornl-exchanged-products-and-edge-strength
+  prompt: >
+    Which exact C. cellulolyticum fermentation products are transferred to
+    D. vulgaris and G. sulfurreducens, and is the electron-acceptor to
+    cross-feeding coupling perturbation-demonstrated rather than only
+    abstract-level implied?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Sulfate-Linked Dependence of D. vulgaris
+  - ecological_interactions#Fumarate-Linked Dependence of G. sulfurreducens
+  rationale: >
+    The curated donor-to-partner causal edges rest on the abstract statement that
+    the partners "derived carbon and energy from the metabolic products" of
+    C. cellulolyticum; the primary full text (doi:10.1186/1471-2180-10-149) was not
+    retrievable, so the exact exchanged metabolites and any sulfate/fumarate-removal
+    or inhibitor perturbation evidence remain unresolved. Products reported for a
+    related two-species C. cellulolyticum / G. sulfurreducens fuel-cell system
+    (acetate, ethanol, H2) must NOT be imported here without exact-system
+    verification.
+  evidence:
+  - reference: doi:10.1186/1471-2180-10-149
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: D. vulgaris and G. sulfurreducens derived carbon and energy from the metabolic products
+    explanation: The cross-feeding is stated only at the level of "metabolic products" without
+      naming the exact exchanged compounds — the basis for filing this as a knowledge gap.
