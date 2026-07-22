@@ -156,39 +156,14 @@ validate-products:
 report-label-drift:
     uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml --report reports/label_drift.tsv
 
-# Vendored id-label files that must stay byte-identical across the CultureMech /
-# MIM / CommunityMech Mech repos and must not silently diverge: the validator +
-# its two shared tests. conf/id_label_targets.yaml is deliberately per-repo
-# (different adapters/targets/exceptions) so it is NOT here.
-VENDORED_IDLABEL_FILES := "scripts/validate_id_label_correspondence.py scripts/chem_formula.py tests/test_id_label_empty_adapter.py tests/test_id_label_unknown_prefix.py tests/test_id_label_plausibility.py"
-
-# Durability guard: fail if any vendored id-label file (the validator + its two
-# shared tests) drifts from its pinned sha256 (vendored byte-identical across the
-# Mech repos — see the validator's docstring + culturebotai-claw#6). CI runs this
-# so an accidental edit to one copy can't silently diverge. Uses sha256sum on CI
-# (ubuntu), shasum -a 256 on macOS.
-verify-validator-pin:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    if command -v sha256sum >/dev/null 2>&1; then
-        sha256sum -c scripts/.validate_id_label_correspondence.sha256
-    else
-        shasum -a 256 -c scripts/.validate_id_label_correspondence.sha256
-    fi
-
-# Intentional sync only: re-pin the sha256 manifest to the CURRENT contents of the
-# vendored files after a deliberate, all-repos byte-identical update. Run this in
-# every Mech copy.
-refresh-validator-pin:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    : > scripts/.validate_id_label_correspondence.sha256
-    for f in {{VENDORED_IDLABEL_FILES}}; do
-        if command -v sha256sum >/dev/null 2>&1; then h=$(sha256sum "$f" | cut -d' ' -f1); else h=$(shasum -a 256 "$f" | cut -d' ' -f1); fi
-        printf '%s  %s\n' "$h" "$f" >> scripts/.validate_id_label_correspondence.sha256
-        echo "re-pinned $f to $h"
-    done
-    echo "re-pinned $f to $h"
+# NOTE: the id↔label validator + its shared tests are vendored byte-identical
+# across the Mech repos. The old self-generated sha256 pin (verify-/refresh-
+# validator-pin) was retired — it only compared a copy to a hash from the SAME
+# repo, so all repos could pass while diverged. Drift is now caught by the
+# shared-reference check: the `vendored-sync` CI job runs
+# scripts/check_vendored_sync.sh, which diffs these files against
+# CultureBotAI/CultureMech@<scripts/.vendored_canon_ref>. To propagate a change:
+# PR into that hub → merge → bump .vendored_canon_ref here.
 
 # Durability guard for the shared LinkML module (Discussion + Dataset), vendored
 # byte-identical across the Mech repos — see culturebotai-claw#7.

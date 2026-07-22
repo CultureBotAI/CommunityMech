@@ -270,8 +270,16 @@ CultureMech's drop of `ID_OUT_OF_RANGE` from waivable exceptions) and refreshed
 the validator `.sha256` line; #236 synced `chem_formula.py` (R-prefixed elements +
 hydrate separators, a different pin line). Prerequisite for replacing the
 self-referential per-repo pin with a shared-reference cross-repo drift check
-(plan: `culturebotai-claw/.../vendored_sync_action_plan_2026-07-21.md`) — that
-shared-reference drift check is the remaining follow-up.
+(plan: `culturebotai-claw/.../vendored_sync_action_plan_2026-07-21.md`).
+
+**Shared-reference drift check — DONE (2026-07-21, PR #238).** The `vendored-sync`
+CI job now runs `scripts/check_vendored_sync.sh`, diffing the five vendored files
+against `CultureBotAI/CultureMech@<scripts/.vendored_canon_ref>` — the reference
+lives in another repo, so a one-copy edit fails CI (the flaw the self-pin missed).
+The canonical hub is covered by CultureMech's nightly `vendored-fleet-audit.yml`.
+The self-generated sha256 pin (`verify-/refresh-validator-pin`, the
+`VENDORED_IDLABEL_FILES` manifest, `scripts/.validate_id_label_correspondence.sha256`)
+was then retired (Phase 2 step 2d). `schema-pin` is a separate set, unaffected.
 
 Update (2026-06-15): **TraitMech has now joined** — the trio is a **4-repo
 invariant**. TraitMech vendored the validator + tests byte-identical (same
