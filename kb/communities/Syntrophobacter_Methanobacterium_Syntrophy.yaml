@@ -79,13 +79,24 @@ taxonomy:
   - SYNTROPHIC_PARTNER
   abundance_value: H2/formate-utilizing methanogen - syntrophic partner
   evidence:
-  - reference: doi:10.1099/00207713-48-4-1383
+  - reference: PMID:29611893
     supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically
+      with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium
+      formicicum or Desulfovibrio desulfuricans
+    explanation: Exact-pair evidence that S. fumaroxidans grows syntrophically on propionate with
+      M. formicicum, the partner of this record.
+  - reference: doi:10.1099/00207713-48-4-1383
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
       Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure
       culture with sulfate or fumarate as the electron acceptor
-    explanation: Establishes M. formicicum as the H2/formate-utilizing syntrophic partner
+    explanation: Establishes S. fumaroxidans as a syntrophic propionate oxidizer that depends on an
+      H2/formate-utilizing methanogenic partner. PARTIAL - the methanogen named in this passage is
+      M. hungateii, NOT this record's partner M. formicicum, so it supports the partner ROLE but not
+      the partner IDENTITY. See discussion kg-syntrophobacter-methanobacterium-partner-attribution.
 ecological_interactions:
 - name: Propionate Oxidation and H2/Formate Production
   description: 'Syntrophobacter fumaroxidans oxidizes propionate to acetate via the methylmalonyl-CoA
@@ -186,15 +197,31 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Propionate Oxidation and H2/Formate Production
+    description: H2/formate scavenging by M. formicicum keeps both carriers at low partial
+      pressure, which is what makes the thermodynamically unfavourable propionate oxidation by
+      S. fumaroxidans feasible. S. fumaroxidans oxidizes propionate either in syntrophy with an
+      H2/formate-utilizing methanogen or, axenically, only with an external electron acceptor
+      (sulfate or fumarate). Reciprocal arm of the syntrophic loop; DIRECTLY IMPLIED by the
+      axenic-vs-syntrophic contrast rather than demonstrated by a partner-removal or
+      carrier-inhibition perturbation in this exact pair.
   evidence:
-  - reference: doi:10.1099/00207713-48-4-1383
+  - reference: PMID:29611893
     supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophobacter fumaroxidans is a sulfate-reducing bacterium able to grow on propionate
+      axenically or in syntrophic interaction with methanogens or other sulfate-reducing bacteria
+    explanation: The axenic-versus-syntrophic contrast underlying the feedback edge - without a
+      partner, propionate growth requires an external electron acceptor.
+  - reference: doi:10.1099/00207713-48-4-1383
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
       Methanospirillum hungateii, and was able to oxidize propionate and other organic compounds in pure
       culture with sulfate or fumarate as the electron acceptor
-    explanation: Demonstrates successful syntrophic coculture with M. formicicum as H2/formate-utilizing
-      partner
+    explanation: Demonstrates the syntrophic-coculture dependence on an H2/formate-utilizing methanogen.
+      PARTIAL - the methanogen named here is M. hungateii, NOT this record's partner M. formicicum.
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -319,3 +346,50 @@ growth_media:
       Methanobacterium formicicum MF T (DSM 1535) were grown with 30 mM of propionate without electron
       acceptor
     explanation: Confirms the S. fumaroxidans-M. formicicum coculture and propionate substrate concentration.
+discussions:
+- discussion_id: kg-syntrophobacter-methanobacterium-partner-attribution
+  prompt: >
+    Which curated claims about this consortium rest on exact-pair
+    (S. fumaroxidans + M. formicicum) evidence, and which were imported from
+    S. fumaroxidans + M. hungatei experiments?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Propionate Oxidation and H2/Formate Production
+  - ecological_interactions#Interspecies Electron Transfer and Methanogenesis
+  rationale: >
+    Several evidence items on this record quote doi:10.1099/00207713-48-4-1383
+    (Harmsen et al. 1998), whose syntrophic coculture passage names
+    *Methanospirillum hungateii*, not this record's partner *Methanobacterium
+    formicicum*. Two of those items previously carried explanations asserting that
+    the passage established M. formicicum as the partner; they have been corrected
+    and downgraded to PARTIAL, and exact-pair support has been added from
+    PMID:29611893 (Sedano-Nunez et al. 2018), which explicitly grew S. fumaroxidans
+    in syntrophy with M. formicicum. The residual gap: the frequently cited
+    biochemical formate-transfer and FDH/hydrogenase transcription results for this
+    system were obtained with M. hungatei, so carrier apportionment ("formate is the
+    dominant carrier") must NOT be curated as an exact-pair finding. A 2024
+    exact-pair perturbation study (Li et al., Water 16:3551,
+    doi:10.3390/w16243551) reports graded-formate dosing on the
+    S. fumaroxidans-M. formicicum coculture - low formate (5-10 mM) promoting and
+    >=30 mM inhibiting syntrophic propionate oxidation, with FDH/hydrogenase
+    transcript downregulation - which would materially enrich this record's causal
+    graph. It is not ingested here because the journal is not indexed in PubMed and
+    has no PMC record, so its snippets cannot be verified by the repo's
+    reference-cache tooling.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically
+      with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium
+      formicicum or Desulfovibrio desulfuricans
+    explanation: The one curated reference that studies the exact pair alongside the M. hungatei
+      pairing - the basis for separating exact-pair from imported claims.
+  - reference: doi:10.1099/00207713-48-4-1383
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: It oxidized propionate syntrophically in co-culture with the hydrogen- and formate-utilizing
+      Methanospirillum hungateii
+    explanation: The misattribution source - this passage names M. hungateii and cannot establish
+      M. formicicum as the partner.

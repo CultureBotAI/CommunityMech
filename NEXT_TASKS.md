@@ -360,19 +360,56 @@ errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359
 the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
 claims and file the rest as a KNOWLEDGE_GAP (000176 is the worked example).
 
-**PENDING — enrich the single-edge records via a full causal-graph run.** Six 2-node
-records already carry one hand-authored `downstream` edge (donor→acceptor) from original
-curation but have not had an Edison causal-graph pass: the DIET trio
-`Geobacter_Clostridium_DIET` (000031, PMID:28287150),
-`Geobacter_Methanosaeta_DIET` (000032, doi:10.1039/C3EE42189A),
-`Geobacter_Methanosarcina_DIET` (000033, PMID:24837373); and the syntrophies
-`Syntrophobacter_Methanobacterium_Syntrophy` (000068), `Syntrophobacter_Methanospirillum_Syntrophy`
-(000069), `Syntrophomonas_Methanospirillum_Syntrophy` (000070). A full run could add
-mechanistic nodes/edges (e.g. conductive pili / OmcS-OmcZ cytochromes, conductive-material
-mediation, formate-vs-H2 routes, reverse/feedback edges) beyond the single existing edge.
-Run `just research-community-causal CommunityMech:0000NN` per record, then curate
-conservatively as usual. NB: stray untracked `*.yaml.bak` backups exist alongside these in
-`kb/communities/` (gitignored, not in the repo) — target the `.yaml` files.
+**DONE — single-edge record enrichment (#254).** All six 2-node records got an Edison
+causal-graph pass and conservative curation. What actually landed, per record:
+
+- **000070 `Syntrophomonas_Methanospirillum`** — reverse feedback edge (methanogen H2
+  scavenging → enables butyrate β-oxidation). Best evidence was already in the cached
+  abstract, not in the Edison report: PMID:16345745 reports both the dependency
+  ("Growth and degradation of fatty acids occur only in syntrophic association with
+  H(2)-using bacteria") and the perturbation ("The addition of H(2) … stopped growth and
+  butyrate degradation"). No new reference needed.
+- **000069 `Syntrophobacter_Methanospirillum`** — reverse feedback edge, on the
+  axenic-vs-syntrophic contrast in PMID:9828440 (exact pair: M. hungateii).
+- **000068 `Syntrophobacter_Methanobacterium`** — reverse feedback edge + **fixed a real
+  misattribution**: two evidence items quoted the Harmsen M. *hungateii* passage but were
+  explained as establishing M. *formicicum* (this record's partner). Downgraded to PARTIAL,
+  added exact-pair support from PMID:29611893, and filed discussion
+  `kg-syntrophobacter-methanobacterium-partner-attribution`.
+- **000033 `Geobacter_Methanosarcina`** — new `T6SS-Associated Delay of DIET Establishment`
+  interaction + NEGATIVE edge to the DIET node (>30 d lag wild-type vs very little lag for
+  the Hcp-deficient mutant, PMID:37650614, OA full text cached). Curated as *T6SS-associated*,
+  not T6SS-caused: the mutant is pleiotropic (also reduces Fe(III) oxide faster).
+- **000031 `Geobacter_Clostridium`** — no new edge; filed CONTROVERSY discussion
+  `kg-geobacter-clostridium-contact-dependence-contested`. **This record's core framing is
+  contested**: the follow-up study (PMID:34939136) concludes the interaction is *mediated*
+  (putative cobamide), and its full text reports that 0.22-µm-filtered cell-free spent
+  medium reproduces the metabolic shift — which would make pili contact unnecessary.
+  Curator decision still open on whether to re-scope the record away from `community_category:
+  DIET`; not applied unilaterally.
+- **000032 `Geobacter_Methanosaeta`** — no new edge (000176 precedent). Edison proposed an
+  acetate cross-feeding node, but its quotations came from secondary reviews; the primary
+  (doi:10.1039/C3EE42189A) is cached abstract-only and is silent on acetate. Filed as
+  `kg-geobacter-methanosaeta-acetate-route-unresolved`.
+
+Verification: all 6 `just validate` clean; snippet audit MATCH 4086→4101 (all 12 new
+snippets match, zero new mismatches) and caching PMID:29611893 OA full text also cleared the
+3 pre-existing 000068 Methods-snippet mismatches (169→166 repo-wide); network-integrity audit
+clean for all 6. New reference caches: PMID:34939136, PMID:37650614.
+
+**Follow-ups this batch surfaced:**
+1. **000031 re-scoping decision** (above) — the highest-value open item.
+2. **Li et al. 2024** (`doi:10.3390/w16243551`, *Water*) has exact-pair graded-formate
+   perturbation data for 000068 (5–10 mM promotes, ≥30 mM inhibits; FDH/hydrogenase
+   transcript downregulation). **Not ingested**: the journal is not in PubMed and has no PMC
+   record, so `scripts/cache_fulltext.py` can't verify its snippets. Would need a
+   DOI-based full-text cache path.
+3. `just validate-references` is a **no-op** — it reports `Total checks: 0` even on untouched
+   files. `scripts/evidence_snippet_audit.py` is what actually validates snippets. Worth
+   fixing or documenting, since the justfile recipe implies coverage it isn't providing.
+
+NB: stray untracked `*.yaml.bak` backups still exist alongside these in `kb/communities/`
+(gitignored, not in the repo).
 
 **Edison auth (resolved 2026-07-21):** the key was refreshed in `.env`
 (`EDISON_API_KEY`) and authenticates (HTTP 200). The stale-key shadowing footgun is
