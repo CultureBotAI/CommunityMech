@@ -1,0 +1,304 @@
+id: CommunityMech:000312
+name: Suillus clintonianus-Bacillus altitudinis Thiamine Cross-Feeding SynCom
+description: >
+  A cross-domain synthetic community in which the ectomycorrhizal fungus Suillus clintonianus, which
+  cannot effectively obtain or synthesize the thiamine (vitamin B1) it needs for growth, recruits the
+  hyphae-associated bacterium Bacillus altitudinis B4 to its mycelial surface. The fungus first
+  secretes ureidosuccinic acid and pregnenolone to recruit the bacterium; the secreted ureidosuccinic
+  acid then stimulates B. altitudinis B4 to increase biomass and upregulate thiamine biosynthesis
+  genes, enhancing thiamine production. The fungus absorbs the bacterially produced thiamine, which
+  promotes fungal growth and increases the ectomycorrhizal colonization rate of the host pine Pinus
+  massoniana. The mechanism, resolved by nontargeted metabolomics and whole-genome sequencing,
+  illustrates a vitamin-mediated tripartite symbiosis in which a prototrophic bacterial partner
+  fulfills a fungal thiamine auxotrophy to support host-fungal mutualism.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Resolve the mechanism by which a thiamine-limited ectomycorrhizal fungus recruits a
+    prototrophic bacterial partner to obtain thiamine and promote symbiosis with a pine host.
+  assembly_strategy: Bottom-up coculture of the ectomycorrhizal fungus Suillus clintonianus with the
+    hyphae-associated bacterium Bacillus altitudinis B4, interpreted in the context of Pinus
+    massoniana ectomycorrhizal colonization.
+  measurement_endpoints:
+  - Recruitment of B. altitudinis B4 to the fungal mycelial surface
+  - Thiamine production by the bacterium
+  - Thiamine absorption and fungal growth
+  - Ectomycorrhizal colonization rate of Pinus massoniana
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nontargeted metabolomics and whole-genome sequencing were employed to investigate the
+      colonization characteristics
+    explanation: Supports the multi-omic approach used to resolve the recruitment and cross-feeding
+      mechanism.
+environment_term:
+  preferred_term: pine mycorrhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Mechanism characterized in fungal-bacterial coculture on the mycelial surface and
+    interpreted in the ectomycorrhizal rhizosphere of Pinus massoniana.
+modeled_environment:
+- preferred_term: pine rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+taxonomy:
+- taxon_term:
+    preferred_term: Suillus clintonianus
+    term:
+      id: NCBITaxon:1904413
+      label: Suillus clintonianus
+    notes: Ectomycorrhizal fungus and thiamine (B1) recipient; cannot effectively obtain or
+      synthesize thiamine and recruits a bacterial partner to supply it.
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ectomycorrhizal fungus Suillus clintonianus
+    explanation: Supports S. clintonianus as the ectomycorrhizal fungal member of the coculture.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: some ectomycorrhizal fungi cannot effectively obtain the thiamine necessary for growth
+      from their host or synthesize it themselves
+    explanation: Supports the fungal thiamine limitation motivating the cross-feeding interaction.
+- taxon_term:
+    preferred_term: Bacillus altitudinis B4
+    term:
+      id: NCBITaxon:293387
+      label: Bacillus altitudinis
+    notes: Hyphae-associated bacterium recruited to the fungal mycelial surface; produces and
+      supplies thiamine to the fungus.
+  strain_designation:
+    strain_name: B4
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hyphae-associated bacterium Bacillus altitudinis B4
+    explanation: Supports B. altitudinis B4 as the thiamine-supplying bacterial member of the
+      coculture.
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhance thiamine production by increasing its biomass and upregulating the expression of
+      related functional genes
+    explanation: Supports the bacterium as the thiamine producer whose biosynthesis is upregulated.
+- taxon_term:
+    preferred_term: Pinus massoniana
+    term:
+      id: NCBITaxon:88730
+      label: Pinus massoniana
+    notes: Host tree (Masson pine); ectomycorrhizal colonization by S. clintonianus increases as a
+      downstream outcome of the bacterial thiamine supply.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increasing the colonization rate in association with Pinus massoniana
+    explanation: Supports Pinus massoniana as the host whose ectomycorrhizal colonization is the
+      community-scale outcome.
+ecological_interactions:
+- name: Fungal recruitment of the hyphae-associated bacterium
+  description: Suillus clintonianus secretes ureidosuccinic acid and pregnenolone that recruit
+    Bacillus altitudinis B4 to the fungal mycelial surface, establishing the association.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Suillus clintonianus
+    term:
+      id: NCBITaxon:1904413
+      label: Suillus clintonianus
+  target_taxon:
+    preferred_term: Bacillus altitudinis B4
+    term:
+      id: NCBITaxon:293387
+      label: Bacillus altitudinis
+  metabolites:
+  - preferred_term: ureidosuccinic acid
+    term:
+      id: CHEBI:15859
+      label: N-carbamoyl-L-aspartic acid
+  - preferred_term: pregnenolone
+    term:
+      id: CHEBI:16581
+      label: pregnenolone
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. clintonianus first secreted ureidosuccinic acid and pregnenolone, recruiting the
+      hyphae-associated bacterium B. altitudinis B4 to the mycelial surface
+    explanation: Supports fungal exudate-driven recruitment of the bacterium via ureidosuccinic acid
+      and pregnenolone.
+- name: Ureidosuccinic acid stimulation of bacterial thiamine production
+  description: Ureidosuccinic acid secreted by S. clintonianus stimulates B. altitudinis B4 to
+    increase biomass and upregulate thiamine biosynthesis genes, enhancing thiamine production.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Suillus clintonianus
+    term:
+      id: NCBITaxon:1904413
+      label: Suillus clintonianus
+  target_taxon:
+    preferred_term: Bacillus altitudinis B4
+    term:
+      id: NCBITaxon:293387
+      label: Bacillus altitudinis
+  metabolites:
+  - preferred_term: ureidosuccinic acid
+    term:
+      id: CHEBI:15859
+      label: N-carbamoyl-L-aspartic acid
+  biological_processes:
+  - preferred_term: thiamine biosynthetic process
+    term:
+      id: GO:0009228
+      label: thiamine biosynthetic process
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the ureidosuccinic acid secreted by S. clintonianus further stimulated B. altitudinis B4
+      to enhance thiamine production
+    explanation: Supports fungal ureidosuccinic acid as the cue that upregulates bacterial thiamine
+      biosynthesis.
+- name: Thiamine provisioning fulfilling the fungal requirement
+  description: Bacillus altitudinis B4 supplies thiamine that Suillus clintonianus absorbs, promoting
+    fungal growth; the fungus cannot effectively obtain or synthesize thiamine on its own.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillus altitudinis B4
+    term:
+      id: NCBITaxon:293387
+      label: Bacillus altitudinis
+  target_taxon:
+    preferred_term: Suillus clintonianus
+    term:
+      id: NCBITaxon:1904413
+      label: Suillus clintonianus
+  metabolites:
+  - preferred_term: thiamine
+    term:
+      id: CHEBI:18385
+      label: thiamine(1+)
+  biological_processes:
+  - preferred_term: thiamine biosynthetic process
+    term:
+      id: GO:0009228
+      label: thiamine biosynthetic process
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. clintonianus absorbed the thiamine secreted by the B. altitudinis B4, promoting
+      fungal growth
+    explanation: Supports thiamine cross-feeding from bacterium to fungus and the resulting fungal
+      growth benefit.
+- name: Enhanced ectomycorrhizal colonization of the pine host
+  description: The bacterial thiamine supply promotes fungal growth and increases the ectomycorrhizal
+    colonization rate of Suillus clintonianus in association with the host pine Pinus massoniana,
+    completing a vitamin-mediated tripartite symbiosis.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Suillus clintonianus
+    term:
+      id: NCBITaxon:1904413
+      label: Suillus clintonianus
+  target_taxon:
+    preferred_term: Pinus massoniana
+    term:
+      id: NCBITaxon:88730
+      label: Pinus massoniana
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: promoting fungal growth and increasing the colonization rate in association with Pinus
+      massoniana
+    explanation: Supports increased ectomycorrhizal colonization of the pine host as the outcome of
+      the thiamine cross-feeding.
+environmental_factors:
+- name: Thiamine limitation of the fungal partner
+  value: fungus cannot effectively obtain or synthesize thiamine
+  description: The interaction is driven by the inability of the ectomycorrhizal fungus to obtain
+    thiamine from its host or synthesize it, creating the demand met by the bacterium.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: some ectomycorrhizal fungi cannot effectively obtain the thiamine necessary for growth
+      from their host or synthesize it themselves
+    explanation: Supports thiamine limitation as the environmental driver of the cross-feeding.
+external_resources:
+- name: Primary publication - thiamine cross-feeding in an ectomycorrhizal SynCom
+  repository: OTHER
+  resource_id: PMID:41454778
+  url: https://pubmed.ncbi.nlm.nih.gov/41454778/
+  description: Primary study establishing that Suillus clintonianus recruits Bacillus altitudinis B4
+    to metabolize thiamine and promote Pinus massoniana symbiosis, using nontargeted metabolomics and
+    whole-genome sequencing.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ectomycorrhizal fungi recruit hyphae-associated bacteria that metabolize thiamine to
+      promote pine symbiosis
+    explanation: Lists the primary publication describing this fungal-bacterial thiamine cross-feeding
+      system.
+related_ingredients:
+- preferred_term: thiamine
+  chebi_term:
+    id: CHEBI:18385
+    label: thiamine(1+)
+  relevance: >
+    Thiamine (vitamin B1) is the cross-fed micronutrient: B. altitudinis B4 produces it and
+    S. clintonianus absorbs it to support fungal growth and pine colonization.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. clintonianus absorbed the thiamine secreted by the B. altitudinis B4
+    explanation: Names thiamine as the cross-fed vitamin absorbed by the fungus.
+- preferred_term: ureidosuccinic acid
+  chebi_term:
+    id: CHEBI:15859
+    label: N-carbamoyl-L-aspartic acid
+  relevance: >
+    Ureidosuccinic acid is secreted by the fungus both to recruit B. altitudinis B4 and to
+    stimulate its thiamine production, coupling recruitment to nutrient provisioning.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the ureidosuccinic acid secreted by S. clintonianus further stimulated B. altitudinis B4
+    explanation: Names ureidosuccinic acid as the fungal exudate that stimulates bacterial thiamine
+      production.
+- preferred_term: pregnenolone
+  chebi_term:
+    id: CHEBI:16581
+    label: pregnenolone
+  relevance: >
+    Pregnenolone is co-secreted with ureidosuccinic acid by the fungus during recruitment of the
+    hyphae-associated bacterium to the mycelial surface.
+  evidence:
+  - reference: PMID:41454778
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. clintonianus first secreted ureidosuccinic acid and pregnenolone
+    explanation: Names pregnenolone as a fungal recruitment exudate.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this thiamine cross-feeding
+  ectomycorrhizal community.
