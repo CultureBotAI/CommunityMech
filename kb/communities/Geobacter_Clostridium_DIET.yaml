@@ -498,3 +498,55 @@ related_ingredients:
 metals_present: []
 metal_relevance: SIGNIFICANT
 metal_notes: Metal/REE detected via environmental factor measurements
+discussions:
+- discussion_id: kg-geobacter-clostridium-contact-dependence-contested
+  prompt: >
+    Is the G. sulfurreducens-induced metabolic shift in C. pasteurianum actually caused by
+    contact-dependent direct interspecies electron transfer along conductive pili, or by a
+    diffusible mediator (candidate: a cobamide) released by G. sulfurreducens?
+  kind: CONTROVERSY
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetate Oxidation and Direct Electron Transfer
+  - ecological_interactions#Glycerol Fermentation with DIET-Induced Metabolic Shift
+  rationale: >
+    This record asserts contact-dependent DIET through electrically conductive pili
+    (nanowires) as the established mechanism, following the original coculture study
+    (PMID:28287150), which inferred interspecies electron transfer rather than
+    demonstrating contact dependence. A follow-up study by the same group
+    (PMID:34939136) set out to identify the mechanism and concluded that the interaction
+    is MEDIATED: it proposes that G. sulfurreducens releases cobamide molecules that act
+    on the C. pasteurianum glycerol dehydratase, with electron entry via a transmembrane
+    flavin-bound polyferredoxin / cytochrome b5-rubredoxin route offered only as a
+    putative reinforcement. The published full text (not open access, so only the
+    abstract is snippet-verifiable here) additionally reports that 0.22-um-filtered,
+    cell-free G. sulfurreducens spent medium reproduces the metabolic shift, which would
+    make Geobacter cells - and therefore pili contact - unnecessary for the shift.
+    Until that contrast is verified against the full text, the nanowire/contact-dependent
+    framing in this record's description, its `Acetate Oxidation and Direct Electron
+    Transfer` interaction, and its DIET `community_category` should be treated as
+    CONTESTED rather than established. Resolving this may require re-scoping the record
+    away from DIET; that is a curator decision, not applied here.
+  evidence:
+  - reference: PMID:34939136
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: It was assumed that this metabolic shift of the fermentative species resulted
+      from an interspecies electron transfer
+    explanation: The follow-up study characterizes the interspecies-electron-transfer reading
+      of the original experiment as an assumption, not a demonstrated mechanism.
+  - reference: PMID:34939136
+    supports: REFUTE
+    evidence_source: IN_VITRO
+    snippet: 'C. pasteurianum-G. sulfurreducens interaction inducing a metabolic shift is
+      mediated'
+    explanation: Key-point conclusion that the interaction is mediated (via a diffusible
+      molecule), contradicting the contact-dependent nanowire mechanism asserted by this record.
+  - reference: PMID:34939136
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'a putative interaction model was proposed: G. sulfurreducens produces cobamide
+      molecules that possibly modify C. pasteurianum metabolic pathway at the key enzyme
+      glycerol dehydratase'
+    explanation: States the competing diffusible-cobamide mechanism, and marks it as putative -
+      so it must not be asserted as an interaction in place of the current one.

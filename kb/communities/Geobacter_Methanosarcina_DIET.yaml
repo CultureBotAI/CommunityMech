@@ -201,6 +201,66 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Direct interspecies electron transfer (DIET) is potentially an effective
       form of syntrophy in methanogenic communities, but little is known about the
+- name: T6SS-Associated Delay of DIET Establishment
+  description: 'Geobacter metallireducens expresses a type VI secretion system (T6SS) during
+    the initiation of DIET cocultures, and this is associated with a long delay before the
+    partnership becomes productive. Cocultures started with wild-type G. metallireducens showed
+    a lag of more than 30 days before methane production, whereas cocultures started with an
+    Hcp-deficient (T6SS structural protein) mutant had very little lag and established DIET
+    with M. barkeri faster. The sign of this edge is NEGATIVE: the wild-type T6SS-expressing
+    state suppresses the rate at which the DIET partnership is established. The molecular
+    attribution is confounded and must not be curated as demonstrated antagonism toward the
+    archaeon - the same mutant also reduced Fe(III) oxide faster than wild type, a phenotype
+    not expected from loss of the T6SS, and the authors state that the effect of T6SSs on
+    archaeal cells still requires study. Encoded as a delay of establishment, not as
+    predation, killing, or toxin delivery to M. barkeri.
+
+    '
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  biological_processes:
+  - preferred_term: protein secretion by the type VI secretion system
+    term:
+      id: GO:0033103
+      label: protein secretion by the type VI secretion system
+  downstream:
+  - target: Ethanol Oxidation and Direct Electron Transfer
+    description: NEGATIVE edge - the wild-type T6SS-expressing state of G. metallireducens
+      delays establishment of the DIET partnership (>30 d lag vs very little lag for the
+      Hcp-deficient mutant). Demonstrated by knockout phenotype in this exact coculture, but
+      the mutant is pleiotropic, so the causal attribution to the T6SS specifically is
+      HYPOTHESIZED rather than proven.
+  evidence:
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: there was a lag period of more than 30 d in co-cultures initiated with wild-type
+      G. metallireducens
+    explanation: Wild-type baseline for the delay, measured in the G. metallireducens-M. barkeri
+      ethanol coculture that this record describes.
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast, there was very little lag in co-cultures initiated with the Hcp-deficient
+      G. metallireducens strain
+    explanation: Knockout arm of the perturbation - removing the T6SS structural protein Hcp
+      largely removes the lag, which is the basis for the negative causal edge.
+  - reference: PMID:37650614
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The hcp-deficient mutant also established DIET quicker with Methanosarcina barkeri
+    explanation: Confirms the phenotype specifically for the M. barkeri partner of this community.
+  - reference: PMID:37650614
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the mutant also reduced Fe(III) oxide faster than the wild-type strain, a phenotype
+      not expected from the loss of the T6SS
+    explanation: Records the pleiotropy confounder - the reason this edge is curated as
+      T6SS-associated rather than T6SS-caused.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
