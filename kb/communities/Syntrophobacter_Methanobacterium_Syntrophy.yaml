@@ -155,6 +155,23 @@ ecological_interactions:
       culture with sulfate or fumarate as the electron acceptor
     explanation: Demonstrates the core metabolic activity of S. fumaroxidans in propionate degradation
       with H2/formate transfer
+  - reference: doi:10.3390/w16243551
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: of all four formate dehydrogenases (FDH1, FDH2, FDH3, FDH4) was down-regulated under
+      formate stress
+    explanation: Exact-pair transcriptional response - S. fumaroxidans FDH genes are downregulated
+      under formate stress (5 mM vs 50 mM), the regulatory arm of the formate dose response curated
+      under the Exogenous Formate Dosage environmental factor.
+  - reference: doi:10.3390/w16243551
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the downregulation of RNA transcription of formate dehydrogenase (FDH) and hydrogenase
+      (Hyd) related to MMC pathway may be the main reason for the inhibition of syntrophic propionate
+      oxidation
+    explanation: The authors' mechanistic link from FDH/Hyd downregulation to inhibited propionate
+      oxidation. PARTIAL - stated as "may be the main reason", i.e. transcript-and-phenotype
+      association, not knockout-proven, so it is not curated as a demonstrated causal edge.
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -230,6 +247,47 @@ ecological_interactions:
     explanation: Confirms the importance of formate as an interspecies electron carrier in addition to
       H2
 environmental_factors:
+- name: Exogenous Formate Dosage
+  value: 5-10 mM promotes; 50 mM inhibits
+  unit: mM
+  description: 'Added formate acts on syntrophic propionate oxidation in a dose-dependent,
+    non-monotonic way in the exact S. fumaroxidans-M. formicicum coculture. At 5-10 mM,
+    propionate degradation efficiency was significantly higher than in the other groups
+    (One-way ANOVA, p < 0.01, days 5 and 7). At 50 mM, propionate accumulated significantly
+    at days 5-7 relative to the blank control. The response is NOT a simple threshold: at
+    the intermediate 30 mM dose, propionate metabolism recovered in the later stage rather
+    than staying inhibited, so 30 mM must not be curated as an inhibitory dose for this
+    coculture. Mechanistically the authors attribute the inhibition to downregulated FDH and
+    hydrogenase transcription in S. fumaroxidans, but state it only as the likely main
+    reason - see the evidence on the Propionate Oxidation interaction.
+
+    '
+  evidence:
+  - reference: doi:10.3390/w16243551
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syntrophobacter fumaroxidans and Methanobacterium formicicum to establish a co-culture
+      system to reveal the molecular response mechanism of MMC pathway under formate stress
+    explanation: Establishes that these formate-dosing results were obtained in the exact pair of
+      this record, not in the paper's parallel anaerobic-sludge system.
+  - reference: doi:10.3390/w16243551
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The degradation efficiency of propionate in the experimental groups with dosages of
+      5 and 10 mM was obviously higher than that of the other groups
+    explanation: Promoting arm of the dose response, measured in the coculture.
+  - reference: doi:10.3390/w16243551
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The system in the 50 mM group showed significant accumulation of propionate at 5~7 days
+    explanation: Inhibitory arm of the dose response - propionate accumulates when oxidation stalls.
+  - reference: doi:10.3390/w16243551
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: the metabolic efficiency of propionate in the medium concentration group (30 mM) was
+      improved instead of inhibited in the later stage
+    explanation: Constrains the dose response - records that 30 mM recovers in the coculture, so the
+      effect is non-monotonic and an ">=30 mM inhibits" reading would be wrong for this system.
 - name: Anaerobic Conditions
   value: Strict anaerobic
   description: Both organisms are obligate anaerobes requiring anoxic conditions
@@ -368,15 +426,23 @@ discussions:
     in syntrophy with M. formicicum. The residual gap: the frequently cited
     biochemical formate-transfer and FDH/hydrogenase transcription results for this
     system were obtained with M. hungatei, so carrier apportionment ("formate is the
-    dominant carrier") must NOT be curated as an exact-pair finding. A 2024
-    exact-pair perturbation study (Li et al., Water 16:3551,
-    doi:10.3390/w16243551) reports graded-formate dosing on the
-    S. fumaroxidans-M. formicicum coculture - low formate (5-10 mM) promoting and
-    >=30 mM inhibiting syntrophic propionate oxidation, with FDH/hydrogenase
-    transcript downregulation - which would materially enrich this record's causal
-    graph. It is not ingested here because the journal is not indexed in PubMed and
-    has no PMC record, so its snippets cannot be verified by the repo's
-    reference-cache tooling.
+    dominant carrier") must NOT be curated as an exact-pair finding.
+
+    PARTLY RESOLVED: the 2024 exact-pair perturbation study (Li et al., Water 16:3551,
+    doi:10.3390/w16243551) is now ingested - its full text was supplied by a curator from
+    the publisher PDF, since the journal is absent from PubMed and Europe PMC and MDPI
+    blocks programmatic download. Its graded-formate results for the exact
+    S. fumaroxidans-M. formicicum coculture are curated under the Exogenous Formate
+    Dosage environmental factor, and its FDH downregulation result on the Propionate
+    Oxidation interaction. Two cautions came out of that ingestion: (a) the paper runs
+    an anaerobic-sludge system ALONGSIDE the coculture, and sludge-only results (e.g.
+    Acetobacterium homoacetogenesis rising with formate dose) must not be attributed to
+    this two-member consortium; (b) the dose response is non-monotonic - 30 mM recovers
+    in the later stage - so it is NOT a simple ">=30 mM inhibits" threshold.
+
+    Still open: carrier apportionment between H2 and formate for the M. formicicum pair
+    specifically, which no retrieved study resolves with an isotope or
+    selective-inhibition experiment.
   evidence:
   - reference: PMID:29611893
     supports: SUPPORT
