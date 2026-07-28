@@ -397,16 +397,24 @@ snippets match, zero new mismatches) and caching PMID:29611893 OA full text also
 3 pre-existing 000068 Methods-snippet mismatches (169→166 repo-wide); network-integrity audit
 clean for all 6. New reference caches: PMID:34939136, PMID:37650614.
 
-**Follow-ups this batch surfaced:**
-1. **000031 re-scoping decision** (above) — the highest-value open item.
+**Follow-ups this batch surfaced** (all now filed as issues):
+1. **000031 re-scoping decision** (#256) — the highest-value open item.
 2. **Li et al. 2024** (`doi:10.3390/w16243551`, *Water*) has exact-pair graded-formate
    perturbation data for 000068 (5–10 mM promotes, ≥30 mM inhibits; FDH/hydrogenase
-   transcript downregulation). **Not ingested**: the journal is not in PubMed and has no PMC
-   record, so `scripts/cache_fulltext.py` can't verify its snippets. Would need a
-   DOI-based full-text cache path.
-3. `just validate-references` is a **no-op** — it reports `Total checks: 0` even on untouched
-   files. `scripts/evidence_snippet_audit.py` is what actually validates snippets. Worth
-   fixing or documenting, since the justfile recipe implies coverage it isn't providing.
+   transcript downregulation). **Still not ingested** (#259). `cache_fulltext.py` now takes
+   DOIs, but this one has no Europe PMC record and MDPI returns HTTP 403 to programmatic
+   PDF download, so it needs a manual retrieval.
+3. **`just validate-references` reporting is misleading** (#257). ⚠️ **Correction to an
+   earlier note here**: it was previously recorded as a "no-op". That was wrong — the tool
+   does validate, and it does fail the build on a bad snippet (verified by injection test,
+   and it catches a real bad snippet in `hCom2_Complex_Gut_Microbiome.yaml`). The actual
+   problem is that `Total checks: N` counts *issues*, not checks, so a clean file prints
+   `Total checks: 0`, which reads as "nothing was validated". Separately, its coverage
+   disagrees with `evidence_snippet_audit.py` (1 issue vs 14 hard mismatches on the same
+   file), so the two need reconciling before either is authoritative.
+4. **14 dangling causal edges** repo-wide (#258) — `downstream.target` values naming no
+   existing interaction. Detection is now in `audit_network_integrity.py`
+   (`DANGLING_EDGE`/`DANGLING_ANCHOR`); the per-record curation triage is still open.
 
 NB: stray untracked `*.yaml.bak` backups still exist alongside these in `kb/communities/`
 (gitignored, not in the repo).
