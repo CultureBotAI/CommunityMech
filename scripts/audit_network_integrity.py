@@ -139,6 +139,49 @@ class NetworkIntegrityAuditor:
                             "message": f"Target '{target_term}' has ID {target_id}, expected {expected_id}"
                         })
 
+        # Check causal-graph edges: every downstream.target must name an
+        # interaction that exists in this record, otherwise the edge dangles and
+        # the causal graph silently loses an arc. Same check for the
+        # `ecological_interactions#<name>` anchors used by Discussion.attaches_to.
+        interaction_names = {
+            interaction.get("name")
+            for interaction in interactions
+            if interaction.get("name")
+        }
+
+        for idx, interaction in enumerate(interactions):
+            int_name = interaction.get("name", f"Interaction {idx+1}")
+            for edge in interaction.get("downstream") or []:
+                target_name = edge.get("target")
+                if target_name and target_name not in interaction_names:
+                    issues.append({
+                        "type": "DANGLING_EDGE",
+                        "interaction": int_name,
+                        "target": target_name,
+                        "message": (
+                            f"downstream target '{target_name}' does not name any "
+                            f"interaction in this record"
+                        )
+                    })
+
+        for discussion in data.get("discussions") or []:
+            disc_id = discussion.get("discussion_id", "<no id>")
+            for anchor in discussion.get("attaches_to") or []:
+                prefix = "ecological_interactions#"
+                if anchor.startswith(prefix):
+                    anchor_name = anchor[len(prefix):]
+                    if anchor_name not in interaction_names:
+                        issues.append({
+                            "type": "DANGLING_ANCHOR",
+                            "interaction": disc_id,
+                            "target": anchor_name,
+                            "message": (
+                                f"discussion '{disc_id}' attaches to "
+                                f"'{anchor_name}', which does not name any "
+                                f"interaction in this record"
+                            )
+                        })
+
         # Check for disconnected taxa. Skip taxa that carry standalone
         # abundance_level or functional_role metadata — they describe community
         # membership without requiring a pairwise interaction edge.
@@ -170,7 +213,8 @@ class NetworkIntegrityAuditor:
             by_type[issue["type"]].append(issue)
 
         # Report each type
-        for issue_type in ["ID_MISMATCH", "MISSING_SOURCE", "UNKNOWN_SOURCE", "UNKNOWN_TARGET", "DISCONNECTED"]:
+        for issue_type in ["ID_MISMATCH", "MISSING_SOURCE", "UNKNOWN_SOURCE", "UNKNOWN_TARGET",
+                           "DANGLING_EDGE", "DANGLING_ANCHOR", "DISCONNECTED"]:
             if issue_type in by_type:
                 print(f"\n  {issue_type}:")
                 for issue in by_type[issue_type]:
@@ -179,6 +223,8 @@ class NetworkIntegrityAuditor:
                         print(f"      Expected: {issue['expected_id']}, Found: {issue['actual_id']}")
                     elif issue_type == "DISCONNECTED":
                         print(f"    • {issue['taxon']}")
+                    elif issue_type in ("DANGLING_EDGE", "DANGLING_ANCHOR"):
+                        print(f"    • [{issue['interaction']}] → {issue['target']}")
                     else:
                         print(f"    • [{issue.get('interaction', 'N/A')}] {issue['message']}")
 
