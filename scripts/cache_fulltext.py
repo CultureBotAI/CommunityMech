@@ -155,6 +155,57 @@ def cache_one_doi(doi: str) -> str:
     return f"[cached] {doi}: appended {len(text)} chars of OA full text from {pmcid}"
 
 
+def _text_from_file(path: Path) -> str:
+    """Extract text from a curator-supplied PDF/HTML/text file.
+
+    The escape hatch for OA papers no API can retrieve — e.g. a publisher that
+    returns HTTP 403 to programmatic download (MDPI). The curator downloads the
+    paper by hand and points this at it; nothing is fetched or invented.
+    """
+    if path.suffix.lower() == ".pdf":
+        try:
+            from pypdf import PdfReader  # noqa: PLC0415
+        except ImportError as exc:  # pragma: no cover - depends on env
+            raise SystemExit(
+                f"reading {path.name} needs pypdf, which is not a project dependency.\n"
+                f"Run it ad hoc instead:\n"
+                f"  uv run --with pypdf python scripts/cache_fulltext.py ... --from-file {path}"
+            ) from exc
+        reader = PdfReader(str(path))
+        text = "\n".join((page.extract_text() or "") for page in reader.pages)
+    else:
+        text = path.read_text(encoding="utf-8", errors="replace")
+        if path.suffix.lower() in {".html", ".htm", ".xml"}:
+            text = re.sub(_INLINE, "", text)
+            text = re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", text, flags=re.S | re.I)
+            text = html.unescape(re.sub(r"<[^>]+>", " ", text))
+    text = re.sub(r"[ \t]+", " ", text)
+    text = re.sub(r"\n\s*\n+", "\n\n", text)
+    return text.strip()
+
+
+def cache_from_file(ref: str, path: Path) -> str:
+    """Append curator-supplied full text to the cache entry for `ref`."""
+    if ref.lower().startswith("doi:") or ref.startswith("10."):
+        doi = re.sub(r"^doi:", "", ref.strip(), flags=re.IGNORECASE)
+        cache = _doi_cache_path(doi)
+        label = doi
+    else:
+        cache = _cache_path(ref.replace("PMID:", "").strip())
+        label = ref
+    if not path.exists():
+        return f"[skip] {label}: no such file {path}"
+    if cache.exists() and MARKER in cache.read_text(encoding="utf-8"):
+        return f"[ok] {label}: full text already cached"
+    text = _text_from_file(path)
+    if len(text) < 500:
+        return f"[skip] {label}: only {len(text)} chars extracted from {path.name}; refusing"
+    sep = f"\n\n{MARKER} (local file {path.name}) =====\n\n"
+    head = cache.read_text(encoding="utf-8").rstrip() if cache.exists() else ""
+    cache.write_text(head + sep + text + "\n", encoding="utf-8")
+    return f"[cached] {label}: appended {len(text)} chars from {path.name} -> {cache.name}"
+
+
 def _cache_path(pmid: str) -> Path:
     """The cache file the reference validator actually reads for this PMID.
 
@@ -188,7 +239,18 @@ def main() -> int:
     if len(sys.argv) < 2:
         print(__doc__)
         return 2
-    for ref in sys.argv[1:]:
+    args = sys.argv[1:]
+    if "--from-file" in args:
+        i = args.index("--from-file")
+        if i + 1 >= len(args) or i == 0:
+            print("usage: cache_fulltext.py <PMID|DOI> --from-file <path>")
+            return 2
+        refs = args[:i]
+        path = Path(args[i + 1])
+        for ref in refs:
+            print(cache_from_file(ref, path))
+        return 0
+    for ref in args:
         if ref.lower().startswith("doi:") or ref.startswith("10."):
             print(cache_one_doi(ref))
         else:
