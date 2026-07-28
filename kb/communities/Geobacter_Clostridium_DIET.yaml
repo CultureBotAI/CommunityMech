@@ -1,24 +1,30 @@
 id: CommunityMech:000031
 name: Geobacter-Clostridium DIET Community
-description: 'A syntrophic two-member consortium consisting of Geobacter sulfurreducens
-  and Clostridium pasteurianum that performs direct interspecies electron transfer
-  (DIET) during glycerol fermentation. G. sulfurreducens acts as an exoelectrogen,
-  oxidizing acetate and transferring electrons directly to C. pasteurianum via electrically
-  conductive pili (nanowires). These electron transfers induce a metabolic shift in
+description: 'A two-member consortium consisting of Geobacter sulfurreducens and Clostridium
+  pasteurianum in which interspecies electron transfer modulates glycerol fermentation.
+  G. sulfurreducens acts as an exoelectrogen and grows using C. pasteurianum as its sole
+  electron acceptor; the resulting electron uptake induces a metabolic shift in
   C. pasteurianum''s glycerol fermentation pathway, redirecting carbon flux away from
   ethanol and butanol production toward increased 1,3-propanediol (PDO) and butyrate
-  production. This represents a unique application of DIET where electron transfer
-  serves not to drive methanogenesis but to modulate fermentation pathways, achieving
-  a 37% increase in 1,3-propanediol and 38% increase in butyrate production. The bacteria
-  establish physical contact through nanowires, enabling electron exchange without
-  relying on diffusible hydrogen or formate carriers. This coculture demonstrates
-  how controlled interspecies electron transfer can be exploited to optimize production
-  of industrially relevant metabolites like 1,3-propanediol.
+  production (+37% and +38% respectively). The shift is driven by a strikingly small
+  electron uptake - under 0.6% of the electrons consumed by C. pasteurianum - and the
+  relationship between G. sulfurreducens growth and the metabolite shift is non-linear.
+
+  MECHANISM CONTESTED - do not read this record as establishing contact-dependent DIET.
+  The discovery study (PMID:28287150) did not demonstrate physical contact, conductive
+  pili, or nanowires in this coculture; its own discussion reports heterogeneous
+  nanowire-rich and nanowire-poor cells and proposes growth on conductive materials as a
+  future way to "ensure electrical connections", i.e. connection was not established. The
+  same group''s mechanistic follow-up (PMID:34939136) concluded the interaction is
+  MEDIATED, proposing a diffusible cobamide acting on glycerol dehydratase, with a
+  transmembrane flavin-bound polyferredoxin / cytochrome b5-rubredoxin electron-entry
+  route offered only as a putative reinforcement. Both mechanisms remain putative; see
+  discussion kg-geobacter-clostridium-contact-dependence-contested.
 
   '
 ecological_state: STABLE
 community_origin: NATURAL
-community_category: DIET
+community_category: SYNTROPHY
 environment_term:
   preferred_term: laboratory culture
   term:
@@ -26,8 +32,9 @@ environment_term:
     label: laboratory environment
   notes: 'Laboratory synthetic coculture developed to optimize glycerol fermentation
     toward 1,3-propanediol production. Cultured under strict anaerobic conditions
-    using Hungate techniques at 35°C with N2 gas phase. DIET occurs through physical
-    cell-to-cell contact mediated by conductive nanowires produced by G. sulfurreducens.
+    using Hungate techniques at 35°C with N2 gas phase. The route of electron transfer
+    is unresolved - no cited source demonstrates physical cell-to-cell contact or
+    nanowire mediation in this coculture.
 
     '
 taxonomy:
@@ -44,10 +51,11 @@ taxonomy:
       majority_fraction: 1.0
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19)
-    notes: 'Anaerobic bacterium serving as an exoelectrogen in this DIET partnership.
+    notes: 'Anaerobic bacterium serving as the exoelectrogen in this partnership.
       G. sulfurreducens (strain DSM 12127) oxidizes acetate and transfers electrons
-      to C. pasteurianum via electrically conductive pili (nanowires). These pili
-      have metallic-like conductive properties enabling long-distance electron transfer.
+      to C. pasteurianum by a route that the cited sources do not resolve - conductive
+      pili/nanowires are described only as general Geobacter background in the discovery
+      paper, never demonstrated for this coculture.
       G. sulfurreducens grows using C. pasteurianum as the sole electron acceptor,
       and the extent of G. sulfurreducens growth (measured by qPCR of 16S rRNA genes)
       directly correlates with the magnitude of metabolic shifts in C. pasteurianum,
@@ -58,20 +66,25 @@ taxonomy:
       '
   functional_role:
   - SYNTROPHIC_PARTNER
-  abundance_value: Exoelectrogen - electron donor via DIET to modulate fermentation
+  abundance_value: Exoelectrogen - electron donor via interspecies electron transfer to modulate
+    fermentation
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow
       using Clostridium pasteurianum as sole electron acceptor
-    explanation: Establishes G. sulfurreducens as the electron donor in DIET partnership
+    explanation: Establishes G. sulfurreducens as the electron donor in this interspecies
+      electron-transfer partnership
   - reference: PMID:28287150
-    supports: SUPPORT
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Direct interspecies electron transfer (DIET) mechanism has been recently
       characterised with Geobacter species which couple the electron balance with
-      o
+      other species through physical contacts
+    explanation: PARTIAL - background about Geobacter species in prior literature, not a
+      finding about this coculture; it cannot establish a transfer route for these two
+      organisms. Snippet also completed here, having previously been truncated mid-word.
 - taxon_term:
     preferred_term: Clostridium pasteurianum
     term:
@@ -86,11 +99,11 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: 'Saccharolytic, nitrogen-fixing, spore-forming Gram-positive obligate anaerobe
-      that serves as the electron acceptor in this DIET partnership. C. pasteurianum
+      that serves as the electron acceptor in this partnership. C. pasteurianum
       (strain DSM 525 = ATCC 6013) ferments glycerol, and when receiving electrons
-      from G. sulfurreducens via DIET, undergoes a significant metabolic shift. In
+      from G. sulfurreducens, undergoes a significant metabolic shift. In
       pure culture, C. pasteurianum primarily produces butanol and ethanol from glycerol.
-      However, DIET redirects the fermentation pathway toward increased 1,3-propanediol
+      However, the electron transfer redirects the fermentation pathway toward increased 1,3-propanediol
       (PDO, +37% to 241 mmol/mol glycerol) and butyrate (+38% to 105 mmol/mol), while
       butanol and ethanol production decrease by 16% and 20% respectively. This metabolic
       shift is induced by small electron uptake (<0.6% of total electrons consumed)
@@ -101,16 +114,16 @@ taxonomy:
   functional_role:
   - PRIMARY_DEGRADER
   - SYNTROPHIC_PARTNER
-  abundance_value: Fermenter - electron acceptor accepting electrons via DIET during
-    glycerol fermentation
+  abundance_value: Fermenter - electron acceptor accepting electrons via interspecies
+    electron transfer during glycerol fermentation
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow
       using Clostridium pasteurianum as sole electron acceptor
-    explanation: Establishes C. pasteurianum as the fermenter undergoing DIET-induced
-      metabolic shift
+    explanation: Establishes C. pasteurianum as the fermenter undergoing the
+      electron-transfer-induced metabolic shift
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -128,17 +141,23 @@ taxonomy:
       accession: '6013'
       url: https://www.atcc.org/products/6013
 ecological_interactions:
-- name: Acetate Oxidation and Direct Electron Transfer
-  description: 'Geobacter sulfurreducens oxidizes acetate and transfers electrons
-    directly to Clostridium pasteurianum via electrically conductive pili (nanowires).
-    These nanowires have metallic-like conductive properties enabling long-range electron
-    transfer through direct physical contact between cells. This direct interspecies
-    electron transfer (DIET) bypasses the need for diffusible electron carriers like
-    H2 or formate. G. sulfurreducens grows using C. pasteurianum as the sole electron
-    acceptor, establishing a syntrophic relationship where electron flow modulates
-    C. pasteurianum''s fermentation metabolism. The electron transfer can occur directly
-    via interspecies wiring or indirectly using soluble electron mediators like L-cysteine
-    present in the medium.
+- name: Acetate Oxidation and Interspecies Electron Transfer
+  description: 'Geobacter sulfurreducens oxidizes acetate and transfers electrons to
+    Clostridium pasteurianum, growing with C. pasteurianum as its sole electron acceptor.
+    The transferred electrons modulate C. pasteurianum''s fermentation metabolism, and the
+    quantity involved is very small - under 0.6% of the electrons C. pasteurianum consumes -
+    with a non-linear relationship between G. sulfurreducens growth and the size of the
+    metabolite shift.
+
+    ROUTE UNRESOLVED. The cited study does not establish how the electrons move. Conductive
+    pili / nanowires appear in that paper only as general background about Geobacter species,
+    and its discussion states that electrical connection was NOT ensured in these cocultures
+    (cells were a mix of nanowire-rich aggregates and nanowire-poor planktonic cells, and
+    growth on conductive material is proposed as a future way to ensure connection). A
+    mechanistic follow-up (PMID:34939136) instead concluded the interaction is mediated by a
+    diffusible molecule, candidate cobamide. Do not curate contact-dependent DIET, interspecies
+    wiring, or cobamide transfer here as demonstrated; see discussion
+    kg-geobacter-clostridium-contact-dependence-contested.
 
     '
   interaction_type: SYNTROPHY
@@ -163,31 +182,41 @@ ecological_interactions:
       id: GO:0009055
       label: electron transfer activity
   downstream:
-  - target: Glycerol Fermentation with DIET-Induced Metabolic Shift
-    description: Electrons transferred via DIET are accepted by C. pasteurianum, inducing
-      metabolic shift toward 1,3-propanediol
+  - target: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
+    description: Electrons taken up from G. sulfurreducens induce the metabolic shift in
+      C. pasteurianum toward 1,3-propanediol and butyrate. The transfer route is unresolved,
+      so this edge asserts electron uptake causing the shift, not a contact-dependent mechanism.
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Direct interspecies electron transfer (DIET) mechanism has been recently
-      characterised with Geobacter species which couple the electron balance with
-      other species through physical contacts
-    explanation: Demonstrates acetate oxidation coupled to direct electron transfer
-      to C. pasteurianum
+    snippet: it was shown that Geobacter sulfurreducens was able to grow using Clostridium
+      pasteurianum as sole electron acceptor
+    explanation: The study's actual finding for this coculture - G. sulfurreducens grows on
+      C. pasteurianum as sole electron acceptor, establishing interspecies electron transfer.
   - reference: PMID:28287150
     supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This metabolic shift was clearly induced by a small electron uptake that represented
+      less than 0.6% of the electrons consumed by C. pasteurianum
+    explanation: Quantifies the electron uptake driving the shift, and is the basis for the
+      downstream edge.
+  - reference: PMID:28287150
+    supports: PARTIAL
     evidence_source: IN_VITRO
     snippet: Direct interspecies electron transfer (DIET) mechanism has been recently
       characterised with Geobacter species which couple the electron balance with
       other species through physical contacts
+    explanation: PARTIAL - this is the paper's generic background about Geobacter species in
+      prior literature, NOT a finding about this coculture. It was previously cited here as
+      demonstrating contact-mediated transfer between these two organisms, which it does not.
     explanation: Establishes the mechanism of electron transfer via physical contact
-- name: Glycerol Fermentation with DIET-Induced Metabolic Shift
+- name: Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
   description: 'Clostridium pasteurianum ferments glycerol, and upon receiving electrons
-    from G. sulfurreducens via DIET, undergoes a dramatic metabolic shift that redirects
+    from G. sulfurreducens, undergoes a dramatic metabolic shift that redirects
     carbon flux toward increased 1,3-propanediol (PDO) and butyrate production. In
     pure culture, C. pasteurianum produces primarily butanol (225 mmol/mol glycerol)
-    and ethanol (54 mmol/mol). However, when DIET is enabled, production shifts to
+    and ethanol (54 mmol/mol). However, in coculture with G. sulfurreducens, production shifts to
     favor 1,3-propanediol (241 mmol/mol, +37%) and butyrate (105 mmol/mol, +38%),
     while butanol and ethanol decrease by 16% and 20% respectively. This metabolic
     reprogramming is induced by minimal electron uptake (<0.6% of total electrons
@@ -213,22 +242,22 @@ ecological_interactions:
     term:
       id: CHEBI:16109
       label: propane-1,3-diol
-    concentration: 241 mmol/mol glycerol (+37% increase with DIET)
+    concentration: 241 mmol/mol glycerol (+37% increase in coculture)
   - preferred_term: butyrate
     term:
       id: CHEBI:30772
       label: butyric acid
-    concentration: 105 mmol/mol glycerol (+38% increase with DIET)
+    concentration: 105 mmol/mol glycerol (+38% increase in coculture)
   - preferred_term: butanol
     term:
       id: CHEBI:28885
       label: butan-1-ol
-    concentration: Decreased by 16% with DIET
+    concentration: Decreased by 16% in coculture
   - preferred_term: ethanol
     term:
       id: CHEBI:16236
       label: ethanol
-    concentration: Decreased by 20% with DIET
+    concentration: Decreased by 20% in coculture
   biological_processes:
   - preferred_term: glycerol catabolic process
     term:
@@ -248,7 +277,7 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: The present study deals with a co-culture of Geobacter sulfurreducens
       and Clostridium pasteurianum during glycerol fermentation
-    explanation: Quantifies the DIET-induced metabolic shift toward 1,3-propanediol
+    explanation: Quantifies the electron-transfer-induced metabolic shift toward 1,3-propanediol
       and butyrate
   - reference: PMID:28287150
     supports: SUPPORT
@@ -287,30 +316,34 @@ environmental_factors:
       1,3-propanediol and butyrate production (+37% and +38% resp.) at the expense
       of butanol and ethanol production (-16% and -20% resp.)
     explanation: Specifies optimal growth temperature
-- name: Cell Contact and Nanowire Formation
-  value: Required for DIET
-  description: 'Physical contact between cells is essential for electron transfer.
-    G. sulfurreducens produces electrically conductive pili (nanowires) with metallic-like
-    conductive properties that enable long-distance electron transfer. Electron exchange
-    occurs either directly via interspecies wiring through these nanowires or indirectly
-    using soluble electron mediators like L-cysteine present in the medium.
+- name: Electrical Connection Between Cells
+  value: Not established in the cited experiments
+  description: 'Whether the two organisms were physically/electrically connected in this
+    coculture is UNRESOLVED, and the discovery study indicates they largely were not. Its
+    discussion reports that pre-cultures were heterogeneous, comprising both nanowire-rich
+    aggregates and nanowire-poor planktonic cells, and offers growth of G. sulfurreducens as
+    a biofilm on conductive material as a future option to "ensure electrical connections" -
+    i.e. connection was a proposed improvement, not an achieved condition. This factor
+    previously asserted that physical contact was required and nanowire-mediated; that claim
+    had no support in any cited snippet and has been removed.
 
     '
   evidence:
   - reference: PMID:28287150
-    supports: SUPPORT
+    supports: REFUTE
     evidence_source: IN_VITRO
-    snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow
-      using Clostridium pasteurianum as sole electron acceptor
-    explanation: Establishes requirement for cell contact and nanowire-mediated electron
-      transfer
+    snippet: One option to ensure electrical connections during co-culture experiments could
+      be to grow G. sulfurreducens as a biofilm on conductive materials
+    explanation: The authors propose ensuring electrical connection as future work, which
+      contradicts this record's former claim that contact-dependent nanowire transfer was the
+      established mechanism in these experiments.
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: As a result, it was shown that Geobacter sulfurreducens was able to grow
-      using Clostridium pasteurianum as sole electron acceptor
-    explanation: Establishes physical contact enabling nanowire-mediated electron
-      transfer
+    snippet: the pre-cultures were probably heterogeneous and were constituted of both
+      nanowire-rich aggregates and nanowire-poor planktonic cells
+    explanation: The authors' own account of nanowire heterogeneity, offered to explain
+      variability in their results - inconsistent with uniform nanowire-mediated contact.
 - name: Electron Transfer Monitoring
   value: qPCR of 16S rRNA genes
   description: 'Growth of both organisms monitored using quantitative real-time PCR
@@ -479,7 +512,7 @@ related_ingredients:
     evidence_source: IN_VITRO
     snippet: pasteurianum metabolic pattern was significantly altered towards improved
       1,3-propanediol and butyrate production (+37% and +38% resp.)
-    explanation: Anchors 1,3-propanediol as the metabolite increased by DIET-induced
+    explanation: Anchors 1,3-propanediol as the metabolite increased by the electron-transfer-induced
       metabolic shift.
 - preferred_term: butyrate
   chebi_term:
@@ -493,7 +526,7 @@ related_ingredients:
     evidence_source: IN_VITRO
     snippet: pasteurianum metabolic pattern was significantly altered towards improved
       1,3-propanediol and butyrate production (+37% and +38% resp.)
-    explanation: Anchors butyrate as a metabolite increased by the DIET-induced metabolic
+    explanation: Anchors butyrate as a metabolite increased by the electron-transfer-induced metabolic
       shift.
 metals_present: []
 metal_relevance: SIGNIFICANT
@@ -507,26 +540,37 @@ discussions:
   kind: CONTROVERSY
   status: OPEN
   attaches_to:
-  - ecological_interactions#Acetate Oxidation and Direct Electron Transfer
-  - ecological_interactions#Glycerol Fermentation with DIET-Induced Metabolic Shift
+  - ecological_interactions#Acetate Oxidation and Interspecies Electron Transfer
+  - ecological_interactions#Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift
   rationale: >
-    This record asserts contact-dependent DIET through electrically conductive pili
-    (nanowires) as the established mechanism, following the original coculture study
-    (PMID:28287150), which inferred interspecies electron transfer rather than
-    demonstrating contact dependence. A follow-up study by the same group
-    (PMID:34939136) set out to identify the mechanism and concluded that the interaction
-    is MEDIATED: it proposes that G. sulfurreducens releases cobamide molecules that act
-    on the C. pasteurianum glycerol dehydratase, with electron entry via a transmembrane
-    flavin-bound polyferredoxin / cytochrome b5-rubredoxin route offered only as a
-    putative reinforcement. The published full text (not open access, so only the
-    abstract is snippet-verifiable here) additionally reports that 0.22-um-filtered,
-    cell-free G. sulfurreducens spent medium reproduces the metabolic shift, which would
-    make Geobacter cells - and therefore pili contact - unnecessary for the shift.
-    Until that contrast is verified against the full text, the nanowire/contact-dependent
-    framing in this record's description, its `Acetate Oxidation and Direct Electron
-    Transfer` interaction, and its DIET `community_category` should be treated as
-    CONTESTED rather than established. Resolving this may require re-scoping the record
-    away from DIET; that is a curator decision, not applied here.
+    RE-SCOPED (was: this record asserted contact-dependent DIET as established). Caching the
+    open-access full text of the discovery study (PMID:28287150, PMC5347079) showed the
+    contact/nanowire mechanism was never supported by it. "Pili" and "nanowires" appear there
+    only as general background about Geobacter species, and its own discussion states the
+    opposite of what this record claimed: pre-cultures were "constituted of both nanowire-rich
+    aggregates and nanowire-poor planktonic cells", and growing G. sulfurreducens on conductive
+    material is offered as a future option "to ensure electrical connections" - i.e. electrical
+    connection was NOT established in these experiments. Several evidence items had also cited
+    that generic background sentence, or the unrelated "sole electron acceptor" sentence, as if
+    they demonstrated contact-mediated transfer between these two organisms.
+
+    Accordingly: `community_category` moved DIET -> SYNTROPHY (the schema defines DIET
+    specifically as "Direct interspecies electron transfer", a mechanism claim no source
+    supports here); pili/nanowire assertions were removed from the description, environment
+    notes, taxon notes, and the interaction; the interactions were renamed to mechanism-neutral
+    forms; and the "Cell Contact and Nanowire Formation" environmental factor became
+    "Electrical Connection Between Cells", recording that connection was not established.
+
+    The competing mechanism is NOT asserted in its place. The follow-up (PMID:34939136)
+    concludes the interaction "is mediated" and proposes a diffusible cobamide acting on
+    glycerol dehydratase, with a transmembrane flavin-bound polyferredoxin / cytochrome
+    b5-rubredoxin electron-entry route offered only as putative reinforcement - and that paper
+    calls its own model "putative". It is not open access, so only its abstract is
+    snippet-verifiable here; its reported 0.22-um-filtered cell-free spent-medium result, which
+    would show Geobacter cells are unnecessary for the shift, remains unverified against full
+    text. STILL OPEN: which route actually carries the electrons, and whether the record's
+    `name` and filename (both still say "DIET") should be changed - those affect external
+    references and were left to a curator.
   evidence:
   - reference: PMID:34939136
     supports: PARTIAL
