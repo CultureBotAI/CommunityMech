@@ -78,9 +78,25 @@ audit-writers *args:
 cache-fulltext *pmids:
     PYTHONPATH=src uv run python scripts/cache_fulltext.py {{pmids}}
 
-# Validate evidence references in a community file
+# Validate evidence references in a community file.
+#
+# NB on the output (issue #257): the tool's "Total checks: N" line counts
+# ISSUES, not checks performed — a clean file prints "Total checks: 0", which
+# reads like "nothing was validated". It IS validating (a fabricated snippet
+# fails it); only the label is wrong, and it lives in the pip package.
+#
+# Its matching is strict-substring, so it also reports faithful quotes whose
+# CACHE carries a PDF/XML extraction artefact (record "10% CO 2" vs cached
+# "10% CO2", "beta-5" vs "β-5"). `scripts/evidence_snippet_audit.py` counts that
+# class separately as RENDERING; validator errors == RENDERING + MISMATCH there.
+# Do not "fix" a RENDERING hit by editing the snippet to match the cache.
 validate-references FILE:
     uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+
+# Snippet audit across ALL records (the tool that actually reconciles with
+# validate-references). Buckets: MATCH / RENDERING / WEAK / MISMATCH / NOCONTENT.
+audit-snippets *args:
+    uv run python scripts/evidence_snippet_audit.py {{args}}
 
 # Validate references in all community files
 validate-references-all:
