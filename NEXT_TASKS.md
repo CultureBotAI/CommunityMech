@@ -442,7 +442,7 @@ the stale value was only inherited into the launching terminal session.
 
 ## 000031 re-scoping — DONE (2026-07-28, PR #262, issue #256)
 
-`Geobacter_Clostridium_DIET.yaml` (CommunityMech:000031) asserted contact-dependent DIET
+`Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml` (CommunityMech:000031) asserted contact-dependent DIET
 via conductive pili/nanowires. Caching the discovery study's **OA full text**
 (PMID:28287150, PMC5347079 — it had been abstract-only) showed this was **never supported
 by the record's own cited source**, so it was a defect, not the two-papers-disagree
@@ -465,11 +465,12 @@ downstream edge + discussion anchors updated; `Cell Contact and Nanowire Formati
 `Electrical Connection Between Cells` carrying a REFUTE item. The cobamide alternative is
 **not** asserted in its place (PMID:34939136 calls its own model "putative" and is not OA).
 
-**Still open (deliberate):** the record's `name` and **filename** still say "DIET"
-(`Geobacter_Clostridium_DIET.yaml`, "Geobacter-Clostridium DIET Community"). Renaming
-touches external references and the id↔filename convention, so it needs a curator's call.
-Small, well-specified, and safe to do with a `grep -rl` sweep of `reports/`, `docs/`, and
-this file.
+**Rename — DONE (2026-07-29, PR #266).** The record's `name` and filename no longer say
+"DIET": `Geobacter_Clostridium_DIET.yaml` → `Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml`,
+and "Geobacter-Clostridium DIET Community" → "Geobacter-Clostridium Interspecies Electron
+Transfer Coculture". The id `CommunityMech:000031` is **unchanged** — it is the stable
+cross-repo key, and only the human-readable label and path moved. Generated artifacts
+(`docs/`, `reports/validation_results.tsv`) were regenerated rather than hand-edited.
 
 ## Suillus-Bacillus thiamine SynCom — OPEN PR #255, unmerged since 2026-07-26
 

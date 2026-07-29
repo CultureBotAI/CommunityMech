@@ -1,18 +1,18 @@
 # CommunityMech Validation Report
 
 **Generated:** /Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech
-**Total Communities:** 78
+**Total Communities:** 305
 
 ## Executive Summary
 
 | Metric | Value |
 |--------|-------|
-| Total Communities | 78 |
-| Schema Validation Passed | 78 (100.0%) |
+| Total Communities | 305 |
+| Schema Validation Passed | 305 (100.0%) |
 | **P1 Critical Errors** | **0** |
 | **P2 High Warnings** | **5** |
 | **P3 Medium Issues** | **7** |
-| **Fully Passing** | **66** (84.6%) |
+| **Fully Passing** | **293** (96.1%) |
 
 ### Issue Breakdown
 
