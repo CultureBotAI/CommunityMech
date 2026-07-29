@@ -416,17 +416,31 @@ clean for all 6. New reference caches: PMID:34939136, PMID:37650614.
    also **appears nowhere in the paper** and was replaced with the real wording.
    #259 stays open only for the general case: automated retrieval from publishers that
    block programmatic download (`--from-file` is a manual escape hatch, not a fix).
-3. **`just validate-references` reporting is misleading** (#257). ⚠️ **Correction to an
-   earlier note here**: it was previously recorded as a "no-op". That was wrong — the tool
-   does validate, and it does fail the build on a bad snippet (verified by injection test,
-   and it catches a real bad snippet in `hCom2_Complex_Gut_Microbiome.yaml`). The actual
-   problem is that `Total checks: N` counts *issues*, not checks, so a clean file prints
-   `Total checks: 0`, which reads as "nothing was validated". Separately, its coverage
-   disagrees with `evidence_snippet_audit.py` (1 issue vs 14 hard mismatches on the same
-   file), so the two need reconciling before either is authoritative.
-4. **14 dangling causal edges** repo-wide (#258) — `downstream.target` values naming no
-   existing interaction. Detection is now in `audit_network_integrity.py`
-   (`DANGLING_EDGE`/`DANGLING_ANCHOR`); the per-record curation triage is still open.
+3. **`just validate-references` reporting** (#257) — **DONE (2026-07-29, PR #265).**
+   ⚠️ **Correction to an earlier note here**: it was once recorded as a "no-op". Wrong —
+   it validates and does fail on a bad snippet. Two real bugs were in
+   `evidence_snippet_audit.py` instead: (a) a `.md` cache was trusted only with
+   `content_type:` frontmatter or a `## Content` heading, so genuine full texts fetched
+   with neither (200 KB / 138 KB / 88 KB among 55 files, 642 KB) were discarded as stubs
+   and the audit fell back to a short abstract `.txt`; (b) the curated-snippet stripper ran
+   to EOF and ate real full text that followed a notes section. MISMATCH 166→140,
+   NOCONTENT 794→756. The residual disagreement is now an explicit **RENDERING** bucket
+   (62 repo-wide, `--list-rendering`): faithful quotes whose CACHE carries a PDF/XML
+   artefact (`10% CO 2` vs `10% CO2`, `beta-5` vs `β-5`). **validator errors == RENDERING
+   + MISMATCH.** Do NOT "fix" a RENDERING hit by editing the snippet — a discarded draft
+   that did so produced `cDCE (4 to 5 mg/ L)`. `Total checks: N` counting issues lives in
+   the pip package; the justfile recipe now explains it. New: `just audit-snippets`.
+4. **14 dangling causal edges** (#258) — **DONE (2026-07-29, PR #264).** Detection shipped
+   in #260; the triage resolved all 14 with no new claims: **7 retargeted** (the target
+   named an existing node under different wording, e.g. `DNT Biotransformation` →
+   `DNT Biotransformation with Photosynthetic Carbon Input`) and **7 dropped** as
+   self-referential restatements — each checked first against its source node's
+   description, where all seven claims survive verbatim, so no information was lost. Two of
+   the dropped MSC2 edges had no description at all. Network-integrity issues 40→26,
+   affected communities 18→8, dangling 14→0. No interaction nodes were minted: several
+   targets ("community methane production", "Bioremediation potential") name plausible
+   community-level processes, but minting them means asserting a curated interaction, which
+   needs a fresh source pass rather than an inference from a broken edge.
 
 NB: stray untracked `*.yaml.bak` backups still exist alongside these in `kb/communities/`
 (gitignored, not in the repo).
@@ -472,18 +486,21 @@ Transfer Coculture". The id `CommunityMech:000031` is **unchanged** — it is th
 cross-repo key, and only the human-readable label and path moved. Generated artifacts
 (`docs/`, `reports/validation_results.tsv`) were regenerated rather than hand-edited.
 
-## Suillus-Bacillus thiamine SynCom — OPEN PR #255, unmerged since 2026-07-26
+## Suillus-Bacillus thiamine SynCom — MERGED (2026-07-29, PR #255)
 
-Not previously logged here. **PR #255** (branch `claude/session-s1rw5b`) adds one record,
-`kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml` (+361 lines) plus
-`references_cache/PMID_41454778.md` — a thiamine cross-feeding ectomycorrhizal SynCom.
-State as of 2026-07-29: **not a draft, MERGEABLE / CLEAN, all CI gates green**
-(label-correspondence, validate-strict, vendored-sync), untouched for 3 days.
+Had been open and unlogged since 2026-07-26 (branch `claude/session-s1rw5b`). Adds
+`CommunityMech:000312` — `Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml`, a
+thiamine cross-feeding ectomycorrhizal SynCom on PMID:41454778 — plus its reference cache.
+Reviewed before merge: id 000312 follows 000311 with no collision; validates clean; no
+snippet mismatches; and the `DANGLING_EDGE`/`DANGLING_ANCHOR` script (not a CI gate) is
+clean for it. Four interactions in a coherent recruitment → ureidosuccinic-acid → thiamine
+→ colonization chain, single-source (PMID:41454778 throughout).
 
-It is a finished PR sitting idle. Next: review the record (`review-communities`), confirm
-the id doesn't collide (`manage-identifiers`), and merge — or say why not. NB the causal
-`DANGLING_EDGE`/`DANGLING_ANCHOR` check added in #260 is a **script, not a CI gate**, so
-run `uv run python scripts/audit_network_integrity.py` against it before merging.
+**Optional follow-up:** it carries **no `downstream` causal edges**, though its four
+interactions read as a natural chain — a good candidate for a
+`just research-community-causal CommunityMech:000312` pass.
+
+The record count is now **305**.
 
 ## Space-regolith community curation (curatable subset DONE, 9/16)
 
