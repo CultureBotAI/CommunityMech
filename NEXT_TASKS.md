@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-21.
+Last reconciled: 2026-07-29.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -248,8 +248,13 @@ own MIM issue if we later want to persist `MIM:<name>` as a key.
   not logic-limited). **`docs/` page regen — DONE:** the 23 triaged records rendered in
   #221; the 4 later regolith records (000308–000311) rendered in **PR #239** (304 pages
   total; `modeled_environment → regolith` blocks render). The template already supports
-  the slot, so future records render automatically. **Remaining (optional):** apply the
-  same `modeled_environment` matching to the (draft) ingredient suggester.
+  the slot, so future records render automatically. **Former "remaining (optional)" item —
+  DONE (verified 2026-07-29):** applying `modeled_environment` matching to the ingredient
+  suggester was already shipped with the suggester itself in PR #220 —
+  `scripts/suggest_related_ingredients.py` reads `environment_term` + every
+  `modeled_environment` (see its `_env_keys`). The note was stale, not pending.
+  **§2 / issue #30 now has no actionable remainder in this repo**; further yield is
+  data-limited by sibling coverage (MIM has 10 `environmental_context` records).
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
@@ -381,12 +386,10 @@ causal-graph pass and conservative curation. What actually landed, per record:
   the Hcp-deficient mutant, PMID:37650614, OA full text cached). Curated as *T6SS-associated*,
   not T6SS-caused: the mutant is pleiotropic (also reduces Fe(III) oxide faster).
 - **000031 `Geobacter_Clostridium`** — no new edge; filed CONTROVERSY discussion
-  `kg-geobacter-clostridium-contact-dependence-contested`. **This record's core framing is
-  contested**: the follow-up study (PMID:34939136) concludes the interaction is *mediated*
-  (putative cobamide), and its full text reports that 0.22-µm-filtered cell-free spent
-  medium reproduces the metabolic shift — which would make pili contact unnecessary.
-  Curator decision still open on whether to re-scope the record away from `community_category:
-  DIET`; not applied unilaterally.
+  `kg-geobacter-clostridium-contact-dependence-contested`. **Superseded — record RE-SCOPED
+  (2026-07-28, PR #262), issue #256 closed.** See the dedicated section below; the
+  "curator decision still open" note that stood here was resolved once the discovery
+  study's OA full text was cached.
 - **000032 `Geobacter_Methanosaeta`** — no new edge (000176 precedent). Edison proposed an
   acetate cross-feeding node, but its quotations came from secondary reviews; the primary
   (doi:10.1039/C3EE42189A) is cached abstract-only and is silent on acetate. Filed as
@@ -397,13 +400,22 @@ snippets match, zero new mismatches) and caching PMID:29611893 OA full text also
 3 pre-existing 000068 Methods-snippet mismatches (169→166 repo-wide); network-integrity audit
 clean for all 6. New reference caches: PMID:34939136, PMID:37650614.
 
-**Follow-ups this batch surfaced** (all now filed as issues):
-1. **000031 re-scoping decision** (#256) — the highest-value open item.
-2. **Li et al. 2024** (`doi:10.3390/w16243551`, *Water*) has exact-pair graded-formate
-   perturbation data for 000068 (5–10 mM promotes, ≥30 mM inhibits; FDH/hydrogenase
-   transcript downregulation). **Still not ingested** (#259). `cache_fulltext.py` now takes
-   DOIs, but this one has no Europe PMC record and MDPI returns HTTP 403 to programmatic
-   PDF download, so it needs a manual retrieval.
+**Follow-ups this batch surfaced** (all filed as issues; statuses reconciled 2026-07-29):
+1. **000031 re-scoping decision** (#256) — **DONE (2026-07-28, PR #262; issue closed).**
+   See "000031 re-scoping" section below.
+2. **Li et al. 2024** (`doi:10.3390/w16243551`, *Water*) — **INGESTED (2026-07-28, PR #261).**
+   The curator supplied the publisher PDF; `cache_fulltext.py --from-file` cached 66,496
+   chars to `references_cache/DOI_10.3390_w16243551.md`, and the exact-pair results are
+   curated into 000068 (new `Exogenous Formate Dosage` environmental factor + FDH
+   downregulation evidence). ⚠️ **Correction to the summary that stood here:** it said
+   "5–10 mM promotes, ≥30 mM inhibits". The **≥30 mM claim was wrong** — it came from the
+   Edison report and describes the paper's *anaerobic-sludge* system. In the coculture the
+   response is **non-monotonic**: 30 mM "was improved instead of inhibited in the later
+   stage"; only 50 mM inhibits. A quoted snippet from that report
+   ("MMC metabolism of propionate was inhibited when the formate dosage reached 50 mM")
+   also **appears nowhere in the paper** and was replaced with the real wording.
+   #259 stays open only for the general case: automated retrieval from publishers that
+   block programmatic download (`--from-file` is a manual escape hatch, not a fix).
 3. **`just validate-references` reporting is misleading** (#257). ⚠️ **Correction to an
    earlier note here**: it was previously recorded as a "no-op". That was wrong — the tool
    does validate, and it does fail the build on a bad snippet (verified by injection test,
@@ -427,6 +439,50 @@ source of truth (via `dotenv_values`), preferring it over any ambient/inherited
 **no `env -u` workaround needed** (000268 was curated this way). See
 [[edison-auth-env-shadowing]]. NB: `.bash_profile`'s export was already commented out;
 the stale value was only inherited into the launching terminal session.
+
+## 000031 re-scoping — DONE (2026-07-28, PR #262, issue #256)
+
+`Geobacter_Clostridium_DIET.yaml` (CommunityMech:000031) asserted contact-dependent DIET
+via conductive pili/nanowires. Caching the discovery study's **OA full text**
+(PMID:28287150, PMC5347079 — it had been abstract-only) showed this was **never supported
+by the record's own cited source**, so it was a defect, not the two-papers-disagree
+controversy #256 was filed as:
+
+- "pili"/"nanowire" appear nowhere in that paper's abstract, and in the full text only as
+  generic *Geobacter* background citing prior work.
+- Its discussion says the opposite of the record's claim — pre-cultures held "both
+  nanowire-rich aggregates and nanowire-poor planktonic cells", and growth on conductive
+  material is offered as a future option "to ensure electrical connections".
+- Evidence items cited that background sentence, and an unrelated "sole electron acceptor"
+  sentence, as if they demonstrated contact-mediated transfer. One was truncated mid-word.
+
+Changes: `community_category` **DIET → SYNTROPHY** (the schema defines DIET specifically as
+"Direct interspecies electron transfer"; SYNTROPHY is the neutral bucket); pili/nanowire
+claims stripped from description, environment notes, taxon notes and the interaction; both
+interactions renamed mechanism-neutral (`Acetate Oxidation and Interspecies Electron
+Transfer`, `Glycerol Fermentation with Electron-Transfer-Induced Metabolic Shift`) with the
+downstream edge + discussion anchors updated; `Cell Contact and Nanowire Formation` →
+`Electrical Connection Between Cells` carrying a REFUTE item. The cobamide alternative is
+**not** asserted in its place (PMID:34939136 calls its own model "putative" and is not OA).
+
+**Still open (deliberate):** the record's `name` and **filename** still say "DIET"
+(`Geobacter_Clostridium_DIET.yaml`, "Geobacter-Clostridium DIET Community"). Renaming
+touches external references and the id↔filename convention, so it needs a curator's call.
+Small, well-specified, and safe to do with a `grep -rl` sweep of `reports/`, `docs/`, and
+this file.
+
+## Suillus-Bacillus thiamine SynCom — OPEN PR #255, unmerged since 2026-07-26
+
+Not previously logged here. **PR #255** (branch `claude/session-s1rw5b`) adds one record,
+`kb/communities/Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom.yaml` (+361 lines) plus
+`references_cache/PMID_41454778.md` — a thiamine cross-feeding ectomycorrhizal SynCom.
+State as of 2026-07-29: **not a draft, MERGEABLE / CLEAN, all CI gates green**
+(label-correspondence, validate-strict, vendored-sync), untouched for 3 days.
+
+It is a finished PR sitting idle. Next: review the record (`review-communities`), confirm
+the id doesn't collide (`manage-identifiers`), and merge — or say why not. NB the causal
+`DANGLING_EDGE`/`DANGLING_ANCHOR` check added in #260 is a **script, not a CI gate**, so
+run `uv run python scripts/audit_network_integrity.py` against it before merging.
 
 ## Space-regolith community curation (curatable subset DONE, 9/16)
 
