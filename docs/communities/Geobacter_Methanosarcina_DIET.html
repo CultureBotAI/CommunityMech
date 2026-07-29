@@ -409,6 +409,7 @@
                     </span>
                 </div>
                 
+                
             </div>
         </section>
 
@@ -750,6 +751,104 @@
                         </div>
                         
                         <div class="snippet">"Direct interspecies electron transfer (DIET) is potentially an effective form of syntrophy in methanogenic communities, but little is known about the"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>T6SS-Associated Delay of DIET Establishment</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
+                
+
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        protein secretion by the type VI secretion system
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0033103"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0033103</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+                    
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Ethanol Oxidation and Direct Electron Transfer
+                    </div>
+                    
+                </div>
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37650614/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37650614</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"there was a lag period of more than 30 d in co-cultures initiated with wild-type G. metallireducens"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37650614/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37650614</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"In contrast, there was very little lag in co-cultures initiated with the Hcp-deficient G. metallireducens strain"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37650614/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37650614</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The hcp-deficient mutant also established DIET quicker with Methanosarcina barkeri"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/37650614/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:37650614</a>
+                            
+                            - PARTIAL (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"the mutant also reduced Fe(III) oxide faster than the wild-type strain, a phenotype not expected from the loss of the T6SS"</div>
                         
                     </li>
                     
@@ -1210,6 +1309,39 @@
             
         })();
         
+        (function() {
+            var intId = "interaction:2";
+            var intType = "COMPETITION";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("protein secretion by the type VI secretion system");
+            
+            
+            var evidenceCount = 4;
+
+            nodes.push({
+                id: intId,
+                label: "T6SS-Associated Delay of DIET Establishment",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Geobacter metallireducens";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+        })();
+        
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1226,7 +1358,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 4;
+        var nodeCount = 5;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
