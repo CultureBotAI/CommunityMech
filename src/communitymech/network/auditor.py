@@ -87,6 +87,23 @@ class NetworkIntegrityAuditor:
                 if not check_only:
                     self.report_community_issues(yaml_file.stem, issues)
 
+        # Catching per file keeps one bad record from ending the sweep, but it
+        # would also turn a bug in this auditor into "every record is bad data".
+        # Nothing legitimate makes *all* of them unreadable at once, so treat
+        # that as a tool failure and let it out: the CLI turns it into exit 2
+        # with no report, which the network-quality workflow reports as a crash
+        # rather than as findings.
+        unreadable = sum(
+            1
+            for community_issues in self.issues.values()
+            if any(issue["type"] == IssueType.UNREADABLE for issue in community_issues)
+        )
+        if len(yaml_files) > 1 and unreadable == len(yaml_files):
+            raise RuntimeError(
+                f"every one of the {len(yaml_files)} community files failed to audit — "
+                f"this is a failure of the auditor, not of the data"
+            )
+
         if not check_only:
             print(f"\n{'='*80}")
             print(f"Summary: {communities_with_issues}/{len(yaml_files)} communities have issues")

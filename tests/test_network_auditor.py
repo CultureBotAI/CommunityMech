@@ -444,3 +444,32 @@ def test_type_label_is_version_independent():
     assert _type_label(IssueType.UNREADABLE) == "UNREADABLE"
     # Some call sites hold plain strings rather than members.
     assert _type_label("ID_MISMATCH") == "ID_MISMATCH"
+
+
+def test_all_files_unreadable_is_treated_as_a_tool_failure(temp_communities_dir):
+    """Catching per file must not turn an auditor bug into "all data is bad".
+
+    Nothing legitimate makes every record unreadable at once, so that case is
+    raised rather than reported as findings — the CLI turns it into exit 2 with
+    no report, which the network-quality workflow surfaces as a crash.
+    """
+    _write_malformed(temp_communities_dir, "broken_one")
+    _write_malformed(temp_communities_dir, "broken_two")
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    with pytest.raises(RuntimeError, match="failure of the auditor, not of the data"):
+        auditor.audit_all()
+
+
+def test_a_lone_unreadable_file_is_still_a_finding(temp_communities_dir):
+    """The all-failed guard must not fire on a single-file directory.
+
+    One bad file out of one is an ordinary data finding, not evidence that the
+    auditor is broken.
+    """
+    _write_malformed(temp_communities_dir)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    all_issues = auditor.audit_all()
+
+    assert [i["type"] for i in all_issues["broken"]] == [IssueType.UNREADABLE]
