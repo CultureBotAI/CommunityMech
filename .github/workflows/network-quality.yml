@@ -13,6 +13,10 @@ name: Network Quality Check
 # The LLM repair-suggestion job calls the Anthropic API and posts comments, so
 # it runs only when explicitly requested via workflow_dispatch — never
 # automatically on a push or pull request.
+#
+# On a pull request this maintains exactly ONE findings comment, keyed by a
+# hidden marker and updated in place (#285). It also triggers on changes to
+# itself, so an edit here is exercised by the run it produces.
 
 on:
   pull_request:
