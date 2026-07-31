@@ -7,6 +7,68 @@ deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 
 Last reconciled: 2026-07-30.
 
+## Priority menu (reconciled 2026-07-30)
+
+Ranked, **actionable-now** work. Everything here was re-measured against the KB
+on this date — three long-standing numbers below had drifted and are corrected
+in place. Blocked items are listed further down so the gaps are explained, not
+hidden; **do not** pull them off the shelf as "next".
+
+| # | Item | Size | Why this rank |
+|---|---|---|---|
+| 1 | **GTDB grounding backfill** (#276, `ground-taxa-gtdb`) | L, mechanical | Largest unblocked gap in the KB and the only one needing nothing external |
+| 2 | **Network audit triage (#273)** | M | Unblocks restoring a CI gate; 4 real bugs are fully specified |
+| 3 | **Causal-edge curation, next batch** | M per record | Active thread with a worked method; highest scientific value per record |
+| 4 | **Growth conditions for the 28 ENGINEERED records** (#183 slice) | M | Real gap, but partly paywalled — see the corrected numbers |
+| 5 | **Redundant encoding in the network diagram (#270)** | S–M | Self-contained frontend work, fully specified |
+| 6 | **Decide the #182 ontology remaps** | S | A curator decision, not an implementation task |
+
+**Recommended next: #1, GTDB grounding.** It is the biggest coverage gap that
+depends on nothing outside this repo — the mapping table is local
+(kg-microbe `NCBI2GTDB.tsv.gz`) and the `ground-taxa-gtdb` skill already exists.
+It needs no literature access, no curator judgment calls, and no sibling repo.
+Measured 2026-07-30: **569/995 taxa (57%) carry `gtdb_classification`**, spread
+as **91 records fully grounded, 140 partially, 72 with none**. The *partial* 140
+are the sharpest problem — a single record where some taxa carry a GTDB
+classification and others don't is internally inconsistent, and that is exactly
+what a downstream KGX consumer will trip over. Finishing the partials first is
+the cheapest way to make the field trustworthy. Note the skill also surfaces
+GTDB reclassifications (NCBI *Agrobacterium deltae* → GTDB *A. leguminum*), so
+this is a correctness pass, not only a coverage one.
+
+### Numbers corrected this reconcile
+
+- **Causal-edge coverage: 59/305, not "~65/304".** The "Causal-graph curation"
+  section below overstated it. 246 records carry no `downstream` edge.
+- **Records with no growth conditions: 80/305, not "52/295"** as issue #183
+  states. But the shortfall is smaller than that sounds: **52 of the 80 are
+  NATURAL** (34 STABLE + 18 PERTURBED) field communities that legitimately have
+  no cultivation conditions. The curatable slice is the **28 ENGINEERED**
+  records, and even that includes pure computational models (`BioModels_…`,
+  `KBase_…`) which honestly have none. Real target: **~24 records.**
+- **GTDB coverage was never tracked here at all** — no section mentioned it
+  despite the schema slot and skill both existing. Added as item 1.
+
+### Blocked — keep, but never recommend as "next"
+
+- **#259** (general case) — publishers that block programmatic download.
+  `cache_fulltext.py --from-file` is a manual escape hatch, not a fix.
+- **#183** (the closed-access remainder) — needs institutional full-text access.
+- **#30** — waiting on CultureMech / MediaIngredientMech schema; §2 records that
+  this repo has no actionable remainder.
+- **§1 `validate-terms-all`** — genuinely upstream-blocked: every one of the 34
+  residuals needs a ChEBI/ENVO/GO/NCBITaxon term that does not exist and that we
+  cannot mint. See the 2026-06-17 triage in §1.
+- **Space-regolith, remaining 4** — membership is commercial or undefined, so
+  members cannot be grounded to NCBITaxon. Revisit only if a follow-up study
+  names them.
+
+### In flight
+
+- **PR #274** (#272) — `network-quality.yml` repair. **#273 is gated behind it.**
+- **PR #275** — this reconcile.
+- **#199** stays open for two cosmetic items (hero gradient, filter placement).
+
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
 **Trigger:** `MetalElementEnum.PALLADIUM` was grounded to `CHEBI:33373`
@@ -398,6 +460,45 @@ the JSON *after* `audit_all()` has already written the human report to stdout, s
 `--json > out.json` cannot produce valid JSON (the workflow's JSON artifact was
 dropped in #274 because of it).
 
+## GTDB grounding backfill (issue #276; new section 2026-07-30)
+
+**Priority-menu item 1.** The schema has carried
+`TaxonomicComposition.taxon_term.gtdb_classification` (range `GtdbClassification`)
+and the repo has shipped the `ground-taxa-gtdb` skill for some time, but coverage
+was never measured or tracked here, so it has been filled in opportunistically
+during other curation passes and is now uneven.
+
+**Measured 2026-07-30:** `569/995` taxa (57%) carry a `gtdb_classification`,
+distributed as **91 records fully grounded, 140 partially grounded, 72 with
+none** (the remaining 2 have no `taxonomy`).
+
+**Why the 140 partials come first.** A record where some taxa carry a GTDB
+classification and others don't is internally inconsistent in a way that is worse
+than uniformly absent: a downstream KGX consumer cannot tell "not grounded" from
+"no GTDB equivalent exists". Finishing the partials converts the field from
+"sometimes populated" to "populated where a mapping exists", which is the state
+it needs to be in before anything queries it.
+
+**Why it's the top pick.** Nothing external blocks it. The mapping table is local
+(kg-microbe `NCBI2GTDB.tsv.gz`), so there is no literature access, no curator
+judgment, and no sibling-repo dependency — the three things blocking most of the
+rest of this backlog. It is also a **correctness** pass, not only coverage: the
+skill flags GTDB reclassifications and renames (NCBITaxon *Agrobacterium deltae*
+→ GTDB *Agrobacterium leguminum*), so filling it in surfaces taxonomy drift that
+is currently invisible.
+
+**Method:** `ground-taxa-gtdb` resolves an NCBITaxon id (or species name) to its
+canonical GTDB CURIE, taxon name, full lineage and mapping confidence, and emits
+a ready-to-paste `gtdb_classification` block. Existing records show the expected
+shape — see `Maize_Root_Simplified_Community.yaml`, whose entries carry
+`gtdb_id` / `gtdb_taxon` / `gtdb_lineage` / `ncbi_source_id` /
+`majority_fraction` / `is_reclassified` / `mapping_source`.
+
+**Suggested order:** the 140 partials (finish what's started), then the 72 with
+none, largest/most-cited records first. Worth a gate afterwards so new records
+don't reintroduce partial grounding — the same shape as the enum guard in §0 and
+`tests/test_network_palette.py`.
+
 ## Adopt DisMech knowledge-gaps + datasets + QC dashboard (claw#7)
 
 Coordinated cross-Mech adoption of DisMech's domain-general features. Full plan,
@@ -454,8 +555,10 @@ donor→partner edges + a KNOWLEDGE_GAP discussion, modeled-limitation node left
 (000188, 2 HYPOTHESIZED mediator edges + KG), `Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture`
 (000189, 1 edge + KG), `DIETsimp_Lignocellulose_to_Methane_DIET_Consortia` (000297, NO edge
 justified — parallel proposed DIET pathways — KG only). The 6 already-wired matches
-(000031–033 DIET, 000068–070 syntrophies) were left as-is. ~65/304 records now carry
-`downstream` causal edges. **Next:** continue on high-value syntrophies; always use the
+(000031–033 DIET, 000068–070 syntrophies) were left as-is. **59/305 records carry `downstream`
+causal edges** (re-measured 2026-07-30; this line previously read "~65/304",
+which overstated it — 246 records have no causal edge at all).
+**Next:** continue on high-value syntrophies; always use the
 RECORD's canonical taxon ids (Edison groundings have had
 errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359). NB: when
 the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
