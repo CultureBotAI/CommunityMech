@@ -3,6 +3,24 @@
 
 set dotenv-load := true
 
+# Shared tooling lives in the culturebotai-claw checkout. Override CLAW_SRC when
+# claw is not the default sibling directory — CI checks it out elsewhere.
+claw_src := env_var_or_default("CLAW_SRC", "../../culturebotai-claw/src")
+claw_root := parent_directory(claw_src)
+
+# Fail loudly when a shared claw module is missing, rather than running on and
+# producing an empty or wrong result. A skip-when-missing variant of this check
+# is exactly what let a vendored-sync job pass while verifying nothing
+# (CultureMech#112 lane).
+_require-claw module:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ ! -d "{{claw_src}}/{{module}}" ]; then
+      echo "error: shared module '{{module}}' not found under '{{claw_src}}'." >&2
+      echo "Set CLAW_SRC to the src/ directory of a culturebotai-claw checkout." >&2
+      exit 1
+    fi
+
 # List all commands
 default:
     @just --list
@@ -227,28 +245,16 @@ gen-umap:
 
 # QC coverage dashboard (shared kg_microbe_qc generator in culturebotai-claw).
 # This repo is nested one level deeper, so PYTHONPATH is ../../culturebotai-claw/src.
-gen-qc-dashboard:
-    PYTHONPATH=../../culturebotai-claw/src /opt/homebrew/bin/python3.13 \
+gen-qc-dashboard: (_require-claw "kg_microbe_qc")
+    PYTHONPATH={{claw_src}} uv run python \
       -m kg_microbe_qc --config conf/qc_config.yaml --output dashboard
 
 # Knowledge-gap scan (Europe PMC, free) via shared kg_microbe_kgscan in claw.
 # Dry-run by default → reports/knowledge_gap_scan.{json,md}. Pass `--apply`
 # (and e.g. --limit/--min-score) to seed Discussion(kind=KNOWLEDGE_GAP).
 # Nested repo → PYTHONPATH is ../../culturebotai-claw/src.
-# Portable so CI can run it: `python3` from PATH rather than a Homebrew path, and
-# CLAW_SRC to relocate the claw checkout (CI checks claw out as a sibling). The
-# guard is deliberately fail-loud — a skip-when-missing variant of this pattern is
-# what let a vendored-sync job pass while checking nothing (CultureMech#112 lane).
-knowledge-gap-scan *args:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    claw_src="${CLAW_SRC:-../../culturebotai-claw/src}"
-    if [ ! -d "$claw_src/kg_microbe_kgscan" ]; then
-      echo "knowledge-gap-scan: kg_microbe_kgscan not found under '$claw_src'." >&2
-      echo "Set CLAW_SRC to the src/ directory of a culturebotai-claw checkout." >&2
-      exit 1
-    fi
-    PYTHONPATH="$claw_src" python3 -m kg_microbe_kgscan \
+knowledge-gap-scan *args: (_require-claw "kg_microbe_kgscan")
+    PYTHONPATH={{claw_src}} uv run python -m kg_microbe_kgscan \
       --config conf/kgscan_config.yaml {{args}}
 
 # Generate all HTML (communities + UMAP)
@@ -435,14 +441,14 @@ link-media-report:
 # evidence claims. Phase 3 of the dismech-pattern port. See
 # ../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md
 kgx-export:
-    PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export \
+    PYTHONPATH=src uv run python -m communitymech.export \
       --kb kb/communities --output output/kgx
 
 # Lightweight structural validation of the KGX TSV outputs.
 # No external deps; checks columns, CURIE shape, biolink predicate
 # names, duplicate IDs, dangling subjects/objects.
 kgx-validate:
-    PYTHONPATH=src /opt/homebrew/bin/python3.13 -m communitymech.export.validate_kgx \
+    PYTHONPATH=src uv run python -m communitymech.export.validate_kgx \
       --kgx-dir output/kgx --strict
 
 # Render per-community HTML detail pages from kb/communities/*.yaml
@@ -450,10 +456,10 @@ kgx-validate:
 # the shared kg_microbe_browser.graph builder in claw. See
 # ../../culturebotai-claw/docs/proposals/phase5_mkdocs_material_and_browser_parity.md
 gen-community-pages *args:
-    /opt/homebrew/bin/python3.13 src/communitymech/render_community_pages.py {{args}}
+    uv run python src/communitymech/render_community_pages.py {{args}}
 
 # Discussions / knowledge-gap browser (shared kg_microbe_discussions in claw).
 # Nested repo → PYTHONPATH is ../../culturebotai-claw/src.
-gen-discussions-data:
-    PYTHONPATH=../../culturebotai-claw/src /opt/homebrew/bin/python3.13 \
+gen-discussions-data: (_require-claw "kg_microbe_discussions")
+    PYTHONPATH={{claw_src}} uv run python \
       -m kg_microbe_discussions --config conf/discussions_config.yaml --output app/discussions
