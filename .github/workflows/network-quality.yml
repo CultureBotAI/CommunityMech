@@ -72,16 +72,27 @@ jobs:
         continue-on-error: true
 
       - name: Upload audit report
-        if: steps.audit.outcome == 'failure'
+        if: hashFiles('reports/network_audit.txt') != ''
         uses: actions/upload-artifact@v4
         with:
           name: network-audit-report
           path: reports/network_audit.txt
 
+      # Three outcomes have to be told apart, because two of them look identical
+      # through `steps.audit.outcome` alone:
+      #   clean     — exit 0
+      #   findings  — exit 1, report written        → reporting-only (see #273)
+      #   crash     — exit 2, no report written     → must be loud
+      # A malformed community YAML produces the third (issue #281 — one bad file
+      # aborts the whole audit), and that is exactly when this check matters
+      # most, so it must not be reported as "findings" or swallowed.
+      # `hashFiles` is empty when the file does not exist.
       - name: Write job summary
         if: always()
         run: |
-          if [ "${{ steps.audit.outcome }}" = "failure" ]; then
+          if [ "${{ steps.audit.outcome }}" != "failure" ]; then
+            echo "## Network integrity: no issues found" >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f reports/network_audit.txt ]; then
             {
               echo "## Network integrity findings"
               echo
@@ -92,11 +103,23 @@ jobs:
               echo '```'
             } >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "## Network integrity: no issues found" >> "$GITHUB_STEP_SUMMARY"
+            {
+              echo "## Network integrity audit failed to run"
+              echo
+              echo "\`audit-network\` exited non-zero without writing a report, which"
+              echo "means it crashed rather than finding issues — a malformed"
+              echo "community YAML will do this. See the audit step log."
+            } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      # Left non-fatal on purpose: a pull request from a fork gets a read-only
+      # token, and failing to post a comment must not redden a reporting-only job.
       - name: Comment on PR with findings
-        if: steps.audit.outcome == 'failure' && github.event_name == 'pull_request'
+        if: >-
+          steps.audit.outcome == 'failure'
+          && hashFiles('reports/network_audit.txt') != ''
+          && github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
@@ -125,6 +148,15 @@ jobs:
               repo: context.repo.repo,
               body,
             });
+
+      # Deliberately after the reporting steps, so the summary is written before
+      # the job goes red. Findings are reporting-only; a crash is not.
+      - name: Fail if the audit could not run
+        if: steps.audit.outcome == 'failure' && hashFiles('reports/network_audit.txt') == ''
+        run: |
+          echo "audit-network exited non-zero and wrote no report." >&2
+          echo "That is a crash, not a set of findings — see the audit step log above." >&2
+          exit 1
 
   # LLM-assisted repair suggestions. Manual-only: this calls the Anthropic API
   # and writes PR comments, so it must never be triggered by an ordinary push.
