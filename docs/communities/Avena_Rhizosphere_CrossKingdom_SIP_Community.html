@@ -643,8 +643,6 @@
                 </tbody>
             </table>
         </section>
-        
-
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
@@ -655,38 +653,17 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Avena Rhizosphere Cross-Kingdom 13C-SIP Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (commensalism, predation).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
-                        <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                        <span class="legend-swatch" style="background: #cf7830;"></span> Commensalism
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #a855f7;"></span> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #ef4444;"></span> Competition
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #14b8a6;"></span> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #eab308;"></span> Colonization facilitation
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #fb7185;"></span> Strain competition
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #dc2626;"></span> Predation
+                        <span class="legend-swatch" style="background: #913079;"></span> Predation
                     </div>
                 </div>
             </div>
@@ -1017,16 +994,17 @@
     <script>
     (function() {
         var interactionColors = {
-            CROSS_FEEDING: "#22c55e",
-            MUTUALISM: "#3b82f6",
-            SYNTROPHY: "#a855f7",
-            COMPETITION: "#ef4444",
-            COMMENSALISM: "#f97316",
-            PREDATION: "#dc2626",
-            NICHE_PARTITIONING: "#14b8a6",
-            STRAIN_COMPETITION: "#fb7185",
-            COLONIZATION_FACILITATION: "#eab308"
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#56bbe6",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "COMMENSALISM": "#cf7830",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12",
+            "STRAIN_COMPETITION": "#cf30b7",
+            "PREDATION": "#913079"
         };
+        var unmappedColor = "#929caa";
 
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
@@ -1268,8 +1246,8 @@
         node.filter(function(d) { return d.type === "taxon"; })
             .append("circle")
             .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
-            .attr("fill", "#3b82f6")
-            .attr("stroke", "#1e40af")
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
             .attr("stroke-width", 1.5);
 
         // Interaction nodes: rounded rects
@@ -1280,9 +1258,9 @@
             .attr("x", -14)
             .attr("y", -9)
             .attr("rx", 5)
-            .attr("fill", function(d) { return interactionColors[d.interactionType] || "#6b7280"; })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
             .attr("stroke", function(d) {
-                var c = d3.color(interactionColors[d.interactionType] || "#6b7280");
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
                 return c ? c.darker(0.5) : "#4b5563";
             })
             .attr("stroke-width", 1.5);

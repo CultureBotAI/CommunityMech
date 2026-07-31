@@ -502,6 +502,37 @@
         </section>
         {% endif %}
 
+        {#- Single source of truth for interaction colors: drives both the legend
+            below and the `interactionColors` map in the network script. Taxon
+            nodes stay neutral so every hue means an interaction type.
+            Colors are chosen for separation under simulated colour-vision
+            deficiency, not picked by eye; `tests/test_network_palette.py`
+            pins the minimum and keeps the keys in step with
+            InteractionTypeEnum. Do not retune a colour without rerunning it. -#}
+        {%- set taxon_color = "#7a7a7a" -%}
+        {%- set taxon_stroke = "#4a4a4a" -%}
+        {%- set unmapped_color = "#929caa" -%}
+        {%- set interaction_legend = [
+            {"key": "CROSS_FEEDING", "label": "Cross-feeding", "color": "#57c7ab"},
+            {"key": "MUTUALISM", "label": "Mutualism", "color": "#56bbe6"},
+            {"key": "SYNTROPHY", "label": "Syntrophy", "color": "#7f30cf"},
+            {"key": "COMPETITION", "label": "Competition", "color": "#a91919"},
+            {"key": "COMMENSALISM", "label": "Commensalism", "color": "#cf7830"},
+            {"key": "NICHE_PARTITIONING", "label": "Niche partitioning", "color": "#1212ed"},
+            {"key": "COLONIZATION_FACILITATION", "label": "Colonization facilitation", "color": "#edab12"},
+            {"key": "STRAIN_COMPETITION", "label": "Strain competition", "color": "#cf30b7"},
+            {"key": "PREDATION", "label": "Predation", "color": "#913079"}
+        ] -%}
+        {#- Mirror the script's `interaction_type or "UNKNOWN"` so a typeless
+            interaction still earns the grey "Other" swatch it is drawn with. -#}
+        {%- set present_types = community.ecological_interactions | default([], true)
+                               | map(attribute="interaction_type")
+                               | map("default", "UNKNOWN", true) | list -%}
+        {%- set present_legend = interaction_legend | selectattr("key", "in", present_types) | list -%}
+        {%- set has_unmapped = present_types
+                              | reject("in", interaction_legend | map(attribute="key") | list)
+                              | list | length > 0 -%}
+
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
@@ -512,39 +543,22 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for {{ community.name }}</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions{% if present_legend %} ({{ present_legend | map(attribute="label") | join(", ") | lower }}){% endif %}.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
-                        <span class="legend-swatch legend-circle" style="background: #3b82f6;"></span> Taxon
+                        <span class="legend-swatch legend-circle" style="background: {{ taxon_color }};"></span> Taxon
                     </div>
+                    {%- for item in present_legend %}
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                        <span class="legend-swatch" style="background: {{ item.color }};"></span> {{ item.label }}
                     </div>
+                    {%- endfor %}
+                    {%- if has_unmapped %}
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
+                        <span class="legend-swatch" style="background: {{ unmapped_color }};"></span> Other
                     </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #a855f7;"></span> Syntrophy
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #ef4444;"></span> Competition
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #f97316;"></span> Commensalism
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #14b8a6;"></span> Niche partitioning
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #eab308;"></span> Colonization facilitation
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #fb7185;"></span> Strain competition
-                    </div>
-                    <div class="legend-item">
-                        <span class="legend-swatch" style="background: #dc2626;"></span> Predation
-                    </div>
+                    {%- endif %}
                 </div>
             </div>
 
@@ -959,16 +973,11 @@
     <script>
     (function() {
         var interactionColors = {
-            CROSS_FEEDING: "#22c55e",
-            MUTUALISM: "#3b82f6",
-            SYNTROPHY: "#a855f7",
-            COMPETITION: "#ef4444",
-            COMMENSALISM: "#f97316",
-            PREDATION: "#dc2626",
-            NICHE_PARTITIONING: "#14b8a6",
-            STRAIN_COMPETITION: "#fb7185",
-            COLONIZATION_FACILITATION: "#eab308"
+            {%- for item in interaction_legend %}
+            {{ item.key|tojson }}: {{ item.color|tojson }}{{ "," if not loop.last }}
+            {%- endfor %}
         };
+        var unmappedColor = {{ unmapped_color|tojson }};
 
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
@@ -1104,8 +1113,8 @@
         node.filter(function(d) { return d.type === "taxon"; })
             .append("circle")
             .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
-            .attr("fill", "#3b82f6")
-            .attr("stroke", "#1e40af")
+            .attr("fill", {{ taxon_color|tojson }})
+            .attr("stroke", {{ taxon_stroke|tojson }})
             .attr("stroke-width", 1.5);
 
         // Interaction nodes: rounded rects
@@ -1116,9 +1125,9 @@
             .attr("x", -14)
             .attr("y", -9)
             .attr("rx", 5)
-            .attr("fill", function(d) { return interactionColors[d.interactionType] || "#6b7280"; })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
             .attr("stroke", function(d) {
-                var c = d3.color(interactionColors[d.interactionType] || "#6b7280");
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
                 return c ? c.darker(0.5) : "#4b5563";
             })
             .attr("stroke-width", 1.5);
