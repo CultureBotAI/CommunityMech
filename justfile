@@ -235,9 +235,21 @@ gen-qc-dashboard:
 # Dry-run by default → reports/knowledge_gap_scan.{json,md}. Pass `--apply`
 # (and e.g. --limit/--min-score) to seed Discussion(kind=KNOWLEDGE_GAP).
 # Nested repo → PYTHONPATH is ../../culturebotai-claw/src.
+# Portable so CI can run it: `python3` from PATH rather than a Homebrew path, and
+# CLAW_SRC to relocate the claw checkout (CI checks claw out as a sibling). The
+# guard is deliberately fail-loud — a skip-when-missing variant of this pattern is
+# what let a vendored-sync job pass while checking nothing (CultureMech#112 lane).
 knowledge-gap-scan *args:
-    PYTHONPATH=../../culturebotai-claw/src /opt/homebrew/bin/python3.13 \
-      -m kg_microbe_kgscan --config conf/kgscan_config.yaml {{args}}
+    #!/usr/bin/env bash
+    set -euo pipefail
+    claw_src="${CLAW_SRC:-../../culturebotai-claw/src}"
+    if [ ! -d "$claw_src/kg_microbe_kgscan" ]; then
+      echo "knowledge-gap-scan: kg_microbe_kgscan not found under '$claw_src'." >&2
+      echo "Set CLAW_SRC to the src/ directory of a culturebotai-claw checkout." >&2
+      exit 1
+    fi
+    PYTHONPATH="$claw_src" python3 -m kg_microbe_kgscan \
+      --config conf/kgscan_config.yaml {{args}}
 
 # Generate all HTML (communities + UMAP)
 gen-all: gen-html gen-umap

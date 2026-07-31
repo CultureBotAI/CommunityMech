@@ -13,6 +13,10 @@ name: Network Quality Check
 # The LLM repair-suggestion job calls the Anthropic API and posts comments, so
 # it runs only when explicitly requested via workflow_dispatch — never
 # automatically on a push or pull request.
+#
+# On a pull request this maintains exactly ONE findings comment, keyed by a
+# hidden marker and updated in place (#285). It also triggers on changes to
+# itself, so an edit here is exercised by the run it produces.
 
 on:
   pull_request:
@@ -20,6 +24,10 @@ on:
       - 'kb/communities/*.yaml'
       - 'src/communitymech/network/**'
       - 'src/communitymech/schema/**'
+      # Self-triggering, so a change to this workflow is exercised by the
+      # workflow itself rather than shipped untested. The sibling
+      # label-correspondence.yaml already does this.
+      - '.github/workflows/network-quality.yml'
   push:
     branches:
       - main
@@ -112,42 +120,92 @@ jobs:
             } >> "$GITHUB_STEP_SUMMARY"
           fi
 
+      # Maintains ONE comment per pull request, keyed by a hidden marker, rather
+      # than appending a fresh copy of a report that can run to 60 KB on every
+      # push (issue #285 — two pushes on #284 produced two identical comments).
+      #
       # Left non-fatal on purpose: a pull request from a fork gets a read-only
       # token, and failing to post a comment must not redden a reporting-only job.
       - name: Comment on PR with findings
-        if: >-
-          steps.audit.outcome == 'failure'
-          && hashFiles('reports/network_audit.txt') != ''
-          && github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request'
         continue-on-error: true
         uses: actions/github-script@v7
+        env:
+          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
         with:
           script: |
             const fs = require('fs');
-            const report = fs.readFileSync('reports/network_audit.txt', 'utf8');
-            const maxLength = 60000;
-            const truncated = report.length > maxLength
-              ? report.substring(0, maxLength) + '\n\n... (truncated)'
-              : report;
+            const MARKER = '<!-- network-quality-findings -->';
+            const REPORT = 'reports/network_audit.txt';
 
-            const body = [
-              '## Network integrity findings',
-              '',
-              'Reporting only — this check does not fail the build (see issue #273).',
-              '',
-              '```',
-              truncated,
-              '```',
-              '',
-              'The full report is attached to the workflow run as an artifact.',
-            ].join('\n');
+            const outcome = process.env.AUDIT_OUTCOME;
+            const hasReport = fs.existsSync(REPORT);
 
-            await github.rest.issues.createComment({
+            // Crash (non-zero, no report): the job already fails loudly, and a
+            // stale findings comment is better left untouched than overwritten
+            // with something that reads like the findings were resolved.
+            if (outcome === 'failure' && !hasReport) return;
+
+            const hasFindings = outcome === 'failure';
+
+            // Paginate — the default page size is 30, and on a long-lived pull
+            // request our marker would fall off the first page, so the comment
+            // would be missed and a duplicate posted anyway.
+            const comments = await github.paginate(github.rest.issues.listComments, {
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body,
+              per_page: 100,
             });
+            const existing = comments.find((c) => c.body && c.body.includes(MARKER));
+
+            // Nothing to report and nothing said before: stay silent rather than
+            // posting "no findings" on every unrelated pull request.
+            if (!hasFindings && !existing) return;
+
+            let body;
+            if (hasFindings) {
+              const report = fs.readFileSync(REPORT, 'utf8');
+              const maxLength = 60000;
+              const truncated = report.length > maxLength
+                ? report.substring(0, maxLength) + '\n\n... (truncated)'
+                : report;
+              body = [
+                MARKER,
+                '## Network integrity findings',
+                '',
+                'Reporting only — this check does not fail the build (see issue #273).',
+                '',
+                '```',
+                truncated,
+                '```',
+                '',
+                'The full report is attached to the workflow run as an artifact.',
+              ].join('\n');
+            } else {
+              body = [
+                MARKER,
+                '## Network integrity: no findings',
+                '',
+                'Findings reported earlier on this pull request are now resolved.',
+              ].join('\n');
+            }
+
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body,
+              });
+            }
 
       # Deliberately after the reporting steps, so the summary is written before
       # the job goes red. Findings are reporting-only; a crash is not.
