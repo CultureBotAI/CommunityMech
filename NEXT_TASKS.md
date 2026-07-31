@@ -379,6 +379,51 @@ The self-generated sha256 pin (`verify-/refresh-validator-pin`, the
 `VENDORED_IDLABEL_FILES` manifest, `scripts/.validate_id_label_correspondence.sha256`)
 was then retired (Phase 2 step 2d). `schema-pin` is a separate set, unaffected.
 
+**Settled architecture — CultureMech stays the hub (confirmed 2026-07-30).**
+Recorded because the alternative was tried and reverted, and a stale version of
+it has been circulating in sibling backlogs: claw PR #21 ("Enforce id-label
+vendored files match claw canonical") moved the canonical source into
+culturebotai-claw on 2026-07-22 and was **reverted by claw PR #22** on 2026-07-25
+as off-model for claw-as-mirror. The settled design (claw #19, restated in #22)
+is that **CultureMech is the hub and `claw/shared/idlabel/` is a passive mirror
+of it**, with both directions covered: spokes == hub via CultureMech's
+`scripts/audit_vendored_fleet.sh` (nightly `vendored-fleet-audit.yml`), and
+mirror == hub via claw's `matches-hub` job, which claw PR #24 put on a nightly
+schedule (2026-07-25, closes claw #23) — until then it fired only on claw-side
+changes and so could never notice the hub moving. So: do **not** repoint
+`CANON_REPO` or bump `.vendored_canon_ref` to a claw commit. Any note that this
+is "blocked on claw being made public", or that claw Actions fail on exhausted
+runner minutes, is stale — claw is still private, that blocks nothing now, and
+its scheduled runs were green daily 2026-07-25 through 2026-07-30. **CommunityMech
+never carried that claim** (verified 2026-07-30: `CANON_REPO` here is
+`CultureBotAI/CultureMech` and `.vendored_canon_ref` is `6be694f3`, matching MIM
+and TraitMech); this paragraph guards against re-proposing it rather than
+correcting anything.
+
+**`check_vendored_sync.sh` drift — RESOLVED; but the script itself is unguarded.**
+TraitMech's backlog flagged this script as having drifted specifically in
+CommunityMech. It has since converged: MIM, TraitMech and CommunityMech all carry
+**byte-identical** copies (sha256 `f05b5ad6…`) against the same
+`scripts/.vendored_canon_ref` = `6be694f3`, and TraitMech's own "Re-converge
+drift check on CultureMech hub" (TraitMech #182, alongside CommunityMech #247 and
+MIM #157) is what closed it. Nothing to do here.
+
+**Remaining gap this surfaced — the enforcer is outside the invariant it
+enforces.** Neither guard covers `scripts/check_vendored_sync.sh` or
+`scripts/.vendored_canon_ref` themselves. The hub's `audit_vendored_fleet.sh`
+compares five vendored files plus `mech_shared.yaml` across all four repos, and
+each spoke's check compares the same set — but the script doing the checking
+exists **only in the three spokes and never in the hub**, so there is no
+canonical copy to diff it against. The three are identical today; nothing keeps
+them that way, and a one-copy edit to the checker would go unnoticed by exactly
+the mechanism designed to catch one-copy edits. Two ways to close it: vendor the
+script into CultureMech so it joins `FILES` in both scripts, or teach
+`audit_vendored_fleet.sh` a spoke-only list that cross-compares the three copies
+against each other. Low effort, and it is the same class of gap as the ungated
+enum `meaning:` groundings in §0 and the palette↔enum gap fixed in #268.
+**Filed as #278**, with the verification table (all three spokes at sha256
+`f05b5ad6…`, hub absent) recorded there.
+
 Update (2026-06-15): **TraitMech has now joined** — the trio is a **4-repo
 invariant**. TraitMech vendored the validator + tests byte-identical (same
 `142bbe1…` / `55a432…` / `f01d22…` manifest) and enforces a blocking
