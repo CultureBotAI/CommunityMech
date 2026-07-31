@@ -625,13 +625,13 @@
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
-                        <span class="legend-swatch legend-circle" style="background: #94a3b8;"></span> Taxon
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #22c55e;"></span> Cross-feeding
+                        <span class="legend-swatch" style="background: #57c7ab;"></span> Cross-feeding
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #3b82f6;"></span> Mutualism
+                        <span class="legend-swatch" style="background: #56bbe6;"></span> Mutualism
                     </div>
                 </div>
             </div>
@@ -1005,17 +1005,17 @@
     <script>
     (function() {
         var interactionColors = {
-            "CROSS_FEEDING": "#22c55e",
-            "MUTUALISM": "#3b82f6",
-            "SYNTROPHY": "#a855f7",
-            "COMPETITION": "#ef4444",
-            "COMMENSALISM": "#f97316",
-            "NICHE_PARTITIONING": "#14b8a6",
-            "COLONIZATION_FACILITATION": "#eab308",
-            "STRAIN_COMPETITION": "#fb7185",
-            "PREDATION": "#dc2626"
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#56bbe6",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "COMMENSALISM": "#cf7830",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12",
+            "STRAIN_COMPETITION": "#cf30b7",
+            "PREDATION": "#913079"
         };
-        var unmappedColor = "#6b7280";
+        var unmappedColor = "#929caa";
 
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
@@ -1220,8 +1220,8 @@
         node.filter(function(d) { return d.type === "taxon"; })
             .append("circle")
             .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
-            .attr("fill", "#94a3b8")
-            .attr("stroke", "#475569")
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
             .attr("stroke-width", 1.5);
 
         // Interaction nodes: rounded rects
