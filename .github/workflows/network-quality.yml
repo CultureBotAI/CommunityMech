@@ -1,5 +1,19 @@
 name: Network Quality Check
 
+# Reports network integrity findings (dangling interaction references and
+# taxa with no interactions) for changed community records.
+#
+# This workflow could not be parsed by GitHub until #272 and so had never run.
+# It is deliberately **reporting-only**: `communitymech audit-network` currently
+# finds 26 issues across 8 records, 22 of which are DISCONNECTED (a taxon with
+# no curated interaction), which is a curation-completeness signal rather than a
+# broken reference. Failing on those would redden `main` on every KB push. See
+# #273 for triaging the findings and restoring the hard gate afterwards.
+#
+# The LLM repair-suggestion job calls the Anthropic API and posts comments, so
+# it runs only when explicitly requested via workflow_dispatch — never
+# automatically on a push or pull request.
+
 on:
   pull_request:
     paths:
@@ -12,6 +26,16 @@ on:
       - manual-network-curation
     paths:
       - 'kb/communities/*.yaml'
+  workflow_dispatch:
+    inputs:
+      suggest_repairs:
+        description: 'Also generate LLM repair suggestions (calls the Anthropic API — incurs cost)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   audit-network:
@@ -35,57 +59,117 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras
 
+      # `--report` writes the detailed report *and* exits 1 when issues exist,
+      # so one invocation gives us both the artifact and the outcome. The step
+      # is allowed to fail; every downstream condition keys off
+      # `steps.audit.outcome`, not `failure()`, because `continue-on-error`
+      # keeps the job green and would make `failure()` permanently false.
       - name: Run network integrity audit
         id: audit
         run: |
-          uv run communitymech audit-network --check-only
-        continue-on-error: true
-
-      - name: Generate detailed report
-        if: failure()
-        run: |
           mkdir -p reports
           uv run communitymech audit-network --report reports/network_audit.txt
-          uv run communitymech audit-network --json > reports/network_audit.json
+        continue-on-error: true
 
-      - name: Upload audit reports
-        if: failure()
+      - name: Upload audit report
+        if: hashFiles('reports/network_audit.txt') != ''
         uses: actions/upload-artifact@v4
         with:
-          name: network-audit-reports
-          path: |
-            reports/network_audit.txt
-            reports/network_audit.json
+          name: network-audit-report
+          path: reports/network_audit.txt
 
-      - name: Comment on PR with issues
-        if: failure() && github.event_name == 'pull_request'
+      # Three outcomes have to be told apart, because two of them look identical
+      # through `steps.audit.outcome` alone:
+      #   clean     — exit 0
+      #   findings  — exit 1, report written        → reporting-only (see #273)
+      #   crash     — exit 2, no report written     → must be loud
+      # A malformed community YAML produces the third (issue #281 — one bad file
+      # aborts the whole audit), and that is exactly when this check matters
+      # most, so it must not be reported as "findings" or swallowed.
+      # `hashFiles` is empty when the file does not exist.
+      - name: Write job summary
+        if: always()
+        run: |
+          if [ "${{ steps.audit.outcome }}" != "failure" ]; then
+            echo "## Network integrity: no issues found" >> "$GITHUB_STEP_SUMMARY"
+          elif [ -f reports/network_audit.txt ]; then
+            {
+              echo "## Network integrity findings"
+              echo
+              echo "Reporting only — this check does not fail the build (see issue #273)."
+              echo
+              echo '```'
+              head -c 60000 reports/network_audit.txt
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "## Network integrity audit failed to run"
+              echo
+              echo "\`audit-network\` exited non-zero without writing a report, which"
+              echo "means it crashed rather than finding issues — a malformed"
+              echo "community YAML will do this. See the audit step log."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      # Left non-fatal on purpose: a pull request from a fork gets a read-only
+      # token, and failing to post a comment must not redden a reporting-only job.
+      - name: Comment on PR with findings
+        if: >-
+          steps.audit.outcome == 'failure'
+          && hashFiles('reports/network_audit.txt') != ''
+          && github.event_name == 'pull_request'
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
             const report = fs.readFileSync('reports/network_audit.txt', 'utf8');
             const maxLength = 60000;
-            const truncatedReport = report.length > maxLength
+            const truncated = report.length > maxLength
               ? report.substring(0, maxLength) + '\n\n... (truncated)'
               : report;
 
-            github.rest.issues.createComment({
+            const body = [
+              '## Network integrity findings',
+              '',
+              'Reporting only — this check does not fail the build (see issue #273).',
+              '',
+              '```',
+              truncated,
+              '```',
+              '',
+              'The full report is attached to the workflow run as an artifact.',
+            ].join('\n');
+
+            await github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `## ❌ Network Integrity Issues Detected\n\n\`\`\`\n${truncatedReport}\n\`\`\`\n\n📊 Download full reports from the workflow artifacts.`
+              body,
             });
 
-      - name: Fail if issues found
-        if: steps.audit.outcome == 'failure'
-        run: exit 1
+      # Deliberately after the reporting steps, so the summary is written before
+      # the job goes red. Findings are reporting-only; a crash is not.
+      - name: Fail if the audit could not run
+        if: steps.audit.outcome == 'failure' && hashFiles('reports/network_audit.txt') == ''
+        run: |
+          echo "audit-network exited non-zero and wrote no report." >&2
+          echo "That is a crash, not a set of findings — see the audit step log above." >&2
+          exit 1
 
-  # LLM-assisted repair suggestions (requires ANTHROPIC_API_KEY secret)
+  # LLM-assisted repair suggestions. Manual-only: this calls the Anthropic API
+  # and writes PR comments, so it must never be triggered by an ordinary push.
   suggest-repairs:
     runs-on: ubuntu-latest
     needs: audit-network
-    if: failure()
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.suggest_repairs }}
     name: Generate Repair Suggestions
+
+    # `secrets` is not available in a step-level `if`, so surface the presence
+    # of the key as a job-level env var and test that instead.
+    env:
+      HAS_ANTHROPIC_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
 
     steps:
       - name: Checkout repository
@@ -104,8 +188,14 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras
 
+      - name: Fail early if the API key is missing
+        if: env.HAS_ANTHROPIC_KEY != 'true'
+        run: |
+          echo "ANTHROPIC_API_KEY is not configured for this repository." >&2
+          echo "Set the secret before requesting repair suggestions." >&2
+          exit 1
+
       - name: Generate LLM repair suggestions
-        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
@@ -114,47 +204,9 @@ jobs:
             --output reports/repair_suggestions.yaml \
             --max-communities 20 \
             --max-issues 3
-        continue-on-error: true
 
       - name: Upload repair suggestions
-        if: ${{ secrets.ANTHROPIC_API_KEY != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: network-repair-suggestions
           path: reports/repair_suggestions.yaml
-
-      - name: Comment on PR with suggestions summary
-        if: github.event_name == 'pull_request' && secrets.ANTHROPIC_API_KEY != ''
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const fs = require('fs');
-            try {
-              const report = fs.readFileSync('reports/repair_suggestions.yaml', 'utf8');
-              const yaml = require('js-yaml');
-              const data = yaml.load(report);
-
-              const summary = `## 🤖 LLM Repair Suggestions Available
-
-**Communities with Issues**: ${data.communities_with_issues}
-**Total Suggestions**: ${data.total_suggestions}
-**Estimated Cost**: $${data.cost_estimate.total_cost_usd.toFixed(2)}
-
-📥 Download the full repair report from the workflow artifacts.
-
-**Next Steps**:
-1. Download \`network-repair-suggestions\` artifact
-2. Review suggested repairs
-3. Set \`approved: true\` for suggestions to apply
-4. Run \`just apply-batch-repairs reports/repair_suggestions.yaml\`
-`;
-
-              github.rest.issues.createComment({
-                issue_number: context.issue.number,
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                body: summary
-              });
-            } catch (error) {
-              console.log('Could not post suggestions summary:', error);
-            }
