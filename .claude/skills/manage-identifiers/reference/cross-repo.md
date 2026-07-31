@@ -1,6 +1,6 @@
 # Cross-Repository Reference (collection types, other repos, integration, roadmap)
 
-*Reference for the **manage-identifiers** skill — see [`../skill.md`](../skill.md) for the CommunityMech overview and core workflow.*
+*Reference for the **manage-identifiers** skill — see [`../SKILL.md`](../SKILL.md) for the CommunityMech overview and core workflow.*
 
 ---
 
