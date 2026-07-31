@@ -104,8 +104,8 @@ expecting a quick win.
 
 ### In flight
 
-**Nothing is in flight — no open PRs as of this reconcile.** PRs #268, #274, #275
-and #279 all merged 2026-07-31 UTC.
+**No work is in flight — PR #283 is this reconcile and nothing else is open.**
+PRs #268, #274, #275 and #279 all merged 2026-07-31 UTC, clearing the batch.
 
 - **PR #274** (#272) — **MERGED** (`d588f3d`). `network-quality.yml` parses and
   runs for the first time; **#273 is no longer gated** and is the top of the
