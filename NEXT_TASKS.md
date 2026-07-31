@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-29.
+Last reconciled: 2026-07-30.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -301,6 +301,102 @@ ruff and black in `pyproject.toml` (they are externally-canonical and pin-locked
 local restyling would break the pin). `lint` + `verify-validator-pin` are both
 green again. NOTE for sibling Mech repos: if any also run a ruff/black gate, apply
 the same exclude.
+
+## Per-community network rendering + CI hygiene (2026-07-30)
+
+Started from the last remaining in-repo item on the **web design review (#199)** —
+the other four open issues (#259, #183, #182, #30) are all blocked on things this
+repo cannot supply (publisher access, curator judgment, sibling-repo schema).
+
+**Legend renders only the types present — DONE (2026-07-30, PR #268).** The
+network legend in `src/communitymech/templates/community.html` was a static block
+of ten rows (a Taxon swatch plus all nine interaction types) emitted on every
+page regardless of content. Of the 300 pages with a network, only 857 legend rows
+were meaningful — 120 pages needed 2 rows, 108 needed 3, 67 needed 4, 5 needed 5 —
+so ~2,100 rows advertised categories the graph did not contain. The nine colours
+now live in one `interaction_legend` list driving **both** the legend and the
+script's `interactionColors` map (previously two hand-maintained copies), the SVG
+`<desc>` lists the actual types, and a typeless interaction gets the grey "Other"
+swatch the script already draws it with (one record,
+`SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus`). The second #199 item — delete
+`templates/community.html.j2` — was **already done**; note the surviving
+`src/communitymech/templates/community.html.j2` is a **different, live** file
+driving `just gen-community-pages`, so do not delete it. **#199 stays open** for
+its two cosmetic items (hero gradient, filter placement).
+
+**Palette was not colourblind-safe — DONE (2026-07-30, PR #268, issue #269).**
+The nine interaction colours never got the CVD treatment PR #198 applied to the
+UMAP. Measuring CIE ΔE under simulated protanopia/deuteranopia
+(Viénot–Brettel–Mollon), **10 of 55 swatch pairs sat below ΔE 15**. Two mattered:
+COMPETITION `#ef4444` / PREDATION `#dc2626` were **ΔE 10.7 apart in *normal*
+vision** (a plain legibility bug, not just accessibility), and MUTUALISM/SYNTROPHY
+collapsed to **ΔE 4.1 under deuteranopia** — the 2nd and 3rd most common
+interaction types (187 and 130 occurrences). Full-set minimum went 0.0 → **15.4**
+(0.0 because taxon and MUTUALISM shared `#3b82f6`; a taxon circle and a mutualism
+rectangle were the same colour). Semantics kept where they didn't conflict
+(cross-feeding green, mutualism blue, syntrophy purple, competition red);
+predation moved off red, niche partitioning off teal. **Curation note:** the
+taxon/"Other" neutrals must be re-picked *with* the hues, not after — the first
+candidate plum for PREDATION landed ΔE 6.5 from the grey "Other" swatch.
+
+**Palette↔enum gate — DONE (2026-07-30, PR #268, issue #271).** Nothing tied the
+template palette to `InteractionTypeEnum`; a tenth enum value would have rendered
+silently grey on every page without failing anything — the same class of gap as
+the enum-`meaning:` groundings in §0. `tests/test_network_palette.py` asserts
+exact enum coverage and pins the ΔE floor, in the blocking `validate-strict`
+pytest step, no network. Mutation-verified: restoring the old reds fails 4 tests,
+dropping a type fails the coverage test.
+
+### Still open from this batch
+
+1. **Redundant (non-colour) encoding for interaction type (#270).** Every
+   interaction is the same rounded rectangle, so colour is the *only* channel
+   separating nine types. That is past what colour can carry: reaching ΔE ~30
+   needs an aesthetically extreme set that collapses back to ΔE 5–9 if any single
+   colour shifts, and tritanopia still merges two of them — **there is no
+   nine-colour set safe under all three deficiency types.** `community_umap.html`
+   already solves this with a `symbolScale` (its legend is literally "Legend
+   (Color + Shape)") and gets away with a ΔE 6.9 palette because colour isn't
+   load-bearing. Options: `d3.symbol()` per type, a letter inside each rect, or
+   varied stroke style. This is the real fix; the palette swap only raised the floor.
+2. **`network-quality.yml` triage (#273), gated behind PR #274.** See below.
+
+**`network-quality.yml` had never run — FIX OPEN (PR #274, issue #272).** GitHub
+could not parse the file, so all 15 most recent runs failed in **0 seconds** and
+the network audit never executed once. Tell-tale: the Actions API lists it under
+its *path* rather than its `name:`, unlike every other workflow. Three defects,
+only the first visible: (a) lines 139–150 were a JS template literal at column 0,
+outside the `script: |` block scalar — indenting them would have fixed the parse
+*and* baked 12 spaces into every line of the posted comment, so the message is now
+array-joined (that step is dropped outright); (b) `secrets.ANTHROPIC_API_KEY` in
+three step-level `if:`s, where the `secrets` context is unavailable — now a
+job-level `env`; (c) `Generate detailed report` / `Upload audit reports` /
+`Comment on PR` guarded by `failure()` while the audit step sets
+`continue-on-error: true`, which keeps the job green and leaves `failure()`
+permanently false — **even with the file parsing, none of those steps would have
+run.** Now keyed off `steps.audit.outcome`.
+
+Two judgment calls in #274, both revisitable: the audit **reports without
+failing** (see #273), and `suggest-repairs` is **`workflow_dispatch`-only** — it
+calls the Anthropic API for up to 20 records and previously fired automatically on
+every audit failure, which given the standing findings means every push.
+
+**#273 — triage the 26 findings, then restore the gate.** The audit finds 26
+issues across 8 records, and they are not one kind of problem: **22 `DISCONNECTED`**
+(a taxon with no curated interaction — a completeness signal; a record may
+legitimately list a member whose interactions aren't curated yet) and **4 genuine
+dangling references**, all in `ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia`,
+whose interactions cite `ANME-1`, `ANME-2a`, `Desulfofervidus` and `Seep-SRB1` —
+none present in that record's `taxonomy`. Same class as the 14 causal edges fixed
+in PR #264, but resolving them means deciding whether to add those taxa (NCBITaxon
++ evidence) or rewrite the interactions against the listed taxa, so it needs a
+curator, not a mechanical pass. Also in #273: `IssueType` in
+`network/auditor.py` carries **no severity** (unlike `network/validators.py`'s
+error/warning split), so `--check-only` cannot separate a dangling reference from
+an uncurated taxon; and **`audit-network --json` is broken** — `cli.py:90` prints
+the JSON *after* `audit_all()` has already written the human report to stdout, so
+`--json > out.json` cannot produce valid JSON (the workflow's JSON artifact was
+dropped in #274 because of it).
 
 ## Adopt DisMech knowledge-gaps + datasets + QC dashboard (claw#7)
 
