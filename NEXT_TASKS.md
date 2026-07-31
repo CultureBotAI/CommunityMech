@@ -5,7 +5,100 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-29.
+Last reconciled: 2026-07-30.
+
+## Priority menu (reconciled 2026-07-30)
+
+Ranked, **actionable-now** work. Everything here was re-measured against the KB
+on this date — three long-standing numbers below had drifted and are corrected
+in place. Blocked items are listed further down so the gaps are explained, not
+hidden; **do not** pull them off the shelf as "next".
+
+| # | Item | Size | Why this rank |
+|---|---|---|---|
+| 1 | **GTDB grounding backfill** (#276, `ground-taxa-gtdb`) | L, mechanical | Largest unblocked gap in the KB and the only one needing nothing external |
+| 2 | **Network audit triage (#273)** | M | Unblocks restoring a CI gate; 4 real bugs are fully specified |
+| 3 | **Causal-edge curation, next batch** | M per record | Active thread with a worked method; highest scientific value per record |
+| 4 | **Growth conditions for the 25 curatable ENGINEERED records** (#183 slice) | M | Less paywalled than #183 claims — 6 were never even attempted |
+| 5 | **Redundant encoding in the network diagram (#270)** | S–M | Self-contained frontend work, fully specified |
+| 6 | **Decide the #182 ontology remaps** | S | A curator decision, not an implementation task |
+| 7 | **Inline the four dangling `[[wiki-links]]` (#277)** | S | Doc hygiene; §1 leans on one for its blocked-item rationale |
+| 8 | **Auto-fetch the Unpaywall OA location (#259 slice)** | S | Self-contained; drops the manual `--from-file` step for OA-but-not-PMC sources |
+
+**Recommended next: #1, GTDB grounding.** It is the biggest coverage gap that
+depends on nothing outside this repo — the mapping table is local
+(kg-microbe `NCBI2GTDB.tsv.gz`) and the `ground-taxa-gtdb` skill already exists.
+It needs no literature access, no curator judgment calls, and no sibling repo.
+Measured 2026-07-30: **569/995 taxa (57%) carry `gtdb_classification`**, spread
+as **91 records fully grounded, 140 partially, 72 with none**. The *partial* 140
+are the sharpest problem — a single record where some taxa carry a GTDB
+classification and others don't is internally inconsistent, and that is exactly
+what a downstream KGX consumer will trip over. Finishing the partials first is
+the cheapest way to make the field trustworthy. Note the skill also surfaces
+GTDB reclassifications (NCBI *Agrobacterium deltae* → GTDB *A. leguminum*), so
+this is a correctness pass, not only a coverage one.
+
+### Numbers corrected this reconcile
+
+- **Causal-edge coverage: 59/305, not "~65/304".** The "Causal-graph curation"
+  section below overstated it. 246 records carry no `downstream` edge.
+- **Records with no growth conditions: 80/305, not "52/295"** as issue #183
+  states. But the shortfall is smaller than that sounds: **52 of the 80 are
+  STABLE or PERTURBED** (34 + 18) field communities that legitimately have no
+  cultivation conditions — all NATURAL-origin, though note **57** of the 80 carry
+  `community_origin: NATURAL`, the extra 5 being NATURAL-origin records that are
+  ENGINEERED in `ecological_state` and so counted in the 28 below. The split that
+  matters is by `ecological_state`. The curatable slice is the **28 ENGINEERED**
+  records, and even that includes three pure computational models
+  (`BioModels_…`, two `KBase_…`) which honestly have none. Real target:
+  **25 records** — see the #183 section, which names them.
+- **GTDB coverage was never tracked here at all** — no section mentioned it
+  despite the schema slot and skill both existing. Added as item 1.
+
+### Blocked — keep, but never recommend as "next"
+
+- **#259** (the non-OA remainder only) — sources that are in neither Europe PMC
+  nor any OA location; there `cache_fulltext.py --from-file` is the honest escape
+  hatch, not a gap to close. **The rest of #259 is not blocked** — most of the
+  issue shipped in #260/#261 and the Unpaywall fetch is item 8 above. This entry
+  used to read "general case: publishers that block programmatic download", which
+  overstated it.
+- **#183** (thin membership, `000274` + `000285`) — needs institutional
+  full-text access. The *growth-conditions* half of #183 is **not** wholly
+  blocked; see its section.
+- **#30** — waiting on CultureMech / MediaIngredientMech schema; §2 records that
+  this repo has no actionable remainder.
+- **§1 `validate-terms-all`** — blocked, but not as uniformly as this entry used
+  to claim. Per §1's own 2026-06-17 triage, roughly **14 of the 34** residuals
+  (~9 CHEBI + 3 ENVO + 2 NCBITaxon) need a term that does not exist and that we
+  cannot mint — those are the genuinely upstream-blocked ones. The **~12 obsolete
+  GO ids need a curator-accepted repoint, not minting**, and §1 records one
+  near-repoint already found (`CHEBI:86154` sodium metasilicate → `CHEBI:60720`
+  sodium silicate, a generalisation, not applied). So the gate stays blocked
+  overall — it fails on any unresolved row — but part of the 34 is decidable here.
+- **Space-regolith, remaining 4** — membership is commercial or undefined, so
+  members cannot be grounded to NCBITaxon. Revisit only if a follow-up study
+  names them.
+
+### In flight
+
+- **PR #274** (#272) — `network-quality.yml` repair. **#273 is gated behind it.**
+- **PR #275** — this reconcile.
+- **#199** stays open for two cosmetic items (hero gradient, filter placement). Its
+  checkboxes were stale — the legend item and the stale-template item were both
+  done but still unticked; reconciled on the issue 2026-07-30, so the issue and
+  this file now agree.
+
+### Cross-Mech note (advisory — sibling repos not edited)
+
+The file header asks that cross-Mech items stay in sync with CultureMech / MIM /
+TraitMech. Nothing changed in this reconcile touches the two designated
+cross-Mech threads (§2 `#30`, §3 validator pin), so **no sync is owed**. One
+observation worth passing on rather than acting on: **CultureMech and TraitMech
+both ground taxa to NCBITaxon but neither tracks GTDB**, and neither mentions it
+in its `NEXT_TASKS.md`. If #276 establishes a house pattern here, those two are
+the natural next adopters — but that is their call, not a divergence this repo
+introduced.
 
 ## 0. Element enum CHEBI groundings are wrong + ungated (found 2026-07-18)
 
@@ -302,6 +395,284 @@ local restyling would break the pin). `lint` + `verify-validator-pin` are both
 green again. NOTE for sibling Mech repos: if any also run a ruff/black gate, apply
 the same exclude.
 
+## Per-community network rendering + CI hygiene (2026-07-30)
+
+Started from the last remaining in-repo item on the **web design review (#199)** —
+the other four open issues (#259, #183, #182, #30) are all blocked on things this
+repo cannot supply (publisher access, curator judgment, sibling-repo schema).
+
+**Legend renders only the types present — DONE (2026-07-30, PR #268).** The
+network legend in `src/communitymech/templates/community.html` was a static block
+of ten rows (a Taxon swatch plus all nine interaction types) emitted on every
+page regardless of content. Of the 300 pages with a network, only 857 legend rows
+were meaningful — 120 pages needed 2 rows, 108 needed 3, 67 needed 4, 5 needed 5 —
+so ~2,100 rows advertised categories the graph did not contain. The nine colours
+now live in one `interaction_legend` list driving **both** the legend and the
+script's `interactionColors` map (previously two hand-maintained copies), the SVG
+`<desc>` lists the actual types, and a typeless interaction gets the grey "Other"
+swatch the script already draws it with (one record,
+`SynCom_Sesame_Flavor_Baijiu_Fuqu_13Genus`). The second #199 item — delete
+`templates/community.html.j2` — was **already done**; note the surviving
+`src/communitymech/templates/community.html.j2` is a **different, live** file
+driving `just gen-community-pages`, so do not delete it. **#199 stays open** for
+its two cosmetic items (hero gradient, filter placement).
+
+**Palette was not colourblind-safe — DONE (2026-07-30, PR #268, issue #269).**
+The nine interaction colours never got the CVD treatment PR #198 applied to the
+UMAP. Measuring CIE ΔE under simulated protanopia/deuteranopia
+(Viénot–Brettel–Mollon), **10 of 55 swatch pairs sat below ΔE 15**. Two mattered:
+COMPETITION `#ef4444` / PREDATION `#dc2626` were **ΔE 10.7 apart in *normal*
+vision** (a plain legibility bug, not just accessibility), and MUTUALISM/SYNTROPHY
+collapsed to **ΔE 4.1 under deuteranopia** — the 2nd and 3rd most common
+interaction types (187 and 130 occurrences). Full-set minimum went 0.0 → **15.4**
+(0.0 because taxon and MUTUALISM shared `#3b82f6`; a taxon circle and a mutualism
+rectangle were the same colour). Semantics kept where they didn't conflict
+(cross-feeding green, mutualism blue, syntrophy purple, competition red);
+predation moved off red, niche partitioning off teal. **Curation note:** the
+taxon/"Other" neutrals must be re-picked *with* the hues, not after — the first
+candidate plum for PREDATION landed ΔE 6.5 from the grey "Other" swatch.
+
+**Palette↔enum gate — DONE (2026-07-30, PR #268, issue #271).** Nothing tied the
+template palette to `InteractionTypeEnum`; a tenth enum value would have rendered
+silently grey on every page without failing anything — the same class of gap as
+the enum-`meaning:` groundings in §0. `tests/test_network_palette.py` asserts
+exact enum coverage and pins the ΔE floor, in the blocking `validate-strict`
+pytest step, no network. Mutation-verified: restoring the old reds fails 4 tests,
+dropping a type fails the coverage test.
+
+### Still open from this batch
+
+1. **Redundant (non-colour) encoding for interaction type (#270).** Every
+   interaction is the same rounded rectangle, so colour is the *only* channel
+   separating nine types. That is past what colour can carry: reaching ΔE ~30
+   needs an aesthetically extreme set that collapses back to ΔE 5–9 if any single
+   colour shifts, and tritanopia still merges two of them — **there is no
+   nine-colour set safe under all three deficiency types.** `community_umap.html`
+   already solves this with a `symbolScale` (its legend is literally "Legend
+   (Color + Shape)") and gets away with a ΔE 6.9 palette because colour isn't
+   load-bearing. Options: `d3.symbol()` per type, a letter inside each rect, or
+   varied stroke style. This is the real fix; the palette swap only raised the floor.
+2. **`network-quality.yml` triage (#273), gated behind PR #274.** See below.
+
+**`network-quality.yml` had never run — FIX OPEN (PR #274, issue #272).** GitHub
+could not parse the file, so all 15 most recent runs failed in **0 seconds** and
+the network audit never executed once. Tell-tale: the Actions API lists it under
+its *path* rather than its `name:`, unlike every other workflow. Three defects,
+only the first visible: (a) lines 139–150 were a JS template literal at column 0,
+outside the `script: |` block scalar — indenting them would have fixed the parse
+*and* baked 12 spaces into every line of the posted comment, so the message is now
+array-joined (that step is dropped outright); (b) `secrets.ANTHROPIC_API_KEY` in
+three step-level `if:`s, where the `secrets` context is unavailable — now a
+job-level `env`; (c) `Generate detailed report` / `Upload audit reports` /
+`Comment on PR` guarded by `failure()` while the audit step sets
+`continue-on-error: true`, which keeps the job green and leaves `failure()`
+permanently false — **even with the file parsing, none of those steps would have
+run.** Now keyed off `steps.audit.outcome`.
+
+Two judgment calls in #274, both revisitable: the audit **reports without
+failing** (see #273), and `suggest-repairs` is **`workflow_dispatch`-only** — it
+calls the Anthropic API for up to 20 records and previously fired automatically on
+every audit failure, which given the standing findings means every push.
+
+**#273 — triage the 26 findings, then restore the gate.** The audit finds 26
+issues across 8 records, and they are not one kind of problem: **22 `DISCONNECTED`**
+(a taxon with no curated interaction — a completeness signal; a record may
+legitimately list a member whose interactions aren't curated yet) and **4 genuine
+dangling references**, all in `ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia`,
+whose interactions cite `ANME-1`, `ANME-2a`, `Desulfofervidus` and `Seep-SRB1` —
+none present in that record's `taxonomy`. Same class as the 14 causal edges fixed
+in PR #264, but resolving them means deciding whether to add those taxa (NCBITaxon
++ evidence) or rewrite the interactions against the listed taxa, so it needs a
+curator, not a mechanical pass. Also in #273: `IssueType` in
+`network/auditor.py` carries **no severity** (unlike `network/validators.py`'s
+error/warning split), so `--check-only` cannot separate a dangling reference from
+an uncurated taxon; and **`audit-network --json` is broken** — `cli.py:91` prints
+the JSON *after* `audit_all()` has already written the human report to stdout, so
+`--json > out.json` cannot produce valid JSON (the workflow's JSON artifact was
+dropped in #274 because of it). The issue also asks for two decisions not covered
+above: a **policy on `DISCONNECTED`** — either curate interactions for the 22
+taxa, or accept the finding as advisory and stop reporting it at error level
+(probably the latter, at least for natural/field communities) — and, once the
+gate is restored, **dropping the reporting-only notice** from the workflow header
+and its PR comment.
+
+## GTDB grounding backfill (issue #276; new section 2026-07-30)
+
+**Priority-menu item 1.** The schema has carried
+`TaxonomicComposition.taxon_term.gtdb_classification` (range `GtdbClassification`)
+and the repo has shipped the `ground-taxa-gtdb` skill for some time, but coverage
+was never measured or tracked here, so it has been filled in opportunistically
+during other curation passes and is now uneven.
+
+**Measured 2026-07-30:** `569/995` taxa (57%) carry a `gtdb_classification`,
+distributed as **91 records fully grounded, 140 partially grounded, 72 with
+none** (the remaining 2 have no `taxonomy`).
+
+**Why the 140 partials come first.** A record where some taxa carry a GTDB
+classification and others don't is internally inconsistent in a way that is worse
+than uniformly absent: a downstream KGX consumer cannot tell "not grounded" from
+"no GTDB equivalent exists". Finishing the partials converts the field from
+"sometimes populated" to "populated where a mapping exists", which is the state
+it needs to be in before anything queries it.
+
+**Why it's the top pick.** Nothing external blocks it. The mapping table is local
+(kg-microbe `NCBI2GTDB.tsv.gz`), so there is no literature access, no curator
+judgment, and no sibling-repo dependency — the three things blocking most of the
+rest of this backlog. It is also a **correctness** pass, not only coverage: the
+skill flags GTDB reclassifications and renames (NCBITaxon *Agrobacterium deltae*
+→ GTDB *Agrobacterium leguminum*), so filling it in surfaces taxonomy drift that
+is currently invisible.
+
+**Method:** `ground-taxa-gtdb` resolves an NCBITaxon id (or species name) to its
+canonical GTDB CURIE, taxon name, full lineage and mapping confidence, and emits
+a ready-to-paste `gtdb_classification` block. Existing records show the expected
+shape — see `Maize_Root_Simplified_Community.yaml`, whose entries carry
+`gtdb_id` / `gtdb_taxon` / `gtdb_lineage` / `ncbi_source_id` /
+`majority_fraction` / `is_reclassified` / `mapping_source`.
+
+**Suggested order:** the 140 partials (finish what's started), then the 72 with
+none, largest/most-cited records first. Worth a gate afterwards so new records
+don't reintroduce partial grounding — the same shape as the enum guard in §0 and
+`tests/test_network_palette.py`.
+
+## Growth conditions + thin membership (issue #183; section added 2026-07-30)
+
+**Priority-menu item 4.** #183 was filed as two gaps left over from the #180
+deep-research passes, both scoped as "resolvable only with institutional
+full-text access". Re-measuring on 2026-07-30 shows that framing holds for one
+half and is too pessimistic for the other, so the two are separated here.
+
+**Growth conditions — the issue's own number is stale.** #183 says "52/295
+records still have no `growth_media`/`cultivation_setup`"; the current count is
+**80/305**. The gap is smaller than that sounds: **52 of the 80 are STABLE or
+PERTURBED** (34 + 18) field communities with no cultivation conditions to record.
+The split is by `ecological_state`, not `community_origin` — 57 of the 80 are
+NATURAL-origin, the extra 5 being NATURAL-origin records that are ENGINEERED in
+state, so they belong with the curatable set rather than the field communities.
+That leaves the **28 ENGINEERED** records, of which three are pure
+computational models that honestly have none —
+`BioModels_MODEL2310020001_Mouse_Metaorganism_Model`,
+`KBase_Models_for_Zahmeeth_Original_PLOS`, `KBase_ORT_Workflow_Community_Model`.
+**The real target is 25 records:**
+
+`Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment`,
+`Bacillus_Bradyrhizobium_Straw_Humification_SynCom`,
+`Bayan_Obo_REE_Tailings_Consortium`,
+`Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding`,
+`Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium`,
+`Cyprus_Copper_Sulphide_Bioleaching_Consortium`,
+`Legume_Rhizobia_Mars_Simulant_Symbiosis`, `Mars_Meteorite_EETA79001_Growth_Panel`,
+`Mars_Regolith_Cyanobacteria_Biofertilizer_Panel`,
+`Miscanthus_REE_Tailings_Nitrogen_SynCom10`,
+`Moss_Microbe_Complex_Regolith_Biofertilizer`,
+`PSY_Transgenic_Rice_Rhizosphere_Methane_Community`,
+`Peanut_Seed_Bacterial_CS_SynCom`, `Pinus_armandii_Endophytic_Biocontrol_SynCom`,
+`Pleuromutilin_Degrading_Artificial_Consortium_5_Strain`,
+`Populus_Salt_Tolerant_SynComs`, `Rice_Acid_Soil_Bioinoculant_SynCom`,
+`Rifle_Aquifer_Bioanode_EET_Community`,
+`Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture`,
+`Suillus_Bacillus_Thiamine_Ectomycorrhizal_SynCom`,
+`SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience`,
+`SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation`,
+`Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community`, `Tomato_Oxylipin_SynCom3`,
+`Wheat_Straw_Biogas_Pretreatment_SynCom`.
+
+**How much of that is really paywalled — measured 2026-07-30.** Checking each of
+the 25 against `references_cache/`: **1** has real full text
+(`Mars_Meteorite_EETA79001_Growth_Panel`, `PMID_38665180.txt`, 56 KB), **18** have
+an abstract stub only (0.8–5.4 KB), and **6 have nothing cached at all** —
+`Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium`
+(PMID:42343824), `Pinus_armandii_Endophytic_Biocontrol_SynCom` (PMID:42322490),
+`Pleuromutilin_Degrading_Artificial_Consortium_5_Strain`,
+`Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture`
+(PMID:42285537), `SynCom_MetG2_Rhizobacteria_Sugarcane_Stress_Resilience`
+(doi:10.1016/j.rhisph.2025.101142) and
+`SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation`. The 6 have never been
+*attempted*, which is different from being paywalled — running
+`cache_fulltext.py` on them is the cheapest next step in this whole section and
+needs no access anyone lacks.
+
+**Thin membership — genuinely blocked.** Two records whose sources name only
+functional groups, so `taxonomy` is empty or domain-level:
+`CommunityMech:000274` (Multi-stage AD SynCom-YSJ/-J, *Bioresour. Technol.*,
+closed access) and `CommunityMech:000285` (Chlorella + biogas-slurry SynCom,
+grounded only at *C. sorokiniana* + domain Bacteria). Both need member taxa
+(NCBITaxon + GTDB) from Methods-level text nobody has retrieved yet.
+
+**Next action, in order:** (1) curate `Mars_Meteorite_EETA79001_Growth_Panel`
+from the full text already cached — it needs nothing anyone has to fetch; (2) run
+`cache_fulltext.py` across the 6 with no cache and the 18 abstract-only ones, a
+mechanical pass that separates genuine paywalls from never-attempted; (3) curate
+whatever full text lands, with `add-growth-conditions`. Only what survives step 2
+belongs on the blocked list, recorded per record with its reason rather than in
+bulk. #183's stale "52/295" is worth correcting on the issue at the same time.
+
+## Ontology remap refinement (issue #182; section added 2026-07-30)
+
+**Priority-menu item 6.** A curator decision, not an implementation task — no
+tooling is missing, someone has to choose per row.
+
+The #180 id↔label cleanup cleared 167 drift rows by remapping each to the nearest
+**valid** ontology term. That made the gate green, but some choices are
+deliberately broad or approximate, in two kinds:
+
+- **Obsolete-GO remaps**, where GO offers no official replacement. The one that
+  is arguably wrong on type grounds rather than merely broad is `GO:0055114`
+  "oxidation-reduction process" → `GO:0016491` "oxidoreductase activity" — a
+  biological-process → molecular-function shift. The rest collapse to generic
+  parents or near neighbours: `GO:0071704` → `GO:0008152` metabolic process;
+  `GO:1901575`/`GO:0019439` → `GO:0009056` catabolic process; `GO:0051704` →
+  `GO:0044419` interspecies-interaction process; `GO:0051238` → `GO:0140487`
+  metal ion sequestering activity; `GO:0015103` → `GO:0008509`.
+- **Bucket A** — the intended term is absent from the ontology, so the row was
+  remapped to the nearest existing term with the specific concept retained in
+  `preferred_term`: lead/zinc sulfide → `CHEBI:46718` sulfide salt; organic
+  matter → `CHEBI:50860` organic molecular entity; humic acid → `CHEBI:64709`
+  organic acid; yeast extract → `CHEBI:60004` mixture; phyllosphere →
+  `ENVO:01001001` plant-associated environment; anaerobic environment →
+  `ENVO:01001825`; *Stenotrophomonas goyi* → `NCBITaxon:40323` (genus).
+
+**Not the same surface as §1**, and the two are easy to conflate. §1's 34
+`exceptions:` residuals are rows that were **never** remapped — they still carry
+a placeholder id resolving to an unrelated entity, and they are upstream-blocked
+because the intended term does not exist anywhere. #182 covers rows that now
+resolve to a real, correct-but-broad term. Nothing blocks #182; it is simply
+undecided.
+
+**Options per row** (from the issue): accept as-is, since `preferred_term` keeps
+the specificity; pick a better GO/CHEBI/ENVO term; request or mint the intended
+term (e.g. via METPO); or drop the annotation where it has been generalised far
+enough to carry no information. **Next action:** settle the `GO:0055114` BP→MF
+case first — it is the only one asserting something of the wrong *type* — then
+sweep the remainder as a single curator pass.
+
+## DOI full-text retrieval — mostly shipped (issue #259; section added 2026-07-30)
+
+**Correction to how this has been carried.** #259 has sat on the blocked list as
+"publishers that block programmatic download", but most of what the issue asked
+for shipped in PRs #260/#261, and the part that remains is not upstream-blocked.
+
+**Shipped.** `scripts/cache_fulltext.py` now takes a DOI as well as a PMID
+(`scripts/cache_fulltext.py doi:10.1128/spectrum.00941-23`), resolves it against
+Europe PMC by `DOI:"<doi>"` — which covers OA papers holding a PMC record but no
+PMID, the exact case the issue was filed on — and writes to
+`DOI_<doi with / → _>.md`, the cache filename the reference validator already
+reads, appending under the same marker so re-runs stay idempotent. `--from-file`
+ingests a curator-supplied PDF or HTML; that is how the Li 2024 *Water* paper
+landed in #261.
+
+**Still open, and actionable (menu item 8).** When Europe PMC has no full text,
+Unpaywall is queried only to **name** the OA location — the script reports
+"retrieve by hand" and stops rather than fetching it, so an OA-but-not-PMC source
+still costs a manual round trip. Automating that fetch is self-contained work in
+this repo. Two things to know before starting: the lookup needs `UNPAYWALL_EMAIL`
+set or it does not run at all, and the script still refuses to start unless an
+abstract cache already exists for the reference.
+
+**Genuinely blocked remainder:** sources in neither Europe PMC nor any OA
+location. There `--from-file` is the honest escape hatch, and the current
+"report and skip, never fabricate" behaviour is the right one to preserve.
+
 ## Adopt DisMech knowledge-gaps + datasets + QC dashboard (claw#7)
 
 Coordinated cross-Mech adoption of DisMech's domain-general features. Full plan,
@@ -358,8 +729,10 @@ donor→partner edges + a KNOWLEDGE_GAP discussion, modeled-limitation node left
 (000188, 2 HYPOTHESIZED mediator edges + KG), `Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture`
 (000189, 1 edge + KG), `DIETsimp_Lignocellulose_to_Methane_DIET_Consortia` (000297, NO edge
 justified — parallel proposed DIET pathways — KG only). The 6 already-wired matches
-(000031–033 DIET, 000068–070 syntrophies) were left as-is. ~65/304 records now carry
-`downstream` causal edges. **Next:** continue on high-value syntrophies; always use the
+(000031–033 DIET, 000068–070 syntrophies) were left as-is. **59/305 records carry `downstream`
+causal edges** (re-measured 2026-07-30; this line previously read "~65/304",
+which overstated it — 246 records have no causal edge at all).
+**Next:** continue on high-value syntrophies; always use the
 RECORD's canonical taxon ids (Edison groundings have had
 errors, e.g. sulfite → CHEBI:16731 *(E)-cinnamaldehyde* instead of CHEBI:17359). NB: when
 the primary full text isn't retrievable, keep edges to abstract-supported/directly-implied
