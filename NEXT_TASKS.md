@@ -7,23 +7,30 @@ deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 
 Last reconciled: 2026-07-30.
 
-## Priority menu (reconciled 2026-07-30)
+## Priority menu (reconciled 2026-07-30; re-reconciled after PR #274 merged)
 
 Ranked, **actionable-now** work. Everything here was re-measured against the KB
 on this date — three long-standing numbers below had drifted and are corrected
 in place. Blocked items are listed further down so the gaps are explained, not
 hidden; **do not** pull them off the shelf as "next".
 
+**Changed since the first pass on this date:** PR #274 merged, so the workflow it
+repairs now runs and **#273 is no longer gated** — it is the only actionable
+thread with a live CI gate waiting on it. Reviewing and verifying #274 produced
+three new issues (#280, #281, #282), all small and all folded into existing menu
+rows rather than added as new threads.
+
 | # | Item | Size | Why this rank |
 |---|---|---|---|
 | 1 | **GTDB grounding backfill** (#276, `ground-taxa-gtdb`) | L, mechanical | Largest unblocked gap in the KB and the only one needing nothing external |
-| 2 | **Network audit triage (#273)** | M | Unblocks restoring a CI gate; 4 real bugs are fully specified |
+| 2 | **Network audit triage (#273) + the CLI fixes (#281, #282)** | M | **Now unblocked** — #274 merged, the workflow runs, and it is the only thread with a live CI gate waiting on it |
 | 3 | **Causal-edge curation, next batch** | M per record | Active thread with a worked method; highest scientific value per record |
 | 4 | **Growth conditions for the 25 curatable ENGINEERED records** (#183 slice) | M | Less paywalled than #183 claims — 6 were never even attempted |
 | 5 | **Redundant encoding in the network diagram (#270)** | S–M | Self-contained frontend work, fully specified |
 | 6 | **Decide the #182 ontology remaps** | S | A curator decision, not an implementation task |
-| 7 | **Inline the four dangling `[[wiki-links]]` (#277)** | S | Doc hygiene; §1 leans on one for its blocked-item rationale |
-| 8 | **Auto-fetch the Unpaywall OA location (#259 slice)** | S | Self-contained; drops the manual `--from-file` step for OA-but-not-PMC sources |
+| 7 | **Auto-fetch the Unpaywall OA location (#259 slice)** | S | Self-contained; drops the manual `--from-file` step for OA-but-not-PMC sources |
+| 8 | **Cross-Mech vendored-sync gaps (#278, #280)** | S | Two distinct defects in the same guard; worth one cross-Mech sweep, not three PRs |
+| 9 | **Inline the four dangling `[[wiki-links]]` (#277)** | S | Doc hygiene; §1 leans on one for its blocked-item rationale |
 
 **Recommended next: #1, GTDB grounding.** It is the biggest coverage gap that
 depends on nothing outside this repo — the mapping table is local
@@ -37,6 +44,21 @@ what a downstream KGX consumer will trip over. Finishing the partials first is
 the cheapest way to make the field trustworthy. Note the skill also surfaces
 GTDB reclassifications (NCBI *Agrobacterium deltae* → GTDB *A. leguminum*), so
 this is a correctness pass, not only a coverage one.
+
+**Why not #2, now that it is unblocked?** #273 has a live CI gate waiting on it,
+which is a real pull, but it splits into two halves with different requirements.
+Its **mechanical half is fully unblocked and small** — #281 (stop one bad YAML
+aborting the audit), #282 (pin the report format), and giving `IssueType` the
+severity levels `network/validators.py` already has. Any of those can be done
+today with no curator input, and together they are what actually lets the gate
+come back. Its **other half needs a curator**: the 4 dangling ANME/SRB references
+mean deciding whether to add those taxa with NCBITaxon grounding and evidence or
+to rewrite the interactions against the taxa already listed, and the
+`DISCONNECTED` policy is a judgment call about what the audit should treat as an
+error at all. So: if you want a mechanical session, **#281/#282 are a better
+warm-up than GTDB** and unblock a gate; if you want the biggest dent in the KB,
+GTDB is still it. What should *not* happen is picking up #273's curator half
+expecting a quick win.
 
 ### Numbers corrected this reconcile
 
@@ -82,8 +104,12 @@ this is a correctness pass, not only a coverage one.
 
 ### In flight
 
-- **PR #274** (#272) — `network-quality.yml` repair. **#273 is gated behind it.**
-- **PR #275** — this reconcile.
+**No work is in flight — PR #283 is this reconcile and nothing else is open.**
+PRs #268, #274, #275 and #279 all merged 2026-07-31 UTC, clearing the batch.
+
+- **PR #274** (#272) — **MERGED** (`d588f3d`). `network-quality.yml` parses and
+  runs for the first time; **#273 is no longer gated** and is the top of the
+  actionable CI thread. Verification is recorded in the CI-hygiene section below.
 - **#199** stays open for two cosmetic items (hero gradient, filter placement). Its
   checkboxes were stale — the legend item and the stale-template item were both
   done but still unticked; reconciled on the issue 2026-07-30, so the issue and
@@ -424,6 +450,35 @@ enum `meaning:` groundings in §0 and the palette↔enum gap fixed in #268.
 **Filed as #278**, with the verification table (all three spokes at sha256
 `f05b5ad6…`, hub absent) recorded there.
 
+**A second, separate hole in the same guard — #280.** Where #278 is about *what
+is compared*, #280 is about *when the comparison runs*. The `vendored-sync` job
+lives in `.github/workflows/label-correspondence.yaml` behind a `paths:` filter
+that is **narrower than the list of files the job diffs**, so a PR touching only
+the unlisted ones never fires the check. Verified 2026-07-30 against this repo:
+
+| file compared by `check_vendored_sync.sh` | in `trigger_paths`? |
+|---|---|
+| `scripts/validate_id_label_correspondence.py` | yes |
+| `src/communitymech/schema/mech_shared.yaml` | yes, via `src/communitymech/schema/**` |
+| `scripts/chem_formula.py` | **no** |
+| `tests/test_id_label_empty_adapter.py` | **no** |
+| `tests/test_id_label_unknown_prefix.py` | **no** |
+| `tests/test_id_label_plausibility.py` | **no** |
+
+So **4 of the 6** are unguarded at PR time, as are `check_vendored_sync.sh` and
+`.vendored_canon_ref` themselves. This is a PR-time hole, not an unguarded one —
+CultureMech's nightly `vendored-fleet-audit.yml` still catches divergence within
+a day, so the realistic failure is a vendored edit merging green and surfacing
+against `main` the next morning: confusing to attribute, not silent corruption.
+CommunityMech is better off than TraitMech here, whose filter misses
+`mech_shared.yaml` too (TraitMech#184). **Neither issue subsumes the other** and
+fixing one leaves the other open, though one PR will likely close both. Best fix:
+derive the `paths:` filter from the same source `check_vendored_sync.sh` reads,
+rather than hand-listing — hand-listing is precisely the failure this is an
+instance of. `conf/id_label_targets.yaml` stays out of the vendored set **by
+design** (per-repo adapters/targets/exceptions) and is already in `trigger_paths`
+on its own merit. Worth one cross-Mech sweep rather than three independent PRs.
+
 Update (2026-06-15): **TraitMech has now joined** — the trio is a **4-repo
 invariant**. TraitMech vendored the validator + tests byte-identical (same
 `142bbe1…` / `55a432…` / `f01d22…` manifest) and enforces a blocking
@@ -499,7 +554,7 @@ dropping a type fails the coverage test.
    varied stroke style. This is the real fix; the palette swap only raised the floor.
 2. **`network-quality.yml` triage (#273), gated behind PR #274.** See below.
 
-**`network-quality.yml` had never run — FIX OPEN (PR #274, issue #272).** GitHub
+**`network-quality.yml` had never run — DONE (2026-07-31, PR #274, issue #272).** GitHub
 could not parse the file, so all 15 most recent runs failed in **0 seconds** and
 the network audit never executed once. Tell-tale: the Actions API lists it under
 its *path* rather than its `name:`, unlike every other workflow. Three defects,
@@ -518,6 +573,50 @@ Two judgment calls in #274, both revisitable: the audit **reports without
 failing** (see #273), and `suggest-repairs` is **`workflow_dispatch`-only** — it
 calls the Anthropic API for up to 20 records and previously fired automatically on
 every audit failure, which given the standing findings means every push.
+
+**A fourth defect, found reviewing #274 before merge.** The reporting-only job
+still went red on the one input it most needs to handle. `audit-network` exits
+**2 and writes no report** when one community YAML fails to parse (issue #281 —
+a single bad file aborts the loop over all 305). `steps.audit.outcome` is
+`failure` there exactly as for real findings, so the job ran `head -c 60000`
+against a file that does not exist; `head` exits 1, GitHub runs `run:` steps under
+`bash -e`, and the step failed — a red "reporting-only" job whose summary claimed
+findings and showed none. There are **three** outcomes, not two:
+
+| | exit | report | treatment |
+|---|---|---|---|
+| clean | 0 | written | "no issues found" |
+| findings | 1 | written | reporting-only, per #273 |
+| **crash** | 2 | **absent** | **fails the job, loudly** |
+
+The summary now branches on all three and cannot fail in any of them; a final step
+fails the job only in the crash case, placed after the reporting steps so the
+summary is written first. The PR comment is `continue-on-error` (a fork PR gets a
+read-only token, and a failed comment must not redden a job whose premise is that
+it does not fail).
+
+**Verified live, not by inspection (2026-07-31).** GitHub now registers the
+workflow under its `name:` — "Network Quality Check" — instead of its path, which
+was the tell-tale that it never parsed. A manual `workflow_dispatch` run
+([30604391167](https://github.com/CultureBotAI/CommunityMech/actions/runs/30604391167))
+**succeeded: the first successful run in this workflow's history.** The audit job
+stayed green while reporting the 26 standing findings; `Generate Repair
+Suggestions` was **skipped** (no API spend); `Comment on PR` and `Fail if the
+audit could not run` were both correctly skipped; and the artifact downloaded
+clean, containing the 4 ANME/SRB dangling references.
+
+**Two CLI defects fell out of that verification**, both small and both belonging
+with #273's pass rather than on their own:
+- **#281** — one unparseable community YAML aborts the whole audit, so the other
+  304 records go unchecked *and* no report is written. Fix: catch per file and
+  record the parse failure as a finding against that record. Composes with the
+  severity levels #273 proposes — a parse failure is unambiguously error-severity.
+- **#282** — the report labels findings `UNKNOWN_SOURCE` under Python 3.10 (CI)
+  but `IssueType.UNKNOWN_SOURCE` under 3.14 (local venv), because `str`-mixin enum
+  `__format__` changed in 3.11. Found only by diffing the CI artifact against a
+  local run. Now user-visible, since the workflow publishes that report as an
+  artifact and pastes it into PR comments. One-line fix (`.value`), worth a test
+  pinning the format.
 
 **#273 — triage the 26 findings, then restore the gate.** The audit finds 26
 issues across 8 records, and they are not one kind of problem: **22 `DISCONNECTED`**
