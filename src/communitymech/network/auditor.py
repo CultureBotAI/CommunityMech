@@ -25,6 +25,19 @@ class IssueType(str, Enum):
     UNKNOWN_SOURCE = "UNKNOWN_SOURCE"
     UNKNOWN_TARGET = "UNKNOWN_TARGET"
     DISCONNECTED = "DISCONNECTED"
+    UNREADABLE = "UNREADABLE"
+
+
+def _type_label(issue_type) -> str:
+    """Render an issue type as its bare value, on every Python.
+
+    ``IssueType`` is a ``str``-mixin enum, and the mixin's ``__format__``
+    switched in Python 3.11 from emitting the *value* to emitting the qualified
+    ``IssueType.NAME``. Interpolating a member directly therefore produced
+    different report text under 3.10 (CI) than under 3.14 (a dev venv). Entries
+    are occasionally plain strings, so fall back to the object itself.
+    """
+    return getattr(issue_type, "value", issue_type)
 
 
 class NetworkIntegrityAuditor:
@@ -53,13 +66,43 @@ class NetworkIntegrityAuditor:
         communities_with_issues = 0
 
         for yaml_file in yaml_files:
-            issues = self.audit_community(yaml_file)
+            # One unreadable file must not abort the sweep. Before this, a single
+            # malformed YAML propagated out of the loop, so the remaining records
+            # went unaudited *and* no report was written — the audit produced
+            # nothing precisely when something was wrong. Record it as a finding
+            # against that record instead and carry on.
+            try:
+                issues = self.audit_community(yaml_file)
+            except Exception as exc:
+                issues = [
+                    {
+                        "type": IssueType.UNREADABLE,
+                        "message": f"Could not audit this file: {' '.join(str(exc).split())}",
+                    }
+                ]
             if issues:
                 self.issues[yaml_file.stem] = issues
                 communities_with_issues += 1
                 total_issues += len(issues)
                 if not check_only:
                     self.report_community_issues(yaml_file.stem, issues)
+
+        # Catching per file keeps one bad record from ending the sweep, but it
+        # would also turn a bug in this auditor into "every record is bad data".
+        # Nothing legitimate makes *all* of them unreadable at once, so treat
+        # that as a tool failure and let it out: the CLI turns it into exit 2
+        # with no report, which the network-quality workflow reports as a crash
+        # rather than as findings.
+        unreadable = sum(
+            1
+            for community_issues in self.issues.values()
+            if any(issue["type"] == IssueType.UNREADABLE for issue in community_issues)
+        )
+        if len(yaml_files) > 1 and unreadable == len(yaml_files):
+            raise RuntimeError(
+                f"every one of the {len(yaml_files)} community files failed to audit — "
+                f"this is a failure of the auditor, not of the data"
+            )
 
         if not check_only:
             print(f"\n{'='*80}")
@@ -245,6 +288,7 @@ class NetworkIntegrityAuditor:
 
         # Report each type
         for issue_type in [
+            IssueType.UNREADABLE,
             IssueType.ID_MISMATCH,
             IssueType.MISSING_SOURCE,
             IssueType.UNKNOWN_SOURCE,
@@ -261,6 +305,8 @@ class NetworkIntegrityAuditor:
                         )
                     elif issue_type == IssueType.DISCONNECTED:
                         print(f"    • {issue['taxon']} ({issue['taxon_id']})")
+                    elif issue_type == IssueType.UNREADABLE:
+                        print(f"    • {issue['message']}")
                     else:
                         print(f"    • [{issue.get('interaction', 'N/A')}] {issue['message']}")
 
@@ -290,7 +336,7 @@ class NetworkIntegrityAuditor:
                 f.write(f"\n{community}\n")
                 f.write("-" * 80 + "\n")
                 for issue in community_issues:
-                    f.write(f"  {issue['type']}: {issue['message']}\n")
+                    f.write(f"  {_type_label(issue['type'])}: {issue['message']}\n")
                     if issue["type"] == "ID_MISMATCH":
                         f.write(
                             f"    Expected: {issue['expected_id']}, Found: {issue['actual_id']}\n"

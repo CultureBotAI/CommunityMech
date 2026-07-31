@@ -324,3 +324,152 @@ def test_taxonomy_lookup(temp_communities_dir, valid_community):
     assert lookup["Escherichia coli"]["id"] == "NCBITaxon:562"
     assert "Pseudomonas aeruginosa" in lookup
     assert lookup["Pseudomonas aeruginosa"]["id"] == "NCBITaxon:287"
+
+
+# ---------------------------------------------------------------------------
+# Regressions: an unreadable file must not abort the sweep (#281), and report
+# labels must not depend on the Python version (#282).
+# ---------------------------------------------------------------------------
+
+
+def _write_malformed(directory: Path, stem: str = "broken") -> Path:
+    """Write a YAML file that `yaml.safe_load` cannot parse."""
+    path = directory / f"{stem}.yaml"
+    path.write_text("name: broken\ntaxonomy: [\n  - bad: {\n")
+    return path
+
+
+def test_unreadable_file_is_recorded_instead_of_raising(temp_communities_dir):
+    """A malformed YAML becomes a finding rather than an exception.
+
+    It used to propagate out of ``audit_all``'s loop into the CLI's blanket
+    handler, which exited 2 without writing a report.
+    """
+    _write_malformed(temp_communities_dir)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    all_issues = auditor.audit_all()
+
+    assert "broken" in all_issues
+    assert [i["type"] for i in all_issues["broken"]] == [IssueType.UNREADABLE]
+    assert "Could not audit this file" in all_issues["broken"][0]["message"]
+
+
+def test_one_unreadable_file_does_not_hide_the_others(temp_communities_dir, valid_community):
+    """The rest of the sweep still runs — the actual regression behind #281.
+
+    A single bad record used to take the audit down with it, so the other files'
+    findings were never computed and the report was never written.
+    """
+    valid_community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Disconnected",
+                "term": {"id": "NCBITaxon:999", "label": "Disconnected"},
+            }
+        }
+    )
+    (temp_communities_dir / "has_findings.yaml").write_text(yaml.dump(valid_community))
+    _write_malformed(temp_communities_dir)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    all_issues = auditor.audit_all()
+
+    assert "broken" in all_issues
+    assert [i["type"] for i in all_issues["has_findings"]] == [IssueType.DISCONNECTED]
+
+
+def test_unreadable_file_still_writes_a_report(temp_communities_dir, tmp_path):
+    """`--report` must produce a file even when a record cannot be parsed."""
+    _write_malformed(temp_communities_dir)
+    report = tmp_path / "audit.txt"
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    auditor.audit_all()
+    auditor.write_report(output_path=report)
+
+    assert report.exists()
+    assert "UNREADABLE:" in report.read_text()
+
+
+def test_unreadable_is_listed_in_the_console_report_order():
+    """Guards against adding an IssueType that `report_community_issues` drops.
+
+    That function iterates a hard-coded list of types; anything missing from it
+    is silently absent from console output while still counting in the total.
+    """
+    import inspect
+
+    source = inspect.getsource(NetworkIntegrityAuditor.report_community_issues)
+    for member in IssueType:
+        assert f"IssueType.{member.name}" in source, (
+            f"{member.name} is not handled by report_community_issues, so it "
+            f"would count toward the total but never be printed."
+        )
+
+
+def test_report_labels_are_bare_enum_values(temp_communities_dir, valid_community, tmp_path):
+    """Report labels are the enum *value*, on every Python (#282).
+
+    ``IssueType`` is a ``str``-mixin enum, and that mixin's ``__format__``
+    switched in 3.11 from the value to the qualified ``IssueType.NAME``. The
+    report interpolated a member directly, so CI (3.10) and a dev venv (3.14)
+    produced different text for identical input.
+    """
+    valid_community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Disconnected",
+                "term": {"id": "NCBITaxon:999", "label": "Disconnected"},
+            }
+        }
+    )
+    (temp_communities_dir / "test.yaml").write_text(yaml.dump(valid_community))
+    report = tmp_path / "audit.txt"
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    auditor.audit_all()
+    auditor.write_report(output_path=report)
+
+    text = report.read_text()
+    assert "IssueType." not in text, "report leaked the qualified enum name"
+    assert "DISCONNECTED: Taxon 'Disconnected' has no interactions" in text
+
+
+def test_type_label_is_version_independent():
+    """The helper returns the value for members and passes strings through."""
+    from communitymech.network.auditor import _type_label
+
+    assert _type_label(IssueType.UNKNOWN_SOURCE) == "UNKNOWN_SOURCE"
+    assert _type_label(IssueType.UNREADABLE) == "UNREADABLE"
+    # Some call sites hold plain strings rather than members.
+    assert _type_label("ID_MISMATCH") == "ID_MISMATCH"
+
+
+def test_all_files_unreadable_is_treated_as_a_tool_failure(temp_communities_dir):
+    """Catching per file must not turn an auditor bug into "all data is bad".
+
+    Nothing legitimate makes every record unreadable at once, so that case is
+    raised rather than reported as findings — the CLI turns it into exit 2 with
+    no report, which the network-quality workflow surfaces as a crash.
+    """
+    _write_malformed(temp_communities_dir, "broken_one")
+    _write_malformed(temp_communities_dir, "broken_two")
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    with pytest.raises(RuntimeError, match="failure of the auditor, not of the data"):
+        auditor.audit_all()
+
+
+def test_a_lone_unreadable_file_is_still_a_finding(temp_communities_dir):
+    """The all-failed guard must not fire on a single-file directory.
+
+    One bad file out of one is an ordinary data finding, not evidence that the
+    auditor is broken.
+    """
+    _write_malformed(temp_communities_dir)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    all_issues = auditor.audit_all()
+
+    assert [i["type"] for i in all_issues["broken"]] == [IssueType.UNREADABLE]
