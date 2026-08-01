@@ -3,6 +3,12 @@
 
 set dotenv-load := true
 
+# Binds recipe arguments to "$@" in shebang recipes so multi-word arguments keep
+# their quoting. Needed by `new-history`, whose --summary/--details are prose;
+# plain `{{args}}` interpolation splits them on whitespace. No existing recipe
+# uses $1/$@, so enabling this changes nothing else.
+set positional-arguments := true
+
 # Shared tooling lives in the culturebotai-claw checkout. Override CLAW_SRC when
 # claw is not the default sibling directory — CI checks it out elsewhere.
 claw_src := env_var_or_default("CLAW_SRC", "../../culturebotai-claw/src")
@@ -463,3 +469,44 @@ gen-community-pages *args:
 gen-discussions-data: (_require-claw "kg_microbe_discussions")
     PYTHONPATH={{claw_src}} uv run python \
       -m kg_microbe_discussions --config conf/discussions_config.yaml --output app/discussions
+
+# The scaffolder is shared tooling and lives in claw; this fails loudly when
+# claw is missing rather than silently skipping, because a skipped provenance
+# write is indistinguishable from one that was never attempted.
+
+# Scaffold an append-only curation-history record (see history/README.md)
+new-history *args: (_require-claw "kg_microbe_history")
+    #!/usr/bin/env bash
+    set -euo pipefail
+    # "$@" not {{args}} — see `set positional-arguments` at the top of this file.
+    # `uv run python`, not `python3`: bare python3 is whatever the machine puts
+    # first on PATH, not the project venv.
+    PYTHONPATH="{{claw_src}}" uv run python -m kg_microbe_history new "$@"
+
+# No claw checkout needed here — that is the point of vendoring the schema.
+
+# Validate curation-history records against the vendored history schema
+validate-history target="history":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    target="{{target}}"
+    if [ -z "$target" ]; then
+      echo "validate-history: empty target. Pass a record path or a directory." >&2
+      exit 2
+    fi
+    if [ ! -e "$target" ]; then
+      echo "validate-history: '$target' does not exist." >&2
+      exit 2
+    fi
+    if [ -d "$target" ]; then
+      if [ -z "$(find "$target" -name '*.yaml' -print -quit)" ]; then
+        echo "No history records under '$target'."
+        exit 0
+      fi
+      find "$target" -name '*.yaml' -print0 \
+        | xargs -0 uv run linkml-validate \
+            --schema src/communitymech/schema/history.yaml --target-class HistoryRecord
+    else
+      uv run linkml-validate \
+        --schema src/communitymech/schema/history.yaml --target-class HistoryRecord "$target"
+    fi
