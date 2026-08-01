@@ -1,0 +1,34 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: history/README.md
+  slug: curation-history
+session:
+  id: 2026-08-01T041621Z-claude-code-0cc374
+  timestamp: '2026-08-01T04:16:21Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: CREATE
+  outcome: changed
+  sections:
+  - history
+  - justfile
+  - ci
+  summary: Port the append-only curation-history layer from TraitMech
+  details: 'Vendored culturebotai-claw/shared/history/history.yaml byte-identical to src/communitymech/schema/history.yaml
+    (md5 3742bc2068b637868c48aba406f6569d, matching TraitMech''s copy), so validation needs
+    no claw checkout. Added justfile recipes new-history (scaffolder via CLAW_SRC, gated on
+    the repo''s existing _require-claw so a missing claw fails loudly rather than skipping)
+    and validate-history (linkml-validate against the vendored schema). Enabled ''set positional-arguments
+    := true'' — no pre-existing recipe used $1/$@, verified by grep, so nothing else changes.
+    Added history/README.md and .github/workflows/curation-history.yaml, with record validity
+    blocking and missing-record presence advisory. The advisory diff uses the git pathspec
+    kb/communities/*.yaml, not **/*.yaml: community records are flat here, and the ** form
+    matches zero of the 305 records, which would have made the check silently always report
+    no changes. Verified: just --list parses at 67 recipes (65 + 2); a scaffolded record validates;
+    a record scaffolded without --details fails validate-history on the TODO pattern; CLAW_SRC=/nonexistent
+    fails new-history; validate-history with an empty or nonexistent target exits 2.'
