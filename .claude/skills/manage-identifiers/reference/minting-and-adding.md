@@ -1,6 +1,6 @@
 # Minting IDs, Adding Records & Batch Assignment (all collection types)
 
-*Reference for the **manage-identifiers** skill — see [`../skill.md`](../skill.md) for the CommunityMech overview and core workflow.*
+*Reference for the **manage-identifiers** skill — see [`../SKILL.md`](../SKILL.md) for the CommunityMech overview and core workflow.*
 
 ---
 

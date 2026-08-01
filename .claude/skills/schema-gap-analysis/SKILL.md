@@ -10,7 +10,7 @@ version: 2.1.0
 # Schema gap analysis (CommunityMech)
 
 The conceptual framework — why three axes, error-class heuristics, common anti-patterns — lives once at the cross-Mech version in claw:
-https://github.com/CultureBotAI/culturebotai-claw/blob/main/.claude/skills/schema-gap-analysis/skill.md
+https://github.com/CultureBotAI/culturebotai-claw/blob/main/.claude/skills/schema-gap-analysis/SKILL.md
 
 This file is the CommunityMech-specific operational version. Every command below runs as-is.
 
@@ -117,4 +117,4 @@ The community knowledge base passes cleanly under `linkml-validate -C MicrobialC
 - Schema: `src/communitymech/schema/communitymech.yaml`
 - Curation source: `src/communitymech/curation/` (if present); otherwise direct edits via `kb/communities/<name>.yaml`
 - Related skills: `review-communities` (manual review pass), `generate-schema-artifacts` (regenerate dataclasses)
-- Cross-Mech framework + new-Mech bootstrap template: [claw/.claude/skills/schema-gap-analysis](https://github.com/CultureBotAI/culturebotai-claw/blob/main/.claude/skills/schema-gap-analysis/skill.md)
+- Cross-Mech framework + new-Mech bootstrap template: [claw/.claude/skills/schema-gap-analysis](https://github.com/CultureBotAI/culturebotai-claw/blob/main/.claude/skills/schema-gap-analysis/SKILL.md)

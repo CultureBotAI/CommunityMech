@@ -1,6 +1,6 @@
 # Quality Metrics & Validation Reports
 
-*Reference for the **review-communities** skill — see [`../skill.md`](../skill.md) for the overview, workflows, and rule summary.*
+*Reference for the **review-communities** skill — see [`../SKILL.md`](../SKILL.md) for the overview, workflows, and rule summary.*
 
 ---
 
