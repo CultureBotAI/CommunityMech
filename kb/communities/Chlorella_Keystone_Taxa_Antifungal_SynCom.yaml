@@ -1,0 +1,253 @@
+id: CommunityMech:000313
+name: Chlorella fusca CHK0059 Keystone-Taxa Antifungal SynCom
+description: >
+  A three-member bacterial synthetic community assembled from the keystone taxa of the
+  Chlorella fusca CHK0059 phytomicrobiome — Pseudomonas, Duganella and Brevibacterium — identified
+  by microbiota structure and co-occurrence network analysis of plant hosts treated with the
+  biofertilizer microalga. Applying Chlorella, a Chlorella methanol extract, or D-mannitol to the
+  plant system shifted microbial distribution and diversity, with 2% D-mannitol markedly enriching
+  Pseudomonas, implicating an algal-derived polyol as a recruitment signal in
+  Chlorella-microbiome-plant communication. Recombined as a SynCom, the three keystone taxa
+  suppressed the soilborne pathogen Fusarium oxysporum in both strawberry and tomato more strongly
+  than any constituent strain alone — a community-level phenotype; the source reports "compared to
+  individual strains" and does not report an additivity model, so no claim of synergy or
+  superadditivity is made here. The record captures the SynCom as the mechanistic unit through which
+  C. fusca CHK0059 exerts its disease-suppressive effect. A 2025 precursor study of the same strain
+  (PMID:40064531) located the CHK0059-correlated keystone bacteria in the strawberry rhizosphere and
+  named Pseudomonas, Duganella and Rhizomicrobium; the third genus differs from the Brevibacterium of
+  the SynCom reported here, so the keystone set is not identical between the two studies.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Determine whether the keystone taxa of the Chlorella fusca CHK0059 phytomicrobiome,
+    recombined as a defined synthetic community, reproduce and enhance the antifungal effect
+    attributed to the microalga.
+  assembly_strategy: Bottom-up recombination of three keystone genera (Pseudomonas, Duganella,
+    Brevibacterium) selected from microbiota structure and network analyses of Chlorella-treated
+    plant hosts, then challenged against Fusarium oxysporum on strawberry and tomato.
+  measurement_endpoints:
+  - Shift in microbial distribution and diversity after Chlorella, methanol extract or D-mannitol
+    treatment
+  - Pseudomonas relative abundance under 2% D-mannitol
+  - Antifungal suppression of Fusarium oxysporum by the SynCom versus individual strains
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects
+      against Fusarium oxysporum in both strawberry and tomato, compared to individual strains
+    explanation: Establishes the SynCom as a defined, recombined community whose antifungal effect
+      exceeds that of its constituent strains.
+environment_term:
+  preferred_term: strawberry and tomato plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: Keystone taxa were identified within plant hosts treated with Chlorella and the SynCom was
+    assayed on strawberry and tomato.
+modeled_environment:
+- preferred_term: strawberry rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The rhizosphere compartment is not asserted from the 2026 SynCom paper, which does not state
+    the sampling compartment; it comes from the 2025 precursor study of the same strain
+    (PMID:40064531), which places the CHK0059-correlated keystone bacteria in the strawberry
+    rhizosphere. That citation is carried as evidence on the Pseudomonas taxon entry, since
+    EnvironmentDescriptor takes no evidence of its own.
+taxonomy:
+- taxon_term:
+    preferred_term: Chlorella fusca CHK0059
+    term:
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
+    notes: The paper's "Chlorella fusca CHK0059" — NCBITaxon carries this organism under the current
+      name Scenedesmus fuscus, with "Chlorella fusca" retained as a synonym. The strain is the
+      biofertilizer microalga whose phytomicrobiome supplied the keystone taxa; it is not itself a
+      member of the recombined three-member SynCom.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
+      CHK0059 within plant hosts were identified
+    explanation: Names the microalga whose phytomicrobiome supplied the keystone taxa, and the
+      three keystone genera themselves. The snippet reproduces the source's misspelling of
+      Pseudomonas verbatim, as required for substring validation.
+- taxon_term:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.596
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 17 GTDB taxa under the NCBI taxon]
+    notes: Keystone genus; the taxon enriched by 2% D-mannitol treatment. Resolved at genus level —
+      the study does not assign a species.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a notable increase in Pseudomonas abundance following 2% D-mannitol treatment
+    explanation: Supports Pseudomonas as a keystone member and identifies D-mannitol as the
+      treatment that enriches it.
+  - reference: PMID:40064531
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Pseudomonas, Duganella, and Rhizomicrobium species appear to be correlated with CHK0059
+      treatment in the rhizosphere
+    explanation: The 2025 precursor study of the same strain, which independently associates
+      Pseudomonas and Duganella with CHK0059 treatment and locates them in the rhizosphere — the
+      basis for this record's rhizosphere modeled_environment. Note the precursor's third genus is
+      Rhizomicrobium, not the Brevibacterium of the 2026 SynCom, so the keystone set is not identical
+      across the two studies.
+- taxon_term:
+    preferred_term: Duganella
+    term:
+      id: NCBITaxon:75654
+      label: Duganella
+    gtdb_classification:
+      gtdb_id: GTDB:g__Duganella
+      gtdb_taxon: Duganella
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Duganella
+      ncbi_source_id: NCBITaxon:75654
+      majority_fraction: 0.886
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
+    notes: Keystone genus of the Chlorella phytomicrobiome; resolved at genus level.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
+      CHK0059 within plant hosts were identified
+    explanation: Names Duganella as one of the three keystone taxa recombined into the SynCom.
+- taxon_term:
+    preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Brevibacterium
+      gtdb_taxon: Brevibacterium
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Brevibacteriaceae;g__Brevibacterium
+      ncbi_source_id: NCBITaxon:1696
+      majority_fraction: 0.987
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
+    notes: Keystone genus of the Chlorella phytomicrobiome; resolved at genus level.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: keystone taxa (Psedomonas, Duganella, Brevibacterium) interaction with C. fusca
+      CHK0059 within plant hosts were identified
+    explanation: Names Brevibacterium as one of the three keystone taxa recombined into the SynCom.
+- taxon_term:
+    preferred_term: Fusarium oxysporum
+    term:
+      id: NCBITaxon:5507
+      label: Fusarium oxysporum
+    notes: Soilborne fungal pathogen challenged by the SynCom; the antagonism target rather than a
+      SynCom member. Included in taxonomy so the antagonistic interactions resolve, matching the
+      house pattern used for pathogens in Maize_Root_Simplified_Community.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enhanced antifungal effects against Fusarium oxysporum in both strawberry and tomato
+    explanation: Identifies the pathogen the community suppresses.
+- taxon_term:
+    preferred_term: strawberry
+    term:
+      id: NCBITaxon:3747
+      label: Fragaria x ananassa
+    notes: Plant host in which SynCom disease suppression was assayed.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enhanced antifungal effects against Fusarium oxysporum in both strawberry and tomato
+    explanation: Names strawberry as one of the two host plants used for the suppression assay.
+- taxon_term:
+    preferred_term: tomato
+    term:
+      id: NCBITaxon:4081
+      label: Solanum lycopersicum
+    notes: Plant host in which SynCom disease suppression was assayed.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enhanced antifungal effects against Fusarium oxysporum in both strawberry and tomato
+    explanation: Names tomato as one of the two host plants used for the suppression assay.
+ecological_interactions:
+- name: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+  description: >
+    The recombined three-member SynCom (Pseudomonas, Duganella, Brevibacterium) antagonises the
+    soilborne pathogen Fusarium oxysporum on strawberry and tomato more strongly than any single
+    constituent strain, indicating an emergent community-level antifungal activity.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects
+      against Fusarium oxysporum in both strawberry and tomato, compared to individual strains
+    explanation: States both the antagonism and that the community effect exceeds the sum of its
+      individual members, which is what makes this a community-level interaction.
+- name: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
+  description: >
+    Applying 2% D-mannitol — a polyol associated with the microalga and its methanol extract —
+    shifted the plant-associated microbiota and markedly increased Pseudomonas abundance,
+    implicating an algal-derived compound as a recruitment signal for a keystone member.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Chlorella fusca CHK0059
+    term:
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
+  target_taxon:
+    preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: D-mannitol
+    term:
+      id: CHEBI:16899
+      label: D-mannitol
+    notes: Applied at 2%; the treatment under which Pseudomonas enrichment was observed.
+  evidence:
+  - reference: PMID:41937467
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: a notable increase in Pseudomonas abundance following 2% D-mannitol treatment
+    explanation: PARTIAL - establishes that D-mannitol enriches Pseudomonas, but the paper reports
+      an abundance shift under treatment rather than demonstrating that the microalga secretes
+      D-mannitol in planta, so the algal origin of the signal remains inferred.
+environmental_factors:
+- name: D-mannitol amendment
+  value: '2%'
+  description: >
+    D-mannitol (CHEBI:16899) applied at 2% as one of the tested substances, alongside Chlorella
+    itself and a Chlorella methanol extract. This is the condition under which Pseudomonas
+    enrichment was observed, so it is the perturbation that links an algal-associated polyol to
+    recruitment of a keystone member.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: By applying various substances, including Chlorella, Chlorella methanol extract
+      (methanol extract), and D-mannitol
+    explanation: Lists the applied substances that define the tested conditions.

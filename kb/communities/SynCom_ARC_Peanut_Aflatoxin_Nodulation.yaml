@@ -1,0 +1,216 @@
+id: CommunityMech:000314
+name: SynCom ARC Peanut Aflatoxin-Control and Nodulation-Coupling Community
+description: >
+  A four-strain rhizosphere synthetic community — three Bacillus isolates (Bl13-2C11, Ba13-20E05,
+  Bm14-5G09) and one Enterobacter isolate (El17-4B09) — assembled to couple two functions that are
+  normally pursued separately in peanut: suppression of the aflatoxin-producing fungus Aspergillus
+  flavus, and induction of rhizobia-legume nodulation. Candidate genera were chosen from
+  cross-regional rhizosphere surveys as taxa negatively correlated with Aspergillus abundance but
+  not with Bradyrhizobium, so that antifungal activity would not come at the cost of the nitrogen-
+  fixing symbiont; strains that inhibited Bradyrhizobium in coculture were screened out on exactly
+  that criterion. The resulting community, SynCom ARC, reduced peanut aflatoxin by 85.6% across
+  four years of field trials and enhanced nodulation and nitrogenase activity while retaining
+  active nodules at harvest. The record captures the community as a deliberately compatibility-
+  constrained consortium: its design problem is not maximal antifungal potency but antagonism of
+  the pathogen that spares a mutualist.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Build a single synthetic community that both suppresses aflatoxin-producing Aspergillus
+    flavus and promotes rhizobia-legume nodulation in peanut, rather than trading one against the
+    other.
+  assembly_strategy: Screen rhizosphere genera negatively correlated with Aspergillus abundance but
+    not with Bradyrhizobium; test isolates for aflatoxin inhibition against A. flavus and for
+    compatibility with Bradyrhizobium; retain three Bacillus and one Enterobacter strain and combine
+    them into candidate synthetic communities.
+  measurement_endpoints:
+  - Aflatoxin inhibition rate in coculture with A. flavus
+  - Peanut aflatoxin level in multi-year field trials
+  - Peanut nodule number, nitrogenase activity, and nodule retention at harvest
+  - Yield, checked for a super-nodulation penalty
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on the antifungal activity and rhizobial compatibility, finally, 3 Bacillus
+    explanation: States the two-part selection criterion — antifungal activity together with
+      rhizobial compatibility — that defines this community's assembly strategy.
+environment_term:
+  preferred_term: peanut rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: Candidate taxa were identified from peanut rhizosphere surveys across regions, and the
+    community was applied in field trials.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.508
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 102 GTDB taxa under the NCBI taxon]
+    notes: Three of the four ARC members. The paper gives isolate codes but no species assignment
+      for them, so the taxon is grounded at genus level. Three Bacillus isolates were also the ones
+      found to inhibit Bradyrhizobium and were excluded, so Bacillus appears on both sides of the
+      compatibility screen.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 3 Bacillus (Bl13‐2C11, Ba13‐20E05, Bm14‐5G09) and 1 Enterobacter
+      (El17‐4B09) were selected for further study
+    explanation: Names all four retained ARC isolates by code. The isolate codes use U+2010
+      HYPHEN as in the source, not ASCII '-', so the snippet matches the cache verbatim.
+- taxon_term:
+    preferred_term: Enterobacter (ARC strain El17-4B09)
+    term:
+      id: NCBITaxon:547
+      label: Enterobacter
+    gtdb_classification:
+      gtdb_id: GTDB:g__Enterobacter
+      gtdb_taxon: Enterobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter
+      ncbi_source_id: NCBITaxon:547
+      majority_fraction: 0.968
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 17 GTDB taxa under the NCBI taxon]
+    notes: The fourth ARC member. Isolate code given without a species assignment, so grounded at
+      genus level. Enterobacter was among the genera negatively correlated with Aspergillus
+      abundance yet not with Bradyrhizobium.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'nine strains demonstrated an aflatoxin inhibition rate exceeding 95%: 7 Bacillus, 2
+      Enterobacter'
+    explanation: Places Enterobacter among the strongly aflatoxin-inhibiting isolates from which
+      ARC members were drawn.
+- taxon_term:
+    preferred_term: Bradyrhizobium PHNZY-24-6
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bradyrhizobium
+      gtdb_taxon: Bradyrhizobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Bradyrhizobium
+      ncbi_source_id: NCBITaxon:374
+      majority_fraction: 0.982
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 8 GTDB taxa under the NCBI taxon]
+    notes: The nitrogen-fixing symbiont whose compatibility constrained community assembly, and
+      whose nodulation ARC is designed to induce. Not an inoculated ARC member; it is the mutualist
+      the community must not antagonise.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 3 Bacillus inhibited Bradyrhizobium
+    explanation: Records that some candidate isolates antagonised the rhizobium, which is the
+      observation that made rhizobial compatibility an explicit selection criterion.
+- taxon_term:
+    preferred_term: Aspergillus flavus
+    term:
+      id: NCBITaxon:5059
+      label: Aspergillus flavus
+    notes: The aflatoxin-producing fungal pathogen the community suppresses; the antagonism target
+      rather than a member.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC inhibits A. flavus growth and reduces peanut aflatoxin levels by 85.6% in 4
+      year field trials
+    explanation: Identifies the pathogen and quantifies the field-scale aflatoxin reduction.
+- taxon_term:
+    preferred_term: peanut
+    term:
+      id: NCBITaxon:3818
+      label: Arachis hypogaea
+    notes: Host legume in which both functions were assayed.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC enhances peanut nodulation and nitrogenase activity
+    explanation: Names peanut as the host and the nodulation endpoint measured in it.
+ecological_interactions:
+- name: SynCom ARC Suppression of Aspergillus flavus
+  description: >
+    The four-strain community inhibits growth of the aflatoxin-producing fungus Aspergillus flavus
+    and lowers peanut aflatoxin levels by 85.6% over four years of field trials, with the abstract
+    additionally reporting that the community acts on multiple targets in the fungus.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC inhibits A. flavus growth and reduces peanut aflatoxin levels by 85.6% in 4
+      year field trials
+    explanation: Supports community-level antagonism of the pathogen with a quantified field
+      outcome.
+- name: SynCom ARC Induction of Rhizobia-Legume Nodulation
+  description: >
+    Alongside pathogen suppression, the community enhances peanut nodulation and nitrogenase
+    activity and keeps nodules active through to harvest, so the same consortium that antagonises
+    the fungus facilitates colonisation by the nitrogen-fixing symbiont.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC enhances peanut nodulation and nitrogenase activity, retains active nodules
+      at harvest
+    explanation: Supports facilitation of the rhizobia-legume symbiosis as a community-level effect
+      distinct from the antifungal activity.
+- name: Candidate-Strain Antagonism of Bradyrhizobium (Excluded from ARC)
+  description: >
+    Three Bacillus isolates inhibited Bradyrhizobium growth in coculture and were screened out on
+    that basis. The interaction is recorded because it is the constraint that shaped the community:
+    ARC's membership is the subset of effective antifungal strains that does not antagonise the
+    nitrogen-fixing mutualist.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  target_taxon:
+    preferred_term: Bradyrhizobium PHNZY-24-6
+    term:
+      id: NCBITaxon:374
+      label: Bradyrhizobium
+  evidence:
+  - reference: PMID:42099455
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: 3 Bacillus inhibited Bradyrhizobium
+    explanation: PARTIAL - the antagonism is reported for three candidate Bacillus isolates that
+      were consequently excluded from ARC, so it characterises the screening step rather than the
+      shipped community. It is recorded at genus level because the source does not name which
+      isolates were excluded.
+environmental_factors:
+- name: Multi-year multi-site field trial
+  value: 4 years; 325 sites across 19 provinces
+  description: >
+    Both functions were evaluated in field conditions rather than only in vitro: aflatoxin
+    reduction over four years of trials, and nodulation and yield effects across 325 sites in 19
+    provinces, with yield checked for a super-nodulation penalty.
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: boosts yield without super nodulation penalty in 325 sites of 19 provinces
+    explanation: Establishes the field scale of the evaluation and that yield was checked against a
+      super-nodulation trade-off.
