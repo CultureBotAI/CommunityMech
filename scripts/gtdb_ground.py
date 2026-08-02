@@ -278,19 +278,27 @@ def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) ->
     top-level ``taxonomy:`` block so interaction source/target taxa are untouched.
     """
     doc = yaml.safe_load(path.read_text())
-    blocks: dict[str, dict] = {}
-    for tc in doc.get("taxonomy", []) or []:
+    entries = doc.get("taxonomy", []) or []
+
+    # Positional, NOT keyed by NCBITaxon id. A record may legitimately list the
+    # same id many times — GLBRC_Populus_Variovorax_SynCom28 has 28 isolates all
+    # grounded to NCBITaxon:34072 (genus Variovorax). Keying by id inserted the
+    # block at the *first* line bearing that id, which is a different taxonomy
+    # entry than the one that needed it: the already-grounded entry got a
+    # duplicate `gtdb_classification` key while the ungrounded ones stayed
+    # ungrounded. PyYAML keeps the last of two duplicate keys silently, so
+    # linkml-validate did not catch it either.
+    wanted: list[dict | None] = []
+    for tc in entries:
         tt = (tc or {}).get("taxon_term", {}) or {}
-        if "gtdb_classification" in tt:
-            continue
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
-        if not tid.startswith("NCBITaxon:"):
+        if "gtdb_classification" in tt or not tid.startswith("NCBITaxon:"):
+            wanted.append(None)
             continue
         g = resolve_target(tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher)
-        if g and not g.get("ambiguous"):
-            blocks[tid.split(":", 1)[1]] = _block(g, mapping_source)
-    if not blocks:
+        wanted.append(_block(g, mapping_source) if g and not g.get("ambiguous") else None)
+    if not any(w is not None for w in wanted):
         return 0
 
     lines = path.read_text().splitlines()
@@ -305,17 +313,41 @@ def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) ->
         return 0
     end = end if end is not None else len(lines)
 
+    # One `id: NCBITaxon:… / label: …` pair per taxonomy entry, in document
+    # order. If that correspondence does not hold the file is shaped in a way
+    # this text-level editor cannot reason about, so refuse rather than guess —
+    # a wrong insertion point is silent data corruption.
+    anchors = [
+        i
+        for i in range(start + 1, end)
+        if re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[i])
+        and i + 1 < end
+        and re.match(r"^\s+label:", lines[i + 1])
+    ]
+    if len(anchors) != len(entries):
+        raise SystemExit(
+            f"{path.name}: found {len(anchors)} taxon term-id lines for "
+            f"{len(entries)} taxonomy entries — refusing to edit."
+        )
+    for pos, tc in zip(anchors, entries, strict=True):
+        expected = str((((tc or {}).get("taxon_term") or {}).get("term") or {}).get("id", ""))
+        if lines[pos].split("id:", 1)[1].strip() != expected:
+            raise SystemExit(
+                f"{path.name}: taxonomy entry order does not match the file — refusing to edit."
+            )
+
+    insert_at = {pos: block for pos, block in zip(anchors, wanted, strict=True) if block}
     out = lines[: start + 1]
     i, added = start + 1, 0
     while i < end:
         out.append(lines[i])
-        m = re.match(r"^(\s+)id: (NCBITaxon:\d+)\s*$", lines[i])
-        nid = m.group(2).split(":", 1)[1] if m else None
-        if nid in blocks and i + 1 < end and re.match(r"^\s+label:", lines[i + 1]):
+        block = insert_at.get(i)
+        if block is not None:
             out.append(lines[i + 1])  # keep the label line
-            child = " " * (len(m.group(1)) - 2)  # taxon_term child indent (sibling of `term`)
+            indent = re.match(r"^(\s+)", lines[i]).group(1)
+            child = " " * (len(indent) - 2)  # taxon_term child indent (sibling of `term`)
             out.append(f"{child}gtdb_classification:")
-            dumped = yaml.dump(blocks.pop(nid), sort_keys=False, allow_unicode=True, width=4096)
+            dumped = yaml.dump(block, sort_keys=False, allow_unicode=True, width=4096)
             out += [f"{child}  {bl}" for bl in dumped.splitlines()]
             added += 1
             i += 2
