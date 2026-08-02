@@ -28,13 +28,10 @@ import yaml
 
 COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
 
-# Records with a known duplicate key, tracked in #289. Each needs a curator to
-# decide which of the two values survives, so they are recorded rather than
-# mechanically de-duplicated. Remove an entry when its record is fixed.
-KNOWN_DUPLICATES = {
-    "Geobacter_Clostridium_Interspecies_Electron_Transfer_Coculture.yaml": ["explanation"],
-    "Trichodesmium_Alteromonas_Marine_Consortium.yaml": ["notes"],
-}
+# Empty since #289 was fixed: both records that needed a curator decision have
+# had one. Add an entry here only with an issue reference, and only when the
+# choice of which value survives genuinely cannot be made in the same change.
+KNOWN_DUPLICATES: dict[str, list[str]] = {}
 
 
 class _DuplicateDetectingLoader(yaml.SafeLoader):
