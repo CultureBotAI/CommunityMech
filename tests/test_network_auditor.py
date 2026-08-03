@@ -1160,3 +1160,257 @@ def test_report_is_written_before_the_process_exits(
 
     assert result.exit_code == EXIT_ERRORS
     assert report.exists() and report.stat().st_size > 0
+
+
+# ---------------------------------------------------------------------------
+# Duplicate preferred_term within one record (#328)
+# ---------------------------------------------------------------------------
+
+
+def _duplicate_name_community(participant_id, role="source_taxon"):
+    """Two taxonomy entries named X; one interaction participant resolved by id.
+
+    `role` is a parameter because the source and target branches are separate
+    code paths: the first version of this fixture only ever built a
+    `source_taxon`, so reverting the target-side guard passed the whole suite
+    (#333) — the same one-sided-coverage defect this module found in the
+    ID_MISMATCH detector itself.
+    """
+    return {
+        "name": "Duplicate name",
+        "taxonomy": [
+            {"taxon_term": {"preferred_term": "X", "term": {"id": taxon_id, "label": "X"}}}
+            for taxon_id in ("NCBITaxon:100", "NCBITaxon:200")
+        ],
+        "ecological_interactions": [
+            {
+                "name": "An interaction",
+                "interaction_type": "COMPETITION",
+                role: {
+                    "preferred_term": "Y",
+                    "term": {"id": participant_id, "label": "X"},
+                },
+            }
+        ],
+    }
+
+
+def test_duplicate_preferred_term_is_reported(temp_communities_dir):
+    """Two entries under one name cost the record a member, silently.
+
+    `taxonomy_by_term` is last-write-wins, so the earlier entry vanishes from
+    every name lookup and no interaction can ever connect it.
+    """
+    test_file = temp_communities_dir / "test_dupe.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(_duplicate_name_community("NCBITaxon:100"), f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    dupes = [issue for issue in issues if issue["type"] == IssueType.DUPLICATE_TAXON_NAME]
+    assert len(dupes) == 1
+    assert dupes[0]["taxon"] == "X"
+    assert {dupes[0]["first_id"], dupes[0]["taxon_id"]} == {"NCBITaxon:100", "NCBITaxon:200"}
+    assert issue_severity(dupes[0]) == "error"
+
+
+def test_duplicate_name_does_not_manufacture_an_id_mismatch(temp_communities_dir):
+    """The id fallback resolved this participant, so its id agrees by construction.
+
+    Comparing anyway read the id off whichever duplicate entry won, turning a
+    perfectly valid `NCBITaxon:100` into an error-severity ID_MISMATCH against
+    the *other* entry's id (#328).
+    """
+    test_file = temp_communities_dir / "test_dupe_idmismatch.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(_duplicate_name_community("NCBITaxon:100"), f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert not [
+        issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH
+    ], f"a valid id must not be reported as a mismatch, got {issues}"
+
+
+def test_id_mismatch_still_fires_for_a_name_matched_participant(
+    temp_communities_dir, valid_community
+):
+    """The guard must not disarm ID_MISMATCH where it is the whole point.
+
+    A participant whose name matches its entry but whose id does not is the
+    copy-paste error, and it still gates.
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = "NCBITaxon:9999"
+
+    test_file = temp_communities_dir / "test_still_fires.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    mismatches = [issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH]
+    assert len(mismatches) == 1
+    assert issue_severity(mismatches[0]) == "error"
+
+
+def test_the_kb_has_no_duplicate_taxon_names():
+    """Guards the assumption that made DUPLICATE_TAXON_NAME safe at error severity.
+
+    Resolved against this file, not the working directory. With a relative path
+    `Path.glob` yields nothing from anywhere but the repo root — raising no
+    error — so the test audited zero records and passed vacuously (#334). It is
+    the sole support for gating on this finding, so an empty sweep must fail.
+    """
+    communities = Path(__file__).parent.parent / "kb/communities"
+    assert len(list(communities.glob("*.yaml"))) > 100, "audited an empty or wrong directory"
+
+    auditor = NetworkIntegrityAuditor(communities_dir=communities)
+    auditor.audit_all(quiet=True)
+
+    offenders = sorted(
+        community
+        for community, issues in auditor.issues.items()
+        if any(issue["type"] == IssueType.DUPLICATE_TAXON_NAME for issue in issues)
+    )
+    assert offenders == [], f"records with a duplicate preferred_term: {offenders}"
+
+
+def test_id_mismatch_fires_on_the_target_side_too(temp_communities_dir, valid_community):
+    """Deleting the target-side ID_MISMATCH check passed the whole suite.
+
+    Only the source side was ever covered, so half of this detector could have
+    been removed unnoticed.
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["target_taxon"]["term"]["id"] = "NCBITaxon:9999"
+
+    test_file = temp_communities_dir / "test_target_mismatch.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    mismatches = [issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH]
+    assert len(mismatches) == 1
+    assert mismatches[0]["role"] == "target"
+    assert issue_severity(mismatches[0]) == "error"
+
+
+def test_duplicate_name_does_not_manufacture_a_target_id_mismatch(temp_communities_dir):
+    """The target side of the guard, which the source-only fixture never reached.
+
+    Reverting `not target_by_id` passed all 939 tests before this existed.
+    """
+    test_file = temp_communities_dir / "test_dupe_target.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(_duplicate_name_community("NCBITaxon:100", role="target_taxon"), f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert not [
+        issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH
+    ], f"a valid id must not be reported as a mismatch, got {issues}"
+    assert [issue["type"] for issue in issues].count(IssueType.DUPLICATE_TAXON_NAME) == 1
+
+
+def test_duplicate_detection_uses_the_label_when_preferred_term_is_absent(temp_communities_dir):
+    """The key falls back to `term.label`, and that branch was unpinned (#337).
+
+    Unreachable for schema-valid records — `preferred_term` is required on
+    TaxonTerm — but the fallback exists in the code, so it is exercised here.
+    """
+    community = {
+        "name": "Label fallback",
+        "taxonomy": [
+            {"taxon_term": {"preferred_term": "X", "term": {"id": "NCBITaxon:100", "label": "X"}}},
+            {"taxon_term": {"term": {"id": "NCBITaxon:200", "label": "X"}}},
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_label_fallback.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert [issue["type"] for issue in issues] == [IssueType.DUPLICATE_TAXON_NAME]
+
+
+def test_three_entries_sharing_a_name_are_all_reported(temp_communities_dir):
+    """Chained pairwise, so every collision stays detectable as each is fixed."""
+    community = {
+        "name": "Triple",
+        "taxonomy": [
+            {"taxon_term": {"preferred_term": "X", "term": {"id": taxon_id, "label": "X"}}}
+            for taxon_id in ("NCBITaxon:100", "NCBITaxon:200", "NCBITaxon:300")
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_triple.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert len(issues) == 2
+    assert all(issue["type"] == IssueType.DUPLICATE_TAXON_NAME for issue in issues)
+    assert "used more than once" in issues[0]["message"]
+
+
+def test_a_null_taxon_term_is_not_a_parse_failure(temp_communities_dir):
+    """`taxon_term:` with no value is valid YAML and must not gate as UNREADABLE (#338)."""
+    community = {
+        "name": "Null taxon_term",
+        "taxonomy": [
+            {"taxon_term": None},
+            {"taxon_term": {"preferred_term": "X", "term": {"id": "NCBITaxon:100", "label": "X"}}},
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_null_taxon_term.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert issues == []
+
+
+def test_duplicate_taxon_name_is_not_rendered_as_an_interaction(
+    temp_communities_dir, valid_community, capsys
+):
+    """It is record-scoped, so the console must not prefix it with '[N/A]' (#335)."""
+    community = dict(valid_community)
+    community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Escherichia coli",
+                "term": {"id": "NCBITaxon:562", "label": "Escherichia coli"},
+            }
+        }
+    )
+    with open(temp_communities_dir / "dupe.yaml", "w") as f:
+        yaml.dump(community, f)
+
+    NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_all()
+    out = capsys.readouterr().out
+
+    assert "DUPLICATE_TAXON_NAME" in out
+    assert "[N/A]" not in out
