@@ -4,8 +4,9 @@ Three open issues turn out to be one diagnosis. This proposal states it, quantif
 instance, and recommends a remedy per instance — which is **not** the same remedy three
 times.
 
-**Decision requested:** approve or reject each of the three remedies in §4. They are
-independent; approving one does not commit to the others.
+**Decision requested:** approve or reject the two remaining remedies in §4 — the enum in
+§4.1 and the counter-selection block in §4.3. They are independent of each other. The third
+(§4.2) has since been implemented and is kept here as the worked example.
 
 ---
 
@@ -49,33 +50,34 @@ benefit. They are proposed separately below and can be done in any order.
 
 ## 3. The three instances, with numbers
 
-### 3.1 #294 — GTDB grounding: 372 blanks, none of which are pending work
+### 3.1 #294 — GTDB grounding: 378 blanks encoding four different situations
 
-Measured 2026-08-03 over 307 records / 1007 taxonomy entries:
+Re-measured over **311 records / 1024 taxonomy entries** (figures refreshed after PRs
+#308 and #311 landed):
 
 | | count | share of ungrounded |
 |---|---:|---:|
-| grounded | 635 of 1007 (63%) | — |
-| **no GTDB equivalent** — eukaryote, virus, environmental pseudo-taxon, absent from mapping | 285 | 76% |
-| **ambiguous** — GTDB splits the NCBI taxon with no majority | 85 | 23% |
-| **groundable by the tool** | 5 occurrences | 1% |
+| grounded | 646 of 1024 (63%) | — |
+| **no GTDB equivalent** — eukaryote, virus, environmental pseudo-taxon, absent from mapping | 288 | 76% |
+| **ambiguous** — GTDB splits the NCBI taxon with no majority | 87 | 23% |
+| **groundable by the tool** | 6 occurrences | 2% |
 
-Checking what those last five are is what makes the case. Every one is an entry
-**deliberately withheld** under #292 — *Bacteroides ovatus* on `NCBITaxon:821`
-(*Phocaeicola vulgatus*) and `Nitrospiraceae bacterium` on `NCBITaxon:1236`
-(Gammaproteobacteria), whose ids name a different organism, pinned by
-`tests/test_gtdb_withheld_groundings.py` so a tool re-run cannot reinstate them.
+Checking what those last six are is what makes the case, and it took running the grounding
+tool across the whole KB and cross-referencing to find out. Five are entries **deliberately
+withheld** under #292 — *Bacteroides ovatus* on `NCBITaxon:821` and `Nitrospiraceae
+bacterium` on `NCBITaxon:1236`, whose ids name a different organism, pinned by
+`tests/test_gtdb_withheld_groundings.py`. The sixth is a **genuine gap** (#314): a taxon
+whose `term.id` was corrected *after* grounding ran, leaving the derived block absent.
 
-So the honest tally is **370 permanently ungroundable, 2 deliberately withheld, and zero
-pending work** — three distinct states rendered as one blank. GTDB grounding is complete to
-its ceiling and the schema cannot say so. This is exactly why #276 read as ~40% outstanding
-work when the achievable ceiling is ~63%: the issue — which I wrote — mistook impossibility
-for backlog, and nothing in the data could have corrected that reading.
+So one blank column encodes four different situations — permanently impossible,
+undecidable, deliberately withheld, and accidentally stale — and distinguishing them
+required re-deriving the whole computation. That is the argument in miniature.
 
+It also means #294 has a **fourth** state to represent, distinct from the other three:
 It also means #294 has a **fourth** state to represent, distinct from the other three:
 grounding withheld pending an upstream correction.
 
-### 3.2 #304 — DISCONNECTED fires on the wrong criterion
+### 3.2 #304 — DISCONNECTED fired on the wrong criterion *(now fixed — PR #311)*
 
 Two rules interact in `network/auditor.py`:
 
@@ -83,8 +85,8 @@ Two rules interact in `network/auditor.py`:
    `COMMUNITY_LEVEL` interaction has neither by design, so it contributes **no**
    connections. **107 of 302 records with interactions (35%) are entirely
    `COMMUNITY_LEVEL`** — structurally, a third of the KB has zero connected taxa.
-2. A taxon carrying `abundance_level` **or** `functional_role` is exempt (line ~258).
-   **931 of 1007 taxa (92%) are exempt on this basis.**
+2. A taxon carrying `abundance_level` **or** `functional_role` was exempt.
+   **931 of 1007 taxa (92%) were exempt on this basis** at the time of measurement.
 
 The exemption is doing essentially all the work. `DISCONNECTED` does not mean "this taxon
 has no curated interaction"; it means "this taxon has no *pairwise* interaction **and** no
@@ -111,9 +113,9 @@ There were two places to put that, and both are bad:
 - **As `engineering_design.notes` prose** — accurate but invisible to any query.
 
 PR #305 chose prose. That was right for the record and means the fact is no longer
-queryable. Screening is how most SynComs are built, so this recurs: 193 records carry
-`engineering_design`, and only 40 carry free-text `notes` — the rest have no natural place
-for a negative result at all.
+queryable. Screening is how most SynComs are built, so this recurs: **197 records** carry
+`engineering_design` and only **40** carry free-text `notes` — the rest have no natural
+place for a negative result at all.
 
 ---
 
@@ -148,33 +150,31 @@ what the tool computes, so it cannot drift — the shape used by `tests/test_enu
 **Cost:** one schema change, one datamodel regeneration, one backfill run, one test.
 **Benefit:** ~63% coverage stops looking like ~63% completion.
 
-### 4.2 #304 — fix the auditor, change no data *(code, small)*
+### 4.2 #304 — fix the auditor, change no data — **IMPLEMENTED (PR #311)**
 
-Two changes, which must be made **together**. Simulated over the current KB:
+Shipped as proposed: `COMMUNITY_LEVEL` interactions now credit their members, and the
+`abundance_level`/`functional_role` exemption is removed. Both halves together, as the
+simulation required.
 
 | configuration | `DISCONNECTED` reported |
 |---|---:|
-| today — no credit, exemption kept | 32 |
-| drop the exemption only | **390** |
-| credit `COMMUNITY_LEVEL` only | **1** |
-| **credit `COMMUNITY_LEVEL` + drop the exemption** | **19** |
+| before | 32 |
+| drop the exemption only | 390 |
+| credit `COMMUNITY_LEVEL` only | 1 |
+| **both — shipped** | **19** |
 
-1. **Credit `COMMUNITY_LEVEL` interactions.** Treat every taxon in a record as connected by
-   a community-level interaction, which is what such an interaction asserts.
-2. **Drop the `abundance_level`/`functional_role` exemption**, so the rule measures
-   connectivity rather than slot-completeness.
+The prediction held exactly: network issues went 49 → 23, of which `DISCONNECTED` 32 → 19,
+and the surviving findings are genuine (spot-checked a *"Desulfovibrio piger comparator"*
+and *"Sporomusa spp. in KB-1"*, both in `taxonomy` while taking part in no interaction of
+any scope).
 
-The table overturns the obvious plan of doing (1) first as a safe increment. It *is* safe,
-but it drops reporting to **1 finding across the whole KB** — the rule becomes effectively
-vacuous, and a gate that never fires is not an improvement over one that fires for the wrong
-reason. Conversely (2) alone reports 390, a 12× increase that buries the signal.
+Two things surfaced during that work and are tracked separately: the credit is
+all-or-nothing because the schema cannot say *which* members a community-level interaction
+concerns (#312, which overlaps §4.3's design question), and dangling-edge detection turns
+out to live only in an orphaned script that nothing runs (#313).
 
-Only together do they give a defensible number: **19**, fewer than today's 32 while actually
-measuring the thing the name promises. That 19 is also a real work-list rather than an
-artefact — it is the set of taxa with no interaction of any kind.
-
-**This is prerequisite for #273.** That issue cannot decide whether to restore the network
-gate while `DISCONNECTED` means something other than its name.
+**This retired the blocker on #273**, which could not decide whether to restore the network
+gate while `DISCONNECTED` measured something other than its name.
 
 ### 4.3 #307 — add a counter-selection block *(schema, medium)*
 
@@ -203,18 +203,19 @@ connectivity noise.
 
 ## 5. Recommended sequence
 
-1. **#304, both changes together** — credit `COMMUNITY_LEVEL` *and* drop the exemption. No
-   data migration, unblocks #273, removes an active perverse incentive, and lands on 19
-   findings. Do not ship the halves separately: one is vacuous, the other is noise.
-2. **#294** — status enum plus mechanical backfill. Self-contained, and retires the
-   recurring misreading of GTDB coverage as GTDB backlog.
+1. ~~**#304, both changes together**~~ — **done, PR #311.** Landed at 19 findings and
+   retired the blocker on #273.
+2. **#294** — status enum plus mechanical backfill. Now the next step. Self-contained, and
+   it retires the recurring misreading of GTDB coverage as GTDB backlog. §3.1 shows the
+   distinction currently costs a full re-derivation to recover.
 3. **#307** — the largest, and the one most worth designing carefully rather than quickly,
-   since it introduces a concept the schema does not yet have.
+   since it introduces a concept the schema does not yet have. Worth designing together with
+   **#312**, which asks the same question from the other direction: how to say *which*
+   members a community-level statement concerns.
 
-Note there is **no** independent quick win here: the five apparently-groundable taxa in
-§3.1 are the withheld ones, blocked on #292 (correcting two NCBITaxon ids that name the
-wrong organism). Fixing #292 is worth doing on its own merits and would let those two ground
-themselves on the next tool run.
+Independent of all three: **#314** (a taxon whose id changed after grounding, leaving a
+stale blank) is a one-command data fix, and the `ncbi_source_id` mismatch it exposes is
+detectable with a cheap test today — no schema change required.
 
 ## 6. What is deliberately not proposed
 
