@@ -223,37 +223,75 @@ def test_no_disconnected_if_no_interactions(temp_communities_dir, valid_communit
     assert len(disconnected_issues) == 0, "Should not flag disconnected if no interactions"
 
 
-def test_disconnected_skipped_when_abundance_or_role_present(temp_communities_dir, valid_community):
-    """Taxa carrying abundance_level or functional_role describe community
-    membership and should not be flagged as DISCONNECTED."""
-    valid_community["taxonomy"].append(
-        {
-            "taxon_term": {
-                "preferred_term": "Membership-only taxon",
-                "term": {"id": "NCBITaxon:99999", "label": "Membership-only taxon"},
-            },
-            "abundance_level": "ABUNDANT",
-        }
-    )
-    valid_community["taxonomy"].append(
-        {
-            "taxon_term": {
-                "preferred_term": "Role-only taxon",
-                "term": {"id": "NCBITaxon:88888", "label": "Role-only taxon"},
-            },
-            "functional_role": ["PRIMARY_DEGRADER"],
-        }
-    )
+def test_membership_metadata_no_longer_exempts_from_disconnected(
+    temp_communities_dir, valid_community
+):
+    """abundance_level / functional_role do not exempt a taxon (#304).
+
+    They used to. That proxy stood in for "described as a member even without an
+    edge", but it exempted 931 of 1007 taxa, so DISCONNECTED effectively reported
+    "lacks metadata" rather than "lacks interactions" — and it rewarded filling
+    those slots, since removing a fabricated abundance_level created findings.
+    Membership without an edge is now expressed by a COMMUNITY_LEVEL interaction,
+    which credits its members (see the test below).
+    """
+    for pref, tid, extra in [
+        ("Membership-only taxon", "NCBITaxon:99999", {"abundance_level": "ABUNDANT"}),
+        ("Role-only taxon", "NCBITaxon:88888", {"functional_role": ["PRIMARY_DEGRADER"]}),
+    ]:
+        valid_community["taxonomy"].append(
+            {"taxon_term": {"preferred_term": pref, "term": {"id": tid, "label": pref}}, **extra}
+        )
 
     test_file = temp_communities_dir / "test_membership.yaml"
-    with open(test_file, "w") as f:
-        yaml.dump(valid_community, f)
+    test_file.write_text(yaml.dump(valid_community))
 
-    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
-    issues = auditor.audit_community(test_file)
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+    flagged = {i["taxon"] for i in issues if i["type"] == IssueType.DISCONNECTED}
 
-    disconnected_issues = [i for i in issues if i["type"] == IssueType.DISCONNECTED]
-    assert disconnected_issues == []
+    assert flagged == {"Membership-only taxon", "Role-only taxon"}, (
+        "carrying abundance_level or functional_role must no longer suppress a "
+        "DISCONNECTED finding; the rule reports connectivity, not slot completeness"
+    )
+
+
+def test_community_level_interaction_connects_every_member(temp_communities_dir, valid_community):
+    """A COMMUNITY_LEVEL interaction credits all members (#304).
+
+    Such an interaction has no source_taxon or target_taxon by design, so it
+    previously contributed no connections and every taxon in a record using them
+    exclusively was disconnected by construction — 107 of 302 records with
+    interactions.
+    """
+    valid_community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Edgeless member",
+                "term": {"id": "NCBITaxon:77777", "label": "Edgeless member"},
+            }
+        }
+    )
+    valid_community["ecological_interactions"] = [
+        {
+            "name": "Community-wide effect",
+            "interaction_type": "NICHE_PARTITIONING",
+            "scope": "COMMUNITY_LEVEL",
+        }
+    ]
+
+    test_file = temp_communities_dir / "test_community_level.yaml"
+    test_file.write_text(yaml.dump(valid_community))
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert [i for i in issues if i["type"] == IssueType.DISCONNECTED] == [], (
+        "a COMMUNITY_LEVEL interaction asserts a relationship across the whole "
+        "community, so no member should count as disconnected"
+    )
 
 
 def test_audit_all_communities(temp_communities_dir, valid_community):
