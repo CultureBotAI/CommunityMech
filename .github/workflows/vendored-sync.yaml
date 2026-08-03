@@ -1,0 +1,74 @@
+name: vendored-sync
+
+# Cross-repo durability guard. Several files here are vendored byte-identical
+# from the canonical hub (CultureBotAI/CultureMech) at the commit pinned in
+# scripts/.vendored_canon_ref; scripts/check_vendored_sync.sh fetches each one
+# and diffs it, so a one-copy edit fails CI.
+#
+# DELIBERATELY NO `paths:` FILTER. This job used to live in
+# label-correspondence.yaml and inherited that workflow's filter, which listed
+# only 2 of the 6 files the checker compares. Editing scripts/chem_formula.py or
+# any tests/test_id_label_*.py never fired the guard, and neither did editing
+# the checker itself or the pinned ref (CultureBotAI/TraitMech#198).
+#
+# A path list cannot be derived from the checker's own FILES array — GitHub
+# evaluates `paths:` from static YAML before checkout, so it cannot read the
+# repo. Any hand-maintained list therefore has to be kept in sync with the
+# checker by hand, which is precisely the drift this guard exists to prevent.
+# Running unconditionally removes the failure class instead of re-syncing two
+# lists. The job is bash + curl with no uv/OAK, so there is nothing to save by
+# filtering it; the expensive label-correspondence gate keeps its filter.
+#
+# Reference implementation: CultureBotAI/TraitMech#196.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: vendored-sync-${{ github.ref }}
+  # PRs only: on main, cancelling would leave the earlier commit unverified.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  vendored-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      # Retried here rather than inside check_vendored_sync.sh: that script is
+      # vendored byte-identical across the spokes and has no canonical copy in
+      # the hub to diff against (CommunityMech#278), so editing it locally would
+      # create cross-repo drift that nothing currently detects.
+      - name: Verify vendored files match canonical hub
+        run: |
+          set -uo pipefail
+          for attempt in 1 2 3; do
+            # Capture the status explicitly. `if cmd; then ...; fi` is NOT usable
+            # here: an if-statement whose condition fails and which has no else
+            # branch returns 0 itself, so a following `status=$?` reads 0 rather
+            # than the command's exit code.
+            status=0
+            bash scripts/check_vendored_sync.sh || status=$?
+            if [ "$status" -eq 0 ]; then
+              exit 0
+            fi
+            # Exit 2 is a local precondition failure (missing or empty pinned
+            # ref), not a transient fetch problem — retrying cannot help.
+            if [ "$status" -eq 2 ]; then
+              echo "::error::scripts/.vendored_canon_ref is missing or empty" >&2
+              exit 2
+            fi
+            if [ "$attempt" -lt 3 ]; then
+              echo "::warning::vendored-sync attempt $attempt failed (exit $status); retrying in 5s" >&2
+              sleep 5
+            fi
+          done
+          echo "::error::vendored files differ from the canonical hub, or the hub could not be reached after 3 attempts" >&2
+          exit 1
