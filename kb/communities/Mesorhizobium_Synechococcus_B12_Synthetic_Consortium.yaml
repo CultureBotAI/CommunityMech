@@ -1,0 +1,206 @@
+id: CommunityMech:000315
+name: Mesorhizobium TaiHu-Synechococcus PCC 7002 Vitamin B12 Synthetic Consortium
+description: >
+  A synthetic consortium built by co-culturing the marine cyanobacterium Synechococcus sp. PCC 7002
+  (Syn7002) — a model strain that lacks the gene cluster for vitamin B12 biosynthesis and therefore
+  depends on other microbes for it — with a bloom-forming Microcystis community from Lake Taihu,
+  then purifying the result. Metagenomics showed the early community consisted mainly of Syn7002,
+  Mesorhizobium sp. TaiHu (MesTH) and Pseudomonas sp. TaiHu (PseTH); PseTH declined once the
+  community stabilised, leaving the cyanobacterium and MesTH as the persistent pair. Electron
+  microscopy found rod-shaped bacteria clustered around Syn7002 cells. Metatranscriptomics showed
+  vitamin B12 biosynthesis and transport genes significantly upregulated in MesTH, and B12-positive
+  control experiments supported complementarity between the two strains, so the community is a
+  worked example of a vitamin auxotrophy being satisfied by a partner rather than by the medium.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Establish a stable partner community for a vitamin B12-auxotrophic cyanobacterium and
+    identify which member supplies the vitamin and by what route.
+  assembly_strategy: Co-culture Synechococcus sp. PCC 7002 with a bloom-forming Microcystis
+    community from Lake Taihu, then purify; characterise the resulting consortium by metagenomics,
+    metatranscriptomics and strain transcriptomics, with vitamin B12-positive controls.
+  measurement_endpoints:
+  - Community membership and relative abundance over stabilisation
+  - Expression of vitamin B12 biosynthesis and transport genes in MesTH
+  - Growth of Syn7002 with and without supplied vitamin B12
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we established a synthetic microbial consortium by co-culturing Syn7002 with a
+      bloom-forming Microcystis community, followed by purification
+    explanation: States the assembly route — co-culture with a natural bloom community, then
+      purification — which is what makes this a synthetic consortium rather than a field sample.
+environment_term:
+  preferred_term: laboratory co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The consortium was assembled and characterised in culture; its source community came from
+    a freshwater lake bloom.
+modeled_environment:
+- preferred_term: Lake Taihu freshwater bloom
+  term:
+    id: ENVO:00000021
+    label: freshwater lake
+  notes: The partner bacteria derive from a bloom-forming Microcystis community from Lake Taihu, so
+    the consortium models a freshwater bloom association even though Syn7002 itself is marine.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+    gtdb_classification:
+      gtdb_id: GTDB:s__Limnothrix_sp001693275
+      gtdb_taxon: Limnothrix sp001693275
+      gtdb_lineage: d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Cyanobacteriales;f__MRBY01;g__Limnothrix;s__Limnothrix sp001693275
+      ncbi_source_id: NCBITaxon:32049
+      majority_fraction: 1.0
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The paper's "Synechococcus sp. PCC 7002" — NCBITaxon carries this strain under the
+      current name Picosynechococcus sp. PCC 7002, with the paper's name retained as an exact
+      synonym. The vitamin B12 auxotroph at the centre of the consortium.
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The marine cyanobacterium Synechococcus sp. PCC 7002 (Syn7002) is a model organism that
+      lacks the gene cluster required for vitamin B12 biosynthesis, necessitating cooperative
+      interactions with other microbes
+    explanation: Establishes both the identity of the cyanobacterium and the auxotrophy that makes
+      the partnership necessary.
+- taxon_term:
+    preferred_term: Mesorhizobium sp. TaiHu (MesTH)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+    gtdb_classification:
+      gtdb_id: GTDB:g__Mesorhizobium
+      gtdb_taxon: Mesorhizobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Mesorhizobium
+      ncbi_source_id: NCBITaxon:68287
+      majority_fraction: 0.97
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 17 GTDB taxa under the NCBI taxon]
+    notes: The persistent partner and the proposed vitamin B12 source. Grounded at genus level —
+      the isolate is designated only "sp. TaiHu", with no species assignment.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transcriptomic data further indicated that vitamin B12 biosynthesis and transport genes
+      were significantly upregulated in MesTH
+    explanation: Identifies MesTH as the member upregulating both B12 synthesis and its transport,
+      which is the basis for treating it as the vitamin source.
+- taxon_term:
+    preferred_term: Pseudomonas sp. TaiHu (PseTH)
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.596
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 17 GTDB taxa under the NCBI taxon]
+    notes: A third member of the early community that declined once the community stabilised, so it
+      is present in assembly but not in the stable consortium. Grounded at genus level; the isolate
+      carries no species assignment.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the early-stage community consisted mainly of Syn7002, Mesorhizobium sp. TaiHu (MesTH)
+      and Pseudomonas sp. TaiHu (PseTH), although the abundance of PseTH declined after community
+      stabilization
+    explanation: Names all three early members and records that PseTH did not persist, which is why
+      it is included as a member but not as a partner in the B12 interaction.
+- taxon_term:
+    preferred_term: bloom-forming Microcystis community (source inoculum)
+    term:
+      id: NCBITaxon:1125
+      label: Microcystis <cyanobacteria>
+    notes: The bloom-forming community co-cultured with Syn7002 to seed the consortium. Grounded at
+      genus, which is exactly the rank the paper uses — an earlier draft grounded this to
+      Microcystis aeruginosa on the grounds that it dominates Lake Taihu blooms, but the source
+      never names a species and that inference has been removed. Recorded as the consortium's
+      source inoculum, not as a characterised member of the purified consortium.
+  evidence:
+  - reference: PMID:41790499
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: co-culturing Syn7002 with a bloom-forming Microcystis community
+    explanation: PARTIAL - the source community is named only at genus level, and the paper does not
+      resolve which of its members entered the purified consortium. The taxon records the
+      consortium's origin rather than a member with a characterised role.
+ecological_interactions:
+- name: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+  description: >
+    Syn7002 lacks the vitamin B12 biosynthesis gene cluster, and MesTH significantly upregulates
+    B12 biosynthesis and transport genes in the consortium. Together with B12-positive control
+    experiments, this supports MesTH supplying the small amount of B12 Syn7002 requires, making the
+    partnership a vitamin-mediated cross-feeding rather than a shared-medium coexistence.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Mesorhizobium sp. TaiHu (MesTH)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  target_taxon:
+    preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  metabolites:
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+    notes: The cyanobacterium cannot synthesise it; the paper reports MesTH supplying the small
+      amount required.
+  evidence:
+  - reference: PMID:41790499
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: The results further suggest that MesTH promotes the growth of Syn7002 in the community
+      by providing the small amount of vitamin B12 needed for its growth
+    explanation: PARTIAL - the paper states this as what the results "suggest", supported by
+      expression data and B12-positive controls rather than by direct measurement of transfer
+      between the strains, so provision is well-evidenced but not demonstrated isotopically.
+- name: Close Spatial Association of Partner Bacteria with Syn7002 Cells
+  description: >
+    Electron microscopy found numerous rod-shaped bacteria clustered around Syn7002 cells,
+    indicating a physical association between the cyanobacterium and its partner bacteria rather
+    than mere co-occurrence in the medium.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41790499
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Electron microscopy revealed numerous rod-shaped bacteria clustered around Syn7002
+      cells, indicating close spatial associations between species
+    explanation: PARTIAL - microscopy establishes spatial association but does not identify which
+      taxon the rod-shaped cells belong to, nor whether the association is required for the
+      exchange, so it is recorded at community level without a named partner.
+environmental_factors:
+- name: Vitamin B12-positive control supplementation
+  description: >
+    Growth experiments with supplied vitamin B12 were used as a positive control alongside the
+    expression data, and are part of what supports complementarity between the two strains.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combined with vitamin B12-positive control experiments, these results confirm potential
+      vitamin B12 complementarity between the two strains
+    explanation: Records the supplementation control as a tested condition and the basis, with the
+      expression data, for the complementarity claim.

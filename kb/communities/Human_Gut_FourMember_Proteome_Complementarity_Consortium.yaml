@@ -1,0 +1,185 @@
+id: CommunityMech:000317
+name: Human Gut Four-Member Proteome-Complementarity Consortium
+description: >
+  A defined four-member consortium of metabolically distinct human gut anaerobes — Eubacterium
+  hallii, Roseburia intestinalis, Marvinbryantia formatexigens and Faecalibacterium prausnitzii —
+  assembled in all pairwise combinations and as the full community, on distinct carbon sources, and
+  profiled by species-resolved proteomics. The finding is regulatory rather than compositional:
+  bacteria modulate protein abundance in response to specific partners, and those partner-specific
+  shifts reduce functional overlap between members and are frequently associated with increased
+  community productivity. Biotic interactions, not the carbon source, dominated proteomic variation.
+  The record captures a community whose members divide labour by changing what they express in each
+  other's presence, so metabolic complementarity is an outcome of regulation rather than a fixed
+  property of the members.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: DIET
+engineering_design:
+  objective: Determine whether and how bacteria adjust protein expression in response to specific
+    community partners, and whether such shifts reduce functional redundancy between members.
+  assembly_strategy: Assemble four metabolically distinct human gut-associated species in every
+    pairwise combination and as the full 4-member community, expose them to distinct carbon sources,
+    and profile species-resolved proteomes against the isolate baseline.
+  measurement_endpoints:
+  - Species-level proteome composition across isolate, pairwise and 4-member contexts
+  - Functional overlap between community members
+  - Community productivity
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we systematically profiled proteomic responses of individual species across isolate,
+      pairwise and 4-member communities
+    explanation: States the combinatorial design — isolate, pairwise and full community — that lets
+      partner-specific effects be separated from context-independent expression.
+environment_term:
+  preferred_term: laboratory anaerobic co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined consortia cultured on distinct carbon sources; the members are human
+    gut-associated species.
+modeled_environment:
+- preferred_term: human gut
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The members are gut-associated anaerobes and the consortium is described as gut-derived,
+    so the system models gut community function rather than a sampled gut environment.
+taxonomy:
+- taxon_term:
+    preferred_term: Eubacterium hallii
+    term:
+      id: NCBITaxon:39488
+      label: Anaerobutyricum hallii
+    gtdb_classification:
+      gtdb_id: GTDB:s__Anaerobutyricum_hallii
+      gtdb_taxon: Anaerobutyricum hallii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Anaerobutyricum;s__Anaerobutyricum hallii
+      ncbi_source_id: NCBITaxon:39488
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: The paper's "Eubacterium hallii" — NCBITaxon carries this organism under the current name
+      Anaerobutyricum hallii, with the paper's name retained as a synonym.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Eubacterium hallii is a versatile anaerobe that ferments glucose and lactate into
+      butyrate and hydrogen, and can utilize glycerol to produce 1,3-propanediol
+    explanation: Names the member and its metabolic capabilities, which is the basis for calling the
+      four species metabolically distinct.
+- taxon_term:
+    preferred_term: Roseburia intestinalis
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+    gtdb_classification:
+      gtdb_id: GTDB:s__Roseburia_intestinalis
+      gtdb_taxon: Roseburia intestinalis
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Roseburia;s__Roseburia intestinalis
+      ncbi_source_id: NCBITaxon:166486
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Hemicellulose and starch degrader producing butyrate as a terminal metabolite.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Roseburia intestinalis degrades hemicellulose and starch, producing butyrate as a
+      terminal metabolite, and is frequently associated with dietary fibre metabolism
+    explanation: Names the member and the substrate range and product that distinguish it from the
+      other three.
+- taxon_term:
+    preferred_term: Marvinbryantia formatexigens
+    term:
+      id: NCBITaxon:168384
+      label: Marvinbryantia formatexigens
+    gtdb_classification:
+      gtdb_id: GTDB:s__Marvinbryantia_formatexigens
+      gtdb_taxon: Marvinbryantia formatexigens
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Marvinbryantia;s__Marvinbryantia formatexigens
+      ncbi_source_id: NCBITaxon:168384
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: Amorphous-cellulose degrader producing formate and acetate.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Marvinbryantia formatexigens specializes in degrading amorphous cellulose and produces
+      formate and acetate as fermentation end products
+    explanation: Names the member and its substrate specialisation and products.
+- taxon_term:
+    preferred_term: Faecalibacterium prausnitzii
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+    notes: Prominent butyrate producer with proposed anti-inflammatory effects.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii is a prominent butyrate producer with proposed
+      anti-inflammatory effects
+    explanation: Names the fourth member and its principal fermentation product.
+ecological_interactions:
+- name: Partner-Specific Proteome Remodelling Reduces Functional Overlap
+  description: >
+    Members modulate protein abundance in response to which specific partners are present, producing
+    reproducible partner-specific expression shifts that significantly reduce functional overlap
+    between community members and are frequently associated with increased community productivity.
+    Because the response depends on partner identity rather than on the carbon source, the division
+    of labour is regulatory — the members reshape their realised niche by what they express.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+    notes: Terminal product of three of the four members, and part of the functional redundancy that
+      partner-specific expression reduces.
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+    notes: Fermentation end product of Marvinbryantia formatexigens.
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Fermentation end product of Marvinbryantia formatexigens.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These interactions led to reproducible, partner-specific expression shifts that
+      significantly reduced functional overlap and were frequently associated with increased
+      community productivity
+    explanation: States the central result — partner-specific, reproducible shifts that reduce
+      functional overlap — which is what makes this niche partitioning rather than a generic
+      co-culture effect.
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We found that biotic interactions, rather than abiotic conditions, were the dominant
+      drivers of proteomic variation
+    explanation: Recorded on this interaction rather than as a separate edge, because "partner
+      identity outweighed carbon source" is a property of the same partner-specific remodelling
+      rather than a second interaction between taxa. The design varied carbon source independently,
+      which is what gives the comparison force.
+environmental_factors:
+- name: Distinct carbon sources
+  description: >
+    Consortia were exposed to distinct carbon sources as the abiotic variable against which biotic
+    interaction effects were compared; carbon source proved the weaker driver of proteomic variation.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using synthetic gut-derived consortia exposed to distinct carbon sources
+    explanation: Records carbon source as the varied abiotic condition in the design.
