@@ -1160,3 +1160,129 @@ def test_report_is_written_before_the_process_exits(
 
     assert result.exit_code == EXIT_ERRORS
     assert report.exists() and report.stat().st_size > 0
+
+
+# ---------------------------------------------------------------------------
+# Duplicate preferred_term within one record (#328)
+# ---------------------------------------------------------------------------
+
+
+def _duplicate_name_community(source_id):
+    return {
+        "name": "Duplicate name",
+        "taxonomy": [
+            {"taxon_term": {"preferred_term": "X", "term": {"id": taxon_id, "label": "X"}}}
+            for taxon_id in ("NCBITaxon:100", "NCBITaxon:200")
+        ],
+        "ecological_interactions": [
+            {
+                "name": "An interaction",
+                "interaction_type": "COMPETITION",
+                "source_taxon": {
+                    "preferred_term": "Y",
+                    "term": {"id": source_id, "label": "X"},
+                },
+            }
+        ],
+    }
+
+
+def test_duplicate_preferred_term_is_reported(temp_communities_dir):
+    """Two entries under one name cost the record a member, silently.
+
+    `taxonomy_by_term` is last-write-wins, so the earlier entry vanishes from
+    every name lookup and no interaction can ever connect it.
+    """
+    test_file = temp_communities_dir / "test_dupe.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(_duplicate_name_community("NCBITaxon:100"), f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    dupes = [issue for issue in issues if issue["type"] == IssueType.DUPLICATE_TAXON_NAME]
+    assert len(dupes) == 1
+    assert dupes[0]["taxon"] == "X"
+    assert {dupes[0]["first_id"], dupes[0]["taxon_id"]} == {"NCBITaxon:100", "NCBITaxon:200"}
+    assert issue_severity(dupes[0]) == "error"
+
+
+def test_duplicate_name_does_not_manufacture_an_id_mismatch(temp_communities_dir):
+    """The id fallback resolved this participant, so its id agrees by construction.
+
+    Comparing anyway read the id off whichever duplicate entry won, turning a
+    perfectly valid `NCBITaxon:100` into an error-severity ID_MISMATCH against
+    the *other* entry's id (#328).
+    """
+    test_file = temp_communities_dir / "test_dupe_idmismatch.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(_duplicate_name_community("NCBITaxon:100"), f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert not [
+        issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH
+    ], f"a valid id must not be reported as a mismatch, got {issues}"
+
+
+def test_id_mismatch_still_fires_for_a_name_matched_participant(
+    temp_communities_dir, valid_community
+):
+    """The guard must not disarm ID_MISMATCH where it is the whole point.
+
+    A participant whose name matches its entry but whose id does not is the
+    copy-paste error, and it still gates.
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["source_taxon"]["term"]["id"] = "NCBITaxon:9999"
+
+    test_file = temp_communities_dir / "test_still_fires.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    mismatches = [issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH]
+    assert len(mismatches) == 1
+    assert issue_severity(mismatches[0]) == "error"
+
+
+def test_the_kb_has_no_duplicate_taxon_names():
+    """Guards the assumption that made DUPLICATE_TAXON_NAME safe at error severity."""
+    auditor = NetworkIntegrityAuditor(communities_dir=Path("kb/communities"))
+    auditor.audit_all(quiet=True)
+
+    offenders = sorted(
+        community
+        for community, issues in auditor.issues.items()
+        if any(issue["type"] == IssueType.DUPLICATE_TAXON_NAME for issue in issues)
+    )
+    assert offenders == [], f"records with a duplicate preferred_term: {offenders}"
+
+
+def test_id_mismatch_fires_on_the_target_side_too(temp_communities_dir, valid_community):
+    """Deleting the target-side ID_MISMATCH check passed the whole suite.
+
+    Only the source side was ever covered, so half of this detector could have
+    been removed unnoticed.
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["target_taxon"]["term"]["id"] = "NCBITaxon:9999"
+
+    test_file = temp_communities_dir / "test_target_mismatch.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    mismatches = [issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH]
+    assert len(mismatches) == 1
+    assert mismatches[0]["role"] == "target"
+    assert issue_severity(mismatches[0]) == "error"

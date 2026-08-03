@@ -25,6 +25,7 @@ class IssueType(str, Enum):
     UNKNOWN_SOURCE = "UNKNOWN_SOURCE"
     UNKNOWN_TARGET = "UNKNOWN_TARGET"
     NAME_MISMATCH = "NAME_MISMATCH"
+    DUPLICATE_TAXON_NAME = "DUPLICATE_TAXON_NAME"
     DANGLING_EDGE = "DANGLING_EDGE"
     DANGLING_ANCHOR = "DANGLING_ANCHOR"
     DISCONNECTED = "DISCONNECTED"
@@ -58,6 +59,7 @@ SEVERITY: dict[str, str] = {
     "UNKNOWN_SOURCE": "error",
     "UNKNOWN_TARGET": "error",
     "NAME_MISMATCH": "warning",
+    "DUPLICATE_TAXON_NAME": "error",
     "DANGLING_EDGE": "error",
     "DANGLING_ANCHOR": "error",
     "DISCONNECTED": "warning",
@@ -231,7 +233,7 @@ class NetworkIntegrityAuditor:
 
         # Build taxonomy lookup by preferred_term, plus a secondary index by
         # ontology id.
-        taxonomy_by_term = {}
+        taxonomy_by_term: dict[str, dict] = {}
         taxonomy_keys_by_id: dict[str, list[str]] = defaultdict(list)
         for taxon in data.get("taxonomy") or []:
             term = taxon.get("taxon_term", {})
@@ -239,6 +241,27 @@ class NetworkIntegrityAuditor:
             taxon_id = term.get("term", {}).get("id")
 
             if preferred:
+                # Two entries under one display name make the record ambiguous
+                # and silently cost it a member: this dict is last-write-wins,
+                # so the earlier entry vanishes from every name lookup and can
+                # never be connected by an interaction. It also made the
+                # ID_MISMATCH check compare against whichever entry happened to
+                # win, manufacturing an error-severity finding out of a valid id
+                # (#328).
+                if preferred in taxonomy_by_term:
+                    issues.append(
+                        {
+                            "type": IssueType.DUPLICATE_TAXON_NAME,
+                            "taxon": preferred,
+                            "taxon_id": taxon_id,
+                            "first_id": taxonomy_by_term[preferred]["id"],
+                            "message": (
+                                f"Two taxonomy entries share the name '{preferred}' "
+                                f"({taxonomy_by_term[preferred]['id']} and {taxon_id}); "
+                                f"only the last is reachable by name"
+                            ),
+                        }
+                    )
                 taxonomy_by_term[preferred] = {
                     "id": taxon_id,
                     "label": term.get("term", {}).get("label"),
@@ -358,9 +381,14 @@ class NetworkIntegrityAuditor:
                                 ),
                             }
                         )
-                    # Check ID mismatch
+                    # Only meaningful for a *name* match: it asks whether
+                    # the id agrees with the entry the name picked out. When the
+                    # id is what resolved the participant, it agrees by
+                    # construction — and comparing anyway read the id off a
+                    # last-write-wins entry, so a duplicate name produced a
+                    # spurious error-severity finding (#328).
                     expected_id = taxonomy_by_term[source_key]["id"]
-                    if source_id != expected_id:
+                    if not source_by_id and source_id != expected_id:
                         issues.append(
                             {
                                 "type": IssueType.ID_MISMATCH,
@@ -428,9 +456,14 @@ class NetworkIntegrityAuditor:
                                 ),
                             }
                         )
-                    # Check ID mismatch
+                    # Only meaningful for a *name* match: it asks whether
+                    # the id agrees with the entry the name picked out. When the
+                    # id is what resolved the participant, it agrees by
+                    # construction — and comparing anyway read the id off a
+                    # last-write-wins entry, so a duplicate name produced a
+                    # spurious error-severity finding (#328).
                     expected_id = taxonomy_by_term[target_key]["id"]
-                    if target_id != expected_id:
+                    if not target_by_id and target_id != expected_id:
                         issues.append(
                             {
                                 "type": IssueType.ID_MISMATCH,
@@ -545,6 +578,7 @@ class NetworkIntegrityAuditor:
         # Report each type
         for issue_type in [
             IssueType.UNREADABLE,
+            IssueType.DUPLICATE_TAXON_NAME,
             IssueType.ID_MISMATCH,
             IssueType.MISSING_SOURCE,
             IssueType.UNKNOWN_SOURCE,
