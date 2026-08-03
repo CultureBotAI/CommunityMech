@@ -15,6 +15,7 @@ from communitymech.network.auditor import (
     SEVERITY,
     IssueType,
     NetworkIntegrityAuditor,
+    issue_severity,
     severity_of,
 )
 
@@ -149,9 +150,17 @@ def test_unknown_source_detected(temp_communities_dir, valid_community):
     assert unknown_issues[0]["taxon"] == "Unknown bacterium"
 
 
-def test_unknown_source_skipped_for_community_level_scope(temp_communities_dir, valid_community):
-    """COMMUNITY_LEVEL interactions can use aggregate source descriptors that
-    don't appear in the taxonomy section without raising UNKNOWN_SOURCE."""
+def test_unknown_source_warns_but_does_not_gate_for_community_level_scope(
+    temp_communities_dir, valid_community
+):
+    """An aggregate COMMUNITY_LEVEL source descriptor is reported, not suppressed.
+
+    It used to be dropped entirely, which inverted the ordering once
+    NAME_MISMATCH arrived: a participant naming *nothing* was silent while one
+    that at least resolved by id produced a warning (#326). It is reported at
+    warning severity rather than error, because the 27 real instances are hosts
+    and antagonists deliberately kept out of `taxonomy` (#319).
+    """
     valid_community["ecological_interactions"][0]["source_taxon"] = {
         "preferred_term": "aggregate community descriptor",
         "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
@@ -168,12 +177,15 @@ def test_unknown_source_skipped_for_community_level_scope(temp_communities_dir, 
     auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
     issues = auditor.audit_community(test_file)
 
-    assert issues == []
+    assert [issue["type"] for issue in issues] == [IssueType.UNKNOWN_SOURCE]
+    assert issue_severity(issues[0]) == "warning"
+    assert severity_of(IssueType.UNKNOWN_SOURCE) == "error", "PAIRWISE still gates"
 
 
-def test_unknown_target_skipped_for_community_level_scope(temp_communities_dir, valid_community):
-    """COMMUNITY_LEVEL interactions can use aggregate target descriptors that
-    don't appear in the taxonomy section without raising UNKNOWN_TARGET."""
+def test_unknown_target_warns_but_does_not_gate_for_community_level_scope(
+    temp_communities_dir, valid_community
+):
+    """An aggregate COMMUNITY_LEVEL target descriptor is reported, not suppressed."""
     valid_community["ecological_interactions"][0]["target_taxon"] = {
         "preferred_term": "external host or aggregate community",
         "term": {"id": "NCBITaxon:2", "label": "Bacteria"},
@@ -190,7 +202,9 @@ def test_unknown_target_skipped_for_community_level_scope(temp_communities_dir, 
     auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
     issues = auditor.audit_community(test_file)
 
-    assert issues == []
+    assert [issue["type"] for issue in issues] == [IssueType.UNKNOWN_TARGET]
+    assert issue_severity(issues[0]) == "warning"
+    assert severity_of(IssueType.UNKNOWN_TARGET) == "error", "PAIRWISE still gates"
 
 
 def test_disconnected_taxon_detected(temp_communities_dir, valid_community):
@@ -1049,3 +1063,100 @@ def test_cli_exits_2_when_every_file_is_unreadable(temp_communities_dir, tmp_pat
     for name in ("a.yaml", "b.yaml"):
         (temp_communities_dir / name).write_text("taxonomy: [\n  unclosed")
     assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_CRASH
+
+
+# ---------------------------------------------------------------------------
+# The written report has to show which findings gate (#321, pinned per #327)
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture
+def mixed_severity_dir(temp_communities_dir, valid_community):
+    """One record with one error finding and two warning findings.
+
+    Deliberately asymmetric: with one of each, swapping the two counts in the
+    report header is undetectable.
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [{"target": "No Such Interaction"}]
+    for name, taxon_id in (
+        ("Bacillus subtilis", "NCBITaxon:1423"),
+        ("Clostridium acetobutylicum", "NCBITaxon:1488"),
+    ):
+        community["taxonomy"].append(
+            {"taxon_term": {"preferred_term": name, "term": {"id": taxon_id, "label": name}}}
+        )
+    with open(temp_communities_dir / "mixed.yaml", "w") as f:
+        yaml.dump(community, f)
+    return temp_communities_dir
+
+
+def _report_text(directory, tmp_path):
+    auditor = NetworkIntegrityAuditor(communities_dir=directory)
+    auditor.audit_all(quiet=True)
+    out = tmp_path / "report.txt"
+    auditor.write_report(output_path=out)
+    return out.read_text()
+
+
+def test_report_marks_each_finding_with_its_severity(mixed_severity_dir, tmp_path):
+    """Every line carries [error] or [warning], and they are not all the same.
+
+    Labelling all findings `[error]` passed the entire suite before this test
+    existed, which inverts precisely the signal #321 added (#327).
+    """
+    text = _report_text(mixed_severity_dir, tmp_path)
+
+    assert "[error] DANGLING_EDGE" in text
+    assert "[warning] DISCONNECTED" in text
+    assert "[error] DISCONNECTED" not in text
+    assert "[warning] DANGLING_EDGE" not in text
+
+
+def test_report_leads_with_counts_the_right_way_round(mixed_severity_dir, tmp_path):
+    """The header counts must not be swapped — 1 error, 1 warning here."""
+    text = _report_text(mixed_severity_dir, tmp_path)
+
+    assert "1 error, 2 warning" in text
+    assert "2 error, 1 warning" not in text
+    assert text.index("error") < text.index("Total")
+    assert "Only error-severity findings fail the build." in text
+
+
+def test_report_per_record_totals_split_by_severity(mixed_severity_dir, tmp_path):
+    text = _report_text(mixed_severity_dir, tmp_path)
+
+    assert "Total: 3 issues (1 error, 2 warning)" in text
+
+
+def test_report_is_written_before_the_process_exits(
+    temp_communities_dir, valid_community, tmp_path
+):
+    """The workflow treats a findings exit code with no report as a crash.
+
+    That guard is only correct because `write_report` runs before `sys.exit`;
+    if the order were ever swapped, CI would silently reclassify every gating
+    run as a crash and skip the gate step (#331).
+    """
+    from click.testing import CliRunner
+
+    from communitymech.cli import cli
+
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [{"target": "No Such Interaction"}]
+    _write(temp_communities_dir, "err.yaml", community)
+
+    report = tmp_path / "report.txt"
+    result = CliRunner().invoke(
+        cli,
+        [
+            "audit-network",
+            "--communities-dir",
+            str(temp_communities_dir),
+            "--report",
+            str(report),
+        ],
+    )
+
+    assert result.exit_code == EXIT_ERRORS
+    assert report.exists() and report.stat().st_size > 0

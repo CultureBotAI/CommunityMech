@@ -11,9 +11,10 @@ name: Network Quality Check
 # The auditor now carries severity levels, and this workflow gates on them: a
 # record naming a taxon, causal-edge target or discussion anchor that does not
 # exist fails the job, while DISCONNECTED (a member with no curated interaction
-# yet) and NAME_MISMATCH (a participant matched by ontology id because its name
-# matches no taxonomy entry) are reported and do not. Error-severity findings
-# currently stand at 0 and warnings at 28.
+# yet), NAME_MISMATCH (a participant matched by ontology id because its name
+# matches no taxonomy entry) and an unresolved participant on a COMMUNITY_LEVEL
+# interaction are reported and do not. Error-severity findings currently stand
+# at 0 and warnings at 55.
 #
 # The LLM repair-suggestion job calls the Anthropic API and posts comments, so
 # it runs only when explicitly requested via workflow_dispatch — never
@@ -131,10 +132,10 @@ jobs:
             errors|warnings)
               if [ "${{ steps.audit.outputs.result }}" = "errors" ]; then
                 heading="## Network integrity: broken references"
-                note="These fail the build: an interaction, causal edge or discussion anchor names something the record does not contain."
+                note="These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate."
               else
                 heading="## Network integrity findings"
-                note="Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than name. Reported, but does not fail the build."
+                note="Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build."
               fi
               {
                 echo "$heading"
@@ -151,8 +152,9 @@ jobs:
                 echo "## Network integrity audit failed to run"
                 echo
                 echo "\`audit-network\` exited ${{ steps.audit.outputs.code }} without writing a"
-                echo "report, which means it crashed rather than finding issues — a"
-                echo "malformed community YAML will do this. See the audit step log."
+                echo "usable report, which means it crashed rather than finding issues."
+                echo "A single malformed record does *not* do this — that is recorded as"
+                echo "an UNREADABLE finding and reported above. See the audit step log."
               } >> "$GITHUB_STEP_SUMMARY"
               ;;
           esac
@@ -215,8 +217,8 @@ jobs:
                   : '## Network integrity findings',
                 '',
                 isError
-                  ? 'These fail the build: an interaction, causal edge or discussion anchor names something the record does not contain.'
-                  : 'Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than name. Reported, but does not fail the build.',
+                  ? 'These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate.'
+                  : 'Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build.',
                 '',
                 '```',
                 truncated,

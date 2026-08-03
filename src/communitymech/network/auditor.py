@@ -93,6 +93,19 @@ def severity_of(issue_type) -> str:
     return SEVERITY.get(_type_label(issue_type), "error")
 
 
+def issue_severity(issue: dict) -> str:
+    """Severity of one finding, honouring a per-finding override.
+
+    Almost every finding takes its severity from its type. The exception is an
+    unresolved participant on a COMMUNITY_LEVEL interaction: the same defect as
+    on a PAIRWISE one, but not yet something the KB can gate on, because 27 of
+    them are hosts and antagonists deliberately left out of `taxonomy` (#319).
+    Carrying that exception on the finding keeps `SEVERITY` a straight
+    type-to-severity table rather than splitting the type in two.
+    """
+    return issue.get("severity") or severity_of(issue["type"])
+
+
 class NetworkIntegrityAuditor:
     """Audit community YAML files for network data integrity issues."""
 
@@ -191,7 +204,7 @@ class NetworkIntegrityAuditor:
         counts = {"error": 0, "warning": 0}
         for community_issues in self.issues.values():
             for issue in community_issues:
-                counts[severity_of(issue["type"])] += 1
+                counts[issue_severity(issue)] += 1
         return counts
 
     def audit_community(self, yaml_path: Path) -> list[dict]:
@@ -206,6 +219,13 @@ class NetworkIntegrityAuditor:
         """
         with open(yaml_path) as f:
             data = yaml.safe_load(f)
+
+        # An empty file parses to None. Without this it surfaced as UNREADABLE
+        # carrying "'NoneType' object has no attribute 'get'" — error severity,
+        # so an empty placeholder reddened the build with a message naming a
+        # Python type rather than anything a curator could act on (#329).
+        if data is None:
+            return []
 
         issues = []
 
@@ -295,18 +315,28 @@ class NetworkIntegrityAuditor:
 
                 source_key, source_by_id = resolve_member(source_term, source_id)
                 if source_key is None:
-                    if scope != "COMMUNITY_LEVEL":
-                        issues.append(
-                            {
-                                "type": IssueType.UNKNOWN_SOURCE,
-                                "interaction": int_name,
-                                "interaction_index": idx,
-                                "taxon": source_term,
-                                "message": (
-                                    f"Source taxon '{source_term}' not found in " "taxonomy section"
-                                ),
-                            }
-                        )
+                    # Reported whatever the scope. COMMUNITY_LEVEL used to
+                    # suppress this entirely, which inverted the ordering: a
+                    # participant naming *nothing* was silent, while one that at
+                    # least resolved by id produced a NAME_MISMATCH warning
+                    # (#326). It stays a warning there rather than an error,
+                    # because the 27 instances are hosts and antagonists
+                    # deliberately kept out of `taxonomy` — whether they belong
+                    # there is #319, and gating on it now would redden `main`.
+                    issues.append(
+                        {
+                            "type": IssueType.UNKNOWN_SOURCE,
+                            "interaction": int_name,
+                            "interaction_index": idx,
+                            "taxon": source_term,
+                            "severity": ("error" if scope != "COMMUNITY_LEVEL" else "warning"),
+                            "message": (
+                                f"Source taxon '{source_term or '<unnamed>'}' "
+                                "not found in taxonomy section"
+                                + ("" if scope != "COMMUNITY_LEVEL" else " (community-level scope)")
+                            ),
+                        }
+                    )
                 else:
                     connected_taxa.add(source_key)
                     if source_by_id:
@@ -355,18 +385,28 @@ class NetworkIntegrityAuditor:
 
                 target_key, target_by_id = resolve_member(target_term, target_id)
                 if target_key is None:
-                    if scope != "COMMUNITY_LEVEL":
-                        issues.append(
-                            {
-                                "type": IssueType.UNKNOWN_TARGET,
-                                "interaction": int_name,
-                                "interaction_index": idx,
-                                "taxon": target_term,
-                                "message": (
-                                    f"Target taxon '{target_term}' not found in " "taxonomy section"
-                                ),
-                            }
-                        )
+                    # Reported whatever the scope. COMMUNITY_LEVEL used to
+                    # suppress this entirely, which inverted the ordering: a
+                    # participant naming *nothing* was silent, while one that at
+                    # least resolved by id produced a NAME_MISMATCH warning
+                    # (#326). It stays a warning there rather than an error,
+                    # because the 27 instances are hosts and antagonists
+                    # deliberately kept out of `taxonomy` — whether they belong
+                    # there is #319, and gating on it now would redden `main`.
+                    issues.append(
+                        {
+                            "type": IssueType.UNKNOWN_TARGET,
+                            "interaction": int_name,
+                            "interaction_index": idx,
+                            "taxon": target_term,
+                            "severity": ("error" if scope != "COMMUNITY_LEVEL" else "warning"),
+                            "message": (
+                                f"Target taxon '{target_term or '<unnamed>'}' "
+                                "not found in taxonomy section"
+                                + ("" if scope != "COMMUNITY_LEVEL" else " (community-level scope)")
+                            ),
+                        }
+                    )
                 else:
                     connected_taxa.add(target_key)
                     if target_by_id:
@@ -560,7 +600,7 @@ class NetworkIntegrityAuditor:
             totals = self.count_by_severity()
             f.write(
                 f"{totals['error']} error, {totals['warning']} warning "
-                f"across {len(self.issues)} records\n"
+                f"across {len(self.issues)} records with findings\n"
             )
             f.write("Only error-severity findings fail the build.\n")
 
@@ -568,13 +608,13 @@ class NetworkIntegrityAuditor:
                 f.write(f"\n{community}\n")
                 f.write("-" * 80 + "\n")
                 for issue in community_issues:
-                    severity = severity_of(issue["type"])
+                    severity = issue_severity(issue)
                     f.write(f"  [{severity}] {_type_label(issue['type'])}: {issue['message']}\n")
                     if issue["type"] == "ID_MISMATCH":
                         f.write(
                             f"    Expected: {issue['expected_id']}, Found: {issue['actual_id']}\n"
                         )
-                errors = sum(1 for i in community_issues if severity_of(i["type"]) == "error")
+                errors = sum(1 for i in community_issues if issue_severity(i) == "error")
                 f.write(
                     f"\nTotal: {len(community_issues)} issues "
                     f"({errors} error, {len(community_issues) - errors} warning)\n"
@@ -608,7 +648,7 @@ class NetworkIntegrityAuditor:
             Dictionary mapping taxon names to their data
         """
         taxonomy_by_term = {}
-        for taxon in community_data.get("taxonomy", []):
+        for taxon in community_data.get("taxonomy") or []:
             term = taxon.get("taxon_term", {})
             preferred = term.get("preferred_term") or term.get("term", {}).get("label")
 
