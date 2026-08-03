@@ -50,12 +50,26 @@ _ABBREV_TAIL = re.compile(r"(?:^|\s)[A-Z]\.$")
 _LOWER_CONT = re.compile(r"^\s+[a-z]")
 
 
-def _cache_text(reference: str) -> str | None:
-    """Return the normalised cached text for a reference, or None if uncached."""
+def _cache_texts(reference: str) -> list[str]:
+    """Return every cached text for a reference, normalised to single spaces.
+
+    A reference often has more than one cache file — 63 of them carry both a
+    `.md` and a `.txt`, and per #265 those differ in substance: the `.md` usually
+    holds open-access full text while the `.txt` may be only the abstract.
+    Taking the first glob match would make this check filesystem-order dependent;
+    measured, 71 snippets are findable in one variant and not the other (#306).
+
+    All of them are searched instead. They are deliberately *not* concatenated:
+    this check inspects what follows the snippet, and joining two files would
+    manufacture a continuation across the boundary. `.json` files are CrossRef
+    metadata rather than prose and are excluded.
+    """
     key = reference.replace("PMID:", "PMID_").replace("doi:", "DOI_").replace("/", "_")
-    for candidate in CACHE.glob(key + ".*"):
-        return " ".join(candidate.read_text(errors="replace").split())
-    return None
+    return [
+        " ".join(candidate.read_text(errors="replace").split())
+        for candidate in sorted(CACHE.glob(key + ".*"))
+        if candidate.suffix != ".json"
+    ]
 
 
 def _evidence_items(node):
@@ -92,15 +106,16 @@ def test_no_snippet_truncated_at_a_genus_abbreviation(path: Path):
 
     for item in _evidence_items(record):
         snippet = " ".join(str(item.get("snippet") or "").split())
-        cached = _cache_text(str(item.get("reference")))
-        if not snippet or not cached:
+        if not snippet or not _ABBREV_TAIL.search(snippet):
             continue
-        start = cached.find(snippet)
-        if start < 0:
-            continue
-        continuation = cached[start + len(snippet) :]
-        if _ABBREV_TAIL.search(snippet) and _LOWER_CONT.match(continuation):
-            offenders.append(f"{snippet[-52:]!r} + {continuation[:26]!r}")
+        for cached in _cache_texts(str(item.get("reference"))):
+            start = cached.find(snippet)
+            if start < 0:
+                continue
+            continuation = cached[start + len(snippet) :]
+            if _LOWER_CONT.match(continuation):
+                offenders.append(f"{snippet[-52:]!r} + {continuation[:26]!r}")
+                break  # one report per snippet, not one per cache variant
 
     assert not offenders, (
         f"{path.name} has {len(offenders)} snippet(s) truncated at a genus "
