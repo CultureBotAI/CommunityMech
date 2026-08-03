@@ -149,12 +149,20 @@ class NetworkIntegrityAuditor:
         # Check each interaction
         interactions = data.get("ecological_interactions", [])
 
-        # Track which taxa are connected
-        connected_taxa = set()
+        # Track which taxa are connected, keyed by preferred_term like taxonomy_by_term
+        connected_taxa: set[str] = set()
 
         for idx, interaction in enumerate(interactions):
             int_name = interaction.get("name", f"Interaction {idx+1}")
             scope = interaction.get("scope", "PAIRWISE")
+
+            # A COMMUNITY_LEVEL interaction asserts a relationship holding across
+            # the community rather than between a named pair, so every member
+            # participates in it. Without this, such interactions contributed no
+            # connections at all and every taxon in the 107 records that use them
+            # exclusively counted as disconnected by construction (#304).
+            if scope == "COMMUNITY_LEVEL":
+                connected_taxa.update(taxonomy_by_term)
 
             # Check source_taxon (only required for PAIRWISE interactions)
             source = interaction.get("source_taxon")
@@ -246,17 +254,22 @@ class NetworkIntegrityAuditor:
                             }
                         )
 
-        # Check for disconnected taxa. Skip taxa that carry standalone
-        # abundance_level or functional_role metadata — they describe community
-        # membership without requiring a pairwise interaction edge.
+        # Check for disconnected taxa: members that take part in no interaction
+        # of any scope.
+        #
+        # There used to be an exemption here for taxa carrying abundance_level or
+        # functional_role, standing in for "described as a member even without an
+        # edge". With COMMUNITY_LEVEL interactions now crediting their members,
+        # that proxy is unnecessary — and it was harmful. It exempted 931 of 1007
+        # taxa, so the rule effectively reported "lacks metadata" rather than
+        # "lacks interactions", and it rewarded filling those slots: removing a
+        # fabricated abundance_level created findings (#304).
         all_taxa = set(taxonomy_by_term.keys())
         disconnected = all_taxa - connected_taxa
 
         if disconnected and interactions:  # Only flag if there ARE interactions
             for taxon in sorted(disconnected):
                 taxon_data = taxonomy_by_term[taxon]["taxon_data"]
-                if taxon_data.get("abundance_level") or taxon_data.get("functional_role"):
-                    continue
                 issues.append(
                     {
                         "type": IssueType.DISCONNECTED,
