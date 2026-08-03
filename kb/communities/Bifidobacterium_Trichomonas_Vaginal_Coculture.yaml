@@ -110,34 +110,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:1685
       label: Bifidobacterium breve
-  evidence:
-  - reference: PMID:41688526
-    supports: PARTIAL
-    evidence_source: IN_VITRO
-    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan
-      proliferation by 1.2-fold, while bacterial abundance was reduced by 27%
-    explanation: PARTIAL - the directional gain and loss are both measured, and microscopy shows
-      physical association, but the paper does not demonstrate ingestion, so PREDATION is the
-      closest available type rather than a mechanism the source establishes. Nothing here rules out
-      the bacterial decline arising from competition or the culture conditions.
-- name: Parasite Fatty Acid Metabolism and Virulence Gene Upregulation
-  description: >
-    Transcriptomics of T. vaginalis co-cultured with B. breve showed upregulation of fatty acid
-    metabolism and DNA replication genes, and an increase in virulence-associated genes including
-    adhesins; metabolomics confirmed changes in long-chain fatty acid content. The parasite's
-    response to the commensal is therefore both metabolic and virulence-associated, and transient.
-  interaction_type: COMMENSALISM
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bifidobacterium breve
-    term:
-      id: NCBITaxon:1685
-      label: Bifidobacterium breve
-  target_taxon:
-    preferred_term: Trichomonas vaginalis
-    term:
-      id: NCBITaxon:5722
-      label: Trichomonas vaginalis
   metabolites:
   - preferred_term: long-chain fatty acid
     term:
@@ -149,11 +121,21 @@ ecological_interactions:
   - reference: PMID:41688526
     supports: PARTIAL
     evidence_source: IN_VITRO
+    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan
+      proliferation by 1.2-fold, while bacterial abundance was reduced by 27%
+    explanation: PARTIAL - the directional gain and loss are both measured, and microscopy shows
+      physical association, but the paper does not demonstrate ingestion, so PREDATION is the
+      closest available type rather than a mechanism the source establishes. Nothing here rules out
+      the bacterial decline arising from competition or the culture conditions.
+  - reference: PMID:41688526
+    supports: PARTIAL
+    evidence_source: IN_VITRO
     snippet: Transcriptomic profiling of T. vaginalis co-cultured with B. breve revealed an
       upregulation of genes related to fatty acid metabolism and DNA replication
-    explanation: PARTIAL - the expression and metabolite changes are measured, but the record types
-      this as COMMENSALISM only in the sense that the parasite is modulated by the bacterium's
-      presence; the source does not identify a transferred compound, so no cross-feeding is claimed.
+    explanation: PARTIAL - the parasite's transcriptomic and metabolomic response to the bacterium,
+      recorded on this interaction rather than as a separate edge because it describes the same
+      relationship rather than a second one. Virulence-associated genes including adhesins also
+      increased. No transferred compound is identified, so no cross-feeding is claimed.
 - name: Absence of Host Epithelial Protection
   description: >
     B. breve conferred no protection on HeLa epithelial cells during infection, whether given before
