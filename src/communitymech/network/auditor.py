@@ -24,6 +24,7 @@ class IssueType(str, Enum):
     MISSING_SOURCE = "MISSING_SOURCE"
     UNKNOWN_SOURCE = "UNKNOWN_SOURCE"
     UNKNOWN_TARGET = "UNKNOWN_TARGET"
+    NAME_MISMATCH = "NAME_MISMATCH"
     DANGLING_EDGE = "DANGLING_EDGE"
     DANGLING_ANCHOR = "DANGLING_ANCHOR"
     DISCONNECTED = "DISCONNECTED"
@@ -40,16 +41,23 @@ class IssueType(str, Enum):
 # disagrees with the taxonomy entry it refers to. Those are objectively broken
 # and no amount of further curation makes them correct.
 #
-# `DISCONNECTED` is different in kind: a curated member that no interaction yet
-# mentions. Nothing is inconsistent — the record simply says less than it could,
-# and for field and natural communities that is the normal state rather than a
-# defect. It stays reported and stays out of the gate (#273).
+# `NAME_MISMATCH` and `DISCONNECTED` are different in kind. The first says the
+# participant was matched by its ontology id because its name matched no entry:
+# usually the paper's own shorthand, occasionally a name left behind by an edit,
+# and the auditor cannot tell which — so it reports rather than resolving
+# silently (#317), and does not gate on what is legitimate most of the time.
+#
+# The second is a curated member that no interaction yet mentions. Nothing is
+# inconsistent — the record simply says less than it could, and for field and
+# natural communities that is the normal state rather than a defect. It stays
+# reported and stays out of the gate (#273).
 SEVERITY: dict[str, str] = {
     "UNREADABLE": "error",
     "ID_MISMATCH": "error",
     "MISSING_SOURCE": "error",
     "UNKNOWN_SOURCE": "error",
     "UNKNOWN_TARGET": "error",
+    "NAME_MISMATCH": "warning",
     "DANGLING_EDGE": "error",
     "DANGLING_ANCHOR": "error",
     "DISCONNECTED": "warning",
@@ -205,7 +213,7 @@ class NetworkIntegrityAuditor:
         # ontology id.
         taxonomy_by_term = {}
         taxonomy_keys_by_id: dict[str, list[str]] = defaultdict(list)
-        for taxon in data.get("taxonomy", []):
+        for taxon in data.get("taxonomy") or []:
             term = taxon.get("taxon_term", {})
             preferred = term.get("preferred_term") or term.get("term", {}).get("label")
             taxon_id = term.get("term", {}).get("id")
@@ -219,8 +227,13 @@ class NetworkIntegrityAuditor:
                 if taxon_id:
                     taxonomy_keys_by_id[taxon_id].append(preferred)
 
-        def resolve_member(name: str | None, taxon_id: str | None) -> str | None:
+        def resolve_member(name: str | None, taxon_id: str | None) -> tuple[str | None, bool]:
             """Match an interaction participant to its taxonomy entry.
+
+            Returns the taxonomy key and whether the id fallback was what
+            matched it — the caller reports the latter as NAME_MISMATCH, because
+            the fallback cannot tell a paper's shorthand from a stale name and
+            must not resolve either one silently (#317).
 
             Name first, because `preferred_term` is the only thing that separates
             two members sharing one ontology id: `Lotus_LjSC3` carries three
@@ -239,15 +252,15 @@ class NetworkIntegrityAuditor:
             the record genuinely does not say which member is meant.
             """
             if name and name in taxonomy_by_term:
-                return name
+                return name, False
             if taxon_id:
                 candidates = taxonomy_keys_by_id.get(taxon_id, [])
                 if len(candidates) == 1:
-                    return candidates[0]
-            return None
+                    return candidates[0], True
+            return None, False
 
         # Check each interaction
-        interactions = data.get("ecological_interactions", [])
+        interactions = data.get("ecological_interactions") or []
 
         # Track which taxa are connected, keyed by preferred_term like taxonomy_by_term
         connected_taxa: set[str] = set()
@@ -280,7 +293,7 @@ class NetworkIntegrityAuditor:
                 source_term = source.get("preferred_term") or source.get("term", {}).get("label")
                 source_id = source.get("term", {}).get("id")
 
-                source_key = resolve_member(source_term, source_id)
+                source_key, source_by_id = resolve_member(source_term, source_id)
                 if source_key is None:
                     if scope != "COMMUNITY_LEVEL":
                         issues.append(
@@ -296,6 +309,25 @@ class NetworkIntegrityAuditor:
                         )
                 else:
                     connected_taxa.add(source_key)
+                    if source_by_id:
+                        # Matched on the id alone. Report it: the same shape
+                        # covers a paper's shorthand and a name stranded by an
+                        # edit, and binding the second one silently is how a
+                        # genuine dangling reference disappears (#317).
+                        issues.append(
+                            {
+                                "type": IssueType.NAME_MISMATCH,
+                                "interaction": int_name,
+                                "interaction_index": idx,
+                                "taxon": source_term,
+                                "role": "source",
+                                "resolved_to": source_key,
+                                "message": (
+                                    f"Source '{source_term}' matches no taxonomy entry by name; "
+                                    f"resolved to '{source_key}' by source_id {source_id}"
+                                ),
+                            }
+                        )
                     # Check ID mismatch
                     expected_id = taxonomy_by_term[source_key]["id"]
                     if source_id != expected_id:
@@ -321,7 +353,7 @@ class NetworkIntegrityAuditor:
                 target_term = target.get("preferred_term") or target.get("term", {}).get("label")
                 target_id = target.get("term", {}).get("id")
 
-                target_key = resolve_member(target_term, target_id)
+                target_key, target_by_id = resolve_member(target_term, target_id)
                 if target_key is None:
                     if scope != "COMMUNITY_LEVEL":
                         issues.append(
@@ -337,6 +369,25 @@ class NetworkIntegrityAuditor:
                         )
                 else:
                     connected_taxa.add(target_key)
+                    if target_by_id:
+                        # Matched on the id alone. Report it: the same shape
+                        # covers a paper's shorthand and a name stranded by an
+                        # edit, and binding the second one silently is how a
+                        # genuine dangling reference disappears (#317).
+                        issues.append(
+                            {
+                                "type": IssueType.NAME_MISMATCH,
+                                "interaction": int_name,
+                                "interaction_index": idx,
+                                "taxon": target_term,
+                                "role": "target",
+                                "resolved_to": target_key,
+                                "message": (
+                                    f"Target '{target_term}' matches no taxonomy entry by name; "
+                                    f"resolved to '{target_key}' by target_id {target_id}"
+                                ),
+                            }
+                        )
                     # Check ID mismatch
                     expected_id = taxonomy_by_term[target_key]["id"]
                     if target_id != expected_id:
@@ -458,6 +509,7 @@ class NetworkIntegrityAuditor:
             IssueType.MISSING_SOURCE,
             IssueType.UNKNOWN_SOURCE,
             IssueType.UNKNOWN_TARGET,
+            IssueType.NAME_MISMATCH,
             IssueType.DANGLING_EDGE,
             IssueType.DANGLING_ANCHOR,
             IssueType.DISCONNECTED,
@@ -499,16 +551,34 @@ class NetworkIntegrityAuditor:
             f.write("Network Integrity Audit Report\n")
             f.write("=" * 80 + "\n\n")
 
+            # Severity is on every line, and counted per record and overall.
+            # The workflow pastes this report into a pull request comment whose
+            # heading comes from the *aggregate* outcome, so without a per-line
+            # marker one gating DANGLING_EDGE and nineteen non-gating
+            # DISCONNECTED looked identical and the curator had no way to find
+            # the blocker (#321).
+            totals = self.count_by_severity()
+            f.write(
+                f"{totals['error']} error, {totals['warning']} warning "
+                f"across {len(self.issues)} records\n"
+            )
+            f.write("Only error-severity findings fail the build.\n")
+
             for community, community_issues in sorted(self.issues.items()):
                 f.write(f"\n{community}\n")
                 f.write("-" * 80 + "\n")
                 for issue in community_issues:
-                    f.write(f"  {_type_label(issue['type'])}: {issue['message']}\n")
+                    severity = severity_of(issue["type"])
+                    f.write(f"  [{severity}] {_type_label(issue['type'])}: {issue['message']}\n")
                     if issue["type"] == "ID_MISMATCH":
                         f.write(
                             f"    Expected: {issue['expected_id']}, Found: {issue['actual_id']}\n"
                         )
-                f.write(f"\nTotal: {len(community_issues)} issues\n")
+                errors = sum(1 for i in community_issues if severity_of(i["type"]) == "error")
+                f.write(
+                    f"\nTotal: {len(community_issues)} issues "
+                    f"({errors} error, {len(community_issues) - errors} warning)\n"
+                )
 
         # stderr, not stdout: with --json both would otherwise share the
         # stream and the confirmation line would corrupt the JSON.

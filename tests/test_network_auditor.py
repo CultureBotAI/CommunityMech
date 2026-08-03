@@ -8,6 +8,8 @@ import pytest
 import yaml
 
 from communitymech.network.auditor import (
+    EXIT_CLEAN,
+    EXIT_CRASH,
     EXIT_ERRORS,
     EXIT_WARNINGS,
     SEVERITY,
@@ -529,13 +531,15 @@ def test_a_lone_unreadable_file_is_still_a_finding(temp_communities_dir):
 def test_interaction_may_name_a_taxon_differently_from_taxonomy(
     temp_communities_dir, valid_community
 ):
-    """A shorter name on the interaction than in taxonomy is not a dangling reference.
+    """A shorter name on the interaction than in taxonomy does not gate.
 
     `preferred_term` is free text and deliberately preserves whatever the paper
     called an organism, so one record legitimately writes "ANME-1" on an
     interaction and "ANME-1 (anaerobic methanotrophic archaea, clade 1)" in
     taxonomy for the same NCBITaxon. Matching on the name alone reported all
-    four such pairs in the KB as UNKNOWN_SOURCE/UNKNOWN_TARGET (#315).
+    four such pairs in the KB as UNKNOWN_SOURCE/UNKNOWN_TARGET, at error
+    severity (#315). It is still *reported*, as a NAME_MISMATCH warning (#317) —
+    what must not happen is the build going red over it.
     """
     community = dict(valid_community)
     community["taxonomy"][0]["taxon_term"]["preferred_term"] = "Escherichia coli (strain K-12)"
@@ -548,7 +552,8 @@ def test_interaction_may_name_a_taxon_differently_from_taxonomy(
         test_file
     )
 
-    assert issues == [], f"id should resolve the participant, got {issues}"
+    errors = [issue for issue in issues if severity_of(issue["type"]) == "error"]
+    assert errors == [], f"an alias must not gate, got {errors}"
 
 
 def test_shared_taxon_id_does_not_collapse_distinct_members(temp_communities_dir):
@@ -742,10 +747,15 @@ def test_every_issue_type_has_a_severity():
     assert {issue_type.value for issue_type in IssueType} == set(SEVERITY)
 
 
-def test_disconnected_is_the_only_warning():
-    """Incompleteness warns; everything else names something that is not there."""
+def test_only_incompleteness_and_alias_resolution_warn():
+    """Everything else names something that is not there, and gates.
+
+    DISCONNECTED is a member no interaction mentions yet; NAME_MISMATCH is a
+    participant matched by id because its name matched no entry. Both are
+    reported and neither fails the build.
+    """
     warnings = {name for name, level in SEVERITY.items() if level == "warning"}
-    assert warnings == {"DISCONNECTED"}
+    assert warnings == {"DISCONNECTED", "NAME_MISMATCH"}
 
 
 def test_unmapped_issue_type_gates_rather_than_passing():
@@ -814,3 +824,228 @@ def test_quiet_suppresses_the_human_report(temp_communities_dir, valid_community
 
     assert captured.out == "", f"expected silence on stdout, got {captured.out!r}"
     json.loads(auditor.to_json())
+
+
+# ---------------------------------------------------------------------------
+# The id fallback reports rather than resolving silently (#317)
+# ---------------------------------------------------------------------------
+
+
+def test_id_fallback_is_reported_not_silent(temp_communities_dir, valid_community):
+    """A participant matched only by id is a NAME_MISMATCH, at warning severity.
+
+    The fallback cannot tell a paper's shorthand from a name stranded by an
+    edit. Binding either one silently is how a genuine dangling reference
+    disappears, so it is always reported — and, because the legitimate case is
+    the common one, it does not gate.
+    """
+    community = dict(valid_community)
+    community["taxonomy"][0]["taxon_term"]["preferred_term"] = "Escherichia coli (strain K-12)"
+
+    test_file = temp_communities_dir / "test_fallback.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert [issue["type"] for issue in issues] == [IssueType.NAME_MISMATCH]
+    assert issues[0]["resolved_to"] == "Escherichia coli (strain K-12)"
+    assert severity_of(issues[0]["type"]) == "warning"
+
+
+def test_a_stale_participant_name_does_not_vanish(temp_communities_dir):
+    """Renaming a taxonomy entry and forgetting the interaction stays visible.
+
+    This is the false-negative the id fallback would otherwise introduce: the
+    interaction names nobody, the id happens to match one member, and before
+    #317 the auditor bound it and said nothing at all.
+    """
+    community = {
+        "name": "Stale name",
+        "taxonomy": [
+            {
+                "taxon_term": {
+                    "preferred_term": name,
+                    "term": {"id": taxon_id, "label": name},
+                }
+            }
+            for name, taxon_id in (
+                ("Strain Alpha", "NCBITaxon:100"),
+                ("Strain Beta", "NCBITaxon:200"),
+            )
+        ],
+        "ecological_interactions": [
+            {
+                "name": "Alpha out-competes Beta",
+                "interaction_type": "COMPETITION",
+                "source_taxon": {
+                    "preferred_term": "Strain Alpha",
+                    "term": {"id": "NCBITaxon:100", "label": "Strain Alpha"},
+                },
+                "target_taxon": {
+                    "preferred_term": "Strain Gamma",  # renamed away
+                    "term": {"id": "NCBITaxon:200", "label": "Strain Beta"},
+                },
+            }
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_stale.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    reported = [issue for issue in issues if issue["type"] == IssueType.NAME_MISMATCH]
+    assert len(reported) == 1, f"the stale name must be reported, got {issues}"
+    assert reported[0]["taxon"] == "Strain Gamma"
+
+
+def test_name_match_wins_over_another_members_id(temp_communities_dir):
+    """A name-matched participant carrying another member's id is an ID_MISMATCH.
+
+    This is the copy-paste id error, and it pins the resolution precedence that
+    the gate depends on: resolving by id first — even requiring a unique
+    candidate — would bind the edge to the *other* member and downgrade the
+    finding to a DISCONNECTED warning, which does not fail the build (#322).
+    """
+    community = {
+        "name": "Swapped id",
+        "taxonomy": [
+            {
+                "taxon_term": {
+                    "preferred_term": name,
+                    "term": {"id": taxon_id, "label": name},
+                }
+            }
+            for name, taxon_id in (
+                ("Strain Alpha", "NCBITaxon:100"),
+                ("Strain Beta", "NCBITaxon:200"),
+            )
+        ],
+        "ecological_interactions": [
+            {
+                "name": "Alpha out-competes Beta",
+                "interaction_type": "COMPETITION",
+                "source_taxon": {
+                    "preferred_term": "Strain Alpha",
+                    "term": {"id": "NCBITaxon:200", "label": "Strain Alpha"},
+                },
+                "target_taxon": {
+                    "preferred_term": "Strain Beta",
+                    "term": {"id": "NCBITaxon:200", "label": "Strain Beta"},
+                },
+            }
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_swapped.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    mismatches = [issue for issue in issues if issue["type"] == IssueType.ID_MISMATCH]
+    assert len(mismatches) == 1, f"expected one ID_MISMATCH, got {issues}"
+    assert mismatches[0]["taxon"] == "Strain Alpha"
+    assert severity_of(IssueType.ID_MISMATCH) == "error"
+
+
+def test_a_bare_interactions_key_is_not_a_parse_failure(temp_communities_dir, valid_community):
+    """`ecological_interactions:` with no value is valid YAML and must not crash.
+
+    It parses to None, and an unguarded iteration turned that into UNREADABLE —
+    which is now error severity, so a plausible stub would have gated (#320).
+    """
+    community = dict(valid_community)
+    community["ecological_interactions"] = None
+    community["taxonomy"] = None
+
+    test_file = temp_communities_dir / "test_bare.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert issues == []
+
+
+# ---------------------------------------------------------------------------
+# The CLI exit codes the restored gate keys off (#324)
+# ---------------------------------------------------------------------------
+
+
+def _write(directory, name, community):
+    path = directory / name
+    with open(path, "w") as f:
+        yaml.dump(community, f)
+    return path
+
+
+def _audit_exit_code(directory, tmp_path):
+    """Run `audit-network --report` exactly as network-quality.yml does."""
+    from click.testing import CliRunner
+
+    from communitymech.cli import cli
+
+    result = CliRunner().invoke(
+        cli,
+        [
+            "audit-network",
+            "--communities-dir",
+            str(directory),
+            "--report",
+            str(tmp_path / "report.txt"),
+        ],
+    )
+    return result.exit_code
+
+
+def test_cli_exits_0_when_clean(temp_communities_dir, valid_community, tmp_path):
+    _write(temp_communities_dir, "clean.yaml", valid_community)
+    assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_CLEAN
+
+
+def test_cli_exits_1_on_warnings_only(temp_communities_dir, valid_community, tmp_path):
+    community = dict(valid_community)
+    community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Bacillus subtilis",
+                "term": {"id": "NCBITaxon:1423", "label": "Bacillus subtilis"},
+            }
+        }
+    )
+    _write(temp_communities_dir, "warn.yaml", community)
+    assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_WARNINGS
+
+
+def test_cli_exits_3_on_an_error_finding(temp_communities_dir, valid_community, tmp_path):
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [{"target": "No Such Interaction"}]
+    _write(temp_communities_dir, "err.yaml", community)
+    assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_ERRORS
+
+
+def test_cli_exits_3_when_one_file_among_good_ones_is_unreadable(
+    temp_communities_dir, valid_community, tmp_path
+):
+    """One bad record gates; it does not crash the run or pass unnoticed."""
+    _write(temp_communities_dir, "good.yaml", valid_community)
+    (temp_communities_dir / "bad.yaml").write_text("taxonomy: [\n  unclosed")
+    assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_ERRORS
+
+
+def test_cli_exits_2_when_every_file_is_unreadable(temp_communities_dir, tmp_path):
+    """Every record failing is the auditor's fault, not the data's — a crash."""
+    for name in ("a.yaml", "b.yaml"):
+        (temp_communities_dir / name).write_text("taxonomy: [\n  unclosed")
+    assert _audit_exit_code(temp_communities_dir, tmp_path) == EXIT_CRASH

@@ -92,6 +92,13 @@ jobs:
             3) result=errors ;;
             *) result=crash ;;
           esac
+          # A findings code with no report is a crash whatever the number says.
+          # The CLI's own handler always yields 2, but exit 1 is still reachable
+          # from outside it — `uv run` failing, or the console script dying at
+          # import — and that used to route here and now would not (#323).
+          if [ "$result" != "clean" ] && [ ! -s reports/network_audit.txt ]; then
+            result=crash
+          fi
           echo "code=$code" >> "$GITHUB_OUTPUT"
           echo "result=$result" >> "$GITHUB_OUTPUT"
           echo "audit-network exited $code ($result)"
@@ -109,9 +116,10 @@ jobs:
       #   warnings  — exit 1, DISCONNECTED only     → reported, does not gate
       #   errors    — exit 3, broken references     → fails the job (#273)
       #   crash     — exit 2, no report written     → must be loud
-      # A malformed community YAML produces the last (issue #281 — one bad file
-      # aborts the whole audit), and that is exactly when this check matters
-      # most, so it must not be reported as "findings" or swallowed.
+      # A single malformed community YAML is recorded as an UNREADABLE finding
+      # against that record (issue #281) and so lands in `errors`, not `crash`;
+      # only the auditor failing outright — every file unreadable, or the CLI
+      # dying — produces `crash`. Either way it must not be swallowed.
       - name: Write job summary
         if: always()
         run: |
@@ -253,7 +261,9 @@ jobs:
         if: steps.audit.outputs.result == 'errors'
         run: |
           echo "audit-network found error-severity findings — see the report above." >&2
-          echo "Something in a record names a taxon or interaction that does not exist." >&2
+          echo "Either a record names a taxon or interaction that does not exist, or a" >&2
+          echo "record could not be parsed at all (UNREADABLE). The report marks each" >&2
+          echo "line with its severity; only [error] lines fail the build." >&2
           exit 1
 
       - name: Fail if the audit could not run
@@ -268,7 +278,10 @@ jobs:
   suggest-repairs:
     runs-on: ubuntu-latest
     needs: audit-network
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.suggest_repairs }}
+    # `!cancelled()` rather than a bare condition: a job with `needs:` is skipped
+    # when the needed job fails, so once the audit became a hard gate this job
+    # could only run when there was nothing for it to repair (#318).
+    if: ${{ !cancelled() && github.event_name == 'workflow_dispatch' && inputs.suggest_repairs }}
     name: Generate Repair Suggestions
 
     # `secrets` is not available in a step-level `if`, so surface the presence
