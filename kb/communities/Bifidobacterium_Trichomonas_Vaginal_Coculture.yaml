@@ -1,0 +1,184 @@
+id: CommunityMech:000318
+name: Bifidobacterium breve-Trichomonas vaginalis Vaginal Co-culture
+description: >
+  A defined two-member co-culture of the vaginal commensal Bifidobacterium breve with the
+  sexually transmitted protozoan parasite Trichomonas vaginalis, assayed against HeLa epithelial
+  cells. The result runs counter to the expectation that a beneficial commensal antagonises the
+  parasite: over 4 h the protozoan proliferated 1.2-fold more while bacterial abundance fell 27%,
+  microscopy showed direct physical association between the two organisms, and transcriptomics of
+  T. vaginalis showed upregulation of fatty acid metabolism and DNA replication genes together with
+  virulence-associated genes including adhesins, corroborated by metabolomic changes in long-chain
+  fatty acids. B. breve conferred no protection on host epithelial cells, and the effects on the
+  parasite were transient. The record captures a commensal-parasite association in which the
+  commensal is depleted while the parasite is enhanced.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Determine whether the vaginal commensal Bifidobacterium breve, whose abundance falls in
+    women infected with Trichomonas vaginalis, antagonises the parasite or protects host epithelium.
+  assembly_strategy: Co-culture T. vaginalis with B. breve and monitor both populations
+    microscopically; expose HeLa cells to T. vaginalis pretreated with or without B. breve and score
+    cytokine responses and cytopathic effects; profile the parasite by transcriptomics and
+    metabolomics.
+  measurement_endpoints:
+  - Protozoan proliferation and bacterial abundance in co-culture
+  - Cytopathic effects and IL-6/IL-8 responses in HeLa cells
+  - T. vaginalis gene expression and long-chain fatty acid content
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HeLa cells were exposed to T. vaginalis that had been pretreated with or without B.
+      breve
+    explanation: States the host-cell arm of the design, which is what allows the protection
+      question to be answered separately from the co-culture growth effects.
+environment_term:
+  preferred_term: laboratory co-culture with HeLa epithelial cells
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The association was characterised in vitro; the system models the vaginal microbiota, where
+    B. breve abundance is reported to fall during T. vaginalis infection.
+taxonomy:
+- taxon_term:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bifidobacterium_breve
+      gtdb_taxon: Bifidobacterium breve
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Actinomycetales;f__Bifidobacteriaceae;g__Bifidobacterium;s__Bifidobacterium breve
+      ncbi_source_id: NCBITaxon:1685
+      majority_fraction: 1.0
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: Vaginal commensal whose population is reduced in women infected with T. vaginalis, which
+      is what motivated testing it as a potential antagonist.
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a reduction in the population of Bifidobacterium breve has been documented in women
+      infected with T. vaginalis
+    explanation: Establishes the clinical observation the co-culture was designed to explain.
+- taxon_term:
+    preferred_term: Trichomonas vaginalis
+    term:
+      id: NCBITaxon:5722
+      label: Trichomonas vaginalis
+    notes: The protozoan parasite; a eukaryote, so it receives no GTDB grounding.
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan
+      proliferation by 1.2-fold, while bacterial abundance was reduced by 27%
+    explanation: Quantifies the asymmetric outcome for both members, which is the record's central
+      observation.
+- taxon_term:
+    preferred_term: HeLa human epithelial cells
+    term:
+      id: NCBITaxon:9606
+      label: Homo sapiens
+    notes: Host epithelium, represented by the HeLa cell line. Grounded to the host species, since
+      NCBITaxon has no term for a cell line.
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HeLa cells showed no cytopathic effects or changes after treatment with B. breve,
+      whether given before or alongside T. vaginalis
+    explanation: Records the host-cell outcome, which is the basis for concluding that the commensal
+      confers no protection.
+ecological_interactions:
+- name: Trichomonas vaginalis Proliferation at the Expense of Bifidobacterium breve
+  description: >
+    In 4 h co-culture the protozoan proliferated 1.2-fold more while bacterial abundance fell 27%,
+    with microscopy showing direct physical association between the two organisms. The exchange is
+    asymmetric — one member gains as the other is depleted.
+  interaction_type: PREDATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Trichomonas vaginalis
+    term:
+      id: NCBITaxon:5722
+      label: Trichomonas vaginalis
+  target_taxon:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+  evidence:
+  - reference: PMID:41688526
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Co-culture of T. vaginalis with B. breve for 4 h significantly increased protozoan
+      proliferation by 1.2-fold, while bacterial abundance was reduced by 27%
+    explanation: PARTIAL - the directional gain and loss are both measured, and microscopy shows
+      physical association, but the paper does not demonstrate ingestion, so PREDATION is the
+      closest available type rather than a mechanism the source establishes. Nothing here rules out
+      the bacterial decline arising from competition or the culture conditions.
+- name: Parasite Fatty Acid Metabolism and Virulence Gene Upregulation
+  description: >
+    Transcriptomics of T. vaginalis co-cultured with B. breve showed upregulation of fatty acid
+    metabolism and DNA replication genes, and an increase in virulence-associated genes including
+    adhesins; metabolomics confirmed changes in long-chain fatty acid content. The parasite's
+    response to the commensal is therefore both metabolic and virulence-associated, and transient.
+  interaction_type: COMMENSALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
+  target_taxon:
+    preferred_term: Trichomonas vaginalis
+    term:
+      id: NCBITaxon:5722
+      label: Trichomonas vaginalis
+  metabolites:
+  - preferred_term: long-chain fatty acid
+    term:
+      id: CHEBI:15904
+      label: long-chain fatty acid
+    notes: Metabolomics confirmed changes in long-chain fatty acid content in the parasite,
+      corroborating the transcriptomic signal for fatty acid metabolism.
+  evidence:
+  - reference: PMID:41688526
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: Transcriptomic profiling of T. vaginalis co-cultured with B. breve revealed an
+      upregulation of genes related to fatty acid metabolism and DNA replication
+    explanation: PARTIAL - the expression and metabolite changes are measured, but the record types
+      this as COMMENSALISM only in the sense that the parasite is modulated by the bacterium's
+      presence; the source does not identify a transferred compound, so no cross-feeding is claimed.
+- name: Absence of Host Epithelial Protection
+  description: >
+    B. breve conferred no protection on HeLa epithelial cells during infection, whether given before
+    or alongside the parasite, so the commensal does not directly counteract T. vaginalis at the
+    host interface despite its clinical association with lower parasite burden.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: it does not confer protection on host epithelial cells during infection
+    explanation: States the negative host-protection result directly; recorded because a negative
+      outcome here is the paper's main corrective to the expected protective role.
+environmental_factors:
+- name: Co-culture duration
+  value: 4 h
+  description: >
+    Effects on parasite proliferation, gene expression and lipid metabolism were measured over a 4 h
+    co-culture and are described by the authors as transient, so the interaction is time-bounded
+    rather than a stable association.
+  evidence:
+  - reference: PMID:41688526
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: modulates parasite gene expression and lipid metabolism transiently
+    explanation: Records that the observed modulation does not persist, which bounds how the
+      interaction should be read.
