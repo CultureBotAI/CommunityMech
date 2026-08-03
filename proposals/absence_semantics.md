@@ -150,17 +150,28 @@ what the tool computes, so it cannot drift — the shape used by `tests/test_enu
 
 ### 4.2 #304 — fix the auditor, change no data *(code, small)*
 
-Two independent changes:
+Two changes, which must be made **together**. Simulated over the current KB:
+
+| configuration | `DISCONNECTED` reported |
+|---|---:|
+| today — no credit, exemption kept | 32 |
+| drop the exemption only | **390** |
+| credit `COMMUNITY_LEVEL` only | **1** |
+| **credit `COMMUNITY_LEVEL` + drop the exemption** | **19** |
 
 1. **Credit `COMMUNITY_LEVEL` interactions.** Treat every taxon in a record as connected by
-   a community-level interaction, which is what such an interaction asserts. This alone
-   removes the structural penalty on 107 records.
-2. **Drop the `abundance_level`/`functional_role` exemption.** With (1) in place, the
-   exemption's original purpose — suppressing false positives on records that describe
-   membership without pairwise edges — is served properly rather than by proxy.
+   a community-level interaction, which is what such an interaction asserts.
+2. **Drop the `abundance_level`/`functional_role` exemption**, so the rule measures
+   connectivity rather than slot-completeness.
 
-Doing (1) without (2) is safe and strictly an improvement. Doing (2) without (1) would
-surface a large backlog at once and should not be done alone.
+The table overturns the obvious plan of doing (1) first as a safe increment. It *is* safe,
+but it drops reporting to **1 finding across the whole KB** — the rule becomes effectively
+vacuous, and a gate that never fires is not an improvement over one that fires for the wrong
+reason. Conversely (2) alone reports 390, a 12× increase that buries the signal.
+
+Only together do they give a defensible number: **19**, fewer than today's 32 while actually
+measuring the thing the name promises. That 19 is also a real work-list rather than an
+artefact — it is the set of taxa with no interaction of any kind.
 
 **This is prerequisite for #273.** That issue cannot decide whether to restore the network
 gate while `DISCONNECTED` means something other than its name.
@@ -192,8 +203,9 @@ connectivity noise.
 
 ## 5. Recommended sequence
 
-1. **#304 change (1)** — credit `COMMUNITY_LEVEL`. Smallest, no data migration, unblocks
-   #273, and removes an active perverse incentive.
+1. **#304, both changes together** — credit `COMMUNITY_LEVEL` *and* drop the exemption. No
+   data migration, unblocks #273, removes an active perverse incentive, and lands on 19
+   findings. Do not ship the halves separately: one is vacuous, the other is noise.
 2. **#294** — status enum plus mechanical backfill. Self-contained, and retires the
    recurring misreading of GTDB coverage as GTDB backlog.
 3. **#307** — the largest, and the one most worth designing carefully rather than quickly,
