@@ -11,8 +11,9 @@ name: Network Quality Check
 # The auditor now carries severity levels, and this workflow gates on them: a
 # record naming a taxon, causal-edge target or discussion anchor that does not
 # exist fails the job, while DISCONNECTED (a member with no curated interaction
-# yet) is reported and does not. Error-severity findings currently stand at 0
-# and warnings at 19.
+# yet) and NAME_MISMATCH (a participant matched by ontology id because its name
+# matches no taxonomy entry) are reported and do not. Error-severity findings
+# currently stand at 0 and warnings at 28.
 #
 # The LLM repair-suggestion job calls the Anthropic API and posts comments, so
 # it runs only when explicitly requested via workflow_dispatch — never
@@ -133,7 +134,7 @@ jobs:
                 note="These fail the build: an interaction, causal edge or discussion anchor names something the record does not contain."
               else
                 heading="## Network integrity findings"
-                note="Warnings only — a curated member with no interaction yet. Reported, but does not fail the build."
+                note="Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than name. Reported, but does not fail the build."
               fi
               {
                 echo "$heading"
@@ -215,7 +216,7 @@ jobs:
                 '',
                 isError
                   ? 'These fail the build: an interaction, causal edge or discussion anchor names something the record does not contain.'
-                  : 'Warnings only — a curated member with no interaction yet. Reported, but does not fail the build.',
+                  : 'Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than name. Reported, but does not fail the build.',
                 '',
                 '```',
                 truncated,
