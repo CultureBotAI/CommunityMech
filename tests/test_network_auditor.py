@@ -1,12 +1,20 @@
 """Tests for network integrity auditor."""
 
+import json
 import tempfile
 from pathlib import Path
 
 import pytest
 import yaml
 
-from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
+from communitymech.network.auditor import (
+    EXIT_ERRORS,
+    EXIT_WARNINGS,
+    SEVERITY,
+    IssueType,
+    NetworkIntegrityAuditor,
+    severity_of,
+)
 
 
 @pytest.fixture
@@ -511,3 +519,298 @@ def test_a_lone_unreadable_file_is_still_a_finding(temp_communities_dir):
     all_issues = auditor.audit_all()
 
     assert [i["type"] for i in all_issues["broken"]] == [IssueType.UNREADABLE]
+
+
+# ---------------------------------------------------------------------------
+# Participant resolution: name first, ontology id only as a fallback (#315)
+# ---------------------------------------------------------------------------
+
+
+def test_interaction_may_name_a_taxon_differently_from_taxonomy(
+    temp_communities_dir, valid_community
+):
+    """A shorter name on the interaction than in taxonomy is not a dangling reference.
+
+    `preferred_term` is free text and deliberately preserves whatever the paper
+    called an organism, so one record legitimately writes "ANME-1" on an
+    interaction and "ANME-1 (anaerobic methanotrophic archaea, clade 1)" in
+    taxonomy for the same NCBITaxon. Matching on the name alone reported all
+    four such pairs in the KB as UNKNOWN_SOURCE/UNKNOWN_TARGET (#315).
+    """
+    community = dict(valid_community)
+    community["taxonomy"][0]["taxon_term"]["preferred_term"] = "Escherichia coli (strain K-12)"
+
+    test_file = temp_communities_dir / "test_alias.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert issues == [], f"id should resolve the participant, got {issues}"
+
+
+def test_shared_taxon_id_does_not_collapse_distinct_members(temp_communities_dir):
+    """Members sharing one ontology id stay distinct, and each needs its own edge.
+
+    `Lotus_LjSC3` carries three strains — LjNodule210/215/218 — all grounded to
+    NCBITaxon:68287 because NCBI has no strain-level term. Resolving by id first
+    collapsed them onto whichever appeared first, so the other two were reported
+    as taking part in nothing. Name has to win when it matches.
+    """
+    strains = ["Mesorhizobium sp. LjNodule210", "Mesorhizobium sp. LjNodule215"]
+    community = {
+        "name": "Shared id",
+        "taxonomy": [
+            {
+                "taxon_term": {
+                    "preferred_term": strain,
+                    "term": {"id": "NCBITaxon:68287", "label": "Mesorhizobium"},
+                }
+            }
+            for strain in strains
+        ]
+        + [
+            {
+                "taxon_term": {
+                    "preferred_term": "Lotus japonicus",
+                    "term": {"id": "NCBITaxon:34305", "label": "Lotus japonicus"},
+                }
+            }
+        ],
+        "ecological_interactions": [
+            {
+                "name": f"{strain} nodulates the host",
+                "interaction_type": "MUTUALISM",
+                "source_taxon": {
+                    "preferred_term": strain,
+                    "term": {"id": "NCBITaxon:68287", "label": "Mesorhizobium"},
+                },
+                "target_taxon": {
+                    "preferred_term": "Lotus japonicus",
+                    "term": {"id": "NCBITaxon:34305", "label": "Lotus japonicus"},
+                },
+            }
+            for strain in strains
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_shared_id.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert issues == [], f"each strain has its own edge, got {issues}"
+
+
+def test_ambiguous_id_does_not_resolve_an_unmatched_name(temp_communities_dir):
+    """An unrecognised name plus an id shared by several members stays unresolved.
+
+    The record genuinely does not say which member is meant, so guessing one
+    would silently attach the edge to the wrong strain.
+    """
+    community = {
+        "name": "Ambiguous id",
+        "taxonomy": [
+            {
+                "taxon_term": {
+                    "preferred_term": name,
+                    "term": {"id": "NCBITaxon:68287", "label": "Mesorhizobium"},
+                }
+            }
+            for name in ("Mesorhizobium sp. A", "Mesorhizobium sp. B")
+        ],
+        "ecological_interactions": [
+            {
+                "name": "Unattributed nodulation",
+                "interaction_type": "MUTUALISM",
+                "source_taxon": {
+                    "preferred_term": "Mesorhizobium sp. Z",
+                    "term": {"id": "NCBITaxon:68287", "label": "Mesorhizobium"},
+                },
+            }
+        ],
+    }
+
+    test_file = temp_communities_dir / "test_ambiguous_id.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert IssueType.UNKNOWN_SOURCE in [issue["type"] for issue in issues]
+
+
+# ---------------------------------------------------------------------------
+# Dangling causal edges and discussion anchors (#313)
+# ---------------------------------------------------------------------------
+
+
+def test_dangling_downstream_edge_detected(temp_communities_dir, valid_community):
+    """A downstream target naming no interaction in the record is an error."""
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [{"target": "No Such Interaction"}]
+
+    test_file = temp_communities_dir / "test_dangling_edge.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    dangling = [issue for issue in issues if issue["type"] == IssueType.DANGLING_EDGE]
+    assert len(dangling) == 1
+    assert dangling[0]["target"] == "No Such Interaction"
+
+
+def test_resolved_downstream_edge_is_not_reported(temp_communities_dir, valid_community):
+    """A downstream target naming a real interaction is fine."""
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [
+        {"target": "Competition for nutrients"}
+    ]
+
+    test_file = temp_communities_dir / "test_ok_edge.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert not [issue for issue in issues if issue["type"] == IssueType.DANGLING_EDGE]
+
+
+def test_dangling_discussion_anchor_detected(temp_communities_dir, valid_community):
+    """A discussion attaching to a non-existent interaction is an error."""
+    community = dict(valid_community)
+    community["discussions"] = [
+        {
+            "discussion_id": "d1",
+            "attaches_to": ["ecological_interactions#Renamed Away"],
+        }
+    ]
+
+    test_file = temp_communities_dir / "test_dangling_anchor.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    dangling = [issue for issue in issues if issue["type"] == IssueType.DANGLING_ANCHOR]
+    assert len(dangling) == 1
+    assert dangling[0]["target"] == "Renamed Away"
+
+
+def test_resolved_discussion_anchor_is_not_reported(temp_communities_dir, valid_community):
+    """An anchor naming a real interaction is fine."""
+    community = dict(valid_community)
+    community["discussions"] = [
+        {
+            "discussion_id": "d1",
+            "attaches_to": ["ecological_interactions#Competition for nutrients"],
+        }
+    ]
+
+    test_file = temp_communities_dir / "test_ok_anchor.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    issues = NetworkIntegrityAuditor(communities_dir=temp_communities_dir).audit_community(
+        test_file
+    )
+
+    assert not [issue for issue in issues if issue["type"] == IssueType.DANGLING_ANCHOR]
+
+
+# ---------------------------------------------------------------------------
+# Severity and exit codes (#273)
+# ---------------------------------------------------------------------------
+
+
+def test_every_issue_type_has_a_severity():
+    """A new IssueType without a SEVERITY entry would silently default to error."""
+    assert {issue_type.value for issue_type in IssueType} == set(SEVERITY)
+
+
+def test_disconnected_is_the_only_warning():
+    """Incompleteness warns; everything else names something that is not there."""
+    warnings = {name for name, level in SEVERITY.items() if level == "warning"}
+    assert warnings == {"DISCONNECTED"}
+
+
+def test_unmapped_issue_type_gates_rather_than_passing():
+    assert severity_of("SOMETHING_NEW") == "error"
+
+
+def test_check_only_exits_1_when_only_warnings(temp_communities_dir, valid_community):
+    """Incompleteness alone must not fail the build."""
+    community = dict(valid_community)
+    community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Bacillus subtilis",
+                "term": {"id": "NCBITaxon:1423", "label": "Bacillus subtilis"},
+            }
+        }
+    )
+
+    test_file = temp_communities_dir / "test_warn_only.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    with pytest.raises(SystemExit) as excinfo:
+        auditor.audit_all(check_only=True)
+
+    assert excinfo.value.code == EXIT_WARNINGS
+    assert auditor.count_by_severity() == {"error": 0, "warning": 1}
+
+
+def test_check_only_exits_3_on_an_error_finding(temp_communities_dir, valid_community):
+    """A dangling causal edge is breakage, and gates."""
+    community = dict(valid_community)
+    community["ecological_interactions"][0]["downstream"] = [{"target": "No Such Interaction"}]
+
+    test_file = temp_communities_dir / "test_error.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    with pytest.raises(SystemExit) as excinfo:
+        auditor.audit_all(check_only=True)
+
+    assert excinfo.value.code == EXIT_ERRORS
+
+
+def test_quiet_suppresses_the_human_report(temp_communities_dir, valid_community, capsys):
+    """--json needs stdout to itself, or the redirected file is not JSON (#273)."""
+    community = dict(valid_community)
+    community["taxonomy"].append(
+        {
+            "taxon_term": {
+                "preferred_term": "Bacillus subtilis",
+                "term": {"id": "NCBITaxon:1423", "label": "Bacillus subtilis"},
+            }
+        }
+    )
+
+    test_file = temp_communities_dir / "test_quiet.yaml"
+    with open(test_file, "w") as f:
+        yaml.dump(community, f)
+
+    auditor = NetworkIntegrityAuditor(communities_dir=temp_communities_dir)
+    auditor.audit_all(quiet=True)
+    captured = capsys.readouterr()
+
+    assert captured.out == "", f"expected silence on stdout, got {captured.out!r}"
+    json.loads(auditor.to_json())

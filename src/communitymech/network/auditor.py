@@ -24,8 +24,44 @@ class IssueType(str, Enum):
     MISSING_SOURCE = "MISSING_SOURCE"
     UNKNOWN_SOURCE = "UNKNOWN_SOURCE"
     UNKNOWN_TARGET = "UNKNOWN_TARGET"
+    DANGLING_EDGE = "DANGLING_EDGE"
+    DANGLING_ANCHOR = "DANGLING_ANCHOR"
     DISCONNECTED = "DISCONNECTED"
     UNREADABLE = "UNREADABLE"
+
+
+# Severity per issue type, using the "error"/"warning" vocabulary already in
+# `network/validators.py`.
+#
+# The split is between *the record contradicting itself* and *the record being
+# incomplete*. Everything at error level names something that is not there: an
+# interaction citing a taxon the record does not list, a causal edge or
+# discussion anchor pointing at an interaction that does not exist, an id that
+# disagrees with the taxonomy entry it refers to. Those are objectively broken
+# and no amount of further curation makes them correct.
+#
+# `DISCONNECTED` is different in kind: a curated member that no interaction yet
+# mentions. Nothing is inconsistent — the record simply says less than it could,
+# and for field and natural communities that is the normal state rather than a
+# defect. It stays reported and stays out of the gate (#273).
+SEVERITY: dict[str, str] = {
+    "UNREADABLE": "error",
+    "ID_MISMATCH": "error",
+    "MISSING_SOURCE": "error",
+    "UNKNOWN_SOURCE": "error",
+    "UNKNOWN_TARGET": "error",
+    "DANGLING_EDGE": "error",
+    "DANGLING_ANCHOR": "error",
+    "DISCONNECTED": "warning",
+}
+
+# Distinct exit codes, because CI has to tell three outcomes apart that a plain
+# non-zero cannot: findings that should block, findings that should only be
+# reported, and the auditor failing to run at all.
+EXIT_CLEAN = 0
+EXIT_WARNINGS = 1
+EXIT_CRASH = 2
+EXIT_ERRORS = 3
 
 
 def _type_label(issue_type) -> str:
@@ -40,6 +76,15 @@ def _type_label(issue_type) -> str:
     return getattr(issue_type, "value", issue_type)
 
 
+def severity_of(issue_type) -> str:
+    """Severity for an issue type, defaulting to error for anything unmapped.
+
+    A new `IssueType` added without a `SEVERITY` entry gates rather than passes
+    silently — the safe direction for a check whose job is catching breakage.
+    """
+    return SEVERITY.get(_type_label(issue_type), "error")
+
+
 class NetworkIntegrityAuditor:
     """Audit community YAML files for network data integrity issues."""
 
@@ -47,19 +92,26 @@ class NetworkIntegrityAuditor:
         self.communities_dir = Path(communities_dir)
         self.issues: dict[str, list[dict]] = defaultdict(list)
 
-    def audit_all(self, check_only: bool = False) -> dict[str, list[dict]]:
+    def audit_all(self, check_only: bool = False, quiet: bool = False) -> dict[str, list[dict]]:
         """
         Audit all community YAML files.
 
         Args:
-            check_only: If True, exit with code 1 if issues found (CI mode)
+            check_only: If True, exit non-zero when issues are found (CI mode):
+                EXIT_ERRORS if any error-severity issue exists, else
+                EXIT_WARNINGS.
+            quiet: Suppress the human-readable report. Needed by ``--json``,
+                which otherwise emitted the report and the JSON to the same
+                stdout, so ``audit-network --json > out.json`` produced a file
+                that was not JSON (#273).
 
         Returns:
             Dictionary mapping community names to their issues
         """
         yaml_files = sorted(self.communities_dir.glob("*.yaml"))
+        verbose = not (check_only or quiet)
 
-        if not check_only:
+        if verbose:
             print(f"\n🔍 Auditing {len(yaml_files)} communities for network integrity issues...\n")
 
         total_issues = 0
@@ -84,7 +136,7 @@ class NetworkIntegrityAuditor:
                 self.issues[yaml_file.stem] = issues
                 communities_with_issues += 1
                 total_issues += len(issues)
-                if not check_only:
+                if verbose:
                     self.report_community_issues(yaml_file.stem, issues)
 
         # Catching per file keeps one bad record from ending the sweep, but it
@@ -104,18 +156,35 @@ class NetworkIntegrityAuditor:
                 f"this is a failure of the auditor, not of the data"
             )
 
-        if not check_only:
+        if verbose:
             print(f"\n{'='*80}")
             print(f"Summary: {communities_with_issues}/{len(yaml_files)} communities have issues")
             print(f"Total issues found: {total_issues}")
             print(f"{'='*80}\n")
 
-        # In check-only mode, exit with code 1 if issues found
+        # In check-only mode, exit non-zero when issues are found — but say
+        # *which kind* through the exit code, so CI can gate on breakage while
+        # still surfacing incompleteness (#273). A plain exit 1 could not
+        # express that difference, which is why the workflow had to stay
+        # reporting-only.
         if check_only and total_issues > 0:
-            print(f"❌ Found {total_issues} network integrity issues", file=sys.stderr)
-            sys.exit(1)
+            errors = self.count_by_severity()["error"]
+            print(
+                f"❌ Found {total_issues} network integrity issues "
+                f"({errors} error, {total_issues - errors} warning)",
+                file=sys.stderr,
+            )
+            sys.exit(EXIT_ERRORS if errors else EXIT_WARNINGS)
 
         return self.issues
+
+    def count_by_severity(self) -> dict[str, int]:
+        """Count findings by severity across every audited community."""
+        counts = {"error": 0, "warning": 0}
+        for community_issues in self.issues.values():
+            for issue in community_issues:
+                counts[severity_of(issue["type"])] += 1
+        return counts
 
     def audit_community(self, yaml_path: Path) -> list[dict]:
         """
@@ -132,8 +201,10 @@ class NetworkIntegrityAuditor:
 
         issues = []
 
-        # Build taxonomy lookup by preferred_term
+        # Build taxonomy lookup by preferred_term, plus a secondary index by
+        # ontology id.
         taxonomy_by_term = {}
+        taxonomy_keys_by_id: dict[str, list[str]] = defaultdict(list)
         for taxon in data.get("taxonomy", []):
             term = taxon.get("taxon_term", {})
             preferred = term.get("preferred_term") or term.get("term", {}).get("label")
@@ -145,6 +216,35 @@ class NetworkIntegrityAuditor:
                     "label": term.get("term", {}).get("label"),
                     "taxon_data": taxon,  # Store full taxon data for context
                 }
+                if taxon_id:
+                    taxonomy_keys_by_id[taxon_id].append(preferred)
+
+        def resolve_member(name: str | None, taxon_id: str | None) -> str | None:
+            """Match an interaction participant to its taxonomy entry.
+
+            Name first, because `preferred_term` is the only thing that separates
+            two members sharing one ontology id: `Lotus_LjSC3` carries three
+            distinct strains — LjNodule210/215/218 — all on NCBITaxon:68287,
+            since NCBI has no strain-level term for them. Resolving by id would
+            collapse the three onto whichever came first and report the other two
+            as taking part in nothing.
+
+            Only when the name matches no entry does the id decide, and only if
+            exactly one entry carries it. That covers the other direction:
+            `preferred_term` is free text preserving a paper's own name, so an
+            interaction may say "ANME-1" where taxonomy says "ANME-1 (anaerobic
+            methanotrophic archaea, clade 1)" for the same NCBITaxon:588814.
+            Name-only matching reported all four such pairs as dangling
+            references (#315). An id shared by several entries stays unresolved —
+            the record genuinely does not say which member is meant.
+            """
+            if name and name in taxonomy_by_term:
+                return name
+            if taxon_id:
+                candidates = taxonomy_keys_by_id.get(taxon_id, [])
+                if len(candidates) == 1:
+                    return candidates[0]
+            return None
 
         # Check each interaction
         interactions = data.get("ecological_interactions", [])
@@ -180,7 +280,8 @@ class NetworkIntegrityAuditor:
                 source_term = source.get("preferred_term") or source.get("term", {}).get("label")
                 source_id = source.get("term", {}).get("id")
 
-                if source_term not in taxonomy_by_term:
+                source_key = resolve_member(source_term, source_id)
+                if source_key is None:
                     if scope != "COMMUNITY_LEVEL":
                         issues.append(
                             {
@@ -194,9 +295,9 @@ class NetworkIntegrityAuditor:
                             }
                         )
                 else:
-                    connected_taxa.add(source_term)
+                    connected_taxa.add(source_key)
                     # Check ID mismatch
-                    expected_id = taxonomy_by_term[source_term]["id"]
+                    expected_id = taxonomy_by_term[source_key]["id"]
                     if source_id != expected_id:
                         issues.append(
                             {
@@ -220,7 +321,8 @@ class NetworkIntegrityAuditor:
                 target_term = target.get("preferred_term") or target.get("term", {}).get("label")
                 target_id = target.get("term", {}).get("id")
 
-                if target_term not in taxonomy_by_term:
+                target_key = resolve_member(target_term, target_id)
+                if target_key is None:
                     if scope != "COMMUNITY_LEVEL":
                         issues.append(
                             {
@@ -234,9 +336,9 @@ class NetworkIntegrityAuditor:
                             }
                         )
                 else:
-                    connected_taxa.add(target_term)
+                    connected_taxa.add(target_key)
                     # Check ID mismatch
-                    expected_id = taxonomy_by_term[target_term]["id"]
+                    expected_id = taxonomy_by_term[target_key]["id"]
                     if target_id != expected_id:
                         issues.append(
                             {
@@ -250,6 +352,56 @@ class NetworkIntegrityAuditor:
                                 "message": (
                                     f"Target '{target_term}' has ID {target_id}, "
                                     f"expected {expected_id}"
+                                ),
+                            }
+                        )
+
+        # Check causal-graph edges and discussion anchors. Both name an
+        # interaction by its `name` string, so a rename or deletion elsewhere in
+        # the record leaves a reference pointing at nothing and the causal graph
+        # silently loses an arc — nothing else in the pipeline notices.
+        #
+        # These two detectors were written in PR #260 but only ever existed in
+        # `scripts/audit_network_integrity.py`, a copy of this auditor that no
+        # recipe or workflow ran (#313). They are ported here, and that script is
+        # deleted, so the checks run in CI for the first time.
+        interaction_names = {
+            interaction.get("name") for interaction in interactions if interaction.get("name")
+        }
+
+        for idx, interaction in enumerate(interactions):
+            int_name = interaction.get("name", f"Interaction {idx+1}")
+            for edge in interaction.get("downstream") or []:
+                target_name = edge.get("target")
+                if target_name and target_name not in interaction_names:
+                    issues.append(
+                        {
+                            "type": IssueType.DANGLING_EDGE,
+                            "interaction": int_name,
+                            "interaction_index": idx,
+                            "target": target_name,
+                            "message": (
+                                f"downstream target '{target_name}' does not name any "
+                                f"interaction in this record"
+                            ),
+                        }
+                    )
+
+        for discussion in data.get("discussions") or []:
+            disc_id = discussion.get("discussion_id", "<no id>")
+            for anchor in discussion.get("attaches_to") or []:
+                prefix = "ecological_interactions#"
+                if anchor.startswith(prefix):
+                    anchor_name = anchor[len(prefix) :]
+                    if anchor_name not in interaction_names:
+                        issues.append(
+                            {
+                                "type": IssueType.DANGLING_ANCHOR,
+                                "interaction": disc_id,
+                                "target": anchor_name,
+                                "message": (
+                                    f"discussion '{disc_id}' attaches to '{anchor_name}', "
+                                    f"which does not name any interaction in this record"
                                 ),
                             }
                         )
@@ -306,6 +458,8 @@ class NetworkIntegrityAuditor:
             IssueType.MISSING_SOURCE,
             IssueType.UNKNOWN_SOURCE,
             IssueType.UNKNOWN_TARGET,
+            IssueType.DANGLING_EDGE,
+            IssueType.DANGLING_ANCHOR,
             IssueType.DISCONNECTED,
         ]:
             if issue_type in by_type:
@@ -356,7 +510,9 @@ class NetworkIntegrityAuditor:
                         )
                 f.write(f"\nTotal: {len(community_issues)} issues\n")
 
-        print(f"\n✅ Detailed report written to {output_path}\n")
+        # stderr, not stdout: with --json both would otherwise share the
+        # stream and the confirmation line would corrupt the JSON.
+        print(f"\n✅ Detailed report written to {output_path}\n", file=sys.stderr)
 
     def get_community_data(self, community_path: Path) -> dict:
         """
