@@ -4,11 +4,17 @@ name: Network Quality Check
 # taxa with no interactions) for changed community records.
 #
 # This workflow could not be parsed by GitHub until #272 and so had never run.
-# It is deliberately **reporting-only**: `communitymech audit-network` currently
-# finds 26 issues across 8 records, 22 of which are DISCONNECTED (a taxon with
-# no curated interaction), which is a curation-completeness signal rather than a
-# broken reference. Failing on those would redden `main` on every KB push. See
-# #273 for triaging the findings and restoring the hard gate afterwards.
+# It was then reporting-only until #273, because the audit could not distinguish
+# a broken reference from an uncurated taxon and the bulk of its findings were
+# the latter — failing on those would have reddened `main` on every KB push.
+#
+# The auditor now carries severity levels, and this workflow gates on them: a
+# record naming a taxon, causal-edge target or discussion anchor that does not
+# exist fails the job, while DISCONNECTED (a member with no curated interaction
+# yet), NAME_MISMATCH (a participant matched by ontology id because its name
+# matches no taxonomy entry) and an unresolved participant on a COMMUNITY_LEVEL
+# interaction are reported and do not. Error-severity findings currently stand
+# at 0 and warnings at 55.
 #
 # The LLM repair-suggestion job calls the Anthropic API and posts comments, so
 # it runs only when explicitly requested via workflow_dispatch — never
@@ -67,17 +73,37 @@ jobs:
       - name: Install dependencies
         run: uv sync --all-extras
 
-      # `--report` writes the detailed report *and* exits 1 when issues exist,
-      # so one invocation gives us both the artifact and the outcome. The step
-      # is allowed to fail; every downstream condition keys off
-      # `steps.audit.outcome`, not `failure()`, because `continue-on-error`
-      # keeps the job green and would make `failure()` permanently false.
+      # `--report` writes the detailed report *and* signals the outcome through
+      # its exit code, so one invocation gives us both the artifact and the
+      # verdict. The four outcomes are distinguished by code — `outcome` alone
+      # collapses them all to "failure" — and published as `result` for every
+      # downstream step. The step itself always exits 0, so nothing here needs
+      # `continue-on-error` (which would in turn make `failure()` permanently
+      # false).
       - name: Run network integrity audit
         id: audit
         run: |
           mkdir -p reports
+          set +e
           uv run communitymech audit-network --report reports/network_audit.txt
-        continue-on-error: true
+          code=$?
+          set -e
+          case "$code" in
+            0) result=clean ;;
+            1) result=warnings ;;
+            3) result=errors ;;
+            *) result=crash ;;
+          esac
+          # A findings code with no report is a crash whatever the number says.
+          # The CLI's own handler always yields 2, but exit 1 is still reachable
+          # from outside it — `uv run` failing, or the console script dying at
+          # import — and that used to route here and now would not (#323).
+          if [ "$result" != "clean" ] && [ ! -s reports/network_audit.txt ]; then
+            result=crash
+          fi
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "result=$result" >> "$GITHUB_OUTPUT"
+          echo "audit-network exited $code ($result)"
 
       - name: Upload audit report
         if: hashFiles('reports/network_audit.txt') != ''
@@ -86,39 +112,52 @@ jobs:
           name: network-audit-report
           path: reports/network_audit.txt
 
-      # Three outcomes have to be told apart, because two of them look identical
-      # through `steps.audit.outcome` alone:
+      # Four outcomes, and three of them are non-zero, so the exit code rather
+      # than `outcome` decides which is which:
       #   clean     — exit 0
-      #   findings  — exit 1, report written        → reporting-only (see #273)
+      #   warnings  — exit 1, DISCONNECTED only     → reported, does not gate
+      #   errors    — exit 3, broken references     → fails the job (#273)
       #   crash     — exit 2, no report written     → must be loud
-      # A malformed community YAML produces the third (issue #281 — one bad file
-      # aborts the whole audit), and that is exactly when this check matters
-      # most, so it must not be reported as "findings" or swallowed.
-      # `hashFiles` is empty when the file does not exist.
+      # A single malformed community YAML is recorded as an UNREADABLE finding
+      # against that record (issue #281) and so lands in `errors`, not `crash`;
+      # only the auditor failing outright — every file unreadable, or the CLI
+      # dying — produces `crash`. Either way it must not be swallowed.
       - name: Write job summary
         if: always()
         run: |
-          if [ "${{ steps.audit.outcome }}" != "failure" ]; then
-            echo "## Network integrity: no issues found" >> "$GITHUB_STEP_SUMMARY"
-          elif [ -f reports/network_audit.txt ]; then
-            {
-              echo "## Network integrity findings"
-              echo
-              echo "Reporting only — this check does not fail the build (see issue #273)."
-              echo
-              echo '```'
-              head -c 60000 reports/network_audit.txt
-              echo '```'
-            } >> "$GITHUB_STEP_SUMMARY"
-          else
-            {
-              echo "## Network integrity audit failed to run"
-              echo
-              echo "\`audit-network\` exited non-zero without writing a report, which"
-              echo "means it crashed rather than finding issues — a malformed"
-              echo "community YAML will do this. See the audit step log."
-            } >> "$GITHUB_STEP_SUMMARY"
-          fi
+          case "${{ steps.audit.outputs.result }}" in
+            clean)
+              echo "## Network integrity: no issues found" >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            errors|warnings)
+              if [ "${{ steps.audit.outputs.result }}" = "errors" ]; then
+                heading="## Network integrity: broken references"
+                note="These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate."
+              else
+                heading="## Network integrity findings"
+                note="Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build."
+              fi
+              {
+                echo "$heading"
+                echo
+                echo "$note"
+                echo
+                echo '```'
+                head -c 60000 reports/network_audit.txt
+                echo '```'
+              } >> "$GITHUB_STEP_SUMMARY"
+              ;;
+            *)
+              {
+                echo "## Network integrity audit failed to run"
+                echo
+                echo "\`audit-network\` exited ${{ steps.audit.outputs.code }} without writing a"
+                echo "usable report, which means it crashed rather than finding issues."
+                echo "A single malformed record does *not* do this — that is recorded as"
+                echo "an UNREADABLE finding and reported above. See the audit step log."
+              } >> "$GITHUB_STEP_SUMMARY"
+              ;;
+          esac
 
       # Maintains ONE comment per pull request, keyed by a hidden marker, rather
       # than appending a fresh copy of a report that can run to 60 KB on every
@@ -131,22 +170,23 @@ jobs:
         continue-on-error: true
         uses: actions/github-script@v7
         env:
-          AUDIT_OUTCOME: ${{ steps.audit.outcome }}
+          AUDIT_RESULT: ${{ steps.audit.outputs.result }}
         with:
           script: |
             const fs = require('fs');
             const MARKER = '<!-- network-quality-findings -->';
             const REPORT = 'reports/network_audit.txt';
 
-            const outcome = process.env.AUDIT_OUTCOME;
-            const hasReport = fs.existsSync(REPORT);
+            const result = process.env.AUDIT_RESULT;
 
-            // Crash (non-zero, no report): the job already fails loudly, and a
-            // stale findings comment is better left untouched than overwritten
-            // with something that reads like the findings were resolved.
-            if (outcome === 'failure' && !hasReport) return;
+            // Crash: the job already fails loudly, and a stale findings comment
+            // is better left untouched than overwritten with something that
+            // reads like the findings were resolved.
+            if (result !== 'clean' && result !== 'warnings' && result !== 'errors') return;
+            if (!fs.existsSync(REPORT) && result !== 'clean') return;
 
-            const hasFindings = outcome === 'failure';
+            const hasFindings = result === 'warnings' || result === 'errors';
+            const isError = result === 'errors';
 
             // Paginate — the default page size is 30, and on a long-lived pull
             // request our marker would fall off the first page, so the comment
@@ -172,9 +212,13 @@ jobs:
                 : report;
               body = [
                 MARKER,
-                '## Network integrity findings',
+                isError
+                  ? '## Network integrity: broken references'
+                  : '## Network integrity findings',
                 '',
-                'Reporting only — this check does not fail the build (see issue #273).',
+                isError
+                  ? 'These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate.'
+                  : 'Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build.',
                 '',
                 '```',
                 truncated,
@@ -207,12 +251,28 @@ jobs:
               });
             }
 
-      # Deliberately after the reporting steps, so the summary is written before
-      # the job goes red. Findings are reporting-only; a crash is not.
-      - name: Fail if the audit could not run
-        if: steps.audit.outcome == 'failure' && hashFiles('reports/network_audit.txt') == ''
+      # Deliberately after the reporting steps, so the summary and the pull
+      # request comment are written before the job goes red.
+      #
+      # This is the hard gate restored by #273. It was reporting-only while
+      # `DISCONNECTED` — a curation-completeness signal, not breakage — was the
+      # bulk of the findings and could not be told apart from a genuine dangling
+      # reference. Severity levels now separate them, and error-severity
+      # findings stand at zero, so gating on them reddens `main` only when
+      # something is actually broken.
+      - name: Fail on broken references
+        if: steps.audit.outputs.result == 'errors'
         run: |
-          echo "audit-network exited non-zero and wrote no report." >&2
+          echo "audit-network found error-severity findings — see the report above." >&2
+          echo "Either a record names a taxon or interaction that does not exist, or a" >&2
+          echo "record could not be parsed at all (UNREADABLE). The report marks each" >&2
+          echo "line with its severity; only [error] lines fail the build." >&2
+          exit 1
+
+      - name: Fail if the audit could not run
+        if: steps.audit.outputs.result == 'crash'
+        run: |
+          echo "audit-network exited ${{ steps.audit.outputs.code }} and wrote no usable report." >&2
           echo "That is a crash, not a set of findings — see the audit step log above." >&2
           exit 1
 
@@ -221,7 +281,10 @@ jobs:
   suggest-repairs:
     runs-on: ubuntu-latest
     needs: audit-network
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.suggest_repairs }}
+    # `!cancelled()` rather than a bare condition: a job with `needs:` is skipped
+    # when the needed job fails, so once the audit became a hard gate this job
+    # could only run when there was nothing for it to repair (#318).
+    if: ${{ !cancelled() && github.event_name == 'workflow_dispatch' && inputs.suggest_repairs }}
     name: Generate Repair Suggestions
 
     # `secrets` is not available in a step-level `if`, so surface the presence

@@ -7,7 +7,12 @@ from pathlib import Path
 import click
 import yaml
 
-from communitymech.network.auditor import NetworkIntegrityAuditor
+from communitymech.network.auditor import (
+    EXIT_CRASH,
+    EXIT_ERRORS,
+    EXIT_WARNINGS,
+    NetworkIntegrityAuditor,
+)
 
 # Try to import rich for beautiful output
 try:
@@ -44,7 +49,7 @@ def cli():
 @click.option(
     "--check-only",
     is_flag=True,
-    help="CI mode: exit with code 1 if issues found (no output)",
+    help="CI mode: no output; exit 3 on error-severity findings, 1 on warnings only",
 )
 @click.option(
     "--json",
@@ -85,7 +90,10 @@ def audit_network(
     auditor = NetworkIntegrityAuditor(communities_dir=communities_dir)
 
     try:
-        issues = auditor.audit_all(check_only=check_only)
+        # `quiet` under --json: the human report and the JSON both went to
+        # stdout, so `audit-network --json > out.json` wrote a file that was not
+        # JSON, which is why the workflow's JSON artifact was dropped (#273).
+        issues = auditor.audit_all(check_only=check_only, quiet=output_json)
 
         if output_json:
             print(auditor.to_json())
@@ -93,13 +101,16 @@ def audit_network(
         if report:
             auditor.write_report(output_path=report)
 
-        # Exit code 0 if no issues, 1 if issues found
+        # Exit code carries *which kind* of finding, not merely whether there
+        # were any: EXIT_ERRORS for a record that contradicts itself, which CI
+        # gates on, versus EXIT_WARNINGS for one that is merely incomplete,
+        # which it only reports. check_only has already exited by this point.
         if issues and not check_only:
-            sys.exit(1)
+            sys.exit(EXIT_ERRORS if auditor.count_by_severity()["error"] else EXIT_WARNINGS)
 
     except Exception as e:
         click.echo(f"❌ Error during audit: {e}", err=True)
-        sys.exit(2)
+        sys.exit(EXIT_CRASH)
 
 
 @cli.command(name="repair-network")

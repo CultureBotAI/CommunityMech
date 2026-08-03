@@ -300,7 +300,7 @@ uniprot-proteome-csv COMMUNITY_PATH="kb/communities" OUT="reports/uniprot_strain
 audit-network:
     uv run communitymech audit-network
 
-# Check network quality (CI mode - exits with error if issues found)
+# Check network quality (CI mode - exit 3 on broken references, 1 on warnings)
 check-network-quality:
     uv run communitymech audit-network --check-only
 
