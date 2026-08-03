@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-07-30.
+Last reconciled: 2026-08-03.
 
 ## Priority menu (reconciled 2026-07-30; re-reconciled after PR #274 merged)
 
@@ -23,7 +23,7 @@ rows rather than added as new threads.
 | # | Item | Size | Why this rank |
 |---|---|---|---|
 | 1 | **GTDB grounding backfill** (#276, `ground-taxa-gtdb`) | L, mechanical | Largest unblocked gap in the KB and the only one needing nothing external |
-| 2 | **Network audit triage (#273) + the CLI fixes (#281, #282)** | M | **Now unblocked** — #274 merged, the workflow runs, and it is the only thread with a live CI gate waiting on it |
+| ~~2~~ | ~~**Network audit triage (#273) + the CLI fixes (#281, #282)**~~ | — | **DONE** — #281/#282 shipped earlier; #273 closed by PR #316 (2026-08-03) with #313 and #315. The gate is restored and both its branches verified live. |
 | 3 | **Causal-edge curation, next batch** | M per record | Active thread with a worked method; highest scientific value per record |
 | 4 | **Growth conditions for the 25 curatable ENGINEERED records** (#183 slice) | M | Less paywalled than #183 claims — 6 were never even attempted |
 | 5 | **Redundant encoding in the network diagram (#270)** | S–M | Self-contained frontend work, fully specified |
@@ -45,20 +45,18 @@ the cheapest way to make the field trustworthy. Note the skill also surfaces
 GTDB reclassifications (NCBI *Agrobacterium deltae* → GTDB *A. leguminum*), so
 this is a correctness pass, not only a coverage one.
 
-**Why not #2, now that it is unblocked?** #273 has a live CI gate waiting on it,
-which is a real pull, but it splits into two halves with different requirements.
-Its **mechanical half is fully unblocked and small** — #281 (stop one bad YAML
-aborting the audit), #282 (pin the report format), and giving `IssueType` the
-severity levels `network/validators.py` already has. Any of those can be done
-today with no curator input, and together they are what actually lets the gate
-come back. Its **other half needs a curator**: the 4 dangling ANME/SRB references
-mean deciding whether to add those taxa with NCBITaxon grounding and evidence or
-to rewrite the interactions against the taxa already listed, and the
-`DISCONNECTED` policy is a judgment call about what the audit should treat as an
-error at all. So: if you want a mechanical session, **#281/#282 are a better
-warm-up than GTDB** and unblock a gate; if you want the biggest dent in the KB,
-GTDB is still it. What should *not* happen is picking up #273's curator half
-expecting a quick win.
+**Row 2 is now done (2026-08-03, PR #316)** — and the reasoning recorded here
+was half wrong, which is worth keeping rather than deleting. This file said #273
+"splits into two halves", one mechanical and one needing **a curator to resolve
+the 4 dangling ANME/SRB references**. There was no curator half. All four were
+auditor false positives (#315): the record names the same NCBITaxon under a short
+name on the interaction and a long one in `taxonomy`, and the auditor compared
+the free-text names rather than the ids. Measuring before scheduling would have
+caught it; repeating the issue's framing across this file and several PR bodies
+did not. See the #273 section below for the full correction.
+
+The `DISCONNECTED` policy call landed where this file predicted: warning
+severity, reported but never gating.
 
 ### Numbers corrected this reconcile
 
@@ -618,27 +616,42 @@ with #273's pass rather than on their own:
   artifact and pastes it into PR comments. One-line fix (`.value`), worth a test
   pinning the format.
 
-**#273 — triage the 26 findings, then restore the gate.** The audit finds 26
-issues across 8 records, and they are not one kind of problem: **22 `DISCONNECTED`**
-(a taxon with no curated interaction — a completeness signal; a record may
-legitimately list a member whose interactions aren't curated yet) and **4 genuine
-dangling references**, all in `ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia`,
-whose interactions cite `ANME-1`, `ANME-2a`, `Desulfofervidus` and `Seep-SRB1` —
-none present in that record's `taxonomy`. Same class as the 14 causal edges fixed
-in PR #264, but resolving them means deciding whether to add those taxa (NCBITaxon
-+ evidence) or rewrite the interactions against the listed taxa, so it needs a
-curator, not a mechanical pass. Also in #273: `IssueType` in
-`network/auditor.py` carries **no severity** (unlike `network/validators.py`'s
-error/warning split), so `--check-only` cannot separate a dangling reference from
-an uncurated taxon; and **`audit-network --json` is broken** — `cli.py:91` prints
-the JSON *after* `audit_all()` has already written the human report to stdout, so
-`--json > out.json` cannot produce valid JSON (the workflow's JSON artifact was
-dropped in #274 because of it). The issue also asks for two decisions not covered
-above: a **policy on `DISCONNECTED`** — either curate interactions for the 22
-taxa, or accept the finding as advisory and stop reporting it at error level
-(probably the latter, at least for natural/field communities) — and, once the
-gate is restored, **dropping the reporting-only notice** from the workflow header
-and its PR comment.
+**#273 — DONE (2026-08-03, PR #316), together with #313 and #315.** The gate is
+restored: the audit carries error/warning severity, `--check-only` exits 3 on
+error-severity findings and 1 on warnings, and `network-quality.yml` fails on the
+former while only reporting the latter. `audit-network --json` is fixed (it
+printed the human report to stdout ahead of the JSON). Both branches of the gate
+were exercised live on PR #316 — a temporary canary commit breaking one
+`downstream.target` turned the job red at `Fail on broken references`, and the
+revert turned it green again.
+
+**The premise recorded here was wrong, and this is the correction.** The "4
+genuine dangling references" in `ANME_SRB_Anaerobic_Methanotrophic_Syntrophic_Consortia`
+were **auditor false positives**, not curation debt — filed and fixed as #315.
+That record writes `ANME-1` on an interaction and `ANME-1 (anaerobic
+methanotrophic archaea, clade 1)` in `taxonomy`, for the same
+`NCBITaxon:588814`. `preferred_term` is free text on purpose, so a paper's own
+name survives an NCBI rename; the auditor matched participants on that string
+alone, so every such pair looked dangling. Measured across the whole KB: **4
+name-mismatch-but-id-present, 0 genuinely absent.** No curator pass was needed
+and none was done. Participant resolution is now name first, ontology id only as
+a fallback and only when exactly one taxonomy entry carries it — the precedence
+matters in both directions, since id-first collapses `Lotus_LjSC3`'s three
+strains (all on `NCBITaxon:68287`, no strain-level NCBI term) onto one entry.
+
+The **`DISCONNECTED` policy question** is settled the way this file predicted:
+warning severity, reported but never gating. 19 stand, across 8 records.
+
+**#313 came with it.** `DANGLING_EDGE`/`DANGLING_ANCHOR` — a causal
+`downstream.target` or a `discussions.attaches_to` anchor naming an interaction
+that does not exist — were written in PR #260 but lived only in
+`scripts/audit_network_integrity.py`, which no recipe or workflow ran. Restoring
+a hard gate over a checker blind to them would have baked the gap in, which is
+why the two were done together. Both detectors are ported into the module, the
+orphaned script is deleted, and each was canaried by injecting a break into a
+copy of the KB. The live KB has zero, since #264 fixed all 14.
+
+Audit total: **23 → 19**, all warnings. Error-severity findings: **0**.
 
 ## GTDB grounding backfill (issue #276; new section 2026-07-30)
 
