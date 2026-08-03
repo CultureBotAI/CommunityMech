@@ -29,6 +29,15 @@ engineering_design:
   - Peanut aflatoxin level in multi-year field trials
   - Peanut nodule number, nitrogenase activity, and nodule retention at harvest
   - Yield, checked for a super-nodulation penalty
+  notes: >
+    Counter-selection is part of the design and is recorded here rather than as an ecological
+    interaction. Three candidate Bacillus isolates inhibited Bradyrhizobium in coculture and were
+    excluded on that basis; the source does not say which isolates they were, so they cannot be
+    distinguished from the retained Bacillus members, which are all grounded at the same genus-level
+    NCBITaxon:1386. Curating the exclusion as a typed Bacillus -> Bradyrhizobium COMPETITION edge
+    would therefore assert, to any consumer reading only the interaction graph, that an ARC member
+    antagonises the very mutualist ARC was assembled to spare — the opposite of the finding. The
+    fact is kept, the misleading edge is not.
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
@@ -36,6 +45,15 @@ engineering_design:
     snippet: Based on the antifungal activity and rhizobial compatibility, finally, 3 Bacillus
     explanation: States the two-part selection criterion — antifungal activity together with
       rhizobial compatibility — that defines this community's assembly strategy.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 3 Bacillus inhibited Bradyrhizobium
+    explanation: >-
+      The counter-selection itself: three candidate Bacillus isolates antagonised the rhizobium and
+      were excluded. Carried on the design rather than on an interaction because the excluded
+      isolates are indistinguishable from the retained ones at the taxonomic resolution the source
+      provides.
 environment_term:
   preferred_term: peanut rhizosphere
   term:
@@ -108,7 +126,9 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 8 GTDB taxa under the NCBI taxon]
     notes: The nitrogen-fixing symbiont whose compatibility constrained community assembly, and
       whose nodulation ARC is designed to induce. Not an inoculated ARC member; it is the mutualist
-      the community must not antagonise.
+      the community must not antagonise. The counter-selection that excluded Bradyrhizobium-
+      antagonising candidates is recorded under engineering_design, not as an interaction — see the
+      note there.
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
@@ -173,33 +193,6 @@ ecological_interactions:
       at harvest
     explanation: Supports facilitation of the rhizobia-legume symbiosis as a community-level effect
       distinct from the antifungal activity.
-- name: Candidate-Strain Antagonism of Bradyrhizobium (Excluded from ARC)
-  description: >
-    Three Bacillus isolates inhibited Bradyrhizobium growth in coculture and were screened out on
-    that basis. The interaction is recorded because it is the constraint that shaped the community:
-    ARC's membership is the subset of effective antifungal strains that does not antagonise the
-    nitrogen-fixing mutualist.
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Bacillus (ARC strains Bl13-2C11, Ba13-20E05, Bm14-5G09)
-    term:
-      id: NCBITaxon:1386
-      label: Bacillus <firmicutes>
-  target_taxon:
-    preferred_term: Bradyrhizobium PHNZY-24-6
-    term:
-      id: NCBITaxon:374
-      label: Bradyrhizobium
-  evidence:
-  - reference: PMID:42099455
-    supports: PARTIAL
-    evidence_source: IN_VITRO
-    snippet: 3 Bacillus inhibited Bradyrhizobium
-    explanation: PARTIAL - the antagonism is reported for three candidate Bacillus isolates that
-      were consequently excluded from ARC, so it characterises the screening step rather than the
-      shipped community. It is recorded at genus level because the source does not name which
-      isolates were excluded.
 environmental_factors:
 - name: Multi-year multi-site field trial
   value: 4 years; 325 sites across 19 provinces
