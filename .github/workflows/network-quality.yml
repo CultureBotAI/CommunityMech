@@ -132,7 +132,7 @@ jobs:
             errors|warnings)
               if [ "${{ steps.audit.outputs.result }}" = "errors" ]; then
                 heading="## Network integrity: broken references"
-                note="These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate."
+                note="These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, two taxonomy entries share one name, or a record could not be parsed. Only [error] lines gate."
               else
                 heading="## Network integrity findings"
                 note="Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build."
@@ -217,7 +217,7 @@ jobs:
                   : '## Network integrity findings',
                 '',
                 isError
-                  ? 'These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, or a record could not be parsed. Only [error] lines gate.'
+                  ? 'These fail the build: something the record names does not exist (a taxon, causal-edge target or discussion anchor), an id disagrees with its taxonomy entry, two taxonomy entries share one name, or a record could not be parsed. Only [error] lines gate.'
                   : 'Warnings only — a member with no interaction yet, or a participant matched by ontology id rather than by name, or one on a community-level interaction that resolves to no member. Reported, but does not fail the build.',
                 '',
                 '```',

@@ -36,11 +36,13 @@ class IssueType(str, Enum):
 # `network/validators.py`.
 #
 # The split is between *the record contradicting itself* and *the record being
-# incomplete*. Everything at error level names something that is not there: an
-# interaction citing a taxon the record does not list, a causal edge or
-# discussion anchor pointing at an interaction that does not exist, an id that
-# disagrees with the taxonomy entry it refers to. Those are objectively broken
-# and no amount of further curation makes them correct.
+# incomplete*. Error level covers two ways of contradicting itself: naming
+# something that is not there — an interaction citing a taxon the record does
+# not list, a causal edge or discussion anchor pointing at an interaction that
+# does not exist, an id that disagrees with the taxonomy entry it refers to —
+# and naming one thing twice, where two taxonomy entries share a display name so
+# only one of them is reachable. Both are objectively broken, and no amount of
+# further curation makes them correct.
 #
 # `NAME_MISMATCH` and `DISCONNECTED` are different in kind. The first says the
 # participant was matched by its ontology id because its name matched no entry:
@@ -236,7 +238,13 @@ class NetworkIntegrityAuditor:
         taxonomy_by_term: dict[str, dict] = {}
         taxonomy_keys_by_id: dict[str, list[str]] = defaultdict(list)
         for taxon in data.get("taxonomy") or []:
-            term = taxon.get("taxon_term", {})
+            # A null entry, or one that is not a mapping, used to raise
+            # AttributeError here and surface as an error-severity UNREADABLE
+            # naming a Python type — the per-entry twin of the whole-file case
+            # fixed in #329 (#338).
+            if not isinstance(taxon, dict):
+                continue
+            term = taxon.get("taxon_term") or {}
             preferred = term.get("preferred_term") or term.get("term", {}).get("label")
             taxon_id = term.get("term", {}).get("id")
 
@@ -256,9 +264,9 @@ class NetworkIntegrityAuditor:
                             "taxon_id": taxon_id,
                             "first_id": taxonomy_by_term[preferred]["id"],
                             "message": (
-                                f"Two taxonomy entries share the name '{preferred}' "
+                                f"Taxonomy name '{preferred}' is used more than once "
                                 f"({taxonomy_by_term[preferred]['id']} and {taxon_id}); "
-                                f"only the last is reachable by name"
+                                f"only the last entry is reachable by name"
                             ),
                         }
                     )
@@ -598,6 +606,11 @@ class NetworkIntegrityAuditor:
                         )
                     elif issue_type == IssueType.DISCONNECTED:
                         print(f"    • {issue['taxon']} ({issue['taxon_id']})")
+                    elif issue_type == IssueType.DUPLICATE_TAXON_NAME:
+                        # Record-scoped, like DISCONNECTED: it belongs to no
+                        # interaction, so the generic branch rendered it with a
+                        # literal "[N/A]" prefix (#335).
+                        print(f"    • {issue['message']}")
                     elif issue_type == IssueType.UNREADABLE:
                         print(f"    • {issue['message']}")
                     else:
