@@ -26,11 +26,12 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
-| 1 | **#366** `gtdb_ground.py` is batch-sensitive | M | the same taxon resolves the same way per-record and whole-KB, pinned by a test | `Euryarchaeota` (`NCBITaxon:28890`) is AMBIGUOUS in an ungrounded-only run and `GTDB:p__Halobacteriota` whole-KB — `collect_rows()` breaks at the first matching rank |
 
-**#290, #358, #314 and #306 are done** (PRs #361, #362, #364, #368), and #352
-closed separately — so Tier 1 emptied and **#366** is its successor. Fix it
-before any grounding backfill, or the backfill bakes in whichever batch it used.
+**#290, #358, #314, #306 and #366 are done** (PRs #361, #362, #364, #368, #370).
+Tier 1 is empty again: every mechanical, decision-free item in the backlog has
+shipped. What remains needs either a constraining brief (Tier 2) or a decision
+from you (Tier 3) — so the next pass should start by answering a Tier 3 row
+rather than by running the loop.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -83,6 +84,7 @@ answer is not derivable from the repo.
 | #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #363 | Measure the real `/goal` ceiling, and decide whether it counts chars or bytes |
+| #369 | Two stored GTDB blocks disagree with the current tool — re-ground, or keep? |
 | #367 | Should `fetch_pubmed_abstract` return MEDLINE only, or normalise a `.md`? |
 | #365 | Which NCBI id the two *Bosea* entries should carry — the current one is a plant |
 | #182 | Which best-effort ontology remaps to accept |

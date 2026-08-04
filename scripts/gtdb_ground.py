@@ -132,11 +132,17 @@ def collect_rows(mapping_path: Path, want_ids, want_species_lc, want_higher_lc):
             if sp and sp in want_species_lc:
                 by_name.setdefault(sp, []).append(cells)
             if want_higher_lc:
+                # Index under *every* wanted rank this row matches, not just the
+                # first. With a `break` here, a row carrying two wanted names —
+                # say genus Methanosarcina inside phylum Methanobacteriota —
+                # counted only toward whichever rank HIGHER_RANKS reached first,
+                # so a taxon's row set depended on which *other* taxa shared the
+                # run. Grounding the same id per-record and whole-KB could then
+                # disagree (#366).
                 for ncbi_col, _, _ in HIGHER_RANKS:
                     v = cells[ncbi_col].strip().lower()
                     if v and v in want_higher_lc:
                         by_higher.setdefault(v, []).append(cells)
-                        break
     return by_id, by_name, by_higher
 
 
