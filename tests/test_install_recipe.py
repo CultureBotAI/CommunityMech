@@ -29,27 +29,70 @@ JUSTFILE = REPO / "justfile"
 PYPROJECT = REPO / "pyproject.toml"
 
 
+def _strip_comments(text: str) -> str:
+    """Drop ``#`` comments that start outside a string.
+
+    A comment containing a quoted word — ``# see "PEP 508" markers`` — otherwise
+    reads as a dependency entry, silently.
+    """
+    out = []
+    for line in text.splitlines():
+        quote, cut = None, len(line)
+        for i, ch in enumerate(line):
+            if quote:
+                if ch == quote:
+                    quote = None
+            elif ch in "\"'":
+                quote = ch
+            elif ch == "#":
+                cut = i
+                break
+        out.append(line[:cut].rstrip())
+    return "\n".join(out) + "\n"
+
+
+def _section(text: str, section: str) -> str:
+    match = re.search(rf"^\[{re.escape(section)}\][ \t]*$\n(.*?)(?=^\[|\Z)", text, re.M | re.S)
+    return match.group(1) if match else ""
+
+
 def _array_keys(text: str, section: str) -> set:
     """Names of the array-valued keys declared directly under ``[section]``."""
-    match = re.search(rf"^\[{re.escape(section)}\]\n(.*?)(?=^\[|\Z)", text, re.M | re.S)
-    if not match:
-        return set()
-    return set(re.findall(r"^([A-Za-z0-9_.-]+)\s*=\s*\[", match.group(1), re.M))
+    body = _section(_strip_comments(text), section)
+    return set(re.findall(r"""^["']?([A-Za-z0-9_.-]+)["']?\s*=\s*\[""", body, re.M))
 
 
 def _array_values(text: str, section: str, key: str) -> list:
-    """The string entries of ``[section] key = [...]``."""
-    match = re.search(rf"^\[{re.escape(section)}\]\n(.*?)(?=^\[|\Z)", text, re.M | re.S)
-    if not match:
+    """The string entries of ``[section] key = [...]``, on one line or many.
+
+    Scans for the matching close bracket rather than regexing to the first one:
+    a dependency may carry its own brackets, as
+    ``deep-research-client[cyberian]>=0.2.4`` does, and a non-greedy ``\[(.*?)\]``
+    stops inside it.
+    """
+    body = _section(_strip_comments(text), section)
+    opener = re.search(rf"""^["']?{re.escape(key)}["']?\s*=\s*\[""", body, re.M)
+    if not opener:
         return []
-    body = re.search(rf"^{re.escape(key)}\s*=\s*\[(.*?)^\]", match.group(1), re.M | re.S)
-    if not body:
-        return []
-    # Match on the outer delimiter only. A naive [\"'] character class split
-    # `"deep-research-client[cyberian]>=0.2.4; python_version >= '3.12'"` at its
-    # inner quotes — caught by the tomllib cross-check below.
-    entries = re.findall(r'"((?:[^"\\]|\\.)*)"', body.group(1))
-    return entries or re.findall(r"'((?:[^'\\]|\\.)*)'", body.group(1))
+
+    depth, quote, entries, buf = 1, None, [], []
+    for ch in body[opener.end() :]:
+        if quote:
+            if ch == quote:
+                entries.append("".join(buf))
+                buf, quote = [], None
+            else:
+                buf.append(ch)
+            continue
+        if ch in "\"'":
+            quote, buf = ch, []
+        elif ch == "[":
+            depth += 1
+        elif ch == "]":
+            depth -= 1
+            if depth == 0:
+                break
+    return entries
 
 
 @pytest.fixture(scope="module")
@@ -76,9 +119,11 @@ def test_install_uses_the_flag_matching_how_dev_deps_are_declared(pyproject_text
     )
 
     if "dev" in extras:
-        assert "--extra dev" in install_recipe, (
+        # --all-extras installs every extra, dev included, and is what four of the
+        # five CI workflows use — so it satisfies the pairing just as well.
+        assert "--extra dev" in install_recipe or "--all-extras" in install_recipe, (
             "pyproject declares dev under [project.optional-dependencies], so the "
-            f"install recipe must use `--extra dev`, not:\n{install_recipe}"
+            f"install recipe must use `--extra dev` (or --all-extras), not:\n{install_recipe}"
         )
         assert "--group dev" not in install_recipe, "`--group dev` cannot install an extra"
     else:
@@ -119,3 +164,72 @@ def test_the_shortcut_parser_agrees_with_a_real_toml_parser(pyproject_text):
         _array_values(pyproject_text, "project.optional-dependencies", "dev")
         == parsed["project"]["optional-dependencies"]["dev"]
     )
+
+
+# ---------------------------------------------------------------------------
+# The parser, on TOML shapes this pyproject does not currently use. The tomllib
+# cross-check above skips on CI's 3.10, so without these the parser is only ever
+# exercised against one file, in one shape (#290 review).
+# ---------------------------------------------------------------------------
+
+
+SECTION = "project.optional-dependencies"
+
+
+@pytest.mark.parametrize(
+    ("label", "toml", "expected"),
+    [
+        (
+            "multi-line",
+            '[project.optional-dependencies]\ndev = [\n  "pytest",\n  "black",\n]\n',
+            ["pytest", "black"],
+        ),
+        (
+            "single-line",
+            '[project.optional-dependencies]\ndev = ["pytest", "black"]\n',
+            ["pytest", "black"],
+        ),
+        (
+            "bracket inside an entry",
+            '[project.optional-dependencies]\ndev = [\n  "drc[cyberian]>=0.2",\n  "black",\n]\n',
+            ["drc[cyberian]>=0.2", "black"],
+        ),
+        (
+            "quote inside an entry",
+            "[project.optional-dependencies]\ndev = [\n  \"x; python_version >= '3.12'\",\n]\n",
+            ["x; python_version >= '3.12'"],
+        ),
+        (
+            "comment containing a quoted word",
+            '[project.optional-dependencies]\ndev = [\n  "pytest",  # see "PEP 508"\n'
+            '  "black",\n]\n',
+            ["pytest", "black"],
+        ),
+        (
+            "comment containing an apostrophe",
+            '[project.optional-dependencies]\ndev = [\n  # don\'t pin "black" yet\n'
+            '  "pytest",\n]\n',
+            ["pytest"],
+        ),
+        (
+            "literal (single-quoted) strings",
+            "[project.optional-dependencies]\ndev = [\n  'pytest',\n  'black',\n]\n",
+            ["pytest", "black"],
+        ),
+        ("quoted key", '[project.optional-dependencies]\n"dev" = [\n  "pytest",\n]\n', ["pytest"]),
+        (
+            "another section is not consulted",
+            '[tool.other]\ndev = [\n  "nope",\n]\n\n'
+            '[project.optional-dependencies]\ndev = [\n  "pytest",\n]\n',
+            ["pytest"],
+        ),
+    ],
+)
+def test_parser_handles_the_toml_shapes_that_could_appear(label, toml, expected):
+    assert _array_values(toml, SECTION, "dev") == expected, label
+    assert "dev" in _array_keys(toml, SECTION), label
+
+
+def test_parser_reports_absence_rather_than_guessing():
+    assert _array_values('[project.optional-dependencies]\nother = ["x"]\n', SECTION, "dev") == []
+    assert _array_keys("[tool.black]\nline-length = 100\n", SECTION) == set()

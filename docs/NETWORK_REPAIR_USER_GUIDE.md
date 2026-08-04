@@ -663,8 +663,8 @@ limits:
 # Install with LLM dependencies
 uv sync --all-extras
 
-# Or specific group
-uv sync --group llm
+# Or just the LLM extra
+uv sync --extra llm
 ```
 
 ### Issue: Slow Batch Processing

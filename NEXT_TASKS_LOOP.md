@@ -29,7 +29,7 @@ finish condition.
 | 1 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
 | 2 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
 | 3 | **#352a** seven records have no published page | XS | `just gen-html`; every record has a page | 312 records, **305** pages — 7 missing, not just SPRUCE |
-| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | 3998 chars / **4028 bytes** on `main`, 2 chars spare. Unblocked: #357 merged as `5a1d60b`. Note bytes already exceed 4000, which is the question #358 settles |
+| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | **3944 chars / 3974 bytes** after this PR retired a gotcha — 56 spare, and bytes now under 4000 for the first time. Nothing enforces either, and which one the ceiling counts is still unsettled |
 
 **#290 is done** (PR #361) — the recipe is fixed, a test pins it to how pyproject
 declares the deps, and the gotcha is out of the goal prompt. **Start with #358**,
