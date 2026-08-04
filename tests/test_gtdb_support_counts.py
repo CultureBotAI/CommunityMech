@@ -1,27 +1,29 @@
 """A `majority_fraction` must say what it is a fraction *of* (#383).
 
 `0.571` reads identically whether it came from 4 genomes or 4000, and `1.0` can
-rest on a single row. That is not hypothetical: across the KB, **19 higher-rank
-groundings rest on fewer than 10 genomes and every one of them reads 1.0** — a
-phylum grounded on 7 genomes is indistinguishable, in the stored block, from one
-grounded on 7000. The named-species filter (#375) made this sharper, because it
-shrinks the evidence without recording that it did.
+rest on a single row. Across the KB, **197 groundings rest on fewer than 10
+genomes, 192 of them reading `1.0`, and 25 rest on a single genome** — in the
+stored block those were indistinguishable from groundings drawn from thousands.
+The named-species filter (#375) sharpened it, because it shrinks the evidence
+without recording that it did.
 
-So the block now carries the numerator and the denominator:
+* ``total_genomes``   — genomes the majority was computed over. On **every**
+  grounding, because it is the number #383 actually asked for.
+* ``support_genomes`` — genomes behind the chosen taxon. Only on genus-and-higher
+  groundings, where this script computes the majority itself.
 
-* ``support_genomes`` — genomes behind the chosen GTDB taxon.
-* ``total_genomes``   — genomes across every candidate at that rank.
-
-Rounding is why they cannot be inferred: `majority_fraction` is rounded to 3
+Rounding is why neither can be inferred: `majority_fraction` is rounded to 3
 places, so 4/7 and 4000/7000 both store as 0.571.
 
-**`total_genomes` is deliberately absent on the species path.** There the
-fraction is the crosswalk's own column rather than something this script
-computes, so a locally-summed denominator would contradict it — *Bacillus
-velezensis* is 1163 genomes on the chosen row against 1196 across all its rows,
-while the crosswalk calls it 1.0. Publishing 1163/1196 next to `1.0` would be
-worse than publishing no denominator at all, so only `support_genomes` is
-emitted there.
+**Why species blocks carry no numerator.** Two wrong answers came first. Storing
+the crosswalk's `total genomes` column into `support_genomes` labelled the
+denominator as the numerator, overstating 74 of 335 species blocks — *P.
+aeruginosa* read 17191 against a true ~17019 — and hid behind a worked example
+where `majority_fraction: 1.0` makes the two identical. Deriving it as
+``round(total * majority)`` is no better: that column carries **two decimal
+places**, so at 17191 genomes and 0.99 the true numerator spans ~170 genomes. A
+5-digit count from a 2-digit fraction asserts precision the source lacks. So the
+species path states the denominator, which it knows exactly, and no numerator.
 """
 
 from __future__ import annotations
@@ -143,20 +145,24 @@ def test_an_unparseable_genome_count_does_not_crash_the_grounding(gtdb, cell):
     bad[2] = cell
     result = gtdb.resolve_higher("testgenus", "NCBITaxon:1", "Testgenus", {"testgenus": [row, bad]})
     assert result["support_genomes"] == 10
+    # The denominator is the only place the `w = 1.0` fallback is observable —
+    # without this, changing it to 0.0 passed every test (#385 review).
+    assert result["total_genomes"] == 11, "the unparseable row must still count as 1"
 
 
-def test_the_species_path_reports_support_but_no_denominator(gtdb, mapping):
-    """A locally-summed denominator would contradict the crosswalk's own fraction."""
+def test_the_species_path_reports_the_denominator_but_no_numerator(gtdb, mapping):
+    """The crosswalk gives the row total exactly and the share only to 2 places."""
     by_id, by_name, by_higher = gtdb.collect_rows(
         mapping, {"492670"}, {"bacillus velezensis"}, set()
     )
     result = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
 
     assert result["gtdb_id"] == "GTDB:s__Bacillus_velezensis"
-    assert result["support_genomes"] > 0, "the species path must still say how much evidence"
-    assert "total_genomes" not in result, (
-        "the species path must not publish a denominator — its majority_fraction "
-        "comes from the crosswalk, not from this script"
+    assert result["total_genomes"] == 1163, "the chosen row's own genome count"
+    assert "support_genomes" not in result, (
+        "the species path must publish no numerator — majority_fraction comes "
+        "from the crosswalk's 2-decimal column, so any numerator derived from it "
+        "would assert precision the source lacks"
     )
 
 
@@ -187,29 +193,52 @@ def test_support_never_exceeds_the_total(grounded):
 
 
 def test_the_kb_carries_the_counts(grounded):
-    """Without this, shipping the schema change but not the sweep would pass."""
+    """Shipping the schema change without the sweep, or half of it, must fail.
+
+    `total_genomes` is the field every grounding gets, so it is the one that
+    detects a partial sweep. Only the four blocks the tool cannot recompute may
+    lack it: the curated Pelobacter pin (#384), the curated Chlorobium block, and
+    the two taxa that are now AMBIGUOUS (#376).
+    """
+    without = [
+        f"{record}: {name}" for record, name, b in grounded if b.get("total_genomes") is None
+    ]
+    assert len(without) <= 4, (
+        f"{len(without)} of {len(grounded)} blocks carry no total_genomes — the KB "
+        f"was not fully re-swept after the schema change (#383):\n"
+        + "\n".join(f"  {w}" for w in without[:10])
+    )
     with_support = [b for _, _, b in grounded if b.get("support_genomes") is not None]
-    assert len(with_support) > 600, (
-        f"only {len(with_support)} of {len(grounded)} blocks carry support_genomes — "
-        f"the KB was not re-swept after the schema change (#383)"
+    assert len(with_support) > 250, (
+        f"only {len(with_support)} blocks carry support_genomes — the higher-rank "
+        f"path should populate it on roughly 307"
     )
 
 
 def test_the_thin_groundings_are_visible(grounded):
     """The population this issue exists for, now findable by reading the KB.
 
-    Every one of these reads `majority_fraction: 1.0`. Before the counts landed,
-    nothing in the record distinguished them from a grounding drawn from
-    thousands of genomes. This asserts they are *visible*, not that they are
-    wrong — a small genus is legitimately small.
+    These are *visible*, not wrong — a small genus is legitimately small. What
+    was wrong is that nothing distinguished them from a grounding drawn from
+    thousands. An earlier revision of this docstring claimed every one reads
+    `1.0`; 5 do not, and asserting the claim rather than narrating it is what
+    caught that.
     """
     thin = [
-        (record, name, b["gtdb_id"], b["support_genomes"], b["total_genomes"])
+        (record, name, b["gtdb_id"], b.get("support_genomes"), b["total_genomes"])
         for record, name, b in grounded
         if b.get("total_genomes") is not None and b["total_genomes"] < 10
     ]
-    assert thin, "expected to find low-evidence groundings; has the mapping changed?"
+    assert len(thin) > 100, (
+        f"only {len(thin)} low-evidence groundings — this population is the "
+        f"reason #383 exists; has the mapping changed?"
+    )
     assert all(t[4] > 0 for t in thin), "a zero denominator would be a division bug"
+    assert any(t[1] != 1.0 for t in thin), (
+        "every thin grounding reads 1.0 — the earlier narrative said exactly "
+        "this and it was false, so it is asserted rather than assumed"
+    )
+    assert any(t[4] == 1 for t in thin), "expected groundings resting on a single genome"
 
 
 def test_the_emitted_block_carries_the_counts(gtdb):
@@ -233,8 +262,8 @@ def test_the_emitted_block_carries_the_counts(gtdb):
     assert "support_genomes" in gtdb.emit_block(grounding, "test-source")
 
 
-def test_an_emitted_species_block_omits_the_denominator(gtdb, mapping):
-    """`_block` must not invent a `total_genomes` the species path did not compute."""
+def test_an_emitted_species_block_omits_the_numerator(gtdb, mapping):
+    """`_block` must not invent a `support_genomes` the species path cannot know."""
     by_id, by_name, by_higher = gtdb.collect_rows(
         mapping, {"492670"}, {"bacillus velezensis"}, set()
     )
@@ -242,10 +271,127 @@ def test_an_emitted_species_block_omits_the_denominator(gtdb, mapping):
 
     block = gtdb._block(grounding, "test-source")
 
-    assert block["support_genomes"] > 0
-    assert "total_genomes" not in block, (
-        "a species block must omit the denominator entirely — writing "
-        "`total_genomes: null` puts noise on 335 records and hides from a "
+    assert block["total_genomes"] == 1163
+    assert "support_genomes" not in block, (
+        "a species block must omit the numerator entirely — writing "
+        "`support_genomes: null` puts noise on 336 records and hides from a "
         "`.get()`-based diff, which is how it survived the first sweep"
     )
-    assert "total_genomes" not in gtdb.emit_block(grounding, "test-source")
+    assert "support_genomes" not in gtdb.emit_block(grounding, "test-source")
+
+
+def test_species_counts_match_the_crosswalk(gtdb, mapping):
+    """Nothing compared a species-path count to the source, so two bugs hid here.
+
+    `support_genomes` was the crosswalk's *total* column mislabelled as the
+    numerator, and the chosen row was whichever the file listed first. Both
+    passed a `> 0` assertion. This reads the table directly.
+    """
+    import gzip
+
+    wanted = {"492670": "Bacillus velezensis", "1423": "Bacillus subtilis"}
+    expected = {}
+    with gzip.open(mapping, "rt") as handle:
+        next(handle)
+        for line in handle:
+            cells = line.rstrip("\n").split("\t")
+            if len(cells) > gtdb.COL_NCBI_SPECIES and cells[0] in wanted:
+                best = expected.get(cells[0])
+                key = (gtdb._maj(cells), gtdb._genomes(cells))
+                if best is None or key > best[0]:
+                    expected[cells[0]] = (key, gtdb._genomes(cells))
+
+    for ncbi_id, label in wanted.items():
+        by_id, by_name, by_higher = gtdb.collect_rows(mapping, {ncbi_id}, {label.lower()}, set())
+        result = gtdb.resolve_target(ncbi_id, label, by_id, by_name, by_higher)
+        assert result["total_genomes"] == expected[ncbi_id][1], (
+            f"{label}: stored {result['total_genomes']} but the best crosswalk row "
+            f"carries {expected[ncbi_id][1]} genomes"
+        )
+
+
+def test_the_chosen_species_row_does_not_depend_on_file_order(gtdb, mapping):
+    """The #382 tie-break bug, which reappeared on this path (#385 review).
+
+    `sorted(key=_maj)` is stable, so among rows tied on majority the winner was
+    whichever came first: reversing the input moved *Anaerobutyricum hallii* from
+    156 genomes to 1, with an unchanged gtdb_id and an unchanged 1.0.
+    """
+    _, by_name, _ = gtdb.collect_rows(mapping, set(), {"anaerobutyricum hallii"}, set())
+    rows = by_name["anaerobutyricum hallii"]
+    assert len(rows) > 1, "this taxon no longer has the tied rows the test needs"
+
+    forward = gtdb.resolve_target(
+        "", "Anaerobutyricum hallii", {}, {"anaerobutyricum hallii": rows}, {}
+    )
+    reverse = gtdb.resolve_target(
+        "", "Anaerobutyricum hallii", {}, {"anaerobutyricum hallii": list(reversed(rows))}, {}
+    )
+
+    assert (
+        forward["total_genomes"] == reverse["total_genomes"]
+    ), "reversing the crosswalk row order changed the stored evidence count"
+    # Deterministic is not enough — it must be the *best-supported* row. Both
+    # rows here sit at majority 1.0, carrying 156 genomes and 1, so consistently
+    # picking either end would satisfy the assertion above.
+    assert forward["total_genomes"] == 156, (
+        f"chose a {forward['total_genomes']}-genome row over the 156-genome one; "
+        f"a tie must break toward the better-supported row"
+    )
+
+
+def test_the_cli_prints_the_counts_and_flags_thin_evidence(gtdb, mapping, capsys):
+    """Nothing covered the CLI, so deleting the annotation or the marker passed."""
+    assert gtdb.main(["--name", "Pelobacter"]) == 0
+    thin = capsys.readouterr().out
+    assert "[4/7 genomes]" in thin, "the CLI must say what the fraction is a fraction of"
+    assert "THIN" in thin, "a 7-genome grounding must be flagged"
+
+    assert gtdb.main(["--name", "Acetobacter"]) == 0
+    thick = capsys.readouterr().out
+    assert "[395/395 genomes]" in thick
+    assert "THIN" not in thick, "395 genomes is not thin"
+
+
+def test_a_curated_grounding_is_skipped_by_refresh(gtdb, tmp_path, mapping):
+    """The tool must refuse to recompute a block a curator pinned (#384).
+
+    Excluding the whole *file* from the sweep instead — the first attempt — left
+    its other taxon ungrounded-by-counts and the record maintainable only by hand.
+    """
+    assert gtdb.CURATED_GROUNDINGS, "the curated map is empty; nothing is protected"
+    record, ncbi_id = next(iter(gtdb.CURATED_GROUNDINGS))
+
+    source = REPO / "kb/communities" / record
+    assert source.exists(), f"{record} no longer exists; update CURATED_GROUNDINGS"
+    destination = tmp_path / record
+    destination.write_text(source.read_text())
+
+    pairs = [
+        (
+            (e["taxon_term"].get("term") or {}).get("id", ""),
+            (e["taxon_term"].get("term") or {}).get("label", ""),
+        )
+        for e in yaml.safe_load(destination.read_text())["taxonomy"]
+    ]
+    cleaned = [gtdb._clean_label(label) for _, label in pairs]
+    rows = gtdb.collect_rows(
+        mapping,
+        {i.split(":")[1] for i, _ in pairs if i},
+        {c.lower() for c in cleaned if " " in c},
+        {c.lower() for c in cleaned if " " not in c},
+    )
+    gtdb.apply_to_community(destination, *rows, "test-source", refresh=True)
+
+    after = yaml.safe_load(destination.read_text())
+    pinned = next(
+        e["taxon_term"]
+        for e in after["taxonomy"]
+        if (e["taxon_term"].get("term") or {}).get("id") == ncbi_id
+    )
+    assert (
+        pinned["gtdb_classification"]["gtdb_id"] == "GTDB:g__Syntrophotalea"
+    ), "refresh overwrote a curated grounding"
+    assert "test-source" not in (
+        pinned["gtdb_classification"].get("mapping_source") or ""
+    ), "the curated block was rewritten even though its value survived"

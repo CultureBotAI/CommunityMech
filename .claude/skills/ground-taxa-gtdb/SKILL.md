@@ -127,19 +127,24 @@ Grounding happens at the **rank of the input**:
   on the chosen GTDB taxon. Lower values (e.g. *Bacillus* 0.57) warrant a curator
   glance.
 
-- **`support_genomes` / `total_genomes`** — the numerator and denominator the
-  fraction came from (#383). Read these *before* trusting a fraction: `1.0` on
-  `7/7` genomes and `1.0` on `7000/7000` are the same number and very different
-  claims, and 19 of the KB's higher-rank groundings rest on fewer than 10
-  genomes. `majority_fraction` is rounded to 3 places, so the counts cannot be
-  recovered from it. The CLI prints them inline and marks a total under 10
-  `⚠ THIN`.
+- **`total_genomes`** — how many genomes the majority was computed over, i.e.
+  what the fraction is a fraction *of* (#383). Read it *before* trusting a
+  fraction: `1.0` on `7/7` and `1.0` on `7000/7000` are the same number and very
+  different claims. **197 of the KB's groundings rest on fewer than 10 genomes
+  and 25 on a single genome**, almost all reading `1.0`. `majority_fraction` is
+  rounded, so this cannot be recovered from it. The CLI prints it inline and
+  marks a total under 10 `⚠ THIN`.
 
-  `total_genomes` counts only what was *counted* — rows dropped by the
-  named-species filter are excluded, so it shrinks when the filter bites. It is
-  **absent on species-level groundings**, where `majority_fraction` is the
-  crosswalk's own column rather than something the script computes; publishing a
-  locally-summed denominator there would contradict the stored fraction.
+  For genus-and-higher it counts only what was *counted* — rows dropped by the
+  named-species filter are excluded, so it shrinks when the filter bites. For
+  species it is the chosen mapping row's own genome count.
+
+- **`support_genomes`** — the numerator, on genus-and-higher groundings only.
+  Species blocks deliberately carry none: there `majority_fraction` is the
+  crosswalk's own column, which holds **two decimal places**, so a numerator
+  derived from it would assert precision the source lacks — at 17191 genomes and
+  `0.99` the true count spans ~170. A thin grounding is not automatically wrong;
+  a small genus is legitimately small. The point is that you can now tell.
 
   A fraction of exactly **0.5** is a two-way tie, not a majority — it is broken by
   name so the answer is reproducible, but it is still a coin flip (#382).

@@ -169,25 +169,41 @@ def _genomes(row) -> int:
 
 
 def _ground_species(rows, source_id, label, via):
-    rows = sorted(rows, key=_maj, reverse=True)
+    # Deterministic order. A plain `sorted(key=_maj)` is stable, so among rows
+    # tied on majority the winner was whichever the crosswalk listed first —
+    # reversing the file moved *Anaerobutyricum hallii* from 156 genomes to 1,
+    # with the same gtdb_id and the same 1.0. That is the tie-break bug fixed for
+    # the higher-rank path in #382, reappearing here (#385 review). Prefer the
+    # best-supported row, then break by name.
+    rows = sorted(rows, key=lambda r: (-_maj(r), -_genomes(r), r[COL_GTDB_SPECIES].strip()))
     top = rows[0]
     sp = top[COL_GTDB_SPECIES].strip()
     ref = _clean_label(label) or top[COL_NCBI_SPECIES].strip()
-    # `majority_fraction` here is the crosswalk's own column, not something this
-    # script computes. So this path records `support_genomes` — how many genomes
-    # sat behind the row that was chosen — but deliberately **no**
-    # `total_genomes`: summing the matched rows would publish a ratio that
-    # contradicts the stored fraction. `Bacillus velezensis` is the worked case,
-    # 1163 genomes on the top row against 1196 across all rows, while the
-    # crosswalk calls it 1.0. A denominator is only emitted where this script
-    # computes the majority itself, which is the higher-rank path (#383).
+    # Column 2 is the chosen row's *total* genomes; `majority_fraction` is the
+    # share of them reaching this GTDB taxon. So this path can state the
+    # denominator exactly, and cannot state the numerator at all.
+    #
+    # Two wrong answers were tried before this one. Storing the column straight
+    # into `support_genomes` labelled the denominator as the numerator and
+    # overstated 74 of 335 species blocks — *P. aeruginosa* read 17191 against a
+    # true ~17019 — hidden by a worked example where `majority_fraction: 1.0`
+    # makes the two identical (#385 review). Deriving it as `round(total * maj)`
+    # is no better: the crosswalk's majority column carries **two decimal
+    # places**, so at 17191 genomes and 0.99 the true numerator spans ~170
+    # genomes, and a 5-digit `support_genomes` would assert a precision the
+    # source does not have.
+    #
+    # So species blocks carry `total_genomes` only. That is what #383 asked for —
+    # what the fraction is a fraction *of* — and `support_genomes` keeps one
+    # meaning everywhere: an exact count this script computed itself.
+    total = _genomes(top)
     return {
         "ncbi_source_id": source_id,
         "gtdb_id": _curie(sp, "s") if sp else None,
         "gtdb_taxon": sp or None,
         "gtdb_lineage": _lineage(top, COL_GTDB_SPECIES),
         "majority_fraction": _maj(top),
-        "support_genomes": _genomes(top),
+        "total_genomes": total,
         "is_reclassified": bool(sp and ref and sp != ref),
         "via": via,
     }
@@ -416,6 +432,25 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
     return resolve_higher(clean.lower(), source_id, label, by_higher, denominator, exclude_unnamed)
 
 
+# Groundings a curator chose against the majority vote, keyed by
+# (record filename, NCBITaxon id). `--refresh` recomputes an existing block, so
+# without this the tool silently replaces a right answer with a confidently wrong
+# one and only `tests/test_gtdb_withheld_groundings.py::CURATED` notices, after
+# the fact. Mirrors WITHHELD, which keeps taxa *ungrounded* (#292/#293).
+#
+# This is the narrow half of #384 — a hard-coded list, not the `curated:` flag on
+# the block that the issue asks for. It exists so the record stays tool-
+# maintainable: excluding the whole *file* instead stranded its other taxon.
+CURATED_GROUNDINGS = {
+    ("Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml", "NCBITaxon:18"): (
+        "GTDB:g__Syntrophotalea — SFB93 is an acetylene fermenter and the entry's "
+        "notes tie it to Syntrophotalea acetylenivorans, but every Pelobacter row "
+        "naming Syntrophotalea is an `sp.` row, so the named-species filter hands "
+        "the vote to g__Seleniibacterium at 0.571 (#384)."
+    ),
+}
+
+
 def _block(g: dict, mapping_source: str) -> dict:
     src = mapping_source
     if (g.get("via") or "").startswith("ncbi_rank"):
@@ -530,6 +565,14 @@ def apply_to_community(
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
         grounded = "gtdb_classification" in tt
+        if (path.name, tid) in CURATED_GROUNDINGS:
+            print(
+                f"[gtdb] skipping curated {tid} in {path.name}: "
+                f"{CURATED_GROUNDINGS[(path.name, tid)]}",
+                file=sys.stderr,
+            )
+            wanted.append(None)
+            continue
         if not tid.startswith("NCBITaxon:") or (grounded != refresh):
             # normal: act on ungrounded only. refresh: act on grounded only.
             wanted.append(None)
@@ -819,7 +862,12 @@ def main(argv: list[str] | None = None) -> int:
         support, total = g.get("support_genomes"), g.get("total_genomes")
         # Say what the fraction is a fraction *of*. A bare 0.571 reads the same
         # at 4 genomes as at 4000 (#383).
-        of = f"  [{support}/{total} genomes]" if total else (f"  [{support} genomes]" if support else "")
+        if total and support is not None:
+            of = f"  [{support}/{total} genomes]"
+        elif total:
+            of = f"  [{total} genomes under the NCBI taxon]"
+        else:
+            of = ""
         thin = "  ⚠ THIN" if total and total < 10 else ""
         print(f"  majority     : {g['majority_fraction']}{via}{of}{thin}")
         if args.emit_yaml:
