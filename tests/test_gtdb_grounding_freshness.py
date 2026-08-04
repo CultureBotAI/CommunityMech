@@ -151,6 +151,26 @@ def test_grounding_is_internally_coherent(grounded):
         if fraction is not None and not (0.5 <= fraction <= 1.0):
             problems.append(f"{where}\n      majority_fraction={fraction} outside (0.5, 1]")
 
+        # The evidence counts (#383). `linkml-validate` checks their type and
+        # non-negativity but nothing relates them to each other or to the
+        # fraction, so a block claiming 99 supporting genomes out of 3 validates.
+        support, total = g.get("support_genomes"), g.get("total_genomes")
+        if total is not None and total <= 0:
+            problems.append(f"{where}\n      total_genomes={total} — a majority over no genomes")
+        if support is not None and total is not None:
+            if support > total:
+                problems.append(f"{where}\n      support_genomes={support} > total_genomes={total}")
+            elif total > 0 and fraction is not None and round(support / total, 3) != fraction:
+                problems.append(
+                    f"{where}\n      {support}/{total} = {round(support / total, 3)} but "
+                    f"majority_fraction={fraction}"
+                )
+        if support is not None and total is None:
+            problems.append(
+                f"{where}\n      support_genomes={support} with no total_genomes — a "
+                f"numerator without its denominator says nothing"
+            )
+
     assert not problems, "internally inconsistent gtdb_classification:\n" + "\n".join(
         f"  {p}" for p in problems
     )

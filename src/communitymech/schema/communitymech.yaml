@@ -713,6 +713,29 @@ classes:
         range: float
         minimum_value: 0.0
         maximum_value: 1.0
+      support_genomes:
+        description: >-
+          Number of genomes supporting the chosen GTDB taxon — the numerator
+          behind majority_fraction. Present only on genus-and-higher groundings,
+          where this majority is computed from the mapping rows directly. Absent
+          on species-level groundings: there majority_fraction comes from the
+          crosswalk's own column, which carries two decimal places, so any
+          numerator derived from it would assert a precision the source lacks
+          (~170 genomes of slack on a 17191-genome taxon).
+        range: integer
+        minimum_value: 0
+      total_genomes:
+        description: >-
+          Number of genomes the majority was computed over — the denominator
+          behind majority_fraction, and the answer to "0.571 of what?". For
+          genus-and-higher, the genomes across every candidate GTDB taxon at that
+          rank, excluding rows dropped by the named-species filter
+          (sp./uncultured/informal), so it is the evidence actually considered
+          rather than every genome under the NCBI taxon. For species, the genomes
+          under the chosen mapping row. Note majority_fraction is rounded, so
+          neither count can be recovered from it.
+        range: integer
+        minimum_value: 0
       is_reclassified:
         description: >-
           True when the GTDB species name differs from the NCBITaxon species
