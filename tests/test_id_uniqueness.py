@@ -25,26 +25,41 @@ REPO = Path(__file__).parent.parent
 
 # Where records may legitimately live. Anything outside these that declares an
 # id is reported too — see test_no_id_bearing_records_outside_known_dirs.
-RECORD_DIRS = ("kb/communities", "kb/taxa", "data/isolates")
+# `kb/taxa` is deliberately absent: its ids are `CommunityMech:taxon:NNNNNN`,
+# a different space from the record ids this module governs.
+RECORD_DIRS = ("kb/communities", "data/isolates")
 
 # Paths that legitimately mention ids without owning them: fixtures, caches and
 # prose. `tests/data` holds deliberate copies of real records.
 EXCLUDED = ("tests/data", "references_cache", ".git", "site", "docs", "notes")
 
-ID_RE = re.compile(r"^id:\s*(CommunityMech:\d+)\s*$", re.M)
+# Quoting is ordinary YAML, and an id in quotes must not be able to slip the
+# gate: `id: "CommunityMech:000320"` was invisible to every check here (#351).
+# Trailing comments are tolerated for the same reason.
+ID_RE = re.compile(r"""^id:[ \t]*['"]?(CommunityMech:\d+)['"]?[ \t]*(?:\#.*)?$""", re.M)
 
 
 def _declared_ids():
     """Every (id, path) pair declared anywhere in the repo."""
     found = []
-    for path in sorted(REPO.glob("**/*.yaml")):
-        rel = path.relative_to(REPO).as_posix()
-        if any(rel.startswith(skip) for skip in EXCLUDED):
+    for path in sorted([*REPO.glob("**/*.yaml"), *REPO.glob("**/*.yml")]):
+        rel = path.relative_to(REPO)
+        # Compare path *components*, not the string: `rel.startswith("notes")`
+        # also swallowed `notes_archive/`, and `data/isolates_v2/` counted as a
+        # known directory purely because the name shares a prefix (#351).
+        if _under(rel, EXCLUDED):
             continue
-        match = ID_RE.search(path.read_text())
-        if match:
-            found.append((match.group(1), rel))
+        # findall, not search: a second document in one file declares a second
+        # id, and taking only the first hid it.
+        for identifier in ID_RE.findall(path.read_text()):
+            found.append((identifier, rel.as_posix()))
     return found
+
+
+def _under(rel: Path, roots) -> bool:
+    """True if `rel` sits inside one of `roots`, matching whole path components."""
+    parts = rel.parts
+    return any(parts[: len(Path(r).parts)] == Path(r).parts for r in roots)
 
 
 @pytest.fixture(scope="module")
@@ -75,7 +90,7 @@ def test_no_id_bearing_records_outside_known_dirs(declared):
     invisible enough that nothing validated it. This makes that combination
     impossible to reach silently.
     """
-    strays = sorted(rel for _, rel in declared if not any(rel.startswith(d) for d in RECORD_DIRS))
+    strays = sorted(rel for _, rel in declared if not _under(Path(rel), RECORD_DIRS))
     assert not strays, (
         "these declare a CommunityMech id but live outside "
         f"{RECORD_DIRS}; add the directory to RECORD_DIRS and to the validation "

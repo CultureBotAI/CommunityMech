@@ -56,15 +56,25 @@ including the single-file and registry variants — is in
 [`reference/finding-highest-id.md`](reference/finding-highest-id.md) and
 [`reference/minting-and-adding.md`](reference/minting-and-adding.md).
 
-### 1. Find the highest existing ID (scan the directory)
+### 1. Find the highest existing ID (scan **every** id-bearing directory)
+
+`kb/communities/` is not the whole id space. `data/isolates/` carries
+`CommunityMech:` ids too, and scanning only the first is what let four ids get
+used twice (#310, #346) — the isolates held ids that later records re-minted.
 
 ```bash
-grep -rh 'id: CommunityMech:' kb/communities/ | cut -d: -f3 | sort -n | tail -1
+grep -rh 'id: CommunityMech:' kb/communities/ data/isolates/ | cut -d: -f3 | sort -n | tail -1
 ```
 
 ```python
-highest = find_highest_id_multi_file(Path('kb/communities'), 'CommunityMech')
+highest = max(
+    find_highest_id_multi_file(Path(d), 'CommunityMech')
+    for d in ('kb/communities', 'data/isolates')
+)
 ```
+
+`tests/test_id_uniqueness.py` fails the build if a mint collides anyway, but it
+is a backstop — mint from the full space in the first place.
 
 ### 2. Mint the next ID
 
