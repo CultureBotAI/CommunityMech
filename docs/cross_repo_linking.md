@@ -64,7 +64,7 @@ Links a community to a MediaIngredientMech ingredient through environmental or m
 
 | Repository | Pattern | Example |
 |------------|---------|---------|
-| CommunityMech | `CommunityMech:NNNNNN` | `CommunityMech:000024` |
+| CommunityMech | `CommunityMech:NNNNNN` | `CommunityMech:000319` |
 | CultureMech | `CultureMech:NNNNNN` | `CultureMech:010001` |
 | MediaIngredientMech | `MediaIngredientMech:NNNNNN` | `MediaIngredientMech:000523` |
 
@@ -87,7 +87,7 @@ related_media:
 ### Full: SPRUCE Peatland Community
 
 ```yaml
-id: CommunityMech:000024
+id: CommunityMech:000319
 name: SPRUCE Peatland Warming Microbial Community
 ecological_state: STABLE
 community_origin: NATURAL
@@ -282,7 +282,7 @@ ri = RelatedIngredient(
 
 # Add to a community
 community = MicrobialCommunity(
-    id="CommunityMech:000024",
+    id="CommunityMech:000319",
     name="SPRUCE Peatland Community",
     related_media=[rm],
     related_ingredients=[ri],

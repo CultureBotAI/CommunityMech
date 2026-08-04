@@ -1,4 +1,4 @@
-id: CommunityMech:000024
+id: CommunityMech:000319
 name: SPRUCE Peatland Warming Microbial Community
 description: 'Microbial community from the SPRUCE (Spruce and Peatland Responses Under Changing Environments) whole-ecosystem warming experiment at Marcell Experimental Forest, Minnesota. This long-term DOE-funded experiment (ORNL) provides a unique whole-ecosystem warming gradient (+0°C to +9°C) with elevated CO2 (eCO2) treatments in a northern boreal peatland. The natural microbial community has been extensively characterized through amplicon sequencing (16S rRNA for bacteria/archaea, ITS for fungi) and metatranscriptomics, revealing climate change-driven shifts in community composition and function. Key findings include: (1) warming promotes saprophytic fungi and chemoorganoheterotrophic bacteria in root-associated environments, (2) eCO2 enhances ectomycorrhizal fungal associations with vascular plants, particularly short-distance exploration strategies targeting labile soil nitrogen, (3) vascular plant fine root traits mediate climate effects on microbial communities, serving as a critical mechanism for peatland vegetation responses to global change. The community exhibits distinct niche partitioning between aquatic (waterlogged surface peat) and terrestrial (deeper peat) zones. Viral communities (4,326 vOTUs) show strong correlations with peat depth, water content, and carbon chemistry (CH4/CO2) but not temperature during initial warming phases. This represents one of the most comprehensively studied natural microbial communities under realistic climate change scenarios, with implications for carbon cycling, methane emissions, and ecosystem feedbacks in boreal peatlands. Northern peatlands store approximately one-third of global soil carbon despite covering only 3% of land area, making their responses to warming and eCO2 critical for global carbon cycle feedbacks. The comprehensive multi-omics datasets (amplicon, metagenome, metatranscriptome, virome) make this community exceptionally well-characterized for mechanistic modeling of climate-microbe-plant-carbon interactions.
 
@@ -110,6 +110,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
     term:
@@ -165,7 +166,7 @@ ecological_interactions:
   biological_processes:
   - preferred_term: symbiont-mediated nutrient acquisition in host
     term:
-      id: GO:0052572
+      id: GO:0075136
       label: response to host
   evidence:
   - reference: PMID:38515239
@@ -183,6 +184,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: response to root
     term:
@@ -209,7 +211,7 @@ ecological_interactions:
   - preferred_term: viral entry into host cell
     term:
       id: GO:0046718
-      label: viral entry into host cell
+      label: symbiont entry into host cell
   - preferred_term: host cell lysis by virus
     term:
       id: GO:0019076
@@ -298,23 +300,23 @@ environmental_factors:
 
     '
 associated_datasets:
-- name: SPRUCE 16S rRNA amplicon sequencing
+- title: SPRUCE 16S rRNA amplicon sequencing
   dataset_type: AMPLICON_16S
   accession: PMID:38515239
   description: '16S rRNA amplicon sequencing of bacterial and archaeal communities from plant fine roots, rhizospheres, and bulk peat across warming and eCO2 treatments'
-- name: SPRUCE ITS amplicon sequencing
+- title: SPRUCE ITS amplicon sequencing
   dataset_type: AMPLICON_ITS
   accession: PMID:38515239
   description: 'ITS amplicon sequencing of fungal communities from plant fine roots, rhizospheres, and bulk peat across warming and eCO2 treatments, identifying saprophytic and ectomycorrhizal functional guilds'
-- name: SPRUCE peat metagenomes
-  dataset_type: METAGENOME
+- title: SPRUCE peat metagenomes
+  dataset_type: METAGENOMICS
   accession: PMID:34836550
   description: '87 shotgun metagenomes from peat samples across depth gradients, warming treatments, and eCO2 treatments, enabling viral-host linkage prediction and taxonomic profiling'
-- name: SPRUCE peat viromes
-  dataset_type: METAGENOME
+- title: SPRUCE peat viromes
+  dataset_type: METAGENOMICS
   accession: PMID:34836550
   description: '5 viral size-fraction metagenomes (viromes) from peat samples, recovering 4,326 vOTUs with 32x higher vOTU recovery per sample than total metagenomes'
-- name: SPRUCE metatranscriptomes
-  dataset_type: METATRANSCRIPTOME
+- title: SPRUCE metatranscriptomes
+  dataset_type: METATRANSCRIPTOMICS
   accession: PMID:38515239
   description: 'Metatranscriptomic profiling of active gene expression in peat microbial communities under warming and eCO2, revealing functional responses to climate treatments'

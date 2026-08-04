@@ -4,6 +4,10 @@ on:
   pull_request:
     paths: &trigger_paths
       - "kb/communities/**"
+      # data/isolates carries CommunityMech ids too. It was outside every
+      # workflow's paths filter, which is half of why four ids ended up used
+      # twice (#310) — editing an isolate has to re-run the uniqueness gate.
+      - "data/isolates/**"
       - "src/communitymech/schema/**"
       - "src/communitymech/**/*.py"
       - "scripts/**/*.py"
