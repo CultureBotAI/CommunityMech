@@ -85,6 +85,7 @@ answer is not derivable from the repo.
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #363 | Measure the real `/goal` ceiling, and decide whether it counts chars or bytes |
 | #369 | Two stored GTDB blocks disagree with the current tool — re-ground, or keep? |
+| #371 | What should the GTDB majority denominator be? Nested rows are double-counted |
 | #367 | Should `fetch_pubmed_abstract` return MEDLINE only, or normalise a `.md`? |
 | #365 | Which NCBI id the two *Bosea* entries should carry — the current one is a plant |
 | #182 | Which best-effort ontology remaps to accept |

@@ -16,8 +16,12 @@ That is not academic. It changed three whole-KB outcomes, one of which was live
 in the KB: `NCBITaxon:403` (*Methylococcaceae*) had been grounded to
 `GTDB:f__Methylococcaceae` on a bare 0.505 majority computed from a starved row
 set. With the full set it resolves to `GTDB:f__Methylomonadaceae` at 0.64, and
-`is_reclassified` flips to true — GTDB renamed the family, which the stored block
-denied. The record is re-grounded alongside this test.
+`is_reclassified` flips to true. GTDB did not *rename* Methylococcaceae —
+`f__Methylococcaceae` still exists and holds 31% of the NCBI family, including
+the type genus *Methylococcus*. It **split** it, and the majority moved. The
+record's own notes name *Methylobacter*, *Methylomonas* and *Methylosarcina*,
+all of which are `f__Methylomonadaceae` with zero genomes in the retained family,
+so the grounding matches this record's organisms and not merely the majority.
 
 These tests are deliberately structural: they compare row sets rather than
 grounding outcomes, so they hold regardless of which `NCBI2GTDB` release is
@@ -66,6 +70,10 @@ def test_row_set_is_unchanged_by_unrelated_taxa_in_the_batch(gtdb, mapping):
     both were stolen by the genus and never counted toward the phylum.
     """
     alone = gtdb.collect_rows(mapping, set(), set(), {"methanobacteriota"})[2]
+    assert alone.get("methanobacteriota"), (
+        "no rows for this taxon — the mapping no longer carries the name, so this "
+        "test would pass by comparing None to None"
+    )
     with_company = gtdb.collect_rows(
         mapping, set(), set(), {"methanobacteriota", "methanosarcina", "clostridia", "bacilli"}
     )[2]
@@ -103,6 +111,7 @@ def test_higher_ranks_are_not_starved_by_their_own_members(gtdb, mapping, name):
     majority computed from the old set was drawn from under 1% of the evidence.
     """
     alone = gtdb.collect_rows(mapping, set(), set(), {name})[2].get(name, [])
+    assert alone, f"no rows for {name} — the comparison below would be 0 == 0"
     crowded = gtdb.collect_rows(
         mapping,
         set(),
@@ -110,7 +119,7 @@ def test_higher_ranks_are_not_starved_by_their_own_members(gtdb, mapping, name):
         {name, "escherichia", "bacillus", "staphylococcus", "streptomyces", "pseudomonas"},
     )[2].get(name, [])
 
-    assert len(alone) == len(crowded), (
+    assert alone == crowded, (
         f"{name} collected {len(alone)} rows alone but {len(crowded)} alongside "
         f"five common genera — its row set depends on the batch (#366)"
     )
@@ -137,4 +146,10 @@ def test_the_regrounded_record_matches_the_tool(gtdb, mapping):
     fresh = gtdb.resolve_target("403", "Methylococcaceae", by_id, by_name, by_higher)
 
     assert fresh["gtdb_id"] == stored["gtdb_id"] == "GTDB:f__Methylomonadaceae"
-    assert stored["is_reclassified"] is True, "GTDB renamed this family; the block must say so"
+    # Pin the tool's own values too. Asserting only on the stored YAML let two
+    # mutants through: destroying the genome weighting, and hard-wiring
+    # is_reclassified False in resolve_higher.
+    assert fresh["majority_fraction"] == stored["majority_fraction"] == 0.64
+    assert (
+        fresh["is_reclassified"] is stored["is_reclassified"] is True
+    ), "GTDB's name for this family differs from NCBI's, so both must say so"

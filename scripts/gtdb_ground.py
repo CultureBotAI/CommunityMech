@@ -139,9 +139,15 @@ def collect_rows(mapping_path: Path, want_ids, want_species_lc, want_higher_lc):
                 # so a taxon's row set depended on which *other* taxa shared the
                 # run. Grounding the same id per-record and whole-KB could then
                 # disagree (#366).
+                seen = set()
                 for ncbi_col, _, _ in HIGHER_RANKS:
                     v = cells[ncbi_col].strip().lower()
-                    if v and v in want_higher_lc:
+                    # `seen` guards the other direction: one row carrying the same
+                    # name in two rank columns would otherwise be appended twice
+                    # and double-weighted. No row does today, but that is a
+                    # property of the data, not of the code.
+                    if v and v in want_higher_lc and v not in seen:
+                        seen.add(v)
                         by_higher.setdefault(v, []).append(cells)
     return by_id, by_name, by_higher
 
