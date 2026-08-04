@@ -137,7 +137,10 @@ Grounding happens at the **rank of the input**:
 
   For genus-and-higher it counts only what was *counted* — rows dropped by the
   named-species filter are excluded, so it shrinks when the filter bites. For
-  species it is the chosen mapping row's own genome count.
+  species it aggregates every crosswalk row reaching the same GTDB species, since
+  one species name usually spans several NCBI strain taxonIDs (#386). Note the id
+  and name paths therefore see different row sets: *Bacillus velezensis* is 1163
+  genomes via its NCBITaxon id and 1196 via its name.
 
 - **`support_genomes`** — the numerator, on genus-and-higher groundings only.
   Species blocks deliberately carry none: there `majority_fraction` is the

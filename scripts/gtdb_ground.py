@@ -196,13 +196,35 @@ def _ground_species(rows, source_id, label, via):
     # So species blocks carry `total_genomes` only. That is what #383 asked for —
     # what the fraction is a fraction *of* — and `support_genomes` keeps one
     # meaning everywhere: an exact count this script computed itself.
-    total = _genomes(top)
+    #
+    # Aggregate across *every* row reaching the same GTDB species, not just the
+    # chosen one (#386). A species name usually spans several crosswalk rows —
+    # different NCBI strain taxonIDs under one name — and reading a single row
+    # threw the rest away: *Bifidobacterium breve* reported 3 genomes where 25
+    # rows totalling 1593 all map to `s__Bifidobacterium_breve`.
+    #
+    # The fraction is then the genome-weighted mean over those rows, because
+    # each carries its own. Keeping the chosen row's fraction beside a summed
+    # denominator would be incoherent — B. breve's rows are 1544 genomes at 0.99
+    # and 49 at 1.0, so "1.0 of 1593" is a claim no row makes.
+    #
+    # This cannot change a grounding: measured over the KB, every species-path
+    # block has exactly one GTDB species in play (a genuine split is reported
+    # AMBIGUOUS and never grounded). It moves 38 denominators and 3 fractions.
+    agreeing = [r for r in rows if r[COL_GTDB_SPECIES].strip() == sp] if sp else []
+    total = sum(_genomes(r) for r in agreeing)
+    if total:
+        fraction = round(sum(_genomes(r) * _maj(r) for r in agreeing) / total, 3)
+    else:
+        # No GTDB species cell, or no genome counts: fall back to the chosen row
+        # so this path degrades to its pre-#386 behaviour rather than to zero.
+        total, fraction = _genomes(top), _maj(top)
     return {
         "ncbi_source_id": source_id,
         "gtdb_id": _curie(sp, "s") if sp else None,
         "gtdb_taxon": sp or None,
         "gtdb_lineage": _lineage(top, COL_GTDB_SPECIES),
-        "majority_fraction": _maj(top),
+        "majority_fraction": fraction,
         "total_genomes": total,
         "is_reclassified": bool(sp and ref and sp != ref),
         "via": via,
