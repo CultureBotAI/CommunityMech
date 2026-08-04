@@ -5,7 +5,7 @@ Which open issues suit an autonomous `/goal` run with
 
 `NEXT_TASKS.md` is the full backlog and stays the source of truth for *what* is
 deferred. This file answers a narrower question: *what can be handed to a loop
-that will not stop to ask?* Reconciled 2026-08-03. Every claim was re-measured
+that will not stop to ask?* Reconciled 2026-08-04. Every claim was re-measured
 against `main`, not copied from the issue — including where the two disagree.
 
 ## What makes an item loop-ready
@@ -26,9 +26,11 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
+| 1 | **#366** `gtdb_ground.py` is batch-sensitive | M | the same taxon resolves the same way per-record and whole-KB, pinned by a test | `Euryarchaeota` (`NCBITaxon:28890`) is AMBIGUOUS in an ungrounded-only run and `GTDB:p__Halobacteriota` whole-KB — `collect_rows()` breaks at the first matching rank |
 
-**#290, #358, #314 and #306 are done** (PRs #361, #362, #364, #368). **Start
-with #352a** — seven records have no published page, one `just gen-html` away.
+**#290, #358, #314 and #306 are done** (PRs #361, #362, #364, #368), and #352
+closed separately — so Tier 1 emptied and **#366** is its successor. Fix it
+before any grounding backfill, or the backfill bakes in whichever batch it used.
 
 ## Tier 2 — loop-able with a tighter brief
 

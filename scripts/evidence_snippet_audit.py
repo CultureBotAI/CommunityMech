@@ -17,6 +17,7 @@ abstract text), normalize whitespace, and classify:
 Usage: uv run python scripts/evidence_snippet_audit.py [--list-mismatch]
        [--list-nocontent] [--list-rendering]
 """
+
 import re
 import sys
 import difflib
@@ -50,8 +51,7 @@ SNIPPET_SECTION = re.compile(
     re.DOTALL | re.IGNORECASE,
 )
 FRONTMATTER = re.compile(r"\A---\n.*?\n---\n", re.DOTALL)
-HEADER_LINES = re.compile(r"^(#+\s|Title:|Source:|URL:|DOI:|\*\*|reference_id:).*$",
-                          re.MULTILINE)
+HEADER_LINES = re.compile(r"^(#+\s|Title:|Source:|URL:|DOI:|\*\*|reference_id:).*$", re.MULTILINE)
 UNAVAILABLE = re.compile(r"content_type:\s*unavailable", re.IGNORECASE)
 # A .md cache is treated as a REAL abstract only with an explicit signal:
 REAL_CT = re.compile(r"content_type:\s*(abstract_only|abstract|full|fulltext)", re.IGNORECASE)
@@ -63,11 +63,31 @@ def norm(s: str) -> str:
 
 
 GREEK = {
-    "α": "alpha", "β": "beta", "γ": "gamma", "δ": "delta", "ε": "epsilon",
-    "ζ": "zeta", "η": "eta", "θ": "theta", "ι": "iota", "κ": "kappa",
-    "λ": "lambda", "μ": "mu", "ν": "nu", "ξ": "xi", "ο": "omicron",
-    "π": "pi", "ρ": "rho", "σ": "sigma", "ς": "sigma", "τ": "tau",
-    "υ": "upsilon", "φ": "phi", "χ": "chi", "ψ": "psi", "ω": "omega",
+    "α": "alpha",
+    "β": "beta",
+    "γ": "gamma",
+    "δ": "delta",
+    "ε": "epsilon",
+    "ζ": "zeta",
+    "η": "eta",
+    "θ": "theta",
+    "ι": "iota",
+    "κ": "kappa",
+    "λ": "lambda",
+    "μ": "mu",
+    "ν": "nu",
+    "ξ": "xi",
+    "ο": "omicron",
+    "π": "pi",
+    "ρ": "rho",
+    "σ": "sigma",
+    "ς": "sigma",
+    "τ": "tau",
+    "υ": "upsilon",
+    "φ": "phi",
+    "χ": "chi",
+    "ψ": "psi",
+    "ω": "omega",
 }
 
 
@@ -95,8 +115,12 @@ def cache_text(reference: str) -> tuple[str, bool]:
     hits = [p for p in CACHE.iterdir() if core.lower() in p.name.lower()]
     if not hits:
         return "", False
-    # prefer full-text .txt, then .md, then .json
-    hits.sort(key=lambda p: {".txt": 0, ".md": 1, ".json": 2}.get(p.suffix, 3))
+    # Order by extension, then by name. The name is the tiebreak that matters:
+    # a reference can have two files of the *same* suffix — 14 PMIDs have both
+    # `PMID_<id>.txt` and `pmc_full_pmid_<id>.txt` — and since sort is stable,
+    # without it their concatenation order was raw `iterdir` order, i.e. it
+    # varied by filesystem (#306).
+    hits.sort(key=lambda p: ({".txt": 0, ".md": 1, ".json": 2}.get(p.suffix, 3), p.name))
     real_bodies = []
     for p in hits:
         try:
@@ -108,17 +132,16 @@ def cache_text(reference: str) -> tuple[str, bool]:
             real_bodies.append(t)
             continue
         if UNAVAILABLE.search(t):
-            continue                          # explicitly no abstract body
+            continue  # explicitly no abstract body
         # Only trust a .md as a real abstract with an explicit signal. A cached
         # full text counts: several were fetched without YAML frontmatter or a
         # `## Content` heading and were being discarded as stubs.
-        if not (REAL_CT.search(t) or CONTENT_HEADING.search(t)
-                or FULLTEXT_MARKER.search(t)):
-            continue                          # stub (notes + curated snippets only)
-        fm = FRONTMATTER.sub("", t)           # drop YAML frontmatter
+        if not (REAL_CT.search(t) or CONTENT_HEADING.search(t) or FULLTEXT_MARKER.search(t)):
+            continue  # stub (notes + curated snippets only)
+        fm = FRONTMATTER.sub("", t)  # drop YAML frontmatter
         stripped = SNIPPET_SECTION.sub("", fm)  # drop curated-snippet sections
-        body = HEADER_LINES.sub("", stripped) # drop title/source/url headers
-        if len(norm(body)) >= 200:            # substantial prose remains => real abstract
+        body = HEADER_LINES.sub("", stripped)  # drop title/source/url headers
+        if len(norm(body)) >= 200:  # substantial prose remains => real abstract
             real_bodies.append(body)
     full = "\n".join(real_bodies)
     return full, bool(real_bodies)
@@ -145,7 +168,6 @@ def walk(node, path, out):
             walk(v, f"{path}[{i}]", out)
 
 
-stats = defaultdict(int)
 def main() -> None:
     """Run the audit over the whole KB and print the report.
 
@@ -153,6 +175,7 @@ def main() -> None:
     and tested without the module printing a full audit as a side effect
     of import (#306).
     """
+    stats = defaultdict(int)
     file_mismatch = defaultdict(list)
     file_nocontent = defaultdict(int)
     file_rendering = defaultdict(int)
@@ -208,7 +231,10 @@ def main() -> None:
     for k in ("MATCH", "RENDERING", "WEAK", "MISMATCH", "NOCONTENT"):
         print(f"  {k:<10} {stats[k]}")
 
-    print(f"\n# Files with MISMATCH/WEAK (content present but snippet absent) — fabrication suspects")
+    print(
+        "\n# Files with MISMATCH/WEAK (content present but snippet absent)"
+        " — fabrication suspects"
+    )
     ranked = sorted(file_mismatch.items(), key=lambda x: -len(x[1]))
     for fn, rows in ranked:
         hard = sum(1 for r in rows if r[4] == "MISMATCH")

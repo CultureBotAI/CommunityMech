@@ -1,19 +1,28 @@
 """Resolving a reference to a cache file must not depend on directory order.
 
 `references_cache/` holds `.md`, `.txt` and `.json` for the same reference, and
-**63 references have more than one**. Per #265 the `.md` typically holds
-open-access full text while the `.txt` is often just the abstract, so they are
-not interchangeable: scanning snippets while preferring one or the other located
-4471 vs 4400 of them — **71 snippets differ**.
+63 references have more than one. Per #265 the `.md` typically holds open-access
+full text while the `.txt` is often just the abstract, so they are not
+interchangeable — scanning snippets under one preference or the other disagrees
+on roughly 70. (The absolute totals depend on the normalisation used, so they are
+deliberately not quoted here; #306 recorded 4471 vs 4400 under its own
+convention. Note the *net* difference of the two totals is not the count of
+snippets that differ: measured here, a net 72 against 74 actually divergent, in
+both directions.)
 
-Any consumer resolving with `glob(key + ".*")` and taking the first match
-therefore reads a filesystem-order-dependent file, so whether those 71 get
-checked depends on the machine (#306).
+Any consumer resolving with `glob(key + ".*")` and taking the first match reads a
+filesystem-order-dependent file, so whether those get checked depends on the
+machine (#306).
 
-`evidence_snippet_audit.py` already does the right thing — it collects every
-candidate, orders them by extension, and concatenates the ones carrying real
-prose. This pins that, because the property is invisible in normal runs: it only
-shows up as a different answer on a different filesystem.
+`evidence_snippet_audit.py` collects every candidate and concatenates the ones
+carrying real prose, but ordering them by extension alone was not enough: 14
+PMIDs have both `PMID_<id>.txt` and `pmc_full_pmid_<id>.txt`, which tie on
+suffix, and Python's sort is stable — so their concatenation order fell through
+to `iterdir`. Sorting by name as well fixes it, and the report is unchanged.
+
+The tests below cover both populations, built the way `cache_text` itself selects
+(substring over the whole filename). A fixture that groups by stem instead misses
+exactly those 14, because the two names are different stems but one hit-set.
 
 `.json` is CrossRef metadata rather than prose, so treating it as text is wrong
 outright, and that is asserted separately.
@@ -21,8 +30,6 @@ outright, and that is asserted separately.
 
 import importlib.util
 import random
-import re
-from collections import defaultdict
 from pathlib import Path
 
 import pytest
@@ -46,25 +53,73 @@ def _load_audit():
 
 
 @pytest.fixture(scope="module")
-def audit():
-    return _load_audit()
+def audit(monkeypatch_session=None):
+    """The audit module, with its relative CACHE path resolved against the repo.
+
+    `evidence_snippet_audit.py` uses `Path("references_cache")`, so importing it
+    from anywhere but the repo root would otherwise resolve to nothing.
+    """
+    module = _load_audit()
+    module.CACHE = CACHE
+    module.COMM = REPO / "kb/communities"
+    return module
 
 
 @pytest.fixture(scope="module")
-def multi_cache_refs() -> list:
-    """References that have more than one cache file — the population at issue."""
-    by_stem = defaultdict(list)
-    for path in CACHE.iterdir():
-        if path.is_file():
-            by_stem[re.sub(r"\.(md|txt|json)$", "", path.name)].append(path)
+def multi_cache_refs(audit) -> list:
+    """References whose *hit-set* has more than one file — the population at issue.
 
-    refs = [
-        "PMID:" + stem.split("_", 1)[1]
-        for stem, files in by_stem.items()
-        if len(files) > 1 and stem.startswith("PMID_")
-    ]
+    Built the way `cache_text` selects (case-insensitive substring over the whole
+    filename), not by stripping extensions off a stem. The two disagree, and the
+    difference is exactly where the bug lived: `PMID_24743269.txt` and
+    `pmc_full_pmid_24743269.txt` are different stems but the same hit-set, both
+    `.txt`, so the extension sort tied and order fell through to the filesystem.
+    A stem-based fixture excludes precisely the 14 references that could fail.
+    """
+    files = [path for path in CACHE.iterdir() if path.is_file()]
+    cores = sorted(
+        {
+            path.name.split(".")[0].replace("PMID_", "")
+            for path in files
+            if path.name.startswith("PMID_")
+        }
+    )
+
+    refs = []
+    for core in cores:
+        hits = [path for path in files if core.lower() in path.name.lower()]
+        if len(hits) > 1:
+            refs.append("PMID:" + core)
+
     assert len(refs) > 20, f"expected the multi-cache population, found {len(refs)}"
-    return sorted(refs)
+    return refs
+
+
+@pytest.fixture(scope="module")
+def same_suffix_refs(audit) -> list:
+    """The subset whose hit-set holds two files of the *same* extension.
+
+    These are the only references the extension sort cannot order on its own, so
+    they are the ones that actually exercise the tiebreak.
+    """
+    files = [path for path in CACHE.iterdir() if path.is_file()]
+    cores = sorted(
+        {
+            path.name.split(".")[0].replace("PMID_", "")
+            for path in files
+            if path.name.startswith("PMID_")
+        }
+    )
+
+    refs = []
+    for core in cores:
+        hits = [path for path in files if core.lower() in path.name.lower()]
+        suffixes = [path.suffix for path in hits]
+        if len(suffixes) != len(set(suffixes)):
+            refs.append("PMID:" + core)
+
+    assert refs, "no same-suffix references found; the tiebreak would be untested"
+    return refs
 
 
 def test_resolution_is_independent_of_directory_order(audit, multi_cache_refs, monkeypatch):
@@ -73,7 +128,7 @@ def test_resolution_is_independent_of_directory_order(audit, multi_cache_refs, m
     Shuffling `Path.iterdir` stands in for a different filesystem. Taking the
     first `glob` match would fail this immediately.
     """
-    sample = multi_cache_refs[:25]
+    sample = multi_cache_refs
     baseline = {ref: audit.cache_text(ref) for ref in sample}
 
     real_iterdir = Path.iterdir
@@ -118,3 +173,31 @@ def test_importing_the_audit_does_not_run_it(capsys):
     _load_audit()
     captured = capsys.readouterr()
     assert captured.out == "", f"import printed {len(captured.out)} chars"
+
+
+def test_same_suffix_candidates_are_ordered_deterministically(audit, same_suffix_refs, monkeypatch):
+    """The case the extension sort alone cannot decide.
+
+    14 PMIDs carry both `PMID_<id>.txt` and `pmc_full_pmid_<id>.txt`. Both are
+    appended unconditionally, so with a stable sort and no name tiebreak their
+    concatenation order was whatever `iterdir` returned — different answers on
+    different filesystems. A stem-based population misses all 14 (#306).
+    """
+    baseline = {ref: audit.cache_text(ref) for ref in same_suffix_refs}
+
+    real_iterdir = Path.iterdir
+    rng = random.Random(1)  # noqa: S311 — shuffling a directory listing, not crypto
+
+    def shuffled(self):
+        items = list(real_iterdir(self))
+        rng.shuffle(items)
+        return iter(items)
+
+    monkeypatch.setattr(Path, "iterdir", shuffled)
+
+    for attempt in range(8):
+        for ref in same_suffix_refs:
+            assert audit.cache_text(ref) == baseline[ref], (
+                f"{ref} resolved differently on shuffle {attempt}: two cache files "
+                f"share an extension and the sort has no deterministic tiebreak (#306)"
+            )
