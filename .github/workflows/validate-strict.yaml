@@ -4,6 +4,10 @@ on:
   pull_request:
     paths: &trigger_paths
       - "kb/communities/**"
+      # A prompt-only edit is the one change class that can breach the /goal size
+      # budget, and it matched no workflow filter — so the guard added in #358
+      # would not have run on it. Same shape as the data/isolates gap below.
+      - "prompts/**"
       # data/isolates carries CommunityMech ids too. It was outside every
       # workflow's paths filter, which is half of why four ids ended up used
       # twice (#310) — editing an isolate has to re-run the uniqueness gate.

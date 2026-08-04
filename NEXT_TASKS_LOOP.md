@@ -28,12 +28,9 @@ finish condition.
 |---|---|---|---|---|
 | 1 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
 | 2 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
-| 3 | **#352a** seven records have no published page | XS | `just gen-html`; every record has a page | 312 records, **305** pages — 7 missing, not just SPRUCE |
-| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | **3944 chars / 3974 bytes** after this PR retired a gotcha — 56 spare, and bytes now under 4000 for the first time. Nothing enforces either, and which one the ceiling counts is still unsettled |
 
-**#290 is done** (PR #361) — the recipe is fixed, a test pins it to how pyproject
-declares the deps, and the gotcha is out of the goal prompt. **Start with #358**,
-now that #357 has landed.
+**#290 and #358 are done** (PRs #361, #362). **Start with #314** — one taxon to
+ground and a cheap test pinning `ncbi_source_id` to `term.id`.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -69,8 +66,6 @@ judgement, or the loop will invent something.
 - **#270 — interaction type encoded by colour alone**, nine categories. Fully
   specified, and the CVD-simulation harness from #268 already exists to verify a
   redundant encoding. Frontend, self-contained.
-- **#352b — a second coarse SPRUCE record (`000135`) already exists.** Only the
-  *report* is loop-able; whether to merge the two records is a curator call.
 
 ## Tier 3 — needs a human decision first
 
@@ -86,7 +81,6 @@ answer is not derivable from the repo.
 | #297 | Is ROS detoxification a metabolite or a process in that record? |
 | #292 | Two taxa carry an id for a different organism — correct, or keep withheld? |
 | #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
-| #355 | Is interaction 1 `COMMENSALISM`/`CROSS_FEEDING` rather than `MUTUALISM`? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #182 | Which best-effort ontology remaps to accept |
 | #199 | Which dataviz findings to act on |
@@ -107,16 +101,10 @@ loop.
 
 ## Ordering and dependencies
 
-- **#347, #355, #356 all edit `SPRUCE_Peatland_Warming_Community.yaml`.** One PR,
-  or strictly serial; the loop's one-PR-in-flight rule handles this if they are
-  not queued together.
+- **#347 and #356 both edit `SPRUCE_Peatland_Warming_Community.yaml`.** One PR, or
+  strictly serial.
 - **#314 before #294.** #314 is the data fix; #294 is the schema that would
   describe it. Doing the data first keeps the enum backfill honest.
-- **#352a cannot close #352** — that issue also carries the duplicate-SPRUCE
-  question (#352b), which is a curator call. Expect the loop's "issue closed"
-  finish condition not to fire; split the issue first, or accept a partial.
-- **#290 retires a gotcha** in `prompts/backlog-loop.goal.md`. Whoever fixes it
-  updates the prompt in the same PR — the prompt's own header says so.
 
 ## Never loop these
 
