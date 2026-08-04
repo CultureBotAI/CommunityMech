@@ -7,20 +7,32 @@ most likely to be lost is the accumulated list of things that have already gone
 wrong once.
 
 Nothing enforced this. The file was maintained by hand against a remembered
-number and reached **2 characters** of headroom before this test existed (#358),
-having been recompressed by hand three times.
+number and reached **2 characters** of headroom before this test existed (#358).
 
-**Characters or bytes is unresolved**, so both are asserted. The distinction is
-not academic here: the prose is em-dash heavy, which costs 3 bytes per character,
-and the file exceeded 4000 *bytes* in two of its three released revisions while
+``LIMIT`` itself is that remembered number: no measurement of the real ceiling
+exists anywhere in the repo, only `CLAUDE.md`'s assertion of it. Worth pinning to
+a measured value.
+
+**Characters or bytes is unresolved** (#358), so this enforces the stricter of
+the two: bytes. Be clear about what that means — UTF-8 uses at least one byte per
+code point, so ``bytes <= LIMIT`` *implies* ``chars <= LIMIT``. The character
+assertion below can never fail on its own; it is kept only because it fires first
+and says "characters" when a plain-ASCII edit runs long, which is the common case
+and the clearer message.
+
+The distinction is not academic. The prose is em-dash heavy at 3 bytes per
+character, and the file exceeded 4000 *bytes* in two of its three revisions while
 never exceeding 4000 characters —
 
     2429a7a  3987 chars  4015 bytes
     5a1d60b  3998 chars  4028 bytes
     9f9ba22  3944 chars  3974 bytes
 
-If the ceiling turns out to count bytes, the first two shipped over it. Holding
-both under the limit is correct whichever it is, and costs nothing.
+So this is not a free hedge: it costs real budget. At current punctuation density
+the 15 non-ASCII characters cost 30 bytes, which is 30 of the 56 characters of
+headroom — more than half. If the ceiling turns out to count characters after
+all, that is the price of having been cautious. Prefer ASCII punctuation in this
+file over spending it.
 """
 
 from pathlib import Path
@@ -51,6 +63,8 @@ def test_goal_prompt_fits_the_budget_in_both_units(path: Path):
     text = raw.decode("utf-8")
     chars, byte_count = len(text), len(raw)
 
+    # Implied by the byte assertion below, never independently reachable; kept
+    # for the clearer message on a plain-ASCII overrun. See the module docstring.
     assert chars <= LIMIT, (
         f"{path.name} is {chars} characters, {chars - LIMIT} over the {LIMIT} limit. "
         f"Cut prose rather than dropping a gotcha or a loop step."
