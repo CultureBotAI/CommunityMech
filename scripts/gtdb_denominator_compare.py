@@ -86,7 +86,7 @@ def main() -> int:
     higher = {c.lower() for c in cleaned if " " not in c}
     by_id, by_name, by_higher = grounder.collect_rows(mapping, ids, species, higher)
 
-    SCENARIOS = [
+    scenarios = [
         ("aggregate", "aggregate", False),
         ("aggregate+named", "aggregate", True),
         ("deepest", "deepest", False),
@@ -105,9 +105,8 @@ def main() -> int:
                     denominator=den, exclude_unnamed=filt,
                 )
             )
-            for name, den, filt in SCENARIOS
+            for name, den, filt in scenarios
         }
-        default = answers["aggregate"][0]
         varies = sorted({a[0] for a in answers.values()})
         if len(varies) > 1:
             differ_from_default += 1
