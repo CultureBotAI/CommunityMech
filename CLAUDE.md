@@ -11,7 +11,7 @@ Adapted from Monarch Initiative's dismech: YAML is the source of truth, with los
 ## Commands
 
 ```bash
-just install              # Install deps (uv sync --group dev)
+just install              # Install deps (uv sync --extra dev)
 just test                 # Run pytest
 just validate FILE        # Validate one YAML against schema
 just validate-all         # Validate all community YAMLs
