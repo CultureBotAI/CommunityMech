@@ -208,17 +208,34 @@ def _ground_species(rows, source_id, label, via):
     # denominator would be incoherent — B. breve's rows are 1544 genomes at 0.99
     # and 49 at 1.0, so "1.0 of 1593" is a claim no row makes.
     #
-    # This cannot change a grounding: measured over the KB, every species-path
-    # block has exactly one GTDB species in play (a genuine split is reported
-    # AMBIGUOUS and never grounded). It moves 38 denominators and 3 fractions.
+    # This cannot change a grounding, and the reason is structural rather than a
+    # property of today's KB: `sp` is read off `top` *before* `agreeing` is
+    # built, so the filter can only ever narrow the rows behind an already-chosen
+    # species. `resolve_target` also reports AMBIGUOUS whenever a name group
+    # holds more than one GTDB species, so the mixed case does not arise from the
+    # public entry point at all — the filter is defensive, and the synthetic
+    # split in the tests is the only thing that exercises it.
+    #
+    # It moves 39 denominators (36 alone, 3 alongside a fraction) and 3 fractions.
+    #
+    # Only the **name** path aggregates. An NCBI id maps to exactly one crosswalk
+    # row, so an id-path grounding still reports that row alone — which leaves
+    # the understatement #386 was filed about in place on more blocks than this
+    # fixes. Extending it means summing across NCBI depths, where a species-rank
+    # row and its strain rows would double-count: 96 of the KB's species mix the
+    # two. That is #371's question, and it is tracked separately (#389).
     agreeing = [r for r in rows if r[COL_GTDB_SPECIES].strip() == sp] if sp else []
     total = sum(_genomes(r) for r in agreeing)
     if total:
         fraction = round(sum(_genomes(r) * _maj(r) for r in agreeing) / total, 3)
     else:
-        # No GTDB species cell, or no genome counts: fall back to the chosen row
-        # so this path degrades to its pre-#386 behaviour rather than to zero.
-        total, fraction = _genomes(top), _maj(top)
+        # No GTDB species cell, or every agreeing row carries no genome count.
+        # An earlier comment here claimed this "degrades to its pre-#386
+        # behaviour rather than to zero" — wrong on both counts: `top` is itself
+        # in `agreeing`, so an empty total means `_genomes(top)` is 0 too, and
+        # emitting `total_genomes: 0` would then fail the `minimum_value: 1` this
+        # PR adds (#388 review). Publish no count rather than a meaningless one.
+        total, fraction = _genomes(top) or None, _maj(top)
     return {
         "ncbi_source_id": source_id,
         "gtdb_id": _curie(sp, "s") if sp else None,
