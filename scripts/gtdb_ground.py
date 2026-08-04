@@ -294,7 +294,11 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
     while i < end:
         if key.match(lines[i]):
             j = i + 1
-            while j < end and re.match(r"^\s{6}\S", lines[j]):
+            # Indent >= 6, not exactly 6. PyYAML wraps long scalars onto
+            # continuation lines indented deeper, so an exact match stopped one
+            # line short and left orphans that became duplicate keys in 13
+            # records (#378 review).
+            while j < end and re.match(r"^\s{6,}\S", lines[j]):
                 j += 1
             return (i, j)
         # Any line at the taxon_term level or shallower ends this entry.
@@ -342,7 +346,12 @@ def apply_to_community(
             wanted.append(None)
             continue
         g = resolve_target(tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher)
-        wanted.append(_block(g, mapping_source) if g and not g.get("ambiguous") else None)
+        # A result with no gtdb_id is not a grounding: `_ground_species` returns
+        # one when the GTDB species cell is empty. Writing it replaced a curated
+        # `g__Chlorobium` with nulls on refresh, so treat it as ungroundable and
+        # leave whatever is there alone (#378 review).
+        usable = g and not g.get("ambiguous") and g.get("gtdb_id")
+        wanted.append(_block(g, mapping_source) if usable else None)
     if not any(w is not None for w in wanted):
         return 0
 
@@ -403,7 +412,10 @@ def apply_to_community(
             dumped = yaml.dump(block, sort_keys=False, allow_unicode=True, width=4096)
             out += [f"{child}  {bl}" for bl in dumped.splitlines()]
             added += 1
-            i = span[1] if span else i + 2
+            nxt = span[1] if span else i + 2
+            if nxt <= i:
+                raise SystemExit(f"{path.name}: computed a non-advancing block span.")
+            i = nxt
             continue
         i += 1
     out += lines[end:]
@@ -414,13 +426,15 @@ def apply_to_community(
     # `evidence` list, joining two lines, emitting duplicate keys — and every one
     # was caught only by looking afterwards. Checking before the write turns that
     # class of mistake into a refusal (#378).
-    _assert_only_grounding_changed(path, doc, new_text)
+    _assert_only_grounding_changed(path, doc, new_text, refresh=refresh)
 
     path.write_text(new_text)
     return added
 
 
-def _assert_only_grounding_changed(path: Path, before: dict, new_text: str) -> None:
+def _assert_only_grounding_changed(
+    path: Path, before: dict, new_text: str, refresh: bool = False
+) -> None:
     """Fail loudly unless the edit touched gtdb_classification and nothing else."""
     try:
         after = yaml.safe_load(new_text)
@@ -429,13 +443,46 @@ def _assert_only_grounding_changed(path: Path, before: dict, new_text: str) -> N
             f"{path.name}: edit produced unparseable YAML — refusing to write: {exc}"
         ) from exc
 
-    grounded_now = sum(
-        1
-        for e in (after.get("taxonomy") or [])
-        if ((e or {}).get("taxon_term") or {}).get("gtdb_classification")
-    )
-    if new_text.count("gtdb_classification:") != grounded_now:
-        raise SystemExit(f"{path.name}: edit produced a duplicate gtdb_classification key.")
+    # Duplicate keys anywhere, detected by parsing rather than by counting a
+    # substring. PyYAML keeps the last of two identical keys silently, so the
+    # corruption survives both a diff skim and linkml-validate (#289). A
+    # substring count also missed duplicates *inside* a block.
+    class _DupDetector(yaml.SafeLoader):
+        pass
+
+    def _no_dups(loader, node, deep=False):
+        seen, mapping = set(), {}
+        for key_node, value_node in node.value:
+            key = loader.construct_object(key_node, deep=deep)
+            if key in seen:
+                raise SystemExit(f"{path.name}: edit produced a duplicate `{key}` key.")
+            seen.add(key)
+            mapping[key] = loader.construct_object(value_node, deep=deep)
+        return mapping
+
+    _DupDetector.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_dups)
+    yaml.load(new_text, Loader=_DupDetector)  # noqa: S506 — subclass of SafeLoader
+
+    # The grounded set must be identical: refresh never creates and never drops.
+    def _grounded(doc):
+        return [
+            i
+            for i, e in enumerate(doc.get("taxonomy") or [])
+            if ((e or {}).get("taxon_term") or {}).get("gtdb_classification")
+        ]
+
+    was, now = _grounded(before), _grounded(after)
+    if refresh:
+        # Refresh replaces in place: the set must be identical, or a block was
+        # created (overturning a deliberate withholding) or swallowed by a bad span.
+        if was != now:
+            raise SystemExit(
+                f"{path.name}: the set of grounded taxa changed — refresh must not "
+                f"create or drop a gtdb_classification."
+            )
+    elif not set(was) <= set(now):
+        # Plain apply may add groundings; it must never remove one.
+        raise SystemExit(f"{path.name}: an existing gtdb_classification was dropped.")
 
     b_tax, a_tax = before.get("taxonomy") or [], after.get("taxonomy") or []
     if len(b_tax) != len(a_tax):

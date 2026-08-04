@@ -19,6 +19,7 @@ So the two invariants are enforced in the code, not by the caller:
 """
 
 import importlib.util
+import re
 import shutil
 from pathlib import Path
 
@@ -128,7 +129,7 @@ def test_the_gate_runs_on_every_write(gtdb, rows, record, monkeypatch):
     monkeypatch.setattr(
         gtdb,
         "_assert_only_grounding_changed",
-        lambda path, doc, text: (calls.append(path), real(path, doc, text))[1],
+        lambda path, doc, text, **kw: (calls.append(path), real(path, doc, text, **kw))[1],
     )
 
     gtdb.apply_to_community(record, *rows, "test-source", refresh=True)
@@ -184,3 +185,118 @@ def test_the_gate_refuses_unparseable_output(gtdb, record):
     doc = yaml.safe_load(record.read_text())
     with pytest.raises(SystemExit, match="unparseable"):
         gtdb._assert_only_grounding_changed(record, doc, "taxonomy:\n  - : :\n bad: [\n")
+
+
+# ---------------------------------------------------------------------------
+# The shape that broke it: a wrapped scalar inside an existing block.
+# ---------------------------------------------------------------------------
+
+WRAPPED = (
+    REPO
+    / "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml"
+)
+
+
+@pytest.fixture
+def wrapped_record(tmp_path):
+    """A real record whose block contains a PyYAML line-wrap continuation.
+
+    13 records carry one, written by the `--emit-yaml` path, which dumps at
+    width=100 rather than the width=4096 `apply_to_community` uses. Continuations
+    sit at 8 spaces, so a span scan matching *exactly* 6 stopped a line short and
+    orphaned them into duplicate keys.
+    """
+    dest = tmp_path / WRAPPED.name
+    shutil.copy(WRAPPED, dest)
+    assert re.search(r"^        \S", dest.read_text(), re.M), "fixture lost its wrapped line"
+    return dest
+
+
+def test_refresh_of_a_wrapped_block_produces_no_duplicate_keys(gtdb, wrapped_record):
+    doc = yaml.safe_load(wrapped_record.read_text())
+    pairs = [
+        (
+            (e["taxon_term"].get("term") or {}).get("id", ""),
+            (e["taxon_term"].get("term") or {}).get("label", ""),
+        )
+        for e in doc["taxonomy"]
+    ]
+    cleaned = [gtdb._clean_label(lb) for _, lb in pairs]
+    try:
+        mapping = gtdb.resolve_kg_microbe_dir(None) / "data/raw/NCBI2GTDB.tsv.gz"
+    except SystemExit:
+        pytest.skip("kg-microbe mapping unavailable")
+    if not mapping.exists():
+        pytest.skip("kg-microbe mapping unavailable")
+    rows = gtdb.collect_rows(
+        mapping,
+        {i.split(":")[1] for i, _ in pairs if i},
+        {c.lower() for c in cleaned if " " in c},
+        {c.lower() for c in cleaned if " " not in c},
+    )
+
+    gtdb.apply_to_community(wrapped_record, *rows, "test-source", refresh=True)
+
+    text = wrapped_record.read_text()
+    after = yaml.safe_load(text)
+    grounded = sum(
+        1 for e in after["taxonomy"] if (e.get("taxon_term") or {}).get("gtdb_classification")
+    )
+    for key in ("ncbi_source_id", "majority_fraction", "mapping_source"):
+        assert text.count(f"      {key}:") == grounded, f"duplicate {key} after refresh"
+    assert "built 2026-06-19" not in text, "the stale block survived — refresh did nothing"
+
+
+def test_span_covers_a_wrapped_continuation(gtdb, wrapped_record):
+    """Unit-level: the span must run past a deeper-indented continuation line."""
+    lines = wrapped_record.read_text().splitlines()
+    anchor = next(i for i, ln in enumerate(lines) if re.match(r"^\s+id: NCBITaxon:\d+\s*$", ln))
+    span = gtdb._block_span(lines, anchor, len(lines))
+    assert span, "expected a block for this entry"
+    assert not re.match(
+        r"^\s{6,}\S", lines[span[1]]
+    ), "span ended while the block was still going — a wrapped line was orphaned"
+
+
+# ---------------------------------------------------------------------------
+# The gate's per-entry checks. The document-level check alone satisfied the
+# earlier sibling test, so removing any of these passed (#378 review).
+# ---------------------------------------------------------------------------
+
+
+def test_the_gate_refuses_a_changed_taxon_term_sibling(gtdb, record):
+    doc = yaml.safe_load(record.read_text())
+    broken = record.read_text().replace("    notes:", "    notes_RENAMED:", 1)
+    with pytest.raises(SystemExit, match="taxon_term changed"):
+        gtdb._assert_only_grounding_changed(record, doc, broken)
+
+
+def test_the_gate_refuses_a_changed_entry_level_sibling(gtdb, record):
+    """A key beside `taxon_term` on a taxonomy entry — `evidence`, `notes`."""
+    doc = yaml.safe_load(record.read_text())
+    after = yaml.safe_load(record.read_text())
+    target = next(e for e in after["taxonomy"] if "evidence" in e)
+    target["evidence"] = []
+    with pytest.raises(SystemExit, match="outside taxon_term"):
+        gtdb._assert_only_grounding_changed(record, doc, yaml.dump(after, sort_keys=False))
+
+
+def test_the_gate_refuses_a_dropped_taxonomy_entry(gtdb, record):
+    doc = yaml.safe_load(record.read_text())
+    after = yaml.safe_load(record.read_text())
+    after["taxonomy"] = after["taxonomy"][:-1]
+    with pytest.raises(SystemExit, match="taxonomy went from|was dropped"):
+        gtdb._assert_only_grounding_changed(record, doc, yaml.dump(after, sort_keys=False))
+
+
+def test_the_gate_refuses_a_dropped_grounding_on_refresh(gtdb, record):
+    """A span that swallowed a block would otherwise be written silently."""
+    doc = yaml.safe_load(record.read_text())
+    after = yaml.safe_load(record.read_text())
+    for entry in after["taxonomy"]:
+        if (entry.get("taxon_term") or {}).pop("gtdb_classification", None):
+            break
+    with pytest.raises(SystemExit, match="set of grounded taxa changed"):
+        gtdb._assert_only_grounding_changed(
+            record, doc, yaml.dump(after, sort_keys=False), refresh=True
+        )
