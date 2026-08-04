@@ -26,11 +26,11 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
-| 1 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
-| 2 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
+| 1 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
 
-**#290 and #358 are done** (PRs #361, #362). **Start with #314** — one taxon to
-ground and a cheap test pinning `ncbi_source_id` to `term.id`.
+**#290, #358 and #314 are done** (PRs #361, #362, #364). **Start with #306** —
+62 references carry both a `.md` and a `.txt` and the snippet checks pick one
+arbitrarily.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -82,6 +82,8 @@ answer is not derivable from the repo.
 | #292 | Two taxa carry an id for a different organism — correct, or keep withheld? |
 | #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
+| #363 | Measure the real `/goal` ceiling, and decide whether it counts chars or bytes |
+| #365 | Which NCBI id the two *Bosea* entries should carry — the current one is a plant |
 | #182 | Which best-effort ontology remaps to accept |
 | #199 | Which dataviz findings to act on |
 
@@ -103,8 +105,10 @@ loop.
 
 - **#347 and #356 both edit `SPRUCE_Peatland_Warming_Community.yaml`.** One PR, or
   strictly serial.
-- **#314 before #294.** #314 is the data fix; #294 is the schema that would
-  describe it. Doing the data first keeps the enum backfill honest.
+- **#366 before any grounding backfill.** `gtdb_ground.py` is batch-sensitive —
+  the same taxon can resolve differently per-record versus whole-KB — so a
+  backfill run now would bake in whichever batch it happened to use.
+- **#314 is done, so #294's backfill has correct data under it.**
 
 ## Never loop these
 
