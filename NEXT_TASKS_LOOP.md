@@ -29,7 +29,7 @@ finish condition.
 | 1 | **#290** `just install` fails | XS | `just install` exits 0 | `uv sync --group dev` → *"Group `dev` is not defined"*; deps are under `[project.optional-dependencies]` |
 | 2 | **#295** one snippet cited at two supports levels | S | the pair agrees, or the difference is explained | `Geobacter_Clostridium_…` cites the DIET snippet as both `PARTIAL` and `SUPPORT` |
 | 3 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
-| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | 3995 chars / 4021 bytes, 5 chars of headroom, nothing guards it |
+| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | on `main` 3987 chars / 4015 bytes (13 spare); PR #357 takes it to 3995 / 4021. Nothing guards either |
 | 5 | **#350** isolates are gated for schema only | M | isolates pass term validation, or the roots are documented as schema-only | **4 of 4** isolates fail `linkml-term-validator --labels` today |
 | 6 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **63** references have both `.md` and `.txt` in `references_cache/` |
 | 7 | **#352a** SPRUCE has no published page | XS | `just gen-html`, page committed | 312 records, **305** pages |
