@@ -18,8 +18,13 @@ the preferred one was not chosen for producing the nicer answer.
 
     uv run python scripts/gtdb_denominator_compare.py [--out reports/gtdb_denominators.tsv]
 
-Columns: the taxon, both grounded ids, both majority fractions, and whether the
-outcome flips — and in which direction.
+Columns: the taxon, then an id and a majority fraction for each of the four
+scenarios, then whether the outcome varies and how many distinct answers there
+are — twelve columns in all.
+
+The report is a snapshot, not a gate: nothing in `just qc` regenerates it, so it
+goes stale silently. It was stale once already, recording a tie-break the code no
+longer produces. Re-run this script after any change to the grounding rules.
 """
 
 from __future__ import annotations

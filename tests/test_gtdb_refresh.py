@@ -240,9 +240,17 @@ def test_refresh_of_a_wrapped_block_produces_no_duplicate_keys(gtdb, wrapped_rec
         {c.lower() for c in cleaned if " " not in c},
     )
 
-    gtdb.apply_to_community(wrapped_record, *rows, "test-source", refresh=True)
+    before = wrapped_record.read_text()
+    written = gtdb.apply_to_community(wrapped_record, *rows, "test-source", refresh=True)
 
     text = wrapped_record.read_text()
+    # Without these three, every assertion below passes on the *un-refreshed*
+    # fixture — it already has 7 grounded blocks and one of each key, so a
+    # regression making refresh a silent no-op would go undetected (#372 review).
+    assert written, "refresh reported writing no blocks"
+    assert text != before, "refresh left the file byte-identical — it did nothing"
+    assert "test-source" in text, "the refreshed blocks do not carry the new mapping_source"
+
     after = yaml.safe_load(text)
     grounded = sum(
         1 for e in after["taxonomy"] if (e.get("taxon_term") or {}).get("gtdb_classification")

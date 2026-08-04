@@ -11,9 +11,16 @@ input:
   miss on id alone). When GTDB splits one NCBI species into several, report
   AMBIGUOUS rather than guessing.
 * genus / family / order / ... (single-name label) -> ``GTDB:g__...`` (or
-  ``f__``/``o__``/...): aggregate the GTDB rank column over all genomes under the
-  NCBI taxon; ground to the GTDB taxon holding a majority (>=50%) of genomes, else
+  ``f__``/``o__``/...): aggregate the GTDB rank column over the genomes under the
+  NCBI taxon; ground to the GTDB taxon holding a majority (>=50%) of them, else
   report AMBIGUOUS (e.g. NCBI genus Bacillus shatters into ~100 GTDB genera).
+
+  Since #372 that aggregation counts only rows naming an actual binomial —
+  ``exclude_unnamed`` defaults to True, so ``sp.``/``uncultured``/informal rows
+  are excluded (#375). It is a real change of denominator, not a tidy-up: it
+  moved 219 of the KB's 647 stored fractions. A tie is broken by name, which
+  makes it reproducible but still a tie (#382), and the block does not record how
+  many genomes the fraction was computed from (#383).
 
 GTDB frequently reclassifies relative to NCBI (e.g. NCBITaxon "Agrobacterium
 deltae" -> GTDB "Agrobacterium leguminum"); ``is_reclassified`` flags it.
@@ -173,8 +180,28 @@ def _ground_species(rows, source_id, label, via):
 # and explicit placeholders. `Candidatus` is deliberately absent — a Candidatus
 # name is a provisional *species* name for an uncultivated organism, not a
 # placeholder, and excluding it would discard legitimate taxonomy.
+# Measured over all 92711 crosswalk rows. Three of the original alternations
+# under-matched because `\b` anchors the *start* of a compound word:
+#   `\bsymbiont\b`  missed `endosymbiont`      -> 331 rows survived as binomials
+#   `\bsp\.`         missed `genomosp.`         -> 72 rows
+#   `\bbacterium\b` missed `proteobacterium`   -> 94 rows
+# Allowing a preceding word-part fixes all three. `metagenome` and `unclassified`
+# match nothing in this table today; both are kept as cheap forward guards.
 UNNAMED_SPECIES = re.compile(
-    r"\bsp\.|\b(?:bacterium|archaeon|symbiont|metagenome)\b"
+    # `\b` anchors the start of a compound word, so the original alternations
+    # under-matched: `symbiont` missed `endosymbiont` (331 rows survived as if
+    # binomial), `bacterium` missed `proteobacterium` (94), `sp.` missed
+    # `genomosp.` (72). Measured over all 92711 crosswalk rows.
+    #
+    # The compound forms must stay **case-sensitive and lowercase-only**, hence
+    # the scoped `(?-i:)`. An informal descriptor is lowercase (`gamma
+    # proteobacterium`, `Wolbachia endosymbiont of ...`); a genus that merely
+    # ends in the same letters is capitalised, and dropping those would discard
+    # 1700+ real binomials — *Acetobacterium woodii*, *Acidipropionibacterium
+    # jensenii*. `genomosp.` is listed explicitly rather than as `\w*sp\.`,
+    # which would also swallow the legitimate `subsp.`.
+    r"\bsp\.|\bgenomosp\."
+    r"|(?-i:\b[a-z]*(?:bacterium|archaeon|symbiont|metagenome)\b)"
     r"|^(?:uncultured|unclassified|unidentified)\b",
     re.IGNORECASE,
 )
@@ -193,10 +220,12 @@ def named_species_only(matched: list) -> list:
     this filter, all 257 binomial Acetobacter genomes map to `g__Acetobacter` and
     both denominators agree (#375).
 
-    Opt-in, because it is not uniformly better: it also turns `Serratia` from a
-    type-anchored answer into AMBIGUOUS, and it does *not* make the two
-    denominators agree in general — 8 taxa still differ with it applied, against
-    5 without. See reports/gtdb_denominators.tsv.
+    **On by default** as of #372, but not uniformly better: it turns `Serratia`
+    from a type-anchored answer into AMBIGUOUS, and it does not make the two
+    denominators agree in general. It also shrinks the evidence behind a
+    grounding without recording that it did — `majority_fraction` reads the same
+    at 4 genomes as at 4000, which is #383. See reports/gtdb_denominators.tsv for
+    the current scenario counts rather than a number quoted here, which rots.
     """
     return [r for r in matched if r[COL_NCBI_SPECIES].strip()
             and not UNNAMED_SPECIES.search(r[COL_NCBI_SPECIES].strip())]
@@ -251,10 +280,21 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
                    exclude_unnamed=True):
     """Ground a genus/family/... input to the majority GTDB taxon at that rank.
 
-    `denominator` selects how genome support is summed: "aggregate" (default,
-    unchanged) sums every matched row; "deepest" keeps one row per lineage.
-    See `deepest_only` and #371.
+    `denominator` selects how genome support is summed: "aggregate" (the default)
+    sums every matched row; "deepest" keeps one row per lineage. See `deepest_only`
+    and #371 — that choice is published in reports/gtdb_denominators.tsv rather
+    than argued here.
+
+    `exclude_unnamed` is the orthogonal axis and defaults to **True** (#375): rows
+    whose NCBI species is not a binomial are dropped before the count. Pass False
+    for the pre-#372 behaviour. Note the two interact — with the filter on, every
+    blank-species row is gone before `deepest_only` ever sees it.
     """
+    # Validate before any early return. This used to sit inside the rank loop, so
+    # a typo'd denominator returned None instead of raising whenever the taxon had
+    # no rows or no rank matched (#372 review).
+    if denominator not in ("aggregate", "deepest"):
+        raise ValueError(f"unknown denominator {denominator!r}; expected 'aggregate' or 'deepest'")
     rows = by_higher.get(clean_lc)
     if not rows:
         return None
@@ -268,10 +308,6 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
             # from MAG bins would otherwise go from a grounding to nothing.
             if filtered:
                 matched = filtered
-        if denominator not in ("aggregate", "deepest"):
-            raise ValueError(
-                f"unknown denominator {denominator!r}; expected 'aggregate' or 'deepest'"
-            )
         if denominator == "deepest":
             matched = deepest_only(matched)
         weights: dict[str, float] = defaultdict(float)
@@ -307,7 +343,9 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
                 "via": f"ncbi_rank_{prefix}",
                 "n_alt": len(weights),
             }
-        ranked = [k for k, _ in sorted(weights.items(), key=lambda kv: -kv[1])]
+        # Same tie-break as `top` above: ties here were still row-ordered, so the
+        # AMBIGUOUS option list a curator reads was not reproducible (#382 review).
+        ranked = [k for k, _ in sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))]
         return {
             "ambiguous": True,
             "via": f"ncbi_rank_{prefix}",
@@ -418,7 +456,14 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
 
 
 def apply_to_community(
-    path: Path, by_id, by_name, by_higher, mapping_source, refresh: bool = False
+    path: Path,
+    by_id,
+    by_name,
+    by_higher,
+    mapping_source,
+    refresh: bool = False,
+    denominator: str = "aggregate",
+    exclude_unnamed: bool = True,
 ) -> int:
     """Insert or refresh gtdb_classification in taxonomy taxon_terms, line-level.
 
@@ -452,7 +497,15 @@ def apply_to_community(
             # normal: act on ungrounded only. refresh: act on grounded only.
             wanted.append(None)
             continue
-        g = resolve_target(tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher)
+        g = resolve_target(
+            tid.split(":", 1)[1],
+            term.get("label", ""),
+            by_id,
+            by_name,
+            by_higher,
+            denominator=denominator,
+            exclude_unnamed=exclude_unnamed,
+        )
         # A result with no gtdb_id is not a grounding: `_ground_species` returns
         # one when the GTDB species cell is empty. Writing it replaced a curated
         # `g__Chlorobium` with nulls on refresh, so treat it as ungroundable and
@@ -634,6 +687,19 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="With --apply: recompute blocks that already exist. Creates none.",
     )
+    p.add_argument(
+        "--denominator",
+        choices=("aggregate", "deepest"),
+        default="aggregate",
+        help="How genome support is summed (#371). aggregate: every matched row. "
+        "deepest: one row per lineage, at the deepest rank present.",
+    )
+    p.add_argument(
+        "--include-unnamed",
+        action="store_true",
+        help="Count rows whose NCBI species is not a binomial (sp./uncultured/informal). "
+        "Off by default since #375; this restores the pre-#372 denominator.",
+    )
     args = p.parse_args(argv)
 
     kg_dir = resolve_kg_microbe_dir(args.kg_microbe_dir)
@@ -664,14 +730,29 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.community and args.apply:
         n = apply_to_community(
-            args.community, by_id, by_name, by_higher, mapping_source, refresh=args.refresh
+            args.community,
+            by_id,
+            by_name,
+            by_higher,
+            mapping_source,
+            refresh=args.refresh,
+            denominator=args.denominator,
+            exclude_unnamed=not args.include_unnamed,
         )
         print(f"[gtdb] applied {n} block(s) to {args.community.name}", file=sys.stderr)
         return 0
 
     n_ok = 0
     for ncbi_id, label in targets:
-        g = resolve_target(ncbi_id, label, by_id, by_name, by_higher)
+        g = resolve_target(
+            ncbi_id,
+            label,
+            by_id,
+            by_name,
+            by_higher,
+            denominator=args.denominator,
+            exclude_unnamed=not args.include_unnamed,
+        )
         head = f"\nNCBITaxon:{ncbi_id}" if ncbi_id else f"\n{label}"
         if label and ncbi_id:
             head += f"  {label}"

@@ -11,14 +11,16 @@ Orthogonal to that choice, the named-species filter (#375) drops `sp.` /
 several tests below still pin because the argument for the default rests on it.
 
 The comparison is the point, not a winner. `scripts/gtdb_denominator_compare.py`
-writes both answers for all 578 KB taxa; 5 flip, affecting 26 stored blocks.
+writes all four answers for the 578 distinct KB taxa; 16 vary across the four
+scenarios. Counts here are deliberately few and cheap to re-derive — the report
+is the source, and quoted numbers rot (this docstring has been wrong twice).
 
 `deepest` is *not* a neutral correction: dropping a lineage's species rows while
 keeping its strain rows shifts weight toward lineages that happen to be annotated
 at strain rank. Table-wide it discards 801367 of 1837914 genome-supports (43.6%).
 
 Judged against GTDB's own rule — the lineage holding the nomenclatural type keeps
-the unsuffixed name — `aggregate` is the better answer for 4 of the 5 taxa where
+the unsuffixed name — `aggregate` is the better answer on most of the taxa where
 they differ. The sharpest is Pseudomonas: `deepest` discards *P. aeruginosa*'s
 17191-genome species row in favour of 615 genomes across 289 strain rows, and
 lands on `g__Pseudomonas_E` at 0.852 — more confidently wrong than the Acetobacter
@@ -308,3 +310,88 @@ def test_ties_break_toward_the_lexically_first_name(gtdb):
     )
 
     assert result["gtdb_taxon"] == "g__Alpha", "a tie must resolve to the lexically first name"
+
+
+@pytest.mark.parametrize(
+    "species",
+    [
+        "Wolbachia endosymbiont of Culex quinquefasciatus",  # \b missed the compound
+        "Pseudomonas syringae group genomosp. 3",
+        "gamma proteobacterium HTCC2080",
+        "Firmicutes bacterium CAG:176",
+        "Methanococci archaeon",
+    ],
+)
+def test_compound_placeholder_words_are_dropped(gtdb, species):
+    """`\\b` anchors the start of a word, so compounds slipped through (#372 review).
+
+    `\\bsymbiont\\b` cannot match `endosymbiont`, and 331 crosswalk rows named that
+    way were being counted as though they were binomials.
+    """
+    assert gtdb.named_species_only([_row(species=species)]) == []
+
+
+@pytest.mark.parametrize(
+    "species",
+    [
+        "Acetobacterium woodii",  # genus ends in -bacterium; a real binomial
+        "Acidipropionibacterium jensenii",
+        "Bacillus subtilis subsp. spizizenii",  # `subsp.` is not `sp.`
+        "Syntrophotalea acetylenivorans",
+        "Candidatus Cibiobacter qucibialis",
+    ],
+)
+def test_real_binomials_survive_the_compound_match(gtdb, species):
+    """The fix must not become an over-match.
+
+    Relaxing to `\\w*bacterium` swallowed 1805 binomial-shaped names — every genus
+    ending in *-bacterium*. The compound alternations are case-sensitive and
+    lowercase-only precisely so a capitalised genus cannot match.
+    """
+    row = _row(species=species)
+    assert gtdb.named_species_only([row]) == [row]
+
+
+def test_ambiguous_options_are_ordered_deterministically(gtdb):
+    """The tie-break fix reached `top` but not the option list a curator reads."""
+
+    def row(gtdb_genus, genomes):
+        cells = [""] * 20
+        cells[2], cells[9], cells[17] = genomes, "Testgenus", gtdb_genus
+        cells[10] = "Testgenus namedspecies"
+        return cells
+
+    rows = [row("g__Zeta", "5"), row("g__Alpha", "5"), row("g__Mu", "5")]
+    forward = gtdb.resolve_higher("testgenus", "NCBITaxon:1", "Testgenus", {"testgenus": rows})
+    reverse = gtdb.resolve_higher(
+        "testgenus", "NCBITaxon:1", "Testgenus", {"testgenus": list(reversed(rows))}
+    )
+
+    assert forward["ambiguous"] and reverse["ambiguous"], "expected a three-way split"
+    assert forward["gtdb_options"] == reverse["gtdb_options"] == ["g__Alpha", "g__Mu", "g__Zeta"]
+
+
+@pytest.mark.parametrize("bad", ["TYPO", "", None, "Aggregate"])
+def test_an_unknown_denominator_always_raises(gtdb, bad):
+    """Validation sat inside the rank loop, so it was skipped on every early return."""
+    with pytest.raises(ValueError, match="unknown denominator"):
+        gtdb.resolve_higher("nothing-matches-this", "NCBITaxon:1", "X", {}, bad)
+
+
+def test_the_cli_can_reach_both_denominators(gtdb, mapping, capsys):
+    """Without flags, `deepest_only` is dead code in production (#372 review).
+
+    `main()` had no `--denominator` / `--include-unnamed`, and both `resolve_target`
+    call sites used bare defaults — so the only thing that could reach the
+    alternative denominator was the comparison script, which just writes a report.
+    """
+    assert gtdb.main(["--name", "Acetobacter"]) == 0
+    default = capsys.readouterr().out
+
+    assert (
+        gtdb.main(["--name", "Acetobacter", "--include-unnamed", "--denominator", "deepest"]) == 0
+    )
+    alternative = capsys.readouterr().out
+
+    assert "g__Acetobacter" in default
+    assert "g__CAG-267" in alternative, "the flags did not reach the grounding"
