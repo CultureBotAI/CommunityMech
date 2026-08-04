@@ -167,8 +167,10 @@ rebuild_registry(
 **Add single community**:
 ```python
 # 1. Find next ID
-communities_dir = Path('kb/communities')
-highest = find_highest_id_multi_file(communities_dir, 'CommunityMech')
+highest = max(
+    find_highest_id_multi_file(Path(d), 'CommunityMech')
+    for d in ('kb/communities', 'data/isolates')   # the whole id space (#310, #353)
+)
 next_id = generate_xmech_id('CommunityMech', highest + 1)
 
 # 2. Create record (see Workflow 2 above)

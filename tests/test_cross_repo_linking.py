@@ -58,7 +58,7 @@ class TestSPRUCEWithLinks:
         self.data = load_yaml("spruce_with_links.yaml")
 
     def test_basic_fields(self):
-        assert self.data["id"] == "CommunityMech:000024"
+        assert self.data["id"] == "CommunityMech:000319"
         assert self.data["name"] == "SPRUCE Peatland Warming Microbial Community"
         assert self.data["ecological_state"] == "STABLE"
 
