@@ -33,7 +33,7 @@ default:
 
 # Install dependencies
 install:
-    uv sync --group dev
+    uv sync --extra dev
 
 # Validate a single community YAML file against schema
 validate FILE:

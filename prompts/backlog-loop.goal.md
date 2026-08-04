@@ -66,7 +66,6 @@ recommendation.
   #1, #2` closes only #1; prose closes nothing. Repeat `Closes #N.` per issue in the PR
   body; accidental closes here came via commit messages.
 - `git add` explicit paths only; `git add -A` has swept unrelated work into a PR.
-- `just install` fails (#290): `uv sync --extra dev`.
 - Duplicate YAML keys and `preferred_term`s are invisible to `linkml-validate` — see
   `test_no_duplicate_yaml_keys.py` and `DUPLICATE_TAXON_NAME`. Run the tests too.
 - Report honestly: failing test, show it; skipped step, say so.

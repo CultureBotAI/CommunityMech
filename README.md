@@ -47,11 +47,11 @@ Rich YAML Source
 git clone https://github.com/CultureBotAI/CommunityMech.git
 cd CommunityMech
 
-# Install dependencies (once implemented)
+# Install dependencies
 just install
 
-# Or with uv
-uv sync --group dev
+# Or with uv directly
+uv sync --extra dev
 ```
 
 ### Validate a Community
