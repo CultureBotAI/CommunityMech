@@ -7,6 +7,9 @@ deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 
 Last reconciled: 2026-08-03.
 
+For which of these suit an autonomous `/goal` run, see
+[NEXT_TASKS_LOOP.md](NEXT_TASKS_LOOP.md).
+
 ## Priority menu (reconciled 2026-07-30; re-reconciled after PR #274 merged)
 
 Ranked, **actionable-now** work. Everything here was re-measured against the KB
