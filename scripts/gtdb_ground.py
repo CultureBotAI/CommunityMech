@@ -282,12 +282,43 @@ def community_taxa(path: Path):
     return out
 
 
-def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) -> int:
-    """Insert gtdb_classification into taxonomy taxon_terms via line-level text edits.
+def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | None:
+    """Line span of the gtdb_classification block belonging to one taxonomy entry.
+
+    Starts at the entry's `id:` anchor and stops at the next line indented no
+    deeper than the block key, so a sibling (`notes`, `functional_role`) or the
+    next entry ends the search. Returns None when the entry has no block.
+    """
+    key = re.compile(r"^\s{4}gtdb_classification:\s*$")
+    i = anchor + 1
+    while i < end:
+        if key.match(lines[i]):
+            j = i + 1
+            while j < end and re.match(r"^\s{6}\S", lines[j]):
+                j += 1
+            return (i, j)
+        # Any line at the taxon_term level or shallower ends this entry.
+        if re.match(r"^\s{0,4}\S", lines[i]) and not re.match(r"^\s{4}\S", lines[i]):
+            return None
+        if re.match(r"^- ", lines[i]):
+            return None
+        i += 1
+    return None
+
+
+def apply_to_community(
+    path: Path, by_id, by_name, by_higher, mapping_source, refresh: bool = False
+) -> int:
+    """Insert or refresh gtdb_classification in taxonomy taxon_terms, line-level.
 
     Adds lines only (no YAML round-trip) so unrelated content — including plain
     scalar line-wrapping — is left byte-for-byte unchanged. Scoped to the
     top-level ``taxonomy:`` block so interaction source/target taxa are untouched.
+
+    `refresh` recomputes blocks that already exist and **creates none**. That
+    asymmetry is the point: an ungrounded taxon may be ungrounded deliberately —
+    the entries withheld under #292 are — so a refresh that also grounded them
+    would silently overturn a curation decision (#378).
     """
     doc = yaml.safe_load(path.read_text())
     entries = doc.get("taxonomy", []) or []
@@ -305,7 +336,9 @@ def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) ->
         tt = (tc or {}).get("taxon_term", {}) or {}
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
-        if "gtdb_classification" in tt or not tid.startswith("NCBITaxon:"):
+        grounded = "gtdb_classification" in tt
+        if not tid.startswith("NCBITaxon:") or (grounded != refresh):
+            # normal: act on ungrounded only. refresh: act on grounded only.
             wanted.append(None)
             continue
         g = resolve_target(tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher)
@@ -349,6 +382,11 @@ def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) ->
             )
 
     insert_at = {pos: block for pos, block in zip(anchors, wanted, strict=True) if block}
+    # Where each refreshed entry's existing block lives, so it is removed rather
+    # than duplicated. PyYAML keeps the last of two identical keys silently, so a
+    # duplicate would survive linkml-validate unnoticed (#289).
+    spans = {pos: _block_span(lines, pos, end) for pos in insert_at} if refresh else {}
+
     out = lines[: start + 1]
     i, added = start + 1, 0
     while i < end:
@@ -356,18 +394,68 @@ def apply_to_community(path: Path, by_id, by_name, by_higher, mapping_source) ->
         block = insert_at.get(i)
         if block is not None:
             out.append(lines[i + 1])  # keep the label line
+            span = spans.get(i)
+            if span:
+                out += lines[i + 2 : span[0]]  # siblings written before the block
             indent = re.match(r"^(\s+)", lines[i]).group(1)
             child = " " * (len(indent) - 2)  # taxon_term child indent (sibling of `term`)
             out.append(f"{child}gtdb_classification:")
             dumped = yaml.dump(block, sort_keys=False, allow_unicode=True, width=4096)
             out += [f"{child}  {bl}" for bl in dumped.splitlines()]
             added += 1
-            i += 2
+            i = span[1] if span else i + 2
             continue
         i += 1
     out += lines[end:]
-    path.write_text("\n".join(out) + "\n")
+    new_text = "\n".join(out) + "\n"
+
+    # Refuse to write anything that changed more than the grounding blocks. Four
+    # hand-rolled attempts at this edit corrupted records — deleting a sibling
+    # `evidence` list, joining two lines, emitting duplicate keys — and every one
+    # was caught only by looking afterwards. Checking before the write turns that
+    # class of mistake into a refusal (#378).
+    _assert_only_grounding_changed(path, doc, new_text)
+
+    path.write_text(new_text)
     return added
+
+
+def _assert_only_grounding_changed(path: Path, before: dict, new_text: str) -> None:
+    """Fail loudly unless the edit touched gtdb_classification and nothing else."""
+    try:
+        after = yaml.safe_load(new_text)
+    except yaml.YAMLError as exc:
+        raise SystemExit(
+            f"{path.name}: edit produced unparseable YAML — refusing to write: {exc}"
+        ) from exc
+
+    grounded_now = sum(
+        1
+        for e in (after.get("taxonomy") or [])
+        if ((e or {}).get("taxon_term") or {}).get("gtdb_classification")
+    )
+    if new_text.count("gtdb_classification:") != grounded_now:
+        raise SystemExit(f"{path.name}: edit produced a duplicate gtdb_classification key.")
+
+    b_tax, a_tax = before.get("taxonomy") or [], after.get("taxonomy") or []
+    if len(b_tax) != len(a_tax):
+        raise SystemExit(f"{path.name}: taxonomy went from {len(b_tax)} to {len(a_tax)} entries.")
+    if {k: v for k, v in before.items() if k != "taxonomy"} != {
+        k: v for k, v in after.items() if k != "taxonomy"
+    }:
+        raise SystemExit(f"{path.name}: content outside taxonomy changed.")
+
+    for b, a in zip(b_tax, a_tax, strict=True):
+        bt = dict((b or {}).get("taxon_term") or {})
+        at = dict((a or {}).get("taxon_term") or {})
+        bt.pop("gtdb_classification", None)
+        at.pop("gtdb_classification", None)
+        if bt != at:
+            raise SystemExit(f"{path.name}: a taxon_term changed outside its grounding block.")
+        if {k: v for k, v in (b or {}).items() if k != "taxon_term"} != {
+            k: v for k, v in (a or {}).items() if k != "taxon_term"
+        }:
+            raise SystemExit(f"{path.name}: a taxonomy entry changed outside taxon_term.")
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -386,6 +474,11 @@ def main(argv: list[str] | None = None) -> int:
     )
     p.add_argument(
         "--apply", action="store_true", help="With --community: write blocks into the file."
+    )
+    p.add_argument(
+        "--refresh",
+        action="store_true",
+        help="With --apply: recompute blocks that already exist. Creates none.",
     )
     args = p.parse_args(argv)
 
@@ -416,7 +509,9 @@ def main(argv: list[str] | None = None) -> int:
     by_id, by_name, by_higher = collect_rows(mapping_path, want_ids, want_species, want_higher)
 
     if args.community and args.apply:
-        n = apply_to_community(args.community, by_id, by_name, by_higher, mapping_source)
+        n = apply_to_community(
+            args.community, by_id, by_name, by_higher, mapping_source, refresh=args.refresh
+        )
         print(f"[gtdb] applied {n} block(s) to {args.community.name}", file=sys.stderr)
         return 0
 
