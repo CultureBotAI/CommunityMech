@@ -30,6 +30,7 @@ finish condition.
 | 2 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
 | 3 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
 | 4 | **#352a** seven records have no published page | XS | `just gen-html`; every record has a page | 312 records, **305** pages — 7 missing, not just SPRUCE |
+| 5 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | 3998 chars / **4028 bytes** on `main`, 2 chars spare. Unblocked: #357 merged as `5a1d60b`. Note bytes already exceed 4000, which is the question #358 settles |
 
 **Start with #290.** It is one line, it exits 0 or it doesn't, and it retires a
 gotcha the goal prompt currently has to carry. A clean first pass through the
@@ -72,15 +73,6 @@ judgement, or the loop will invent something.
 - **#352b — a second coarse SPRUCE record (`000135`) already exists.** Only the
   *report* is loop-able; whether to merge the two records is a curator call.
 
-## Queued — mechanical, but blocked
-
-**#358 — guard the goal prompt's size limit.** Mechanical, but
-it asserts a limit on a file [PR #357](https://github.com/CultureBotAI/CommunityMech/pull/357)
-is still changing — on `main` the prompt is 3987 chars / 4015 bytes (13 spare),
-and #357 takes it to 3995 / 4021. Note 4015 bytes is *already over* 4000, so if
-the ceiling counts bytes rather than characters the file has been over all along;
-that is the open question #358 exists to settle. Do it once #357 lands.
-
 ## Tier 3 — needs a human decision first
 
 Do not queue these. Each stops on the loop's first substantive step, and the
@@ -116,8 +108,6 @@ loop.
 
 ## Ordering and dependencies
 
-- **#358 waits for [#357](https://github.com/CultureBotAI/CommunityMech/pull/357)
-  to merge** — it asserts a limit on the file that PR is still changing.
 - **#347, #355, #356 all edit `SPRUCE_Peatland_Warming_Community.yaml`.** One PR,
   or strictly serial; the loop's one-PR-in-flight rule handles this if they are
   not queued together.
