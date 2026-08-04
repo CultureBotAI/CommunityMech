@@ -127,11 +127,19 @@ Grounding happens at the **rank of the input**:
   on the chosen GTDB taxon. Lower values (e.g. *Bacillus* 0.57) warrant a curator
   glance.
 
-  **It does not tell you how much evidence is behind it**, and the filter above
-  shrinks that evidence: 0.571 can mean 4 genomes and 1.0 can mean 7. 19 of the
-  KB's 158 higher-rank groundings now rest on fewer than 10 genomes. Before
-  trusting a genus/higher grounding, re-run the tool on that taxon and read the
-  row counts. Adding the denominator to the block is #383.
+- **`support_genomes` / `total_genomes`** — the numerator and denominator the
+  fraction came from (#383). Read these *before* trusting a fraction: `1.0` on
+  `7/7` genomes and `1.0` on `7000/7000` are the same number and very different
+  claims, and 19 of the KB's higher-rank groundings rest on fewer than 10
+  genomes. `majority_fraction` is rounded to 3 places, so the counts cannot be
+  recovered from it. The CLI prints them inline and marks a total under 10
+  `⚠ THIN`.
+
+  `total_genomes` counts only what was *counted* — rows dropped by the
+  named-species filter are excluded, so it shrinks when the filter bites. It is
+  **absent on species-level groundings**, where `majority_fraction` is the
+  crosswalk's own column rather than something the script computes; publishing a
+  locally-summed denominator there would contradict the stored fraction.
 
   A fraction of exactly **0.5** is a two-way tie, not a majority — it is broken by
   name so the answer is reproducible, but it is still a coin flip (#382).

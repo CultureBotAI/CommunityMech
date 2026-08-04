@@ -713,6 +713,23 @@ classes:
         range: float
         minimum_value: 0.0
         maximum_value: 1.0
+      support_genomes:
+        description: >-
+          Number of genomes supporting the chosen GTDB taxon — the numerator
+          behind majority_fraction. Without it a fraction is unreadable: 0.571
+          means one thing at 4 genomes and another at 4000, and 1.0 can rest on
+          a single row. Note majority_fraction is rounded to 3 places, so it
+          cannot be used to recover this.
+        range: integer
+        minimum_value: 0
+      total_genomes:
+        description: >-
+          Number of genomes counted across every candidate GTDB taxon at this
+          rank — the denominator behind majority_fraction. Excludes rows dropped
+          by the named-species filter (sp./uncultured/informal), so it is the
+          evidence actually considered, not every genome under the NCBI taxon.
+        range: integer
+        minimum_value: 0
       is_reclassified:
         description: >-
           True when the GTDB species name differs from the NCBITaxon species

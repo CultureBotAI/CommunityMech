@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-20T15:22:57
+# Generation date: 2026-08-04T14:47:44
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -306,6 +306,8 @@ class GtdbClassification(YAMLRoot):
     gtdb_lineage: Optional[str] = None
     ncbi_source_id: Optional[str] = None
     majority_fraction: Optional[float] = None
+    support_genomes: Optional[int] = None
+    total_genomes: Optional[int] = None
     is_reclassified: Optional[Union[bool, Bool]] = None
     mapping_source: Optional[str] = None
 
@@ -324,6 +326,12 @@ class GtdbClassification(YAMLRoot):
 
         if self.majority_fraction is not None and not isinstance(self.majority_fraction, float):
             self.majority_fraction = float(self.majority_fraction)
+
+        if self.support_genomes is not None and not isinstance(self.support_genomes, int):
+            self.support_genomes = int(self.support_genomes)
+
+        if self.total_genomes is not None and not isinstance(self.total_genomes, int):
+            self.total_genomes = int(self.total_genomes)
 
         if self.is_reclassified is not None and not isinstance(self.is_reclassified, Bool):
             self.is_reclassified = Bool(self.is_reclassified)
@@ -3214,6 +3222,24 @@ slots.gtdbClassification__majority_fraction = Slot(
     model_uri=COMMUNITYMECH.gtdbClassification__majority_fraction,
     domain=None,
     range=Optional[float],
+)
+
+slots.gtdbClassification__support_genomes = Slot(
+    uri=COMMUNITYMECH.support_genomes,
+    name="gtdbClassification__support_genomes",
+    curie=COMMUNITYMECH.curie("support_genomes"),
+    model_uri=COMMUNITYMECH.gtdbClassification__support_genomes,
+    domain=None,
+    range=Optional[int],
+)
+
+slots.gtdbClassification__total_genomes = Slot(
+    uri=COMMUNITYMECH.total_genomes,
+    name="gtdbClassification__total_genomes",
+    curie=COMMUNITYMECH.curie("total_genomes"),
+    model_uri=COMMUNITYMECH.gtdbClassification__total_genomes,
+    domain=None,
+    range=Optional[int],
 )
 
 slots.gtdbClassification__is_reclassified = Slot(
