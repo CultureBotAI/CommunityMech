@@ -81,10 +81,9 @@ def main() -> int:
 
     taxa = _kb_taxa()
     ids = {tid.split(":")[1] for tid, _ in taxa}
-    species = {grounder._clean_label(l).lower() for _, l in taxa if " " in grounder._clean_label(l)}
-    higher = {
-        grounder._clean_label(l).lower() for _, l in taxa if " " not in grounder._clean_label(l)
-    }
+    cleaned = [grounder._clean_label(label) for _, label in taxa]
+    species = {c.lower() for c in cleaned if " " in c}
+    higher = {c.lower() for c in cleaned if " " not in c}
     by_id, by_name, by_higher = grounder.collect_rows(mapping, ids, species, higher)
 
     rows, flips = [], 0
@@ -100,21 +99,28 @@ def main() -> int:
         d_id, d_frac = _outcome(deep)
         if a_id != d_id:
             flips += 1
-            direction = (
-                "gains grounding"
-                if a_id in ("AMBIGUOUS", "NONE") and d_id.startswith("GTDB:")
-                else (
-                    "loses grounding"
-                    if d_id in ("AMBIGUOUS", "NONE") and a_id.startswith("GTDB:")
-                    else "different taxon"
-                )
-            )
+            unresolved = ("AMBIGUOUS", "NONE")
+            if a_id in unresolved and d_id.startswith("GTDB:"):
+                direction = "gains grounding"
+            elif d_id in unresolved and a_id.startswith("GTDB:"):
+                direction = "loses grounding"
+            elif a_id in unresolved and d_id in unresolved:
+                direction = "unresolved either way"
+            else:
+                direction = "different taxon"
         else:
             direction = ""
-        rows.append((tid, label, a_id, a_frac, d_id, d_frac, "FLIP" if direction else "", direction))
+        rows.append(
+            (tid, label, a_id, a_frac, d_id, d_frac, "FLIP" if direction else "", direction)
+        )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
+    stat = mapping.stat()
     with open(args.out, "w") as fh:
+        # Provenance: the upstream crosswalk churns (the KB already carries two
+        # build vintages), so a bare table would go stale silently.
+        fh.write(f"# mapping: {mapping.name}\tbytes={stat.st_size}\tmtime={int(stat.st_mtime)}\n")
+        fh.write(f"# taxa={len(rows)}\tflips={flips}\n")
         fh.write(
             "ncbi_id\tlabel\taggregate_gtdb_id\taggregate_fraction\t"
             "deepest_gtdb_id\tdeepest_fraction\tflip\tdirection\n"
@@ -126,8 +132,10 @@ def main() -> int:
     print(f"outcome flips: {flips}")
     for row in rows:
         if row[6]:
-            print(f"  {row[0]:<20s} {row[1][:26]:<28s} {row[2]} {row[3]} -> {row[4]} {row[5]}"
-                  f"   [{row[7]}]")
+            print(
+                f"  {row[0]:<20s} {row[1][:26]:<28s} {row[2]} {row[3]} -> {row[4]} {row[5]}"
+                f"   [{row[7]}]"
+            )
     print(f"\nwritten to {args.out}")
     return 0
 

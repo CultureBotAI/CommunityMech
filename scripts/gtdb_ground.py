@@ -198,10 +198,13 @@ def deepest_only(matched: list) -> list:
     lineages: dict[str, dict[str, list]] = {}
     for row in matched:
         species = row[COL_NCBI_SPECIES].strip().lower()
-        strain = row[COL_NCBI_STRAIN].strip() if len(row) > COL_NCBI_STRAIN else ""
+        strain = row[COL_NCBI_STRAIN].strip()
         # A strain row with no species names its own lineage; without this it
-        # would be pooled under "" with every other speciesless strain.
-        key = species or (strain.lower() if strain else f"__row{id(row)}")
+        # would pool under "" with every other speciesless strain and lose to
+        # whichever the sort happened to favour. Rows with neither share one
+        # lineage, which is harmless: with no strain bucket to prefer, every one
+        # of them is kept regardless.
+        key = species or strain.lower()
         lineages.setdefault(key, {"strain": [], "species": []})
         lineages[key]["strain" if strain else "species"].append(row)
 
@@ -225,6 +228,10 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         matched = [r for r in rows if r[ncbi_col].strip().lower() == clean_lc]
         if not matched:
             continue
+        if denominator not in ("aggregate", "deepest"):
+            raise ValueError(
+                f"unknown denominator {denominator!r}; expected 'aggregate' or 'deepest'"
+            )
         if denominator == "deepest":
             matched = deepest_only(matched)
         weights: dict[str, float] = defaultdict(float)
