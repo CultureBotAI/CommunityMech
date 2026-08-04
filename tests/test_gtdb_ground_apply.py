@@ -77,7 +77,10 @@ def always_grounds(monkeypatch):
     monkeypatch.setattr(
         gtdb_ground,
         "resolve_target",
-        lambda ncbi_id, label, by_id, by_name, by_higher: {
+        # **kwargs absorbs denominator / exclude_unnamed, which apply_to_community
+        # now threads through (#372 review). A positional-only stub silently ties
+        # this fixture to one call signature.
+        lambda ncbi_id, label, by_id, by_name, by_higher, **kwargs: {
             "gtdb_id": GROUNDED_BLOCK["gtdb_id"],
             "gtdb_taxon": GROUNDED_BLOCK["gtdb_taxon"],
             "gtdb_lineage": GROUNDED_BLOCK["gtdb_lineage"],
