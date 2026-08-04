@@ -5,7 +5,7 @@ Which open issues suit an autonomous `/goal` run with
 
 `NEXT_TASKS.md` is the full backlog and stays the source of truth for *what* is
 deferred. This file answers a narrower question: *what can be handed to a loop
-that will not stop to ask?* Reconciled 2026-08-03. Every claim was re-measured
+that will not stop to ask?* Reconciled 2026-08-04. Every claim was re-measured
 against `main`, not copied from the issue — including where the two disagree.
 
 ## What makes an item loop-ready
@@ -26,11 +26,11 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
-| 1 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
+| 1 | **#366** `gtdb_ground.py` is batch-sensitive | M | the same taxon resolves the same way per-record and whole-KB, pinned by a test | `Euryarchaeota` (`NCBITaxon:28890`) is AMBIGUOUS in an ungrounded-only run and `GTDB:p__Halobacteriota` whole-KB — `collect_rows()` breaks at the first matching rank |
 
-**#290, #358 and #314 are done** (PRs #361, #362, #364). **Start with #306** —
-62 references carry both a `.md` and a `.txt` and the snippet checks pick one
-arbitrarily.
+**#290, #358, #314 and #306 are done** (PRs #361, #362, #364, #368), and #352
+closed separately — so Tier 1 emptied and **#366** is its successor. Fix it
+before any grounding backfill, or the backfill bakes in whichever batch it used.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -83,6 +83,7 @@ answer is not derivable from the repo.
 | #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #363 | Measure the real `/goal` ceiling, and decide whether it counts chars or bytes |
+| #367 | Should `fetch_pubmed_abstract` return MEDLINE only, or normalise a `.md`? |
 | #365 | Which NCBI id the two *Bosea* entries should carry — the current one is a plant |
 | #182 | Which best-effort ontology remaps to accept |
 | #199 | Which dataviz findings to act on |
