@@ -31,12 +31,20 @@ RECORD_DIRS = ("kb/communities", "data/isolates")
 
 # Paths that legitimately mention ids without owning them: fixtures, caches and
 # prose. `tests/data` holds deliberate copies of real records.
-EXCLUDED = ("tests/data", "references_cache", ".git", "site", "docs", "notes")
+EXCLUDED = (
+    "tests/data",
+    "references_cache",
+    ".git",
+    ".venv",  # ~160 dependency YAMLs; leaving them in made the sweep machine-dependent
+    "site",
+    "docs",
+    "notes",
+)
 
 # Quoting is ordinary YAML, and an id in quotes must not be able to slip the
 # gate: `id: "CommunityMech:000320"` was invisible to every check here (#351).
 # Trailing comments are tolerated for the same reason.
-ID_RE = re.compile(r"""^id:[ \t]*['"]?(CommunityMech:\d+)['"]?[ \t]*(?:\#.*)?$""", re.M)
+ID_RE = re.compile(r"""^id:[ \t]*['"]?(CommunityMech:\d+)['"]?[ \t\r]*(?:\#[^\n]*)?$""", re.M)
 
 
 def _declared_ids():
@@ -44,16 +52,25 @@ def _declared_ids():
     found = []
     for path in sorted([*REPO.glob("**/*.yaml"), *REPO.glob("**/*.yml")]):
         rel = path.relative_to(REPO)
-        # Compare path *components*, not the string: `rel.startswith("notes")`
-        # also swallowed `notes_archive/`, and `data/isolates_v2/` counted as a
-        # known directory purely because the name shares a prefix (#351).
+        # Compare path *components*, not the string. Under `startswith`, a
+        # `notes_archive/` would be excluded outright and a `data/isolates_v2/`
+        # would count as a known directory, purely because the names share a
+        # prefix (#351). Neither exists today; this is prophylactic.
         if _under(rel, EXCLUDED):
             continue
-        # findall, not search: a second document in one file declares a second
-        # id, and taking only the first hid it.
-        for identifier in ID_RE.findall(path.read_text()):
+        for identifier in _ids_in(path):
             found.append((identifier, rel.as_posix()))
     return found
+
+
+def _ids_in(path: Path) -> list:
+    """Every record id declared in one file.
+
+    findall, not search: a second document in one file declares a second id, and
+    taking only the first hid it. Extracted so that behaviour is reachable from a
+    test — inlined, reverting it to `search` passed the whole suite (#354).
+    """
+    return ID_RE.findall(path.read_text())
 
 
 def _under(rel: Path, roots) -> bool:
@@ -147,3 +164,68 @@ def test_isolates_pass_schema_validation():
             failures.append(f"{record.name}:\n{result.stdout.strip()}")
 
     assert not failures, "schema-invalid isolate records:\n" + "\n".join(failures)
+
+
+# ---------------------------------------------------------------------------
+# The sweep internals. None of these shapes exist in the KB today, so without
+# direct tests every one of them is dead code — which is how a regression got
+# in: hardening the pattern for quotes silently dropped `\r`, and nothing
+# noticed because no record uses CRLF (#354).
+# ---------------------------------------------------------------------------
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "id: CommunityMech:000320",
+        'id: "CommunityMech:000320"',
+        "id: 'CommunityMech:000320'",
+        "id: CommunityMech:000320  # a trailing comment",
+        "id:\tCommunityMech:000320",
+        "id: CommunityMech:000320\r",  # CRLF
+        'id: "CommunityMech:000320"\r',
+    ],
+)
+def test_id_regex_matches_every_legitimate_spelling(line):
+    assert ID_RE.findall(line) == ["CommunityMech:000320"], f"missed: {line!r}"
+
+
+@pytest.mark.parametrize(
+    "line",
+    [
+        "grid: CommunityMech:000320",  # not the `id` key
+        "id: CommunityMech:taxon:000001",  # a different id space
+        "  id: CommunityMech:000320",  # nested, not a record id
+        "- id: CommunityMech:000320",  # list item, not a record id
+        "# id: CommunityMech:000320",  # commented out
+    ],
+)
+def test_id_regex_ignores_what_is_not_a_record_id(line):
+    assert ID_RE.findall(line) == [], f"false positive: {line!r}"
+
+
+def test_sweep_finds_every_document_in_a_multi_document_file(tmp_path):
+    """`search` returned only the first, so a second declaration was invisible.
+
+    Goes through `_ids_in`, the function the sweep actually calls — asserting on
+    `ID_RE` directly left the sweep free to keep using `search`.
+    """
+    record = tmp_path / "two_docs.yaml"
+    record.write_text("id: CommunityMech:000001\n---\nid: CommunityMech:000002\n")
+    assert _ids_in(record) == ["CommunityMech:000001", "CommunityMech:000002"]
+
+
+@pytest.mark.parametrize(
+    ("rel", "roots", "expected"),
+    [
+        ("kb/communities/x.yaml", ("kb/communities",), True),
+        ("data/isolates/x.yaml", ("kb/communities", "data/isolates"), True),
+        # The prefix bug: these share a name prefix but are different directories.
+        ("kb/communities_draft/x.yaml", ("kb/communities",), False),
+        ("data/isolates_v2/x.yaml", ("data/isolates",), False),
+        ("notes_archive/x.yaml", ("notes",), False),
+        ("notes/deep/x.yaml", ("notes",), True),
+    ],
+)
+def test_under_matches_whole_path_components(rel, roots, expected):
+    assert _under(Path(rel), roots) is expected

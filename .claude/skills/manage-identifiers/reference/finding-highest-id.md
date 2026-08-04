@@ -95,8 +95,10 @@ def find_highest_id_multi_file(
     return max_id
 
 # Usage
-communities_dir = Path('kb/communities')
-highest = find_highest_id_multi_file(communities_dir, 'CommunityMech')
+highest = max(
+    find_highest_id_multi_file(Path(d), 'CommunityMech')
+    for d in ('kb/communities', 'data/isolates')   # the whole id space (#310, #353)
+)
 print(f"Highest ID: {highest}")  # Output: 78
 ```
 
@@ -130,9 +132,11 @@ print(f"Highest ID: {highest}")  # Output: 15431
 
 **Quick bash approach**:
 ```bash
-# CommunityMech (single directory)
-grep -rh 'id: CommunityMech:' kb/communities/ | \
-  cut -d: -f3 | sort -n | tail -1
+# CommunityMech (every id-bearing directory).
+# --include is load-bearing: without it this reads gitignored *.yaml.bak files
+# and can report an id far above the real maximum, minting a huge gap (#353).
+grep -rhoE --include='*.yaml' 'CommunityMech:[0-9]{6}' \
+  kb/communities/ data/isolates/ | cut -d: -f2 | sort -n | tail -1
 
 # CultureMech (nested directories)
 find data/normalized_yaml -name "*.yaml" -exec grep -h 'id: CultureMech:' {} \; | \

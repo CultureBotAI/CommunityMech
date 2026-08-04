@@ -173,3 +173,7 @@ if __name__ == "__main__":
     print(f"Next CommunityMech ID: {next_id}")
 ```
 
+> **Caution:** `mint_next_id` scans one directory. CommunityMech ids also live
+> in `data/isolates/`, so for that repo take the max over both — scanning only
+> `kb/communities/` is what produced four duplicate ids (#310, #353).
+

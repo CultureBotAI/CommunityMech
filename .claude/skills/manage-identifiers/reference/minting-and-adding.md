@@ -88,6 +88,10 @@ def mint_next_id(
     return generate_xmech_id(prefix, next_number)
 ```
 
+> **Caution:** `mint_next_id` scans one directory. CommunityMech ids also live
+> in `data/isolates/`, so for that repo take the max over both — scanning only
+> `kb/communities/` is what produced four duplicate ids (#310, #353).
+
 ### Quick Mint Examples
 
 **MediaIngredientMech** (single-file):
@@ -104,8 +108,10 @@ print(f"Next ID: {next_id}")  # MediaIngredientMech:000113
 ```python
 from pathlib import Path
 
-communities_dir = Path('kb/communities')
-highest = find_highest_id_multi_file(communities_dir, 'CommunityMech')
+highest = max(
+    find_highest_id_multi_file(Path(d), 'CommunityMech')
+    for d in ('kb/communities', 'data/isolates')   # the whole id space (#310, #353)
+)
 next_id = generate_xmech_id('CommunityMech', highest + 1)
 print(f"Next ID: {next_id}")  # CommunityMech:000079
 ```
@@ -195,8 +201,10 @@ from pathlib import Path
 from datetime import datetime, timezone
 
 # Step 1: Find next ID
-communities_dir = Path('kb/communities')
-highest = find_highest_id_multi_file(communities_dir, 'CommunityMech')
+highest = max(
+    find_highest_id_multi_file(Path(d), 'CommunityMech')
+    for d in ('kb/communities', 'data/isolates')   # the whole id space (#310, #353)
+)
 next_id = generate_xmech_id('CommunityMech', highest + 1)
 
 # Step 2: Create new record

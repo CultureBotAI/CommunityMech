@@ -17,7 +17,7 @@ never change once assigned and are never reused.
 
 CommunityMech is a **multi-file collection**: each community is its own YAML file under
 `kb/communities/`, with an `id` of the form `CommunityMech:NNNNNN` (zero-padded 6-digit,
-`000001`–`999999`). Finding the next ID means scanning the directory; adding a record means
+`000001`–`999999`). Finding the next ID means scanning every id-bearing directory; adding a record means
 writing a new file (no shared metadata to update).
 
 > The same identifier infrastructure is shared with MediaIngredientMech (single-file
@@ -63,7 +63,8 @@ including the single-file and registry variants — is in
 used twice (#310, #346) — the isolates held ids that later records re-minted.
 
 ```bash
-grep -rh 'id: CommunityMech:' kb/communities/ data/isolates/ | cut -d: -f3 | sort -n | tail -1
+grep -rhoE --include='*.yaml' 'CommunityMech:[0-9]{6}' \
+  kb/communities/ data/isolates/ | cut -d: -f2 | sort -n | tail -1
 ```
 
 ```python
