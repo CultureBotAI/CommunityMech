@@ -26,11 +26,11 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
-| 1 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
-| 2 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
+| 1 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
 
-**#290 and #358 are done** (PRs #361, #362). **Start with #314** — one taxon to
-ground and a cheap test pinning `ncbi_source_id` to `term.id`.
+**#290, #358 and #314 are done** (PRs #361, #362, #364). **Start with #306** —
+63 references carry both a `.md` and a `.txt` and the snippet checks pick one
+arbitrarily.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -103,8 +103,7 @@ loop.
 
 - **#347 and #356 both edit `SPRUCE_Peatland_Warming_Community.yaml`.** One PR, or
   strictly serial.
-- **#314 before #294.** #314 is the data fix; #294 is the schema that would
-  describe it. Doing the data first keeps the enum backfill honest.
+- **#314 is done, so #294's backfill has correct data under it.**
 
 ## Never loop these
 
