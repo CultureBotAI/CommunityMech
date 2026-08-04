@@ -5,8 +5,8 @@ Which open issues suit an autonomous `/goal` run with
 
 `NEXT_TASKS.md` is the full backlog and stays the source of truth for *what* is
 deferred. This file answers a narrower question: *what can be handed to a loop
-that will not stop to ask?* Reconciled 2026-08-04. Every claim below was
-re-measured against `main` on that date, not copied from the issue text.
+that will not stop to ask?* Reconciled 2026-08-03. Every claim below was re-measured against `main`, not
+copied from the issue text — including where that contradicts the issue.
 
 ## What makes an item loop-ready
 
@@ -24,20 +24,24 @@ re-measured against `main` on that date, not copied from the issue text.
 Ranked by value per unit of risk. Each has a verified premise and a green/red
 finish condition.
 
-| # | Item | Size | Done when | Verified 2026-08-04 |
+| # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
 | 1 | **#290** `just install` fails | XS | `just install` exits 0 | `uv sync --group dev` → *"Group `dev` is not defined"*; deps are under `[project.optional-dependencies]` |
-| 2 | **#295** one snippet cited at two supports levels | S | the pair agrees, or the difference is explained | `Geobacter_Clostridium_…` cites the DIET snippet as both `PARTIAL` and `SUPPORT` |
-| 3 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
-| 4 | **#358** goal-prompt size unguarded | XS | a test asserts chars **and** bytes | on `main` 3987 chars / 4015 bytes (13 spare); PR #357 takes it to 3995 / 4021. Nothing guards either |
-| 5 | **#350** isolates are gated for schema only | M | isolates pass term validation, or the roots are documented as schema-only | **4 of 4** isolates fail `linkml-term-validator --labels` today |
-| 6 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **63** references have both `.md` and `.txt` in `references_cache/` |
-| 7 | **#352a** SPRUCE has no published page | XS | `just gen-html`, page committed | 312 records, **305** pages |
-| 8 | **#277** four `[[wiki-links]]` resolve to nothing | XS | no dangling links | 4 dangling: `chebi-mislabels-backlog`, `edison-auth-env-shadowing`, `ontology-term-cleanup`, `space-regolith-scouting-gap` |
+| 2 | **#314** taxon ungrounded after an id edit | S | `gtdb_classification` present; a test pins `ncbi_source_id == term.id` | `Mesorhizobium_Synechococcus_…`: `NCBITaxon:1125` is the one taxon of four with no grounding |
+| 3 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
+| 4 | **#352a** seven records have no published page | XS | `just gen-html`; every record has a page | 312 records, **305** pages — 7 missing, not just SPRUCE |
+| 5 | **#277** four `[[wiki-links]]` resolve to nothing | XS | no dangling links | 4 dangling: `chebi-mislabels-backlog`, `edison-auth-env-shadowing`, `ontology-term-cleanup`, `space-regolith-scouting-gap` |
 
 **Start with #290.** It is one line, it exits 0 or it doesn't, and it retires a
 gotcha the goal prompt currently has to carry. A clean first pass through the
 whole loop on a trivial item is worth more than a big first win.
+
+**Queued, not ready: #358** (guard the goal prompt's size limit). Mechanical, but
+it asserts a limit on a file [PR #357](https://github.com/CultureBotAI/CommunityMech/pull/357)
+is still changing — on `main` the prompt is 3987 chars / 4015 bytes (13 spare),
+and #357 takes it to 3995 / 4021. Note 4015 bytes is *already over* 4000, so if
+the ceiling counts bytes rather than characters the file has been over all along;
+that is the open question #358 exists to settle. Do it once #357 lands.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -51,6 +55,19 @@ judgement, or the loop will invent something.
   fabricating support. Note `just validate-references-all` already fails on
   `main` (e.g. `Aalborg_East_…`), so this improves a red gate rather than
   greening it.
+- **#295 — one snippet cited at two supports levels.** Looks mechanical and is
+  not: the issue asks for `PARTIAL` *or* dropping the citation, and names the
+  curator who made #262's call as the decider. Brief it to reuse that reasoning.
+  It is also not a clean pair — the `SUPPORT` occurrence is 150 chars and
+  truncated mid-word against the other two at 188, so the fix has to repair a
+  truncation as well as reconcile the level.
+- **#350 — isolates are gated for schema only.** All **4 of 4** fail
+  `linkml-term-validator --labels`, but the failures are mostly wrong *id*, not
+  wrong label (`CHEBI:30319` recorded as `dicyanoaurate(1-)`; `ENVO:00000072` as
+  `mine tailing`; `GO:0055114`/`GO:0055065` obsolete). Choosing the right id per
+  term is the judgement the `id-label-correspondence` skill reserves for a
+  curator. The other branch — documenting the roots as schema-only — is
+  mechanical, so the brief must name which branch to take.
 - **#270 — interaction type encoded by colour alone**, nine categories. Fully
   specified, and the CVD-simulation harness from #268 already exists to verify a
   redundant encoding. Frontend, self-contained.
@@ -70,16 +87,21 @@ answer is not derivable from the repo.
 | #301 | Mint METPO terms for biocontrol/antagonist and N-fixing symbiont, or reuse? |
 | #297 | Is ROS detoxification a metabolite or a process in that record? |
 | #292 | Two taxa carry an id for a different organism — correct, or keep withheld? |
-| #325 | Backfill `curation_history` to 311 records, or drop the slot? |
+| #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
 | #355 | Is interaction 1 `COMMENSALISM`/`CROSS_FEEDING` rather than `MUTUALISM`? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #182 | Which best-effort ontology remaps to accept |
 | #199 | Which dataviz findings to act on |
 
-**#319 is decided but heavy.** Hosts and antagonists become taxonomy members (13
-instances, 12 records) and the 14 `NCBITaxon:2` aggregate placeholders lose their
-participant slot. The decision is made; the work is per-record evidence curation,
-so it belongs in a focused session rather than an unattended loop.
+**#319 is decided but heavy.** Hosts and antagonists become taxonomy members; the
+`NCBITaxon:2` aggregate placeholders lose their participant slot instead. The
+decision is [recorded on the issue](https://github.com/CultureBotAI/CommunityMech/issues/319#issuecomment-5173848793)
+— the issue body still reads "unresolved", so cite the comment, not the body.
+Re-measured on `main`: **13 host/antagonist slots across 9 records** and **14
+placeholder slots across 9 records**. (These differ from the 23-across-17 in the
+issue body, which predates #345 and used a broader criterion.) The 14 are
+mechanical; the 13 each need a grounded term and a snippet, so this belongs in a
+focused session, not an unattended loop.
 
 ## Ordering and dependencies
 
@@ -90,7 +112,9 @@ so it belongs in a focused session rather than an unattended loop.
   not queued together.
 - **#314 before #294.** #314 is the data fix; #294 is the schema that would
   describe it. Doing the data first keeps the enum backfill honest.
-- **#350 and #352a** both touch isolate/site generation but do not overlap.
+- **#352a cannot close #352** — that issue also carries the duplicate-SPRUCE
+  question (#352b), which is a curator call. Expect the loop's "issue closed"
+  finish condition not to fire; split the issue first, or accept a partial.
 - **#290 retires a gotcha** in `prompts/backlog-loop.goal.md`. Whoever fixes it
   updates the prompt in the same PR — the prompt's own header says so.
 

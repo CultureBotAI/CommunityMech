@@ -44,7 +44,8 @@ vocab/                            # controlled-vocabulary staging files (e.g. cu
 conf/oak_config.yaml             # OAK ontology adapter config (NCBITaxon, ENVO, CHEBI, GO)
 references_cache/                # Cached PubMed abstracts (committed for reproducibility)
 scripts/                         # Utility scripts for curation (not part of package)
-NEXT_TASKS_LOOP.md               # Which open issues suit an autonomous /goal run
+NEXT_TASKS.md                    # The deferred-work backlog (source of truth)
+NEXT_TASKS_LOOP.md               # Which of those suit an autonomous /goal run
                                  #   (and which need a human decision first)
 prompts/                         # Reusable agent prompts, pasted whole (e.g. `/goal`);
                                  #   backlog-loop.goal.md drives the issue->PR->review->
