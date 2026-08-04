@@ -106,17 +106,40 @@ Grounding happens at the **rank of the input**:
   species-name fallback (the mapping is strain/genome-keyed, so species ids often
   miss on id alone). GTDB species split → AMBIGUOUS.
 - **Genus / family / order / …** (single-name label) → `GTDB:g__...` (or
-  `f__`/`o__`/…): the script aggregates the GTDB rank column over all genomes
+  `f__`/`o__`/…): the script aggregates the GTDB rank column over the genomes
   under the NCBI taxon and grounds to the GTDB taxon holding a **majority (≥50%)**
-  of genomes; otherwise AMBIGUOUS. `mapping_source` records the rank and how many
-  GTDB taxa fall under the NCBI taxon (e.g. NCBI genus *Bacillus* → `g__Bacillus`
-  at 51%, noted as 102 GTDB genera).
+  of them; otherwise AMBIGUOUS. `mapping_source` records the rank and how many
+  GTDB taxa fall under the NCBI taxon (NCBI genus *Bacillus* → `g__Bacillus` at
+  0.57, noted as 44 GTDB genera).
+
+  **Since #372 this counts only rows naming an actual binomial.** Rows whose NCBI
+  species is `sp.`, `uncultured`, or informal (`Firmicutes bacterium CAG:176`,
+  `gamma proteobacterium HTCC2080`) are excluded before the majority is computed
+  — `exclude_unnamed`, on by default (#375). `Candidatus` names are kept: those
+  are provisional *species* names, not placeholders. Pass `exclude_unnamed=False`
+  for the pre-#372 behaviour; *Bacillus* was `g__Bacillus` at 0.508 across 102
+  GTDB genera under that rule.
 
 ## Interpreting the output
 
 - **`majority_fraction`** — for species, the mapping's majority fraction; for
-  genus/higher, the share of the NCBI taxon's genomes that land on the chosen
-  GTDB taxon. Lower values (e.g. *Bacillus* 0.51) warrant a curator glance.
+  genus/higher, the share of the NCBI taxon's **named-binomial** genomes that land
+  on the chosen GTDB taxon. Lower values (e.g. *Bacillus* 0.57) warrant a curator
+  glance.
+
+  **It does not tell you how much evidence is behind it**, and the filter above
+  shrinks that evidence: 0.571 can mean 4 genomes and 1.0 can mean 7. 19 of the
+  KB's 158 higher-rank groundings now rest on fewer than 10 genomes. Before
+  trusting a genus/higher grounding, re-run the tool on that taxon and read the
+  row counts. Adding the denominator to the block is #383.
+
+  A fraction of exactly **0.5** is a two-way tie, not a majority — it is broken by
+  name so the answer is reproducible, but it is still a coin flip (#382).
+
+  A grounding the majority vote gets *wrong* can be pinned in `CURATED` in
+  `tests/test_gtdb_withheld_groundings.py`; the tool has no memory of such a
+  decision and `--refresh` will otherwise re-break it (#384). `NCBITaxon:18`
+  (*Pelobacter* SFB93 → `g__Syntrophotalea`) is the worked example.
 - **`is_reclassified: true`** — GTDB uses a different name than NCBI at that rank
   (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
   both groundings; the disagreement is the point.

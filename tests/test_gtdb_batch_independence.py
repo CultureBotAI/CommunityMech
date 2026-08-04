@@ -15,7 +15,8 @@ were starved worst — over the whole KB, `pseudomonadota` went from 238 rows to
 That is not academic. It changed three whole-KB outcomes, one of which was live
 in the KB: `NCBITaxon:403` (*Methylococcaceae*) had been grounded to
 `GTDB:f__Methylococcaceae` on a bare 0.505 majority computed from a starved row
-set. With the full set it resolves to `GTDB:f__Methylomonadaceae` at 0.64, and
+set. With the full set it resolves to `GTDB:f__Methylomonadaceae` at 0.695 (0.64 before the
+named-species filter became the default in #372), and
 `is_reclassified` flips to true. GTDB did not *rename* Methylococcaceae —
 `f__Methylococcaceae` still exists and holds 31% of the NCBI family, including
 the type genus *Methylococcus*. It **split** it, and the majority moved. The
@@ -129,7 +130,7 @@ def test_the_regrounded_record_matches_the_tool(gtdb, mapping):
     """`NCBITaxon:403` is the live outcome the fix changed, pinned to the tool.
 
     The stored block claimed `GTDB:f__Methylococcaceae` at a 0.505 majority and
-    `is_reclassified: false`; the full row set gives `Methylomonadaceae` at 0.64,
+    `is_reclassified: false`; the full row set gives `Methylomonadaceae` at 0.695,
     reclassified. If these drift apart again, one of them is stale.
     """
     import yaml
@@ -149,7 +150,7 @@ def test_the_regrounded_record_matches_the_tool(gtdb, mapping):
     # Pin the tool's own values too. Asserting only on the stored YAML let two
     # mutants through: destroying the genome weighting, and hard-wiring
     # is_reclassified False in resolve_higher.
-    assert fresh["majority_fraction"] == stored["majority_fraction"] == 0.64
+    assert fresh["majority_fraction"] == stored["majority_fraction"] == 0.695
     assert (
         fresh["is_reclassified"] is stored["is_reclassified"] is True
     ), "GTDB's name for this family differs from NCBI's, so both must say so"

@@ -72,3 +72,49 @@ def test_withheld_taxon_stays_ungrounded(record: str, preferred: str):
         f"To ground it properly, fix the NCBITaxon id first (#292), then drop this "
         f"entry from WITHHELD."
     )
+
+
+# ---------------------------------------------------------------------------
+# The mirror case: a grounding the tool *will* produce, and must not (#372, #384).
+# ---------------------------------------------------------------------------
+
+# (record, preferred_term) -> (required gtdb_id, why the majority vote is wrong)
+CURATED = {
+    (
+        "Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml",
+        "Pelobacter strain SFB93",
+    ): (
+        "GTDB:g__Syntrophotalea",
+        "The organism is an acetylene fermenter, and the entry's own notes tie SFB93 "
+        "to Syntrophotalea acetylenivorans. GTDB moved the acetylene-fermenting "
+        "Pelobacters into Syntrophotalea (s__Syntrophotalea acetylenica, 8 genomes; "
+        "s__Syntrophotalea_A acetylenivorans, 3). But all three NCBI Pelobacter "
+        "rows naming Syntrophotalea are `sp.` rows, so the named-species filter "
+        "(#375) discards the plurality lineage and the majority vote lands on "
+        "g__Seleniibacterium at 0.571 — derived from P. seleniigenes, a selenate "
+        "reducer. The tool has no memory of this, so `--refresh` re-breaks it.",
+    ),
+}
+
+
+@pytest.mark.parametrize(
+    ("record", "preferred"), list(CURATED), ids=[f"{r}::{p}" for r, p in CURATED]
+)
+def test_curated_grounding_is_not_overwritten_by_the_majority_vote(record: str, preferred: str):
+    """A grounding chosen on evidence must survive a tool re-run.
+
+    `WITHHELD` above protects taxa that must stay *ungrounded*. This protects the
+    opposite: a taxon that is grounded correctly, where re-running the tool would
+    replace a right answer with a confidently-wrong one.
+    """
+    term = _taxon_term(record, preferred)
+    assert term is not None, f"'{preferred}' is no longer in {record}; update CURATED."
+
+    expected, why = CURATED[(record, preferred)]
+    grounding = term.get("gtdb_classification")
+    assert grounding, f"'{preferred}' in {record} lost its curated grounding. {why}"
+    assert grounding.get("gtdb_id") == expected, (
+        f"'{preferred}' in {record} is grounded to {grounding.get('gtdb_id')}, not "
+        f"the curated {expected}. {why} This is most likely an unreviewed "
+        f"`gtdb_ground.py --refresh` — revert this block."
+    )

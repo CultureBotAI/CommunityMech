@@ -191,23 +191,28 @@ def test_the_gate_refuses_unparseable_output(gtdb, record):
 # The shape that broke it: a wrapped scalar inside an existing block.
 # ---------------------------------------------------------------------------
 
-WRAPPED = (
-    REPO
-    / "kb/communities/Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml"
-)
-
 
 @pytest.fixture
 def wrapped_record(tmp_path):
-    """A real record whose block contains a PyYAML line-wrap continuation.
+    """A record whose block carries a PyYAML line-wrap continuation.
 
-    13 records carry one, written by the `--emit-yaml` path, which dumps at
-    width=100 rather than the width=4096 `apply_to_community` uses. Continuations
-    sit at 8 spaces, so a span scan matching *exactly* 6 stopped a line short and
-    orphaned them into duplicate keys.
+    Built rather than borrowed. 13 KB records had this shape, pasted from the
+    `--emit-yaml` path, which dumps at width ~100 while `--apply` uses 4096
+    (#380) — but a refresh normalises them, so a fixture pointing at a real
+    record stops testing anything the moment the KB is swept.
+
+    Continuations sit deeper than the block keys, so a span matching *exactly*
+    six spaces stopped short and orphaned them into duplicate keys.
     """
-    dest = tmp_path / WRAPPED.name
-    shutil.copy(WRAPPED, dest)
+    source = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
+    text = source.read_text()
+    marker = "      mapping_source: "
+    i = text.index(marker)
+    eol = text.index("\n", i)
+    cut = i + len(marker) + 40
+    wrapped = text[i:cut] + "\n        " + text[cut:eol].strip()
+    dest = tmp_path / source.name
+    dest.write_text(text[:i] + wrapped + text[eol:])
     assert re.search(r"^        \S", dest.read_text(), re.M), "fixture lost its wrapped line"
     return dest
 
@@ -235,22 +240,32 @@ def test_refresh_of_a_wrapped_block_produces_no_duplicate_keys(gtdb, wrapped_rec
         {c.lower() for c in cleaned if " " not in c},
     )
 
-    gtdb.apply_to_community(wrapped_record, *rows, "test-source", refresh=True)
+    before = wrapped_record.read_text()
+    written = gtdb.apply_to_community(wrapped_record, *rows, "test-source", refresh=True)
 
     text = wrapped_record.read_text()
+    # Without these three, every assertion below passes on the *un-refreshed*
+    # fixture — it already has 7 grounded blocks and one of each key, so a
+    # regression making refresh a silent no-op would go undetected (#372 review).
+    assert written, "refresh reported writing no blocks"
+    assert text != before, "refresh left the file byte-identical — it did nothing"
+    assert "test-source" in text, "the refreshed blocks do not carry the new mapping_source"
+
     after = yaml.safe_load(text)
     grounded = sum(
         1 for e in after["taxonomy"] if (e.get("taxon_term") or {}).get("gtdb_classification")
     )
     for key in ("ncbi_source_id", "majority_fraction", "mapping_source"):
         assert text.count(f"      {key}:") == grounded, f"duplicate {key} after refresh"
-    assert "built 2026-06-19" not in text, "the stale block survived — refresh did nothing"
 
 
 def test_span_covers_a_wrapped_continuation(gtdb, wrapped_record):
     """Unit-level: the span must run past a deeper-indented continuation line."""
     lines = wrapped_record.read_text().splitlines()
-    anchor = next(i for i, ln in enumerate(lines) if re.match(r"^\s+id: NCBITaxon:\d+\s*$", ln))
+    # The anchor of the entry that actually carries the wrapped block — the
+    # nearest `id:` line above it, not simply the first in the file.
+    wrapped_at = next(i for i, ln in enumerate(lines) if re.match(r"^\s{8,}\S", ln))
+    anchor = max(i for i in range(wrapped_at) if re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[i]))
     span = gtdb._block_span(lines, anchor, len(lines))
     assert span, "expected a block for this entry"
     assert not re.match(
