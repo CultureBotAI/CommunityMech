@@ -26,11 +26,9 @@ finish condition.
 
 | # | Item | Size | Done when | Verified against `main` |
 |---|---|---|---|---|
-| 1 | **#306** snippet checks pick a cache file arbitrarily | M | resolution is deterministic, pinned by a test | **62** stems carry both `.md` and `.txt`; 63 folding case, 63 with any two extensions |
 
-**#290, #358 and #314 are done** (PRs #361, #362, #364). **Start with #306** —
-62 references carry both a `.md` and a `.txt` and the snippet checks pick one
-arbitrarily.
+**#290, #358, #314 and #306 are done** (PRs #361, #362, #364, #368). **Start
+with #352a** — seven records have no published page, one `just gen-html` away.
 
 ## Tier 2 — loop-able with a tighter brief
 
@@ -83,6 +81,7 @@ answer is not derivable from the repo.
 | #325 | Backfill `curation_history` to the other 310 of 312, or drop the slot? |
 | #356 | Does the ECM entry mean nutrients *from* the host or *to* it? |
 | #363 | Measure the real `/goal` ceiling, and decide whether it counts chars or bytes |
+| #367 | Should `fetch_pubmed_abstract` return MEDLINE only, or normalise a `.md`? |
 | #365 | Which NCBI id the two *Bosea* entries should carry — the current one is a plant |
 | #182 | Which best-effort ontology remaps to accept |
 | #199 | Which dataviz findings to act on |

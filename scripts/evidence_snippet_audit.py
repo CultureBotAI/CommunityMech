@@ -146,80 +146,91 @@ def walk(node, path, out):
 
 
 stats = defaultdict(int)
-file_mismatch = defaultdict(list)
-file_nocontent = defaultdict(int)
-file_rendering = defaultdict(int)
-cache_cache = {}
+def main() -> None:
+    """Run the audit over the whole KB and print the report.
 
-for f in sorted(COMM.glob("*.yaml")):
-    try:
-        data = yaml.safe_load(f.read_text())
-    except Exception as e:
-        print(f"YAML ERROR {f.name}: {e}")
-        continue
-    items = []
-    walk(data, f.name, items)
-    for path, ref, snip in items:
-        if ref not in cache_cache:
-            cache_cache[ref] = cache_text(ref)
-        content, has = cache_cache[ref]
-        if not has:
-            stats["NOCONTENT"] += 1
-            file_nocontent[f.name] += 1
+    Wrapped in a function so the resolution helpers above can be imported
+    and tested without the module printing a full audit as a side effect
+    of import (#306).
+    """
+    file_mismatch = defaultdict(list)
+    file_nocontent = defaultdict(int)
+    file_rendering = defaultdict(int)
+    cache_cache = {}
+
+    for f in sorted(COMM.glob("*.yaml")):
+        try:
+            data = yaml.safe_load(f.read_text())
+        except Exception as e:
+            print(f"YAML ERROR {f.name}: {e}")
             continue
-        cov = coverage(snip, content)
-        # snippets that stitch non-contiguous excerpts with ".." / "…" are legit
-        # if every fragment is itself present in the abstract
-        if cov < 0.9 and re.search(r"\.\.+|…", snip):
-            frags = [f for f in re.split(r"\.\.+|…", snip) if alnum(f)]
-            if frags and all(coverage(f, content) >= 0.9 for f in frags):
-                cov = 1.0
-        if cov >= 0.9:
-            # Split literal quotes from ones that only match after punctuation /
-            # whitespace / Greek normalisation (e.g. record "10% CO 2" vs cached
-            # "10% CO2", "beta-5" vs "β-5"). Both are faithful quotes of the
-            # PAPER — the spacing is a PDF/XML extraction artefact in the CACHE —
-            # but `just validate-references` does strict substring matching and
-            # reports exactly this class as an error. Counting it separately is
-            # what reconciles the two gates (issue #257); do NOT "fix" these by
-            # rewriting snippets to match the cache, which would propagate
-            # artefacts like "mg/ L" into the records.
-            if norm(snip) in norm(content):
-                stats["MATCH"] += 1
+        items = []
+        walk(data, f.name, items)
+        for path, ref, snip in items:
+            if ref not in cache_cache:
+                cache_cache[ref] = cache_text(ref)
+            content, has = cache_cache[ref]
+            if not has:
+                stats["NOCONTENT"] += 1
+                file_nocontent[f.name] += 1
+                continue
+            cov = coverage(snip, content)
+            # snippets that stitch non-contiguous excerpts with ".." / "…" are legit
+            # if every fragment is itself present in the abstract
+            if cov < 0.9 and re.search(r"\.\.+|…", snip):
+                frags = [f for f in re.split(r"\.\.+|…", snip) if alnum(f)]
+                if frags and all(coverage(f, content) >= 0.9 for f in frags):
+                    cov = 1.0
+            if cov >= 0.9:
+                # Split literal quotes from ones that only match after punctuation /
+                # whitespace / Greek normalisation (e.g. record "10% CO 2" vs cached
+                # "10% CO2", "beta-5" vs "β-5"). Both are faithful quotes of the
+                # PAPER — the spacing is a PDF/XML extraction artefact in the CACHE —
+                # but `just validate-references` does strict substring matching and
+                # reports exactly this class as an error. Counting it separately is
+                # what reconciles the two gates (issue #257); do NOT "fix" these by
+                # rewriting snippets to match the cache, which would propagate
+                # artefacts like "mg/ L" into the records.
+                if norm(snip) in norm(content):
+                    stats["MATCH"] += 1
+                else:
+                    stats["RENDERING"] += 1
+                    file_rendering[f.name] += 1
+            elif cov >= 0.6:
+                stats["WEAK"] += 1
+                file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
             else:
-                stats["RENDERING"] += 1
-                file_rendering[f.name] += 1
-        elif cov >= 0.6:
-            stats["WEAK"] += 1
-            file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
-        else:
-            stats["MISMATCH"] += 1
-            file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "MISMATCH"))
+                stats["MISMATCH"] += 1
+                file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "MISMATCH"))
 
-total = sum(stats.values())
-print(f"# {total} evidence snippets scanned across {len(list(COMM.glob('*.yaml')))} files")
-for k in ("MATCH", "RENDERING", "WEAK", "MISMATCH", "NOCONTENT"):
-    print(f"  {k:<10} {stats[k]}")
+    total = sum(stats.values())
+    print(f"# {total} evidence snippets scanned across {len(list(COMM.glob('*.yaml')))} files")
+    for k in ("MATCH", "RENDERING", "WEAK", "MISMATCH", "NOCONTENT"):
+        print(f"  {k:<10} {stats[k]}")
 
-print(f"\n# Files with MISMATCH/WEAK (content present but snippet absent) — fabrication suspects")
-ranked = sorted(file_mismatch.items(), key=lambda x: -len(x[1]))
-for fn, rows in ranked:
-    hard = sum(1 for r in rows if r[4] == "MISMATCH")
-    print(f"  {len(rows):>2} ({hard} hard)  {fn}")
-
-if LIST_MM:
-    print("\n# MISMATCH/WEAK detail")
+    print(f"\n# Files with MISMATCH/WEAK (content present but snippet absent) — fabrication suspects")
+    ranked = sorted(file_mismatch.items(), key=lambda x: -len(x[1]))
     for fn, rows in ranked:
-        for path, ref, cov, snip, kind in rows:
-            print(f"  [{kind} cov={cov}] {fn} {ref}\n      {snip}...")
+        hard = sum(1 for r in rows if r[4] == "MISMATCH")
+        print(f"  {len(rows):>2} ({hard} hard)  {fn}")
 
-if LIST_RD:
-    print("\n# Files by RENDERING (faithful quote; differs from cache only by")
-    print("# punctuation/whitespace/Greek — this is what validate-references flags)")
-    for fn, n in sorted(file_rendering.items(), key=lambda x: -x[1])[:30]:
-        print(f"  {n:>2}  {fn}")
+    if LIST_MM:
+        print("\n# MISMATCH/WEAK detail")
+        for fn, rows in ranked:
+            for path, ref, cov, snip, kind in rows:
+                print(f"  [{kind} cov={cov}] {fn} {ref}\n      {snip}...")
 
-if LIST_NC:
-    print(f"\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
-    for fn, n in sorted(file_nocontent.items(), key=lambda x: -x[1])[:30]:
-        print(f"  {n:>2}  {fn}")
+    if LIST_RD:
+        print("\n# Files by RENDERING (faithful quote; differs from cache only by")
+        print("# punctuation/whitespace/Greek — this is what validate-references flags)")
+        for fn, n in sorted(file_rendering.items(), key=lambda x: -x[1])[:30]:
+            print(f"  {n:>2}  {fn}")
+
+    if LIST_NC:
+        print(f"\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
+        for fn, n in sorted(file_nocontent.items(), key=lambda x: -x[1])[:30]:
+            print(f"  {n:>2}  {fn}")
+
+
+if __name__ == "__main__":
+    main()
