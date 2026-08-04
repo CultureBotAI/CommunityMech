@@ -54,6 +54,7 @@ COL_NCBI_ID = 0
 COL_TOTAL_GENOMES = 2
 COL_MAJORITY = 3
 COL_NCBI_SPECIES = 10
+COL_NCBI_STRAIN = 11
 COL_GTDB_SPECIES = 18
 # (ncbi_col, gtdb_col, rank_prefix) for higher ranks, finest -> coarsest.
 HIGHER_RANKS = [(9, 17, "g"), (8, 16, "f"), (7, 15, "o"), (6, 14, "c"), (5, 13, "p")]
@@ -168,8 +169,55 @@ def _ground_species(rows, source_id, label, via):
     }
 
 
-def resolve_higher(clean_lc, source_id, label, by_higher):
-    """Ground a genus/family/... input to the majority GTDB taxon at that rank."""
+def deepest_only(matched: list) -> list:
+    """Keep one depth per lineage: strain rows where a lineage has any, else its species row.
+
+    `NCBI2GTDB.tsv.gz` is an upstream crosswalk (Bork group / metatraits) in which
+    every row is an independent NCBI->GTDB assignment carrying its own genome
+    support. Summing across depths therefore aggregates evidence rather than
+    double-counting a ledger — a genome legitimately supports its strain's
+    assignment and its species' — but it weights deeply sequenced lineages more
+    heavily. Over all 92711 rows the supports total 1.84M against ~600k genomes
+    in a release.
+
+    This is the alternative denominator: one row per lineage, at the deepest
+    depth available. It mirrors the rule kg-microbe-paper settled on for the same
+    shape of problem ("deepest available level, one level only, per parent").
+
+    The leaf case is handled first and deliberately: a row that is itself a
+    strain with no species is kept as its own lineage. In the prior art, the
+    equivalent branch looked up a leaf as if it were a parent, found nothing, and
+    silently dropped the taxon.
+
+    Note this is *not* provably the correct denominator. Containment does not
+    hold in this table: of the 2827 species carrying both a species row and
+    strain rows, 1363 have strain supports exceeding the species row — e.g.
+    Agathobacter rectalis, 418 genomes at the species node against 13850 at its
+    type strain. See #371.
+    """
+    lineages: dict[str, dict[str, list]] = {}
+    for row in matched:
+        species = row[COL_NCBI_SPECIES].strip().lower()
+        strain = row[COL_NCBI_STRAIN].strip() if len(row) > COL_NCBI_STRAIN else ""
+        # A strain row with no species names its own lineage; without this it
+        # would be pooled under "" with every other speciesless strain.
+        key = species or (strain.lower() if strain else f"__row{id(row)}")
+        lineages.setdefault(key, {"strain": [], "species": []})
+        lineages[key]["strain" if strain else "species"].append(row)
+
+    kept = []
+    for group in lineages.values():
+        kept.extend(group["strain"] or group["species"])
+    return kept
+
+
+def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate"):
+    """Ground a genus/family/... input to the majority GTDB taxon at that rank.
+
+    `denominator` selects how genome support is summed: "aggregate" (default,
+    unchanged) sums every matched row; "deepest" keeps one row per lineage.
+    See `deepest_only` and #371.
+    """
     rows = by_higher.get(clean_lc)
     if not rows:
         return None
@@ -177,6 +225,8 @@ def resolve_higher(clean_lc, source_id, label, by_higher):
         matched = [r for r in rows if r[ncbi_col].strip().lower() == clean_lc]
         if not matched:
             continue
+        if denominator == "deepest":
+            matched = deepest_only(matched)
         weights: dict[str, float] = defaultdict(float)
         rep: dict[str, list] = {}
         for r in matched:
@@ -217,8 +267,12 @@ def resolve_higher(clean_lc, source_id, label, by_higher):
     return None
 
 
-def resolve_target(ncbi_id, label, by_id, by_name, by_higher):
-    """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon."""
+def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate"):
+    """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
+
+    `denominator` is forwarded to `resolve_higher`; the species and id paths
+    resolve a single row and are identical under either choice (#371).
+    """
     source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
     clean = _clean_label(label)
     if _is_species(clean):
@@ -243,7 +297,7 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher):
                     "n_alt": len(species),
                 }
         return None
-    return resolve_higher(clean.lower(), source_id, label, by_higher)
+    return resolve_higher(clean.lower(), source_id, label, by_higher, denominator)
 
 
 def _block(g: dict, mapping_source: str) -> dict:

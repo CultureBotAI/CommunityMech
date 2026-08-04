@@ -383,6 +383,11 @@ enrich-edison-response *args="":
 scout-communities *args="":
     uv run python scripts/scout_communities.py {{args}}
 
+# Compare the two GTDB majority denominators over the KB (issue #371).
+# Writes reports/gtdb_denominators.tsv; changes nothing.
+gtdb-compare-denominators *args:
+    uv run python scripts/gtdb_denominator_compare.py {{args}}
+
 # Ground taxa in GTDB via the local kg-microbe NCBI<->GTDB mapping (no network).
 #   just ground-taxa-gtdb --community kb/communities/Foo.yaml --emit-yaml
 #   just ground-taxa-gtdb --ncbi-id NCBITaxon:492670 --emit-yaml
