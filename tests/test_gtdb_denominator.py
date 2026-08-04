@@ -5,6 +5,11 @@ NCBI->GTDB assignment carrying its own genome support. `aggregate` (the default)
 sums every matched row; `deepest` keeps one row per lineage, at the deepest rank
 present — the rule `kg-microbe-paper` settled on for the same shape of problem.
 
+Orthogonal to that choice, the named-species filter (#375) drops `sp.` /
+`uncultured` / `bacterium` MAG rows from the count. It is **on by default** as of
+#372; `exclude_unnamed=False` restores the older, unfiltered behaviour, which
+several tests below still pin because the argument for the default rests on it.
+
 The comparison is the point, not a winner. `scripts/gtdb_denominator_compare.py`
 writes both answers for all 578 KB taxa; 5 flip, affecting 26 stored blocks.
 
@@ -24,8 +29,9 @@ case, which is only 0.522.
 sequenced than the type species *E. faecalis* — see #373 and #374. `deepest`
 returns AMBIGUOUS there, which is the honest answer.
 
-A third option neither denominator covers would fix Acetobacter under both:
-exclude `sp.`/`uncultured` MAG rows (#375).
+That third axis — excluding `sp.`/`uncultured` MAG rows (#375) — is what fixes
+Acetobacter under *both* denominators, which is why it is now the default. It
+does not settle #371: Pseudomonas still diverges with the filter applied.
 """
 
 import importlib.util
@@ -146,36 +152,45 @@ def test_default_denominator_is_unchanged(gtdb, mapping):
 
     assert default == explicit
     assert default["gtdb_id"] == "GTDB:f__Methylomonadaceae"
-    assert default["majority_fraction"] == 0.64
+    assert default["majority_fraction"] == 0.695  # filter on by default (#375)
 
 
 def test_deepest_shifts_weight_toward_strain_annotated_lineages(gtdb, mapping):
-    """One of four cases favouring the default, and the narrowest.
+    """The case that motivated turning the named-species filter on by default.
 
     Acetobacter is a cultivated genus; CAG-267 is an uncultivated MAG lineage
-    whose support here is entirely strain rows. Under `deepest` it wins, which is
-    the wrong answer for the Drosophila gut record that carries this taxon.
+    whose support here is entirely strain rows. `deepest` keeps a lineage's strain
+    rows and drops its species rows, which hands CAG-267 the majority — the wrong
+    answer for the Drosophila gut record that carries this taxon.
 
-    The margin is thin — 458 against 338, and CAG-267 grew 33 -> 120 genomes
-    between R214 and R220 — so this assertion doubles as a tripwire on the
-    default itself (#375).
+    With the filter on (now the default) the MAG rows never enter the count, so
+    both denominators reach the cultivated genus and this divergence is gone. The
+    second half pins the *unfiltered* behaviour, because that is the observation
+    the filter's default rests on: if it stops holding, the argument for the
+    default has changed and `scripts/gtdb_denominator_compare.py` wants re-running.
     """
     _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"acetobacter"})
 
-    aggregate = gtdb.resolve_higher("acetobacter", "NCBITaxon:434", "Acetobacter", by_higher)
-    deepest = gtdb.resolve_higher(
-        "acetobacter", "NCBITaxon:434", "Acetobacter", by_higher, "deepest"
+    def ground(denominator, **kwargs):
+        return gtdb.resolve_higher(
+            "acetobacter", "NCBITaxon:434", "Acetobacter", by_higher, denominator, **kwargs
+        )
+
+    assert ground("aggregate")["gtdb_id"] == "GTDB:g__Acetobacter"
+    assert ground("deepest")["gtdb_id"] == "GTDB:g__Acetobacter", (
+        "the filter is on by default, so the MAG lineage must no longer win under "
+        "`deepest` — see #375"
     )
 
-    assert aggregate["gtdb_id"] == "GTDB:g__Acetobacter"
-    assert deepest["gtdb_id"] == "GTDB:g__CAG-267", (
+    # The pathology the filter suppresses, still present when it is switched off.
+    assert ground("deepest", exclude_unnamed=False)["gtdb_id"] == "GTDB:g__CAG-267", (
         "if this no longer holds, re-run scripts/gtdb_denominator_compare.py — the "
         "argument for the current default rests on it"
     )
 
 
 # ---------------------------------------------------------------------------
-# The named-species filter (#375): a third axis, also opt-in.
+# The named-species filter (#375): a third axis, on by default since #372.
 # ---------------------------------------------------------------------------
 
 
@@ -250,3 +265,46 @@ def test_the_filter_does_not_settle_the_denominator_question(gtdb, mapping):
         "pseudomonas", "NCBITaxon:286", "Pseudomonas", by_higher, "deepest", exclude_unnamed=True
     )
     assert agg["gtdb_id"] != deep["gtdb_id"]
+
+
+def test_a_tied_majority_does_not_depend_on_row_order(gtdb, mapping):
+    """An exact 50/50 split must give the same answer whichever way the rows come.
+
+    `max()` returns the *first* maximum, so a tie was decided by the order the
+    mapping happened to list its rows: reversing the input flipped NCBITaxon:106591
+    between `g__Ensifer` and `g__Sinorhizobium`, both at 0.5. Two live KB blocks
+    sat on that coin flip. Whether a tie should ground at all is #382; this pins
+    only that the answer is reproducible.
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"ensifer"})
+    rows = by_higher["ensifer"]
+
+    forward = gtdb.resolve_higher("ensifer", "NCBITaxon:106591", "Ensifer", {"ensifer": rows})
+    reverse = gtdb.resolve_higher(
+        "ensifer", "NCBITaxon:106591", "Ensifer", {"ensifer": list(reversed(rows))}
+    )
+
+    assert forward["majority_fraction"] == 0.5, "expected the tie this test is about"
+    assert forward["gtdb_id"] == reverse["gtdb_id"], (
+        "reversing the row order changed the grounding — the tie-break is falling "
+        "through to mapping row order"
+    )
+
+
+def test_ties_break_toward_the_lexically_first_name(gtdb):
+    """The tie-break rule itself, without depending on the mapping's contents."""
+
+    def row(gtdb_genus, genomes):
+        # col 2 = genome count, col 9 = NCBI genus (the match key), col 17 = GTDB
+        # genus; see HIGHER_RANKS / COL_TOTAL_GENOMES in the script.
+        cells = [""] * 20
+        cells[2], cells[9], cells[17] = genomes, "Testgenus", gtdb_genus
+        cells[10] = "Testgenus namedspecies"  # survive the named-species filter
+        return cells
+
+    by_higher = {"testgenus": [row("g__Zeta", "10"), row("g__Alpha", "10")]}
+    result = gtdb.resolve_higher(
+        "testgenus", "NCBITaxon:1", "Testgenus", by_higher, exclude_unnamed=False
+    )
+
+    assert result["gtdb_taxon"] == "g__Alpha", "a tie must resolve to the lexically first name"

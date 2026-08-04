@@ -248,7 +248,7 @@ def deepest_only(matched: list) -> list:
 
 
 def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate",
-                   exclude_unnamed=False):
+                   exclude_unnamed=True):
     """Ground a genus/family/... input to the majority GTDB taxon at that rank.
 
     `denominator` selects how genome support is summed: "aggregate" (default,
@@ -289,7 +289,12 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         if not weights:
             return None
         total = sum(weights.values())
-        top, tw = max(weights.items(), key=lambda kv: kv[1])
+        # Break ties by name, not by row order. `max` returns the first maximum,
+        # which for an exact tie is whichever row the mapping happened to list
+        # first — reversing the input flipped Ensifer/Sinorhizobium (both at 0.5).
+        # Whether a 50/50 split should ground *at all* is a separate question
+        # (#382); this only makes the answer reproducible.
+        top, tw = sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))[0]
         frac = tw / total
         if frac >= 0.5:
             return {
@@ -315,7 +320,7 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
 
 
 def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate",
-                   exclude_unnamed=False):
+                   exclude_unnamed=True):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
 
     `denominator` is forwarded to `resolve_higher`; the species and id paths
