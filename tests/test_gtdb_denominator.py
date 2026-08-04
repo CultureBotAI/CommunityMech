@@ -172,3 +172,81 @@ def test_deepest_shifts_weight_toward_strain_annotated_lineages(gtdb, mapping):
         "if this no longer holds, re-run scripts/gtdb_denominator_compare.py — the "
         "argument for the current default rests on it"
     )
+
+
+# ---------------------------------------------------------------------------
+# The named-species filter (#375): a third axis, also opt-in.
+# ---------------------------------------------------------------------------
+
+
+def test_unnamed_species_rows_are_dropped(gtdb):
+    kept = gtdb.named_species_only(
+        [
+            _row(species="Acetobacter aceti"),
+            _row(species="Acetobacter sp. 46_36"),
+            _row(species="uncultured Acetobacter"),
+            _row(species="Firmicutes bacterium CAG:176"),
+            _row(species="unclassified Acetobacter"),
+            _row(species=""),
+        ]
+    )
+    assert [r[10] for r in kept] == ["Acetobacter aceti"]
+
+
+def test_candidatus_names_are_kept(gtdb):
+    """A Candidatus name is a provisional *species* name, not a placeholder.
+
+    Excluding it would discard legitimate taxonomy for uncultivated organisms,
+    which is the opposite of what this filter is for.
+    """
+    row = _row(species="Candidatus Cibiobacter qucibialis")
+    assert gtdb.named_species_only([row]) == [row]
+
+
+def test_filter_never_empties_a_taxon(gtdb, mapping):
+    """A genus known only from bins must keep its grounding, not lose it.
+
+    The filter is a tie-breaker among named species, not a reason to abandon a
+    taxon that has none.
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"acetobacter"})
+    rows = [r for r in by_higher["acetobacter"] if r[9].strip().lower() == "acetobacter"]
+    unnamed = [r for r in rows if not gtdb.named_species_only([r])]
+    assert unnamed, "expected some unnamed rows in this genus"
+
+    only_unnamed = {"acetobacter": unnamed}
+    result = gtdb.resolve_higher(
+        "acetobacter", "NCBITaxon:434", "Acetobacter", only_unnamed, exclude_unnamed=True
+    )
+    assert result, "filtering to nothing must fall back rather than drop the taxon"
+
+
+def test_the_filter_makes_both_denominators_agree_on_acetobacter(gtdb, mapping):
+    """#375's claim, and the reason the filter exists.
+
+    Without it the two denominators disagree here — `g__Acetobacter` against the
+    uncultivated `g__CAG-267`. With it, both reach `g__Acetobacter`.
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"acetobacter"})
+    answers = {
+        den: gtdb.resolve_higher(
+            "acetobacter", "NCBITaxon:434", "Acetobacter", by_higher, den, exclude_unnamed=True
+        )["gtdb_id"]
+        for den in ("aggregate", "deepest")
+    }
+    assert answers == {"aggregate": "GTDB:g__Acetobacter", "deepest": "GTDB:g__Acetobacter"}
+
+
+def test_the_filter_does_not_settle_the_denominator_question(gtdb, mapping):
+    """It fixes the MAG pathology; it does not make the choice moot.
+
+    Pseudomonas still diverges with the filter applied, so #371 stays open.
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"pseudomonas"})
+    agg = gtdb.resolve_higher(
+        "pseudomonas", "NCBITaxon:286", "Pseudomonas", by_higher, "aggregate", exclude_unnamed=True
+    )
+    deep = gtdb.resolve_higher(
+        "pseudomonas", "NCBITaxon:286", "Pseudomonas", by_higher, "deepest", exclude_unnamed=True
+    )
+    assert agg["gtdb_id"] != deep["gtdb_id"]

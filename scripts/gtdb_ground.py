@@ -169,6 +169,39 @@ def _ground_species(rows, source_id, label, via):
     }
 
 
+# NCBI species strings that name no species: metagenome bins, informal lineages
+# and explicit placeholders. `Candidatus` is deliberately absent — a Candidatus
+# name is a provisional *species* name for an uncultivated organism, not a
+# placeholder, and excluding it would discard legitimate taxonomy.
+UNNAMED_SPECIES = re.compile(
+    r"\bsp\.|\b(?:bacterium|archaeon|symbiont|metagenome)\b"
+    r"|^(?:uncultured|unclassified|unidentified)\b",
+    re.IGNORECASE,
+)
+
+
+def named_species_only(matched: list) -> list:
+    """Drop rows whose NCBI species is not an actual binomial.
+
+    Half the crosswalk is unbinomialed — 33.7% `sp.`, 10.9% informal
+    (`Firmicutes bacterium CAG:176`), 5.2% placeholder-prefixed. Those rows carry
+    genome counts like any other, so a heavily-binned MAG lineage can outvote the
+    cultivated species that share the NCBI taxon.
+
+    `Acetobacter` is the worked case: `g__CAG-267` draws its entire 338-genome
+    support from two `sp.` rows, and wins under the `deepest` denominator. With
+    this filter, all 257 binomial Acetobacter genomes map to `g__Acetobacter` and
+    both denominators agree (#375).
+
+    Opt-in, because it is not uniformly better: it also turns `Serratia` from a
+    type-anchored answer into AMBIGUOUS, and it does *not* make the two
+    denominators agree in general — 8 taxa still differ with it applied, against
+    5 without. See reports/gtdb_denominators.tsv.
+    """
+    return [r for r in matched if r[COL_NCBI_SPECIES].strip()
+            and not UNNAMED_SPECIES.search(r[COL_NCBI_SPECIES].strip())]
+
+
 def deepest_only(matched: list) -> list:
     """Keep one depth per lineage: strain rows where a lineage has any, else its species row.
 
@@ -214,7 +247,8 @@ def deepest_only(matched: list) -> list:
     return kept
 
 
-def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate"):
+def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate",
+                   exclude_unnamed=False):
     """Ground a genus/family/... input to the majority GTDB taxon at that rank.
 
     `denominator` selects how genome support is summed: "aggregate" (default,
@@ -228,6 +262,12 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         matched = [r for r in rows if r[ncbi_col].strip().lower() == clean_lc]
         if not matched:
             continue
+        if exclude_unnamed:
+            filtered = named_species_only(matched)
+            # Never let the filter empty a taxon out entirely: a genus known only
+            # from MAG bins would otherwise go from a grounding to nothing.
+            if filtered:
+                matched = filtered
         if denominator not in ("aggregate", "deepest"):
             raise ValueError(
                 f"unknown denominator {denominator!r}; expected 'aggregate' or 'deepest'"
@@ -274,7 +314,8 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
     return None
 
 
-def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate"):
+def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate",
+                   exclude_unnamed=False):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
 
     `denominator` is forwarded to `resolve_higher`; the species and id paths
@@ -304,7 +345,7 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
                     "n_alt": len(species),
                 }
         return None
-    return resolve_higher(clean.lower(), source_id, label, by_higher, denominator)
+    return resolve_higher(clean.lower(), source_id, label, by_higher, denominator, exclude_unnamed)
 
 
 def _block(g: dict, mapping_source: str) -> dict:

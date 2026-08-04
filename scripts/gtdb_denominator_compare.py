@@ -86,33 +86,33 @@ def main() -> int:
     higher = {c.lower() for c in cleaned if " " not in c}
     by_id, by_name, by_higher = grounder.collect_rows(mapping, ids, species, higher)
 
-    rows, flips = [], 0
+    SCENARIOS = [
+        ("aggregate", "aggregate", False),
+        ("aggregate+named", "aggregate", True),
+        ("deepest", "deepest", False),
+        ("deepest+named", "deepest", True),
+    ]
+
+    rows, differ_from_default = [], 0
     for tid, label in taxa:
         core = tid.split(":")[1]
-        agg = grounder.resolve_target(core, label, by_id, by_name, by_higher)
-        # Only the higher-rank path has a denominator choice; species/id paths
-        # resolve a single row and are identical under both.
-        deep = grounder.resolve_target(
-            core, label, by_id, by_name, by_higher, denominator="deepest"
-        )
-        a_id, a_frac = _outcome(agg)
-        d_id, d_frac = _outcome(deep)
-        if a_id != d_id:
-            flips += 1
-            unresolved = ("AMBIGUOUS", "NONE")
-            if a_id in unresolved and d_id.startswith("GTDB:"):
-                direction = "gains grounding"
-            elif d_id in unresolved and a_id.startswith("GTDB:"):
-                direction = "loses grounding"
-            elif a_id in unresolved and d_id in unresolved:
-                direction = "unresolved either way"
-            else:
-                direction = "different taxon"
-        else:
-            direction = ""
-        rows.append(
-            (tid, label, a_id, a_frac, d_id, d_frac, "FLIP" if direction else "", direction)
-        )
+        # Only the higher-rank path has these choices; the species and id paths
+        # resolve a single row and are identical under all four.
+        answers = {
+            name: _outcome(
+                grounder.resolve_target(
+                    core, label, by_id, by_name, by_higher,
+                    denominator=den, exclude_unnamed=filt,
+                )
+            )
+            for name, den, filt in SCENARIOS
+        }
+        default = answers["aggregate"][0]
+        varies = sorted({a[0] for a in answers.values()})
+        if len(varies) > 1:
+            differ_from_default += 1
+        rows.append((tid, label, *[x for a in answers.values() for x in a],
+                     "VARIES" if len(varies) > 1 else "", len(varies)))
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     stat = mapping.stat()
@@ -120,22 +120,25 @@ def main() -> int:
         # Provenance: the upstream crosswalk churns (the KB already carries two
         # build vintages), so a bare table would go stale silently.
         fh.write(f"# mapping: {mapping.name}\tbytes={stat.st_size}\tmtime={int(stat.st_mtime)}\n")
-        fh.write(f"# taxa={len(rows)}\tflips={flips}\n")
+        fh.write(f"# taxa={len(rows)}\tvarying={differ_from_default}\n")
         fh.write(
-            "ncbi_id\tlabel\taggregate_gtdb_id\taggregate_fraction\t"
-            "deepest_gtdb_id\tdeepest_fraction\tflip\tdirection\n"
+            "ncbi_id\tlabel\t"
+            "aggregate_id\taggregate_frac\t"
+            "aggregate_named_id\taggregate_named_frac\t"
+            "deepest_id\tdeepest_frac\t"
+            "deepest_named_id\tdeepest_named_frac\t"
+            "varies\tdistinct_answers\n"
         )
         for row in rows:
             fh.write("\t".join(str(c) for c in row) + "\n")
 
     print(f"taxa compared: {len(rows)}")
-    print(f"outcome flips: {flips}")
+    print(f"taxa where the four scenarios disagree: {differ_from_default}")
     for row in rows:
-        if row[6]:
-            print(
-                f"  {row[0]:<20s} {row[1][:26]:<28s} {row[2]} {row[3]} -> {row[4]} {row[5]}"
-                f"   [{row[7]}]"
-            )
+        if row[10]:
+            print(f"  {row[0]:<18s} {row[1][:24]:<26s} "
+                  f"agg={row[2]:<26s} agg+named={row[4]:<26s} "
+                  f"deep={row[6]:<26s} deep+named={row[8]}")
     print(f"\nwritten to {args.out}")
     return 0
 
