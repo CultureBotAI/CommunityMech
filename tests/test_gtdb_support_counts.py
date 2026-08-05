@@ -161,12 +161,12 @@ def test_the_species_path_reports_the_denominator_but_no_numerator(gtdb, mapping
     result = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
 
     assert result["gtdb_id"] == "GTDB:s__Bacillus_velezensis"
-    # 1163, because this resolves via the NCBI *id*, whose row set is the single
-    # row carrying taxonID 492670. The name path collects every row named
-    # "Bacillus velezensis" — 16 rows, 1196 genomes — and #386's aggregation then
-    # sums them. Which number is right depends on which path grounded the taxon,
-    # so both are pinned; conflating them is how the 1196 assertion first failed.
-    assert result["total_genomes"] == 1163, "the id path sees only this taxonID's rows"
+    # 1166 by either path since #389. The id row still decides the species, but
+    # the denominator is sized from every row the caller could see for this
+    # taxon — so an id-path and a name-path grounding of the same NCBI taxon no
+    # longer disagree. It is the *species-rank* depth: summing that with the
+    # strain rows would double-count genomes inside their own species.
+    assert result["total_genomes"] == 1166, "the widest evidence, at one depth"
     assert "support_genomes" not in result, (
         "the species path must publish no numerator — majority_fraction comes "
         "from the crosswalk's 2-decimal column, so any numerator derived from it "
@@ -273,7 +273,7 @@ def test_an_emitted_species_block_omits_the_numerator(gtdb, mapping):
 
     block = gtdb._block(grounding, "test-source")
 
-    assert block["total_genomes"] == 1163
+    assert block["total_genomes"] == 1166
     assert "support_genomes" not in block, (
         "a species block must omit the numerator entirely — writing "
         "`support_genomes: null` puts noise on 336 records and hides from a "
@@ -310,9 +310,13 @@ def test_species_counts_match_the_crosswalk(gtdb, mapping):
         # is a single row, so #386's aggregation is a no-op here and the count
         # must equal that row. A `>=` passes for any mutant that inflates the
         # total — including dropping the agreeing-rows filter entirely.
-        assert result["total_genomes"] == expected[ncbi_id][1], (
-            f"{label}: stored {result['total_genomes']} against {expected[ncbi_id][1]} "
-            f"on the crosswalk row this id resolves to"
+        # `>=` since #389: the denominator is sized from every row for this
+        # taxon at one depth, so it cannot be smaller than the single best row
+        # but is usually larger. Exactness moved to `_species_denominator`'s own
+        # tests, which can state the rule rather than a sample of it.
+        assert result["total_genomes"] >= expected[ncbi_id][1], (
+            f"{label}: stored {result['total_genomes']}, less than the "
+            f"{expected[ncbi_id][1]} on the row this id resolves to"
         )
 
 
@@ -637,3 +641,100 @@ def test_the_weighted_fraction_keeps_three_decimal_places(gtdb):
 
     assert result["total_genomes"] == 4
     assert result["majority_fraction"] == 0.963, "the mean must keep three decimal places"
+
+
+# ---------------------------------------------------------------------------
+# The species denominator: one depth, widest evidence, path-independent (#389).
+# ---------------------------------------------------------------------------
+
+
+def _depth_row(genomes, majority="1.0", strain=""):
+    """A crosswalk row for one GTDB species, at species or strain depth."""
+    cells = [""] * 20
+    cells[2], cells[3] = genomes, majority
+    cells[10], cells[11], cells[18] = "Somegenus somespecies", strain, "Somegenus somespecies"
+    return cells
+
+
+def test_a_species_row_is_never_summed_with_its_strain_rows(gtdb):
+    """The double-count #389 had to avoid.
+
+    A crosswalk row is one NCBI taxonID's assignment, so a species-rank row and
+    its strain rows describe overlapping genome sets. *E. coli* has a
+    166397-genome species row plus 2609 strain rows; adding them gives 184367
+    for a population no larger than the species.
+    """
+    rows = [_depth_row("100"), _depth_row("7", strain="K-12"), _depth_row("3", strain="B")]
+
+    total, _ = gtdb._species_denominator(rows)
+
+    assert total == 100, "the species row was summed with its own strains"
+
+
+def test_the_larger_depth_wins(gtdb):
+    """Not `deepest_only`'s rule, which would discard the largest measurement.
+
+    Keeping strains over the species row would report 17969 for *E. coli*
+    against its 166397-genome species row. Containment does not hold in this
+    table, so the larger depth is the best supported lower bound (#371).
+    """
+    strain_heavy = [_depth_row("10"), _depth_row("60", strain="A"), _depth_row("50", strain="B")]
+    assert gtdb._species_denominator(strain_heavy)[0] == 110
+
+    species_heavy = [_depth_row("500"), _depth_row("6", strain="A")]
+    assert gtdb._species_denominator(species_heavy)[0] == 500
+
+
+def test_the_fraction_is_weighted_within_the_winning_depth(gtdb):
+    """Mixing depths in the mean would describe a population that was not counted."""
+    # The strain row must be the *smaller* depth, or it legitimately wins and
+    # the test measures the wrong branch — which is how this was first written.
+    rows = [
+        _depth_row("300", majority="1.0"),
+        _depth_row("100", majority="0.9"),
+        _depth_row("50", majority="0.1", strain="ignored"),
+    ]
+
+    total, fraction = gtdb._species_denominator(rows)
+
+    assert total == 400
+    assert fraction == 0.975, "the strain row's 0.1 must not drag the species-depth mean"
+
+
+def test_a_denominator_does_not_depend_on_which_lookup_hit(gtdb, mapping):
+    """The defect: two blocks for one NCBI taxon disagreed by resolution path.
+
+    An id-path grounding reported its single crosswalk row and a name-path
+    grounding reported many, so `total_genomes` recorded which lookup happened to
+    hit rather than how much evidence exists. 260 of 337 species blocks took the
+    id path.
+    """
+    by_id, by_name, by_higher = gtdb.collect_rows(
+        mapping, {"492670"}, {"bacillus velezensis"}, set()
+    )
+
+    with_id = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
+    name_only = gtdb.resolve_target("", "Bacillus velezensis", {}, by_name, by_higher)
+
+    assert (
+        with_id["total_genomes"] == name_only["total_genomes"]
+    ), "the same taxon reports different evidence depending on the lookup path"
+
+
+def test_every_kb_taxon_reports_one_denominator(grounded):
+    """KB-level: the same NCBI taxon must never carry two different totals.
+
+    Different NCBI taxa mapping to one GTDB species legitimately differ —
+    `NCBITaxon:562` (*E. coli*) sits at 166398 while its K-12 substrains report
+    37, 50 and 4 — because the denominator is scoped to the taxon grounded, not
+    to the GTDB species. What must not vary is one taxon against itself.
+    """
+    from collections import defaultdict
+
+    by_taxon = defaultdict(set)
+    for _record, _name, block in grounded:
+        if block.get("support_genomes") is None and block.get("total_genomes"):
+            by_taxon[block.get("ncbi_source_id")].add(block["total_genomes"])
+
+    inconsistent = {tid: sorted(v) for tid, v in by_taxon.items() if len(v) > 1}
+    assert not inconsistent, f"one taxon, several denominators: {inconsistent}"

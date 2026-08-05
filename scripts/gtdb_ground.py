@@ -187,7 +187,33 @@ def _genomes(row) -> int:
         return 0
 
 
-def _ground_species(rows, source_id, label, via):
+def _species_denominator(rows) -> tuple[int, float]:
+    """(genomes, genome-weighted majority) for one GTDB species, without double-counting.
+
+    A crosswalk row is an NCBI taxonID's assignment, so a species-rank row and
+    its strain rows describe overlapping genome sets. Summing them inflates:
+    *Escherichia coli* has a 166397-genome species row plus 2609 strain rows,
+    and adding them gives 184367 for a population no larger than the species.
+
+    `deepest_only`'s rule — drop the species row, keep the strains — is not right
+    for a denominator either: it would report 17969 for that same taxon,
+    discarding the single largest measurement.
+
+    So take the larger of the two depths and never their sum. Containment does
+    not hold in this table (1363 of 2827 species have strain support exceeding
+    their species row, #371), so the larger depth is the best supported lower
+    bound rather than a derived total.
+    """
+    species_rows = [r for r in rows if not r[COL_NCBI_STRAIN].strip()]
+    strain_rows = [r for r in rows if r[COL_NCBI_STRAIN].strip()]
+    chosen = max((species_rows, strain_rows), key=lambda group: sum(_genomes(r) for r in group))
+    total = sum(_genomes(r) for r in chosen)
+    if not total:
+        return 0, 0.0
+    return total, round(sum(_genomes(r) * _maj(r) for r in chosen) / total, 3)
+
+
+def _ground_species(rows, source_id, label, via, evidence=None):
     # Deterministic order. A plain `sorted(key=_maj)` is stable, so among rows
     # tied on majority the winner was whichever the crosswalk listed first —
     # reversing the file moved *Anaerobutyricum hallii* from 156 genomes to 1,
@@ -243,17 +269,22 @@ def _ground_species(rows, source_id, label, via):
     # fixes. Extending it means summing across NCBI depths, where a species-rank
     # row and its strain rows would double-count: 96 of the KB's species mix the
     # two. That is #371's question, and it is tracked separately (#389).
-    agreeing = [r for r in rows if r[COL_GTDB_SPECIES].strip() == sp] if sp else []
-    total = sum(_genomes(r) for r in agreeing)
-    if total:
-        fraction = round(sum(_genomes(r) * _maj(r) for r in agreeing) / total, 3)
-    else:
+    # The denominator is sized from `evidence` — every row the caller could see
+    # for this taxon — while `rows` decides *which* species. Before #389 the two
+    # were the same set, so an id-path grounding reported its single row and a
+    # name-path grounding reported many: two blocks naming one GTDB species
+    # carried different totals depending on which lookup happened to hit.
+    agreeing = (
+        [r for r in (evidence if evidence is not None else rows) if r[COL_GTDB_SPECIES].strip() == sp]
+        if sp
+        else []
+    )
+    total, fraction = _species_denominator(agreeing)
+    if not total:
         # No GTDB species cell, or every agreeing row carries no genome count.
-        # An earlier comment here claimed this "degrades to its pre-#386
-        # behaviour rather than to zero" — wrong on both counts: `top` is itself
-        # in `agreeing`, so an empty total means `_genomes(top)` is 0 too, and
-        # emitting `total_genomes: 0` would then fail the `minimum_value: 1` this
-        # PR adds (#388 review). Publish no count rather than a meaningless one.
+        # `top` is itself in `agreeing`, so an empty total means `_genomes(top)`
+        # is 0 too — publish no count rather than a meaningless one, since
+        # `total_genomes: 0` would fail the schema's `minimum_value: 1`.
         total, fraction = _genomes(top) or None, _maj(top)
     return {
         "ncbi_source_id": source_id,
@@ -468,6 +499,18 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
     return None
 
 
+def _union(*groups) -> list:
+    """Distinct rows across the given groups, order preserved."""
+    seen, out = set(), []
+    for group in groups:
+        for row in group or []:
+            key = tuple(row)
+            if key not in seen:
+                seen.add(key)
+                out.append(row)
+    return out
+
+
 def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate",
                    exclude_unnamed=True):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
@@ -478,9 +521,13 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
     source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
     clean = _clean_label(label)
     if _is_species(clean):
-        if ncbi_id and ncbi_id in by_id:
-            return _ground_species(by_id[ncbi_id], source_id, label, "ncbi_id")
         nlc = clean.lower()
+        if ncbi_id and ncbi_id in by_id:
+            # The id row still decides the species — it is the exact taxonID
+            # match. The name rows only size the evidence behind it (#389).
+            return _ground_species(
+                by_id[ncbi_id], source_id, label, "ncbi_id", evidence=_union(by_id[ncbi_id], by_name.get(nlc))
+            )
         if nlc in by_name:
             species: dict[str, list] = {}
             for c in by_name[nlc]:
@@ -488,7 +535,10 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
                 if sp:
                     species.setdefault(sp, []).append(c)
             if len(species) == 1:
-                return _ground_species(next(iter(species.values())), source_id, label, "ncbi_name")
+                chosen = next(iter(species.values()))
+                return _ground_species(
+                    chosen, source_id, label, "ncbi_name", evidence=_union(chosen, by_id.get(ncbi_id))
+                )
             if len(species) > 1:
                 return {
                     "ambiguous": True,

@@ -181,15 +181,16 @@ taxonomy entries and their id anchors do not line up.
   For genus-and-higher it counts only what was *counted* — rows dropped by the
   named-species filter are excluded, so it shrinks when the filter bites.
 
-  **For species it is path-dependent, and the scope is smaller than it looks.**
-  An NCBI id maps to exactly one crosswalk row, so an id-path grounding reports
-  that row alone; a species *name* covers several strain taxonIDs, and those
-  aggregate across every row reaching the same GTDB species (#386). *Bacillus
-  velezensis* is 1163 genomes via its id and 1196 via its name. 260 of 337
-  species blocks take the id path, so most still report one row — *Escherichia
-  coli* stores 50 where 2941 rows share the species. Do not compare
-  `total_genomes` between two species blocks without checking `mapping_source`
-  for which path produced them (#389).
+  **For species it counts one depth, not both.** A crosswalk row is one NCBI
+  taxonID's assignment, so a species-rank row and its strain rows describe
+  overlapping genomes — *E. coli* has a 166397-genome species row plus 2609
+  strain rows. The larger depth is taken and never their sum (#389).
+
+  It is **scoped to the NCBI taxon**, not the GTDB species: `NCBITaxon:562`
+  reports 166398 while its K-12 substrains report 37, 50 and 4, all grounded to
+  `s__Escherichia_coli`. That is correct — they are different evidence bases.
+  What no longer varies is one taxon against itself, which used to depend on
+  whether the id or the name lookup happened to hit.
 
 - **`support_genomes`** — the numerator, on genus-and-higher groundings only.
   Species blocks deliberately carry none: there `majority_fraction` is the
