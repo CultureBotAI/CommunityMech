@@ -269,14 +269,50 @@ def test_the_filter_does_not_settle_the_denominator_question(gtdb, mapping):
     assert agg["gtdb_id"] != deep["gtdb_id"]
 
 
-def test_a_tied_majority_does_not_depend_on_row_order(gtdb, mapping):
-    """An exact 50/50 split must give the same answer whichever way the rows come.
+def test_an_exact_tie_is_ambiguous_not_a_grounding(gtdb, mapping):
+    """A 50/50 split is not a majority, so it must not ground (#382).
 
-    `max()` returns the *first* maximum, so a tie was decided by the order the
-    mapping happened to list its rows: reversing the input flipped NCBITaxon:106591
-    between `g__Ensifer` and `g__Sinorhizobium`, both at 0.5. Two live KB blocks
-    sat on that coin flip. Whether a tie should ground at all is #382; this pins
-    only that the answer is reproducible.
+    `NCBITaxon:106591` (*Ensifer*) sat at 19/38 in two live records, grounded to
+    whichever of `g__Ensifer` / `g__Sinorhizobium` the tie-break favoured. The
+    tie-break was there to make the answer *reproducible*; it should never have
+    been what decided it. Both blocks are withdrawn and the taxon now reports
+    AMBIGUOUS with both contenders recorded, which is the honest answer.
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"ensifer"})
+    result = gtdb.resolve_higher("ensifer", "NCBITaxon:106591", "Ensifer", by_higher)
+
+    assert result["ambiguous"] is True, "an exact tie must not produce a grounding"
+    assert set(result["gtdb_options"]) >= {"Ensifer", "Sinorhizobium"}
+
+
+def test_a_bare_majority_above_the_tie_still_grounds(gtdb):
+    """The bound is strict, not a wholesale raise of the threshold.
+
+    One genome either side of 50% is the whole difference between a grounding
+    and AMBIGUOUS, so both sides are pinned — moving `>` back to `>=` fails the
+    test above, and raising the threshold fails this one.
+    """
+
+    def row(gtdb_genus, genomes):
+        cells = [""] * 20
+        cells[2], cells[9], cells[17] = genomes, "Testgenus", gtdb_genus
+        cells[10] = "Testgenus namedspecies"
+        return cells
+
+    tied = {"testgenus": [row("g__Alpha", "50"), row("g__Beta", "50")]}
+    assert gtdb.resolve_higher("testgenus", "NCBITaxon:1", "Testgenus", tied)["ambiguous"]
+
+    won = {"testgenus": [row("g__Alpha", "51"), row("g__Beta", "50")]}
+    result = gtdb.resolve_higher("testgenus", "NCBITaxon:1", "Testgenus", won)
+    assert result.get("gtdb_taxon") == "g__Alpha"
+    assert result["majority_fraction"] == 0.505
+
+
+def test_ambiguous_options_do_not_depend_on_row_order(gtdb, mapping):
+    """The tie-break still has a job: making the option list reproducible.
+
+    Before it, `max()` returned whichever maximum the crosswalk listed first, so
+    the contenders a curator reads varied with the file.
     """
     _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"ensifer"})
     rows = by_higher["ensifer"]
@@ -286,30 +322,7 @@ def test_a_tied_majority_does_not_depend_on_row_order(gtdb, mapping):
         "ensifer", "NCBITaxon:106591", "Ensifer", {"ensifer": list(reversed(rows))}
     )
 
-    assert forward["majority_fraction"] == 0.5, "expected the tie this test is about"
-    assert forward["gtdb_id"] == reverse["gtdb_id"], (
-        "reversing the row order changed the grounding — the tie-break is falling "
-        "through to mapping row order"
-    )
-
-
-def test_ties_break_toward_the_lexically_first_name(gtdb):
-    """The tie-break rule itself, without depending on the mapping's contents."""
-
-    def row(gtdb_genus, genomes):
-        # col 2 = genome count, col 9 = NCBI genus (the match key), col 17 = GTDB
-        # genus; see HIGHER_RANKS / COL_TOTAL_GENOMES in the script.
-        cells = [""] * 20
-        cells[2], cells[9], cells[17] = genomes, "Testgenus", gtdb_genus
-        cells[10] = "Testgenus namedspecies"  # survive the named-species filter
-        return cells
-
-    by_higher = {"testgenus": [row("g__Zeta", "10"), row("g__Alpha", "10")]}
-    result = gtdb.resolve_higher(
-        "testgenus", "NCBITaxon:1", "Testgenus", by_higher, exclude_unnamed=False
-    )
-
-    assert result["gtdb_taxon"] == "g__Alpha", "a tie must resolve to the lexically first name"
+    assert forward["gtdb_options"] == reverse["gtdb_options"]
 
 
 @pytest.mark.parametrize(

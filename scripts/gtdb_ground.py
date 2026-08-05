@@ -407,7 +407,13 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         # (#382); this only makes the answer reproducible.
         top, tw = sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))[0]
         frac = tw / total
-        if frac >= 0.5:
+        # Strictly greater. An exact 50/50 split is not a majority, and grounding
+        # it meant the answer came from the tie-break rather than the evidence:
+        # two live KB blocks sat on `19/38`, decided alphabetically between
+        # `g__Ensifer` and `g__Sinorhizobium` (#382). The tie-break stays — it is
+        # what makes the AMBIGUOUS option list reproducible — but it no longer
+        # decides a grounding.
+        if frac > 0.5:
             return {
                 "ncbi_source_id": source_id,
                 "gtdb_id": _curie(top, prefix),
@@ -828,6 +834,82 @@ def apply_to_community(
     return added
 
 
+def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
+    """Remove groundings the tool now calls AMBIGUOUS (#382, #376).
+
+    `--refresh` is deliberately unable to drop a block: an ungrounded taxon may
+    be ungrounded on purpose, so a refresh that could remove would be able to
+    overturn a curation decision silently (#378). Withdrawal is therefore its
+    own mode, and a narrow one — it removes only where the recompute is
+    *explicitly* ambiguous, never where it merely fails, so a taxon whose rows
+    have gone missing keeps its stored answer rather than losing it to a bad
+    mapping build.
+
+    Curated pins are skipped, as everywhere else.
+    """
+    doc = yaml.safe_load(path.read_text())
+    entries = doc.get("taxonomy", []) or []
+
+    drop_entry: list[bool] = []
+    for tc in entries:
+        tt = (tc or {}).get("taxon_term", {}) or {}
+        term = tt.get("term", {}) or {}
+        tid = str(term.get("id", ""))
+        if (path.name, tid) in CURATED_GROUNDINGS or "gtdb_classification" not in tt:
+            drop_entry.append(False)
+            continue
+        if not tid.startswith("NCBITaxon:"):
+            drop_entry.append(False)
+            continue
+        result = resolve_target(
+            tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher, **kwargs
+        )
+        drop_entry.append(bool(result and result.get("ambiguous")))
+    if not any(drop_entry):
+        return 0
+
+    lines = path.read_text().splitlines()
+    start = end = None
+    for idx, line in enumerate(lines):
+        if re.match(r"^taxonomy:\s*$", line):
+            start = idx
+        elif start is not None and idx > start and re.match(r"^[A-Za-z_]", line):
+            end = idx
+            break
+    if start is None:
+        return 0
+    end = end if end is not None else len(lines)
+
+    anchors = [
+        i
+        for i in range(start + 1, end)
+        if re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[i])
+        and i + 1 < end
+        and re.match(r"^\s+label:", lines[i + 1])
+    ]
+    if len(anchors) != len(entries):
+        raise SystemExit(
+            f"{path.name}: found {len(anchors)} taxon term-id lines for "
+            f"{len(entries)} taxonomy entries — refusing to edit."
+        )
+
+    drop: set[int] = set()
+    removed = 0
+    for pos, wanted in zip(anchors, drop_entry, strict=True):
+        if not wanted:
+            continue
+        span = _block_span(lines, pos, end)
+        if span is None:
+            raise SystemExit(f"{path.name}: could not locate the block to withdraw at line {pos}.")
+        drop.update(range(*span))
+        removed += 1
+
+    new_text = "\n".join(ln for i, ln in enumerate(lines) if i not in drop) + "\n"
+    _assert_only_grounding_changed(path, doc, new_text, withdraw=True)
+    path.write_text(new_text)
+    return removed
+
+
 def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
     """Write `gtdb_grounding_status` (and `gtdb_candidates`) on every taxon (#294).
 
@@ -990,7 +1072,7 @@ def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None
 
 
 def _assert_only_grounding_changed(
-    path: Path, before: dict, new_text: str, refresh: bool = False
+    path: Path, before: dict, new_text: str, refresh: bool = False, withdraw: bool = False
 ) -> None:
     """Fail loudly unless the edit touched gtdb_classification and nothing else."""
     try:
@@ -1029,7 +1111,13 @@ def _assert_only_grounding_changed(
         ]
 
     was, now = _grounded(before), _grounded(after)
-    if refresh:
+    if withdraw:
+        # Withdrawal removes and never adds. The inverse of plain apply.
+        if not set(now) <= set(was):
+            raise SystemExit(f"{path.name}: withdrawal created a gtdb_classification.")
+        if was == now:
+            raise SystemExit(f"{path.name}: withdrawal removed nothing.")
+    elif refresh:
         # Refresh replaces in place: the set must be identical, or a block was
         # created (overturning a deliberate withholding) or swallowed by a bad span.
         if was != now:
@@ -1091,6 +1179,12 @@ def main(argv: list[str] | None = None) -> int:
         "Independent of --apply; writes no gtdb_classification.",
     )
     p.add_argument(
+        "--withdraw-ambiguous",
+        action="store_true",
+        help="With --community: remove groundings the tool now calls AMBIGUOUS (#382). "
+        "Removes only; --refresh cannot, by design.",
+    )
+    p.add_argument(
         "--denominator",
         choices=("aggregate", "deepest"),
         default="aggregate",
@@ -1130,6 +1224,18 @@ def main(argv: list[str] | None = None) -> int:
         elif clean:
             want_higher.add(clean.lower())
     by_id, by_name, by_higher = collect_rows(mapping_path, want_ids, want_species, want_higher)
+
+    if args.community and args.withdraw_ambiguous:
+        n = withdraw_ambiguous(
+            args.community,
+            by_id,
+            by_name,
+            by_higher,
+            denominator=args.denominator,
+            exclude_unnamed=not args.include_unnamed,
+        )
+        print(f"[gtdb] withdrew {n} block(s) from {args.community.name}", file=sys.stderr)
+        return 0
 
     if args.community and args.apply_status:
         n = apply_status_to_community(

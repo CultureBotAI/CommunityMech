@@ -130,9 +130,9 @@ unambiguously outstanding work (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 647 | a `gtdb_classification` is present |
+| `GROUNDED` | 643 | a `gtdb_classification` is present |
 | `UNRESOLVED` | 293 | the tool produced no grounding; **why is not established** |
-| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
+| `AMBIGUOUS` | 85 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
 | `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
 | `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
 | `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
@@ -186,8 +186,11 @@ taxonomy entries and their id anchors do not line up.
   `0.99` the true count spans ~170. A thin grounding is not automatically wrong;
   a small genus is legitimately small. The point is that you can now tell.
 
-  A fraction of exactly **0.5** is a two-way tie, not a majority — it is broken by
-  name so the answer is reproducible, but it is still a coin flip (#382).
+  A fraction of exactly **0.5** never grounds: a tie is not a majority, so the
+  tool reports AMBIGUOUS and records both contenders (#382). The name tie-break
+  survives, but only to make the *option list* reproducible — it no longer
+  decides an answer. `--withdraw-ambiguous` removes a stored grounding that has
+  become ambiguous, which `--refresh` deliberately cannot do.
 
   A grounding the majority vote gets *wrong* can be pinned in `CURATED` in
   `tests/test_gtdb_withheld_groundings.py`; the tool has no memory of such a
