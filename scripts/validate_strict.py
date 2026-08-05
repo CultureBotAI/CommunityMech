@@ -40,6 +40,8 @@ from linkml.validator import Validator
 from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
+from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = _REPO_ROOT / "src" / "communitymech" / "schema" / "communitymech.yaml"
 DEFAULT_ROOTS = [_REPO_ROOT / "kb" / "communities"]
@@ -142,6 +144,21 @@ def validate_one(path: Path) -> list[dict]:
             "detail": detail,
             "path": result.instance_index or "",
             "message": result.message[:300],
+        })
+
+    # Relational checks the schema cannot express (#387). LinkML has no
+    # cross-field arithmetic, so `support_genomes: 99` beside `total_genomes: 3`
+    # is valid to it, as is an explicit `total_genomes: null` — a null satisfies
+    # JSON-Schema `required`, which is what `value_presence: PRESENT` compiles
+    # to. Running them here rather than only in pytest means a hand-authored
+    # record is checked by the same gate as everything else.
+    for issue in validate_gtdb_coherence(path):
+        rows.append({
+            "file": str(path),
+            "category": f"gtdb_{issue.category}",
+            "detail": issue.taxon,
+            "path": "",
+            "message": issue.message[:300],
         })
     return rows
 
