@@ -770,15 +770,30 @@ classes:
           e.g. GTDB:s__Bacillus_velezensis or GTDB:g__Agrobacterium.
 
           The single letter before `__` is the rank — d, p, c, o, f, g, s — and
-          it is the reliable way to filter by rank: present on every block and
-          enforced by the pattern below. `mapping_source` also names the rank in
-          prose, but that is for reading, not querying.
+          it is the way to filter by rank. Required, so it is always there to
+          read: the pattern below constrains the value but says nothing when the
+          key is absent, which is why this slot is the one required attribute
+          here (#414 review).
 
-          **Filter `d__` out of any coverage figure.** 72 of the KB's groundings
-          are `GTDB:d__Bacteria` or `d__Archaea` (#393), which are true but carry
-          no information beyond the NCBITaxon id — counting them as "grounded"
-          overstates coverage by about 10% (#403).
+          **Filter `d__` out of any coverage figure.** The domain groundings
+          (`d__Bacteria`, `d__Archaea`) are true but carry no information beyond
+          the NCBITaxon id, and counting them as "grounded" moves coverage by
+          about seven percentage points (#393, #403).
+
+          They are not the whole tautological population: a higher-rank grounding
+          whose GTDB name equals the NCBI name at the same rank says as little —
+          `Actinomycetota` -> `p__Actinomycetota`. Filtering on
+          `is_reclassified: false` above genus rank catches those too. Current
+          counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and are
+          pinned by `tests/test_gtdb_support_counts.py`, not written here:
+          pythongen drops attribute descriptions, so a count in this text reaches
+          no generated artifact and nothing would fail when it goes stale.
         pattern: "^GTDB:[cdfgops]__.+"
+        # The only required attribute on this class. A LinkML pattern constrains
+        # a value only when the key exists, so without this a block could omit
+        # `gtdb_id` entirely and pass every gate — while the documented rank
+        # filter raised KeyError (#414 review).
+        required: true
       gtdb_taxon:
         description: GTDB taxon name (human-readable, spaces preserved), e.g. "Bacillus velezensis".
       gtdb_lineage:

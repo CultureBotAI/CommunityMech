@@ -162,7 +162,26 @@ informative = [b for b in blocks if not b["gtdb_id"].startswith("GTDB:d__")]
 ```
 
 By rank, the 715 grounded blocks are 336 `s__`, 225 `g__`, 72 `d__`, 51 `p__`,
-13 `c__`, 11 `o__`, 7 `f__` (#403).
+13 `c__`, 11 `o__`, 7 `f__` (#403). Against the 1028 `taxon_term`s in
+`kb/communities`, that is 69.6% grounded, or **62.5% once `d__` is excluded — a
+7.0 pp difference.**
+
+`d__` is not the whole tautological population, though. A higher-rank grounding
+whose GTDB name equals the NCBI name at the same rank says exactly as little:
+*Actinomycetota* → `p__Actinomycetota`. There are **64** of those (44 `p__`,
+9 `c__`, 7 `o__`, 4 `f__`), and they are `is_reclassified: false` by
+construction, so the stricter filter is:
+
+```python
+informative = [
+    b for b in blocks
+    if b["gtdb_id"].startswith(("GTDB:s__", "GTDB:g__")) or b.get("is_reclassified")
+]
+```
+
+which puts coverage at **56.3%, 13.2 pp below the headline figure.** Which of the
+two filters is right depends on the question — a `p__` grounding that *renames*
+is informative — but quoting 69.6% is wrong under either.
 
 `GROUNDED` is redundant with the block's presence on purpose: a consumer should
 read a state, not infer one from whether a field exists. The two must agree, and

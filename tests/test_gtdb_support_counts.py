@@ -38,6 +38,7 @@ import pytest
 import yaml
 
 REPO = Path(__file__).parent.parent
+FIXTURE_RECORD = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
 RECORD_DIRS = ("kb/communities", "data/isolates")
 
 
@@ -738,66 +739,102 @@ def test_every_kb_taxon_reports_one_denominator(grounded):
 
 
 def test_every_grounding_carries_a_queryable_rank(grounded):
-    """The rank must be readable from `gtdb_id`, not only from prose (#403).
+    """The rank must be readable from `gtdb_id` (#403).
 
-    #403 proposed adding a rank field so filtering would be a query rather than a
-    substring match on `mapping_source`. It already is one: the letter before
-    `__` is the rank, it is present on every block, and the schema pattern
-    enforces it. Adding a field would be a second source of truth for something
-    the CURIE already says — this repo has spent several PRs on exactly that kind
-    of redundancy.
+    #403 proposed a rank field so filtering would be a query rather than a
+    substring match on `mapping_source`. It already is one — but only because
+    `gtdb_id` is *required*; a LinkML pattern says nothing when the key is
+    absent, so before #414 a block could omit it and pass every gate while the
+    documented filter raised KeyError.
 
-    So the resolution is to pin the property instead: if the prefix ever stops
-    being reliable, the documented filter silently stops working.
+    Note what this does not check. `mapping_source`'s rank prose is formatted
+    from the same variable as the CURIE in the same dict literal, so "they
+    agree" is a property of one f-string, not a cross-check — and 336 of 715
+    blocks have no such prose at all. Comparing them was theatre; the useful
+    assertion is that the prefix is there and well-formed.
     """
     import re
 
-    missing, disagreeing = [], []
-    for record, name, block in grounded:
-        gtdb_id = block.get("gtdb_id") or ""
-        match = re.match(r"GTDB:([cdfgops])__", gtdb_id)
-        if not match:
-            missing.append(f"{record}: {name} — {gtdb_id!r}")
-            continue
-        prose = re.search(r"grounded at ([a-z])__ rank", block.get("mapping_source") or "")
-        if prose and prose.group(1) != match.group(1):
-            disagreeing.append(f"{record}: {name} — {gtdb_id} vs {prose.group(1)}__")
-
+    missing = [
+        f"{record}: {name} — {block.get('gtdb_id')!r}"
+        for record, name, block in grounded
+        if not re.match(r"GTDB:[cdfgops]__", block.get("gtdb_id") or "")
+    ]
     assert not missing, "gtdb_id without a rank prefix:\n" + "\n".join(missing[:10])
-    assert not disagreeing, "the CURIE and mapping_source disagree on rank:\n" + "\n".join(
-        disagreeing[:10]
+
+
+def test_the_schema_requires_a_rank_prefix_and_the_field_itself():
+    """Both halves, because the pattern alone guards nothing.
+
+    An earlier version asserted only that the pattern contained `__`, which let
+    `^GTDB:[cdfgops]?__.+` — the most natural loosening, making the rank
+    optional — pass green (#414 review). This drives the real validator over
+    concrete CURIEs instead of inspecting the regex.
+    """
+    import subprocess
+    import tempfile
+
+    schema = REPO / "src/communitymech/schema/communitymech.yaml"
+
+    def accepts(block: dict) -> bool:
+        document = yaml.safe_load(FIXTURE_RECORD.read_text())
+        for entry in document["taxonomy"]:
+            term = entry.get("taxon_term") or {}
+            if term.get("gtdb_classification"):
+                term["gtdb_classification"] = block
+                break
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "probe.yaml"
+            path.write_text(yaml.dump(document, sort_keys=False, allow_unicode=True))
+            return (
+                subprocess.run(
+                    ["uv", "run", "linkml-validate", "-s", str(schema), str(path)],
+                    capture_output=True,
+                    cwd=REPO,
+                ).returncode
+                == 0
+            )
+
+    good = {"gtdb_id": "GTDB:d__Bacteria", "gtdb_taxon": "Bacteria"}
+    assert accepts(good), "a well-formed block must validate"
+
+    assert not accepts({"gtdb_taxon": "Bacteria"}), "a block with no gtdb_id validated"
+    assert not accepts({**good, "gtdb_id": "GTDB:Bacteria"}), "an un-ranked CURIE validated"
+    assert not accepts({**good, "gtdb_id": "GTDB:k__Bacteria"}), "an unknown rank validated"
+    # The one string `^GTDB:[cdfgops]?__.+` accepts and the real pattern does
+    # not. Without it that mutant — the most natural loosening, making the rank
+    # character optional — passes every probe above and survives green.
+    assert not accepts({**good, "gtdb_id": "GTDB:__Bacteria"}), "an empty rank validated"
+
+
+def test_the_domain_groundings_are_filterable(grounded):
+    """The population #403 is about, and the query that removes it."""
+    domain = [b for _, _, b in grounded if b["gtdb_id"].startswith("GTDB:d__")]
+
+    assert {b["gtdb_id"] for b in domain} == {"GTDB:d__Bacteria", "GTDB:d__Archaea"}
+    # Tight both ways: `> 50` let a regression lose 21 of the 72 and still pass.
+    assert 65 <= len(domain) <= 80, (
+        f"{len(domain)} domain groundings; SKILL.md's rank table says 72 and is "
+        f"the thing that goes stale"
     )
 
 
-def test_the_domain_groundings_are_filterable_and_worth_filtering(grounded):
-    """The population #403 is about, and the query that removes it.
+def test_domain_is_not_the_whole_tautological_population(grounded):
+    """The filter SKILL.md documents is under-inclusive, and says so.
 
-    Documented in SKILL.md and the schema as
-    `not gtdb_id.startswith("GTDB:d__")`. If that stops selecting the domain
-    groundings, the documented filter is wrong.
+    64 higher-rank groundings carry a GTDB name identical to the NCBI name at
+    the same rank — `Actinomycetota` -> `p__Actinomycetota` — and say exactly as
+    little as `d__Bacteria`. Pinned so the docs' caveat cannot quietly become
+    wrong (#414 review).
     """
-    domain = [b for _, _, b in grounded if b["gtdb_id"].startswith("GTDB:d__")]
+    uninformative = [
+        b
+        for _, _, b in grounded
+        if not b["gtdb_id"].startswith(("GTDB:s__", "GTDB:g__", "GTDB:d__"))
+        and not b.get("is_reclassified")
+    ]
 
-    assert len(domain) > 50, f"only {len(domain)} domain groundings; has #393 been reverted?"
-    assert {b["gtdb_id"] for b in domain} == {"GTDB:d__Bacteria", "GTDB:d__Archaea"}
-    assert all(b.get("majority_fraction") == 1.0 for b in domain)
-    # The reason to filter: they say nothing the NCBITaxon id did not.
-    assert all(not b.get("is_reclassified") for b in domain)
-
-
-def test_the_schema_still_requires_a_rank_prefix():
-    """The data pin above is not enough on its own.
-
-    It asserts the property holds for what is committed; loosening the schema
-    pattern leaves it green while allowing the next block to arrive without a
-    rank. Both halves are needed for the documented filter to stay valid (#403).
-    """
-    import re
-
-    schema = (REPO / "src/communitymech/schema/communitymech.yaml").read_text()
-    block = schema[schema.index("      gtdb_id:") :]
-    pattern = re.search(r'pattern: "([^"]+)"', block).group(1)
-
-    assert "__" in pattern, f"the gtdb_id pattern no longer requires a rank prefix: {pattern}"
-    assert re.match(pattern, "GTDB:d__Bacteria")
-    assert not re.match(pattern, "GTDB:Bacteria"), "an un-ranked CURIE would validate"
+    assert len(uninformative) > 40, (
+        "the same-name higher-rank population vanished; SKILL.md's caveat about "
+        "d__ not being the whole story may now be wrong"
+    )
