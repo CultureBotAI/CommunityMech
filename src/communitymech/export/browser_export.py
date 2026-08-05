@@ -302,7 +302,7 @@ def main():
     )
     parser.add_argument(
         "--output",
-        default="docs/data.js",
+        default=str(DOCS / "data.js"),
         help="Output JavaScript file path",
     )
 

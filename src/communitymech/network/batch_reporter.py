@@ -12,7 +12,7 @@ from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
 from communitymech.network.repair_strategies import StrategySelector
 from communitymech.network.validators import SuggestionValidator
-from communitymech.paths import REPORTS
+from communitymech.paths import REPO_ROOT, REPORTS
 
 logger = logging.getLogger(__name__)
 
@@ -276,7 +276,7 @@ class BatchReporter:
             }
 
     def apply_approved_suggestions(
-        self, report_path: Path, backup_dir: Path = Path(".backups")
+        self, report_path: Path, backup_dir: Path = REPO_ROOT / ".backups"
     ) -> dict[str, Any]:
         """
         Apply suggestions from a report that have been approved.

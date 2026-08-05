@@ -44,6 +44,9 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
+# Repo-anchored: a relative default follows the cwd (#407).
+_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+
 try:
     import duckdb
 except ImportError:
@@ -630,7 +633,7 @@ class GTDBIntegration:
 
     def generate_comparison_report(self,
                                    yaml_dir: Path,
-                                   output_dir: Path = Path(__file__).resolve().parent.parent):
+                                   output_dir: Path = _REPORTS):
         """
         Generate comprehensive GTDB vs NCBI comparison report.
 
@@ -917,7 +920,7 @@ def main():
     parser.add_argument(
         '--output-dir',
         type=Path,
-        default=Path('./'),
+        default=_REPORTS,
         help='Output directory for reports'
     )
 

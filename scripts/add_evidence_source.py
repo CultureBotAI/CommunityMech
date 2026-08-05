@@ -45,7 +45,7 @@ class EvidenceSourceAdder:
         # fetch_paper surface (plus a richer DOI fallback chain through
         # CrossRef / PMC / OpenAlex / Semantic Scholar / Europe PMC) which
         # is what these scripts actually need.
-        self.fetcher = LiteratureFetcher(cache_dir=".literature_cache")
+        self.fetcher = LiteratureFetcher()
         self.stats = {
             'total_evidence': 0,
             'already_has_source': 0,

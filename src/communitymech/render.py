@@ -172,7 +172,7 @@ def main():
     )
     parser.add_argument(
         "--output-dir",
-        default="docs/communities",
+        default=str(DOCS / "communities"),
         help="Output directory for HTML files",
     )
     parser.add_argument(

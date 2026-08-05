@@ -13,7 +13,7 @@ from communitymech.network.auditor import (
     EXIT_WARNINGS,
     NetworkIntegrityAuditor,
 )
-from communitymech.paths import DOCS
+from communitymech.paths import DOCS, REPO_ROOT, REPORTS
 
 # Try to import rich for beautiful output
 try:
@@ -386,7 +386,7 @@ def _display_repair_summary_plain(result: dict):
 @click.option(
     "--output",
     type=click.Path(dir_okay=False, path_type=Path),
-    default="reports/network_repair_suggestions.yaml",
+    default=str(REPORTS / "network_repair_suggestions.yaml"),
     help="Output path for report",
 )
 @click.option(
@@ -586,14 +586,16 @@ def _apply_batch_report(report_path: Path):
 @click.option(
     "--output",
     type=click.Path(dir_okay=False, path_type=Path),
-    # Repo-anchored; the target is git-tracked (#407).
+    # Repo-anchored so the default lands in one predictable place. The target is
+    # git-tracked, so this makes a run from elsewhere rewrite the committed file
+    # rather than leave a stray one — deliberate for a committed artifact (#407).
     default=str(DOCS / "community_umap.html"),
     help="Output HTML path",
 )
 @click.option(
     "--cache-dir",
     type=click.Path(file_okay=False, dir_okay=True, path_type=Path),
-    default=".umap_cache",
+    default=str(REPO_ROOT / ".umap_cache"),
     help="Directory for embedding cache",
 )
 @click.option(

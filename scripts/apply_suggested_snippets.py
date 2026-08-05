@@ -17,6 +17,9 @@ from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 import yaml
 
+# Repo-anchored: a relative default follows the cwd (#407).
+_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+
 
 class SnippetFix:
     """Represents a suggested snippet fix from the curation report."""
@@ -287,7 +290,7 @@ def main():
     )
     parser.add_argument(
         '--report',
-        default='evidence_curation_report.txt',
+        default=_REPORTS / "evidence_curation_report.txt",
         help='Path to curation report (default: evidence_curation_report.txt)'
     )
     parser.add_argument(
