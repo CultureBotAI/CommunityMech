@@ -120,6 +120,30 @@ Grounding happens at the **rank of the input**:
   for the pre-#372 behaviour; *Bacillus* was `g__Bacillus` at 0.508 across 102
   GTDB genera under that rule.
 
+## Grounding status (#294)
+
+Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
+`gtdb_ground.py --community <file> --apply-status`. Absence of a
+`gtdb_classification` cannot say *why* it is absent, and the reasons are not
+comparable — reading absence as outstanding work overstated the remaining
+backfill roughly thirtyfold (#276).
+
+| status | count | meaning |
+|---|---|---|
+| `GROUNDED` | 647 | a `gtdb_classification` is present |
+| `NO_GTDB_EQUIVALENT` | 293 | **final state** — viruses, eukaryotes, environmental pseudo-taxa, strains absent from the mapping |
+| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries the contenders |
+| `NOT_ATTEMPTED` | 9 | the only value representing outstanding work |
+| `WITHHELD` | 2 | the tool *can* ground it and a curator decided it must not (#292) |
+
+`GROUNDED` is redundant with the block's presence on purpose: a consumer should
+read a state, not infer one from whether a field exists. The two must agree, and
+`communitymech.validators.gtdb_coherence` enforces that — the schema cannot.
+
+`--apply-status` is independent of `--apply`: it writes no groundings, only
+status. It is idempotent, and refuses the file rather than guessing if the
+taxonomy entries and their id anchors do not line up.
+
 ## Interpreting the output
 
 - **`majority_fraction`** — for species, the mapping's majority fraction; for

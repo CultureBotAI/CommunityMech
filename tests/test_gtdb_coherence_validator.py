@@ -30,6 +30,7 @@ import yaml
 from communitymech.validators.gtdb_coherence import (
     _blocks,
     check_block,
+    check_status,
     validate_gtdb_coherence,
 )
 
@@ -322,3 +323,140 @@ def test_structurally_odd_documents_are_survived(tmp_path, text):
     record = tmp_path / "odd.yaml"
     record.write_text(text)
     assert validate_gtdb_coherence(record) == []
+
+
+# ---------------------------------------------------------------------------
+# The grounding-status enum (#294).
+# ---------------------------------------------------------------------------
+
+
+def _term(status=None, block=None, candidates=None, **extra):
+    term_block = {"preferred_term": "Some taxon", "term": {"id": "NCBITaxon:1"}, **extra}
+    if status is not None:
+        term_block["gtdb_grounding_status"] = status
+    if block is not None:
+        term_block["gtdb_classification"] = block
+    if candidates is not None:
+        term_block["gtdb_candidates"] = candidates
+    return term_block
+
+
+def test_grounded_status_requires_a_block():
+    assert "grounded_without_block" in {c for c, _ in check_status(_term(status="GROUNDED"))}
+
+
+@pytest.mark.parametrize("status", ["NO_GTDB_EQUIVALENT", "AMBIGUOUS", "WITHHELD", "NOT_ATTEMPTED"])
+def test_a_stored_block_means_grounded(status):
+    """A grounding is a grounding whatever the reason it was once withheld."""
+    assert "block_without_grounded_status" in {
+        c for c, _ in check_status(_term(status=status, block=_valid_block()))
+    }
+
+
+def test_the_matched_pair_is_clean():
+    assert check_status(_term(status="GROUNDED", block=_valid_block())) == []
+    assert check_status(_term(status="NO_GTDB_EQUIVALENT")) == []
+
+
+def test_candidates_belong_only_to_ambiguous():
+    assert "candidates_on_unambiguous_taxon" in {
+        c for c, _ in check_status(_term(status="NO_GTDB_EQUIVALENT", candidates=["A", "B"]))
+    }
+    assert check_status(_term(status="AMBIGUOUS", candidates=["A", "B"])) == []
+
+
+def test_an_ambiguity_needs_two_candidates():
+    assert "ambiguous_without_candidates" in {
+        c for c, _ in check_status(_term(status="AMBIGUOUS", candidates=["A"]))
+    }
+
+
+def test_candidates_without_a_status_are_flagged():
+    assert "candidates_without_status" in {c for c, _ in check_status(_term(candidates=["A", "B"]))}
+
+
+def test_a_taxon_with_no_status_is_tolerated():
+    """Absence must stay legal — the schema calls the slot optional."""
+    assert check_status(_term()) == []
+    assert check_status(_term(block=_valid_block())) == []
+
+
+def test_every_kb_taxon_carries_a_status():
+    """The sweep must have reached all of them, not just the grounded ones.
+
+    Statuses are written for every entry including GROUNDED, because inferring
+    state from whether a field exists is the defect #294 is about.
+    """
+    from communitymech.validators.gtdb_coherence import _taxon_terms
+
+    total, missing = 0, []
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            for label, term_block in _taxon_terms(yaml.safe_load(path.read_text())):
+                total += 1
+                if "gtdb_grounding_status" not in term_block:
+                    missing.append(f"{path.name}: {label}")
+    assert total > 1000, f"expected the whole KB, saw {total} taxa"
+    assert not missing, f"{len(missing)} taxa have no status:\n" + "\n".join(missing[:10])
+
+
+def test_the_status_distribution_is_what_was_measured():
+    """The counts #294 turns on: absence was hiding a large *final* category.
+
+    293 NO_GTDB_EQUIVALENT against 9 NOT_ATTEMPTED is the whole point — reading
+    absence as outstanding work overstated the remaining backfill roughly
+    thirtyfold. Ranged, so ordinary drift does not fail it, but a collapse of
+    the distinction would.
+    """
+    from collections import Counter
+
+    from communitymech.validators.gtdb_coherence import _taxon_terms
+
+    counts = Counter()
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            for _, term_block in _taxon_terms(yaml.safe_load(path.read_text())):
+                counts[term_block.get("gtdb_grounding_status")] += 1
+
+    assert counts["GROUNDED"] > 600
+    assert counts["NO_GTDB_EQUIVALENT"] > 250, "the final-state category vanished"
+    assert counts["AMBIGUOUS"] > 50
+    assert counts["WITHHELD"] == 2, "the #292 withholds must still be marked"
+    assert (
+        counts["NOT_ATTEMPTED"] < 50
+    ), "outstanding work grew sharply — or a real category is being mislabelled"
+
+
+def test_the_withholds_are_marked_withheld_not_grounded():
+    """The #292 pair, and the id collision that mislabelled three neighbours.
+
+    Keying the withhold list by NCBITaxon id marked three *correct* groundings
+    WITHHELD, because both records reuse the offending id for a legitimate entry
+    — BioModels uses 821 for its real Bacteroides vulgatus, KBase uses 1236 for
+    two Steroidobacteraceae. Keyed by preferred_term instead.
+    """
+    from communitymech.validators.gtdb_coherence import _taxon_terms
+
+    for record, preferred in [
+        ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"),
+        ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"),
+    ]:
+        doc = yaml.safe_load((REPO / "kb/communities" / record).read_text())
+        terms = {t.get("preferred_term"): t for _, t in _taxon_terms(doc)}
+        assert terms[preferred].get("gtdb_grounding_status") == "WITHHELD"
+
+    # And the neighbours sharing those ids must be unaffected.
+    doc = yaml.safe_load(
+        (REPO / "kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml").read_text()
+    )
+    siblings = [
+        t
+        for _, t in _taxon_terms(doc)
+        if (t.get("term") or {}).get("id") == "NCBITaxon:821"
+        and t.get("preferred_term") != "Bacteroides ovatus"
+    ]
+    assert siblings, "expected another entry on NCBITaxon:821 in this record"
+    for term_block in siblings:
+        assert (
+            term_block.get("gtdb_grounding_status") == "GROUNDED"
+        ), "a correct grounding sharing the withheld id was marked WITHHELD"
