@@ -778,7 +778,13 @@ WITHHELD_GROUNDINGS = {
         "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116."
     ),
     ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
-        "NCBITaxon:1236 is class Gammaproteobacteria, not a Nitrospiraceae bacterium."
+        "GTDB's majority for NCBI Nitrospiraceae is f__Leptospirillaceae at 0.534 "
+        "(31/58 genomes), and Leptospirillum is an iron oxidizer while this genome "
+        "is the record's nitrite oxidizer — so the majority vote would assign the "
+        "wrong physiology. A near-tie of this kind is #396's class. Withheld until "
+        "a curator picks. (Was withheld because the id was NCBITaxon:1236, class "
+        "Gammaproteobacteria; that is fixed — it is now NCBITaxon:189779 — but the "
+        "grounding is still not safe to take automatically, #416.)"
     ),
 }
 
