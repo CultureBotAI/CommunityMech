@@ -1,41 +1,35 @@
-"""Catch hand-written YAML scalars that silently lose their tail (#398).
+"""Catch YAML scalars that a mid-line ``#`` silently truncates (#398).
 
-In YAML a ``#`` **preceded by whitespace** opens a comment, even mid-value. So an
-unquoted scalar like::
+In YAML a ``#`` preceded by whitespace opens a comment, even mid-value. So::
 
     curation_note: rather than by decision (#376, #384).
 
-parses as ``rather than by decision (#376,`` — the rest is a comment. The file is
-valid YAML, the value is non-empty, and every schema check passes. It bit once
-already: that exact line shipped, losing the pointer to the issue the field
-existed for and leaving an unbalanced paren, and nothing noticed because every
-check tested only that the note was non-empty (#397 review).
+parses as ``rather than by decision (#376,``. The file stays valid, the value
+stays non-empty, and every schema check passes. That exact line shipped in #397.
 
-The hazard is general rather than specific to one field. `notes`, `curation_note`
-and evidence `snippet` are all prose a curator types by hand, and all routinely
-reference issues and PRs by ``#number``.
+Re-serializing cannot reveal it — PyYAML emits the *truncated* value as good
+YAML, so a load/dump round-trip compares equal to itself.
 
-Two things make this hard to catch after the fact:
+**This asks PyYAML where each scalar actually ends** rather than pattern-matching
+lines. The first version hand-rolled the lexing and was wrong in both directions
+(#399 review):
 
-* Re-serializing does not reveal it. PyYAML emits the *truncated* value as
-  perfectly good YAML, so a load/dump round-trip compares equal to itself. The
-  check has to read the raw line.
-* ``#`` is legitimate in three places — a whole-line comment, anywhere inside a
-  quoted scalar, and anywhere inside a block scalar (``>`` or ``|``), where it is
-  literal. Flagging those would make the rule unusable.
+* it missed a value that *begins* with ``#`` (``notes: #398 why``), which parses
+  as ``null`` — total loss, and the same ``#issue`` idiom this check exists for;
+* it inspected only the first line of a plain scalar, and 5333 of the KB's
+  scalars span several lines, so most prose was checked only where it started;
+* it reported every deliberate trailing comment as data loss — 13 in this repo's
+  ``conf/`` and ``.github/`` — because it judged quoting by whether the raw value
+  happened to start and end with a quote, rather than by where the ``#`` sat.
 
-So this reports only an **unquoted plain scalar containing a space-hash**, which
-is exactly the case that loses data.
+Scalar *style* answers all of that for free. A quoted or block scalar carries its
+own delimiters, so a ``#`` inside it is literal and a ``#`` after it cannot have
+eaten anything the author wrote. Only a **plain** scalar can be cut short, and
+PyYAML reports precisely where it stopped.
 
-A whole-line comment needs no explicit guard: it cannot match the ``key: value``
-patterns, which require a letter or underscore first.
-
-Usage::
-
-    from communitymech.validators.yaml_scalars import find_truncated_scalars
-
-    for issue in find_truncated_scalars(Path("kb/communities/Foo.yaml")):
-        print(issue.line, issue.message)
+A trailing comment on a plain scalar stays reportable, because nothing can
+distinguish "I meant a comment" from "I lost my tail" — the message says to quote
+the value, which resolves it either way. The record trees contain none today.
 """
 
 from __future__ import annotations
@@ -44,20 +38,43 @@ import re
 from dataclasses import dataclass
 from pathlib import Path
 
-# `key: value` or `- key: value`, capturing the indent, the key and the value.
-_MAPPING = re.compile(r"^(?P<indent>\s*)(?:-\s+)?(?P<key>[A-Za-z_][\w.\-]*):\s(?P<value>\S.*)$")
-# A bare sequence item: `- some text`.
-_SEQUENCE = re.compile(r"^(?P<indent>\s*)-\s(?P<value>\S.*)$")
-# A block scalar header: `key: >`, `key: |-`, `key: >2`, etc.
-_BLOCK_HEADER = re.compile(r"^(?P<indent>\s*)(?:-\s+)?[A-Za-z_][\w.\-]*:\s*[|>][+\-0-9]*\s*$")
-# The defect: whitespace then `#`. A `#` with no space before it — `(#376` — is
-# part of the scalar and safe.
-_SPACE_HASH = re.compile(r"\s#")
+import yaml
+
+# Only to name the field in the message; detection never relies on it.
+_KEY = re.compile(r"^\s*(?:-\s+)?(?P<key>[^\s:#][^:#]*):\s")
+
+
+def _name_for(lines: list[str], number: int) -> str:
+    """The field name to quote in the message.
+
+    A scalar's own line usually carries its key. A sequence item does not, so
+    walk out to the enclosing key — the one at a *smaller* indent. Scanning
+    backwards for any `key:` instead attributed eleven list items in
+    `conf/id_label_targets.yaml` to whichever key happened to precede them.
+    """
+    own = _KEY.match(lines[number])
+    if own:
+        return own.group("key").strip()
+
+    indent = len(lines[number]) - len(lines[number].lstrip())
+    # A block sequence may sit at the same indent as its key (`items:` then
+    # `- one`), so an entry accepts an equal indent while a wrapped scalar
+    # requires a strictly smaller one.
+    limit = indent if lines[number].lstrip().startswith("- ") else indent - 1
+    for candidate in range(number - 1, -1, -1):
+        line = lines[candidate]
+        if not line.strip():
+            continue
+        if len(line) - len(line.lstrip()) <= limit:
+            found = _KEY.match(line) or re.match(r"^\s*(?P<key>[^\s:#][^:#]*):\s*$", line)
+            if found:
+                return found.group("key").strip()
+    return "-"
 
 
 @dataclass(frozen=True)
 class ScalarIssue:
-    """One line whose value will lose its tail."""
+    """One scalar whose value stops short because a comment opened mid-line."""
 
     file: str
     line: int
@@ -67,55 +84,53 @@ class ScalarIssue:
 
     @property
     def message(self) -> str:
+        kept = f"keeps {self.truncated_to!r}, " if self.truncated_to else "keeps nothing — "
         return (
-            f"unquoted `{self.key}` is cut short by a mid-scalar comment: keeps "
-            f"{self.truncated_to!r}, loses {self.lost!r}. Quote the value."
+            f"plain scalar `{self.key}` is cut short by a mid-line comment: "
+            f"{kept}loses {self.lost!r}. Quote the value (or move the comment to "
+            f"its own line if it was meant as one)."
         )
 
     def __str__(self) -> str:  # pragma: no cover - display only
         return f"{self.file}:{self.line}: {self.message}"
 
 
-def _is_quoted(value: str) -> bool:
-    """Is the value a quoted scalar, so a `#` inside it is literal?"""
-    stripped = value.strip()
-    return len(stripped) >= 2 and stripped[0] in "\"'" and stripped[-1] == stripped[0]
-
-
 def find_truncated_scalars(path: Path) -> list[ScalarIssue]:
-    """Report unquoted scalars in `path` that a mid-line comment will truncate."""
+    """Report plain scalars in `path` that a mid-line comment cut short."""
+    text = path.read_text()
+    lines = text.splitlines()
+
+    try:
+        events = list(yaml.parse(text))
+    except yaml.YAMLError:
+        # An unparseable document is a different failure, already reported as
+        # `yaml_parse_error` by validate-strict. Saying it twice helps nobody.
+        return []
+
     issues: list[ScalarIssue] = []
-    block_indent: int | None = None
+    for event in events:
+        # A quoted scalar ('"', "'") or a block scalar ('|', '>') delimits itself,
+        # so a `#` inside it is literal and a `#` after it ends a value that was
+        # already complete. Only `style is None` — a plain scalar — can be cut.
+        if not isinstance(event, yaml.ScalarEvent) or event.style is not None:
+            continue
 
-    for number, line in enumerate(path.read_text().splitlines(), start=1):
-        indent = len(line) - len(line.lstrip())
+        end = event.end_mark
+        if end.line >= len(lines):
+            continue
+        remainder = lines[end.line][end.column :]
+        if not remainder.lstrip().startswith("#"):
+            continue
 
-        # Inside a block scalar every line is literal, including `#`. The block
-        # ends at the first non-blank line indented no deeper than its header.
-        if block_indent is not None:
-            if not line.strip() or indent > block_indent:
-                continue
-            block_indent = None
+        key = _name_for(lines, end.line)
 
-        if _BLOCK_HEADER.match(line):
-            block_indent = indent
-            continue
-        match = _MAPPING.match(line) or _SEQUENCE.match(line)
-        if not match:
-            continue
-        value = match.group("value")
-        if _is_quoted(value):
-            continue
-        hit = _SPACE_HASH.search(value)
-        if not hit:
-            continue
         issues.append(
             ScalarIssue(
                 file=str(path),
-                line=number,
-                key=match.groupdict().get("key") or "-",
-                truncated_to=value[: hit.start()].rstrip(),
-                lost=value[hit.start() :].strip(),
+                line=end.line + 1,
+                key=key,
+                truncated_to=event.value.strip(),
+                lost=remainder.strip(),
             )
         )
     return issues

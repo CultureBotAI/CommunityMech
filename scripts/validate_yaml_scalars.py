@@ -23,6 +23,9 @@ sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from communitymech.validators.yaml_scalars import find_truncated_scalars  # noqa: E402
 
+# `kb/taxa` is deliberately included and is *not* covered by validate-strict,
+# whose DEFAULT_ROOTS are the two record trees. It reaches CI through pytest
+# instead (#399 review, #391).
 DEFAULT_DIRS = ("kb/communities", "data/isolates", "kb/taxa")
 
 
@@ -32,8 +35,17 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     paths = args.files or [
-        path for directory in DEFAULT_DIRS for path in sorted((REPO_ROOT / directory).glob("*.yaml"))
+        path
+        for directory in DEFAULT_DIRS
+        for path in sorted((REPO_ROOT / directory).rglob("*.yaml"))
     ]
+    # A directory argument is what `validate_strict.py` accepts, so accept it
+    # here too rather than dying on IsADirectoryError. The two CLIs disagreeing
+    # on their contract is a trap for whoever wires them together (#399 review).
+    expanded: list[Path] = []
+    for path in paths:
+        expanded.extend(sorted(path.rglob("*.yaml")) if path.is_dir() else [path])
+    paths = expanded
     if not paths:
         print("[scalars] no files to check", file=sys.stderr)
         return 2

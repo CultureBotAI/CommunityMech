@@ -41,14 +41,24 @@ def _write(tmp_path: Path, text: str, name: str = "probe.yaml") -> Path:
     [
         ("plain mapping", "key: some text #376 here\n", "#376 here"),
         ("sequence item", "items:\n- some text #376 here\n", "#376 here"),
+        ("nested mapping", "a:\n  b:\n    c: text #1 x\n", "#1 x"),
         (
             "after a block scalar ends",
             "notes: >\n  fine #376 here\nkey: bad #384 here\n",
             "#384 here",
         ),
-        ("nested mapping", "a:\n  b:\n    c: text #1 x\n", "#1 x"),
-        # A tab before the hash is not this defect: YAML rejects the document
-        # outright, which validate-strict already reports as a parse error.
+        # The value *begins* with the hash, so the whole thing parses as null.
+        # The first version searched inside the captured value, where a leading
+        # `#` has no whitespace before it, and missed total loss (#399 review).
+        ("leading hash parses as null", "notes: #398 documents why\n", "#398 documents why"),
+        # A plain scalar wraps across lines; the truncation lands on the last
+        # one. The first version only ever inspected the line the key was on,
+        # and 5333 of the KB's scalars span several lines.
+        (
+            "wrapped scalar, hash on the last line",
+            "notes: a long note wrapped by\n  an editor. (see #398)\n",
+            "#398)",
+        ),
     ],
 )
 def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
@@ -62,8 +72,7 @@ def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
     # The premise: YAML really does drop it. Without this the test could be
     # asserting a rule nobody needs.
     parsed = yaml.safe_load(text)
-    flat = str(parsed)
-    assert lost not in flat, f"{name}: YAML kept the tail, so there is nothing to report"
+    assert lost not in str(parsed), f"{name}: YAML kept the tail, nothing to report"
 
 
 @pytest.mark.parametrize(
@@ -76,19 +85,53 @@ def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
         ("folded block scalar", "notes: >\n  a note mentioning #376\n  and more\nother: fine\n"),
         ("literal block scalar", "notes: |\n  literal #376 text\nother: fine\n"),
         ("block scalar with indicator", "notes: >-\n  a note with #376\nother: fine\n"),
-        ("blank line inside a block", "notes: >\n  first #376\n\n  second #384\nother: fine\n"),
-        # A block body line that *looks* like a mapping or a sequence item. This
-        # is what makes skipping the block header load-bearing: without it the
-        # body would be parsed as YAML structure and flagged.
+        ("blank line inside a block", "notes: >\n  first #376\n\n  key: value #384\nother: x\n"),
         ("mapping-shaped block body", "notes: >\n  key: value #376 here\nother: fine\n"),
         ("sequence-shaped block body", "notes: |\n  - item #376 here\nother: fine\n"),
-        ("comment line with a hash", "# see key: value #376\nkey: fine\n"),
         ("no hash at all", "key: ordinary text\n"),
+        # Every one of these was a false positive before the rewrite. A quoted or
+        # block scalar delimits itself, so a `#` after it cannot have eaten
+        # anything the author wrote (#399 review).
+        ("deliberate comment after a quoted value", 'key: "value" # a real comment\n'),
+        ("deliberate comment after a single-quoted value", "key: 'value' # a real comment\n"),
+        ("hash inside a quoted scalar in a flow mapping", '- { a: "x", b: "PR #105 reverted" }\n'),
+        ("comment on a block scalar header", "notes: > # folded\n  key: value #384\nother: x\n"),
+        ("block scalar as a bare sequence item", "notes:\n  - >\n    key: value #376 here\n"),
+        ("prose quoted at both ends", 'note: "syntrophic" became obligate\n'),
     ],
 )
 def test_legitimate_hashes_are_not_reported(tmp_path, name, text):
     """False positives would make this rule unusable, so they are pinned too."""
     assert find_truncated_scalars(_write(tmp_path, text)) == [], name
+
+
+def test_a_hash_inside_a_quoted_scalar_is_never_truncation(tmp_path):
+    """The case that made the first version unusable outside the record trees.
+
+    `conf/id_label_targets.yaml` carries `reason: "... (PR #105 reverted)"` inside
+    a flow mapping. Judging quoting by whether the raw value starts and ends with
+    a quote saw `{...}` and reported it; asking PyYAML for the scalar's style
+    does not.
+    """
+    real = REPO / "conf/id_label_targets.yaml"
+    reports = find_truncated_scalars(real)
+    assert all(
+        "#105" not in issue.lost for issue in reports
+    ), "a hash inside a quoted scalar was reported as lost"
+
+
+def test_the_record_trees_have_no_deliberate_trailing_comments(tmp_path):
+    """Why the check is scoped to records rather than every YAML in the repo.
+
+    A trailing comment on a *plain* scalar is genuinely ambiguous — nothing can
+    tell "I meant a comment" from "I lost my tail". The record trees contain
+    none, so the rule is unambiguous there. `conf/` and `.github/` use them
+    deliberately, which is why they stay out of scope rather than being made to
+    pass.
+    """
+    for directory in ("kb/communities", "data/isolates", "kb/taxa"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            assert find_truncated_scalars(path) == [], f"{path.name} reports"
 
 
 def test_the_line_number_and_key_are_usable(tmp_path):
@@ -187,3 +230,42 @@ def test_linkml_validate_accepts_what_this_catches(tmp_path):
     )
 
     assert result.returncode == 0, "linkml-validate now rejects this — drop the raw-text check"
+
+
+@pytest.mark.parametrize(
+    ("name", "text"),
+    [
+        ("extra spaces before the hash", "key:   #398 documents why\n"),
+        ("hash immediately after a wrapped line", "notes: text wrapping to\n  more #398 x\n"),
+        # A *tab* before the hash is not this defect: YAML rejects the document
+        # outright, which validate-strict already reports as a parse error.
+    ],
+)
+def test_the_gap_before_the_hash_may_be_any_whitespace(tmp_path, name, text):
+    """`lstrip()`, not a literal `" #"`.
+
+    The remainder handed to this check starts wherever the scalar stopped, which
+    is not always exactly one space before the hash.
+    """
+    assert find_truncated_scalars(_write(tmp_path, text)), name
+
+
+@pytest.mark.parametrize(
+    ("name", "text", "key"),
+    [
+        ("mapping", "alpha: fine\nbeta: broken #1 here\n", "beta"),
+        ("sequence at the key's indent", "items:\n- broken #1 here\n", "items"),
+        ("indented sequence", "items:\n  - broken #1 here\n", "items"),
+        ("nested mapping", "a:\n  b:\n    c: broken #1 here\n", "c"),
+    ],
+)
+def test_the_report_names_the_right_field(tmp_path, name, text, key):
+    """A report naming the wrong field sends the reader to the wrong line.
+
+    A block sequence may sit at the *same* indent as its key, so an entry has to
+    accept an equal indent when walking out to the enclosing name. Requiring a
+    strictly smaller one attributed eleven list items in
+    `conf/id_label_targets.yaml` to whichever key happened to precede them.
+    """
+    issue = find_truncated_scalars(_write(tmp_path, text))[0]
+    assert issue.key == key, name

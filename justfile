@@ -154,7 +154,12 @@ validate-gtdb FILE:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py {{FILE}}
 
 # Find hand-written YAML scalars a mid-line `#` will silently truncate (#398).
-# Also runs inside `just validate-strict`; this is the fast standalone form.
+#
+# The same check runs inside `just validate-strict` over kb/communities and
+# data/isolates. This form also covers kb/taxa, which that gate does not, and
+# takes explicit paths. Scoped to the record trees on purpose: conf/ and
+# .github/ use deliberate trailing comments, which are indistinguishable from
+# truncation on a plain scalar.
 validate-scalars *files:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
 
