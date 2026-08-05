@@ -431,7 +431,12 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
             "via": f"ncbi_rank_{prefix}",
             "ncbi_source_id": source_id,
             "ncbi_species": label,
-            "gtdb_options": ranked[:8],
+            # Full list, not `ranked[:8]`. The stored `gtdb_candidates` exists so
+            # a curator can choose without re-running the tool, and truncating it
+            # silently defeated exactly that: six KB taxa recorded 8 of 46 and 8
+            # of 33 contenders with no marker that any were dropped (#392 review).
+            # The CLI still prints only the first 8, with an "and N more" tail.
+            "gtdb_options": ranked,
             "n_alt": len(weights),
         }
     return None
@@ -570,7 +575,15 @@ STATUS_KEYS = ("gtdb_grounding_status", "gtdb_candidates")
 
 
 def classify_status(
-    record_name, tid, label, has_block, by_id, by_name, by_higher, preferred=None, **kwargs
+    record_name,
+    tid,
+    label,
+    has_block,
+    by_id,
+    by_name,
+    by_higher,
+    preferred=None,
+    **kwargs,
 ):
     """Why this taxon does or does not carry a grounding (#294).
 
@@ -602,7 +615,20 @@ def classify_status(
     if result and result.get("ambiguous"):
         return "AMBIGUOUS", list(result.get("gtdb_options") or [])
     if result is None or not result.get("gtdb_id"):
-        return "NO_GTDB_EQUIVALENT", []
+        # UNRESOLVED, never NO_GTDB_EQUIVALENT. This script cannot tell the two
+        # apart, and an earlier version asserted the strong one anyway: 57 KB
+        # entries read "GTDB has no counterpart and never will" for *Bacteria*,
+        # which is the root of GTDB — `HIGHER_RANKS` stops at phylum, so domain
+        # rank is never attempted. Others failed because the crosswalk spells
+        # the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`) or
+        # because the named-species filter removed their rows.
+        #
+        # Matching NCBI names against the table was tried and does not settle it
+        # either — a rename defeats it. Establishing "GTDB will never classify
+        # this" needs an NCBI lineage source, since GTDB is bacteria/archaea
+        # only, which this script does not have. So NO_GTDB_EQUIVALENT is
+        # curator-assigned and the tool never writes it (#393).
+        return "UNRESOLVED", []
     # The tool would ground this and the KB does not. That is the only value
     # here that represents outstanding work.
     return "NOT_ATTEMPTED", []
@@ -625,30 +651,33 @@ WITHHELD_GROUNDINGS = {
 def _status_spans(lines: list[str], anchor: int, end: int) -> list[tuple[int, int]]:
     """Line spans of any existing status keys for one taxonomy entry.
 
-    Same shape as `_block_span`, and deliberately the same indent rule: `>= 6`
-    rather than exactly 6, because `gtdb_candidates` is a list whose items sit
-    deeper and an exact match would orphan them into duplicate keys (#378).
+    The indent is derived from the anchor rather than hardcoded. `data/isolates`
+    uses the indented-sequence style (`  - taxon_term:`), putting taxon_term
+    children at 6 spaces, so a literal 4-space match never worked there: the key
+    was neither found nor dropped, and a second `--apply-status` produced a
+    duplicate. The canary that "proved" idempotency only ever ran on
+    kb/communities, which is uniformly 4-space (#392 review).
+
+    A block sequence sits at the *same* indent as its key, so `gtdb_candidates:`
+    is followed by `- Anabaena` at that indent, not by a deeper line.
     """
-    keys = re.compile(r"^\s{4}(?:" + "|".join(STATUS_KEYS) + r"):")
-    # A block sequence is written at the *same* indent as its key, so
-    # `gtdb_candidates:` is followed by `    - Anabaena`, not by a deeper line.
-    # Matching only `\s{6,}` left those items outside the span: the key was
-    # replaced and the items survived, so a second `--apply-status` run appended
-    # a duplicate list under one key. Caught by the canary before any batch, but
-    # this is the same class of bug as #378's wrapped continuations.
-    item = re.compile(r"^\s{4}- ")
+    child = len(re.match(r"^(\s*)", lines[anchor]).group(1)) - 2
+    keys = re.compile(r"^\s{" + str(child) + r"}(?:" + "|".join(STATUS_KEYS) + r"):")
+    item = re.compile(r"^\s{" + str(child) + r"}- ")
+    deeper = re.compile(r"^\s{" + str(child + 2) + r",}\S")
+    sibling = re.compile(r"^\s{0," + str(child) + r"}\S")
     spans, i = [], anchor + 1
     while i < end:
         if keys.match(lines[i]):
             j = i + 1
-            while j < end and (re.match(r"^\s{6,}\S", lines[j]) or item.match(lines[j])):
+            while j < end and (deeper.match(lines[j]) or item.match(lines[j])):
                 j += 1
             spans.append((i, j))
             i = j
             continue
-        if re.match(r"^\s{0,4}\S", lines[i]) and not re.match(r"^\s{4}\S", lines[i]):
+        if sibling.match(lines[i]) and not re.match(r"^\s{" + str(child) + r"}\S", lines[i]):
             break
-        if re.match(r"^- ", lines[i]):
+        if re.match(r"^\s*- ", lines[i]) and not item.match(lines[i]):
             break
         i += 1
     return spans
@@ -869,34 +898,38 @@ def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -
 
     spans = {pos: _status_spans(lines, pos, end) for pos in anchors}
     by_anchor = dict(zip(anchors, wanted, strict=True))
+    # The label line is emitted by hand beside its anchor, so it must not also
+    # be emitted by the main loop.
+    label_lines = {pos + 1 for pos in anchors}
 
-    out = lines[: start + 1]
-    i, written = start + 1, 0
-    while i < end:
+    # Emit every line except the old status keys, inserting the new ones right
+    # after each entry's label.
+    #
+    # This replaces a walk that advanced two cursors and then re-emitted
+    # `lines[i]` unconditionally, so a dropped line reappeared whenever the old
+    # status keys were not exactly two lines below the anchor — which is what
+    # `--apply` produces, since it inserts `gtdb_classification` between the
+    # label and them. The result was a duplicate key that this function then
+    # refused to write, leaving records only hand-editable, and in one ordering
+    # a silently stale `gtdb_candidates` beside a fresh status (#392 review).
+    # A drop-set cannot express either failure.
+    drop = {n for pos in by_anchor for span in spans[pos] for n in range(*span)}
+    out, written = lines[: start + 1], 0
+    for i in range(start + 1, end):
+        if i in drop or i in label_lines:
+            continue
         out.append(lines[i])
         if i in by_anchor:
             status, candidates = by_anchor[i]
-            out.append(lines[i + 1])  # the label line
-            drop = {n for span in spans[i] for n in range(*span)}
-            indent = re.match(r"^(\s+)", lines[i]).group(1)
-            child = " " * (len(indent) - 2)
+            # The label line is the anchor's partner and never a status key, so
+            # emitting it here keeps the pair together; `drop` skips it below.
+            out.append(lines[i + 1])
+            child = " " * (len(re.match(r"^(\s*)", lines[i]).group(1)) - 2)
             out.append(f"{child}gtdb_grounding_status: {status}")
             if candidates:
                 out.append(f"{child}gtdb_candidates:")
                 out += [f"{child}- {c}" for c in candidates]
             written += 1
-            j = i + 2
-            while j < end and j in drop:
-                j += 1
-            # Siblings written after the label but before the next entry keep
-            # their order; only the old status keys are dropped.
-            k = j
-            while k < end and k not in drop and not re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[k]):
-                k += 1
-            out += [ln for n, ln in enumerate(lines[j:k], start=j) if n not in drop]
-            i = k
-            continue
-        i += 1
     out += lines[end:]
     new_text = "\n".join(out) + "\n"
 
@@ -1143,8 +1176,9 @@ def main(argv: list[str] | None = None) -> int:
             print("  no GTDB mapping (rank absent from the NCBI2GTDB table, or eukaryote).")
             continue
         if g.get("ambiguous"):
-            opts = ", ".join(g["gtdb_options"])
-            extra = g.get("n_alt", 0) - len(g["gtdb_options"])
+            shown = g["gtdb_options"][:8]
+            opts = ", ".join(shown)
+            extra = g.get("n_alt", 0) - len(shown)
             if extra > 0:
                 opts += f" (+{extra} more)"
             print(head)

@@ -126,22 +126,41 @@ def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
     """
     if not isinstance(doc, dict):
         return
-    taxonomy = doc.get("taxonomy")
-    if not isinstance(taxonomy, list):
-        return
-    for index, entry in enumerate(taxonomy):
-        if not isinstance(entry, dict):
-            continue
-        term_block = entry.get("taxon_term")
-        if not isinstance(term_block, dict):
-            continue
+
+    def _label(term_block: dict) -> str:
         term = term_block.get("term")
-        name = (
+        return (
             term_block.get("preferred_term")
             or (term.get("id") if isinstance(term, dict) else None)
             or "?"
         )
-        yield f"taxonomy[{index}] {name}", term_block
+
+    taxonomy = doc.get("taxonomy")
+    if isinstance(taxonomy, list):
+        for index, entry in enumerate(taxonomy):
+            if not isinstance(entry, dict):
+                continue
+            term_block = entry.get("taxon_term")
+            if isinstance(term_block, dict):
+                yield f"taxonomy[{index}] {_label(term_block)}", term_block
+
+    # `EcologicalInteraction.source_taxon` / `target_taxon` also have range
+    # TaxonDescriptor, so they carry the same two slots — 1139 more instances
+    # than `taxonomy` alone. Walking only `taxonomy` meant an interaction taxon
+    # could claim GROUNDED with no block, or carry a single candidate, and every
+    # gate reported clean (#392 review).
+    interactions = doc.get("ecological_interactions")
+    if isinstance(interactions, list):
+        for index, entry in enumerate(interactions):
+            if not isinstance(entry, dict):
+                continue
+            for slot in ("source_taxon", "target_taxon"):
+                term_block = entry.get(slot)
+                if isinstance(term_block, dict):
+                    yield (
+                        f"ecological_interactions[{index}].{slot} {_label(term_block)}",
+                        term_block,
+                    )
 
 
 def check_block(block: dict) -> list[tuple[str, str]]:
@@ -297,7 +316,12 @@ def check_status(term_block: dict) -> list[tuple[str, str]]:
                 f"where the tool declined to choose.",
             )
         )
-    if status == "AMBIGUOUS" and candidates is not None and len(candidates) < 2:
+    # `candidates is not None` let the *more* degenerate case through: an
+    # AMBIGUOUS taxon with no `gtdb_candidates` key at all passed, while an
+    # explicit empty list was flagged. `apply_status_to_community` writes the key
+    # only `if candidates:`, so the case that actually occurs was the unchecked
+    # one (#392 review).
+    if status == "AMBIGUOUS" and len(candidates or []) < 2:
         problems.append(
             (
                 "ambiguous_without_candidates",

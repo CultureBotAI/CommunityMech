@@ -39,6 +39,28 @@ SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 FIXTURE = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
 
 
+@pytest.fixture(scope="module")
+def gtdb():
+    """The grounding script, loaded by path like the other suites do."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("gtdb_ground", REPO / "scripts/gtdb_ground.py")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.fixture(scope="module")
+def mapping(gtdb):
+    try:
+        path = gtdb.resolve_kg_microbe_dir(None) / "data/raw/NCBI2GTDB.tsv.gz"
+    except SystemExit as exc:
+        pytest.skip(f"kg-microbe mapping unavailable: {str(exc).splitlines()[0]}")
+    if not path.exists():
+        pytest.skip(f"kg-microbe NCBI2GTDB mapping not available at {path}")
+    return path
+
+
 def _valid_block() -> dict:
     return {
         "gtdb_id": "GTDB:f__Methylomonadaceae",
@@ -381,50 +403,94 @@ def test_a_taxon_with_no_status_is_tolerated():
     assert check_status(_term(block=_valid_block())) == []
 
 
-def test_every_kb_taxon_carries_a_status():
-    """The sweep must have reached all of them, not just the grounded ones.
+def test_every_kb_taxonomy_entry_carries_a_status():
+    """The sweep must reach all of them, not just the grounded ones.
 
-    Statuses are written for every entry including GROUNDED, because inferring
-    state from whether a field exists is the defect #294 is about.
+    Scoped to `taxonomy`, which is what `--apply-status` writes. Interaction
+    `source_taxon`/`target_taxon` share the range and so may carry the slots —
+    `check_status` validates them if present — but nothing populates them, and
+    demanding a status there would fail the whole KB.
     """
-    from communitymech.validators.gtdb_coherence import _taxon_terms
-
     total, missing = 0, []
     for directory in ("kb/communities", "data/isolates"):
         for path in sorted((REPO / directory).glob("*.yaml")):
-            for label, term_block in _taxon_terms(yaml.safe_load(path.read_text())):
+            for index, entry in enumerate(yaml.safe_load(path.read_text()).get("taxonomy") or []):
+                term_block = entry.get("taxon_term") or {}
                 total += 1
                 if "gtdb_grounding_status" not in term_block:
-                    missing.append(f"{path.name}: {label}")
+                    missing.append(f"{path.name}: taxonomy[{index}]")
     assert total > 1000, f"expected the whole KB, saw {total} taxa"
     assert not missing, f"{len(missing)} taxa have no status:\n" + "\n".join(missing[:10])
 
 
-def test_the_status_distribution_is_what_was_measured():
-    """The counts #294 turns on: absence was hiding a large *final* category.
+def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping):
+    """Re-derive every status and compare it to disk.
 
-    293 NO_GTDB_EQUIVALENT against 9 NOT_ATTEMPTED is the whole point — reading
-    absence as outstanding work overstated the remaining backfill roughly
-    thirtyfold. Ranged, so ordinary drift does not fail it, but a collapse of
-    the distinction would.
+    The KB-level assertions elsewhere read files the sweep already wrote, so a
+    classifier regression is invisible to them — changing the final
+    `return "NOT_ATTEMPTED"` to `return "UNRESOLVED"` left every ranged
+    assertion green (#392 review). This is the one test that can fail on that.
+    """
+    want_ids, want_species, want_higher, records = set(), set(), set(), []
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
+                term_block = entry.get("taxon_term") or {}
+                term = term_block.get("term") or {}
+                tid, label = str(term.get("id", "")), term.get("label", "")
+                records.append((path.name, tid, label, term_block))
+                if tid.startswith("NCBITaxon:"):
+                    want_ids.add(tid.split(":")[1])
+                    clean = gtdb._clean_label(label)
+                    (want_species if " " in clean else want_higher).add(clean.lower())
+    rows = gtdb.collect_rows(mapping, want_ids, want_species, want_higher)
+
+    wrong = []
+    for record, tid, label, term_block in records:
+        status, candidates = gtdb.classify_status(
+            record,
+            tid,
+            label,
+            "gtdb_classification" in term_block,
+            *rows,
+            preferred=term_block.get("preferred_term"),
+        )
+        stored = term_block.get("gtdb_grounding_status")
+        if stored != status:
+            wrong.append(f"{record}: {label} stored {stored}, classifier says {status}")
+        if sorted(term_block.get("gtdb_candidates") or []) != sorted(candidates):
+            wrong.append(f"{record}: {label} candidate list does not reproduce")
+    assert not wrong, f"{len(wrong)} statuses do not reproduce:\n" + "\n".join(wrong[:10])
+
+
+def test_the_status_distribution_is_what_was_measured():
+    """The counts #294 turns on, pinned tightly enough to catch a collapse.
+
+    An earlier version used only upper/lower bounds so loose that folding
+    NOT_ATTEMPTED into UNRESOLVED — the exact confusion this enum exists to
+    prevent — passed every assertion. The ratio and the floor are what bite.
     """
     from collections import Counter
-
-    from communitymech.validators.gtdb_coherence import _taxon_terms
 
     counts = Counter()
     for directory in ("kb/communities", "data/isolates"):
         for path in sorted((REPO / directory).glob("*.yaml")):
-            for _, term_block in _taxon_terms(yaml.safe_load(path.read_text())):
-                counts[term_block.get("gtdb_grounding_status")] += 1
+            for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
+                counts[(entry.get("taxon_term") or {}).get("gtdb_grounding_status")] += 1
 
     assert counts["GROUNDED"] > 600
-    assert counts["NO_GTDB_EQUIVALENT"] > 250, "the final-state category vanished"
+    assert counts["UNRESOLVED"] > 250, "the ungrounded-but-unexplained bucket vanished"
     assert counts["AMBIGUOUS"] > 50
     assert counts["WITHHELD"] == 2, "the #292 withholds must still be marked"
+    # A floor as well as a ceiling: `< 50` alone is satisfied by zero, so
+    # collapsing NOT_ATTEMPTED into another bucket passed.
+    assert 1 <= counts["NOT_ATTEMPTED"] < 50, (
+        "NOT_ATTEMPTED is the only value meaning outstanding work; 0 almost "
+        "certainly means it is being mislabelled, not that the work is done"
+    )
     assert (
-        counts["NOT_ATTEMPTED"] < 50
-    ), "outstanding work grew sharply — or a real category is being mislabelled"
+        counts["NO_GTDB_EQUIVALENT"] == 0
+    ), "the tool must not assert NO_GTDB_EQUIVALENT — it cannot establish it (#393)"
 
 
 def test_the_withholds_are_marked_withheld_not_grounded():

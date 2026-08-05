@@ -125,16 +125,23 @@ Grounding happens at the **rank of the input**:
 Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
 `gtdb_ground.py --community <file> --apply-status`. Absence of a
 `gtdb_classification` cannot say *why* it is absent, and the reasons are not
-comparable — reading absence as outstanding work overstated the remaining
-backfill roughly thirtyfold (#276).
+comparable: a missing block implied 385 open items, of which only 9 are
+unambiguously outstanding work (#276).
 
 | status | count | meaning |
 |---|---|---|
 | `GROUNDED` | 647 | a `gtdb_classification` is present |
-| `NO_GTDB_EQUIVALENT` | 293 | **final state** — viruses, eukaryotes, environmental pseudo-taxa, strains absent from the mapping |
-| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries the contenders |
-| `NOT_ATTEMPTED` | 9 | the only value representing outstanding work |
-| `WITHHELD` | 2 | the tool *can* ground it and a curator decided it must not (#292) |
+| `UNRESOLVED` | 293 | the tool produced no grounding; **why is not established** |
+| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
+| `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
+| `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
+| `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
+
+`UNRESOLVED` deliberately does not claim finality. Some of it is final (viruses,
+eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits: it
+attempts genus through phylum only, so *Bacteria* never resolves even though
+`d__Bacteria` is the root of GTDB. Reading it as "no GTDB equivalent" is the
+substitution #294 exists to stop.
 
 `GROUNDED` is redundant with the block's presence on purpose: a consumer should
 read a state, not infer one from whether a field exists. The two must agree, and

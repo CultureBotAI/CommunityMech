@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-04T17:44:50
+# Generation date: 2026-08-04T19:34:08
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2258,17 +2258,23 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     """
     Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never
     classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a
-    missing block (#294). The first is a *final* state and by far the largest — 293 of 1032 taxonomy entries — so
-    reading absence as outstanding work overstated the remaining backfill by roughly threefold (#276).
+    missing block (#294).
+    Of 1032 taxonomy entries: 647 GROUNDED, 293 UNRESOLVED, 81 AMBIGUOUS, 9 NOT_ATTEMPTED, 2 WITHHELD. Only
+    NOT_ATTEMPTED is unambiguously outstanding work, against the 385 that a missing block implied. How much of
+    UNRESOLVED is final rather than a tool limitation is not yet determined (#393).
     """
 
     GROUNDED = PermissibleValue(
         text="GROUNDED",
         description="""A gtdb_classification is present. Redundant with the block's presence by design: a consumer should read a state, not infer one from whether a field exists, which is the defect this enum exists to fix.""",
     )
+    UNRESOLVED = PermissibleValue(
+        text="UNRESOLVED",
+        description="""`gtdb_ground.py` produced no grounding and the reason is not established. Some of these are final — viruses and eukaryotes, since GTDB is bacteria/archaea only — and some are limitations of the tool: it attempts genus through phylum only, so domain-rank taxa such as *Bacteria* never resolve despite `d__Bacteria` being the root of GTDB; others fail because the crosswalk spells the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`) or because the named-species filter removed their rows. Separating the two needs an NCBI lineage source the script does not have (#393).""",
+    )
     NO_GTDB_EQUIVALENT = PermissibleValue(
         text="NO_GTDB_EQUIVALENT",
-        description="""GTDB has no counterpart and never will. Viruses and eukaryotes (GTDB is bacteria/archaea only), environmental pseudo-taxa such as \"Stordalen Mire thaw-gradient microbiome\", and strains absent from the NCBI2GTDB mapping. A final state, not a gap.""",
+        description="""GTDB has no counterpart and never will — a final state, not a gap. **Curator-assigned only.** The tool writes UNRESOLVED instead, because it cannot establish this: an earlier version inferred it from \"the resolve failed\" and so asserted it for *Bacteria* on 57 entries.""",
     )
     AMBIGUOUS = PermissibleValue(
         text="AMBIGUOUS",
@@ -2285,7 +2291,8 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
 
     _defn = EnumDefinition(
         name="GtdbGroundingStatusEnum",
-        description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294). The first is a *final* state and by far the largest — 293 of 1032 taxonomy entries — so reading absence as outstanding work overstated the remaining backfill by roughly threefold (#276).""",
+        description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294).
+Of 1032 taxonomy entries: 647 GROUNDED, 293 UNRESOLVED, 81 AMBIGUOUS, 9 NOT_ATTEMPTED, 2 WITHHELD. Only NOT_ATTEMPTED is unambiguously outstanding work, against the 385 that a missing block implied. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393).""",
     )
 
 
