@@ -196,10 +196,25 @@ taxonomy entries and their id anchors do not line up.
   decides an answer. `--withdraw-ambiguous` removes a stored grounding that has
   become ambiguous, which `--refresh` deliberately cannot do.
 
-  A grounding the majority vote gets *wrong* can be pinned in `CURATED` in
-  `tests/test_gtdb_withheld_groundings.py`; the tool has no memory of such a
-  decision and `--refresh` will otherwise re-break it (#384). `NCBITaxon:18`
-  (*Pelobacter* SFB93 → `g__Syntrophotalea`) is the worked example.
+  A grounding the majority vote gets *wrong* is pinned **in the block**:
+
+  ```yaml
+  gtdb_classification:
+    curated: true
+    curation_note: why the tool's answer was rejected
+  ```
+
+  `--refresh` and `--withdraw-ambiguous` skip a block carrying `curated: true`,
+  and `validate-gtdb` rejects the flag without a note — or a note without the
+  flag, which reads as a decision while protecting nothing. (`--apply` only ever
+  touches *ungrounded* taxa, so it could not have overwritten a pin anyway.)
+  Two blocks carry it: `NCBITaxon:18` (*Pelobacter* SFB93 → `g__Syntrophotalea`,
+  where the vote picks a selenate reducer) and `NCBITaxon:340177` (*Chlorobium*).
+
+  The script also keeps a `CURATED_GROUNDINGS` list as a fallback, but prefer the
+  flag: a list protects only what someone remembered to add, which is how
+  *Chlorobium* went unprotected — it survived earlier sweeps only because its
+  recompute happened to fail (#376).
 - **`is_reclassified: true`** — GTDB uses a different name than NCBI at that rank
   (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
   both groundings; the disagreement is the point.

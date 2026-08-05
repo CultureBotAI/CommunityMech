@@ -526,3 +526,104 @@ def test_the_withholds_are_marked_withheld_not_grounded():
         assert (
             term_block.get("gtdb_grounding_status") == "GROUNDED"
         ), "a correct grounding sharing the withheld id was marked WITHHELD"
+
+
+# ---------------------------------------------------------------------------
+# The curated flag's own coherence (#384).
+# ---------------------------------------------------------------------------
+
+
+def test_a_curated_block_must_say_why():
+    """A pin whose reason lives only in a commit message reads as a mistake."""
+    block = _valid_block()
+    block["curated"] = True
+    assert "curated_without_note" in {c for c, _ in check_block(block)}
+
+    block["curation_note"] = "   "
+    assert "curated_without_note" in {c for c, _ in check_block(block)}, "whitespace is not a note"
+
+    block["curation_note"] = "the majority vote picks a selenate reducer here"
+    assert check_block(block) == []
+
+
+def test_a_note_without_the_flag_is_flagged():
+    """Explanatory prose that protects nothing is worse than none.
+
+    It reads as a decision while a refresh will overwrite the block regardless.
+    """
+    block = _valid_block()
+    block["curation_note"] = "chosen against the tool"
+    assert "note_without_curated" in {c for c, _ in check_block(block)}
+
+
+def test_a_flagged_taxon_always_has_a_block_so_grounds(gtdb):
+    """Why `classify_status` takes no `curated` argument.
+
+    `curated: true` lives inside `gtdb_classification`, so a flagged taxon always
+    has a block and the `has_block` branch already answers GROUNDED. #384 added a
+    `curated=` parameter for a `curated but ungrounded` state that cannot arise —
+    deleting its wiring left the whole suite green, and its presence reordered
+    the function so a taxon both flagged and withheld returned GROUNDED (#397).
+    """
+    import inspect
+
+    assert (
+        "curated" not in inspect.signature(gtdb.classify_status).parameters
+    ), "a curated= argument is unreachable from the writer; the flag implies a block"
+    status, _ = gtdb.classify_status("rec.yaml", "NCBITaxon:1", "Testgenus", True, {}, {}, {})
+    assert status == "GROUNDED"
+
+
+def test_a_withheld_taxon_is_not_overridden_by_anything(gtdb):
+    """WITHHELD stays checked before outcome, which #384 had silently reordered."""
+    record, preferred = next(iter(gtdb.WITHHELD_GROUNDINGS))
+    status, _ = gtdb.classify_status(
+        record, "NCBITaxon:821", "Bacteroides", False, {}, {}, {}, preferred=preferred
+    )
+    assert status == "WITHHELD"
+
+
+def test_a_curation_note_survives_yaml_parsing_intact():
+    """A bare `#` after a space opens a comment mid-scalar and eats the rest.
+
+    The Chlorobium note ended `(#376, #384).` and parsed as `(#376,` — losing the
+    pointer to the issue the flag exists for, and leaving an unbalanced paren.
+    Every gate passed it, because they all test only that the note is non-empty.
+
+    Comparing the raw line against the parsed value catches the whole class:
+    comment truncation, a stray tab, an unescaped quote.
+    """
+    import re
+
+    truncated = []
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            text = path.read_text()
+            if "curation_note:" not in text:
+                continue
+            document = yaml.safe_load(text)
+            parsed = [
+                block["curation_note"]
+                for entry in document.get("taxonomy") or []
+                for block in [(entry.get("taxon_term") or {}).get("gtdb_classification") or {}]
+                if block.get("curation_note")
+            ]
+            raw = [m.group(1).strip() for m in re.finditer(r"^\s*curation_note: (.*)$", text, re.M)]
+            for raw_line, value in zip(raw, parsed, strict=True):
+                stripped = raw_line.strip("\"'")
+                if len(value) < len(stripped):
+                    truncated.append(f"{path.name}: lost {stripped[len(value):]!r}")
+    assert not truncated, "curation_note truncated by YAML parsing:\n" + "\n".join(truncated)
+
+
+@pytest.mark.parametrize("note", [["a list"], 0, {"a": 1}, False])
+def test_a_non_string_note_does_not_crash_the_check(note):
+    """`check_block` is called directly on unvalidated dicts, so it must cope.
+
+    The schema types `curation_note`, so `linkml-validate` rejects these — but
+    the validator is also called on in-memory blocks that never went through it.
+    """
+    block = _valid_block()
+    block["curation_note"] = note
+    categories = {category for category, _ in check_block(block)}
+    assert "note_without_curated" in categories or not str(note or "").strip()

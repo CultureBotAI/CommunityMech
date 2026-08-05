@@ -490,9 +490,9 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
 # one and only `tests/test_gtdb_withheld_groundings.py::CURATED` notices, after
 # the fact. Mirrors WITHHELD, which keeps taxa *ungrounded* (#292/#293).
 #
-# This is the narrow half of #384 — a hard-coded list, not the `curated:` flag on
-# the block that the issue asks for. It exists so the record stays tool-
-# maintainable: excluding the whole *file* instead stranded its other taxon.
+# A fallback for records not yet marked. The `curated: true` flag on the block is
+# the primary mechanism (#384) — prefer it, because a list protects only what
+# someone remembered to add, which is how *Chlorobium* went unprotected.
 CURATED_GROUNDINGS = {
     ("Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml", "NCBITaxon:18"): (
         "GTDB:g__Syntrophotalea — SFB93 is an acetylene fermenter and the entry's "
@@ -501,6 +501,24 @@ CURATED_GROUNDINGS = {
         "the vote to g__Seleniibacterium at 0.571 (#384)."
     ),
 }
+
+
+def _is_curated(term_block: dict) -> bool:
+    """Is this taxon's grounding pinned by a curator?
+
+    Reads the flag off the block, so the decision travels with the data.
+    `CURATED_GROUNDINGS` remains as a fallback for records not yet marked, but a
+    list only protects what someone remembered to add — which is exactly how
+    *Chlorobium* went unprotected (#384).
+    """
+    block = (term_block or {}).get("gtdb_classification")
+    if not isinstance(block, dict):
+        return False
+    # Keyed on the *value*, and only on `curated`. Reading the key's presence
+    # would freeze a block written `curated: false` — a curator recording "I
+    # checked, the tool is right" — and reading `curation_note` would let a note
+    # protect a block nothing flagged (#397 review).
+    return block.get("curated") is True
 
 
 def _block(g: dict, mapping_source: str) -> dict:
@@ -614,6 +632,14 @@ def classify_status(
     point of a withhold is that the tool *can* produce a grounding and must not:
     classifying it by outcome would label it GROUNDED-able and invite exactly the
     re-run #293 exists to prevent.
+
+    There is deliberately no `curated` parameter. `curated: true` lives *inside*
+    `gtdb_classification`, so a flagged taxon always has a block and the
+    `has_block` branch already answers GROUNDED. A `curated=` argument was added
+    in #384 and was unreachable from the writer — deleting its wiring left the
+    whole suite green — while quietly reordering this function so a taxon both
+    flagged and in WITHHELD_GROUNDINGS returned GROUNDED, contradicting the
+    paragraph above (#397 review).
     """
     if (record_name, tid) in CURATED_GROUNDINGS:
         # A curated block is a grounding, just not one the tool would compute.
@@ -740,12 +766,16 @@ def apply_to_community(
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
         grounded = "gtdb_classification" in tt
-        if (path.name, tid) in CURATED_GROUNDINGS:
-            print(
-                f"[gtdb] skipping curated {tid} in {path.name}: "
-                f"{CURATED_GROUNDINGS[(path.name, tid)]}",
-                file=sys.stderr,
+        if _is_curated(tt) or (path.name, tid) in CURATED_GROUNDINGS:
+            # The reason can come from either source, and indexing the list
+            # unconditionally raised KeyError whenever the block's own `curated`
+            # flag was what protected it — i.e. exactly the case the flag exists
+            # for. Caught by the canary before any sweep (#384).
+            reason = CURATED_GROUNDINGS.get((path.name, tid)) or (
+                (tt.get("gtdb_classification") or {}).get("curation_note")
+                or "marked `curated: true` with no curation_note"
             )
+            print(f"[gtdb] skipping curated {tid} in {path.name}: {reason}", file=sys.stderr)
             wanted.append(None)
             continue
         if not tid.startswith("NCBITaxon:") or (grounded != refresh):
@@ -868,7 +898,11 @@ def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
         tt = (tc or {}).get("taxon_term", {}) or {}
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
-        if (path.name, tid) in CURATED_GROUNDINGS or "gtdb_classification" not in tt:
+        if (
+            _is_curated(tt)
+            or (path.name, tid) in CURATED_GROUNDINGS
+            or "gtdb_classification" not in tt
+        ):
             drop_entry.append(False)
             continue
         if not tid.startswith("NCBITaxon:"):
@@ -1141,6 +1175,25 @@ def _assert_only_grounding_changed(
     elif not set(was) <= set(now):
         # Plain apply may add groundings; it must never remove one.
         raise SystemExit(f"{path.name}: an existing gtdb_classification was dropped.")
+
+    # Losing `curated`/`curation_note` is the exact regression this flag prevents,
+    # and popping gtdb_classification wholesale below makes it invisible. `_block`
+    # never emits them, so any path that fails to detect the flag would rewrite
+    # the block and delete the evidence it was ever curated (#397 review).
+    def _pins(doc):
+        return {
+            i: ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curation_note")
+            for i, e in enumerate(doc.get("taxonomy") or [])
+            if isinstance(((e or {}).get("taxon_term") or {}).get("gtdb_classification"), dict)
+            and ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curated")
+        }
+
+    lost = {i: note for i, note in _pins(before).items() if i not in _pins(after)}
+    if lost:
+        raise SystemExit(
+            f"{path.name}: the edit dropped `curated` from {len(lost)} block(s) — "
+            f"refusing to write. A curated grounding must survive every mode."
+        )
 
     b_tax, a_tax = before.get("taxonomy") or [], after.get("taxonomy") or []
     if len(b_tax) != len(a_tax):

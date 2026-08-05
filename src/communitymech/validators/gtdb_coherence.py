@@ -248,6 +248,29 @@ def check_block(block: dict) -> list[tuple[str, str]]:
                     )
                 )
 
+    # A pin whose reason lives only in a commit message is one re-run away from
+    # looking like an error, so the note is required in practice even though the
+    # schema cannot require it conditionally (#384).
+    if block.get("curated") and not str(block.get("curation_note") or "").strip():
+        problems.append(
+            (
+                "curated_without_note",
+                "curated: true with no curation_note — record why the tool's answer "
+                "was rejected, or the next person cannot tell a pin from a mistake.",
+            )
+        )
+    # `str(...)` is belt-and-braces: the schema types this slot, so a non-string
+    # is rejected upstream. Kept because `check_block` is called directly on
+    # dicts that never went through validation — the tests do exactly that.
+    if str(block.get("curation_note") or "").strip() and not block.get("curated"):
+        problems.append(
+            (
+                "note_without_curated",
+                "curation_note without curated: true — the note reads as an "
+                "explanation but nothing protects the block from a refresh.",
+            )
+        )
+
     if fraction is not None and not (MIN_FRACTION <= fraction <= 1.0):
         problems.append(
             (
