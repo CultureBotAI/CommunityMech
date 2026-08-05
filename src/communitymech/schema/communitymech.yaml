@@ -768,6 +768,16 @@ classes:
         description: >-
           Canonical GTDB CURIE (spaces in the taxon name become underscores),
           e.g. GTDB:s__Bacillus_velezensis or GTDB:g__Agrobacterium.
+
+          The single letter before `__` is the rank — d, p, c, o, f, g, s — and
+          it is the reliable way to filter by rank: present on every block and
+          enforced by the pattern below. `mapping_source` also names the rank in
+          prose, but that is for reading, not querying.
+
+          **Filter `d__` out of any coverage figure.** 72 of the KB's groundings
+          are `GTDB:d__Bacteria` or `d__Archaea` (#393), which are true but carry
+          no information beyond the NCBITaxon id — counting them as "grounded"
+          overstates coverage by about 10% (#403).
         pattern: "^GTDB:[cdfgops]__.+"
       gtdb_taxon:
         description: GTDB taxon name (human-readable, spaces preserved), e.g. "Bacillus velezensis".

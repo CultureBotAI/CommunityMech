@@ -735,3 +735,69 @@ def test_every_kb_taxon_reports_one_denominator(grounded):
 
     inconsistent = {tid: sorted(v) for tid, v in by_taxon.items() if len(v) > 1}
     assert not inconsistent, f"one taxon, several denominators: {inconsistent}"
+
+
+def test_every_grounding_carries_a_queryable_rank(grounded):
+    """The rank must be readable from `gtdb_id`, not only from prose (#403).
+
+    #403 proposed adding a rank field so filtering would be a query rather than a
+    substring match on `mapping_source`. It already is one: the letter before
+    `__` is the rank, it is present on every block, and the schema pattern
+    enforces it. Adding a field would be a second source of truth for something
+    the CURIE already says — this repo has spent several PRs on exactly that kind
+    of redundancy.
+
+    So the resolution is to pin the property instead: if the prefix ever stops
+    being reliable, the documented filter silently stops working.
+    """
+    import re
+
+    missing, disagreeing = [], []
+    for record, name, block in grounded:
+        gtdb_id = block.get("gtdb_id") or ""
+        match = re.match(r"GTDB:([cdfgops])__", gtdb_id)
+        if not match:
+            missing.append(f"{record}: {name} — {gtdb_id!r}")
+            continue
+        prose = re.search(r"grounded at ([a-z])__ rank", block.get("mapping_source") or "")
+        if prose and prose.group(1) != match.group(1):
+            disagreeing.append(f"{record}: {name} — {gtdb_id} vs {prose.group(1)}__")
+
+    assert not missing, "gtdb_id without a rank prefix:\n" + "\n".join(missing[:10])
+    assert not disagreeing, "the CURIE and mapping_source disagree on rank:\n" + "\n".join(
+        disagreeing[:10]
+    )
+
+
+def test_the_domain_groundings_are_filterable_and_worth_filtering(grounded):
+    """The population #403 is about, and the query that removes it.
+
+    Documented in SKILL.md and the schema as
+    `not gtdb_id.startswith("GTDB:d__")`. If that stops selecting the domain
+    groundings, the documented filter is wrong.
+    """
+    domain = [b for _, _, b in grounded if b["gtdb_id"].startswith("GTDB:d__")]
+
+    assert len(domain) > 50, f"only {len(domain)} domain groundings; has #393 been reverted?"
+    assert {b["gtdb_id"] for b in domain} == {"GTDB:d__Bacteria", "GTDB:d__Archaea"}
+    assert all(b.get("majority_fraction") == 1.0 for b in domain)
+    # The reason to filter: they say nothing the NCBITaxon id did not.
+    assert all(not b.get("is_reclassified") for b in domain)
+
+
+def test_the_schema_still_requires_a_rank_prefix():
+    """The data pin above is not enough on its own.
+
+    It asserts the property holds for what is committed; loosening the schema
+    pattern leaves it green while allowing the next block to arrive without a
+    rank. Both halves are needed for the documented filter to stay valid (#403).
+    """
+    import re
+
+    schema = (REPO / "src/communitymech/schema/communitymech.yaml").read_text()
+    block = schema[schema.index("      gtdb_id:") :]
+    pattern = re.search(r'pattern: "([^"]+)"', block).group(1)
+
+    assert "__" in pattern, f"the gtdb_id pattern no longer requires a rank prefix: {pattern}"
+    assert re.match(pattern, "GTDB:d__Bacteria")
+    assert not re.match(pattern, "GTDB:Bacteria"), "an un-ranked CURIE would validate"
