@@ -828,7 +828,16 @@ classes:
       support_genomes:
         description: >-
           Number of genomes supporting the chosen GTDB taxon — the numerator
-          behind majority_fraction. Present only on genus-and-higher groundings,
+          behind majority_fraction.
+
+          The schema bounds this on its own but cannot relate it to
+          total_genomes or majority_fraction: that is cross-field arithmetic,
+          which LinkML's JSON-Schema backend has no way to express (#387, with
+          the spike recorded in the class rules above). `support_genomes: 99,
+          total_genomes: 3` passes `just validate` and is caught by
+          `just validate-gtdb` and by `validate-strict` in CI.
+
+          Present only on genus-and-higher groundings,
           where this majority is computed from the mapping rows directly. Absent
           on species-level groundings: there majority_fraction comes from the
           crosswalk's own column, which carries two decimal places, so any
@@ -900,8 +909,24 @@ classes:
       # covered; the schema alone is weaker than it looks.
       #
       # `support_genomes <= total_genomes` and agreement with majority_fraction
-      # are cross-field arithmetic the JSON-Schema backend cannot express at all,
-      # so they live in tests/test_gtdb_grounding_freshness.py instead (#387).
+      # are cross-field arithmetic this schema cannot express. That was asserted
+      # here before it was checked; #387 asked for the spike, and the answer is
+      # no, for two independent reasons:
+      #
+      #   * `equals_expression` (e.g. "{support_genomes} / {total_genomes}") is
+      #     LinkML's *inference* machinery, not a constraint. Probed directly:
+      #     a block declaring 99/3 with ratio 0.1 validates clean.
+      #   * `rules` compile to JSON Schema, which has no way to compare one
+      #     property against another — only a property against a literal.
+      #
+      # So the constraint lives outside the schema, in
+      # `communitymech.validators.gtdb_coherence`. That is reachable three ways:
+      # `just validate-gtdb FILE`, `just qc`, and — the one that matters —
+      # `validate-strict`, which is a CI gate. A record with 99/3 fails it with
+      # `gtdb_support_exceeds_total`, so an incoherent block cannot reach `main`.
+      #
+      # What stays true is that `just validate FILE` alone will pass one. Anyone
+      # hand-authoring a block should run `just validate-gtdb` beside it.
       - description: >-
           A gtdb_classification carrying support_genomes must also carry
           total_genomes.
