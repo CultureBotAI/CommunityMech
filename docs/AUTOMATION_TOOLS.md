@@ -198,7 +198,10 @@ poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml
 # 2. Review suggestions carefully, apply best ones
 
 # 3. Validate
-poetry run python scripts/curate_evidence_with_pdfs.py --file FILENAME.yaml
+# ⚠️ NOT FUNCTIONAL — this script imports communitymech.literature_enhanced,
+# which has never existed, so it fails at import. Tracked in #410.
+# (The command below is also stale: this repo uses uv, not poetry.)
+uv run python scripts/curate_evidence_with_pdfs.py --file FILENAME.yaml
 
 # 4. Schema check
 just validate kb/communities/FILENAME.yaml

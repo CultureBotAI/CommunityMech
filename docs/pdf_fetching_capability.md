@@ -6,7 +6,17 @@ The CommunityMech literature system integrates a 6-tier cascading PDF discovery 
 
 ## Integration Status
 
-✅ **VALIDATED** - Successfully integrated and tested
+⚠️ **NOT FUNCTIONAL** — the scripts described below cannot run.
+
+All of them begin `from communitymech.literature_enhanced import
+EnhancedLiteratureFetcher`, and that module has never existed in any commit: it
+was absent from the repo's first commit (`7c658e6`), which is also where these
+scripts were added. They fail at import, so even `--help` does not work.
+
+This page previously read "✅ VALIDATED — Successfully integrated and tested",
+which was never true of the committed code. Tracked in #410; `LiteratureFetcher`
+in `communitymech.literature` is the working fetcher, and
+`tests/test_scripts_import.py` now fails on any *new* script that cannot import.
 
 - Scihub fallback from MicroGrowAgents: `pdf_evidence_extractor.py`
 - 6-tier cascading strategy implemented
