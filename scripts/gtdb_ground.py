@@ -57,6 +57,11 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MAPPING_REL = Path("data/raw/NCBI2GTDB.tsv.gz")
 
+# `scripts/` is on sys.path when this runs as `python scripts/gtdb_ground.py`,
+# so reach the package the same way the other scripts do.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from communitymech.validators.ncbi_domain import outside_gtdb_scope  # noqa: E402
+
 # NCBI2GTDB.tsv column indices (0-based); see header row.
 COL_NCBI_ID = 0
 COL_TOTAL_GENOMES = 2
@@ -739,6 +744,48 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
 STATUS_KEYS = ("gtdb_grounding_status", "gtdb_candidates")
 
 
+# Why a resolve failed, from what the tool already holds at that moment (#393).
+#
+# #294 wanted UNRESOLVED told apart from NO_GTDB_EQUIVALENT ("GTDB has no
+# counterpart and never will"). #392 made the tool emit only the weak state,
+# because inferring the strong one from "the resolve failed" was wrong for at
+# least 82 of 293 entries.
+#
+# This does not restore the strong claim — that needs an NCBI lineage source
+# this script does not have, since GTDB is bacteria/archaea only (#393 option 1).
+# It records the *reason*, which the tool knew and discarded, and which splits
+# the population into two genuinely different piles:
+#
+#   ROWS_FILTERED    the crosswalk has rows under this taxon and the
+#                    named-species filter (#375) removed all of them —
+#                    `Pseudomonas sp.`, `Streptomyces sp.`. A curator could
+#                    recover these by relaxing the filter; nothing is missing.
+#   NOT_IN_CROSSWALK the id and name appear nowhere in the mapping. Two very
+#                    different things live here and this deliberately does not
+#                    guess between them: a eukaryote or virus, which really is
+#                    final (GTDB will never classify Saccharomyces), and a clade
+#                    the crosswalk spells differently (NCBI *Sulcia* is
+#                    `Candidatus Karelsulcia`), which is a lookup failure.
+#
+# So NOT_IN_CROSSWALK is the population #393 option 1 would resolve, and naming
+# it is what makes that work schedulable instead of a re-derivation.
+UNRESOLVED_REASONS = ("ROWS_FILTERED", "NOT_IN_CROSSWALK")
+
+
+def unresolved_reason(tid: str, label: str, by_id, by_name, by_higher) -> str:
+    """Which of the two failure modes applied.
+
+    Read off the indexes rather than re-deriving: `collect_rows` only indexes
+    taxa that were asked for, so a non-empty entry means the crosswalk really
+    does carry rows for this taxon and the filter is what emptied them.
+    """
+    number = tid.split(":", 1)[1] if ":" in tid else tid
+    name = (label or "").strip().lower()
+    if by_id.get(number) or by_name.get(name) or by_higher.get(name):
+        return "ROWS_FILTERED"
+    return "NOT_IN_CROSSWALK"
+
+
 def classify_status(
     record_name,
     tid,
@@ -799,8 +846,22 @@ def classify_status(
         # Matching NCBI names against the table was tried and does not settle it
         # either — a rename defeats it. Establishing "GTDB will never classify
         # this" needs an NCBI lineage source, since GTDB is bacteria/archaea
-        # only, which this script does not have. So NO_GTDB_EQUIVALENT is
-        # curator-assigned and the tool never writes it (#393).
+        # only. That source is now wired in (#393): `outside_gtdb_scope` asks the
+        # NCBITaxon ontology for the taxon's domain, and a eukaryote or virus is
+        # final rather than merely unresolved.
+        #
+        # Of the KB's 220 UNRESOLVED taxa, 92 are Eukaryota and 6 Viruses — so
+        # 98 were never outstanding work, and the backlog overstated itself by
+        # about 45%. The other 106 are genuinely bacteria and archaea the tool
+        # failed to match, and stay UNRESOLVED.
+        #
+        # One-directional on purpose. `outside_gtdb_scope` returns False when it
+        # cannot tell — no adapter, a lookup failure, a taxon above every domain
+        # like `cellular organisms` — so an unavailable NCBITaxon database
+        # degrades to the weaker status and never to a false claim of finality.
+        # That is what keeps this script runnable without a large download.
+        if outside_gtdb_scope(tid):
+            return "NO_GTDB_EQUIVALENT", []
         return "UNRESOLVED", []
     # The tool would ground this and the KB does not. That is the only value
     # here that represents outstanding work.

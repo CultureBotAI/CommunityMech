@@ -474,6 +474,13 @@ def test_the_status_distribution_is_what_was_measured():
     *Bacteria* or *Archaea* at all, so it recorded "no grounding produced" for
     the two roots of GTDB. They are grounded now, which is why GROUNDED and
     UNRESOLVED both moved by 72 while NOT_ATTEMPTED returned to 9.
+
+    #393's second half moved 96 more out of UNRESOLVED (221 -> 125) and into
+    NO_GTDB_EQUIVALENT. Those are eukaryotes and viruses, which GTDB will never
+    classify — the tool can say so now that it consults an NCBI lineage source
+    rather than inferring finality from its own failure. So UNRESOLVED's floor
+    drops sharply here on purpose: what is left is bacteria and archaea the
+    lookup genuinely missed, which is the number that should drive curation.
     """
     from collections import Counter
 
@@ -484,7 +491,16 @@ def test_the_status_distribution_is_what_was_measured():
                 counts[(entry.get("taxon_term") or {}).get("gtdb_grounding_status")] += 1
 
     assert counts["GROUNDED"] > 700
-    assert counts["UNRESOLVED"] > 180, "the ungrounded-but-unexplained bucket vanished"
+    assert counts["UNRESOLVED"] > 90, "the ungrounded-but-unexplained bucket vanished"
+    # Two-sided: without a ceiling, losing the domain lookup and dumping all 96
+    # eukaryotes back into UNRESOLVED would pass (#393).
+    assert counts["UNRESOLVED"] < 160, (
+        "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
+        "lookup may be silently unavailable, which degrades to this bucket"
+    )
+    assert (
+        counts["NO_GTDB_EQUIVALENT"] > 50
+    ), "the eukaryote/virus population stopped being recognised as final (#393)"
     assert counts["AMBIGUOUS"] > 50
     assert counts["WITHHELD"] == 2, "the #292 withholds must still be marked"
     # A floor as well as a ceiling: `< 50` alone is satisfied by zero, so
@@ -493,9 +509,16 @@ def test_the_status_distribution_is_what_was_measured():
         "NOT_ATTEMPTED is the only value meaning outstanding work; 0 almost "
         "certainly means it is being mislabelled, not that the work is done"
     )
-    assert (
-        counts["NO_GTDB_EQUIVALENT"] == 0
-    ), "the tool must not assert NO_GTDB_EQUIVALENT — it cannot establish it (#393)"
+    # Was `== 0`: #392 forbade the tool from ever asserting this, because it
+    # inferred finality from its own failure and got 82 of 293 wrong. #393
+    # removes the reason for the ban rather than the ban's intent — the value is
+    # now backed by an NCBI domain lookup, and every instance is checked against
+    # that lookup in tests/test_ncbi_domain_scope.py. The property that matters
+    # is no longer "never claim it" but "never claim it for a prokaryote".
+    assert counts["NO_GTDB_EQUIVALENT"] > 50, (
+        "the eukaryote/virus population stopped being recognised as final; the "
+        "NCBI domain lookup may be unavailable (#393)"
+    )
 
 
 def test_the_withholds_are_marked_withheld_not_grounded():
