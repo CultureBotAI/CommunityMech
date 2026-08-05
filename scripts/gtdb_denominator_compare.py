@@ -101,8 +101,11 @@ def main() -> int:
     rows, differ_from_default = [], 0
     for tid, label in taxa:
         core = tid.split(":")[1]
-        # Only the higher-rank path has these choices; the species and id paths
-        # resolve a single row and are identical under all four.
+        # Only the higher-rank path has these choices. The species and id paths
+        # are identical under all four: the denominator choice does not arise
+        # within one GTDB species, and while `exclude_unnamed` does reach them
+        # since #405, it cannot fire — an id maps to one row and a name group
+        # shares one species string, so the filter is all-or-nothing (#408).
         answers = {
             name: _outcome(
                 grounder.resolve_target(

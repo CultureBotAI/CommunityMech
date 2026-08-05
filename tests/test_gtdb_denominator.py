@@ -455,3 +455,190 @@ def test_a_shallower_rank_cannot_pre_empt_a_deeper_one(gtdb):
         result["gtdb_id"] == "GTDB:g__FromGenus"
     ), "a shallower rank answered ahead of a deeper one — HIGHER_RANKS is misordered"
     assert gtdb.HIGHER_RANKS[-1][2] == "d", "domain must remain last"
+
+
+# ---------------------------------------------------------------------------
+# The named-species filter on the species path (#405).
+# ---------------------------------------------------------------------------
+
+
+def _species_row(genomes, species, majority="1.0", strain=""):
+    cells = [""] * 20
+    cells[2], cells[3] = genomes, majority
+    cells[10], cells[11], cells[18] = species, strain, "Somegenus somespecies"
+    return cells
+
+
+def test_unnamed_rows_are_dropped_from_a_species_grounding(gtdb):
+    """The filter was accepted by `resolve_target` and applied only at genus rank.
+
+    A species grounding counted `sp.` / `uncultured` rows that a genus grounding
+    would drop — an asymmetry with no recorded reason (#405). No KB block was
+    affected when this landed, which is why it was cheap to fix then.
+    """
+    rows = [
+        _species_row("10", "Somegenus somespecies"),
+        _species_row("990", "Somegenus sp. MAG-1"),
+    ]
+
+    total, _ = gtdb._species_denominator(
+        [r for r in gtdb.named_species_only(rows) if r[gtdb.COL_GTDB_SPECIES].strip()]
+    )
+    grounded = gtdb._ground_species(rows, "NCBITaxon:1", "Somegenus somespecies", "ncbi_id")
+
+    assert total == 10
+    assert grounded["total_genomes"] == 10, "the sp. row was counted"
+
+
+def test_the_filter_can_be_switched_off_on_the_species_path(gtdb):
+    """`exclude_unnamed=False` must reach here, not just `resolve_higher`."""
+    rows = [
+        _species_row("10", "Somegenus somespecies"),
+        _species_row("990", "Somegenus sp. MAG-1"),
+    ]
+
+    unfiltered = gtdb._ground_species(
+        rows, "NCBITaxon:1", "Somegenus somespecies", "ncbi_id", exclude_unnamed=False
+    )
+
+    assert unfiltered["total_genomes"] == 1000
+
+
+def test_the_filter_never_empties_a_species(gtdb):
+    """A species known only from unnamed rows keeps its grounding.
+
+    Same guard as the higher-rank path: the filter is a tie-breaker among named
+    rows, not a reason to abandon a taxon that has none.
+    """
+    rows = [_species_row("7", "Somegenus sp. MAG-1"), _species_row("3", "uncultured Somegenus")]
+
+    grounded = gtdb._ground_species(rows, "NCBITaxon:1", "Somegenus somespecies", "ncbi_id")
+
+    assert grounded["gtdb_id"] == "GTDB:s__Somegenus_somespecies"
+    assert grounded["total_genomes"] == 10, "filtering to nothing must fall back"
+
+
+def test_the_filter_chooses_the_species_not_just_the_denominator(gtdb):
+    """It runs before `top`, so it decides `gtdb_id` — the only thing it buys.
+
+    Moving it to just before `agreeing` passes the entire suite, because every
+    other fixture puts both rows on the *same* GTDB species and so pins only the
+    denominator (#408 review). Here the unnamed row is the majority and names a
+    different species: filtering first must hand the grounding to the named one.
+    """
+    named = _species_row("10", "Somegenus somespecies")
+    unnamed = _species_row("990", "Somegenus sp. MAG-1")
+    unnamed[gtdb.COL_GTDB_SPECIES] = "Somegenus binbin"
+
+    filtered = gtdb._ground_species([named, unnamed], "NCBITaxon:1", "Somegenus somespecies", "x")
+    unfiltered = gtdb._ground_species(
+        [named, unnamed], "NCBITaxon:1", "Somegenus somespecies", "x", exclude_unnamed=False
+    )
+
+    assert filtered["gtdb_id"] == "GTDB:s__Somegenus_somespecies"
+    assert (
+        unfiltered["gtdb_id"] == "GTDB:s__Somegenus_binbin"
+    ), "the filter is no longer deciding which species wins"
+
+
+def test_the_species_filter_cannot_fire_on_this_crosswalk(gtdb, mapping):
+    """Why this change moves nothing, stated as a property rather than a count.
+
+    It is inert by construction, not merely inert today:
+
+    * every NCBI id maps to exactly one row (0 of 92711 have more), so the id
+      path always filters a singleton and the non-empty fallback restores it;
+    * `by_name` is keyed on the NCBI species string, so every row in a group
+      carries the *same* string and `named_species_only` is all-or-nothing —
+      0 of 64660 groups mix.
+
+    The PR that added it claimed "free today, real later". That was wrong: no
+    crosswalk with this key structure can reach the mixed case through
+    `resolve_target`. What the change buys is that `exclude_unnamed=False` is
+    now honoured on both paths instead of being silently dropped on one.
+    """
+    import gzip
+    from collections import defaultdict
+
+    rows_per_id = defaultdict(int)
+    group_kinds = defaultdict(set)
+    with gzip.open(mapping, "rt") as handle:
+        next(handle)
+        for line in handle:
+            cells = line.rstrip("\n").split("\t")
+            if len(cells) <= gtdb.COL_GTDB_SPECIES:
+                continue
+            rows_per_id[cells[gtdb.COL_NCBI_ID]] += 1
+            species = cells[gtdb.COL_NCBI_SPECIES].strip()
+            if species:
+                group_kinds[species.lower()].add(bool(gtdb.UNNAMED_SPECIES.search(species)))
+
+    assert not [
+        n for n in rows_per_id.values() if n > 1
+    ], "an NCBI id now has several rows — the id path can filter a proper subset"
+    assert not [k for k in group_kinds.values() if len(k) > 1], (
+        "a name group now mixes named and unnamed rows — the filter can fire, so "
+        "re-measure whether any grounding moves"
+    )
+
+
+def test_no_kb_grounding_moves_under_the_species_filter(gtdb, mapping):
+    """The KB sweep the previous version of this test only claimed to be.
+
+    It pinned one taxon that resolves by id to a single *named* row, so both
+    calls were the identical computation and the assertion held however the
+    filter behaved (#408 review).
+    """
+    import yaml
+
+    want_ids, want_species, want_higher, taxa = set(), set(), set(), []
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
+                term = (entry.get("taxon_term") or {}).get("term") or {}
+                tid, label = str(term.get("id", "")), term.get("label", "")
+                if not tid.startswith("NCBITaxon:"):
+                    continue
+                taxa.append((tid.split(":")[1], label))
+                want_ids.add(tid.split(":")[1])
+                clean = gtdb._clean_label(label)
+                (want_species if " " in clean else want_higher).add(clean.lower())
+    rows = gtdb.collect_rows(mapping, want_ids, want_species, want_higher)
+
+    # Species-path taxa only. At genus and above the filter has applied since
+    # #375 and legitimately moves 395 groundings; including them measured that
+    # pre-existing behaviour instead of this change.
+    species = [(i, lab) for i, lab in taxa if gtdb._is_species(gtdb._clean_label(lab))]
+
+    moved = []
+    for ncbi_id, label in species:
+        with_filter = gtdb.resolve_target(ncbi_id, label, *rows)
+        without = gtdb.resolve_target(ncbi_id, label, *rows, exclude_unnamed=False)
+        if with_filter != without:
+            moved.append(f"{label} ({ncbi_id})")
+    assert len(species) > 300, f"expected the KB's species taxa, resolved {len(species)}"
+    assert not moved, f"{len(moved)} species groundings move: {moved[:5]}"
+
+
+@pytest.mark.parametrize("path", ["id", "name"])
+def test_exclude_unnamed_reaches_both_species_paths(gtdb, path):
+    """The flag's journey, not just its effect.
+
+    `_ground_species` defaults to filtering, so dropping the explicit argument
+    at a call site changes nothing until someone passes `exclude_unnamed=False`
+    — which is exactly the caller who would be silently ignored (#405).
+    """
+    rows = [
+        _species_row("10", "Somegenus somespecies"),
+        _species_row("990", "Somegenus sp. MAG-1"),
+    ]
+    by_id = {"1": rows} if path == "id" else {}
+    by_name = {} if path == "id" else {"somegenus somespecies": rows}
+
+    filtered = gtdb.resolve_target("1", "Somegenus somespecies", by_id, by_name, {})
+    unfiltered = gtdb.resolve_target(
+        "1", "Somegenus somespecies", by_id, by_name, {}, exclude_unnamed=False
+    )
+
+    assert filtered["total_genomes"] == 10, f"the {path} path ignored the filter"
+    assert unfiltered["total_genomes"] == 1000, f"the {path} path ignored exclude_unnamed=False"
