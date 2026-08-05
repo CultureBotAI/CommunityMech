@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-04T19:34:08
+# Generation date: 2026-08-04T20:58:07
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -322,6 +322,8 @@ class GtdbClassification(YAMLRoot):
     support_genomes: Optional[int] = None
     total_genomes: Optional[int] = None
     is_reclassified: Optional[Union[bool, Bool]] = None
+    curated: Optional[Union[bool, Bool]] = None
+    curation_note: Optional[str] = None
     mapping_source: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -348,6 +350,12 @@ class GtdbClassification(YAMLRoot):
 
         if self.is_reclassified is not None and not isinstance(self.is_reclassified, Bool):
             self.is_reclassified = Bool(self.is_reclassified)
+
+        if self.curated is not None and not isinstance(self.curated, Bool):
+            self.curated = Bool(self.curated)
+
+        if self.curation_note is not None and not isinstance(self.curation_note, str):
+            self.curation_note = str(self.curation_note)
 
         if self.mapping_source is not None and not isinstance(self.mapping_source, str):
             self.mapping_source = str(self.mapping_source)
@@ -3322,6 +3330,24 @@ slots.gtdbClassification__is_reclassified = Slot(
     model_uri=COMMUNITYMECH.gtdbClassification__is_reclassified,
     domain=None,
     range=Optional[Union[bool, Bool]],
+)
+
+slots.gtdbClassification__curated = Slot(
+    uri=COMMUNITYMECH.curated,
+    name="gtdbClassification__curated",
+    curie=COMMUNITYMECH.curie("curated"),
+    model_uri=COMMUNITYMECH.gtdbClassification__curated,
+    domain=None,
+    range=Optional[Union[bool, Bool]],
+)
+
+slots.gtdbClassification__curation_note = Slot(
+    uri=COMMUNITYMECH.curation_note,
+    name="gtdbClassification__curation_note",
+    curie=COMMUNITYMECH.curie("curation_note"),
+    model_uri=COMMUNITYMECH.gtdbClassification__curation_note,
+    domain=None,
+    range=Optional[str],
 )
 
 slots.gtdbClassification__mapping_source = Slot(

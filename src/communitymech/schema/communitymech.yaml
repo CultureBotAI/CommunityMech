@@ -819,6 +819,23 @@ classes:
           True when the GTDB species name differs from the NCBITaxon species
           name (a GTDB reclassification/rename), so consumers can flag it.
         range: boolean
+      curated:
+        description: >-
+          True when a curator chose this grounding against what `gtdb_ground.py`
+          computes, so the tool must not overwrite it. The reason belongs in
+          `curation_note`.
+
+          A hard-coded list in the script protects only what someone remembered
+          to add: `NCBITaxon:340177` (*Chlorobium*) was curated and unlisted, and
+          survived a whole-KB refresh only because its recompute happened to
+          yield no id — a side effect, not a decision (#384). Marking the block
+          keeps the decision with the data.
+        range: boolean
+      curation_note:
+        description: >-
+          Why this grounding was curated against the tool. Required in practice
+          whenever `curated` is true — a pin whose reason lives only in a commit
+          message is one re-run away from looking like an error.
       mapping_source:
         description: >-
           Provenance of the mapping (source table + GTDB release/build), e.g.

@@ -503,6 +503,18 @@ CURATED_GROUNDINGS = {
 }
 
 
+def _is_curated(term_block: dict) -> bool:
+    """Is this taxon's grounding pinned by a curator?
+
+    Reads the flag off the block, so the decision travels with the data.
+    `CURATED_GROUNDINGS` remains as a fallback for records not yet marked, but a
+    list only protects what someone remembered to add — which is exactly how
+    *Chlorobium* went unprotected (#384).
+    """
+    block = (term_block or {}).get("gtdb_classification")
+    return isinstance(block, dict) and bool(block.get("curated"))
+
+
 def _block(g: dict, mapping_source: str) -> dict:
     src = mapping_source
     if (g.get("via") or "").startswith("ncbi_rank"):
@@ -602,6 +614,7 @@ def classify_status(
     by_name,
     by_higher,
     preferred=None,
+    curated=False,
     **kwargs,
 ):
     """Why this taxon does or does not carry a grounding (#294).
@@ -615,7 +628,7 @@ def classify_status(
     classifying it by outcome would label it GROUNDED-able and invite exactly the
     re-run #293 exists to prevent.
     """
-    if (record_name, tid) in CURATED_GROUNDINGS:
+    if curated or (record_name, tid) in CURATED_GROUNDINGS:
         # A curated block is a grounding, just not one the tool would compute.
         return ("GROUNDED" if has_block else "WITHHELD"), []
     # Keyed by preferred_term, NOT by NCBITaxon id. Both withheld records use
@@ -740,12 +753,16 @@ def apply_to_community(
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
         grounded = "gtdb_classification" in tt
-        if (path.name, tid) in CURATED_GROUNDINGS:
-            print(
-                f"[gtdb] skipping curated {tid} in {path.name}: "
-                f"{CURATED_GROUNDINGS[(path.name, tid)]}",
-                file=sys.stderr,
+        if _is_curated(tt) or (path.name, tid) in CURATED_GROUNDINGS:
+            # The reason can come from either source, and indexing the list
+            # unconditionally raised KeyError whenever the block's own `curated`
+            # flag was what protected it — i.e. exactly the case the flag exists
+            # for. Caught by the canary before any sweep (#384).
+            reason = CURATED_GROUNDINGS.get((path.name, tid)) or (
+                (tt.get("gtdb_classification") or {}).get("curation_note")
+                or "marked `curated: true` with no curation_note"
             )
+            print(f"[gtdb] skipping curated {tid} in {path.name}: {reason}", file=sys.stderr)
             wanted.append(None)
             continue
         if not tid.startswith("NCBITaxon:") or (grounded != refresh):
@@ -868,7 +885,11 @@ def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
         tt = (tc or {}).get("taxon_term", {}) or {}
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
-        if (path.name, tid) in CURATED_GROUNDINGS or "gtdb_classification" not in tt:
+        if (
+            _is_curated(tt)
+            or (path.name, tid) in CURATED_GROUNDINGS
+            or "gtdb_classification" not in tt
+        ):
             drop_entry.append(False)
             continue
         if not tid.startswith("NCBITaxon:"):
@@ -952,6 +973,7 @@ def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -
             by_name,
             by_higher,
             preferred=tt.get("preferred_term"),
+            curated=_is_curated(tt),
             **kwargs,
         )
         wanted.append((status, candidates))

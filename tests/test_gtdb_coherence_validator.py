@@ -526,3 +526,50 @@ def test_the_withholds_are_marked_withheld_not_grounded():
         assert (
             term_block.get("gtdb_grounding_status") == "GROUNDED"
         ), "a correct grounding sharing the withheld id was marked WITHHELD"
+
+
+# ---------------------------------------------------------------------------
+# The curated flag's own coherence (#384).
+# ---------------------------------------------------------------------------
+
+
+def test_a_curated_block_must_say_why():
+    """A pin whose reason lives only in a commit message reads as a mistake."""
+    block = _valid_block()
+    block["curated"] = True
+    assert "curated_without_note" in {c for c, _ in check_block(block)}
+
+    block["curation_note"] = "   "
+    assert "curated_without_note" in {c for c, _ in check_block(block)}, "whitespace is not a note"
+
+    block["curation_note"] = "the majority vote picks a selenate reducer here"
+    assert check_block(block) == []
+
+
+def test_a_note_without_the_flag_is_flagged():
+    """Explanatory prose that protects nothing is worse than none.
+
+    It reads as a decision while a refresh will overwrite the block regardless.
+    """
+    block = _valid_block()
+    block["curation_note"] = "chosen against the tool"
+    assert "note_without_curated" in {c for c, _ in check_block(block)}
+
+
+def test_a_curated_pin_with_no_block_is_withheld(gtdb):
+    """The branch that distinguishes a pin from a plain ungrounded taxon.
+
+    `curated: true` says a curator decided this taxon's grounding. With no block
+    stored, that decision was to withhold — not NOT_ATTEMPTED, which would put it
+    back in the work queue the pin exists to keep it out of.
+    """
+    status, candidates = gtdb.classify_status(
+        "rec.yaml", "NCBITaxon:1", "Testgenus", False, {}, {}, {}, curated=True
+    )
+    assert status == "WITHHELD"
+    assert candidates == []
+
+    grounded, _ = gtdb.classify_status(
+        "rec.yaml", "NCBITaxon:1", "Testgenus", True, {}, {}, {}, curated=True
+    )
+    assert grounded == "GROUNDED"
