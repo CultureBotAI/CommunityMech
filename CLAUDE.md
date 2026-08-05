@@ -16,11 +16,17 @@ just test                 # Run pytest
 just validate FILE        # Validate one YAML against schema
 just validate-all         # Validate all community YAMLs
 just validate-references FILE  # Check evidence references (PubMed snippets)
-just qc                   # Full QC: validate-all + lint + test
+just qc                   # Full QC: lint + test + every offline validator
+just qc-references        # qc + the literature sweep (network; fails on main, #417)
 just gen-python           # Regenerate datamodel from schema
 just format               # black + ruff --fix
 just lint                 # black --check + ruff + mypy
 ```
+
+`validate-references` is not a CI gate and does not pass on `main` — most cited
+DOIs resolve to no fetchable content (#259) and some snippets paraphrase rather
+than quote (#347). It is out of `qc` on purpose: `just` stops at the first
+failing dependency, so having it there meant `lint` and `test` never ran (#417).
 
 Single test: `uv run pytest tests/test_datamodel.py::test_name -v`
 
