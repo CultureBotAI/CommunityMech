@@ -408,3 +408,37 @@ def test_the_cli_can_reach_both_denominators(gtdb, mapping, capsys):
 
     assert "g__Acetobacter" in default
     assert "g__CAG-267" in alternative, "the flags did not reach the grounding"
+
+
+def test_domain_rank_resolves(gtdb, mapping):
+    """`Bacteria` and `Archaea` are the roots of GTDB and must ground (#393).
+
+    `HIGHER_RANKS` stopped at phylum, so neither resolved and 72 KB entries
+    recorded "the tool produced no grounding" — which an earlier revision of the
+    status enum reported as "GTDB has no counterpart and never will".
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"bacteria", "archaea"})
+
+    bacteria = gtdb.resolve_higher("bacteria", "NCBITaxon:2", "Bacteria", by_higher)
+    archaea = gtdb.resolve_higher("archaea", "NCBITaxon:2157", "Archaea", by_higher)
+
+    assert bacteria["gtdb_id"] == "GTDB:d__Bacteria"
+    assert archaea["gtdb_id"] == "GTDB:d__Archaea"
+    assert bacteria["majority_fraction"] == 1.0
+    assert bacteria["total_genomes"] > 1_000_000, "expected the whole table behind a domain"
+    assert not bacteria["is_reclassified"], "GTDB and NCBI agree on the name here"
+
+
+def test_domain_is_the_shallowest_rank_tried(gtdb, mapping):
+    """Order matters: a genus must never be answered at domain rank.
+
+    `resolve_higher` takes the first rank whose NCBI column carries the name, so
+    putting domain anywhere but last would let a shallow match pre-empt a
+    specific one.
+    """
+    assert gtdb.HIGHER_RANKS[-1][2] == "d", "domain must be tried last"
+
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"acetobacter"})
+    result = gtdb.resolve_higher("acetobacter", "NCBITaxon:434", "Acetobacter", by_higher)
+
+    assert result["gtdb_id"].startswith("GTDB:g__"), "a genus must resolve at genus rank"

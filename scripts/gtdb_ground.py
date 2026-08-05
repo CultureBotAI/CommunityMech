@@ -65,7 +65,21 @@ COL_NCBI_SPECIES = 10
 COL_NCBI_STRAIN = 11
 COL_GTDB_SPECIES = 18
 # (ncbi_col, gtdb_col, rank_prefix) for higher ranks, finest -> coarsest.
-HIGHER_RANKS = [(9, 17, "g"), (8, 16, "f"), (7, 15, "o"), (6, 14, "c"), (5, 13, "p")]
+# (NCBI column, GTDB column, CURIE prefix), deepest first — `resolve_higher`
+# takes the first rank whose NCBI column carries the requested name.
+#
+# Domain was absent until #393, so *Bacteria* and *Archaea* never resolved and
+# 72 KB entries recorded "the tool produced no grounding" for the two taxa that
+# are the roots of GTDB. It is last because it is the shallowest, and it only
+# ever matches the two names.
+HIGHER_RANKS = [
+    (9, 17, "g"),
+    (8, 16, "f"),
+    (7, 15, "o"),
+    (6, 14, "c"),
+    (5, 13, "p"),
+    (4, 12, "d"),
+]
 # GTDB lineage columns (col, prefix), domain..species.
 GTDB_RANK_COLS = [(12, "d"), (13, "p"), (14, "c"), (15, "o"), (16, "f"), (17, "g"), (18, "s")]
 
