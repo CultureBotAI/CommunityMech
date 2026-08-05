@@ -124,7 +124,11 @@ def test_grounding_is_internally_coherent(grounded):
     """A block whose fields contradict each other passed every check above.
 
     `gtdb_id`, `gtdb_taxon` and the tail of `gtdb_lineage` are three spellings of
-    one answer. `linkml-validate` accepts `majority_fraction: 7.5` today.
+    one answer.
+
+    The schema does bound `majority_fraction` at 1.0, so `7.5` is rejected — an
+    earlier version of this docstring claimed otherwise. What it cannot bound is
+    the *lower* half: `0.4` validates, and the tool grounds only on a majority.
 
     The **evidence-count** half of this now lives in
     `communitymech.validators.gtdb_coherence` and is called here rather than

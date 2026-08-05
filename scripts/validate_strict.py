@@ -44,7 +44,10 @@ from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = _REPO_ROOT / "src" / "communitymech" / "schema" / "communitymech.yaml"
-DEFAULT_ROOTS = [_REPO_ROOT / "kb" / "communities"]
+# `data/isolates` uses the same taxon_term shape and was outside this gate
+# while the comment below claimed "the same gate as everything else"
+# (#390 review). It has been outside a gate once before (#310).
+DEFAULT_ROOTS = [_REPO_ROOT / "kb" / "communities", _REPO_ROOT / "data" / "isolates"]
 TARGET_CLASS = "MicrobialCommunity"
 
 
