@@ -41,6 +41,7 @@ from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+from communitymech.validators.yaml_scalars import find_truncated_scalars
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = _REPO_ROOT / "src" / "communitymech" / "schema" / "communitymech.yaml"
@@ -155,6 +156,18 @@ def validate_one(path: Path) -> list[dict]:
     # JSON-Schema `required`, which is what `value_presence: PRESENT` compiles
     # to. Running them here rather than only in pytest means a hand-authored
     # record is checked by the same gate as everything else.
+    # A mid-scalar `#` silently truncates an unquoted value, and the file stays
+    # valid YAML — so no schema check can see it (#398). Raw-text, hence here
+    # rather than in the instance validator.
+    for scalar in find_truncated_scalars(path):
+        rows.append({
+            "file": str(path),
+            "category": "yaml_truncated_scalar",
+            "detail": f"line={scalar.line}|key={scalar.key}",
+            "path": "",
+            "message": scalar.message[:300],
+        })
+
     for issue in validate_gtdb_coherence(path):
         rows.append({
             "file": str(path),
