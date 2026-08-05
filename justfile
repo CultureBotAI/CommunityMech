@@ -153,6 +153,11 @@ validate-cross-repo-ids-all:
 validate-gtdb FILE:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py {{FILE}}
 
+# Find hand-written YAML scalars a mid-line `#` will silently truncate (#398).
+# Also runs inside `just validate-strict`; this is the fast standalone form.
+validate-scalars *files:
+    PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
+
 validate-gtdb-all:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
 
