@@ -12,15 +12,16 @@ input:
   AMBIGUOUS rather than guessing.
 * genus / family / order / ... (single-name label) -> ``GTDB:g__...`` (or
   ``f__``/``o__``/...): aggregate the GTDB rank column over the genomes under the
-  NCBI taxon; ground to the GTDB taxon holding a majority (>=50%) of them, else
+  NCBI taxon; ground to the GTDB taxon holding a strict majority (>50%) of them,
+  else
   report AMBIGUOUS (e.g. NCBI genus Bacillus shatters into ~100 GTDB genera).
 
   Since #372 that aggregation counts only rows naming an actual binomial —
   ``exclude_unnamed`` defaults to True, so ``sp.``/``uncultured``/informal rows
   are excluded (#375). It is a real change of denominator, not a tidy-up: it
-  moved 219 of the KB's 647 stored fractions. A tie is broken by name, which
-  makes it reproducible but still a tie (#382), and the block does not record how
-  many genomes the fraction was computed from (#383).
+  moved 219 of the KB's stored fractions. An exact 50/50 tie no longer grounds at
+  all — the name tie-break now only orders the AMBIGUOUS option list (#382) — and
+  the block records how many genomes the fraction came from (#383).
 
 GTDB frequently reclassifies relative to NCBI (e.g. NCBITaxon "Agrobacterium
 deltae" -> GTDB "Agrobacterium leguminum"); ``is_reclassified`` flags it.
@@ -403,8 +404,9 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         # Break ties by name, not by row order. `max` returns the first maximum,
         # which for an exact tie is whichever row the mapping happened to list
         # first — reversing the input flipped Ensifer/Sinorhizobium (both at 0.5).
-        # Whether a 50/50 split should ground *at all* is a separate question
-        # (#382); this only makes the answer reproducible.
+        # Since #382 a tie no longer grounds, so this orders the AMBIGUOUS option
+        # list rather than deciding an answer; the reproducibility is still the
+        # point, because that list is what a curator reads.
         top, tw = sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))[0]
         frac = tw / total
         # Strictly greater. An exact 50/50 split is not a majority, and grounding
@@ -556,22 +558,33 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
     deeper than the block key, so a sibling (`notes`, `functional_role`) or the
     next entry ends the search. Returns None when the entry has no block.
     """
-    key = re.compile(r"^\s{4}gtdb_classification:\s*$")
+    # Indent derived from the anchor, not hardcoded. `data/isolates` uses the
+    # indented-sequence style (`  - taxon_term:`), putting taxon_term children at
+    # 6 spaces, so a literal 4 never matched there and withdrawal could not find
+    # the block to remove. Same defect `_status_spans` carried until #392; this
+    # function kept the assumption (#394 review).
+    child = len(re.match(r"^(\s*)", lines[anchor]).group(1)) - 2
+    key = re.compile(r"^\s{" + str(child) + r"}gtdb_classification:\s*$")
+    deeper = re.compile(r"^\s{" + str(child + 2) + r",}\S")
     i = anchor + 1
     while i < end:
         if key.match(lines[i]):
             j = i + 1
-            # Indent >= 6, not exactly 6. PyYAML wraps long scalars onto
-            # continuation lines indented deeper, so an exact match stopped one
+            # Deeper, not exactly one level deeper. PyYAML wraps long scalars onto
+            # continuation lines indented further, so an exact match stopped one
             # line short and left orphans that became duplicate keys in 13
             # records (#378 review).
-            while j < end and re.match(r"^\s{6,}\S", lines[j]):
+            while j < end and deeper.match(lines[j]):
                 j += 1
             return (i, j)
         # Any line at the taxon_term level or shallower ends this entry.
-        if re.match(r"^\s{0,4}\S", lines[i]) and not re.match(r"^\s{4}\S", lines[i]):
+        if re.match(r"^\s{0," + str(child) + r"}\S", lines[i]) and not re.match(
+            r"^\s{" + str(child) + r"}\S", lines[i]
+        ):
             return None
-        if re.match(r"^- ", lines[i]):
+        if re.match(r"^\s*- \S", lines[i]) and not re.match(
+            r"^\s{" + str(child) + r"}- ", lines[i]
+        ):
             return None
         i += 1
     return None
@@ -1235,7 +1248,19 @@ def main(argv: list[str] | None = None) -> int:
             exclude_unnamed=not args.include_unnamed,
         )
         print(f"[gtdb] withdrew {n} block(s) from {args.community.name}", file=sys.stderr)
-        return 0
+        # Withdrawing leaves the status saying GROUNDED with no block. Returning
+        # here made `--withdraw-ambiguous --apply-status` exit 0 having ignored
+        # the second flag and left exactly that incoherence, with nothing on
+        # stderr (#394 review). Fall through so the modes compose; if the caller
+        # did not ask for a status pass, say what still needs doing.
+        if n and not args.apply_status:
+            print(
+                f"[gtdb] {args.community.name}: {n} taxon(s) are now ungrounded — "
+                f"re-run with --apply-status to record why.",
+                file=sys.stderr,
+            )
+        if not args.apply_status:
+            return 0
 
     if args.community and args.apply_status:
         n = apply_status_to_community(
