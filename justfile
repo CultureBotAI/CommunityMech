@@ -307,7 +307,7 @@ lint:
     uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
-# Full QC (validate + strict validate + lint + test)
+# Full QC (lint + test + every offline validator)
 # `validate-gtdb-all` and `validate-scalars` also run inside validate-strict.
 # Only `validate-scalars` widens the scope — it covers kb/taxa, which
 # validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
@@ -315,8 +315,32 @@ lint:
 #
 # This is local convenience, not CI coverage: `qc` is invoked by no workflow,
 # and both checks already reach CI through pytest (#391, #406 review).
-qc: validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa validate-references-all lint test
+#
+# Ordering is load-bearing. `just` stops at the first failing dependency, so
+# whatever runs last only runs on an otherwise-green tree. `lint` and `test`
+# come first because they are the gates CI enforces and the fastest to fail
+# (~40s and ~2min, against 5-7min for the strict and term sweeps) — a broken
+# build should say so before a seven-minute validator does.
+#
+# `validate-references-all` is deliberately NOT here; see `qc-references` (#417).
+#
+# Full QC: lint + test + every offline validator
+qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa
     @echo "✅ All QC checks passed!"
+
+# `qc` plus the literature sweep. Separate because it is the one check that
+# cannot pass: it needs the network, and it reports ~320 errors on a clean `main`
+# for reasons already tracked — #259 (no DOI full-text cache path, so most cited
+# DOIs resolve to no content) and #347 (snippets paraphrase rather than quote).
+#
+# Having it inside `qc` meant `just qc` stopped there and never reached `lint` or
+# `test`, so the command named "check everything" silently skipped the only two
+# checks CI runs (#417). Reference validation is also not a CI gate, so a red
+# line here says nothing about whether a PR will pass.
+#
+# qc + the literature sweep (needs network; fails on main, see #259/#347)
+qc-references: qc validate-references-all
+    @echo "✅ QC + reference validation complete!"
 
 # Check which community strains are represented in UniProt reference proteomes
 uniprot-reference COMMUNITY_PATH="kb/communities":
