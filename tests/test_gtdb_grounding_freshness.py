@@ -124,10 +124,20 @@ def test_grounding_is_internally_coherent(grounded):
     """A block whose fields contradict each other passed every check above.
 
     `gtdb_id`, `gtdb_taxon` and the tail of `gtdb_lineage` are three spellings of
-    one answer, and `majority_fraction` is a share of genomes, so it cannot
-    exceed 1 — nor fall at or below 0.5, since the tool grounds on a majority.
-    `linkml-validate` accepts `majority_fraction: 7.5` today.
+    one answer.
+
+    The schema does bound `majority_fraction` at 1.0, so `7.5` is rejected — an
+    earlier version of this docstring claimed otherwise. What it cannot bound is
+    the *lower* half: `0.4` validates, and the tool grounds only on a majority.
+
+    The **evidence-count** half of this now lives in
+    `communitymech.validators.gtdb_coherence` and is called here rather than
+    duplicated (#387). That module is also wired into `just validate-strict`, so
+    a hand-authored record hits the same checks this test applies to the
+    committed KB — which was the gap: these rules used to exist only in pytest.
     """
+    from communitymech.validators.gtdb_coherence import check_block
+
     problems = []
     for record, name, _, g in grounded:
         gtdb_id, taxon, lineage = (
@@ -147,29 +157,7 @@ def test_grounding_is_internally_coherent(grounded):
         if taxon and rank_token and taxon.replace(" ", "_") != rank_token.split("__", 1)[-1]:
             problems.append(f"{where}\n      gtdb_id={gtdb_id} but gtdb_taxon={taxon!r}")
 
-        fraction = g.get("majority_fraction")
-        if fraction is not None and not (0.5 <= fraction <= 1.0):
-            problems.append(f"{where}\n      majority_fraction={fraction} outside (0.5, 1]")
-
-        # The evidence counts (#383). `linkml-validate` checks their type and
-        # non-negativity but nothing relates them to each other or to the
-        # fraction, so a block claiming 99 supporting genomes out of 3 validates.
-        support, total = g.get("support_genomes"), g.get("total_genomes")
-        if total is not None and total <= 0:
-            problems.append(f"{where}\n      total_genomes={total} — a majority over no genomes")
-        if support is not None and total is not None:
-            if support > total:
-                problems.append(f"{where}\n      support_genomes={support} > total_genomes={total}")
-            elif total > 0 and fraction is not None and round(support / total, 3) != fraction:
-                problems.append(
-                    f"{where}\n      {support}/{total} = {round(support / total, 3)} but "
-                    f"majority_fraction={fraction}"
-                )
-        if support is not None and total is None:
-            problems.append(
-                f"{where}\n      support_genomes={support} with no total_genomes — a "
-                f"numerator without its denominator says nothing"
-            )
+        problems.extend(f"{where}\n      [{cat}] {msg}" for cat, msg in check_block(g))
 
     assert not problems, "internally inconsistent gtdb_classification:\n" + "\n".join(
         f"  {p}" for p in problems

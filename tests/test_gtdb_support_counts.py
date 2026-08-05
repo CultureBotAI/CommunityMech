@@ -174,30 +174,24 @@ def test_the_species_path_reports_the_denominator_but_no_numerator(gtdb, mapping
     )
 
 
-def test_every_stored_fraction_agrees_with_its_counts(grounded):
-    """The stored block must be internally consistent, or the counts mislead."""
-    wrong = []
-    for record, name, block in grounded:
-        support, total = block.get("support_genomes"), block.get("total_genomes")
-        fraction = block.get("majority_fraction")
-        if total is None or support is None or fraction is None:
-            continue
-        if total <= 0 or round(support / total, 3) != fraction:
-            wrong.append(f"{record}: {name} — {support}/{total} != {fraction}")
-    assert not wrong, "majority_fraction disagrees with its own counts:\n" + "\n".join(
-        f"  {w}" for w in wrong
-    )
+def test_every_stored_block_is_coherent(grounded):
+    """Delegates to the validator rather than restating its rules (#387).
 
+    These assertions used to be inlined here *and* in
+    `test_gtdb_grounding_freshness.py` — and the two copies drifted: this one
+    compared `round(support/total, 3) != fraction` exactly, so a block at
+    `majority_fraction: 0.6948` passed `just validate-gtdb` and failed `just
+    test`. A curator trusting the fast gate would ship a record CI rejects.
+    One implementation now, called from three gates (#390 review).
+    """
+    from communitymech.validators.gtdb_coherence import check_block
 
-def test_support_never_exceeds_the_total(grounded):
-    bad = [
-        f"{record}: {name} — support {block['support_genomes']} > total {block['total_genomes']}"
+    wrong = [
+        f"{record}: {name} — [{category}] {message}"
         for record, name, block in grounded
-        if block.get("total_genomes") is not None
-        and block.get("support_genomes") is not None
-        and block["support_genomes"] > block["total_genomes"]
+        for category, message in check_block(block)
     ]
-    assert not bad, "\n".join(bad)
+    assert not wrong, "incoherent gtdb_classification:\n" + "\n".join(f"  {w}" for w in wrong)
 
 
 def test_the_kb_carries_the_counts(grounded):
@@ -614,7 +608,10 @@ def test_the_coherence_gate_does_catch_that_null(gtdb):
     spec.loader.exec_module(freshness)
 
     bad = [("rec.yaml", "Some taxon", None, {"support_genomes": 5, "total_genomes": None})]
-    with pytest.raises(AssertionError, match="no total_genomes"):
+    # `total_genomes` is present-but-null, so this is `null_count`, not
+    # `numerator_without_denominator` — the key exists. Matching on the wrong
+    # category is how a cross-file coupling passes for the wrong reason.
+    with pytest.raises(AssertionError, match="null_count"):
         freshness.test_grounding_is_internally_coherent(bad)
 
 

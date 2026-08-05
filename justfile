@@ -143,6 +143,19 @@ validate-cross-repo-ids FILE:
 validate-cross-repo-ids-all:
     PYTHONPATH=src uv run python scripts/validate_cross_repo_ids.py kb/communities/*.yaml
 
+# Check gtdb_classification evidence counts against each other (#387).
+#
+# The schema bounds support_genomes/total_genomes individually but cannot relate
+# them — LinkML's JSON-Schema backend has no cross-field arithmetic — so
+# `just validate` accepts 99 supporting genomes out of 3, and accepts
+# `total_genomes: null` (a null satisfies `required`). These same checks run
+# inside `just validate-strict`; this is the fast single-file form.
+validate-gtdb FILE:
+    PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py {{FILE}}
+
+validate-gtdb-all:
+    PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
+
 # Environmental coverage dashboard: per-ENVO counts of communities vs CultureMech
 # media vs MediaIngredientMech ingredients (issue #30). Reads sibling repos from
 # COMMUNITYMECH_SIBLING_REPOS env (Name=path,Name=path); pass --tsv to also write
