@@ -38,6 +38,7 @@ import pytest
 import yaml
 
 REPO = Path(__file__).parent.parent
+FIXTURE_RECORD = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
 RECORD_DIRS = ("kb/communities", "data/isolates")
 
 
@@ -735,3 +736,105 @@ def test_every_kb_taxon_reports_one_denominator(grounded):
 
     inconsistent = {tid: sorted(v) for tid, v in by_taxon.items() if len(v) > 1}
     assert not inconsistent, f"one taxon, several denominators: {inconsistent}"
+
+
+def test_every_grounding_carries_a_queryable_rank(grounded):
+    """The rank must be readable from `gtdb_id` (#403).
+
+    #403 proposed a rank field so filtering would be a query rather than a
+    substring match on `mapping_source`. It already is one — but only because
+    `gtdb_id` is *required*; a LinkML pattern says nothing when the key is
+    absent, so before #414 a block could omit it and pass every gate while the
+    documented filter raised KeyError.
+
+    Note what this does not check. `mapping_source`'s rank prose is formatted
+    from the same variable as the CURIE in the same dict literal, so "they
+    agree" is a property of one f-string, not a cross-check — and 336 of 715
+    blocks have no such prose at all. Comparing them was theatre; the useful
+    assertion is that the prefix is there and well-formed.
+    """
+    import re
+
+    missing = [
+        f"{record}: {name} — {block.get('gtdb_id')!r}"
+        for record, name, block in grounded
+        if not re.match(r"GTDB:[cdfgops]__", block.get("gtdb_id") or "")
+    ]
+    assert not missing, "gtdb_id without a rank prefix:\n" + "\n".join(missing[:10])
+
+
+def test_the_schema_requires_a_rank_prefix_and_the_field_itself():
+    """Both halves, because the pattern alone guards nothing.
+
+    An earlier version asserted only that the pattern contained `__`, which let
+    `^GTDB:[cdfgops]?__.+` — the most natural loosening, making the rank
+    optional — pass green (#414 review). This drives the real validator over
+    concrete CURIEs instead of inspecting the regex.
+    """
+    import subprocess
+    import tempfile
+
+    schema = REPO / "src/communitymech/schema/communitymech.yaml"
+
+    def accepts(block: dict) -> bool:
+        document = yaml.safe_load(FIXTURE_RECORD.read_text())
+        for entry in document["taxonomy"]:
+            term = entry.get("taxon_term") or {}
+            if term.get("gtdb_classification"):
+                term["gtdb_classification"] = block
+                break
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "probe.yaml"
+            path.write_text(yaml.dump(document, sort_keys=False, allow_unicode=True))
+            return (
+                subprocess.run(
+                    ["uv", "run", "linkml-validate", "-s", str(schema), str(path)],
+                    capture_output=True,
+                    cwd=REPO,
+                ).returncode
+                == 0
+            )
+
+    good = {"gtdb_id": "GTDB:d__Bacteria", "gtdb_taxon": "Bacteria"}
+    assert accepts(good), "a well-formed block must validate"
+
+    assert not accepts({"gtdb_taxon": "Bacteria"}), "a block with no gtdb_id validated"
+    assert not accepts({**good, "gtdb_id": "GTDB:Bacteria"}), "an un-ranked CURIE validated"
+    assert not accepts({**good, "gtdb_id": "GTDB:k__Bacteria"}), "an unknown rank validated"
+    # The one string `^GTDB:[cdfgops]?__.+` accepts and the real pattern does
+    # not. Without it that mutant — the most natural loosening, making the rank
+    # character optional — passes every probe above and survives green.
+    assert not accepts({**good, "gtdb_id": "GTDB:__Bacteria"}), "an empty rank validated"
+
+
+def test_the_domain_groundings_are_filterable(grounded):
+    """The population #403 is about, and the query that removes it."""
+    domain = [b for _, _, b in grounded if b["gtdb_id"].startswith("GTDB:d__")]
+
+    assert {b["gtdb_id"] for b in domain} == {"GTDB:d__Bacteria", "GTDB:d__Archaea"}
+    # Tight both ways: `> 50` let a regression lose 21 of the 72 and still pass.
+    assert 65 <= len(domain) <= 80, (
+        f"{len(domain)} domain groundings; SKILL.md's rank table says 72 and is "
+        f"the thing that goes stale"
+    )
+
+
+def test_domain_is_not_the_whole_tautological_population(grounded):
+    """The filter SKILL.md documents is under-inclusive, and says so.
+
+    64 higher-rank groundings carry a GTDB name identical to the NCBI name at
+    the same rank — `Actinomycetota` -> `p__Actinomycetota` — and say exactly as
+    little as `d__Bacteria`. Pinned so the docs' caveat cannot quietly become
+    wrong (#414 review).
+    """
+    uninformative = [
+        b
+        for _, _, b in grounded
+        if not b["gtdb_id"].startswith(("GTDB:s__", "GTDB:g__", "GTDB:d__"))
+        and not b.get("is_reclassified")
+    ]
+
+    assert len(uninformative) > 40, (
+        "the same-name higher-rank population vanished; SKILL.md's caveat about "
+        "d__ not being the whole story may now be wrong"
+    )

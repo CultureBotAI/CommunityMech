@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-05T02:22:38
+# Generation date: 2026-08-05T07:44:11
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -314,7 +314,7 @@ class GtdbClassification(YAMLRoot):
     class_name: ClassVar[str] = "GtdbClassification"
     class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.GtdbClassification
 
-    gtdb_id: Optional[str] = None
+    gtdb_id: str = None
     gtdb_taxon: Optional[str] = None
     gtdb_lineage: Optional[str] = None
     ncbi_source_id: Optional[str] = None
@@ -327,7 +327,9 @@ class GtdbClassification(YAMLRoot):
     mapping_source: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.gtdb_id is not None and not isinstance(self.gtdb_id, str):
+        if self._is_empty(self.gtdb_id):
+            self.MissingRequiredField("gtdb_id")
+        if not isinstance(self.gtdb_id, str):
             self.gtdb_id = str(self.gtdb_id)
 
         if self.gtdb_taxon is not None and not isinstance(self.gtdb_taxon, str):
@@ -3266,7 +3268,7 @@ slots.gtdbClassification__gtdb_id = Slot(
     curie=COMMUNITYMECH.curie("gtdb_id"),
     model_uri=COMMUNITYMECH.gtdbClassification__gtdb_id,
     domain=None,
-    range=Optional[str],
+    range=str,
     pattern=re.compile(r"^GTDB:[cdfgops]__.+"),
 )
 
