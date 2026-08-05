@@ -14,9 +14,17 @@ was absent from the repo's first commit (`7c658e6`), which is also where these
 scripts were added. They fail at import, so even `--help` does not work.
 
 This page previously read "✅ VALIDATED — Successfully integrated and tested",
-which was never true of the committed code. Tracked in #410; `LiteratureFetcher`
-in `communitymech.literature` is the working fetcher, and
-`tests/test_scripts_import.py` now fails on any *new* script that cannot import.
+which was never true of the committed code.
+
+**Everything below this line describes software that is not in this repository**,
+including the success rates, the per-tier table and the "5/5 DOIs" test results.
+Those numbers cannot have come from committed code and are retained only as a
+record of what was claimed. Do not cite them.
+
+`LiteratureFetcher` in `communitymech.literature` is the working fetcher — it has
+no PDF surface, which is why porting these scripts is a capability decision
+rather than an import swap (#410). `tests/test_scripts_import.py` now fails on
+any *new* script that cannot import.
 
 - Scihub fallback from MicroGrowAgents: `pdf_evidence_extractor.py`
 - 6-tier cascading strategy implemented

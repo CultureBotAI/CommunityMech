@@ -18,10 +18,10 @@ Parses the evidence_curation_report.txt and applies suggested snippet fixes that
 ### Usage
 ```bash
 # Interactive mode - review each suggestion
-poetry run python scripts/apply_suggested_snippets.py --file Australian_Lead_Zinc_Polymetallic.yaml
+uv run python scripts/apply_suggested_snippets.py --file Australian_Lead_Zinc_Polymetallic.yaml
 
 # Auto-approve mode - automatically apply all suggestions
-poetry run python scripts/apply_suggested_snippets.py --file Australian_Lead_Zinc_Polymetallic.yaml --auto-approve
+uv run python scripts/apply_suggested_snippets.py --file Australian_Lead_Zinc_Polymetallic.yaml --auto-approve
 ```
 
 ### Features
@@ -46,16 +46,16 @@ Directly fetches abstracts from PMID/DOI references and uses context-aware analy
 ### Usage
 ```bash
 # Interactive mode - review suggestions for all evidence
-poetry run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml
+uv run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml
 
 # Process only invalid snippets (short ones)
-poetry run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --only-invalid
+uv run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --only-invalid
 
 # Auto-approve mode (applies top suggestion automatically)
-poetry run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --auto-approve
+uv run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --auto-approve
 
 # Verbose mode (shows debugging info)
-poetry run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --verbose
+uv run python scripts/intelligent_snippet_fixer.py --file Australian_Lead_Zinc_Polymetallic.yaml --verbose
 ```
 
 ### Features
@@ -130,22 +130,22 @@ Process multiple YAML files in sequence using the intelligent snippet fixer.
 ### Usage
 ```bash
 # Process Phase 1 top 10 priority files
-poetry run python scripts/batch_snippet_fixer.py --phase 1
+uv run python scripts/batch_snippet_fixer.py --phase 1
 
 # Process Phase 2 medium-priority files
-poetry run python scripts/batch_snippet_fixer.py --phase 2
+uv run python scripts/batch_snippet_fixer.py --phase 2
 
 # Process all files from curation report (sorted by issue count)
-poetry run python scripts/batch_snippet_fixer.py --from-report
+uv run python scripts/batch_snippet_fixer.py --from-report
 
 # Process specific files
-poetry run python scripts/batch_snippet_fixer.py --files Australian_Lead_Zinc_Polymetallic.yaml AMD_Acidophile_Heterotroph_Network.yaml
+uv run python scripts/batch_snippet_fixer.py --files Australian_Lead_Zinc_Polymetallic.yaml AMD_Acidophile_Heterotroph_Network.yaml
 
 # Limit to first N files
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --limit 3
+uv run python scripts/batch_snippet_fixer.py --phase 1 --limit 3
 
 # Auto-approve mode (non-interactive)
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 ```
 
 ### Features
@@ -159,10 +159,10 @@ poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 ### Example Workflow
 ```bash
 # Start with Phase 1 (top 10 files), interactive mode
-poetry run python scripts/batch_snippet_fixer.py --phase 1
+uv run python scripts/batch_snippet_fixer.py --phase 1
 
 # After familiarization, use auto-approve for faster processing
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve --limit 3
+uv run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve --limit 3
 ```
 
 ### Output
@@ -193,7 +193,7 @@ Total files processed: 10
 ### For Individual Files (Careful Review)
 ```bash
 # 1. Use intelligent fixer with interactive mode
-poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml
+uv run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml
 
 # 2. Review suggestions carefully, apply best ones
 
@@ -210,24 +210,24 @@ just validate kb/communities/FILENAME.yaml
 ### For Batch Processing (Faster)
 ```bash
 # 1. Start with Phase 1, limited scope for testing
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --limit 3
+uv run python scripts/batch_snippet_fixer.py --phase 1 --limit 3
 
 # 2. Review results
 
 # 3. Process full Phase 1 with auto-approve
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 
 # 4. Continue with Phase 2
-poetry run python scripts/batch_snippet_fixer.py --phase 2 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 2 --auto-approve
 ```
 
 ### For Quick Fixes from Report
 ```bash
 # Apply report suggestions (fast, limited scope)
-poetry run python scripts/apply_suggested_snippets.py --file FILENAME.yaml --auto-approve
+uv run python scripts/apply_suggested_snippets.py --file FILENAME.yaml --auto-approve
 
 # Then use intelligent fixer for remaining issues
-poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --only-invalid
+uv run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --only-invalid
 ```
 
 ---
@@ -262,7 +262,7 @@ poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --on
 8. **Time: 5-10 minutes per snippet**
 
 ### After (Automated)
-1. Run intelligent fixer: `poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --auto-approve`
+1. Run intelligent fixer: `uv run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --auto-approve`
 2. **Time: ~30 seconds per file** (with auto-approve)
 3. **Time: ~2-3 minutes per file** (with interactive review)
 
@@ -280,13 +280,13 @@ Process files using the batch tool:
 
 ```bash
 # Phase 1: Top 10 priority files
-poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 
 # Phase 2: Medium priority
-poetry run python scripts/batch_snippet_fixer.py --phase 2 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 2 --auto-approve
 
 # Phase 3: Remaining files
-poetry run python scripts/batch_snippet_fixer.py --phase 3 --auto-approve
+uv run python scripts/batch_snippet_fixer.py --phase 3 --auto-approve
 ```
 
 ### Option B: Targeted Fixes
@@ -294,7 +294,7 @@ Focus on highest-impact files first:
 
 ```bash
 # Process just the top 3 worst files
-poetry run python scripts/batch_snippet_fixer.py \
+uv run python scripts/batch_snippet_fixer.py \
   --files Australian_Lead_Zinc_Polymetallic.yaml AMD_Acidophile_Heterotroph_Network.yaml Chromium_Sulfur_Reduction_Enrichment.yaml
 ```
 

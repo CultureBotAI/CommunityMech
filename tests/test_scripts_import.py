@@ -19,6 +19,7 @@ the outside and a wrong guess here writes into the repo.
 from __future__ import annotations
 
 import ast
+import importlib.util
 import re
 import subprocess
 import sys
@@ -38,15 +39,19 @@ _EXECUTES_ON_IMPORT = {
     "term_label_audit.py",
 }
 
-# Broken since the repo's first commit (7c658e6): all six import
-# `communitymech.literature_enhanced`, which has never existed in any commit on
-# any branch. Listed rather than skipped silently, so the count is visible and
-# shrinks as #410 is resolved — deleting them or porting them to
-# `LiteratureFetcher` is a curation decision, not a test's to make.
+# All import `communitymech.literature_enhanced`, which has never existed in any
+# commit on any branch — verified over all 498 commits. They were added in
+# `7c658e6` (the 7th commit, 2026-02-18; the repo's first is `79f5196`).
+#
+# Not a curation call in general: #88 already ported the same import in two other
+# scripts, and `fix_invalid_snippets.py` followed that recipe here because it
+# passed `download_pdf=False` throughout, so nothing was lost. These five pass a
+# *variable* for PDF fetching, or call `fetch_pdf_url`, and `LiteratureFetcher`
+# has no PDF surface at all — porting them means deciding whether to drop a
+# capability their CLI flags advertise. That decision is #410, which stays open.
 _KNOWN_BROKEN = {
     "curate_evidence_with_pdfs.py",
     "extract_evidence_snippets.py",
-    "fix_invalid_snippets.py",
     "quick_literature_review.py",
     "review_literature.py",
     "test_pdf_fetching.py",
@@ -64,6 +69,26 @@ _PROBE = (
     "mod = importlib.util.module_from_spec(spec); "
     "spec.loader.exec_module(mod)"
 )
+
+
+def _declared_packages() -> frozenset[str]:
+    """Distribution names mentioned anywhere in the dependency files.
+
+    Coarse on purpose — this only has to tell "a real package nobody installed"
+    from "a name that exists nowhere".
+    """
+    text = (REPO / "pyproject.toml").read_text()
+    lock = REPO / "uv.lock"
+    if lock.exists():
+        text += lock.read_text()
+    return frozenset(re.findall(r"[A-Za-z0-9_.-]+", text))
+
+
+_DECLARED_PACKAGES = _declared_packages()
+
+
+def _is_installed(module: str) -> bool:
+    return importlib.util.find_spec(module) is not None
 
 
 def _is_first_party(module: str) -> bool:
@@ -89,9 +114,46 @@ def _importable() -> list[Path]:
     ]
 
 
-def test_the_sweep_sees_the_scripts():
-    """Guards everything below: an empty glob would pass vacuously."""
+def test_the_sweep_actually_tests_most_scripts():
+    """Counting files is not enough — the *tested* set must not collapse.
+
+    pytest turns an empty parametrize list into a skip, not a failure, so
+    growing an exclusion list to cover everything would leave this file green
+    with nothing checked (#413 review).
+    """
     assert len(_scripts()) > 50, f"expected the scripts tree, found {len(_scripts())}"
+    assert len(_importable()) >= 55, (
+        f"only {len(_importable())} of {len(_scripts())} scripts are import-tested; "
+        f"an exclusion list has grown"
+    )
+
+
+@pytest.mark.parametrize("name", sorted(_EXECUTES_ON_IMPORT))
+def test_an_excluded_script_really_executes_on_import(name):
+    """The other allowlist, which had no hygiene test at all.
+
+    A name lands here by claiming it does work at module scope. If that stops
+    being true it should rejoin the import check rather than stay exempt.
+    """
+    tree = ast.parse((SCRIPTS / name).read_text())
+    work = [
+        node
+        for node in tree.body
+        if not isinstance(
+            node,
+            (ast.Import, ast.ImportFrom, ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef),
+        )
+        and not (isinstance(node, ast.Assign | ast.AnnAssign | ast.Expr))
+    ]
+    calls = [
+        node
+        for node in tree.body
+        if isinstance(node, ast.Expr) and isinstance(node.value, ast.Call)
+    ]
+    assert work or calls, (
+        f"{name} has no module-level work; drop it from _EXECUTES_ON_IMPORT so it "
+        f"is import-tested like everything else"
+    )
 
 
 @pytest.mark.parametrize("script", _importable(), ids=lambda p: p.name)
@@ -119,10 +181,27 @@ def test_a_script_imports(script: Path):
     # scripts need `duckdb`, which is not in the default sync, and three of them
     # exit with an install hint on purpose. A missing *first-party* module is a
     # bug: it can never be installed, which is exactly #410.
-    if missing and not _is_first_party(missing.group(1)):
-        pytest.skip(f"{script.name} needs {missing.group(1)}, which is not installed")
-    if "not available. Install with" in output:
-        pytest.skip(f"{script.name} exits deliberately without duckdb")
+    if missing:
+        module = missing.group(1)
+        if _is_first_party(module):
+            pytest.fail(f"{script.name} imports a module this repo does not provide: {module}")
+        if module not in _DECLARED_PACKAGES:
+            # A name that appears in no dependency file can never be installed,
+            # so it is a typo or a rename, not an environment difference —
+            # `import reqeusts` used to skip forever (#413 review).
+            pytest.fail(f"{script.name} imports {module!r}, which is in no dependency file")
+        pytest.skip(f"{script.name} needs {module}, which is not installed here")
+
+    # Some scripts catch the ImportError themselves and exit with an install
+    # hint, so there is no "No module named" to match. Key off the package they
+    # name and verify it really is absent — matching the phrase alone was too
+    # loose (`compare_ncbi_gtdb_taxonomy.py` prints it as a *non-fatal* warning,
+    # which would have relabelled a later first-party failure as an install gap)
+    # and requiring the script to mention the package was too strict
+    # (`gtdb_demo.py` inherits it from a sibling import) — #413 review.
+    hint = re.search(r"([A-Za-z0-9_]+) not available\. Install with", output)
+    if hint and not _is_first_party(hint.group(1)) and not _is_installed(hint.group(1)):
+        pytest.skip(f"{script.name} exits deliberately without {hint.group(1)}")
 
     tail = output.splitlines()[-3:] or ["(no output)"]
     pytest.fail(f"{script.name} does not import:\n  " + "\n  ".join(tail))
