@@ -12,15 +12,16 @@ input:
   AMBIGUOUS rather than guessing.
 * genus / family / order / ... (single-name label) -> ``GTDB:g__...`` (or
   ``f__``/``o__``/...): aggregate the GTDB rank column over the genomes under the
-  NCBI taxon; ground to the GTDB taxon holding a majority (>=50%) of them, else
+  NCBI taxon; ground to the GTDB taxon holding a strict majority (>50%) of them,
+  else
   report AMBIGUOUS (e.g. NCBI genus Bacillus shatters into ~100 GTDB genera).
 
   Since #372 that aggregation counts only rows naming an actual binomial —
   ``exclude_unnamed`` defaults to True, so ``sp.``/``uncultured``/informal rows
   are excluded (#375). It is a real change of denominator, not a tidy-up: it
-  moved 219 of the KB's 647 stored fractions. A tie is broken by name, which
-  makes it reproducible but still a tie (#382), and the block does not record how
-  many genomes the fraction was computed from (#383).
+  moved 219 of the KB's stored fractions. An exact 50/50 tie no longer grounds at
+  all — the name tie-break now only orders the AMBIGUOUS option list (#382) — and
+  the block records how many genomes the fraction came from (#383).
 
 GTDB frequently reclassifies relative to NCBI (e.g. NCBITaxon "Agrobacterium
 deltae" -> GTDB "Agrobacterium leguminum"); ``is_reclassified`` flags it.
@@ -403,11 +404,18 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
         # Break ties by name, not by row order. `max` returns the first maximum,
         # which for an exact tie is whichever row the mapping happened to list
         # first — reversing the input flipped Ensifer/Sinorhizobium (both at 0.5).
-        # Whether a 50/50 split should ground *at all* is a separate question
-        # (#382); this only makes the answer reproducible.
+        # Since #382 a tie no longer grounds, so this orders the AMBIGUOUS option
+        # list rather than deciding an answer; the reproducibility is still the
+        # point, because that list is what a curator reads.
         top, tw = sorted(weights.items(), key=lambda kv: (-kv[1], kv[0]))[0]
         frac = tw / total
-        if frac >= 0.5:
+        # Strictly greater. An exact 50/50 split is not a majority, and grounding
+        # it meant the answer came from the tie-break rather than the evidence:
+        # two live KB blocks sat on `19/38`, decided alphabetically between
+        # `g__Ensifer` and `g__Sinorhizobium` (#382). The tie-break stays — it is
+        # what makes the AMBIGUOUS option list reproducible — but it no longer
+        # decides a grounding.
+        if frac > 0.5:
             return {
                 "ncbi_source_id": source_id,
                 "gtdb_id": _curie(top, prefix),
@@ -550,22 +558,33 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
     deeper than the block key, so a sibling (`notes`, `functional_role`) or the
     next entry ends the search. Returns None when the entry has no block.
     """
-    key = re.compile(r"^\s{4}gtdb_classification:\s*$")
+    # Indent derived from the anchor, not hardcoded. `data/isolates` uses the
+    # indented-sequence style (`  - taxon_term:`), putting taxon_term children at
+    # 6 spaces, so a literal 4 never matched there and withdrawal could not find
+    # the block to remove. Same defect `_status_spans` carried until #392; this
+    # function kept the assumption (#394 review).
+    child = len(re.match(r"^(\s*)", lines[anchor]).group(1)) - 2
+    key = re.compile(r"^\s{" + str(child) + r"}gtdb_classification:\s*$")
+    deeper = re.compile(r"^\s{" + str(child + 2) + r",}\S")
     i = anchor + 1
     while i < end:
         if key.match(lines[i]):
             j = i + 1
-            # Indent >= 6, not exactly 6. PyYAML wraps long scalars onto
-            # continuation lines indented deeper, so an exact match stopped one
+            # Deeper, not exactly one level deeper. PyYAML wraps long scalars onto
+            # continuation lines indented further, so an exact match stopped one
             # line short and left orphans that became duplicate keys in 13
             # records (#378 review).
-            while j < end and re.match(r"^\s{6,}\S", lines[j]):
+            while j < end and deeper.match(lines[j]):
                 j += 1
             return (i, j)
         # Any line at the taxon_term level or shallower ends this entry.
-        if re.match(r"^\s{0,4}\S", lines[i]) and not re.match(r"^\s{4}\S", lines[i]):
+        if re.match(r"^\s{0," + str(child) + r"}\S", lines[i]) and not re.match(
+            r"^\s{" + str(child) + r"}\S", lines[i]
+        ):
             return None
-        if re.match(r"^- ", lines[i]):
+        if re.match(r"^\s*- \S", lines[i]) and not re.match(
+            r"^\s{" + str(child) + r"}- ", lines[i]
+        ):
             return None
         i += 1
     return None
@@ -828,6 +847,82 @@ def apply_to_community(
     return added
 
 
+def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
+    """Remove groundings the tool now calls AMBIGUOUS (#382, #376).
+
+    `--refresh` is deliberately unable to drop a block: an ungrounded taxon may
+    be ungrounded on purpose, so a refresh that could remove would be able to
+    overturn a curation decision silently (#378). Withdrawal is therefore its
+    own mode, and a narrow one — it removes only where the recompute is
+    *explicitly* ambiguous, never where it merely fails, so a taxon whose rows
+    have gone missing keeps its stored answer rather than losing it to a bad
+    mapping build.
+
+    Curated pins are skipped, as everywhere else.
+    """
+    doc = yaml.safe_load(path.read_text())
+    entries = doc.get("taxonomy", []) or []
+
+    drop_entry: list[bool] = []
+    for tc in entries:
+        tt = (tc or {}).get("taxon_term", {}) or {}
+        term = tt.get("term", {}) or {}
+        tid = str(term.get("id", ""))
+        if (path.name, tid) in CURATED_GROUNDINGS or "gtdb_classification" not in tt:
+            drop_entry.append(False)
+            continue
+        if not tid.startswith("NCBITaxon:"):
+            drop_entry.append(False)
+            continue
+        result = resolve_target(
+            tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher, **kwargs
+        )
+        drop_entry.append(bool(result and result.get("ambiguous")))
+    if not any(drop_entry):
+        return 0
+
+    lines = path.read_text().splitlines()
+    start = end = None
+    for idx, line in enumerate(lines):
+        if re.match(r"^taxonomy:\s*$", line):
+            start = idx
+        elif start is not None and idx > start and re.match(r"^[A-Za-z_]", line):
+            end = idx
+            break
+    if start is None:
+        return 0
+    end = end if end is not None else len(lines)
+
+    anchors = [
+        i
+        for i in range(start + 1, end)
+        if re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[i])
+        and i + 1 < end
+        and re.match(r"^\s+label:", lines[i + 1])
+    ]
+    if len(anchors) != len(entries):
+        raise SystemExit(
+            f"{path.name}: found {len(anchors)} taxon term-id lines for "
+            f"{len(entries)} taxonomy entries — refusing to edit."
+        )
+
+    drop: set[int] = set()
+    removed = 0
+    for pos, wanted in zip(anchors, drop_entry, strict=True):
+        if not wanted:
+            continue
+        span = _block_span(lines, pos, end)
+        if span is None:
+            raise SystemExit(f"{path.name}: could not locate the block to withdraw at line {pos}.")
+        drop.update(range(*span))
+        removed += 1
+
+    new_text = "\n".join(ln for i, ln in enumerate(lines) if i not in drop) + "\n"
+    _assert_only_grounding_changed(path, doc, new_text, withdraw=True)
+    path.write_text(new_text)
+    return removed
+
+
 def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
     """Write `gtdb_grounding_status` (and `gtdb_candidates`) on every taxon (#294).
 
@@ -990,7 +1085,7 @@ def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None
 
 
 def _assert_only_grounding_changed(
-    path: Path, before: dict, new_text: str, refresh: bool = False
+    path: Path, before: dict, new_text: str, refresh: bool = False, withdraw: bool = False
 ) -> None:
     """Fail loudly unless the edit touched gtdb_classification and nothing else."""
     try:
@@ -1029,7 +1124,13 @@ def _assert_only_grounding_changed(
         ]
 
     was, now = _grounded(before), _grounded(after)
-    if refresh:
+    if withdraw:
+        # Withdrawal removes and never adds. The inverse of plain apply.
+        if not set(now) <= set(was):
+            raise SystemExit(f"{path.name}: withdrawal created a gtdb_classification.")
+        if was == now:
+            raise SystemExit(f"{path.name}: withdrawal removed nothing.")
+    elif refresh:
         # Refresh replaces in place: the set must be identical, or a block was
         # created (overturning a deliberate withholding) or swallowed by a bad span.
         if was != now:
@@ -1091,6 +1192,12 @@ def main(argv: list[str] | None = None) -> int:
         "Independent of --apply; writes no gtdb_classification.",
     )
     p.add_argument(
+        "--withdraw-ambiguous",
+        action="store_true",
+        help="With --community: remove groundings the tool now calls AMBIGUOUS (#382). "
+        "Removes only; --refresh cannot, by design.",
+    )
+    p.add_argument(
         "--denominator",
         choices=("aggregate", "deepest"),
         default="aggregate",
@@ -1130,6 +1237,30 @@ def main(argv: list[str] | None = None) -> int:
         elif clean:
             want_higher.add(clean.lower())
     by_id, by_name, by_higher = collect_rows(mapping_path, want_ids, want_species, want_higher)
+
+    if args.community and args.withdraw_ambiguous:
+        n = withdraw_ambiguous(
+            args.community,
+            by_id,
+            by_name,
+            by_higher,
+            denominator=args.denominator,
+            exclude_unnamed=not args.include_unnamed,
+        )
+        print(f"[gtdb] withdrew {n} block(s) from {args.community.name}", file=sys.stderr)
+        # Withdrawing leaves the status saying GROUNDED with no block. Returning
+        # here made `--withdraw-ambiguous --apply-status` exit 0 having ignored
+        # the second flag and left exactly that incoherence, with nothing on
+        # stderr (#394 review). Fall through so the modes compose; if the caller
+        # did not ask for a status pass, say what still needs doing.
+        if n and not args.apply_status:
+            print(
+                f"[gtdb] {args.community.name}: {n} taxon(s) are now ungrounded — "
+                f"re-run with --apply-status to record why.",
+                file=sys.stderr,
+            )
+        if not args.apply_status:
+            return 0
 
     if args.community and args.apply_status:
         n = apply_status_to_community(

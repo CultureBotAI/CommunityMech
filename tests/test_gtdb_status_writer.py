@@ -170,3 +170,179 @@ def test_a_duplicate_key_is_refused_rather_than_written(gtdb, rows, tmp_path):
     assert (
         record.read_text() == FOUR_SPACE.read_text()
     ), "the refusal must leave the file untouched, not half-written"
+
+
+# ---------------------------------------------------------------------------
+# Withdrawal (#382). `--refresh` deliberately cannot remove a block.
+#
+# These are built from synthetic rows and synthetic records, not from the KB.
+# The first version read the pre-withdrawal record off `main` via `git show`,
+# which had two problems: CI checks out at depth 1 so there is no `main` ref and
+# every test skipped, and the guard looked for *any* `gtdb_classification` — the
+# record has a second one — so once this merged the fixture would return the
+# post-withdrawal file and the suite would fail on `main` (#394 review).
+# Synthetic fixtures need neither a mapping nor a git ref, so they run in CI.
+# ---------------------------------------------------------------------------
+
+
+def _rank_row(gtdb_genus, genomes, ncbi_genus="Testgenus"):
+    """A crosswalk row matching NCBI genus `ncbi_genus` at genus rank."""
+    cells = [""] * 20
+    cells[2], cells[9], cells[17] = genomes, ncbi_genus, gtdb_genus
+    cells[10] = f"{ncbi_genus} namedspecies"
+    return cells
+
+
+TIED_ROWS = {"testgenus": [_rank_row("g__Alpha", "50"), _rank_row("g__Beta", "50")]}
+DECIDED_ROWS = {"testgenus": [_rank_row("g__Alpha", "90"), _rank_row("g__Beta", "10")]}
+
+
+def _record(tmp_path, name="rec.yaml", grounded=True, extra_taxon=False):
+    """A community record whose taxon is grounded to g__Alpha."""
+    entries = [
+        {
+            "taxon_term": {
+                "preferred_term": "Testgenus sp. X",
+                "term": {"id": "NCBITaxon:1", "label": "Testgenus"},
+                **(
+                    {
+                        "gtdb_classification": {
+                            "gtdb_id": "GTDB:g__Alpha",
+                            "gtdb_taxon": "g__Alpha",
+                            "ncbi_source_id": "NCBITaxon:1",
+                            "majority_fraction": 0.5,
+                            "mapping_source": "test",
+                        }
+                    }
+                    if grounded
+                    else {}
+                ),
+                "notes": "a sibling that must survive",
+            }
+        }
+    ]
+    if extra_taxon:
+        entries.append(
+            {
+                "taxon_term": {
+                    "preferred_term": "Other sp. Y",
+                    "term": {"id": "NCBITaxon:2", "label": "Othergenus"},
+                    "gtdb_classification": {
+                        "gtdb_id": "GTDB:g__Kept",
+                        "gtdb_taxon": "g__Kept",
+                        "ncbi_source_id": "NCBITaxon:2",
+                        "majority_fraction": 0.9,
+                        "mapping_source": "test",
+                    },
+                }
+            }
+        )
+    path = tmp_path / name
+    path.write_text(yaml.dump({"taxonomy": entries}, sort_keys=False, allow_unicode=True))
+    return path
+
+
+def test_withdrawal_removes_an_ambiguous_block_and_nothing_else(gtdb, tmp_path):
+    record = _record(tmp_path, extra_taxon=True)
+    before = yaml.safe_load(record.read_text())
+
+    removed = gtdb.withdraw_ambiguous(record, {}, {}, TIED_ROWS)
+
+    after = yaml.safe_load(record.read_text())
+    assert removed == 1
+    assert "gtdb_classification" not in after["taxonomy"][0]["taxon_term"]
+    assert after["taxonomy"][0]["taxon_term"]["notes"] == "a sibling that must survive"
+    assert after["taxonomy"][1]["taxon_term"]["gtdb_classification"]["gtdb_id"] == "GTDB:g__Kept"
+
+    def stripped(document):
+        for entry in document["taxonomy"]:
+            entry["taxon_term"].pop("gtdb_classification", None)
+        return document
+
+    assert stripped(before) == stripped(after)
+
+
+def test_withdrawal_leaves_a_decided_grounding_alone(gtdb, tmp_path):
+    """Only an ambiguous recompute withdraws — a clear majority must survive."""
+    record = _record(tmp_path)
+    before = record.read_text()
+
+    assert gtdb.withdraw_ambiguous(record, {}, {}, DECIDED_ROWS) == 0
+    assert record.read_text() == before
+
+
+def test_withdrawal_skips_a_curated_pin(gtdb, tmp_path, monkeypatch):
+    """The pin, exercised — not merely present.
+
+    The first version of this test used the real Pelobacter record, whose taxon
+    recomputes to a *non*-ambiguous g__Seleniibacterium, so it survived with or
+    without the curated check and the mutant lived (#394 review).
+    """
+    record = _record(tmp_path, name="curated.yaml")
+    monkeypatch.setitem(gtdb.CURATED_GROUNDINGS, ("curated.yaml", "NCBITaxon:1"), "pinned")
+
+    assert gtdb.withdraw_ambiguous(record, {}, {}, TIED_ROWS) == 0
+    kept = yaml.safe_load(record.read_text())["taxonomy"][0]["taxon_term"]
+    assert kept["gtdb_classification"]["gtdb_id"] == "GTDB:g__Alpha"
+
+
+def test_withdrawal_ignores_a_taxon_that_merely_fails_to_resolve(gtdb, tmp_path):
+    """A mapping build that loses rows must not strip groundings KB-wide."""
+    record = _record(tmp_path)
+    before = record.read_text()
+
+    assert gtdb.withdraw_ambiguous(record, {}, {}, {}) == 0
+    assert record.read_text() == before
+
+
+def test_the_withdrawal_gate_refuses_an_addition(gtdb, tmp_path):
+    """The gate itself, which no test reached before.
+
+    `test_withdrawal_refuses_to_add` only asserted that a second pass returns 0,
+    and a second pass exits at `if not any(drop_entry)` long before the gate — so
+    deleting the "removals only" branch killed nothing (#394 review).
+    """
+    record = _record(tmp_path)
+    grounded_after = record.read_text()
+    nothing_before = {"taxonomy": [{"taxon_term": {"term": {"id": "NCBITaxon:1"}}}]}
+
+    with pytest.raises(SystemExit, match="created a gtdb_classification"):
+        gtdb._assert_only_grounding_changed(record, nothing_before, grounded_after, withdraw=True)
+
+
+def test_the_withdrawal_gate_refuses_a_no_op_write(gtdb, tmp_path):
+    """`was == now` guards against a write that removed nothing."""
+    record = _record(tmp_path)
+    document = yaml.safe_load(record.read_text())
+
+    with pytest.raises(SystemExit, match="removed nothing"):
+        gtdb._assert_only_grounding_changed(record, document, record.read_text(), withdraw=True)
+
+
+@pytest.mark.parametrize("indent", [4, 6], ids=["4-space", "6-space"])
+def test_withdrawal_handles_both_indent_styles(gtdb, tmp_path, indent):
+    """`_block_span` hardcoded 4, so withdrawal was inoperable on data/isolates.
+
+    It failed safe rather than corrupting, but it is the same assumption
+    `_status_spans` was fixed for in #392 and the new mode reintroduced it.
+    """
+    lead = " " * (indent - 4)
+    record = tmp_path / f"indent{indent}.yaml"
+    record.write_text(
+        "taxonomy:\n"
+        f"{lead}- taxon_term:\n"
+        f"{lead}    preferred_term: Testgenus sp. X\n"
+        f"{lead}    term:\n"
+        f"{lead}      id: NCBITaxon:1\n"
+        f"{lead}      label: Testgenus\n"
+        f"{lead}    gtdb_classification:\n"
+        f"{lead}      gtdb_id: GTDB:g__Alpha\n"
+        f"{lead}      majority_fraction: 0.5\n"
+        f"{lead}    notes: must survive\n"
+    )
+
+    assert gtdb.withdraw_ambiguous(record, {}, {}, TIED_ROWS) == 1
+
+    after = yaml.safe_load(record.read_text())["taxonomy"][0]["taxon_term"]
+    assert "gtdb_classification" not in after
+    assert after["notes"] == "must survive"

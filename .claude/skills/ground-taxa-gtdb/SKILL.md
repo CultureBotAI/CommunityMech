@@ -107,8 +107,9 @@ Grounding happens at the **rank of the input**:
   miss on id alone). GTDB species split → AMBIGUOUS.
 - **Genus / family / order / …** (single-name label) → `GTDB:g__...` (or
   `f__`/`o__`/…): the script aggregates the GTDB rank column over the genomes
-  under the NCBI taxon and grounds to the GTDB taxon holding a **majority (≥50%)**
-  of them; otherwise AMBIGUOUS. `mapping_source` records the rank and how many
+  under the NCBI taxon and grounds to the GTDB taxon holding a **strict majority
+  (>50%)** of them; otherwise AMBIGUOUS. An exact 50/50 tie is not a majority and
+  does not ground (#382). `mapping_source` records the rank and how many
   GTDB taxa fall under the NCBI taxon (NCBI genus *Bacillus* → `g__Bacillus` at
   0.57, noted as 44 GTDB genera).
 
@@ -125,14 +126,14 @@ Grounding happens at the **rank of the input**:
 Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
 `gtdb_ground.py --community <file> --apply-status`. Absence of a
 `gtdb_classification` cannot say *why* it is absent, and the reasons are not
-comparable: a missing block implied 385 open items, of which only 9 are
+comparable: a missing block implied 389 open items, of which only 9 are
 unambiguously outstanding work (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 647 | a `gtdb_classification` is present |
+| `GROUNDED` | 643 | a `gtdb_classification` is present |
 | `UNRESOLVED` | 293 | the tool produced no grounding; **why is not established** |
-| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
+| `AMBIGUOUS` | 85 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
 | `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
 | `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
 | `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
@@ -186,8 +187,14 @@ taxonomy entries and their id anchors do not line up.
   `0.99` the true count spans ~170. A thin grounding is not automatically wrong;
   a small genus is legitimately small. The point is that you can now tell.
 
-  A fraction of exactly **0.5** is a two-way tie, not a majority — it is broken by
-  name so the answer is reproducible, but it is still a coin flip (#382).
+  A **true** 50/50 tie never grounds: it is not a majority, so the tool reports
+  AMBIGUOUS and records both contenders (#382). Note the stored value is rounded
+  to 3 places, so a block *can* read `0.5` legitimately — 5004/10000 is 0.5004,
+  a real if slender majority. Read `support_genomes`/`total_genomes` to tell
+  them apart; a genuine tie has no block at all. The name tie-break
+  survives, but only to make the *option list* reproducible — it no longer
+  decides an answer. `--withdraw-ambiguous` removes a stored grounding that has
+  become ambiguous, which `--refresh` deliberately cannot do.
 
   A grounding the majority vote gets *wrong* can be pinned in `CURATED` in
   `tests/test_gtdb_withheld_groundings.py`; the tool has no memory of such a
