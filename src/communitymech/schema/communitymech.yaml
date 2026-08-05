@@ -736,12 +736,26 @@ classes:
       gtdb_candidates:
         description: >-
           The competing GTDB taxa when gtdb_grounding_status is AMBIGUOUS, best
-          supported first, as plain names rather than CURIEs (they are candidates,
-          not identifiers). Carried so a curator can choose in place instead of
+          supported first, as `GTDB:` CURIEs at the rank the grounding was
+          attempted at. Carried so a curator can choose in place instead of
           re-running the tool to rediscover what it already computed. Empty for
           every other status.
+
+          These were plain names until #415, on the reasoning that "they are
+          candidates, not identifiers". That does not hold up: a candidate names
+          a real GTDB taxon, and being unchosen does not make it identify
+          nothing. The cost was concrete — no rank, so the 85 AMBIGUOUS taxa
+          could not be filtered or counted the way #414 filters groundings; and
+          nothing resolvable, so `RDYJ01`, an alphanumeric GTDB placeholder
+          genus, sat in a record meaning nothing to a reader. `GTDB:g__RDYJ01`
+          resolves and carries its rank.
+
+          Spelled by the same `_curie()` the grounding uses, so a candidate is
+          written exactly as it will appear in `gtdb_id` once chosen — promoting
+          one is a copy, not a re-derivation.
         multivalued: true
         range: string
+        pattern: "^GTDB:[cdfgops]__.+"
       gtdb_classification:
         description: >-
           Optional GTDB (Genome Taxonomy Database) grounding for this taxon,

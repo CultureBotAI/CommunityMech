@@ -282,7 +282,9 @@ def test_an_exact_tie_is_ambiguous_not_a_grounding(gtdb, mapping):
     result = gtdb.resolve_higher("ensifer", "NCBITaxon:106591", "Ensifer", by_higher)
 
     assert result["ambiguous"] is True, "an exact tie must not produce a grounding"
-    assert set(result["gtdb_options"]) >= {"Ensifer", "Sinorhizobium"}
+    # CURIEs since #415 — spelled exactly as `gtdb_id` would be, so promoting a
+    # contender is a copy rather than a re-derivation.
+    assert set(result["gtdb_options"]) >= {"GTDB:g__Ensifer", "GTDB:g__Sinorhizobium"}
 
 
 def test_a_bare_majority_above_the_tie_still_grounds(gtdb):
@@ -374,14 +376,23 @@ def test_ambiguous_options_are_ordered_deterministically(gtdb):
         cells[10] = "Testgenus namedspecies"
         return cells
 
-    rows = [row("g__Zeta", "5"), row("g__Alpha", "5"), row("g__Mu", "5")]
+    # Bare names, because that is what the crosswalk holds: 0 of its 92,506
+    # non-empty genus cells carry a `g__` prefix. The fixture used to write
+    # "g__Zeta" into that column, a shape the real data never has. Harmless
+    # while the test only compared its own outputs to each other, and wrong the
+    # moment those outputs became CURIEs (#415).
+    rows = [row("Zeta", "5"), row("Alpha", "5"), row("Mu", "5")]
     forward = gtdb.resolve_higher("testgenus", "NCBITaxon:1", "Testgenus", {"testgenus": rows})
     reverse = gtdb.resolve_higher(
         "testgenus", "NCBITaxon:1", "Testgenus", {"testgenus": list(reversed(rows))}
     )
 
     assert forward["ambiguous"] and reverse["ambiguous"], "expected a three-way split"
-    assert forward["gtdb_options"] == reverse["gtdb_options"] == ["g__Alpha", "g__Mu", "g__Zeta"]
+    assert (
+        forward["gtdb_options"]
+        == reverse["gtdb_options"]
+        == ["GTDB:g__Alpha", "GTDB:g__Mu", "GTDB:g__Zeta"]
+    )
 
 
 @pytest.mark.parametrize("bad", ["TYPO", "", None, "Aggregate"])
