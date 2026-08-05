@@ -835,7 +835,11 @@ classes:
         description: >-
           Why this grounding was curated against the tool. Required in practice
           whenever `curated` is true — a pin whose reason lives only in a commit
-          message is one re-run away from looking like an error.
+          message is one re-run away from looking like an error. Enforced by
+          `communitymech.validators.gtdb_coherence`, since a conditional
+          requirement is one of the relations the JSON-Schema backend cannot
+          express (#387).
+        range: string
       mapping_source:
         description: >-
           Provenance of the mapping (source table + GTDB release/build), e.g.

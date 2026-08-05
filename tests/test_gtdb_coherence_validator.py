@@ -556,20 +556,74 @@ def test_a_note_without_the_flag_is_flagged():
     assert "note_without_curated" in {c for c, _ in check_block(block)}
 
 
-def test_a_curated_pin_with_no_block_is_withheld(gtdb):
-    """The branch that distinguishes a pin from a plain ungrounded taxon.
+def test_a_flagged_taxon_always_has_a_block_so_grounds(gtdb):
+    """Why `classify_status` takes no `curated` argument.
 
-    `curated: true` says a curator decided this taxon's grounding. With no block
-    stored, that decision was to withhold — not NOT_ATTEMPTED, which would put it
-    back in the work queue the pin exists to keep it out of.
+    `curated: true` lives inside `gtdb_classification`, so a flagged taxon always
+    has a block and the `has_block` branch already answers GROUNDED. #384 added a
+    `curated=` parameter for a `curated but ungrounded` state that cannot arise —
+    deleting its wiring left the whole suite green, and its presence reordered
+    the function so a taxon both flagged and withheld returned GROUNDED (#397).
     """
-    status, candidates = gtdb.classify_status(
-        "rec.yaml", "NCBITaxon:1", "Testgenus", False, {}, {}, {}, curated=True
+    import inspect
+
+    assert (
+        "curated" not in inspect.signature(gtdb.classify_status).parameters
+    ), "a curated= argument is unreachable from the writer; the flag implies a block"
+    status, _ = gtdb.classify_status("rec.yaml", "NCBITaxon:1", "Testgenus", True, {}, {}, {})
+    assert status == "GROUNDED"
+
+
+def test_a_withheld_taxon_is_not_overridden_by_anything(gtdb):
+    """WITHHELD stays checked before outcome, which #384 had silently reordered."""
+    record, preferred = next(iter(gtdb.WITHHELD_GROUNDINGS))
+    status, _ = gtdb.classify_status(
+        record, "NCBITaxon:821", "Bacteroides", False, {}, {}, {}, preferred=preferred
     )
     assert status == "WITHHELD"
-    assert candidates == []
 
-    grounded, _ = gtdb.classify_status(
-        "rec.yaml", "NCBITaxon:1", "Testgenus", True, {}, {}, {}, curated=True
-    )
-    assert grounded == "GROUNDED"
+
+def test_a_curation_note_survives_yaml_parsing_intact():
+    """A bare `#` after a space opens a comment mid-scalar and eats the rest.
+
+    The Chlorobium note ended `(#376, #384).` and parsed as `(#376,` — losing the
+    pointer to the issue the flag exists for, and leaving an unbalanced paren.
+    Every gate passed it, because they all test only that the note is non-empty.
+
+    Comparing the raw line against the parsed value catches the whole class:
+    comment truncation, a stray tab, an unescaped quote.
+    """
+    import re
+
+    truncated = []
+    for directory in ("kb/communities", "data/isolates"):
+        for path in sorted((REPO / directory).glob("*.yaml")):
+            text = path.read_text()
+            if "curation_note:" not in text:
+                continue
+            document = yaml.safe_load(text)
+            parsed = [
+                block["curation_note"]
+                for entry in document.get("taxonomy") or []
+                for block in [(entry.get("taxon_term") or {}).get("gtdb_classification") or {}]
+                if block.get("curation_note")
+            ]
+            raw = [m.group(1).strip() for m in re.finditer(r"^\s*curation_note: (.*)$", text, re.M)]
+            for raw_line, value in zip(raw, parsed, strict=True):
+                stripped = raw_line.strip("\"'")
+                if len(value) < len(stripped):
+                    truncated.append(f"{path.name}: lost {stripped[len(value):]!r}")
+    assert not truncated, "curation_note truncated by YAML parsing:\n" + "\n".join(truncated)
+
+
+@pytest.mark.parametrize("note", [["a list"], 0, {"a": 1}, False])
+def test_a_non_string_note_does_not_crash_the_check(note):
+    """`check_block` is called directly on unvalidated dicts, so it must cope.
+
+    The schema types `curation_note`, so `linkml-validate` rejects these — but
+    the validator is also called on in-memory blocks that never went through it.
+    """
+    block = _valid_block()
+    block["curation_note"] = note
+    categories = {category for category, _ in check_block(block)}
+    assert "note_without_curated" in categories or not str(note or "").strip()

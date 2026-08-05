@@ -490,9 +490,9 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
 # one and only `tests/test_gtdb_withheld_groundings.py::CURATED` notices, after
 # the fact. Mirrors WITHHELD, which keeps taxa *ungrounded* (#292/#293).
 #
-# This is the narrow half of #384 — a hard-coded list, not the `curated:` flag on
-# the block that the issue asks for. It exists so the record stays tool-
-# maintainable: excluding the whole *file* instead stranded its other taxon.
+# A fallback for records not yet marked. The `curated: true` flag on the block is
+# the primary mechanism (#384) — prefer it, because a list protects only what
+# someone remembered to add, which is how *Chlorobium* went unprotected.
 CURATED_GROUNDINGS = {
     ("Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml", "NCBITaxon:18"): (
         "GTDB:g__Syntrophotalea — SFB93 is an acetylene fermenter and the entry's "
@@ -512,7 +512,13 @@ def _is_curated(term_block: dict) -> bool:
     *Chlorobium* went unprotected (#384).
     """
     block = (term_block or {}).get("gtdb_classification")
-    return isinstance(block, dict) and bool(block.get("curated"))
+    if not isinstance(block, dict):
+        return False
+    # Keyed on the *value*, and only on `curated`. Reading the key's presence
+    # would freeze a block written `curated: false` — a curator recording "I
+    # checked, the tool is right" — and reading `curation_note` would let a note
+    # protect a block nothing flagged (#397 review).
+    return block.get("curated") is True
 
 
 def _block(g: dict, mapping_source: str) -> dict:
@@ -614,7 +620,6 @@ def classify_status(
     by_name,
     by_higher,
     preferred=None,
-    curated=False,
     **kwargs,
 ):
     """Why this taxon does or does not carry a grounding (#294).
@@ -627,8 +632,16 @@ def classify_status(
     point of a withhold is that the tool *can* produce a grounding and must not:
     classifying it by outcome would label it GROUNDED-able and invite exactly the
     re-run #293 exists to prevent.
+
+    There is deliberately no `curated` parameter. `curated: true` lives *inside*
+    `gtdb_classification`, so a flagged taxon always has a block and the
+    `has_block` branch already answers GROUNDED. A `curated=` argument was added
+    in #384 and was unreachable from the writer — deleting its wiring left the
+    whole suite green — while quietly reordering this function so a taxon both
+    flagged and in WITHHELD_GROUNDINGS returned GROUNDED, contradicting the
+    paragraph above (#397 review).
     """
-    if curated or (record_name, tid) in CURATED_GROUNDINGS:
+    if (record_name, tid) in CURATED_GROUNDINGS:
         # A curated block is a grounding, just not one the tool would compute.
         return ("GROUNDED" if has_block else "WITHHELD"), []
     # Keyed by preferred_term, NOT by NCBITaxon id. Both withheld records use
@@ -973,7 +986,6 @@ def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -
             by_name,
             by_higher,
             preferred=tt.get("preferred_term"),
-            curated=_is_curated(tt),
             **kwargs,
         )
         wanted.append((status, candidates))
@@ -1163,6 +1175,25 @@ def _assert_only_grounding_changed(
     elif not set(was) <= set(now):
         # Plain apply may add groundings; it must never remove one.
         raise SystemExit(f"{path.name}: an existing gtdb_classification was dropped.")
+
+    # Losing `curated`/`curation_note` is the exact regression this flag prevents,
+    # and popping gtdb_classification wholesale below makes it invisible. `_block`
+    # never emits them, so any path that fails to detect the flag would rewrite
+    # the block and delete the evidence it was ever curated (#397 review).
+    def _pins(doc):
+        return {
+            i: ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curation_note")
+            for i, e in enumerate(doc.get("taxonomy") or [])
+            if isinstance(((e or {}).get("taxon_term") or {}).get("gtdb_classification"), dict)
+            and ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curated")
+        }
+
+    lost = {i: note for i, note in _pins(before).items() if i not in _pins(after)}
+    if lost:
+        raise SystemExit(
+            f"{path.name}: the edit dropped `curated` from {len(lost)} block(s) — "
+            f"refusing to write. A curated grounding must survive every mode."
+        )
 
     b_tax, a_tax = before.get("taxonomy") or [], after.get("taxonomy") or []
     if len(b_tax) != len(a_tax):

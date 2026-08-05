@@ -204,8 +204,10 @@ taxonomy entries and their id anchors do not line up.
     curation_note: why the tool's answer was rejected
   ```
 
-  `--refresh`, `--apply` and `--withdraw-ambiguous` all skip a block carrying
-  `curated: true`, and `validate-gtdb` rejects the flag without a note (#384).
+  `--refresh` and `--withdraw-ambiguous` skip a block carrying `curated: true`,
+  and `validate-gtdb` rejects the flag without a note — or a note without the
+  flag, which reads as a decision while protecting nothing. (`--apply` only ever
+  touches *ungrounded* taxa, so it could not have overwritten a pin anyway.)
   Two blocks carry it: `NCBITaxon:18` (*Pelobacter* SFB93 → `g__Syntrophotalea`,
   where the vote picks a selenate reducer) and `NCBITaxon:340177` (*Chlorobium*).
 

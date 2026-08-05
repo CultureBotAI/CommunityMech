@@ -417,30 +417,78 @@ def test_the_skip_message_does_not_crash_on_a_flag_only_pin(gtdb, tmp_path, monk
     assert "a distinctive reason" in capsys.readouterr().err
 
 
-def test_a_curated_taxon_classifies_as_grounded(gtdb, tmp_path, monkeypatch):
-    monkeypatch.setattr(gtdb, "CURATED_GROUNDINGS", {})
-    term_block = yaml.safe_load(_curated_record(tmp_path).read_text())["taxonomy"][0]["taxon_term"]
+def test_every_curated_pin_carries_a_note_and_a_value():
+    """Derived, not a hard-coded set.
 
-    status, _ = gtdb.classify_status(
-        "curated.yaml", "NCBITaxon:1", "Testgenus", True, {}, {}, {}, curated=True
-    )
-
-    assert status == "GROUNDED"
-    assert term_block["gtdb_classification"]["curated"] is True
-
-
-def test_the_two_kb_pins_are_marked():
-    """Both blocks the tool cannot reproduce must now say so in the data."""
-    expected = {
-        ("Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml", "NCBITaxon:18"),
-        ("Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml", "NCBITaxon:340177"),
-    }
-    found = set()
+    The first version asserted equality against a literal pair, so a curator
+    adding a legitimate third pin got a red suite until they remembered to edit
+    the test — reintroducing the very "list someone must remember" this PR argues
+    against. What matters is that each pin is complete and that its value is
+    recorded, so a silent change to a pinned grounding fails.
+    """
+    pins = {}
     for path in sorted((REPO / "kb/communities").glob("*.yaml")):
         for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
             term_block = entry.get("taxon_term") or {}
             block = term_block.get("gtdb_classification") or {}
             if block.get("curated"):
-                found.add((path.name, (term_block.get("term") or {}).get("id")))
+                key = (path.name, (term_block.get("term") or {}).get("id"))
+                pins[key] = block.get("gtdb_id")
                 assert block.get("curation_note"), f"{path.name}: curated with no note"
-    assert found == expected, f"curated pins drifted: {found ^ expected}"
+
+    assert pins, "no curated pins found; the flag protects nothing"
+    # The two known pins are value-pinned, so a mapping build that makes either
+    # resolve cannot change the stored answer without failing here. Additional
+    # pins are welcome and need no edit.
+    known = {
+        ("Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml", "NCBITaxon:18"): (
+            "GTDB:g__Syntrophotalea"
+        ),
+        ("Chlorochromatium_Aggregatum_Phototrophic_Consortium.yaml", "NCBITaxon:340177"): (
+            "GTDB:g__Chlorobium"
+        ),
+    }
+    for key, expected in known.items():
+        assert pins.get(key) == expected, f"{key} is pinned to {pins.get(key)}, expected {expected}"
+
+
+def test_a_false_flag_does_not_freeze_a_block(gtdb, tmp_path, monkeypatch):
+    """`curated: false` means "checked, the tool is right" — not "never touch"."""
+    monkeypatch.setattr(gtdb, "CURATED_GROUNDINGS", {})
+    record = _curated_record(tmp_path)
+    document = yaml.safe_load(record.read_text())
+    document["taxonomy"][0]["taxon_term"]["gtdb_classification"]["curated"] = False
+    record.write_text(yaml.dump(document, sort_keys=False, allow_unicode=True))
+
+    assert (
+        gtdb.withdraw_ambiguous(record, {}, {}, TIED_ROWS) == 1
+    ), "curated: false must not protect the block"
+
+
+def test_a_note_alone_does_not_protect(gtdb, tmp_path, monkeypatch):
+    """Only the flag protects. A note is documentation, not a lock."""
+    monkeypatch.setattr(gtdb, "CURATED_GROUNDINGS", {})
+    record = _curated_record(tmp_path)
+    document = yaml.safe_load(record.read_text())
+    del document["taxonomy"][0]["taxon_term"]["gtdb_classification"]["curated"]
+    record.write_text(yaml.dump(document, sort_keys=False, allow_unicode=True))
+
+    assert gtdb.withdraw_ambiguous(record, {}, {}, TIED_ROWS) == 1
+
+
+def test_the_write_gate_refuses_to_drop_a_pin(gtdb, tmp_path):
+    """Losing the flag is the regression the flag exists to prevent.
+
+    `_block` never emits `curated`, and the gate pops gtdb_classification
+    wholesale before comparing, so a path that failed to detect the flag would
+    rewrite the block and delete the evidence it was ever curated (#397 review).
+    """
+    record = _curated_record(tmp_path)
+    before = yaml.safe_load(record.read_text())
+    unpinned = yaml.safe_load(record.read_text())
+    del unpinned["taxonomy"][0]["taxon_term"]["gtdb_classification"]["curated"]
+
+    with pytest.raises(SystemExit, match="dropped `curated`"):
+        gtdb._assert_only_grounding_changed(
+            record, before, yaml.dump(unpinned, sort_keys=False, allow_unicode=True), refresh=True
+        )

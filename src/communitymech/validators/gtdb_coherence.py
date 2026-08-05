@@ -259,6 +259,9 @@ def check_block(block: dict) -> list[tuple[str, str]]:
                 "was rejected, or the next person cannot tell a pin from a mistake.",
             )
         )
+    # `str(...)` is belt-and-braces: the schema types this slot, so a non-string
+    # is rejected upstream. Kept because `check_block` is called directly on
+    # dicts that never went through validation — the tests do exactly that.
     if str(block.get("curation_note") or "").strip() and not block.get("curated"):
         problems.append(
             (
