@@ -218,7 +218,19 @@ def _species_denominator(rows) -> tuple[int, float]:
     return total, round(sum(_genomes(r) * _maj(r) for r in chosen) / total, 3)
 
 
-def _ground_species(rows, source_id, label, via):
+def _ground_species(rows, source_id, label, via, exclude_unnamed=True):
+    # Apply the named-species filter here too. It was accepted by
+    # `resolve_target` and forwarded only to `resolve_higher`, so a species
+    # grounding counted `sp.` / `uncultured` / informal rows that a genus
+    # grounding would drop — an asymmetry nothing recorded a reason for (#405).
+    #
+    # Same "never empty a taxon" guard as the higher-rank path: a species known
+    # only from unnamed rows keeps its grounding rather than losing it.
+    if exclude_unnamed:
+        filtered = named_species_only(rows)
+        if filtered:
+            rows = filtered
+
     # Deterministic order. A plain `sorted(key=_maj)` is stable, so among rows
     # tied on majority the winner was whichever the crosswalk listed first —
     # reversing the file moved *Anaerobutyricum hallii* from 156 genomes to 1,
@@ -505,17 +517,19 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
                    exclude_unnamed=True):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
 
-    `denominator` and `exclude_unnamed` are forwarded to `resolve_higher` only.
-    The species paths ignore both: they resolve within one GTDB species, so the
-    aggregate/deepest choice does not arise — but the named-species filter
-    genuinely does not apply there, which is an asymmetry, not a decision (#405).
+    `denominator` reaches `resolve_higher` only — the species paths resolve
+    within one GTDB species, so the aggregate/deepest choice does not arise.
+    `exclude_unnamed` reaches both since #405; it used to be accepted here and
+    silently dropped on the species path.
     """
     source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
     clean = _clean_label(label)
     if _is_species(clean):
         nlc = clean.lower()
         if ncbi_id and ncbi_id in by_id:
-            return _ground_species(by_id[ncbi_id], source_id, label, "ncbi_id")
+            return _ground_species(
+                by_id[ncbi_id], source_id, label, "ncbi_id", exclude_unnamed=exclude_unnamed
+            )
         if nlc in by_name:
             species: dict[str, list] = {}
             for c in by_name[nlc]:
@@ -523,7 +537,13 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
                 if sp:
                     species.setdefault(sp, []).append(c)
             if len(species) == 1:
-                return _ground_species(next(iter(species.values())), source_id, label, "ncbi_name")
+                return _ground_species(
+                    next(iter(species.values())),
+                    source_id,
+                    label,
+                    "ncbi_name",
+                    exclude_unnamed=exclude_unnamed,
+                )
             if len(species) > 1:
                 return {
                     "ambiguous": True,

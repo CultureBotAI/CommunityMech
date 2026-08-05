@@ -190,7 +190,9 @@ taxonomy entries and their id anchors do not line up.
   9.5x — so #389 stays open.
 
   Counted at **one depth**: a species-rank row and its strain rows overlap, so
-  the larger of the two is taken and never their sum.
+  the larger of the two is taken and never their sum. The named-species filter
+  applies here too since #405 — it used to be accepted and dropped on this path,
+  so a species grounding counted `sp.` rows a genus grounding would not.
 
 - **`support_genomes`** — the numerator, on genus-and-higher groundings only.
   Species blocks deliberately carry none: there `majority_fraction` is the
