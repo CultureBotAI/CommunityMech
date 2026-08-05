@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-05T07:44:11
+# Generation date: 2026-08-05T09:48:26
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -3242,6 +3242,7 @@ slots.taxonDescriptor__gtdb_candidates = Slot(
     model_uri=COMMUNITYMECH.taxonDescriptor__gtdb_candidates,
     domain=None,
     range=Optional[Union[str, list[str]]],
+    pattern=re.compile(r"^GTDB:[cdfgops]__.+"),
 )
 
 slots.taxonDescriptor__gtdb_classification = Slot(

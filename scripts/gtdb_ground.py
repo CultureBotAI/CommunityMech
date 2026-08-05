@@ -523,7 +523,13 @@ def resolve_higher(
             # silently defeated exactly that: six KB taxa recorded 8 of 46 and 8
             # of 33 contenders with no marker that any were dropped (#392 review).
             # The CLI still prints only the first 8, with an "and N more" tail.
-            "gtdb_options": ranked,
+            #
+            # CURIEs, not bare names, and via the same `_curie` the grounding uses
+            # so a candidate is spelled exactly as it would be once chosen (#415).
+            # A bare `RDYJ01` is an alphanumeric GTDB placeholder that means
+            # nothing without its rank; `GTDB:g__RDYJ01` resolves and can be
+            # filtered by rank the way `gtdb_id` can.
+            "gtdb_options": [_curie(name, prefix) for name in ranked],
             "n_alt": len(weights),
         }
     return None
@@ -567,7 +573,9 @@ def resolve_target(
                     "via": "ncbi_name",
                     "ncbi_source_id": source_id,
                     "ncbi_species": label,
-                    "gtdb_options": sorted(species),
+                    # Species rank, so `s__` — see the CURIE note in
+                    # `resolve_higher` (#415).
+                    "gtdb_options": [_curie(name, "s") for name in sorted(species)],
                     "n_alt": len(species),
                 }
         return None
