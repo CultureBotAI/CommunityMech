@@ -308,7 +308,10 @@ lint:
     uv run mypy src/
 
 # Full QC (validate + strict validate + lint + test)
-qc: validate-all validate-taxa validate-strict validate-terms-all validate-terms-taxa validate-references-all lint test
+# `validate-gtdb-all` and `validate-scalars` also run inside validate-strict,
+# but over its DEFAULT_ROOTS only. Listing them here covers kb/taxa too, and
+# means a future narrowing of validate-strict cannot silently drop them (#391).
+qc: validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa validate-references-all lint test
     @echo "✅ All QC checks passed!"
 
 # Check which community strains are represented in UniProt reference proteomes

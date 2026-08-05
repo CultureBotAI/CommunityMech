@@ -203,8 +203,13 @@ def main() -> int:
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("reports/instance_validation_failures.tsv"),
-        help="TSV output path.",
+        # Resolved against the repo, not the cwd. The relative default wrote a
+        # stray `reports/` tree wherever the script was run from, and any test
+        # invoking it without `--out` overwrote the committed report — which
+        # happened twice, surviving only because a full run left the file
+        # byte-identical (#391).
+        default=_REPO_ROOT / "reports" / "instance_validation_failures.tsv",
+        help="TSV output path (default: <repo>/reports/instance_validation_failures.tsv).",
     )
     parser.add_argument(
         "--sample",

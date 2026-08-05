@@ -632,3 +632,44 @@ def test_a_non_string_note_does_not_crash_the_check(note):
     block["curation_note"] = note
     categories = {category for category, _ in check_block(block)}
     assert "note_without_curated" in categories or not str(note or "").strip()
+
+
+def test_the_report_default_is_anchored_to_the_repo(tmp_path):
+    """`validate_strict.py --out` defaulted to a cwd-relative, git-tracked path.
+
+    Running it from anywhere but the repo root wrote a stray `reports/` tree
+    there, and any test invoking it without `--out` overwrote the committed
+    report — which happened twice in this codebase, surviving only because a
+    full suite run left the file byte-identical (#391).
+
+    Asserted by running the script from a different directory and checking that
+    nothing appeared there, which is the behaviour that actually matters.
+    """
+    fixture = tmp_path / "rec.yaml"
+    fixture.write_text(FIXTURE.read_text())
+
+    result = subprocess.run(
+        ["uv", "run", "python", str(REPO / "scripts/validate_strict.py"), str(fixture)],
+        capture_output=True,
+        text=True,
+        cwd=tmp_path,
+    )
+
+    assert result.returncode == 0, result.stdout[-1500:]
+    assert not (
+        tmp_path / "reports"
+    ).exists(), "running from another directory created a stray reports/ tree there"
+    assert str(REPO) in (result.stdout + result.stderr), "the report went somewhere unexpected"
+
+
+def test_qc_runs_the_standalone_gates():
+    """They also run inside validate-strict, but over its DEFAULT_ROOTS only.
+
+    `kb/taxa` is outside those roots, and a future narrowing of validate-strict
+    would silently drop both checks from CI with nothing failing (#391).
+    """
+    recipe = next(
+        line for line in (REPO / "justfile").read_text().splitlines() if line.startswith("qc:")
+    )
+    for target in ("validate-gtdb-all", "validate-scalars"):
+        assert target in recipe, f"{target} is in no gate"
