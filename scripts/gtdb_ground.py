@@ -431,7 +431,12 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
             "via": f"ncbi_rank_{prefix}",
             "ncbi_source_id": source_id,
             "ncbi_species": label,
-            "gtdb_options": ranked[:8],
+            # Full list, not `ranked[:8]`. The stored `gtdb_candidates` exists so
+            # a curator can choose without re-running the tool, and truncating it
+            # silently defeated exactly that: six KB taxa recorded 8 of 46 and 8
+            # of 33 contenders with no marker that any were dropped (#392 review).
+            # The CLI still prints only the first 8, with an "and N more" tail.
+            "gtdb_options": ranked,
             "n_alt": len(weights),
         }
     return None
@@ -564,6 +569,118 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
             return None
         i += 1
     return None
+
+
+STATUS_KEYS = ("gtdb_grounding_status", "gtdb_candidates")
+
+
+def classify_status(
+    record_name,
+    tid,
+    label,
+    has_block,
+    by_id,
+    by_name,
+    by_higher,
+    preferred=None,
+    **kwargs,
+):
+    """Why this taxon does or does not carry a grounding (#294).
+
+    Returns (status, candidates). The tool already distinguished all of these
+    internally — it prints a block, `AMBIGUOUS`, or `no GTDB mapping` — so this
+    persists a decision rather than making a new one.
+
+    Order matters. WITHHELD is checked before anything is computed, because the
+    point of a withhold is that the tool *can* produce a grounding and must not:
+    classifying it by outcome would label it GROUNDED-able and invite exactly the
+    re-run #293 exists to prevent.
+    """
+    if (record_name, tid) in CURATED_GROUNDINGS:
+        # A curated block is a grounding, just not one the tool would compute.
+        return ("GROUNDED" if has_block else "WITHHELD"), []
+    # Keyed by preferred_term, NOT by NCBITaxon id. Both withheld records use
+    # the offending id *correctly* elsewhere — BioModels uses 821 for its real
+    # Bacteroides vulgatus entry, KBase uses 1236 for two Steroidobacteraceae —
+    # so an id key marked three sound groundings WITHHELD. Same collision that
+    # `apply_to_community` carries a comment about; caught here by the
+    # status-vs-block coherence check.
+    if (record_name, preferred) in WITHHELD_GROUNDINGS:
+        return "WITHHELD", []
+    if has_block:
+        return "GROUNDED", []
+    if not tid.startswith("NCBITaxon:"):
+        return "NO_GTDB_EQUIVALENT", []
+    result = resolve_target(tid.split(":", 1)[1], label, by_id, by_name, by_higher, **kwargs)
+    if result and result.get("ambiguous"):
+        return "AMBIGUOUS", list(result.get("gtdb_options") or [])
+    if result is None or not result.get("gtdb_id"):
+        # UNRESOLVED, never NO_GTDB_EQUIVALENT. This script cannot tell the two
+        # apart, and an earlier version asserted the strong one anyway: 57 KB
+        # entries read "GTDB has no counterpart and never will" for *Bacteria*,
+        # which is the root of GTDB — `HIGHER_RANKS` stops at phylum, so domain
+        # rank is never attempted. Others failed because the crosswalk spells
+        # the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`) or
+        # because the named-species filter removed their rows.
+        #
+        # Matching NCBI names against the table was tried and does not settle it
+        # either — a rename defeats it. Establishing "GTDB will never classify
+        # this" needs an NCBI lineage source, since GTDB is bacteria/archaea
+        # only, which this script does not have. So NO_GTDB_EQUIVALENT is
+        # curator-assigned and the tool never writes it (#393).
+        return "UNRESOLVED", []
+    # The tool would ground this and the KB does not. That is the only value
+    # here that represents outstanding work.
+    return "NOT_ATTEMPTED", []
+
+
+# Taxa kept ungrounded on purpose because the NCBITaxon id names a different
+# organism, so a derived block would describe the wrong species convincingly.
+# Mirrors CURATED_GROUNDINGS, which protects a grounding that *is* right.
+# Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py (#292).
+WITHHELD_GROUNDINGS = {
+    ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"): (
+        "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116."
+    ),
+    ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
+        "NCBITaxon:1236 is class Gammaproteobacteria, not a Nitrospiraceae bacterium."
+    ),
+}
+
+
+def _status_spans(lines: list[str], anchor: int, end: int) -> list[tuple[int, int]]:
+    """Line spans of any existing status keys for one taxonomy entry.
+
+    The indent is derived from the anchor rather than hardcoded. `data/isolates`
+    uses the indented-sequence style (`  - taxon_term:`), putting taxon_term
+    children at 6 spaces, so a literal 4-space match never worked there: the key
+    was neither found nor dropped, and a second `--apply-status` produced a
+    duplicate. The canary that "proved" idempotency only ever ran on
+    kb/communities, which is uniformly 4-space (#392 review).
+
+    A block sequence sits at the *same* indent as its key, so `gtdb_candidates:`
+    is followed by `- Anabaena` at that indent, not by a deeper line.
+    """
+    child = len(re.match(r"^(\s*)", lines[anchor]).group(1)) - 2
+    keys = re.compile(r"^\s{" + str(child) + r"}(?:" + "|".join(STATUS_KEYS) + r"):")
+    item = re.compile(r"^\s{" + str(child) + r"}- ")
+    deeper = re.compile(r"^\s{" + str(child + 2) + r",}\S")
+    sibling = re.compile(r"^\s{0," + str(child) + r"}\S")
+    spans, i = [], anchor + 1
+    while i < end:
+        if keys.match(lines[i]):
+            j = i + 1
+            while j < end and (deeper.match(lines[j]) or item.match(lines[j])):
+                j += 1
+            spans.append((i, j))
+            i = j
+            continue
+        if sibling.match(lines[i]) and not re.match(r"^\s{" + str(child) + r"}\S", lines[i]):
+            break
+        if re.match(r"^\s*- ", lines[i]) and not item.match(lines[i]):
+            break
+        i += 1
+    return spans
 
 
 def apply_to_community(
@@ -711,6 +828,167 @@ def apply_to_community(
     return added
 
 
+def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
+    """Write `gtdb_grounding_status` (and `gtdb_candidates`) on every taxon (#294).
+
+    Same line-level, add-only approach as `apply_to_community`, and deliberately
+    the same refusals: the entry count must match the anchors and the ids must
+    line up, or this raises rather than guessing an insertion point.
+
+    Status is written for **every** taxonomy entry, including grounded ones, even
+    though GROUNDED is derivable from the block's presence. Deriving state from
+    whether a field exists is the defect #294 is about; a consumer should read a
+    value.
+    """
+    doc = yaml.safe_load(path.read_text())
+    entries = doc.get("taxonomy", []) or []
+
+    wanted: list[tuple[str, list[str]] | None] = []
+    for tc in entries:
+        tt = (tc or {}).get("taxon_term", {}) or {}
+        term = tt.get("term", {}) or {}
+        tid = str(term.get("id", ""))
+        status, candidates = classify_status(
+            path.name,
+            tid,
+            term.get("label", ""),
+            "gtdb_classification" in tt,
+            by_id,
+            by_name,
+            by_higher,
+            preferred=tt.get("preferred_term"),
+            **kwargs,
+        )
+        wanted.append((status, candidates))
+
+    lines = path.read_text().splitlines()
+    start = end = None
+    for idx, line in enumerate(lines):
+        if re.match(r"^taxonomy:\s*$", line):
+            start = idx
+        elif start is not None and idx > start and re.match(r"^[A-Za-z_]", line):
+            end = idx
+            break
+    if start is None:
+        return 0
+    end = end if end is not None else len(lines)
+
+    anchors = [
+        i
+        for i in range(start + 1, end)
+        if re.match(r"^\s+id: NCBITaxon:\d+\s*$", lines[i])
+        and i + 1 < end
+        and re.match(r"^\s+label:", lines[i + 1])
+    ]
+    # Entries whose term id is not an NCBITaxon CURIE have no anchor line, so a
+    # mismatch here is expected rather than corruption — but it means this
+    # editor cannot place their status, and writing the others would silently
+    # leave gaps. Refuse the file instead.
+    if len(anchors) != len(entries):
+        raise SystemExit(
+            f"{path.name}: found {len(anchors)} taxon term-id lines for "
+            f"{len(entries)} taxonomy entries — refusing to edit."
+        )
+    for pos, tc in zip(anchors, entries, strict=True):
+        expected = str((((tc or {}).get("taxon_term") or {}).get("term") or {}).get("id", ""))
+        if lines[pos].split("id:", 1)[1].strip() != expected:
+            raise SystemExit(
+                f"{path.name}: taxonomy entry order does not match the file — refusing to edit."
+            )
+
+    spans = {pos: _status_spans(lines, pos, end) for pos in anchors}
+    by_anchor = dict(zip(anchors, wanted, strict=True))
+    # The label line is emitted by hand beside its anchor, so it must not also
+    # be emitted by the main loop.
+    label_lines = {pos + 1 for pos in anchors}
+
+    # Emit every line except the old status keys, inserting the new ones right
+    # after each entry's label.
+    #
+    # This replaces a walk that advanced two cursors and then re-emitted
+    # `lines[i]` unconditionally, so a dropped line reappeared whenever the old
+    # status keys were not exactly two lines below the anchor — which is what
+    # `--apply` produces, since it inserts `gtdb_classification` between the
+    # label and them. The result was a duplicate key that this function then
+    # refused to write, leaving records only hand-editable, and in one ordering
+    # a silently stale `gtdb_candidates` beside a fresh status (#392 review).
+    # A drop-set cannot express either failure.
+    drop = {n for pos in by_anchor for span in spans[pos] for n in range(*span)}
+    out, written = lines[: start + 1], 0
+    for i in range(start + 1, end):
+        if i in drop or i in label_lines:
+            continue
+        out.append(lines[i])
+        if i in by_anchor:
+            status, candidates = by_anchor[i]
+            # The label line is the anchor's partner and never a status key, so
+            # emitting it here keeps the pair together; `drop` skips it below.
+            out.append(lines[i + 1])
+            child = " " * (len(re.match(r"^(\s*)", lines[i]).group(1)) - 2)
+            out.append(f"{child}gtdb_grounding_status: {status}")
+            if candidates:
+                out.append(f"{child}gtdb_candidates:")
+                out += [f"{child}- {c}" for c in candidates]
+            written += 1
+    out += lines[end:]
+    new_text = "\n".join(out) + "\n"
+
+    _assert_only_status_changed(path, doc, new_text)
+    path.write_text(new_text)
+    return written
+
+
+def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None:
+    """Fail loudly unless the edit touched the status slots and nothing else."""
+    try:
+        after = yaml.safe_load(new_text)
+    except yaml.YAMLError as exc:
+        raise SystemExit(
+            f"{path.name}: edit produced unparseable YAML — refusing to write: {exc}"
+        ) from exc
+
+    class _DupDetector(yaml.SafeLoader):
+        pass
+
+    def _no_dups(loader, node, deep=False):
+        seen, mapping = set(), {}
+        for key_node, value_node in node.value:
+            key = loader.construct_object(key_node, deep=deep)
+            if key in seen:
+                raise SystemExit(f"{path.name}: edit produced a duplicate `{key}` key.")
+            seen.add(key)
+            mapping[key] = loader.construct_object(value_node, deep=deep)
+        return mapping
+
+    _DupDetector.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_dups)
+    yaml.load(new_text, Loader=_DupDetector)  # noqa: S506 — subclass of SafeLoader
+
+    def _stripped(doc):
+        copy = yaml.safe_load(yaml.dump(doc, sort_keys=False, allow_unicode=True))
+        for entry in (copy or {}).get("taxonomy") or []:
+            tt = (entry or {}).get("taxon_term")
+            if isinstance(tt, dict):
+                for key in STATUS_KEYS:
+                    tt.pop(key, None)
+        return copy
+
+    if _stripped(before) != _stripped(after):
+        raise SystemExit(
+            f"{path.name}: the status edit changed something other than "
+            f"{'/'.join(STATUS_KEYS)} — refusing to write."
+        )
+
+    missing = [
+        i
+        for i, e in enumerate((after or {}).get("taxonomy") or [])
+        if "gtdb_grounding_status" not in ((e or {}).get("taxon_term") or {})
+    ]
+    if missing:
+        raise SystemExit(
+            f"{path.name}: {len(missing)} taxonomy entries have no status after the edit."
+        )
+
+
 def _assert_only_grounding_changed(
     path: Path, before: dict, new_text: str, refresh: bool = False
 ) -> None:
@@ -807,6 +1085,12 @@ def main(argv: list[str] | None = None) -> int:
         help="With --apply: recompute blocks that already exist. Creates none.",
     )
     p.add_argument(
+        "--apply-status",
+        action="store_true",
+        help="With --community: write gtdb_grounding_status on every taxon (#294). "
+        "Independent of --apply; writes no gtdb_classification.",
+    )
+    p.add_argument(
         "--denominator",
         choices=("aggregate", "deepest"),
         default="aggregate",
@@ -847,6 +1131,18 @@ def main(argv: list[str] | None = None) -> int:
             want_higher.add(clean.lower())
     by_id, by_name, by_higher = collect_rows(mapping_path, want_ids, want_species, want_higher)
 
+    if args.community and args.apply_status:
+        n = apply_status_to_community(
+            args.community,
+            by_id,
+            by_name,
+            by_higher,
+            denominator=args.denominator,
+            exclude_unnamed=not args.include_unnamed,
+        )
+        print(f"[gtdb] wrote status on {n} taxa in {args.community.name}", file=sys.stderr)
+        return 0
+
     if args.community and args.apply:
         n = apply_to_community(
             args.community,
@@ -880,8 +1176,9 @@ def main(argv: list[str] | None = None) -> int:
             print("  no GTDB mapping (rank absent from the NCBI2GTDB table, or eukaryote).")
             continue
         if g.get("ambiguous"):
-            opts = ", ".join(g["gtdb_options"])
-            extra = g.get("n_alt", 0) - len(g["gtdb_options"])
+            shown = g["gtdb_options"][:8]
+            opts = ", ".join(shown)
+            extra = g.get("n_alt", 0) - len(shown)
             if extra > 0:
                 opts += f" (+{extra} more)"
             print(head)

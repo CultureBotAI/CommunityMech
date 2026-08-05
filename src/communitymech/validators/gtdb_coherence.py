@@ -118,6 +118,51 @@ def _blocks(doc: Any) -> Iterator[tuple[str, dict]]:
             yield f"taxonomy[{index}] {name}", grounding
 
 
+def _taxon_terms(doc: Any) -> Iterator[tuple[str, dict]]:
+    """Yield (label, taxon_term) for every taxonomy entry, grounded or not.
+
+    `_blocks` only reaches taxa that already carry a grounding, which is exactly
+    the population the status enum exists to look past.
+    """
+    if not isinstance(doc, dict):
+        return
+
+    def _label(term_block: dict) -> str:
+        term = term_block.get("term")
+        return (
+            term_block.get("preferred_term")
+            or (term.get("id") if isinstance(term, dict) else None)
+            or "?"
+        )
+
+    taxonomy = doc.get("taxonomy")
+    if isinstance(taxonomy, list):
+        for index, entry in enumerate(taxonomy):
+            if not isinstance(entry, dict):
+                continue
+            term_block = entry.get("taxon_term")
+            if isinstance(term_block, dict):
+                yield f"taxonomy[{index}] {_label(term_block)}", term_block
+
+    # `EcologicalInteraction.source_taxon` / `target_taxon` also have range
+    # TaxonDescriptor, so they carry the same two slots — 1139 more instances
+    # than `taxonomy` alone. Walking only `taxonomy` meant an interaction taxon
+    # could claim GROUNDED with no block, or carry a single candidate, and every
+    # gate reported clean (#392 review).
+    interactions = doc.get("ecological_interactions")
+    if isinstance(interactions, list):
+        for index, entry in enumerate(interactions):
+            if not isinstance(entry, dict):
+                continue
+            for slot in ("source_taxon", "target_taxon"):
+                term_block = entry.get(slot)
+                if isinstance(term_block, dict):
+                    yield (
+                        f"ecological_interactions[{index}].{slot} {_label(term_block)}",
+                        term_block,
+                    )
+
+
 def check_block(block: dict) -> list[tuple[str, str]]:
     """Return (category, message) for each incoherence in one block.
 
@@ -217,6 +262,76 @@ def check_block(block: dict) -> list[tuple[str, str]]:
     return problems
 
 
+def check_status(term_block: dict) -> list[tuple[str, str]]:
+    """Relate `gtdb_grounding_status` to the rest of the taxon (#294).
+
+    The enum is deliberately redundant with the block's presence — a consumer
+    should read a state, not infer one — and redundancy that nothing checks is
+    just two sources of truth. The schema can express neither half: it cannot
+    say "GROUNDED iff gtdb_classification exists", nor "gtdb_candidates only
+    when AMBIGUOUS".
+    """
+    problems: list[tuple[str, str]] = []
+    status = term_block.get("gtdb_grounding_status")
+    has_block = isinstance(term_block.get("gtdb_classification"), dict)
+    candidates = term_block.get("gtdb_candidates")
+
+    if status is None:
+        # Absence is tolerated: a record predating #294, or one hand-authored
+        # since. Flagging it would make the slot required in practice while the
+        # schema calls it optional.
+        if candidates:
+            problems.append(
+                (
+                    "candidates_without_status",
+                    "gtdb_candidates with no gtdb_grounding_status — candidates are "
+                    "only meaningful for AMBIGUOUS.",
+                )
+            )
+        return problems
+
+    if status == "GROUNDED" and not has_block:
+        problems.append(
+            (
+                "grounded_without_block",
+                "gtdb_grounding_status is GROUNDED but there is no "
+                "gtdb_classification. Re-run `gtdb_ground.py --apply-status`.",
+            )
+        )
+    elif status != "GROUNDED" and has_block:
+        problems.append(
+            (
+                "block_without_grounded_status",
+                f"gtdb_grounding_status is {status} but a gtdb_classification is "
+                f"present. A stored grounding is a grounding whatever the reason "
+                f"it was withheld.",
+            )
+        )
+
+    if candidates and status != "AMBIGUOUS":
+        problems.append(
+            (
+                "candidates_on_unambiguous_taxon",
+                f"gtdb_candidates on a {status} taxon — the contenders only exist "
+                f"where the tool declined to choose.",
+            )
+        )
+    # `candidates is not None` let the *more* degenerate case through: an
+    # AMBIGUOUS taxon with no `gtdb_candidates` key at all passed, while an
+    # explicit empty list was flagged. `apply_status_to_community` writes the key
+    # only `if candidates:`, so the case that actually occurs was the unchecked
+    # one (#392 review).
+    if status == "AMBIGUOUS" and len(candidates or []) < 2:
+        problems.append(
+            (
+                "ambiguous_without_candidates",
+                "AMBIGUOUS with fewer than two candidates — an ambiguity needs at "
+                "least two things to be ambiguous between.",
+            )
+        )
+    return problems
+
+
 def validate_gtdb_coherence(path: Path) -> list[CoherenceIssue]:
     """Check every `gtdb_classification` in one record."""
     try:
@@ -231,8 +346,14 @@ def validate_gtdb_coherence(path: Path) -> list[CoherenceIssue]:
             )
         ]
 
-    return [
+    issues = [
         CoherenceIssue(file=str(path), taxon=label, category=category, message=message)
         for label, block in _blocks(doc)
         for category, message in check_block(block)
     ]
+    issues += [
+        CoherenceIssue(file=str(path), taxon=label, category=category, message=message)
+        for label, term_block in _taxon_terms(doc)
+        for category, message in check_status(term_block)
+    ]
+    return issues

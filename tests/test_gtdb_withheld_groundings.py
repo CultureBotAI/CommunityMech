@@ -118,3 +118,80 @@ def test_curated_grounding_is_not_overwritten_by_the_majority_vote(record: str, 
         f"the curated {expected}. {why} This is most likely an unreviewed "
         f"`gtdb_ground.py --refresh` — revert this block."
     )
+
+
+# ---------------------------------------------------------------------------
+# The classifier that turns a withhold into a stored status (#294).
+# ---------------------------------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def gtdb():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "gtdb_ground", Path(__file__).parent.parent / "scripts/gtdb_ground.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.mark.parametrize(("record", "preferred"), list(WITHHELD))
+def test_a_withheld_taxon_classifies_as_withheld(gtdb, record, preferred):
+    """Not NOT_ATTEMPTED, and not whatever the tool would have computed.
+
+    WITHHELD is checked before anything is resolved, because the point of a
+    withhold is that the tool *can* produce a grounding and must not. Classifying
+    by outcome would mark these groundable and invite the re-run #293 exists to
+    prevent.
+    """
+    term = _taxon_term(record, preferred)
+    assert term is not None
+    status, candidates = gtdb.classify_status(
+        record,
+        (term.get("term") or {}).get("id", ""),
+        (term.get("term") or {}).get("label", ""),
+        "gtdb_classification" in term,
+        {},
+        {},
+        {},
+        preferred=preferred,
+    )
+    assert status == "WITHHELD", f"{preferred} classified as {status}"
+    assert candidates == []
+
+
+def test_the_withhold_does_not_catch_a_sibling_sharing_the_id(gtdb):
+    """The collision that keying by NCBITaxon id introduced (#294).
+
+    Both withheld records use the offending id *correctly* for another entry —
+    BioModels for its real Bacteroides vulgatus, KBase for two
+    Steroidobacteraceae — so an id-keyed withhold list marked three sound
+    groundings WITHHELD. The list is keyed by preferred_term for that reason.
+    """
+    record = "BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml"
+    doc = yaml.safe_load((COMMUNITIES / record).read_text())
+    siblings = [
+        entry["taxon_term"]
+        for entry in doc["taxonomy"]
+        if (entry["taxon_term"].get("term") or {}).get("id") == "NCBITaxon:821"
+        and entry["taxon_term"].get("preferred_term") != "Bacteroides ovatus"
+    ]
+    assert siblings, "expected another entry on NCBITaxon:821 in this record"
+
+    for term in siblings:
+        status, _ = gtdb.classify_status(
+            record,
+            "NCBITaxon:821",
+            (term.get("term") or {}).get("label", ""),
+            "gtdb_classification" in term,
+            {},
+            {},
+            {},
+            preferred=term.get("preferred_term"),
+        )
+        assert status == "GROUNDED", (
+            f"'{term.get('preferred_term')}' shares the withheld id and was "
+            f"classified {status} — the withhold list is keyed by id again"
+        )

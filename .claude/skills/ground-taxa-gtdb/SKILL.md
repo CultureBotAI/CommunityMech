@@ -120,6 +120,37 @@ Grounding happens at the **rank of the input**:
   for the pre-#372 behaviour; *Bacillus* was `g__Bacillus` at 0.508 across 102
   GTDB genera under that rule.
 
+## Grounding status (#294)
+
+Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
+`gtdb_ground.py --community <file> --apply-status`. Absence of a
+`gtdb_classification` cannot say *why* it is absent, and the reasons are not
+comparable: a missing block implied 385 open items, of which only 9 are
+unambiguously outstanding work (#276).
+
+| status | count | meaning |
+|---|---|---|
+| `GROUNDED` | 647 | a `gtdb_classification` is present |
+| `UNRESOLVED` | 293 | the tool produced no grounding; **why is not established** |
+| `AMBIGUOUS` | 81 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
+| `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
+| `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
+| `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
+
+`UNRESOLVED` deliberately does not claim finality. Some of it is final (viruses,
+eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits: it
+attempts genus through phylum only, so *Bacteria* never resolves even though
+`d__Bacteria` is the root of GTDB. Reading it as "no GTDB equivalent" is the
+substitution #294 exists to stop.
+
+`GROUNDED` is redundant with the block's presence on purpose: a consumer should
+read a state, not infer one from whether a field exists. The two must agree, and
+`communitymech.validators.gtdb_coherence` enforces that — the schema cannot.
+
+`--apply-status` is independent of `--apply`: it writes no groundings, only
+status. It is idempotent, and refuses the file rather than guessing if the
+taxonomy entries and their id anchors do not line up.
+
 ## Interpreting the output
 
 - **`majority_fraction`** — for species, the mapping's majority fraction; for
