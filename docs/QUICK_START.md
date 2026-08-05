@@ -82,7 +82,7 @@ just validate FILE                      # Verify
 just suggest-network-repairs            # Generate ($3-12)
 # Review offline, set approved: true
 just apply-batch-repairs REPORT         # Apply
-just qc                                 # Full validation
+just qc                                 # lint + tests + offline validators
 ```
 
 ### Workflow 3: Testing

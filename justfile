@@ -307,7 +307,6 @@ lint:
     uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
-# Full QC (lint + test + every offline validator)
 # `validate-gtdb-all` and `validate-scalars` also run inside validate-strict.
 # Only `validate-scalars` widens the scope — it covers kb/taxa, which
 # validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
@@ -328,10 +327,10 @@ lint:
 qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa
     @echo "✅ All QC checks passed!"
 
-# `qc` plus the literature sweep. Separate because it is the one check that
-# cannot pass: it needs the network, and it reports ~320 errors on a clean `main`
-# for reasons already tracked — #259 (no DOI full-text cache path, so most cited
-# DOIs resolve to no content) and #347 (snippets paraphrase rather than quote).
+# Separate from `qc` because it is the one check that cannot pass: it needs the
+# network, and it reports ~320 errors on a clean `main` for reasons already
+# tracked — #259 (no DOI full-text cache path, so most cited DOIs resolve to no
+# content) and #347 (snippets paraphrase rather than quote).
 #
 # Having it inside `qc` meant `just qc` stopped there and never reached `lint` or
 # `test`, so the command named "check everything" silently skipped the only two

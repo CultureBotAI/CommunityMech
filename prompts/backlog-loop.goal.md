@@ -22,8 +22,8 @@ sibling repos (CultureMech/MIM/TraitMech), even for cross-Mech sync — report i
    a CI gate: a temporary commit **on your branch, never `main`** breaking one record;
    confirm it reddens at the right step; revert, and confirm that before merging.
 
-6. **Verify side effects, not exit codes.** `just qc` reddens for unrelated reasons;
-   scope to what you touched. Mutation-test new checks: substitute a wrong
+6. **Verify side effects, not exit codes.** `just qc` is green on `main`, so a red
+   one is yours; `qc-references` is not (#417). Mutation-test new checks: substitute a wrong
    implementations, confirm a test fails. Cover **both** sides of two-sided checks. A
    relative-path test can pass auditing nothing — assert the sweep was non-empty.
 
