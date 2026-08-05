@@ -14,16 +14,19 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+from communitymech.literature import LiteratureFetcher
 
 
 class SnippetFixer:
     """Fix invalid evidence snippets"""
 
     def __init__(self):
-        self.fetcher = EnhancedLiteratureFetcher(
-            cache_dir=".literature_cache", use_fallback_pdf=False
-        )
+        # Ported from the never-committed EnhancedLiteratureFetcher, following
+        # the swap merged in #88: `fetch_paper` returns (abstract, source) and
+        # takes no `download_pdf`. This script passed `download_pdf=False`
+        # throughout, so nothing is lost. The default cache is the committed
+        # `references_cache` (#407); the old `.literature_cache` never existed.
+        self.fetcher = LiteratureFetcher()
         self.invalid_snippets = []
 
     def find_invalid_snippets(self, yaml_path: Path) -> list[dict]:
@@ -51,11 +54,9 @@ class SnippetFixer:
 
                     # Fetch abstract
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        if paper["abstract"]:
-                            valid = self.fetcher.validate_evidence_snippet(
-                                snippet, paper["abstract"]
-                            )
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                        if abstract:
+                            valid = self.fetcher.validate_evidence_snippet(snippet, abstract)
 
                             if not valid:
                                 invalid.append(
@@ -65,7 +66,7 @@ class SnippetFixer:
                                         "organism": organism,
                                         "reference": reference,
                                         "snippet": snippet,
-                                        "abstract": paper["abstract"],
+                                        "abstract": abstract,
                                         "taxon_idx": taxon_idx,
                                         "ev_idx": ev_idx,
                                     }
@@ -90,11 +91,9 @@ class SnippetFixer:
 
                     # Fetch abstract
                     try:
-                        paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        if paper["abstract"]:
-                            valid = self.fetcher.validate_evidence_snippet(
-                                snippet, paper["abstract"]
-                            )
+                        abstract, _ = self.fetcher.fetch_paper(reference)
+                        if abstract:
+                            valid = self.fetcher.validate_evidence_snippet(snippet, abstract)
 
                             if not valid:
                                 invalid.append(
@@ -104,7 +103,7 @@ class SnippetFixer:
                                         "organism": int_name,
                                         "reference": reference,
                                         "snippet": snippet,
-                                        "abstract": paper["abstract"],
+                                        "abstract": abstract,
                                         "int_idx": int_idx,
                                         "ev_idx": ev_idx,
                                     }
