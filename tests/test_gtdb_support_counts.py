@@ -1,9 +1,12 @@
 """A `majority_fraction` must say what it is a fraction *of* (#383).
 
 `0.571` reads identically whether it came from 4 genomes or 4000, and `1.0` can
-rest on a single row. Across the KB, **197 groundings rest on fewer than 10
-genomes, 192 of them reading `1.0`, and 25 rest on a single genome** — in the
+rest on a single row. Across the KB, **182 groundings rest on fewer than 10
+genomes, 177 of them reading `1.0`, and 25 rest on a single genome** — in the
 stored block those were indistinguishable from groundings drawn from thousands.
+(Two of those three figures moved when #386 aggregated the species path; the
+assertions below are ranged rather than exact so the prose is the only thing
+that rots, and `test_the_thin_groundings_are_visible` pins the shape.)
 The named-species filter (#375) sharpened it, because it shrinks the evidence
 without recording that it did.
 
@@ -158,7 +161,12 @@ def test_the_species_path_reports_the_denominator_but_no_numerator(gtdb, mapping
     result = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
 
     assert result["gtdb_id"] == "GTDB:s__Bacillus_velezensis"
-    assert result["total_genomes"] == 1163, "the chosen row's own genome count"
+    # 1163, because this resolves via the NCBI *id*, whose row set is the single
+    # row carrying taxonID 492670. The name path collects every row named
+    # "Bacillus velezensis" — 16 rows, 1196 genomes — and #386's aggregation then
+    # sums them. Which number is right depends on which path grounded the taxon,
+    # so both are pinned; conflating them is how the 1196 assertion first failed.
+    assert result["total_genomes"] == 1163, "the id path sees only this taxonID's rows"
     assert "support_genomes" not in result, (
         "the species path must publish no numerator — majority_fraction comes "
         "from the crosswalk's 2-decimal column, so any numerator derived from it "
@@ -304,9 +312,13 @@ def test_species_counts_match_the_crosswalk(gtdb, mapping):
     for ncbi_id, label in wanted.items():
         by_id, by_name, by_higher = gtdb.collect_rows(mapping, {ncbi_id}, {label.lower()}, set())
         result = gtdb.resolve_target(ncbi_id, label, by_id, by_name, by_higher)
+        # Exact, not `>=`. Both fixtures resolve via the NCBI *id*, whose row set
+        # is a single row, so #386's aggregation is a no-op here and the count
+        # must equal that row. A `>=` passes for any mutant that inflates the
+        # total — including dropping the agreeing-rows filter entirely.
         assert result["total_genomes"] == expected[ncbi_id][1], (
-            f"{label}: stored {result['total_genomes']} but the best crosswalk row "
-            f"carries {expected[ncbi_id][1]} genomes"
+            f"{label}: stored {result['total_genomes']} against {expected[ncbi_id][1]} "
+            f"on the crosswalk row this id resolves to"
         )
 
 
@@ -331,12 +343,17 @@ def test_the_chosen_species_row_does_not_depend_on_file_order(gtdb, mapping):
     assert (
         forward["total_genomes"] == reverse["total_genomes"]
     ), "reversing the crosswalk row order changed the stored evidence count"
-    # Deterministic is not enough — it must be the *best-supported* row. Both
-    # rows here sit at majority 1.0, carrying 156 genomes and 1, so consistently
-    # picking either end would satisfy the assertion above.
-    assert forward["total_genomes"] == 156, (
-        f"chose a {forward['total_genomes']}-genome row over the 156-genome one; "
-        f"a tie must break toward the better-supported row"
+    # 157 = 156 + 1, so the aggregation and not a single row produced it.
+    #
+    # Note what this test can no longer prove. Once the counts became
+    # order-invariant sums, `forward == reverse` holds for *any* row ordering,
+    # so it no longer guards the #382/#385 tie-break. The sort still decides
+    # which GTDB species wins when the rows disagree, and
+    # `test_the_sort_picks_the_best_supported_species_from_a_mixed_set` is what
+    # actually covers that.
+    assert forward["total_genomes"] == 157, (
+        f"got {forward['total_genomes']} — expected 156 + 1 aggregated across "
+        f"both rows mapping to this GTDB species (#386)"
     )
 
 
@@ -395,3 +412,231 @@ def test_a_curated_grounding_is_skipped_by_refresh(gtdb, tmp_path, mapping):
     assert "test-source" not in (
         pinned["gtdb_classification"].get("mapping_source") or ""
     ), "the curated block was rewritten even though its value survived"
+
+
+def test_the_name_path_aggregates_every_row_for_the_species(gtdb, mapping):
+    """#386: one species name spans many crosswalk rows, and all of them count.
+
+    `_ground_species` read a single row and discarded the rest, so
+    *Bifidobacterium breve* reported 3 genomes where 25 rows totalling 1593 map
+    to `s__Bifidobacterium_breve` — an understatement of ~500x. The name path is
+    where this bites, because a species name covers several NCBI strain taxonIDs.
+    """
+    _, by_name, _ = gtdb.collect_rows(mapping, set(), {"bifidobacterium breve"}, set())
+    result = gtdb.resolve_target("", "Bifidobacterium breve", {}, by_name, {})
+
+    assert result["gtdb_id"] == "GTDB:s__Bifidobacterium_breve"
+    assert (
+        result["total_genomes"] == 1593
+    ), f"got {result['total_genomes']} — a single row's count, not the aggregate"
+
+
+def test_the_species_fraction_is_weighted_by_genomes(gtdb, mapping):
+    """A summed denominator needs a fraction computed over the same rows.
+
+    *B. breve*'s rows are 1544 genomes at 0.99 and 49 at 1.0. Keeping the chosen
+    row's 1.0 beside a 1593 denominator would assert "1.0 of 1593", which no row
+    supports; the genome-weighted mean is 0.99.
+    """
+    _, by_name, _ = gtdb.collect_rows(mapping, set(), {"bifidobacterium breve"}, set())
+    result = gtdb.resolve_target("", "Bifidobacterium breve", {}, by_name, {})
+
+    assert result["majority_fraction"] == 0.99, (
+        "the fraction must be the genome-weighted mean over the aggregated rows, "
+        "not whichever row happened to be chosen"
+    )
+
+
+def test_aggregation_falls_back_when_no_gtdb_species_is_named(gtdb):
+    """A row with an empty GTDB species cell must not aggregate to a zero total.
+
+    `total_genomes: 0` would be a majority over nothing, which the schema now
+    rejects outright (#387) — so the fallback has to hold.
+    """
+    cells = [""] * 20
+    cells[2], cells[3], cells[10] = "12", "1.0", "Somegenus somespecies"
+    result = gtdb._ground_species([cells], "NCBITaxon:1", "Somegenus somespecies", "ncbi_id")
+
+    assert result["gtdb_id"] is None, "no GTDB species cell means no grounding"
+    assert result["total_genomes"] == 12, "must fall back to the chosen row, not 0"
+
+
+# ---------------------------------------------------------------------------
+# What the schema itself rejects, as opposed to what a test catches (#387).
+# ---------------------------------------------------------------------------
+
+SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
+
+
+def _validates(tmp_path, mutate) -> bool:
+    """Apply `mutate` to one grounded block of a real record; is it still valid?"""
+    import subprocess
+
+    source = REPO / "kb/communities/Lake_Washington_Methane_Oxygen_Methylotroph_Community.yaml"
+    doc = yaml.safe_load(source.read_text())
+    for entry in doc["taxonomy"]:
+        block = (entry.get("taxon_term") or {}).get("gtdb_classification")
+        if block and "support_genomes" in block:
+            mutate(block)
+            break
+    else:
+        pytest.fail("no block with support_genomes in the fixture record")
+
+    path = tmp_path / "mutated.yaml"
+    path.write_text(yaml.dump(doc, sort_keys=False, allow_unicode=True))
+    return (
+        subprocess.run(
+            ["uv", "run", "linkml-validate", "-s", str(SCHEMA), str(path)],
+            capture_output=True,
+            cwd=REPO,
+        ).returncode
+        == 0
+    )
+
+
+def test_schema_rejects_a_numerator_without_a_denominator(tmp_path):
+    """The one coherence constraint the JSON-Schema backend can express."""
+    assert not _validates(tmp_path, lambda b: b.pop("total_genomes")), (
+        "a block with support_genomes and no total_genomes validated — the "
+        "class rule is not being enforced (#387)"
+    )
+
+
+def test_schema_rejects_a_majority_over_zero_genomes(tmp_path):
+    assert not _validates(tmp_path, lambda b: b.update(total_genomes=0))
+    assert not _validates(tmp_path, lambda b: b.update(support_genomes=0))
+
+
+def test_schema_still_accepts_an_untouched_block(tmp_path):
+    """Guards the two above: if everything failed, they would pass vacuously."""
+    assert _validates(tmp_path, lambda b: None), "the unmutated fixture must validate"
+
+
+def test_schema_cannot_catch_contradictory_counts(tmp_path):
+    """Documents the known gap, so it is a decision rather than an oversight.
+
+    `support_genomes <= total_genomes` and agreement with `majority_fraction` are
+    cross-field arithmetic, which the JSON-Schema backend cannot express. The
+    coherence test in tests/test_gtdb_grounding_freshness.py carries them for the
+    committed KB. If this ever starts failing, LinkML gained the capability and
+    the constraint should move into the schema (#387).
+    """
+    assert _validates(tmp_path, lambda b: b.update(support_genomes=99, total_genomes=3)), (
+        "the schema now rejects contradictory counts — move the relational "
+        "checks out of the tests and into the schema, and delete this test"
+    )
+
+
+def test_aggregation_counts_only_rows_reaching_the_chosen_species(gtdb):
+    """Sum the rows that *agree*, not every row in the set.
+
+    Every species-path taxon in the KB happens to have one GTDB species in play,
+    so dropping the filter is invisible against real data — a synthetic split is
+    the only thing that pins it. Counting the disagreeing rows would inflate the
+    denominator with genomes supporting a different species entirely.
+    """
+
+    def row(gtdb_species, genomes, majority="1.0"):
+        cells = [""] * 20
+        cells[2], cells[3] = genomes, majority
+        cells[10], cells[18] = "Somegenus somespecies", gtdb_species
+        return cells
+
+    chosen = row("Somegenus somespecies", "100")
+    other = row("Somegenus otherspecies", "40", majority="0.5")
+
+    result = gtdb._ground_species(
+        [chosen, other], "NCBITaxon:1", "Somegenus somespecies", "ncbi_id"
+    )
+
+    assert result["gtdb_taxon"] == "Somegenus somespecies"
+    assert (
+        result["total_genomes"] == 100
+    ), "the 40 genomes mapping to a different GTDB species must not be counted"
+    assert result["majority_fraction"] == 1.0, "nor may they drag the fraction down"
+
+
+def test_the_sort_picks_the_best_supported_species_from_a_mixed_set(gtdb):
+    """What the row sort still decides, now that the counts are order-invariant.
+
+    `sp` is read off `top`, so with rows disagreeing on GTDB species the sort
+    chooses the winner — and `agreeing` then narrows to it. Aggregation made
+    `total_genomes` a sum, which is order-independent by construction, so
+    `test_the_chosen_species_row_does_not_depend_on_file_order` stopped guarding
+    the #382/#385 tie-break. Reverting to the buggy stable `sorted(key=_maj)`
+    must fail here.
+    """
+
+    def row(gtdb_species, genomes, majority="1.0"):
+        cells = [""] * 20
+        cells[2], cells[3] = genomes, majority
+        cells[10], cells[18] = "Somegenus somespecies", gtdb_species
+        return cells
+
+    # Both species tie on majority, so only the genome count separates them —
+    # exactly the case a stable sort decides by file order.
+    weak = row("Somegenus weakspecies", "2")
+    strong = row("Somegenus strongspecies", "500")
+
+    for ordering in ([weak, strong], [strong, weak]):
+        result = gtdb._ground_species(ordering, "NCBITaxon:1", "Somegenus somespecies", "ncbi_id")
+        assert result["gtdb_taxon"] == "Somegenus strongspecies", (
+            f"picked the 2-genome species over the 500-genome one for ordering "
+            f"{[r[18] for r in ordering]} — the tie-break fell through to row order"
+        )
+        assert result["total_genomes"] == 500
+
+
+def test_the_schema_rule_does_not_catch_an_explicit_null(tmp_path):
+    """A known hole, asserted so it cannot be mistaken for coverage (#388 review).
+
+    `value_presence: PRESENT` compiles to JSON-Schema `required`, which a null
+    satisfies, and `minimum_value` does not apply to null. So the rule catches a
+    *missing* `total_genomes`, not `total_genomes: null`. `_block()` never emits
+    nulls and the coherence test uses `.get()`, so the KB is covered — but the
+    schema alone is weaker than its description suggests. If this ever starts
+    failing, LinkML tightened and the note in the schema should go.
+    """
+    assert _validates(tmp_path, lambda b: b.update(total_genomes=None)), (
+        "the schema now rejects an explicit null — update the rule's comment and "
+        "delete this test"
+    )
+
+
+def test_the_coherence_gate_does_catch_that_null(gtdb):
+    """What actually protects the KB from the hole above."""
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "freshness", REPO / "tests/test_gtdb_grounding_freshness.py"
+    )
+    freshness = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(freshness)
+
+    bad = [("rec.yaml", "Some taxon", None, {"support_genomes": 5, "total_genomes": None})]
+    with pytest.raises(AssertionError, match="no total_genomes"):
+        freshness.test_grounding_is_internally_coherent(bad)
+
+
+def test_the_weighted_fraction_keeps_three_decimal_places(gtdb):
+    """The precision the rest of the block is stored at.
+
+    Every real weighted mean in the KB happens to round identically at 2 and 3
+    places (B. breve is 0.99031), so nothing distinguished them. 3 genomes at 1.0
+    and 1 at 0.85 gives 0.9625 — 0.963 at three places, 0.96 at two — and
+    `test_every_stored_fraction_agrees_with_its_counts` compares against
+    `round(support/total, 3)`, so the two must not drift apart.
+    """
+
+    def row(genomes, majority):
+        cells = [""] * 20
+        cells[2], cells[3] = genomes, majority
+        cells[10], cells[18] = "Somegenus somespecies", "Somegenus somespecies"
+        return cells
+
+    result = gtdb._ground_species(
+        [row("3", "1.0"), row("1", "0.85")], "NCBITaxon:1", "Somegenus somespecies", "ncbi_id"
+    )
+
+    assert result["total_genomes"] == 4
+    assert result["majority_fraction"] == 0.963, "the mean must keep three decimal places"

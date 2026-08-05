@@ -723,7 +723,9 @@ classes:
           numerator derived from it would assert a precision the source lacks
           (~170 genomes of slack on a 17191-genome taxon).
         range: integer
-        minimum_value: 0
+        # A grounding is awarded on a majority, so at least one genome supports
+        # it; 0 would describe a taxon grounded on nothing.
+        minimum_value: 1
       total_genomes:
         description: >-
           Number of genomes the majority was computed over — the denominator
@@ -732,10 +734,17 @@ classes:
           rank, excluding rows dropped by the named-species filter
           (sp./uncultured/informal), so it is the evidence actually considered
           rather than every genome under the NCBI taxon. For species, the genomes
-          under the chosen mapping row. Note majority_fraction is rounded, so
-          neither count can be recovered from it.
+          the mapping rows this grounding was resolved from. Those differ by
+          path: an NCBI id maps to exactly one crosswalk row and reports that
+          row alone, while a species *name* covers several strain taxonIDs and
+          aggregates every row reaching the same GTDB species. So two blocks
+          naming the same GTDB species can carry different totals — Escherichia
+          coli stores its id row's count, not the 2941 rows sharing the name
+          (#389). Note majority_fraction is rounded, so neither count can be
+          recovered from it.
         range: integer
-        minimum_value: 0
+        # A majority computed over zero genomes is not a majority (#387).
+        minimum_value: 1
       is_reclassified:
         description: >-
           True when the GTDB species name differs from the NCBITaxon species
@@ -745,6 +754,31 @@ classes:
         description: >-
           Provenance of the mapping (source table + GTDB release/build), e.g.
           "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-18)".
+    rules:
+      # A numerator with no denominator says nothing — 4 supporting genomes is
+      # unreadable without knowing whether that is 4 of 7 or 4 of 4000 (#383).
+      #
+      # Read the guarantee narrowly. `value_presence: PRESENT` compiles to
+      # JSON-Schema `required`, which an explicit `total_genomes: null`
+      # satisfies, and `minimum_value` does not apply to null either — so this
+      # catches a *missing* key, not a null one (#388 review). `_block()` never
+      # emits nulls, and the coherence test below uses `.get()`, so the KB is
+      # covered; the schema alone is weaker than it looks.
+      #
+      # `support_genomes <= total_genomes` and agreement with majority_fraction
+      # are cross-field arithmetic the JSON-Schema backend cannot express at all,
+      # so they live in tests/test_gtdb_grounding_freshness.py instead (#387).
+      - description: >-
+          A gtdb_classification carrying support_genomes must also carry
+          total_genomes.
+        preconditions:
+          slot_conditions:
+            support_genomes:
+              value_presence: PRESENT
+        postconditions:
+          slot_conditions:
+            total_genomes:
+              value_presence: PRESENT
 
   MetaboliteDescriptor:
     description: Describes a metabolite with CHEBI term
