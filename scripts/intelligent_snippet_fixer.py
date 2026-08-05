@@ -17,7 +17,6 @@ import re
 import shutil
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
 
 import yaml
 
@@ -40,9 +39,9 @@ class SnippetSuggestion:
         organism: str,
         reference: str,
         current_snippet: str,
-        suggested_snippets: List[str],
+        suggested_snippets: list[str],
         abstract: str,
-        confidence: str = "medium"
+        confidence: str = "medium",
     ):
         self.organism = organism
         self.reference = reference
@@ -68,11 +67,8 @@ class IntelligentSnippetFixer:
         self.verbose = verbose
 
     def extract_relevant_sentences(
-        self,
-        abstract: str,
-        organism: str,
-        context_keywords: Optional[List[str]] = None
-    ) -> List[Tuple[str, float]]:
+        self, abstract: str, organism: str, context_keywords: list[str] | None = None
+    ) -> list[tuple[str, float]]:
         """
         Extract relevant sentences from abstract based on organism and context.
 
@@ -93,26 +89,29 @@ class IntelligentSnippetFixer:
         abstract = abstract.replace("nov.", "nov__")
         abstract = abstract.replace("et al.", "et al__")
 
-        sentences = re.split(r'[.!?]\s+', abstract)
+        sentences = re.split(r"[.!?]\s+", abstract)
 
         # Restore abbreviations
-        sentences = [s.replace("sp__", "sp.").replace("nov__", "nov__").replace("et al__", "et al.").strip() for s in sentences]
+        sentences = [
+            s.replace("sp__", "sp.").replace("nov__", "nov__").replace("et al__", "et al.").strip()
+            for s in sentences
+        ]
 
         # Filter out non-scientific content (author info, copyright, etc.)
         exclude_patterns = [
-            r'^author information:',
-            r'^copyright',
-            r'^\(\d+\)',  # Author affiliations like (1), (2)
-            r'^[A-Z][a-z]+ [A-Z]{1,3}\(\d+\)',  # Author names like "Smith AB(1)"
-            r'[A-Z][a-z]+\s+[A-Z]{2,4}\(\d+\)',  # Author names anywhere: "Smith AB(1)"
-            r'^[A-Z][a-z]+\s+[A-Z][A-Z]',  # Names like "Wakelin SA"
-            r'@',  # Email addresses
-            r'^\d{4}',  # Years at start (copyright years)
-            r'^doi:',
-            r'^pmid:',
-            r'^published by',
-            r'^all rights reserved',
-            r'et al',  # Author lists
+            r"^author information:",
+            r"^copyright",
+            r"^\(\d+\)",  # Author affiliations like (1), (2)
+            r"^[A-Z][a-z]+ [A-Z]{1,3}\(\d+\)",  # Author names like "Smith AB(1)"
+            r"[A-Z][a-z]+\s+[A-Z]{2,4}\(\d+\)",  # Author names anywhere: "Smith AB(1)"
+            r"^[A-Z][a-z]+\s+[A-Z][A-Z]",  # Names like "Wakelin SA"
+            r"@",  # Email addresses
+            r"^\d{4}",  # Years at start (copyright years)
+            r"^doi:",
+            r"^pmid:",
+            r"^published by",
+            r"^all rights reserved",
+            r"et al",  # Author lists
         ]
 
         filtered_sentences = []
@@ -157,9 +156,9 @@ class IntelligentSnippetFixer:
                         score += 1.0
 
             # Prefer sentences with numerical data
-            if re.search(r'\d+\.?\d*\s*%', sentence):
+            if re.search(r"\d+\.?\d*\s*%", sentence):
                 score += 0.5
-            if re.search(r'\d+\.?\d*\s*(mM|µM|mg/L|g/L|pH)', sentence):
+            if re.search(r"\d+\.?\d*\s*(mM|µM|mg/L|g/L|pH)", sentence):
                 score += 0.5
 
             # Prefer sentences that are not the first (title) or last (generic)
@@ -174,9 +173,20 @@ class IntelligentSnippetFixer:
 
             # Bonus for sentences with scientific verbs (results/findings)
             scientific_verbs = [
-                "showed", "demonstrated", "observed", "found", "indicated",
-                "revealed", "exhibited", "contained", "produced", "reduced",
-                "oxidized", "catalyzed", "dominated", "enriched"
+                "showed",
+                "demonstrated",
+                "observed",
+                "found",
+                "indicated",
+                "revealed",
+                "exhibited",
+                "contained",
+                "produced",
+                "reduced",
+                "oxidized",
+                "catalyzed",
+                "dominated",
+                "enriched",
             ]
             if any(verb in sentence_lower for verb in scientific_verbs):
                 score += 0.5
@@ -194,8 +204,8 @@ class IntelligentSnippetFixer:
         organism: str,
         reference: str,
         current_snippet: str,
-        context_keywords: Optional[List[str]] = None
-    ) -> Optional[SnippetSuggestion]:
+        context_keywords: list[str] | None = None,
+    ) -> SnippetSuggestion | None:
         """
         Fetch abstract and suggest better snippets for an evidence item.
 
@@ -229,13 +239,11 @@ class IntelligentSnippetFixer:
             return None
 
         # Extract relevant sentences
-        scored_sentences = self.extract_relevant_sentences(
-            abstract, organism, context_keywords
-        )
+        scored_sentences = self.extract_relevant_sentences(abstract, organism, context_keywords)
 
         if not scored_sentences:
             if self.verbose:
-                print(f"  ⚠️  No relevant sentences found in abstract")
+                print("  ⚠️  No relevant sentences found in abstract")
             return None
 
         # Take top 3 suggestions
@@ -256,10 +264,12 @@ class IntelligentSnippetFixer:
             current_snippet=current_snippet,
             suggested_snippets=suggested_snippets,
             abstract=abstract,
-            confidence=confidence
+            confidence=confidence,
         )
 
-    def extract_context_keywords(self, organism_notes: str, functional_roles: List[str]) -> List[str]:
+    def extract_context_keywords(
+        self, organism_notes: str, functional_roles: list[str]
+    ) -> list[str]:
         """
         Extract context keywords from organism notes and functional roles.
 
@@ -287,10 +297,23 @@ class IntelligentSnippetFixer:
         # Extract key terms from notes (simple approach)
         # Look for metabolic terms
         metabolic_terms = [
-            "oxidation", "reduction", "fermentation", "respiration",
-            "fixation", "assimilation", "metabolism", "pathway",
-            "iron", "sulfur", "nitrogen", "carbon", "hydrogen",
-            "pH", "acid", "metal", "mineral"
+            "oxidation",
+            "reduction",
+            "fermentation",
+            "respiration",
+            "fixation",
+            "assimilation",
+            "metabolism",
+            "pathway",
+            "iron",
+            "sulfur",
+            "nitrogen",
+            "carbon",
+            "hydrogen",
+            "pH",
+            "acid",
+            "metal",
+            "mineral",
         ]
 
         notes_lower = organism_notes.lower()
@@ -302,10 +325,8 @@ class IntelligentSnippetFixer:
 
 
 def analyze_yaml_file(
-    yaml_path: Path,
-    only_invalid: bool = False,
-    verbose: bool = False
-) -> List[Dict]:
+    yaml_path: Path, only_invalid: bool = False, verbose: bool = False
+) -> list[dict]:
     """
     Analyze a YAML file and identify evidence items needing snippet fixes.
 
@@ -320,7 +341,7 @@ def analyze_yaml_file(
     Returns:
         List of dicts with organism info and evidence needing fixes
     """
-    with open(yaml_path, 'r', encoding='utf-8') as f:
+    with open(yaml_path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     items_needing_fixes = []
@@ -339,14 +360,16 @@ def analyze_yaml_file(
             snippet = evidence.get("snippet", "")
 
             if not only_invalid or len(snippet) < 50:
-                items_needing_fixes.append({
-                    "organism": organism,
-                    "reference": reference,
-                    "current_snippet": snippet,
-                    "notes": notes,
-                    "functional_roles": functional_roles,
-                    "section": "taxonomy"
-                })
+                items_needing_fixes.append(
+                    {
+                        "organism": organism,
+                        "reference": reference,
+                        "current_snippet": snippet,
+                        "notes": notes,
+                        "functional_roles": functional_roles,
+                        "section": "taxonomy",
+                    }
+                )
 
     # --- ecological_interactions section ---
     ecological_interactions = data.get("ecological_interactions", [])
@@ -360,14 +383,16 @@ def analyze_yaml_file(
             snippet = evidence.get("snippet", "")
 
             if not only_invalid or len(snippet) < 50:
-                items_needing_fixes.append({
-                    "organism": name,
-                    "reference": reference,
-                    "current_snippet": snippet,
-                    "notes": description,
-                    "functional_roles": [],
-                    "section": "ecological_interactions"
-                })
+                items_needing_fixes.append(
+                    {
+                        "organism": name,
+                        "reference": reference,
+                        "current_snippet": snippet,
+                        "notes": description,
+                        "functional_roles": [],
+                        "section": "ecological_interactions",
+                    }
+                )
 
     # --- environmental_factors section ---
     environmental_factors = data.get("environmental_factors", [])
@@ -381,14 +406,16 @@ def analyze_yaml_file(
             snippet = evidence.get("snippet", "")
 
             if not only_invalid or len(snippet) < 50:
-                items_needing_fixes.append({
-                    "organism": name,
-                    "reference": reference,
-                    "current_snippet": snippet,
-                    "notes": description,
-                    "functional_roles": [],
-                    "section": "environmental_factors"
-                })
+                items_needing_fixes.append(
+                    {
+                        "organism": name,
+                        "reference": reference,
+                        "current_snippet": snippet,
+                        "notes": description,
+                        "functional_roles": [],
+                        "section": "environmental_factors",
+                    }
+                )
 
     if verbose:
         print(f"Found {len(items_needing_fixes)} evidence items to analyze")
@@ -397,11 +424,7 @@ def analyze_yaml_file(
 
 
 def apply_snippet_fix_to_yaml(
-    yaml_path: Path,
-    organism: str,
-    reference: str,
-    new_snippet: str,
-    section: str = "taxonomy"
+    yaml_path: Path, organism: str, reference: str, new_snippet: str, section: str = "taxonomy"
 ) -> bool:
     """
     Apply a snippet fix to the YAML file using proper YAML parsing.
@@ -421,7 +444,7 @@ def apply_snippet_fix_to_yaml(
         True if successful
     """
     # Load YAML
-    with open(yaml_path, 'r', encoding='utf-8') as f:
+    with open(yaml_path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     # Find and update the evidence item
@@ -480,7 +503,9 @@ def apply_snippet_fix_to_yaml(
         return False
 
     if not updated:
-        print(f"  ❌ Could not find evidence item with name='{organism}' and reference='{reference}' in section='{section}'")
+        print(
+            f"  ❌ Could not find evidence item with name='{organism}' and reference='{reference}' in section='{section}'"
+        )
         return False
 
     # Record curation event for the LLM-driven snippet fix. ``skip_if_recent``
@@ -520,7 +545,7 @@ def interactive_fix_workflow(
     only_invalid: bool = False,
     auto_approve: bool = False,
     verbose: bool = False,
-    relaxed: bool = False
+    relaxed: bool = False,
 ):
     """
     Interactive workflow for fixing snippets in a YAML file.
@@ -532,10 +557,14 @@ def interactive_fix_workflow(
         verbose: Print detailed progress
     """
     print(f"\n{'='*80}")
-    print(f"INTELLIGENT SNIPPET FIXER")
+    print("INTELLIGENT SNIPPET FIXER")
     print(f"{'='*80}")
     print(f"File: {yaml_path.name}")
-    mode_label = 'Auto-approve (relaxed)' if auto_approve and relaxed else ('Auto-approve' if auto_approve else 'Interactive review')
+    mode_label = (
+        "Auto-approve (relaxed)"
+        if auto_approve and relaxed
+        else ("Auto-approve" if auto_approve else "Interactive review")
+    )
     print(f"Mode: {mode_label}")
     print(f"{'='*80}\n")
 
@@ -549,7 +578,7 @@ def interactive_fix_workflow(
     print(f"📋 Found {len(items)} evidence items to process\n")
 
     # Create backup
-    backup_path = yaml_path.with_suffix('.yaml.bak_intelligent')
+    backup_path = yaml_path.with_suffix(".yaml.bak_intelligent")
     shutil.copy2(yaml_path, backup_path)
     print(f"💾 Created backup: {backup_path}\n")
 
@@ -567,17 +596,16 @@ def interactive_fix_workflow(
         print(f"Section:   {item.get('section', 'taxonomy')}")
         print(f"Organism:  {item['organism']}")
         print(f"Reference: {item['reference']}")
-        print(f"\n❌ CURRENT snippet:")
-        print(f"   {item['current_snippet'][:200]}{'...' if len(item['current_snippet']) > 200 else ''}")
+        print("\n❌ CURRENT snippet:")
+        print(
+            f"   {item['current_snippet'][:200]}{'...' if len(item['current_snippet']) > 200 else ''}"
+        )
         print()
 
         # Extract context keywords (notes, roles, and key words from current snippet)
-        context_keywords = fixer.extract_context_keywords(
-            item['notes'],
-            item['functional_roles']
-        )
+        context_keywords = fixer.extract_context_keywords(item["notes"], item["functional_roles"])
         # Add significant words from current snippet as context hints
-        current_words = [w.lower() for w in re.findall(r'[A-Za-z]{5,}', item['current_snippet'])]
+        current_words = [w.lower() for w in re.findall(r"[A-Za-z]{5,}", item["current_snippet"])]
         context_keywords = list(set(context_keywords + current_words[:8]))
 
         if verbose and context_keywords:
@@ -585,14 +613,14 @@ def interactive_fix_workflow(
 
         # Get suggestions
         suggestion = fixer.suggest_snippets_for_evidence(
-            organism=item['organism'],
-            reference=item['reference'],
-            current_snippet=item['current_snippet'],
-            context_keywords=context_keywords
+            organism=item["organism"],
+            reference=item["reference"],
+            current_snippet=item["current_snippet"],
+            context_keywords=context_keywords,
         )
 
         if not suggestion:
-            print(f"❌ Could not fetch abstract or find relevant snippets")
+            print("❌ Could not fetch abstract or find relevant snippets")
             failed_count += 1
             if not auto_approve:
                 input("Press Enter to continue...")
@@ -607,28 +635,28 @@ def interactive_fix_workflow(
             # In relaxed mode, apply all confidence levels (for verified-correct papers after reference fixes)
             # In normal mode, skip low confidence to avoid wrong-paper replacements
             if suggestion.confidence == "low" and not relaxed:
-                print(f"⏭️  Auto-skipped (low confidence — review manually)")
+                print("⏭️  Auto-skipped (low confidence — review manually)")
                 skipped_count += 1
                 continue
-            choice = '1'
+            choice = "1"
         else:
-            print("👉 Enter number to apply, [S]kip, [V]iew abstract, [Q]uit: ", end='')
+            print("👉 Enter number to apply, [S]kip, [V]iew abstract, [Q]uit: ", end="")
             choice = input().strip().lower()
 
-        if choice == 'q':
+        if choice == "q":
             print("\n🛑 Quitting")
             break
-        elif choice == 's' or choice == '':
+        elif choice == "s" or choice == "":
             print("⏭️  Skipped")
             skipped_count += 1
             continue
-        elif choice == 'v':
+        elif choice == "v":
             print(f"\n📄 FULL ABSTRACT:\n{suggestion.abstract}\n")
-            print("👉 Enter number to apply, [S]kip, [Q]uit: ", end='')
+            print("👉 Enter number to apply, [S]kip, [Q]uit: ", end="")
             choice = input().strip().lower()
-            if choice == 'q':
+            if choice == "q":
                 break
-            elif choice == 's' or choice == '':
+            elif choice == "s" or choice == "":
                 print("⏭️  Skipped")
                 skipped_count += 1
                 continue
@@ -641,17 +669,17 @@ def interactive_fix_workflow(
 
                 success = apply_snippet_fix_to_yaml(
                     yaml_path,
-                    item['organism'],
-                    item['reference'],
+                    item["organism"],
+                    item["reference"],
                     selected_snippet,
-                    section=item.get('section', 'taxonomy')
+                    section=item.get("section", "taxonomy"),
                 )
 
                 if success:
                     print(f"✅ Applied snippet #{choice}")
                     applied_count += 1
                 else:
-                    print(f"❌ Failed to apply snippet")
+                    print("❌ Failed to apply snippet")
                     failed_count += 1
             else:
                 print(f"❌ Invalid choice: {choice}")
@@ -662,7 +690,7 @@ def interactive_fix_workflow(
 
     # Summary
     print(f"\n{'='*80}")
-    print(f"📊 SUMMARY")
+    print("📊 SUMMARY")
     print(f"{'='*80}")
     print(f"✅ Applied:  {applied_count}")
     print(f"⏭️  Skipped:  {skipped_count}")
@@ -671,7 +699,7 @@ def interactive_fix_workflow(
     if applied_count > 0:
         print(f"\n💾 Updated file: {yaml_path}")
         print(f"💾 Backup saved: {backup_path}")
-        print(f"\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
+        print("\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
     else:
         print("\n⚠️  No fixes were applied")
         if backup_path.exists():
@@ -680,42 +708,38 @@ def interactive_fix_workflow(
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Intelligent evidence snippet fixer with direct abstract fetching'
+        description="Intelligent evidence snippet fixer with direct abstract fetching"
     )
     parser.add_argument(
-        '--file',
+        "--file",
         required=True,
-        help='YAML file to process (e.g., Australian_Lead_Zinc_Polymetallic.yaml)'
+        help="YAML file to process (e.g., Australian_Lead_Zinc_Polymetallic.yaml)",
     )
     parser.add_argument(
-        '--only-invalid',
-        action='store_true',
-        help='Only process evidence items with short snippets (likely invalid)'
+        "--only-invalid",
+        action="store_true",
+        help="Only process evidence items with short snippets (likely invalid)",
     )
     parser.add_argument(
-        '--auto-approve',
-        action='store_true',
-        help='Automatically apply top suggestion without prompting'
+        "--auto-approve",
+        action="store_true",
+        help="Automatically apply top suggestion without prompting",
     )
+    parser.add_argument("--verbose", action="store_true", help="Print detailed progress")
     parser.add_argument(
-        '--verbose',
-        action='store_true',
-        help='Print detailed progress'
-    )
-    parser.add_argument(
-        '--relaxed',
-        action='store_true',
-        help='Apply low-confidence suggestions too (use after fixing wrong references)'
+        "--relaxed",
+        action="store_true",
+        help="Apply low-confidence suggestions too (use after fixing wrong references)",
     )
 
     args = parser.parse_args()
 
     # Resolve path
     yaml_filename = args.file
-    if not yaml_filename.endswith('.yaml'):
-        yaml_filename += '.yaml'
+    if not yaml_filename.endswith(".yaml"):
+        yaml_filename += ".yaml"
 
-    yaml_path = Path('kb/communities') / yaml_filename
+    yaml_path = Path("kb/communities") / yaml_filename
 
     if not yaml_path.exists():
         print(f"❌ File not found: {yaml_path}")
@@ -727,11 +751,11 @@ def main():
         only_invalid=args.only_invalid,
         auto_approve=args.auto_approve,
         verbose=args.verbose,
-        relaxed=args.relaxed
+        relaxed=args.relaxed,
     )
 
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     exit(main())

@@ -16,9 +16,6 @@ import argparse
 import re
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
-
-import yaml
 
 # Repo-anchored: a relative default follows the cwd (#407).
 _REPORTS = Path(__file__).resolve().parent.parent / "reports"
@@ -68,7 +65,7 @@ def is_wrong_paper_fix(suggested: str) -> bool:
     return False
 
 
-def parse_curation_report(report_path: Path) -> List[SnippetFix]:
+def parse_curation_report(report_path: Path) -> list[SnippetFix]:
     """
     Parse the evidence curation report and extract all SNIPPET_NOT_IN_SOURCE fixes.
 
@@ -82,7 +79,7 @@ def parse_curation_report(report_path: Path) -> List[SnippetFix]:
     """
     fixes = []
 
-    with open(report_path, "r", encoding="utf-8") as f:
+    with open(report_path, encoding="utf-8") as f:
         content = f.read()
 
     # Split into file sections
@@ -144,21 +141,25 @@ def parse_curation_report(report_path: Path) -> List[SnippetFix]:
             if not suggested:
                 continue
 
-            fixes.append(SnippetFix(
-                yaml_file=filename,
-                organism=organism,
-                reference=reference,
-                current=current,
-                suggested=suggested,
-            ))
+            fixes.append(
+                SnippetFix(
+                    yaml_file=filename,
+                    organism=organism,
+                    reference=reference,
+                    current=current,
+                    suggested=suggested,
+                )
+            )
 
     return fixes
 
 
 def apply_snippet_fix_to_yaml_content(
-    raw_content: str, current_snippet: str, new_snippet: str,
+    raw_content: str,
+    current_snippet: str,
+    new_snippet: str,
     allow_multi_match: bool = False,
-) -> Tuple[str, bool]:
+) -> tuple[str, bool]:
     """
     Apply a snippet replacement to raw YAML file content using string matching.
 
@@ -188,12 +189,12 @@ def apply_snippet_fix_to_yaml_content(
     # Allows the snippet to continue past the matched prefix (for truncated snippets)
     # and optionally have continuation lines (YAML plain scalar multi-line)
     pattern = (
-        rf'snippet:\s*'          # "snippet:" with optional whitespace
-        rf'["\']?'               # optional opening quote
-        rf'{escaped}'            # the snippet text (prefix match)
-        rf'[^\n]*'               # rest of first line
-        rf'(?:\n[ \t]+[^\n]*)*'  # optional continuation lines (indented)
-        rf'["\']?'               # optional closing quote
+        rf"snippet:\s*"  # "snippet:" with optional whitespace
+        rf'["\']?'  # optional opening quote
+        rf"{escaped}"  # the snippet text (prefix match)
+        rf"[^\n]*"  # rest of first line
+        rf"(?:\n[ \t]+[^\n]*)*"  # optional continuation lines (indented)
+        rf'["\']?'  # optional closing quote
     )
 
     matches = list(re.finditer(pattern, raw_content))
@@ -209,7 +210,7 @@ def apply_snippet_fix_to_yaml_content(
     # Replace all matches (in reverse order to preserve string positions)
     for match in reversed(matches):
         match_text = match.group(0)
-        after_snippet = match_text[match_text.index("snippet:") + 8:].lstrip()
+        after_snippet = match_text[match_text.index("snippet:") + 8 :].lstrip()
         if after_snippet.startswith('"'):
             new_snippet_yaml = f'snippet: "{new_snippet}"'
         elif after_snippet.startswith("'"):
@@ -217,16 +218,16 @@ def apply_snippet_fix_to_yaml_content(
         else:
             new_snippet_yaml = f'snippet: "{new_snippet}"'
 
-        raw_content = raw_content[:match.start()] + new_snippet_yaml + raw_content[match.end():]
+        raw_content = raw_content[: match.start()] + new_snippet_yaml + raw_content[match.end() :]
 
     return raw_content, True
 
 
 def apply_fixes_to_file(
     yaml_path: Path,
-    fixes: List[SnippetFix],
+    fixes: list[SnippetFix],
     dry_run: bool = False,
-) -> Tuple[int, int, int]:
+) -> tuple[int, int, int]:
     """
     Apply all fixes for a file to its YAML content.
 
@@ -237,7 +238,7 @@ def apply_fixes_to_file(
     Returns:
         Tuple of (applied, skipped_wrong_paper, failed)
     """
-    with open(yaml_path, "r", encoding="utf-8") as f:
+    with open(yaml_path, encoding="utf-8") as f:
         raw_content = f.read()
 
     original_content = raw_content
@@ -247,8 +248,8 @@ def apply_fixes_to_file(
 
     # Deduplicate: group by (current, suggested) so we apply each unique
     # (current -> suggested) replacement once, using allow_multi_match.
-    seen_replacements: Dict[Tuple[str, str], List[SnippetFix]] = {}
-    ordered_keys: List[Tuple[str, str]] = []
+    seen_replacements: dict[tuple[str, str], list[SnippetFix]] = {}
+    ordered_keys: list[tuple[str, str]] = []
 
     for fix in fixes:
         key = (fix.current, fix.suggested)
@@ -346,7 +347,7 @@ def main():
         return 0
 
     # Group by file
-    fixes_by_file: Dict[str, List[SnippetFix]] = {}
+    fixes_by_file: dict[str, list[SnippetFix]] = {}
     for fix in all_fixes:
         fixes_by_file.setdefault(fix.yaml_file, []).append(fix)
 
@@ -375,15 +376,15 @@ def main():
         total_failed += failed
 
     print(f"\n{'='*60}")
-    print(f"SUMMARY")
+    print("SUMMARY")
     print(f"{'='*60}")
     print(f"  Applied:             {total_applied}")
     print(f"  Skipped (wrong paper): {total_skipped}")
     print(f"  Failed (no match):   {total_failed}")
     if args.dry_run:
-        print(f"\n  [DRY RUN] No files were modified.")
+        print("\n  [DRY RUN] No files were modified.")
     else:
-        print(f"\n  Run validation: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
+        print("\n  Run validation: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
     return 0
 
 

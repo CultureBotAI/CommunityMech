@@ -32,17 +32,14 @@ Usage:
 import argparse
 import csv
 import gzip
-import json
-import re
 import shutil
 import sys
 import time
 import urllib.request
-import yaml
-from collections import defaultdict
-from dataclasses import dataclass, asdict
+from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+
+import yaml
 
 # Repo-anchored: a relative default follows the cwd (#407).
 _REPORTS = Path(__file__).resolve().parent.parent / "reports"
@@ -53,21 +50,23 @@ except ImportError:
     print("ERROR: duckdb not available. Install with: pip install duckdb")
     sys.exit(1)
 
+
 # ANSI color codes for terminal output
 class Colors:
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    YELLOW = '\033[93m'
-    BLUE = '\033[94m'
-    MAGENTA = '\033[95m'
-    CYAN = '\033[96m'
-    BOLD = '\033[1m'
-    RESET = '\033[0m'
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    MAGENTA = "\033[95m"
+    CYAN = "\033[96m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
 
 
 @dataclass
 class GTDBTaxonomy:
     """GTDB taxonomic classification"""
+
     genome_id: str
     domain: str
     phylum: str
@@ -85,6 +84,7 @@ class GTDBTaxonomy:
 @dataclass
 class GTDBMatch:
     """GTDB search result"""
+
     genome_id: str
     species: str
     genus: str
@@ -93,19 +93,20 @@ class GTDBMatch:
 
     def to_dict(self):
         result = asdict(self)
-        result['taxonomy'] = self.taxonomy.to_dict()
+        result["taxonomy"] = self.taxonomy.to_dict()
         return result
 
 
 @dataclass
 class NCBIGTDBComparison:
     """Comparison between NCBI and GTDB classifications"""
+
     organism_name: str
     ncbi_id: str
-    ncbi_classification: Optional[Dict[str, str]]
-    gtdb_matches: List[GTDBMatch]
-    agreements: List[str]  # Ranks where they agree
-    conflicts: List[Dict[str, any]]  # Ranks where they differ
+    ncbi_classification: dict[str, str] | None
+    gtdb_matches: list[GTDBMatch]
+    agreements: list[str]  # Ranks where they agree
+    conflicts: list[dict[str, any]]  # Ranks where they differ
     recommendation: str
     notes: str
 
@@ -117,10 +118,9 @@ class GTDBIntegration:
     GTDB_VERSION = "r214"
     GTDB_BASE_URL = "https://data.gtdb.ecogenomic.org/releases/release214/214.0/"
 
-    def __init__(self,
-                 gtdb_data_dir="./gtdb_data",
-                 db_path="kgm_taxonomy.duckdb",
-                 force_reload=False):
+    def __init__(
+        self, gtdb_data_dir="./gtdb_data", db_path="kgm_taxonomy.duckdb", force_reload=False
+    ):
         """Initialize GTDB integration system."""
         self.gtdb_data_dir = Path(gtdb_data_dir)
         self.db_path = Path(db_path)
@@ -143,9 +143,13 @@ class GTDBIntegration:
         elif not needs_loading:
             try:
                 count = self.conn.execute("SELECT COUNT(*) FROM gtdb_taxonomy").fetchone()[0]
-                print(f"{Colors.GREEN}Using existing GTDB database with {count:,} genomes{Colors.RESET}")
+                print(
+                    f"{Colors.GREEN}Using existing GTDB database with {count:,} genomes{Colors.RESET}"
+                )
             except:
-                print(f"{Colors.YELLOW}GTDB data not loaded. Run with --load to load data.{Colors.RESET}")
+                print(
+                    f"{Colors.YELLOW}GTDB data not loaded. Run with --load to load data.{Colors.RESET}"
+                )
 
     def download_gtdb_taxonomy(self, version=None):
         """
@@ -164,10 +168,7 @@ class GTDBIntegration:
         self.gtdb_data_dir.mkdir(parents=True, exist_ok=True)
 
         # Files to download
-        files = [
-            f"bac120_taxonomy_{version}.tsv.gz",
-            f"ar53_taxonomy_{version}.tsv.gz"
-        ]
+        files = [f"bac120_taxonomy_{version}.tsv.gz", f"ar53_taxonomy_{version}.tsv.gz"]
 
         base_url = self.GTDB_BASE_URL
 
@@ -195,9 +196,9 @@ class GTDBIntegration:
 
                 # Decompress
                 print(f"{Colors.CYAN}  Decompressing...{Colors.RESET}")
-                tsv_path = output_path.with_suffix('')
-                with gzip.open(output_path, 'rb') as f_in:
-                    with open(tsv_path, 'wb') as f_out:
+                tsv_path = output_path.with_suffix("")
+                with gzip.open(output_path, "rb") as f_in:
+                    with open(tsv_path, "wb") as f_out:
                         shutil.copyfileobj(f_in, f_out)
 
                 print(f"{Colors.GREEN}  Downloaded and decompressed: {tsv_path}{Colors.RESET}")
@@ -223,39 +224,39 @@ class GTDBIntegration:
         Input: "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;..."
         Output: GTDBTaxonomy object
         """
-        ranks = ['domain', 'phylum', 'class', 'order', 'family', 'genus', 'species']
-        parts = lineage_string.split(';')
+        ranks = ["domain", "phylum", "class", "order", "family", "genus", "species"]
+        parts = lineage_string.split(";")
 
         taxonomy_dict = {}
         for i, part in enumerate(parts):
             if i < len(ranks):
                 # Remove rank prefix (d__, p__, c__, etc.)
                 value = part.strip()
-                if '__' in value:
-                    value = value.split('__', 1)[1]
+                if "__" in value:
+                    value = value.split("__", 1)[1]
 
                 rank_name = ranks[i]
                 # Handle Python keyword 'class'
-                if rank_name == 'class':
-                    taxonomy_dict['class_name'] = value
+                if rank_name == "class":
+                    taxonomy_dict["class_name"] = value
                 else:
                     taxonomy_dict[rank_name] = value
 
         # Extract genome ID from first part if present
         genome_id = ""
-        if parts and '__' in parts[0]:
-            genome_id = parts[0].split('__')[0]
+        if parts and "__" in parts[0]:
+            genome_id = parts[0].split("__")[0]
 
         return GTDBTaxonomy(
             genome_id=genome_id,
-            domain=taxonomy_dict.get('domain', ''),
-            phylum=taxonomy_dict.get('phylum', ''),
-            class_name=taxonomy_dict.get('class_name', ''),
-            order=taxonomy_dict.get('order', ''),
-            family=taxonomy_dict.get('family', ''),
-            genus=taxonomy_dict.get('genus', ''),
-            species=taxonomy_dict.get('species', ''),
-            full_lineage=lineage_string
+            domain=taxonomy_dict.get("domain", ""),
+            phylum=taxonomy_dict.get("phylum", ""),
+            class_name=taxonomy_dict.get("class_name", ""),
+            order=taxonomy_dict.get("order", ""),
+            family=taxonomy_dict.get("family", ""),
+            genus=taxonomy_dict.get("genus", ""),
+            species=taxonomy_dict.get("species", ""),
+            full_lineage=lineage_string,
         )
 
     def _load_gtdb_data(self):
@@ -268,7 +269,9 @@ class GTDBIntegration:
 
         # Check if files exist
         if not bac_file.exists() and not ar_file.exists():
-            print(f"{Colors.RED}ERROR: GTDB taxonomy files not found in {self.gtdb_data_dir}{Colors.RESET}")
+            print(
+                f"{Colors.RED}ERROR: GTDB taxonomy files not found in {self.gtdb_data_dir}{Colors.RESET}"
+            )
             print(f"{Colors.YELLOW}Run with --download to download GTDB data{Colors.RESET}")
             return False
 
@@ -316,7 +319,7 @@ class GTDBIntegration:
             print(f"{Colors.GREEN}    Loaded {ar_count:,} archaeal genomes{Colors.RESET}")
 
         # Create unified view
-        print(f"  Creating unified taxonomy view...")
+        print("  Creating unified taxonomy view...")
         self.conn.execute("""
             CREATE TABLE gtdb_taxonomy AS
             SELECT * FROM gtdb_bacteria
@@ -325,7 +328,7 @@ class GTDBIntegration:
         """)
 
         # Parse taxonomy strings into structured columns
-        print(f"  Parsing taxonomy strings...")
+        print("  Parsing taxonomy strings...")
         self.conn.execute("""
             ALTER TABLE gtdb_taxonomy ADD COLUMN domain VARCHAR
         """)
@@ -361,7 +364,7 @@ class GTDBIntegration:
         """)
 
         # Create indexes for fast lookup
-        print(f"  Creating indexes...")
+        print("  Creating indexes...")
         self.conn.execute("CREATE INDEX IF NOT EXISTS idx_gtdb_genome ON gtdb_taxonomy(genome_id)")
         self.conn.execute("CREATE INDEX IF NOT EXISTS idx_gtdb_species ON gtdb_taxonomy(species)")
         self.conn.execute("CREATE INDEX IF NOT EXISTS idx_gtdb_genus ON gtdb_taxonomy(genus)")
@@ -369,73 +372,85 @@ class GTDBIntegration:
         total_count = self.conn.execute("SELECT COUNT(*) FROM gtdb_taxonomy").fetchone()[0]
         elapsed = time.time() - start_time
 
-        print(f"{Colors.GREEN}{Colors.BOLD}Loaded {total_count:,} GTDB genomes in {elapsed:.1f} seconds{Colors.RESET}\n")
+        print(
+            f"{Colors.GREEN}{Colors.BOLD}Loaded {total_count:,} GTDB genomes in {elapsed:.1f} seconds{Colors.RESET}\n"
+        )
 
         return True
 
-    def search_by_species(self, species_name: str, limit=100) -> List[GTDBMatch]:
+    def search_by_species(self, species_name: str, limit=100) -> list[GTDBMatch]:
         """
         Search GTDB for a species name.
 
         Returns all genome assemblies with matching species designation.
         """
         try:
-            results = self.conn.execute("""
+            results = self.conn.execute(
+                """
                 SELECT genome_id, species, genus, taxonomy
                 FROM gtdb_taxonomy
                 WHERE species = ?
                 LIMIT ?
-            """, [species_name, limit]).fetchall()
+            """,
+                [species_name, limit],
+            ).fetchall()
 
             matches = []
             for row in results:
                 taxonomy = self.parse_gtdb_taxonomy(row[3])
                 taxonomy.genome_id = row[0]
 
-                matches.append(GTDBMatch(
-                    genome_id=row[0],
-                    species=row[1],
-                    genus=row[2],
-                    taxonomy=taxonomy,
-                    confidence='EXACT_SPECIES'
-                ))
+                matches.append(
+                    GTDBMatch(
+                        genome_id=row[0],
+                        species=row[1],
+                        genus=row[2],
+                        taxonomy=taxonomy,
+                        confidence="EXACT_SPECIES",
+                    )
+                )
 
             return matches
         except Exception as e:
             print(f"{Colors.RED}Error searching GTDB: {e}{Colors.RESET}")
             return []
 
-    def search_by_genus(self, genus_name: str, limit=100) -> List[GTDBMatch]:
+    def search_by_genus(self, genus_name: str, limit=100) -> list[GTDBMatch]:
         """
         Search GTDB for all species in a genus.
         """
         try:
-            results = self.conn.execute("""
+            results = self.conn.execute(
+                """
                 SELECT genome_id, species, genus, taxonomy
                 FROM gtdb_taxonomy
                 WHERE genus = ?
                 LIMIT ?
-            """, [genus_name, limit]).fetchall()
+            """,
+                [genus_name, limit],
+            ).fetchall()
 
             matches = []
             for row in results:
                 taxonomy = self.parse_gtdb_taxonomy(row[3])
                 taxonomy.genome_id = row[0]
 
-                matches.append(GTDBMatch(
-                    genome_id=row[0],
-                    species=row[1],
-                    genus=row[2],
-                    taxonomy=taxonomy,
-                    confidence='GENUS_MATCH'
-                ))
+                matches.append(
+                    GTDBMatch(
+                        genome_id=row[0],
+                        species=row[1],
+                        genus=row[2],
+                        taxonomy=taxonomy,
+                        confidence="GENUS_MATCH",
+                    )
+                )
 
             return matches
         except Exception as e:
             print(f"{Colors.RED}Error searching GTDB: {e}{Colors.RESET}")
             return []
 
-    def search_fuzzy(self, organism_name: str, limit=10) -> List[GTDBMatch]:
+    def search_fuzzy(self, organism_name: str, limit=10) -> list[GTDBMatch]:
         """
         Fuzzy search across GTDB taxonomy.
 
@@ -461,31 +476,36 @@ class GTDBIntegration:
         # Try fuzzy match on species
         if len(matches) < limit:
             try:
-                results = self.conn.execute("""
+                results = self.conn.execute(
+                    """
                     SELECT genome_id, species, genus, taxonomy
                     FROM gtdb_taxonomy
                     WHERE species LIKE ?
                     ORDER BY LENGTH(species)
                     LIMIT ?
-                """, [f"%{organism_name}%", limit - len(matches)]).fetchall()
+                """,
+                    [f"%{organism_name}%", limit - len(matches)],
+                ).fetchall()
 
                 for row in results:
                     taxonomy = self.parse_gtdb_taxonomy(row[3])
                     taxonomy.genome_id = row[0]
 
-                    matches.append(GTDBMatch(
-                        genome_id=row[0],
-                        species=row[1],
-                        genus=row[2],
-                        taxonomy=taxonomy,
-                        confidence='FUZZY'
-                    ))
+                    matches.append(
+                        GTDBMatch(
+                            genome_id=row[0],
+                            species=row[1],
+                            genus=row[2],
+                            taxonomy=taxonomy,
+                            confidence="FUZZY",
+                        )
+                    )
             except Exception as e:
                 print(f"{Colors.RED}Error in fuzzy search: {e}{Colors.RESET}")
 
         return matches[:limit]
 
-    def get_species_representatives(self, organism_name: str) -> List[GTDBMatch]:
+    def get_species_representatives(self, organism_name: str) -> list[GTDBMatch]:
         """
         Get representative genomes for a species.
 
@@ -497,16 +517,13 @@ class GTDBIntegration:
 
         # Sort by genome ID to prioritize reference genomes
         # GCF = GenBank RefSeq (reference), GCA = GenBank (non-reference)
-        matches.sort(key=lambda m: (
-            0 if m.genome_id.startswith('GCF_') else 1,
-            m.genome_id
-        ))
+        matches.sort(key=lambda m: (0 if m.genome_id.startswith("GCF_") else 1, m.genome_id))
 
         return matches
 
-    def compare_ncbi_gtdb_nomenclature(self,
-                                       ncbi_name: str,
-                                       gtdb_matches: List[GTDBMatch]) -> Dict[str, any]:
+    def compare_ncbi_gtdb_nomenclature(
+        self, ncbi_name: str, gtdb_matches: list[GTDBMatch]
+    ) -> dict[str, any]:
         """
         Compare NCBI and GTDB nomenclature for an organism.
 
@@ -516,11 +533,7 @@ class GTDBIntegration:
         - Genus transfers
         """
         if not gtdb_matches:
-            return {
-                'has_conflicts': False,
-                'conflicts': [],
-                'notes': 'Not found in GTDB'
-            }
+            return {"has_conflicts": False, "conflicts": [], "notes": "Not found in GTDB"}
 
         # Use first match as representative
         gtdb_match = gtdb_matches[0]
@@ -530,58 +543,68 @@ class GTDBIntegration:
 
         # Extract NCBI genus and species from name
         ncbi_parts = ncbi_name.split()
-        ncbi_genus = ncbi_parts[0] if ncbi_parts else ''
-        ncbi_species_epithet = ncbi_parts[1] if len(ncbi_parts) > 1 else ''
+        ncbi_genus = ncbi_parts[0] if ncbi_parts else ""
+        ncbi_species_epithet = ncbi_parts[1] if len(ncbi_parts) > 1 else ""
 
         # Compare genus
         if ncbi_genus and gtdb_tax.genus and ncbi_genus != gtdb_tax.genus:
-            conflicts.append({
-                'rank': 'genus',
-                'ncbi': ncbi_genus,
-                'gtdb': gtdb_tax.genus,
-                'type': 'GENUS_TRANSFER',
-                'note': f"Organism transferred from {ncbi_genus} to {gtdb_tax.genus} in GTDB"
-            })
+            conflicts.append(
+                {
+                    "rank": "genus",
+                    "ncbi": ncbi_genus,
+                    "gtdb": gtdb_tax.genus,
+                    "type": "GENUS_TRANSFER",
+                    "note": f"Organism transferred from {ncbi_genus} to {gtdb_tax.genus} in GTDB",
+                }
+            )
 
         # Compare species epithet
         gtdb_species_parts = gtdb_tax.species.split()
-        gtdb_species_epithet = gtdb_species_parts[1] if len(gtdb_species_parts) > 1 else ''
+        gtdb_species_epithet = gtdb_species_parts[1] if len(gtdb_species_parts) > 1 else ""
 
-        if ncbi_species_epithet and gtdb_species_epithet and ncbi_species_epithet != gtdb_species_epithet:
-            conflicts.append({
-                'rank': 'species',
-                'ncbi': f"{ncbi_genus} {ncbi_species_epithet}",
-                'gtdb': gtdb_tax.species,
-                'type': 'SPECIES_RECLASSIFICATION',
-                'note': f"Species name differs between NCBI and GTDB"
-            })
+        if (
+            ncbi_species_epithet
+            and gtdb_species_epithet
+            and ncbi_species_epithet != gtdb_species_epithet
+        ):
+            conflicts.append(
+                {
+                    "rank": "species",
+                    "ncbi": f"{ncbi_genus} {ncbi_species_epithet}",
+                    "gtdb": gtdb_tax.species,
+                    "type": "SPECIES_RECLASSIFICATION",
+                    "note": "Species name differs between NCBI and GTDB",
+                }
+            )
 
         # Check for known phylum nomenclature updates
         phylum_updates = {
-            'Proteobacteria': 'Pseudomonadota',
-            'Firmicutes': 'Bacillota',
-            'Actinobacteria': 'Actinomycetota',
-            'Bacteroidetes': 'Bacteroidota',
-            'Chloroflexi': 'Chloroflexota'
+            "Proteobacteria": "Pseudomonadota",
+            "Firmicutes": "Bacillota",
+            "Actinobacteria": "Actinomycetota",
+            "Bacteroidetes": "Bacteroidota",
+            "Chloroflexi": "Chloroflexota",
         }
 
         for old_name, new_name in phylum_updates.items():
             if gtdb_tax.phylum == new_name:
-                conflicts.append({
-                    'rank': 'phylum',
-                    'ncbi': old_name,
-                    'gtdb': new_name,
-                    'type': 'NOMENCLATURE_UPDATE',
-                    'note': f"GTDB uses updated phylum nomenclature: {old_name} -> {new_name}"
-                })
+                conflicts.append(
+                    {
+                        "rank": "phylum",
+                        "ncbi": old_name,
+                        "gtdb": new_name,
+                        "type": "NOMENCLATURE_UPDATE",
+                        "note": f"GTDB uses updated phylum nomenclature: {old_name} -> {new_name}",
+                    }
+                )
 
         return {
-            'has_conflicts': len(conflicts) > 0,
-            'conflicts': conflicts,
-            'gtdb_taxonomy': gtdb_tax.to_dict()
+            "has_conflicts": len(conflicts) > 0,
+            "conflicts": conflicts,
+            "gtdb_taxonomy": gtdb_tax.to_dict(),
         }
 
-    def collect_all_taxa(self, yaml_dir: Path) -> List[Dict]:
+    def collect_all_taxa(self, yaml_dir: Path) -> list[dict]:
         """Collect all taxa from YAML files."""
         all_taxa = []
 
@@ -589,51 +612,51 @@ class GTDBIntegration:
             print(f"{Colors.RED}Error: Directory not found: {yaml_dir}{Colors.RESET}")
             return all_taxa
 
-        yaml_files = list(yaml_dir.glob('*.yaml')) + list(yaml_dir.glob('*.yml'))
+        yaml_files = list(yaml_dir.glob("*.yaml")) + list(yaml_dir.glob("*.yml"))
 
         print(f"{Colors.CYAN}Scanning {len(yaml_files)} YAML files...{Colors.RESET}")
 
         for yaml_file in yaml_files:
             try:
-                with open(yaml_file, 'r') as f:
+                with open(yaml_file) as f:
                     data = yaml.safe_load(f)
 
-                if not data or 'taxonomy' not in data:
+                if not data or "taxonomy" not in data:
                     continue
 
-                for taxon_entry in data['taxonomy']:
-                    if 'taxon_term' not in taxon_entry:
+                for taxon_entry in data["taxonomy"]:
+                    if "taxon_term" not in taxon_entry:
                         continue
 
-                    taxon_term = taxon_entry['taxon_term']
-                    preferred_term = taxon_term.get('preferred_term', '')
-                    notes = taxon_term.get('notes', '')
-                    term_info = taxon_term.get('term', {})
-                    ncbi_id = term_info.get('id', '')
-                    ncbi_label = term_info.get('label', '')
+                    taxon_term = taxon_entry["taxon_term"]
+                    preferred_term = taxon_term.get("preferred_term", "")
+                    notes = taxon_term.get("notes", "")
+                    term_info = taxon_term.get("term", {})
+                    ncbi_id = term_info.get("id", "")
+                    ncbi_label = term_info.get("label", "")
 
                     if preferred_term and ncbi_id:
                         # Clean up NCBI ID
-                        if ':' in ncbi_id:
-                            ncbi_id = ncbi_id.split(':', 1)[1]
+                        if ":" in ncbi_id:
+                            ncbi_id = ncbi_id.split(":", 1)[1]
 
-                        all_taxa.append({
-                            'preferred_term': preferred_term,
-                            'ncbi_id': ncbi_id,
-                            'ncbi_label': ncbi_label,
-                            'file_path': str(yaml_file),
-                            'file_name': yaml_file.name,
-                            'notes': notes
-                        })
+                        all_taxa.append(
+                            {
+                                "preferred_term": preferred_term,
+                                "ncbi_id": ncbi_id,
+                                "ncbi_label": ncbi_label,
+                                "file_path": str(yaml_file),
+                                "file_name": yaml_file.name,
+                                "notes": notes,
+                            }
+                        )
             except Exception as e:
                 print(f"{Colors.RED}Error reading {yaml_file}: {e}{Colors.RESET}")
 
         print(f"{Colors.GREEN}Found {len(all_taxa)} taxa entries{Colors.RESET}\n")
         return all_taxa
 
-    def generate_comparison_report(self,
-                                   yaml_dir: Path,
-                                   output_dir: Path = _REPORTS):
+    def generate_comparison_report(self, yaml_dir: Path, output_dir: Path = _REPORTS):
         """
         Generate comprehensive GTDB vs NCBI comparison report.
 
@@ -645,20 +668,22 @@ class GTDBIntegration:
         """
         output_dir.mkdir(parents=True, exist_ok=True)
 
-        print(f"\n{Colors.BOLD}{Colors.CYAN}Generating GTDB vs NCBI Comparison Report{Colors.RESET}\n")
+        print(
+            f"\n{Colors.BOLD}{Colors.CYAN}Generating GTDB vs NCBI Comparison Report{Colors.RESET}\n"
+        )
 
         # Collect taxa
         all_taxa = self.collect_all_taxa(yaml_dir)
 
         # Statistics
         stats = {
-            'total_taxa': len(all_taxa),
-            'in_gtdb': 0,
-            'not_in_gtdb': 0,
-            'genus_transfers': 0,
-            'species_reclassifications': 0,
-            'phylum_updates': 0,
-            'nomenclature_conflicts': []
+            "total_taxa": len(all_taxa),
+            "in_gtdb": 0,
+            "not_in_gtdb": 0,
+            "genus_transfers": 0,
+            "species_reclassifications": 0,
+            "phylum_updates": 0,
+            "nomenclature_conflicts": [],
         }
 
         # Results storage
@@ -670,53 +695,54 @@ class GTDBIntegration:
             if i % 25 == 0:
                 print(f"  Progress: {i}/{len(all_taxa)}")
 
-            preferred_term = taxon['preferred_term']
+            preferred_term = taxon["preferred_term"]
 
             # Search GTDB
             gtdb_matches = self.search_fuzzy(preferred_term, limit=5)
 
             if gtdb_matches:
-                stats['in_gtdb'] += 1
+                stats["in_gtdb"] += 1
             else:
-                stats['not_in_gtdb'] += 1
+                stats["not_in_gtdb"] += 1
 
             # Compare nomenclature
             comparison = self.compare_ncbi_gtdb_nomenclature(preferred_term, gtdb_matches)
 
             # Count conflict types
-            if comparison.get('has_conflicts'):
-                for conflict in comparison['conflicts']:
-                    if conflict['type'] == 'GENUS_TRANSFER':
-                        stats['genus_transfers'] += 1
-                    elif conflict['type'] == 'SPECIES_RECLASSIFICATION':
-                        stats['species_reclassifications'] += 1
-                    elif conflict['type'] == 'NOMENCLATURE_UPDATE':
-                        stats['phylum_updates'] += 1
+            if comparison.get("has_conflicts"):
+                for conflict in comparison["conflicts"]:
+                    if conflict["type"] == "GENUS_TRANSFER":
+                        stats["genus_transfers"] += 1
+                    elif conflict["type"] == "SPECIES_RECLASSIFICATION":
+                        stats["species_reclassifications"] += 1
+                    elif conflict["type"] == "NOMENCLATURE_UPDATE":
+                        stats["phylum_updates"] += 1
 
-                stats['nomenclature_conflicts'].append({
-                    'organism': preferred_term,
-                    'conflicts': comparison['conflicts']
-                })
+                stats["nomenclature_conflicts"].append(
+                    {"organism": preferred_term, "conflicts": comparison["conflicts"]}
+                )
 
             # Store result
-            all_results.append({
-                'taxon': taxon,
-                'gtdb_matches': gtdb_matches,
-                'comparison': comparison
-            })
+            all_results.append(
+                {"taxon": taxon, "gtdb_matches": gtdb_matches, "comparison": comparison}
+            )
 
         print(f"{Colors.GREEN}Comparison complete!{Colors.RESET}\n")
 
         # Write reports
-        self._write_comparison_tsv(all_results, output_dir / 'gtdb_ncbi_comparison.tsv')
-        self._write_conflicts_report(stats, output_dir / 'gtdb_conflicts.txt')
-        self._write_coverage_report(stats, all_results, output_dir / 'gtdb_coverage_report.txt')
-        self._write_nomenclature_updates(stats, output_dir / 'gtdb_nomenclature_updates.txt')
+        self._write_comparison_tsv(all_results, output_dir / "gtdb_ncbi_comparison.tsv")
+        self._write_conflicts_report(stats, output_dir / "gtdb_conflicts.txt")
+        self._write_coverage_report(stats, all_results, output_dir / "gtdb_coverage_report.txt")
+        self._write_nomenclature_updates(stats, output_dir / "gtdb_nomenclature_updates.txt")
 
         # Print summary
         print(f"\n{Colors.BOLD}{Colors.CYAN}GTDB COVERAGE SUMMARY{Colors.RESET}")
-        print(f"{Colors.GREEN}Taxa in GTDB: {stats['in_gtdb']}/{stats['total_taxa']} ({stats['in_gtdb']/stats['total_taxa']*100:.1f}%){Colors.RESET}")
-        print(f"{Colors.YELLOW}Not in GTDB: {stats['not_in_gtdb']}/{stats['total_taxa']} ({stats['not_in_gtdb']/stats['total_taxa']*100:.1f}%){Colors.RESET}")
+        print(
+            f"{Colors.GREEN}Taxa in GTDB: {stats['in_gtdb']}/{stats['total_taxa']} ({stats['in_gtdb']/stats['total_taxa']*100:.1f}%){Colors.RESET}"
+        )
+        print(
+            f"{Colors.YELLOW}Not in GTDB: {stats['not_in_gtdb']}/{stats['total_taxa']} ({stats['not_in_gtdb']/stats['total_taxa']*100:.1f}%){Colors.RESET}"
+        )
         print(f"\n{Colors.BOLD}{Colors.CYAN}NOMENCLATURE DIFFERENCES{Colors.RESET}")
         print(f"Genus transfers: {stats['genus_transfers']}")
         print(f"Species reclassifications: {stats['species_reclassifications']}")
@@ -725,23 +751,35 @@ class GTDBIntegration:
 
         return stats
 
-    def _write_comparison_tsv(self, results: List[Dict], output_file: Path):
+    def _write_comparison_tsv(self, results: list[dict], output_file: Path):
         """Write side-by-side NCBI vs GTDB comparison TSV."""
-        with open(output_file, 'w', newline='') as f:
-            writer = csv.writer(f, delimiter='\t')
-            writer.writerow([
-                'file', 'preferred_term', 'ncbi_id', 'in_gtdb',
-                'gtdb_genome_count', 'gtdb_species', 'gtdb_genus',
-                'gtdb_domain', 'gtdb_phylum', 'gtdb_class', 'gtdb_order', 'gtdb_family',
-                'has_conflicts', 'conflict_types'
-            ])
+        with open(output_file, "w", newline="") as f:
+            writer = csv.writer(f, delimiter="\t")
+            writer.writerow(
+                [
+                    "file",
+                    "preferred_term",
+                    "ncbi_id",
+                    "in_gtdb",
+                    "gtdb_genome_count",
+                    "gtdb_species",
+                    "gtdb_genus",
+                    "gtdb_domain",
+                    "gtdb_phylum",
+                    "gtdb_class",
+                    "gtdb_order",
+                    "gtdb_family",
+                    "has_conflicts",
+                    "conflict_types",
+                ]
+            )
 
             for result in results:
-                taxon = result['taxon']
-                gtdb_matches = result['gtdb_matches']
-                comparison = result['comparison']
+                taxon = result["taxon"]
+                gtdb_matches = result["gtdb_matches"]
+                comparison = result["comparison"]
 
-                in_gtdb = 'YES' if gtdb_matches else 'NO'
+                in_gtdb = "YES" if gtdb_matches else "NO"
                 genome_count = len(gtdb_matches)
 
                 if gtdb_matches:
@@ -749,42 +787,52 @@ class GTDBIntegration:
                     gtdb_tax = first_match.taxonomy
 
                     conflict_types = []
-                    if comparison.get('has_conflicts'):
-                        conflict_types = [c['type'] for c in comparison['conflicts']]
+                    if comparison.get("has_conflicts"):
+                        conflict_types = [c["type"] for c in comparison["conflicts"]]
 
-                    writer.writerow([
-                        taxon['file_name'],
-                        taxon['preferred_term'],
-                        taxon['ncbi_id'],
-                        in_gtdb,
-                        genome_count,
-                        gtdb_tax.species,
-                        gtdb_tax.genus,
-                        gtdb_tax.domain,
-                        gtdb_tax.phylum,
-                        gtdb_tax.class_name,
-                        gtdb_tax.order,
-                        gtdb_tax.family,
-                        'YES' if comparison.get('has_conflicts') else 'NO',
-                        '|'.join(conflict_types)
-                    ])
+                    writer.writerow(
+                        [
+                            taxon["file_name"],
+                            taxon["preferred_term"],
+                            taxon["ncbi_id"],
+                            in_gtdb,
+                            genome_count,
+                            gtdb_tax.species,
+                            gtdb_tax.genus,
+                            gtdb_tax.domain,
+                            gtdb_tax.phylum,
+                            gtdb_tax.class_name,
+                            gtdb_tax.order,
+                            gtdb_tax.family,
+                            "YES" if comparison.get("has_conflicts") else "NO",
+                            "|".join(conflict_types),
+                        ]
+                    )
                 else:
-                    writer.writerow([
-                        taxon['file_name'],
-                        taxon['preferred_term'],
-                        taxon['ncbi_id'],
-                        in_gtdb,
-                        0,
-                        '', '', '', '', '', '', '',
-                        'NO',
-                        ''
-                    ])
+                    writer.writerow(
+                        [
+                            taxon["file_name"],
+                            taxon["preferred_term"],
+                            taxon["ncbi_id"],
+                            in_gtdb,
+                            0,
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "NO",
+                            "",
+                        ]
+                    )
 
         print(f"{Colors.GREEN}Written: {output_file}{Colors.RESET}")
 
-    def _write_conflicts_report(self, stats: Dict, output_file: Path):
+    def _write_conflicts_report(self, stats: dict, output_file: Path):
         """Write detailed conflicts report."""
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             f.write("=" * 80 + "\n")
             f.write("GTDB vs NCBI NOMENCLATURE CONFLICTS\n")
             f.write("=" * 80 + "\n\n")
@@ -796,14 +844,14 @@ class GTDBIntegration:
             f.write(f"Species reclassifications: {stats['species_reclassifications']}\n")
             f.write(f"Phylum nomenclature updates: {stats['phylum_updates']}\n\n")
 
-            if stats['nomenclature_conflicts']:
+            if stats["nomenclature_conflicts"]:
                 f.write("DETAILED CONFLICTS\n")
                 f.write("=" * 80 + "\n\n")
 
-                for entry in stats['nomenclature_conflicts']:
+                for entry in stats["nomenclature_conflicts"]:
                     f.write(f"Organism: {entry['organism']}\n")
-                    f.write(f"Conflicts:\n")
-                    for conflict in entry['conflicts']:
+                    f.write("Conflicts:\n")
+                    for conflict in entry["conflicts"]:
                         f.write(f"  - {conflict['rank'].upper()}: ")
                         f.write(f"NCBI='{conflict['ncbi']}' -> GTDB='{conflict['gtdb']}'\n")
                         f.write(f"    Type: {conflict['type']}\n")
@@ -812,9 +860,9 @@ class GTDBIntegration:
 
         print(f"{Colors.GREEN}Written: {output_file}{Colors.RESET}")
 
-    def _write_coverage_report(self, stats: Dict, results: List[Dict], output_file: Path):
+    def _write_coverage_report(self, stats: dict, results: list[dict], output_file: Path):
         """Write GTDB coverage statistics."""
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             f.write("=" * 80 + "\n")
             f.write("GTDB COVERAGE REPORT\n")
             f.write("=" * 80 + "\n\n")
@@ -822,25 +870,29 @@ class GTDBIntegration:
             f.write("OVERALL STATISTICS\n")
             f.write("-" * 80 + "\n")
             f.write(f"Total taxa analyzed: {stats['total_taxa']}\n")
-            f.write(f"Found in GTDB: {stats['in_gtdb']} ({stats['in_gtdb']/stats['total_taxa']*100:.1f}%)\n")
-            f.write(f"Not in GTDB: {stats['not_in_gtdb']} ({stats['not_in_gtdb']/stats['total_taxa']*100:.1f}%)\n\n")
+            f.write(
+                f"Found in GTDB: {stats['in_gtdb']} ({stats['in_gtdb']/stats['total_taxa']*100:.1f}%)\n"
+            )
+            f.write(
+                f"Not in GTDB: {stats['not_in_gtdb']} ({stats['not_in_gtdb']/stats['total_taxa']*100:.1f}%)\n\n"
+            )
 
             # List organisms not in GTDB
-            not_found = [r for r in results if not r['gtdb_matches']]
+            not_found = [r for r in results if not r["gtdb_matches"]]
             if not_found:
                 f.write("ORGANISMS NOT FOUND IN GTDB\n")
                 f.write("=" * 80 + "\n\n")
                 for result in not_found:
-                    taxon = result['taxon']
+                    taxon = result["taxon"]
                     f.write(f"  {taxon['preferred_term']}\n")
                     f.write(f"    NCBI ID: NCBITaxon:{taxon['ncbi_id']}\n")
                     f.write(f"    File: {taxon['file_name']}\n\n")
 
         print(f"{Colors.GREEN}Written: {output_file}{Colors.RESET}")
 
-    def _write_nomenclature_updates(self, stats: Dict, output_file: Path):
+    def _write_nomenclature_updates(self, stats: dict, output_file: Path):
         """Write GTDB nomenclature updates."""
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             f.write("=" * 80 + "\n")
             f.write("GTDB NOMENCLATURE UPDATES\n")
             f.write("=" * 80 + "\n\n")
@@ -862,12 +914,15 @@ class GTDBIntegration:
             f.write("-" * 80 + "\n")
 
             # Group by type
-            genus_transfers = [c for c in stats['nomenclature_conflicts']
-                              if any(conf['type'] == 'GENUS_TRANSFER' for conf in c['conflicts'])]
+            genus_transfers = [
+                c
+                for c in stats["nomenclature_conflicts"]
+                if any(conf["type"] == "GENUS_TRANSFER" for conf in c["conflicts"])
+            ]
 
             for entry in genus_transfers:
-                for conflict in entry['conflicts']:
-                    if conflict['type'] == 'GENUS_TRANSFER':
+                for conflict in entry["conflicts"]:
+                    if conflict["type"] == "GENUS_TRANSFER":
                         f.write(f"{conflict['ncbi']} -> {conflict['gtdb']}\n")
                         f.write(f"  Organism: {entry['organism']}\n")
                         f.write(f"  Note: {conflict['note']}\n\n")
@@ -877,51 +932,34 @@ class GTDBIntegration:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='GTDB (Genome Taxonomy Database) Integration for CommunityMech'
+        description="GTDB (Genome Taxonomy Database) Integration for CommunityMech"
+    )
+    parser.add_argument("--download", action="store_true", help="Download GTDB taxonomy files")
+    parser.add_argument("--load", action="store_true", help="Load GTDB data into DuckDB")
+    parser.add_argument("--search", type=str, help="Search for organism in GTDB")
+    parser.add_argument(
+        "--report", action="store_true", help="Generate GTDB vs NCBI comparison report"
     )
     parser.add_argument(
-        '--download',
-        action='store_true',
-        help='Download GTDB taxonomy files'
-    )
-    parser.add_argument(
-        '--load',
-        action='store_true',
-        help='Load GTDB data into DuckDB'
-    )
-    parser.add_argument(
-        '--search',
-        type=str,
-        help='Search for organism in GTDB'
-    )
-    parser.add_argument(
-        '--report',
-        action='store_true',
-        help='Generate GTDB vs NCBI comparison report'
-    )
-    parser.add_argument(
-        '--gtdb-dir',
+        "--gtdb-dir",
         type=Path,
-        default=Path('./gtdb_data'),
-        help='GTDB data directory (default: ./gtdb_data)'
+        default=Path("./gtdb_data"),
+        help="GTDB data directory (default: ./gtdb_data)",
     )
     parser.add_argument(
-        '--db-path',
+        "--db-path",
         type=Path,
-        default=Path('kgm_taxonomy.duckdb'),
-        help='DuckDB database path (default: kgm_taxonomy.duckdb)'
+        default=Path("kgm_taxonomy.duckdb"),
+        help="DuckDB database path (default: kgm_taxonomy.duckdb)",
     )
     parser.add_argument(
-        '--yaml-dir',
+        "--yaml-dir",
         type=Path,
-        default=Path(__file__).parent.parent / 'kb' / 'communities',
-        help='YAML communities directory'
+        default=Path(__file__).parent.parent / "kb" / "communities",
+        help="YAML communities directory",
     )
     parser.add_argument(
-        '--output-dir',
-        type=Path,
-        default=_REPORTS,
-        help='Output directory for reports'
+        "--output-dir", type=Path, default=_REPORTS, help="Output directory for reports"
     )
 
     args = parser.parse_args()
@@ -930,9 +968,7 @@ def main():
 
     # Initialize GTDB integration
     gtdb = GTDBIntegration(
-        gtdb_data_dir=args.gtdb_dir,
-        db_path=args.db_path,
-        force_reload=args.load
+        gtdb_data_dir=args.gtdb_dir, db_path=args.db_path, force_reload=args.load
     )
 
     # Download GTDB data
@@ -965,13 +1001,10 @@ def main():
 
     # Generate report
     if args.report:
-        gtdb.generate_comparison_report(
-            yaml_dir=args.yaml_dir,
-            output_dir=args.output_dir
-        )
+        gtdb.generate_comparison_report(yaml_dir=args.yaml_dir, output_dir=args.output_dir)
 
     print(f"\n{Colors.GREEN}Done!{Colors.RESET}\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

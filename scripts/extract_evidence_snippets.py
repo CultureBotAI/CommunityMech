@@ -11,10 +11,9 @@ Example:
     python scripts/extract_evidence_snippets.py "PMID:28287150" "DIET" "electron transfer"
 """
 
-import sys
 import re
+import sys
 from pathlib import Path
-from typing import List, Optional
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
@@ -26,16 +25,12 @@ class SnippetExtractor:
 
     def __init__(self):
         self.fetcher = EnhancedLiteratureFetcher(
-            cache_dir=".literature_cache",
-            use_fallback_pdf=True
+            cache_dir=".literature_cache", use_fallback_pdf=True
         )
 
     def extract_snippets(
-        self,
-        reference: str,
-        search_terms: List[str],
-        use_pdf: bool = False
-    ) -> List[str]:
+        self, reference: str, search_terms: list[str], use_pdf: bool = False
+    ) -> list[str]:
         """
         Extract relevant snippets containing search terms.
 
@@ -54,30 +49,21 @@ class SnippetExtractor:
 
         # Search in abstract
         if paper["abstract"]:
-            abstract_snippets = self._find_snippets_in_text(
-                paper["abstract"],
-                search_terms
-            )
+            abstract_snippets = self._find_snippets_in_text(paper["abstract"], search_terms)
             snippets.extend(abstract_snippets)
 
         # Search in PDF text
         if use_pdf and paper["pdf_text"]:
             pdf_snippets = self._find_snippets_in_text(
-                paper["pdf_text"],
-                search_terms,
-                max_snippets=5  # Limit PDF snippets
+                paper["pdf_text"], search_terms, max_snippets=5  # Limit PDF snippets
             )
             snippets.extend(pdf_snippets)
 
         return snippets
 
     def _find_snippets_in_text(
-        self,
-        text: str,
-        search_terms: List[str],
-        max_snippets: int = 10,
-        context_chars: int = 200
-    ) -> List[str]:
+        self, text: str, search_terms: list[str], max_snippets: int = 10, context_chars: int = 200
+    ) -> list[str]:
         """
         Find snippets containing search terms with surrounding context.
 
@@ -105,8 +91,8 @@ class SnippetExtractor:
                 snippet = sentence.strip()
 
                 # Remove references like [1], (Smith et al., 2020)
-                snippet = re.sub(r'\[\d+\]', '', snippet)
-                snippet = re.sub(r'\([A-Za-z\s,]+\d{4}\)', '', snippet)
+                snippet = re.sub(r"\[\d+\]", "", snippet)
+                snippet = re.sub(r"\([A-Za-z\s,]+\d{4}\)", "", snippet)
 
                 # Remove excessive whitespace
                 snippet = " ".join(snippet.split())
@@ -119,7 +105,7 @@ class SnippetExtractor:
 
         return snippets
 
-    def _split_into_sentences(self, text: str) -> List[str]:
+    def _split_into_sentences(self, text: str) -> list[str]:
         """
         Split text into sentences.
 
@@ -131,12 +117,12 @@ class SnippetExtractor:
         """
         # Simple sentence splitter (could be improved with nltk)
         # Split on period followed by space and capital letter
-        sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', text)
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z])", text)
 
         # Also split on newlines (for abstracts with line breaks)
         result = []
         for s in sentences:
-            result.extend(s.split('\n'))
+            result.extend(s.split("\n"))
 
         return [s.strip() for s in result if s.strip()]
 
@@ -144,9 +130,13 @@ class SnippetExtractor:
 def main():
     """CLI for extracting evidence snippets"""
     if len(sys.argv) < 3:
-        print("Usage: python scripts/extract_evidence_snippets.py <reference> <search_term1> [search_term2] ...")
+        print(
+            "Usage: python scripts/extract_evidence_snippets.py <reference> <search_term1> [search_term2] ..."
+        )
         print("\nExample:")
-        print('  python scripts/extract_evidence_snippets.py "PMID:28287150" "DIET" "electron transfer"')
+        print(
+            '  python scripts/extract_evidence_snippets.py "PMID:28287150" "DIET" "electron transfer"'
+        )
         sys.exit(1)
 
     reference = sys.argv[1]
@@ -160,7 +150,7 @@ def main():
 
     extractor = SnippetExtractor()
 
-    print(f"\nFetching paper and extracting snippets...")
+    print("\nFetching paper and extracting snippets...")
     snippets = extractor.extract_snippets(reference, search_terms, use_pdf=use_pdf)
 
     if not snippets:
@@ -178,5 +168,5 @@ def main():
     print("\nCopy the most relevant snippet into your YAML evidence item.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

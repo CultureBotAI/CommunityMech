@@ -39,6 +39,8 @@ jobs:
         run: uv sync --frozen --all-extras
       - name: black + ruff + mypy
         run: |
-          uv run black --check src/ tests/
-          uv run ruff check src/ tests/
+          uv run black --check src/ tests/ scripts/
+          uv run ruff check src/ tests/ scripts/
+          # mypy stays on src/: `mypy scripts/` reports 143 errors in 47 files,
+          # 44 of them missing third-party stubs (#411).
           uv run mypy src/

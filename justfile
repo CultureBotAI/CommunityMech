@@ -298,13 +298,13 @@ clean:
 
 # Format code
 format:
-    uv run black src/ tests/
-    uv run ruff check --fix src/ tests/
+    uv run black src/ tests/ scripts/
+    uv run ruff check --fix src/ tests/ scripts/
 
 # Run linting
 lint:
-    uv run black --check src/ tests/
-    uv run ruff check src/ tests/
+    uv run black --check src/ tests/ scripts/
+    uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
 # Full QC (validate + strict validate + lint + test)

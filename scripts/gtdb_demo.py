@@ -16,20 +16,21 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 
 try:
-    from gtdb_integration import GTDBIntegration, GTDBTaxonomy, GTDBMatch
+    from gtdb_integration import GTDBIntegration, GTDBMatch, GTDBTaxonomy
 except ImportError:
     print("Error: Could not import gtdb_integration module")
     sys.exit(1)
 
+
 # ANSI color codes
 class Colors:
-    GREEN = '\033[92m'
-    RED = '\033[91m'
-    YELLOW = '\033[93m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    BOLD = '\033[1m'
-    RESET = '\033[0m'
+    GREEN = "\033[92m"
+    RED = "\033[91m"
+    YELLOW = "\033[93m"
+    BLUE = "\033[94m"
+    CYAN = "\033[96m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
 
 
 def demo_taxonomy_parsing():
@@ -41,7 +42,7 @@ def demo_taxonomy_parsing():
         "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa",
         "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis",
         "d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__Desulfovibrio vulgaris",
-        "d__Archaea;p__Euryarchaeota;c__Methanomicrobia;o__Methanococcales;f__Methanococcaceae;g__Methanococcus;s__Methanococcus maripaludis"
+        "d__Archaea;p__Euryarchaeota;c__Methanomicrobia;o__Methanococcales;f__Methanococcaceae;g__Methanococcus;s__Methanococcus maripaludis",
     ]
 
     gtdb = GTDBIntegration(gtdb_data_dir="./gtdb_data", db_path=":memory:")
@@ -61,51 +62,53 @@ def demo_taxonomy_parsing():
 
 def demo_nomenclature_comparison():
     """Demo NCBI vs GTDB nomenclature comparison."""
-    print(f"\n{Colors.BOLD}{Colors.CYAN}DEMO 2: NCBI vs GTDB Nomenclature Comparison{Colors.RESET}\n")
+    print(
+        f"\n{Colors.BOLD}{Colors.CYAN}DEMO 2: NCBI vs GTDB Nomenclature Comparison{Colors.RESET}\n"
+    )
 
     # Known differences
     comparisons = [
         {
-            'ncbi_name': 'Escherichia coli',
-            'ncbi_phylum': 'Proteobacteria',
-            'gtdb_lineage': 'd__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli',
-            'expected_conflict': 'Phylum: Proteobacteria → Pseudomonadota'
+            "ncbi_name": "Escherichia coli",
+            "ncbi_phylum": "Proteobacteria",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli",
+            "expected_conflict": "Phylum: Proteobacteria → Pseudomonadota",
         },
         {
-            'ncbi_name': 'Bacillus subtilis',
-            'ncbi_phylum': 'Firmicutes',
-            'gtdb_lineage': 'd__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis',
-            'expected_conflict': 'Phylum: Firmicutes → Bacillota'
+            "ncbi_name": "Bacillus subtilis",
+            "ncbi_phylum": "Firmicutes",
+            "gtdb_lineage": "d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis",
+            "expected_conflict": "Phylum: Firmicutes → Bacillota",
         },
         {
-            'ncbi_name': 'Methylobacterium extorquens',
-            'ncbi_genus': 'Methylobacterium',
-            'gtdb_lineage': 'd__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Hyphomicrobiales;f__Methylobacteriaceae;g__Methylorubrum;s__Methylorubrum extorquens',
-            'expected_conflict': 'Genus: Methylobacterium → Methylorubrum'
-        }
+            "ncbi_name": "Methylobacterium extorquens",
+            "ncbi_genus": "Methylobacterium",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Hyphomicrobiales;f__Methylobacteriaceae;g__Methylorubrum;s__Methylorubrum extorquens",
+            "expected_conflict": "Genus: Methylobacterium → Methylorubrum",
+        },
     ]
 
     gtdb = GTDBIntegration(gtdb_data_dir="./gtdb_data", db_path=":memory:")
 
     for comp in comparisons:
-        ncbi_name = comp['ncbi_name']
-        gtdb_lineage = comp['gtdb_lineage']
+        ncbi_name = comp["ncbi_name"]
+        gtdb_lineage = comp["gtdb_lineage"]
 
         taxonomy = gtdb.parse_gtdb_taxonomy(gtdb_lineage)
 
         print(f"{Colors.BOLD}Organism: {ncbi_name}{Colors.RESET}")
         print(f"{Colors.YELLOW}Expected Conflict: {comp['expected_conflict']}{Colors.RESET}")
 
-        if 'ncbi_phylum' in comp:
-            if comp['ncbi_phylum'] != taxonomy.phylum:
+        if "ncbi_phylum" in comp:
+            if comp["ncbi_phylum"] != taxonomy.phylum:
                 print(f"{Colors.RED}  CONFLICT DETECTED:{Colors.RESET}")
                 print(f"    NCBI Phylum:  {comp['ncbi_phylum']}")
                 print(f"    GTDB Phylum:  {taxonomy.phylum}")
             else:
                 print(f"{Colors.GREEN}  No phylum conflict{Colors.RESET}")
 
-        if 'ncbi_genus' in comp:
-            if comp['ncbi_genus'] != taxonomy.genus:
+        if "ncbi_genus" in comp:
+            if comp["ncbi_genus"] != taxonomy.genus:
                 print(f"{Colors.RED}  CONFLICT DETECTED:{Colors.RESET}")
                 print(f"    NCBI Genus:   {comp['ncbi_genus']}")
                 print(f"    GTDB Genus:   {taxonomy.genus}")
@@ -120,11 +123,11 @@ def demo_phylum_updates():
     print(f"\n{Colors.BOLD}{Colors.CYAN}DEMO 3: Phylum Nomenclature Updates{Colors.RESET}\n")
 
     updates = {
-        'Proteobacteria': 'Pseudomonadota',
-        'Firmicutes': 'Bacillota',
-        'Actinobacteria': 'Actinomycetota',
-        'Bacteroidetes': 'Bacteroidota',
-        'Chloroflexi': 'Chloroflexota'
+        "Proteobacteria": "Pseudomonadota",
+        "Firmicutes": "Bacillota",
+        "Actinobacteria": "Actinomycetota",
+        "Bacteroidetes": "Bacteroidota",
+        "Chloroflexi": "Chloroflexota",
     }
 
     print(f"{Colors.BOLD}NCBI Phylum Name    →  GTDB Phylum Name{Colors.RESET}")
@@ -138,32 +141,34 @@ def demo_phylum_updates():
 
 def demo_example_organisms():
     """Demo GTDB classification for community organisms."""
-    print(f"\n{Colors.BOLD}{Colors.CYAN}DEMO 4: Example Organisms from CommunityMech{Colors.RESET}\n")
+    print(
+        f"\n{Colors.BOLD}{Colors.CYAN}DEMO 4: Example Organisms from CommunityMech{Colors.RESET}\n"
+    )
 
     # Sample organisms from our communities
     organisms = [
         {
-            'name': 'Geobacter sulfurreducens',
-            'gtdb_lineage': 'd__Bacteria;p__Pseudomonadota;c__Deltaproteobacteria;o__Desulfuromonadales;f__Geobacteraceae;g__Geobacter;s__Geobacter sulfurreducens'
+            "name": "Geobacter sulfurreducens",
+            "gtdb_lineage": "d__Bacteria;p__Pseudomonadota;c__Deltaproteobacteria;o__Desulfuromonadales;f__Geobacteraceae;g__Geobacter;s__Geobacter sulfurreducens",
         },
         {
-            'name': 'Desulfovibrio vulgaris',
-            'gtdb_lineage': 'd__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__Desulfovibrio vulgaris'
+            "name": "Desulfovibrio vulgaris",
+            "gtdb_lineage": "d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__Desulfovibrio vulgaris",
         },
         {
-            'name': 'Methanococcus maripaludis',
-            'gtdb_lineage': 'd__Archaea;p__Euryarchaeota;c__Methanomicrobia;o__Methanococcales;f__Methanococcaceae;g__Methanococcus;s__Methanococcus maripaludis'
+            "name": "Methanococcus maripaludis",
+            "gtdb_lineage": "d__Archaea;p__Euryarchaeota;c__Methanomicrobia;o__Methanococcales;f__Methanococcaceae;g__Methanococcus;s__Methanococcus maripaludis",
         },
         {
-            'name': 'Synechococcus elongatus',
-            'gtdb_lineage': 'd__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Synechococcales;f__Synechococcaceae;g__Synechococcus_C;s__Synechococcus elongatus'
-        }
+            "name": "Synechococcus elongatus",
+            "gtdb_lineage": "d__Bacteria;p__Cyanobacteriota;c__Cyanobacteriia;o__Synechococcales;f__Synechococcaceae;g__Synechococcus_C;s__Synechococcus elongatus",
+        },
     ]
 
     gtdb = GTDBIntegration(gtdb_data_dir="./gtdb_data", db_path=":memory:")
 
     for org in organisms:
-        taxonomy = gtdb.parse_gtdb_taxonomy(org['gtdb_lineage'])
+        taxonomy = gtdb.parse_gtdb_taxonomy(org["gtdb_lineage"])
 
         print(f"{Colors.BOLD}{org['name']}{Colors.RESET}")
         print(f"  Domain:  {taxonomy.domain}")
@@ -181,30 +186,30 @@ def demo_usage_examples():
 
     examples = [
         {
-            'title': 'Download GTDB Data',
-            'command': 'python scripts/gtdb_integration.py --download',
-            'description': 'Downloads ~500MB of GTDB taxonomy files'
+            "title": "Download GTDB Data",
+            "command": "python scripts/gtdb_integration.py --download",
+            "description": "Downloads ~500MB of GTDB taxonomy files",
         },
         {
-            'title': 'Load into DuckDB',
-            'command': 'python scripts/gtdb_integration.py --load',
-            'description': 'Parses and loads ~85,000 genomes into database'
+            "title": "Load into DuckDB",
+            "command": "python scripts/gtdb_integration.py --load",
+            "description": "Parses and loads ~85,000 genomes into database",
         },
         {
-            'title': 'Search for Organism',
-            'command': 'python scripts/gtdb_integration.py --search "Geobacter"',
-            'description': 'Searches GTDB for matching organisms'
+            "title": "Search for Organism",
+            "command": 'python scripts/gtdb_integration.py --search "Geobacter"',
+            "description": "Searches GTDB for matching organisms",
         },
         {
-            'title': 'Generate Comparison Report',
-            'command': 'python scripts/gtdb_integration.py --report',
-            'description': 'Compares all community organisms against GTDB'
+            "title": "Generate Comparison Report",
+            "command": "python scripts/gtdb_integration.py --report",
+            "description": "Compares all community organisms against GTDB",
         },
         {
-            'title': 'Validate with GTDB',
-            'command': 'python scripts/compare_ncbi_gtdb_taxonomy.py --use-gtdb',
-            'description': 'Validates YAMLs using both NCBI and GTDB'
-        }
+            "title": "Validate with GTDB",
+            "command": "python scripts/compare_ncbi_gtdb_taxonomy.py --use-gtdb",
+            "description": "Validates YAMLs using both NCBI and GTDB",
+        },
     ]
 
     for example in examples:
@@ -234,5 +239,5 @@ def main():
     print(f"\n{Colors.YELLOW}See GTDB_INTEGRATION_GUIDE.md for full documentation.{Colors.RESET}\n")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

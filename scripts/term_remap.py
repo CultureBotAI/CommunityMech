@@ -9,6 +9,7 @@ content is byte-for-byte preserved.
 Usage: uv run python scripts/term_remap.py [--dry-run]
 Edit FIXMAP below, then run.
 """
+
 from __future__ import annotations
 
 import re
@@ -25,7 +26,10 @@ FIXMAP: dict[str, tuple[str, str]] = {
     "GO:1901575": ("GO:0009056", "catabolic process"),
     "GO:0019439": ("GO:0009056", "catabolic process"),
     "GO:0051238": ("GO:0140487", "metal ion sequestering activity"),
-    "GO:0051704": ("GO:0044419", "biological process involved in interspecies interaction between organisms"),
+    "GO:0051704": (
+        "GO:0044419",
+        "biological process involved in interspecies interaction between organisms",
+    ),
     "GO:0015103": ("GO:0008509", "monoatomic anion transmembrane transporter activity"),
 }
 
@@ -36,7 +40,12 @@ def remap_file(path: Path) -> int:
     while i < len(lines):
         line = lines[i]
         m = re.match(r"^(\s*)id: (\S+)\s*$", line)
-        if m and m.group(2) in FIXMAP and i + 1 < len(lines) and re.match(r"^\s*label:", lines[i + 1]):
+        if (
+            m
+            and m.group(2) in FIXMAP
+            and i + 1 < len(lines)
+            and re.match(r"^\s*label:", lines[i + 1])
+        ):
             new_id, new_label = FIXMAP[m.group(2)]
             indent = m.group(1)
             lab_indent = re.match(r"^(\s*)label:", lines[i + 1]).group(1)

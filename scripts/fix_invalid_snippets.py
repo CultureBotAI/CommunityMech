@@ -5,12 +5,12 @@ Fix Invalid Evidence Snippets
 Identifies snippets that don't match abstracts and helps replace them with valid quotes.
 """
 
-import yaml
-import sys
 import re
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+import sys
 from collections import defaultdict
+from pathlib import Path
+
+import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
@@ -22,30 +22,29 @@ class SnippetFixer:
 
     def __init__(self):
         self.fetcher = EnhancedLiteratureFetcher(
-            cache_dir=".literature_cache",
-            use_fallback_pdf=False
+            cache_dir=".literature_cache", use_fallback_pdf=False
         )
         self.invalid_snippets = []
 
-    def find_invalid_snippets(self, yaml_path: Path) -> List[Dict]:
+    def find_invalid_snippets(self, yaml_path: Path) -> list[dict]:
         """Find all invalid snippets in a YAML file"""
 
-        with open(yaml_path, 'r') as f:
+        with open(yaml_path) as f:
             data = yaml.safe_load(f)
 
         invalid = []
 
         # Check taxonomy
-        if 'taxonomy' in data:
-            for taxon_idx, taxon_entry in enumerate(data['taxonomy']):
-                if 'evidence' not in taxon_entry:
+        if "taxonomy" in data:
+            for taxon_idx, taxon_entry in enumerate(data["taxonomy"]):
+                if "evidence" not in taxon_entry:
                     continue
 
-                organism = taxon_entry.get('taxon_term', {}).get('preferred_term', 'Unknown')
+                organism = taxon_entry.get("taxon_term", {}).get("preferred_term", "Unknown")
 
-                for ev_idx, ev in enumerate(taxon_entry['evidence']):
-                    snippet = ev.get('snippet')
-                    reference = ev.get('reference', '')
+                for ev_idx, ev in enumerate(taxon_entry["evidence"]):
+                    snippet = ev.get("snippet")
+                    reference = ev.get("reference", "")
 
                     if not snippet or not reference:
                         continue
@@ -53,34 +52,38 @@ class SnippetFixer:
                     # Fetch abstract
                     try:
                         paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        if paper['abstract']:
-                            valid = self.fetcher.validate_evidence_snippet(snippet, paper['abstract'])
+                        if paper["abstract"]:
+                            valid = self.fetcher.validate_evidence_snippet(
+                                snippet, paper["abstract"]
+                            )
 
                             if not valid:
-                                invalid.append({
-                                    'file': yaml_path.name,
-                                    'context': 'taxonomy',
-                                    'organism': organism,
-                                    'reference': reference,
-                                    'snippet': snippet,
-                                    'abstract': paper['abstract'],
-                                    'taxon_idx': taxon_idx,
-                                    'ev_idx': ev_idx
-                                })
+                                invalid.append(
+                                    {
+                                        "file": yaml_path.name,
+                                        "context": "taxonomy",
+                                        "organism": organism,
+                                        "reference": reference,
+                                        "snippet": snippet,
+                                        "abstract": paper["abstract"],
+                                        "taxon_idx": taxon_idx,
+                                        "ev_idx": ev_idx,
+                                    }
+                                )
                     except:
                         pass
 
         # Check interactions
-        if 'ecological_interactions' in data:
-            for int_idx, interaction in enumerate(data['ecological_interactions']):
-                if 'evidence' not in interaction:
+        if "ecological_interactions" in data:
+            for int_idx, interaction in enumerate(data["ecological_interactions"]):
+                if "evidence" not in interaction:
                     continue
 
-                int_name = interaction.get('name', 'Unknown')
+                int_name = interaction.get("name", "Unknown")
 
-                for ev_idx, ev in enumerate(interaction['evidence']):
-                    snippet = ev.get('snippet')
-                    reference = ev.get('reference', '')
+                for ev_idx, ev in enumerate(interaction["evidence"]):
+                    snippet = ev.get("snippet")
+                    reference = ev.get("reference", "")
 
                     if not snippet or not reference:
                         continue
@@ -88,26 +91,32 @@ class SnippetFixer:
                     # Fetch abstract
                     try:
                         paper = self.fetcher.fetch_paper(reference, download_pdf=False)
-                        if paper['abstract']:
-                            valid = self.fetcher.validate_evidence_snippet(snippet, paper['abstract'])
+                        if paper["abstract"]:
+                            valid = self.fetcher.validate_evidence_snippet(
+                                snippet, paper["abstract"]
+                            )
 
                             if not valid:
-                                invalid.append({
-                                    'file': yaml_path.name,
-                                    'context': 'interaction',
-                                    'organism': int_name,
-                                    'reference': reference,
-                                    'snippet': snippet,
-                                    'abstract': paper['abstract'],
-                                    'int_idx': int_idx,
-                                    'ev_idx': ev_idx
-                                })
+                                invalid.append(
+                                    {
+                                        "file": yaml_path.name,
+                                        "context": "interaction",
+                                        "organism": int_name,
+                                        "reference": reference,
+                                        "snippet": snippet,
+                                        "abstract": paper["abstract"],
+                                        "int_idx": int_idx,
+                                        "ev_idx": ev_idx,
+                                    }
+                                )
                     except:
                         pass
 
         return invalid
 
-    def extract_best_snippet(self, abstract: str, organism: str, keywords: List[str] = None) -> Optional[str]:
+    def extract_best_snippet(
+        self, abstract: str, organism: str, keywords: list[str] = None
+    ) -> str | None:
         """Extract best matching snippet from abstract"""
 
         # Split into sentences
@@ -142,19 +151,19 @@ class SnippetFixer:
 
         return None
 
-    def _split_sentences(self, text: str) -> List[str]:
+    def _split_sentences(self, text: str) -> list[str]:
         """Split text into sentences"""
         # Simple sentence splitter
-        sentences = re.split(r'(?<=[.!?])\s+(?=[A-Z])', text)
+        sentences = re.split(r"(?<=[.!?])\s+(?=[A-Z])", text)
         return [s.strip() for s in sentences if s.strip()]
 
     def _clean_sentence(self, sentence: str) -> str:
         """Clean up sentence for use as snippet"""
         # Remove reference citations
-        sentence = re.sub(r'\[\d+\]', '', sentence)
-        sentence = re.sub(r'\([A-Za-z\s,]+\d{4}\)', '', sentence)
+        sentence = re.sub(r"\[\d+\]", "", sentence)
+        sentence = re.sub(r"\([A-Za-z\s,]+\d{4}\)", "", sentence)
         # Remove excess whitespace
-        sentence = ' '.join(sentence.split())
+        sentence = " ".join(sentence.split())
         return sentence
 
 
@@ -162,18 +171,22 @@ def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Fix invalid evidence snippets")
-    parser.add_argument('--file', help="Specific YAML file to check")
-    parser.add_argument('--interactive', action='store_true', help="Interactive mode to review each snippet")
-    parser.add_argument('--auto-fix', action='store_true', help="Automatically extract better snippets")
+    parser.add_argument("--file", help="Specific YAML file to check")
+    parser.add_argument(
+        "--interactive", action="store_true", help="Interactive mode to review each snippet"
+    )
+    parser.add_argument(
+        "--auto-fix", action="store_true", help="Automatically extract better snippets"
+    )
     args = parser.parse_args()
 
     fixer = SnippetFixer()
-    kb_dir = Path('kb/communities')
+    kb_dir = Path("kb/communities")
 
     if args.file:
         yaml_files = [kb_dir / args.file]
     else:
-        yaml_files = sorted(kb_dir.glob('*.yaml'))
+        yaml_files = sorted(kb_dir.glob("*.yaml"))
 
     print("Invalid Snippet Analyzer")
     print("=" * 80)
@@ -195,7 +208,7 @@ def main():
     print()
 
     # Generate report
-    with open('invalid_snippets_report.txt', 'w') as f:
+    with open("invalid_snippets_report.txt", "w") as f:
         f.write("INVALID SNIPPETS REPORT\n")
         f.write("=" * 80 + "\n\n")
         f.write(f"Total: {len(all_invalid)}\n\n")
@@ -203,7 +216,7 @@ def main():
         # Group by file
         by_file = defaultdict(list)
         for item in all_invalid:
-            by_file[item['file']].append(item)
+            by_file[item["file"]].append(item)
 
         for file, items in sorted(by_file.items()):
             f.write(f"\n{file} ({len(items)} invalid)\n")
@@ -212,17 +225,14 @@ def main():
             for item in items[:5]:  # Show first 5
                 f.write(f"Organism: {item['organism']}\n")
                 f.write(f"Reference: {item['reference']}\n")
-                f.write(f"\nCurrent snippet (INVALID):\n")
+                f.write("\nCurrent snippet (INVALID):\n")
                 f.write(f"  \"{item['snippet'][:200]}...\"\n\n")
 
                 # Suggest better snippet
-                better = fixer.extract_best_snippet(
-                    item['abstract'],
-                    item['organism']
-                )
+                better = fixer.extract_best_snippet(item["abstract"], item["organism"])
                 if better:
-                    f.write(f"Suggested replacement:\n")
-                    f.write(f"  \"{better[:200]}...\"\n\n")
+                    f.write("Suggested replacement:\n")
+                    f.write(f'  "{better[:200]}..."\n\n')
 
                 f.write("-" * 40 + "\n\n")
 
@@ -247,5 +257,5 @@ def main():
     print("  3. Manually update YAML files with valid snippets")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

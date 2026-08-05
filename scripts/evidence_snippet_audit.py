@@ -18,11 +18,11 @@ Usage: uv run python scripts/evidence_snippet_audit.py [--list-mismatch]
        [--list-nocontent] [--list-rendering]
 """
 
+import difflib
 import re
 import sys
-import difflib
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
 
 import yaml
 
@@ -255,7 +255,7 @@ def main() -> None:
             print(f"  {n:>2}  {fn}")
 
     if LIST_NC:
-        print(f"\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
+        print("\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
         for fn, n in sorted(file_nocontent.items(), key=lambda x: -x[1])[:30]:
             print(f"  {n:>2}  {fn}")
 

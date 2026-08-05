@@ -17,17 +17,15 @@ Usage:
 """
 
 import argparse
-import sys
-from pathlib import Path
-from typing import List, Dict
 import re
 import subprocess
+import sys
+from pathlib import Path
 
 # Add scripts to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
 from intelligent_snippet_fixer import interactive_fix_workflow
-
 
 # Priority file lists from the systematic evidence curation plan
 PHASE_1_FILES = [
@@ -52,7 +50,7 @@ PHASE_2_FILES = [
 ]
 
 
-def parse_curation_report(report_path: Path) -> List[Dict[str, int]]:
+def parse_curation_report(report_path: Path) -> list[dict[str, int]]:
     """
     Parse the evidence curation report to get files sorted by issue count.
 
@@ -66,17 +64,14 @@ def parse_curation_report(report_path: Path) -> List[Dict[str, int]]:
         print(f"⚠️  Report not found: {report_path}")
         return []
 
-    with open(report_path, 'r', encoding='utf-8') as f:
+    with open(report_path, encoding="utf-8") as f:
         content = f.read()
 
     # Parse file entries: "FILENAME.yaml (X issues)"
-    pattern = r'([A-Za-z_]+\.yaml) \((\d+) issues\)'
+    pattern = r"([A-Za-z_]+\.yaml) \((\d+) issues\)"
     matches = re.findall(pattern, content)
 
-    files_with_issues = [
-        {"file": filename, "issues": int(count)}
-        for filename, count in matches
-    ]
+    files_with_issues = [{"file": filename, "issues": int(count)} for filename, count in matches]
 
     # Sort by issue count (descending)
     files_with_issues.sort(key=lambda x: x["issues"], reverse=True)
@@ -84,7 +79,7 @@ def parse_curation_report(report_path: Path) -> List[Dict[str, int]]:
     return files_with_issues
 
 
-def validate_file(yaml_path: Path) -> Dict[str, int]:
+def validate_file(yaml_path: Path) -> dict[str, int]:
     """
     Run validation on a file and return issue counts.
 
@@ -96,25 +91,28 @@ def validate_file(yaml_path: Path) -> Dict[str, int]:
     """
     try:
         result = subprocess.run(
-            ["poetry", "run", "python", "scripts/curate_evidence_with_pdfs.py",
-             "--file", yaml_path.name, "--quick"],
+            [
+                "poetry",
+                "run",
+                "python",
+                "scripts/curate_evidence_with_pdfs.py",
+                "--file",
+                yaml_path.name,
+                "--quick",
+            ],
             cwd=yaml_path.parent.parent,
             capture_output=True,
             text=True,
-            timeout=300
+            timeout=300,
         )
 
         # Parse output for issue counts
         output = result.stdout + result.stderr
-        issues = {
-            "total": 0,
-            "errors": 0,
-            "warnings": 0
-        }
+        issues = {"total": 0, "errors": 0, "warnings": 0}
 
         # Look for issue counts in output
-        error_match = re.search(r'ERROR:\s*(\d+)', output)
-        warning_match = re.search(r'WARNING:\s*(\d+)', output)
+        error_match = re.search(r"ERROR:\s*(\d+)", output)
+        warning_match = re.search(r"WARNING:\s*(\d+)", output)
 
         if error_match:
             issues["errors"] = int(error_match.group(1))
@@ -131,11 +129,11 @@ def validate_file(yaml_path: Path) -> Dict[str, int]:
 
 
 def process_files_batch(
-    file_list: List[str],
+    file_list: list[str],
     auto_approve: bool = False,
     only_invalid: bool = True,
     validate_after: bool = True,
-    relaxed: bool = False
+    relaxed: bool = False,
 ):
     """
     Process a batch of files in sequence.
@@ -147,7 +145,7 @@ def process_files_batch(
         validate_after: Run validation after processing each file
     """
     print(f"\n{'='*80}")
-    print(f"BATCH SNIPPET FIXER")
+    print("BATCH SNIPPET FIXER")
     print(f"{'='*80}")
     print(f"Files to process: {len(file_list)}")
     print(f"Mode: {'Auto-approve' if auto_approve else 'Interactive'}")
@@ -160,19 +158,15 @@ def process_files_batch(
         print(f"# PROCESSING FILE {i}/{len(file_list)}: {filename}")
         print(f"{'#'*80}\n")
 
-        yaml_path = Path('kb/communities') / filename
+        yaml_path = Path("kb/communities") / filename
 
         if not yaml_path.exists():
             print(f"❌ File not found: {yaml_path}")
-            results.append({
-                "file": filename,
-                "status": "not_found",
-                "applied": 0
-            })
+            results.append({"file": filename, "status": "not_found", "applied": 0})
             continue
 
         # Get initial issue count
-        print(f"📊 Pre-processing validation...")
+        print("📊 Pre-processing validation...")
         initial_issues = validate_file(yaml_path) if validate_after else {"total": 0}
 
         # Process with intelligent fixer
@@ -182,39 +176,34 @@ def process_files_batch(
                 only_invalid=only_invalid,
                 auto_approve=auto_approve,
                 verbose=False,
-                relaxed=relaxed
+                relaxed=relaxed,
             )
 
             # Validate after processing
             if validate_after:
-                print(f"\n📊 Post-processing validation...")
+                print("\n📊 Post-processing validation...")
                 final_issues = validate_file(yaml_path)
 
-                print(f"\n📈 IMPROVEMENT:")
+                print("\n📈 IMPROVEMENT:")
                 print(f"   Issues before: {initial_issues['total']}")
                 print(f"   Issues after:  {final_issues['total']}")
                 print(f"   Issues fixed:  {initial_issues['total'] - final_issues['total']}")
 
-                results.append({
-                    "file": filename,
-                    "status": "processed",
-                    "issues_before": initial_issues['total'],
-                    "issues_after": final_issues['total'],
-                    "issues_fixed": initial_issues['total'] - final_issues['total']
-                })
+                results.append(
+                    {
+                        "file": filename,
+                        "status": "processed",
+                        "issues_before": initial_issues["total"],
+                        "issues_after": final_issues["total"],
+                        "issues_fixed": initial_issues["total"] - final_issues["total"],
+                    }
+                )
             else:
-                results.append({
-                    "file": filename,
-                    "status": "processed"
-                })
+                results.append({"file": filename, "status": "processed"})
 
         except Exception as e:
             print(f"❌ Error processing {filename}: {e}")
-            results.append({
-                "file": filename,
-                "status": "error",
-                "error": str(e)
-            })
+            results.append({"file": filename, "status": "error", "error": str(e)})
 
         # Pause between files (unless auto-approve)
         if not auto_approve and i < len(file_list):
@@ -223,7 +212,7 @@ def process_files_batch(
 
     # Print final summary
     print(f"\n{'='*80}")
-    print(f"BATCH PROCESSING SUMMARY")
+    print("BATCH PROCESSING SUMMARY")
     print(f"{'='*80}")
     print(f"Total files processed: {len(file_list)}\n")
 
@@ -231,8 +220,10 @@ def process_files_batch(
         status_icon = "✅" if result["status"] == "processed" else "❌"
         print(f"{status_icon} {result['file']}")
         if result["status"] == "processed" and "issues_fixed" in result:
-            print(f"   Issues: {result['issues_before']} → {result['issues_after']} "
-                  f"(fixed {result['issues_fixed']})")
+            print(
+                f"   Issues: {result['issues_before']} → {result['issues_after']} "
+                f"(fixed {result['issues_fixed']})"
+            )
         elif result["status"] == "error":
             print(f"   Error: {result.get('error', 'Unknown')}")
         print()
@@ -244,60 +235,50 @@ def process_files_batch(
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Batch evidence snippet fixer for multiple community files'
+        description="Batch evidence snippet fixer for multiple community files"
     )
 
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument(
-        '--phase',
+        "--phase",
         type=int,
         choices=[1, 2, 3],
-        help='Process files from a specific phase (1=top 10, 2=medium priority, 3=all)'
+        help="Process files from a specific phase (1=top 10, 2=medium priority, 3=all)",
+    )
+    group.add_argument("--files", nargs="+", help="Specific YAML files to process")
+    group.add_argument(
+        "--from-report",
+        action="store_true",
+        help="Process all files from curation report, sorted by issue count",
     )
     group.add_argument(
-        '--files',
-        nargs='+',
-        help='Specific YAML files to process'
-    )
-    group.add_argument(
-        '--from-report',
-        action='store_true',
-        help='Process all files from curation report, sorted by issue count'
-    )
-    group.add_argument(
-        '--all',
-        action='store_true',
-        help='Process all YAML files in kb/communities/'
+        "--all", action="store_true", help="Process all YAML files in kb/communities/"
     )
 
     parser.add_argument(
-        '--auto-approve',
-        action='store_true',
-        help='Automatically apply top suggestion without prompting'
+        "--auto-approve",
+        action="store_true",
+        help="Automatically apply top suggestion without prompting",
     )
     parser.add_argument(
-        '--only-short',
-        action='store_true',
+        "--only-short",
+        action="store_true",
         default=False,
-        help='Only process evidence items with short snippets (<50 chars). Default: process all.'
+        help="Only process evidence items with short snippets (<50 chars). Default: process all.",
     )
     parser.add_argument(
-        '--no-validate',
-        action='store_false',
-        dest='validate',
-        help='Skip validation before and after processing each file (much faster)'
+        "--no-validate",
+        action="store_false",
+        dest="validate",
+        help="Skip validation before and after processing each file (much faster)",
     )
     parser.set_defaults(validate=False)  # Off by default; too slow for batch runs
     parser.add_argument(
-        '--relaxed',
-        action='store_true',
-        help='Apply low-confidence suggestions too (use after fixing wrong references)'
+        "--relaxed",
+        action="store_true",
+        help="Apply low-confidence suggestions too (use after fixing wrong references)",
     )
-    parser.add_argument(
-        '--limit',
-        type=int,
-        help='Limit number of files to process'
-    )
+    parser.add_argument("--limit", type=int, help="Limit number of files to process")
 
     args = parser.parse_args()
 
@@ -305,40 +286,40 @@ def main():
     if args.phase:
         if args.phase == 1:
             file_list = PHASE_1_FILES
-            print(f"📋 Phase 1: Top 10 priority files")
+            print("📋 Phase 1: Top 10 priority files")
         elif args.phase == 2:
             file_list = PHASE_2_FILES
-            print(f"📋 Phase 2: Medium priority files")
+            print("📋 Phase 2: Medium priority files")
         else:
             # Phase 3: All remaining files
-            print(f"📋 Phase 3: All remaining files")
+            print("📋 Phase 3: All remaining files")
             report_path = Path("evidence_curation_report.txt")
             files_from_report = parse_curation_report(report_path)
             processed_files = set(PHASE_1_FILES + PHASE_2_FILES)
-            file_list = [
-                f["file"] for f in files_from_report
-                if f["file"] not in processed_files
-            ]
+            file_list = [f["file"] for f in files_from_report if f["file"] not in processed_files]
 
     elif args.from_report:
         report_path = Path("evidence_curation_report.txt")
         files_from_report = parse_curation_report(report_path)
         file_list = [f["file"] for f in files_from_report]
-        print(f"📋 Processing files from curation report (sorted by issue count)")
+        print("📋 Processing files from curation report (sorted by issue count)")
 
-    elif getattr(args, 'all', False):
+    elif getattr(args, "all", False):
         communities_dir = Path("kb/communities")
-        file_list = sorted(p.name for p in communities_dir.glob("*.yaml")
-                           if not any(x in p.name for x in ['.bak', '.backup']))
+        file_list = sorted(
+            p.name
+            for p in communities_dir.glob("*.yaml")
+            if not any(x in p.name for x in [".bak", ".backup"])
+        )
         print(f"📋 Processing all {len(file_list)} YAML files in kb/communities/")
 
     else:
         file_list = args.files
-        print(f"📋 Processing specified files")
+        print("📋 Processing specified files")
 
     # Apply limit if specified
     if args.limit:
-        file_list = file_list[:args.limit]
+        file_list = file_list[: args.limit]
         print(f"   Limited to first {args.limit} files")
 
     if not file_list:
@@ -353,11 +334,11 @@ def main():
         auto_approve=args.auto_approve,
         only_invalid=args.only_short,
         validate_after=args.validate,
-        relaxed=args.relaxed
+        relaxed=args.relaxed,
     )
 
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     exit(main())

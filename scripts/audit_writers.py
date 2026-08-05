@@ -51,9 +51,7 @@ _CURATION_APPEND = re.compile(
     r"|record_curation_event"
 )
 _WRITE_SAFEGUARD = re.compile(
-    r"--dry[-_]run|dry_run\s*[:=]"
-    r"|--apply\b|args\.apply\b"
-    r"|--write\b|args\.write\b"
+    r"--dry[-_]run|dry_run\s*[:=]" r"|--apply\b|args\.apply\b" r"|--write\b|args\.write\b"
 )
 _VALIDATE_BEFORE_WRITE = re.compile(
     r"linkml[._-]?validate"
@@ -178,14 +176,22 @@ def main() -> int:
 
     print("", file=sys.stderr)
     print(f"=== writers audit summary ({len(rows)} writers) ===", file=sys.stderr)
-    print(f"  appends curation_history:   {count('appends_curation_history', 'yes')} / {len(rows)}",
-          file=sys.stderr)
-    print(f"  has write safeguard:        {count('has_write_safeguard', 'yes')} / {len(rows)}",
-          file=sys.stderr)
-    print(f"  validates before write:     {count('validates_before_write', 'yes')} / {len(rows)}",
-          file=sys.stderr)
-    print(f"  wired into justfile:        {count('wired_into_just', 'yes')} / {len(rows)}",
-          file=sys.stderr)
+    print(
+        f"  appends curation_history:   {count('appends_curation_history', 'yes')} / {len(rows)}",
+        file=sys.stderr,
+    )
+    print(
+        f"  has write safeguard:        {count('has_write_safeguard', 'yes')} / {len(rows)}",
+        file=sys.stderr,
+    )
+    print(
+        f"  validates before write:     {count('validates_before_write', 'yes')} / {len(rows)}",
+        file=sys.stderr,
+    )
+    print(
+        f"  wired into justfile:        {count('wired_into_just', 'yes')} / {len(rows)}",
+        file=sys.stderr,
+    )
     return 0
 
 

@@ -17,7 +17,6 @@ import csv
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
 
 import yaml
 
@@ -48,17 +47,21 @@ class IngredientMappingTracker:
 
     def __init__(self):
         # ingredient_name -> list of (community_id, media_name, mapped_id, match_score)
-        self.ingredient_records: Dict[str, List[Tuple[str, str, Optional[str], Optional[float]]]] = defaultdict(list)
-        self.media_records: Dict[str, List[Tuple[str, Optional[str], Optional[float]]]] = defaultdict(list)
-        self.communities_processed: Set[str] = set()
+        self.ingredient_records: dict[str, list[tuple[str, str, str | None, float | None]]] = (
+            defaultdict(list)
+        )
+        self.media_records: dict[str, list[tuple[str, str | None, float | None]]] = defaultdict(
+            list
+        )
+        self.communities_processed: set[str] = set()
 
     def record_ingredient(
         self,
         ingredient_name: str,
         community_id: str,
         media_name: str,
-        mapped_id: Optional[str] = None,
-        match_score: Optional[float] = None,
+        mapped_id: str | None = None,
+        match_score: float | None = None,
     ):
         """Record an ingredient mapping attempt."""
         self.ingredient_records[ingredient_name].append(
@@ -69,8 +72,8 @@ class IngredientMappingTracker:
         self,
         media_name: str,
         community_id: str,
-        mapped_id: Optional[str] = None,
-        match_score: Optional[float] = None,
+        mapped_id: str | None = None,
+        match_score: float | None = None,
     ):
         """Record a media mapping attempt."""
         self.media_records[media_name].append((community_id, mapped_id, match_score))
@@ -79,7 +82,7 @@ class IngredientMappingTracker:
         """Mark a community as processed."""
         self.communities_processed.add(community_id)
 
-    def get_mapped_ingredients(self) -> Dict[str, List]:
+    def get_mapped_ingredients(self) -> dict[str, list]:
         """Get all successfully mapped ingredients."""
         return {
             name: records
@@ -87,7 +90,7 @@ class IngredientMappingTracker:
             if any(r[2] is not None for r in records)
         }
 
-    def get_unmapped_ingredients(self) -> Dict[str, List]:
+    def get_unmapped_ingredients(self) -> dict[str, list]:
         """Get all unmapped ingredients."""
         return {
             name: records
@@ -95,7 +98,7 @@ class IngredientMappingTracker:
             if all(r[2] is None for r in records)
         }
 
-    def get_mapped_media(self) -> Dict[str, List]:
+    def get_mapped_media(self) -> dict[str, list]:
         """Get all successfully mapped media."""
         return {
             name: records
@@ -103,7 +106,7 @@ class IngredientMappingTracker:
             if any(r[1] is not None for r in records)
         }
 
-    def get_unmapped_media(self) -> Dict[str, List]:
+    def get_unmapped_media(self) -> dict[str, list]:
         """Get all unmapped media."""
         return {
             name: records
@@ -117,27 +120,33 @@ class IngredientMappingTracker:
 
         with open(output_path, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([
-                "ingredient_name",
-                "community_id",
-                "media_name",
-                "mapped_id",
-                "match_score",
-                "status",
-            ])
+            writer.writerow(
+                [
+                    "ingredient_name",
+                    "community_id",
+                    "media_name",
+                    "mapped_id",
+                    "match_score",
+                    "status",
+                ]
+            )
 
             for ingredient_name in sorted(self.ingredient_records.keys()):
-                for community_id, media_name, mapped_id, match_score in self.ingredient_records[ingredient_name]:
+                for community_id, media_name, mapped_id, match_score in self.ingredient_records[
+                    ingredient_name
+                ]:
                     status = "mapped" if mapped_id else "unmapped"
                     score_str = f"{match_score:.3f}" if match_score else ""
-                    writer.writerow([
-                        ingredient_name,
-                        community_id,
-                        media_name,
-                        mapped_id or "",
-                        score_str,
-                        status,
-                    ])
+                    writer.writerow(
+                        [
+                            ingredient_name,
+                            community_id,
+                            media_name,
+                            mapped_id or "",
+                            score_str,
+                            status,
+                        ]
+                    )
 
     def export_media_csv(self, output_path: Path):
         """Export media mapping results to CSV."""
@@ -145,25 +154,29 @@ class IngredientMappingTracker:
 
         with open(output_path, "w", newline="") as f:
             writer = csv.writer(f)
-            writer.writerow([
-                "media_name",
-                "community_id",
-                "mapped_id",
-                "match_score",
-                "status",
-            ])
+            writer.writerow(
+                [
+                    "media_name",
+                    "community_id",
+                    "mapped_id",
+                    "match_score",
+                    "status",
+                ]
+            )
 
             for media_name in sorted(self.media_records.keys()):
                 for community_id, mapped_id, match_score in self.media_records[media_name]:
                     status = "mapped" if mapped_id else "unmapped"
                     score_str = f"{match_score:.3f}" if match_score else ""
-                    writer.writerow([
-                        media_name,
-                        community_id,
-                        mapped_id or "",
-                        score_str,
-                        status,
-                    ])
+                    writer.writerow(
+                        [
+                            media_name,
+                            community_id,
+                            mapped_id or "",
+                            score_str,
+                            status,
+                        ]
+                    )
 
     def export_summary_report(self, output_path: Path):
         """Export a human-readable summary report."""
@@ -195,7 +208,9 @@ class IngredientMappingTracker:
                     records = unmapped_ingredients[ingredient_name]
                     f.write(f"• {ingredient_name}\n")
                     communities = {r[0] for r in records}
-                    f.write(f"  Found in {len(communities)} communities: {', '.join(sorted(communities)[:5])}")
+                    f.write(
+                        f"  Found in {len(communities)} communities: {', '.join(sorted(communities)[:5])}"
+                    )
                     if len(communities) > 5:
                         f.write(f" ... (+{len(communities) - 5} more)")
                     f.write("\n\n")
@@ -223,7 +238,9 @@ class IngredientMappingTracker:
                     records = unmapped_media[media_name]
                     communities = {r[0] for r in records}
                     f.write(f"• {media_name}\n")
-                    f.write(f"  Found in {len(communities)} communities: {', '.join(sorted(communities)[:5])}")
+                    f.write(
+                        f"  Found in {len(communities)} communities: {', '.join(sorted(communities)[:5])}"
+                    )
                     if len(communities) > 5:
                         f.write(f" ... (+{len(communities) - 5} more)")
                     f.write("\n\n")
@@ -271,9 +288,9 @@ def process_single_community(
     fuzzy_threshold: float = 0.85,
     cache_ttl: int = 86400,
     use_cache: bool = True,
-    manual_overrides: Optional[dict] = None,
-    culturemech_index_path: Optional[str] = None,
-    mediaingredientmech_index_path: Optional[str] = None,
+    manual_overrides: dict | None = None,
+    culturemech_index_path: str | None = None,
+    mediaingredientmech_index_path: str | None = None,
 ) -> None:
     """Process a single community by ID."""
     community_dir = Path("kb/communities")
@@ -291,7 +308,7 @@ def process_single_community(
     fetcher = MediaFetcher(
         cache_ttl=cache_ttl,
         culturemech_index_path=culturemech_index_path,
-        mediaingredientmech_index_path=mediaingredientmech_index_path
+        mediaingredientmech_index_path=mediaingredientmech_index_path,
     )
     matcher = MediaMatcher(fuzzy_threshold=fuzzy_threshold, manual_overrides=manual_overrides)
     merger = CompositionMerger()
@@ -318,9 +335,13 @@ def process_single_community(
             culturemech_id, matched_name, score = match
             if "culturemech_id" not in media:
                 media["culturemech_id"] = culturemech_id
-                media["culturemech_url"] = f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                media["culturemech_url"] = (
+                    f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                )
                 updated = True
-                print(f"  {GREEN}✓ Matched '{media_name}' → {culturemech_id} (score: {score:.3f}){RESET}")
+                print(
+                    f"  {GREEN}✓ Matched '{media_name}' → {culturemech_id} (score: {score:.3f}){RESET}"
+                )
 
             # Fetch recipe to get ingredients
             recipe = fetcher.fetch_culturemech_recipe_by_id(culturemech_id)
@@ -365,12 +386,16 @@ def process_single_community(
                 if ing_match:
                     ing_id, matched_name, score = ing_match
                     ingredient["media_ingredient_mech_id"] = ing_id
-                    ingredient["media_ingredient_mech_url"] = f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                    ingredient["media_ingredient_mech_url"] = (
+                        f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                    )
                     ingredients_matched += 1
                     updated = True
 
         if ingredients_matched > 0:
-            print(f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}")
+            print(
+                f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}"
+            )
 
     print(f"\n{BLUE}{yaml_file.stem}:{RESET}")
     print(f"  Media records: {len(growth_media)}")
@@ -415,12 +440,12 @@ def process_all_communities(
     fuzzy_threshold: float = 0.85,
     cache_ttl: int = 86400,
     use_cache: bool = True,
-    limit: Optional[int] = None,
-    ingredient_report: Optional[Path] = None,
-    media_report: Optional[Path] = None,
-    summary_report: Optional[Path] = None,
-    culturemech_index_path: Optional[str] = None,
-    mediaingredientmech_index_path: Optional[str] = None,
+    limit: int | None = None,
+    ingredient_report: Path | None = None,
+    media_report: Path | None = None,
+    summary_report: Path | None = None,
+    culturemech_index_path: str | None = None,
+    mediaingredientmech_index_path: str | None = None,
 ) -> None:
     """Process all communities to link growth media.
 
@@ -466,7 +491,7 @@ def process_all_communities(
     fetcher = MediaFetcher(
         cache_ttl=cache_ttl,
         culturemech_index_path=culturemech_index_path,
-        mediaingredientmech_index_path=mediaingredientmech_index_path
+        mediaingredientmech_index_path=mediaingredientmech_index_path,
     )
     matcher = MediaMatcher(fuzzy_threshold=fuzzy_threshold, manual_overrides=manual_overrides)
     merger = CompositionMerger()
@@ -513,7 +538,9 @@ def process_all_communities(
 
                     if "culturemech_id" not in media:
                         media["culturemech_id"] = culturemech_id
-                        media["culturemech_url"] = f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                        media["culturemech_url"] = (
+                            f"https://github.com/CultureBotAI/CultureMech/tree/main/kb/media/{culturemech_id}"
+                        )
                         updated = True
                         print(f"  {GREEN}✓ Matched → {culturemech_id} (score: {score:.3f}){RESET}")
 
@@ -539,13 +566,17 @@ def process_all_communities(
                                     new_ing["concentration"] = str(conc)
                             converted_comp.append(new_ing)
 
-                        merged = merger.merge_compositions(existing_comp, converted_comp, mark_source=True)
+                        merged = merger.merge_compositions(
+                            existing_comp, converted_comp, mark_source=True
+                        )
                         added_count = len(merged) - len(existing_comp)
                         if added_count > 0:
                             media["composition"] = merged
                             stats["ingredients_added"] += added_count
                             updated = True
-                            print(f"  {GREEN}✓ Added {added_count} ingredients from CultureMech{RESET}")
+                            print(
+                                f"  {GREEN}✓ Added {added_count} ingredients from CultureMech{RESET}"
+                            )
                 else:
                     # No match found
                     tracker.record_media(media_name, community_id, None, None)
@@ -566,7 +597,9 @@ def process_all_communities(
                         if ing_match:
                             ing_id, matched_name, score = ing_match
                             ingredient["media_ingredient_mech_id"] = ing_id
-                            ingredient["media_ingredient_mech_url"] = f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                            ingredient["media_ingredient_mech_url"] = (
+                                f"https://github.com/CultureBotAI/MediaIngredientMech/tree/main/data/ingredients/{ing_id}"
+                            )
                             ingredients_matched += 1
                             updated = True
 
@@ -584,7 +617,9 @@ def process_all_communities(
 
                 print(f"  Components: {len(composition)}")
                 if ingredients_matched > 0:
-                    print(f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}")
+                    print(
+                        f"  {GREEN}✓ Linked {ingredients_matched} ingredients to MediaIngredientMech{RESET}"
+                    )
 
             # Update file if needed
             if updated and not dry_run:

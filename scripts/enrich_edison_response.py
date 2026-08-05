@@ -38,6 +38,7 @@ Usage::
     # See what would happen without making any API calls
     python scripts/enrich_edison_response.py --dry-run
 """
+
 from __future__ import annotations
 
 import argparse
@@ -154,9 +155,15 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
         wrote.append("citations_md")
 
     if missing["agent_state_json"] and verbose is not None:
-        agent_state = ec._safe_model_dump(getattr(verbose, "agent_state", None))  # pylint: disable=protected-access
-        environment_frame = ec._safe_model_dump(getattr(verbose, "environment_frame", None))  # pylint: disable=protected-access
-        verbose_metadata = ec._safe_model_dump(getattr(verbose, "metadata", None))  # pylint: disable=protected-access
+        agent_state = ec._safe_model_dump(
+            getattr(verbose, "agent_state", None)
+        )  # pylint: disable=protected-access
+        environment_frame = ec._safe_model_dump(
+            getattr(verbose, "environment_frame", None)
+        )  # pylint: disable=protected-access
+        verbose_metadata = ec._safe_model_dump(
+            getattr(verbose, "metadata", None)
+        )  # pylint: disable=protected-access
         if any(x is not None for x in (agent_state, environment_frame, verbose_metadata)):
             (out_dir / f"{stem}-agent-state.json").write_text(
                 json.dumps(
@@ -181,7 +188,9 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
             files_listing = None
         if files_listing is not None:
             (out_dir / f"{stem}-files.json").write_text(
-                json.dumps(ec._safe_model_dump(files_listing), indent=2, default=str)  # pylint: disable=protected-access
+                json.dumps(
+                    ec._safe_model_dump(files_listing), indent=2, default=str
+                )  # pylint: disable=protected-access
             )
             wrote.append("files_json")
     # Pull named curation artifacts (separate from the files.json

@@ -14,7 +14,7 @@ import argparse
 import re
 import shutil
 from pathlib import Path
-from typing import Dict, List, Tuple, Optional
+
 import yaml
 
 # Repo-anchored: a relative default follows the cwd (#407).
@@ -34,7 +34,7 @@ class SnippetFix:
         return f"SnippetFix(organism={self.organism}, ref={self.reference})"
 
 
-def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFix]:
+def parse_curation_report(report_path: Path, target_file: str) -> list[SnippetFix]:
     """
     Parse the evidence curation report and extract suggested fixes for a specific file.
 
@@ -47,11 +47,11 @@ def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFi
     """
     fixes = []
 
-    with open(report_path, 'r', encoding='utf-8') as f:
+    with open(report_path, encoding="utf-8") as f:
         content = f.read()
 
     # Find the section for this file
-    file_pattern = re.escape(target_file) + r' \(\d+ issues\)'
+    file_pattern = re.escape(target_file) + r" \(\d+ issues\)"
     file_match = re.search(file_pattern, content)
 
     if not file_match:
@@ -60,7 +60,9 @@ def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFi
 
     # Extract the section for this file (until next file or end)
     start_pos = file_match.start()
-    next_file_match = re.search(r'\n\n[A-Z].*\.yaml \(\d+ issues\)', content[start_pos + len(target_file):])
+    next_file_match = re.search(
+        r"\n\n[A-Z].*\.yaml \(\d+ issues\)", content[start_pos + len(target_file) :]
+    )
 
     if next_file_match:
         end_pos = start_pos + len(target_file) + next_file_match.start()
@@ -69,7 +71,9 @@ def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFi
         section = content[start_pos:]
 
     # Parse SNIPPET_NOT_IN_SOURCE entries
-    snippet_section_match = re.search(r'SNIPPET_NOT_IN_SOURCE \(\d+ instances\)\s*~+\s*(.+?)(?:\n\n\n|\Z)', section, re.DOTALL)
+    snippet_section_match = re.search(
+        r"SNIPPET_NOT_IN_SOURCE \(\d+ instances\)\s*~+\s*(.+?)(?:\n\n\n|\Z)", section, re.DOTALL
+    )
 
     if not snippet_section_match:
         print(f"ℹ️  No SNIPPET_NOT_IN_SOURCE issues found for {target_file}")
@@ -79,21 +83,21 @@ def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFi
 
     # Parse individual fix entries
     # Pattern: Organism/Item: ... Reference: ... Current: ... Suggested fix: ...
-    entries = re.split(r'\n\nOrganism/Item: ', snippet_section)
+    entries = re.split(r"\n\nOrganism/Item: ", snippet_section)
 
     for entry in entries:
         if not entry.strip():
             continue
 
         # Add back the "Organism/Item: " prefix if needed
-        if not entry.startswith('Organism/Item:'):
-            entry = 'Organism/Item: ' + entry
+        if not entry.startswith("Organism/Item:"):
+            entry = "Organism/Item: " + entry
 
         # Extract fields
-        organism_match = re.search(r'Organism/Item: (.+)', entry)
-        reference_match = re.search(r'Reference: (.+)', entry)
-        current_match = re.search(r'Current: (.+)', entry)
-        suggested_match = re.search(r'Suggested fix: (.+)', entry, re.DOTALL)
+        organism_match = re.search(r"Organism/Item: (.+)", entry)
+        reference_match = re.search(r"Reference: (.+)", entry)
+        current_match = re.search(r"Current: (.+)", entry)
+        suggested_match = re.search(r"Suggested fix: (.+)", entry, re.DOTALL)
 
         if all([organism_match, reference_match, current_match, suggested_match]):
             organism = organism_match.group(1).strip()
@@ -102,30 +106,30 @@ def parse_curation_report(report_path: Path, target_file: str) -> List[SnippetFi
             suggested = suggested_match.group(1).strip()
 
             # Clean up suggested text (remove trailing newlines, extra spaces)
-            suggested = ' '.join(suggested.split())
+            suggested = " ".join(suggested.split())
 
             fixes.append(SnippetFix(organism, reference, current, suggested))
 
     return fixes
 
 
-def load_yaml_file(yaml_path: Path) -> Tuple[dict, str]:
+def load_yaml_file(yaml_path: Path) -> tuple[dict, str]:
     """
     Load YAML file while preserving formatting.
 
     Returns:
         Tuple of (parsed_data, raw_content)
     """
-    with open(yaml_path, 'r', encoding='utf-8') as f:
+    with open(yaml_path, encoding="utf-8") as f:
         raw_content = f.read()
 
-    with open(yaml_path, 'r', encoding='utf-8') as f:
+    with open(yaml_path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     return data, raw_content
 
 
-def apply_snippet_fix(raw_content: str, fix: SnippetFix, max_matches: int = 1) -> Tuple[str, bool]:
+def apply_snippet_fix(raw_content: str, fix: SnippetFix, max_matches: int = 1) -> tuple[str, bool]:
     """
     Apply a snippet fix to the raw YAML content.
 
@@ -142,9 +146,9 @@ def apply_snippet_fix(raw_content: str, fix: SnippetFix, max_matches: int = 1) -
     current_pattern = re.escape(fix.current)
 
     # If the current snippet appears truncated, make the pattern more flexible
-    if fix.current.endswith('...') or len(fix.current) < 50:
+    if fix.current.endswith("...") or len(fix.current) < 50:
         # Remove trailing "..." from pattern and make it match more flexibly
-        current_pattern = current_pattern.replace(r'\.\.\.', r'.*?')
+        current_pattern = current_pattern.replace(r"\.\.\.", r".*?")
         current_pattern = current_pattern.rstrip()
         # Match the snippet allowing for continuation
         pattern = rf'snippet:\s*["\']?{current_pattern}[^"\']*["\']?'
@@ -176,12 +180,12 @@ def apply_snippet_fix(raw_content: str, fix: SnippetFix, max_matches: int = 1) -
             # No quotes, add them for safety
             new_snippet = f'snippet: "{fix.suggested}"'
 
-        raw_content = raw_content[:match.start()] + new_snippet + raw_content[match.end():]
+        raw_content = raw_content[: match.start()] + new_snippet + raw_content[match.end() :]
 
     return raw_content, True
 
 
-def interactive_review(fixes: List[SnippetFix], yaml_path: Path, auto_approve: bool = False) -> int:
+def interactive_review(fixes: list[SnippetFix], yaml_path: Path, auto_approve: bool = False) -> int:
     """
     Interactively review and apply snippet fixes.
 
@@ -203,7 +207,7 @@ def interactive_review(fixes: List[SnippetFix], yaml_path: Path, auto_approve: b
     data, raw_content = load_yaml_file(yaml_path)
 
     # Create backup
-    backup_path = yaml_path.with_suffix('.yaml.bak_snippets')
+    backup_path = yaml_path.with_suffix(".yaml.bak_snippets")
     shutil.copy2(yaml_path, backup_path)
     print(f"💾 Created backup: {backup_path}\n")
 
@@ -217,30 +221,30 @@ def interactive_review(fixes: List[SnippetFix], yaml_path: Path, auto_approve: b
         print(f"{'='*80}")
         print(f"Organism/Item: {fix.organism}")
         print(f"Reference:     {fix.reference}")
-        print(f"\n❌ CURRENT (invalid):")
+        print("\n❌ CURRENT (invalid):")
         print(f"   {fix.current[:200]}{'...' if len(fix.current) > 200 else ''}")
-        print(f"\n✅ SUGGESTED (from abstract):")
+        print("\n✅ SUGGESTED (from abstract):")
         print(f"   {fix.suggested[:200]}{'...' if len(fix.suggested) > 200 else ''}")
         print()
 
         if auto_approve:
-            choice = 'a'
+            choice = "a"
         else:
             choice = input("👉 [A]pply, [E]dit, [S]kip, [Q]uit? ").lower().strip()
 
-        if choice == 'q':
+        if choice == "q":
             print("\n🛑 Quitting without applying remaining fixes")
             break
-        elif choice == 's':
+        elif choice == "s":
             print("⏭️  Skipped")
             skipped_count += 1
             continue
-        elif choice == 'e':
+        elif choice == "e":
             print("\nEnter new snippet (or press Enter to skip):")
             custom_snippet = input().strip()
             if custom_snippet:
                 fix.suggested = custom_snippet
-                print(f"✏️  Using custom snippet")
+                print("✏️  Using custom snippet")
             else:
                 print("⏭️  Skipped")
                 skipped_count += 1
@@ -253,25 +257,27 @@ def interactive_review(fixes: List[SnippetFix], yaml_path: Path, auto_approve: b
             print("✅ Applied")
             applied_count += 1
         else:
-            print("❌ Failed to find snippet in file (may already be fixed or snippet doesn't match)")
+            print(
+                "❌ Failed to find snippet in file (may already be fixed or snippet doesn't match)"
+            )
             failed_count += 1
 
         print()
 
     # Save updated content if any fixes were applied
     if applied_count > 0:
-        with open(yaml_path, 'w', encoding='utf-8') as f:
+        with open(yaml_path, "w", encoding="utf-8") as f:
             f.write(raw_content)
 
         print(f"\n{'='*80}")
-        print(f"📊 SUMMARY")
+        print("📊 SUMMARY")
         print(f"{'='*80}")
         print(f"✅ Applied:  {applied_count}")
         print(f"⏭️  Skipped:  {skipped_count}")
         print(f"❌ Failed:   {failed_count}")
         print(f"\n💾 Updated file: {yaml_path}")
         print(f"💾 Backup saved: {backup_path}")
-        print(f"\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
+        print("\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
     else:
         print("\n⚠️  No fixes were applied")
         backup_path.unlink()  # Remove backup if no changes
@@ -280,33 +286,31 @@ def interactive_review(fixes: List[SnippetFix], yaml_path: Path, auto_approve: b
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description='Semi-automated evidence snippet replacement tool'
-    )
+    parser = argparse.ArgumentParser(description="Semi-automated evidence snippet replacement tool")
     parser.add_argument(
-        '--file',
+        "--file",
         required=True,
-        help='YAML file to process (e.g., Australian_Lead_Zinc_Polymetallic.yaml)'
+        help="YAML file to process (e.g., Australian_Lead_Zinc_Polymetallic.yaml)",
     )
     parser.add_argument(
-        '--report',
+        "--report",
         default=_REPORTS / "evidence_curation_report.txt",
-        help='Path to curation report (default: evidence_curation_report.txt)'
+        help="Path to curation report (default: evidence_curation_report.txt)",
     )
     parser.add_argument(
-        '--auto-approve',
-        action='store_true',
-        help='Automatically apply all suggested fixes without prompting'
+        "--auto-approve",
+        action="store_true",
+        help="Automatically apply all suggested fixes without prompting",
     )
 
     args = parser.parse_args()
 
     # Resolve paths
     yaml_filename = args.file
-    if not yaml_filename.endswith('.yaml'):
-        yaml_filename += '.yaml'
+    if not yaml_filename.endswith(".yaml"):
+        yaml_filename += ".yaml"
 
-    yaml_path = Path('kb/communities') / yaml_filename
+    yaml_path = Path("kb/communities") / yaml_filename
     report_path = Path(args.report)
 
     if not yaml_path.exists():
@@ -315,7 +319,7 @@ def main():
 
     if not report_path.exists():
         print(f"❌ Report not found: {report_path}")
-        print(f"   Run: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
+        print("   Run: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
         return 1
 
     # Parse report
@@ -331,8 +335,10 @@ def main():
 
     if applied > 0:
         print(f"\n✅ Successfully applied {applied} snippet fixes")
-        print(f"\n📋 Next steps:")
-        print(f"   1. Validate: poetry run python scripts/curate_evidence_with_pdfs.py --file {yaml_filename}")
+        print("\n📋 Next steps:")
+        print(
+            f"   1. Validate: poetry run python scripts/curate_evidence_with_pdfs.py --file {yaml_filename}"
+        )
         print(f"   2. Schema check: just validate {yaml_path}")
         print(f"   3. Review changes: git diff {yaml_path}")
         return 0
@@ -340,5 +346,5 @@ def main():
         return 1
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     exit(main())

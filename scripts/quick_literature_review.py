@@ -6,16 +6,17 @@ Validates abstracts and snippets only, skipping PDF discovery.
 Much faster for initial assessment (~5-10 minutes vs 60-90 minutes).
 """
 
-import yaml
 import sys
-from pathlib import Path
-from typing import Dict, List, Optional
 from collections import defaultdict
 from dataclasses import dataclass
+from pathlib import Path
+
+import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.literature_enhanced import EnhancedLiteratureFetcher
+
 
 # Disable PDF fetching for speed
 class FastFetcher(EnhancedLiteratureFetcher):
@@ -25,6 +26,7 @@ class FastFetcher(EnhancedLiteratureFetcher):
         """Skip PDF fetching for speed"""
         return None
 
+
 @dataclass
 class QuickResult:
     reference: str
@@ -33,7 +35,7 @@ class QuickResult:
     has_abstract: bool
     snippet_valid: bool = False
     has_snippet: bool = False
-    issue: Optional[str] = None
+    issue: str | None = None
 
 
 def main():
@@ -41,40 +43,44 @@ def main():
     print("=" * 80)
     print()
 
-    kb_dir = Path('kb/communities')
+    kb_dir = Path("kb/communities")
     fetcher = FastFetcher(cache_dir=".literature_cache", use_fallback_pdf=False)
 
     # Scan all YAMLs
     print("Scanning YAMLs...")
-    yaml_files = sorted(kb_dir.glob('*.yaml'))
+    yaml_files = sorted(kb_dir.glob("*.yaml"))
     all_evidence = []
 
     for yaml_path in yaml_files:
-        with open(yaml_path, 'r') as f:
+        with open(yaml_path) as f:
             data = yaml.safe_load(f)
 
         # Extract evidence
-        if 'taxonomy' in data:
-            for taxon in data['taxonomy']:
-                if 'evidence' in taxon:
-                    for ev in taxon['evidence']:
-                        all_evidence.append({
-                            'file': yaml_path.name,
-                            'context': 'taxonomy',
-                            'ref': ev.get('reference', ''),
-                            'snippet': ev.get('snippet')
-                        })
+        if "taxonomy" in data:
+            for taxon in data["taxonomy"]:
+                if "evidence" in taxon:
+                    for ev in taxon["evidence"]:
+                        all_evidence.append(
+                            {
+                                "file": yaml_path.name,
+                                "context": "taxonomy",
+                                "ref": ev.get("reference", ""),
+                                "snippet": ev.get("snippet"),
+                            }
+                        )
 
-        if 'ecological_interactions' in data:
-            for interaction in data['ecological_interactions']:
-                if 'evidence' in interaction:
-                    for ev in interaction['evidence']:
-                        all_evidence.append({
-                            'file': yaml_path.name,
-                            'context': 'interaction',
-                            'ref': ev.get('reference', ''),
-                            'snippet': ev.get('snippet')
-                        })
+        if "ecological_interactions" in data:
+            for interaction in data["ecological_interactions"]:
+                if "evidence" in interaction:
+                    for ev in interaction["evidence"]:
+                        all_evidence.append(
+                            {
+                                "file": yaml_path.name,
+                                "context": "interaction",
+                                "ref": ev.get("reference", ""),
+                                "snippet": ev.get("snippet"),
+                            }
+                        )
 
     print(f"Found {len(all_evidence)} evidence items")
     print()
@@ -89,39 +95,39 @@ def main():
             print(f"  Progress: {i}/{len(all_evidence)}")
 
         result = QuickResult(
-            reference=ev['ref'],
-            file=ev['file'],
-            context=ev['context'],
+            reference=ev["ref"],
+            file=ev["file"],
+            context=ev["context"],
             has_abstract=False,
-            has_snippet=bool(ev['snippet'])
+            has_snippet=bool(ev["snippet"]),
         )
 
         # Fetch abstract only
         try:
-            paper = fetcher.fetch_paper(ev['ref'], download_pdf=False)
+            paper = fetcher.fetch_paper(ev["ref"], download_pdf=False)
 
-            if paper['abstract']:
+            if paper["abstract"]:
                 result.has_abstract = True
-                stats['abstracts_ok'] += 1
+                stats["abstracts_ok"] += 1
 
                 # Validate snippet if present
-                if ev['snippet']:
-                    valid = fetcher.validate_evidence_snippet(ev['snippet'], paper['abstract'])
+                if ev["snippet"]:
+                    valid = fetcher.validate_evidence_snippet(ev["snippet"], paper["abstract"])
                     result.snippet_valid = valid
                     if valid:
-                        stats['snippets_valid'] += 1
+                        stats["snippets_valid"] += 1
                     else:
-                        stats['snippets_invalid'] += 1
+                        stats["snippets_invalid"] += 1
                         result.issue = "Snippet not in abstract"
                 else:
-                    stats['missing_snippet'] += 1
+                    stats["missing_snippet"] += 1
                     result.issue = "Missing snippet"
             else:
-                stats['abstracts_failed'] += 1
+                stats["abstracts_failed"] += 1
                 result.issue = "Abstract not found"
 
         except Exception as e:
-            stats['errors'] += 1
+            stats["errors"] += 1
             result.issue = f"Error: {str(e)[:50]}"
 
         results.append(result)
@@ -142,15 +148,17 @@ def main():
 
     # Quality metrics
     if len(all_evidence) > 0:
-        abstract_rate = (stats['abstracts_ok'] / len(all_evidence)) * 100
+        abstract_rate = (stats["abstracts_ok"] / len(all_evidence)) * 100
         print(f"Abstract fetch rate: {abstract_rate:.1f}%")
 
-        if stats['snippets_valid'] + stats['snippets_invalid'] > 0:
-            snippet_rate = (stats['snippets_valid'] / (stats['snippets_valid'] + stats['snippets_invalid'])) * 100
+        if stats["snippets_valid"] + stats["snippets_invalid"] > 0:
+            snippet_rate = (
+                stats["snippets_valid"] / (stats["snippets_valid"] + stats["snippets_invalid"])
+            ) * 100
             print(f"Snippet validation rate: {snippet_rate:.1f}%")
 
     # Write quick report
-    with open('quick_literature_report.txt', 'w') as f:
+    with open("quick_literature_report.txt", "w") as f:
         f.write("QUICK LITERATURE REVIEW\n")
         f.write("=" * 80 + "\n\n")
         f.write(f"Total: {len(all_evidence)}\n")
@@ -171,5 +179,5 @@ def main():
     print("✓ Report: quick_literature_report.txt")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
