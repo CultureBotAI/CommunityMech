@@ -298,8 +298,8 @@ clean:
 
 # Format code
 format:
-    uv run black src/ tests/
-    uv run ruff check --fix src/ tests/
+    uv run black src/ tests/ scripts/
+    uv run ruff check --fix src/ tests/ scripts/
 
 # Run linting
 lint:
