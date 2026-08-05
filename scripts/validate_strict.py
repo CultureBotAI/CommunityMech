@@ -196,15 +196,20 @@ def iter_yaml_files(paths: Iterable[Path]) -> list[Path]:
     return out
 
 
-def main() -> int:
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("paths", nargs="*", type=Path,
                         help="Files or directories. Defaults to kb/communities/.")
     parser.add_argument(
         "--out",
         type=Path,
-        default=Path("reports/instance_validation_failures.tsv"),
-        help="TSV output path.",
+        # Resolved against the repo, not the cwd. The relative default wrote a
+        # stray `reports/` tree wherever the script was run from, and any test
+        # invoking it without `--out` overwrote the committed report — which
+        # happened twice, surviving only because a full run left the file
+        # byte-identical (#391).
+        default=_REPO_ROOT / "reports" / "instance_validation_failures.tsv",
+        help="TSV output path (default: <repo>/reports/instance_validation_failures.tsv).",
     )
     parser.add_argument(
         "--sample",
@@ -222,6 +227,11 @@ def main() -> int:
     )
     parser.add_argument("--quiet", action="store_true",
                         help="Suppress per-file progress lines.")
+    return parser
+
+
+def main() -> int:
+    parser = build_parser()
     args = parser.parse_args()
 
     roots = args.paths or DEFAULT_ROOTS
