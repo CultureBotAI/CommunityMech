@@ -187,6 +187,37 @@ def _genomes(row) -> int:
         return 0
 
 
+def _species_denominator(rows) -> tuple[int, float]:
+    """(genomes, genome-weighted majority) for one GTDB species, without double-counting.
+
+    A crosswalk row is an NCBI taxonID's assignment, so a species-rank row and
+    its strain rows describe overlapping genome sets. Summing them inflates:
+    *Escherichia coli* has 2 species-rank rows totalling 166398 and 2608 strain
+    rows totalling 17969, and adding them gives 184367 for a population no
+    larger than the species.
+
+    `deepest_only`'s rule — drop the species rows, keep the strains — is not
+    right for a denominator either: it would report 17969 for that same taxon,
+    discarding the largest measurement.
+
+    Note this is currently a **no-op on the KB**: no grounded name group mixes
+    the two depths today. It is here so that the first one to do so cannot
+    double-count silently, and the tests state the rule rather than a sample.
+
+    So take the larger of the two depths and never their sum. Containment does
+    not hold in this table (1363 of 2827 species have strain support exceeding
+    their species row, #371), so the larger depth is the best supported lower
+    bound rather than a derived total.
+    """
+    species_rows = [r for r in rows if not r[COL_NCBI_STRAIN].strip()]
+    strain_rows = [r for r in rows if r[COL_NCBI_STRAIN].strip()]
+    chosen = max((species_rows, strain_rows), key=lambda group: sum(_genomes(r) for r in group))
+    total = sum(_genomes(r) for r in chosen)
+    if not total:
+        return 0, 0.0
+    return total, round(sum(_genomes(r) * _maj(r) for r in chosen) / total, 3)
+
+
 def _ground_species(rows, source_id, label, via):
     # Deterministic order. A plain `sorted(key=_maj)` is stable, so among rows
     # tied on majority the winner was whichever the crosswalk listed first —
@@ -227,33 +258,35 @@ def _ground_species(rows, source_id, label, via):
     # denominator would be incoherent — B. breve's rows are 1544 genomes at 0.99
     # and 49 at 1.0, so "1.0 of 1593" is a claim no row makes.
     #
-    # This cannot change a grounding, and the reason is structural rather than a
-    # property of today's KB: `sp` is read off `top` *before* `agreeing` is
-    # built, so the filter can only ever narrow the rows behind an already-chosen
-    # species. `resolve_target` also reports AMBIGUOUS whenever a name group
-    # holds more than one GTDB species, so the mixed case does not arise from the
-    # public entry point at all — the filter is defensive, and the synthetic
-    # split in the tests is the only thing that exercises it.
+    # This cannot change a grounding: `sp` is read off `top` *before* `agreeing`
+    # is built, so the filter can only ever narrow the rows behind an
+    # already-chosen species. `resolve_target` also reports AMBIGUOUS whenever a
+    # name group holds more than one GTDB species, so the mixed case does not
+    # arise from the public entry point — the filter is defensive, and the
+    # synthetic split in the tests is what exercises it.
     #
     # It moves 39 denominators (36 alone, 3 alongside a fraction) and 3 fractions.
     #
     # Only the **name** path aggregates. An NCBI id maps to exactly one crosswalk
-    # row, so an id-path grounding still reports that row alone — which leaves
-    # the understatement #386 was filed about in place on more blocks than this
-    # fixes. Extending it means summing across NCBI depths, where a species-rank
-    # row and its strain rows would double-count: 96 of the KB's species mix the
-    # two. That is #371's question, and it is tracked separately (#389).
+    # row, so an id-path grounding reports that row alone — which leaves the
+    # understatement #386 was filed about in place on more blocks than this
+    # fixes. #389 tried to widen it and had to be reverted: the only wider set
+    # available is keyed on `term.label`, so a synonym moved the answer 9.5x.
+    # Widening needs a key as stable as the id, which this crosswalk does not
+    # offer — #389 stays open with the measurement.
+    # Scoped to the rows this grounding was resolved from — the taxon's own rows
+    # on the id path, the name group on the name path. #389 widened the id path
+    # to include the name group and that was worse: the name group is keyed on
+    # `term.label`, which is curator prose, so `NCBITaxon:33038` reported 2945
+    # under "Mediterraneibacter gnavus" and 311 under its NCBI synonym
+    # "Ruminococcus gnavus". An id is stable; a label is not (#404 review).
     agreeing = [r for r in rows if r[COL_GTDB_SPECIES].strip() == sp] if sp else []
-    total = sum(_genomes(r) for r in agreeing)
-    if total:
-        fraction = round(sum(_genomes(r) * _maj(r) for r in agreeing) / total, 3)
-    else:
+    total, fraction = _species_denominator(agreeing)
+    if not total:
         # No GTDB species cell, or every agreeing row carries no genome count.
-        # An earlier comment here claimed this "degrades to its pre-#386
-        # behaviour rather than to zero" — wrong on both counts: `top` is itself
-        # in `agreeing`, so an empty total means `_genomes(top)` is 0 too, and
-        # emitting `total_genomes: 0` would then fail the `minimum_value: 1` this
-        # PR adds (#388 review). Publish no count rather than a meaningless one.
+        # `top` is itself in `agreeing`, so an empty total means `_genomes(top)`
+        # is 0 too — publish no count rather than a meaningless one, since
+        # `total_genomes: 0` would fail the schema's `minimum_value: 1`.
         total, fraction = _genomes(top) or None, _maj(top)
     return {
         "ncbi_source_id": source_id,
@@ -472,15 +505,17 @@ def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggre
                    exclude_unnamed=True):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
 
-    `denominator` is forwarded to `resolve_higher`; the species and id paths
-    resolve a single row and are identical under either choice (#371).
+    `denominator` and `exclude_unnamed` are forwarded to `resolve_higher` only.
+    The species paths ignore both: they resolve within one GTDB species, so the
+    aggregate/deepest choice does not arise — but the named-species filter
+    genuinely does not apply there, which is an asymmetry, not a decision (#405).
     """
     source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
     clean = _clean_label(label)
     if _is_species(clean):
+        nlc = clean.lower()
         if ncbi_id and ncbi_id in by_id:
             return _ground_species(by_id[ncbi_id], source_id, label, "ncbi_id")
-        nlc = clean.lower()
         if nlc in by_name:
             species: dict[str, list] = {}
             for c in by_name[nlc]:

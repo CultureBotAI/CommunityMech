@@ -807,14 +807,15 @@ classes:
           rank, excluding rows dropped by the named-species filter
           (sp./uncultured/informal), so it is the evidence actually considered
           rather than every genome under the NCBI taxon. For species, the genomes in
-          the mapping rows this grounding was resolved from. Those differ by
-          path: an NCBI id maps to exactly one crosswalk row and reports that
-          row alone, while a species *name* covers several strain taxonIDs and
-          aggregates every row reaching the same GTDB species. So two blocks
-          naming the same GTDB species can carry different totals — Escherichia
-          coli stores its id row's count, not the 2941 rows sharing the name
-          (#389). Note majority_fraction is rounded, so neither count can be
-          recovered from it.
+          the crosswalk rows this grounding was resolved from — the taxon's own
+          rows when it matched by NCBI id, the name group when it matched by
+          species name. Those scopes differ, so an id-matched block can report
+          far less than the evidence that exists for its species; widening it
+          needs a key as stable as the id, which the crosswalk does not offer
+          (#389). Counted at a single depth: a species-rank row and its strain
+          rows overlap, so the larger of the two is taken and never their sum.
+          Note majority_fraction is rounded, so neither count can be recovered
+          from it.
         range: integer
         # A majority computed over zero genomes is not a majority (#387).
         minimum_value: 1
