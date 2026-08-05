@@ -1,0 +1,40 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/KBase_ORT_Workflow_Community_Model.yaml
+  slug: KBase_ORT_Workflow_Community_Model
+session:
+  id: 2026-08-05T162059Z-claude-code-b3f015
+  timestamp: '2026-08-05T16:20:59Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/416
+events:
+- type: EDIT
+  outcome: needs_followup
+  sections:
+  - members
+  summary: Re-ground four taxa from ancestor NCBITaxon ids to the families their notes name
+  details: 'All four taxon_terms carried an NCBITaxon id far above the taxon their preferred_term
+    and notes named: ''Nitrososphaeraceae archaeon'' and ''Nitrospiraceae bacterium'' on domain/class
+    ids, and both ''Steroidobacteraceae denitrifier'' entries on NCBITaxon:1236 (class Gammaproteobacteria).
+    Each record note names the family explicitly, sourced from PMID:34726691 (Columbia River
+    sediment MAGs), so the family assignment is the record''s own claim and not a new one.
+    Changed: Nitrososphaeraceae archaeon NCBITaxon:2157 -> NCBITaxon:1033997; Nitrospiraceae
+    bacterium NCBITaxon:1236 -> NCBITaxon:189779; both Steroidobacteraceae denitrifiers NCBITaxon:1236
+    -> NCBITaxon:2689614, resolved with runoak against sqlite:obo:ncbitaxon. GTDB blocks were
+    then regenerated with gtdb_ground.py --apply --refresh, moving three groundings off tautological
+    ranks: d__Archaea -> f__Nitrososphaeraceae (51/51 genomes, majority 1.0) and c__Gammaproteobacteria
+    -> f__Steroidobacteraceae (15/15, 1.0) twice. Outcome is needs_followup, not changed,
+    because the fourth taxon is deliberately still ungrounded: GTDB''s majority for NCBI Nitrospiraceae
+    is f__Leptospirillaceae at 0.534 (31/58), a near-tie of the kind issue #396 covers, and
+    Leptospirillum is an iron oxidizer whereas this genome is the record''s nitrite oxidizer.
+    Taking that vote would assign the wrong physiology, so the WITHHELD pin in gtdb_ground.py
+    is kept with its reason rewritten; the old reason (the bad NCBITaxon:1236 id) no longer
+    applies. A curator still has to pick. Validated: just validate, validate-terms, validate-gtdb,
+    validate-scalars all pass on the record.'
