@@ -308,9 +308,13 @@ lint:
     uv run mypy src/
 
 # Full QC (validate + strict validate + lint + test)
-# `validate-gtdb-all` and `validate-scalars` also run inside validate-strict,
-# but over its DEFAULT_ROOTS only. Listing them here covers kb/taxa too, and
-# means a future narrowing of validate-strict cannot silently drop them (#391).
+# `validate-gtdb-all` and `validate-scalars` also run inside validate-strict.
+# Only `validate-scalars` widens the scope — it covers kb/taxa, which
+# validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
+# those roots and adds nothing (kb/taxa carries no gtdb_classification at all).
+#
+# This is local convenience, not CI coverage: `qc` is invoked by no workflow,
+# and both checks already reach CI through pytest (#391, #406 review).
 qc: validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa validate-references-all lint test
     @echo "✅ All QC checks passed!"
 

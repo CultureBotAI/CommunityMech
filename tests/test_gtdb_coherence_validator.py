@@ -634,42 +634,99 @@ def test_a_non_string_note_does_not_crash_the_check(note):
     assert "note_without_curated" in categories or not str(note or "").strip()
 
 
-def test_the_report_default_is_anchored_to_the_repo(tmp_path):
-    """`validate_strict.py --out` defaulted to a cwd-relative, git-tracked path.
+def _validate_strict_module():
+    import importlib.util
 
-    Running it from anywhere but the repo root wrote a stray `reports/` tree
-    there, and any test invoking it without `--out` overwrote the committed
-    report — which happened twice in this codebase, surviving only because a
-    full suite run left the file byte-identical (#391).
+    spec = importlib.util.spec_from_file_location(
+        "validate_strict", REPO / "scripts/validate_strict.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
-    Asserted by running the script from a different directory and checking that
-    nothing appeared there, which is the behaviour that actually matters.
+
+def test_the_report_default_is_anchored_to_the_repo():
+    """`--out` defaulted to a cwd-relative, git-tracked path.
+
+    Running the script from anywhere but the repo root wrote a stray `reports/`
+    tree there, and any test invoking it without `--out` overwrote the committed
+    report — which happened twice, surviving because a clean run leaves that file
+    byte-identical (#391).
+
+    Asserted against the parser, not by running the script. A run with no `--out`
+    writes to the committed report *by definition*, so a behavioural test of this
+    default cannot avoid doing the damage it tests for — which is exactly what
+    the first version of this test did (#406 review).
+    """
+    module = _validate_strict_module()
+
+    default = module.build_parser().parse_args(["ignored.yaml"]).out
+
+    assert default.is_absolute(), "a relative default follows the working directory"
+    assert default == module._REPO_ROOT / "reports" / "instance_validation_failures.tsv"
+
+
+def test_nothing_else_writes_relative_to_the_working_directory(tmp_path):
+    """With `--out` given, a run must leave the cwd untouched.
+
+    An anchored default is no use if some other write in the script is relative.
     """
     fixture = tmp_path / "rec.yaml"
     fixture.write_text(FIXTURE.read_text())
+    report = tmp_path / "out" / "report.tsv"
 
     result = subprocess.run(
-        ["uv", "run", "python", str(REPO / "scripts/validate_strict.py"), str(fixture)],
+        [
+            "uv",
+            "run",
+            "python",
+            str(REPO / "scripts/validate_strict.py"),
+            str(fixture),
+            "--out",
+            str(report),
+        ],
         capture_output=True,
         text=True,
         cwd=tmp_path,
     )
 
     assert result.returncode == 0, result.stdout[-1500:]
-    assert not (
-        tmp_path / "reports"
-    ).exists(), "running from another directory created a stray reports/ tree there"
-    assert str(REPO) in (result.stdout + result.stderr), "the report went somewhere unexpected"
+    assert report.exists(), "the report was not written where it was asked to go"
+    assert not (tmp_path / "reports").exists(), "a relative write created a stray tree"
+    # `str(REPO)` is in stderr on every run — the script prints the schema path —
+    # so asserting on it proves nothing about where the report went.
+    assert str(report) in (result.stdout + result.stderr)
 
 
 def test_qc_runs_the_standalone_gates():
-    """They also run inside validate-strict, but over its DEFAULT_ROOTS only.
+    """`just qc` must depend on them, and they must be real recipes.
 
-    `kb/taxa` is outside those roots, and a future narrowing of validate-strict
-    would silently drop both checks from CI with nothing failing (#391).
+    Read through `just --dump` — `just`'s own parser — because grepping the raw
+    line missed a continuation-formatted recipe and passed for a renamed target
+    that merely contained the string (#406 review).
+
+    Note what this does *not* claim. `qc` is invoked by no workflow, so this is
+    local convenience rather than CI coverage: both checks already reach CI
+    through pytest, which `validate-strict.yaml` does run.
     """
-    recipe = next(
-        line for line in (REPO / "justfile").read_text().splitlines() if line.startswith("qc:")
-    )
+    try:
+        subprocess.run(["just", "--version"], capture_output=True, check=True)
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pytest.skip("just is not installed")
+
+    # Skip only when `just` is missing. Skipping when `--dump` *fails* let a
+    # broken justfile pass: renaming a dependency to a recipe that does not
+    # exist makes the dump non-zero, and the test skipped instead of failing
+    # (#406 review).
+    dump = subprocess.run(["just", "--dump"], capture_output=True, text=True, cwd=REPO)
+    assert dump.returncode == 0, f"the justfile does not parse:\n{dump.stderr[-800:]}"
+
+    recipe = next((ln for ln in dump.stdout.splitlines() if ln.startswith("qc:")), None)
+    assert recipe, "no qc recipe"
+    summary = subprocess.run(
+        ["just", "--summary"], capture_output=True, text=True, cwd=REPO
+    ).stdout.split()
+
     for target in ("validate-gtdb-all", "validate-scalars"):
-        assert target in recipe, f"{target} is in no gate"
+        assert target in recipe.split(), f"{target} is not a dependency of qc"
+        assert target in summary, f"{target} is not a real recipe"
