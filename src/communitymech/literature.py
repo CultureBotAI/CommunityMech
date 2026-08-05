@@ -9,6 +9,8 @@ from pathlib import Path
 
 import requests
 
+from communitymech.paths import REFERENCES_CACHE
+
 # ---------------------------------------------------------------------------
 # Citation / first-author derivation
 # ---------------------------------------------------------------------------
@@ -211,8 +213,12 @@ def format_citation(text: str, *, author_string: str | None = None) -> str | Non
 class LiteratureFetcher:
     """Fetch and cache scientific literature."""
 
-    def __init__(self, cache_dir: str = "references_cache"):
-        self.cache_dir = Path(cache_dir)
+    def __init__(self, cache_dir: str | Path | None = None):
+        # Repo-anchored, not cwd-relative. The old default created a second,
+        # empty cache wherever the process happened to be running and re-fetched
+        # from PubMed/CrossRef — a silent cache miss and billed traffic, which
+        # also defeats the reproducibility the committed cache exists for (#407).
+        self.cache_dir = Path(cache_dir) if cache_dir is not None else REFERENCES_CACHE
         self.cache_dir.mkdir(exist_ok=True)
         self.session = requests.Session()
         self.session.headers.update(

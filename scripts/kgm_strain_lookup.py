@@ -21,6 +21,9 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 import time
 
+# Repo-anchored: a relative default follows the cwd (#407).
+_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+
 try:
     import duckdb
 except ImportError:
@@ -606,7 +609,7 @@ class KGMStrainLookup:
         return results
 
     def generate_corrections_report(self,
-                                   output_dir="./",
+                                   output_dir=_REPORTS,
                                    yaml_dir="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities"):
         """
         Generate comprehensive correction recommendations based on kg-microbe.
@@ -792,7 +795,7 @@ def main():
     parser.add_argument(
         "--output-dir",
         type=str,
-        default="./",
+        default=_REPORTS,
         help="Output directory for reports (default: current directory)"
     )
     parser.add_argument(

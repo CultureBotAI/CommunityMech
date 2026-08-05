@@ -10,6 +10,8 @@ from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+from communitymech.paths import DOCS
+
 
 class CommunityRenderer:
     """Render community YAML files to HTML pages."""
@@ -70,15 +72,18 @@ class CommunityRenderer:
     def render_all(
         self,
         communities_dir: Path = Path("kb/communities"),
-        output_dir: Path = Path("docs/communities"),
+        output_dir: Path | None = None,
     ) -> None:
         """
         Render all community YAML files to HTML.
 
         Args:
             communities_dir: Directory containing community YAML files
-            output_dir: Directory for output HTML files
+            output_dir: Directory for output HTML files. Defaults to the repo's
+                `docs/communities`, which is git-tracked — a cwd-relative default
+                wrote a stray tree wherever the process ran (#407).
         """
+        output_dir = output_dir if output_dir is not None else DOCS / "communities"
         yaml_files = sorted(communities_dir.glob("*.yaml"))
 
         print(f"\nRendering {len(yaml_files)} communities to HTML...")
@@ -167,7 +172,7 @@ def main():
     )
     parser.add_argument(
         "--output-dir",
-        default="docs/communities",
+        default=str(DOCS / "communities"),
         help="Output directory for HTML files",
     )
     parser.add_argument(

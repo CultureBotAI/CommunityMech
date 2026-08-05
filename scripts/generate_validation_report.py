@@ -322,8 +322,15 @@ See `{output_path.parent / 'validation_results.tsv'}` for per-community breakdow
 
 
 def main():
-    communities_dir = Path("kb/communities")
-    output_dir = Path("reports")
+    # Repo-anchored so the output lands in one predictable place. Note the
+    # trade this makes rather than removes: both targets are git-tracked, so a
+    # run from another directory used to leave a stray tree and now rewrites the
+    # committed files instead. That is the intended behaviour for a report
+    # generator whose output is committed — but it is a trade, not a fix, and an
+    # earlier version of this comment had it backwards (#409 review).
+    repo_root = Path(__file__).resolve().parent.parent
+    communities_dir = repo_root / "kb" / "communities"
+    output_dir = repo_root / "reports"
     output_dir.mkdir(exist_ok=True)
 
     print("🔬 Generating validation report for all communities...")

@@ -32,6 +32,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.literature_enhanced import EnhancedLiteratureFetcher
 
+# Repo-anchored: a relative default follows the cwd (#407).
+_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+
 # Color codes
 class Colors:
     HEADER = '\033[95m'
@@ -420,7 +423,7 @@ def main():
     parser.add_argument('--community', help="Review specific community file")
     parser.add_argument('--download-pdfs', action='store_true', help="Download full PDFs")
     parser.add_argument('--no-fallback', action='store_true', help="Disable scihub fallback")
-    parser.add_argument('--output', default='literature_review_report.txt', help="Output report file")
+    parser.add_argument('--output', default=_REPORTS / "literature_review_report.txt", help="Output report file")
 
     args = parser.parse_args()
 

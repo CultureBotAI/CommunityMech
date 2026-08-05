@@ -8,11 +8,13 @@ from pathlib import Path
 import numpy as np
 from tqdm import tqdm
 
+from communitymech.paths import REPO_ROOT
+
 
 class EmbeddingLoader:
     """Load and cache node embeddings from KG-Microbe TSV.gz file."""
 
-    def __init__(self, embeddings_path: str, cache_dir: str = ".umap_cache"):
+    def __init__(self, embeddings_path: str, cache_dir: str | Path = REPO_ROOT / ".umap_cache"):
         """Initialize loader.
 
         Args:

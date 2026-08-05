@@ -12,6 +12,7 @@ from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
 from communitymech.network.repair_strategies import StrategySelector
 from communitymech.network.validators import SuggestionValidator
+from communitymech.paths import REPO_ROOT
 from communitymech.validation.write_validated import (
     ValidationFailedError,
     write_validated_community,
@@ -25,7 +26,7 @@ class LLMNetworkRepairer:
         self,
         llm_client: AnthropicClient | None = None,
         validator: SuggestionValidator | None = None,
-        backup_dir: Path = Path(".backups"),
+        backup_dir: Path = REPO_ROOT / ".backups",
     ):
         """
         Initialize LLM network repairer.

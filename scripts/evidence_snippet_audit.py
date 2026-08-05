@@ -27,7 +27,9 @@ from collections import defaultdict
 import yaml
 
 COMM = Path("kb/communities")
-CACHE = Path("references_cache")
+# Repo-anchored (#407). Tests override this attribute; a relative default also
+# resolved against the cwd, so importing the module from elsewhere read nothing.
+CACHE = Path(__file__).resolve().parent.parent / "references_cache"
 LIST_MM = "--list-mismatch" in sys.argv
 LIST_NC = "--list-nocontent" in sys.argv
 LIST_RD = "--list-rendering" in sys.argv

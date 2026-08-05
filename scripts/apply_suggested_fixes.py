@@ -20,6 +20,9 @@ from typing import Dict, List, Optional, Tuple
 
 import yaml
 
+# Repo-anchored: a relative default follows the cwd (#407).
+_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+
 # Add scripts to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
 
@@ -302,7 +305,7 @@ def main():
     )
     parser.add_argument(
         "--report",
-        default="evidence_curation_report.txt",
+        default=_REPORTS / "evidence_curation_report.txt",
         help="Path to curation report (default: evidence_curation_report.txt)",
     )
     parser.add_argument(
