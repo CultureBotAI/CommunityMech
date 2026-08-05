@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-04T17:21:08
+# Generation date: 2026-08-04T17:44:50
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -259,6 +259,8 @@ class TaxonDescriptor(YAMLRoot):
 
     preferred_term: str = None
     term: Union[dict, Term] = None
+    gtdb_grounding_status: Optional[Union[str, "GtdbGroundingStatusEnum"]] = None
+    gtdb_candidates: Optional[Union[str, list[str]]] = empty_list()
     gtdb_classification: Optional[Union[dict, "GtdbClassification"]] = None
     notes: Optional[str] = None
 
@@ -272,6 +274,17 @@ class TaxonDescriptor(YAMLRoot):
             self.MissingRequiredField("term")
         if not isinstance(self.term, Term):
             self.term = Term(**as_dict(self.term))
+
+        if self.gtdb_grounding_status is not None and not isinstance(
+            self.gtdb_grounding_status, GtdbGroundingStatusEnum
+        ):
+            self.gtdb_grounding_status = GtdbGroundingStatusEnum(self.gtdb_grounding_status)
+
+        if not isinstance(self.gtdb_candidates, list):
+            self.gtdb_candidates = (
+                [self.gtdb_candidates] if self.gtdb_candidates is not None else []
+            )
+        self.gtdb_candidates = [v if isinstance(v, str) else str(v) for v in self.gtdb_candidates]
 
         if self.gtdb_classification is not None and not isinstance(
             self.gtdb_classification, GtdbClassification
@@ -2241,6 +2254,41 @@ class CommunityCategoryEnum(EnumDefinitionImpl):
     )
 
 
+class GtdbGroundingStatusEnum(EnumDefinitionImpl):
+    """
+    Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never
+    classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a
+    missing block (#294). The first is a *final* state and by far the largest — 293 of 1032 taxonomy entries — so
+    reading absence as outstanding work overstated the remaining backfill by roughly threefold (#276).
+    """
+
+    GROUNDED = PermissibleValue(
+        text="GROUNDED",
+        description="""A gtdb_classification is present. Redundant with the block's presence by design: a consumer should read a state, not infer one from whether a field exists, which is the defect this enum exists to fix.""",
+    )
+    NO_GTDB_EQUIVALENT = PermissibleValue(
+        text="NO_GTDB_EQUIVALENT",
+        description="""GTDB has no counterpart and never will. Viruses and eukaryotes (GTDB is bacteria/archaea only), environmental pseudo-taxa such as \"Stordalen Mire thaw-gradient microbiome\", and strains absent from the NCBI2GTDB mapping. A final state, not a gap.""",
+    )
+    AMBIGUOUS = PermissibleValue(
+        text="AMBIGUOUS",
+        description="""GTDB splits the NCBI taxon and no candidate holds a majority, so the tool declines to guess. gtdb_candidates carries the contenders so a curator can choose without re-running anything. Resolvable by curation, unlike NO_GTDB_EQUIVALENT.""",
+    )
+    WITHHELD = PermissibleValue(
+        text="WITHHELD",
+        description="""The tool can produce a grounding and a curator has decided it must not be stored — usually because the NCBITaxon id names a different organism, so the derived block would describe the wrong species convincingly (#292, #293). Fix the id and this becomes GROUNDED on the next run.""",
+    )
+    NOT_ATTEMPTED = PermissibleValue(
+        text="NOT_ATTEMPTED",
+        description="""No grounding has been derived, and nothing above explains why. The only value here that represents outstanding work.""",
+    )
+
+    _defn = EnumDefinition(
+        name="GtdbGroundingStatusEnum",
+        description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294). The first is a *final* state and by far the largest — 293 of 1032 taxonomy entries — so reading absence as outstanding work overstated the remaining backfill by roughly threefold (#276).""",
+    )
+
+
 class InteractionTypeEnum(EnumDefinitionImpl):
     """
     Type of ecological interaction between organisms
@@ -3157,6 +3205,24 @@ slots.taxonDescriptor__term = Slot(
     model_uri=COMMUNITYMECH.taxonDescriptor__term,
     domain=None,
     range=Union[dict, Term],
+)
+
+slots.taxonDescriptor__gtdb_grounding_status = Slot(
+    uri=COMMUNITYMECH.gtdb_grounding_status,
+    name="taxonDescriptor__gtdb_grounding_status",
+    curie=COMMUNITYMECH.curie("gtdb_grounding_status"),
+    model_uri=COMMUNITYMECH.taxonDescriptor__gtdb_grounding_status,
+    domain=None,
+    range=Optional[Union[str, "GtdbGroundingStatusEnum"]],
+)
+
+slots.taxonDescriptor__gtdb_candidates = Slot(
+    uri=COMMUNITYMECH.gtdb_candidates,
+    name="taxonDescriptor__gtdb_candidates",
+    curie=COMMUNITYMECH.curie("gtdb_candidates"),
+    model_uri=COMMUNITYMECH.taxonDescriptor__gtdb_candidates,
+    domain=None,
+    range=Optional[Union[str, list[str]]],
 )
 
 slots.taxonDescriptor__gtdb_classification = Slot(

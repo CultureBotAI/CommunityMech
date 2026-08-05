@@ -160,6 +160,43 @@ enums:
       OTHER:
         description: Other or uncategorized communities
 
+  GtdbGroundingStatusEnum:
+    description: >-
+      Why a taxon does or does not carry a gtdb_classification. Absence alone
+      cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits
+      with no majority, and a taxon nobody has grounded yet all look identical
+      as a missing block (#294). The first is a *final* state and by far the
+      largest — 293 of 1032 taxonomy entries — so reading absence as outstanding
+      work overstated the remaining backfill by roughly threefold (#276).
+    permissible_values:
+      GROUNDED:
+        description: >-
+          A gtdb_classification is present. Redundant with the block's presence
+          by design: a consumer should read a state, not infer one from whether
+          a field exists, which is the defect this enum exists to fix.
+      NO_GTDB_EQUIVALENT:
+        description: >-
+          GTDB has no counterpart and never will. Viruses and eukaryotes (GTDB
+          is bacteria/archaea only), environmental pseudo-taxa such as "Stordalen
+          Mire thaw-gradient microbiome", and strains absent from the NCBI2GTDB
+          mapping. A final state, not a gap.
+      AMBIGUOUS:
+        description: >-
+          GTDB splits the NCBI taxon and no candidate holds a majority, so the
+          tool declines to guess. gtdb_candidates carries the contenders so a
+          curator can choose without re-running anything. Resolvable by curation,
+          unlike NO_GTDB_EQUIVALENT.
+      WITHHELD:
+        description: >-
+          The tool can produce a grounding and a curator has decided it must not
+          be stored — usually because the NCBITaxon id names a different organism,
+          so the derived block would describe the wrong species convincingly
+          (#292, #293). Fix the id and this becomes GROUNDED on the next run.
+      NOT_ATTEMPTED:
+        description: >-
+          No grounding has been derived, and nothing above explains why. The only
+          value here that represents outstanding work.
+
   InteractionTypeEnum:
     description: Type of ecological interaction between organisms
     permissible_values:
@@ -669,6 +706,24 @@ classes:
         bindings:
           - binds_value_of: id
             obligation_level: REQUIRED
+      gtdb_grounding_status:
+        description: >-
+          Why this taxon does or does not carry a gtdb_classification (#294).
+          Populated by `gtdb_ground.py --apply-status`. GROUNDED must accompany
+          a gtdb_classification and every other value must accompany its absence
+          — a relation the schema cannot express, checked by
+          `communitymech.validators.gtdb_coherence` and so by
+          `just validate-strict` (#387).
+        range: GtdbGroundingStatusEnum
+      gtdb_candidates:
+        description: >-
+          The competing GTDB taxa when gtdb_grounding_status is AMBIGUOUS, best
+          supported first, as plain names rather than CURIEs (they are candidates,
+          not identifiers). Carried so a curator can choose in place instead of
+          re-running the tool to rediscover what it already computed. Empty for
+          every other status.
+        multivalued: true
+        range: string
       gtdb_classification:
         description: >-
           Optional GTDB (Genome Taxonomy Database) grounding for this taxon,

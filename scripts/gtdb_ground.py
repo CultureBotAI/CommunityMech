@@ -566,6 +566,79 @@ def _block_span(lines: list[str], anchor: int, end: int) -> tuple[int, int] | No
     return None
 
 
+STATUS_KEYS = ("gtdb_grounding_status", "gtdb_candidates")
+
+
+def classify_status(record_name, tid, label, has_block, by_id, by_name, by_higher, **kwargs):
+    """Why this taxon does or does not carry a grounding (#294).
+
+    Returns (status, candidates). The tool already distinguished all of these
+    internally — it prints a block, `AMBIGUOUS`, or `no GTDB mapping` — so this
+    persists a decision rather than making a new one.
+
+    Order matters. WITHHELD is checked before anything is computed, because the
+    point of a withhold is that the tool *can* produce a grounding and must not:
+    classifying it by outcome would label it GROUNDED-able and invite exactly the
+    re-run #293 exists to prevent.
+    """
+    if (record_name, tid) in CURATED_GROUNDINGS:
+        # A curated block is a grounding, just not one the tool would compute.
+        return ("GROUNDED" if has_block else "WITHHELD"), []
+    if (record_name, tid) in WITHHELD_GROUNDINGS:
+        return "WITHHELD", []
+    if has_block:
+        return "GROUNDED", []
+    if not tid.startswith("NCBITaxon:"):
+        return "NO_GTDB_EQUIVALENT", []
+    result = resolve_target(tid.split(":", 1)[1], label, by_id, by_name, by_higher, **kwargs)
+    if result and result.get("ambiguous"):
+        return "AMBIGUOUS", list(result.get("gtdb_options") or [])
+    if result is None or not result.get("gtdb_id"):
+        return "NO_GTDB_EQUIVALENT", []
+    # The tool would ground this and the KB does not. That is the only value
+    # here that represents outstanding work.
+    return "NOT_ATTEMPTED", []
+
+
+# Taxa kept ungrounded on purpose because the NCBITaxon id names a different
+# organism, so a derived block would describe the wrong species convincingly.
+# Mirrors CURATED_GROUNDINGS, which protects a grounding that *is* right.
+# Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py (#292).
+WITHHELD_GROUNDINGS = {
+    ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "NCBITaxon:821"): (
+        "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116."
+    ),
+    ("KBase_ORT_Workflow_Community_Model.yaml", "NCBITaxon:1236"): (
+        "NCBITaxon:1236 is class Gammaproteobacteria, not a Nitrospiraceae bacterium."
+    ),
+}
+
+
+def _status_spans(lines: list[str], anchor: int, end: int) -> list[tuple[int, int]]:
+    """Line spans of any existing status keys for one taxonomy entry.
+
+    Same shape as `_block_span`, and deliberately the same indent rule: `>= 6`
+    rather than exactly 6, because `gtdb_candidates` is a list whose items sit
+    deeper and an exact match would orphan them into duplicate keys (#378).
+    """
+    keys = re.compile(r"^\s{4}(?:" + "|".join(STATUS_KEYS) + r"):")
+    spans, i = [], anchor + 1
+    while i < end:
+        if keys.match(lines[i]):
+            j = i + 1
+            while j < end and re.match(r"^\s{6,}\S", lines[j]):
+                j += 1
+            spans.append((i, j))
+            i = j
+            continue
+        if re.match(r"^\s{0,4}\S", lines[i]) and not re.match(r"^\s{4}\S", lines[i]):
+            break
+        if re.match(r"^- ", lines[i]):
+            break
+        i += 1
+    return spans
+
+
 def apply_to_community(
     path: Path,
     by_id,
