@@ -13,6 +13,8 @@ from pathlib import Path
 import requests
 import yaml
 
+from communitymech.paths import REPO_ROOT
+
 
 class MediaFetcher:
     """Fetch and cache CultureMech + MediaIngredientMech YAML from local or remote sources."""
@@ -33,7 +35,7 @@ class MediaFetcher:
 
     def __init__(
         self,
-        cache_dir: str = "media_cache",
+        cache_dir: str | Path = REPO_ROOT / "media_cache",
         cache_ttl: int = 86400,
         culturemech_index_path: str | None = None,
         culturemech_data_path: str | None = None,

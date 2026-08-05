@@ -10,6 +10,8 @@ from typing import Any
 
 import yaml
 
+from communitymech.paths import DOCS
+
 
 class BrowserExporter:
     """Export community YAMLs to browser-ready JSON."""
@@ -18,7 +20,7 @@ class BrowserExporter:
         self.communities_dir = communities_dir
         self.communities: list[dict[str, Any]] = []
 
-    def export_all(self, output_path: Path = Path("docs/data.js")) -> None:
+    def export_all(self, output_path: Path = DOCS / "data.js") -> None:
         """
         Export all community files to browser JSON.
 

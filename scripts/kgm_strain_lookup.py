@@ -606,7 +606,7 @@ class KGMStrainLookup:
         return results
 
     def generate_corrections_report(self,
-                                   output_dir="./",
+                                   output_dir=Path(__file__).resolve().parent.parent,
                                    yaml_dir="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities"):
         """
         Generate comprehensive correction recommendations based on kg-microbe.

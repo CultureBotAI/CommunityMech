@@ -12,6 +12,7 @@ from communitymech.embedding import (
     EmbeddingLoader,
     UMAPReducer,
 )
+from communitymech.paths import DOCS, REPO_ROOT
 
 
 class UMAPVisualizationGenerator:
@@ -24,9 +25,9 @@ class UMAPVisualizationGenerator:
             "data/embeddings/"
             "DeepWalkSkipGramEnsmallen_degreenorm_embedding_512_v3_2026-06-26_12_55_27.tsv.gz"
         ),
-        output_path: str = "docs/community_umap.html",
+        output_path: str | Path | None = None,
         template_dir: str | None = None,
-        cache_dir: str = ".umap_cache",
+        cache_dir: str | Path = REPO_ROOT / ".umap_cache",
         force_reload: bool = False,
         method: str = "pacmap",
         n_neighbors: int = 15,
@@ -39,7 +40,9 @@ class UMAPVisualizationGenerator:
         Args:
             communities_dir: Directory containing community YAML files
             embeddings_path: Path to KG-Microbe embeddings TSV.gz
-            output_path: Output HTML file path
+            output_path: Output HTML file path. Defaults to the repo's
+                `docs/community_umap.html`, which is git-tracked — a cwd-relative
+                default wrote a stray tree wherever the process ran (#407).
             template_dir: Template directory (auto-detected if None)
             cache_dir: Cache directory for embeddings
             force_reload: Force reload embeddings from TSV.gz
@@ -49,6 +52,7 @@ class UMAPVisualizationGenerator:
             min_coverage: Minimum embedding coverage for communities
             exclude_hosts: Exclude non-microbial taxa (hosts) from representation
         """
+        output_path = Path(output_path) if output_path is not None else DOCS / "community_umap.html"
         print("=" * 60)
         print("🔬 CommunityMech UMAP Visualization Generator")
         print("=" * 60)
@@ -171,7 +175,7 @@ class UMAPVisualizationGenerator:
     def _render_html(
         self,
         community_data: list[dict[str, Any]],
-        output_path: str,
+        output_path: str | Path,
         template_dir: str | None = None,
         projection_label: str = "PaCMAP",
     ):

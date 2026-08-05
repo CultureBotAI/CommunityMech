@@ -322,8 +322,12 @@ See `{output_path.parent / 'validation_results.tsv'}` for per-community breakdow
 
 
 def main():
-    communities_dir = Path("kb/communities")
-    output_dir = Path("reports")
+    # Repo-anchored: both targets are git-tracked, so a run from another
+    # directory wrote a stray tree there and a run from the repo root could
+    # overwrite committed files without meaning to (#407).
+    repo_root = Path(__file__).resolve().parent.parent
+    communities_dir = repo_root / "kb" / "communities"
+    output_dir = repo_root / "reports"
     output_dir.mkdir(exist_ok=True)
 
     print("🔬 Generating validation report for all communities...")

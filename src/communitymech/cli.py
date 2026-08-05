@@ -13,6 +13,7 @@ from communitymech.network.auditor import (
     EXIT_WARNINGS,
     NetworkIntegrityAuditor,
 )
+from communitymech.paths import DOCS
 
 # Try to import rich for beautiful output
 try:
@@ -585,7 +586,8 @@ def _apply_batch_report(report_path: Path):
 @click.option(
     "--output",
     type=click.Path(dir_okay=False, path_type=Path),
-    default="docs/community_umap.html",
+    # Repo-anchored; the target is git-tracked (#407).
+    default=str(DOCS / "community_umap.html"),
     help="Output HTML path",
 )
 @click.option(

@@ -12,6 +12,7 @@ from communitymech.llm.anthropic_client import AnthropicClient
 from communitymech.network.auditor import NetworkIntegrityAuditor
 from communitymech.network.repair_strategies import StrategySelector
 from communitymech.network.validators import SuggestionValidator
+from communitymech.paths import REPORTS
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +47,7 @@ class BatchReporter:
 
     def generate_report(
         self,
-        output_path: Path = Path("reports/network_repair_suggestions.yaml"),
+        output_path: Path = REPORTS / "network_repair_suggestions.yaml",
         max_communities: int | None = None,
         max_issues_per_community: int | None = None,
     ) -> dict[str, Any]:

@@ -16,6 +16,8 @@ from pathlib import Path
 
 import yaml
 
+from communitymech.paths import REPO_ROOT
+
 
 class IssueType(str, Enum):
     """Types of network integrity issues."""
@@ -627,7 +629,7 @@ class NetworkIntegrityAuditor:
         """
         return json.dumps(self.issues, indent=2, default=str)
 
-    def write_report(self, output_path: Path = Path("network_integrity_audit.txt")):
+    def write_report(self, output_path: Path = REPO_ROOT / "network_integrity_audit.txt"):
         """
         Write detailed report to file.
 

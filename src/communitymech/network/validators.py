@@ -76,7 +76,7 @@ class SuggestionValidator:
 
         # Initialize literature fetcher for evidence validation
         if validate_evidence:
-            self.literature_fetcher = LiteratureFetcher(cache_dir="references_cache")
+            self.literature_fetcher = LiteratureFetcher()
 
     def validate(
         self, suggestion: dict[str, Any], community_data: dict[str, Any]

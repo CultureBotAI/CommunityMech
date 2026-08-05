@@ -630,7 +630,7 @@ class GTDBIntegration:
 
     def generate_comparison_report(self,
                                    yaml_dir: Path,
-                                   output_dir: Path = Path("./")):
+                                   output_dir: Path = Path(__file__).resolve().parent.parent):
         """
         Generate comprehensive GTDB vs NCBI comparison report.
 
