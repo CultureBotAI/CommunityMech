@@ -198,6 +198,26 @@ taxonomy entries and their id anchors do not line up.
   on the chosen GTDB taxon. Lower values (e.g. *Bacillus* 0.57) warrant a curator
   glance.
 
+  Below **0.55** the CLI says so outright, printing `⚠ NEAR-TIE` beside the
+  fraction (#396). A strict `> 0.5` threshold (#394) stopped a *tie-break* from
+  deciding a grounding; it did not make the survivors well-supported. Four blocks
+  sit at **0.50098** — 226306 against 225423, a margin of 883 genomes in 451729.
+
+  Take the marker seriously rather than as a formality. NCBI *Nitrospiraceae*
+  grounds to `f__Leptospirillaceae` at 0.534, and *Leptospirillum* is an **iron**
+  oxidizer — in #416 that was about to be attached to a record's **nitrite**
+  oxidizer. A near-tie is not "slightly less certain"; it is often two different
+  organisms with a number in between.
+
+  The distribution is heavily bimodal, so the marker is rare: of 715 groundings,
+  **649 are ≥ 0.90** and only **5 fall below 0.55**. One of those five is
+  `g__Syntrophotalea` at exactly 0.5, which is in the KB only because a curator
+  pinned it against the vote — it carries `curated: true` and a note (#384).
+
+  The marker is advisory: nothing is stored and nothing is withheld. There is no
+  natural cut point, and raising the threshold would withdraw blocks on a policy
+  judgement nobody has made — a 60/40 split is not a strong statement either.
+
 - **`total_genomes`** — how many genomes the majority was computed over, i.e.
   what the fraction is a fraction *of* (#383). Read it *before* trusting a
   fraction: `1.0` on `7/7` and `1.0` on `7000/7000` are the same number and very

@@ -76,6 +76,36 @@ COL_GTDB_SPECIES = 18
 # crosswalk, so moving it first changes nothing today — I checked all 1032 KB
 # taxa. Ordering is what would keep it correct if that ever stopped holding
 # (#402 review).
+# A grounding this close to the 0.5 line is a coin flip that landed right (#396).
+#
+# 0.55 is a judgement call and is meant to be: there is no natural cut point in
+# the distribution, which is why #396 rejected *raising* the threshold. It sits
+# where it does because the population either side is stable — 5 blocks below
+# 0.55, then a gap to 0.57 — so the marker points at the genuinely marginal ones
+# instead of crying wolf across the 35 blocks between 0.7 and 0.9.
+#
+# Deliberately advisory. It changes no stored value and withholds no grounding;
+# it only makes the tool say so where a curator will see it.
+NEAR_TIE_BELOW = 0.55
+
+
+def _is_near_tie(fraction) -> bool:
+    """Is this grounding close enough to 0.5 to be a coin flip?
+
+    False for a missing fraction: "unknown" is not "marginal".
+
+    A pure function of the number, deliberately — it does not consult `curated`.
+    The KB's one sub-threshold block (`g__Syntrophotalea` at exactly 0.5) really
+    is a coin flip; that a curator chose it anyway (#384) is a separate fact the
+    block records for itself.
+
+    No `isinstance(fraction, bool)` guard. Booleans are ints in Python, so one
+    looked prudent — but `True` is 1, above the bound, and `False` is 0, which
+    fails `0 < fraction`. It was dead code: removing it failed no test.
+    """
+    return isinstance(fraction, (int, float)) and 0 < fraction < NEAR_TIE_BELOW
+
+
 HIGHER_RANKS = [
     (9, 17, "g"),
     (8, 16, "f"),
@@ -1510,7 +1540,19 @@ def main(argv: list[str] | None = None) -> int:
         else:
             of = ""
         thin = "  ⚠ THIN" if total and total < 10 else ""
-        print(f"  majority     : {g['majority_fraction']}{via}{of}{thin}")
+        # A grounding just over the line is a coin flip that happened to land
+        # right. #394 moved the threshold from >=0.5 to >0.5 so a tie-break could
+        # no longer decide a grounding, but it did not make the survivors
+        # well-supported: four blocks sit at 0.50098 — 226306 against 225423,
+        # a margin of 883 genomes in 451729 (#396).
+        #
+        # Marked rather than withheld, because there is no natural cut point and
+        # raising the threshold is a curation policy call. What a curator needs
+        # is to be told at the moment of decision. #416 is the case in point: a
+        # 0.534 majority put an *iron* oxidizer (f__Leptospirillaceae) on the
+        # record's *nitrite* oxidizer. The number alone did not say "look here".
+        near = "  ⚠ NEAR-TIE" if _is_near_tie(g.get("majority_fraction")) else ""
+        print(f"  majority     : {g['majority_fraction']}{via}{of}{thin}{near}")
         if args.emit_yaml:
             print("  --- gtdb_classification block ---")
             for line in emit_block(g, mapping_source).splitlines():
