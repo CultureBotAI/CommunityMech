@@ -219,13 +219,24 @@ def _species_denominator(rows) -> tuple[int, float]:
 
 
 def _ground_species(rows, source_id, label, via, exclude_unnamed=True):
-    # Apply the named-species filter here too. It was accepted by
-    # `resolve_target` and forwarded only to `resolve_higher`, so a species
-    # grounding counted `sp.` / `uncultured` / informal rows that a genus
-    # grounding would drop — an asymmetry nothing recorded a reason for (#405).
+    # The named-species filter, which `resolve_target` accepted and forwarded
+    # only to `resolve_higher` — so `exclude_unnamed=False` was honoured at genus
+    # rank and silently dropped here (#405).
     #
-    # Same "never empty a taxon" guard as the higher-rank path: a species known
-    # only from unnamed rows keeps its grounding rather than losing it.
+    # It runs *before* `top`, so it selects the GTDB species and not merely the
+    # denominator. That placement is what the tests pin; moving it below passes
+    # every other fixture, since they all put both rows on one species.
+    #
+    # **It cannot fire through `resolve_target` on this crosswalk**, and the PR
+    # that added it was wrong to call that "free today, real later". Every NCBI
+    # id maps to exactly one row (0 of 92711 have more), so the id path filters a
+    # singleton; and `by_name` is keyed on the NCBI species string, so a group
+    # shares one string and the filter is all-or-nothing — 0 of 64660 groups
+    # mix. The non-empty fallback then restores an all-unnamed group intact.
+    # What the change buys is that the flag now means the same thing on both
+    # paths, not a latent guard (#408 review).
+    #
+    # Same "never empty a taxon" fallback as the higher-rank path.
     if exclude_unnamed:
         filtered = named_species_only(rows)
         if filtered:
@@ -270,9 +281,10 @@ def _ground_species(rows, source_id, label, via, exclude_unnamed=True):
     # denominator would be incoherent — B. breve's rows are 1544 genomes at 0.99
     # and 49 at 1.0, so "1.0 of 1593" is a claim no row makes.
     #
-    # This cannot change a grounding: `sp` is read off `top` *before* `agreeing`
-    # is built, so the filter can only ever narrow the rows behind an
-    # already-chosen species. `resolve_target` also reports AMBIGUOUS whenever a
+    # This second filter cannot change a grounding — `sp` is read off `top`
+    # *before* `agreeing` is built, so it can only narrow the rows behind an
+    # already-chosen species. (The named-species filter above runs earlier and
+    # does select the species; do not read this paragraph as covering both.) `resolve_target` also reports AMBIGUOUS whenever a
     # name group holds more than one GTDB species, so the mixed case does not
     # arise from the public entry point — the filter is defensive, and the
     # synthetic split in the tests is what exercises it.
