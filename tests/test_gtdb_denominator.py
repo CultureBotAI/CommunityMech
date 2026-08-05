@@ -408,3 +408,50 @@ def test_the_cli_can_reach_both_denominators(gtdb, mapping, capsys):
 
     assert "g__Acetobacter" in default
     assert "g__CAG-267" in alternative, "the flags did not reach the grounding"
+
+
+def test_domain_rank_resolves(gtdb, mapping):
+    """`Bacteria` and `Archaea` are the roots of GTDB and must ground (#393).
+
+    `HIGHER_RANKS` stopped at phylum, so neither resolved and 72 KB entries
+    recorded "the tool produced no grounding" — which an earlier revision of the
+    status enum reported as "GTDB has no counterpart and never will".
+    """
+    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"bacteria", "archaea"})
+
+    bacteria = gtdb.resolve_higher("bacteria", "NCBITaxon:2", "Bacteria", by_higher)
+    archaea = gtdb.resolve_higher("archaea", "NCBITaxon:2157", "Archaea", by_higher)
+
+    assert bacteria["gtdb_id"] == "GTDB:d__Bacteria"
+    assert archaea["gtdb_id"] == "GTDB:d__Archaea"
+    assert bacteria["majority_fraction"] == 1.0
+    assert bacteria["total_genomes"] > 1_000_000, "expected the whole table behind a domain"
+    assert not bacteria["is_reclassified"], "GTDB and NCBI agree on the name here"
+
+
+def test_a_shallower_rank_cannot_pre_empt_a_deeper_one(gtdb):
+    """Order matters — demonstrated, not restated.
+
+    The first version of this test resolved *Acetobacter* and asserted it landed
+    at `g__`. That passed under every mutant, including deleting domain rank
+    entirely, because no real name occupies two rank columns — so the assertion
+    could not distinguish the ordering working from the hazard being absent
+    (#402 review).
+
+    A synthetic row that carries one name at *both* domain and genus rank does
+    distinguish them: with domain last the genus answers, and only then.
+    """
+    cells = [""] * 20
+    cells[2] = "10"
+    # Bare names: the crosswalk stores them without a rank prefix and `_curie`
+    # adds one. Writing `g__FromGenus` here yields `GTDB:g__g__FromGenus`.
+    cells[4], cells[12] = "Ambiguous", "FromDomain"  # NCBI domain, GTDB domain
+    cells[9], cells[17] = "Ambiguous", "FromGenus"  # NCBI genus, GTDB genus
+    cells[10] = "Ambiguous namedspecies"
+
+    result = gtdb.resolve_higher("ambiguous", "NCBITaxon:1", "Ambiguous", {"ambiguous": [cells]})
+
+    assert (
+        result["gtdb_id"] == "GTDB:g__FromGenus"
+    ), "a shallower rank answered ahead of a deeper one — HIGHER_RANKS is misordered"
+    assert gtdb.HIGHER_RANKS[-1][2] == "d", "domain must remain last"

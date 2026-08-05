@@ -126,23 +126,34 @@ Grounding happens at the **rank of the input**:
 Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
 `gtdb_ground.py --community <file> --apply-status`. Absence of a
 `gtdb_classification` cannot say *why* it is absent, and the reasons are not
-comparable: a missing block implied 389 open items, of which only 9 are
+comparable: a missing block implies 317 open items, of which only 9 are
 unambiguously outstanding work (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 643 | a `gtdb_classification` is present |
-| `UNRESOLVED` | 293 | the tool produced no grounding; **why is not established** |
+| `GROUNDED` | 715 | a `gtdb_classification` is present |
+| `UNRESOLVED` | 221 | the tool produced no grounding; **why is not established** |
 | `AMBIGUOUS` | 85 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender |
 | `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
 | `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
 | `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
 
 `UNRESOLVED` deliberately does not claim finality. Some of it is final (viruses,
-eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits: it
-attempts genus through phylum only, so *Bacteria* never resolves even though
-`d__Bacteria` is the root of GTDB. Reading it as "no GTDB equivalent" is the
-substitution #294 exists to stop.
+eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits, e.g.
+a clade the crosswalk spells differently (NCBI *Sulcia* is `Candidatus
+Karelsulcia`). Reading it as "no GTDB equivalent" is the substitution #294 exists
+to stop; what remains unseparated is #393.
+
+Rank support runs **domain through genus**. Domain was added in #393, which
+moved 72 entries out of `UNRESOLVED`: *Bacteria* and *Archaea* had recorded "no
+grounding produced" for the two roots of GTDB. Domain is tried last so a
+shallower rank can never pre-empt a deeper one — defensive rather than load
+bearing, since no name occupies two rank columns in this crosswalk today.
+
+Those 72 are **10% of all grounded blocks and carry no information beyond the
+NCBITaxon id** — *Bacteria* → `d__Bacteria` is a tautology. Filter on
+`mapping_source`, which records `[grounded at d__ rank]`, before quoting a
+grounding-coverage figure (#403).
 
 `GROUNDED` is redundant with the block's presence on purpose: a consumer should
 read a state, not infer one from whether a field exists. The two must agree, and

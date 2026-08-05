@@ -469,6 +469,11 @@ def test_the_status_distribution_is_what_was_measured():
     An earlier version used only upper/lower bounds so loose that folding
     NOT_ATTEMPTED into UNRESOLVED — the exact confusion this enum exists to
     prevent — passed every assertion. The ratio and the floor are what bite.
+
+    #393 moved 72 domain-rank taxa out of UNRESOLVED: the tool could not reach
+    *Bacteria* or *Archaea* at all, so it recorded "no grounding produced" for
+    the two roots of GTDB. They are grounded now, which is why GROUNDED and
+    UNRESOLVED both moved by 72 while NOT_ATTEMPTED returned to 9.
     """
     from collections import Counter
 
@@ -478,8 +483,8 @@ def test_the_status_distribution_is_what_was_measured():
             for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
                 counts[(entry.get("taxon_term") or {}).get("gtdb_grounding_status")] += 1
 
-    assert counts["GROUNDED"] > 600
-    assert counts["UNRESOLVED"] > 250, "the ungrounded-but-unexplained bucket vanished"
+    assert counts["GROUNDED"] > 700
+    assert counts["UNRESOLVED"] > 180, "the ungrounded-but-unexplained bucket vanished"
     assert counts["AMBIGUOUS"] > 50
     assert counts["WITHHELD"] == 2, "the #292 withholds must still be marked"
     # A floor as well as a ceiling: `< 50` alone is satisfied by zero, so

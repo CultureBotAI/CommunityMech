@@ -195,3 +195,75 @@ def test_the_withhold_does_not_catch_a_sibling_sharing_the_id(gtdb):
             f"'{term.get('preferred_term')}' shares the withheld id and was "
             f"classified {status} — the withhold list is keyed by id again"
         )
+
+
+def test_apply_does_not_reinstate_a_withheld_grounding(gtdb, tmp_path):
+    """The guard #293 closed with a CI pin rather than a tool-level refusal.
+
+    `WITHHELD_GROUNDINGS` was consulted only by `classify_status`, so the
+    documented `gtdb_ground.py --community <file> --apply` still wrote the block:
+    running it over the KB reinstated `NCBITaxon:1236` as
+    `GTDB:c__Gammaproteobacteria`, derived from an id that names a different
+    organism. CI caught it — after the write, in a diff that looked like every
+    other block in the sweep (#402 review).
+
+    The record keeps its real filename because the withhold is keyed on it.
+    """
+    record, preferred = next(iter(gtdb.WITHHELD_GROUNDINGS))
+    source = COMMUNITIES / record
+    destination = tmp_path / record
+    destination.write_text(source.read_text())
+
+    pairs = [
+        (
+            (e["taxon_term"].get("term") or {}).get("id", ""),
+            (e["taxon_term"].get("term") or {}).get("label", ""),
+        )
+        for e in yaml.safe_load(destination.read_text())["taxonomy"]
+    ]
+    cleaned = [gtdb._clean_label(label) for _, label in pairs]
+    try:
+        mapping = gtdb.resolve_kg_microbe_dir(None) / "data/raw/NCBI2GTDB.tsv.gz"
+    except SystemExit:
+        pytest.skip("kg-microbe mapping unavailable")
+    if not mapping.exists():
+        pytest.skip("kg-microbe mapping unavailable")
+    rows = gtdb.collect_rows(
+        mapping,
+        {i.split(":")[1] for i, _ in pairs if i},
+        {c.lower() for c in cleaned if " " in c},
+        {c.lower() for c in cleaned if " " not in c},
+    )
+
+    gtdb.apply_to_community(destination, *rows, "test-source")
+
+    after = yaml.safe_load(destination.read_text())
+    withheld = next(
+        e["taxon_term"]
+        for e in after["taxonomy"]
+        if e["taxon_term"].get("preferred_term") == preferred
+    )
+    assert (
+        "gtdb_classification" not in withheld
+    ), f"--apply reinstated the withheld grounding for {preferred!r}"
+
+
+def test_the_withhold_does_not_block_a_sibling_sharing_the_id(gtdb, tmp_path):
+    """Both withheld records use the offending id correctly elsewhere.
+
+    Keying the guard on the NCBITaxon id would leave those siblings permanently
+    ungroundable — the same collision that mislabelled three groundings in #294.
+    """
+    record = "BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml"
+    doc = yaml.safe_load((COMMUNITIES / record).read_text())
+    siblings = [
+        e["taxon_term"]
+        for e in doc["taxonomy"]
+        if (e["taxon_term"].get("term") or {}).get("id") == "NCBITaxon:821"
+        and e["taxon_term"].get("preferred_term") != "Bacteroides ovatus"
+    ]
+    assert siblings, "expected another entry on NCBITaxon:821"
+    for term in siblings:
+        assert term.get(
+            "gtdb_classification"
+        ), "a correct grounding sharing the withheld id lost its block"
