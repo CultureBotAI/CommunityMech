@@ -161,12 +161,11 @@ def test_the_species_path_reports_the_denominator_but_no_numerator(gtdb, mapping
     result = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
 
     assert result["gtdb_id"] == "GTDB:s__Bacillus_velezensis"
-    # 1166 by either path since #389. The id row still decides the species, but
-    # the denominator is sized from every row the caller could see for this
-    # taxon — so an id-path and a name-path grounding of the same NCBI taxon no
-    # longer disagree. It is the *species-rank* depth: summing that with the
-    # strain rows would double-count genomes inside their own species.
-    assert result["total_genomes"] == 1166, "the widest evidence, at one depth"
+    # 1163: the rows this grounding was resolved from, which on the id path is
+    # the single row carrying taxonID 492670. Widening it to the name group was
+    # tried and reverted — the group is keyed on `term.label`, so a synonym
+    # changed the answer (#404 review).
+    assert result["total_genomes"] == 1163, "the rows the grounding was resolved from"
     assert "support_genomes" not in result, (
         "the species path must publish no numerator — majority_fraction comes "
         "from the crosswalk's 2-decimal column, so any numerator derived from it "
@@ -273,7 +272,7 @@ def test_an_emitted_species_block_omits_the_numerator(gtdb, mapping):
 
     block = gtdb._block(grounding, "test-source")
 
-    assert block["total_genomes"] == 1166
+    assert block["total_genomes"] == 1163
     assert "support_genomes" not in block, (
         "a species block must omit the numerator entirely — writing "
         "`support_genomes: null` puts noise on 336 records and hides from a "
@@ -701,24 +700,22 @@ def test_the_fraction_is_weighted_within_the_winning_depth(gtdb):
     assert fraction == 0.975, "the strain row's 0.1 must not drag the species-depth mean"
 
 
-def test_a_denominator_does_not_depend_on_which_lookup_hit(gtdb, mapping):
-    """The defect: two blocks for one NCBI taxon disagreed by resolution path.
+def test_a_denominator_is_not_a_function_of_the_label(gtdb, mapping):
+    """`term.label` is curator prose; the denominator must not follow it.
 
-    An id-path grounding reported its single crosswalk row and a name-path
-    grounding reported many, so `total_genomes` recorded which lookup happened to
-    hit rather than how much evidence exists. 260 of 337 species blocks took the
-    id path.
+    #389 widened the id path to include every row sharing the label, which made
+    `NCBITaxon:33038` report 2945 genomes as "Mediterraneibacter gnavus" and 311
+    under its NCBI synonym "Ruminococcus gnavus" — a 9.5x swing from a rename.
+    The KB already carries one id under two labels (`NCBITaxon:408`). Reverted;
+    an id is stable, a label is not (#404 review).
     """
-    by_id, by_name, by_higher = gtdb.collect_rows(
-        mapping, {"492670"}, {"bacillus velezensis"}, set()
-    )
+    answers = set()
+    for label in ("Mediterraneibacter gnavus", "Ruminococcus gnavus"):
+        by_id, by_name, by_higher = gtdb.collect_rows(mapping, {"33038"}, {label.lower()}, set())
+        result = gtdb.resolve_target("33038", label, by_id, by_name, by_higher)
+        answers.add((result["total_genomes"], result["majority_fraction"]))
 
-    with_id = gtdb.resolve_target("492670", "Bacillus velezensis", by_id, by_name, by_higher)
-    name_only = gtdb.resolve_target("", "Bacillus velezensis", {}, by_name, by_higher)
-
-    assert (
-        with_id["total_genomes"] == name_only["total_genomes"]
-    ), "the same taxon reports different evidence depending on the lookup path"
+    assert len(answers) == 1, f"the label changed the denominator: {sorted(answers)}"
 
 
 def test_every_kb_taxon_reports_one_denominator(grounded):
