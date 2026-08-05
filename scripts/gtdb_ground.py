@@ -64,14 +64,18 @@ COL_MAJORITY = 3
 COL_NCBI_SPECIES = 10
 COL_NCBI_STRAIN = 11
 COL_GTDB_SPECIES = 18
-# (ncbi_col, gtdb_col, rank_prefix) for higher ranks, finest -> coarsest.
 # (NCBI column, GTDB column, CURIE prefix), deepest first — `resolve_higher`
 # takes the first rank whose NCBI column carries the requested name.
 #
 # Domain was absent until #393, so *Bacteria* and *Archaea* never resolved and
 # 72 KB entries recorded "the tool produced no grounding" for the two taxa that
-# are the roots of GTDB. It is last because it is the shallowest, and it only
-# ever matches the two names.
+# are the roots of GTDB.
+#
+# Domain is last on principle rather than necessity: `resolve_higher` re-filters
+# by each rank's own NCBI column, and no name occupies two rank columns in this
+# crosswalk, so moving it first changes nothing today — I checked all 1032 KB
+# taxa. Ordering is what would keep it correct if that ever stopped holding
+# (#402 review).
 HIGHER_RANKS = [
     (9, 17, "g"),
     (8, 16, "f"),
@@ -677,10 +681,10 @@ def classify_status(
         # UNRESOLVED, never NO_GTDB_EQUIVALENT. This script cannot tell the two
         # apart, and an earlier version asserted the strong one anyway: 57 KB
         # entries read "GTDB has no counterpart and never will" for *Bacteria*,
-        # which is the root of GTDB — `HIGHER_RANKS` stops at phylum, so domain
-        # rank is never attempted. Others failed because the crosswalk spells
-        # the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`) or
-        # because the named-species filter removed their rows.
+        # which is the root of GTDB. That was a gap in `HIGHER_RANKS`, closed in
+        # #393 by adding domain rank. What remains fails for other reasons — the
+        # crosswalk spelling the clade differently (NCBI *Sulcia* is `Candidatus
+        # Karelsulcia`), or the named-species filter removing its rows.
         #
         # Matching NCBI names against the table was tried and does not settle it
         # either — a rename defeats it. Establishing "GTDB will never classify
@@ -780,6 +784,21 @@ def apply_to_community(
         term = tt.get("term", {}) or {}
         tid = str(term.get("id", ""))
         grounded = "gtdb_classification" in tt
+        # A withheld taxon must not be re-grounded. #293 closed this with a CI
+        # pin rather than a guard, so the write still happened and was only
+        # caught afterwards — running the documented `--apply` over the KB
+        # reinstated `NCBITaxon:1236` as c__Gammaproteobacteria, derived from an
+        # id that names a different organism (#402 review). Keyed by
+        # preferred_term because both withheld records use the offending id
+        # correctly elsewhere (#294).
+        if (path.name, tt.get("preferred_term")) in WITHHELD_GROUNDINGS:
+            print(
+                f"[gtdb] skipping withheld {tt.get('preferred_term')!r} in {path.name}: "
+                f"{WITHHELD_GROUNDINGS[(path.name, tt.get('preferred_term'))]}",
+                file=sys.stderr,
+            )
+            wanted.append(None)
+            continue
         if _is_curated(tt) or (path.name, tid) in CURATED_GROUNDINGS:
             # The reason can come from either source, and indexing the list
             # unconditionally raised KeyError whenever the block's own `curated`

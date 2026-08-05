@@ -429,16 +429,29 @@ def test_domain_rank_resolves(gtdb, mapping):
     assert not bacteria["is_reclassified"], "GTDB and NCBI agree on the name here"
 
 
-def test_domain_is_the_shallowest_rank_tried(gtdb, mapping):
-    """Order matters: a genus must never be answered at domain rank.
+def test_a_shallower_rank_cannot_pre_empt_a_deeper_one(gtdb):
+    """Order matters — demonstrated, not restated.
 
-    `resolve_higher` takes the first rank whose NCBI column carries the name, so
-    putting domain anywhere but last would let a shallow match pre-empt a
-    specific one.
+    The first version of this test resolved *Acetobacter* and asserted it landed
+    at `g__`. That passed under every mutant, including deleting domain rank
+    entirely, because no real name occupies two rank columns — so the assertion
+    could not distinguish the ordering working from the hazard being absent
+    (#402 review).
+
+    A synthetic row that carries one name at *both* domain and genus rank does
+    distinguish them: with domain last the genus answers, and only then.
     """
-    assert gtdb.HIGHER_RANKS[-1][2] == "d", "domain must be tried last"
+    cells = [""] * 20
+    cells[2] = "10"
+    # Bare names: the crosswalk stores them without a rank prefix and `_curie`
+    # adds one. Writing `g__FromGenus` here yields `GTDB:g__g__FromGenus`.
+    cells[4], cells[12] = "Ambiguous", "FromDomain"  # NCBI domain, GTDB domain
+    cells[9], cells[17] = "Ambiguous", "FromGenus"  # NCBI genus, GTDB genus
+    cells[10] = "Ambiguous namedspecies"
 
-    _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), {"acetobacter"})
-    result = gtdb.resolve_higher("acetobacter", "NCBITaxon:434", "Acetobacter", by_higher)
+    result = gtdb.resolve_higher("ambiguous", "NCBITaxon:1", "Ambiguous", {"ambiguous": [cells]})
 
-    assert result["gtdb_id"].startswith("GTDB:g__"), "a genus must resolve at genus rank"
+    assert (
+        result["gtdb_id"] == "GTDB:g__FromGenus"
+    ), "a shallower rank answered ahead of a deeper one — HIGHER_RANKS is misordered"
+    assert gtdb.HIGHER_RANKS[-1][2] == "d", "domain must remain last"

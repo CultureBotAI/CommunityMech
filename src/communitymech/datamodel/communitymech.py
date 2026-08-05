@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-04T22:13:52
+# Generation date: 2026-08-05T00:20:05
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2267,9 +2267,10 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never
     classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a
     missing block (#294).
-    Of 1032 taxonomy entries: 647 GROUNDED, 293 UNRESOLVED, 81 AMBIGUOUS, 9 NOT_ATTEMPTED, 2 WITHHELD. Only
-    NOT_ATTEMPTED is unambiguously outstanding work, against the 385 that a missing block implied. How much of
-    UNRESOLVED is final rather than a tool limitation is not yet determined (#393).
+    Only NOT_ATTEMPTED is unambiguously outstanding work — 9 taxa, against the 317 that a missing block implies. How
+    much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in
+    `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the
+    generated datamodel goes stale every time the KB is swept.
     """
 
     GROUNDED = PermissibleValue(
@@ -2278,7 +2279,8 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     )
     UNRESOLVED = PermissibleValue(
         text="UNRESOLVED",
-        description="""`gtdb_ground.py` produced no grounding and the reason is not established. Some of these are final — viruses and eukaryotes, since GTDB is bacteria/archaea only — and some are limitations of the tool: it attempts genus through phylum only, so domain-rank taxa such as *Bacteria* never resolve despite `d__Bacteria` being the root of GTDB; others fail because the crosswalk spells the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`) or because the named-species filter removed their rows. Separating the two needs an NCBI lineage source the script does not have (#393).""",
+        description="""`gtdb_ground.py` produced no grounding and the reason is not established. Some of these are final — viruses and eukaryotes, since GTDB is bacteria/archaea only — and some are limitations of the tool: the crosswalk may spell the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`), or the named-species filter may have removed its rows. Separating the two needs an NCBI lineage source the script does not have (#393).
+Rank support runs domain through genus. Domain was added in #393, which moved 72 entries out of this bucket: *Bacteria* and *Archaea* had recorded \"no grounding produced\" for the two roots of GTDB.""",
     )
     NO_GTDB_EQUIVALENT = PermissibleValue(
         text="NO_GTDB_EQUIVALENT",
@@ -2300,7 +2302,7 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="GtdbGroundingStatusEnum",
         description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294).
-Of 1032 taxonomy entries: 647 GROUNDED, 293 UNRESOLVED, 81 AMBIGUOUS, 9 NOT_ATTEMPTED, 2 WITHHELD. Only NOT_ATTEMPTED is unambiguously outstanding work, against the 385 that a missing block implied. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393).""",
+Only NOT_ATTEMPTED is unambiguously outstanding work — 9 taxa, against the 317 that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the generated datamodel goes stale every time the KB is swept.""",
     )
 
 

@@ -126,7 +126,7 @@ Grounding happens at the **rank of the input**:
 Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
 `gtdb_ground.py --community <file> --apply-status`. Absence of a
 `gtdb_classification` cannot say *why* it is absent, and the reasons are not
-comparable: a missing block implied 389 open items, of which only 9 are
+comparable: a missing block implies 317 open items, of which only 9 are
 unambiguously outstanding work (#276).
 
 | status | count | meaning |
@@ -146,8 +146,14 @@ to stop; what remains unseparated is #393.
 
 Rank support runs **domain through genus**. Domain was added in #393, which
 moved 72 entries out of `UNRESOLVED`: *Bacteria* and *Archaea* had recorded "no
-grounding produced" for the two roots of GTDB. Domain is tried last, so a genus
-is never answered at a shallower rank.
+grounding produced" for the two roots of GTDB. Domain is tried last so a
+shallower rank can never pre-empt a deeper one — defensive rather than load
+bearing, since no name occupies two rank columns in this crosswalk today.
+
+Those 72 are **10% of all grounded blocks and carry no information beyond the
+NCBITaxon id** — *Bacteria* → `d__Bacteria` is a tautology. Filter on
+`mapping_source`, which records `[grounded at d__ rank]`, before quoting a
+grounding-coverage figure (#403).
 
 `GROUNDED` is redundant with the block's presence on purpose: a consumer should
 read a state, not infer one from whether a field exists. The two must agree, and
