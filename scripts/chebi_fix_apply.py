@@ -10,6 +10,7 @@ so the id and label are guaranteed consistent after the fix.
 
 Usage: uv run python scripts/chebi_fix_apply.py [--dry-run]
 """
+
 import re
 import subprocess
 import sys
@@ -154,8 +155,11 @@ RELABEL = {
 
 # Resolve canonical labels for every id we will write
 need_ids = sorted({nid for nid in REPOINT.values()} | {oid for (oid, _l) in RELABEL})
-proc = subprocess.run(["uv", "run", "runoak", "-i", "sqlite:obo:chebi", "info", *need_ids],
-                      capture_output=True, text=True)
+proc = subprocess.run(
+    ["uv", "run", "runoak", "-i", "sqlite:obo:chebi", "info", *need_ids],
+    capture_output=True,
+    text=True,
+)
 canon = {}
 for line in proc.stdout.splitlines():
     m = re.match(r"^(CHEBI:\d+)\s*!\s*(.*)$", line.strip())
@@ -188,12 +192,14 @@ for f in sorted(COMM.glob("*.yaml")):
                     nlbl = canon[nid]
                     out[i] = f"{indent}id: {nid}\n"
                     out[i + 1] = f"{lm.group(1)}label: {nlbl}\n"
-                    changes += 1; files_touched.add(f.name)
+                    changes += 1
+                    files_touched.add(f.name)
                     per_pair[key] = per_pair.get(key, 0) + 1
                 elif key in RELABEL:
                     nlbl = canon[oid]
                     out[i + 1] = f"{lm.group(1)}label: {nlbl}\n"
-                    changes += 1; files_touched.add(f.name)
+                    changes += 1
+                    files_touched.add(f.name)
                     per_pair[key] = per_pair.get(key, 0) + 1
         i += 1
     if not DRY:

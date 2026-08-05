@@ -30,15 +30,15 @@ from communitymech.validation.write_validated import (
 
 # Known PMC → PMID conversions from special_references_report.txt
 PMC_TO_PMID = {
-    'PMC3694112': 'PMID:23840525',
-    'PMC9666448': 'PMID:36123522',
-    'PMC3911102': 'PMID:24242252',
-    'PMC9275249': 'PMID:35708325',
-    'PMC10785750': 'PMID:38150661',
-    'PMC10746061': 'PMID:38138568',
-    'PMC11678928': 'PMID:39770610',
-    'PMC6637823': 'PMID:31354691',
-    'PMC4187173': 'PMID:25369810',
+    "PMC3694112": "PMID:23840525",
+    "PMC9666448": "PMID:36123522",
+    "PMC3911102": "PMID:24242252",
+    "PMC9275249": "PMID:35708325",
+    "PMC10785750": "PMID:38150661",
+    "PMC10746061": "PMID:38138568",
+    "PMC11678928": "PMID:39770610",
+    "PMC6637823": "PMID:31354691",
+    "PMC4187173": "PMID:25369810",
 }
 
 
@@ -51,77 +51,77 @@ def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> dict:
     changes = []
 
     # Process taxonomy
-    if 'taxonomy' in data:
-        for taxon_entry in data['taxonomy']:
-            if 'evidence' not in taxon_entry:
+    if "taxonomy" in data:
+        for taxon_entry in data["taxonomy"]:
+            if "evidence" not in taxon_entry:
                 continue
 
-            for ev in taxon_entry['evidence']:
-                ref = ev.get('reference', '')
+            for ev in taxon_entry["evidence"]:
+                ref = ev.get("reference", "")
 
                 # Check for PMC-only format
-                if ref.startswith('PMID:PMC'):
-                    pmc_id = ref.replace('PMID:', '')
+                if ref.startswith("PMID:PMC"):
+                    pmc_id = ref.replace("PMID:", "")
                     if pmc_id in PMC_TO_PMID:
                         old_ref = ref
                         new_ref = PMC_TO_PMID[pmc_id]
-                        ev['reference'] = new_ref
-                        changes.append((old_ref, new_ref, 'taxonomy'))
+                        ev["reference"] = new_ref
+                        changes.append((old_ref, new_ref, "taxonomy"))
                 elif ref in PMC_TO_PMID:
                     # PMC without PMID: prefix
                     old_ref = ref
                     new_ref = PMC_TO_PMID[ref]
-                    ev['reference'] = new_ref
-                    changes.append((old_ref, new_ref, 'taxonomy'))
+                    ev["reference"] = new_ref
+                    changes.append((old_ref, new_ref, "taxonomy"))
 
     # Process interactions
-    if 'ecological_interactions' in data:
-        for interaction in data['ecological_interactions']:
-            if 'evidence' not in interaction:
+    if "ecological_interactions" in data:
+        for interaction in data["ecological_interactions"]:
+            if "evidence" not in interaction:
                 continue
 
-            for ev in interaction['evidence']:
-                ref = ev.get('reference', '')
+            for ev in interaction["evidence"]:
+                ref = ev.get("reference", "")
 
-                if ref.startswith('PMID:PMC'):
-                    pmc_id = ref.replace('PMID:', '')
+                if ref.startswith("PMID:PMC"):
+                    pmc_id = ref.replace("PMID:", "")
                     if pmc_id in PMC_TO_PMID:
                         old_ref = ref
                         new_ref = PMC_TO_PMID[pmc_id]
-                        ev['reference'] = new_ref
-                        changes.append((old_ref, new_ref, 'interaction'))
+                        ev["reference"] = new_ref
+                        changes.append((old_ref, new_ref, "interaction"))
                 elif ref in PMC_TO_PMID:
                     old_ref = ref
                     new_ref = PMC_TO_PMID[ref]
-                    ev['reference'] = new_ref
-                    changes.append((old_ref, new_ref, 'interaction'))
+                    ev["reference"] = new_ref
+                    changes.append((old_ref, new_ref, "interaction"))
 
     # Process environmental
-    if 'environmental_factors' in data:
-        for factor in data['environmental_factors']:
-            if 'evidence' not in factor:
+    if "environmental_factors" in data:
+        for factor in data["environmental_factors"]:
+            if "evidence" not in factor:
                 continue
 
-            for ev in factor['evidence']:
-                ref = ev.get('reference', '')
+            for ev in factor["evidence"]:
+                ref = ev.get("reference", "")
 
-                if ref.startswith('PMID:PMC'):
-                    pmc_id = ref.replace('PMID:', '')
+                if ref.startswith("PMID:PMC"):
+                    pmc_id = ref.replace("PMID:", "")
                     if pmc_id in PMC_TO_PMID:
                         old_ref = ref
                         new_ref = PMC_TO_PMID[pmc_id]
-                        ev['reference'] = new_ref
-                        changes.append((old_ref, new_ref, 'environmental'))
+                        ev["reference"] = new_ref
+                        changes.append((old_ref, new_ref, "environmental"))
                 elif ref in PMC_TO_PMID:
                     old_ref = ref
                     new_ref = PMC_TO_PMID[ref]
-                    ev['reference'] = new_ref
-                    changes.append((old_ref, new_ref, 'environmental'))
+                    ev["reference"] = new_ref
+                    changes.append((old_ref, new_ref, "environmental"))
 
     # Write back if changes and not dry run
     if changes and not dry_run:
         # Backup
-        backup_path = yaml_path.with_suffix('.yaml.bak_pmc')
+        backup_path = yaml_path.with_suffix(".yaml.bak_pmc")
         yaml_path.rename(backup_path)
 
         # Record curation event before writing
@@ -149,22 +149,18 @@ def apply_pmc_conversions(yaml_path: Path, dry_run: bool = True) -> dict:
                 file=sys.stderr,
             )
 
-    return {
-        'file': yaml_path.name,
-        'changes': changes,
-        'count': len(changes)
-    }
+    return {"file": yaml_path.name, "changes": changes, "count": len(changes)}
 
 
 def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Apply PMC→PMID conversions")
-    parser.add_argument('--apply', action='store_true', help="Apply changes (default: dry run)")
+    parser.add_argument("--apply", action="store_true", help="Apply changes (default: dry run)")
     args = parser.parse_args()
 
-    kb_dir = Path('kb/communities')
-    yaml_files = sorted(kb_dir.glob('*.yaml'))
+    kb_dir = Path("kb/communities")
+    yaml_files = sorted(kb_dir.glob("*.yaml"))
 
     print("PMC→PMID Conversion Tool")
     print("=" * 80)
@@ -178,14 +174,14 @@ def main():
     for yaml_path in yaml_files:
         result = apply_pmc_conversions(yaml_path, dry_run=not args.apply)
 
-        if result['count'] > 0:
+        if result["count"] > 0:
             all_results.append(result)
-            total_changes += result['count']
+            total_changes += result["count"]
 
             print(f"{result['file']}: {result['count']} conversions")
-            for old, new, context in result['changes'][:3]:
+            for old, new, context in result["changes"][:3]:
                 print(f"  {old} → {new} ({context})")
-            if result['count'] > 3:
+            if result["count"] > 3:
                 print(f"  ... and {result['count']-3} more")
             print()
 
@@ -203,5 +199,5 @@ def main():
         print("Next: Re-run curation audit to measure improvement")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

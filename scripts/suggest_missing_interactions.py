@@ -9,11 +9,9 @@ to the network based on their:
 - Existing interactions in the community
 """
 
-import yaml
 from pathlib import Path
-from collections import defaultdict
-from typing import Dict, List, Set, Tuple
 
+import yaml
 
 # Interaction templates based on functional role pairs
 INTERACTION_TEMPLATES = {
@@ -48,7 +46,9 @@ class InteractionSuggester:
         """Generate interaction suggestions for all communities."""
         yaml_files = sorted(self.communities_dir.glob("*.yaml"))
 
-        print(f"\n💡 Suggesting interactions for disconnected taxa in {len(yaml_files)} communities...\n")
+        print(
+            f"\n💡 Suggesting interactions for disconnected taxa in {len(yaml_files)} communities...\n"
+        )
 
         communities_with_suggestions = 0
         total_suggestions = 0
@@ -61,12 +61,12 @@ class InteractionSuggester:
                 self.print_suggestions(yaml_file.stem, suggestions)
 
         print(f"\n{'='*80}")
-        print(f"Summary:")
+        print("Summary:")
         print(f"  Communities with suggestions: {communities_with_suggestions}")
         print(f"  Total interaction suggestions: {total_suggestions}")
         print(f"{'='*80}\n")
 
-    def suggest_for_community(self, yaml_path: Path) -> List[Dict]:
+    def suggest_for_community(self, yaml_path: Path) -> list[dict]:
         """Suggest interactions for disconnected taxa in a community."""
         with open(yaml_path) as f:
             data = yaml.safe_load(f)
@@ -132,7 +132,9 @@ class InteractionSuggester:
                         template_key = (disc_role, conn_role)
                         reverse_key = (conn_role, disc_role)
 
-                        template = INTERACTION_TEMPLATES.get(template_key) or INTERACTION_TEMPLATES.get(reverse_key)
+                        template = INTERACTION_TEMPLATES.get(
+                            template_key
+                        ) or INTERACTION_TEMPLATES.get(reverse_key)
 
                         if template:
                             # Generate suggestion
@@ -154,25 +156,28 @@ class InteractionSuggester:
             if not any(s["disconnected_taxon"] == disc_taxon for s in suggestions):
                 # Connect to most abundant taxon
                 abundant_taxa = [
-                    (t, info) for t, info in taxonomy_info.items()
+                    (t, info)
+                    for t, info in taxonomy_info.items()
                     if t in connected_taxa and info.get("abundance") == "DOMINANT"
                 ]
 
                 if abundant_taxa:
                     partner = abundant_taxa[0][0]
-                    suggestions.append({
-                        "disconnected_taxon": disc_taxon,
-                        "partner_taxon": partner,
-                        "interaction_type": "CROSS_FEEDING",
-                        "source_role": "UNKNOWN",
-                        "target_role": "UNKNOWN",
-                        "confidence": "low",
-                        "rationale": f"Connecting to dominant community member {partner}",
-                    })
+                    suggestions.append(
+                        {
+                            "disconnected_taxon": disc_taxon,
+                            "partner_taxon": partner,
+                            "interaction_type": "CROSS_FEEDING",
+                            "source_role": "UNKNOWN",
+                            "target_role": "UNKNOWN",
+                            "confidence": "low",
+                            "rationale": f"Connecting to dominant community member {partner}",
+                        }
+                    )
 
         return suggestions
 
-    def print_suggestions(self, community_name: str, suggestions: List[Dict]):
+    def print_suggestions(self, community_name: str, suggestions: list[dict]):
         """Print interaction suggestions for a community."""
         print(f"\n{'─'*80}")
         print(f"💡 {community_name}")

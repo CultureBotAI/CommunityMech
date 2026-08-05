@@ -10,6 +10,7 @@ canonical label, so id+label stay consistent.
 
 Usage: uv run python scripts/term_fix_apply.py [--dry-run]
 """
+
 import re
 import subprocess
 import sys
@@ -25,18 +26,42 @@ PREFIX = "NCBITaxon"
 # (/Users/marcin/.../kg-microbe/data/transformed/ontologies/ncbitaxon_nodes.tsv),
 # then verified to exist in OAK's current sqlite:obo:ncbitaxon adapter.
 REPOINT = {
-    ("NCBITaxon:1379270", "Candidatus Nitrosotalea devanaterra"): "NCBITaxon:1078905",  # → Nitrosotalea devaniterrae (spelling correction)
-    ("NCBITaxon:1380867", "Kazachstania exigua"): "NCBITaxon:34358",                    # → Maudiozyma exigua (genus rename)
-    ("NCBITaxon:1655434", "Asgard group"): "NCBITaxon:1935183",                          # → Promethearchaeati (phylum rename)
-    ("NCBITaxon:1798711", "Dormibacterota"): "NCBITaxon:2052312",                        # → Candidatus Dormiibacterota
-    ("NCBITaxon:1930587", "Eisenbacteria"): "NCBITaxon:1817801",                         # → Candidatus Eiseniibacteriota
-    ("NCBITaxon:1934217", "DPANN group"): "NCBITaxon:1783276",                           # → Nanobdellati
-    ("NCBITaxon:194708",  "Ochrobactrum intermedium"): "NCBITaxon:94625",                # → Brucella intermedia (genus rename)
-    ("NCBITaxon:221109",  "Ochrobactrum pituitosum"): "NCBITaxon:571256",                # → Brucella pituitosa (genus rename)
-    ("NCBITaxon:2426",    "Syntrophus"): "NCBITaxon:43773",                              # → Syntrophus <bacteria> (id 2426 now points to Teredinibacter)
-    ("NCBITaxon:283683",  "Clostridium straminisolvens"): "NCBITaxon:253314",            # → Acetivibrio straminisolvens (genus rename)
-    ("NCBITaxon:445709",  "candidate division OP3"): "NCBITaxon:67812",                  # → Candidatus Omnitrophota
-    ("NCBITaxon:655028",  "Rhizobium pusense"): "NCBITaxon:648995",                      # → Agrobacterium pusense (genus rename)
+    (
+        "NCBITaxon:1379270",
+        "Candidatus Nitrosotalea devanaterra",
+    ): "NCBITaxon:1078905",  # → Nitrosotalea devaniterrae (spelling correction)
+    (
+        "NCBITaxon:1380867",
+        "Kazachstania exigua",
+    ): "NCBITaxon:34358",  # → Maudiozyma exigua (genus rename)
+    (
+        "NCBITaxon:1655434",
+        "Asgard group",
+    ): "NCBITaxon:1935183",  # → Promethearchaeati (phylum rename)
+    ("NCBITaxon:1798711", "Dormibacterota"): "NCBITaxon:2052312",  # → Candidatus Dormiibacterota
+    ("NCBITaxon:1930587", "Eisenbacteria"): "NCBITaxon:1817801",  # → Candidatus Eiseniibacteriota
+    ("NCBITaxon:1934217", "DPANN group"): "NCBITaxon:1783276",  # → Nanobdellati
+    (
+        "NCBITaxon:194708",
+        "Ochrobactrum intermedium",
+    ): "NCBITaxon:94625",  # → Brucella intermedia (genus rename)
+    (
+        "NCBITaxon:221109",
+        "Ochrobactrum pituitosum",
+    ): "NCBITaxon:571256",  # → Brucella pituitosa (genus rename)
+    (
+        "NCBITaxon:2426",
+        "Syntrophus",
+    ): "NCBITaxon:43773",  # → Syntrophus <bacteria> (id 2426 now points to Teredinibacter)
+    (
+        "NCBITaxon:283683",
+        "Clostridium straminisolvens",
+    ): "NCBITaxon:253314",  # → Acetivibrio straminisolvens (genus rename)
+    ("NCBITaxon:445709", "candidate division OP3"): "NCBITaxon:67812",  # → Candidatus Omnitrophota
+    (
+        "NCBITaxon:655028",
+        "Rhizobium pusense",
+    ): "NCBITaxon:648995",  # → Agrobacterium pusense (genus rename)
 }
 
 # (old_id, old_label) where the id is correct/current; relabel to OAK canonical.
@@ -53,8 +78,9 @@ ID_RE = re.compile(rf"^(\s*)id:\s*({PREFIX}:\d+)\s*$")
 LBL_RE = re.compile(r"^(\s*)label:\s*(.+?)\s*$")
 
 need_ids = sorted({n for n in REPOINT.values()} | {o for (o, _l) in RELABEL})
-proc = subprocess.run(["uv", "run", "runoak", "-i", ADAPTER, "info", *need_ids],
-                      capture_output=True, text=True)
+proc = subprocess.run(
+    ["uv", "run", "runoak", "-i", ADAPTER, "info", *need_ids], capture_output=True, text=True
+)
 canon = {}
 for line in proc.stdout.splitlines():
     m = re.match(rf"^({PREFIX}:\d+)\s*!\s*(.*)$", line.strip())
@@ -84,10 +110,14 @@ for f in sorted(COMM.glob("*.yaml")):
             nid = REPOINT[key]
             out[i] = f"{indent}id: {nid}\n"
             out[i + 1] = f"{lm.group(1)}label: {canon[nid]}\n"
-            changes += 1; files_touched.add(f.name); per_pair[key] = per_pair.get(key, 0) + 1
+            changes += 1
+            files_touched.add(f.name)
+            per_pair[key] = per_pair.get(key, 0) + 1
         elif key in RELABEL:
             out[i + 1] = f"{lm.group(1)}label: {canon[oid]}\n"
-            changes += 1; files_touched.add(f.name); per_pair[key] = per_pair.get(key, 0) + 1
+            changes += 1
+            files_touched.add(f.name)
+            per_pair[key] = per_pair.get(key, 0) + 1
     if not DRY:
         f.write_text("".join(out))
 

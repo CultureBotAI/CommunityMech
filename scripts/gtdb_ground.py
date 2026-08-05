@@ -375,8 +375,11 @@ def named_species_only(matched: list) -> list:
     at 4 genomes as at 4000, which is #383. See reports/gtdb_denominators.tsv for
     the current scenario counts rather than a number quoted here, which rots.
     """
-    return [r for r in matched if r[COL_NCBI_SPECIES].strip()
-            and not UNNAMED_SPECIES.search(r[COL_NCBI_SPECIES].strip())]
+    return [
+        r
+        for r in matched
+        if r[COL_NCBI_SPECIES].strip() and not UNNAMED_SPECIES.search(r[COL_NCBI_SPECIES].strip())
+    ]
 
 
 def deepest_only(matched: list) -> list:
@@ -424,8 +427,9 @@ def deepest_only(matched: list) -> list:
     return kept
 
 
-def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate",
-                   exclude_unnamed=True):
+def resolve_higher(
+    clean_lc, source_id, label, by_higher, denominator="aggregate", exclude_unnamed=True
+):
     """Ground a genus/family/... input to the majority GTDB taxon at that rank.
 
     `denominator` selects how genome support is summed: "aggregate" (the default)
@@ -525,8 +529,9 @@ def resolve_higher(clean_lc, source_id, label, by_higher, denominator="aggregate
     return None
 
 
-def resolve_target(ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate",
-                   exclude_unnamed=True):
+def resolve_target(
+    ncbi_id, label, by_id, by_name, by_higher, denominator="aggregate", exclude_unnamed=True
+):
     """Species: id then name (split-aware). Genus/higher: majority GTDB rank taxon.
 
     `denominator` reaches `resolve_higher` only — the species paths resolve
@@ -1282,7 +1287,9 @@ def _assert_only_grounding_changed(
     # the block and delete the evidence it was ever curated (#397 review).
     def _pins(doc):
         return {
-            i: ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curation_note")
+            i: ((e or {}).get("taxon_term") or {})
+            .get("gtdb_classification", {})
+            .get("curation_note")
             for i, e in enumerate(doc.get("taxonomy") or [])
             if isinstance(((e or {}).get("taxon_term") or {}).get("gtdb_classification"), dict)
             and ((e or {}).get("taxon_term") or {}).get("gtdb_classification", {}).get("curated")

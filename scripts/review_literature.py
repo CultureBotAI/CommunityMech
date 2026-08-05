@@ -19,13 +19,13 @@ Usage:
     python scripts/review_literature.py --update         # Auto-update valid evidence
 """
 
-import yaml
+import argparse
 import sys
-from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Set
 from collections import defaultdict
 from dataclasses import dataclass, field
-import argparse
+from pathlib import Path
+
+import yaml
 
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
@@ -35,126 +35,130 @@ from communitymech.literature_enhanced import EnhancedLiteratureFetcher
 # Repo-anchored: a relative default follows the cwd (#407).
 _REPORTS = Path(__file__).resolve().parent.parent / "reports"
 
+
 # Color codes
 class Colors:
-    HEADER = '\033[95m'
-    BLUE = '\033[94m'
-    CYAN = '\033[96m'
-    GREEN = '\033[92m'
-    YELLOW = '\033[93m'
-    RED = '\033[91m'
-    BOLD = '\033[1m'
-    RESET = '\033[0m'
+    HEADER = "\033[95m"
+    BLUE = "\033[94m"
+    CYAN = "\033[96m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
 
 
 @dataclass
 class EvidenceItem:
     """Represents a single evidence item from YAML"""
+
     file: str
     context: str  # taxonomy/interaction/environmental_factor
-    organism: Optional[str]
+    organism: str | None
     reference: str
-    snippet: Optional[str]
+    snippet: str | None
     supports: str
-    evidence_source: Optional[str]
-    explanation: Optional[str]
+    evidence_source: str | None
+    explanation: str | None
 
 
 @dataclass
 class ValidationResult:
     """Results of validating an evidence item"""
+
     evidence: EvidenceItem
     abstract_fetched: bool = False
-    abstract_text: Optional[str] = None
+    abstract_text: str | None = None
     snippet_valid: bool = False
     pdf_available: bool = False
-    pdf_url: Optional[str] = None
-    pdf_source: Optional[str] = None
-    issues: List[str] = field(default_factory=list)
-    suggestions: List[str] = field(default_factory=list)
+    pdf_url: str | None = None
+    pdf_source: str | None = None
+    issues: list[str] = field(default_factory=list)
+    suggestions: list[str] = field(default_factory=list)
 
 
 class LiteratureReviewer:
     """Reviews and validates literature evidence in community YAMLs"""
 
-    def __init__(
-        self,
-        kb_dir: Path,
-        download_pdfs: bool = False,
-        use_fallback: bool = True
-    ):
+    def __init__(self, kb_dir: Path, download_pdfs: bool = False, use_fallback: bool = True):
         self.kb_dir = kb_dir
         self.download_pdfs = download_pdfs
         self.fetcher = EnhancedLiteratureFetcher(
             cache_dir=".literature_cache",
             pdf_cache_dir=".pdf_cache",
             email="noreply@communitymech.org",
-            use_fallback_pdf=use_fallback
+            use_fallback_pdf=use_fallback,
         )
         self.stats = defaultdict(int)
-        self.evidence_items: List[EvidenceItem] = []
-        self.validation_results: List[ValidationResult] = []
+        self.evidence_items: list[EvidenceItem] = []
+        self.validation_results: list[ValidationResult] = []
 
-    def extract_evidence_from_yaml(self, yaml_path: Path) -> List[EvidenceItem]:
+    def extract_evidence_from_yaml(self, yaml_path: Path) -> list[EvidenceItem]:
         """Extract all evidence items from a YAML file"""
-        with open(yaml_path, 'r') as f:
+        with open(yaml_path) as f:
             data = yaml.safe_load(f)
 
         evidence_items = []
 
         # Extract from taxonomy
-        if 'taxonomy' in data:
-            for taxon_entry in data['taxonomy']:
-                organism = taxon_entry.get('taxon_term', {}).get('preferred_term', 'Unknown')
+        if "taxonomy" in data:
+            for taxon_entry in data["taxonomy"]:
+                organism = taxon_entry.get("taxon_term", {}).get("preferred_term", "Unknown")
 
-                if 'evidence' in taxon_entry:
-                    for ev in taxon_entry['evidence']:
-                        evidence_items.append(EvidenceItem(
-                            file=yaml_path.name,
-                            context='taxonomy',
-                            organism=organism,
-                            reference=ev.get('reference', ''),
-                            snippet=ev.get('snippet'),
-                            supports=ev.get('supports', ''),
-                            evidence_source=ev.get('evidence_source'),
-                            explanation=ev.get('explanation')
-                        ))
+                if "evidence" in taxon_entry:
+                    for ev in taxon_entry["evidence"]:
+                        evidence_items.append(
+                            EvidenceItem(
+                                file=yaml_path.name,
+                                context="taxonomy",
+                                organism=organism,
+                                reference=ev.get("reference", ""),
+                                snippet=ev.get("snippet"),
+                                supports=ev.get("supports", ""),
+                                evidence_source=ev.get("evidence_source"),
+                                explanation=ev.get("explanation"),
+                            )
+                        )
 
         # Extract from ecological_interactions
-        if 'ecological_interactions' in data:
-            for interaction in data['ecological_interactions']:
-                interaction_name = interaction.get('name', 'Unknown')
+        if "ecological_interactions" in data:
+            for interaction in data["ecological_interactions"]:
+                interaction_name = interaction.get("name", "Unknown")
 
-                if 'evidence' in interaction:
-                    for ev in interaction['evidence']:
-                        evidence_items.append(EvidenceItem(
-                            file=yaml_path.name,
-                            context='interaction',
-                            organism=interaction_name,
-                            reference=ev.get('reference', ''),
-                            snippet=ev.get('snippet'),
-                            supports=ev.get('supports', ''),
-                            evidence_source=ev.get('evidence_source'),
-                            explanation=ev.get('explanation')
-                        ))
+                if "evidence" in interaction:
+                    for ev in interaction["evidence"]:
+                        evidence_items.append(
+                            EvidenceItem(
+                                file=yaml_path.name,
+                                context="interaction",
+                                organism=interaction_name,
+                                reference=ev.get("reference", ""),
+                                snippet=ev.get("snippet"),
+                                supports=ev.get("supports", ""),
+                                evidence_source=ev.get("evidence_source"),
+                                explanation=ev.get("explanation"),
+                            )
+                        )
 
         # Extract from environmental_factors
-        if 'environmental_factors' in data:
-            for factor in data['environmental_factors']:
-                factor_name = factor.get('name', 'Unknown')
+        if "environmental_factors" in data:
+            for factor in data["environmental_factors"]:
+                factor_name = factor.get("name", "Unknown")
 
-                if 'evidence' in factor:
-                    for ev in factor['evidence']:
-                        evidence_items.append(EvidenceItem(
-                            file=yaml_path.name,
-                            context='environmental',
-                            organism=factor_name,
-                            reference=ev.get('reference', ''),
-                            snippet=ev.get('snippet'),
-                            supports=ev.get('supports', ''),
-                            evidence_source=ev.get('evidence_source'),
-                            explanation=ev.get('explanation')
-                        ))
+                if "evidence" in factor:
+                    for ev in factor["evidence"]:
+                        evidence_items.append(
+                            EvidenceItem(
+                                file=yaml_path.name,
+                                context="environmental",
+                                organism=factor_name,
+                                reference=ev.get("reference", ""),
+                                snippet=ev.get("snippet"),
+                                supports=ev.get("supports", ""),
+                                evidence_source=ev.get("evidence_source"),
+                                explanation=ev.get("explanation"),
+                            )
+                        )
 
         return evidence_items
 
@@ -162,14 +166,16 @@ class LiteratureReviewer:
         """Scan all community YAML files for evidence"""
         print(f"{Colors.CYAN}Scanning community YAML files...{Colors.RESET}\n")
 
-        yaml_files = sorted(self.kb_dir.glob('*.yaml'))
+        yaml_files = sorted(self.kb_dir.glob("*.yaml"))
 
         for yaml_path in yaml_files:
             evidence = self.extract_evidence_from_yaml(yaml_path)
             self.evidence_items.extend(evidence)
 
             if evidence:
-                print(f"  {Colors.GREEN}✓{Colors.RESET} {yaml_path.name}: {len(evidence)} evidence items")
+                print(
+                    f"  {Colors.GREEN}✓{Colors.RESET} {yaml_path.name}: {len(evidence)} evidence items"
+                )
 
         print(f"\n{Colors.BOLD}Total evidence items: {len(self.evidence_items)}{Colors.RESET}\n")
 
@@ -178,44 +184,40 @@ class LiteratureReviewer:
         result = ValidationResult(evidence=evidence)
 
         # Fetch paper
-        paper = self.fetcher.fetch_paper(
-            evidence.reference,
-            download_pdf=self.download_pdfs
-        )
+        paper = self.fetcher.fetch_paper(evidence.reference, download_pdf=self.download_pdfs)
 
         # Check if abstract was fetched
         if paper["abstract"]:
             result.abstract_fetched = True
             result.abstract_text = paper["abstract"]
-            self.stats['abstracts_fetched'] += 1
+            self.stats["abstracts_fetched"] += 1
 
             # Validate snippet against abstract
             if evidence.snippet:
                 is_valid = self.fetcher.validate_evidence_snippet(
-                    evidence.snippet,
-                    paper["abstract"]
+                    evidence.snippet, paper["abstract"]
                 )
                 result.snippet_valid = is_valid
 
                 if is_valid:
-                    self.stats['snippets_valid'] += 1
+                    self.stats["snippets_valid"] += 1
                 else:
                     result.issues.append("Snippet not found in abstract")
-                    self.stats['snippets_invalid'] += 1
+                    self.stats["snippets_invalid"] += 1
             else:
                 result.issues.append("No snippet provided")
-                self.stats['missing_snippets'] += 1
+                self.stats["missing_snippets"] += 1
 
         else:
             result.issues.append("Could not fetch abstract")
-            self.stats['abstracts_failed'] += 1
+            self.stats["abstracts_failed"] += 1
 
         # Check PDF availability
         if paper["pdf_url"]:
             result.pdf_available = True
             result.pdf_url = paper["pdf_url"]
             result.pdf_source = paper["source"]
-            self.stats['pdfs_available'] += 1
+            self.stats["pdfs_available"] += 1
 
         # Generate suggestions
         if not evidence.snippet and result.abstract_text:
@@ -248,7 +250,7 @@ class LiteratureReviewer:
         """Generate comprehensive literature quality report"""
         print(f"{Colors.CYAN}Generating literature quality report...{Colors.RESET}")
 
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write("=" * 80 + "\n")
             f.write("COMMUNITYMECH LITERATURE QUALITY REPORT\n")
             f.write("=" * 80 + "\n\n")
@@ -266,9 +268,17 @@ class LiteratureReviewer:
 
             # Calculate quality metrics
             if len(self.evidence_items) > 0:
-                abstract_rate = (self.stats['abstracts_fetched'] / len(self.evidence_items)) * 100
-                snippet_rate = (self.stats['snippets_valid'] / (self.stats['snippets_valid'] + self.stats['snippets_invalid'])) * 100 if (self.stats['snippets_valid'] + self.stats['snippets_invalid']) > 0 else 0
-                pdf_rate = (self.stats['pdfs_available'] / len(self.evidence_items)) * 100
+                abstract_rate = (self.stats["abstracts_fetched"] / len(self.evidence_items)) * 100
+                snippet_rate = (
+                    (
+                        self.stats["snippets_valid"]
+                        / (self.stats["snippets_valid"] + self.stats["snippets_invalid"])
+                    )
+                    * 100
+                    if (self.stats["snippets_valid"] + self.stats["snippets_invalid"]) > 0
+                    else 0
+                )
+                pdf_rate = (self.stats["pdfs_available"] / len(self.evidence_items)) * 100
 
                 f.write("QUALITY METRICS\n")
                 f.write("-" * 80 + "\n\n")
@@ -296,17 +306,17 @@ class LiteratureReviewer:
                     if result.evidence.organism:
                         f.write(f"Organism/Factor: {result.evidence.organism}\n")
 
-                    f.write(f"Issues:\n")
+                    f.write("Issues:\n")
                     for issue in result.issues:
                         f.write(f"  - {issue}\n")
 
                     if result.suggestions:
-                        f.write(f"Suggestions:\n")
+                        f.write("Suggestions:\n")
                         for suggestion in result.suggestions:
                             f.write(f"  - {suggestion}\n")
 
                     if result.snippet_valid:
-                        f.write(f"  ✓ Snippet valid\n")
+                        f.write("  ✓ Snippet valid\n")
 
                     if result.pdf_available:
                         f.write(f"  ✓ PDF available: {result.pdf_url}\n")
@@ -335,11 +345,11 @@ class LiteratureReviewer:
                     ref = result.evidence.reference
                     if ref not in pdf_refs:
                         pdf_refs[ref] = {
-                            'url': result.pdf_url,
-                            'source': result.pdf_source,
-                            'files': []
+                            "url": result.pdf_url,
+                            "source": result.pdf_source,
+                            "files": [],
                         }
-                    pdf_refs[ref]['files'].append(result.evidence.file)
+                    pdf_refs[ref]["files"].append(result.evidence.file)
 
             for ref, info in sorted(pdf_refs.items()):
                 f.write(f"\n{ref}\n")
@@ -355,20 +365,18 @@ class LiteratureReviewer:
 
         # Categorize issues by priority
         critical = []  # Invalid snippets, missing abstracts
-        high = []      # Missing snippets
-        medium = []    # Missing explanations/evidence_source
+        high = []  # Missing snippets
+        medium = []  # Missing explanations/evidence_source
 
         for result in self.validation_results:
-            if not result.abstract_fetched:
-                critical.append(result)
-            elif result.evidence.snippet and not result.snippet_valid:
+            if not result.abstract_fetched or result.evidence.snippet and not result.snippet_valid:
                 critical.append(result)
             elif not result.evidence.snippet and result.abstract_text:
                 high.append(result)
             elif not result.evidence.explanation or not result.evidence.evidence_source:
                 medium.append(result)
 
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write("PRIORITY LITERATURE UPDATES\n")
             f.write("=" * 80 + "\n\n")
 
@@ -393,7 +401,7 @@ class LiteratureReviewer:
             for result in medium[:20]:  # Top 20
                 f.write(f"File: {result.evidence.file}\n")
                 f.write(f"Reference: {result.evidence.reference}\n")
-                f.write(f"Missing: ")
+                f.write("Missing: ")
                 if not result.evidence.explanation:
                     f.write("explanation ")
                 if not result.evidence.evidence_source:
@@ -407,34 +415,42 @@ class LiteratureReviewer:
         print(f"{Colors.BOLD}{Colors.CYAN}LITERATURE REVIEW SUMMARY{Colors.RESET}")
         print("=" * 80)
         print(f"Total evidence items: {len(self.evidence_items)}")
-        print(f"Abstracts fetched: {self.stats['abstracts_fetched']} ({self.stats['abstracts_fetched']/len(self.evidence_items)*100:.1f}%)")
-        print(f"Abstracts failed: {self.stats['abstracts_failed']} ({self.stats['abstracts_failed']/len(self.evidence_items)*100:.1f}%)")
+        print(
+            f"Abstracts fetched: {self.stats['abstracts_fetched']} ({self.stats['abstracts_fetched']/len(self.evidence_items)*100:.1f}%)"
+        )
+        print(
+            f"Abstracts failed: {self.stats['abstracts_failed']} ({self.stats['abstracts_failed']/len(self.evidence_items)*100:.1f}%)"
+        )
         print()
         print(f"Snippets valid: {self.stats['snippets_valid']}")
         print(f"Snippets invalid: {self.stats['snippets_invalid']}")
         print(f"Missing snippets: {self.stats['missing_snippets']}")
         print()
-        print(f"PDFs available: {self.stats['pdfs_available']} ({self.stats['pdfs_available']/len(self.evidence_items)*100:.1f}%)")
+        print(
+            f"PDFs available: {self.stats['pdfs_available']} ({self.stats['pdfs_available']/len(self.evidence_items)*100:.1f}%)"
+        )
         print("=" * 80)
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Review and validate literature evidence in CommunityMech")
-    parser.add_argument('--community', help="Review specific community file")
-    parser.add_argument('--download-pdfs', action='store_true', help="Download full PDFs")
-    parser.add_argument('--no-fallback', action='store_true', help="Disable scihub fallback")
-    parser.add_argument('--output', default=_REPORTS / "literature_review_report.txt", help="Output report file")
+    parser = argparse.ArgumentParser(
+        description="Review and validate literature evidence in CommunityMech"
+    )
+    parser.add_argument("--community", help="Review specific community file")
+    parser.add_argument("--download-pdfs", action="store_true", help="Download full PDFs")
+    parser.add_argument("--no-fallback", action="store_true", help="Disable scihub fallback")
+    parser.add_argument(
+        "--output", default=_REPORTS / "literature_review_report.txt", help="Output report file"
+    )
 
     args = parser.parse_args()
 
     # Paths
-    kb_dir = Path('kb/communities')
+    kb_dir = Path("kb/communities")
 
     # Initialize reviewer
     reviewer = LiteratureReviewer(
-        kb_dir=kb_dir,
-        download_pdfs=args.download_pdfs,
-        use_fallback=not args.no_fallback
+        kb_dir=kb_dir, download_pdfs=args.download_pdfs, use_fallback=not args.no_fallback
     )
 
     print(f"{Colors.BOLD}{Colors.CYAN}CommunityMech Literature Review Tool{Colors.RESET}")
@@ -449,17 +465,17 @@ def main():
 
     # Generate reports
     reviewer.generate_report(Path(args.output))
-    reviewer.generate_priority_update_list(Path('priority_literature_updates.txt'))
+    reviewer.generate_priority_update_list(Path("priority_literature_updates.txt"))
 
     # Print summary
     print()
     reviewer.print_summary()
 
     print(f"\n{Colors.GREEN}{Colors.BOLD}✓ Literature review complete!{Colors.RESET}")
-    print(f"\nReports generated:")
+    print("\nReports generated:")
     print(f"  - {args.output}")
-    print(f"  - priority_literature_updates.txt")
+    print("  - priority_literature_updates.txt")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

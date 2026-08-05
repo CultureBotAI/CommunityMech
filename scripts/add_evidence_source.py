@@ -20,15 +20,13 @@ Usage:
 
 import sys
 from pathlib import Path
-from typing import Dict, Optional
 
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from communitymech.literature import LiteratureFetcher
-
 from communitymech.curate.curation_event import record_curation_event
+from communitymech.literature import LiteratureFetcher
 from communitymech.validation.write_validated import (
     ValidationFailedError,
     write_validated_community,
@@ -47,55 +45,80 @@ class EvidenceSourceAdder:
         # is what these scripts actually need.
         self.fetcher = LiteratureFetcher()
         self.stats = {
-            'total_evidence': 0,
-            'already_has_source': 0,
-            'auto_added': 0,
-            'manual_added': 0,
-            'skipped': 0
+            "total_evidence": 0,
+            "already_has_source": 0,
+            "auto_added": 0,
+            "manual_added": 0,
+            "skipped": 0,
         }
 
         # Keywords for automatic classification
         self.in_vitro_keywords = [
-            'culture', 'batch', 'bioreactor', 'enrichment', 'laboratory',
-            'pure culture', 'co-culture', 'synthetic', 'engineered',
-            'flask', 'medium', 'cultivation', 'isolated', 'strain'
+            "culture",
+            "batch",
+            "bioreactor",
+            "enrichment",
+            "laboratory",
+            "pure culture",
+            "co-culture",
+            "synthetic",
+            "engineered",
+            "flask",
+            "medium",
+            "cultivation",
+            "isolated",
+            "strain",
         ]
 
         self.in_vivo_keywords = [
-            'field', 'environmental', 'sample', 'site', 'natural',
-            'sediment', 'soil', 'water', 'community', 'microbiome',
-            '16s rrna', 'metagenome', 'metatranscriptome', 'amplicon'
+            "field",
+            "environmental",
+            "sample",
+            "site",
+            "natural",
+            "sediment",
+            "soil",
+            "water",
+            "community",
+            "microbiome",
+            "16s rrna",
+            "metagenome",
+            "metatranscriptome",
+            "amplicon",
         ]
 
         self.computational_keywords = [
-            'genome', 'model', 'simulation', 'bioinformatic', 'in silico',
-            'reconstruction', 'prediction', 'annotation', 'assembly',
-            'metabolic network', 'flux balance'
+            "genome",
+            "model",
+            "simulation",
+            "bioinformatic",
+            "in silico",
+            "reconstruction",
+            "prediction",
+            "annotation",
+            "assembly",
+            "metabolic network",
+            "flux balance",
         ]
 
-        self.review_keywords = [
-            'review', 'meta-analysis', 'survey'
-        ]
+        self.review_keywords = ["review", "meta-analysis", "survey"]
 
     def guess_evidence_source(
-        self,
-        snippet: str,
-        abstract: str = None,
-        community_origin: str = None
-    ) -> Optional[str]:
+        self, snippet: str, abstract: str = None, community_origin: str = None
+    ) -> str | None:
         """Guess evidence source using heuristics"""
 
         # Combine text for keyword matching
-        text = ' '.join(filter(None, [snippet, abstract])).lower()
+        text = " ".join(filter(None, [snippet, abstract])).lower()
 
         # Check for review first (highest specificity)
         if any(kw in text for kw in self.review_keywords):
-            return 'REVIEW'
+            return "REVIEW"
 
         # Check computational
         computational_count = sum(1 for kw in self.computational_keywords if kw in text)
         if computational_count >= 2:
-            return 'COMPUTATIONAL'
+            return "COMPUTATIONAL"
 
         # Check in vitro
         in_vitro_count = sum(1 for kw in self.in_vitro_keywords if kw in text)
@@ -105,48 +128,45 @@ class EvidenceSourceAdder:
 
         # Use community origin as tiebreaker
         if in_vitro_count > in_vivo_count:
-            return 'IN_VITRO'
+            return "IN_VITRO"
         elif in_vivo_count > in_vitro_count:
-            return 'IN_VIVO'
-        elif community_origin == 'ENGINEERED' or community_origin == 'SYNTHETIC':
-            return 'IN_VITRO'
-        elif community_origin == 'NATURAL':
-            return 'IN_VIVO'
+            return "IN_VIVO"
+        elif community_origin == "ENGINEERED" or community_origin == "SYNTHETIC":
+            return "IN_VITRO"
+        elif community_origin == "NATURAL":
+            return "IN_VIVO"
 
         return None  # Can't determine
 
     def process_yaml(
-        self,
-        yaml_path: Path,
-        auto_mode: bool = False,
-        interactive: bool = False
-    ) -> Dict:
+        self, yaml_path: Path, auto_mode: bool = False, interactive: bool = False
+    ) -> dict:
         """Process a YAML file and add evidence_source"""
 
-        with open(yaml_path, 'r') as f:
+        with open(yaml_path) as f:
             data = yaml.safe_load(f)
 
         changes = []
-        community_origin = data.get('origin')
+        community_origin = data.get("origin")
 
         # Process taxonomy
-        if 'taxonomy' in data:
-            for taxon_idx, taxon_entry in enumerate(data['taxonomy']):
-                if 'evidence' not in taxon_entry:
+        if "taxonomy" in data:
+            for taxon_idx, taxon_entry in enumerate(data["taxonomy"]):
+                if "evidence" not in taxon_entry:
                     continue
 
-                organism = taxon_entry.get('taxon_term', {}).get('preferred_term', 'Unknown')
+                organism = taxon_entry.get("taxon_term", {}).get("preferred_term", "Unknown")
 
-                for ev_idx, ev in enumerate(taxon_entry['evidence']):
-                    if 'evidence_source' in ev and ev['evidence_source']:
-                        self.stats['already_has_source'] += 1
+                for ev_idx, ev in enumerate(taxon_entry["evidence"]):
+                    if "evidence_source" in ev and ev["evidence_source"]:
+                        self.stats["already_has_source"] += 1
                         continue
 
-                    self.stats['total_evidence'] += 1
+                    self.stats["total_evidence"] += 1
 
                     # Get snippet and reference
-                    snippet = ev.get('snippet', '')
-                    reference = ev.get('reference', '')
+                    snippet = ev.get("snippet", "")
+                    reference = ev.get("reference", "")
 
                     # Try to fetch abstract for better classification
                     # Title is not threaded into the classifier — PubMed
@@ -160,20 +180,20 @@ class EvidenceSourceAdder:
                         pass
 
                     # Guess evidence source
-                    guessed_source = self.guess_evidence_source(
-                        snippet, abstract, community_origin
-                    )
+                    guessed_source = self.guess_evidence_source(snippet, abstract, community_origin)
 
                     if auto_mode and guessed_source:
-                        ev['evidence_source'] = guessed_source
-                        changes.append({
-                            'context': 'taxonomy',
-                            'organism': organism,
-                            'reference': reference,
-                            'source': guessed_source,
-                            'confidence': 'auto'
-                        })
-                        self.stats['auto_added'] += 1
+                        ev["evidence_source"] = guessed_source
+                        changes.append(
+                            {
+                                "context": "taxonomy",
+                                "organism": organism,
+                                "reference": reference,
+                                "source": guessed_source,
+                                "confidence": "auto",
+                            }
+                        )
+                        self.stats["auto_added"] += 1
 
                     elif interactive:
                         # Show evidence and ask user
@@ -183,45 +203,49 @@ class EvidenceSourceAdder:
                         if guessed_source:
                             print(f"Suggested: {guessed_source}")
 
-                        choice = input("Source [I=IN_VITRO, V=IN_VIVO, C=COMPUTATIONAL, R=REVIEW, S=skip]: ").upper()
+                        choice = input(
+                            "Source [I=IN_VITRO, V=IN_VIVO, C=COMPUTATIONAL, R=REVIEW, S=skip]: "
+                        ).upper()
 
                         source_map = {
-                            'I': 'IN_VITRO',
-                            'V': 'IN_VIVO',
-                            'C': 'COMPUTATIONAL',
-                            'R': 'REVIEW'
+                            "I": "IN_VITRO",
+                            "V": "IN_VIVO",
+                            "C": "COMPUTATIONAL",
+                            "R": "REVIEW",
                         }
 
                         if choice in source_map:
-                            ev['evidence_source'] = source_map[choice]
-                            changes.append({
-                                'context': 'taxonomy',
-                                'organism': organism,
-                                'reference': reference,
-                                'source': source_map[choice],
-                                'confidence': 'manual'
-                            })
-                            self.stats['manual_added'] += 1
+                            ev["evidence_source"] = source_map[choice]
+                            changes.append(
+                                {
+                                    "context": "taxonomy",
+                                    "organism": organism,
+                                    "reference": reference,
+                                    "source": source_map[choice],
+                                    "confidence": "manual",
+                                }
+                            )
+                            self.stats["manual_added"] += 1
                         else:
-                            self.stats['skipped'] += 1
+                            self.stats["skipped"] += 1
 
         # Process interactions (similar logic)
-        if 'ecological_interactions' in data:
-            for int_idx, interaction in enumerate(data['ecological_interactions']):
-                if 'evidence' not in interaction:
+        if "ecological_interactions" in data:
+            for int_idx, interaction in enumerate(data["ecological_interactions"]):
+                if "evidence" not in interaction:
                     continue
 
-                int_name = interaction.get('name', 'Unknown')
+                int_name = interaction.get("name", "Unknown")
 
-                for ev_idx, ev in enumerate(interaction['evidence']):
-                    if 'evidence_source' in ev and ev['evidence_source']:
-                        self.stats['already_has_source'] += 1
+                for ev_idx, ev in enumerate(interaction["evidence"]):
+                    if "evidence_source" in ev and ev["evidence_source"]:
+                        self.stats["already_has_source"] += 1
                         continue
 
-                    self.stats['total_evidence'] += 1
+                    self.stats["total_evidence"] += 1
 
-                    snippet = ev.get('snippet', '')
-                    reference = ev.get('reference', '')
+                    snippet = ev.get("snippet", "")
+                    reference = ev.get("reference", "")
 
                     # Title is not threaded into the classifier — PubMed
                     # abstracts already embed the title, and CrossRef
@@ -233,20 +257,20 @@ class EvidenceSourceAdder:
                     except Exception:
                         pass
 
-                    guessed_source = self.guess_evidence_source(
-                        snippet, abstract, community_origin
-                    )
+                    guessed_source = self.guess_evidence_source(snippet, abstract, community_origin)
 
                     if auto_mode and guessed_source:
-                        ev['evidence_source'] = guessed_source
-                        changes.append({
-                            'context': 'interaction',
-                            'organism': int_name,
-                            'reference': reference,
-                            'source': guessed_source,
-                            'confidence': 'auto'
-                        })
-                        self.stats['auto_added'] += 1
+                        ev["evidence_source"] = guessed_source
+                        changes.append(
+                            {
+                                "context": "interaction",
+                                "organism": int_name,
+                                "reference": reference,
+                                "source": guessed_source,
+                                "confidence": "auto",
+                            }
+                        )
+                        self.stats["auto_added"] += 1
 
                     elif interactive:
                         print(f"\nInteraction: {int_name}")
@@ -258,30 +282,32 @@ class EvidenceSourceAdder:
                         choice = input("Source [I/V/C/R/S]: ").upper()
 
                         source_map = {
-                            'I': 'IN_VITRO',
-                            'V': 'IN_VIVO',
-                            'C': 'COMPUTATIONAL',
-                            'R': 'REVIEW'
+                            "I": "IN_VITRO",
+                            "V": "IN_VIVO",
+                            "C": "COMPUTATIONAL",
+                            "R": "REVIEW",
                         }
 
                         if choice in source_map:
-                            ev['evidence_source'] = source_map[choice]
-                            changes.append({
-                                'context': 'interaction',
-                                'organism': int_name,
-                                'reference': reference,
-                                'source': source_map[choice],
-                                'confidence': 'manual'
-                            })
-                            self.stats['manual_added'] += 1
+                            ev["evidence_source"] = source_map[choice]
+                            changes.append(
+                                {
+                                    "context": "interaction",
+                                    "organism": int_name,
+                                    "reference": reference,
+                                    "source": source_map[choice],
+                                    "confidence": "manual",
+                                }
+                            )
+                            self.stats["manual_added"] += 1
                         else:
-                            self.stats['skipped'] += 1
+                            self.stats["skipped"] += 1
 
         # Write back if changes made
         if changes:
             # Summarize the changes for the curation trail.
-            auto_count = sum(1 for c in changes if c.get('confidence') == 'auto')
-            manual_count = sum(1 for c in changes if c.get('confidence') == 'manual')
+            auto_count = sum(1 for c in changes if c.get("confidence") == "auto")
+            manual_count = sum(1 for c in changes if c.get("confidence") == "manual")
             change_summary = (
                 f"Backfilled evidence_source on {len(changes)} evidence item(s) "
                 f"(auto={auto_count}, manual={manual_count})"
@@ -296,7 +322,7 @@ class EvidenceSourceAdder:
             # Backup then write via closed-schema-gated writer. If validation
             # fails, restore the backup so the loop can continue on the next
             # community without leaving the disk in a torn state.
-            backup_path = yaml_path.with_suffix('.yaml.bak_source')
+            backup_path = yaml_path.with_suffix(".yaml.bak_source")
             yaml_path.rename(backup_path)
             try:
                 write_validated_community(data, yaml_path)
@@ -308,27 +334,23 @@ class EvidenceSourceAdder:
                     file=sys.stderr,
                 )
                 return {
-                    'file': yaml_path.name,
-                    'changes': [],
-                    'count': 0,
-                    'validation_failed': True,
+                    "file": yaml_path.name,
+                    "changes": [],
+                    "count": 0,
+                    "validation_failed": True,
                 }
 
-        return {
-            'file': yaml_path.name,
-            'changes': changes,
-            'count': len(changes)
-        }
+        return {"file": yaml_path.name, "changes": changes, "count": len(changes)}
 
 
 def main():
     import argparse
 
     parser = argparse.ArgumentParser(description="Add evidence_source to YAML files")
-    parser.add_argument('--file', help="Specific YAML file to process")
-    parser.add_argument('--auto', action='store_true', help="Auto-add using heuristics")
-    parser.add_argument('--interactive', action='store_true', help="Interactive mode")
-    parser.add_argument('--dry-run', action='store_true', help="Don't write changes")
+    parser.add_argument("--file", help="Specific YAML file to process")
+    parser.add_argument("--auto", action="store_true", help="Auto-add using heuristics")
+    parser.add_argument("--interactive", action="store_true", help="Interactive mode")
+    parser.add_argument("--dry-run", action="store_true", help="Don't write changes")
     args = parser.parse_args()
 
     if not args.auto and not args.interactive:
@@ -336,12 +358,12 @@ def main():
         sys.exit(1)
 
     adder = EvidenceSourceAdder()
-    kb_dir = Path('kb/communities')
+    kb_dir = Path("kb/communities")
 
     if args.file:
         yaml_files = [kb_dir / args.file]
     else:
-        yaml_files = sorted(kb_dir.glob('*.yaml'))
+        yaml_files = sorted(kb_dir.glob("*.yaml"))
 
     print("Evidence Source Adder")
     print("=" * 80)
@@ -354,9 +376,11 @@ def main():
         print(f"Processing {yaml_path.name}...")
 
         if not args.dry_run:
-            result = adder.process_yaml(yaml_path, auto_mode=args.auto, interactive=args.interactive)
+            result = adder.process_yaml(
+                yaml_path, auto_mode=args.auto, interactive=args.interactive
+            )
 
-            if result['count'] > 0:
+            if result["count"] > 0:
                 print(f"  Added {result['count']} evidence_source fields")
                 results.append(result)
         else:
@@ -377,5 +401,5 @@ def main():
         print("Backups saved as .yaml.bak_source")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -109,8 +109,13 @@ def main() -> int:
         answers = {
             name: _outcome(
                 grounder.resolve_target(
-                    core, label, by_id, by_name, by_higher,
-                    denominator=den, exclude_unnamed=filt,
+                    core,
+                    label,
+                    by_id,
+                    by_name,
+                    by_higher,
+                    denominator=den,
+                    exclude_unnamed=filt,
                 )
             )
             for name, den, filt in scenarios
@@ -118,8 +123,15 @@ def main() -> int:
         varies = sorted({a[0] for a in answers.values()})
         if len(varies) > 1:
             differ_from_default += 1
-        rows.append((tid, label, *[x for a in answers.values() for x in a],
-                     "VARIES" if len(varies) > 1 else "", len(varies)))
+        rows.append(
+            (
+                tid,
+                label,
+                *[x for a in answers.values() for x in a],
+                "VARIES" if len(varies) > 1 else "",
+                len(varies),
+            )
+        )
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     stat = mapping.stat()
@@ -143,9 +155,11 @@ def main() -> int:
     print(f"taxa where the four scenarios disagree: {differ_from_default}")
     for row in rows:
         if row[10]:
-            print(f"  {row[0]:<18s} {row[1][:24]:<26s} "
-                  f"agg={row[2]:<26s} agg+named={row[4]:<26s} "
-                  f"deep={row[6]:<26s} deep+named={row[8]}")
+            print(
+                f"  {row[0]:<18s} {row[1][:24]:<26s} "
+                f"agg={row[2]:<26s} agg+named={row[4]:<26s} "
+                f"deep={row[6]:<26s} deep+named={row[8]}"
+            )
     print(f"\nwritten to {args.out}")
     return 0
 

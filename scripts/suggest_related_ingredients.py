@@ -35,6 +35,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from communitymech.cross_repo_environment import (  # noqa: E402
     GENERIC_ENVIRONMENT_TERMS as GENERIC_ENVIRONMENTS,
+)
+from communitymech.cross_repo_environment import (
     envo_subtypes,
     get_chebi_adapter,
     get_envo_adapter,
@@ -138,7 +140,9 @@ def main() -> int:
 
     chebi_adapter = get_chebi_adapter()
     if chebi_adapter is None:
-        print("ChEBI sqlite not cached; cannot resolve canonical labels — no output.", file=sys.stderr)
+        print(
+            "ChEBI sqlite not cached; cannot resolve canonical labels — no output.", file=sys.stderr
+        )
         return 0
     ing_by_env = mim_ingredients_by_environment(mim_path)
     envo_adapter = get_envo_adapter() if args.subsumption else None
@@ -152,7 +156,9 @@ def main() -> int:
         except (OSError, yaml.YAMLError):
             continue
         envs = _community_envs(data)
-        active = [(e, lbl) for e, lbl in envs if args.include_generic or e not in GENERIC_ENVIRONMENTS]
+        active = [
+            (e, lbl) for e, lbl in envs if args.include_generic or e not in GENERIC_ENVIRONMENTS
+        ]
         if not active:
             continue
         already = _linked_chebi_ids(data)

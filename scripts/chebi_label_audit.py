@@ -7,9 +7,9 @@ Prints a report of unique (id, in-file-label) pairs that mismatch.
 
 Usage: uv run python scripts/chebi_label_audit.py
 """
+
 import re
 import subprocess
-import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -46,15 +46,18 @@ print(f"# {len(unique_ids)} unique CHEBI ids across {len(list(COMM.glob('*.yaml'
 canon = {}
 proc = subprocess.run(
     ["uv", "run", "runoak", "-i", "sqlite:obo:chebi", "info", *unique_ids],
-    capture_output=True, text=True,
+    capture_output=True,
+    text=True,
 )
 for line in proc.stdout.splitlines():
     mm = re.match(r"^(CHEBI:\d+)\s*!\s*(.*)$", line.strip())
     if mm:
         canon[mm.group(1)] = mm.group(2).strip()
 
+
 def norm(s):
     return s.strip().lower()
+
 
 mismatches = []
 for (cid, lbl), files in sorted(pair_files.items()):

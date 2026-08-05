@@ -9,12 +9,11 @@ This script:
 4. Generates a detailed validation report with suggestions for corrections
 """
 
-import os
 import sys
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
-import yaml
 from collections import defaultdict
+from pathlib import Path
+
+import yaml
 
 try:
     from oaklib import get_adapter
@@ -30,12 +29,7 @@ class NCBITaxonValidator:
     def __init__(self, communities_dir: str):
         self.communities_dir = Path(communities_dir)
         self.adapter = None
-        self.results = {
-            'matches': [],
-            'mismatches': [],
-            'missing': [],
-            'errors': []
-        }
+        self.results = {"matches": [], "mismatches": [], "missing": [], "errors": []}
         self.taxa_data = []
 
     def initialize_adapter(self):
@@ -54,33 +48,35 @@ class NCBITaxonValidator:
             print("3. Check OAK installation: pip install --upgrade oaklib")
             sys.exit(1)
 
-    def extract_taxa_from_yaml(self, yaml_file: Path) -> List[Dict]:
+    def extract_taxa_from_yaml(self, yaml_file: Path) -> list[dict]:
         """Extract all taxa from a single YAML file"""
         taxa = []
 
         try:
-            with open(yaml_file, 'r', encoding='utf-8') as f:
+            with open(yaml_file, encoding="utf-8") as f:
                 data = yaml.safe_load(f)
 
-            if not data or 'taxonomy' not in data:
+            if not data or "taxonomy" not in data:
                 return taxa
 
-            for taxon_entry in data['taxonomy']:
-                if 'taxon_term' in taxon_entry:
-                    taxon_term = taxon_entry['taxon_term']
+            for taxon_entry in data["taxonomy"]:
+                if "taxon_term" in taxon_entry:
+                    taxon_term = taxon_entry["taxon_term"]
 
-                    preferred_term = taxon_term.get('preferred_term', '')
-                    term = taxon_term.get('term', {})
-                    taxon_id = term.get('id', '')
-                    term_label = term.get('label', '')
+                    preferred_term = taxon_term.get("preferred_term", "")
+                    term = taxon_term.get("term", {})
+                    taxon_id = term.get("id", "")
+                    term_label = term.get("label", "")
 
-                    if taxon_id and taxon_id.startswith('NCBITaxon:'):
-                        taxa.append({
-                            'preferred_term': preferred_term,
-                            'taxon_id': taxon_id,
-                            'yaml_label': term_label,
-                            'source_file': yaml_file.name
-                        })
+                    if taxon_id and taxon_id.startswith("NCBITaxon:"):
+                        taxa.append(
+                            {
+                                "preferred_term": preferred_term,
+                                "taxon_id": taxon_id,
+                                "yaml_label": term_label,
+                                "source_file": yaml_file.name,
+                            }
+                        )
 
         except Exception as e:
             print(f"WARNING: Error parsing {yaml_file.name}: {e}")
@@ -100,7 +96,7 @@ class NCBITaxonValidator:
 
         print(f"Extracted {len(self.taxa_data)} NCBITaxon IDs from {len(yaml_files)} files\n")
 
-    def validate_taxon(self, taxon_data: Dict) -> Tuple[str, Optional[str], Optional[str]]:
+    def validate_taxon(self, taxon_data: dict) -> tuple[str, str | None, str | None]:
         """
         Validate a single taxon ID
 
@@ -108,28 +104,28 @@ class NCBITaxonValidator:
             (status, oak_label, suggested_id)
             status: 'match', 'mismatch', 'missing', or 'error'
         """
-        taxon_id = taxon_data['taxon_id']
-        preferred_term = taxon_data['preferred_term']
+        taxon_id = taxon_data["taxon_id"]
+        preferred_term = taxon_data["preferred_term"]
 
         try:
             # Get label from OAK
             oak_label = self.adapter.label(taxon_id)
 
             if oak_label is None:
-                return ('missing', None, None)
+                return ("missing", None, None)
 
             # Check if labels match (case-insensitive comparison)
             if oak_label.lower() == preferred_term.lower():
-                return ('match', oak_label, None)
+                return ("match", oak_label, None)
             else:
                 # Try to find correct ID
                 suggested_id = self.find_correct_id(preferred_term)
-                return ('mismatch', oak_label, suggested_id)
+                return ("mismatch", oak_label, suggested_id)
 
         except Exception as e:
-            return ('error', None, str(e))
+            return ("error", None, str(e))
 
-    def find_correct_id(self, species_name: str) -> Optional[str]:
+    def find_correct_id(self, species_name: str) -> str | None:
         """Try to find the correct NCBITaxon ID for a species name"""
         try:
             # Search for the species name in NCBITaxon
@@ -157,27 +153,23 @@ class NCBITaxonValidator:
         total = len(self.taxa_data)
         for i, taxon_data in enumerate(self.taxa_data, 1):
             if i % 10 == 0 or i == total:
-                print(f"Progress: {i}/{total} taxa validated", end='\r')
+                print(f"Progress: {i}/{total} taxa validated", end="\r")
 
             status, oak_label, suggested_id = self.validate_taxon(taxon_data)
 
-            result_data = {
-                **taxon_data,
-                'oak_label': oak_label,
-                'suggested_id': suggested_id
-            }
+            result_data = {**taxon_data, "oak_label": oak_label, "suggested_id": suggested_id}
 
-            if status == 'match':
-                self.results['matches'].append(result_data)
-            elif status == 'mismatch':
-                self.results['mismatches'].append(result_data)
-            elif status == 'missing':
-                self.results['missing'].append(result_data)
+            if status == "match":
+                self.results["matches"].append(result_data)
+            elif status == "mismatch":
+                self.results["mismatches"].append(result_data)
+            elif status == "missing":
+                self.results["missing"].append(result_data)
             else:  # error
-                result_data['error'] = suggested_id  # suggested_id contains error message
-                self.results['errors'].append(result_data)
+                result_data["error"] = suggested_id  # suggested_id contains error message
+                self.results["errors"].append(result_data)
 
-        print(f"\nValidation complete!\n")
+        print("\nValidation complete!\n")
 
     def generate_report(self):
         """Generate a detailed validation report"""
@@ -188,10 +180,10 @@ class NCBITaxonValidator:
 
         # Summary statistics
         total = len(self.taxa_data)
-        matches = len(self.results['matches'])
-        mismatches = len(self.results['mismatches'])
-        missing = len(self.results['missing'])
-        errors = len(self.results['errors'])
+        matches = len(self.results["matches"])
+        mismatches = len(self.results["mismatches"])
+        missing = len(self.results["missing"])
+        errors = len(self.results["errors"])
 
         print("SUMMARY")
         print("-" * 80)
@@ -203,7 +195,7 @@ class NCBITaxonValidator:
         print()
 
         # Matching IDs
-        if self.results['matches']:
+        if self.results["matches"]:
             print("=" * 80)
             print(f"MATCHING IDs ({len(self.results['matches'])} taxa)")
             print("=" * 80)
@@ -211,8 +203,8 @@ class NCBITaxonValidator:
 
             # Group by file
             by_file = defaultdict(list)
-            for item in self.results['matches']:
-                by_file[item['source_file']].append(item)
+            for item in self.results["matches"]:
+                by_file[item["source_file"]].append(item)
 
             for filename in sorted(by_file.keys()):
                 print(f"File: {filename}")
@@ -221,57 +213,59 @@ class NCBITaxonValidator:
                 print()
 
         # Mismatched IDs
-        if self.results['mismatches']:
+        if self.results["mismatches"]:
             print("=" * 80)
             print(f"MISMATCHED IDs ({len(self.results['mismatches'])} taxa)")
             print("=" * 80)
             print()
 
-            for item in self.results['mismatches']:
+            for item in self.results["mismatches"]:
                 print(f"✗ {item['preferred_term']} → {item['taxon_id']}")
                 print(f"  File: {item['source_file']}")
                 print(f"  Expected: '{item['preferred_term']}'")
                 print(f"  OAK says ID points to: '{item['oak_label']}'")
 
-                if item['suggested_id']:
-                    suggested_label = self.adapter.label(item['suggested_id'])
+                if item["suggested_id"]:
+                    suggested_label = self.adapter.label(item["suggested_id"])
                     print(f"  💡 Suggestion: Use {item['suggested_id']} for '{suggested_label}'")
                 else:
-                    print(f"  💡 Suggestion: Could not find correct ID for '{item['preferred_term']}'")
-                    print(f"     Manual verification needed!")
+                    print(
+                        f"  💡 Suggestion: Could not find correct ID for '{item['preferred_term']}'"
+                    )
+                    print("     Manual verification needed!")
 
                 print()
 
         # Missing/Invalid IDs
-        if self.results['missing']:
+        if self.results["missing"]:
             print("=" * 80)
             print(f"MISSING/INVALID IDs ({len(self.results['missing'])} taxa)")
             print("=" * 80)
             print()
 
-            for item in self.results['missing']:
+            for item in self.results["missing"]:
                 print(f"? {item['preferred_term']} → {item['taxon_id']}")
                 print(f"  File: {item['source_file']}")
-                print(f"  Issue: ID not found in NCBITaxon database")
+                print("  Issue: ID not found in NCBITaxon database")
 
-                suggested_id = self.find_correct_id(item['preferred_term'])
+                suggested_id = self.find_correct_id(item["preferred_term"])
                 if suggested_id:
                     suggested_label = self.adapter.label(suggested_id)
                     print(f"  💡 Suggestion: Use {suggested_id} for '{suggested_label}'")
                 else:
                     print(f"  💡 Suggestion: Could not find ID for '{item['preferred_term']}'")
-                    print(f"     Species may not exist in NCBITaxon or name is incorrect")
+                    print("     Species may not exist in NCBITaxon or name is incorrect")
 
                 print()
 
         # Errors
-        if self.results['errors']:
+        if self.results["errors"]:
             print("=" * 80)
             print(f"ERRORS ({len(self.results['errors'])} taxa)")
             print("=" * 80)
             print()
 
-            for item in self.results['errors']:
+            for item in self.results["errors"]:
                 print(f"⚠ {item['preferred_term']} → {item['taxon_id']}")
                 print(f"  File: {item['source_file']}")
                 print(f"  Error: {item['error']}")
@@ -314,12 +308,10 @@ class NCBITaxonValidator:
 
     def save_detailed_report(self, output_file: str):
         """Save detailed report to a text file"""
-        import io
         from contextlib import redirect_stdout
 
-        with open(output_file, 'w', encoding='utf-8') as f:
-            with redirect_stdout(f):
-                self.generate_report()
+        with open(output_file, "w", encoding="utf-8") as f, redirect_stdout(f):
+            self.generate_report()
 
         print(f"\nDetailed report saved to: {output_file}")
 

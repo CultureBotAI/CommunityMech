@@ -13,12 +13,11 @@ import subprocess
 import sys
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List, Tuple
 
 import yaml
 
 
-def count_community_stats(yaml_path: Path) -> Dict:
+def count_community_stats(yaml_path: Path) -> dict:
     """Count basic stats from community YAML."""
     with open(yaml_path) as f:
         data = yaml.safe_load(f)
@@ -37,7 +36,7 @@ def count_community_stats(yaml_path: Path) -> Dict:
     return stats
 
 
-def run_schema_validation(yaml_path: Path) -> Tuple[bool, int]:
+def run_schema_validation(yaml_path: Path) -> tuple[bool, int]:
     """Run schema validation on a community file."""
     try:
         result = subprocess.run(
@@ -60,7 +59,7 @@ def run_schema_validation(yaml_path: Path) -> Tuple[bool, int]:
         return False, 1
 
 
-def parse_reference_validation(output: str) -> Dict:
+def parse_reference_validation(output: str) -> dict:
     """Parse reference validation output."""
     issues = []
     current_file = None
@@ -83,7 +82,7 @@ def parse_reference_validation(output: str) -> Dict:
     return by_community
 
 
-def parse_network_audit_json(json_path: Path) -> Dict:
+def parse_network_audit_json(json_path: Path) -> dict:
     """Parse network audit JSON output."""
     try:
         with open(json_path) as f:
@@ -99,9 +98,9 @@ def parse_network_audit_json(json_path: Path) -> Dict:
 
 def generate_tsv_report(
     communities_dir: Path,
-    schema_results: Dict,
-    reference_results: Dict,
-    network_results: Dict,
+    schema_results: dict,
+    reference_results: dict,
+    network_results: dict,
     output_path: Path,
 ):
     """Generate TSV table of validation results."""
@@ -129,9 +128,7 @@ def generate_tsv_report(
             data = yaml.safe_load(f)
 
         stats = count_community_stats(yaml_file)
-        schema_passed, schema_errors = schema_results.get(
-            community_id, (True, 0)
-        )
+        schema_passed, schema_errors = schema_results.get(community_id, (True, 0))
         ref_errors = len(reference_results.get(community_id, []))
         net_data = network_results.get(community_id, {})
         net_issues = net_data.get("total_issues", 0)
@@ -175,9 +172,7 @@ def generate_tsv_report(
     return rows, header
 
 
-def generate_summary_report(
-    rows: List, header: List, output_path: Path
-):
+def generate_summary_report(rows: list, header: list, output_path: Path):
     """Generate markdown summary report."""
     total = len(rows)
     schema_pass = sum(1 for r in rows if r[header.index("schema_passed")] == "PASS")
@@ -234,7 +229,7 @@ def generate_summary_report(
 
 ## P1 - Critical Errors ({status_counts['P1_CRITICAL']})
 
-{'✅ **No critical errors found!**' if status_counts['P1_CRITICAL'] == 0 else f'⚠️  Communities with schema validation failures:'}
+{'✅ **No critical errors found!**' if status_counts['P1_CRITICAL'] == 0 else '⚠️  Communities with schema validation failures:'}
 
 {chr(10).join(f'- {c}' for c in p1_communities) if p1_communities else ''}
 
@@ -247,7 +242,7 @@ def generate_summary_report(
 Communities with significant issues (>5 reference errors OR >10 network issues):
 
 {chr(10).join(f'- {c}' for c in p2_communities[:20]) if p2_communities else '✅ None'}
-{'... and {} more'.format(len(p2_communities) - 20) if len(p2_communities) > 20 else ''}
+{f'... and {len(p2_communities) - 20} more' if len(p2_communities) > 20 else ''}
 
 **Action Required:** Manual review needed within this week.
 
@@ -258,7 +253,7 @@ Communities with significant issues (>5 reference errors OR >10 network issues):
 Communities with minor issues (1-5 reference errors OR 1-10 network issues):
 
 {chr(10).join(f'- {c}' for c in p3_communities[:20]) if p3_communities else '✅ None'}
-{'... and {} more'.format(len(p3_communities) - 20) if len(p3_communities) > 20 else ''}
+{f'... and {len(p3_communities) - 20} more' if len(p3_communities) > 20 else ''}
 
 **Action Required:** Auto-correct when possible, review periodically.
 
@@ -339,10 +334,7 @@ def main():
     print()
 
     # Collect schema validation results (assume all passed from earlier check)
-    schema_results = {
-        yaml_file.stem: (True, 0)
-        for yaml_file in communities_dir.glob("*.yaml")
-    }
+    schema_results = {yaml_file.stem: (True, 0) for yaml_file in communities_dir.glob("*.yaml")}
 
     # Parse reference validation from previous run
     # (We'll use the task output)
@@ -381,9 +373,7 @@ def main():
                             "unknown_target": sum(
                                 1 for i in issues if i["type"] == "UNKNOWN_TARGET"
                             ),
-                            "disconnected": sum(
-                                1 for i in issues if i["type"] == "DISCONNECTED"
-                            ),
+                            "disconnected": sum(1 for i in issues if i["type"] == "DISCONNECTED"),
                         }
             else:
                 network_results = {}

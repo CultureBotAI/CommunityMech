@@ -13,7 +13,6 @@ Usage:
 import argparse
 import sys
 from pathlib import Path
-from typing import Optional
 
 import yaml
 
@@ -79,7 +78,7 @@ def backfill_single_community(community_id: str, dry_run: bool = True) -> None:
         print(f"  ✓ Updated {yaml_file.name}")
 
 
-def backfill_all_communities(dry_run: bool = True, limit: Optional[int] = None) -> None:
+def backfill_all_communities(dry_run: bool = True, limit: int | None = None) -> None:
     """Backfill metal/REE data for all communities.
 
     Args:
@@ -136,7 +135,7 @@ def backfill_all_communities(dry_run: bool = True, limit: Optional[int] = None) 
 
             if not dry_run:
                 update_yaml_with_metals(yaml_file, metals, ree, relevance, notes)
-                print(f"  ✓ Updated")
+                print("  ✓ Updated")
 
     # Print summary
     print("\n" + "=" * 60)
@@ -145,7 +144,7 @@ def backfill_all_communities(dry_run: bool = True, limit: Optional[int] = None) 
     print(f"Total communities: {stats['total']}")
     print(f"Communities with metals: {stats['with_metals']}")
     print(f"Communities with REE: {stats['with_ree']}")
-    print(f"\nRelevance distribution:")
+    print("\nRelevance distribution:")
     print(f"  PRIMARY: {stats['primary']}")
     print(f"  SIGNIFICANT: {stats['significant']}")
     print(f"  INCIDENTAL: {stats['incidental']}")

@@ -11,6 +11,7 @@ Usage:
   (default: GO ENVO UBERON CL ; NCBITaxon/CHEBI must be named explicitly
    because their sqlite adapters are large/slow to load)
 """
+
 import re
 import subprocess
 import sys
@@ -55,8 +56,9 @@ for prefix in prefixes:
         print(f"\n## {prefix}: no terms in corpus")
         continue
     canon = {}
-    proc = subprocess.run(["uv", "run", "runoak", "-i", ADAPTER[prefix], "info", *ids],
-                          capture_output=True, text=True)
+    proc = subprocess.run(
+        ["uv", "run", "runoak", "-i", ADAPTER[prefix], "info", *ids], capture_output=True, text=True
+    )
     for line in proc.stdout.splitlines():
         mm = re.match(rf"^({prefix}:\d+)\s*!\s*(.*)$", line.strip())
         if mm:

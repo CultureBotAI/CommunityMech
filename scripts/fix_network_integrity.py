@@ -30,14 +30,16 @@ class NetworkIntegrityFixer:
         """Fix all community YAML files."""
         yaml_files = sorted(self.communities_dir.glob("*.yaml"))
 
-        print(f"\n🔧 {'DRY RUN: ' if dry_run else ''}Fixing network integrity issues in {len(yaml_files)} communities...\n")
+        print(
+            f"\n🔧 {'DRY RUN: ' if dry_run else ''}Fixing network integrity issues in {len(yaml_files)} communities...\n"
+        )
 
         for yaml_file in yaml_files:
             self.fix_community(yaml_file, dry_run=dry_run)
 
         # Summary
         print(f"\n{'='*80}")
-        print(f"Summary:")
+        print("Summary:")
         print(f"  Communities fixed: {len(self.fixes_applied)}")
         print(f"  Total ID fixes: {sum(len(fixes) for fixes in self.fixes_applied.values())}")
         print(f"  Communities needing manual review: {len(self.manual_review)}")
@@ -97,9 +99,7 @@ class NetworkIntegrityFixer:
                         f"[{int_name}] Unknown source taxon: {source_term}"
                     )
             else:
-                self.manual_review[yaml_path.stem].append(
-                    f"[{int_name}] Missing source_taxon"
-                )
+                self.manual_review[yaml_path.stem].append(f"[{int_name}] Missing source_taxon")
 
             # Fix target_taxon ID mismatches
             target = interaction.get("target_taxon")
@@ -129,9 +129,7 @@ class NetworkIntegrityFixer:
 
         if disconnected and interactions:
             for taxon in sorted(disconnected):
-                self.manual_review[yaml_path.stem].append(
-                    f"Disconnected taxon: {taxon}"
-                )
+                self.manual_review[yaml_path.stem].append(f"Disconnected taxon: {taxon}")
 
         # Write back if fixes were made and not dry run
         if fixes > 0 and not dry_run:

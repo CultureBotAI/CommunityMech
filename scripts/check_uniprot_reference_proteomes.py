@@ -8,6 +8,5 @@ Usage:
 
 from communitymech.uniprot_reference_proteomes import main
 
-
 if __name__ == "__main__":
     raise SystemExit(main())

@@ -77,7 +77,9 @@ def main() -> int:
     )
     total = sum(r[2] for r in rows)
 
-    print(f"\nEnvironment-grounding quality — {len(rows)} distinct ENVO terms over {total} communities\n")
+    print(
+        f"\nEnvironment-grounding quality — {len(rows)} distinct ENVO terms over {total} communities\n"
+    )
     header = f"{'ENVO term':16} {'label':30} {'count':>5}  flags"
     print(header)
     print("-" * len(header))
@@ -105,7 +107,10 @@ def main() -> int:
         print()
 
     if args.strict and generic_hits:
-        print(f"[strict] {generic_hits} community(ies) grounded to a generic environment.", file=sys.stderr)
+        print(
+            f"[strict] {generic_hits} community(ies) grounded to a generic environment.",
+            file=sys.stderr,
+        )
         return 1
     return 0
 

@@ -77,18 +77,12 @@ _CATEGORY_RULES: list[tuple[str, re.Pattern[str]]] = [
             r" was unexpected\) in (?P<path>\S+)"
         ),
     ),
-    ("missing_required",
-     re.compile(r"'(?P<key>[^']+)' is a required property in (?P<path>\S+)")),
-    ("enum_mismatch",
-     re.compile(r"'(?P<value>[^']+)' is not one of \[(?P<choices>[^\]]+)\]")),
-    ("type_mismatch",
-     re.compile(r"(?P<value>'[^']+'|\S+) is not of type '(?P<type>[^']+)'")),
-    ("pattern_mismatch",
-     re.compile(r"(?P<value>'[^']+'|\S+) does not match (?P<pattern>'[^']+')")),
-    ("format_mismatch",
-     re.compile(r"(?P<value>'[^']+'|\S+) is not a '(?P<format>[^']+)'")),
-    ("range_violation",
-     re.compile(r"(?P<value>\S+) is (less than|greater than) (?P<bound>\S+)")),
+    ("missing_required", re.compile(r"'(?P<key>[^']+)' is a required property in (?P<path>\S+)")),
+    ("enum_mismatch", re.compile(r"'(?P<value>[^']+)' is not one of \[(?P<choices>[^\]]+)\]")),
+    ("type_mismatch", re.compile(r"(?P<value>'[^']+'|\S+) is not of type '(?P<type>[^']+)'")),
+    ("pattern_mismatch", re.compile(r"(?P<value>'[^']+'|\S+) does not match (?P<pattern>'[^']+')")),
+    ("format_mismatch", re.compile(r"(?P<value>'[^']+'|\S+) is not a '(?P<format>[^']+)'")),
+    ("range_violation", re.compile(r"(?P<value>\S+) is (less than|greater than) (?P<bound>\S+)")),
 ]
 
 
@@ -110,45 +104,53 @@ def validate_one(path: Path) -> list[dict]:
         with path.open() as f:
             instance = yaml.safe_load(f)
     except yaml.YAMLError as e:
-        return [{
-            "file": str(path),
-            "category": "yaml_parse_error",
-            "detail": "",
-            "path": "",
-            "message": str(e).splitlines()[0][:300],
-        }]
+        return [
+            {
+                "file": str(path),
+                "category": "yaml_parse_error",
+                "detail": "",
+                "path": "",
+                "message": str(e).splitlines()[0][:300],
+            }
+        ]
     if instance is None:
-        return [{
-            "file": str(path),
-            "category": "empty_file",
-            "detail": "",
-            "path": "",
-            "message": "file parsed as None",
-        }]
+        return [
+            {
+                "file": str(path),
+                "category": "empty_file",
+                "detail": "",
+                "path": "",
+                "message": "file parsed as None",
+            }
+        ]
 
     try:
         report = validator.validate(instance, target_class=TARGET_CLASS)
     except Exception as e:  # noqa: BLE001 — surface anything weird as a row
-        return [{
-            "file": str(path),
-            "category": "validator_crash",
-            "detail": type(e).__name__,
-            "path": "",
-            "message": str(e)[:300],
-        }]
+        return [
+            {
+                "file": str(path),
+                "category": "validator_crash",
+                "detail": type(e).__name__,
+                "path": "",
+                "message": str(e)[:300],
+            }
+        ]
 
     rows = []
     for result in report.results:
         if result.severity != Severity.ERROR:
             continue
         category, detail = classify(result.message)
-        rows.append({
-            "file": str(path),
-            "category": category,
-            "detail": detail,
-            "path": result.instance_index or "",
-            "message": result.message[:300],
-        })
+        rows.append(
+            {
+                "file": str(path),
+                "category": category,
+                "detail": detail,
+                "path": result.instance_index or "",
+                "message": result.message[:300],
+            }
+        )
 
     # Relational checks the schema cannot express (#387). LinkML has no
     # cross-field arithmetic, so `support_genomes: 99` beside `total_genomes: 3`
@@ -160,22 +162,26 @@ def validate_one(path: Path) -> list[dict]:
     # valid YAML — so no schema check can see it (#398). Raw-text, hence here
     # rather than in the instance validator.
     for scalar in find_truncated_scalars(path):
-        rows.append({
-            "file": str(path),
-            "category": "yaml_truncated_scalar",
-            "detail": f"line={scalar.line}|key={scalar.key}",
-            "path": "",
-            "message": scalar.message[:300],
-        })
+        rows.append(
+            {
+                "file": str(path),
+                "category": "yaml_truncated_scalar",
+                "detail": f"line={scalar.line}|key={scalar.key}",
+                "path": "",
+                "message": scalar.message[:300],
+            }
+        )
 
     for issue in validate_gtdb_coherence(path):
-        rows.append({
-            "file": str(path),
-            "category": f"gtdb_{issue.category}",
-            "detail": issue.taxon,
-            "path": "",
-            "message": issue.message[:300],
-        })
+        rows.append(
+            {
+                "file": str(path),
+                "category": f"gtdb_{issue.category}",
+                "detail": issue.taxon,
+                "path": "",
+                "message": issue.message[:300],
+            }
+        )
     return rows
 
 
@@ -198,8 +204,9 @@ def iter_yaml_files(paths: Iterable[Path]) -> list[Path]:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("paths", nargs="*", type=Path,
-                        help="Files or directories. Defaults to kb/communities/.")
+    parser.add_argument(
+        "paths", nargs="*", type=Path, help="Files or directories. Defaults to kb/communities/."
+    )
     parser.add_argument(
         "--out",
         type=Path,
@@ -217,16 +224,19 @@ def build_parser() -> argparse.ArgumentParser:
         metavar="N",
         help="Validate only the first N files (after sorting). Useful for smoke tests.",
     )
-    parser.add_argument("--workers", type=int, default=max(1, (os.cpu_count() or 4) - 1),
-                        help="Process pool size. Default: ncpu - 1.")
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=max(1, (os.cpu_count() or 4) - 1),
+        help="Process pool size. Default: ncpu - 1.",
+    )
     parser.add_argument(
         "--fail-on",
         choices=("error", "never"),
         default="error",
         help="Exit non-zero policy. 'error' (default) exits 1 if any ERROR row was emitted.",
     )
-    parser.add_argument("--quiet", action="store_true",
-                        help="Suppress per-file progress lines.")
+    parser.add_argument("--quiet", action="store_true", help="Suppress per-file progress lines.")
     return parser
 
 
@@ -244,8 +254,10 @@ def main() -> int:
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
 
-    print(f"Validating {len(files)} files with {args.workers} workers; schema={SCHEMA_PATH}",
-          file=sys.stderr)
+    print(
+        f"Validating {len(files)} files with {args.workers} workers; schema={SCHEMA_PATH}",
+        file=sys.stderr,
+    )
 
     all_rows: list[dict] = []
     with ProcessPoolExecutor(max_workers=args.workers) as pool:
@@ -254,8 +266,10 @@ def main() -> int:
             rows = fut.result()
             all_rows.extend(rows)
             if not args.quiet and done % 50 == 0:
-                print(f"  {done}/{len(files)} files processed, {len(all_rows)} ERROR rows so far",
-                      file=sys.stderr)
+                print(
+                    f"  {done}/{len(files)} files processed, {len(all_rows)} ERROR rows so far",
+                    file=sys.stderr,
+                )
 
     all_rows.sort(key=lambda r: (r["file"], r["path"], r["category"], r["message"]))
     with args.out.open("w", newline="") as fh:

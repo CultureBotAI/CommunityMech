@@ -11,14 +11,14 @@ from pathlib import Path
 def remove_fields(file_path: Path) -> bool:
     """Remove community_origin and community_category fields from a YAML file."""
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
+        with open(file_path, encoding="utf-8") as f:
             content = f.read()
 
         # Remove the two fields
-        content = re.sub(r'^community_origin:.*\n', '', content, flags=re.MULTILINE)
-        content = re.sub(r'^community_category:.*\n', '', content, flags=re.MULTILINE)
+        content = re.sub(r"^community_origin:.*\n", "", content, flags=re.MULTILINE)
+        content = re.sub(r"^community_category:.*\n", "", content, flags=re.MULTILINE)
 
-        with open(file_path, 'w', encoding='utf-8') as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
 
         return True
@@ -29,9 +29,9 @@ def remove_fields(file_path: Path) -> bool:
 
 def main():
     script_dir = Path(__file__).parent
-    communities_dir = script_dir.parent / 'kb' / 'communities'
+    communities_dir = script_dir.parent / "kb" / "communities"
 
-    yaml_files = sorted(communities_dir.glob('*.yaml'))
+    yaml_files = sorted(communities_dir.glob("*.yaml"))
 
     for yaml_file in yaml_files:
         remove_fields(yaml_file)
@@ -39,5 +39,5 @@ def main():
     print(f"Removed fields from {len(yaml_files)} files")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
