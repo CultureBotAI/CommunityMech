@@ -14,9 +14,17 @@ grounding the genus returned nothing, so the record fell back to the
 after GTDB's reclassification. The note on that entry read as a curation
 choice; it was a workaround for this bug.
 
-Measured when it was fixed: **11 taxa** across the KB were unresolvable for this
-reason alone (7 on the higher-rank path, 4 on the species path), all of them
-reporting no mapping rather than an error.
+Measured when it was fixed, by running every one of the KB's 1032 NCBITaxon
+taxa through `resolve_target` under both behaviours: **11 entries** were
+unresolvable for this reason alone — 10 on the higher-rank path and 1 on the
+species path — all of them reporting no mapping rather than an error. Every one
+of the 11 went from *no grounding* to *a grounding*, and **no grounding changed
+from one value to another**, which is the regression that mattered: preferring
+the exact spelling could in principle have re-pointed an existing grounding.
+
+Most *Candidatus* species were never blocked, because the species path tries the
+NCBI **id** before the name. `Candidatus Palibaumannia cicadellinicola` is the
+one that was: it has no id row, so it fell through to the name lookup.
 """
 
 from __future__ import annotations
@@ -90,13 +98,25 @@ def test_a_candidatus_genus_now_grounds(gtdb, mapping):
     assert found["total_genomes"] == 45
 
 
-def test_a_candidatus_species_now_grounds(gtdb, mapping):
-    """The species path had the same defect, via `by_name` rather than `by_higher`."""
-    keys = set(gtdb.lookup_keys("Candidatus Brocadia sinica"))
-    _, by_name, _ = gtdb.collect_rows(mapping, set(), keys, set())
-    found = gtdb.resolve_target("795830", "Candidatus Brocadia sinica", {}, by_name, {})
+def test_the_one_candidatus_species_that_was_really_blocked(gtdb, mapping):
+    """The species path had the same defect, via `by_name` rather than `by_higher`.
+
+    `Candidatus Palibaumannia cicadellinicola` is the KB's only species entry
+    that depended on it: the species path tries the NCBI **id** first, and this
+    is the one *Candidatus* species with no id row, so it fell through to the
+    name lookup and found nothing. Passing the real `by_id` rather than an empty
+    one is the point — an empty `by_id` would prove the name path works without
+    proving any KB entry ever needed it.
+    """
+    keys = set(gtdb.lookup_keys("Candidatus Palibaumannia cicadellinicola"))
+    by_id, by_name, _ = gtdb.collect_rows(mapping, {"186490"}, keys, set())
+    assert by_id.get("186490", []) == [], "no id row; the name lookup is what decides"
+
+    found = gtdb.resolve_target(
+        "186490", "Candidatus Palibaumannia cicadellinicola", by_id, by_name, {}
+    )
     assert found is not None, "the species must resolve"
-    assert found["gtdb_id"] == "GTDB:s__Brocadia_sinica"
+    assert found["gtdb_id"] == "GTDB:s__Baumannia_cicadellinicola"
 
 
 def test_an_unprefixed_taxon_is_unaffected(gtdb, mapping):

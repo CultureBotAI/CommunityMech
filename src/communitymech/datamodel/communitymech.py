@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-05T11:23:25
+# Generation date: 2026-08-05T21:43:38
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2269,7 +2269,7 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never
     classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a
     missing block (#294).
-    Only NOT_ATTEMPTED is unambiguously outstanding work — 9 taxa, against the 317 that a missing block implies. How
+    Only NOT_ATTEMPTED is unambiguously outstanding work — 8 taxa, against the 317 that a missing block implies. How
     much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in
     `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the
     generated datamodel goes stale every time the KB is swept.
@@ -2281,7 +2281,8 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     )
     UNRESOLVED = PermissibleValue(
         text="UNRESOLVED",
-        description="""`gtdb_ground.py` produced no grounding and the reason is not established. Some of these are final — viruses and eukaryotes, since GTDB is bacteria/archaea only — and some are limitations of the tool: the crosswalk may spell the clade differently (NCBI *Sulcia* is `Candidatus Karelsulcia`), or the named-species filter may have removed its rows. Separating the two needs an NCBI lineage source the script does not have (#393).
+        description="""`gtdb_ground.py` produced no grounding and the reason is not established. Some of these are final — viruses and eukaryotes, since GTDB is bacteria/archaea only — and some are limitations of the tool, such as the named-species filter having removed its rows. Separating the two needs an NCBI lineage source the script does not have (#393).
+Spelling used to belong on that list — NCBI *Sulcia* is `Candidatus Karelsulcia` — but that was a defect rather than a limit, and #419 fixed it: the lookup stripped a leading `Candidatus` while the crosswalk keeps it.
 Rank support runs domain through genus. Domain was added in #393, which moved 72 entries out of this bucket: *Bacteria* and *Archaea* had recorded \"no grounding produced\" for the two roots of GTDB.""",
     )
     NO_GTDB_EQUIVALENT = PermissibleValue(
@@ -2304,7 +2305,7 @@ Rank support runs domain through genus. Domain was added in #393, which moved 72
     _defn = EnumDefinition(
         name="GtdbGroundingStatusEnum",
         description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294).
-Only NOT_ATTEMPTED is unambiguously outstanding work — 9 taxa, against the 317 that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the generated datamodel goes stale every time the KB is swept.""",
+Only NOT_ATTEMPTED is unambiguously outstanding work — 8 taxa, against the 317 that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the generated datamodel goes stale every time the KB is swept.""",
     )
 
 

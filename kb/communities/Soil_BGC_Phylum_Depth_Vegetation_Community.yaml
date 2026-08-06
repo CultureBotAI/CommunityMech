@@ -78,17 +78,24 @@ taxonomy:
     term:
       id: NCBITaxon:2052312
       label: Candidatus Dormiibacterota
+    gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:p__Chloroflexota
-      gtdb_taxon: Chloroflexota
-      gtdb_lineage: d__Bacteria;p__Chloroflexota
+      curated: true
+      curation_note: 'Pinned one rank below what the tool derives. GTDB demoted this NCBI candidate
+        phylum to a class inside Chloroflexota, so the rank-for-rank vote returns p__Chloroflexota -
+        which is true but useless here: this record''s subject is per-phylum BGC content, and its
+        Chloroflexi entry already grounds to p__Chloroflexota, so the two of its three phyla the cited
+        snippet contrasts would become one GTDB concept. All four mapping rows for NCBITaxon:2052312
+        agree on c__Dormibacteria, so the exact equivalent is unambiguous.'
+      gtdb_id: GTDB:c__Dormibacteria
+      gtdb_taxon: Dormibacteria
+      gtdb_lineage: d__Bacteria;p__Chloroflexota;c__Dormibacteria
       ncbi_source_id: NCBITaxon:2052312
       majority_fraction: 1.0
       support_genomes: 3
       total_genomes: 3
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]
-    gtdb_grounding_status: GROUNDED
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
   functional_role:
   - PRIMARY_DEGRADER
   evidence:

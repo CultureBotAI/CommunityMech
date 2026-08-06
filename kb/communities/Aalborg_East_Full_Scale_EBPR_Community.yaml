@@ -50,12 +50,15 @@ taxonomy:
       total_genomes: 45
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: The genus term, not the Betaproteobacteria class term this entry used to carry (#419). The
-      class was a workaround for a tool defect rather than a curation choice - `gtdb_ground.py` stripped
-      the leading "Candidatus" before looking the label up, while the NCBI2GTDB genus column keeps it, so
-      the genus silently returned no mapping and the class was the only thing that would ground. Genus
-      rank still suits an entry that spans clade-level microdiversity rather than one cultured isolate,
-      and it no longer costs the whole of Betaproteobacteria's 41937 genomes to say so.
+    notes: 'Genus rank, replacing the Betaproteobacteria class term this entry carried from its creation
+      (#419). The original rationale was sound and still holds: the record captures the full-scale
+      community and clade-level microdiversity rather than a cultured isolate, and the genus spans that
+      same microdiversity - GTDB splits g__Accumulibacter into six named species. What the class term
+      cost was specificity, and a GTDB block averaged over 41937 genomes of Betaproteobacteria; the genus
+      grounds on 45. Independently of that choice, a tool defect would have prevented the genus grounding
+      had it been picked at the time: gtdb_ground.py stripped the leading "Candidatus" before looking the
+      label up while the NCBI2GTDB genus column keeps it, so the genus silently returned no mapping until
+      #419 fixed it.'
   functional_role:
   - PRIMARY_DEGRADER
   - CROSS_FEEDER
