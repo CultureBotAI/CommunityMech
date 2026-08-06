@@ -33,7 +33,11 @@ import yaml
 COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
 
 # (record, preferred_term) -> why the derived block would be wrong, and so which
-# remediation applies. Tracked in #292 (wrong id) and #416 (wrong majority).
+# remediation applies. Tracked in #292 (wrong id), #416 (wrong majority) and
+# #401 (a near-tie, or a non-type split whose type-bearing term cannot be
+# stored). Must stay in step with `WITHHELD_GROUNDINGS` in gtdb_ground.py —
+# asserted below, because the two drifting apart is how a hold silently stops
+# being one.
 # `Bacteroides ovatus` was here until #292 was fixed: its id is now
 # NCBITaxon:28116 and `--apply` produced GTDB:s__Bacteroides_ovatus on its own,
 # exactly as the module docstring says it should. The entry is gone rather than
@@ -45,7 +49,45 @@ WITHHELD = {
         "and Leptospirillum is an iron oxidizer while this genome is the record's "
         "nitrite oxidizer (#416). The id itself was corrected to NCBITaxon:189779."
     ),
+    ("Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml", "Colwellia"): (
+        "g__Cognaticolwellia wins at 0.548 (34/62 genomes) — a rename decided by "
+        "a coin flip, about a genus the record names plainly (#396, #401)."
+    ),
+    ("High_Solids_Switchgrass_Methanogenic_Microbiome.yaml", "Euryarchaeota"): (
+        "p__Methanobacteriota wins at 0.531 (2815/5300 genomes) (#396, #401)."
+    ),
+    ("AMD_Nitrososphaerota_Archaeal.yaml", "Nitrospira-like nitrite oxidizer"): (
+        "g__Nitrospira_D is a non-type split; the genus type species N. marina "
+        "maps to g__UBA8639 at 1 of 21 genomes, so the type-bearing grounding "
+        "would need majority_fraction 0.048 (#374, #377, #401)."
+    ),
+    ("East_River_Floodplain_Core_Microbiome.yaml", "Nitrospirae core floodplain members"): (
+        "As the AMD_Nitrososphaerota_Archaeal Nitrospira entry (#374, #377, #401)."
+    ),
 }
+
+
+def test_the_two_withhold_lists_agree():
+    """The script's list and this one must name the same taxa.
+
+    Nothing enforced this before: every other reference to
+    `WITHHELD_GROUNDINGS` takes `next(iter(...))`, so four entries could be
+    deleted from the script and the whole suite stayed green — the miss would
+    surface only after someone ran `--apply` and a later test caught the YAML.
+    """
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location(
+        "gtdb_ground", Path(__file__).parent.parent / "scripts/gtdb_ground.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    assert set(module.WITHHELD_GROUNDINGS) == set(WITHHELD), (
+        "gtdb_ground.WITHHELD_GROUNDINGS and this file's WITHHELD have drifted. "
+        "The script's list is what makes --apply skip a taxon; this one is what "
+        "tests that it stayed skipped. A hold in only one of them is not a hold."
+    )
 
 
 def _taxon_term(record: str, preferred: str) -> dict | None:

@@ -900,11 +900,16 @@ def classify_status(
 
 # Taxa kept ungrounded on purpose because the block this tool would derive is
 # wrong, so writing it would state the error convincingly in a second field.
-# Two reasons qualify and they need different fixes: a wrong NCBITaxon id (#292,
-# fixed by correcting the id) and a GTDB majority that contradicts the record's
-# own physiology (#416, fixed only by a curator choosing the grounding).
+# Three reasons qualify and they need different fixes: a wrong NCBITaxon id
+# (#292, fixed by correcting the id); a GTDB majority that contradicts the
+# record's own physiology (#416, fixed only by a curator choosing); and a vote
+# too weak to assert — a near-tie (#396) or a non-type split whose type-bearing
+# counterpart holds a minority of genomes, which majority_fraction cannot
+# express at all (#374, #401).
 # Mirrors CURATED_GROUNDINGS, which protects a grounding that *is* right.
-# Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py (#292).
+# Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py, which
+# now asserts the two agree — before that, deleting an entry here left the
+# whole suite green (#292, #401 review).
 WITHHELD_GROUNDINGS = {
     ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
         "GTDB's majority for NCBI Nitrospiraceae is f__Leptospirillaceae at 0.534 "

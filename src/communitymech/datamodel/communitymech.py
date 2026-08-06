@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-06T14:08:44
+# Generation date: 2026-08-06T15:08:35
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2295,7 +2295,8 @@ Rank support runs domain through genus. Domain was added in #393, which moved 72
     )
     WITHHELD = PermissibleValue(
         text="WITHHELD",
-        description="""The tool can produce a grounding and a curator has decided it must not be stored — usually because the NCBITaxon id names a different organism, so the derived block would describe the wrong species convincingly (#292, #293). Fix the id and this becomes GROUNDED on the next run.""",
+        description="""The tool can produce a grounding and a curator has decided it must not be stored. Three reasons have qualified. A wrong NCBITaxon id, so the derived block would describe the wrong species convincingly (#292, #293) — fix the id and this becomes GROUNDED on the next run. A majority that contradicts the record's own physiology (#416). And a vote too weak to assert: a near-tie (#396), or a non-type GTDB split whose type-bearing counterpart holds a minority of genomes and so cannot be stored at all, since majority_fraction is bounded at 0.5 (#374, #401).
+No current instance is the first kind, so do not assume an id needs fixing — read the entry's reason in WITHHELD_GROUNDINGS.""",
     )
     NOT_ATTEMPTED = PermissibleValue(
         text="NOT_ATTEMPTED",

@@ -126,8 +126,9 @@ Grounding happens at the **rank of the input**:
 Every `taxonomy[].taxon_term` carries `gtdb_grounding_status`, written by
 `gtdb_ground.py --community <file> --apply-status`. Absence of a
 `gtdb_classification` cannot say *why* it is absent, and the reasons are not
-comparable: a missing block implies 317 open items, of which only 9 are
-unambiguously outstanding work (#276).
+comparable: a missing block implies 301 open items, none of which is now
+unambiguously outstanding work — #401 closed the last nine, grounding five and
+withholding four with a reason apiece (#276).
 
 | status | count | meaning |
 |---|---|---|
