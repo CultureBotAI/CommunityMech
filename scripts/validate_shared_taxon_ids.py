@@ -22,17 +22,31 @@ def main(argv: list[str] | None = None) -> int:
         print("usage: validate_shared_taxon_ids.py FILE [FILE ...]", file=sys.stderr)
         return 2
     problems = 0
+    unreadable = 0
     for path in paths:
+        # An unreadable file is a usage error, not a finding. Counting it as one
+        # would exit 1 and read as "this record reuses an id" (#434); the
+        # sibling validators return 2 for the same reason.
         try:
-            document = yaml.safe_load(path.read_text()) or {}
-        except yaml.YAMLError as error:
-            print(f"{path}: unparseable: {error}", file=sys.stderr)
-            problems += 1
+            text = path.read_text()
+        except OSError as error:
+            print(f"[taxon-ids] cannot read {path}: {error}", file=sys.stderr)
+            unreadable += 1
             continue
-        for message in check_record(document.get("taxonomy") or []):
+        try:
+            document = yaml.safe_load(text)
+        except yaml.YAMLError as error:
+            print(f"[taxon-ids] unparseable {path}: {error}", file=sys.stderr)
+            unreadable += 1
+            continue
+        taxonomy = document.get("taxonomy") if isinstance(document, dict) else None
+        for message in check_record(taxonomy):
             print(f"{path}: {message}")
             problems += 1
     print(f"\nfiles checked: {len(paths)}\nreused ids: {problems}")
+    if unreadable:
+        print(f"unreadable: {unreadable}", file=sys.stderr)
+        return 2
     return 1 if problems else 0
 
 

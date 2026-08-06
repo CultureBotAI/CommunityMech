@@ -1,18 +1,26 @@
 """Keep deliberately-withheld GTDB groundings withheld (#292, #293).
 
-Two taxa carry an ``NCBITaxon`` id belonging to a different organism, so the GTDB
-classification derived from that id describes the wrong species. Restating a wrong
-grounding in a second, independently-derived-looking field makes it harder to
-spot, not easier, so those two entries are left ungrounded until the ids are
-fixed.
+A withheld taxon is one where the block ``gtdb_ground.py`` would derive is wrong,
+so restating it in a second, independently-derived-looking field would make the
+error harder to spot rather than easier.
 
 ``gtdb_ground.py --apply`` has no memory of that decision: it is otherwise
 perfectly idempotent, but a re-run over the whole KB re-adds exactly these
 blocks. Without this test the withhold lasts only until the next person runs the
 tool and commits, and nothing anywhere fails.
 
-Removing an entry from ``WITHHELD`` is part of fixing #292 — correct the id, then
-re-run ``--apply`` and the right block appears on its own.
+Two reasons have put an entry here, and they need different fixes:
+
+* **a wrong id** (#292) — the id named a different organism, so everything
+  derived from it was wrong. Fix the id, re-run ``--apply``, and the right block
+  appears on its own; then drop the entry. That is what happened to
+  *Bacteroides ovatus*, which is why it is no longer listed.
+* **a wrong majority** (#416) — the id is right, but GTDB's majority vote for it
+  lands on a taxon whose physiology contradicts the record. No id edit fixes
+  that; it needs a curator to choose the grounding.
+
+Which one applies is in each entry's reason string, because the remediation
+differs and guessing wrong wastes a maintainer's afternoon.
 """
 
 from __future__ import annotations
@@ -24,7 +32,8 @@ import yaml
 
 COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
 
-# (record, preferred_term) -> why the id is wrong. Tracked in #292.
+# (record, preferred_term) -> why the derived block would be wrong, and so which
+# remediation applies. Tracked in #292 (wrong id) and #416 (wrong majority).
 # `Bacteroides ovatus` was here until #292 was fixed: its id is now
 # NCBITaxon:28116 and `--apply` produced GTDB:s__Bacteroides_ovatus on its own,
 # exactly as the module docstring says it should. The entry is gone rather than
@@ -63,16 +72,18 @@ def test_withheld_taxon_is_still_present(record: str, preferred: str):
     ("record", "preferred"), list(WITHHELD), ids=[f"{r}::{p}" for r, p in WITHHELD]
 )
 def test_withheld_taxon_stays_ungrounded(record: str, preferred: str):
-    """No GTDB block on a taxon whose NCBITaxon id names a different organism."""
+    """No GTDB block on a taxon the tool would ground wrongly."""
     term = _taxon_term(record, preferred)
     assert term is not None
     assert "gtdb_classification" not in term, (
-        f"'{preferred}' in {record} was grounded in GTDB, but its NCBITaxon id is "
-        f"wrong: {WITHHELD[(record, preferred)]} A GTDB block derived from that id "
-        f"describes the wrong organism. `gtdb_ground.py --apply` re-adds it on every "
-        f"run (#293), so this is most likely an unreviewed tool re-run — revert it. "
-        f"To ground it properly, fix the NCBITaxon id first (#292), then drop this "
-        f"entry from WITHHELD."
+        f"'{preferred}' in {record} was grounded in GTDB, but that grounding is "
+        f"wrong: {WITHHELD[(record, preferred)]} `gtdb_ground.py --apply` re-adds "
+        f"it on every run (#293), so this is most likely an unreviewed tool re-run "
+        f"— revert it. Read the reason above before trying to fix it properly: if "
+        f"the NCBITaxon id is wrong, correct the id and the right block follows on "
+        f"its own (#292); if the id is right and GTDB's majority is the problem, no "
+        f"id edit helps and a curator has to choose the grounding (#416, #396). "
+        f"Either way, drop this entry from WITHHELD only once it is actually right."
     )
 
 

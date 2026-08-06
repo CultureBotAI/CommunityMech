@@ -187,7 +187,8 @@ def validate_one(path: Path) -> list[dict]:
     # One specific NCBITaxon id standing in for two different organisms (#292).
     # Not covered by the id<->label gate: the id and label agree, and only the
     # `preferred_term` disagrees.
-    for message in check_shared_taxon_ids((instance or {}).get("taxonomy") or []):
+    taxonomy = instance.get("taxonomy") if isinstance(instance, dict) else None
+    for message in check_shared_taxon_ids(taxonomy):
         rows.append(
             {
                 "file": str(path),

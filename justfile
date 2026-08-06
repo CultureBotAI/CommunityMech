@@ -317,7 +317,8 @@ lint:
     uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
-# `validate-gtdb-all` and `validate-scalars` also run inside validate-strict.
+# `validate-gtdb-all`, `validate-scalars` and `validate-taxon-ids` also run
+# inside validate-strict.
 # Only `validate-scalars` widens the scope — it covers kb/taxa, which
 # validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
 # those roots and adds nothing (kb/taxa carries no gtdb_classification at all).

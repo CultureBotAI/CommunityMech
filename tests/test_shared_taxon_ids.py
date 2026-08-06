@@ -27,7 +27,12 @@ from pathlib import Path
 import pytest
 import yaml
 
-from communitymech.validators.shared_taxon_ids import _core, check_record, rank_of
+from communitymech.validators.shared_taxon_ids import (
+    _core,
+    check_record,
+    known_cores,
+    rank_of,
+)
 
 REPO = Path(__file__).parent.parent
 
@@ -91,6 +96,85 @@ def test_legitimate_sharing_is_not_flagged(label, names, curie):
     assert check_record([_entry(n, curie) for n in names]) == [], label
 
 
+@pytest.mark.parametrize(
+    ("label", "names", "curie"),
+    [
+        # An NCBI rename, which is exactly what `preferred_term` exists to
+        # preserve. Different genus *and* different epithet — otherwise the
+        # strongest clash signal there is — but NCBITaxon lists both names for
+        # the id, so they are one organism (#430).
+        (
+            "a source-paper name preserved across an NCBI rename",
+            ["Agathobacter rectalis DSM 17629", "Eubacterium rectale ATCC 33656"],
+            "NCBITaxon:39491",
+        ),
+        (
+            "the same rename in the other direction",
+            ["Clostridium difficile 630", "Clostridioides difficile R20291"],
+            "NCBITaxon:1496",
+        ),
+        # A GTDB split of one NCBI genus, already in the KB as `Olsenella_B`.
+        (
+            "a GTDB genus split",
+            ["Olsenella sp. (MAG A)", "Olsenella_B sp. (MAG B)"],
+            "NCBITaxon:133925",
+        ),
+        # The abbreviation a paper uses after first mention. This one is live:
+        # the KB's own PET consortium spells one entry `B. subtilis 168 ...`.
+        (
+            "a genus abbreviated after first mention",
+            ["B. subtilis 168 Bs_PETase", "Bacillus subtilis 168 Bs_MHETase"],
+            "NCBITaxon:1423",
+        ),
+        (
+            "the same abbreviation for E. coli",
+            ["E. coli K-12", "Escherichia coli Nissle 1917"],
+            "NCBITaxon:562",
+        ),
+    ],
+)
+def test_one_organism_spelled_two_ways_is_not_a_clash(label, names, curie):
+    """Each of these fired before #430 and is legitimate."""
+    assert check_record([_entry(n, curie) for n in names]) == [], label
+
+
+def test_a_rename_exemption_does_not_swallow_the_real_defect():
+    """The exemption is per-name, so an unrelated species is still caught.
+
+    `Bacteroides vulgatus` *is* a name NCBITaxon lists for 821; `Bacteroides
+    ovatus` is not. Exempting the first must not exempt the pair.
+    """
+    assert ("bacteroides", "vulgatus") in known_cores("NCBITaxon:821")
+    assert ("bacteroides", "ovatus") not in known_cores("NCBITaxon:821")
+    problems = check_record(
+        [
+            _entry("Bacteroides vulgatus", "NCBITaxon:821"),
+            _entry("Bacteroides ovatus", "NCBITaxon:821"),
+        ]
+    )
+    assert len(problems) == 1, problems
+
+
+@pytest.mark.parametrize(
+    ("label", "taxonomy"),
+    [
+        ("a bare list item", [{"taxon_term": {"preferred_term": "A"}}, None]),
+        ("taxon_term as a string", [{"taxon_term": "Bacteroides"}]),
+        ("term as a list", [{"taxon_term": {"term": [1, 2]}}]),
+        ("a non-string id", [{"taxon_term": {"preferred_term": "A", "term": {"id": 123}}}]),
+        ("taxonomy that is not a list", "nonsense"),
+        ("no taxonomy at all", None),
+    ],
+)
+def test_malformed_input_is_skipped_not_raised_on(label, taxonomy):
+    """An exception here would abort validate-strict and discard every file.
+
+    The schema validator in that same pass diagnoses these properly; this check
+    must stay out of its way rather than crash the run (#429).
+    """
+    assert check_record(taxonomy) == [], label
+
+
 def test_a_broad_id_shared_across_guilds_is_fine():
     """Environmental records put several guilds under one clade on purpose."""
     assert (
@@ -138,6 +222,11 @@ def test_the_binomial_core_is_extracted_as_documented(name, expected):
 
 
 def test_the_committed_kb_is_clean():
+    # Without this the test passes vacuously wherever NCBITaxon is missing
+    # (#433): every rank comes back None, nothing is judged, and "no problems"
+    # means "nothing was looked at".
+    assert rank_of("NCBITaxon:821") == "species", "NCBITaxon unavailable; this proves nothing"
+
     scanned, problems = 0, []
     for directory in ("kb/communities", "data/isolates"):
         for path in sorted((REPO / directory).glob("*.yaml")):
@@ -151,20 +240,41 @@ def test_the_committed_kb_is_clean():
 def test_the_gate_fires_through_validate_strict(tmp_path):
     """It must run in CI, not only when called directly.
 
-    Uses the pre-fix version of the record from `main`, so the fixture is the
-    real defect rather than a hand-built imitation.
-    """
-    source = subprocess.run(
-        ["git", "show", "main:kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml"],
-        capture_output=True,
-        text=True,
-        cwd=REPO,
-    )
-    if source.returncode != 0 or "NCBITaxon:821" not in source.stdout:
-        pytest.skip("main no longer carries the pre-fix record; this fixture is stale")
+    The fixture is vendored rather than fetched with `git show main:...`. That
+    read the pre-fix record straight from history, which was appealing, but it
+    failed in both directions (#428): CI checks out at `fetch-depth: 1`, so
+    there was no local `main` and the test skipped on every PR; and once this
+    fix merged, `main` would return the *corrected* record while the staleness
+    guard — keyed on `NCBITaxon:821`, which the record still legitimately uses
+    for its `Bacteroides vulgatus` entry — would not notice, so the test would
+    assert a failure against a clean file and turn `main` red.
 
+    The two entries below are that record's, verbatim, as of the defect.
+    """
     probe = tmp_path / "Broken.yaml"
-    probe.write_text(source.stdout)
+    probe.write_text(
+        yaml.safe_dump(
+            {
+                "id": "CommunityMech:TEST",
+                "name": "pre-fix fixture for #292",
+                "taxonomy": [
+                    {
+                        "taxon_term": {
+                            "preferred_term": "Bacteroides vulgatus",
+                            "term": {"id": "NCBITaxon:821", "label": "Phocaeicola vulgatus"},
+                        }
+                    },
+                    {
+                        "taxon_term": {
+                            "preferred_term": "Bacteroides ovatus",
+                            "term": {"id": "NCBITaxon:821", "label": "Phocaeicola vulgatus"},
+                        }
+                    },
+                ],
+            },
+            sort_keys=False,
+        )
+    )
     result = subprocess.run(
         [
             "uv",
@@ -183,6 +293,46 @@ def test_the_gate_fires_through_validate_strict(tmp_path):
 
     assert result.returncode != 0
     assert "taxon_id_reused_for_another_organism" in (result.stdout + result.stderr)
+
+
+def _cli(*args, cwd):
+    return subprocess.run(
+        ["uv", "run", "python", "scripts/validate_shared_taxon_ids.py", *args],
+        capture_output=True,
+        text=True,
+        cwd=cwd,
+        timeout=900,
+    )
+
+
+def test_the_cli_separates_a_finding_from_a_usage_error(tmp_path):
+    """`just validate-taxon-ids` must not report a typo'd path as a finding."""
+    clean = tmp_path / "Clean.yaml"
+    clean.write_text(
+        yaml.safe_dump({"taxonomy": [{"taxon_term": {"preferred_term": "A", "term": {}}}]})
+    )
+    dirty = tmp_path / "Dirty.yaml"
+    dirty.write_text(
+        yaml.safe_dump(
+            {
+                "taxonomy": [
+                    {"taxon_term": {"preferred_term": n, "term": {"id": "NCBITaxon:821"}}}
+                    for n in ("Bacteroides vulgatus", "Bacteroides ovatus")
+                ]
+            }
+        )
+    )
+
+    assert _cli(str(clean), cwd=REPO).returncode == 0
+    found = _cli(str(dirty), cwd=REPO)
+    assert found.returncode == 1
+    assert "NCBITaxon:821" in found.stdout
+
+    missing = _cli(str(tmp_path / "Nope.yaml"), cwd=REPO)
+    assert missing.returncode == 2, "a missing file must not look like a reused id"
+    assert "cannot read" in missing.stderr
+
+    assert _cli(cwd=REPO).returncode == 2, "no arguments is a usage error"
 
 
 def test_an_unavailable_ontology_stays_silent(monkeypatch):
