@@ -9,30 +9,38 @@ record already used for its *Chloroflexi* entry, collapsing two of the three
 phyla its cited snippet contrasts into one GTDB concept.
 
 **No automatic rule is safe here, and the measurement is what shows it.** Of the
-KB's 159 groundings above genus rank, **20 look sharpenable** under the tool's
+KB's 159 groundings above genus rank, **21 look sharpenable** under the tool's
 own default policy (`exclude_unnamed=True`, which produced every stored block):
-every row behind the winning taxon agrees at some finer rank. Only **three** are
-demotions.
+every row behind the winning taxon agrees at some finer rank, once GTDB's `_A`
+polyphyly suffix is set aside. Only **five** are demotions.
 
 * **15 keep their own NCBI name in GTDB** (`is_reclassified: false`) —
   `Gemmatimonadota`, `Thermotogota`, `Verrucomicrobiota`, `Thermoplasmatales`
   and others. The NCBI taxon *is* the GTDB taxon; sharpening to a child would
   assert something the data does not say. A rule keyed on agreement alone
   mis-sharpens all fifteen.
-* `Rhodospirillales` -> `o__RF32` and `Ca. Methanophagales` ->
-  `o__Alkanophagales` are real reclassifications with **nothing to sharpen to**:
-  the finer terms are `f__CAG-239`, an alphanumeric placeholder, and
+* Of the 6 reclassified, `Rhodospirillales` -> `o__RF32`,
+  `Ca. Methanophagales` -> `o__Alkanophagales` and `Ca. Eiseniibacteriota` ->
+  `p__Eisenbacteria` have **nothing to sharpen to**: the finer terms are
+  `f__CAG-239` and `c__RBG-16-71-46`, alphanumeric placeholders, and
   `f__Methanospirareceae`, which does not bear the NCBI clade's name.
+
+The suffix point is not incidental. An earlier version of this sweep demanded
+*strict* string unanimity and so was blind to any demotion GTDB had split for
+monophyly — which is exactly how it missed `Nitrososphaerota`, whose rows read
+`Nitrososphaeria` 57 and `Nitrososphaeria_A` 8.
 
 What marks a demotion is that a finer rank still carries the clade's *name*, and
 testing that mechanically is where it fails. Longest common prefix of the NCBI
-name and its GTDB counterpart, for the four reclassified cases:
+name and its GTDB counterpart, across the reclassified cases:
 
-    Ignavibacteriota / Ignavibacteria      14   demotion
+    Nitrososphaerota / Nitrososphaeria     13   demotion
+    Ignavibacteriota / Ignavibacteria      13   demotion
     Parvarchaeota    / Parvarchaeales      10   demotion
     Chlorobiota      / Chlorobiia           8   demotion
     Methanophagales  / Methanospirareceae   7   NOT a demotion
     Dormiibacterota  / Dormibacteria        5   demotion (NCBI doubles the i)
+    Eiseniibacteriota/ RBG-16-71-46         0   NOT a demotion
 
 No threshold separates them — a cut anywhere above 5 loses Dormibacteria, and
 anywhere below 8 admits Methanospirareceae. So this stays a curator's call, and
@@ -47,6 +55,7 @@ that deleting the pin, or quietly re-broadening the term, fails.
 from __future__ import annotations
 
 import importlib.util
+import re
 from pathlib import Path
 
 import pytest
@@ -74,6 +83,10 @@ SHARPENED = {
         "Rifle_Aquifer_Bioanode_EET_Community.yaml",
         "EET-capable Rifle aquifer Ignavibacteria",
     ): ("GTDB:c__Ignavibacteria", "GTDB:p__Bacteroidota"),
+    ("Naica_Deep_Subsurface_Thermophilic.yaml", "Thaumarchaeota"): (
+        "GTDB:c__Nitrososphaeria",
+        "GTDB:p__Thermoproteota",
+    ),
 }
 
 # The mirror case: reclassified, and deliberately *not* sharpened, because no
@@ -149,6 +162,45 @@ def test_a_reclassification_with_no_named_equivalent_is_left_alone(record: str, 
     assert grounding.get("gtdb_id") == LEFT_BROAD[(record, preferred)]
 
 
+def _shared_stem(first: str, second: str) -> int:
+    """Length of the longest common prefix, case-insensitively."""
+    first, second = first.lower(), second.lower()
+    n = 0
+    while n < min(len(first), len(second)) and first[n] == second[n]:
+        n += 1
+    return n
+
+
+@pytest.mark.parametrize(
+    ("record", "preferred"), list(SHARPENED), ids=[f"{r}::{p}"[:60] for r, p in SHARPENED]
+)
+def test_the_curated_term_bears_the_clade_name_and_the_broad_one_does_not(
+    record: str, preferred: str
+):
+    """The property that makes a sharpening a *demotion* rather than a guess.
+
+    This is what stops the pin being re-broadened. Checking the crosswalk alone
+    cannot: "every named row carries X at rank Y" is true of every **ancestor**
+    too, so `p__Bacteroidota` and `p__Nanoarchaeota` both satisfy it and the
+    earlier version of this test passed with the pins reverted.
+
+    What separates them is the name. GTDB kept the clade and moved it, so the
+    chosen term still reads like the NCBI one, and the term the vote returned
+    does not.
+    """
+    chosen, would_be = SHARPENED[(record, preferred)]
+    label = (_entry(record, preferred).get("term") or {}).get("label") or ""
+    clade = label.replace("Candidatus ", "")
+
+    kept = _shared_stem(clade, chosen.split("__", 1)[1])
+    broad = _shared_stem(clade, would_be.split("__", 1)[1])
+    assert kept >= 5, f"{chosen} does not bear {clade!r}'s name (shared stem {kept})"
+    assert broad < kept, (
+        f"{would_be} shares as much of {clade!r}'s name as {chosen} does, so this "
+        f"is not a demotion — re-check whether the sharpening is justified"
+    )
+
+
 @pytest.mark.parametrize(
     ("record", "preferred"), list(SHARPENED), ids=[f"{r}::{p}"[:60] for r, p in SHARPENED]
 )
@@ -174,8 +226,11 @@ def test_the_curated_term_is_what_the_mapping_actually_supports(
     assert named, f"no named-species rows for {label!r}; the pin cannot be checked"
 
     column = {pr: col for col, pr in gtdb.GTDB_RANK_COLS}[prefix]
-    values = {row[column].strip() for row in named}
-    assert values == {name}, (
+    # GTDB splits a clade it finds polyphyletic into `X`, `X_A`, `X_B`. Those
+    # are the same clade for this purpose — demanding strict string unanimity
+    # is precisely what hid the Nitrososphaerota demotion until review.
+    values = {re.sub(r"_[A-Z]$", "", row[column].strip()) for row in named}
+    assert values == {re.sub(r"_[A-Z]$", "", name)}, (
         f"{chosen} claims every named-species row for {label!r} is {name!r} at "
         f"{prefix}__ rank, but the crosswalk says {sorted(values)}"
     )

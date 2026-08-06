@@ -44,15 +44,26 @@ taxonomy:
       label: Nitrososphaerota
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:p__Thermoproteota
-      gtdb_taxon: Thermoproteota
-      gtdb_lineage: d__Archaea;p__Thermoproteota
+      curated: true
+      curation_note: 'Sharpened from p__Thermoproteota, which the rank-for-rank vote returns because NCBI
+        calls Nitrososphaerota (Thaumarchaeota) a phylum (#451). GTDB demoted it - the clade survives as
+        c__Nitrososphaeria inside Thermoproteota - and every one of the 65 named-species rows behind this
+        grounding is Nitrososphaeria, once GTDB''s polyphyly suffix is set aside: 57 rows read
+        Nitrososphaeria and 8 read Nitrososphaeria_A, which is the same clade split for monophyly, not a
+        different one. The stored fraction counts only the unsuffixed name, so 552 of 631 genomes, where
+        the phylum vote claimed 631 of 631 - less confident and more informative. p__Thermoproteota also
+        absorbs NCBI Crenarchaeota and Korarchaeota, so it did not distinguish this entry; the record
+        names Thaumarchaeota specifically and ties it to archaeal amoA ammonia oxidation, which is a
+        Nitrososphaeria trait.'
+      gtdb_id: GTDB:c__Nitrososphaeria
+      gtdb_taxon: Nitrososphaeria
+      gtdb_lineage: d__Archaea;p__Thermoproteota;c__Nitrososphaeria
       ncbi_source_id: NCBITaxon:651137
-      majority_fraction: 1.0
-      support_genomes: 631
+      majority_fraction: 0.875
+      support_genomes: 552
       total_genomes: 631
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: 'Dominant archaeal lineage representing basal Thaumarchaeota clades adapted to deep subsurface
       thermophilic conditions. Naica Thaumarchaeota possess archaeal ammonia monooxygenase (amoA) genes,
       demonstrating their role in autotrophic ammonia oxidation coupled to CO₂ fixation. High GC content
