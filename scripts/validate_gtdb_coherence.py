@@ -31,7 +31,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence  # noqa: E402
-from communitymech.validators.gtdb_lineage_tree import check_corpus  # noqa: E402
+from communitymech.validators.gtdb_lineage_tree import (  # noqa: E402
+    check_corpus,
+    check_lineage_shape,
+)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -61,16 +64,23 @@ def main(argv: list[str] | None = None) -> int:
             corpus.append((path.name, yaml.safe_load(path.read_text())))
         except yaml.YAMLError:
             continue
+    # Shape first: a lineage skipping a rank would otherwise surface as a
+    # hierarchy conflict naming the record that is correct (#455 review).
+    malformed = [f"{name}: {m}" for name, doc in corpus for m in check_lineage_shape(doc)]
+    for message in malformed:
+        print(f"[gtdb-lineage-shape] {message}")
+
     conflicts = check_corpus(corpus)
     for message in conflicts:
         print(f"[gtdb-lineage-tree] {message}")
 
     print(f"\nfiles checked: {len(args.files)}", file=sys.stderr)
     print(f"incoherent blocks: {len(issues)}", file=sys.stderr)
+    print(f"malformed lineages: {len(malformed)}", file=sys.stderr)
     print(f"lineage conflicts: {len(conflicts)}", file=sys.stderr)
     for category, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {category:34s} {count:>6d}", file=sys.stderr)
-    return 1 if (issues or conflicts) else 0
+    return 1 if (issues or conflicts or malformed) else 0
 
 
 if __name__ == "__main__":

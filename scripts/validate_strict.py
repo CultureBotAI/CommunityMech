@@ -201,13 +201,10 @@ def validate_one(path: Path) -> list[dict]:
             }
         )
 
-    # A GTDB block on a eukaryote or a virus (#365). GTDB classifies prokaryotes
-    # only, so this is a contradiction rather than a suspicion — and no other
-    # gate sees it, because id, label and ncbi_source_id all agree. Takes the
-    # whole document because interaction participants can carry a block too.
-    # A lineage whose ranks are out of order or unprefixed (#454). The corpus
-    # half of that check — one taxon, one parent — needs every record at once,
-    # so it lives in the CLI and the test suite rather than here.
+    # A lineage that is not a contiguous chain of ranks from d__ (#454).
+    # Contiguity is what makes the corpus half of that check sound, and the
+    # corpus half — one taxon, one parent — needs every record at once, so it
+    # runs in `just validate-gtdb-all` rather than here.
     for message in check_lineage_shape(instance):
         rows.append(
             {
@@ -219,6 +216,10 @@ def validate_one(path: Path) -> list[dict]:
             }
         )
 
+    # A GTDB block on a eukaryote or a virus (#365). GTDB classifies prokaryotes
+    # only, so this is a contradiction rather than a suspicion — and no other
+    # gate sees it, because id, label and ncbi_source_id all agree. Takes the
+    # whole document because interaction participants can carry a block too.
     for message in check_prokaryotic_lineage(instance):
         rows.append(
             {
