@@ -226,15 +226,26 @@ taxonomy:
       id: NCBITaxon:1462422
       label: Candidatus Parvarchaeota
     gtdb_classification:
-      gtdb_id: GTDB:p__Nanoarchaeota
-      gtdb_taxon: Nanoarchaeota
-      gtdb_lineage: d__Archaea;p__Nanoarchaeota
+      curated: true
+      curation_note: 'Sharpened from p__Nanoarchaeota, which the rank-for-rank vote returns because NCBI
+        calls Parvarchaeota a phylum (#445). GTDB demoted it rather than dissolving it: the clade survives
+        as o__Parvarchaeales inside p__Nanoarchaeota, and every one of the named-species rows behind this
+        grounding is Parvarchaeales, so the sharper term carries the same 20/20 confidence. The phylum
+        term was not wrong, only uninformative - p__Nanoarchaeota also absorbs NCBI Ca. Woesearchaeota,
+        Nanobdellota and Ca. Iainarchaeota, so it would have said nothing that distinguishes this entry
+        from three other phyla, in a record whose Micrarchaeota (ARMAN-1/2) entry is a near neighbour.
+        Order rank, not family: c__Nanoarchaeia does not bear the clade name and f__Parvarchaeaceae is
+        narrower than the NCBI phylum, so o__Parvarchaeales is the most senior GTDB term that still
+        means Parvarchaeota.'
+      gtdb_id: GTDB:o__Parvarchaeales
+      gtdb_taxon: Parvarchaeales
+      gtdb_lineage: d__Archaea;p__Nanoarchaeota;c__Nanoarchaeia;o__Parvarchaeales
       ncbi_source_id: NCBITaxon:1462422
       majority_fraction: 1.0
       support_genomes: 20
       total_genomes: 20
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at o__ rank; 1 GTDB taxa under the NCBI taxon]
     gtdb_grounding_status: GROUNDED
     notes: 'Ultra-small archaea (ARMAN-4 and ARMAN-5) belonging to Parvarchaeota phylum,
       limited to AMD and hot spring habitats. These nanoorganisms have genomes ~1
