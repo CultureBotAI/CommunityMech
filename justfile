@@ -163,6 +163,16 @@ validate-gtdb FILE:
 validate-scalars *files:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
 
+# Find one NCBITaxon id standing in for two different organisms (#292).
+#
+# The id<->label gate cannot see this: `NCBITaxon:821` really is labelled
+# "Phocaeicola vulgatus", so the pair is consistent and only `preferred_term`
+# disagrees. Runs inside `just validate-strict`; this is the single-file form.
+#
+# Find an NCBITaxon id used for two different organisms
+validate-taxon-ids *files:
+    PYTHONPATH=src uv run python scripts/validate_shared_taxon_ids.py {{files}}
+
 validate-gtdb-all:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
 
@@ -307,7 +317,8 @@ lint:
     uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
-# `validate-gtdb-all` and `validate-scalars` also run inside validate-strict.
+# `validate-gtdb-all`, `validate-scalars` and `validate-taxon-ids` also run
+# inside validate-strict.
 # Only `validate-scalars` widens the scope — it covers kb/taxa, which
 # validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
 # those roots and adds nothing (kb/taxa carries no gtdb_classification at all).

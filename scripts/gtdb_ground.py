@@ -868,14 +868,14 @@ def classify_status(
     return "NOT_ATTEMPTED", []
 
 
-# Taxa kept ungrounded on purpose because the NCBITaxon id names a different
-# organism, so a derived block would describe the wrong species convincingly.
+# Taxa kept ungrounded on purpose because the block this tool would derive is
+# wrong, so writing it would state the error convincingly in a second field.
+# Two reasons qualify and they need different fixes: a wrong NCBITaxon id (#292,
+# fixed by correcting the id) and a GTDB majority that contradicts the record's
+# own physiology (#416, fixed only by a curator choosing the grounding).
 # Mirrors CURATED_GROUNDINGS, which protects a grounding that *is* right.
 # Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py (#292).
 WITHHELD_GROUNDINGS = {
-    ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"): (
-        "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116."
-    ),
     ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
         "GTDB's majority for NCBI Nitrospiraceae is f__Leptospirillaceae at 0.534 "
         "(31/58 genomes), and Leptospirillum is an iron oxidizer while this genome "
@@ -966,8 +966,8 @@ def apply_to_community(
         # caught afterwards — running the documented `--apply` over the KB
         # reinstated `NCBITaxon:1236` as c__Gammaproteobacteria, derived from an
         # id that names a different organism (#402 review). Keyed by
-        # preferred_term because both withheld records use the offending id
-        # correctly elsewhere (#294).
+        # preferred_term, not by id: a withheld record may use the same id
+        # correctly for one of its other entries (#294).
         if (path.name, tt.get("preferred_term")) in WITHHELD_GROUNDINGS:
             print(
                 f"[gtdb] skipping withheld {tt.get('preferred_term')!r} in {path.name}: "
