@@ -873,9 +873,6 @@ def classify_status(
 # Mirrors CURATED_GROUNDINGS, which protects a grounding that *is* right.
 # Kept in step with WITHHELD in tests/test_gtdb_withheld_groundings.py (#292).
 WITHHELD_GROUNDINGS = {
-    ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"): (
-        "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116."
-    ),
     ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
         "GTDB's majority for NCBI Nitrospiraceae is f__Leptospirillaceae at 0.534 "
         "(31/58 genomes), and Leptospirillum is an iron oxidizer while this genome "

@@ -502,7 +502,10 @@ def test_the_status_distribution_is_what_was_measured():
         counts["NO_GTDB_EQUIVALENT"] > 50
     ), "the eukaryote/virus population stopped being recognised as final (#393)"
     assert counts["AMBIGUOUS"] > 50
-    assert counts["WITHHELD"] == 2, "the #292 withholds must still be marked"
+    # 2 -> 1: `Bacteroides ovatus` was withheld only because its id was wrong.
+    # #292 corrected it (NCBITaxon:28116) and the grounding followed, so the
+    # withhold was removed rather than left protecting a fixed record.
+    assert counts["WITHHELD"] == 1, "the remaining #416 withhold must still be marked"
     # A floor as well as a ceiling: `< 50` alone is satisfied by zero, so
     # collapsing NOT_ATTEMPTED into another bucket passed.
     assert 1 <= counts["NOT_ATTEMPTED"] < 50, (
@@ -532,7 +535,6 @@ def test_the_withholds_are_marked_withheld_not_grounded():
     from communitymech.validators.gtdb_coherence import _taxon_terms
 
     for record, preferred in [
-        ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"),
         ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"),
     ]:
         doc = yaml.safe_load((REPO / "kb/communities" / record).read_text())
@@ -543,13 +545,13 @@ def test_the_withholds_are_marked_withheld_not_grounded():
     doc = yaml.safe_load(
         (REPO / "kb/communities/BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml").read_text()
     )
+    # `Bacteroides ovatus` no longer shares 821 — that was the bug (#292). What
+    # this still guards is that the entry which legitimately holds 821 kept its
+    # grounding when its former neighbour was corrected.
     siblings = [
-        t
-        for _, t in _taxon_terms(doc)
-        if (t.get("term") or {}).get("id") == "NCBITaxon:821"
-        and t.get("preferred_term") != "Bacteroides ovatus"
+        t for _, t in _taxon_terms(doc) if (t.get("term") or {}).get("id") == "NCBITaxon:821"
     ]
-    assert siblings, "expected another entry on NCBITaxon:821 in this record"
+    assert siblings, "expected an entry on NCBITaxon:821 in this record"
     for term_block in siblings:
         assert (
             term_block.get("gtdb_grounding_status") == "GROUNDED"

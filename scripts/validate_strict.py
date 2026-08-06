@@ -41,6 +41,7 @@ from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
 from communitymech.validators.yaml_scalars import find_truncated_scalars
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -180,6 +181,20 @@ def validate_one(path: Path) -> list[dict]:
                 "detail": issue.taxon,
                 "path": "",
                 "message": issue.message[:300],
+            }
+        )
+
+    # One specific NCBITaxon id standing in for two different organisms (#292).
+    # Not covered by the id<->label gate: the id and label agree, and only the
+    # `preferred_term` disagrees.
+    for message in check_shared_taxon_ids((instance or {}).get("taxonomy") or []):
+        rows.append(
+            {
+                "file": str(path),
+                "category": "taxon_id_reused_for_another_organism",
+                "detail": message.split(" ", 1)[0],
+                "path": "",
+                "message": message[:300],
             }
         )
     return rows

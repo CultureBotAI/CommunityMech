@@ -7,7 +7,7 @@ spot, not easier, so those two entries are left ungrounded until the ids are
 fixed.
 
 ``gtdb_ground.py --apply`` has no memory of that decision: it is otherwise
-perfectly idempotent, but a re-run over the whole KB re-adds exactly these two
+perfectly idempotent, but a re-run over the whole KB re-adds exactly these
 blocks. Without this test the withhold lasts only until the next person runs the
 tool and commits, and nothing anywhere fails.
 
@@ -25,14 +25,16 @@ import yaml
 COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
 
 # (record, preferred_term) -> why the id is wrong. Tracked in #292.
+# `Bacteroides ovatus` was here until #292 was fixed: its id is now
+# NCBITaxon:28116 and `--apply` produced GTDB:s__Bacteroides_ovatus on its own,
+# exactly as the module docstring says it should. The entry is gone rather than
+# kept-and-skipped, because a withhold list that outlives its reason is how a
+# correct grounding gets suppressed later.
 WITHHELD = {
-    ("BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml", "Bacteroides ovatus"): (
-        "NCBITaxon:821 is Phocaeicola vulgatus; B. ovatus is NCBITaxon:28116. "
-        "The record uses 821 correctly for its Bacteroides vulgatus entry."
-    ),
     ("KBase_ORT_Workflow_Community_Model.yaml", "Nitrospiraceae bacterium"): (
-        "NCBITaxon:1236 is class Gammaproteobacteria; Nitrospiraceae is Nitrospirota. "
-        "The record uses 1236 correctly for its two Steroidobacteraceae entries."
+        "GTDB's majority for NCBI Nitrospiraceae is f__Leptospirillaceae at 0.534, "
+        "and Leptospirillum is an iron oxidizer while this genome is the record's "
+        "nitrite oxidizer (#416). The id itself was corrected to NCBITaxon:189779."
     ),
 }
 
