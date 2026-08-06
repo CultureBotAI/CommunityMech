@@ -18,6 +18,11 @@ The usable signal is narrower: **one id reused for two genuinely different named
 organisms inside a single record.** Both defects had that shape, because both
 were copy-paste from a neighbouring entry.
 
+"Named" is doing work there. An entry that gives only a strain code or an `sp.`
+says nothing about *which* species it is, so it cannot contradict a named one —
+`Marinobacter CS1` may well be the species it sits beside. Only two differing
+*named* epithets are a contradiction.
+
 Sharpening it with rank is what makes it a gate rather than a report. A *broad*
 id shared across entries is normal and correct — environmental records
 deliberately put several functional guilds under `NCBITaxon:2` (Bacteria) or
@@ -85,6 +90,39 @@ _PLACEHOLDER = re.compile(r"^sp\d*$")
 # genus names never contain an underscore, so stripping this suffix is
 # unambiguous, and two GTDB splits of one genus are not two different genera.
 _GTDB_GENUS_SUFFIX = re.compile(r"_[a-z]$")
+# `Candidatus` is a status, not a name, and the epithet follows it. Stripping it
+# is what `gtdb_ground._clean_label` already does for the same reason (#431).
+_CANDIDATUS = re.compile(r"^candidatus\s+", re.IGNORECASE)
+# `Genus STRAINCODE` — `Marinobacter CS1`, `Parabacteroides ASF519`. A strain
+# code is not an epithet, so these name a genus and leave the species unsaid.
+#
+# The genus group is strict on purpose: a Latin genus is one capitalised word,
+# lowercase after the first letter, optionally with a GTDB `_A` split suffix. A
+# looser `[A-Za-z]...` read `soil DPANN archaea` as a genus named "soil" and
+# `BGC-encoding CPR bacterium` as one named "bgc-encoding" — 11 KB guild labels
+# in all, every one a fabricated genus that a differing neighbour would clash
+# with (#448).
+_STRAIN = re.compile(r"^([A-Z][a-z]+(?:_[A-Z])?)\s+([A-Z][A-Za-z0-9\-]*)(?:\s+(\S+))?")
+
+
+def _looks_like_a_strain_code(token: str, following: str | None = None) -> bool:
+    """A token that designates an isolate rather than a word of prose.
+
+    Isolate codes carry a number. Either the token has a digit itself — `CS1`,
+    `ASF519`, `PHNZY-24-6`, `Crocei1` — or it is a bare collection abbreviation
+    whose number is the next token, as in `PCC 7002`. Requiring the
+    abbreviation to be all-caps is what separates that case from prose: it
+    rejects `Candidate Division OP3`, where `Division` is an ordinary word and
+    the digits belong to a clade label, not a strain.
+
+    Earlier versions were looser in two ways, both caught in review: accepting
+    any all-caps token admitted `CPR`, `DPANN`, `DNA` and roman numerals, and
+    accepting a digit anywhere downstream admitted `Candidate Division OP3`
+    (#448).
+    """
+    if any(c.isdigit() for c in token):
+        return True
+    return token.isupper() and any(c.isdigit() for c in (following or ""))
 
 
 def _core(name: str) -> tuple[str, str] | None:
@@ -92,10 +130,32 @@ def _core(name: str) -> tuple[str, str] | None:
 
     Parentheticals and trailing strain codes are dropped before matching, so
     `Olsenella_B sp. (MAG ATO3)` reduces to `("olsenella_b", "sp")`.
+
+    Two conventions the KB uses routinely are read as binomials (#431):
+
+    * `Candidatus Genus epithet` — the prefix is a nomenclatural status, so
+      `Candidatus Nitrosotalea devanaterra` is `("nitrosotalea", "devanaterra")`;
+    * `Genus STRAINCODE` — `Marinobacter CS1` names a genus and *no* species, so
+      it reduces to `("marinobacter", "sp")`, exactly as `Marinobacter sp. CS1`
+      would. Two unnamed species under one genus id are then not a
+      contradiction, while two different genera still are.
+
+    Everything else that is not a binomial stays None, which is most of what
+    this sees: 189 of the KB's distinct names still parse to None, nearly all
+    guild labels like `13C-labeled rhizosphere bacteria` or `soil DPANN
+    archaea`. They say nothing this check can use, and reading a genus out of
+    one is how a gate starts firing on correct records — 12 names became
+    parseable here, and every one is an organism.
     """
     cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
-    match = _CORE.match(cleaned.strip())
+    cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
+    # A provisional genus is bracketed in NCBI: `[Clostridium] scindens`.
+    cleaned = cleaned.replace("[", "").replace("]", "")
+    match = _CORE.match(cleaned)
     if not match:
+        strain = _STRAIN.match(cleaned)
+        if strain and _looks_like_a_strain_code(strain.group(2), strain.group(3)):
+            return strain.group(1).lower(), "sp"
         return None
     genus, epithet = match.group(1).lower(), match.group(2).lower()
     if _PLACEHOLDER.match(epithet):
@@ -237,7 +297,16 @@ def _names_disagree(first: str, second: str, rank: str | None, known: frozenset)
         return False
     if not _same_genus(left[0], right[0]):
         return True
-    return rank not in ("genus", "subgenus") and left[1] != right[1]
+    if rank in ("genus", "subgenus"):
+        return False
+    # An unnamed species asserts nothing about *which* species, so it cannot
+    # contradict a named one: `Marinobacter CS1` may well be the very species it
+    # sits beside. Only two *named* epithets are a contradiction (#431). This
+    # also covers the `sp.` spelling, which had the same latent false positive
+    # before strain codes started reducing to `sp` as well.
+    if "sp" in (left[1], right[1]):
+        return False
+    return left[1] != right[1]
 
 
 def check_record(taxonomy: list) -> list[str]:
