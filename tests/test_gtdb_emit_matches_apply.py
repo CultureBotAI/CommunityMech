@@ -32,6 +32,23 @@ REPO = Path(__file__).parent.parent
 
 
 @pytest.fixture(scope="module")
+def mapping(gtdb):
+    """Skip where the kg-microbe crosswalk is absent, CI included.
+
+    The two tests below shell out to `gtdb_ground.py`, which exits 1 with
+    "NCBI2GTDB mapping not found" without it. Locally that never showed; CI has
+    no kg-microbe checkout, so it failed there and only there.
+    """
+    try:
+        path = gtdb.resolve_kg_microbe_dir(None) / "data/raw/NCBI2GTDB.tsv.gz"
+    except SystemExit as exc:
+        pytest.skip(f"kg-microbe mapping unavailable: {str(exc).splitlines()[0]}")
+    if not path.exists():
+        pytest.skip(f"kg-microbe NCBI2GTDB mapping not available at {path}")
+    return path
+
+
+@pytest.fixture(scope="module")
 def gtdb():
     spec = importlib.util.spec_from_file_location("gtdb_ground", REPO / "scripts/gtdb_ground.py")
     module = importlib.util.module_from_spec(spec)
@@ -80,7 +97,7 @@ def test_no_line_of_an_emitted_block_wraps(gtdb):
     )
 
 
-def test_both_render_paths_agree(gtdb, tmp_path):
+def test_both_render_paths_agree(gtdb, mapping, tmp_path):
     """What `--emit-yaml` prints must be what `--apply` writes, modulo indent.
 
     Comparing `emit_block` against a locally rebuilt `yaml.dump` was a
@@ -163,13 +180,18 @@ def _run(*args):
     ],
 )
 def test_a_refresh_that_would_do_nothing_is_refused(label, argv):
-    """Silently exiting 0 let a caller believe a re-ground had happened."""
+    """Silently exiting 0 let a caller believe a re-ground had happened.
+
+    Needs no crosswalk: the guards run immediately after `parse_args`, before
+    the mapping is resolved. Asserting the message rather than only a nonzero
+    exit is what keeps that honest — a missing crosswalk also exits nonzero.
+    """
     result = _run(*argv)
     assert result.returncode != 0, f"{label} should be refused, not silently ignored"
     assert "--refresh" in result.stderr
 
 
-def test_refresh_with_apply_is_still_allowed(tmp_path):
+def test_refresh_with_apply_is_still_allowed(gtdb, mapping, tmp_path):
     """The guard must not block the one combination that does work."""
     record = REPO / "kb/communities/Richmond_Mine_AMD_Biofilm.yaml"
     probe = tmp_path / record.name
