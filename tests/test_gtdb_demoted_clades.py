@@ -27,15 +27,16 @@ person can see what the reasoning was.
 
 The counter-examples are as load-bearing as the cases. Sharpening is wrong
 whenever GTDB kept the NCBI name — `Gemmatimonadota`, `Thermotogota`,
-`Verrucomicrobiota`, `Thermoplasmatales` and eleven more are `is_reclassified:
-false`, the NCBI taxon *is* the GTDB taxon, and a rule keyed on rank agreement
-alone mis-sharpens all fifteen. It is wrong again where a reclassification has
+`Verrucomicrobiota` and `Thermoplasmatales` among them are `is_reclassified:
+false` — the NCBI taxon *is* the GTDB taxon — and a rule keyed on rank agreement
+alone mis-sharpens every one of them. It is wrong again where a reclassification has
 nothing to sharpen *to*: `Rhodospirillales` -> `f__CAG-239` and
 `Ca. Eiseniibacteriota` -> `c__RBG-16-71-46` are alphanumeric placeholders, and
 `Ca. Methanophagales` -> `f__Methanospirareceae` does not bear the clade's name.
 
-Longest common prefix of each reclassified NCBI name and its GTDB counterpart,
-which is why no threshold works:
+Longest common prefix of the NCBI name and its GTDB counterpart, for the
+reclassified cases that came up while working through this — not an exhaustive
+list, for the reason above. It is why no threshold works:
 
     Nitrososphaerota   / Nitrososphaeria      13   demotion
     Ignavibacteriota   / Ignavibacteria       13   demotion
@@ -265,3 +266,15 @@ def test_the_curated_term_is_what_the_mapping_actually_supports(
         f"but the crosswalk gives {total}"
     )
     assert round(support / total, 3) == grounding.get("majority_fraction")
+
+    # The provenance string too. Nothing checked it until review, which is how a
+    # block shipped claiming "4 GTDB taxa" beside a note naming three.
+    alternatives = len({r[column].strip() for r in named if r[column].strip()})
+    source = grounding.get("mapping_source") or ""
+    assert (
+        f"grounded at {prefix}__ rank" in source
+    ), f"{chosen} is a {prefix}__ term, but its mapping_source says {source!r}"
+    assert f"{alternatives} GTDB taxa" in source, (
+        f"the crosswalk gives {alternatives} distinct {prefix}__ taxa under "
+        f"{label!r}, which mapping_source does not say: {source!r}"
+    )
