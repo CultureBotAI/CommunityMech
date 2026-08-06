@@ -714,9 +714,19 @@ def _block(g: dict, mapping_source: str) -> dict:
     return block
 
 
+# One key per line, in both paths that render a block. PyYAML's default (~80)
+# wraps `gtdb_lineage` and `mapping_source` onto continuation lines indented
+# deeper than the block keys, and `--emit-yaml` output is meant to be pasted —
+# so the two paths disagreeing put wrapped blocks into the KB, which is what
+# made the line-level editing in #378 hard enough to corrupt records (#380).
+DUMP_WIDTH = 4096
+
+
 def emit_block(g: dict, mapping_source: str) -> str:
     d = {"gtdb_classification": _block(g, mapping_source)}
-    return yaml.dump(d, default_flow_style=False, sort_keys=False, allow_unicode=True, width=100)
+    return yaml.dump(
+        d, default_flow_style=False, sort_keys=False, allow_unicode=True, width=DUMP_WIDTH
+    )
 
 
 def community_taxa(path: Path):
@@ -1126,7 +1136,7 @@ def apply_to_community(
             indent = re.match(r"^(\s+)", lines[i]).group(1)
             child = " " * (len(indent) - 2)  # taxon_term child indent (sibling of `term`)
             out.append(f"{child}gtdb_classification:")
-            dumped = yaml.dump(block, sort_keys=False, allow_unicode=True, width=4096)
+            dumped = yaml.dump(block, sort_keys=False, allow_unicode=True, width=DUMP_WIDTH)
             out += [f"{child}  {bl}" for bl in dumped.splitlines()]
             added += 1
             nxt = span[1] if span else i + 2
@@ -1538,6 +1548,16 @@ def main(argv: list[str] | None = None) -> int:
         "Off by default since #375; this restores the pre-#372 denominator.",
     )
     args = p.parse_args(argv)
+
+    # `--refresh` only means anything as a modifier to `--apply` over a file.
+    # Argparse enforces neither, so both misuses ran the ordinary report and
+    # exited 0, leaving the caller believing a re-ground happened (#380).
+    if args.refresh and not args.apply:
+        p.error("--refresh has no effect without --apply: it modifies how --apply treats blocks")
+    if args.refresh and not args.community:
+        p.error(
+            "--refresh needs --community: there is no stored block to refresh for a bare lookup"
+        )
 
     kg_dir = resolve_kg_microbe_dir(args.kg_microbe_dir)
     mapping_path = kg_dir / MAPPING_REL
