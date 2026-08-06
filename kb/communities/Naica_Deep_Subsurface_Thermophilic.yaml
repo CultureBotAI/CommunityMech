@@ -48,11 +48,14 @@ taxonomy:
       curation_note: 'Sharpened from p__Thermoproteota, which the rank-for-rank vote returns because NCBI
         calls Nitrososphaerota (Thaumarchaeota) a phylum (#451). GTDB demoted it - the clade survives as
         c__Nitrososphaeria inside Thermoproteota - and every one of the 65 named-species rows behind this
-        grounding is Nitrososphaeria, once GTDB''s polyphyly suffix is set aside: 57 rows read
-        Nitrososphaeria and 8 read Nitrososphaeria_A, which is the same clade split for monophyly, not a
-        different one. The stored fraction counts only the unsuffixed name, so 552 of 631 genomes, where
-        the phylum vote claimed 631 of 631 - less confident and more informative. p__Thermoproteota also
-        absorbs NCBI Crenarchaeota and Korarchaeota, so it did not distinguish this entry; the record
+        grounding carries a Nitrososphaeria name: 57 rows read Nitrososphaeria and 8 read
+        Nitrososphaeria_A. The suffix is what made this demotion invisible to a sweep demanding exact
+        agreement (#453), but the two are not interchangeable - GTDB adds it to lineages that are not
+        monophyletic with the type, and these eight are o__Caldarchaeales thermophiles rather than
+        ammonia-oxidising Thaumarchaeota. So the grounding takes the unsuffixed name only: 552 of 631
+        genomes, where the phylum vote claimed 631 of 631 - less confident and more informative.
+        p__Thermoproteota also holds ten other NCBI phyla, among them Ca. Bathyarchaeota and
+        Ca. Marsarchaeota, so it did not distinguish this entry; the record
         names Thaumarchaeota specifically and ties it to archaeal amoA ammonia oxidation, which is a
         Nitrososphaeria trait.'
       gtdb_id: GTDB:c__Nitrososphaeria
@@ -258,15 +261,26 @@ taxonomy:
       label: Betaproteobacteria
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:c__Gammaproteobacteria
-      gtdb_taxon: Gammaproteobacteria
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria
+      curated: true
+      curation_note: 'Sharpened from c__Gammaproteobacteria, which the rank-for-rank vote returns because
+        NCBI calls Betaproteobacteria a class (#451). GTDB demoted it - the clade is the order
+        Burkholderiales inside Gammaproteobacteria - and 41903 of the 41937 named-species genomes behind
+        this grounding are Burkholderiales, the remainder being 31 in Enterobacterales and 3 in
+        Pseudomonadales. The class term was not wrong, only silent: c__Gammaproteobacteria is where GTDB
+        also puts NCBI Gammaproteobacteria itself, so the vote said only "Proteobacteria of some kind"
+        about an entry whose whole content is that it is Betaproteobacteria. This case is why the
+        module docstring no longer claims to enumerate demotions: it defeats both screens used to find
+        the others, being neither unanimous (0.999) nor name-preserving (GTDB renamed while demoting, so
+        Betaproteobacteria and Burkholderiales share one letter).'
+      gtdb_id: GTDB:o__Burkholderiales
+      gtdb_taxon: Burkholderiales
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales
       ncbi_source_id: NCBITaxon:28216
-      majority_fraction: 1.0
-      support_genomes: 41937
+      majority_fraction: 0.999
+      support_genomes: 41903
       total_genomes: 41937
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at o__ rank; 4 GTDB taxa under the NCBI taxon]
     notes: 'Beta-proteobacteria present in Naica subsurface waters, potentially representing autotrophic
       sulfur oxidizers or denitrifiers. In oligotrophic subsurface aquifers, Betaproteobacteria include
       chemolithoautotrophs such as Thiobacillus (sulfur oxidation coupled to denitrification) and heterotrophic

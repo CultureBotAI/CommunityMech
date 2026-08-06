@@ -271,16 +271,17 @@ taxonomy entries and their id anchors do not line up.
   and `validate-gtdb` rejects the flag without a note — or a note without the
   flag, which reads as a decision while protecting nothing. (`--apply` only ever
   touches *ungrounded* taxa, so it could not have overwritten a pin anyway.)
-  Nine blocks carry it, in two families. Four are votes a curator overrode:
+  Eleven blocks carry it, in two families. Four are votes a curator overrode:
   `NCBITaxon:18` (*Pelobacter* SFB93 → `g__Syntrophotalea`, where the vote picks
   a selenate reducer), `NCBITaxon:340177` (*Chlorobium*), and `NCBITaxon:85413`
-  (*Allobosea*, where the crosswalk predates an NCBI rename, #365). Five are
+  (*Allobosea*, where the crosswalk predates an NCBI rename, #365). Seven are
   **demotions** — an NCBI clade GTDB kept but placed a rank lower, so the
   rank-for-rank vote names a broader taxon than the record means (#445, #451):
   *Ca. Parvarchaeota* → `o__Parvarchaeales`, *Ca. Dormiibacterota* →
   `c__Dormibacteria`, *Chlorobiota* → `c__Chlorobiia`, *Ignavibacteriota* →
-  `c__Ignavibacteria`, and *Nitrososphaerota* -> `c__Nitrososphaeria`. The count
-  is blocks, not ids: `NCBITaxon:85413` is pinned in two records.
+  `c__Ignavibacteria`, *Nitrososphaerota* -> `c__Nitrososphaeria`, and
+  *Betaproteobacteria* -> `o__Burkholderiales`. The count is blocks, not ids:
+  `NCBITaxon:85413` and `NCBITaxon:28216` are each pinned in two records.
 
   Do not treat that list as authoritative — nothing enforces it, and it has gone
   stale before. `grep -rl 'curated: true' kb/` is the current answer;

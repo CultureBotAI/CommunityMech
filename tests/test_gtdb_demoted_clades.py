@@ -8,43 +8,44 @@ Chloroflexota, so the phylum vote returned `p__Chloroflexota` — which the same
 record already used for its *Chloroflexi* entry, collapsing two of the three
 phyla its cited snippet contrasts into one GTDB concept.
 
-**No automatic rule is safe here, and the measurement is what shows it.** Of the
-KB's 159 groundings above genus rank, **21 look sharpenable** under the tool's
-own default policy (`exclude_unnamed=True`, which produced every stored block):
-every row behind the winning taxon agrees at some finer rank, once GTDB's `_A`
-polyphyly suffix is set aside. Only **five** are demotions.
+**No automatic rule is safe here, and three rounds of review are the evidence.**
+Every attempt to *enumerate* the KB's demotions has been falsified by the next
+one, each time through a different structural blind spot:
 
-* **15 keep their own NCBI name in GTDB** (`is_reclassified: false`) —
-  `Gemmatimonadota`, `Thermotogota`, `Verrucomicrobiota`, `Thermoplasmatales`
-  and others. The NCBI taxon *is* the GTDB taxon; sharpening to a child would
-  assert something the data does not say. A rule keyed on agreement alone
-  mis-sharpens all fifteen.
-* Of the 6 reclassified, `Rhodospirillales` -> `o__RF32`,
-  `Ca. Methanophagales` -> `o__Alkanophagales` and `Ca. Eiseniibacteriota` ->
-  `p__Eisenbacteria` have **nothing to sharpen to**: the finer terms are
-  `f__CAG-239` and `c__RBG-16-71-46`, alphanumeric placeholders, and
-  `f__Methanospirareceae`, which does not bear the NCBI clade's name.
+* demanding strict string unanimity at the finer rank missed `Nitrososphaerota`,
+  whose rows read `Nitrososphaeria` 57 and `Nitrososphaeria_A` 8 — GTDB splits a
+  clade it finds polyphyletic, so a suffix is not disagreement (#453);
+* demanding *any* unanimity missed `Betaproteobacteria`, which is 0.999 —
+  41903 of 41937 genomes in `o__Burkholderiales`, with 34 strays elsewhere;
+* keying on the clade's surviving *name* missed it too, because GTDB **renamed
+  while demoting**: `Betaproteobacteria` and `Burkholderiales` share one letter.
 
-The suffix point is not incidental. An earlier version of this sweep demanded
-*strict* string unanimity and so was blind to any demotion GTDB had split for
-monophyly — which is exactly how it missed `Nitrososphaerota`, whose rows read
-`Nitrososphaeria` 57 and `Nitrososphaeria_A` 8.
+So this module does not claim to list every demotion, and a screen is not what
+makes one findable. What it does is record the calls a curator made, with the
+evidence for each, so that a tool re-run cannot quietly undo them and the next
+person can see what the reasoning was.
 
-What marks a demotion is that a finer rank still carries the clade's *name*, and
-testing that mechanically is where it fails. Longest common prefix of the NCBI
-name and its GTDB counterpart, across the reclassified cases:
+The counter-examples are as load-bearing as the cases. Sharpening is wrong
+whenever GTDB kept the NCBI name — `Gemmatimonadota`, `Thermotogota`,
+`Verrucomicrobiota`, `Thermoplasmatales` and eleven more are `is_reclassified:
+false`, the NCBI taxon *is* the GTDB taxon, and a rule keyed on rank agreement
+alone mis-sharpens all fifteen. It is wrong again where a reclassification has
+nothing to sharpen *to*: `Rhodospirillales` -> `f__CAG-239` and
+`Ca. Eiseniibacteriota` -> `c__RBG-16-71-46` are alphanumeric placeholders, and
+`Ca. Methanophagales` -> `f__Methanospirareceae` does not bear the clade's name.
 
-    Nitrososphaerota / Nitrososphaeria     13   demotion
-    Ignavibacteriota / Ignavibacteria      13   demotion
-    Parvarchaeota    / Parvarchaeales      10   demotion
-    Chlorobiota      / Chlorobiia           8   demotion
-    Methanophagales  / Methanospirareceae   7   NOT a demotion
-    Dormiibacterota  / Dormibacteria        5   demotion (NCBI doubles the i)
-    Eiseniibacteriota/ RBG-16-71-46         0   NOT a demotion
+Longest common prefix of each reclassified NCBI name and its GTDB counterpart,
+which is why no threshold works:
 
-No threshold separates them — a cut anywhere above 5 loses Dormibacteria, and
-anywhere below 8 admits Methanospirareceae. So this stays a curator's call, and
-these tests pin the calls that were made rather than trying to re-derive them.
+    Nitrososphaerota   / Nitrososphaeria      13   demotion
+    Ignavibacteriota   / Ignavibacteria       13   demotion
+    Parvarchaeota      / Parvarchaeales       10   demotion
+    Chlorobiota        / Chlorobiia            8   demotion
+    Methanophagales    / Methanospirareceae    7   NOT a demotion
+    Dormiibacterota    / Dormibacteria         5   demotion
+    Betaproteobacteria / Burkholderiales       1   demotion
+    Rhodospirillales   / CAG-239               0   NOT a demotion
+    Eiseniibacteriota  / RBG-16-71-46          0   NOT a demotion
 
 A note on what the pin does. `--apply` only ever creates blocks on *ungrounded*
 taxa, so it could not overwrite one of these anyway; `curated: true` is what
@@ -55,7 +56,6 @@ that deleting the pin, or quietly re-broadening the term, fails.
 from __future__ import annotations
 
 import importlib.util
-import re
 from pathlib import Path
 
 import pytest
@@ -86,6 +86,26 @@ SHARPENED = {
     ("Naica_Deep_Subsurface_Thermophilic.yaml", "Thaumarchaeota"): (
         "GTDB:c__Nitrososphaeria",
         "GTDB:p__Thermoproteota",
+    ),
+    ("Naica_Deep_Subsurface_Thermophilic.yaml", "Betaproteobacteria"): (
+        "GTDB:o__Burkholderiales",
+        "GTDB:c__Gammaproteobacteria",
+    ),
+    (
+        "East_River_Floodplain_Core_Microbiome.yaml",
+        "Betaproteobacteria-dominated core floodplain microbiome",
+    ): ("GTDB:o__Burkholderiales", "GTDB:c__Gammaproteobacteria"),
+}
+
+# Demotions where GTDB *renamed* the clade on the way down, so the surviving
+# term shares almost none of the NCBI name. The name test below cannot see
+# these — it is the blind spot that hid Betaproteobacteria through two rounds of
+# review — so they are listed rather than inferred.
+RENAMED_WHILE_DEMOTED = {
+    ("Naica_Deep_Subsurface_Thermophilic.yaml", "Betaproteobacteria"),
+    (
+        "East_River_Floodplain_Core_Microbiome.yaml",
+        "Betaproteobacteria-dominated core floodplain microbiome",
     ),
 }
 
@@ -177,17 +197,19 @@ def _shared_stem(first: str, second: str) -> int:
 def test_the_curated_term_bears_the_clade_name_and_the_broad_one_does_not(
     record: str, preferred: str
 ):
-    """The property that makes a sharpening a *demotion* rather than a guess.
+    """One property that marks a demotion — for the cases where it holds.
 
-    This is what stops the pin being re-broadened. Checking the crosswalk alone
-    cannot: "every named row carries X at rank Y" is true of every **ancestor**
-    too, so `p__Bacteroidota` and `p__Nanoarchaeota` both satisfy it and the
-    earlier version of this test passed with the pins reverted.
+    GTDB usually keeps the clade's name when it moves it, so the chosen term
+    still reads like the NCBI one and the term the vote returned does not. That
+    is a real check, and it fails if a pin is re-broadened.
 
-    What separates them is the name. GTDB kept the clade and moved it, so the
-    chosen term still reads like the NCBI one, and the term the vote returned
-    does not.
+    It is *not* a definition. `Betaproteobacteria` -> `o__Burkholderiales` is a
+    genuine demotion that shares one letter, because GTDB renamed on the way
+    down; it is listed in `RENAMED_WHILE_DEMOTED` and skipped here rather than
+    weakening the threshold to admit it, which would admit everything.
     """
+    if (record, preferred) in RENAMED_WHILE_DEMOTED:
+        pytest.skip("GTDB renamed this clade while demoting it; see the module docstring")
     chosen, would_be = SHARPENED[(record, preferred)]
     label = (_entry(record, preferred).get("term") or {}).get("label") or ""
     clade = label.replace("Candidatus ", "")
@@ -207,18 +229,23 @@ def test_the_curated_term_bears_the_clade_name_and_the_broad_one_does_not(
 def test_the_curated_term_is_what_the_mapping_actually_supports(
     gtdb, mapping, record: str, preferred: str
 ):
-    """Check the pin against GTDB, not against the rest of the same YAML block.
+    """Check the pin's own numbers against GTDB, not against the same YAML block.
 
     An earlier version compared `gtdb_id` with `gtdb_lineage` — both written by
     the same curator in the same block — so any descendant of the vote's taxon
-    passed, including a wrong clade with a matching hand-written lineage. This
-    goes back to the crosswalk: every named-species row behind the grounding
-    must carry the chosen term at its own rank, which is exactly the claim each
-    `curation_note` makes.
+    passed. A later one demanded that *every* named-species row carry the chosen
+    term, which `Betaproteobacteria` fails at 0.999: unanimity was never the
+    property, it was an artefact of the small cases looked at first.
+
+    What actually has to hold is that the block's stored counts are the ones the
+    crosswalk gives for the chosen term at its own rank, which is the claim each
+    `curation_note` makes in prose.
     """
     chosen, _ = SHARPENED[(record, preferred)]
     prefix, name = chosen.split(":", 1)[1].split("__", 1)
-    label = (_entry(record, preferred).get("term") or {}).get("label") or ""
+    block = _entry(record, preferred)
+    grounding = block.get("gtdb_classification") or {}
+    label = (block.get("term") or {}).get("label") or ""
 
     _, _, by_higher = gtdb.collect_rows(mapping, set(), set(), set(gtdb.lookup_keys(label)))
     cells = next((by_higher[k] for k in gtdb.lookup_keys(label) if k in by_higher), [])
@@ -226,11 +253,15 @@ def test_the_curated_term_is_what_the_mapping_actually_supports(
     assert named, f"no named-species rows for {label!r}; the pin cannot be checked"
 
     column = {pr: col for col, pr in gtdb.GTDB_RANK_COLS}[prefix]
-    # GTDB splits a clade it finds polyphyletic into `X`, `X_A`, `X_B`. Those
-    # are the same clade for this purpose — demanding strict string unanimity
-    # is precisely what hid the Nitrososphaerota demotion until review.
-    values = {re.sub(r"_[A-Z]$", "", row[column].strip()) for row in named}
-    assert values == {re.sub(r"_[A-Z]$", "", name)}, (
-        f"{chosen} claims every named-species row for {label!r} is {name!r} at "
-        f"{prefix}__ rank, but the crosswalk says {sorted(values)}"
+    support = sum(gtdb._genomes(r) for r in named if r[column].strip() == name)
+    total = sum(gtdb._genomes(r) for r in named if r[column].strip())
+
+    assert support == grounding.get("support_genomes"), (
+        f"{chosen} stores support_genomes={grounding.get('support_genomes')}, "
+        f"but the crosswalk gives {support} genomes for {name!r} at {prefix}__"
     )
+    assert total == grounding.get("total_genomes"), (
+        f"{chosen} stores total_genomes={grounding.get('total_genomes')}, "
+        f"but the crosswalk gives {total}"
+    )
+    assert round(support / total, 3) == grounding.get("majority_fraction")
