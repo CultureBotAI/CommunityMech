@@ -184,6 +184,8 @@ validate-taxon-ids *files:
 validate-gtdb-domain *files:
     PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py {{files}}
 
+# Also reports one GTDB taxon placed under two parent lineages (#454), which
+# only the whole corpus can show - a single record cannot disagree with itself.
 validate-gtdb-all:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
 

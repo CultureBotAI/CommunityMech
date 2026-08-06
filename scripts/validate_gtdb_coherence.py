@@ -6,9 +6,14 @@ to each other — the JSON-Schema backend has no cross-field arithmetic — so
 `linkml-validate` accepts a block claiming 99 supporting genomes out of 3, and
 accepts `total_genomes: null` because a null satisfies `required` (#387).
 
-The same checks run inside `just validate-strict`, which is the CI gate. This
-script exists for the single-file case, where booting the full closed-schema
-validator to ask one question is slow and its output buries the answer.
+It also reports one taxon placed under two different parent lineages (#454).
+That half needs every record at once — a single record cannot disagree with
+itself about where a taxon sits — so passing one file checks its shape but can
+find no cross-record conflict. Use `just validate-gtdb-all` for that.
+
+The per-record checks also run inside `just validate-strict`, which is the CI
+gate. This script exists for the single-file case, where booting the full
+closed-schema validator to ask one question is slow and buries the answer.
 
     just validate-gtdb kb/communities/Foo.yaml
     just validate-gtdb-all
@@ -26,6 +31,10 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence  # noqa: E402
+from communitymech.validators.gtdb_lineage_tree import (  # noqa: E402
+    check_corpus,
+    check_lineage_shape,
+)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -45,11 +54,33 @@ def main(argv: list[str] | None = None) -> int:
         by_category[issue.category] = by_category.get(issue.category, 0) + 1
         print(f"{issue.file}: {issue.taxon}\n  [{issue.category}] {issue.message}")
 
+    # One taxon under two parent lineages, which only shows up across records
+    # (#454). Needs no crosswalk, so it runs wherever this script does.
+    import yaml
+
+    corpus = []
+    for path in args.files:
+        try:
+            corpus.append((path.name, yaml.safe_load(path.read_text())))
+        except yaml.YAMLError:
+            continue
+    # Shape first: a lineage skipping a rank would otherwise surface as a
+    # hierarchy conflict naming the record that is correct (#455 review).
+    malformed = [f"{name}: {m}" for name, doc in corpus for m in check_lineage_shape(doc)]
+    for message in malformed:
+        print(f"[gtdb-lineage-shape] {message}")
+
+    conflicts = check_corpus(corpus)
+    for message in conflicts:
+        print(f"[gtdb-lineage-tree] {message}")
+
     print(f"\nfiles checked: {len(args.files)}", file=sys.stderr)
     print(f"incoherent blocks: {len(issues)}", file=sys.stderr)
+    print(f"malformed lineages: {len(malformed)}", file=sys.stderr)
+    print(f"lineage conflicts: {len(conflicts)}", file=sys.stderr)
     for category, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {category:34s} {count:>6d}", file=sys.stderr)
-    return 1 if issues else 0
+    return 1 if (issues or conflicts or malformed) else 0
 
 
 if __name__ == "__main__":

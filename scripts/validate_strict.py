@@ -41,6 +41,7 @@ from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+from communitymech.validators.gtdb_lineage_tree import check_lineage_shape
 from communitymech.validators.prokaryotic_lineage import check_record as check_prokaryotic_lineage
 from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
 from communitymech.validators.yaml_scalars import find_truncated_scalars
@@ -195,6 +196,21 @@ def validate_one(path: Path) -> list[dict]:
                 "file": str(path),
                 "category": "taxon_id_reused_for_another_organism",
                 "detail": message.split(" ", 1)[0],
+                "path": "",
+                "message": message[:300],
+            }
+        )
+
+    # A lineage that is not a contiguous chain of ranks from d__ (#454).
+    # Contiguity is what makes the corpus half of that check sound, and the
+    # corpus half — one taxon, one parent — needs every record at once, so it
+    # runs in `just validate-gtdb-all` rather than here.
+    for message in check_lineage_shape(instance):
+        rows.append(
+            {
+                "file": str(path),
+                "category": "gtdb_lineage_malformed",
+                "detail": message.split(":", 1)[0],
                 "path": "",
                 "message": message[:300],
             }
