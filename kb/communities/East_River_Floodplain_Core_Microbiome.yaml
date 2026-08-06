@@ -24,15 +24,26 @@ taxonomy:
       label: Betaproteobacteria
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:c__Gammaproteobacteria
-      gtdb_taxon: Gammaproteobacteria
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria
+      curated: true
+      curation_note: 'Sharpened from c__Gammaproteobacteria, which the rank-for-rank vote returns because
+        NCBI calls Betaproteobacteria a class (#451). GTDB demoted it - the clade is the order
+        Burkholderiales inside Gammaproteobacteria - and 41903 of the 41937 named-species genomes behind
+        this grounding are Burkholderiales, the remainder being 31 in Enterobacterales and 3 in
+        Pseudomonadales. The class term was not wrong, only silent: c__Gammaproteobacteria is where GTDB
+        also puts NCBI Gammaproteobacteria itself, so the vote said only "Proteobacteria of some kind"
+        about an entry whose whole content is that it is Betaproteobacteria. This case is why the
+        module docstring no longer claims to enumerate demotions: it defeats both screens used to find
+        the others, being neither unanimous (0.999) nor name-preserving (GTDB renamed while demoting, so
+        Betaproteobacteria and Burkholderiales share one letter).'
+      gtdb_id: GTDB:o__Burkholderiales
+      gtdb_taxon: Burkholderiales
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales
       ncbi_source_id: NCBITaxon:28216
-      majority_fraction: 1.0
-      support_genomes: 41937
+      majority_fraction: 0.999
+      support_genomes: 41903
       total_genomes: 41937
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at o__ rank; 3 GTDB taxa under the NCBI taxon]
     notes: Betaproteobacteria had the highest number of representative genomes and dominated the operationally
       defined core floodplain microbiome.
   functional_role:
