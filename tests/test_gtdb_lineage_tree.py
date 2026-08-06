@@ -25,7 +25,11 @@ import pathlib
 import pytest
 import yaml
 
-from communitymech.validators.gtdb_lineage_tree import check_corpus, check_lineage_shape
+from communitymech.validators.gtdb_lineage_tree import (
+    _blocks,
+    check_corpus,
+    check_lineage_shape,
+)
 
 REPO = pathlib.Path(__file__).parent.parent
 RECORD_DIRS = ("kb/communities", "data/isolates")
@@ -51,6 +55,11 @@ def _doc(lineage) -> dict:
         ("a repeated rank", "d__Bacteria;p__Bacteroidota;p__Chlorobiota"),
         ("a segment with no rank prefix", "Bacteria;p__Bacteroidota"),
         ("an unknown rank prefix", "d__Bacteria;x__Bacteroidota"),
+        # Contiguity is what makes the corpus check sound: a skipped rank would
+        # put the tail under a different path than the full chain does, and be
+        # reported as a hierarchy conflict against an innocent record.
+        ("a skipped rank", "d__Bacteria;p__Bacteroidota;f__Chlorobiaceae"),
+        ("not starting at d__", "p__Bacteroidota;c__Chlorobiia"),
     ],
 )
 def test_a_malformed_lineage_is_reported(label, lineage):
@@ -103,6 +112,24 @@ def test_one_taxon_under_one_parent_is_silent():
     assert check_corpus([(f"r{n}.yaml", _doc(lineage)) for n in range(5)]) == []
 
 
+def test_a_block_on_an_interaction_participant_is_checked_too():
+    """`source_taxon`/`target_taxon` can carry a block, and the #365 gate walks
+    them already (#439). None exist today; missing them would be silent.
+    """
+    document = {
+        "ecological_interactions": [
+            {
+                "name": "Cross-Feeding",
+                "target_taxon": {
+                    "preferred_term": "X",
+                    "gtdb_classification": {"gtdb_lineage": "d__Bacteria;c__Chlorobiia"},
+                },
+            }
+        ]
+    }
+    assert check_lineage_shape(document), "a malformed participant lineage must be reported"
+
+
 def _corpus():
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
@@ -111,9 +138,14 @@ def _corpus():
 
 def test_the_committed_kb_is_a_consistent_hierarchy():
     corpus = list(_corpus())
-    blocks = sum(1 for _, doc in corpus for _ in (doc.get("taxonomy") or []) if _)
     assert len(corpus) > 300, f"expected the KB, read {len(corpus)} records"
-    assert blocks > 300, "expected the KB's taxonomy entries"
+
+    # Count what the checks actually walk. An earlier version counted taxonomy
+    # entries, so if `_blocks` ever stopped matching — a slot rename, the block
+    # moved — both checks would return [] for every record and this test would
+    # stay green on an empty corpus.
+    blocks = sum(1 for _, doc in corpus for _ in _blocks(doc))
+    assert blocks > 700, f"expected the KB's ~727 gtdb_classification blocks, walked {blocks}"
 
     conflicts = check_corpus(corpus)
     assert conflicts == [], "\n".join(conflicts)

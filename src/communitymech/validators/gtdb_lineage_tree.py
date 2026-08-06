@@ -44,16 +44,29 @@ def _segments(lineage) -> list[str]:
     return [part.strip() for part in lineage.split(";") if part.strip()]
 
 
-def _blocks(document):
-    """Every `gtdb_classification` with the taxon it belongs to."""
+def _descriptors(document):
+    """Every taxon descriptor, in `taxonomy` and in the interactions.
+
+    `source_taxon`/`target_taxon` share `taxon_term`'s range, so the schema
+    permits a `gtdb_classification` there too, and the sibling #365 gate already
+    walks them (#439). None exist today; missing them would be a silent gap.
+    """
     if not isinstance(document, dict):
         return
     for entry in document.get("taxonomy") or []:
-        if not isinstance(entry, dict):
+        if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
+            yield entry["taxon_term"]
+    for interaction in document.get("ecological_interactions") or []:
+        if not isinstance(interaction, dict):
             continue
-        term_block = entry.get("taxon_term")
-        if not isinstance(term_block, dict):
-            continue
+        for role in ("source_taxon", "target_taxon"):
+            if isinstance(interaction.get(role), dict):
+                yield interaction[role]
+
+
+def _blocks(document):
+    """Every `gtdb_classification` with the taxon it belongs to."""
+    for term_block in _descriptors(document):
         block = term_block.get("gtdb_classification")
         if not isinstance(block, dict):
             continue
@@ -67,7 +80,19 @@ def _blocks(document):
 
 
 def check_lineage_shape(document) -> list[str]:
-    """Per-record: rank prefixes present, in order, and ending at `gtdb_id`."""
+    """Per-record: a lineage is a contiguous chain of ranks starting at `d__`.
+
+    Contiguity is not pedantry — it is what makes `check_corpus` sound. That
+    check keys a taxon by the literal path above it, so a lineage skipping a
+    rank (`d__Bacteria;p__Bacteroidota;f__Chlorobiaceae`) would place
+    `f__Chlorobiaceae` under a different path than the full chain does, and be
+    reported as a hierarchy conflict against a record that is perfectly
+    correct. Rejecting the skip here turns that into a precise per-record error
+    against the record that actually has the problem.
+
+    No crosswalk lineage skips a rank, so this constrains hand-written pins
+    (#450) rather than tool output.
+    """
     problems: list[str] = []
     for name, block in _blocks(document):
         segments = _segments(block.get("gtdb_lineage"))
@@ -79,10 +104,16 @@ def check_lineage_shape(document) -> list[str]:
             if prefix not in RANK_ORDER:
                 problems.append(f"{name!r}: lineage segment {segment!r} has no rank prefix")
                 break
-            if seen and RANK_ORDER.index(prefix) <= RANK_ORDER.index(seen[-1]):
+            if not seen and prefix != "d__":
                 problems.append(
-                    f"{name!r}: lineage goes from {seen[-1]} to {prefix}, which is not "
-                    f"finer — {block.get('gtdb_lineage')!r}"
+                    f"{name!r}: lineage starts at {prefix} rather than d__ — "
+                    f"{block.get('gtdb_lineage')!r}"
+                )
+                break
+            if seen and RANK_ORDER.index(prefix) != RANK_ORDER.index(seen[-1]) + 1:
+                problems.append(
+                    f"{name!r}: lineage goes from {seen[-1]} to {prefix}, skipping a rank "
+                    f"or repeating one — {block.get('gtdb_lineage')!r}"
                 )
                 break
             seen.append(prefix)

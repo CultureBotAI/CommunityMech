@@ -6,9 +6,14 @@ to each other — the JSON-Schema backend has no cross-field arithmetic — so
 `linkml-validate` accepts a block claiming 99 supporting genomes out of 3, and
 accepts `total_genomes: null` because a null satisfies `required` (#387).
 
-The same checks run inside `just validate-strict`, which is the CI gate. This
-script exists for the single-file case, where booting the full closed-schema
-validator to ask one question is slow and its output buries the answer.
+It also reports one taxon placed under two different parent lineages (#454).
+That half needs every record at once — a single record cannot disagree with
+itself about where a taxon sits — so passing one file checks its shape but can
+find no cross-record conflict. Use `just validate-gtdb-all` for that.
+
+The per-record checks also run inside `just validate-strict`, which is the CI
+gate. This script exists for the single-file case, where booting the full
+closed-schema validator to ask one question is slow and buries the answer.
 
     just validate-gtdb kb/communities/Foo.yaml
     just validate-gtdb-all
