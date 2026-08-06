@@ -41,6 +41,7 @@ from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
+from communitymech.validators.prokaryotic_lineage import check_record as check_prokaryotic_lineage
 from communitymech.validators.shared_taxon_ids import check_record as check_shared_taxon_ids
 from communitymech.validators.yaml_scalars import find_truncated_scalars
 
@@ -193,6 +194,20 @@ def validate_one(path: Path) -> list[dict]:
             {
                 "file": str(path),
                 "category": "taxon_id_reused_for_another_organism",
+                "detail": message.split(" ", 1)[0],
+                "path": "",
+                "message": message[:300],
+            }
+        )
+
+    # A prokaryotic GTDB lineage on an id outside Bacteria/Archaea (#365). GTDB
+    # is prokaryote-only, so this is a contradiction rather than a suspicion —
+    # and no other gate sees it, because id, label and ncbi_source_id all agree.
+    for message in check_prokaryotic_lineage(taxonomy):
+        rows.append(
+            {
+                "file": str(path),
+                "category": "gtdb_lineage_contradicts_id_domain",
                 "detail": message.split(" ", 1)[0],
                 "path": "",
                 "message": message[:300],
