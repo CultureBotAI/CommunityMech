@@ -271,8 +271,19 @@ taxonomy entries and their id anchors do not line up.
   and `validate-gtdb` rejects the flag without a note — or a note without the
   flag, which reads as a decision while protecting nothing. (`--apply` only ever
   touches *ungrounded* taxa, so it could not have overwritten a pin anyway.)
-  Two blocks carry it: `NCBITaxon:18` (*Pelobacter* SFB93 → `g__Syntrophotalea`,
-  where the vote picks a selenate reducer) and `NCBITaxon:340177` (*Chlorobium*).
+  Eight blocks carry it, in two families. Three are votes a curator overrode:
+  `NCBITaxon:18` (*Pelobacter* SFB93 → `g__Syntrophotalea`, where the vote picks
+  a selenate reducer), `NCBITaxon:340177` (*Chlorobium*), and `NCBITaxon:85413`
+  (*Allobosea*, where the crosswalk predates an NCBI rename, #365). Four are
+  **demotions** — an NCBI clade GTDB kept but placed a rank lower, so the
+  rank-for-rank vote names a broader taxon than the record means (#445, #451):
+  *Ca. Parvarchaeota* → `o__Parvarchaeales`, *Ca. Dormiibacterota* →
+  `c__Dormibacteria`, *Chlorobiota* → `c__Chlorobiia`, *Ignavibacteriota* →
+  `c__Ignavibacteria`. The eighth is `NCBITaxon:28116` (*Bacteroides ovatus*).
+
+  Do not treat that list as authoritative — nothing enforces it, and it has gone
+  stale before. `grep -rl 'curated: true' kb/` is the current answer;
+  `tests/test_gtdb_demoted_clades.py` pins the demotion decisions specifically.
 
   The script also keeps a `CURATED_GROUNDINGS` list as a fallback, but prefer the
   flag: a list protects only what someone remembered to add, which is how

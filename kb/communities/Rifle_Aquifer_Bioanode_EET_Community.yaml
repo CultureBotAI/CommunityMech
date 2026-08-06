@@ -102,15 +102,24 @@ taxonomy:
       label: Ignavibacteriota
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:p__Bacteroidota
-      gtdb_taxon: Bacteroidota
-      gtdb_lineage: d__Bacteria;p__Bacteroidota
+      curated: true
+      curation_note: 'Sharpened from p__Bacteroidota, which the rank-for-rank vote returns because NCBI
+        calls Ignavibacteriota a phylum (#451). GTDB demoted it rather than dissolving it - the clade
+        survives as c__Ignavibacteria inside Bacteroidota - and all 3 named-species rows behind this
+        grounding are Ignavibacteria, so the sharper term carries the same 7/7 confidence. The phylum
+        term was not wrong, only silent: GTDB:p__Bacteroidota is the most-shared higher-rank term in this
+        KB, on seven groundings, and this record''s own preferred_term names Ignavibacteria specifically.
+        Class rather than order: o__Ignavibacteriales also bears the name but is narrower than the NCBI
+        phylum, and c__Ignavibacteria is the most senior GTDB term that still means Ignavibacteriota.'
+      gtdb_id: GTDB:c__Ignavibacteria
+      gtdb_taxon: Ignavibacteria
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Ignavibacteria
       ncbi_source_id: NCBITaxon:1134404
       majority_fraction: 1.0
       support_genomes: 7
       total_genomes: 7
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
   functional_role:
   - SYNTROPHIC_PARTNER
   evidence:

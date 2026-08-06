@@ -73,15 +73,24 @@ taxonomy:
       label: Chlorobiota
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:p__Bacteroidota
-      gtdb_taxon: Bacteroidota
-      gtdb_lineage: d__Bacteria;p__Bacteroidota
+      curated: true
+      curation_note: 'Sharpened from p__Bacteroidota, which the rank-for-rank vote returns because NCBI
+        calls Chlorobiota a phylum (#451). GTDB demoted it rather than dissolving it - the clade survives
+        as c__Chlorobiia inside Bacteroidota - and all 24 named-species rows behind this grounding are
+        Chlorobiia, so the sharper term carries the same 132/132 confidence. The phylum term was not
+        wrong, only silent: GTDB:p__Bacteroidota is the most-shared higher-rank term in this KB, on seven
+        groundings, so it distinguished this entry from none of them. Class rather than order:
+        o__Chlorobiales also bears the name but is narrower than the NCBI phylum, and c__Chlorobiia is
+        the most senior GTDB term that still means Chlorobiota.'
+      gtdb_id: GTDB:c__Chlorobiia
+      gtdb_taxon: Chlorobiia
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Chlorobiia
       ncbi_source_id: NCBITaxon:1090
       majority_fraction: 1.0
       support_genomes: 132
       total_genomes: 132
       is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 1 GTDB taxa under the NCBI taxon]
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Chlorobi-affiliated MAGs, especially CHB1 and CHB2, were inferred as active protein and peptide
       degraders in the EPS matrix.
   functional_role:
