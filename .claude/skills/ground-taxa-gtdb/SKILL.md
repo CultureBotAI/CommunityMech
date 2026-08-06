@@ -131,17 +131,16 @@ unambiguously outstanding work (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 715 | a `gtdb_classification` is present |
-| `UNRESOLVED` | 221 | the tool produced no grounding; **why is not established** |
+| `GROUNDED` | 727 | a `gtdb_classification` is present |
+| `UNRESOLVED` | 115 | the tool produced no grounding; **why is not established** |
 | `AMBIGUOUS` | 85 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender, as ranked `GTDB:` CURIEs (#415) |
-| `NOT_ATTEMPTED` | 9 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
-| `WITHHELD` | 2 | the tool can ground it and a curator decided it must not (#292) |
-| `NO_GTDB_EQUIVALENT` | 0 | **curator-assigned only** — the tool cannot establish it (#393) |
+| `NOT_ATTEMPTED` | 8 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
+| `WITHHELD` | 1 | the tool can ground it and a curator decided it must not (#292) |
+| `NO_GTDB_EQUIVALENT` | 96 | **curator-assigned only** — the tool cannot establish it (#393) |
 
 `UNRESOLVED` deliberately does not claim finality. Some of it is final (viruses,
 eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits, e.g.
-a clade the crosswalk spells differently (NCBI *Sulcia* is `Candidatus
-Karelsulcia`). Reading it as "no GTDB equivalent" is the substitution #294 exists
+the named-species filter having removed its rows. Reading it as "no GTDB equivalent" is the substitution #294 exists
 to stop; what remains unseparated is #393.
 
 Rank support runs **domain through genus**. Domain was added in #393, which
