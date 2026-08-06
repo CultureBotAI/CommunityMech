@@ -18,7 +18,7 @@ others:
 | Defect | Why nothing saw it | Gate | Shipped |
 |---|---|---|---|
 | One id for two organisms (*B. ovatus* on `NCBITaxon:821`, *Phocaeicola vulgatus*) | `id`↔`label` agree; only `preferred_term` dissents, and that legitimately differs KB-wide across NCBI renames | `shared_taxon_ids` — one id, two different named organisms, rank-gated | #425 (#292) |
-| A plant id under a bacterial lineage (`NCBITaxon:169215`, *Bosea*, Amaranthaceae) | `ncbi_source_id == term.id`, and "Bosea" really is that id's label | `prokaryotic_lineage` — GTDB is prokaryote-only, so a non-prokaryotic id cannot carry a GTDB lineage | #426 (#365) |
+| A plant id under a bacterial lineage (`NCBITaxon:169215`, *Bosea*, Amaranthaceae) | `ncbi_source_id == term.id`, and "Bosea" really is that id's label | `prokaryotic_lineage` — GTDB is prokaryote-only, so a non-prokaryotic id cannot carry a GTDB lineage | #436 (#365) |
 | A class id where the genus has its own (*Accumulibacter* on `NCBITaxon:28216`) | Nothing is *false*; the id is merely coarser than the name | none — needs a curator call, see #419 | pending |
 
 **Method note worth keeping.** All three were found by *reviewing a fix for a

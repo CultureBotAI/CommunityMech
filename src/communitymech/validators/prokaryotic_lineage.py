@@ -1,4 +1,4 @@
-"""A prokaryotic GTDB lineage sitting on a non-prokaryotic NCBITaxon id (#365).
+"""A GTDB classification sitting on a taxon GTDB cannot classify (#365).
 
 `NCBITaxon:169215` is the **plant** genus *Bosea* (Viridiplantae, Amaranthaceae).
 Two records used it for the alphaproteobacterium of the same name and carried a
@@ -19,55 +19,62 @@ id<->label correspondence passes. `linkml-validate` has nothing to say. And the
 #292 shared-id gate cannot help either: the id appears once per record, so there
 is no second organism to disagree with.
 
-The signal this check uses needs no curation judgement at all: **GTDB is
-prokaryote-only.** Its domains are `d__Bacteria` and `d__Archaea` and nothing
-else, so an id outside those two domains can never carry a GTDB lineage. That
-makes a mismatch a contradiction rather than a suspicion, and it would have
-caught this at write time.
+The signal needs no curation judgement: **GTDB classifies prokaryotes only.** A
+taxon that is provably a eukaryote or a virus can therefore carry no GTDB
+classification at all, whatever the block says. That makes this a contradiction
+rather than a suspicion, and it would have caught the defect at write time.
 
-Both directions are checked, because both are the same contradiction:
+**Only that one direction is checked**, deliberately. An earlier draft also
+flagged an NCBI archaeon under `d__Bacteria` and the reverse, on the reasoning
+that the two databases never disagree about domain. They do: 8 rows of the
+repo's own `NCBI2GTDB.tsv.gz` disagree, and the gate fired on every block
+`gtdb_ground.py` would build from them (#437). A gate that rejects its own
+grounding tool's output is worse than no gate, so that arm is gone and only the
+prokaryote-only rule — which has no counterexamples, because GTDB models no
+other domain — remains.
 
-* a **non-prokaryotic id** under a prokaryotic lineage — the #365 defect;
-* a **domain disagreement**, an `NCBITaxon` archaeon under `d__Bacteria` or the
-  reverse. GTDB and NCBI can and do disagree about phyla and genera, which is
-  what `is_reclassified` records; they do not disagree about which of the two
-  prokaryotic domains an organism is in.
+Both taxonomy entries and interaction participants are walked: `source_taxon`
+and `target_taxon` have the same range as `taxon_term`, so the schema permits a
+GTDB block there too (#439), and both defective records named the plant id as an
+interaction participant.
 
-As in the #292 gate, an id whose domain cannot be resolved is never judged. No
-rank filter is needed here: the domain of a genus, a species and a strain are
-all equally well defined.
+An id whose domain cannot be resolved is never judged — that covers a missing
+NCBITaxon database, a taxid newer than the local snapshot, and any taxon above
+the domain ranks such as `cellular organisms`.
 """
 
 from __future__ import annotations
 
-import functools
-import sys
+from communitymech.validators.ncbi_domain import (
+    BACTERIA,
+    EUKARYOTA,
+    VIRUSES,
+    domain_of,
+    outside_gtdb_scope,
+)
 
-# The only two domains GTDB models, and the NCBITaxon ids that root them.
-PROKARYOTE_ROOTS = {"NCBITaxon:2": "Bacteria", "NCBITaxon:2157": "Archaea"}
-# Everything else an NCBITaxon id can be rooted under. Named so the message can
-# say *what* the id is rather than only that it is wrong.
-OTHER_ROOTS = {"NCBITaxon:2759": "Eukaryota", "NCBITaxon:10239": "Viruses"}
-
-
-@functools.lru_cache(maxsize=1)
-def _adapter():
-    try:
-        from oaklib import get_adapter  # type: ignore[import-untyped]
-
-        return get_adapter("sqlite:obo:ncbitaxon")
-    except Exception:
-        return None
-
+# Reusing `ncbi_domain` rather than re-deriving the lookup: an earlier draft of
+# this module carried its own copy of the adapter, the four domain roots and the
+# ancestor query, which is how two gates come to disagree about one taxon (#438).
+#
+# Only the two out-of-scope domains need naming here: `outside_gtdb_scope` is
+# true for exactly these, so nothing else reaches the message.
+OUT_OF_SCOPE_LABELS = {EUKARYOTA: "a eukaryote", VIRUSES: "a virus"}
 
 _warned_no_adapter = False
 
 
 def _warn_once_if_unavailable() -> None:
-    """Say so when the check is being skipped rather than passed (cf. #426)."""
+    """Say so when the check is being skipped rather than passed (cf. #426).
+
+    Probes through the public `domain_of` rather than reaching for the adapter,
+    so it cannot disagree with what the gate itself can resolve.
+    """
     global _warned_no_adapter
-    if not _warned_no_adapter and _adapter() is None:
+    if not _warned_no_adapter and domain_of(BACTERIA) is None:
         _warned_no_adapter = True
+        import sys
+
         print(
             "[gtdb-domain] NCBITaxon is unavailable, so the prokaryote-only check "
             "(#365) was skipped, not passed.",
@@ -75,34 +82,16 @@ def _warn_once_if_unavailable() -> None:
         )
 
 
-@functools.lru_cache(maxsize=4096)
-def domain_of(curie: str) -> str | None:
-    """`Bacteria`, `Archaea`, `Eukaryota`, `Viruses`, or None if undetermined.
+def lineage_domain(lineage) -> str | None:
+    """The domain a GTDB lineage string declares, or None if it declares none.
 
-    None whenever the adapter is missing or the id is not in NCBITaxon, which
-    callers must treat as "cannot judge". A gate that fired when it could not
-    look anything up would be noise on any machine without the database.
+    Tolerates a non-string: `gtdb_lineage` has no `range` in the schema, so a
+    YAML list or mapping is schema-valid and would otherwise raise here and
+    abort the whole `validate-strict` run (#438, and #429 before it).
     """
-    adapter = _adapter()
-    if adapter is None or not curie.startswith("NCBITaxon:"):
+    if not isinstance(lineage, str):
         return None
-    try:
-        from oaklib.datamodels.vocabulary import IS_A  # type: ignore[import-untyped]
-
-        ancestors = set(adapter.ancestors([curie], predicates=[IS_A]))
-    except Exception:
-        return None
-    if not ancestors:
-        return None
-    for root, name in {**PROKARYOTE_ROOTS, **OTHER_ROOTS}.items():
-        if root in ancestors:
-            return name
-    return None
-
-
-def lineage_domain(lineage: str) -> str | None:
-    """The domain a GTDB lineage string declares, or None if it declares none."""
-    head = (lineage or "").split(";", 1)[0].strip()
+    head = lineage.split(";", 1)[0].strip()
     if head == "d__Bacteria":
         return "Bacteria"
     if head == "d__Archaea":
@@ -110,49 +99,49 @@ def lineage_domain(lineage: str) -> str | None:
     return None
 
 
-def _terms(taxonomy: list):
-    """Every `taxon_term` block in a record, skipping anything malformed.
+def _descriptors(document):
+    """Every taxon descriptor in a record, with where it was found.
 
-    Defensive for the same reason as the #292 gate (#429): this runs inside
-    `validate_strict`, and raising here would abort the run and discard every
-    other file's findings, when the schema validator in that same pass
-    diagnoses a malformed record properly.
+    Yields `(where, block)`. Skips anything malformed rather than raising: this
+    runs inside `validate_strict`, where an exception aborts the run and
+    discards every other file's findings, and where the schema validator in the
+    same pass diagnoses a malformed record properly (#429).
     """
-    if not isinstance(taxonomy, list):
+    if not isinstance(document, dict):
         return
-    for entry in taxonomy:
-        if not isinstance(entry, dict):
+    for entry in document.get("taxonomy") or []:
+        if isinstance(entry, dict) and isinstance(entry.get("taxon_term"), dict):
+            yield "taxonomy", entry["taxon_term"]
+    for interaction in document.get("ecological_interactions") or []:
+        if not isinstance(interaction, dict):
             continue
-        term_block = entry.get("taxon_term")
-        if isinstance(term_block, dict):
-            yield term_block
+        name = interaction.get("name") or "unnamed interaction"
+        for role in ("source_taxon", "target_taxon"):
+            block = interaction.get(role)
+            if isinstance(block, dict):
+                yield f"{role} of {name!r}", block
 
 
-def check_record(taxonomy: list) -> list[str]:
-    """Messages for each GTDB block whose lineage contradicts its id's domain."""
+def check_record(document) -> list[str]:
+    """Messages for each GTDB block on a taxon GTDB cannot classify."""
     _warn_once_if_unavailable()
     problems = []
-    for term_block in _terms(taxonomy):
-        block = term_block.get("gtdb_classification")
+    for where, block_owner in _descriptors(document):
+        block = block_owner.get("gtdb_classification")
         if not isinstance(block, dict):
             continue
-        declared = lineage_domain(block.get("gtdb_lineage") or "")
-        if declared is None:
-            continue
-        term = term_block.get("term")
-        curie = (term or {}).get("id") if isinstance(term, dict) else None
+        term = block_owner.get("term")
+        curie = term.get("id") if isinstance(term, dict) else None
         if not isinstance(curie, str) or not curie:
             continue
-        actual = domain_of(curie)
-        if actual is None or actual == declared:
+        if not outside_gtdb_scope(curie):
             continue
-        name = term_block.get("preferred_term") or (term or {}).get("label") or curie
-        if actual in PROKARYOTE_ROOTS.values():
-            detail = f"but the id is {actual}, not {declared}"
-        else:
-            detail = (
-                f"but the id is {actual}, and GTDB classifies only Bacteria and Archaea "
-                f"— so this id cannot have a GTDB lineage at all"
-            )
-        problems.append(f"{curie} ({name!r}) carries a d__{declared} GTDB lineage, {detail}.")
+        actual = OUT_OF_SCOPE_LABELS.get(domain_of(curie) or "", "outside GTDB's scope")
+        name = block_owner.get("preferred_term") or term.get("label") or curie
+        declared = lineage_domain(block.get("gtdb_lineage"))
+        says = f"a d__{declared} lineage" if declared else "a GTDB classification"
+        problems.append(
+            f"{curie} ({name!r}, in {where}) carries {says}, but the id is {actual} "
+            f"— GTDB classifies prokaryotes only, so this id can carry no GTDB block at all."
+        )
     return problems

@@ -38,8 +38,7 @@ def main(argv: list[str] | None = None) -> int:
             print(f"[gtdb-domain] unparseable {path}: {error}", file=sys.stderr)
             unreadable += 1
             continue
-        taxonomy = document.get("taxonomy") if isinstance(document, dict) else None
-        for message in check_record(taxonomy):
+        for message in check_record(document):
             print(f"{path}: {message}")
             problems += 1
     print(f"\nfiles checked: {len(paths)}\ncontradictory lineages: {problems}")

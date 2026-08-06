@@ -200,10 +200,11 @@ def validate_one(path: Path) -> list[dict]:
             }
         )
 
-    # A prokaryotic GTDB lineage on an id outside Bacteria/Archaea (#365). GTDB
-    # is prokaryote-only, so this is a contradiction rather than a suspicion —
-    # and no other gate sees it, because id, label and ncbi_source_id all agree.
-    for message in check_prokaryotic_lineage(taxonomy):
+    # A GTDB block on a eukaryote or a virus (#365). GTDB classifies prokaryotes
+    # only, so this is a contradiction rather than a suspicion — and no other
+    # gate sees it, because id, label and ncbi_source_id all agree. Takes the
+    # whole document because interaction participants can carry a block too.
+    for message in check_prokaryotic_lineage(instance):
         rows.append(
             {
                 "file": str(path),
