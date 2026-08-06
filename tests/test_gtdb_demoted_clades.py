@@ -57,6 +57,7 @@ that deleting the pin, or quietly re-broadening the term, fails.
 from __future__ import annotations
 
 import importlib.util
+import re
 from pathlib import Path
 
 import pytest
@@ -274,7 +275,7 @@ def test_the_curated_term_is_what_the_mapping_actually_supports(
     assert (
         f"grounded at {prefix}__ rank" in source
     ), f"{chosen} is a {prefix}__ term, but its mapping_source says {source!r}"
-    assert f"{alternatives} GTDB taxa" in source, (
+    assert re.search(rf"\b{alternatives} GTDB taxa\b", source), (
         f"the crosswalk gives {alternatives} distinct {prefix}__ taxa under "
         f"{label!r}, which mapping_source does not say: {source!r}"
     )
