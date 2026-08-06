@@ -19,10 +19,11 @@ Measured when written: 378 distinct grounded taxa, 11 blocks disagreeing with
 the tool, **all 11 curated**. Nine are demotion or nomenclature pins (#445,
 #451), two are the *Allobosea* rename the crosswalk predates (#365).
 
-This needs the kg-microbe crosswalk and so skips where that is absent, CI
-included — the same limitation as its neighbours. It earns its place anyway: the
-audit it replaces was run by hand once, and the KB has changed under it twice
-since.
+The invariant itself needs the kg-microbe crosswalk, so it skips where that is
+absent — CI included, the same limitation as its neighbours. It earns its place
+anyway: the audit it replaces was run by hand once, and the KB has changed under
+it twice since. The third test here, that every pin carries its reason, reads
+only YAML and therefore *does* gate in CI.
 """
 
 from __future__ import annotations
@@ -90,6 +91,10 @@ def audit(gtdb, mapping):
             want_higher |= set(gtdb.lookup_keys(label))
     by_id, by_name, by_higher = gtdb.collect_rows(mapping, want_ids, want_species, want_higher)
 
+    # Deliberately not replicating `apply_to_community`'s two other skips: the
+    # legacy `CURATED_GROUNDINGS` list, and non-`NCBITaxon:` ids. Per #384 the
+    # block flag is primary and the list a fallback, so a grounding protected
+    # only by the list is exactly what this test should complain about.
     rows = []
     for (curie, label), uses in sorted(taxa.items()):
         found = gtdb.resolve_target(curie.split(":")[1], label, by_id, by_name, by_higher)
@@ -118,24 +123,30 @@ def test_a_block_the_tool_would_not_produce_is_curated(audit):
     assert unexplained == [], (
         "these groundings match neither the tool nor a curator's decision — either "
         "re-run `gtdb_ground.py --refresh --apply`, or pin them with `curated: true` "
-        "and a `curation_note` saying why (#369):\n" + "\n".join(unexplained)
+        "and a `curation_note` saying why (#369). Where the tool now reports None "
+        "because it resolves the taxon as *ambiguous*, `--refresh --apply` will not "
+        "touch the block at all — that case needs `--withdraw-ambiguous` or a "
+        "pin:\n" + "\n".join(unexplained)
     )
 
 
-def test_every_curated_block_says_why(audit):
-    """A pin is only accountable if it carries its reason."""
-    taxa = _grounded_taxa()
-    curated_records = {record for _, uses in taxa.items() for record, _, curated in uses if curated}
+def test_every_curated_block_says_why():
+    """A pin is only accountable if it carries its reason.
 
+    Deliberately takes no fixture. This is the one check here that reads only
+    YAML, so it is the one that can gate in CI — and an earlier version took the
+    crosswalk-backed `audit` fixture without using it, which skipped it there
+    for nothing.
+    """
     missing = []
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
-            if path.name not in curated_records:
-                continue
             document = yaml.safe_load(path.read_text()) or {}
             for entry in document.get("taxonomy") or []:
                 block = (entry or {}).get("taxon_term") or {}
-                grounding = block.get("gtdb_classification") or {}
+                grounding = block.get("gtdb_classification")
+                if not isinstance(grounding, dict):
+                    continue
                 if grounding.get("curated") is True and not grounding.get("curation_note"):
                     missing.append(f"{path.name}: {block.get('preferred_term')}")
     assert missing == [], "curated without a note:\n" + "\n".join(missing)
