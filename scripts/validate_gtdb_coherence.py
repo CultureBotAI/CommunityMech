@@ -26,6 +26,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "src"))
 
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence  # noqa: E402
+from communitymech.validators.gtdb_lineage_tree import check_corpus  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -45,11 +46,26 @@ def main(argv: list[str] | None = None) -> int:
         by_category[issue.category] = by_category.get(issue.category, 0) + 1
         print(f"{issue.file}: {issue.taxon}\n  [{issue.category}] {issue.message}")
 
+    # One taxon under two parent lineages, which only shows up across records
+    # (#454). Needs no crosswalk, so it runs wherever this script does.
+    import yaml
+
+    corpus = []
+    for path in args.files:
+        try:
+            corpus.append((path.name, yaml.safe_load(path.read_text())))
+        except yaml.YAMLError:
+            continue
+    conflicts = check_corpus(corpus)
+    for message in conflicts:
+        print(f"[gtdb-lineage-tree] {message}")
+
     print(f"\nfiles checked: {len(args.files)}", file=sys.stderr)
     print(f"incoherent blocks: {len(issues)}", file=sys.stderr)
+    print(f"lineage conflicts: {len(conflicts)}", file=sys.stderr)
     for category, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {category:34s} {count:>6d}", file=sys.stderr)
-    return 1 if issues else 0
+    return 1 if (issues or conflicts) else 0
 
 
 if __name__ == "__main__":
