@@ -175,6 +175,78 @@ def test_malformed_input_is_skipped_not_raised_on(label, taxonomy):
     assert check_record(taxonomy) == [], label
 
 
+@pytest.mark.parametrize(
+    ("name", "expected"),
+    [
+        # `Candidatus` is a nomenclatural status, not part of the name (#431).
+        ("Candidatus Nitrosotalea devanaterra", ("nitrosotalea", "devanaterra")),
+        ("Candidatus Accumulibacter", None),
+        # A strain code is not an epithet: it names a genus and no species, so
+        # it reduces exactly as `Marinobacter sp. CS1` would.
+        ("Marinobacter CS1", ("marinobacter", "sp")),
+        ("Parabacteroides ASF519", ("parabacteroides", "sp")),
+        ("Bradyrhizobium PHNZY-24-6", ("bradyrhizobium", "sp")),
+        ("Synechococcus PCC 7002", ("synechococcus", "sp")),
+        ("Croceibacter Crocei1", ("croceibacter", "sp")),
+        # A provisional genus is bracketed in NCBI.
+        ("[Clostridium] scindens", ("clostridium", "scindens")),
+        # The narrowness that keeps guild labels out: an ordinary capitalised
+        # word is not a strain code, so this is not a genus named "Prairie".
+        ("Prairie Pothole methanogens", None),
+        ("13C-labeled rhizosphere bacteria", None),
+        ("ANME-1 (anaerobic methanotrophic archaea, clade 1)", None),
+    ],
+)
+def test_the_two_conventions_431_added_are_read_as_binomials(name, expected):
+    assert _core(name) == expected
+
+
+def test_the_431_defect_shape_is_now_caught():
+    """Two *Candidatus* species under one species id — #431's worked example."""
+    problems = check_record(
+        [
+            _entry("Candidatus Nitrosotalea devanaterra", "NCBITaxon:1903276"),
+            _entry("Candidatus Phormidium alkaliphilum", "NCBITaxon:1903276"),
+        ]
+    )
+    assert len(problems) == 1, problems
+
+
+def test_two_strain_isolates_of_different_genera_are_caught():
+    problems = check_record(
+        [_entry("Marinobacter CS1", "NCBITaxon:2742"), _entry("Mameliella CS4", "NCBITaxon:2742")]
+    )
+    assert len(problems) == 1, problems
+
+
+@pytest.mark.parametrize(
+    ("label", "names", "curie"),
+    [
+        # Widening `_core` put more names into the `sp` bucket, which exposed a
+        # latent false positive the `sp.` spelling already had: an *unnamed*
+        # species says nothing about which species it is, so it cannot
+        # contradict a named one. CS1 may well be that very species.
+        (
+            "a strain code beside the named species, under a species id",
+            ["Marinobacter CS1", "Marinobacter hydrocarbonoclasticus"],
+            "NCBITaxon:2743",
+        ),
+        (
+            "the same, spelled sp.",
+            ["Variovorax sp. BK119", "Variovorax paradoxus"],
+            "NCBITaxon:34073",
+        ),
+        (
+            "two strain isolates of one genus",
+            ["Marinobacter CS1", "Marinobacter CS9"],
+            "NCBITaxon:2742",
+        ),
+    ],
+)
+def test_an_unnamed_species_cannot_contradict_a_named_one(label, names, curie):
+    assert check_record([_entry(n, curie) for n in names]) == [], label
+
+
 def test_a_broad_id_shared_across_guilds_is_fine():
     """Environmental records put several guilds under one clade on purpose."""
     assert (
