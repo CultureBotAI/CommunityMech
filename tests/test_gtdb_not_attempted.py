@@ -1,11 +1,12 @@
 """What is left ungrounded on purpose, and why (#401).
 
 `NOT_ATTEMPTED` means "the tool would ground this and the KB does not" — the one
-status that is unambiguously outstanding work. #401 found nine. Four were
-unambiguous and are now grounded; one (Desulfobacteraceae) was grounded in the
-meantime. **Four remain, each held for a reason that is not "nobody got round
-to it"**, and this file records which is which so a future sweep does not
-mistake a decision for a backlog.
+status that is unambiguously outstanding work. #401 found nine, and this closes
+all of them: one (Desulfobacteraceae) was grounded in the meantime, four are
+grounded here, and four are **`WITHHELD`**, which is the value that says a
+curator decided rather than that nothing explains why. Each carries its reason
+in `WITHHELD_GROUNDINGS`, so `--apply` skips it — without that the hold is a
+comment, and a routine re-run puts `g__Cognaticolwellia @0.548` into the KB.
 
 Held on a bare majority — #396 is about how little one says:
 
@@ -28,8 +29,23 @@ rather than the NCBI label — `Nitrospira-like nitrite oxidizer`, `Nitrospirae
 core floodplain members` — so grounding them would assert an identity the source
 may not support. That is a curation question, not a tool one.
 
-The four that were grounded were checked against exactly that: each
-`preferred_term` names the taxon its id names, and each majority is >= 0.88.
+The four grounded ones were each checked before grounding, but not against a
+single criterion — two of them have a `preferred_term` that is *not* the NCBI
+label either:
+
+* *Chromobacterium violaceum* and *Methylobacterium extorquens* name their taxon
+  exactly, at species rank, 0.97 and 0.88.
+* `Rothia kefirresidentii KRP` names a species while its id is the genus
+  *Rothia*. Grounding follows the id, and there was no alternative: the
+  crosswalk has no *R. kefirresidentii* row at all.
+* `novel multiheme-cytochrome Geobacter sp.` is a descriptor, but it names
+  *Geobacter*, its id is the *Geobacter* genus, and the grounding is
+  `g__Geobacter` at 0.948 — so the descriptor adds nothing the grounding
+  contradicts.
+
+What distinguishes these from the two held descriptors is that "Nitrospira-like"
+and "Nitrospirae core floodplain members" would have to be grounded to a
+*non-type split*, so the descriptor and the weak target compound.
 """
 
 from __future__ import annotations
@@ -93,10 +109,12 @@ def _entry(record: str, preferred: str) -> dict:
 def test_a_deliberately_ungrounded_taxon_stays_ungrounded(record: str, preferred: str):
     """Holding these is a decision, so sweeping them in should have to be one too."""
     block = _entry(record, preferred)
-    assert block.get("gtdb_grounding_status") == "NOT_ATTEMPTED", (
-        f"'{preferred}' in {record} was left ungrounded on purpose: "
-        f"{HELD[(record, preferred)]}. If it is being grounded now, that is a "
-        f"curation call — make it explicitly and update this test (#401)."
+    assert block.get("gtdb_grounding_status") == "WITHHELD", (
+        f"'{preferred}' in {record} is ungrounded on purpose: "
+        f"{HELD[(record, preferred)]}. WITHHELD is the value that says a curator "
+        f"decided; NOT_ATTEMPTED says nothing explains why. If it is being "
+        f"grounded now, that is a curation call — make it explicitly, drop it "
+        f"from WITHHELD_GROUNDINGS, and update this test (#401)."
     )
     assert "gtdb_classification" not in block
 
@@ -118,8 +136,15 @@ def test_the_unambiguous_ones_were_grounded(record: str, preferred: str):
     )
 
 
-def test_no_other_taxon_is_silently_outstanding():
-    """`NOT_ATTEMPTED` should mean *held*, not *forgotten*, from here on."""
+def test_no_taxon_is_silently_outstanding():
+    """NOT_ATTEMPTED should now be empty, and stay accounted for if it is not.
+
+    #401 emptied it: five grounded, four moved to WITHHELD with a reason each.
+    So a taxon appearing here is one nobody has triaged — which is exactly what
+    the status is for, and what the count assertion in
+    tests/test_gtdb_coherence_validator.py used to guard before it could be
+    stated this precisely.
+    """
     outstanding = []
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):

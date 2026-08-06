@@ -915,6 +915,33 @@ WITHHELD_GROUNDINGS = {
         "Gammaproteobacteria; that is fixed — it is now NCBITaxon:189779 — but the "
         "grounding is still not safe to take automatically, #416.)"
     ),
+    # #401's four. Each was NOT_ATTEMPTED, which says "nothing explains why";
+    # the reasons below are established, so the honest status is WITHHELD and
+    # the honest guard is this list. Without it `--apply` re-grounds all four,
+    # which is the outcome #401 exists to prevent.
+    ("Deepwater_Horizon_Deep_Sea_Oil_Plume_Succession.yaml", "Colwellia"): (
+        "GTDB's majority is g__Cognaticolwellia at 0.548 (34/62 genomes) — a "
+        "rename decided by a coin flip, about a genus the record names plainly. "
+        "Taking it would restate a near-tie as a fact (#396, #401)."
+    ),
+    ("High_Solids_Switchgrass_Methanogenic_Microbiome.yaml", "Euryarchaeota"): (
+        "GTDB's majority is p__Methanobacteriota at 0.531 (2815/5300 genomes). "
+        "Same near-tie shape as Colwellia (#396, #401)."
+    ),
+    ("AMD_Nitrososphaerota_Archaeal.yaml", "Nitrospira-like nitrite oxidizer"): (
+        "GTDB's majority is g__Nitrospira_D at 0.81, a non-type split — the "
+        "crosswalk has no unsuffixed g__Nitrospira at all, and the genus's type "
+        "species N. marina maps to g__UBA8639 with 1 of 21 genomes. Grounding to "
+        "the type-bearing term would need majority_fraction 0.048, which the "
+        "[0.5, 1.0] bound rejects, so both available answers assert something "
+        "unsupported (#374, #377, #401). The preferred_term is also a descriptor "
+        "rather than a taxon."
+    ),
+    ("East_River_Floodplain_Core_Microbiome.yaml", "Nitrospirae core floodplain members"): (
+        "As the AMD_Nitrososphaerota_Archaeal Nitrospira entry: g__Nitrospira_D "
+        "is a non-type split and the type-bearing one is unrepresentable "
+        "(#374, #377, #401). The preferred_term is a descriptor, not a taxon."
+    ),
 }
 
 
