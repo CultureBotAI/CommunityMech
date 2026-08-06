@@ -173,6 +173,17 @@ validate-scalars *files:
 validate-taxon-ids *files:
     PYTHONPATH=src uv run python scripts/validate_shared_taxon_ids.py {{files}}
 
+# Find a GTDB lineage whose domain contradicts its NCBITaxon id (#365).
+#
+# GTDB classifies only Bacteria and Archaea, so a eukaryotic or viral id can
+# never carry a GTDB lineage. Caught a plant genus id (`NCBITaxon:169215`,
+# Bosea, Amaranthaceae) standing in for the alphaproteobacterium of the same
+# name. Runs inside `just validate-strict`; this is the single-file form.
+#
+# Find a GTDB lineage that contradicts its NCBITaxon id's domain
+validate-gtdb-domain *files:
+    PYTHONPATH=src uv run python scripts/validate_prokaryotic_lineage.py {{files}}
+
 validate-gtdb-all:
     PYTHONPATH=src uv run python scripts/validate_gtdb_coherence.py kb/communities/*.yaml data/isolates/*.yaml
 
@@ -317,8 +328,8 @@ lint:
     uv run ruff check src/ tests/ scripts/
     uv run mypy src/
 
-# `validate-gtdb-all`, `validate-scalars` and `validate-taxon-ids` also run
-# inside validate-strict.
+# `validate-gtdb-all`, `validate-scalars`, `validate-taxon-ids` and
+# `validate-gtdb-domain` also run inside validate-strict.
 # Only `validate-scalars` widens the scope — it covers kb/taxa, which
 # validate-strict's DEFAULT_ROOTS exclude; `validate-gtdb-all` scans exactly
 # those roots and adds nothing (kb/taxa carries no gtdb_classification at all).

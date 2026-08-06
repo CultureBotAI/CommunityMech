@@ -5,7 +5,32 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-08-03.
+Last reconciled: 2026-08-06.
+
+## Reconciliation 2026-08-06 — the wrong-organism thread
+
+Since the 2026-08-03 pass, PRs **#388–#425** merged. That run was almost entirely
+one thread, and naming it makes the remaining work legible: **a grounding can be
+wrong in a way that every gate reads as right.** Three defects of that shape have
+now been found, and each needed its own gate because each is invisible to the
+others:
+
+| Defect | Why nothing saw it | Gate | Shipped |
+|---|---|---|---|
+| One id for two organisms (*B. ovatus* on `NCBITaxon:821`, *Phocaeicola vulgatus*) | `id`↔`label` agree; only `preferred_term` dissents, and that legitimately differs KB-wide across NCBI renames | `shared_taxon_ids` — one id, two different named organisms, rank-gated | #425 (#292) |
+| A plant id under a bacterial lineage (`NCBITaxon:169215`, *Bosea*, Amaranthaceae) | `ncbi_source_id == term.id`, and "Bosea" really is that id's label | `prokaryotic_lineage` — GTDB is prokaryote-only, so a non-prokaryotic id cannot carry a GTDB lineage | #436 (#365) |
+| A class id where the genus has its own (*Accumulibacter* on `NCBITaxon:28216`) | Nothing is *false*; the id is merely coarser than the name | none — needs a curator call, see #419 | pending |
+
+**Method note worth keeping.** All three were found by *reviewing a fix for a
+neighbouring one*, not by a sweep. The generalisable move is: after correcting a
+grounding, ask what class of error the correction belongs to and whether a
+mechanical signal separates it from the legitimate cases. Where one exists
+(rank, domain) it becomes a gate and needs no waiver list; where it does not
+(#419), it stays a curation call and should be filed rather than automated.
+
+**Also newly true:** `validate-references-all` is out of `qc` (#418) — it was
+first in the chain, so `lint` and `test` never ran. `qc` now reaches lint, test
+and every offline validator, and is green.
 
 For which of these suit an autonomous `/goal` run, see
 [NEXT_TASKS_LOOP.md](NEXT_TASKS_LOOP.md).
