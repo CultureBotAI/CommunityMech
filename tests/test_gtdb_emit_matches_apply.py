@@ -42,11 +42,15 @@ def gtdb():
 def _grounding(gtdb) -> dict:
     """A grounding whose long scalars are long enough to wrap at any sane width."""
     return {
-        "gtdb_id": "GTDB:g__Bosea",
-        "gtdb_taxon": "Bosea",
+        "gtdb_id": "GTDB:s__Bosea_lathyri",
+        "gtdb_taxon": "Bosea lathyri",
+        # A species lineage on purpose: its final segment carries a space, so
+        # `gtdb_lineage` can actually wrap. The genus lineage this fixture used
+        # first has none, so it could not — leaving the scalar the module
+        # comment names as a wrapping risk untested.
         "gtdb_lineage": (
             "d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;"
-            "f__Beijerinckiaceae;g__Bosea"
+            "f__Beijerinckiaceae;g__Bosea;s__Bosea lathyri"
         ),
         "ncbi_source_id": "NCBITaxon:85413",
         "majority_fraction": 1.0,
@@ -65,31 +69,70 @@ def test_no_line_of_an_emitted_block_wraps(gtdb):
     """The property that matters: every key is one line, so a paste is safe."""
     emitted = gtdb.emit_block(_grounding(gtdb), MAPPING_SOURCE)
 
-    orphans = [
-        line for line in emitted.split("\n")[1:] if line.strip() and ":" not in line.split("#")[0]
-    ]
+    # Detect by indentation, not by looking for a colon: a wrapped scalar can
+    # carry one (`mapping_source` splits after "release latest:"-shaped text),
+    # and the earlier heuristic would have called that line a key.
+    body = [line for line in emitted.split("\n")[1:] if line.strip()]
+    orphans = [line for line in body if len(line) - len(line.lstrip()) != 2]
     assert orphans == [], (
         "these lines carry no key, so they are continuations of a wrapped "
         f"scalar and a paste would indent them under the wrong parent: {orphans}"
     )
 
 
-def test_both_render_paths_agree(gtdb):
-    """`--emit-yaml` and `--apply` must produce the same bytes for one grounding.
+def test_both_render_paths_agree(gtdb, tmp_path):
+    """What `--emit-yaml` prints must be what `--apply` writes, modulo indent.
 
-    Rendering through each path separately and comparing is the point: a future
-    change to one dump call — a width, a flow style, a sort — silently
-    reintroduces #380 unless something notices the two diverging.
+    Comparing `emit_block` against a locally rebuilt `yaml.dump` was a
+    tautology: it restated `emit_block`'s own body, so it passed for any
+    `DUMP_WIDTH` and never touched `apply_to_community` — whose dump is a
+    *different* call, on the inner block, with its own flow-style and
+    hand-prefixed indent. Changing the apply side left it green, which is
+    exactly the regression this file exists to catch.
+
+    So run the real thing: apply a block to a record and read back what landed.
     """
-    emitted = gtdb.emit_block(_grounding(gtdb), MAPPING_SOURCE)
-    applied = yaml.dump(
-        {"gtdb_classification": gtdb._block(_grounding(gtdb), MAPPING_SOURCE)},
-        default_flow_style=False,
-        sort_keys=False,
-        allow_unicode=True,
-        width=gtdb.DUMP_WIDTH,
+    record = tmp_path / "Probe.yaml"
+    record.write_text(
+        "id: CommunityMech:TEST\n"
+        "name: probe\n"
+        "taxonomy:\n"
+        "- taxon_term:\n"
+        "    preferred_term: Bosea\n"
+        "    term:\n"
+        "      id: NCBITaxon:85413\n"
+        "      label: Bosea\n"
     )
-    assert emitted == applied
+    result = subprocess.run(
+        ["uv", "run", "python", "scripts/gtdb_ground.py", "--community", str(record), "--apply"],
+        capture_output=True,
+        text=True,
+        cwd=REPO,
+        timeout=900,
+    )
+    assert result.returncode == 0, result.stderr[-400:]
+
+    written = record.read_text().split("\n")
+    start = next(i for i, line in enumerate(written) if line.strip() == "gtdb_classification:")
+    applied = [written[start]]
+    for line in written[start + 1 :]:
+        if line.strip() and len(line) - len(line.lstrip()) <= len(applied[0]) - len(
+            applied[0].lstrip()
+        ):
+            break
+        applied.append(line)
+
+    def _dedent(lines):
+        pad = len(lines[0]) - len(lines[0].lstrip())
+        return [line[pad:].rstrip() for line in lines if line.strip()]
+
+    emitted = gtdb.emit_block(_grounding(gtdb), MAPPING_SOURCE).split("\n")
+    # Same shape, key for key — the values differ only where the fixture does.
+    assert [line.split(":")[0] for line in _dedent(applied)] == [
+        line.split(":")[0] for line in _dedent(emitted)
+    ]
+    for line in _dedent(applied)[1:]:
+        assert len(line) - len(line.lstrip()) == 2, f"apply wrapped a scalar: {line!r}"
 
 
 def test_an_emitted_block_round_trips(gtdb):
