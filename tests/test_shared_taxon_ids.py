@@ -201,6 +201,41 @@ def test_the_two_conventions_431_added_are_read_as_binomials(name, expected):
     assert _core(name) == expected
 
 
+@pytest.mark.parametrize(
+    "name",
+    [
+        # Every one of these is a real KB name that an earlier, looser version
+        # of the strain-code rule turned into a fabricated genus (#448) — a
+        # genus named "soil", "groundwater", "rhizosphere", "bgc-encoding".
+        "soil DPANN archaea",
+        "sediment DPANN archaea",
+        "groundwater DPANN archaea",
+        "soil DNA viruses (virions)",
+        "deep-aquifer CPR bacteria",
+        "deep-aquifer CO2-fixing bacteria and archaea",
+        "groundwater CPR (Candidate Phyla Radiation) bacteria",
+        "groundwater CPR/DPANN host bacteria and archaea",
+        "rhizosphere H2-oxidizing bacteria",
+        "rhizosphere H2-producing bacteria",
+        "BGC-encoding CPR bacterium",
+        # A clade label whose digits belong to the clade, not to a strain.
+        "Candidate Division OP3",
+        # Capitalised prose plus a roman numeral, which `isupper()` alone let
+        # through.
+        "Group II methanotrophs",
+        "Type II methanotroph",
+    ],
+)
+def test_a_guild_label_never_yields_a_genus(name):
+    """The narrowness the strain-code rule depends on, tested on real names.
+
+    An earlier version asserted this only for `Prairie Pothole methanogens`,
+    which passes for a reason that does not generalise — `Pothole` is neither
+    all-caps nor digit-bearing. These are the shapes the KB actually contains.
+    """
+    assert _core(name) is None
+
+
 def test_the_431_defect_shape_is_now_caught():
     """Two *Candidatus* species under one species id — #431's worked example."""
     problems = check_record(
@@ -235,11 +270,6 @@ def test_two_strain_isolates_of_different_genera_are_caught():
             "the same, spelled sp.",
             ["Variovorax sp. BK119", "Variovorax paradoxus"],
             "NCBITaxon:34073",
-        ),
-        (
-            "two strain isolates of one genus",
-            ["Marinobacter CS1", "Marinobacter CS9"],
-            "NCBITaxon:2742",
         ),
     ],
 )

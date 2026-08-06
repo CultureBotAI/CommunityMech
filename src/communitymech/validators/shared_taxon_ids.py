@@ -95,19 +95,34 @@ _GTDB_GENUS_SUFFIX = re.compile(r"_[a-z]$")
 _CANDIDATUS = re.compile(r"^candidatus\s+", re.IGNORECASE)
 # `Genus STRAINCODE` — `Marinobacter CS1`, `Parabacteroides ASF519`. A strain
 # code is not an epithet, so these name a genus and leave the species unsaid.
-_STRAIN = re.compile(r"^([A-Za-z][A-Za-z0-9_\-]*)\s+([A-Z][A-Za-z0-9\-]*)")
+#
+# The genus group is strict on purpose: a Latin genus is one capitalised word,
+# lowercase after the first letter, optionally with a GTDB `_A` split suffix. A
+# looser `[A-Za-z]...` read `soil DPANN archaea` as a genus named "soil" and
+# `BGC-encoding CPR bacterium` as one named "bgc-encoding" — 11 KB guild labels
+# in all, every one a fabricated genus that a differing neighbour would clash
+# with (#448).
+_STRAIN = re.compile(r"^([A-Z][a-z]+(?:_[A-Z])?)\s+([A-Z][A-Za-z0-9\-]*)(?:\s+(\S+))?")
 
 
-def _looks_like_a_strain_code(token: str) -> bool:
-    """A capitalised token that designates an isolate rather than a taxon.
+def _looks_like_a_strain_code(token: str, following: str | None = None) -> bool:
+    """A token that designates an isolate rather than a word of prose.
 
-    Deliberately narrow: it must carry a digit or be all-caps. That admits
-    `CS1`, `ASF519`, `PHNZY-24-6`, `Crocei1`, `PCC`, and excludes ordinary
-    capitalised words — which is what keeps a guild label like `Prairie Pothole
-    methanogens` unparseable rather than turning it into a genus named
-    "Prairie".
+    Isolate codes carry a number. Either the token has a digit itself — `CS1`,
+    `ASF519`, `PHNZY-24-6`, `Crocei1` — or it is a bare collection abbreviation
+    whose number is the next token, as in `PCC 7002`. Requiring the
+    abbreviation to be all-caps is what separates that case from prose: it
+    rejects `Candidate Division OP3`, where `Division` is an ordinary word and
+    the digits belong to a clade label, not a strain.
+
+    Earlier versions were looser in two ways, both caught in review: accepting
+    any all-caps token admitted `CPR`, `DPANN`, `DNA` and roman numerals, and
+    accepting a digit anywhere downstream admitted `Candidate Division OP3`
+    (#448).
     """
-    return any(c.isdigit() for c in token) or token.isupper()
+    if any(c.isdigit() for c in token):
+        return True
+    return token.isupper() and any(c.isdigit() for c in (following or ""))
 
 
 def _core(name: str) -> tuple[str, str] | None:
@@ -125,9 +140,12 @@ def _core(name: str) -> tuple[str, str] | None:
       would. Two unnamed species under one genus id are then not a
       contradiction, while two different genera still are.
 
-    Everything else that is not a binomial stays None. That is most of what this
-    sees — 188 of the KB's distinct unparseable names are guild labels like
-    `13C-labeled rhizosphere bacteria`, which say nothing this check can use.
+    Everything else that is not a binomial stays None, which is most of what
+    this sees: 189 of the KB's distinct names still parse to None, nearly all
+    guild labels like `13C-labeled rhizosphere bacteria` or `soil DPANN
+    archaea`. They say nothing this check can use, and reading a genus out of
+    one is how a gate starts firing on correct records — 12 names became
+    parseable here, and every one is an organism.
     """
     cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
     cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
@@ -136,7 +154,7 @@ def _core(name: str) -> tuple[str, str] | None:
     match = _CORE.match(cleaned)
     if not match:
         strain = _STRAIN.match(cleaned)
-        if strain and _looks_like_a_strain_code(strain.group(2)):
+        if strain and _looks_like_a_strain_code(strain.group(2), strain.group(3)):
             return strain.group(1).lower(), "sp"
         return None
     genus, epithet = match.group(1).lower(), match.group(2).lower()
