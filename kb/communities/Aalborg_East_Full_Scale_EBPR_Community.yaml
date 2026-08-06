@@ -37,21 +37,25 @@ taxonomy:
 - taxon_term:
     preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
-      id: NCBITaxon:28216
-      label: Betaproteobacteria
+      id: NCBITaxon:327159
+      label: Candidatus Accumulibacter
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:c__Gammaproteobacteria
-      gtdb_taxon: Gammaproteobacteria
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria
-      ncbi_source_id: NCBITaxon:28216
+      gtdb_id: GTDB:g__Accumulibacter
+      gtdb_taxon: Accumulibacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Rhodocyclaceae;g__Accumulibacter
+      ncbi_source_id: NCBITaxon:327159
       majority_fraction: 1.0
-      support_genomes: 41937
-      total_genomes: 41937
-      is_reclassified: true
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Accumulibacter is represented with the validated Betaproteobacteria class term because the record
-      captures the full-scale community and clade-level microdiversity rather than a cultured isolate.
+      support_genomes: 45
+      total_genomes: 45
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: The genus term, not the Betaproteobacteria class term this entry used to carry (#419). The
+      class was a workaround for a tool defect rather than a curation choice - `gtdb_ground.py` stripped
+      the leading "Candidatus" before looking the label up, while the NCBI2GTDB genus column keeps it, so
+      the genus silently returned no mapping and the class was the only thing that would ground. Genus
+      rank still suits an entry that spans clade-level microdiversity rather than one cultured isolate,
+      and it no longer costs the whole of Betaproteobacteria's 41937 genomes to say so.
   functional_role:
   - PRIMARY_DEGRADER
   - CROSS_FEEDER
@@ -202,8 +206,8 @@ ecological_interactions:
   source_taxon:
     preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
-      id: NCBITaxon:28216
-      label: Betaproteobacteria
+      id: NCBITaxon:327159
+      label: Candidatus Accumulibacter
   metabolites:
   - preferred_term: phosphate
     term:
@@ -233,8 +237,8 @@ ecological_interactions:
   target_taxon:
     preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
-      id: NCBITaxon:28216
-      label: Betaproteobacteria
+      id: NCBITaxon:327159
+      label: Candidatus Accumulibacter
   metabolites:
   - preferred_term: acetate
     term:

@@ -176,6 +176,30 @@ def _is_species(clean: str) -> bool:
     return len(toks) >= 2 and toks[1][:1].islower()
 
 
+def lookup_keys(label: str | None) -> list[str]:
+    """Mapping-table keys for a label, most specific first.
+
+    `_clean_label` strips a leading "Candidatus" so the binomial heuristic and
+    the CURIE builder see a bare name. The NCBI2GTDB species and genus columns
+    **keep** it, so looking up only the stripped form missed every *Candidatus*
+    taxon and they went silently ungrounded — no error, just
+    `no GTDB mapping`. `Candidatus Accumulibacter` is the case that surfaced it
+    (#419): the genus has 45 genomes under `GTDB:g__Accumulibacter`, and the
+    KB had fallen back to grounding it at *class* rank instead.
+
+    Both spellings are returned because both occur: the table is not
+    self-consistent about the prefix, and a taxon may be renamed out of
+    *Candidatus* status once cultured. Exact-as-NCBI-spells-it comes first, so
+    a genuine un-prefixed homonym cannot capture a Candidatus lookup.
+    """
+    raw = (label or "").strip()
+    keys = []
+    for key in (raw.lower(), _clean_label(raw).lower()):
+        if key and key not in keys:
+            keys.append(key)
+    return keys
+
+
 def collect_rows(mapping_path: Path, want_ids, want_species_lc, want_higher_lc):
     """One pass; index rows by NCBI id, NCBI species name, and higher-rank NCBI name."""
     by_id: dict[str, list] = {}
@@ -583,12 +607,14 @@ def resolve_target(
     source_id = f"NCBITaxon:{ncbi_id}" if ncbi_id else None
     clean = _clean_label(label)
     if _is_species(clean):
-        nlc = clean.lower()
         if ncbi_id and ncbi_id in by_id:
             return _ground_species(
                 by_id[ncbi_id], source_id, label, "ncbi_id", exclude_unnamed=exclude_unnamed
             )
-        if nlc in by_name:
+        # Both spellings, exact first — see `lookup_keys` (#419).
+        for nlc in lookup_keys(label):
+            if nlc not in by_name:
+                continue
             species: dict[str, list] = {}
             for c in by_name[nlc]:
                 sp = c[COL_GTDB_SPECIES].strip()
@@ -614,7 +640,11 @@ def resolve_target(
                     "n_alt": len(species),
                 }
         return None
-    return resolve_higher(clean.lower(), source_id, label, by_higher, denominator, exclude_unnamed)
+    for key in lookup_keys(label):
+        found = resolve_higher(key, source_id, label, by_higher, denominator, exclude_unnamed)
+        if found is not None:
+            return found
+    return None
 
 
 # Groundings a curator chose against the majority vote, keyed by
@@ -1495,12 +1525,14 @@ def main(argv: list[str] | None = None) -> int:
     want_ids, want_species, want_higher = set(), set(), set()
     for ncbi_id, label in targets:
         clean = _clean_label(label)
+        # Index both spellings, or the lookup in `resolve_target` has nothing to
+        # find under the exact one (#419).
         if _is_species(clean):
             if ncbi_id:
                 want_ids.add(ncbi_id)
-            want_species.add(clean.lower())
+            want_species.update(lookup_keys(label))
         elif clean:
-            want_higher.add(clean.lower())
+            want_higher.update(lookup_keys(label))
     by_id, by_name, by_higher = collect_rows(mapping_path, want_ids, want_species, want_higher)
 
     if args.community and args.withdraw_ambiguous:
