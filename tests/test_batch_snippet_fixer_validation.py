@@ -83,6 +83,22 @@ def test_the_validator_it_calls_can_actually_start(fixer):
     assert result.returncode == 0, result.stderr[-400:]
 
 
+def _known_broken() -> set[str]:
+    """The five scripts `tests/test_scripts_import.py` records as unrunnable."""
+    source = (REPO / "tests/test_scripts_import.py").read_text()
+    tree = ast.parse(source)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign) and any(
+            isinstance(target, ast.Name) and target.id == "_KNOWN_BROKEN" for target in node.targets
+        ):
+            return {
+                element.value
+                for element in ast.walk(node.value)
+                if isinstance(element, ast.Constant) and isinstance(element.value, str)
+            }
+    raise AssertionError("_KNOWN_BROKEN is gone from tests/test_scripts_import.py")
+
+
 def _strings_in(node: ast.AST) -> list[str]:
     """Every string literal reachable inside a call, f-strings included."""
     found = []
@@ -99,10 +115,15 @@ def test_no_working_script_points_at_a_script_that_cannot_run():
     next step. A dead pointer in a working tool is how a curator discovers the
     breakage, which is the worst place to discover it.
     """
-    dead = {"curate_evidence_with_pdfs", "review_literature", "quick_literature_review"}
+    # Read from the same list `test_scripts_import` maintains, rather than a
+    # second copy: two hand-kept lists drift, and the first version of this test
+    # named three of the five, so a pointer at `test_pdf_fetching` or
+    # `extract_evidence_snippets` sailed through (#487 review).
+    dead = {name.removesuffix(".py") for name in _known_broken()}
+    assert len(dead) >= 5, f"the known-broken list has shrunk unexpectedly: {sorted(dead)}"
     offenders = []
     for path in sorted((REPO / "scripts").glob("*.py")):
-        if path.stem in dead or path.stem == "extract_evidence_snippets":
+        if path.stem in dead:
             continue  # the dead scripts may of course name themselves
         tree = ast.parse(path.read_text())
         # Strings that are *executed* — printed, or passed to subprocess — not
@@ -115,7 +136,20 @@ def test_no_working_script_points_at_a_script_that_cannot_run():
                 continue
             func = node.func
             name = getattr(func, "id", None) or getattr(func, "attr", None)
-            if name not in ("print", "run", "Popen", "check_output", "call"):
+            # `system` and `write` too: os.system and sys.stdout.write are the
+            # shapes the first version missed.
+            if name not in (
+                "print",
+                "run",
+                "Popen",
+                "check_output",
+                "call",
+                "system",
+                "write",
+                "info",
+                "warning",
+                "error",
+            ):
                 continue
             for text in _strings_in(node):
                 if any(script in text for script in dead):
@@ -126,12 +160,19 @@ def test_no_working_script_points_at_a_script_that_cannot_run():
     )
 
 
-@pytest.mark.slow
+@pytest.mark.e2e
 def test_a_clean_record_is_reported_clean_and_a_broken_one_is_not(fixer, tmp_path):
     """The check must discriminate, or `-1` everywhere would pass the tests above.
 
-    Runs the real validator against the committed cache — no network, but it is
-    the slowest test here, so it carries the `slow` marker.
+    Marked `e2e`, which `pyproject.toml`'s `addopts = "-m 'not e2e'"` deselects
+    by default. Two reasons, both from the #487 review: `slow` is not a
+    registered marker here, so it only produced a warning and deselected
+    nothing; and this runs `linkml-reference-validator`, which #417 deliberately
+    keeps out of `just qc`. It resolves against the committed cache today, but
+    that is a property of which references this record happens to use, not a
+    guarantee — an uncached one would reach NCBI from inside the test suite.
+
+    Run it deliberately: `uv run pytest -m e2e tests/test_batch_snippet_fixer_validation.py`.
     """
     assert fixer.validate_file(CLEAN_RECORD)["total"] == 0
 
