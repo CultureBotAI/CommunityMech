@@ -232,8 +232,14 @@ validate-terms-all:
     done
     exit $rc
 
-# id↔label gate (Engine B): verify (id,label) pairs in DATA PRODUCTS
-# (KGX node export) correspond to the ontology. Exits 2 on any mismatch.
+# id↔label gate (Engine B): verify (id,label) pairs correspond to the ontology,
+# across every target in conf/id_label_targets.yaml - kb/communities, kb/taxa,
+# data/isolates, and the KGX node export. Exits 2 on any mismatch.
+#
+# This is the only gate that reports ID_NOT_FOUND. Engine A
+# (linkml-term-validator, `validate-terms-all`) checks a wrong label but
+# silently skips an id it cannot resolve even under --no-lenient, so a
+# nonexistent CURIE is caught here or nowhere (#471).
 validate-products:
     uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml
 

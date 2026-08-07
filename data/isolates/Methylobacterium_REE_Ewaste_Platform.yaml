@@ -176,9 +176,20 @@ ecological_interactions:
     concentration: Up to 15 mg/g DCW from magnet swarf
   - preferred_term: dysprosium(3+)
     term:
-      id: CHEBI:49782
-      label: dysprosium(3+)
+      id: CHEBI:33377
+      label: dysprosium atom
     concentration: Up to 8 mg/g DCW from magnet swarf
+    notes: >-
+      Grounded to the atom, not the trivalent cation, because CHEBI has no
+      dysprosium(3+) term - upstream carries only dysprosium atom and
+      dysprosium molecular entity. Its neighbours here are exact cations
+      (CHEBI:229785 neodymium(3+), CHEBI:229784 praseodymium(3+)), so the
+      coarser grounding is a gap in CHEBI rather than a curation choice;
+      preferred_term keeps the species the paper reports. The id this
+      replaced, CHEBI:49782, exists in no CHEBI release - it was part of the
+      rare-earth mis-grounding block in NEXT_TASKS.md and the correction was
+      already recorded in scripts/chebi_fix_apply.py, which only ever swept
+      kb/communities (#471).
   biological_processes:
   - preferred_term: metal ion transport
     term:

@@ -169,7 +169,7 @@ groundings**, almost all in the rare-earth block:
 | SAMARIUM | CHEBI:33376 → *terbium atom* | CHEBI:49890 samarium(3+) |
 | EUROPIUM | CHEBI:30688 → *(not in build)* | CHEBI:49591 europium(3+) |
 | TERBIUM | CHEBI:33374 → *samarium atom* | CHEBI:49902 terbium(3+) |
-| DYSPROSIUM | CHEBI:49782 → *(not in build)* | CHEBI:33377 dysprosium atom |
+| DYSPROSIUM | CHEBI:49782 → *(in no CHEBI release)* | CHEBI:33377 dysprosium atom — **applied 2026-08-07, #471** |
 | HOLMIUM | CHEBI:49649 → *(not in build)* | CHEBI:49650 holmium(3+) |
 | ERBIUM | CHEBI:49650 → *holmium(3+)* | CHEBI:33379 erbium |
 | THULIUM | CHEBI:33377 → *dysprosium atom* | CHEBI:33380 thulium atom |
