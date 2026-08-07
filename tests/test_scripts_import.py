@@ -258,3 +258,49 @@ def test_the_known_broken_all_share_one_cause():
         assert any(
             "literature_enhanced" in module for module in imports
         ), f"{name} is in _KNOWN_BROKEN but does not import literature_enhanced"
+
+
+def test_every_known_broken_script_says_so_in_its_docstring():
+    """A reader opening the file should not have to run it to find out.
+
+    `_KNOWN_BROKEN` records the breakage for the *suite*; it is invisible to
+    someone who opens `curate_evidence_with_pdfs.py` and sees 586 lines of
+    plausible code. Each carries a docstring warning naming the phantom module,
+    why porting is not an import swap, and what to use instead (#410).
+
+    Asserted against `_KNOWN_BROKEN` rather than a fixed list, so a script
+    joining it later cannot arrive undocumented.
+    """
+    undocumented = []
+    for name in sorted(_KNOWN_BROKEN):
+        path = SCRIPTS / name
+        if not path.exists():
+            continue
+        docstring = ast.get_docstring(ast.parse(path.read_text())) or ""
+        if "has never run" not in docstring or "literature_enhanced" not in docstring:
+            undocumented.append(name)
+    assert not undocumented, (
+        "these are in _KNOWN_BROKEN but their docstrings do not say so — a "
+        f"reader would take them for working tools (#410): {undocumented}"
+    )
+
+
+def test_the_replacement_named_in_those_docstrings_exists():
+    """The pointer has to stay true, or it is worse than no pointer."""
+    # Not `validators/reference_validator.py` — that was deleted in 4dd299a
+    # when the custom validators were replaced by the official LinkML ones.
+    # Writing this test is what caught the docstrings, and CLAUDE.md, still
+    # naming it.
+    assert (REPO / "conf/reference_validator.yaml").exists()
+    assert (REPO / "src/communitymech/literature.py").exists()
+
+    justfile = (REPO / "justfile").read_text()
+    assert "validate-references FILE:" in justfile
+    assert "validate-references-all:" in justfile
+    assert "linkml-reference-validator" in justfile
+
+    fetcher = (REPO / "src/communitymech/literature.py").read_text()
+    assert "def fetch_paper(" in fetcher, (
+        "the docstrings contrast the phantom fetch_paper with this one; if it is "
+        "gone or renamed, they now describe nothing"
+    )

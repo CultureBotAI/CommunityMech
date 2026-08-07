@@ -17,6 +17,31 @@ Usage:
     python scripts/review_literature.py --community AMD  # Review specific community
     python scripts/review_literature.py --download-pdfs  # Download full PDFs
     python scripts/review_literature.py --update         # Auto-update valid evidence
+
+.. warning::
+   **This script has never run.** It imports
+   ``communitymech.literature_enhanced``, which has never existed in any commit
+   of this repository — these files and the phantom module arrived together in
+   the first commit (7c658e6), so there is no revision at which they worked
+   (#410).
+
+   It is not a one-line fix. The API it was written against differs from the one
+   that exists: it calls ``fetch_paper(ref, download_pdf=...)`` and subscripts
+   the result (``paper["abstract"]``), whereas
+   ``communitymech.literature.LiteratureFetcher.fetch_paper(reference, email=...)``
+   returns a ``(abstract, pdf_url)`` tuple and has no PDF download. Porting means
+   rewriting every call site, not swapping the import.
+
+   For what it was meant to do, use the tooling that works:
+   ``just validate-references FILE`` and ``just validate-references-all`` for
+   snippet checking — these run the official ``linkml-reference-validator``
+   against ``conf/reference_validator.yaml``, the custom validator having been
+   replaced in 4dd299a — and the ``evidence-curation`` skill for curating and
+   repairing evidence.
+
+   Kept rather than deleted so the intent is recoverable, and pinned as broken by
+   ``tests/test_scripts_import.py``. Whether to port or delete is #410.
+
 """
 
 import argparse
