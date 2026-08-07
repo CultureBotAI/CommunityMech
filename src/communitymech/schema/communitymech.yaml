@@ -882,43 +882,52 @@ classes:
       is_reclassified:
         description: >-
           True when the GTDB name differs from the NCBITaxon name at the rank
-          this block is grounded at. A string comparison, and nothing more:
-          `gtdb_ground.py` computes `top != _clean_label(label)`, so the name is
-          a poor guide to what the flag actually holds.
+          this block is grounded at. A string comparison, and nothing more, so
+          the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
           half held. Of the 154 blocks currently true, 33 are grounded above
           species — through genus, family, order, class and phylum — so the rank
-          was wrong for a fifth of them. And the flag does not mean GTDB
-          reclassified anything; it conflates at least four things (#441):
+          was wrong for a fifth of them. And it does not mean GTDB reclassified
+          anything. Partitioning the 154 by why the names differ (#441):
 
-          * 90 genuinely different names, only some of which are GTDB
-            reclassifications. `Bosea` -> `Allobosea` is an *NCBI* rename: both
+          * 40 dropped strain designations — `Escherichia coli K-12` ->
+            `Escherichia coli`. GTDB carries no strain suffixes, so the names
+            differ while the placement does not.
+          * 24 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
+            marker on the same name, not a rename.
+          * 11 that are both at once — `Buchnera aphidicola BCc` ->
+            `Buchnera aphidicola_F`.
+          * 5 GTDB placeholders for an unnamed species within the same genus —
+            `Dyadobacter sp.` -> `Dyadobacter sp017744695`.
+          * 3 rank-appropriate nomenclatural endings on one stem —
+            `Chlorobiota` -> `Chlorobiia`, `Nitrososphaerota` ->
+            `Nitrososphaeria`.
+          * 71 genuinely different names, and only some of those are GTDB
+            reclassifications. `Allobosea` -> `Bosea` is an *NCBI* rename: both
             databases place the organism in the same genus concept, and NCBI
             moved its label because the bacterial name was a later homonym of
-            the plant. So `is_reclassified: true` includes cases where GTDB
-            changed nothing.
-          * 40 dropped strain designations — `Escherichia coli K-12` ->
-            `Escherichia coli`, `Bacteroides thetaiotaomicron VPI-5482` ->
-            `Bacteroides thetaiotaomicron`. GTDB carries no strain suffix, so
-            the names differ while the organism's placement does not.
-          * 24 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`,
-            `Veillonella parvula` -> `Veillonella parvula_A`. A split marker on
-            the same name, not a rename.
-          * orthographic variants, e.g. `Nitrosotalea devaniterrae` ->
-            `Nitrosotalea devanaterra`.
+            the plant *Bosea*. Orthographic and gender variants also sit here —
+            `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
+            `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So filter on it to find "the two labels are not identical", which is
-          what it computes. Do not read it as provenance: a consumer selecting
-          `is_reclassified: true` to find GTDB reclassifications gets roughly
-          42% false positives on the current corpus. Distinguishing the four
-          cases needs a reason the crosswalk does not record — #480 proposes
-          narrowing the computation, which is a data migration and a modelling
-          decision rather than a doc fix.
+          So 83 of 154 — 54% — are not reclassifications under any reading, and
+          that is a floor: the 71 "genuinely different" include an unknown
+          number of NCBI renames and spelling variants. Filter on this slot to
+          find "the two labels are not identical", which is what it computes.
+          Do not read it as provenance. #480 proposes narrowing it, which is a
+          data migration and a modelling decision rather than a doc fix.
+
+          Two call sites compute it, not one: `gtdb_ground.py` uses
+          `bool(sp and ref and sp != ref)` on the species path, which produced
+          121 of these 154, and `top != _clean_label(label)` on the
+          genus-and-higher path. They differ — the first has a crosswalk
+          fallback for `ref` and a null-guard that returns False where the
+          second returns True.
 
           Counts are pinned by `tests/test_is_reclassified_semantics.py`, which
-          fails when they drift, since a count in this text reaches no generated
-          artifact (pythongen drops attribute descriptions).
+          fails when they drift; a count in this text reaches no generated
+          artifact, since pythongen drops attribute descriptions.
         range: boolean
       curated:
         description: >-
