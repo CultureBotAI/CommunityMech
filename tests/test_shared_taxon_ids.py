@@ -267,14 +267,79 @@ def test_two_strain_isolates_of_different_genera_are_caught():
             "NCBITaxon:2743",
         ),
         (
-            "the same, spelled sp.",
+            "an sp. beside a named species under a GENUS id",
             ["Variovorax sp. BK119", "Variovorax paradoxus"],
-            "NCBITaxon:34073",
+            "NCBITaxon:34072",
         ),
     ],
 )
 def test_an_unnamed_species_cannot_contradict_a_named_one(label, names, curie):
+    """Neither is a *clash* — nobody has said two incompatible things.
+
+    The second case moved from the species id (34073, `Variovorax paradoxus`)
+    to the genus id (34072) when #449 split over-grounding out. At genus rank
+    an unnamed isolate beside a named species is ordinary and stays silent; at
+    species rank it is now reported, as over-grounding rather than a clash. The
+    strain-code case stays silent at *both* ranks, which is #447's point.
+    """
     assert check_record([_entry(n, curie) for n in names]) == [], label
+
+
+def test_a_strain_code_is_never_over_grounded_even_at_species_rank():
+    """#447 in one line, and the constraint #449 had to respect.
+
+    `Marinobacter CS1` names a strain, which may well BE the species it sits
+    beside, so sharing that species id asserts nothing wrong. Only a name that
+    *literally* declines to name a species is over-grounded — the distinction
+    the `sp` bucket alone cannot make, since both reduce to it.
+    """
+    assert (
+        check_record(
+            [
+                _entry("Marinobacter CS1", "NCBITaxon:2743"),
+                _entry("Marinobacter nauticus", "NCBITaxon:2743"),
+            ]
+        )
+        == []
+    )
+
+
+def test_an_sp_on_a_species_id_is_reported_as_over_grounding(caplog):
+    """The loss #449 recorded, restored — and framed as the claim it is.
+
+    A species id asserts one named species, so `Variovorax sp.` sitting on
+    `NCBITaxon:34073` (*Variovorax paradoxus*) is grounded finer than it knows.
+    That is the #292 shape with the `sp.` entry as the victim rather than the
+    culprit, and it is a different claim from a clash — so it gets its own
+    message rather than being folded into "cannot all be it".
+    """
+    problems = check_record(
+        [
+            _entry("Variovorax sp.", "NCBITaxon:34073"),
+            _entry("Variovorax paradoxus", "NCBITaxon:34073"),
+        ]
+    )
+    assert len(problems) == 1, problems
+    assert "does not name a species" in problems[0]
+    assert "cannot all be it" not in problems[0], "this is over-grounding, not a clash"
+    # Only the offender is named. Listing both made the curator re-derive which
+    # of the two to change, and the innocent partner is not the finding.
+    assert "Variovorax sp." in problems[0]
+    assert "Variovorax paradoxus" not in problems[0]
+    assert "genus id" in problems[0], "the remedy is specific enough to state"
+
+
+def test_a_clash_takes_precedence_over_over_grounding():
+    """One id, one message: a wrong organism is the more serious claim."""
+    problems = check_record(
+        [
+            _entry("Variovorax sp.", "NCBITaxon:34073"),
+            _entry("Variovorax paradoxus", "NCBITaxon:34073"),
+            _entry("Bacillus subtilis", "NCBITaxon:34073"),
+        ]
+    )
+    assert len(problems) == 1, problems
+    assert "cannot all be it" in problems[0]
 
 
 def test_a_broad_id_shared_across_guilds_is_fine():
@@ -483,3 +548,80 @@ def test_what_this_gate_does_not_catch():
         )
         == []
     ), "if this now fires, the gate got stronger and the docstring is stale"
+
+
+def test_a_strain_code_is_silent_however_it_is_spelled():
+    """`Genus CODE` and `Genus sp. CODE` are the same organism (#484 review).
+
+    `_core`'s own docstring says so — `Marinobacter CS1` reduces "exactly as
+    `Marinobacter sp. CS1` would". The first draft of #449 flagged the second
+    and not the first, making the gate's verdict depend on an orthographic
+    choice with no semantic content. A trailing strain code names an isolate,
+    and an isolate may well BE the species beside it, so neither is reported.
+    """
+    for name in ("Marinobacter CS1", "Marinobacter sp. CS1"):
+        assert (
+            check_record(
+                [_entry(name, "NCBITaxon:2743"), _entry("Marinobacter nauticus", "NCBITaxon:2743")]
+            )
+            == []
+        ), name
+
+
+def test_the_moved_case_still_does_not_fire_at_species_rank():
+    """`Variovorax sp. BK119` carries a strain code, so it stays silent.
+
+    This case originally sat at NCBITaxon:34073 and an earlier draft of #449
+    moved it to the genus id because it had started firing. With the strain-code
+    rule above it belongs back at species rank, unfired — which is the stronger
+    statement, since ~155 KB names have this exact shape.
+    """
+    assert (
+        check_record(
+            [
+                _entry("Variovorax sp. BK119", "NCBITaxon:34073"),
+                _entry("Variovorax paradoxus", "NCBITaxon:34073"),
+            ]
+        )
+        == []
+    )
+
+
+def test_spp_is_treated_as_unnamed_not_as_a_named_epithet():
+    """`spp.` is the plural of `sp.` and means the same thing.
+
+    Matching only `^sp\d*$` left it parsing as a *named* epithet, so
+    `Bifidobacterium spp.` beside `Bifidobacterium longum` was reported as a
+    hard clash — the worst of both worlds: not protected as unnamed, and
+    reported as the more severe claim (#484 review). 7 names in the KB have
+    this spelling.
+    """
+    problems = check_record(
+        [
+            _entry("Bifidobacterium spp.", "NCBITaxon:216816"),
+            _entry("Bifidobacterium longum", "NCBITaxon:216816"),
+        ]
+    )
+    assert len(problems) == 1, problems
+    assert "cannot all be it" not in problems[0], "spp. is unnamed, not a clashing epithet"
+    assert "does not name a species" in problems[0]
+
+
+def test_two_unnamed_entries_on_one_species_id_are_not_reported():
+    """A deliberate limit, not an oversight.
+
+    Two MAGs of one species sharing that species' id is ordinary metagenomics,
+    and the KB does exactly that — `Olsenella_B sp. (MAG ATO3)` and
+    `(MAG ATO6)` both on NCBITaxon:133926. Neither asserts anything the other
+    contradicts. Only a *named* partner establishes that the id denotes a
+    species the other declines to name (#484 review).
+    """
+    assert (
+        check_record(
+            [
+                _entry("Olsenella_B sp. (MAG ATO3)", "NCBITaxon:133926"),
+                _entry("Olsenella_B sp900119625 (MAG ATO6)", "NCBITaxon:133926"),
+            ]
+        )
+        == []
+    )
