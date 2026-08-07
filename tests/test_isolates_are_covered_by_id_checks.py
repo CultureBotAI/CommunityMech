@@ -21,8 +21,8 @@ does too.
 
 from __future__ import annotations
 
+import ast
 import pathlib
-import re
 
 import pytest
 import yaml
@@ -66,27 +66,71 @@ def test_the_isolate_records_are_actually_matched_by_that_glob():
     )
 
 
-def test_the_chebi_sweep_reaches_every_record_directory():
-    """The repoint table was right and unapplied because this globbed one dir.
+def _sweep_ast() -> tuple[set[str], ast.For]:
+    """(directories in RECORD_DIRS, the loop that walks the records).
 
-    Asserting on the source text rather than importing: the script executes its
-    OAK lookups at module scope, so importing it shells out to `runoak` for
-    ~100 ids.
+    Parsed rather than imported: the script does its OAK lookups at module
+    scope, so importing it shells out to `runoak` for ~100 ids. Parsed rather
+    than regexed because both regexes tried here were wrong in opposite
+    directions — `([^)]*)` stopped inside the first `Path("...")`, and the
+    `.*` that replaced it stops at the newline, so `black` splitting the tuple
+    across lines (which a 4th directory would trigger — it is at 76 of 100
+    columns now) would report an empty sweep set. An AST has neither failure
+    mode.
     """
-    source = (REPO / "scripts/chebi_fix_apply.py").read_text()
-    # To the end of the line, not to the first ")": every entry is `Path("...")`,
-    # so a non-greedy `[^)]*` capture stops inside the first one and reports an
-    # empty set no matter what the script actually sweeps.
-    dirs = re.search(r"RECORD_DIRS\s*=\s*\(.*", source)
-    assert dirs, "RECORD_DIRS is gone from chebi_fix_apply.py; update this test"
+    tree = ast.parse((REPO / "scripts/chebi_fix_apply.py").read_text())
 
-    named = set(re.findall(r'Path\("([^"]+)"\)', dirs.group(0)))
-    assert "data/isolates" in named, (
+    dirs: set[str] = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Assign) and any(
+            isinstance(t, ast.Name) and t.id == "RECORD_DIRS" for t in node.targets
+        ):
+            for call in ast.walk(node.value):
+                if (
+                    isinstance(call, ast.Call)
+                    and isinstance(call.func, ast.Name)
+                    and call.func.id == "Path"
+                    and call.args
+                    and isinstance(call.args[0], ast.Constant)
+                ):
+                    dirs.add(call.args[0].value)
+
+    loops = [
+        node
+        for node in ast.walk(tree)
+        if isinstance(node, ast.For) and "glob" in ast.dump(node.iter)
+    ]
+    assert len(loops) == 1, f"expected one record-globbing loop, found {len(loops)}"
+    return dirs, loops[0]
+
+
+def test_the_chebi_sweep_reaches_every_record_directory():
+    """The repoint table was right and unapplied because this globbed one dir."""
+    dirs, _ = _sweep_ast()
+    assert "data/isolates" in dirs, (
         "chebi_fix_apply.py does not sweep data/isolates, which is how the "
         "dysprosium repoint stayed unapplied while sitting in its own REPOINT "
-        f"table (#471). It sweeps: {sorted(named)}"
+        f"table (#471). It sweeps: {sorted(dirs)}"
     )
-    assert "kb/communities" in named
+    assert "kb/communities" in dirs
+
+
+def test_the_sweep_loop_actually_reads_that_constant():
+    """Naming the directories is not sweeping them.
+
+    The first version of this file asserted only on the value of RECORD_DIRS,
+    which the review broke in one line: leave the constant exactly as written
+    and revert the loop to `Path("kb/communities").glob("*.yaml")`. The whole
+    suite stayed green while the precise regression this PR exists to prevent —
+    a correction sitting in REPOINT that never reaches data/isolates — was
+    fully reintroduced. A constant nothing reads is a comment.
+    """
+    _, loop = _sweep_ast()
+    assert "RECORD_DIRS" in ast.dump(loop.iter), (
+        "the record loop in chebi_fix_apply.py does not iterate RECORD_DIRS, so "
+        "the directories declared there are decorative and the sweep can still "
+        "miss data/isolates (#471)"
+    )
 
 
 def test_no_isolate_carries_the_nonexistent_dysprosium_id():
