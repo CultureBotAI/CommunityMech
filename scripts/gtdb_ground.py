@@ -70,6 +70,7 @@ MAPPING_REL = Path("data/raw/NCBI2GTDB.tsv.gz")
 # `scripts/` is on sys.path when this runs as `python scripts/gtdb_ground.py`,
 # so reach the package the same way the other scripts do.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+from communitymech.curate.curation_event import record_curation_event  # noqa: E402
 from communitymech.validators.ncbi_domain import outside_gtdb_scope  # noqa: E402
 
 # NCBI2GTDB.tsv column indices (0-based); see header row.
@@ -1168,7 +1169,7 @@ def apply_to_community(
         new_text,
         action="GTDB_REFRESH" if refresh else "GTDB_GROUND",
         changes=(
-            f"{'Refreshed' if refresh else 'Added'} {added} gtdb_classification "
+            f"{'Refreshed' if refresh else 'Added'} {{n}} gtdb_classification "
             f"block(s) from {MAPPING_REL.name} (#395)."
         ),
     )
@@ -1388,7 +1389,7 @@ def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -
         path.read_text(),
         new_text,
         action="GTDB_SET_STATUS",
-        changes=f"Wrote gtdb_grounding_status on {written} taxonomy entries (#294, #395).",
+        changes="Wrote gtdb_grounding_status on {n} taxonomy entries (#294, #395).",
     )
     _assert_only_status_changed(path, doc, new_text, curation_event=True)
     path.write_text(new_text)
@@ -1472,19 +1473,74 @@ def _assert_only_status_changed(
         )
 
 
+def _changed_entries(original: str, new_text: str) -> int:
+    """How many taxonomy entries actually differ. Not how many were visited.
+
+    NOTE this is deliberately a different number from the one the write paths
+    return and print. `apply_to_community` reports `added` — blocks the line
+    editor wrote — so stdout can say "applied 2 block(s)" while the event says
+    "Refreshed 1", when one of the two was rewritten to the value it already
+    held. The event is the accurate one, and it is the one that persists;
+    stdout's count is left alone because callers and tests read it as
+    "entries processed" (review of #483).
+
+    The counts the write paths return (`added`, `written`) are of entries the
+    line editor *processed*, which is not the same thing: `--apply-status` over
+    an already-written record rewrites six identical entries and reports six.
+    An event saying "wrote status on 6" when nothing moved is a false record,
+    and #395 is about the record being true (review of #483).
+    """
+    try:
+        before = yaml.safe_load(original) or {}
+        after = yaml.safe_load(new_text) or {}
+    except yaml.YAMLError:
+        return 0
+    b_tax = before.get("taxonomy") or []
+    a_tax = after.get("taxonomy") or []
+    if len(b_tax) != len(a_tax):
+        return max(len(b_tax), len(a_tax))
+    # Lengths are equal by the guard above, so strict= is safe and states it.
+    return sum(1 for b, a in zip(b_tax, a_tax, strict=True) if b != a)
+
+
+def _semantically_equal(original: str, new_text: str) -> bool:
+    """Compare parsed documents, ignoring `curation_history`.
+
+    Byte comparison was wrong for a file with no trailing newline or with CRLF
+    endings: the callers rebuild text via `splitlines()` + `"\n".join(...)`, so
+    such a file is never byte-equal and earned a spurious event on its first
+    run (review of #483). Parsing compares what the record means.
+    """
+    try:
+        before = yaml.safe_load(original) or {}
+        after = yaml.safe_load(new_text) or {}
+    except yaml.YAMLError:
+        return False
+    before.pop("curation_history", None)
+    after.pop("curation_history", None)
+    return before == after
+
+
 def _record_edit(original: str, new_text: str, *, action: str, changes: str) -> str:
-    """Append a curation event, unless the edit was a no-op.
+    """Append a curation event, unless the edit changed nothing.
 
     Idempotence is the constraint. `--apply-status` re-run over an already-
-    written record produces identical YAML, and the existing test suite asserts
-    that a second run leaves the file byte-identical. Appending an event
-    unconditionally broke that: every re-run grew the history by one entry
-    recording that nothing happened. An audit trail of non-events is worse than
-    none, because it buries the real ones.
+    written record produces identical YAML, and the existing suite asserts a
+    second run leaves the file byte-identical. Appending unconditionally broke
+    that: every re-run grew the history by one entry recording that nothing had
+    happened. An audit trail of non-events is worse than none, because it
+    buries the real ones.
+
+    `{n}` in `changes` is filled with the number of entries that actually
+    differ, so the event cannot claim work the edit did not do.
     """
-    if new_text == original:
+    if _semantically_equal(original, new_text):
         return new_text
-    return _append_curation_event(new_text, action=action, changes=changes)
+    return _append_curation_event(
+        new_text,
+        action=action,
+        changes=changes.replace("{n}", str(_changed_entries(original, new_text))),
+    )
 
 
 def _append_curation_event(text: str, *, action: str, changes: str) -> str:
@@ -1503,22 +1559,46 @@ def _append_curation_event(text: str, *, action: str, changes: str) -> str:
     duplicate-key detector in the write guard would catch it, but producing it
     and relying on the guard is the wrong order.
     """
-    event = {
-        "timestamp": datetime.now(timezone.utc)
-        .isoformat(timespec="seconds")
-        .replace("+00:00", "Z"),
-        "curator": "gtdb_ground.py",
-        "action": action,
-        "changes": changes,
-    }
+    # Built by the shared helper rather than by hand: it owns the field names
+    # and the timestamp format, and `audit_writers.py` cannot tell a hand-rolled
+    # dict from the real thing — its check is a regex for the literal
+    # `'curator':`, so a drifting copy would keep reporting `yes` (review of
+    # #483). Only the *insertion* has to be bespoke here, because every write
+    # path in this module is a line-level editor.
+    holder: dict = {}
+    record_curation_event(holder, curator="gtdb_ground.py", action=action, changes=changes)
+    event = holder["curation_history"][0]
     dumped = yaml.dump(
         [event], sort_keys=False, allow_unicode=True, width=DUMP_WIDTH, default_flow_style=False
     ).rstrip("\n")
 
     lines = text.rstrip("\n").split("\n")
+    # A document end marker would put the appended key outside the document.
+    if any(ln.rstrip() in ("...", "---") for ln in lines[1:]):
+        raise SystemExit(
+            "record uses explicit YAML document markers; curation_history cannot "
+            "be appended safely by line edit (#395)."
+        )
     for i, line in enumerate(lines):
-        if line.rstrip() != "curation_history:":
+        # `curation_history:`, `curation_history: []`, `curation_history:  # note`
+        # are the same key. Matching the bare string alone appended a SECOND
+        # `curation_history:` for the other two, which PyYAML resolves by
+        # keeping only the last — silently dropping the existing history. The
+        # write guard caught it, but producing corruption and relying on the
+        # guard is the wrong order (review of #483).
+        head = re.match(r"^curation_history:\s*(.*)$", line)
+        if not head:
             continue
+        rest = head.group(1).strip()
+        if rest and not rest.startswith("#"):
+            # An inline value: `curation_history: []`. Replace it with a block,
+            # since an event cannot be appended to a flow sequence by line edit.
+            if rest not in ("[]", "~", "null"):
+                raise SystemExit(
+                    f"record has an inline curation_history value ({rest!r}) that "
+                    f"is not an empty list; refusing to edit it (#395)."
+                )
+            lines[i] = "curation_history:"
         end = len(lines)
         for j in range(i + 1, len(lines)):
             # Only a new top-level KEY ends the block. `- timestamp: ...` also
@@ -1530,8 +1610,18 @@ def _append_curation_event(text: str, *, action: str, changes: str) -> str:
             if re.match(r"^[A-Za-z_]", lines[j]):
                 end = j
                 break
-        return "\n".join(lines[:end] + dumped.split("\n") + lines[end:]) + "\n"
-
+        # Back off over a comment block introducing that next key, so the event
+        # is not inserted below it — which would silently re-attach the comment
+        # to curation_history.
+        while end > i + 1 and lines[end - 1].lstrip().startswith("#"):
+            end -= 1
+        while end > i + 1 and not lines[end - 1].strip():
+            end -= 1
+        # An indented sequence (`  - action: ...`) cannot take a column-0 item.
+        items = [ln for ln in lines[i + 1 : end] if ln.strip().startswith("- ")]
+        indent = " " * (len(items[0]) - len(items[0].lstrip())) if items else ""
+        body = [f"{indent}{ln}" if ln.strip() else ln for ln in dumped.split("\n")]
+        return "\n".join(lines[:end] + body + lines[end:]) + "\n"
     return "\n".join(lines + ["curation_history:"] + dumped.split("\n")) + "\n"
 
 

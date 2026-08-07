@@ -31,6 +31,7 @@ inserted the event ABOVE the existing history. The guard refused the write.
 from __future__ import annotations
 
 import importlib.util
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -162,8 +163,21 @@ def test_an_existing_history_is_preserved_and_appended_to(gtdb, mapping, tmp_pat
     original = _history(source)
     assert original, "this fixture needs a record that already has curation_history"
 
+    # Strip the statuses so the run has something to do. Without this the edit
+    # is a no-op, no event is appended, and the test fails for the right reason
+    # but the wrong subject — it is the *insertion point* under test here, not
+    # the no-op short-circuit.
     record = tmp_path / source.name
-    record.write_text(source.read_text())
+    record.write_text(
+        "\n".join(
+            line
+            for line in source.read_text().splitlines()
+            if not line.strip().startswith(("gtdb_grounding_status:", "gtdb_candidates:"))
+            and not re.match(r"^\s+- GTDB:", line)
+        )
+        + "\n"
+    )
+    assert _history(record), "history must survive the strip"
 
     result = _run("--community", str(record), "--apply-status")
     assert result.returncode == 0, result.stderr[-500:]
@@ -248,6 +262,118 @@ def test_the_writer_audit_now_sees_the_append():
     )
     row = [line for line in result.stdout.splitlines() if line.startswith("scripts/gtdb_ground.py")]
     assert row, f"gtdb_ground.py is missing from the writer audit:\n{result.stdout[:400]}"
+    # By column, not by substring: `"\tno\t" not in row` cannot see a `no` in the
+    # LAST field, which has no trailing tab, and says nothing if the audit
+    # reorders its columns (review of #483).
+    fields = row[0].split("\t")
+    assert len(fields) >= 3, f"the audit's row format changed: {row[0]!r}"
+    assert fields[2] == "yes", (
+        f"audit-writers reports gtdb_ground.py still has no curation_history "
+        f"append: {row[0]} (#395)"
+    )
     assert (
-        "\tno\t" not in row[0]
-    ), f"audit-writers still reports a missing safeguard for gtdb_ground.py: {row[0]} (#395)"
+        "no" not in fields[1:]
+    ), f"audit-writers reports another missing safeguard for gtdb_ground.py: {row[0]}"
+
+
+# ---------------------------------------------------------------------------
+# Pure-text tests for the insertion itself. These need NO crosswalk, so unlike
+# the end-to-end tests above they actually run in CI — where the four
+# `mapping`-dependent ones skip, leaving the one piece of genuinely new,
+# edge-case-prone logic exercised only on the author's machine (review of #483).
+# ---------------------------------------------------------------------------
+
+
+def _appended(gtdb, text: str) -> dict:
+    out = gtdb._append_curation_event(text, action="GTDB_SET_STATUS", changes="probe")
+    return yaml.safe_load(out)
+
+
+def test_a_record_with_no_history_gains_the_key(gtdb):
+    doc = _appended(gtdb, "id: X\nname: probe\n")
+    assert [e["action"] for e in doc["curation_history"]] == ["GTDB_SET_STATUS"]
+    assert doc["name"] == "probe"
+
+
+def test_an_empty_inline_list_is_not_duplicated(gtdb):
+    """`curation_history: []` is the same key.
+
+    Matching only the bare string appended a SECOND `curation_history:`, and
+    PyYAML keeps the last of two identical keys — silently dropping whatever
+    the first held. The write guard caught it, but producing corruption and
+    relying on the guard is the wrong order.
+    """
+    out = gtdb._append_curation_event(
+        "id: X\ncuration_history: []\nname: probe\n", action="GTDB_GROUND", changes="probe"
+    )
+    assert out.count("curation_history:") == 1, out
+    assert [e["action"] for e in yaml.safe_load(out)["curation_history"]] == ["GTDB_GROUND"]
+
+
+def test_a_trailing_comment_on_the_key_is_handled(gtdb):
+    out = gtdb._append_curation_event(
+        "id: X\ncuration_history:  # notes follow\n- action: KEEP\nname: probe\n",
+        action="GTDB_GROUND",
+        changes="probe",
+    )
+    assert out.count("curation_history:") == 1
+    assert [e["action"] for e in yaml.safe_load(out)["curation_history"]] == [
+        "KEEP",
+        "GTDB_GROUND",
+    ]
+
+
+def test_an_indented_sequence_stays_parseable(gtdb):
+    """A column-0 item cannot be appended to an indented sequence."""
+    doc = _appended(gtdb, "id: X\ncuration_history:\n  - action: KEEP\nname: probe\n")
+    assert [e["action"] for e in doc["curation_history"]] == ["KEEP", "GTDB_SET_STATUS"]
+
+
+def test_the_event_goes_last_not_first(gtdb):
+    """The bug the append-only write guard caught."""
+    doc = _appended(gtdb, "id: X\ncuration_history:\n- action: FIRST\n- action: SECOND\n")
+    assert [e["action"] for e in doc["curation_history"]] == [
+        "FIRST",
+        "SECOND",
+        "GTDB_SET_STATUS",
+    ]
+
+
+def test_a_comment_introducing_the_next_key_is_not_absorbed(gtdb):
+    """Inserting below it would silently re-attach the comment to the history."""
+    out = gtdb._append_curation_event(
+        "id: X\ncuration_history:\n- action: KEEP\n# about the name\nname: probe\n",
+        action="GTDB_GROUND",
+        changes="probe",
+    )
+    lines = out.splitlines()
+    assert lines.index("# about the name") > lines.index("  action: GTDB_GROUND")
+    assert [e["action"] for e in yaml.safe_load(out)["curation_history"]] == ["KEEP", "GTDB_GROUND"]
+
+
+def test_a_document_end_marker_is_refused_rather_than_corrupted(gtdb):
+    with pytest.raises(SystemExit, match="document markers"):
+        gtdb._append_curation_event("id: X\nname: probe\n...\n", action="A", changes="b")
+
+
+def test_a_missing_trailing_newline_is_not_a_change(gtdb):
+    """Byte comparison called this a change and earned a false event.
+
+    The callers rebuild text with `splitlines()` + `"\\n".join(...) + "\\n"`, so a
+    file without a trailing newline is never byte-equal to its own rewrite.
+    """
+    assert gtdb._semantically_equal("id: X\nname: probe", "id: X\nname: probe\n")
+    assert (
+        gtdb._record_edit("id: X\nname: probe", "id: X\nname: probe\n", action="A", changes="b")
+        == "id: X\nname: probe\n"
+    )
+
+
+def test_the_event_counts_entries_that_actually_differ(gtdb):
+    """`{n}` must not restate how many entries the line editor visited."""
+    before = "taxonomy:\n- taxon_term: {a: 1}\n- taxon_term: {b: 2}\n"
+    after = "taxonomy:\n- taxon_term: {a: 9}\n- taxon_term: {b: 2}\n"
+    assert gtdb._changed_entries(before, after) == 1
+
+    out = gtdb._record_edit(before, after, action="GTDB_GROUND", changes="changed {n} block(s)")
+    assert "changed 1 block(s)" in out
