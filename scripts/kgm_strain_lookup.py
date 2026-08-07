@@ -124,7 +124,8 @@ class KGMStrainLookup:
                 count = self.conn.execute("SELECT COUNT(*) FROM ncbitaxon").fetchone()[0]
                 if count == 0:
                     needs_loading = True
-            except:
+            except duckdb.Error:
+                # Table missing or unreadable - both mean "load it".
                 needs_loading = True
 
         if needs_loading:

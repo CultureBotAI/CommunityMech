@@ -177,6 +177,9 @@ class EvidenceSourceAdder:
                     try:
                         abstract, _ = self.fetcher.fetch_paper(reference)
                     except Exception:
+                        # A fetch failure leaves abstract as None, which the
+                        # guess below already handles - this script is meant to
+                        # run over records whose references may not resolve.
                         pass
 
                     # Guess evidence source
@@ -255,6 +258,9 @@ class EvidenceSourceAdder:
                     try:
                         abstract, _ = self.fetcher.fetch_paper(reference)
                     except Exception:
+                        # A fetch failure leaves abstract as None, which the
+                        # guess below already handles - this script is meant to
+                        # run over records whose references may not resolve.
                         pass
 
                     guessed_source = self.guess_evidence_source(snippet, abstract, community_origin)

@@ -166,6 +166,7 @@ def _safe_model_dump(obj: Any) -> Any:
             try:
                 return obj.model_dump()
             except Exception:
+                # Best-effort serialisation: fall through to __dict__ below.
                 pass
     if hasattr(obj, "__dict__"):
         return {k: _safe_model_dump(v) for k, v in obj.__dict__.items() if not k.startswith("_")}
