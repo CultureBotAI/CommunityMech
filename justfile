@@ -109,6 +109,15 @@ cache-fulltext *pmids:
 # reads like "nothing was validated". It IS validating (a fabricated snippet
 # fails it); only the label is wrong, and it lives in the pip package.
 #
+# This note was not enough: #466 was filed reading exactly that output as a
+# vacuous pass. The claim is now mechanical rather than prose —
+# tests/test_reference_validator_actually_validates.py plants a snippet that is
+# in no publication and fails if the validator accepts it. It also pins the two
+# real gaps: a snippet truncated mid-word still passes (a cut quote is still a
+# substring — #295/#465), and SupportingReference, the range of
+# Discussion.evidence, carries no `implements:` so its snippets are never
+# checked at all.
+#
 # Its matching is strict-substring, so it also reports faithful quotes whose
 # CACHE carries a PDF/XML extraction artefact (record "10% CO 2" vs cached
 # "10% CO2", "beta-5" vs "β-5"). `scripts/evidence_snippet_audit.py` counts that
