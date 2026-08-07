@@ -1163,7 +1163,16 @@ def apply_to_community(
     # `evidence` list, joining two lines, emitting duplicate keys — and every one
     # was caught only by looking afterwards. Checking before the write turns that
     # class of mistake into a refusal (#378).
-    _assert_only_grounding_changed(path, doc, new_text, refresh=refresh)
+    new_text = _record_edit(
+        path.read_text(),
+        new_text,
+        action="GTDB_REFRESH" if refresh else "GTDB_GROUND",
+        changes=(
+            f"{'Refreshed' if refresh else 'Added'} {added} gtdb_classification "
+            f"block(s) from {MAPPING_REL.name} (#395)."
+        ),
+    )
+    _assert_only_grounding_changed(path, doc, new_text, refresh=refresh, curation_event=True)
 
     path.write_text(new_text)
     return added
@@ -1186,6 +1195,7 @@ def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
     entries = doc.get("taxonomy", []) or []
 
     drop_entry: list[bool] = []
+    withdrawn: list[str] = []
     for tc in entries:
         tt = (tc or {}).get("taxon_term", {}) or {}
         term = tt.get("term", {}) or {}
@@ -1203,7 +1213,18 @@ def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
         result = resolve_target(
             tid.split(":", 1)[1], term.get("label", ""), by_id, by_name, by_higher, **kwargs
         )
-        drop_entry.append(bool(result and result.get("ambiguous")))
+        ambiguous = bool(result and result.get("ambiguous"))
+        drop_entry.append(ambiguous)
+        if ambiguous:
+            # The value itself, not just the fact of a removal. #395 is about
+            # Serratia: withdrawn at 0.519, while #373/#374 argue that answer may
+            # have been the better one. A curator revisiting it should not have to
+            # read git to learn what was taken away.
+            old_block = tt.get("gtdb_classification") or {}
+            withdrawn.append(
+                f"{term.get('label') or tid} was {old_block.get('gtdb_id')} "
+                f"@{old_block.get('majority_fraction')}"
+            )
     if not any(drop_entry):
         return 0
 
@@ -1244,7 +1265,16 @@ def withdraw_ambiguous(path: Path, by_id, by_name, by_higher, **kwargs) -> int:
         removed += 1
 
     new_text = "\n".join(ln for i, ln in enumerate(lines) if i not in drop) + "\n"
-    _assert_only_grounding_changed(path, doc, new_text, withdraw=True)
+    new_text = _record_edit(
+        path.read_text(),
+        new_text,
+        action="GTDB_WITHDRAW_AMBIGUOUS",
+        changes=(
+            f"Withdrew {removed} GTDB grounding(s) the recompute now calls "
+            f"AMBIGUOUS: {'; '.join(withdrawn)} (#382, #395)."
+        ),
+    )
+    _assert_only_grounding_changed(path, doc, new_text, withdraw=True, curation_event=True)
     path.write_text(new_text)
     return removed
 
@@ -1354,13 +1384,25 @@ def apply_status_to_community(path: Path, by_id, by_name, by_higher, **kwargs) -
     out += lines[end:]
     new_text = "\n".join(out) + "\n"
 
-    _assert_only_status_changed(path, doc, new_text)
+    new_text = _record_edit(
+        path.read_text(),
+        new_text,
+        action="GTDB_SET_STATUS",
+        changes=f"Wrote gtdb_grounding_status on {written} taxonomy entries (#294, #395).",
+    )
+    _assert_only_status_changed(path, doc, new_text, curation_event=True)
     path.write_text(new_text)
     return written
 
 
-def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None:
-    """Fail loudly unless the edit touched the status slots and nothing else."""
+def _assert_only_status_changed(
+    path: Path, before: dict, new_text: str, curation_event: bool = False
+) -> None:
+    """Fail loudly unless the edit touched the status slots and nothing else.
+
+    `curation_event` allows exactly one appended `curation_history` entry, on
+    the same terms as the grounding guard (#395).
+    """
     try:
         after = yaml.safe_load(new_text)
     except yaml.YAMLError as exc:
@@ -1384,16 +1426,36 @@ def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None
     _DupDetector.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, _no_dups)
     yaml.load(new_text, Loader=_DupDetector)  # noqa: S506 — subclass of SafeLoader
 
-    def _stripped(doc):
+    def _stripped(doc, *, drop_history=False):
         copy = yaml.safe_load(yaml.dump(doc, sort_keys=False, allow_unicode=True))
         for entry in (copy or {}).get("taxonomy") or []:
             tt = (entry or {}).get("taxon_term")
             if isinstance(tt, dict):
                 for key in STATUS_KEYS:
                     tt.pop(key, None)
+        if drop_history and isinstance(copy, dict):
+            copy.pop("curation_history", None)
         return copy
 
-    if _stripped(before) != _stripped(after):
+    if curation_event:
+        b_hist = (before or {}).get("curation_history") or []
+        a_hist = (after or {}).get("curation_history") or []
+        if a_hist[: len(b_hist)] != b_hist:
+            raise SystemExit(
+                f"{path.name}: the status edit rewrote existing curation_history — "
+                f"it may only append."
+            )
+        # Zero or one. Zero is legitimate: a no-op edit appends no event, so
+        # `--apply-status` stays byte-idempotent on a record already written.
+        if len(a_hist) not in (len(b_hist), len(b_hist) + 1):
+            raise SystemExit(
+                f"{path.name}: expected at most one new curation event, got "
+                f"{len(a_hist) - len(b_hist)}."
+            )
+
+    if _stripped(before, drop_history=curation_event) != _stripped(
+        after, drop_history=curation_event
+    ):
         raise SystemExit(
             f"{path.name}: the status edit changed something other than "
             f"{'/'.join(STATUS_KEYS)} — refusing to write."
@@ -1410,10 +1472,84 @@ def _assert_only_status_changed(path: Path, before: dict, new_text: str) -> None
         )
 
 
+def _record_edit(original: str, new_text: str, *, action: str, changes: str) -> str:
+    """Append a curation event, unless the edit was a no-op.
+
+    Idempotence is the constraint. `--apply-status` re-run over an already-
+    written record produces identical YAML, and the existing test suite asserts
+    that a second run leaves the file byte-identical. Appending an event
+    unconditionally broke that: every re-run grew the history by one entry
+    recording that nothing happened. An audit trail of non-events is worse than
+    none, because it buries the real ones.
+    """
+    if new_text == original:
+        return new_text
+    return _append_curation_event(new_text, action=action, changes=changes)
+
+
+def _append_curation_event(text: str, *, action: str, changes: str) -> str:
+    """Append one CurationEvent to a record's `curation_history`, as text.
+
+    Text rather than a YAML round-trip because every write path here is a
+    line-level editor: re-dumping the document would reformat all of it, and
+    `_assert_only_grounding_changed` exists precisely because four hand-rolled
+    attempts at whole-file edits corrupted records (#378).
+
+    Two cases. When `curation_history` is absent — 310 of the 312 records, since
+    #325 is still open — the key is appended at the end of the document. When it
+    is present, the event goes at the end of its block, found by scanning to the
+    next top-level key. Appending a second `curation_history:` instead would be
+    silently lossy, since PyYAML keeps only the last of two identical keys; the
+    duplicate-key detector in the write guard would catch it, but producing it
+    and relying on the guard is the wrong order.
+    """
+    event = {
+        "timestamp": datetime.now(timezone.utc)
+        .isoformat(timespec="seconds")
+        .replace("+00:00", "Z"),
+        "curator": "gtdb_ground.py",
+        "action": action,
+        "changes": changes,
+    }
+    dumped = yaml.dump(
+        [event], sort_keys=False, allow_unicode=True, width=DUMP_WIDTH, default_flow_style=False
+    ).rstrip("\n")
+
+    lines = text.rstrip("\n").split("\n")
+    for i, line in enumerate(lines):
+        if line.rstrip() != "curation_history:":
+            continue
+        end = len(lines)
+        for j in range(i + 1, len(lines)):
+            # Only a new top-level KEY ends the block. `- timestamp: ...` also
+            # starts at column 0 — testing `not line[0].isspace()` treated the
+            # list's own first item as the next section and inserted the event
+            # ABOVE the existing history, which the append-only write guard then
+            # correctly refused. Match the same `^[A-Za-z_]` rule the rest of
+            # this module uses to find section ends.
+            if re.match(r"^[A-Za-z_]", lines[j]):
+                end = j
+                break
+        return "\n".join(lines[:end] + dumped.split("\n") + lines[end:]) + "\n"
+
+    return "\n".join(lines + ["curation_history:"] + dumped.split("\n")) + "\n"
+
+
 def _assert_only_grounding_changed(
-    path: Path, before: dict, new_text: str, refresh: bool = False, withdraw: bool = False
+    path: Path,
+    before: dict,
+    new_text: str,
+    refresh: bool = False,
+    withdraw: bool = False,
+    curation_event: bool = False,
 ) -> None:
-    """Fail loudly unless the edit touched gtdb_classification and nothing else."""
+    """Fail loudly unless the edit touched gtdb_classification and nothing else.
+
+    `curation_event` widens that by exactly one thing: `curation_history` may
+    gain a single entry at the end. Deliberately narrow — an append-only check
+    on one key, not a general exemption — because the guard's value is that it
+    refuses everything it was not told to expect (#395).
+    """
     try:
         after = yaml.safe_load(new_text)
     except yaml.YAMLError as exc:
@@ -1492,9 +1628,23 @@ def _assert_only_grounding_changed(
     b_tax, a_tax = before.get("taxonomy") or [], after.get("taxonomy") or []
     if len(b_tax) != len(a_tax):
         raise SystemExit(f"{path.name}: taxonomy went from {len(b_tax)} to {len(a_tax)} entries.")
-    if {k: v for k, v in before.items() if k != "taxonomy"} != {
-        k: v for k, v in after.items() if k != "taxonomy"
-    }:
+    b_rest = {k: v for k, v in before.items() if k != "taxonomy"}
+    a_rest = {k: v for k, v in after.items() if k != "taxonomy"}
+    if curation_event:
+        b_hist = b_rest.pop("curation_history", None) or []
+        a_hist = a_rest.pop("curation_history", None) or []
+        if a_hist[: len(b_hist)] != b_hist:
+            raise SystemExit(
+                f"{path.name}: the edit rewrote existing curation_history — it may " f"only append."
+            )
+        # Zero or one. Zero is legitimate: a no-op edit appends no event, so
+        # `--apply-status` stays byte-idempotent on a record already written.
+        if len(a_hist) not in (len(b_hist), len(b_hist) + 1):
+            raise SystemExit(
+                f"{path.name}: expected at most one new curation event, got "
+                f"{len(a_hist) - len(b_hist)}."
+            )
+    if b_rest != a_rest:
         raise SystemExit(f"{path.name}: content outside taxonomy changed.")
 
     for b, a in zip(b_tax, a_tax, strict=True):

@@ -254,9 +254,17 @@ def test_withdrawal_removes_an_ambiguous_block_and_nothing_else(gtdb, tmp_path):
     assert after["taxonomy"][0]["taxon_term"]["notes"] == "a sibling that must survive"
     assert after["taxonomy"][1]["taxon_term"]["gtdb_classification"]["gtdb_id"] == "GTDB:g__Kept"
 
+    # The withdrawal now records what it removed (#395) — assert on that rather
+    # than dropping curation_history from the comparison, since the value
+    # surviving in-band is the whole point of the change.
+    event = (after.get("curation_history") or [])[-1]
+    assert event["action"] == "GTDB_WITHDRAW_AMBIGUOUS"
+    assert "GTDB:g__" in event["changes"], "the withdrawn grounding must be named"
+
     def stripped(document):
         for entry in document["taxonomy"]:
             entry["taxon_term"].pop("gtdb_classification", None)
+        document.pop("curation_history", None)
         return document
 
     assert stripped(before) == stripped(after)
