@@ -59,7 +59,7 @@ judgement, or the loop will invent something.
   `validate_ncbitaxon_ids.py` and `term_fix_apply.py` for it, but choosing per
   term still needs a call. The other branch — documenting the roots as
   schema-only — is mechanical, so the brief must name which branch to take.
-- **#277 — four dangling `[[wiki-links]]`.** Looks like doc hygiene, but the issue
+- ~~**#277 — four dangling `[[wiki-links]]`.**~~ **DONE 2026-08-07 (PR #470)** — two were redundant; the third was hiding a resolved blocker, so `validate-terms-all` is now a CI gate. Originally: looks like doc hygiene, but the issue
   offers three mutually exclusive remedies (inline the substance, point at a
   committed doc, or drop the links) and the substance lives in a memory directory
   the issue records as absent. "No dangling links" is satisfiable by deletion,

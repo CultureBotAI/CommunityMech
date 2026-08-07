@@ -5,7 +5,7 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-08-06.
+Last reconciled: 2026-08-07.
 
 ## Reconciliation 2026-08-06 — the wrong-organism thread
 
@@ -243,11 +243,23 @@ locally: 5362 OK_CANONICAL, 184 OK_EXCEPTION, 0 errors (exit 0). The 34
 curator-accepted residuals in `conf/id_label_targets.yaml` (`exceptions:`) all
 resolve as OK_EXCEPTION (184 pair-instances across files).
 
-**Deferred — `validate-terms-all` as a blocking gate.** linkml-term-validator
-(`--labels`) has NO exceptions mechanism, so it fails on exactly those residuals
-(confirmed: it errors on obsolete `GO:0055114` "oxidation-reduction process",
-and would also flag the CHEBI mislabels needing minting and the taxa absent
-from the OAK snapshot). Enabling it as blocking requires one of:
+**ENABLED 2026-08-07 (#277) — was: deferred as a blocking gate.**
+linkml-term-validator (`--labels`) has NO exceptions mechanism, so it used to
+fail on these residuals — it errored on obsolete `GO:0055114`
+"oxidation-reduction process" and on the CHEBI mislabels needing minting. That
+class is fixed (the last of it in #350), and the gate now passes 316 of 316
+files, so it runs as a blocking step in `label-correspondence.yaml`.
+
+Read the rest of this section as history, with one correction that matters: the
+34 did not all get cleaned. Three still resolve to nothing in OAK
+(`CHEBI:75315`, `GO:0070812`, `NCBITaxon:1807132`) and are still waived in
+`conf/id_label_targets.yaml`. This tool passes them by *silently skipping ids it
+cannot resolve*, not because they were fixed — so option 2 below is still
+genuinely upstream-blocked, and the gate is green partly by blindness. It also
+does not catch a nonexistent CURIE at all (#471).
+
+The original framing, kept because it is still the right analysis of what
+enabling *would* have required:
   - mint/clean the 34 residuals (see chebi-mislabels backlog — 11 CHEBI need
     minted terms; obsolete GO terms; 2 absent NCBITaxon), then drop them from
     `exceptions:`; or
@@ -267,8 +279,10 @@ ENVO:00000274 "soda lake"→*continental rise*; ENVO:01001442 "phyllosphere"→
 Dissulfuribacter*. Only near-repoint found: sodium metasilicate (CHEBI:86154) →
 CHEBI:60720 "sodium silicate" (a generalization, label changes; not applied).
 **Conclusion: option 2 is genuinely upstream-blocked** — I cannot mint
-ChEBI/ENVO/GO/NCBITaxon terms. validate-terms-all stays deferred. The real fixes
-are external: (a) submit the ~9 CHEBI + 3 ENVO + 2 NCBITaxon compounds/taxa as
+ChEBI/ENVO/GO/NCBITaxon terms. (That conclusion stands; what changed in #277 is
+that the gate no longer *needs* it, because the residuals it can see were fixed
+and the three it cannot see are invisible to it. The three remain real.) The
+real fixes are external: (a) submit the ~9 CHEBI + 3 ENVO + 2 NCBITaxon compounds/taxa as
 term requests (ROBOT template / OBO issue), (b) repoint the ~12 obsolete GO ids to
 current terms where a curator accepts a replacement, then (c) drop resolved
 entries from `exceptions:`. The `exceptions` allow-list keeps `validate-products`
