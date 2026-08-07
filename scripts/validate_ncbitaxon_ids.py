@@ -142,6 +142,7 @@ class NCBITaxonValidator:
                 return results[0]
 
         except Exception:
+            # Any lookup failure means "no match", which is what None says.
             pass
 
         return None

@@ -127,7 +127,8 @@ def cache_text(reference: str) -> tuple[str, bool]:
     for p in hits:
         try:
             t = p.read_text(errors="ignore")
-        except Exception:
+        except OSError:
+            # An unreadable cache entry is not evidence of anything; skip it.
             continue
         if p.suffix == ".txt":
             # PubMed full dump — always real content

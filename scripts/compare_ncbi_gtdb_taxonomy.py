@@ -262,13 +262,6 @@ def search_ncbi_taxonomy_multilevel(
                     if result_label and strain.lower() in result_label.lower():
                         # Get rank information if available
                         rank = None
-                        try:
-                            # Try to get rank from adapter
-                            # This may not be available in all OAK adapters
-                            pass
-                        except:
-                            pass
-
                         strain_result = {
                             "id": result_id.split(":")[1] if ":" in result_id else result_id,
                             "label": result_label,

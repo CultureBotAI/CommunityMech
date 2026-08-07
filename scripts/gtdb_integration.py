@@ -135,7 +135,8 @@ class GTDBIntegration:
                 """).fetchone()[0]
                 if count == 0:
                     needs_loading = True
-            except:
+            except duckdb.Error:
+                # Table missing or unreadable - both mean "load it".
                 needs_loading = True
 
         if needs_loading and self.gtdb_data_dir.exists():
@@ -146,7 +147,7 @@ class GTDBIntegration:
                 print(
                     f"{Colors.GREEN}Using existing GTDB database with {count:,} genomes{Colors.RESET}"
                 )
-            except:
+            except duckdb.Error:
                 print(
                     f"{Colors.YELLOW}GTDB data not loaded. Run with --load to load data.{Colors.RESET}"
                 )

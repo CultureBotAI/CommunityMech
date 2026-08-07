@@ -71,7 +71,9 @@ class SnippetFixer:
                                         "ev_idx": ev_idx,
                                     }
                                 )
-                    except:
+                    except Exception:
+                        # One malformed evidence item should not abort the scan
+                        # of the rest of the record.
                         pass
 
         # Check interactions
@@ -108,7 +110,9 @@ class SnippetFixer:
                                         "ev_idx": ev_idx,
                                     }
                                 )
-                    except:
+                    except Exception:
+                        # One malformed evidence item should not abort the scan
+                        # of the rest of the record.
                         pass
 
         return invalid
