@@ -24,7 +24,13 @@ input:
   the block records how many genomes the fraction came from (#383).
 
 GTDB frequently reclassifies relative to NCBI (e.g. NCBITaxon "Agrobacterium
-deltae" -> GTDB "Agrobacterium leguminum"); ``is_reclassified`` flags it.
+deltae" -> GTDB "Agrobacterium leguminum"). ``is_reclassified`` is NOT a flag
+for that, despite the name: it is ``top != _clean_label(label)``, a string
+comparison, so it is also true when NCBI renamed the taxon (Bosea ->
+Allobosea), when GTDB merely dropped a strain designation (Escherichia coli
+K-12 -> Escherichia coli), and when the difference is a polyphyly suffix
+(Bacillota -> Bacillota_A). 42% of its true values are one of the latter two.
+See the slot description in the schema, and #480 for narrowing it.
 
 Data source (local kg-microbe checkout): ``<kg-microbe>/data/raw/NCBI2GTDB.tsv.gz``.
 Resolution order for <kg-microbe>: --kg-microbe-dir, $KG_MICROBE_DIR, then

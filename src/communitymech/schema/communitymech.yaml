@@ -881,8 +881,44 @@ classes:
         minimum_value: 1
       is_reclassified:
         description: >-
-          True when the GTDB species name differs from the NCBITaxon species
-          name (a GTDB reclassification/rename), so consumers can flag it.
+          True when the GTDB name differs from the NCBITaxon name at the rank
+          this block is grounded at. A string comparison, and nothing more:
+          `gtdb_ground.py` computes `top != _clean_label(label)`, so the name is
+          a poor guide to what the flag actually holds.
+
+          It said "species name ... (a GTDB reclassification/rename)". Neither
+          half held. Of the 154 blocks currently true, 33 are grounded above
+          species — through genus, family, order, class and phylum — so the rank
+          was wrong for a fifth of them. And the flag does not mean GTDB
+          reclassified anything; it conflates at least four things (#441):
+
+          * 90 genuinely different names, only some of which are GTDB
+            reclassifications. `Bosea` -> `Allobosea` is an *NCBI* rename: both
+            databases place the organism in the same genus concept, and NCBI
+            moved its label because the bacterial name was a later homonym of
+            the plant. So `is_reclassified: true` includes cases where GTDB
+            changed nothing.
+          * 40 dropped strain designations — `Escherichia coli K-12` ->
+            `Escherichia coli`, `Bacteroides thetaiotaomicron VPI-5482` ->
+            `Bacteroides thetaiotaomicron`. GTDB carries no strain suffix, so
+            the names differ while the organism's placement does not.
+          * 24 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`,
+            `Veillonella parvula` -> `Veillonella parvula_A`. A split marker on
+            the same name, not a rename.
+          * orthographic variants, e.g. `Nitrosotalea devaniterrae` ->
+            `Nitrosotalea devanaterra`.
+
+          So filter on it to find "the two labels are not identical", which is
+          what it computes. Do not read it as provenance: a consumer selecting
+          `is_reclassified: true` to find GTDB reclassifications gets roughly
+          42% false positives on the current corpus. Distinguishing the four
+          cases needs a reason the crosswalk does not record — #480 proposes
+          narrowing the computation, which is a data migration and a modelling
+          decision rather than a doc fix.
+
+          Counts are pinned by `tests/test_is_reclassified_semantics.py`, which
+          fails when they drift, since a count in this text reaches no generated
+          artifact (pythongen drops attribute descriptions).
         range: boolean
       curated:
         description: >-

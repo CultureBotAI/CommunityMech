@@ -1,6 +1,6 @@
 ---
 name: ground-taxa-gtdb
-description: Ground CommunityMech taxa in GTDB (Genome Taxonomy Database) alongside their NCBITaxon term, using the local kg-microbe NCBI<->GTDB mapping. Resolves an NCBITaxon id (or species name) to its canonical GTDB CURIE, taxon name, full lineage, and mapping confidence; flags GTDB reclassifications/renames (e.g. NCBITaxon "Agrobacterium deltae" -> GTDB "Agrobacterium leguminum"); and emits a ready-to-paste gtdb_classification block for the taxon.
+description: Ground CommunityMech taxa in GTDB (Genome Taxonomy Database) alongside their NCBITaxon term, using the local kg-microbe NCBI<->GTDB mapping. Resolves an NCBITaxon id (or species name) to its canonical GTDB CURIE, taxon name, full lineage, and mapping confidence; flags where the GTDB and NCBI names differ (e.g. NCBITaxon "Agrobacterium deltae" -> GTDB "Agrobacterium leguminum") via is_reclassified, which is a name comparison rather than a claim about who reclassified what (#441); and emits a ready-to-paste gtdb_classification block for the taxon.
 category: workflow
 requires_database: false
 requires_internet: false
@@ -55,7 +55,9 @@ release/build provenance — always keep it.
 `taxonomy[].taxon_term`, and optionally to interaction `source_taxon`/
 `target_taxon`). Fields: `gtdb_id` (CURIE), `gtdb_taxon` (name), `gtdb_lineage`
 (full lineage string), `ncbi_source_id` (the NCBITaxon it mapped from),
-`majority_fraction` (0-1 confidence), `is_reclassified` (GTDB name ≠ NCBI name),
+`majority_fraction` (0-1 confidence), `is_reclassified` (GTDB name ≠ NCBI
+name — a string comparison, so it covers NCBI renames, dropped strain
+designations and polyphyly suffixes too, not just GTDB reclassifications; #441),
 `mapping_source` (provenance). It is **not** an OAK-validated term — GTDB is not
 in `conf/oak_config.yaml`, and the id↔label validator deliberately ignores it
 (the `gtdb_id` is a pattern-checked plain string, not a bound `Term`).
@@ -292,7 +294,10 @@ taxonomy entries and their id anchors do not line up.
   flag: a list protects only what someone remembered to add, which is how
   *Chlorobium* went unprotected — it survived earlier sweeps only because its
   recompute happened to fail (#376).
-- **`is_reclassified: true`** — GTDB uses a different name than NCBI at that rank
+- **`is_reclassified: true`** — GTDB uses a different name than NCBI at that
+  rank. Read it as exactly that and no more: 42% of the true values are a
+  dropped strain designation or a polyphyly suffix rather than any kind of
+  reclassification (#441, #480)
   (e.g. *A. deltae* → *A. leguminum*, *Enterococcus* → *Enterococcus_B*). Keep
   both groundings; the disagreement is the point.
 - **AMBIGUOUS** — GTDB splits the NCBI taxon into several with no majority
