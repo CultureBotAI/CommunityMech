@@ -166,11 +166,25 @@ validate-gtdb FILE:
 #
 # The same check runs inside `just validate-strict` over kb/communities and
 # data/isolates. This form also covers kb/taxa, which that gate does not, and
-# takes explicit paths. Scoped to the record trees on purpose: conf/ and
-# .github/ use deliberate trailing comments, which are indistinguishable from
-# truncation on a plain scalar.
+# takes explicit paths. Scoped to the record trees, where a trailing comment is
+# not an idiom, so every report is real.
 validate-scalars *files:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
+
+# The same check over conf/, .github/workflows/, vocab/ and the schema (#400).
+#
+# Those trees DO use deliberate trailing comments, which YAML cannot distinguish
+# from a truncated value — both end the scalar at the `#`. So this reports only
+# a comment written tight against the value, under two spaces. Measured: all 13
+# deliberate trailing comments in those trees use three or more spaces, and none
+# uses fewer, while a `#` swallowed mid-sentence has one or none because it was
+# typed as prose.
+#
+# A convention check, not a proof. `key: text   #400 lost` with three spaces
+# slips through, and `key: value # comment` with one space reports falsely. It
+# is worth having because the alternative for these 21 files is no check at all.
+validate-scalars-idiomatic:
+    PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py --idiomatic
 
 # Find one NCBITaxon id standing in for two different organisms (#292).
 #

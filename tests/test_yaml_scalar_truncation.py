@@ -269,3 +269,79 @@ def test_the_report_names_the_right_field(tmp_path, name, text, key):
     """
     issue = find_truncated_scalars(_write(tmp_path, text))[0]
     assert issue.key == key, name
+
+
+# ---------------------------------------------------------------------------
+# `require_gap`: extending the check to trees where a deliberate trailing
+# comment is an idiom (#400). The strict rule reports 13 of those as
+# truncation, which is why conf/ and .github/ were left unchecked entirely.
+# ---------------------------------------------------------------------------
+
+_IDIOMATIC_DIRS = ("conf", ".github/workflows", "vocab", "src/communitymech/schema")
+
+
+def _idiomatic_files() -> list[Path]:
+    repo = Path(__file__).parent.parent
+    return [
+        path
+        for directory in _IDIOMATIC_DIRS
+        for suffix in ("*.yaml", "*.yml")
+        for path in sorted((repo / directory).rglob(suffix))
+    ]
+
+
+def test_the_idiomatic_trees_have_files_to_check():
+    """Guard: an empty sweep would make the two tests below vacuous."""
+    assert len(_idiomatic_files()) >= 15, _idiomatic_files()
+
+
+def test_require_gap_silences_every_deliberate_trailing_comment():
+    """The whole reason those trees were unchecked.
+
+    Without `require_gap` these files produce 13 reports, all of them comments
+    somebody wrote on purpose — a gate that cries wolf 13 times is one nobody
+    runs.
+    """
+    strict = sum(len(find_truncated_scalars(p)) for p in _idiomatic_files())
+    gapped = sum(len(find_truncated_scalars(p, require_gap=True)) for p in _idiomatic_files())
+    assert strict > 0, (
+        "the strict rule no longer reports anything in these trees, so the "
+        "trailing-comment idiom may be gone and require_gap may be unnecessary"
+    )
+    assert gapped == 0, (
+        f"require_gap still reports {gapped} deliberate comment(s); the "
+        f"two-space convention no longer holds across these trees (#400)"
+    )
+
+
+@pytest.mark.parametrize(
+    ("label", "text", "expected"),
+    [
+        ("one space is prose the author lost", "key: some text #400 lost here\n", 1),
+        ("no space at all", "key: some text#400 lost here\n", 0),
+        ("two spaces is a deliberate comment", "key: value  # on purpose\n", 0),
+        ("three spaces, as the repo actually writes them", "key: value   # on purpose\n", 0),
+        ("a quoted value is never reported", 'key: "text # inside"  # comment\n', 0),
+    ],
+)
+def test_the_gap_rule_case_by_case(tmp_path, label, text, expected):
+    """`#` with no preceding space does not open a comment in YAML at all.
+
+    So `some text#400` keeps its tail and is correctly not reported — the rule
+    only has to separate one space from two.
+    """
+    assert len(find_truncated_scalars(_write(tmp_path, text), require_gap=True)) == expected, label
+
+
+def test_require_gap_still_catches_a_real_truncation_in_a_conf_shaped_file(tmp_path):
+    """The check must discriminate, or silencing 13 would be all it did."""
+    text = (
+        "targets:\n"
+        "  - name: probe\n"
+        "    reason: no clean CHEBI term #398 needs minting\n"
+        "    policy: canonical   # deliberate comment\n"
+    )
+    issues = find_truncated_scalars(_write(tmp_path, text), require_gap=True)
+    assert len(issues) == 1, issues
+    assert issues[0].truncated_to == "no clean CHEBI term"
+    assert "needs minting" in issues[0].lost
