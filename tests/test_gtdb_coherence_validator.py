@@ -505,12 +505,21 @@ def test_the_status_distribution_is_what_was_measured():
     # 2 -> 1: `Bacteroides ovatus` was withheld only because its id was wrong.
     # #292 corrected it (NCBITaxon:28116) and the grounding followed, so the
     # withhold was removed rather than left protecting a fixed record.
-    assert counts["WITHHELD"] == 1, "the remaining #416 withhold must still be marked"
-    # A floor as well as a ceiling: `< 50` alone is satisfied by zero, so
-    # collapsing NOT_ATTEMPTED into another bucket passed.
-    assert 1 <= counts["NOT_ATTEMPTED"] < 50, (
-        "NOT_ATTEMPTED is the only value meaning outstanding work; 0 almost "
-        "certainly means it is being mislabelled, not that the work is done"
+    # 1 -> 5: #401 resolved the last NOT_ATTEMPTED taxa, and four of them were
+    # resolved by *deciding not to ground them* — two near-ties (#396) and two
+    # non-type splits whose type-bearing term is unrepresentable (#374, #377).
+    # WITHHELD is the value for that; NOT_ATTEMPTED says "nothing explains why".
+    assert counts["WITHHELD"] == 5, "the #416 withhold and #401's four must stay marked"
+    # This was `1 <= NOT_ATTEMPTED`, on the reasoning that 0 almost certainly
+    # meant the value was being mislabelled rather than the work being done.
+    # It is now genuinely 0, and the difference is that every one of the nine
+    # #401 found is individually accounted for: five grounded, four withheld
+    # with a reason apiece. The guard against mislabelling moves to
+    # tests/test_gtdb_not_attempted.py, which fails if a NOT_ATTEMPTED taxon
+    # appears that is neither grounded nor on the held list.
+    assert counts["NOT_ATTEMPTED"] == 0, (
+        "NOT_ATTEMPTED is the only value meaning outstanding work; if it is "
+        "non-zero again, a taxon has appeared that nobody has triaged"
     )
     # Was `== 0`: #392 forbade the tool from ever asserting this, because it
     # inferred finality from its own failure and got 82 of 293 wrong. #393

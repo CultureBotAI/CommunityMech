@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-05T21:43:38
+# Generation date: 2026-08-06T15:08:35
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2269,10 +2269,10 @@ class GtdbGroundingStatusEnum(EnumDefinitionImpl):
     Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never
     classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a
     missing block (#294).
-    Only NOT_ATTEMPTED is unambiguously outstanding work — 8 taxa, against the 317 that a missing block implies. How
-    much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in
-    `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the
-    generated datamodel goes stale every time the KB is swept.
+    Only NOT_ATTEMPTED is unambiguously outstanding work — 0 taxa since #401 closed the last nine, against the 317
+    that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined
+    (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because
+    a description baked into the generated datamodel goes stale every time the KB is swept.
     """
 
     GROUNDED = PermissibleValue(
@@ -2295,7 +2295,8 @@ Rank support runs domain through genus. Domain was added in #393, which moved 72
     )
     WITHHELD = PermissibleValue(
         text="WITHHELD",
-        description="""The tool can produce a grounding and a curator has decided it must not be stored — usually because the NCBITaxon id names a different organism, so the derived block would describe the wrong species convincingly (#292, #293). Fix the id and this becomes GROUNDED on the next run.""",
+        description="""The tool can produce a grounding and a curator has decided it must not be stored. Three reasons have qualified. A wrong NCBITaxon id, so the derived block would describe the wrong species convincingly (#292, #293) — fix the id and this becomes GROUNDED on the next run. A majority that contradicts the record's own physiology (#416). And a vote too weak to assert: a near-tie (#396), or a non-type GTDB split whose type-bearing counterpart holds a minority of genomes and so cannot be stored at all, since majority_fraction is bounded at 0.5 (#374, #401).
+No current instance is the first kind, so do not assume an id needs fixing — read the entry's reason in WITHHELD_GROUNDINGS.""",
     )
     NOT_ATTEMPTED = PermissibleValue(
         text="NOT_ATTEMPTED",
@@ -2305,7 +2306,7 @@ Rank support runs domain through genus. Domain was added in #393, which moved 72
     _defn = EnumDefinition(
         name="GtdbGroundingStatusEnum",
         description="""Why a taxon does or does not carry a gtdb_classification. Absence alone cannot say: a virus GTDB will never classify, an NCBI taxon GTDB splits with no majority, and a taxon nobody has grounded yet all look identical as a missing block (#294).
-Only NOT_ATTEMPTED is unambiguously outstanding work — 8 taxa, against the 317 that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the generated datamodel goes stale every time the KB is swept.""",
+Only NOT_ATTEMPTED is unambiguously outstanding work — 0 taxa since #401 closed the last nine, against the 317 that a missing block implies. How much of UNRESOLVED is final rather than a tool limitation is not yet determined (#393). Exact counts live in `.claude/skills/ground-taxa-gtdb/SKILL.md` and in the tests rather than here, because a description baked into the generated datamodel goes stale every time the KB is swept.""",
     )
 
 
