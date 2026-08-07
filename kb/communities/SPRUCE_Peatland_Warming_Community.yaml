@@ -198,10 +198,21 @@ ecological_interactions:
       label: ammonium
     notes: Inorganic nitrogen accessed by ECM and transferred to plants
   biological_processes:
-  - preferred_term: symbiont-mediated nutrient acquisition in host
+  - preferred_term: acquisition of nutrients from host
     term:
       id: GO:0044002
       label: acquisition of nutrients from host
+    notes: The fungus taking plant photosynthate - the glucose above, "plant-derived photosynthate allocated
+      to ECM fungi". GO defines the host as the larger organism, which is Picea mariana.
+  - preferred_term: acquisition of nutrients from symbiont
+    term:
+      id: GO:0051850
+      label: acquisition of nutrients from symbiont
+    notes: The return leg, and the one this record's narrative leads with - the ammonium above is "accessed
+      by ECM and transferred to plants", and the description's headline claim is that the symbiosis
+      "improves tree nutrient acquisition (N, P)". Both terms are listed because the interaction is typed
+      MUTUALISM and the metabolites run both ways; carrying one would make the record assert a one-way
+      transfer it does not describe (#356).
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
@@ -220,11 +231,20 @@ ecological_interactions:
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: response to root
+  - preferred_term: response to other organism
     term:
-      id: GO:0075136
-      label: response to host
-    notes: Microbial responses to plant root exudates and morphology
+      id: GO:0051707
+      label: response to other organism
+    notes: 'Microbial responses to plant root exudates and morphology. Regrounded from GO:0075136
+      "response to host", which is false here: that term is defined as a change in the *symbiont* in
+      response to *its host*, while this interaction is typed NICHE_PARTITIONING and its description
+      covers free-living decomposers and bulk-peat taxa that are no such thing (#356). GO has no
+      "response to root" or "response to root exudate" term - every hit for exudate or rhizosphere is
+      obsolete, and every hit for root is anatomy or tropism - so this is the nearest true one. It is
+      chosen over GO:0042221 "response to chemical" because the traits this interaction names are
+      mostly not chemical: specific root length, root diameter and morphology alongside exudate
+      composition. A biotic-stimulus term covers all of them without asserting symbiosis. The gap that
+      would let this be specific is #463.'
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
