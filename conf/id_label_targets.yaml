@@ -104,6 +104,22 @@ targets:
     pairs:
       - [id, label]
 
+  # data inputs (single-organism isolate records) — same term.{id,label} shape
+  # as the community records. Added because nothing covered them: Engine A
+  # (linkml-term-validator) does not fail on an id it cannot resolve, so a
+  # typo'd CURIE here passed every gate in the repo while the CI step name
+  # claimed to check data/isolates (#471).
+  - name: isolates_yaml
+    kind: yaml
+    glob: "data/isolates/*.yaml"
+    policy: canonical
+    # The failure this target exists to end was a silent absence, so it must
+    # not be able to go silently absent itself: without `required`, renaming or
+    # moving the directory prints "no files match" and exits 0 (#471).
+    required: true
+    pairs:
+      - [id, label]
+
   # data product: KGX node export carries (id, name) — canonical OR synonym
   - name: kgx_nodes
     kind: tabular

@@ -169,7 +169,7 @@ groundings**, almost all in the rare-earth block:
 | SAMARIUM | CHEBI:33376 → *terbium atom* | CHEBI:49890 samarium(3+) |
 | EUROPIUM | CHEBI:30688 → *(not in build)* | CHEBI:49591 europium(3+) |
 | TERBIUM | CHEBI:33374 → *samarium atom* | CHEBI:49902 terbium(3+) |
-| DYSPROSIUM | CHEBI:49782 → *(not in build)* | CHEBI:33377 dysprosium atom |
+| DYSPROSIUM | CHEBI:49782 → *(in no CHEBI release)* | CHEBI:33377 dysprosium atom |
 | HOLMIUM | CHEBI:49649 → *(not in build)* | CHEBI:49650 holmium(3+) |
 | ERBIUM | CHEBI:49650 → *holmium(3+)* | CHEBI:33379 erbium |
 | THULIUM | CHEBI:33377 → *dysprosium atom* | CHEBI:33380 thulium atom |
@@ -257,6 +257,18 @@ Read the rest of this section as history, with one correction that matters: the
 cannot resolve*, not because they were fixed — so option 2 below is still
 genuinely upstream-blocked, and the gate is green partly by blindness. It also
 does not catch a nonexistent CURIE at all (#471).
+
+**Partly closed 2026-08-07 (PR #473).** Engine B — which *does* report
+`ID_NOT_FOUND` — now has a `data/isolates/*.yaml` target, so that defect class
+is covered for the isolate records as well as the communities. It found one
+immediately: `CHEBI:49782 "dysprosium(3+)"`, an id in no CHEBI release, in
+`Methylobacterium_REE_Ewaste_Platform.yaml`. Note this was a *record-level*
+`term.{id,label}` pair, not the enum `meaning:` in the table above — that
+repoint landed 2026-07-18 in PR #207. The correction had been sitting in
+`chebi_fix_apply.py`'s REPOINT map the whole time, unapplied, because the
+script globbed `kb/communities` alone; it now sweeps the isolates and taxa too.
+What stays open on #471: Engine A still cannot fail on an unresolvable id
+(upstream in `linkml-term-validator`), and nothing pins the ontology release.
 
 The original framing, kept because it is still the right analysis of what
 enabling *would* have required:

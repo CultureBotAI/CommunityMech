@@ -17,7 +17,13 @@ import sys
 from pathlib import Path
 
 DRY = "--dry-run" in sys.argv
-COMM = Path("kb/communities")
+# Every directory carrying term.{id,label} pairs, not just the communities. The
+# dysprosium repoint below sat in this table, correct and unapplied, because
+# this was `Path("kb/communities")` alone while the same wrong id was in
+# data/isolates - and no gate covered isolates either, so nothing said so
+# (#471). A correction table that does not reach every record is a record of a
+# decision rather than the decision itself.
+RECORD_DIRS = (Path("kb/communities"), Path("data/isolates"), Path("kb/taxa"))
 ID_RE = re.compile(r"^(\s*)id:\s*(CHEBI:\d+)\s*$")
 LBL_RE = re.compile(r"^(\s*)label:\s*(.+?)\s*$")
 
@@ -175,7 +181,7 @@ if bad:
 changes = 0
 files_touched = set()
 per_pair = {}
-for f in sorted(COMM.glob("*.yaml")):
+for f in sorted(p for d in RECORD_DIRS for p in d.glob("*.yaml")):
     L = f.read_text().splitlines(keepends=True)
     out = list(L)
     i = 0
