@@ -79,53 +79,74 @@ def parse_curation_report(report_path: Path) -> list[dict[str, int]]:
     return files_with_issues
 
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
 def validate_file(yaml_path: Path) -> dict[str, int]:
     """
-    Run validation on a file and return issue counts.
+    Run snippet validation on a file and return issue counts.
 
-    Args:
-        yaml_path: Path to YAML file
+    Returns ``{"total": -1, ...}`` when validation could not be run. A caller
+    must distinguish that from a clean file, which is exactly what this used to
+    make impossible (#410).
 
-    Returns:
-        Dict with issue type counts
+    It shelled out to ``poetry run python scripts/curate_evidence_with_pdfs.py``.
+    Three things were wrong at once, and together they were silent:
+
+    * that script imports ``communitymech.literature_enhanced``, which has never
+      existed in any commit, so it cannot start;
+    * ``poetry`` is not this repo's runner — it uses ``uv``;
+    * ``cwd`` was ``yaml_path.parent.parent``, i.e. ``kb/``, not the repo root.
+
+    ``returncode`` was never checked. The subprocess failed, stdout and stderr
+    carried no ``ERROR: N`` for the regex to match, and the function returned
+    ``{"total": 0, "errors": 0, "warnings": 0}`` — reported to the caller as
+    *validated, no issues*. A validation step that reports success because it
+    never ran is worse than one that is simply missing.
+
+    It now calls ``linkml-reference-validator``, which is what
+    ``just validate-references`` runs and which does check snippets against
+    ``references_cache/``. That tool exits 0 when clean and 1 when it finds
+    issues; its "Total checks" line counts *issues*, not checks (#257, #466).
     """
     try:
         result = subprocess.run(
             [
-                "poetry",
+                "uv",
                 "run",
-                "python",
-                "scripts/curate_evidence_with_pdfs.py",
-                "--file",
-                yaml_path.name,
-                "--quick",
+                "linkml-reference-validator",
+                "validate",
+                "data",
+                str(yaml_path.resolve()),
+                "-s",
+                "src/communitymech/schema/communitymech.yaml",
+                "--config",
+                "conf/reference_validator.yaml",
             ],
-            cwd=yaml_path.parent.parent,
+            cwd=REPO_ROOT,
             capture_output=True,
             text=True,
-            timeout=300,
+            timeout=600,
         )
-
-        # Parse output for issue counts
-        output = result.stdout + result.stderr
-        issues = {"total": 0, "errors": 0, "warnings": 0}
-
-        # Look for issue counts in output
-        error_match = re.search(r"ERROR:\s*(\d+)", output)
-        warning_match = re.search(r"WARNING:\s*(\d+)", output)
-
-        if error_match:
-            issues["errors"] = int(error_match.group(1))
-        if warning_match:
-            issues["warnings"] = int(warning_match.group(1))
-
-        issues["total"] = issues["errors"] + issues["warnings"]
-
-        return issues
-
-    except Exception as e:
-        print(f"  ⚠️  Validation failed: {e}")
+    except Exception as exc:  # noqa: BLE001 — reported, not swallowed
+        print(f"  ⚠️  Validation could not run: {exc}")
         return {"total": -1, "errors": -1, "warnings": -1}
+
+    output = result.stdout + result.stderr
+    if result.returncode not in (0, 1):
+        # Anything else means the validator itself failed to run. Say so
+        # instead of reporting a clean file.
+        print(f"  ⚠️  Validator exited {result.returncode}: {output.strip()[-200:]}")
+        return {"total": -1, "errors": -1, "warnings": -1}
+
+    found = re.search(r"Issues found:\s*(\d+)", output)
+    errors = int(found.group(1)) if found else 0
+    if errors == 0 and result.returncode == 1:
+        # Non-zero without a parseable count: do not round down to clean.
+        print(f"  ⚠️  Validator reported failure with no issue count: {output.strip()[-200:]}")
+        return {"total": -1, "errors": -1, "warnings": -1}
+
+    return {"total": errors, "errors": errors, "warnings": 0}
 
 
 def process_files_batch(

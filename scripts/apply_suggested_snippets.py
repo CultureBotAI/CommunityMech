@@ -277,7 +277,7 @@ def interactive_review(fixes: list[SnippetFix], yaml_path: Path, auto_approve: b
         print(f"❌ Failed:   {failed_count}")
         print(f"\n💾 Updated file: {yaml_path}")
         print(f"💾 Backup saved: {backup_path}")
-        print("\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
+        print("\n🔍 Next: Validate with `just validate-references FILE`")
     else:
         print("\n⚠️  No fixes were applied")
         backup_path.unlink()  # Remove backup if no changes
@@ -319,7 +319,7 @@ def main():
 
     if not report_path.exists():
         print(f"❌ Report not found: {report_path}")
-        print("   Run: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
+        print("   Run: just validate-references FILE")
         return 1
 
     # Parse report
@@ -336,9 +336,7 @@ def main():
     if applied > 0:
         print(f"\n✅ Successfully applied {applied} snippet fixes")
         print("\n📋 Next steps:")
-        print(
-            f"   1. Validate: poetry run python scripts/curate_evidence_with_pdfs.py --file {yaml_filename}"
-        )
+        print(f"   1. Validate: just validate-references kb/communities/{yaml_filename}")
         print(f"   2. Schema check: just validate {yaml_path}")
         print(f"   3. Review changes: git diff {yaml_path}")
         return 0
