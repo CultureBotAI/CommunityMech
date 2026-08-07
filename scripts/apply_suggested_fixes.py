@@ -332,7 +332,7 @@ def main():
 
     if not report_path.exists():
         print(f"ERROR: Report not found: {report_path}")
-        print("Run: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
+        print("Run: just validate-references FILE")
         return 1
 
     if not kb_dir.exists():
@@ -384,7 +384,7 @@ def main():
     if args.dry_run:
         print("\n  [DRY RUN] No files were modified.")
     else:
-        print("\n  Run validation: poetry run python scripts/curate_evidence_with_pdfs.py --quick")
+        print("\n  Run validation: just validate-references FILE")
     return 0
 
 

@@ -79,53 +79,86 @@ def parse_curation_report(report_path: Path) -> list[dict[str, int]]:
     return files_with_issues
 
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
+
+def _count(value: int) -> str:
+    """Render an issue count, never letting the -1 sentinel read as a number."""
+    return "could not validate" if value == -1 else str(value)
+
+
 def validate_file(yaml_path: Path) -> dict[str, int]:
     """
-    Run validation on a file and return issue counts.
+    Run snippet validation on a file and return issue counts.
 
-    Args:
-        yaml_path: Path to YAML file
+    Returns ``{"total": -1, ...}`` when validation could not be run. A caller
+    must distinguish that from a clean file, which is exactly what this used to
+    make impossible (#410).
 
-    Returns:
-        Dict with issue type counts
+    It shelled out to ``poetry run python scripts/curate_evidence_with_pdfs.py``.
+    Three things were wrong at once, and together they were silent:
+
+    * that script imports ``communitymech.literature_enhanced``, which has never
+      existed in any commit, so it cannot start;
+    * ``poetry`` is not this repo's runner — it uses ``uv``;
+    * ``cwd`` was ``yaml_path.parent.parent``, i.e. ``kb/``, not the repo root.
+
+    ``returncode`` was never checked. The subprocess failed, stdout and stderr
+    carried no ``ERROR: N`` for the regex to match, and the function returned
+    ``{"total": 0, "errors": 0, "warnings": 0}`` — reported to the caller as
+    *validated, no issues*. A validation step that reports success because it
+    never ran is worse than one that is simply missing.
+
+    It now calls ``linkml-reference-validator``, which is what
+    ``just validate-references`` runs and which does check snippets against
+    ``references_cache/``. It exits 0 when clean and 1 when it finds issues, and
+    prints ``Issues found: N`` only in the latter case — which is the line
+    parsed below. (Its ``Total checks`` line also counts issues rather than
+    checks, per #257 and #466, but nothing here reads it.)
     """
     try:
         result = subprocess.run(
             [
-                "poetry",
+                "uv",
                 "run",
-                "python",
-                "scripts/curate_evidence_with_pdfs.py",
-                "--file",
-                yaml_path.name,
-                "--quick",
+                "linkml-reference-validator",
+                "validate",
+                "data",
+                str(yaml_path.resolve()),
+                "-s",
+                "src/communitymech/schema/communitymech.yaml",
+                "--config",
+                "conf/reference_validator.yaml",
             ],
-            cwd=yaml_path.parent.parent,
+            cwd=REPO_ROOT,
             capture_output=True,
             text=True,
-            timeout=300,
+            timeout=600,
         )
-
-        # Parse output for issue counts
-        output = result.stdout + result.stderr
-        issues = {"total": 0, "errors": 0, "warnings": 0}
-
-        # Look for issue counts in output
-        error_match = re.search(r"ERROR:\s*(\d+)", output)
-        warning_match = re.search(r"WARNING:\s*(\d+)", output)
-
-        if error_match:
-            issues["errors"] = int(error_match.group(1))
-        if warning_match:
-            issues["warnings"] = int(warning_match.group(1))
-
-        issues["total"] = issues["errors"] + issues["warnings"]
-
-        return issues
-
-    except Exception as e:
-        print(f"  ⚠️  Validation failed: {e}")
+    except Exception as exc:  # noqa: BLE001 — reported, not swallowed
+        print(f"  ⚠️  Validation could not run: {exc}")
         return {"total": -1, "errors": -1, "warnings": -1}
+
+    output = result.stdout + result.stderr
+    if result.returncode not in (0, 1):
+        # Anything else means the validator itself failed to run. Say so
+        # instead of reporting a clean file.
+        print(f"  ⚠️  Validator exited {result.returncode}: {output.strip()[-200:]}")
+        return {"total": -1, "errors": -1, "warnings": -1}
+
+    found = re.search(r"Issues found:\s*(\d+)", output)
+    errors = int(found.group(1)) if found else 0
+    if errors == 0 and result.returncode == 1:
+        # Non-zero without a parseable count: do not round down to clean.
+        print(f"  ⚠️  Validator reported failure with no issue count: {output.strip()[-200:]}")
+        return {"total": -1, "errors": -1, "warnings": -1}
+
+    # Everything under `total`. The old code split errors from warnings, but
+    # linkml-reference-validator reports one issue count, so filing all of it
+    # under `errors` and hardcoding `warnings: 0` stated something untrue —
+    # a cache miss prints [WARN] and would still have landed in `errors`
+    # (#487 review). The keys stay for callers; they now agree with the source.
+    return {"total": errors, "errors": errors, "warnings": 0}
 
 
 def process_files_batch(
@@ -184,18 +217,26 @@ def process_files_batch(
                 print("\n📊 Post-processing validation...")
                 final_issues = validate_file(yaml_path)
 
+                # -1 means the validator could not run. Subtracting it
+                # reported `0 -> -1` as "fixed 1", with a green tick, and summed
+                # that fabricated 1 into the batch total — the same
+                # never-ran-but-looks-clean defect this function was fixed for,
+                # one frame up (#487 review).
+                unknown = -1 in (initial_issues["total"], final_issues["total"])
+                fixed = None if unknown else initial_issues["total"] - final_issues["total"]
+
                 print("\n📈 IMPROVEMENT:")
-                print(f"   Issues before: {initial_issues['total']}")
-                print(f"   Issues after:  {final_issues['total']}")
-                print(f"   Issues fixed:  {initial_issues['total'] - final_issues['total']}")
+                print(f"   Issues before: {_count(initial_issues['total'])}")
+                print(f"   Issues after:  {_count(final_issues['total'])}")
+                print(f"   Issues fixed:  {'unknown' if unknown else fixed}")
 
                 results.append(
                     {
                         "file": filename,
-                        "status": "processed",
+                        "status": "validation_failed" if unknown else "processed",
                         "issues_before": initial_issues["total"],
                         "issues_after": final_issues["total"],
-                        "issues_fixed": initial_issues["total"] - final_issues["total"],
+                        "issues_fixed": fixed,
                     }
                 )
             else:
@@ -217,9 +258,18 @@ def process_files_batch(
     print(f"Total files processed: {len(file_list)}\n")
 
     for result in results:
-        status_icon = "✅" if result["status"] == "processed" else "❌"
+        # `validation_failed` is its own icon: it is neither a clean pass nor a
+        # processing error, and a ✅ beside a file whose validation never ran is
+        # the whole defect (#487 review).
+        status_icon = {"processed": "✅", "validation_failed": "⚠️"}.get(result["status"], "❌")
         print(f"{status_icon} {result['file']}")
-        if result["status"] == "processed" and "issues_fixed" in result:
+        if result["status"] == "validation_failed":
+            print(
+                f"   Issues: {_count(result['issues_before'])} → "
+                f"{_count(result['issues_after'])} (fixed: unknown — the "
+                f"validator could not run, so this file is unverified)"
+            )
+        elif result["status"] == "processed" and result.get("issues_fixed") is not None:
             print(
                 f"   Issues: {result['issues_before']} → {result['issues_after']} "
                 f"(fixed {result['issues_fixed']})"
@@ -229,8 +279,19 @@ def process_files_batch(
         print()
 
     if validate_after and any(r["status"] == "processed" for r in results):
-        total_fixed = sum(r.get("issues_fixed", 0) for r in results if r["status"] == "processed")
+        total_fixed = sum(
+            r["issues_fixed"]
+            for r in results
+            if r["status"] == "processed" and r.get("issues_fixed") is not None
+        )
         print(f"🎉 Total issues fixed across all files: {total_fixed}")
+        unverified = [r["file"] for r in results if r["status"] == "validation_failed"]
+        if unverified:
+            # Said out loud, not left to be inferred from a smaller total.
+            print(
+                f"⚠️  {len(unverified)} file(s) could not be validated and are "
+                f"NOT counted above: {', '.join(unverified)}"
+            )
 
 
 def main():
@@ -266,13 +327,29 @@ def main():
         default=False,
         help="Only process evidence items with short snippets (<50 chars). Default: process all.",
     )
-    parser.add_argument(
+    # `--no-validate` existed with no `--validate` beside it, and
+    # `set_defaults(validate=False)` then pinned it False whatever was passed —
+    # so `validate_file` was unreachable from the CLI, and had been since the
+    # commit that introduced both (7c658e6). The flag advertised a choice the
+    # parser did not offer (#487 review).
+    validation = parser.add_mutually_exclusive_group()
+    validation.add_argument(
+        "--validate",
+        action="store_true",
+        dest="validate",
+        help=(
+            "Validate snippets before and after each file. Off by default: it "
+            "runs linkml-reference-validator twice per file (~1.3s each), so a "
+            "full 312-file sweep adds roughly 13 minutes."
+        ),
+    )
+    validation.add_argument(
         "--no-validate",
         action="store_false",
         dest="validate",
-        help="Skip validation before and after processing each file (much faster)",
+        help="Skip validation before and after processing each file (the default)",
     )
-    parser.set_defaults(validate=False)  # Off by default; too slow for batch runs
+    parser.set_defaults(validate=False)
     parser.add_argument(
         "--relaxed",
         action="store_true",

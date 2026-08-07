@@ -699,7 +699,7 @@ def interactive_fix_workflow(
     if applied_count > 0:
         print(f"\n💾 Updated file: {yaml_path}")
         print(f"💾 Backup saved: {backup_path}")
-        print("\n🔍 Next: Validate with curate_evidence_with_pdfs.py")
+        print("\n🔍 Next: Validate with `just validate-references FILE`")
     else:
         print("\n⚠️  No fixes were applied")
         if backup_path.exists():
