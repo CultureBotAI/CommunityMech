@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-CommunityMech is a LinkML-based knowledge base for modeling microbial community structure, function, and ecological interactions. Community data lives as curated YAML files in `kb/communities/` (60 files), each validated against a LinkML schema. Every claim is evidence-backed with PMID/DOI references and snippet validation against abstracts.
+CommunityMech is a LinkML-based knowledge base for modeling microbial community structure, function, and ecological interactions. Community data lives as curated YAML files in `kb/communities/` (312 files), each validated against a LinkML schema. Every claim is evidence-backed with PMID/DOI references and snippet validation against abstracts.
 
 Adapted from Monarch Initiative's dismech: YAML is the source of truth, with lossy Koza transforms planned for KG export.
 
@@ -81,5 +81,5 @@ NCBITaxon (taxonomy), ENVO (environments), CHEBI (chemicals/metabolites), GO (bi
 ## Style
 
 - Line length: 100 (black + ruff)
-- Python 3.9+ target
+- Python 3.10+ target
 - Uses `uv` for package management (never requirements.txt)
