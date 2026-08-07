@@ -79,9 +79,11 @@ where = ["src"]
 
 # `py.typed` tells consumers this package is annotated (PEP 561). Without it
 # mypy reports every `from communitymech... import ...` in scripts/ as
-# import-untyped and skips analysing it - 42 of the 150 errors #411 counted
-# were that, hiding whatever real errors sat behind them. src/ is mypy-clean,
-# so the marker is honest.
+# import-untyped and skips analysing it - 44 of the 150 errors #411 counted were
+# that, hiding whatever real errors sat behind them. src/ is mypy-clean, so the
+# marker is honest. Adding it drops scripts/ from 150 to 109 - 44 import-untyped
+# go and ~3 real errors appear behind them, which is the point - and the
+# overrides below take it to 106 with import-untyped at zero.
 [tool.setuptools.package-data]
 communitymech = ["py.typed"]
 
@@ -152,7 +154,7 @@ ignore = ["S101", "S603", "S607"]
 "scripts/*.py" = [
     "E501",    # long strings/URLs black cannot wrap
     "B007",    # unused loop variable
-    "S110",    # try/except/pass (6 left; #411 narrowed or explained the rest)
+    "S110",    # try/except/pass (8 in linted scripts; a 9th is in a vendored file)
     # E722 and S112 are gone: #411 typed every bare except and narrowed the
     # try/except/continue. Do not re-add them without a finding - the comment
     # above says every code here is backed by one.
@@ -202,10 +204,14 @@ exclude = ["src/communitymech/datamodel/communitymech\\.py"]
 [[tool.mypy.overrides]]
 module = [
     "anthropic.*",
-    # No stubs published; the remaining import-untyped reports in scripts/ after
-    # py.typed was added are all this (#411).
+    # Installed but shipping no py.typed. These are what remained in scripts/
+    # once the marker was added to communitymech itself; with both, scripts/ has
+    # no import-untyped left (#411). Measure with --no-incremental: a cache built
+    # before an override still reports the suppressed errors.
     "oaklib",
     "oaklib.*",
+    "linkml.validator",
+    "linkml.validator.*",
     "kg_microbe_browser.*",
     "communitymech.datamodel.*",
     "umap.*",
