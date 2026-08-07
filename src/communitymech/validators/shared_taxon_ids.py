@@ -309,6 +309,58 @@ def _names_disagree(first: str, second: str, rank: str | None, known: frozenset)
     return left[1] != right[1]
 
 
+def _says_unnamed_species(name: str) -> bool:
+    """Does this name *literally* decline to name a species — `Genus sp.`?
+
+    Distinct from `_core(...)[1] == "sp"`, which is also what a bare strain code
+    reduces to. That difference is the whole of #449. `Marinobacter CS1` names a
+    strain and may well *be* the species it sits beside, so sharing a species id
+    with it is ordinary; `Marinobacter sp.` asserts the species is unnamed,
+    which a named species id contradicts. Treating the two alike is what #447
+    did, and it is right at genus rank and wrong at species rank.
+    """
+    core = _core(name)
+    if core is None or core[1] != "sp":
+        return False
+    cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
+    cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
+    cleaned = cleaned.replace("[", "").replace("]", "")
+    match = _CORE.match(cleaned)
+    # Only the placeholder path counts. When `_CORE` does not match at all, the
+    # `sp` came from the strain-code fallback.
+    return bool(match and _PLACEHOLDER.match(match.group(2).lower()))
+
+
+def _over_grounded(first: str, second: str, rank: str | None, known: frozenset) -> bool:
+    """Is one of these an `sp.` sitting on an id that names a species (#449)?
+
+    A different claim from `_names_disagree`, and reported separately. Neither
+    name is wrong about the organism — nobody has said two incompatible things
+    — but a species id asserts one named species, so an entry that declines to
+    name one is grounded finer than it knows. That is the #292 shape with the
+    `sp.` entry as the victim rather than the culprit.
+
+    Genus rank is exempt, because a genus id legitimately hosts unnamed
+    isolates; that is #447's point and it stands.
+    """
+    if rank in ("genus", "subgenus"):
+        return False
+    left, right = _core(first), _core(second)
+    if left is None or right is None:
+        return False
+    if left in known and right in known:
+        return False
+    if not _same_genus(left[0], right[0]):
+        return False  # a genuine clash, already reported by _names_disagree
+    # Reuse the cores parsed above rather than re-deriving them: calling
+    # _core again returns Optional, which is not indexable, and the guard that
+    # makes it safe is several lines away.
+    pairs = ((first, left), (second, right))
+    unnamed = [n for n, _ in pairs if _says_unnamed_species(n)]
+    named = [n for n, core in pairs if core[1] != "sp"]
+    return len(unnamed) == 1 and len(named) == 1
+
+
 def check_record(taxonomy: list) -> list[str]:
     """Messages for each specific id shared by genuinely different organisms.
 
@@ -351,14 +403,25 @@ def check_record(taxonomy: list) -> list[str]:
         rank = rank_of(curie)
         known = known_cores(curie)
         clashing: set[str] = set()
+        over: set[str] = set()
         for i in range(len(names)):
             for j in range(i):
                 if _names_disagree(names[i], names[j], rank, known):
                     clashing.update((names[i], names[j]))
-        if not clashing:
-            continue
-        problems.append(
-            f"{curie} ({rank}) is used for taxa that cannot all be it: "
-            + ", ".join(repr(n) for n in sorted(clashing))
-        )
+                elif _over_grounded(names[i], names[j], rank, known):
+                    over.update((names[i], names[j]))
+        if clashing:
+            problems.append(
+                f"{curie} ({rank}) is used for taxa that cannot all be it: "
+                + ", ".join(repr(n) for n in sorted(clashing))
+            )
+        # Reported separately, and only where there is no clash to report: the
+        # two are different claims. A clash says somebody is wrong about the
+        # organism; this says nobody is wrong, but an entry that declines to
+        # name a species is sitting on an id that names one (#449).
+        if over and not clashing:
+            problems.append(
+                f"{curie} ({rank}) names a species, but is also used for an entry "
+                f"that does not name one: " + ", ".join(repr(n) for n in sorted(over))
+            )
     return problems

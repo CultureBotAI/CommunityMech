@@ -267,14 +267,74 @@ def test_two_strain_isolates_of_different_genera_are_caught():
             "NCBITaxon:2743",
         ),
         (
-            "the same, spelled sp.",
+            "an sp. beside a named species under a GENUS id",
             ["Variovorax sp. BK119", "Variovorax paradoxus"],
-            "NCBITaxon:34073",
+            "NCBITaxon:34072",
         ),
     ],
 )
 def test_an_unnamed_species_cannot_contradict_a_named_one(label, names, curie):
+    """Neither is a *clash* — nobody has said two incompatible things.
+
+    The second case moved from the species id (34073, `Variovorax paradoxus`)
+    to the genus id (34072) when #449 split over-grounding out. At genus rank
+    an unnamed isolate beside a named species is ordinary and stays silent; at
+    species rank it is now reported, as over-grounding rather than a clash. The
+    strain-code case stays silent at *both* ranks, which is #447's point.
+    """
     assert check_record([_entry(n, curie) for n in names]) == [], label
+
+
+def test_a_strain_code_is_never_over_grounded_even_at_species_rank():
+    """#447 in one line, and the constraint #449 had to respect.
+
+    `Marinobacter CS1` names a strain, which may well BE the species it sits
+    beside, so sharing that species id asserts nothing wrong. Only a name that
+    *literally* declines to name a species is over-grounded — the distinction
+    the `sp` bucket alone cannot make, since both reduce to it.
+    """
+    assert (
+        check_record(
+            [
+                _entry("Marinobacter CS1", "NCBITaxon:2743"),
+                _entry("Marinobacter nauticus", "NCBITaxon:2743"),
+            ]
+        )
+        == []
+    )
+
+
+def test_an_sp_on_a_species_id_is_reported_as_over_grounding(caplog):
+    """The loss #449 recorded, restored — and framed as the claim it is.
+
+    A species id asserts one named species, so `Variovorax sp.` sitting on
+    `NCBITaxon:34073` (*Variovorax paradoxus*) is grounded finer than it knows.
+    That is the #292 shape with the `sp.` entry as the victim rather than the
+    culprit, and it is a different claim from a clash — so it gets its own
+    message rather than being folded into "cannot all be it".
+    """
+    problems = check_record(
+        [
+            _entry("Variovorax sp.", "NCBITaxon:34073"),
+            _entry("Variovorax paradoxus", "NCBITaxon:34073"),
+        ]
+    )
+    assert len(problems) == 1, problems
+    assert "does not name one" in problems[0]
+    assert "cannot all be it" not in problems[0], "this is over-grounding, not a clash"
+
+
+def test_a_clash_takes_precedence_over_over_grounding():
+    """One id, one message: a wrong organism is the more serious claim."""
+    problems = check_record(
+        [
+            _entry("Variovorax sp.", "NCBITaxon:34073"),
+            _entry("Variovorax paradoxus", "NCBITaxon:34073"),
+            _entry("Bacillus subtilis", "NCBITaxon:34073"),
+        ]
+    )
+    assert len(problems) == 1, problems
+    assert "cannot all be it" in problems[0]
 
 
 def test_a_broad_id_shared_across_guilds_is_fine():
