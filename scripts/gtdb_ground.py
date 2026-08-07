@@ -24,7 +24,17 @@ input:
   the block records how many genomes the fraction came from (#383).
 
 GTDB frequently reclassifies relative to NCBI (e.g. NCBITaxon "Agrobacterium
-deltae" -> GTDB "Agrobacterium leguminum"); ``is_reclassified`` flags it.
+deltae" -> GTDB "Agrobacterium leguminum"). ``is_reclassified`` is NOT a flag
+for that, despite the name. It is a string comparison, computed at two sites
+that do not agree: ``bool(sp and ref and sp != ref)`` on the species path
+(which produced 121 of the 154 current true values) and
+``top != _clean_label(label)`` on the genus-and-higher path. So it is also true
+when NCBI renamed the taxon (NCBI "Allobosea" -> GTDB "Bosea"), when GTDB
+dropped a strain designation (Escherichia coli K-12 -> Escherichia coli), when
+the difference is a polyphyly suffix (Bacillota -> Bacillota_A), and when GTDB
+supplies a placeholder epithet (Dyadobacter sp. -> Dyadobacter sp017744695).
+54% of its true values are one of those. See the slot description in the
+schema, and #480 for narrowing it.
 
 Data source (local kg-microbe checkout): ``<kg-microbe>/data/raw/NCBI2GTDB.tsv.gz``.
 Resolution order for <kg-microbe>: --kg-microbe-dir, $KG_MICROBE_DIR, then
@@ -1666,7 +1676,11 @@ def main(argv: list[str] | None = None) -> int:
             print("  (no single grounding emitted; a curator should pick or leave ungrounded.)")
             continue
         n_ok += 1
-        flag = "  ⚠ RECLASSIFIED" if g["is_reclassified"] else ""
+        # Not "RECLASSIFIED": this flag is true for a dropped strain suffix and
+        # a polyphyly split too, so the old wording told a curator that
+        # `Escherichia coli K-12` -> `Escherichia coli` was a reclassification
+        # (#441). Say what was actually compared.
+        flag = "  ⚠ NAME DIFFERS" if g["is_reclassified"] else ""
         rank = g["via"].split("_")[-1]
         via = {"ncbi_id": "", "ncbi_name": "  (via species name)"}.get(
             g["via"], f"  (at {rank}__ rank)"
