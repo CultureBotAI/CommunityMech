@@ -144,6 +144,9 @@ All 4 patterns validated in testing.
 
 ### Test Scripts
 
+> ⚠️ None of the commands in this section runs — see **Integration Status** at the
+> top. They are kept as a record of the intended interface (#410).
+
 **Configuration test**:
 ```bash
 poetry run python scripts/test_pdf_fetching.py --config-only
@@ -187,6 +190,10 @@ poetry run python scripts/test_pdf_fetching.py --quick --no-fallback
 ### Literature Review
 
 The enhanced fetcher integrates with existing literature validation:
+
+> ⚠️ None of the commands below runs — see **Integration Status** at the top.
+> For snippet checking that does work, use `just validate-references FILE` or
+> `just validate-references-all` (#410).
 
 ```bash
 # Quick review (abstracts only - fast)

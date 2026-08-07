@@ -15,16 +15,14 @@ Validates configuration, success rates, and fallback behavior.
 .. warning::
    **This script has never run.** It imports
    ``communitymech.literature_enhanced``, which has never existed in any commit
-   of this repository — these files and the phantom module arrived together in
-   the first commit (7c658e6), so there is no revision at which they worked
-   (#410).
+   of this repository — this file was added in 7c658e6 already importing it, so
+   there is no revision at which it worked (#410).
 
-   It is not a one-line fix. The API it was written against differs from the one
-   that exists: it calls ``fetch_paper(ref, download_pdf=...)`` and subscripts
-   the result (``paper["abstract"]``), whereas
-   ``communitymech.literature.LiteratureFetcher.fetch_paper(reference, email=...)``
-   returns a ``(abstract, pdf_url)`` tuple and has no PDF download. Porting means
-   rewriting every call site, not swapping the import.
+   It is not a one-line fix, and this one may not be portable at all: it calls
+   ``fetch_pdf_url(doi)``, and ``communitymech.literature.LiteratureFetcher`` has
+   no such method. The nearest thing is ``fetch_paper``, which returns a
+   ``(abstract, pdf_url)`` tuple — so the URL is reachable, but the PDF
+   downloading this script is built around is not implemented anywhere.
 
    For what it was meant to do, use the tooling that works:
    ``just validate-references FILE`` and ``just validate-references-all`` for

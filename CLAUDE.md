@@ -37,13 +37,14 @@ src/communitymech/
 ├── schema/communitymech.yaml    # LinkML schema (source of truth for datamodel)
 ├── datamodel/communitymech.py   # AUTO-GENERATED from schema (just gen-python)
 ├── literature.py                # PubMed/CrossRef/Unpaywall fetcher + snippet validation
-├── validators/                  # cross-field checks the LinkML schema cannot express,
-│                                #   run by scripts/validate_strict.py (the CI gate):
-│                                #   gtdb_coherence, gtdb_lineage_tree, ncbi_domain,
-│                                #   prokaryotic_lineage, shared_taxon_ids, yaml_scalars,
-│                                #   cross_repo_ids. Evidence/reference checking is NOT
-│                                #   here — `just validate-references` runs the official
-│                                #   linkml-reference-validator against
+├── validators/                  # cross-field checks the LinkML schema cannot express.
+│                                #   scripts/validate_strict.py (the CI gate) runs
+│                                #   gtdb_coherence, gtdb_lineage_tree, prokaryotic_lineage
+│                                #   (which pulls in ncbi_domain), shared_taxon_ids and
+│                                #   yaml_scalars. cross_repo_ids is separate:
+│                                #   `just validate-cross-repo-ids`. Evidence/reference
+│                                #   checking is NOT here — `just validate-references` runs
+│                                #   the official linkml-reference-validator against
 │                                #   conf/reference_validator.yaml (the custom one was
 │                                #   replaced in 4dd299a)
 └── cli.py                       # Entry point (not yet implemented)
