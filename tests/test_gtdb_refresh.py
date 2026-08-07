@@ -142,6 +142,18 @@ def test_refresh_preserves_everything_outside_the_grounding(gtdb, rows, record):
     gtdb.apply_to_community(record, *rows, "test-source", refresh=True)
     after = yaml.safe_load(record.read_text())
 
+    # `curation_history` is the one exception, added in #395: a write that
+    # changes something appends one event recording it. Checked here rather
+    # than excluded silently, so this test still fails if the append grows into
+    # anything more than that.
+    before_history = before.pop("curation_history", None) or []
+    after_history = after.pop("curation_history", None) or []
+    assert after_history[: len(before_history)] == before_history
+    assert len(after_history) - len(before_history) <= 1
+    if after_history[len(before_history) :]:
+        assert after_history[-1]["action"] == "GTDB_REFRESH"
+        assert after_history[-1]["curator"] == "gtdb_ground.py"
+
     assert {k: v for k, v in before.items() if k != "taxonomy"} == {
         k: v for k, v in after.items() if k != "taxonomy"
     }
