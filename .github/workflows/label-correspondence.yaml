@@ -7,13 +7,24 @@ name: label-correspondence
 # in issue #134). The drift report (reports/label_drift.tsv) is still generated
 # and uploaded as an artifact for triage, even when the gate passes.
 #
-# NOT enabled here: `just validate-terms-all` (the LinkML-native binding gate).
-# linkml-term-validator has no exceptions mechanism, so it fails on the 34
-# curator-accepted residuals that `validate-products` accepts (e.g. obsolete
-# GO:0055114, CHEBI mislabels needing minting, taxa absent from the OAK
-# snapshot). Enabling it as blocking is deferred until those residuals are
-# minted/cleaned (see NEXT_TASKS.md and the chebi-mislabels backlog) or the
-# vendored validator grows a shared waiver the LinkML tool can consume.
+# `just validate-terms-all` (the LinkML-native binding gate) IS enabled below,
+# as of #277. It was deferred because linkml-term-validator has no exceptions
+# mechanism and failed on 34 curator-accepted residuals - obsolete GO:0055114,
+# CHEBI mislabels needing minting, taxa absent from the OAK snapshot.
+#
+# Measured before enabling: 316 of 316 files pass, zero warnings, exit 0. Be
+# precise about why. The obsolete-label and mislabel class was genuinely fixed,
+# the last of it in #350. But three residuals still resolve to NOTHING in OAK
+# (CHEBI:75315, GO:0070812, NCBITaxon:1807132) and are still waived in
+# conf/id_label_targets.yaml - this tool passes them because it silently skips
+# ids it cannot resolve, not because they were cleaned. So the gate is green
+# partly by blindness, and it does not catch a nonexistent CURIE at all (#471).
+#
+# The risk this carries: nothing pins the ontology release. If the cache is
+# evicted and a label changes upstream, this goes red on a PR that changed
+# nothing, and there is no waiver to reach for - the tool has none, which is why
+# it was deferred in the first place. Fixing the term is the only remedy.
+# validate-products survives that case via its `exceptions:` list; this cannot.
 
 on:
   pull_request:
@@ -93,3 +104,12 @@ jobs:
       # schema tree_root, so this uses --target-class CommonTaxon.
       - name: Enforce id↔label correspondence (kb/taxa go_terms)
         run: just validate-terms-taxa
+
+      # Engine A over the community records and isolates. Deferred since #134
+      # for want of an exceptions mechanism; enabled once the residuals it could
+      # see were fixed (#277). If this starts failing, fixing the term is the
+      # only remedy - this tool has no waiver, which is the whole reason it was
+      # deferred. Dropping the step is how it came to be off for months, so
+      # prefer a pinned ontology or an upstream fix over that.
+      - name: Enforce id-label correspondence (kb/communities, data/isolates)
+        run: just validate-terms-all
