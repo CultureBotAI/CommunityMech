@@ -11,6 +11,29 @@ Tests all 6 tiers of the PDF cascade:
 6. Web search
 
 Validates configuration, success rates, and fallback behavior.
+
+.. warning::
+   **This script has never run.** It imports
+   ``communitymech.literature_enhanced``, which has never existed in any commit
+   of this repository — this file was added in 7c658e6 already importing it, so
+   there is no revision at which it worked (#410).
+
+   It is not a one-line fix, and this one may not be portable at all: it calls
+   ``fetch_pdf_url(doi)``, and ``communitymech.literature.LiteratureFetcher`` has
+   no such method. The nearest thing is ``fetch_paper``, which returns a
+   ``(abstract, pdf_url)`` tuple — so the URL is reachable, but the PDF
+   downloading this script is built around is not implemented anywhere.
+
+   For what it was meant to do, use the tooling that works:
+   ``just validate-references FILE`` and ``just validate-references-all`` for
+   snippet checking — these run the official ``linkml-reference-validator``
+   against ``conf/reference_validator.yaml``, the custom validator having been
+   replaced in 4dd299a — and the ``evidence-curation`` skill for curating and
+   repairing evidence.
+
+   Kept rather than deleted so the intent is recoverable, and pinned as broken by
+   ``tests/test_scripts_import.py``. Whether to port or delete is #410.
+
 """
 
 import sys
