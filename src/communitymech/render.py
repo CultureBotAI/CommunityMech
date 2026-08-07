@@ -73,7 +73,7 @@ class CommunityRenderer:
         self,
         communities_dir: Path = Path("kb/communities"),
         output_dir: Path | None = None,
-    ) -> None:
+    ) -> list[str]:
         """
         Render all community YAML files to HTML.
 
@@ -82,23 +82,40 @@ class CommunityRenderer:
             output_dir: Directory for output HTML files. Defaults to the repo's
                 `docs/communities`, which is git-tracked — a cwd-relative default
                 wrote a stray tree wherever the process ran (#407).
+
+        Returns:
+            The names of records that failed to render. Their pages are left as
+            they were, so a caller that ignores this cannot tell a current tree
+            from a stale one.
         """
         output_dir = output_dir if output_dir is not None else DOCS / "communities"
         yaml_files = sorted(communities_dir.glob("*.yaml"))
 
         print(f"\nRendering {len(yaml_files)} communities to HTML...")
 
+        failed: list[str] = []
         for yaml_file in yaml_files:
             try:
                 output_file = output_dir / f"{yaml_file.stem}.html"
                 self.render_community(yaml_file, output_file)
             except Exception as e:
                 print(f"  ✗ {yaml_file.name}: {e}")
+                failed.append(yaml_file.name)
 
-        print(f"\n✅ Rendered {len(yaml_files)} communities to {output_dir}")
+        # A swallowed failure used to leave the previous page in place and still
+        # print "✅ Rendered 312", so `check-docs-current` saw no diff and
+        # reported the tree current — green precisely when the regeneration it
+        # gates on had not happened (#442 review). Report the real count and
+        # exit non-zero.
+        rendered = len(yaml_files) - len(failed)
+        print(f"\n✅ Rendered {rendered} communities to {output_dir}")
+        if failed:
+            print(f"❌ {len(failed)} failed to render, so their pages are STALE: {failed}")
 
         # Generate index page
         self._generate_index(yaml_files, output_dir)
+
+        return failed
 
     def _generate_index(
         self,
@@ -192,10 +209,12 @@ def main():
         renderer.render_community(yaml_path, output_path)
     else:
         # Render all files
-        renderer.render_all(
+        failed = renderer.render_all(
             communities_dir=Path(args.communities_dir),
             output_dir=Path(args.output_dir),
         )
+        if failed:
+            raise SystemExit(1)
 
 
 if __name__ == "__main__":

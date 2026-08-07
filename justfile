@@ -309,9 +309,10 @@ gen-html:
 #
 # `generate-pages.yaml` serves the committed docs/ verbatim, so a data PR that
 # does not regenerate publishes a page contradicting the KB. That is not
-# hypothetical: docs/ had drifted on 7 pages — two rendering NCBITaxon:169215,
-# the *plant* genus Bosea, as a live NCBI link for a bacterium — and 7 records
-# had no published page at all, having been added without a regeneration.
+# hypothetical: docs/ had drifted on 8 pages — two rendering NCBITaxon:169215,
+# the *plant* genus Bosea, as a live NCBI link for a bacterium, and one linking
+# Bacteroides ovatus to Phocaeicola vulgatus's taxon — and 7 records had no
+# published page at all, having been added without a regeneration.
 #
 # Cheap enough to gate on: the render is ~7s and deterministic, so a clean
 # checkout that runs it gets a byte-identical tree. Untracked files count —
@@ -319,7 +320,24 @@ gen-html:
 check-docs-current:
     #!/usr/bin/env bash
     set -euo pipefail
-    just gen-html >/dev/null
+    # Do NOT discard this output, and do not let the render's exit code slide.
+    # render_all used to swallow a per-record exception, leave the previous page
+    # in place, and still print "✅ Rendered 312" — so the tree had no diff and
+    # this gate reported it current, green in exactly the case where the
+    # regeneration it gates on had not happened (#442 review).
+    just gen-html
+    # An orphan: a page whose record was renamed or deleted. gen-html only ever
+    # writes, so the stale page stays tracked and published while the diff stays
+    # empty. f8d85b1 is a rename of exactly that shape.
+    orphans=""
+    for page in docs/communities/*.html; do
+        record="kb/communities/$(basename "$page" .html).yaml"
+        [ -f "$record" ] || orphans="$orphans $(basename "$page")"
+    done
+    if [ -n "$orphans" ]; then
+        echo "❌ published pages with no record (delete them):$orphans"
+        exit 1
+    fi
     if [ -n "$(git status --porcelain docs/)" ]; then
         echo "❌ docs/ is not what gen-html produces. Run 'just gen-html' and commit:"
         git status --short docs/

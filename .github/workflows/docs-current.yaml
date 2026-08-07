@@ -7,10 +7,13 @@ name: docs-current
 #
 # It had drifted both ways by the time this was added (#442):
 #
-#   * 7 pages rendered taxon ids the KB no longer holds. Two published
+#   * 8 pages rendered taxon ids the KB no longer holds there. Two published
 #     NCBITaxon:169215 — the *plant* genus Bosea — as a live NCBI link on a
-#     bacterium, and KBase_ORT_Workflow_Community_Model still showed the
-#     class/phylum ids its record replaced in 2a3b691.
+#     bacterium; one linked Bacteroides ovatus to NCBITaxon:821, the row above
+#     it; and KBase_ORT_Workflow_Community_Model still showed the class/phylum
+#     ids its record replaced in 2a3b691. The 8th was found only after the
+#     drift test was made positional — a set comparison cannot see two rows
+#     swap ids.
 #   * 7 records had no published page at all, having been added without a
 #     regeneration. That is the failure mode a diff of existing files cannot
 #     see, which is why the check counts untracked files too.
@@ -21,15 +24,24 @@ name: docs-current
 
 on:
   pull_request:
-    # These are files, not packages: `src/communitymech/render/**` matches
-    # nothing, and a filter that matches nothing is a gate that never fires
-    # (CultureBotAI/TraitMech#198 is the same mistake). Verified against the
-    # tree rather than assumed.
+    # Two ways to get this wrong, both hit while writing it:
+    #
+    #   * `src/communitymech/render/**` matches nothing — render is a module,
+    #     not a package — and a filter matching nothing is a gate that never
+    #     fires (CultureBotAI/TraitMech#198 is the same mistake).
+    #   * naming only the .py files still missed the templates, which are the
+    #     renderer's largest input: a one-line edit to community.html rewrites
+    #     all 312 pages, and matched no filter in any workflow, so it ran
+    #     neither this gate nor pytest.
+    #
+    # Verifying that the listed paths exist is not the same as verifying they
+    # cover what changes the output. Both were checked against the tree.
     paths: &trigger_paths
       - "kb/communities/**"
+      - "src/communitymech/templates/**"
       - "src/communitymech/render.py"
       - "src/communitymech/render_community_pages.py"
-      - "src/communitymech/export/browser_export.py"
+      - "src/communitymech/paths.py"
       - "docs/**"
       - ".github/workflows/docs-current.yaml"
   push:
