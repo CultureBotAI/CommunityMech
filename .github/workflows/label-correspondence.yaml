@@ -19,6 +19,9 @@ on:
   pull_request:
     paths: &trigger_paths
       - "kb/communities/**"
+      # Isolates carry ids too, and were outside every
+      # validation glob until #350.
+      - "data/isolates/**"
       - "output/kgx/**"
       - "src/communitymech/schema/**"
       - "scripts/validate_id_label_correspondence.py"
