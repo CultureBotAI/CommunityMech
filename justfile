@@ -44,7 +44,7 @@ validate-all:
     #!/usr/bin/env bash
     set -uo pipefail
     rc=0
-    for file in kb/communities/*.yaml; do
+    for file in kb/communities/*.yaml data/isolates/*.yaml; do
         echo "Validating $file..."
         uv run linkml-validate -s src/communitymech/schema/communitymech.yaml "$file" || rc=1
     done
@@ -127,7 +127,7 @@ validate-references-all:
     #!/usr/bin/env bash
     set -uo pipefail
     rc=0
-    for file in kb/communities/*.yaml; do
+    for file in kb/communities/*.yaml data/isolates/*.yaml; do
         echo "\\nValidating references in $file..."
         uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml || rc=1
     done
@@ -226,7 +226,7 @@ validate-terms-all:
     #!/usr/bin/env bash
     set -uo pipefail
     rc=0
-    for file in kb/communities/*.yaml; do
+    for file in kb/communities/*.yaml data/isolates/*.yaml; do
         echo "Validating terms in $file..."
         uv run linkml-term-validator validate-data "$file" -s src/communitymech/schema/communitymech.yaml --labels || rc=1
     done
