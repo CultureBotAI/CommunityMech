@@ -231,18 +231,20 @@ ecological_interactions:
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: response to chemical
+  - preferred_term: response to other organism
     term:
-      id: GO:0042221
-      label: response to chemical
-    notes: 'Microbial responses to plant root exudates and morphology. Downgraded from GO:0075136
+      id: GO:0051707
+      label: response to other organism
+    notes: 'Microbial responses to plant root exudates and morphology. Regrounded from GO:0075136
       "response to host", which is false here: that term is defined as a change in the *symbiont* in
       response to *its host*, while this interaction is typed NICHE_PARTITIONING and its description
       covers free-living decomposers and bulk-peat taxa that are no such thing (#356). GO has no
-      "response to root" or "response to root exudate" term - searching it returns only response to
-      host - so this is the most specific true term available, and it matches the mechanism the
-      description actually names: exudate chemistry (organic acids, sugars, secondary metabolites)
-      promoting or inhibiting particular taxa. The gap is #463.'
+      "response to root" or "response to root exudate" term - every hit for exudate or rhizosphere is
+      obsolete, and every hit for root is anatomy or tropism - so this is the nearest true one. It is
+      chosen over GO:0042221 "response to chemical" because the traits this interaction names are
+      mostly not chemical: specific root length, root diameter and morphology alongside exudate
+      composition. A biotic-stimulus term covers all of them without asserting symbiosis. The gap that
+      would let this be specific is #463.'
   evidence:
   - reference: PMID:38515239
     supports: SUPPORT
