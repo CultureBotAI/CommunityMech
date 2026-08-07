@@ -24,7 +24,7 @@ sibling repos (CultureMech/MIM/TraitMech), even for cross-Mech sync - report it.
 
 6. **Verify side effects, not exit codes.** `just qc` is green on `main`, so a red
    one is yours; `qc-references` is not (#417). Mutation-test new checks: substitute a wrong
-   implementations, confirm a test fails. Cover **both** sides of two-sided checks. A
+   implementation, confirm a test fails. Cover **both** sides of two-sided checks. A
    relative-path test can pass auditing nothing - assert the sweep was non-empty.
 
 7. **Commit, push, open a PR** saying what you measured, what changed, and what you

@@ -20,9 +20,9 @@ assertion below can never fail on its own; it is kept only because it fires firs
 and says "characters" when a plain-ASCII edit runs long, which is the common case
 and the clearer message.
 
-The distinction is not academic. The prose is em-dash heavy at 3 bytes per
-character, and the file exceeded 4000 *bytes* in two of its three revisions while
-never exceeding 4000 characters —
+The distinction is not academic. The prose *was* em-dash heavy, at 3 bytes per
+character against 1 for a hyphen, and the file exceeded 4000 *bytes* in two of
+its three revisions while never exceeding 4000 characters -
 
     2429a7a  3987 chars  4015 bytes
     5a1d60b  3998 chars  4028 bytes
@@ -94,10 +94,10 @@ def test_goal_prompts_are_ascii_only(path):
 
     While the unit is unresolved the test enforces bytes, the stricter reading.
     Keeping these files ASCII makes bytes and characters equal, so the ambiguity
-    costs this file nothing either way — and an em-dash was costing 2 bytes
-    apiece against 10 bytes of headroom.
+    costs this file nothing either way - and each em-dash was 3 bytes where a
+    hyphen is 1, so 15 of them spent 30 bytes against 10 bytes of headroom.
     """
-    text = path.read_text()
+    text = path.read_bytes().decode("utf-8")
     offenders = sorted({c for c in text if ord(c) > 127})
     assert not offenders, (
         f"{path.name} contains non-ASCII characters {offenders}, which cost extra "
