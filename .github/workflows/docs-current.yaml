@@ -1,0 +1,61 @@
+name: docs-current
+
+# `generate-pages.yaml` publishes the committed `docs/` tree verbatim. Nothing
+# regenerated or checked it, so a data PR that changed a record and not its page
+# shipped a site contradicting the KB — silently, since neither the schema
+# validators nor the id↔label gates read HTML.
+#
+# It had drifted both ways by the time this was added (#442):
+#
+#   * 7 pages rendered taxon ids the KB no longer holds. Two published
+#     NCBITaxon:169215 — the *plant* genus Bosea — as a live NCBI link on a
+#     bacterium, and KBase_ORT_Workflow_Community_Model still showed the
+#     class/phylum ids its record replaced in 2a3b691.
+#   * 7 records had no published page at all, having been added without a
+#     regeneration. That is the failure mode a diff of existing files cannot
+#     see, which is why the check counts untracked files too.
+#
+# The render is ~7s and deterministic — a clean checkout that runs it gets a
+# byte-identical tree — so gating costs nothing and the alternative (remember to
+# run `just gen-html`) is what produced the drift.
+
+on:
+  pull_request:
+    # These are files, not packages: `src/communitymech/render/**` matches
+    # nothing, and a filter that matches nothing is a gate that never fires
+    # (CultureBotAI/TraitMech#198 is the same mistake). Verified against the
+    # tree rather than assumed.
+    paths: &trigger_paths
+      - "kb/communities/**"
+      - "src/communitymech/render.py"
+      - "src/communitymech/render_community_pages.py"
+      - "src/communitymech/export/browser_export.py"
+      - "docs/**"
+      - ".github/workflows/docs-current.yaml"
+  push:
+    branches: [main]
+    paths: *trigger_paths
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  docs-current:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: extractions/setup-just@v3
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          version: "latest"
+          enable-cache: true
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: uv sync --frozen
+      - name: docs/ matches the KB
+        run: just check-docs-current
