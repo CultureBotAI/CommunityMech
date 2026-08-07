@@ -28,11 +28,12 @@ never exceeding 4000 characters —
     5a1d60b  3998 chars  4028 bytes
     9f9ba22  3944 chars  3974 bytes
 
-So this is not a free hedge: it costs real budget. At current punctuation density
-the 15 non-ASCII characters cost 30 bytes, which is 30 of the 56 characters of
-headroom — more than half. If the ceiling turns out to count characters after
-all, that is the price of having been cautious. Prefer ASCII punctuation in this
-file over spending it.
+So this is not a free hedge: it costs real budget. The file carried 15 non-ASCII
+characters costing 30 bytes, against 10 bytes of headroom — the hedge was
+spending three times what was left. They are ASCII now, and the headroom went
+from 10 bytes to 39. `test_goal_prompts_are_ascii_only` keeps it that way, so
+the byte and character counts stay equal and the unresolved unit stops mattering
+for this file (#363).
 """
 
 from pathlib import Path
@@ -85,3 +86,20 @@ def test_goal_prompt_is_valid_utf8_and_not_empty(path: Path):
     except UnicodeDecodeError as exc:  # pragma: no cover - would be a real defect
         pytest.fail(f"{path.name} is not valid UTF-8: {exc}")
     assert text.strip(), f"{path.name} is empty"
+
+
+@pytest.mark.parametrize("path", _goal_prompts(), ids=lambda p: p.name)
+def test_goal_prompts_are_ascii_only(path):
+    """Non-ASCII punctuation costs budget for nothing.
+
+    While the unit is unresolved the test enforces bytes, the stricter reading.
+    Keeping these files ASCII makes bytes and characters equal, so the ambiguity
+    costs this file nothing either way — and an em-dash was costing 2 bytes
+    apiece against 10 bytes of headroom.
+    """
+    text = path.read_text()
+    offenders = sorted({c for c in text if ord(c) > 127})
+    assert not offenders, (
+        f"{path.name} contains non-ASCII characters {offenders}, which cost extra "
+        f"bytes against the /goal budget for no gain — use ASCII punctuation (#363)"
+    )
