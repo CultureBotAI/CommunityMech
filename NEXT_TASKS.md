@@ -58,7 +58,7 @@ rows rather than added as new threads.
 | 6 | **Decide the #182 ontology remaps** | S | A curator decision, not an implementation task |
 | 7 | **Auto-fetch the Unpaywall OA location (#259 slice)** | S | Self-contained; drops the manual `--from-file` step for OA-but-not-PMC sources |
 | 8 | **Cross-Mech vendored-sync gaps (#278, #280)** | S | Two distinct defects in the same guard; worth one cross-Mech sweep, not three PRs |
-| 9 | **Inline the four dangling `[[wiki-links]]` (#277)** | S | Doc hygiene; §1 leans on one for its blocked-item rationale |
+| ~~9~~ | ~~**Inline the four dangling `[[wiki-links]]` (#277)**~~ | — | **DONE** (2026-08-07). Two were redundant with the prose beside them; the load-bearing one turned out to document a blocker that no longer exists, so `validate-terms-all` is now a CI gate. |
 
 **Recommended next: #1, GTDB grounding.** It is the biggest coverage gap that
 depends on nothing outside this repo — the mapping table is local
@@ -215,11 +215,18 @@ canonical label fits (element name must appear for the element enums), per prefi
 skipped when that ontology's sqlite isn't cached locally. Covers CHEBI + OBI;
 verified the label check flags all three historical bugs.
 
-**Note (not the same task):** a full LinkML-native schema gate over term.id
-*data* bindings (`just validate-terms-all` / `linkml-term-validator`) is still
-deferred — that tool has no exceptions mechanism and fails on the 34
-curator-accepted residuals. Unblock by minting/cleaning them or teaching the gate
-a shared waiver (see §1). See [[ontology-term-cleanup]] / [[chebi-mislabels-backlog]].
+**Note (not the same task) — RESOLVED 2026-08-07, #277.** A full LinkML-native
+schema gate over term.id *data* bindings (`just validate-terms-all` /
+`linkml-term-validator`) was deferred because that tool has no exceptions
+mechanism and failed on 34 curator-accepted residuals. The residuals were
+cleaned up over time rather than waived — the last went in #350, which removed
+the final obsolete `GO:0055114` instances and corrected 22 isolate terms. The
+gate now passes **316 of 316 files, zero warnings, exit 0**, and is enabled as a
+blocking step in `label-correspondence.yaml`. It was already in `just qc`.
+
+(This passage previously deferred to `[[ontology-term-cleanup]]` /
+`[[chebi-mislabels-backlog]]`, which are agent-memory links resolving to nothing
+from a fresh clone — the whole of #277.)
 
 **Impact:** shipped community records mostly ground REEs via their own (correct)
 `term.{id,label}` pairs, so the KGX export from those is largely fine; the wrong
@@ -1008,8 +1015,8 @@ NB: stray untracked `*.yaml.bak` backups still exist alongside these in `kb/comm
 **fixed in the runner** (#245): `load_api_key()` now treats the repo `.env` FILE as the
 source of truth (via `dotenv_values`), preferring it over any ambient/inherited
 `EDISON_PLATFORM_API_KEY`. So a plain `just research-community-causal <id>` now works —
-**no `env -u` workaround needed** (000268 was curated this way). See
-[[edison-auth-env-shadowing]]. NB: `.bash_profile`'s export was already commented out;
+**no `env -u` workaround needed** (000268 was curated this way). NB:
+`.bash_profile`'s export was already commented out;
 the stale value was only inherited into the launching terminal session.
 
 ## 000031 re-scoping — DONE (2026-07-28, PR #262, issue #256)
@@ -1094,4 +1101,4 @@ These are logged for completeness; revisit only if a follow-up study names their
 members. **The defined-community subset of the scout report is complete.** House style
 for any future regolith record: `ecological_state: ENGINEERED`, `community_origin:
 SYNTHETIC`, `environment_term` → ENVO:01001405 "laboratory environment" with
-`modeled_environment` → ENVO:01000747 "regolith". See [[space-regolith-scouting-gap]].
+`modeled_environment` → ENVO:01000747 "regolith".

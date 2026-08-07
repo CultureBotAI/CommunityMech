@@ -7,13 +7,13 @@ name: label-correspondence
 # in issue #134). The drift report (reports/label_drift.tsv) is still generated
 # and uploaded as an artifact for triage, even when the gate passes.
 #
-# NOT enabled here: `just validate-terms-all` (the LinkML-native binding gate).
-# linkml-term-validator has no exceptions mechanism, so it fails on the 34
-# curator-accepted residuals that `validate-products` accepts (e.g. obsolete
-# GO:0055114, CHEBI mislabels needing minting, taxa absent from the OAK
-# snapshot). Enabling it as blocking is deferred until those residuals are
-# minted/cleaned (see NEXT_TASKS.md and the chebi-mislabels backlog) or the
-# vendored validator grows a shared waiver the LinkML tool can consume.
+# `just validate-terms-all` (the LinkML-native binding gate) IS enabled below,
+# as of #277. It was deferred because linkml-term-validator has no exceptions
+# mechanism and failed on 34 curator-accepted residuals - obsolete GO:0055114,
+# CHEBI mislabels needing minting, taxa absent from the OAK snapshot. Those were
+# cleaned up over time rather than waived; the last of them went in #350, which
+# removed the final GO:0055114 instances and corrected 22 isolate terms.
+# Measured before enabling: 316 of 316 files pass, zero warnings, exit 0.
 
 on:
   pull_request:
@@ -93,3 +93,11 @@ jobs:
       # schema tree_root, so this uses --target-class CommonTaxon.
       - name: Enforce id↔label correspondence (kb/taxa go_terms)
         run: just validate-terms-taxa
+
+      # Engine A over the community records and isolates. Deferred since #134
+      # for want of an exceptions mechanism; enabled once the residuals it
+      # tripped on were fixed rather than waived (#277). If this starts failing,
+      # the honest options are to fix the term or to give the tool a waiver -
+      # not to drop the step, which is how it came to be off for so long.
+      - name: Enforce id-label correspondence (kb/communities, data/isolates)
+        run: just validate-terms-all
