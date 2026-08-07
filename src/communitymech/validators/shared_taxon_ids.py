@@ -85,7 +85,11 @@ SPECIFIC_RANKS = frozenset(
 _CORE = re.compile(r"^([A-Za-z][A-Za-z0-9_\-]*)\s+([a-z][a-z0-9_\-]*)")
 # GTDB-style placeholder epithets: `sp.`, `sp900119625`, `sp002874965`. All mean
 # "unnamed species", so two of them under one genus are not a contradiction.
-_PLACEHOLDER = re.compile(r"^sp\d*$")
+# `spp` too: it is the plural of `sp.` and says the same thing. Matching only
+# `sp` left it read as a *named* epithet, so `Bifidobacterium spp.` beside
+# `Bifidobacterium longum` was reported as a hard clash — neither protected as
+# unnamed nor reported as over-grounding (review of #484). 7 names in the KB.
+_PLACEHOLDER = re.compile(r"^spp?\d*$")
 # GTDB splits one NCBI genus into `Olsenella`, `Olsenella_A`, `Olsenella_B`. NCBI
 # genus names never contain an underscore, so stripping this suffix is
 # unambiguous, and two GTDB splits of one genus are not two different genera.
@@ -125,6 +129,21 @@ def _looks_like_a_strain_code(token: str, following: str | None = None) -> bool:
     return token.isupper() and any(c.isdigit() for c in (following or ""))
 
 
+def _clean(name: str) -> str:
+    """Strip parentheticals, `Candidatus`, and NCBI's provisional brackets.
+
+    Shared by `_core` and `_says_unnamed_species`. It was duplicated
+    byte-for-byte between them, which meant any future change to one silently
+    desynchronised the other — and the failure mode is a name flipping between
+    "unnamed species" and "strain code", the exact distinction #449 rests on
+    (review of #484).
+    """
+    cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
+    cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
+    # A provisional genus is bracketed in NCBI: `[Clostridium] scindens`.
+    return cleaned.replace("[", "").replace("]", "")
+
+
 def _core(name: str) -> tuple[str, str] | None:
     """(genus, epithet) for a Latin binomial, or None if the name is not one.
 
@@ -147,10 +166,7 @@ def _core(name: str) -> tuple[str, str] | None:
     one is how a gate starts firing on correct records — 12 names became
     parseable here, and every one is an organism.
     """
-    cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
-    cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
-    # A provisional genus is bracketed in NCBI: `[Clostridium] scindens`.
-    cleaned = cleaned.replace("[", "").replace("]", "")
+    cleaned = _clean(name)
     match = _CORE.match(cleaned)
     if not match:
         strain = _STRAIN.match(cleaned)
@@ -322,16 +338,25 @@ def _says_unnamed_species(name: str) -> bool:
     core = _core(name)
     if core is None or core[1] != "sp":
         return False
-    cleaned = re.sub(r"\(.*?\)", " ", name or "").replace(".", " ")
-    cleaned = _CANDIDATUS.sub("", cleaned.strip()).strip()
-    cleaned = cleaned.replace("[", "").replace("]", "")
+    cleaned = _clean(name)
     match = _CORE.match(cleaned)
-    # Only the placeholder path counts. When `_CORE` does not match at all, the
-    # `sp` came from the strain-code fallback.
-    return bool(match and _PLACEHOLDER.match(match.group(2).lower()))
+    if not match or not _PLACEHOLDER.match(match.group(2).lower()):
+        # `_CORE` did not match, so the `sp` came from the strain-code
+        # fallback: `Marinobacter CS1`.
+        return False
+    # A trailing strain code identifies an isolate, and an isolate may well BE
+    # the species beside it — so `Marinobacter sp. CS1` is no more
+    # over-grounded than `Marinobacter CS1`. The first draft flagged one and
+    # not the other, which made the gate's verdict depend on an orthographic
+    # choice with no semantic content, contradicting `_core`'s own docstring
+    # ("exactly as `Marinobacter sp. CS1` would") (review of #484). Only a bare
+    # `Genus sp.` — declining to name a species *and* naming no isolate —
+    # is reported.
+    rest = cleaned[match.end() :].strip()
+    return not rest
 
 
-def _over_grounded(first: str, second: str, rank: str | None, known: frozenset) -> bool:
+def _over_grounded(first: str, second: str, rank: str | None, known: frozenset) -> str | None:
     """Is one of these an `sp.` sitting on an id that names a species (#449)?
 
     A different claim from `_names_disagree`, and reported separately. Neither
@@ -344,21 +369,28 @@ def _over_grounded(first: str, second: str, rank: str | None, known: frozenset) 
     isolates; that is #447's point and it stands.
     """
     if rank in ("genus", "subgenus"):
-        return False
+        return None
     left, right = _core(first), _core(second)
     if left is None or right is None:
-        return False
+        return None
     if left in known and right in known:
-        return False
+        return None
     if not _same_genus(left[0], right[0]):
-        return False  # a genuine clash, already reported by _names_disagree
+        return None  # a genuine clash, already reported by _names_disagree
     # Reuse the cores parsed above rather than re-deriving them: calling
     # _core again returns Optional, which is not indexable, and the guard that
     # makes it safe is several lines away.
     pairs = ((first, left), (second, right))
     unnamed = [n for n, _ in pairs if _says_unnamed_species(n)]
     named = [n for n, core in pairs if core[1] != "sp"]
-    return len(unnamed) == 1 and len(named) == 1
+    # A *named* partner is required. Two unnamed entries on one id assert
+    # nothing incompatible with each other — two MAGs of one species sharing
+    # that species' id is ordinary metagenomics, and the KB does exactly that
+    # for `Olsenella_B sp. (MAG ATO3)` and `(MAG ATO6)`. Only a named entry
+    # establishes that the id denotes a species this one declines to name.
+    if len(unnamed) != 1 or len(named) != 1:
+        return None
+    return unnamed[0]
 
 
 def check_record(taxonomy: list) -> list[str]:
@@ -408,8 +440,10 @@ def check_record(taxonomy: list) -> list[str]:
             for j in range(i):
                 if _names_disagree(names[i], names[j], rank, known):
                     clashing.update((names[i], names[j]))
-                elif _over_grounded(names[i], names[j], rank, known):
-                    over.update((names[i], names[j]))
+                else:
+                    offender = _over_grounded(names[i], names[j], rank, known)
+                    if offender is not None:
+                        over.add(offender)
         if clashing:
             problems.append(
                 f"{curie} ({rank}) is used for taxa that cannot all be it: "
@@ -419,9 +453,21 @@ def check_record(taxonomy: list) -> list[str]:
         # two are different claims. A clash says somebody is wrong about the
         # organism; this says nobody is wrong, but an entry that declines to
         # name a species is sitting on an id that names one (#449).
+        #
+        # One id, one message, deliberately. Where an id has both, the
+        # over-grounded entry goes unmentioned until the clash is fixed and the
+        # gate is re-run. The clash is the more serious claim and usually
+        # changes which id the entries carry, which can resolve the
+        # over-grounding on its own — so leading with both would often report a
+        # finding that the first fix removes (#484 review).
         if over and not clashing:
+            # Only the over-grounded entries, not their innocent partners: the
+            # asymmetry is the whole finding, and sorting both names together
+            # made the curator re-derive which one to change. The remedy is
+            # specific enough to state (review of #484).
             problems.append(
-                f"{curie} ({rank}) names a species, but is also used for an entry "
-                f"that does not name one: " + ", ".join(repr(n) for n in sorted(over))
+                f"{curie} ({rank}) denotes one organism, but "
+                + ", ".join(repr(n) for n in sorted(over))
+                + " does not name a species — ground it to the genus id instead"
             )
     return problems
