@@ -46,7 +46,7 @@ engineering_design:
 environment_term:
   preferred_term: mine tailing
   term:
-    id: ENVO:00000072
+    id: ENVO:00000003
     label: mine tailing
   notes: >
     Bioreactor environment for gold biocyanidation from refractory ores and electronic
@@ -183,11 +183,15 @@ ecological_interactions:
     biological_processes:
       - preferred_term: hydrogen cyanide biosynthetic process
         term:
-          id: GO:0042402
-          label: hydrogen cyanide biosynthetic process
+          id: GO:0044550
+          label: secondary metabolite biosynthetic process
+        notes: 'GO:0042402 was stored here and is "biogenic amine catabolic process" - a different
+          process entirely. GO has no hydrogen cyanide term at all, so this is the nearest true one:
+          HCN is a secondary metabolite of Chromobacterium violaceum, and its biosynthesis is what
+          this record is about. Broad, and the gap is #467.'
       - preferred_term: glycine metabolic process
         term:
-          id: GO:0006544
+          id: GO:0006546
           label: glycine catabolic process
     downstream:
       - target: Gold Cyanide Complexation and Dissolution
@@ -246,7 +250,7 @@ ecological_interactions:
         notes: "Metallic gold in refractory ores and e-waste"
       - preferred_term: dicyanoaurate(1-)
         term:
-          id: CHEBI:30319
+          id: CHEBI:49491
           label: dicyanoaurate(1-)
         notes: "Soluble gold-cyanide complex [Au(CN)₂]⁻ for recovery"
       - preferred_term: dioxygen
@@ -256,19 +260,14 @@ ecological_interactions:
         notes: "Required co-reactant for gold oxidation (Elsner equation)"
       - preferred_term: arsenopyrite
         term:
-          id: CHEBI:134121
+          id: CHEBI:75861
           label: arsenopyrite
         notes: "Refractory host mineral (FeAsS) containing occluded gold"
       - preferred_term: pyrite
         term:
-          id: CHEBI:46727
+          id: CHEBI:86471
           label: pyrite
         notes: "Sulfide matrix (FeS₂) hosting submicron gold particles"
-    biological_processes:
-      - preferred_term: oxidation-reduction process
-        term:
-          id: GO:0055114
-          label: oxidation-reduction process
     evidence:
       - reference: doi:10.1016/j.mineng.2013.03.022
         supports: SUPPORT
@@ -382,12 +381,12 @@ ecological_interactions:
     metabolites:
       - preferred_term: arsenopyrite
         term:
-          id: CHEBI:134121
+          id: CHEBI:75861
           label: arsenopyrite
         notes: "FeAsS refractory host mineral requiring grinding"
       - preferred_term: pyrite
         term:
-          id: CHEBI:46727
+          id: CHEBI:86471
           label: pyrite
         notes: "FeS₂ sulfide matrix requiring liberation"
     biological_processes:
