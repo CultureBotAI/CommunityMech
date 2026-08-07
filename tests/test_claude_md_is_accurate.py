@@ -30,9 +30,18 @@ import pytest
 REPO = Path(__file__).parent.parent
 CLAUDE_MD = REPO / "CLAUDE.md"
 
-# `├── name` / `└── name`, and the bare `parent/` lines they hang from.
+# Three line shapes carry a path. A nested child (`├── name`) hangs off the
+# most recent bare directory; a bare directory (`src/communitymech/`) is both a
+# path and a parent; and a top-level entry (`NEXT_TASKS.md`, `conf/oak_config.yaml`)
+# is neither. Missing that third shape is how the first version of this test
+# checked 12 of 15 paths and stayed green while CLAUDE.md named two files that
+# did not exist — including NEXT_TASKS.md, which the same doc calls the backlog
+# source of truth.
 _CHILD = re.compile(r"^[│\s]*[├└]──\s+(\S+)")
 _ROOT = re.compile(r"^([A-Za-z][A-Za-z0-9_./-]*/)\s*(?:#.*)?$")
+_TOP_FILE = re.compile(r"^([A-Za-z][A-Za-z0-9_./-]*\.[A-Za-z0-9]+)\s*(?:#.*)?$")
+# A continuation of the previous entry's comment, carrying no path of its own.
+_COMMENT_ONLY = re.compile(r"^[│\s]*#")
 
 
 def _tree_block() -> str:
@@ -42,34 +51,65 @@ def _tree_block() -> str:
     return text[fence + 3 : text.index("```", fence + 3)]
 
 
-def _declared_paths() -> list[str]:
-    """Reconstruct full paths from the nested tree."""
-    paths, parent = [], ""
+def _parse_tree() -> tuple[list[str], list[str]]:
+    """(paths declared, lines the parser could not account for).
+
+    Returning the leftovers is the point: a lower bound on the path count
+    cannot tell "the tree shrank" from "the parser went blind", but a line it
+    failed to classify can.
+    """
+    paths: list[str] = []
+    unconsumed: list[str] = []
+    parent = ""
     for line in _tree_block().split("\n"):
-        if not line.strip() or line.lstrip().startswith("#"):
+        if not line.strip() or _COMMENT_ONLY.match(line):
             continue
         root = _ROOT.match(line.strip())
         if root:
             parent = root.group(1)
             paths.append(parent)
             continue
+        top = _TOP_FILE.match(line.strip())
+        if top:
+            paths.append(top.group(1))
+            continue
         child = _CHILD.match(line)
-        if not child:
+        if child:
+            name = child.group(1)
+            # A parenthetical aside rather than a filename.
+            if name.startswith("("):
+                continue
+            # A child is relative to its parent — that is what the tree means.
+            # An earlier version had a ternary trying to special-case rooted
+            # names; it hardcoded two directory prefixes, was unreachable for
+            # the current tree, and got these wrong when it did fire.
+            paths.append(parent + name)
             continue
-        name = child.group(1)
-        # A parenthetical or prose aside, not a path.
-        if name.startswith("(") or name.endswith(","):
-            continue
-        paths.append(parent + name if not name.startswith(("kb/", "src/")) else name)
-    return paths
+        unconsumed.append(line)
+    return paths, unconsumed
 
 
-def test_the_tree_is_parseable():
-    """Guard the parser, so a reformat cannot silently empty the next test."""
-    declared = _declared_paths()
-    assert len(declared) >= 10, f"parsed only {len(declared)} paths; has the tree been reformatted?"
+def _declared_paths() -> list[str]:
+    return _parse_tree()[0]
+
+
+def test_the_parser_reads_every_line_of_the_tree():
+    """The guard that matters: no line goes unclassified.
+
+    A floor on the path count cannot distinguish a tree that shrank from a
+    parser that went blind — the first version asserted `>= 10` and reported
+    healthy at 12 while three entries were never checked at all.
+    """
+    declared, unconsumed = _parse_tree()
+    assert unconsumed == [], (
+        "these lines of the architecture tree were not recognised as a path, a "
+        "directory, or a comment, so nothing checked them:\n" + "\n".join(unconsumed)
+    )
     assert any(p.endswith(".py") for p in declared)
     assert any(p.endswith("/") for p in declared)
+    assert any(
+        p.endswith(".md") for p in declared
+    ), "the top-level file entries are the shape the first parser missed"
 
 
 @pytest.mark.parametrize("declared", _declared_paths())
@@ -93,4 +133,24 @@ def test_the_community_record_count_is_current():
     assert claimed == actual, (
         f"CLAUDE.md says kb/communities/ holds {claimed} files; it holds {actual}. "
         f"It said 60 for long enough to be off by a factor of five (#460)."
+    )
+
+
+def test_the_python_target_matches_pyproject():
+    """Another checkable number that had drifted.
+
+    CLAUDE.md said "Python 3.9+ target" while pyproject requires >=3.10, and
+    black/ruff/mypy are all configured for 3.10. A PR premised on executing this
+    file's checkable facts should not leave one wrong.
+    """
+    claimed = re.search(r"Python (\d+\.\d+)\+ target", CLAUDE_MD.read_text())
+    assert claimed, "the 'Python N.N+ target' line has moved; update this test"
+
+    pyproject = (REPO / "pyproject.toml").read_text()
+    required = re.search(r'requires-python\s*=\s*">=(\d+\.\d+)"', pyproject)
+    assert required, "could not read requires-python from pyproject.toml"
+
+    assert claimed.group(1) == required.group(1), (
+        f"CLAUDE.md targets Python {claimed.group(1)}+, pyproject requires "
+        f">={required.group(1)}"
     )

@@ -81,5 +81,5 @@ NCBITaxon (taxonomy), ENVO (environments), CHEBI (chemicals/metabolites), GO (bi
 ## Style
 
 - Line length: 100 (black + ruff)
-- Python 3.9+ target
+- Python 3.10+ target
 - Uses `uv` for package management (never requirements.txt)
