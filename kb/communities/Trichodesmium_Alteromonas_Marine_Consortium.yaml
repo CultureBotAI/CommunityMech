@@ -150,7 +150,23 @@ ecological_interactions:
     term:
       id: CHEBI:26523
       label: reactive oxygen species
-    notes: Reactive oxygen species detoxification is an inferred interaction process.
+    notes: The compound. What the consortium does with it is the sibling biological_processes
+      entry - ROS is involved in the interaction, and its detoxification is the process
+      (#297).
+  biological_processes:
+  - preferred_term: reactive oxygen species detoxification
+    term:
+      id: GO:0098869
+      label: cellular oxidant detoxification
+    notes: 'Modelled as both compound and process, which is what the note this replaces
+      described: "reactive oxygen species detoxification is an inferred interaction process".
+      CHEBI:26523 is the species; GO:0098869 is what is done to it. Its definition -
+      "reduces or removes the toxicity of superoxide radicals or hydrogen peroxide" - is
+      the general oxidant case, chosen over GO:0141082 "symbiont-mediated detoxification
+      of host-generated reactive oxygen species", which would assert a host-symbiont
+      relation this consortium does not have, and over GO:0061692, which is hydrogen
+      peroxide only. Inherits the interaction''s COMPUTATIONAL evidence: this is the
+      inferred axis the source names, not a measured one (#297).'
   evidence:
   - reference: PMID:28440800
     supports: SUPPORT
