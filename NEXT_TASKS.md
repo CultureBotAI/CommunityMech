@@ -5,7 +5,72 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-08-07.
+Last reconciled: 2026-08-08.
+
+## Reconciliation 2026-08-08 — the 31-issue sweep
+
+PRs **#472–#499** merged: 20 issues closed across all six clusters of the
+31-issue backlog (GTDB 10/11, Tooling 4/5, Schema 3/5, Network 2/3, Docs 2/3,
+Evidence 1/4).
+
+**The backlog materially overstated remaining work.** Four issues picked up in
+this pass were already resolved and still open — #356 (record fixed, both
+halves, with notes citing the issue), #259 (DOI cache path implemented, blocked
+DOI cached at 67 KB, record curated with 7 citations), #377 (`UBA10281` absent
+from the KB entirely; *Acidiphilium* at `g__Acidiphilium @1.0`), #375
+(`exclude_unnamed` already defaults to True throughout `gtdb_ground.py`). Each
+was closed with the verification rather than assumed.
+
+Two more had **drifted** from their filed numbers rather than being done: #319
+counted 23 participants outside `taxonomy` and it is 27 findings over 25
+distinct participants; #312 measured 412/518 taxa credited solely by the
+community-level rule and it is 407/522. Both are now pinned by tests so the
+next drift is visible.
+
+**Verify against the artifact, not the issue text.** Two near-misses in this
+pass: #375's filter looked undecided because `reports/gtdb_denominators.tsv`
+shows all four denominator options side by side — reading a comparison *of*
+options is not reading which is *in force*, and it had been the default for
+weeks. And #347 looked resolved because `SPRUCE_Peatland_Methane_Cycling` now
+reports 0 issues; the 17 failures are on `SPRUCE_Peatland_Warming`, the sibling
+record. Checking the second file is the only reason that was caught.
+
+### Still open from the 31, honestly classified
+
+**Needs a decision (do not start without one):**
+- **#374** — should GTDB's type-species rule override a genome-count majority?
+  Implementable either way: the 0.5 floor is `if frac > 0.5` in
+  `gtdb_ground.py`, a tool policy, *not* a schema bound. An earlier claim in
+  this session that it was representationally blocked was wrong.
+- **#319** — do the 6 hosts and 3 antagonists belong in `taxonomy`? Now scoped:
+  of 25 participants outside it, 14 are UMBRELLA names for members that *are*
+  present, so the real question is 9.
+
+**Needs design, not a decision:**
+- **#270** — 9 interaction types cannot map 1:1 onto d3's 7 built-in symbols
+  minus `circle` (taken by taxa). Needs shape x fill or custom paths, then
+  re-validation and eyeballing at the 28x18 node size where the label already
+  overflows. Palette measured: fails the OKLab normal-vision floor too
+  (`#56bbe6` vs `#57c7ab` at ΔE 10.3), not only CVD as filed.
+
+**Curation passes — each needs the record's cited source read:**
+- **#347** — 17 paraphrase failures, confirmed today on
+  `SPRUCE_Peatland_Warming_Community` (all 3 refs cached, so these are real
+  mismatches rather than missing full text).
+- **#497** — 22 rhizobial taxa carrying trophic roles that may be the #301
+  substitution. Being a rhizobium does not establish N fixation is what that
+  source reports.
+- **#182** — measured: the "specificity is retained in `preferred_term`"
+  safeguard holds for 126 of 201 instances and fails for 75, concentrated in
+  `CHEBI:50860` (20/22) and `CHEBI:64709` (6/6). "Accept as-is" is unavailable
+  for those — nothing is holding the specificity.
+- **#183**, **#199**.
+
+**Partially addressed, residual scope recorded on the issue:**
+- **#410** (nothing working depends on the dead scripts now; delete-or-port
+  undecided), **#325** (threshold fixed; backfill undecided, and #491 blocks the
+  `history/`-tree option upstream), **#312** (coarseness now counted, refinement
+  waits on #307's participant question).
 
 ## Reconciliation 2026-08-06 — the wrong-organism thread
 
