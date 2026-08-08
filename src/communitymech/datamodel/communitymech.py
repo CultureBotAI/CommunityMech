@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-08T00:13:47
+# Generation date: 2026-08-08T00:48:13
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1161,6 +1161,49 @@ class ExternalResource(YAMLRoot):
 
 
 @dataclass(repr=False)
+class CounterSelection(YAMLRoot):
+    """
+    A candidate, or set of candidates, excluded from a community during assembly, with the criterion that excluded it
+    (#307).
+    Screening is how most synthetic communities are built, and "we excluded X because it antagonised Y" is often the
+    most informative sentence in the paper. Recording it makes the design constraint queryable and evidence-backed
+    rather than prose.
+    """
+
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = COMMUNITYMECH["CounterSelection"]
+    class_class_curie: ClassVar[str] = "communitymech:CounterSelection"
+    class_name: ClassVar[str] = "CounterSelection"
+    class_model_uri: ClassVar[URIRef] = COMMUNITYMECH.CounterSelection
+
+    criterion: str = None
+    excluded_taxon: Optional[Union[dict, TaxonDescriptor]] = None
+    excluded_count: Optional[int] = None
+    evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
+        empty_list()
+    )
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.criterion):
+            self.MissingRequiredField("criterion")
+        if not isinstance(self.criterion, str):
+            self.criterion = str(self.criterion)
+
+        if self.excluded_taxon is not None and not isinstance(self.excluded_taxon, TaxonDescriptor):
+            self.excluded_taxon = TaxonDescriptor(**as_dict(self.excluded_taxon))
+
+        if self.excluded_count is not None and not isinstance(self.excluded_count, int):
+            self.excluded_count = int(self.excluded_count)
+
+        self._normalize_inlined_as_dict(
+            slot_name="evidence", slot_type=EvidenceItem, key_name="reference", keyed=False
+        )
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class CommunityEngineeringDesign(YAMLRoot):
     """
     Design intent and implementation details for engineered or synthetic communities
@@ -1179,6 +1222,9 @@ class CommunityEngineeringDesign(YAMLRoot):
     passaging_regimen: Optional[str] = None
     perturbation_design: Optional[str] = None
     measurement_endpoints: Optional[Union[str, list[str]]] = empty_list()
+    counter_selection: Optional[
+        Union[Union[dict, CounterSelection], list[Union[dict, CounterSelection]]]
+    ] = empty_list()
     protocol_url: Optional[str] = None
     notes: Optional[str] = None
     evidence: Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]] = (
@@ -1208,6 +1254,13 @@ class CommunityEngineeringDesign(YAMLRoot):
         self.measurement_endpoints = [
             v if isinstance(v, str) else str(v) for v in self.measurement_endpoints
         ]
+
+        self._normalize_inlined_as_dict(
+            slot_name="counter_selection",
+            slot_type=CounterSelection,
+            key_name="criterion",
+            keyed=False,
+        )
 
         if self.protocol_url is not None and not isinstance(self.protocol_url, str):
             self.protocol_url = str(self.protocol_url)
@@ -4343,6 +4396,42 @@ slots.externalResource__evidence = Slot(
     range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
 )
 
+slots.counterSelection__criterion = Slot(
+    uri=COMMUNITYMECH.criterion,
+    name="counterSelection__criterion",
+    curie=COMMUNITYMECH.curie("criterion"),
+    model_uri=COMMUNITYMECH.counterSelection__criterion,
+    domain=None,
+    range=str,
+)
+
+slots.counterSelection__excluded_taxon = Slot(
+    uri=COMMUNITYMECH.excluded_taxon,
+    name="counterSelection__excluded_taxon",
+    curie=COMMUNITYMECH.curie("excluded_taxon"),
+    model_uri=COMMUNITYMECH.counterSelection__excluded_taxon,
+    domain=None,
+    range=Optional[Union[dict, TaxonDescriptor]],
+)
+
+slots.counterSelection__excluded_count = Slot(
+    uri=COMMUNITYMECH.excluded_count,
+    name="counterSelection__excluded_count",
+    curie=COMMUNITYMECH.curie("excluded_count"),
+    model_uri=COMMUNITYMECH.counterSelection__excluded_count,
+    domain=None,
+    range=Optional[int],
+)
+
+slots.counterSelection__evidence = Slot(
+    uri=COMMUNITYMECH.evidence,
+    name="counterSelection__evidence",
+    curie=COMMUNITYMECH.curie("evidence"),
+    model_uri=COMMUNITYMECH.counterSelection__evidence,
+    domain=None,
+    range=Optional[Union[Union[dict, EvidenceItem], list[Union[dict, EvidenceItem]]]],
+)
+
 slots.communityEngineeringDesign__objective = Slot(
     uri=COMMUNITYMECH.objective,
     name="communityEngineeringDesign__objective",
@@ -4395,6 +4484,15 @@ slots.communityEngineeringDesign__measurement_endpoints = Slot(
     model_uri=COMMUNITYMECH.communityEngineeringDesign__measurement_endpoints,
     domain=None,
     range=Optional[Union[str, list[str]]],
+)
+
+slots.communityEngineeringDesign__counter_selection = Slot(
+    uri=COMMUNITYMECH.counter_selection,
+    name="communityEngineeringDesign__counter_selection",
+    curie=COMMUNITYMECH.curie("counter_selection"),
+    model_uri=COMMUNITYMECH.communityEngineeringDesign__counter_selection,
+    domain=None,
+    range=Optional[Union[Union[dict, CounterSelection], list[Union[dict, CounterSelection]]]],
 )
 
 slots.communityEngineeringDesign__protocol_url = Slot(
