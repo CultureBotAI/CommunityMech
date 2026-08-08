@@ -1640,7 +1640,34 @@ classes:
         required: false
         inlined_as_list: true
       taxonomy:
-        description: Organisms present in the community
+        description: >-
+          Organisms present in the community — its membership, not everything it
+          interacts with.
+
+          A host and an antagonist are **not** members (#319). The community
+          lives on or in its host and is applied against its antagonist; both
+          appear as `ecological_interactions` participants without appearing
+          here, which is why the network auditor reports them as
+          `UNKNOWN_SOURCE`/`UNKNOWN_TARGET` at warning severity rather than
+          gating on them (#326).
+
+          Of the 25 interaction participants currently outside this slot, 14 are
+          aggregate names for members that *are* present — `Variovorax` where
+          the record lists `Variovorax sp. CF313`, `YR634` and the rest — so
+          they are a naming coarseness rather than a membership question. The
+          remaining 11 are 6 hosts, 3 antagonists and 2 abiotic
+          (`anode`), and none of them belongs here.
+
+          The mirror-image question is #307: candidates deliberately screened
+          *out* are likewise not members, and live in
+          `engineering_design.counter_selection`. Both answers are the same, for
+          the same reason — this slot records what the community is made of, and
+          an edge to something outside it is not evidence that it should be
+          inside it.
+
+          `tests/test_interaction_participants_outside_taxonomy.py` holds the
+          population to those four groups, so a new host or antagonist has to be
+          classified rather than absorbed.
         range: TaxonomicComposition
         multivalued: true
       ecological_interactions:
