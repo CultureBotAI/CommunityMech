@@ -39,9 +39,29 @@
         }
 
         header {
+            /* The brand hero the other pages carry. This was the one page
+               without it (#199) - community.html, landing.html and index.html
+               all use the same 135deg pair, so matching them exactly rather
+               than inventing a variant. */
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--border);
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            border-radius: 8px;
+        }
+
+        /* Scoped to the header, because the hero is lighter than the page
+           background these tokens were chosen against. On the lighter gradient
+           end (#CBDDF6) the page's --text-light lands at 3.45:1 and --primary
+           at 3.70:1, both under the 4.5:1 AA needs for 1rem text. The h1 is
+           2rem, so it is large text at 3:1 and stays on --primary.
+           Measured, not eyeballed (#199). */
+        header .subtitle {
+            color: #475569;   /* 5.49:1 on #CBDDF6 */
+        }
+
+        header .nav-link {
+            color: #2f4f7a;   /* 6.04:1 on #CBDDF6 */
         }
 
         h1 {
@@ -489,6 +509,9 @@
     /* ---- Dark theme (OS default; superseded by the toggle) ---- */
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) header .subtitle{color:var(--text-light)}
+  :root:not([data-theme="light"]) header .nav-link{color:var(--primary)}
   :root:not([data-theme="light"]) #umap-plot{background:var(--surface)}
   :root:not([data-theme="light"]) .point{stroke:var(--surface)}
   :root:not([data-theme="light"]) .facet-actions button{background:var(--background);color:var(--text)}
@@ -498,6 +521,9 @@
   :root:not([data-theme="light"]) .facet-checkbox:hover{background:rgba(255,255,255,.04)}
 }
 :root[data-theme="dark"]{--primary:#6ea6f0; --primary-dark:#8fbcf5; --secondary:#99a2b5; --background:#101420; --surface:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-light:#99a2b5; --success:#34d399; --warning:#fbbf24; --error:#f87171; --point-stroke:#1a1f2e;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] header .subtitle{color:var(--text-light)}
+:root[data-theme="dark"] header .nav-link{color:var(--primary)}
 :root[data-theme="dark"] #umap-plot{background:var(--surface)}
 :root[data-theme="dark"] .point{stroke:var(--surface)}
 :root[data-theme="dark"] .facet-actions button{background:var(--background);color:var(--text)}
