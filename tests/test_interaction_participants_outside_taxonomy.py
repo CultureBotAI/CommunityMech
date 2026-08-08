@@ -210,3 +210,32 @@ def test_the_group_sizes_are_what_the_decision_was_sized_against(group: str, exp
     which is a much smaller commitment than the headline count suggests.
     """
     assert len(globals()[group]) == expected
+
+
+def test_the_schema_records_the_membership_decision():
+    """#319's question, answered in the slot rather than in an issue thread.
+
+    "Should hosts and antagonists be taxonomy members?" was re-derived at least
+    twice — once when the auditor was written and once when this file was — and
+    each time from the same evidence. Recording it on `taxonomy` means the next
+    reader finds the answer where they are already looking.
+
+    Asserted positively: the description must *say* hosts and antagonists are
+    not members. A check that some phrase is absent would pass on a rewrite
+    that dropped the reasoning entirely.
+    """
+    import yaml
+
+    schema = yaml.safe_load(
+        (REPO / "src/communitymech/schema/communitymech.yaml").read_text(encoding="utf-8")
+    )
+    description = schema["classes"]["MicrobialCommunity"]["attributes"]["taxonomy"]["description"]
+
+    assert "#319" in description
+    lowered = description.lower()
+    assert "host" in lowered and "antagonist" in lowered, (
+        "the taxonomy slot no longer states whether hosts and antagonists are "
+        "members, which is the question #319 asked and this file pins the "
+        "population for"
+    )
+    assert "not" in lowered, "the decision was 'no'; the description must say so"
