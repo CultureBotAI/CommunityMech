@@ -143,8 +143,15 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
         remainder = lines[end.line][end.column :]
         if not remainder.lstrip().startswith("#"):
             continue
-        if require_gap and len(remainder) - len(remainder.lstrip()) >= 2:
+        if require_gap and event.value != "" and len(remainder) - len(remainder.lstrip()) >= 2:
             # Two or more spaces: written as a deliberate end-of-line comment.
+            #
+            # Except when the value is EMPTY. `description:  #400 all of it` is
+            # total loss — the whole value became a comment — and no deliberate
+            # end-of-line comment leaves its key valueless, so the ambiguity the
+            # gap rule exists to resolve does not arise. This module's own
+            # header calls that the worst case; relaxing it would have been the
+            # one place the relaxation cost something real (review of #488).
             continue
 
         key = _name_for(lines, end.line)

@@ -171,18 +171,20 @@ validate-gtdb FILE:
 validate-scalars *files:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
 
-# The same check over conf/, .github/workflows/, vocab/ and the schema (#400).
+# The same check over the non-record trees: conf/, .github/, vocab/, the schema,
+# history/ and examples/ (#400). Part of `just qc`.
 #
-# Those trees DO use deliberate trailing comments, which YAML cannot distinguish
-# from a truncated value — both end the scalar at the `#`. So this reports only
-# a comment written tight against the value, under two spaces. Measured: all 13
-# deliberate trailing comments in those trees use three or more spaces, and none
-# uses fewer, while a `#` swallowed mid-sentence has one or none because it was
-# typed as prose.
+# The STRICT rule applies here too. Only three files use a deliberate trailing
+# comment — conf/id_label_targets.yaml and two workflows — and only those are
+# relaxed, by RELAXED_FILES in the script. The other 21 keep the strong
+# guarantee, which the first version of this spent to buy the three.
 #
-# A convention check, not a proof. `key: text   #400 lost` with three spaces
-# slips through, and `key: value # comment` with one space reports falsely. It
-# is worth having because the alternative for these 21 files is no check at all.
+# For those three, the relaxed rule reports only a `#` written tight against the
+# value, under two spaces: measured, every deliberate trailing comment in them
+# uses three or more, while a `#` swallowed mid-sentence has one or none. That
+# is a convention, not a proof — `key: text   #400 lost` slips through — so it
+# is applied as narrowly as possible. A value lost ENTIRELY stays strict
+# regardless of spacing, since no deliberate comment leaves its key valueless.
 validate-scalars-idiomatic:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py --idiomatic
 
@@ -417,7 +419,7 @@ lint:
 # `validate-references-all` is deliberately NOT here; see `qc-references` (#417).
 #
 # Full QC: lint + test + every offline validator
-qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa
+qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-scalars-idiomatic validate-terms-all validate-terms-taxa
     @echo "✅ All QC checks passed!"
 
 # Separate from `qc` because it is the one check that cannot pass: it needs the
