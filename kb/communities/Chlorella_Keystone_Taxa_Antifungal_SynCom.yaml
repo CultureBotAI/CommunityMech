@@ -255,6 +255,51 @@ ecological_interactions:
     explanation: PARTIAL - establishes that D-mannitol enriches Pseudomonas, but the paper reports
       an abundance shift under treatment rather than demonstrating that the microalga secretes
       D-mannitol in planta, so the algal origin of the signal remains inferred.
+growth_media:
+- name: R2A broth, Chlorella fusca CHK0059 culture
+  composition:
+  - name: R2A
+    concentration: 3.15
+    unit: g/L
+    from_source: true
+  temperature: 28.0
+  temperature_unit: CELSIUS
+  incubation_time: 5.0
+  incubation_time_unit: DAYS
+  light_regime: 16 h light / 8 h dark
+  vessel_type: Broth culture, from a single colony picked off R2A agar
+  preparation_notes: >-
+    The alga's own culture, which is what the SynCom is assembled from. Extracted from the
+    cached open-access full text rather than the abstract - #183 lists this record among
+    those lacking growth conditions because the conditions are Methods-level, and the
+    Methods are reachable now (PMC full text cached).
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'inoculate the single fresh CHK0059 colony to R2A broth (MB cell R2A 3.15 g per L),
+      temperature; 28°C, period; 5 days, light; 16 h and dark; 8 hr in a day'
+    explanation: Names the medium, temperature, duration and photoperiod in one sentence.
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. fusca CHK0059 were streaked on R2A medium (MB cell R2A 3.15 g, Agar 20 g per L)
+    explanation: The solid form the single colony was picked from.
+- name: Treated-sample incubation, viability assay
+  temperature: 27.0
+  temperature_unit: CELSIUS
+  vessel_type: Shaking incubator
+  preparation_notes: >-
+    The assay leg rather than the maintenance culture - samples were sampled at 12, 24, 36
+    and 48 h, and viability read by dilution plating back onto R2A.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the samples were cultured in a 27°C shaking incubator for designated time intervals
+      (12 h, 24 h, 36 h, and 48 h)
+    explanation: Names the assay temperature, agitation and sampling schedule.
+
 environmental_factors:
 - name: D-mannitol amendment
   value: '2%'
