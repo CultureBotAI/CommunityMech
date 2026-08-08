@@ -1443,6 +1443,45 @@ classes:
         range: EvidenceItem
         multivalued: true
 
+  CounterSelection:
+    description: >-
+      A candidate, or set of candidates, excluded from a community during
+      assembly, with the criterion that excluded it (#307).
+
+      Screening is how most synthetic communities are built, and "we excluded X
+      because it antagonised Y" is often the most informative sentence in the
+      paper. Recording it makes the design constraint queryable and
+      evidence-backed rather than prose.
+    attributes:
+      criterion:
+        description: >-
+          Why these candidates were excluded - the screen they failed.
+          Required: an exclusion without a reason records that something was
+          dropped while losing the only part that is informative.
+        required: true
+      excluded_taxon:
+        description: >-
+          The excluded candidate, where the source resolves it.
+
+          Optional on purpose. The motivating case cannot fill it: three
+          Bacillus isolates were excluded for inhibiting Bradyrhizobium, and at
+          the genus-level grounding the source supports they are
+          indistinguishable from the retained ones, so naming a taxon here
+          would assert an identity the paper does not (#305, #307). Use
+          `excluded_count` when the number is known but the identity is not.
+        range: TaxonDescriptor
+      excluded_count:
+        description: >-
+          How many candidates were excluded, when the source gives a number but
+          not resolvable identities. Carries the fact that the screen removed
+          three isolates even where `excluded_taxon` must stay empty.
+        range: integer
+        minimum_value: 1
+      evidence:
+        description: Evidence for the exclusion
+        range: EvidenceItem
+        multivalued: true
+
   CommunityEngineeringDesign:
     description: Design intent and implementation details for engineered or synthetic communities
     attributes:
@@ -1458,6 +1497,20 @@ classes:
         description: Planned perturbations applied to probe or tune community behavior
       measurement_endpoints:
         description: Primary readouts used to evaluate design outcomes
+        multivalued: true
+      counter_selection:
+        description: >-
+          Candidates deliberately excluded during assembly, and why. The schema
+          could express what a community IS but not what it was deliberately
+          NOT, so a screening constraint had only two homes: an
+          `ecological_interaction`, which asserts an edge between members and is
+          wrong when the excluded strains are not members, or prose in `notes`,
+          which no consumer can query (#307).
+
+          Not an interaction: these subjects are outside the community by
+          construction, which is why they live here rather than in
+          `ecological_interactions` (#300, #305).
+        range: CounterSelection
         multivalued: true
       protocol_url:
         description: URL to an assembly or cultivation protocol, if available
