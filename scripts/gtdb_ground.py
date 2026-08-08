@@ -958,14 +958,20 @@ WITHHELD_GROUNDINGS = {
         "GTDB's majority is g__Nitrospira_D at 0.81, a non-type split — the "
         "crosswalk has no unsuffixed g__Nitrospira at all, and the genus's type "
         "species N. marina maps to g__UBA8639 with 1 of 21 genomes. Grounding to "
-        "the type-bearing term would need majority_fraction 0.048, which the "
-        "[0.5, 1.0] bound rejects, so both available answers assert something "
-        "unsupported (#374, #377, #401). The preferred_term is also a descriptor "
-        "rather than a taxon."
+        "the type-bearing term would need majority_fraction 0.048. That is "
+        "REPRESENTABLE — the schema bounds the field [0.0, 1.0], not [0.5, 1.0] "
+        "as an earlier version of this note claimed. What refuses it is this "
+        "module's own `if frac > 0.5`, a policy that only a majority grounds. "
+        "So the choice is open rather than blocked: ground to the non-type "
+        "split GTDB's genomes favour, ground to the type-bearing term at 0.048 "
+        "and let the fraction show how thin it is, or withhold. Withheld until "
+        "somebody decides which of the three this KB means (#374, #377, #401). "
+        "The preferred_term is also a descriptor rather than a taxon."
     ),
     ("East_River_Floodplain_Core_Microbiome.yaml", "Nitrospirae core floodplain members"): (
         "As the AMD_Nitrososphaerota_Archaeal Nitrospira entry: g__Nitrospira_D "
-        "is a non-type split and the type-bearing one is unrepresentable "
+        "is a non-type split, and the type-bearing one is representable but "
+        "refused by this module's majority policy rather than by the schema "
         "(#374, #377, #401). The preferred_term is a descriptor, not a taxon."
     ),
 }
