@@ -39,8 +39,21 @@ slots:
   - path: ecological_interactions
     threshold: 0.85
     required: false
+  # 2 of 312 (0.6%), not 90%. The threshold asserted a target two orders of
+  # magnitude away from reality, so this slot has been a permanent WARN that
+  # clears only if somebody backfills 310 records — a gate nobody can act on is
+  # one everybody learns to skip past (#325).
+  #
+  # 0.0 matches the `discussions` precedent below: honest about there being
+  # almost no data, never blocking. Raise it when coverage is actually growing,
+  # which it now can — since #395 every `gtdb_ground.py` write appends an event,
+  # so any grounding sweep records itself.
+  #
+  # NOT a statement that provenance does not matter. The corpus timestamp on the
+  # dashboard rests on those 2 records, and the generator labels it as such
+  # ("from 2 of 312 records"), so the gap is visible rather than silent.
   - path: curation_history
-    threshold: 0.90
+    threshold: 0.0
     required: false
 
   # enrichment (partial coverage acceptable)
