@@ -63,9 +63,10 @@ NEXT_TASKS_LOOP.md               # Which of those suit an autonomous /goal run
                                  #   (and which need a human decision first)
 prompts/                         # Reusable agent prompts, pasted whole (e.g. `/goal`);
                                  #   backlog-loop.goal.md drives the issue->PR->review->
-                                 #   merge cycle. Kept under 4000 *bytes* for /goal, which is the
-                                 #   stricter reading and what tests/ enforces; the real
-                                 #   ceiling and its unit are unmeasured (#363).
+                                 #   merge cycle. Kept under 4000 *characters* for /goal,
+                                 #   measured on the trimmed string: Claude Code rejects a
+                                 #   longer condition outright rather than truncating it
+                                 #   (Ydr=4000 in 2.1.220; see tests/ for how to re-derive).
 ```
 
 ## Key Patterns
