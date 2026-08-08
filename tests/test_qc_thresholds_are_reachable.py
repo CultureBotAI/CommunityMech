@@ -39,6 +39,15 @@ RECORDS = REPO / "kb/communities"
 # rather than a curation step.
 REACHABLE_FACTOR = 3.0
 
+# ...or by this absolute margin, whichever is larger. A purely multiplicative
+# rule collapses on a near-empty slot: at 0.6% coverage it permits at most 1.9%,
+# so the only legal non-zero target is a rounding error, and a curator who wants
+# "grow curation_history to 10%" is forbidden from saying so. That would make
+# this rule permit exactly the answer this PR chose and nothing else, which is
+# not a rule, it is a rationalisation. The margin keeps a real growth target
+# legal on a near-empty slot while still rejecting 0.90 against 0.006.
+REACHABLE_MARGIN = 0.10
+
 
 def _config() -> dict:
     return yaml.safe_load(CONFIG.read_text(encoding="utf-8"))
@@ -77,10 +86,12 @@ def test_every_threshold_is_reachable(slot: dict):
     threshold = float(slot["threshold"])
     if threshold == 0.0 or actual >= threshold:
         return
-    assert threshold <= actual * REACHABLE_FACTOR, (
+    ceiling = max(actual * REACHABLE_FACTOR, actual + REACHABLE_MARGIN)
+    assert threshold <= ceiling, (
         f"{slot['path']} asks for {threshold:.0%} and the corpus has "
-        f"{actual:.1%} — a factor of {threshold / actual:.0f}. That is not a "
-        f"target, it is a permanent warning. Either lower it to something "
+        f"{actual:.1%} — a factor of {threshold / actual:.0f}, and above the "
+        f"{ceiling:.1%} a slot at this coverage can plausibly reach. That is "
+        f"not a target, it is a permanent warning. Either lower it to something "
         f"curation can close, or set it to 0.0 and say why in a comment, as "
         f"`curation_history` and `discussions` do (#325)."
     )
