@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-06T15:08:35
+# Generation date: 2026-08-08T00:13:47
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2415,6 +2415,16 @@ class FunctionalRoleEnum(EnumDefinitionImpl):
     ELECTROTROPH = PermissibleValue(
         text="ELECTROTROPH",
         description="""Takes up electrons from an extracellular donor such as a cathode (electrotrophy / extracellular electron uptake).""",
+    )
+    PATHOGEN_ANTAGONIST = PermissibleValue(
+        text="PATHOGEN_ANTAGONIST",
+        description="""Suppresses a pathogen in the community — biocontrol. The defining function of the plant-associated SynComs, and the role that was missing when #298 reached for PRIMARY_DEGRADER instead: a biocontrol strain is not thereby shown to degrade complex substrates, so that value asserted a metabolism the source did not report (#301).
+Names the antagonist, not its target. A suppressed pathogen is usually not a community member at all — see #319 on interaction participants that are deliberately outside `taxonomy`.""",
+    )
+    NITROGEN_FIXING_SYMBIONT = PermissibleValue(
+        text="NITROGEN_FIXING_SYMBIONT",
+        description="""Fixes atmospheric nitrogen in symbiosis with a host, as rhizobia do in a legume nodule.
+Distinct from SYNTROPHIC_PARTNER, which #298 used for Bradyrhizobium for want of anything closer. Syntrophy denotes an obligate metabolic coupling — typically interspecies H2 or formate transfer — where neither partner can run the reaction alone. Rhizobial nodulation is a host-symbiont exchange of fixed N for photosynthate, which is a different relation, and PRIMARY_PRODUCER is also wrong because that value is about carbon (#301).""",
     )
 
     _defn = EnumDefinition(
