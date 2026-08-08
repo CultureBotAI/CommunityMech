@@ -36,6 +36,7 @@ the byte and character counts stay equal and the unresolved unit stops mattering
 for this file (#363).
 """
 
+import re
 from pathlib import Path
 
 import pytest
@@ -102,4 +103,70 @@ def test_goal_prompts_are_ascii_only(path):
     assert not offenders, (
         f"{path.name} contains non-ASCII characters {offenders}, which cost extra "
         f"bytes against the /goal budget for no gain — use ASCII punctuation (#363)"
+    )
+
+
+# ---------------------------------------------------------------------------
+# The number and its unit live in two places: `LIMIT` here and the prose in
+# CLAUDE.md. Nothing checked that they agreed, and #363 was filed because they
+# did not — CLAUDE.md documented a *character* limit while this file enforced
+# *bytes*. They agree now; these keep them agreeing.
+#
+# This is the repo's recurring defect: documentation asserting one thing while
+# code enforces another, with no gate between them. CLAUDE.md is loaded as
+# authoritative context every session, so a stale claim there misdirects every
+# reader (#460).
+# ---------------------------------------------------------------------------
+
+CLAUDE_MD = REPO / "CLAUDE.md"
+
+
+def _documented_limit() -> tuple[int, str]:
+    """(number, unit) as CLAUDE.md states them."""
+    text = CLAUDE_MD.read_text()
+    match = re.search(r"Kept under (\d+)\s*\*?(bytes|chars|characters)\*?", text)
+    assert match, (
+        "CLAUDE.md no longer states the /goal budget in the form "
+        "'Kept under N *bytes*'; update this test and the prose together (#363)"
+    )
+    unit = match.group(2)
+    return int(match.group(1)), "chars" if unit.startswith("char") else "bytes"
+
+
+def test_claude_md_and_this_test_agree_on_the_number():
+    documented, _ = _documented_limit()
+    assert documented == LIMIT, (
+        f"CLAUDE.md documents a {documented} /goal budget; this test enforces "
+        f"{LIMIT}. Whichever is right, they cannot disagree (#363)."
+    )
+
+
+def test_claude_md_and_this_test_agree_on_the_unit():
+    """The disagreement #363 was filed for.
+
+    Bytes is the stricter reading, so it is what the guard enforces while the
+    real unit is unknown. CLAUDE.md has to say the same, or a reader budgets in
+    characters and is surprised by a failure they cannot see in their editor.
+    """
+    _, unit = _documented_limit()
+    assert unit == "bytes", (
+        f"CLAUDE.md documents the /goal budget in {unit}; this test enforces "
+        f"bytes, the stricter reading. Reconcile them (#363)."
+    )
+
+
+def test_claude_md_still_records_that_the_ceiling_is_unmeasured():
+    """The one part of #363 no test can close.
+
+    There is no `/goal` command definition on this machine to measure against —
+    the ceiling has to be established by pasting a prompt of known length and
+    observing where truncation starts. Until somebody does, 4000 is a
+    remembered number, and the docs should keep saying so rather than letting it
+    harden into a measured one.
+    """
+    text = CLAUDE_MD.read_text()
+    assert "unmeasured" in text and "#363" in text, (
+        "CLAUDE.md no longer records that the /goal ceiling is unmeasured. If it "
+        "has been measured, cite the measurement here and in "
+        "tests/test_goal_prompt_size.py, and close #363."
     )
