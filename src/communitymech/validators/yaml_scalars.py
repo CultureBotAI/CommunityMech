@@ -95,8 +95,30 @@ class ScalarIssue:
         return f"{self.file}:{self.line}: {self.message}"
 
 
-def find_truncated_scalars(path: Path) -> list[ScalarIssue]:
-    """Report plain scalars in `path` that a mid-line comment cut short."""
+def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[ScalarIssue]:
+    """Report plain scalars in `path` that a mid-line comment cut short.
+
+    `require_gap` reports only comments written *tight* against the value —
+    fewer than two spaces before the `#`. YAML cannot distinguish
+
+        notes: some text #398 here        <- prose the author lost
+        fetch-depth: 0  # need the merge base   <- a comment on purpose
+
+    because both end the value at the `#`. Nothing in the document separates
+    them, which is why the check was scoped to the record trees, where trailing
+    comments are not an idiom and every report is therefore real (#398, #399).
+
+    Elsewhere they are an idiom, and the one thing that does separate them is
+    how they are written. Measured across `conf/`, `.github/workflows/`,
+    `vocab/` and the schema: all 13 deliberate trailing comments use **three or
+    more** spaces before the `#`, and none uses fewer. A `#` swallowed
+    mid-sentence has one or none, because it was typed as part of the prose.
+
+    So this is a convention check, not a proof: an author who writes
+    `notes: text   #398 here` with three spaces defeats it, and one who writes
+    `key: value # comment` with a single space gets a false report. It is
+    offered for trees where the alternative is no checking at all (#400).
+    """
     text = path.read_text()
     lines = text.splitlines()
 
@@ -120,6 +142,16 @@ def find_truncated_scalars(path: Path) -> list[ScalarIssue]:
             continue
         remainder = lines[end.line][end.column :]
         if not remainder.lstrip().startswith("#"):
+            continue
+        if require_gap and event.value != "" and len(remainder) - len(remainder.lstrip()) >= 2:
+            # Two or more spaces: written as a deliberate end-of-line comment.
+            #
+            # Except when the value is EMPTY. `description:  #400 all of it` is
+            # total loss — the whole value became a comment — and no deliberate
+            # end-of-line comment leaves its key valueless, so the ambiguity the
+            # gap rule exists to resolve does not arise. This module's own
+            # header calls that the worst case; relaxing it would have been the
+            # one place the relaxation cost something real (review of #488).
             continue
 
         key = _name_for(lines, end.line)

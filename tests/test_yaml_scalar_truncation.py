@@ -19,6 +19,7 @@ the true positives.
 
 from __future__ import annotations
 
+import importlib.util
 import subprocess
 from pathlib import Path
 
@@ -269,3 +270,150 @@ def test_the_report_names_the_right_field(tmp_path, name, text, key):
     """
     issue = find_truncated_scalars(_write(tmp_path, text))[0]
     assert issue.key == key, name
+
+
+# ---------------------------------------------------------------------------
+# `require_gap`: extending the check to trees where a deliberate trailing
+# comment is an idiom (#400). The strict rule reports 13 of those as
+# truncation, which is why conf/ and .github/ were left unchecked entirely.
+# ---------------------------------------------------------------------------
+
+
+def _cli():
+    """The CLI module, so its directory list and allowlist are not duplicated.
+
+    An earlier version re-declared `_IDIOMATIC_DIRS` here. Shrinking the CLI's
+    list to one directory then dropped the sweep from 24 files to 1 with the
+    whole suite still green — the test asserted over its own private copy
+    (review of #488).
+    """
+    spec = importlib.util.spec_from_file_location(
+        "validate_yaml_scalars", Path(__file__).parent.parent / "scripts/validate_yaml_scalars.py"
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def _idiomatic_files() -> list[Path]:
+    cli = _cli()
+    return [
+        path
+        for directory in cli.IDIOMATIC_DIRS
+        for suffix in ("*.yaml", "*.yml")
+        for path in sorted((Path(__file__).parent.parent / directory).rglob(suffix))
+    ]
+
+
+def test_the_idiomatic_sweep_covers_what_it_claims_to():
+    """A shrinking directory list is the way this check quietly stops checking."""
+    assert len(_idiomatic_files()) >= 20, (
+        f"the non-record sweep covers {len(_idiomatic_files())} files; "
+        f"IDIOMATIC_DIRS has probably shrunk (#400)"
+    )
+
+
+def test_only_the_listed_files_need_relaxing():
+    """The strong rule stays on everything that does not need relaxing.
+
+    The first version relaxed all 21 files to buy the 3 that use a trailing
+    comment. This fails if a *new* file starts using the idiom — which is the
+    moment to decide deliberately whether to quote it or add it to the list,
+    rather than having the whole tree already downgraded (review of #488).
+    """
+    cli = _cli()
+    repo = Path(__file__).parent.parent
+    needs = {
+        path.resolve().relative_to(repo).as_posix()
+        for path in _idiomatic_files()
+        if find_truncated_scalars(path)
+    }
+    assert needs == set(cli.RELAXED_FILES), (
+        f"files needing the gap rule have changed.\n"
+        f"  newly needing it: {sorted(needs - set(cli.RELAXED_FILES))}\n"
+        f"  no longer needing it: {sorted(set(cli.RELAXED_FILES) - needs)}\n"
+        f"Quote the value, or add the file to RELAXED_FILES deliberately (#400)."
+    )
+
+
+def test_the_relaxed_files_are_clean_under_the_gap_rule():
+    """And the reports they lose really are deliberate comments.
+
+    On failure this prints the issues, because the overwhelmingly likely cause
+    is a real truncation somebody just committed — not the convention breaking
+    down. The first version's message sent the reader to re-litigate the
+    heuristic and named neither file nor line (review of #488).
+    """
+    repo = Path(__file__).parent.parent
+    remaining = [
+        issue
+        for name in sorted(_cli().RELAXED_FILES)
+        for issue in find_truncated_scalars(repo / name, require_gap=True)
+    ]
+    assert (
+        remaining == []
+    ), "these look like real truncations, not deliberate comments:\n" + "\n".join(
+        str(issue) for issue in remaining
+    )
+
+
+def test_the_sweep_includes_yml_not_just_yaml():
+    """One file in the sweep is `.yml`, and it is a workflow.
+
+    The PR body claimed two of four trees would otherwise find nothing; that was
+    wrong — 20 of 21 files were `.yaml`. The change is still needed, and was
+    untested until the review pointed out that reverting it broke nothing.
+    """
+    assert any(
+        path.suffix == ".yml" for path in _idiomatic_files()
+    ), "no .yml in the sweep; the suffix expansion may have been reverted (#400)"
+    assert any(path.suffix == ".yaml" for path in _idiomatic_files())
+
+
+def test_the_record_trees_are_never_relaxed():
+    """`require_gap` must not reach kb/. `just validate-scalars` is kb/taxa's only
+    scalar gate — validate-strict's roots are the other two trees."""
+    cli = _cli()
+    assert not any(name.startswith(("kb/", "data/")) for name in cli.RELAXED_FILES)
+    # And the flag is not reachable from the CLI at all any more.
+    assert (
+        "--require-gap"
+        not in Path(Path(__file__).parent.parent / "scripts/validate_yaml_scalars.py").read_text()
+    )
+
+
+@pytest.mark.parametrize(
+    ("label", "text", "expected"),
+    [
+        ("one space is prose the author lost", "key: some text #400 lost here\n", 1),
+        ("no space at all", "key: some text#400 lost here\n", 0),
+        ("two spaces is a deliberate comment", "key: value  # on purpose\n", 0),
+        ("three spaces, as the repo actually writes them", "key: value   # on purpose\n", 0),
+        ("a quoted value is never reported", 'key: "text # inside"  # comment\n', 0),
+        # Total loss stays strict however it is spaced: no deliberate
+        # end-of-line comment leaves its key valueless.
+        ("total loss, two spaces", "description:  #400 all of it\n", 1),
+        ("total loss, one space", "description: #400 all of it\n", 1),
+    ],
+)
+def test_the_gap_rule_case_by_case(tmp_path, label, text, expected):
+    """`#` with no preceding space does not open a comment in YAML at all.
+
+    So `some text#400` keeps its tail and is correctly not reported — the rule
+    only has to separate one space from two.
+    """
+    assert len(find_truncated_scalars(_write(tmp_path, text), require_gap=True)) == expected, label
+
+
+def test_the_gap_rule_still_catches_a_real_truncation(tmp_path):
+    """The check must discriminate, or silencing the aligned block is all it does."""
+    text = (
+        "targets:\n"
+        "  - name: probe\n"
+        "    reason: no clean CHEBI term #398 needs minting\n"
+        "    policy: canonical   # deliberate comment\n"
+    )
+    issues = find_truncated_scalars(_write(tmp_path, text), require_gap=True)
+    assert len(issues) == 1, issues
+    assert issues[0].truncated_to == "no clean CHEBI term"
+    assert "needs minting" in issues[0].lost

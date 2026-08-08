@@ -166,11 +166,27 @@ validate-gtdb FILE:
 #
 # The same check runs inside `just validate-strict` over kb/communities and
 # data/isolates. This form also covers kb/taxa, which that gate does not, and
-# takes explicit paths. Scoped to the record trees on purpose: conf/ and
-# .github/ use deliberate trailing comments, which are indistinguishable from
-# truncation on a plain scalar.
+# takes explicit paths. Scoped to the record trees, where a trailing comment is
+# not an idiom, so every report is real.
 validate-scalars *files:
     PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py {{files}}
+
+# The same check over the non-record trees: conf/, .github/, vocab/, the schema,
+# history/ and examples/ (#400). Part of `just qc`.
+#
+# The STRICT rule applies here too. Only three files use a deliberate trailing
+# comment — conf/id_label_targets.yaml and two workflows — and only those are
+# relaxed, by RELAXED_FILES in the script. The other 21 keep the strong
+# guarantee, which the first version of this spent to buy the three.
+#
+# For those three, the relaxed rule reports only a `#` written tight against the
+# value, under two spaces: measured, every deliberate trailing comment in them
+# uses three or more, while a `#` swallowed mid-sentence has one or none. That
+# is a convention, not a proof — `key: text   #400 lost` slips through — so it
+# is applied as narrowly as possible. A value lost ENTIRELY stays strict
+# regardless of spacing, since no deliberate comment leaves its key valueless.
+validate-scalars-idiomatic:
+    PYTHONPATH=src uv run python scripts/validate_yaml_scalars.py --idiomatic
 
 # Find one NCBITaxon id standing in for two different organisms (#292).
 #
@@ -403,7 +419,7 @@ lint:
 # `validate-references-all` is deliberately NOT here; see `qc-references` (#417).
 #
 # Full QC: lint + test + every offline validator
-qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-terms-all validate-terms-taxa
+qc: lint test validate-all validate-taxa validate-strict validate-gtdb-all validate-scalars validate-scalars-idiomatic validate-terms-all validate-terms-taxa
     @echo "✅ All QC checks passed!"
 
 # Separate from `qc` because it is the one check that cannot pass: it needs the
