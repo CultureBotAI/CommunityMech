@@ -210,13 +210,18 @@ cultivation_setup:
   retention_time_unit: HOURS
   retention_time_type: HYDRAULIC
   instrument_detail: >-
-    Five parallel reactors (R1-R5) inoculated from one mixed community and run for 790
-    days, each on a different combination of thiocyanate loading and molasses supply.
+    Five 1-L water-jacketed continuous stirred-tank reactors (R1-R5), stirred at 270 rpm
+    with a pitched-blade impeller and sparged with filtered air at 900 mL/min, inoculated
+    from one mixed community and run for 790 days. What distinguishes them is molasses:
+    amended, unamended, or switched to unamended partway. Thiocyanate loading was ramped
+    in common, not varied between reactors.
   notes: >-
-    Retention time is the 12 h the experiment settled on; it began at 24 h and was lowered
-    later, so one value understates the history. Thiocyanate feed was ramped across the run
-    - 50 mg/L at 24 h, then 250 mg/L at 12 h, up to 2000 mg/L - and is not reduced to a
-    single number because the ramp is the experimental variable, not a setting. Extracted
+    Retention time is the 12 h the experiment was held at for most of its length, not a
+    constant. The reactors ran batch-fed for 4 days, switched to continuous feeding at a
+    48 h residence time, were lowered from 48 to 12 h over the next 131 days, and were
+    then maintained at 12 h - so `cultivation_mode: CONTINUOUS` describes all but the
+    first 4 days. Thiocyanate feed was ramped across the run, 50 to 2000 mg/L, and is not
+    reduced to a single number because that ramp is the experimental variable. Extracted
     from cached open-access full text; this record was among the 42 that #183 treated as
     access-blocked until the full-text sweep reached them.
   evidence:
@@ -229,9 +234,9 @@ cultivation_setup:
   - reference: PMID:33897653
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Residence times of 24 h were maintained early in the experiments but were later
-      lowered to 12 h
-    explanation: The hydraulic retention time, and that it changed mid-run.
+    snippet: The hydraulic retention time (HRT) of the reactors was sequentially lowered from
+      48 to 12 h, over a period of 131 days, and then maintained at 12 h
+    explanation: The recorded 12 h, and the 48 h start it was ramped down from.
 
 environmental_factors:
 - name: Thiocyanate loading
