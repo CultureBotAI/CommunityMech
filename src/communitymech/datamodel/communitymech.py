@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-08T01:28:55
+# Generation date: 2026-08-10T15:01:31
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -1297,16 +1297,16 @@ class CultivationSetup(YAMLRoot):
     instrument_detail: Optional[str] = None
     manufacturer_model: Optional[str] = None
     working_volume: Optional[float] = None
-    working_volume_unit: Optional[str] = None
+    working_volume_unit: Optional[Union[str, "VolumeUnitEnum"]] = None
     operating_temperature: Optional[float] = None
-    operating_temperature_unit: Optional[str] = None
+    operating_temperature_unit: Optional[Union[str, "TemperatureUnitEnum"]] = None
     feed_or_dilution_rate: Optional[float] = None
-    feed_or_dilution_rate_unit: Optional[str] = None
+    feed_or_dilution_rate_unit: Optional[Union[str, "RateUnitEnum"]] = None
     retention_time: Optional[float] = None
-    retention_time_unit: Optional[str] = None
-    retention_time_type: Optional[str] = None
+    retention_time_unit: Optional[Union[str, "TimeUnitEnum"]] = None
+    retention_time_type: Optional[Union[str, "RetentionTimeTypeEnum"]] = None
     applied_potential: Optional[float] = None
-    applied_potential_unit: Optional[str] = None
+    applied_potential_unit: Optional[Union[str, "PotentialUnitEnum"]] = None
     electrode_detail: Optional[str] = None
     ph_controlled: Optional[Union[bool, Bool]] = None
     do_controlled: Optional[Union[bool, Bool]] = None
@@ -1336,8 +1336,10 @@ class CultivationSetup(YAMLRoot):
         if self.working_volume is not None and not isinstance(self.working_volume, float):
             self.working_volume = float(self.working_volume)
 
-        if self.working_volume_unit is not None and not isinstance(self.working_volume_unit, str):
-            self.working_volume_unit = str(self.working_volume_unit)
+        if self.working_volume_unit is not None and not isinstance(
+            self.working_volume_unit, VolumeUnitEnum
+        ):
+            self.working_volume_unit = VolumeUnitEnum(self.working_volume_unit)
 
         if self.operating_temperature is not None and not isinstance(
             self.operating_temperature, float
@@ -1345,9 +1347,9 @@ class CultivationSetup(YAMLRoot):
             self.operating_temperature = float(self.operating_temperature)
 
         if self.operating_temperature_unit is not None and not isinstance(
-            self.operating_temperature_unit, str
+            self.operating_temperature_unit, TemperatureUnitEnum
         ):
-            self.operating_temperature_unit = str(self.operating_temperature_unit)
+            self.operating_temperature_unit = TemperatureUnitEnum(self.operating_temperature_unit)
 
         if self.feed_or_dilution_rate is not None and not isinstance(
             self.feed_or_dilution_rate, float
@@ -1355,26 +1357,30 @@ class CultivationSetup(YAMLRoot):
             self.feed_or_dilution_rate = float(self.feed_or_dilution_rate)
 
         if self.feed_or_dilution_rate_unit is not None and not isinstance(
-            self.feed_or_dilution_rate_unit, str
+            self.feed_or_dilution_rate_unit, RateUnitEnum
         ):
-            self.feed_or_dilution_rate_unit = str(self.feed_or_dilution_rate_unit)
+            self.feed_or_dilution_rate_unit = RateUnitEnum(self.feed_or_dilution_rate_unit)
 
         if self.retention_time is not None and not isinstance(self.retention_time, float):
             self.retention_time = float(self.retention_time)
 
-        if self.retention_time_unit is not None and not isinstance(self.retention_time_unit, str):
-            self.retention_time_unit = str(self.retention_time_unit)
+        if self.retention_time_unit is not None and not isinstance(
+            self.retention_time_unit, TimeUnitEnum
+        ):
+            self.retention_time_unit = TimeUnitEnum(self.retention_time_unit)
 
-        if self.retention_time_type is not None and not isinstance(self.retention_time_type, str):
-            self.retention_time_type = str(self.retention_time_type)
+        if self.retention_time_type is not None and not isinstance(
+            self.retention_time_type, RetentionTimeTypeEnum
+        ):
+            self.retention_time_type = RetentionTimeTypeEnum(self.retention_time_type)
 
         if self.applied_potential is not None and not isinstance(self.applied_potential, float):
             self.applied_potential = float(self.applied_potential)
 
         if self.applied_potential_unit is not None and not isinstance(
-            self.applied_potential_unit, str
+            self.applied_potential_unit, PotentialUnitEnum
         ):
-            self.applied_potential_unit = str(self.applied_potential_unit)
+            self.applied_potential_unit = PotentialUnitEnum(self.applied_potential_unit)
 
         if self.electrode_detail is not None and not isinstance(self.electrode_detail, str):
             self.electrode_detail = str(self.electrode_detail)
@@ -2137,6 +2143,120 @@ class Dataset(YAMLRoot):
 
 
 # Enumerations
+class TimeUnitEnum(EnumDefinitionImpl):
+    """
+    Unit for a duration slot such as `retention_time`. Symbols, matching how the corpus already writes them (#514).
+    """
+
+    h = PermissibleValue(text="h", description="Hours.")
+    d = PermissibleValue(text="d", description="Days.")
+    min = PermissibleValue(text="min", description="Minutes.")
+
+    _defn = EnumDefinition(
+        name="TimeUnitEnum",
+        description="""Unit for a duration slot such as `retention_time`. Symbols, matching how the corpus already writes them (#514).""",
+    )
+
+
+class VolumeUnitEnum(EnumDefinitionImpl):
+    """
+    Unit for a volume slot such as `working_volume` (#514).
+    """
+
+    L = PermissibleValue(text="L", description="Litres.")
+    mL = PermissibleValue(text="mL", description="Millilitres.")
+    uL = PermissibleValue(
+        text="uL",
+        description="Microlitres. Spelled `uL` rather than with a mu, so the value is typeable.",
+    )
+
+    _defn = EnumDefinition(
+        name="VolumeUnitEnum",
+        description="Unit for a volume slot such as `working_volume` (#514).",
+    )
+
+
+class RateUnitEnum(EnumDefinitionImpl):
+    """
+    Unit for `feed_or_dilution_rate`. Two shapes are legitimate here: a dilution rate is a reciprocal time, a feed
+    rate is a volume per time, and the slot carries both (#514).
+    """
+
+    _defn = EnumDefinition(
+        name="RateUnitEnum",
+        description="""Unit for `feed_or_dilution_rate`. Two shapes are legitimate here: a dilution rate is a reciprocal time, a feed rate is a volume per time, and the slot carries both (#514).""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "1/h", PermissibleValue(text="1/h", description="Per hour - a dilution rate."))
+        setattr(cls, "1/d", PermissibleValue(text="1/d", description="Per day - a dilution rate."))
+        setattr(
+            cls,
+            "L/day",
+            PermissibleValue(text="L/day", description="Litres per day - a feed rate."),
+        )
+        setattr(
+            cls,
+            "mL/min",
+            PermissibleValue(text="mL/min", description="Millilitres per minute - a feed rate."),
+        )
+
+
+class PotentialUnitEnum(EnumDefinitionImpl):
+    """
+    Unit for `applied_potential`. The unit only: the reference electrode a potential is quoted against ("vs SHE", "vs
+    Ag/AgCl") is not a unit and belongs in `electrode_detail`, where it can be stated in full (#514).
+    """
+
+    V = PermissibleValue(text="V", description="Volts.")
+    mV = PermissibleValue(text="mV", description="Millivolts.")
+
+    _defn = EnumDefinition(
+        name="PotentialUnitEnum",
+        description="""Unit for `applied_potential`. The unit only: the reference electrode a potential is quoted against (\"vs SHE\", \"vs Ag/AgCl\") is not a unit and belongs in `electrode_detail`, where it can be stated in full (#514).""",
+    )
+
+
+class RetentionTimeTypeEnum(EnumDefinitionImpl):
+    """
+    Which retention time `retention_time` reports. Not a unit, but the same drift: the slot description has always
+    said "HRT" or "SRT", and a record still arrived saying HYDRAULIC because nothing checked (#514).
+    """
+
+    HRT = PermissibleValue(
+        text="HRT",
+        description="Hydraulic retention time - how long the liquid phase stays in the system.",
+    )
+    SRT = PermissibleValue(
+        text="SRT",
+        description="""Solids retention time - how long biomass stays, which decouples from HRT whenever cells are retained.""",
+    )
+
+    _defn = EnumDefinition(
+        name="RetentionTimeTypeEnum",
+        description="""Which retention time `retention_time` reports. Not a unit, but the same drift: the slot description has always said \"HRT\" or \"SRT\", and a record still arrived saying HYDRAULIC because nothing checked (#514).""",
+    )
+
+
+class TemperatureUnitEnum(EnumDefinitionImpl):
+    """
+    Unit for `operating_temperature`. Symbols, matching how the corpus already writes them, rather than SCREAMING_CASE
+    names (#514).
+    """
+
+    K = PermissibleValue(text="K", description="Kelvin.")
+
+    _defn = EnumDefinition(
+        name="TemperatureUnitEnum",
+        description="""Unit for `operating_temperature`. Symbols, matching how the corpus already writes them, rather than SCREAMING_CASE names (#514).""",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "°C", PermissibleValue(text="°C", description="Degrees Celsius."))
+
+
 class EvidenceItemSupportEnum(EnumDefinitionImpl):
     """
     How the cited reference relates to the curated claim. Distinct from the validity of the claim itself: REFUTE means
@@ -4573,7 +4693,7 @@ slots.cultivationSetup__working_volume_unit = Slot(
     curie=COMMUNITYMECH.curie("working_volume_unit"),
     model_uri=COMMUNITYMECH.cultivationSetup__working_volume_unit,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "VolumeUnitEnum"]],
 )
 
 slots.cultivationSetup__operating_temperature = Slot(
@@ -4591,7 +4711,7 @@ slots.cultivationSetup__operating_temperature_unit = Slot(
     curie=COMMUNITYMECH.curie("operating_temperature_unit"),
     model_uri=COMMUNITYMECH.cultivationSetup__operating_temperature_unit,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "TemperatureUnitEnum"]],
 )
 
 slots.cultivationSetup__feed_or_dilution_rate = Slot(
@@ -4609,7 +4729,7 @@ slots.cultivationSetup__feed_or_dilution_rate_unit = Slot(
     curie=COMMUNITYMECH.curie("feed_or_dilution_rate_unit"),
     model_uri=COMMUNITYMECH.cultivationSetup__feed_or_dilution_rate_unit,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "RateUnitEnum"]],
 )
 
 slots.cultivationSetup__retention_time = Slot(
@@ -4627,7 +4747,7 @@ slots.cultivationSetup__retention_time_unit = Slot(
     curie=COMMUNITYMECH.curie("retention_time_unit"),
     model_uri=COMMUNITYMECH.cultivationSetup__retention_time_unit,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "TimeUnitEnum"]],
 )
 
 slots.cultivationSetup__retention_time_type = Slot(
@@ -4636,7 +4756,7 @@ slots.cultivationSetup__retention_time_type = Slot(
     curie=COMMUNITYMECH.curie("retention_time_type"),
     model_uri=COMMUNITYMECH.cultivationSetup__retention_time_type,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "RetentionTimeTypeEnum"]],
 )
 
 slots.cultivationSetup__applied_potential = Slot(
@@ -4654,7 +4774,7 @@ slots.cultivationSetup__applied_potential_unit = Slot(
     curie=COMMUNITYMECH.curie("applied_potential_unit"),
     model_uri=COMMUNITYMECH.cultivationSetup__applied_potential_unit,
     domain=None,
-    range=Optional[str],
+    range=Optional[Union[str, "PotentialUnitEnum"]],
 )
 
 slots.cultivationSetup__electrode_detail = Slot(

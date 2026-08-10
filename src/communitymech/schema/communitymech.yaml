@@ -36,6 +36,70 @@ types:
     uri: xsd:string
 
 enums:
+  TimeUnitEnum:
+    description: >-
+      Unit for a duration slot such as `retention_time`. Symbols, matching how the corpus
+      already writes them (#514).
+    permissible_values:
+      h:
+        description: Hours.
+      d:
+        description: Days.
+      min:
+        description: Minutes.
+  VolumeUnitEnum:
+    description: Unit for a volume slot such as `working_volume` (#514).
+    permissible_values:
+      L:
+        description: Litres.
+      mL:
+        description: Millilitres.
+      uL:
+        description: Microlitres. Spelled `uL` rather than with a mu, so the value is typeable.
+  RateUnitEnum:
+    description: >-
+      Unit for `feed_or_dilution_rate`. Two shapes are legitimate here: a dilution rate is
+      a reciprocal time, a feed rate is a volume per time, and the slot carries both (#514).
+    permissible_values:
+      1/h:
+        description: Per hour - a dilution rate.
+      1/d:
+        description: Per day - a dilution rate.
+      L/day:
+        description: Litres per day - a feed rate.
+      mL/min:
+        description: Millilitres per minute - a feed rate.
+  PotentialUnitEnum:
+    description: >-
+      Unit for `applied_potential`. The unit only: the reference electrode a potential is
+      quoted against ("vs SHE", "vs Ag/AgCl") is not a unit and belongs in
+      `electrode_detail`, where it can be stated in full (#514).
+    permissible_values:
+      V:
+        description: Volts.
+      mV:
+        description: Millivolts.
+  RetentionTimeTypeEnum:
+    description: >-
+      Which retention time `retention_time` reports. Not a unit, but the same drift: the
+      slot description has always said "HRT" or "SRT", and a record still arrived saying
+      HYDRAULIC because nothing checked (#514).
+    permissible_values:
+      HRT:
+        description: Hydraulic retention time - how long the liquid phase stays in the system.
+      SRT:
+        description: >-
+          Solids retention time - how long biomass stays, which decouples from HRT whenever
+          cells are retained.
+  TemperatureUnitEnum:
+    description: >-
+      Unit for `operating_temperature`. Symbols, matching how the corpus already writes
+      them, rather than SCREAMING_CASE names (#514).
+    permissible_values:
+      "°C":
+        description: Degrees Celsius.
+      K:
+        description: Kelvin.
   EvidenceItemSupportEnum:
     description: >-
       How the cited reference relates to the curated claim. Distinct from the
@@ -1547,11 +1611,13 @@ classes:
         range: float
       working_volume_unit:
         description: Unit for working_volume (e.g. mL, L).
+        range: VolumeUnitEnum
       operating_temperature:
         description: Operating/setpoint temperature of the cultivation system.
         range: float
       operating_temperature_unit:
         description: Unit for operating_temperature (e.g. C, K).
+        range: TemperatureUnitEnum
       feed_or_dilution_rate:
         description: >-
           Feed rate (fed-batch) or dilution rate (continuous/chemostat); disambiguated
@@ -1559,18 +1625,24 @@ classes:
         range: float
       feed_or_dilution_rate_unit:
         description: Unit for feed_or_dilution_rate (e.g. h^-1, mL/h).
+        range: RateUnitEnum
       retention_time:
         description: Hydraulic or solids retention time (see retention_time_type).
         range: float
       retention_time_unit:
         description: Unit for retention_time (e.g. h, d).
+        range: TimeUnitEnum
       retention_time_type:
         description: Which retention time is reported (e.g. "HRT" or "SRT").
+        range: RetentionTimeTypeEnum
       applied_potential:
         description: Applied electrode potential (bioelectrochemical / fuel-cell systems).
         range: float
       applied_potential_unit:
-        description: Unit/reference for applied_potential (e.g. "mV vs SHE", V).
+        description: >-
+          Unit for applied_potential. The unit only - the reference electrode a potential is
+          quoted against goes in electrode_detail (#514).
+        range: PotentialUnitEnum
       electrode_detail:
         description: >-
           Electrode configuration/materials for bioelectrochemical systems
