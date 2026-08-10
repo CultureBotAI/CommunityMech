@@ -220,33 +220,49 @@ ecological_interactions:
 cultivation_setup:
 - system_type: STIRRED_TANK_BIOREACTOR
   instrument_detail: >-
-    A stirred-tank bioreactor in which hydrogen is generated in situ by water electrolysis
-    rather than supplied from a cylinder, so the electrode is part of the cultivation
-    apparatus rather than a downstream measurement.
+    The AiO arm. A stirred-tank bioreactor in which hydrogen is generated in situ by water
+    electrolysis rather than supplied from a cylinder, so the electrode is part of the
+    cultivation apparatus rather than instrumentation around it.
   electrode_detail: >-
-    An "All-in-One" electrode performing in situ water electrolysis. The paper attributes
-    the ceiling on the process to this electrode - its cathode surface area, and the fact
-    that there is one of it - rather than to the organisms.
+    An "All-in-One" (AiO) electrode performing in situ water electrolysis. The paper
+    identifies hydrogen limitation in this arm and points at the electrode - cathode
+    surface area, and the fact that there is one of it - rather than at the organisms.
   notes: >-
-    Deliberately incomplete. `cultivation_mode` is not set: the source establishes the
-    vessel and the hydrogen supply but never states batch, fed-batch or continuous, and
-    guessing would put an unevidenced enum value where a curator would read it as read from
-    the paper. Likewise no `applied_potential` - the electrode is described, its operating
-    voltage is not. Recorded from an abstract-only cache entry; if full text is fetched
-    later these are the two fields to revisit.
+    One of two hydrogen-supply arms, and the lower-yielding one: 0.5 g/L lactate here
+    against 8.1 g/L with direct sparging. Recorded as a separate entry rather than merged,
+    because the comparison is the paper's result and a single setup would attribute the
+    coculture's behaviour to whichever arm happened to be written down. `cultivation_mode`
+    and `applied_potential` are left unset - the source names the vessel and the electrode
+    but never the feeding regime or the operating voltage, and an unevidenced enum value
+    reads to the next curator as taken from the paper. Recorded from an abstract-only
+    cache entry; those two fields are what full text would fill.
   evidence:
-  - reference: PMID:36619880
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: woodii mutants and a Clostridium drakei wild-type strain in a stirred-tank bioreactor
-      for the production of caproic acid from CO2 and H2 via the intermediate lactic acid
-    explanation: Names the vessel the coculture was grown in.
   - reference: PMID:36619880
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Hydrogen for the process was supplied using an All-in-One electrode for in situ
       water electrolysis
     explanation: The electrode is part of the cultivation setup, supplying the H2 substrate.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen limitation was identified in the AiO process
+    explanation: Sources the ceiling to hydrogen supply, stated rather than inferred.
+- system_type: STIRRED_TANK_BIOREACTOR
+  instrument_detail: >-
+    The comparison arm. The same stirred-tank bioreactor with hydrogen sparged in directly
+    from a supply rather than generated at an electrode.
+  notes: >-
+    The higher-yielding arm, at 8.1 g/L lactate against 0.5 g/L for the AiO electrode. It
+    carries no `electrode_detail` because it has no electrode; that absence is the
+    difference between the two entries.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactate concentrations as high as 0.5 g L-1 were achieved with the AiO-electrode,
+      whereas 8.1 g L-1 lactate were produced with direct H2 sparging in a stirred-tank bioreactor
+    explanation: Establishes that there were two arms, and which produced more.
 
 environmental_factors:
 - name: Gas substrate
