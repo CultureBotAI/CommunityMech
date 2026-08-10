@@ -11,12 +11,13 @@ Checks for:
 import json
 import sys
 from collections import defaultdict
+from collections.abc import Iterable
 from enum import Enum
 from pathlib import Path
 
 import yaml
 
-from communitymech.paths import REPO_ROOT
+from communitymech.paths import REPO_ROOT, default_record_roots
 
 
 class IssueType(str, Enum):
@@ -115,8 +116,32 @@ def issue_severity(issue: dict) -> str:
 class NetworkIntegrityAuditor:
     """Audit community YAML files for network data integrity issues."""
 
-    def __init__(self, communities_dir: Path = Path("kb/communities")):
-        self.communities_dir = Path(communities_dir)
+    def __init__(self, communities_dir: Path | Iterable[Path] | None = None):
+        """
+        Args:
+            communities_dir: One directory, or several. Defaults to every
+                id-bearing record directory, sourced from
+                ``scripts/validate_strict.DEFAULT_ROOTS`` rather than restated,
+                so the set of records that are *audited* cannot drift from the
+                set that is *validated*. It had: `data/isolates/**` was added to
+                this workflow's triggers and to the validators, while the audit
+                stayed `kb/communities`-only, so editing an isolate re-ran a
+                suite that never looked at its interactions (#350).
+
+                A single Path is still accepted, because callers and tests pass
+                one directory and `NetworkIntegrityAuditor(tmp_path)` should
+                keep meaning what it always did.
+        """
+        if communities_dir is None:
+            roots = list(default_record_roots())
+        elif isinstance(communities_dir, (str, Path)):
+            roots = [Path(communities_dir)]
+        else:
+            roots = [Path(directory) for directory in communities_dir]
+        self.record_dirs = roots
+        # Retained: callers and the report header read `.communities_dir`, and
+        # the first of the roots is the one they mean by it.
+        self.communities_dir = roots[0] if roots else Path("kb/communities")
         self.issues: dict[str, list[dict]] = defaultdict(list)
 
     def audit_all(self, check_only: bool = False, quiet: bool = False) -> dict[str, list[dict]]:
@@ -135,7 +160,9 @@ class NetworkIntegrityAuditor:
         Returns:
             Dictionary mapping community names to their issues
         """
-        yaml_files = sorted(self.communities_dir.glob("*.yaml"))
+        yaml_files = sorted(
+            path for directory in self.record_dirs for path in directory.glob("*.yaml")
+        )
         verbose = not (check_only or quiet)
 
         if verbose:

@@ -44,8 +44,12 @@ def cli():
 @click.option(
     "--communities-dir",
     type=click.Path(exists=True, file_okay=False, dir_okay=True, path_type=Path),
-    default="kb/communities",
-    help="Directory containing community YAML files",
+    # No default: falling through to None lets the auditor use
+    # `default_record_roots()`, which covers `data/isolates` too. A literal
+    # "kb/communities" here silently overrode that — the audit still reported
+    # 312 records after the auditor itself had been fixed (#350).
+    default=None,
+    help="Directory of records to audit (default: every record directory)",
 )
 @click.option(
     "--check-only",

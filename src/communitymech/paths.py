@@ -35,6 +35,24 @@ REFERENCES_CACHE = REPO_ROOT / "references_cache"
 REPORTS = REPO_ROOT / "reports"
 DOCS = REPO_ROOT / "docs"
 KB_COMMUNITIES = REPO_ROOT / "kb" / "communities"
+DATA_ISOLATES = REPO_ROOT / "data" / "isolates"
+
+
+def default_record_roots() -> list[Path]:
+    """Every directory holding `MicrobialCommunity` records, in one place.
+
+    The validators, the term checks and the network audit each need this list,
+    and each used to carry its own copy. They drifted: `data/isolates/**` was
+    added to `validate_strict`, `validate-all`, `validate-terms-all` and
+    `validate-references-all`, but the network auditor kept its own
+    `Path("kb/communities")` default and never saw an isolate's interactions
+    (#350).
+
+    Defining it once does not by itself keep a *new* directory in step — that is
+    what `tests/test_record_roots_are_shared.py` is for — but it removes the
+    copies that made the drift invisible.
+    """
+    return [KB_COMMUNITIES, DATA_ISOLATES]
 
 
 def looks_like_a_checkout() -> bool:
