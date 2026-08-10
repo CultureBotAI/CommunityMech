@@ -217,6 +217,37 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Hydrogen limitation was identified in the AiO process
     explanation: Supports hydrogen limitation as a curated environmental or engineering factor.
+cultivation_setup:
+- system_type: STIRRED_TANK_BIOREACTOR
+  instrument_detail: >-
+    A stirred-tank bioreactor in which hydrogen is generated in situ by water electrolysis
+    rather than supplied from a cylinder, so the electrode is part of the cultivation
+    apparatus rather than a downstream measurement.
+  electrode_detail: >-
+    An "All-in-One" electrode performing in situ water electrolysis. The paper attributes
+    the ceiling on the process to this electrode - its cathode surface area, and the fact
+    that there is one of it - rather than to the organisms.
+  notes: >-
+    Deliberately incomplete. `cultivation_mode` is not set: the source establishes the
+    vessel and the hydrogen supply but never states batch, fed-batch or continuous, and
+    guessing would put an unevidenced enum value where a curator would read it as read from
+    the paper. Likewise no `applied_potential` - the electrode is described, its operating
+    voltage is not. Recorded from an abstract-only cache entry; if full text is fetched
+    later these are the two fields to revisit.
+  evidence:
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: woodii mutants and a Clostridium drakei wild-type strain in a stirred-tank bioreactor
+      for the production of caproic acid from CO2 and H2 via the intermediate lactic acid
+    explanation: Names the vessel the coculture was grown in.
+  - reference: PMID:36619880
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen for the process was supplied using an All-in-One electrode for in situ
+      water electrolysis
+    explanation: The electrode is part of the cultivation setup, supplying the H2 substrate.
+
 environmental_factors:
 - name: Gas substrate
   value: CO2 and H2
