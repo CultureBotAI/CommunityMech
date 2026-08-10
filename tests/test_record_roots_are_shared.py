@@ -146,3 +146,47 @@ def test_the_workflow_fires_on_every_root(roots):
         "the network-quality workflow audits these directories but does not "
         f"trigger on changes to them: {missing}. Add them to `paths:` (#350)."
     )
+
+
+def test_no_constructor_hardcodes_the_old_root():
+    """The click default was one of two identical sites (#521).
+
+    `BatchReporter.__init__` took `communities_dir: Path = Path("kb/communities")`
+    and passed it to the auditor explicitly, so widening the auditor's default
+    did nothing for it — the same half-fix, in the tool that repairs exactly
+    what the audit reports. `cli.py` builds it as bare `BatchReporter()` in four
+    places, so the literal is what ran every time.
+
+    This walks the whole package rather than naming the two known offenders,
+    because the point is the *shape*: any default that hardcodes a record
+    directory reintroduces the drift `default_record_roots()` exists to remove.
+    `BrowserExporter` is exempt — it is an export feeding the browser UI, and
+    whether isolates belong in a visualisation is #519, not a coverage gap.
+    """
+    # Visualisation and export paths, not gates. Whether isolates belong in a
+    # UMAP or the browser UI is a modelling question (#519), and answering it by
+    # widening a coverage test would decide it silently.
+    exempt = {"browser_export.py", "render.py", "umap_generator.py"}
+    offenders = []
+    for path in sorted((REPO / "src/communitymech").rglob("*.py")):
+        if path.name in exempt:
+            continue
+        tree = ast.parse(path.read_text(encoding="utf-8"))
+        for node in ast.walk(tree):
+            if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                continue
+            arguments = node.args
+            names = [a.arg for a in arguments.posonlyargs + arguments.args + arguments.kwonlyargs]
+            defaults = list(arguments.defaults) + list(arguments.kw_defaults)
+            aligned = names[len(names) - len(defaults) :]
+            for name, default in zip(aligned, defaults, strict=True):
+                if name != "communities_dir" or default is None:
+                    continue
+                rendered = ast.unparse(default)
+                if "kb/communities" in rendered or "data/isolates" in rendered:
+                    offenders.append(f"{path.name}:{node.lineno} {name}={rendered}")
+    assert offenders == [], (
+        "these hardcode a record directory as a default, which overrides "
+        "`default_record_roots()` at the call site and silently narrows what "
+        "gets audited (#350, #521):\n" + "\n".join(offenders)
+    )
