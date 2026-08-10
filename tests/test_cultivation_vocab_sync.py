@@ -76,7 +76,7 @@ def test_cultivation_setup_validates(tmp_path):
                 "working_volume": 1.5,
                 "working_volume_unit": "L",
                 "feed_or_dilution_rate": 0.1,
-                "feed_or_dilution_rate_unit": "h^-1",
+                "feed_or_dilution_rate_unit": "1/h",
                 "ph_controlled": True,
                 "do_controlled": True,
             },
@@ -84,8 +84,10 @@ def test_cultivation_setup_validates(tmp_path):
                 "cultivation_mode": "BATCH",
                 "system_type": "MICROBIAL_FUEL_CELL",
                 "applied_potential": 200.0,
-                "applied_potential_unit": "mV vs SHE",
-                "electrode_detail": "carbon-cloth anode",
+                "applied_potential_unit": "mV",
+                # The reference electrode is not part of the unit: it moved into
+                # `electrode_detail` when these slots became enums (#514).
+                "electrode_detail": "carbon-cloth anode, potential quoted vs SHE",
             },
         ],
     }
