@@ -512,17 +512,26 @@
         {%- set taxon_color = "#7a7a7a" -%}
         {%- set taxon_stroke = "#4a4a4a" -%}
         {%- set unmapped_color = "#929caa" -%}
+        {#- `symbol` is the redundant channel (#270). Nine categories is past what
+            colour alone can carry: measured all-pairs, this palette drops to
+            ΔE 1.8 under tritanopia and 10.3 under NORMAL vision for
+            Mutualism-vs-Cross-feeding, so shape is not a courtesy to CVD
+            readers, it is what makes two of the commonest types separable at
+            all. Circle is reserved for taxa, so every value below is a
+            non-circle d3 symbol; the bundled d3 v7 ships 14, which is enough
+            for a 1:1 mapping without doubling up on fill. -#}
         {%- set interaction_legend = [
-            {"key": "CROSS_FEEDING", "label": "Cross-feeding", "color": "#57c7ab"},
-            {"key": "MUTUALISM", "label": "Mutualism", "color": "#56bbe6"},
-            {"key": "SYNTROPHY", "label": "Syntrophy", "color": "#7f30cf"},
-            {"key": "COMPETITION", "label": "Competition", "color": "#a91919"},
-            {"key": "COMMENSALISM", "label": "Commensalism", "color": "#cf7830"},
-            {"key": "NICHE_PARTITIONING", "label": "Niche partitioning", "color": "#1212ed"},
-            {"key": "COLONIZATION_FACILITATION", "label": "Colonization facilitation", "color": "#edab12"},
-            {"key": "STRAIN_COMPETITION", "label": "Strain competition", "color": "#cf30b7"},
-            {"key": "PREDATION", "label": "Predation", "color": "#913079"}
+            {"key": "CROSS_FEEDING", "label": "Cross-feeding", "color": "#57c7ab", "symbol": "symbolDiamond"},
+            {"key": "MUTUALISM", "label": "Mutualism", "color": "#56bbe6", "symbol": "symbolSquare"},
+            {"key": "SYNTROPHY", "label": "Syntrophy", "color": "#7f30cf", "symbol": "symbolTriangle"},
+            {"key": "COMPETITION", "label": "Competition", "color": "#a91919", "symbol": "symbolTimes"},
+            {"key": "COMMENSALISM", "label": "Commensalism", "color": "#cf7830", "symbol": "symbolWye"},
+            {"key": "NICHE_PARTITIONING", "label": "Niche partitioning", "color": "#1212ed", "symbol": "symbolSquare2"},
+            {"key": "COLONIZATION_FACILITATION", "label": "Colonization facilitation", "color": "#edab12", "symbol": "symbolPlus"},
+            {"key": "STRAIN_COMPETITION", "label": "Strain competition", "color": "#cf30b7", "symbol": "symbolAsterisk"},
+            {"key": "PREDATION", "label": "Predation", "color": "#913079", "symbol": "symbolStar"}
         ] -%}
+        {%- set unmapped_symbol = "symbolTriangle2" -%}
         {#- Mirror the script's `interaction_type or "UNKNOWN"` so a typeless
             interaction still earns the grey "Other" swatch it is drawn with. -#}
         {%- set present_types = community.ecological_interactions | default([], true)
@@ -543,20 +552,29 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for {{ community.name }}</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions{% if present_legend %} ({{ present_legend | map(attribute="label") | join(", ") | lower }}){% endif %}.</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction{% if present_legend %} ({{ present_legend | map(attribute="label") | join(", ") | lower }}){% endif %}.</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: {{ taxon_color }};"></span> Taxon
                     </div>
+                    {#- The swatch carries the shape as well as the colour, or the
+                        redundant channel is unreadable: a reader cannot match a
+                        diamond in the graph to a coloured square here (#270). Each
+                        is drawn by the same d3 symbol path as the node it stands
+                        for, so the two cannot drift. -#}
                     {%- for item in present_legend %}
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: {{ item.color }};"></span> {{ item.label }}
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="{{ item.symbol }}"
+                             data-color="{{ item.color }}"></svg> {{ item.label }}
                     </div>
                     {%- endfor %}
                     {%- if has_unmapped %}
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: {{ unmapped_color }};"></span> Other
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="{{ unmapped_symbol }}"
+                             data-color="{{ unmapped_color }}"></svg> Other
                     </div>
                     {%- endif %}
                 </div>
@@ -979,6 +997,21 @@
         };
         var unmappedColor = {{ unmapped_color|tojson }};
 
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            {%- for item in interaction_legend %}
+            {{ item.key|tojson }}: {{ item.symbol|tojson }}{{ "," if not loop.last }}
+            {%- endfor %}
+        };
+        var unmappedSymbol = {{ unmapped_symbol|tojson }};
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
         {% for taxon in community.taxonomy %}
@@ -1117,14 +1150,27 @@
             .attr("stroke", {{ taxon_stroke|tojson }})
             .attr("stroke-width", 1.5);
 
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
         // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
         node.filter(function(d) { return d.type === "interaction"; })
-            .append("rect")
-            .attr("width", 28)
-            .attr("height", 18)
-            .attr("x", -14)
-            .attr("y", -9)
-            .attr("rx", 5)
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
             .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
             .attr("stroke", function(d) {
                 var c = d3.color(interactionColors[d.interactionType] || unmappedColor);

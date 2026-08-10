@@ -557,17 +557,21 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Synechococcus-Azotobacter Photoproduction Mutualism</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and colored rectangles represent ecological interactions (cross-feeding, mutualism).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
                         <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #57c7ab;"></span> Cross-feeding
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
                     </div>
                     <div class="legend-item">
-                        <span class="legend-swatch" style="background: #56bbe6;"></span> Mutualism
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolSquare"
+                             data-color="#56bbe6"></svg> Mutualism
                     </div>
                 </div>
             </div>
@@ -1160,6 +1164,27 @@
         };
         var unmappedColor = "#929caa";
 
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "COMMENSALISM": "symbolWye",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus",
+            "STRAIN_COMPETITION": "symbolAsterisk",
+            "PREDATION": "symbolStar"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
         
@@ -1393,14 +1418,27 @@
             .attr("stroke", "#4a4a4a")
             .attr("stroke-width", 1.5);
 
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
         // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
         node.filter(function(d) { return d.type === "interaction"; })
-            .append("rect")
-            .attr("width", 28)
-            .attr("height", 18)
-            .attr("x", -14)
-            .attr("y", -9)
-            .attr("rx", 5)
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
             .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
             .attr("stroke", function(d) {
                 var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
