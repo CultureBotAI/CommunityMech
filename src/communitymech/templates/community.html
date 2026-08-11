@@ -513,13 +513,32 @@
         {%- set taxon_stroke = "#4a4a4a" -%}
         {%- set unmapped_color = "#929caa" -%}
         {#- `symbol` is the redundant channel (#270). Nine categories is past what
-            colour alone can carry: measured all-pairs, this palette drops to
-            ΔE 1.8 under tritanopia and 10.3 under NORMAL vision for
-            Mutualism-vs-Cross-feeding, so shape is not a courtesy to CVD
-            readers, it is what makes two of the commonest types separable at
-            all. Circle is reserved for taxa, so every value below is a
-            non-circle d3 symbol; the bundled d3 v7 ships 14, which is enough
-            for a 1:1 mapping without doubling up on fill. -#}
+            colour alone can carry, so shape is not a courtesy to CVD readers.
+            Circle is reserved for taxa, so every value below is a non-circle d3
+            symbol; the bundled d3 v7 ships 14, enough for a 1:1 mapping without
+            doubling up on fill.
+
+            Shape does NOT, however, excuse the normal-vision floor, and an
+            earlier version of this comment got that wrong: it cited
+            Mutualism-vs-Cross-feeding at ΔE 10.3 under NORMAL vision as an
+            argument FOR shape. Shape rescues the CVD case; a full-colour reader
+            who cannot separate the two commonest types is a colour problem, and
+            the dataviz rubric is explicit that secondary encoding does not
+            excuse it. So that 10.3 is an open defect, tracked in #532, not a
+            justification.
+
+            It is not a one-colour fix. Re-stepping Mutualism to #2a7fd4 clears
+            the rubric's normal-vision check and then fails THIS repo's
+            all-pairs gate at ΔE 5.5 against #7f30cf under deuteranopia — the
+            two checks use different metrics (OKLab ΔE×100 adjacent-pairs vs
+            CIELAB ΔE76 all-pairs) and disagree about which pairs are close.
+            A search over ~200k saturated warm pairs found none clearing both.
+            Nine mutually separable hues is at or past what the space allows,
+            which is what the rubric means by folding a 9th series into "Other".
+
+            Do not retune by eye, and do not retune one colour at a time.
+            `node scripts/validate_palette.js "<hexes>"` from the dataviz skill
+            and `tests/test_network_palette.py` must BOTH pass. -#}
         {%- set interaction_legend = [
             {"key": "CROSS_FEEDING", "label": "Cross-feeding", "color": "#57c7ab", "symbol": "symbolDiamond"},
             {"key": "MUTUALISM", "label": "Mutualism", "color": "#56bbe6", "symbol": "symbolSquare"},
