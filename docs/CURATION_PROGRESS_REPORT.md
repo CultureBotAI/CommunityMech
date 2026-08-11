@@ -259,7 +259,7 @@ poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 
 1. **Validation**:
    ```bash
-   # NOT FUNCTIONAL (#410): scripts/curate_evidence_with_pdfs.py --quick
+   # REMOVED in #410 (use cache_fulltext.py + just validate-references): scripts/curate_evidence_with_pdfs.py --quick
    just validate-all
    ```
 
@@ -313,10 +313,10 @@ poetry run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml --au
 poetry run python scripts/batch_snippet_fixer.py --phase 1 --auto-approve
 
 # Validate file
-# NOT FUNCTIONAL (#410): scripts/curate_evidence_with_pdfs.py --file FILENAME.yaml
+# REMOVED in #410 (use cache_fulltext.py + just validate-references): scripts/curate_evidence_with_pdfs.py --file FILENAME.yaml
 
 # Validate all files (quick)
-# NOT FUNCTIONAL (#410): scripts/curate_evidence_with_pdfs.py --quick
+# REMOVED in #410 (use cache_fulltext.py + just validate-references): scripts/curate_evidence_with_pdfs.py --quick
 ```
 
 ---

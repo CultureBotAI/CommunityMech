@@ -198,10 +198,11 @@ uv run python scripts/intelligent_snippet_fixer.py --file FILENAME.yaml
 # 2. Review suggestions carefully, apply best ones
 
 # 3. Validate
-# ⚠️ NOT FUNCTIONAL — this script imports communitymech.literature_enhanced,
-# which has never existed, so it fails at import. Tracked in #410.
-# (The command below is also stale: this repo uses uv, not poetry.)
-uv run python scripts/curate_evidence_with_pdfs.py --file FILENAME.yaml
+# ⚠️ REMOVED in #410. curate_evidence_with_pdfs.py never worked — it imported
+# communitymech.literature_enhanced, a module absent from every commit — and the
+# file itself is now gone, so this is what to run instead:
+uv run python scripts/cache_fulltext.py PMID:12345   # only if snippets need full text
+just validate-references kb/communities/FILENAME.yaml
 
 # 4. Schema check
 just validate kb/communities/FILENAME.yaml

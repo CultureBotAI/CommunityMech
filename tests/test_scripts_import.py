@@ -305,3 +305,46 @@ def test_the_replacement_named_in_those_docstrings_exists():
         "the docstrings contrast the phantom fetch_paper with this one; if it is "
         "gone or renamed, they now describe nothing"
     )
+
+
+def test_docs_do_not_reference_a_script_that_is_not_there():
+    """Nothing walked `docs/` for script references until #523.
+
+    #410's guard and its replacement both check `scripts/` — `print` and
+    `subprocess` calls in Python files. A curator following a runbook is reading
+    prose, which is precisely where neither looks. The five removed scripts were
+    named in three docs, and only a hand grep found them.
+
+    Deliberately checks *existence*, not tone. An earlier version of this idea
+    tried to flag "unwarned" instructions and I filed #523 against
+    `AUTOMATION_TOOLS.md` on that basis — wrongly, because the warning sat two
+    lines above the command and a line-scoped scan could not see it. Whether a
+    reference is adequately caveated is a judgement; whether the file exists is
+    a fact, and only the fact belongs in a test.
+    """
+    import re
+
+    docs = REPO / "docs"
+    # The one file whose job is to record what was removed. It carries a
+    # document-level banner — "everything below this line describes software
+    # that was never in this repository" — which a per-line check cannot see,
+    # and rewriting it line by line would destroy the record it exists to keep.
+    # Every other doc has to keep its references live.
+    historical = {"pdf_fetching_capability.md"}
+    pattern = re.compile(r"scripts/([A-Za-z0-9_]+\.py)")
+    missing = []
+    for doc in sorted(docs.rglob("*.md")):
+        if doc.name in historical:
+            continue
+        for number, line in enumerate(doc.read_text(encoding="utf-8").splitlines(), 1):
+            for name in pattern.findall(line):
+                if (SCRIPTS / name).exists():
+                    continue
+                # A line may legitimately name a removed script while saying so.
+                if any(word in line for word in ("REMOVED", "removed", "deleted")):
+                    continue
+                missing.append(f"{doc.relative_to(REPO)}:{number} -> scripts/{name}")
+    assert missing == [], (
+        "these docs reference a script that is not in `scripts/`, without "
+        "saying it was removed (#523):\n" + "\n".join(missing)
+    )
