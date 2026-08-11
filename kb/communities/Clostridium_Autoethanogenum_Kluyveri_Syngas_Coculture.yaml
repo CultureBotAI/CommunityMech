@@ -232,6 +232,53 @@ ecological_interactions:
     snippet: continuous removal of ethanol by C. kluyveri
     explanation: Supports the inferred thermodynamic pull mechanism caused by C. kluyveri ethanol
       consumption.
+cultivation_setup:
+- cultivation_mode: CHEMOSTAT
+  system_type: STIRRED_TANK_BIOREACTOR
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  ph_controlled: true
+  temperature_controlled: true
+  instrument_detail: >-
+    Continuous stirred-tank reactors, CO/syngas-fed, chosen so pH, temperature and medium
+    composition could be held constant while growth rate was set by dilution. The coculture
+    was assembled inside the reactor rather than co-inoculated: C. autoethanogenum ran alone
+    on CO for 20 days, then C. kluyveri was added at 5% v/v under the same conditions.
+  controls_notes: >-
+    pH and temperature under active control from the control tower. Reactors were flushed
+    with N2 at 20 mL/min for 3 hours before inoculation to establish anaerobic conditions.
+  notes: >-
+    This is the coculture's own setup, not a member's: the source runs both organisms
+    together in the reactor and the chemostat data it reports are co-cultivation data. Worth
+    stating because the neighbouring #183 candidate,
+    Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture, was rejected for the opposite
+    reason - its cited paper never mentions the second member at all, so its rich bioreactor
+    methods describe a monoculture (#529).
+
+    Dilution rate is not recorded here. The paper varies it across runs and reports the
+    conditions per run in Table 1, which the cached text carries only as a caption; a single
+    value would assert a steady state the paper does not claim for the whole study.
+  evidence:
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Experiments were performed in continuous stirred-tank reactors (CSTR) to accurately
+      control environmental conditions (pH, temperature, stable medium composition) and microbial
+      growth rates
+    explanation: The vessel, and that pH and temperature were controlled rather than merely measured.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constant pH of 6.2 and 37 °C, for 20 days. After this period, the reactor was inoculated
+      (5% v/v) with a culture of C. kluyveri for the establishment of the synthetic co-culture
+    explanation: The operating temperature, and that the coculture was built up inside the reactor.
+  - reference: PMID:31792266
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: reactors were connected to the control tower, initiating temperature (37 °C) and pH
+      control
+    explanation: Sources ph_controlled and temperature_controlled.
+
 environmental_factors:
 - name: Gas substrate
   value: carbon monoxide or syngas
