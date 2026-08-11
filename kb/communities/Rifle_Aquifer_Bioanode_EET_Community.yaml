@@ -280,6 +280,41 @@ ecological_interactions:
       in the Rifle aquifer that may have the potential to mediate mineral redox
       transformations
     explanation: Supports the selective enrichment of EET-capable organisms.
+cultivation_setup:
+- system_type: BIOELECTROCHEMICAL_SYSTEM
+  instrument_detail: >-
+    Electroactive biofilms grown on poised anodes and maintained for almost four years, with
+    acetate as the sole carbon source. Both the anode biofilm and the planktonic fraction
+    were sampled, so the electrode is not merely a probe - it is the growth surface that
+    selects the community this record describes.
+  electrode_detail: >-
+    Anodes poised mostly at -0.2 to -0.25 V versus the standard hydrogen electrode, a range
+    chosen to mimic the redox potential of iron-oxide minerals.
+  notes: >-
+    `applied_potential` is left unset and the value kept in `electrode_detail`. The source
+    gives a range rather than a setpoint, and qualifies it with "mostly", so a single number
+    would assert a poise the four-year run did not hold.
+
+    This is also the case #517 anticipated: the potential is only meaningful against its
+    reference electrode, and "vs SHE" is not a unit. Keeping the reference in
+    `electrode_detail` is what lets the range be stated in full rather than compressed into
+    a value-plus-suffix.
+
+    No temperature or working volume - the source characterises the communities and does not
+    restate the reactor's dimensions.
+
+    Predicted curatable in #543 on the grounds that a bioanode implies an electrochemical
+    cell, and it is: the biofilms were established and maintained rather than sampled from
+    the aquifer directly.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Electroactive biofilms were established and maintained for almost 4 years on anodes
+      poised mostly at -0.2 to -0.25 V vs. SHE, a range that mimics the redox potential of
+      iron-oxide minerals, using acetate as the sole carbon source
+    explanation: The electrode poise and its reference, the duration, and the sole carbon source.
+
 environmental_factors:
 - name: Anode redox potential
   value: -0.2 to -0.25 V vs SHE
