@@ -22,6 +22,13 @@ import re
 import sys
 from pathlib import Path
 
+# `python scripts/foo.py` does not put `src/` on the path.
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+
+from communitymech.curate.curation_event import (  # noqa: E402
+    append_curation_event_text,
+)
+
 DRY = "--dry-run" in sys.argv
 COMMUNITIES = Path("kb/communities")
 
@@ -69,7 +76,23 @@ def drop_file(path: Path) -> int:
         j += 1
 
     if not DRY:
-        path.write_text("\n".join(cleaned) + "\n")
+        # Leave a trace. These edits delete curated annotations, and a deletion
+        # is the case where "what did this and why" is least recoverable from
+        # the record itself — the removed lines are simply not there any more
+        # (#325). Text append rather than a YAML round-trip because this whole
+        # module is a line editor; the shared helper owns the insertion rules
+        # (#526).
+        text = append_curation_event_text(
+            "\n".join(cleaned) + "\n",
+            curator="drop_obsolete_go_bp.py",
+            action="DROP_OBSOLETE_GO_BP",
+            changes=(
+                f"Dropped {removed} generic obsolete-GO biological_process "
+                f"annotation(s) that the id-label cleanup had remapped to "
+                f"high-level parents carrying no mechanistic information (#182)."
+            ),
+        )
+        path.write_text(text)
     return removed
 
 
