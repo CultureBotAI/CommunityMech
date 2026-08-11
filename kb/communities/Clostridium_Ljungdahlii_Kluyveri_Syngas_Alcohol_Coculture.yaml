@@ -292,6 +292,56 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: two bioprocesses compete for intermediates
     explanation: Supports competition for carboxylate intermediates between chain elongation and biological reduction.
+cultivation_setup:
+- cultivation_mode: CONTINUOUS
+  system_type: STIRRED_TANK_BIOREACTOR
+  manufacturer_model: Biostat M (Braun, Allentown, PA), 2 L vessel
+  working_volume: 1.0
+  working_volume_unit: L
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  ph_controlled: true
+  temperature_controlled: true
+  instrument_detail: >-
+    A single-stage 2 L Biostat M run at 1 L working volume, fed continuously from a medium
+    reservoir and sparged with syngas (60% CO, 35% H2, 5% CO2) into the headspace, with the
+    gas recirculated. Temperature held by water jacket.
+  controls_notes: >-
+    pH controlled by 2 M KOH alone until hour 1510, and by a second addition thereafter.
+    Agitation began at 200 rpm and was raised to 400 rpm at hour 475.
+  notes: >-
+    Recorded as CONTINUOUS rather than CHEMOSTAT even though the vessel is sold as one. Cells
+    were retained, giving a bleed rate of a quarter of the applied dilution rate, so biomass
+    is not washed out at the dilution rate and the defining property of a chemostat does not
+    hold. The paper's own word for the equipment is not evidence about how it was operated.
+
+    `feed_or_dilution_rate` is left unset for the same reason the ramped cases elsewhere are:
+    it was 80 mL/h in Phase 1 and 40 mL/h in Phases 2-5, and a single value would assert a
+    steady state across a run whose phases are the experiment.
+
+    Nothing here comes from the serum-bottle passages in the same paper - 160 mL bottles at
+    10, 20 or 50 mL working volume, 35 °C. Those are the two strains' separate precultures,
+    not the coculture, and recording them as the community's setup is the error class #529
+    was filed for.
+  evidence:
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One 2 L Biostat M chemostat (Braun, Allentown, PA) with a 1 L working volume was
+      used for the reactor experiment
+    explanation: The vessel, its model and the working volume.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The temperature was controlled at 37°C by a water jacket
+    explanation: Sources operating_temperature and temperature_controlled.
+  - reference: PMID:27877166
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: this setup resulted in a rate of cell withdrawal (bleed rate) of 1/4 of the applied
+      dilution rate
+    explanation: Cell retention, which is why the mode is CONTINUOUS and not CHEMOSTAT.
+
 environmental_factors:
 - name: Syngas feed
   value: 60% CO, 35% H2, and 5% CO2
