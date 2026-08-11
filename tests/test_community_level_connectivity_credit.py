@@ -153,20 +153,25 @@ def test_the_worked_example_still_shows_the_limit():
     assert any(i.get("scope") == "COMMUNITY_LEVEL" for i in interactions)
 
 
-def test_the_schema_still_cannot_name_participants():
-    """The root cause, and the thing whose arrival should retire this file.
+def test_the_schema_can_now_name_participants():
+    """#312's refinement landed; this file records what it did not change.
 
-    `EcologicalInteraction` has `source_taxon`/`target_taxon` and nothing else,
-    which is why the credit can only be all-or-nothing. When
-    `participating_taxa` (or whatever #307 settles on) lands, this fails — and
-    the credit rule should become precise in the same change.
+    `participating_taxa` is on `EcologicalInteraction` and the auditor narrows
+    the community-level credit to the members it names. The numbers above are
+    unaffected because no record uses it yet — absent or empty still means
+    "every member", which is what makes the slot safe to land ahead of curation.
+
+    When records do start naming participants, `credited_solely_by_the_rule`
+    should fall and the bound in
+    `test_the_share_credited_solely_by_the_rule_has_not_stepped_up` will need
+    re-measuring downward rather than widening. See tests/test_participating_taxa.py.
     """
     schema = yaml.safe_load(
         (REPO / "src/communitymech/schema/communitymech.yaml").read_text(encoding="utf-8")
     )
     attributes = schema["classes"]["EcologicalInteraction"]["attributes"]
-    assert "participating_taxa" not in attributes, (
-        "EcologicalInteraction can now name its participants, so the "
-        "all-or-nothing credit in audit_community should be narrowed to them "
-        "and this file retired (#312, #307)."
+    assert "participating_taxa" in attributes, (
+        "the slot #312 asked for is gone again; the all-or-nothing credit in "
+        "audit_community has nothing to narrow against"
     )
+    assert attributes["participating_taxa"].get("multivalued") is True

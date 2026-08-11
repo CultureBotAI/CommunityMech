@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-08T01:28:55
+# Generation date: 2026-08-10T18:01:58
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -693,6 +693,9 @@ class EcologicalInteraction(YAMLRoot):
     scope: Optional[Union[str, "InteractionScopeEnum"]] = "PAIRWISE"
     source_taxon: Optional[Union[dict, TaxonDescriptor]] = None
     target_taxon: Optional[Union[dict, TaxonDescriptor]] = None
+    participating_taxa: Optional[
+        Union[Union[dict, TaxonDescriptor], list[Union[dict, TaxonDescriptor]]]
+    ] = empty_list()
     metabolites: Optional[
         Union[Union[dict, MetaboliteDescriptor], list[Union[dict, MetaboliteDescriptor]]]
     ] = empty_list()
@@ -730,6 +733,13 @@ class EcologicalInteraction(YAMLRoot):
 
         if self.target_taxon is not None and not isinstance(self.target_taxon, TaxonDescriptor):
             self.target_taxon = TaxonDescriptor(**as_dict(self.target_taxon))
+
+        self._normalize_inlined_as_dict(
+            slot_name="participating_taxa",
+            slot_type=TaxonDescriptor,
+            key_name="preferred_term",
+            keyed=False,
+        )
 
         self._normalize_inlined_as_dict(
             slot_name="metabolites",
@@ -3797,6 +3807,15 @@ slots.ecologicalInteraction__target_taxon = Slot(
     model_uri=COMMUNITYMECH.ecologicalInteraction__target_taxon,
     domain=None,
     range=Optional[Union[dict, TaxonDescriptor]],
+)
+
+slots.ecologicalInteraction__participating_taxa = Slot(
+    uri=COMMUNITYMECH.participating_taxa,
+    name="ecologicalInteraction__participating_taxa",
+    curie=COMMUNITYMECH.curie("participating_taxa"),
+    model_uri=COMMUNITYMECH.ecologicalInteraction__participating_taxa,
+    domain=None,
+    range=Optional[Union[Union[dict, TaxonDescriptor], list[Union[dict, TaxonDescriptor]]]],
 )
 
 slots.ecologicalInteraction__metabolites = Slot(
