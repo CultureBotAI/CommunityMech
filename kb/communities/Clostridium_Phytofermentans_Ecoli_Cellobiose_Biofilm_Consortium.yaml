@@ -249,6 +249,58 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: C. phytofermentans resided primarily in the anoxic bottom of the biofilm
     explanation: Supports spatial oxygen niche partitioning in the consortium biofilm.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  working_volume: 10.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    The planktonic arm. 18 x 150 mm Balch anaerobic culture tubes holding 10 mL of mGS-2
+    medium, shaken at 150 rpm. Medium was held in a Bactron II anaerobic chamber under
+    5% H2 / 5% CO2 / 90% N2 until use.
+  notes: >-
+    SERUM_BOTTLE is the nearest enum value: a Balch tube is a butyl-stoppered anaerobic
+    culture vessel of the same kind, and the enum has no tube. The exact vessel is in
+    instrument_detail so the approximation is visible rather than implied.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Planktonic experiments were performed using 18 × 150 mm Balch anaerobic culture
+      tubes in containing 10 mL of mGS-2 medium in a shaker operated at 150 revolutions per
+      minute and 37 °C
+    explanation: Vessel, working volume, agitation and temperature for the planktonic arm.
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Media was kept in an anaerobic chamber (Bactron II, Sheldon Manufacturing Inc.)
+      with 5% H2, 5% CO2, and 90% N2 until it was used
+    explanation: How anaerobiosis was maintained up to inoculation.
+- cultivation_mode: BATCH
+  system_type: OTHER
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    The biofilm arm, and the one the record is about. Biofilms on medium plates, moved to a
+    fresh plate every 2 days, incubated at 37 °C in an anoxic chamber, an oxic incubator, or
+    both depending on the experiment - the oxygen regime is the variable, not a setting.
+  notes: >-
+    A surface-attached biofilm on a plate has no enum value; OTHER with the description is
+    honest where FLASK or a reactor type would not be. Recorded as a second entry rather
+    than merged with the planktonic arm because the two are different experiments on the
+    same consortium, and the paper's result is the contrast between them - temporal
+    partitioning of anaerobic and aerobic metabolism within the biofilm.
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biofilms were incubated at 37 °C in an anoxic chamber and/or oxic incubator depending
+      on experiment. Biofilm cultures were aseptically transferred to a new medium plate every
+      2 days
+    explanation: Temperature, the alternating oxygen regime, and the 2-day transfer schedule.
+
 environmental_factors:
 - name: Modified GS-2 medium
   value: mGS-2
