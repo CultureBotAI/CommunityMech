@@ -6,17 +6,35 @@ The CommunityMech literature system integrates a 6-tier cascading PDF discovery 
 
 ## Integration Status
 
-⚠️ **NOT FUNCTIONAL** — the scripts described below cannot run.
+⚠️ **REMOVED** — the scripts described below no longer exist, and never worked.
 
 All of them begin `from communitymech.literature_enhanced import
 EnhancedLiteratureFetcher`, and that module has never existed in any commit: it
 was absent from the repo's first commit (`7c658e6`), which is also where these
 scripts were added. They fail at import, so even `--help` does not work.
 
+They were deleted in #410. Porting them was not an import swap: their CLI flags
+advertise a 6-tier PDF cascade with "fallback mirrors", and `LiteratureFetcher`
+has no PDF surface at all, so a port meant deciding whether to *build* that
+capability. The answer was no — retrieving publisher PDFs through mirrors is not
+something to add speculatively, and the real need behind it is open-access full
+text, which `scripts/cache_fulltext.py` already serves. The #183 sweep used it to
+cache full text for 64 of 125 references.
+
+**Use instead:**
+
+| Removed script | What to use |
+|---|---|
+| `test_pdf_fetching.py` | nothing — it tested the cascade that was never committed |
+| `curate_evidence_with_pdfs.py` | `scripts/cache_fulltext.py`, then `just validate-references` |
+| `quick_literature_review.py` | `just validate-references FILE` |
+| `review_literature.py` | `just validate-references FILE` |
+| `extract_evidence_snippets.py` | no direct replacement; snippets are curated by hand against the cache |
+
 This page previously read "✅ VALIDATED — Successfully integrated and tested",
 which was never true of the committed code.
 
-**Everything below this line describes software that is not in this repository**,
+**Everything below this line describes software that was never in this repository**,
 including the success rates, the per-tier table and the "5/5 DOIs" test results.
 Those numbers cannot have come from committed code and are retained only as a
 record of what was claimed. Do not cite them.
