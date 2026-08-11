@@ -181,6 +181,43 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: succession in vitro was highly reproducible amongst replicates
     explanation: Supports reproducible temporal assembly in the reconstructed natural-rind community.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: >-
+    The in vitro arm. Communities reconstructed on cheese curd agar, inoculated with roughly
+    equal numbers of each member and followed over time; growth monitored by removing agar
+    plugs from 96-well plates, homogenising in PBS and counting CFUs. Plates at room
+    temperature.
+  notes: >-
+    `system_type` is OTHER because an agar-plug community in a 96-well plate has no enum
+    value, and FLASK or any reactor type would assert a liquid culture this is not. The
+    format is in instrument_detail instead.
+
+    No operating_temperature: the source says "room temperature" rather than a figure, and
+    turning that into 20 or 25 °C would invent precision the paper declined to give.
+
+    This record covers an in situ survey as well as this in vitro reconstruction, and only
+    the reconstruction is a cultivation. The in situ side is sampled cheese rind - the same
+    distinction that made Avena_Rhizosphere unenrichable (#543), except that here the paper
+    supplies both and only one of them belongs in this slot.
+
+    The medium is the point rather than a detail: cheese curd agar is what makes the in vitro
+    system recapitulate the in situ succession, which is the paper's central claim.
+  evidence:
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We inoculated approximately equal numbers of each together onto cheese curd agar and
+      followed membership of the in vitro rind communities over time
+    explanation: The medium and the equal-inoculum design of the reconstructed community.
+  - reference: PMID:25036636
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Plates were incubated at room temperature, and after colony and foci formation, CFUs
+      of each strain were counted
+    explanation: Incubation temperature as stated, and how the community was followed.
+
 environmental_factors:
 - name: rind moisture
   value: natural-rind treatment drier than undried plates
