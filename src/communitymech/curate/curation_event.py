@@ -32,9 +32,12 @@ Pass narrative detail in ``changes``.
 from __future__ import annotations
 
 import datetime
+import re
 from typing import Any
 
-__all__ = ["record_curation_event", "now_iso"]
+import yaml
+
+__all__ = ["record_curation_event", "append_curation_event_text", "now_iso"]
 
 
 def now_iso() -> str:
@@ -112,3 +115,95 @@ def record_curation_event(
 
     history.append(event)
     return event
+
+
+def append_curation_event_text(
+    text: str,
+    *,
+    curator: str,
+    action: str,
+    changes: str,
+    width: int = 100,
+    timestamp: str | None = None,
+) -> str:
+    """Append one CurationEvent to a record's `curation_history`, as text.
+
+    Text rather than a YAML round-trip because every write path here is a
+    line-level editor: re-dumping the document would reformat all of it, and
+    `_assert_only_grounding_changed` exists precisely because four hand-rolled
+    attempts at whole-file edits corrupted records (#378).
+
+    Two cases. When `curation_history` is absent — 310 of the 312 records, since
+    #325 is still open — the key is appended at the end of the document. When it
+    is present, the event goes at the end of its block, found by scanning to the
+    next top-level key. Appending a second `curation_history:` instead would be
+    silently lossy, since PyYAML keeps only the last of two identical keys; the
+    duplicate-key detector in the write guard would catch it, but producing it
+    and relying on the guard is the wrong order.
+    """
+    # Built by the shared helper rather than by hand: it owns the field names
+    # and the timestamp format, and `audit_writers.py` cannot tell a hand-rolled
+    # dict from the real thing — its check is a regex for the literal
+    # `'curator':`, so a drifting copy would keep reporting `yes` (review of
+    # #483). Only the *insertion* has to be bespoke here, because every write
+    # path in this module is a line-level editor.
+    holder: dict = {}
+    record_curation_event(
+        holder, curator=curator, action=action, changes=changes, timestamp=timestamp
+    )
+    event = holder["curation_history"][0]
+    dumped = yaml.dump(
+        [event], sort_keys=False, allow_unicode=True, width=width, default_flow_style=False
+    ).rstrip("\n")
+
+    lines = text.rstrip("\n").split("\n")
+    # A document end marker would put the appended key outside the document.
+    if any(ln.rstrip() in ("...", "---") for ln in lines[1:]):
+        raise ValueError(
+            "record uses explicit YAML document markers; curation_history cannot "
+            "be appended safely by line edit (#395)."
+        )
+    for i, line in enumerate(lines):
+        # `curation_history:`, `curation_history: []`, `curation_history:  # note`
+        # are the same key. Matching the bare string alone appended a SECOND
+        # `curation_history:` for the other two, which PyYAML resolves by
+        # keeping only the last — silently dropping the existing history. The
+        # write guard caught it, but producing corruption and relying on the
+        # guard is the wrong order (review of #483).
+        head = re.match(r"^curation_history:\s*(.*)$", line)
+        if not head:
+            continue
+        rest = head.group(1).strip()
+        if rest and not rest.startswith("#"):
+            # An inline value: `curation_history: []`. Replace it with a block,
+            # since an event cannot be appended to a flow sequence by line edit.
+            if rest not in ("[]", "~", "null"):
+                raise ValueError(
+                    f"record has an inline curation_history value ({rest!r}) that "
+                    f"is not an empty list; refusing to edit it (#395)."
+                )
+            lines[i] = "curation_history:"
+        end = len(lines)
+        for j in range(i + 1, len(lines)):
+            # Only a new top-level KEY ends the block. `- timestamp: ...` also
+            # starts at column 0 — testing `not line[0].isspace()` treated the
+            # list's own first item as the next section and inserted the event
+            # ABOVE the existing history, which the append-only write guard then
+            # correctly refused. Match the same `^[A-Za-z_]` rule the rest of
+            # this module uses to find section ends.
+            if re.match(r"^[A-Za-z_]", lines[j]):
+                end = j
+                break
+        # Back off over a comment block introducing that next key, so the event
+        # is not inserted below it — which would silently re-attach the comment
+        # to curation_history.
+        while end > i + 1 and lines[end - 1].lstrip().startswith("#"):
+            end -= 1
+        while end > i + 1 and not lines[end - 1].strip():
+            end -= 1
+        # An indented sequence (`  - action: ...`) cannot take a column-0 item.
+        items = [ln for ln in lines[i + 1 : end] if ln.strip().startswith("- ")]
+        indent = " " * (len(items[0]) - len(items[0].lstrip())) if items else ""
+        body = [f"{indent}{ln}" if ln.strip() else ln for ln in dumped.split("\n")]
+        return "\n".join(lines[:end] + body + lines[end:]) + "\n"
+    return "\n".join(lines + ["curation_history:"] + dumped.split("\n")) + "\n"

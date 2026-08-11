@@ -71,7 +71,6 @@ _OWED = {
     "scripts/apply_taxonomy_corrections.py",
     "scripts/backfill_metals.py",
     "scripts/chebi_fix_apply.py",
-    "scripts/drop_obsolete_go_bp.py",
     "scripts/fix_reference_formats.py",
     "scripts/suggest_related_media.py",
     "scripts/term_fix_apply.py",
@@ -144,12 +143,12 @@ def test_the_exemptions_have_reasons():
 def test_the_owed_backlog_has_not_grown(audit):
     """#325's real number, bounded.
 
-    16 of 26 writers appended nothing when this was measured — 9 owed, 5 exempt,
-    and 2 that the audit counts but which are covered elsewhere. The point of a
-    bound is that adding a tenth owed writer is a decision someone makes on
-    purpose, not a drift.
+    16 of 26 writers appended nothing when this was measured: 9 owed and 7
+    exempt. `drop_obsolete_go_bp.py` was wired in #526, leaving 8. The point of
+    a bound is that adding a ninth back is a decision someone makes on purpose,
+    not a drift.
     """
-    assert len(_OWED) <= 9, (
+    assert len(_OWED) <= 8, (
         f"{len(_OWED)} writers now owe a curation trace, up from 9. Adding one "
         f"is a choice worth defending — the alternative is calling "
         f"`record_curation_event` in the new tool (#325)."
