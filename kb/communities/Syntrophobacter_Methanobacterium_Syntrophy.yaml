@@ -250,6 +250,38 @@ ecological_interactions:
       were used in its sulfidogenic metabolism
     explanation: Confirms the importance of formate as an interspecies electron carrier in addition to
       H2
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 550.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    1 L flasks holding 550 mL of medium, in triplicate, under a pressurised N2/CO2 (80:20)
+    gas phase at 172 kPa. The headspace is not just an anaerobic blanket: syntrophic
+    propionate oxidation is thermodynamically feasible only while the partner keeps H2 and
+    formate low, so the gas composition and pressure are part of the experiment.
+  notes: >-
+    The cited sentence says "all organisms", which in this paper covers the cocultures as
+    well as the axenic controls - so these are the community's conditions and not a member's.
+    That is the #529 check passing on the wording rather than on a member-name count, as it
+    did for the JN4/GD17 record.
+
+    What is NOT recorded: the 20 mM propionate and 60 mM fumarate supplement, which the
+    source attaches specifically to "the medium for the pure cultures". Fumarate is an
+    electron acceptor that lets S. fumaroxidans grow without a partner, so carrying it into
+    the coculture's setup would describe a condition that removes the syntrophy this record
+    exists to document.
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All organisms were batch cultured in triplicate at 37°C in 1 l flasks with 550 ml
+      medium under anaerobic conditions provided by a pressurised (172 kPa; 1.7 atm) gas phase
+      of N2/CO2 (80:20, vol/vol)
+    explanation: Mode, vessel, working volume, temperature and the pressurised anaerobic headspace.
+
 environmental_factors:
 - name: Exogenous Formate Dosage
   value: 5-10 mM promotes; 50 mM inhibits
@@ -393,7 +425,7 @@ growth_media:
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Syntrophobacter fumaroxidans MPOB T (DSM 10017) was cultivated under anoxic conditions
+    snippet: Syntrophobacter fumaroxidans MPOBT (DSM 10017) was cultivated under anoxic conditions
       in basal medium as described previously
     explanation: Establishes anoxic basal-medium cultivation for the propionate-oxidizing partner.
   - reference: PMID:29611893
@@ -404,8 +436,8 @@ growth_media:
   - reference: PMID:29611893
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. fumaroxidans with Methanospirillum hungatei strain JF1 T (DSM 864) or
-      Methanobacterium formicicum MF T (DSM 1535) were grown with 30 mM of propionate without electron
+    snippet: Cocultures of S. fumaroxidans with Methanospirillum hungatei strain JF1T (DSM 864) or
+      Methanobacterium formicicum MFT (DSM 1535) were grown with 30 mM of propionate without electron
       acceptor
     explanation: Confirms the S. fumaroxidans-M. formicicum coculture and propionate substrate concentration.
 discussions:
