@@ -52,6 +52,14 @@ slots:
   # NOT a statement that provenance does not matter. The corpus timestamp on the
   # dashboard rests on those 2 records, and the generator labels it as such
   # ("from 2 of 312 records"), so the gap is visible rather than silent.
+  #
+  # And 0.0 is the right target rather than a low one, because this is an event
+  # log and not a coverage metric. The 2 records that carry history record a
+  # cross-reference between two ANME/SRB records — a fact git cannot express and
+  # no other field holds. A record that has had no such event correctly has
+  # none; a backfill would invent them. What is worth measuring instead is on
+  # the writing side: 16 of 26 record-writing tools append nothing, itemised
+  # and gated in tests/test_writers_leave_a_trace.py (#325).
   - path: curation_history
     threshold: 0.0
     required: false
