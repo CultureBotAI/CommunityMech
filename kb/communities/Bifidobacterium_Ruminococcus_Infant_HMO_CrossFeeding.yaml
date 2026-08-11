@@ -147,6 +147,43 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: HMO utilization can vary with an individual's microbiome
     explanation: Supports the inter-individual variability of HMO utilization.
+cultivation_setup:
+- instrument_detail: >-
+    All cultivation was done inside a Coy Labs anaerobic chamber under 70% N2 / 25% CO2 /
+    5% H2. Media were sparged with N2 and reduced with l-cysteine hydrochloride, and sugar
+    solutions were equilibrated in the chamber for at least 48 h before use, so the carbon
+    source itself was anoxic at the point of mixing.
+  controls_notes: >-
+    Atmosphere controlled by the chamber rather than by a headspace in each vessel, which is
+    why gas composition is recorded here and not as a per-culture setting.
+  notes: >-
+    Deliberately partial, and worth saying so rather than padding. The source states the
+    chamber and its gas mix for "all cultivation work", which covers the B. breve /
+    R. gnavus cocultures - so that much is theirs. It then defers the coculture's vessel,
+    volume and temperature to "(Methods)", which the cached text does not carry.
+
+    So no `system_type`, no `working_volume`, no `operating_temperature`. The 37 °C with
+    shaking elsewhere in the paper belongs to a 48 h inoculum recovery step, not to the
+    cocultures (#529), and the gas mix is a genuine fact about how this community was grown
+    rather than a placeholder for the ones that are missing.
+
+    The cocultures were run with 2'-fucosyllactose, or its constituents l-fucose and
+    d-lactose, as the sole carbohydrate source; that design is the cross-feeding this record
+    documents and is described in the interactions rather than repeated here.
+  evidence:
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All cultivation work was performed in the same anaerobic chamber (Coy Labs; 70% N2,
+      25% CO2, 5% H2)
+    explanation: The atmosphere, stated for all cultivation and so covering the cocultures.
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sugar solutions were loosely capped and stored in the anaerobic chamber for at least
+      48 h before mixing with BHI-based media for cultivation
+    explanation: The carbon source was anoxic before it reached the culture.
+
 environmental_factors:
 - name: 2'-fucosyllactose supplementation
   value: 2'FL HMO substrate
