@@ -5,7 +5,100 @@ update this file as work is started/finished — move done items out, add new
 deferrals here. Keep the cross-Mech items in sync with the sibling repos'
 `NEXT_TASKS.md` (CultureMech / MIM / TraitMech).
 
-Last reconciled: 2026-08-08.
+Last reconciled: 2026-08-11.
+
+## Reconciliation 2026-08-11 — 26 PRs open, nothing merged
+
+**The backlog's shape has inverted.** On 2026-08-08 the constraint was "what is
+left to do". Today it is "what is left to *merge*": **26 PRs are open and every
+one is `CLEAN`**, and no merge has happened since. `main` has not moved.
+
+Merging the queue closes **11 open issues** — #312, #325, #347, #410, #514,
+#516, #518, #521, #523, #526, #529 — and advances #183, #199 and #543. Nothing
+else on this list unblocks as much.
+
+**Merge order matters. Two are stacked:**
+
+```
+#515 -> #517      (#517 bases on enrich-cultivation-183g)
+#527 -> #528      (#528 bases on curation-history-325)
+```
+
+The other 22 are independent of each other and of `main`:
+#520 #522 #525 #530 #531 #533 #534 #535 #536 #537 #538 #539 #540 #541 #542
+#544 #545 #546 #547 #548 #549 #550.
+
+**Loose end:** `origin/enrich-cultivation-183y` is pushed with a commit
+(`2de2e11`, hCom2) and **has no PR**. Open one or delete the branch.
+
+### The queue has started blocking new work
+
+Not merging is no longer neutral. A concrete case, measured today:
+
+The snippet-rendering artefact fixed in #539 (`MPOB T` -> `MPOBT`) and #552
+(`CO 2` -> `CO2`) has now bitten twice, which makes it a candidate for a
+committed gate. **That gate cannot be added.** Run against `main` it reports
+**6 violations** — the three strain designations in
+`Syntrophobacter_Methanobacterium_Syntrophy` and the three formula subscripts in
+`hCom2_Complex_Gut_Microbiome` — because both fixes live only on unmerged
+branches. A guard committed today would be red on `main` on arrival.
+
+The same applies to anything else that would assert a corpus-wide property: 17
+curated records and two schema changes are queued, so `main` is 28 PRs behind
+what the tests would be written against.
+
+**A caution on the sweep that established the artefact is isolated.** The first
+version flattened the snippet but compared it against the cache file's *raw*
+text, so any occurrence spanning a line break was invisible. Re-run with both
+sides flattened it finds exactly the six above and nothing else — so #540's
+"isolated, no batch fix needed" conclusion is true, but it was reached by a check
+that could not have shown it. Corrected on #552.
+
+### What the 26 PRs contain
+
+- **17 records** curated for #183 (`cultivation_setup`), each with the "what is
+  this number about" question resolved explicitly rather than assumed.
+- **Four gates** for defect classes this repo keeps re-hitting: unit slots that
+  looked controlled and were not (#514), a vocab-sync invariant that could not
+  notice a new enum (#518), record directories the audit did not cover (#350),
+  and a cited source that was never about the community (#529).
+- **Two schema changes**: `participating_taxa` on `EcologicalInteraction`
+  (#312), and six unit enums on `CultivationSetup` (#514).
+- **Two records repaired** that were not on any list — `SPRUCE_Peatland_Warming`
+  (8 reference failures -> 0) and `Syntrophobacter_Methanobacterium_Syntrophy`
+  and `hCom2` (superscript-rendering artefacts).
+
+### Three findings worth keeping
+
+**#183 is smaller than it looks, and not batchable.** 278 records lack a
+`cultivation_setup`; 186 are `ENGINEERED`; only **13** have a >20 KB full-text
+cache. Of 8 of those 13 read so far: 2 refused, 1 partial, 5 curated. #543
+records why no metadata field separates "grown in a vessel" from "sampled from
+the world" — `community_origin`, `ecological_state` and `community_category` all
+have verified counterexamples.
+
+**My own predictions failed 3 of 5 times.** #543's "likely refuse" group rested
+on *plant-associated ⇒ grown on a plant*; `ORNL_PMI_Populus_PD10_SynCom`,
+`Suillus_Bacillus` and `hCom2` all falsified it, each differently. A plausible
+rule over record names is still a rule over record names.
+
+**The palette question is structural, not a hex swap (#532).** The network
+palette fails the rubric's normal-vision floor at ΔE 10.3. A search over 775
+single candidates and ~207k saturated warm pairs found nothing clearing both
+gates — this repo's CIELAB ΔE76 all-pairs test and the rubric's OKLab ΔE100
+adjacent-pairs check use different metrics over different pair sets, and
+optimising against either alone produces a change that looks verified and is
+not. Nine mutually separable saturated hues is at or past what the space allows.
+
+### Still needs a decision (unchanged, do not start without one)
+
+- **#374** — type-species rule vs genome-count majority. Implementable either
+  way; the 0.5 floor is `if frac > 0.5` tool policy, not a schema bound.
+- **#182** — 75 of 201 instances have no specificity retained in
+  `preferred_term`, concentrated in `CHEBI:50860` (20/22) and `CHEBI:64709`
+  (6/6). "Accept as-is" is unavailable for those.
+- **#532** — fold a ninth interaction type into "Other", facet, or accept the
+  measured failure.
 
 ## Reconciliation 2026-08-08 — the 31-issue sweep
 
