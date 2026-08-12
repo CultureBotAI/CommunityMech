@@ -24,7 +24,10 @@ class BatchReporter:
         self,
         llm_client: AnthropicClient | None = None,
         validator: SuggestionValidator | None = None,
-        communities_dir: Path = Path("kb/communities"),
+        # None, not a literal: passing "kb/communities" through explicitly
+        # overrides the auditor's own default, so the repair path could not
+        # see records the audit reports on (#521).
+        communities_dir: Path | None = None,
         parallel: bool = True,
         max_workers: int = 4,
     ):
@@ -40,8 +43,11 @@ class BatchReporter:
         """
         self.llm_client = llm_client or AnthropicClient()
         self.validator = validator or SuggestionValidator()
-        self.communities_dir = Path(communities_dir)
         self.auditor = NetworkIntegrityAuditor(communities_dir=communities_dir)
+        # Take it back off the auditor rather than recomputing, so the reporter
+        # and the audit it reports on cannot disagree about which records exist.
+        self.record_dirs = self.auditor.record_dirs
+        self.communities_dir = self.auditor.communities_dir
         self.parallel = parallel
         self.max_workers = max_workers
 
@@ -75,7 +81,9 @@ class BatchReporter:
         }
 
         # Get all community files
-        yaml_files = sorted(self.communities_dir.glob("*.yaml"))
+        yaml_files = sorted(
+            path for directory in self.record_dirs for path in directory.glob("*.yaml")
+        )
 
         if max_communities:
             yaml_files = yaml_files[:max_communities]

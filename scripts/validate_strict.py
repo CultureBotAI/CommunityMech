@@ -40,6 +40,7 @@ from linkml.validator import Validator
 from linkml.validator.plugins import JsonschemaValidationPlugin
 from linkml.validator.report import Severity
 
+from communitymech.paths import default_record_roots
 from communitymech.validators.gtdb_coherence import validate_gtdb_coherence
 from communitymech.validators.gtdb_lineage_tree import check_lineage_shape
 from communitymech.validators.prokaryotic_lineage import check_record as check_prokaryotic_lineage
@@ -51,7 +52,9 @@ SCHEMA_PATH = _REPO_ROOT / "src" / "communitymech" / "schema" / "communitymech.y
 # `data/isolates` uses the same taxon_term shape and was outside this gate
 # while the comment below claimed "the same gate as everything else"
 # (#390 review). It has been outside a gate once before (#310).
-DEFAULT_ROOTS = [_REPO_ROOT / "kb" / "communities", _REPO_ROOT / "data" / "isolates"]
+# Sourced rather than restated: the audit needs the same list, and when each
+# kept its own copy they drifted (#350).
+DEFAULT_ROOTS = default_record_roots()
 TARGET_CLASS = "MicrobialCommunity"
 
 

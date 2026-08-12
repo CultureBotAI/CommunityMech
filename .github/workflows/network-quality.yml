@@ -28,6 +28,9 @@ on:
   pull_request:
     paths:
       - 'kb/communities/*.yaml'
+      # Isolates are audited too, since #350. Without this an isolate
+      # could gain a dangling interaction and no run would look at it.
+      - 'data/isolates/*.yaml'
       - 'src/communitymech/network/**'
       - 'src/communitymech/schema/**'
       # Self-triggering, so a change to this workflow is exercised by the
