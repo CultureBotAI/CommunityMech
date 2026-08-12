@@ -330,6 +330,51 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Two of these novel sProteins have a potential antimicrobial function
     explanation: Supports potential interaction-relevant antimicrobial functions.
+cultivation_setup:
+- cultivation_mode: CHEMOSTAT
+  system_type: BIOREACTOR_UNSPECIFIED
+  working_volume: 250.0
+  working_volume_unit: mL
+  instrument_detail: >-
+    In vitro bioreactors run chemostatically on a complex intestinal medium, held anaerobic
+    by continuously gassing the vessels with nitrogen. Each of the eight species was grown
+    individually for 72 h first, then the reactor was inoculated with 1e9 cells of each, so
+    the community starts from a defined and equal-per-strain inoculum rather than from a
+    mixed culture.
+  notes: >-
+    `system_type` is BIOREACTOR_UNSPECIFIED on purpose. The source says "in vitro
+    bioreactors" and refers to a prior paper for the design; it never says stirred-tank, and
+    guessing the vessel would put an unevidenced enum value where a reader would take it as
+    read from this paper.
+
+    Operating temperature is absent for the same reason. The 37 °C and 175 rpm in this paper
+    belong to the sentence about strains "cultivated separately" in BHI - those are the
+    eight precultures, not the community, and recording them here is the error class #529
+    covers. The bioreactor's own temperature is in the cited prior work.
+
+    The 250 mL is the medium volume the inoculum went into, which is the closest thing the
+    source gives to a working volume; it is not called that.
+  evidence:
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SIHUMIx community was cultivated in chemostatic bioreactors
+    explanation: Sources both the chemostat mode and the bioreactor system type.
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: continuously cultivated in complex intestinal medium (Supplement Table 2) and
+      maintained under anaerobic conditions by continuously gassing the bioreactor vessels
+      with nitrogen
+    explanation: Continuous operation, the medium, and how anaerobiosis was maintained.
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the eight bacterial species were cultivated individually for 72 h before inoculation
+      of the bioreactor with 1 × 109 bacterial cells per strain (total cell number = 8 × 109
+      cells in 250 mL medium)
+    explanation: The inoculation scheme and the 250 mL the community was grown in.
+
 environmental_factors:
 - name: Anaerobic Atmosphere
   value: Nitrogen-gassed anaerobic bioreactor
