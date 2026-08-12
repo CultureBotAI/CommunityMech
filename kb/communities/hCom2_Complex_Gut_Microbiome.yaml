@@ -60,6 +60,55 @@ ecological_interactions:
   scope: COMMUNITY_LEVEL
   evidence:
   - *id001
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  working_volume: 4.0
+  working_volume_unit: mL
+  instrument_detail: >-
+    Built up through deep-well plates: strains revived from frozen 96-well stocks into 1 mL in
+    2.2 mL 96-well plates, diluted 1:10 every 24 h for two days, then 1:10 into 4 mL in 5 mL
+    48-well plates. All culturing inside a Coy anaerobic chamber at 10% CO2 / 5% H2 / 85% N2.
+    Communities were then propagated for 48 h per passage with DNA taken at 0, 12, 24 and 48 h.
+    Member strains are maintained in Mega Medium, Chopped Meat Medium, or both; community
+    experiments also ran in a complete defined medium and in versions with single amino acids
+    removed.
+  notes: >-
+    `system_type` is OTHER because the format is a deep-well plate, which the enum has no
+    value for; FLASK or a reactor type would assert a containment this does not have. The
+    plate sizes are in instrument_detail instead.
+
+    No `operating_temperature`: the source gives the chamber's gas mix but not its
+    temperature, and a gut-community chamber is not necessarily at 37 °C by assumption.
+
+    The amino-acid dropout media are named because they are the experiment: strains change
+    relative abundance by orders of magnitude when a single amino acid is removed, so
+    "defined medium" alone would describe a condition the study exists to vary.
+
+    Third failure of the "likely refuse" group in #543, predicted on the assumption that a
+    gut community lives in a mouse. hCom2 is used in gnotobiotic mice, but this paper builds
+    and propagates it in vitro first - which is what OMM12 does not do, and why that one was
+    correctly refused. Three of five in that group have now failed; the reasoning behind it
+    should be treated as discarded rather than partly true.
+  evidence:
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructing and propagating the 104-member community multiple times in vitro
+    explanation: The community itself was built and grown in vitro, not only in a host.
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We propagated the communities for 48 h and extracted DNA for sequencing at 0, 12, 24,
+      and 48 h
+    explanation: The passage length and sampling schedule.
+  - reference: PMID:36070752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We found that each of our 104 strains can be propagated in Mega Medium (MM), Chopped
+      Meat Medium (CMM), or both
+    explanation: The media the members are maintained in.
+
 environmental_factors:
 - name: gnotobiotic fecal challenge
   value: Germ-free mice colonized with hCom1 were challenged with a human fecal sample to identify additional
@@ -211,8 +260,8 @@ growth_media:
   - reference: PMID:36070752
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All culturing was done in an anaerobic chamber (Coy Laboratories) at 10%
-      CO 2 , 5% H 2 , and 85% N 2 atmosphere.
+    snippet: All culturing was done in an anaerobic chamber (Coy Laboratories) at 10% CO2,
+      5% H2, and 85% N2 atmosphere.
     explanation: Supports the anaerobic atmosphere and headspace gas composition used
       for cultivation.
   - reference: PMID:36070752
