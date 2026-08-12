@@ -498,6 +498,48 @@ external_resources:
       reproducibility/verification of the underlying BioModels record. Partial
       because the paper addresses the BioModels collection as a whole rather than
       this specific kefir entry.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 25.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Pasteurised cow milk at 3.5% fat, inoculated with 60 g of kefir grains per litre, held at
+    25 °C without shaking for 48 h - the paper's stated aim being to match traditional home
+    fermentation rather than to optimise it. Grains are strained out at the end, washed, and
+    used to inoculate the next culture, so the community is propagated by serial transfer of
+    the grain itself. A 90 h fermentation was used for the community-dynamics and -omics runs.
+  notes: >-
+    The grain is the inoculum and the structure at once. Passaging the community *without*
+    the grain changes its composition within a few transfers, so "60 g of grains per litre"
+    is not a dosing detail - it is what makes the community reproducible, and the reason this
+    record exists as a stability model.
+
+    Static, and stated as such. As with the thermophilic cellulose and bioleaching records, a
+    matrix-attached community is grown undisturbed on purpose.
+
+    No `system_type` or `working_volume`: the source gives a ratio and scales it ("or scaled
+    accordingly for lower volumes"), so no single vessel or fill is the experiment's.
+
+    Predicted "possibly in silico" in #543, on the strength of the BioModels identifier in the
+    record name. Wrong: the cited paper is experimental, and the model is downstream of the
+    fermentations described here. That is the fourth of five #543 predictions to fail, all of
+    them made from record names rather than sources.
+  evidence:
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fermentation was initiated by adding 60 g of kefir grains for one liter milk (or
+      scaled accordingly for lower volumes). The process was carried at the 25 ˚C and without
+      shaking for 48 h
+    explanation: Inoculum ratio, temperature, static operation and duration for the community.
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Kefir grains were collected at the end by straining through a heat sterilized
+      household mesh strainer, washed using double distilled water and subsequently used to
+      inoculate new cultures
+    explanation: The community is propagated by serial transfer of the grain.
+
 growth_media:
 - name: UHT-pasteurized cow milk (3.5% fat)
   temperature: '25'
