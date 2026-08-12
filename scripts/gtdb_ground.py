@@ -70,7 +70,12 @@ MAPPING_REL = Path("data/raw/NCBI2GTDB.tsv.gz")
 # `scripts/` is on sys.path when this runs as `python scripts/gtdb_ground.py`,
 # so reach the package the same way the other scripts do.
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from communitymech.curate.curation_event import record_curation_event  # noqa: E402
+# Two single-line imports rather than a parenthesised one: `# noqa: E402` binds
+# to the first physical line, so the multi-line form left the rule unsuppressed.
+from communitymech.curate.curation_event import (  # noqa: E402
+    append_curation_event_text,
+    record_curation_event,
+)
 from communitymech.validators.ncbi_domain import outside_gtdb_scope  # noqa: E402
 
 # NCBI2GTDB.tsv column indices (0-based); see header row.
@@ -1550,85 +1555,35 @@ def _record_edit(original: str, new_text: str, *, action: str, changes: str) -> 
 
 
 def _append_curation_event(text: str, *, action: str, changes: str) -> str:
-    """Append one CurationEvent to a record's `curation_history`, as text.
+    """Thin wrapper over the shared appender (#526).
 
-    Text rather than a YAML round-trip because every write path here is a
-    line-level editor: re-dumping the document would reformat all of it, and
-    `_assert_only_grounding_changed` exists precisely because four hand-rolled
-    attempts at whole-file edits corrupted records (#378).
+    The implementation moved to `communitymech.curate.curation_event` so the
+    nine other line-editing writers in #325 can use it instead of each growing
+    their own. Everything it knows how to get wrong was learned here: that
+    `- timestamp:` is itself column-0 so a naive scan inserts the event ABOVE
+    the existing history, that `curation_history: []` is the same key as
+    `curation_history:` and matching only the bare string appends a second one
+    PyYAML then silently drops, and that a trailing comment block belongs to
+    the *next* key rather than to the history.
 
-    Two cases. When `curation_history` is absent — 310 of the 312 records, since
-    #325 is still open — the key is appended at the end of the document. When it
-    is present, the event goes at the end of its block, found by scanning to the
-    next top-level key. Appending a second `curation_history:` instead would be
-    silently lossy, since PyYAML keeps only the last of two identical keys; the
-    duplicate-key detector in the write guard would catch it, but producing it
-    and relying on the guard is the wrong order.
+    Kept as a wrapper rather than replaced at the call site so this module's
+    curator string stays in one place, and so `tests/test_gtdb_curation_history.py`
+    keeps exercising the shared code through its original caller.
     """
-    # Built by the shared helper rather than by hand: it owns the field names
-    # and the timestamp format, and `audit_writers.py` cannot tell a hand-rolled
-    # dict from the real thing — its check is a regex for the literal
-    # `'curator':`, so a drifting copy would keep reporting `yes` (review of
-    # #483). Only the *insertion* has to be bespoke here, because every write
-    # path in this module is a line-level editor.
-    holder: dict = {}
-    record_curation_event(holder, curator="gtdb_ground.py", action=action, changes=changes)
-    event = holder["curation_history"][0]
-    dumped = yaml.dump(
-        [event], sort_keys=False, allow_unicode=True, width=DUMP_WIDTH, default_flow_style=False
-    ).rstrip("\n")
-
-    lines = text.rstrip("\n").split("\n")
-    # A document end marker would put the appended key outside the document.
-    if any(ln.rstrip() in ("...", "---") for ln in lines[1:]):
-        raise SystemExit(
-            "record uses explicit YAML document markers; curation_history cannot "
-            "be appended safely by line edit (#395)."
+    try:
+        return append_curation_event_text(
+            text,
+            curator="gtdb_ground.py",
+            action=action,
+            changes=changes,
+            width=DUMP_WIDTH,
         )
-    for i, line in enumerate(lines):
-        # `curation_history:`, `curation_history: []`, `curation_history:  # note`
-        # are the same key. Matching the bare string alone appended a SECOND
-        # `curation_history:` for the other two, which PyYAML resolves by
-        # keeping only the last — silently dropping the existing history. The
-        # write guard caught it, but producing corruption and relying on the
-        # guard is the wrong order (review of #483).
-        head = re.match(r"^curation_history:\s*(.*)$", line)
-        if not head:
-            continue
-        rest = head.group(1).strip()
-        if rest and not rest.startswith("#"):
-            # An inline value: `curation_history: []`. Replace it with a block,
-            # since an event cannot be appended to a flow sequence by line edit.
-            if rest not in ("[]", "~", "null"):
-                raise SystemExit(
-                    f"record has an inline curation_history value ({rest!r}) that "
-                    f"is not an empty list; refusing to edit it (#395)."
-                )
-            lines[i] = "curation_history:"
-        end = len(lines)
-        for j in range(i + 1, len(lines)):
-            # Only a new top-level KEY ends the block. `- timestamp: ...` also
-            # starts at column 0 — testing `not line[0].isspace()` treated the
-            # list's own first item as the next section and inserted the event
-            # ABOVE the existing history, which the append-only write guard then
-            # correctly refused. Match the same `^[A-Za-z_]` rule the rest of
-            # this module uses to find section ends.
-            if re.match(r"^[A-Za-z_]", lines[j]):
-                end = j
-                break
-        # Back off over a comment block introducing that next key, so the event
-        # is not inserted below it — which would silently re-attach the comment
-        # to curation_history.
-        while end > i + 1 and lines[end - 1].lstrip().startswith("#"):
-            end -= 1
-        while end > i + 1 and not lines[end - 1].strip():
-            end -= 1
-        # An indented sequence (`  - action: ...`) cannot take a column-0 item.
-        items = [ln for ln in lines[i + 1 : end] if ln.strip().startswith("- ")]
-        indent = " " * (len(items[0]) - len(items[0].lstrip())) if items else ""
-        body = [f"{indent}{ln}" if ln.strip() else ln for ln in dumped.split("\n")]
-        return "\n".join(lines[:end] + body + lines[end:]) + "\n"
-    return "\n".join(lines + ["curation_history:"] + dumped.split("\n")) + "\n"
+    except ValueError as refusal:
+        # The library raises; this script exits. Deliberate: a helper that
+        # `SystemExit`s cannot be used by anything with its own error handling,
+        # which is the whole point of lifting it (#526). The refusal-to-corrupt
+        # behaviour and its message are unchanged for this caller.
+        raise SystemExit(str(refusal)) from refusal
 
 
 def _assert_only_grounding_changed(
