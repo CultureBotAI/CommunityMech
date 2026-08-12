@@ -40,12 +40,31 @@ CACHE = REPO / "references_cache"
 # (record, reference) pairs where a low ratio is correct and understood. Each
 # needs a reason: an empty allow-list entry is how the next Methylacidiphilum
 # gets waved through.
-_ACCEPTED: dict[tuple[str, str], str] = {}
+_ACCEPTED: dict[tuple[str, str], str] = {
+    ("Rifle_Aquifer_Bioanode_EET_Community.yaml", "PMID:32849356"): (
+        "The paper studies this community — it is the metagenomic "
+        "characterization of its anode-biofilm and planktonic fractions — but "
+        "the KB records six of the seven members under current NCBI phylum "
+        "names (Actinomycetota, Chloroflexota, Acidobacteriota, Bacillota, "
+        "Pseudomonadota, Ignavibacteriota) that postdate the 2020 source, which "
+        "writes Actinobacteria, Chloroflexi, and so on. Only Geobacter matches, "
+        "so the ratio measures nomenclature drift rather than relevance."
+    ),
+}
 
-# At or below this share of members named in the source, the pairing is suspect.
-# `<=`, not `<`: the case that motivated this is a two-member coculture whose
-# source names exactly one of them, which is 50% — a strict `<` let the guilty
-# record through while flagging five innocent ones.
+# Below this share of members named in the source, the pairing is suspect.
+#
+# Strict `<`, and the boundary moved twice before settling. It was briefly `<=`,
+# because under the old `preferred_term`-first extraction the rejected
+# Methylacidiphilum case scored exactly 50% and a strict `<` let it through.
+# Reading `term.label` first fixed the extraction and the case now scores **0%**
+# — its members resolve to "Candidatus" and "Galdieria", neither in the source —
+# so `<` catches it with room to spare.
+#
+# `<=` is actively wrong here: a two-member coculture scores 50% whenever the
+# source abbreviates the second genus after first use ("T. thermosaccharolyticum"),
+# which is normal scientific prose rather than a warning sign. It flagged four
+# records that had each been verified by reading.
 _THRESHOLD = 0.5
 
 # Only full-text caches are checked. An abstract names few members by nature, so
@@ -68,13 +87,20 @@ def _cache_path(reference: str) -> pathlib.Path | None:
 def _member_words(document: dict) -> list[str]:
     """One distinctive word per member — the genus, usually.
 
-    Deliberately loose. Matching a full `preferred_term` would miss
-    "C. kluyveri", and matching any word would hit "sp." and "strain".
+    Deliberately loose. Matching a full name would miss "C. kluyveri", and
+    matching any word would hit "sp." and "strain".
+
+    **`term.label` first, `preferred_term` second.** The original order was the
+    other way round and produced nonsense on records whose members are described
+    rather than named: `Rifle_Aquifer_Bioanode_EET_Community` has members like
+    "EET-capable Rifle aquifer Actinobacteria", whose first word is "EET-capable"
+    — extracted six times, matched never, and scored the record 0% of 6. The
+    ontology label is an actual taxon name, which is what this check wants.
     """
     words = []
     for entry in document.get("taxonomy") or []:
         term = entry.get("taxon_term") or {}
-        name = term.get("preferred_term") or (term.get("term") or {}).get("label") or ""
+        name = (term.get("term") or {}).get("label") or term.get("preferred_term") or ""
         head = name.split()[0] if name.split() else ""
         if len(head) > 3 and head[0].isupper():
             words.append(head)
@@ -128,7 +154,7 @@ def test_every_source_names_most_of_the_community(pairs):
     suspect = [
         f"  {record}: {reference} names {share:.0%} of {count} members"
         for record, reference, share, count in pairs
-        if share <= _THRESHOLD and (record, reference) not in _ACCEPTED
+        if share < _THRESHOLD and (record, reference) not in _ACCEPTED
     ]
     assert suspect == [], (
         "these cultivation_setup blocks cite a source that barely mentions the "
@@ -170,7 +196,7 @@ def test_the_check_can_actually_fail():
     assert cached is not None, "the rejected example's source is no longer cached"
     text = cached.read_text(errors="replace")
     named = sum(1 for word in members if re.search(rf"\b{re.escape(word)}", text))
-    assert named / len(members) <= _THRESHOLD, (
+    assert named / len(members) < _THRESHOLD, (
         "PMID:33841379 now names most of that record's members. If the record "
         "or the cache changed, re-check whether the paper studies the coculture "
         "— the whole point of #529 is that it does not"
