@@ -84,19 +84,49 @@ def test_the_validator_it_calls_can_actually_start(fixer):
 
 
 def _known_broken() -> set[str]:
-    """The five scripts `tests/test_scripts_import.py` records as unrunnable."""
+    """The scripts that cannot run, plus the ones #410 removed for that reason.
+
+    Sourced from `test_scripts_import.py` so the two cannot drift, and unioned
+    with the removed names: a working tool printing "next, run
+    `curate_evidence_with_pdfs.py`" is just as dead a pointer now that the file
+    is gone as it was when the file existed and could not start.
+    """
     source = (REPO / "tests/test_scripts_import.py").read_text()
     tree = ast.parse(source)
     for node in ast.walk(tree):
-        if isinstance(node, ast.Assign) and any(
-            isinstance(target, ast.Name) and target.id == "_KNOWN_BROKEN" for target in node.targets
-        ):
-            return {
+        # `AnnAssign` as well as `Assign`: the constant became
+        # `_KNOWN_BROKEN: set[str] = set()` when #410 emptied it, and an
+        # `Assign`-only walk stopped finding it — the check went red rather
+        # than silently passing, which is the behaviour worth keeping.
+        if isinstance(node, ast.AnnAssign):
+            matches = isinstance(node.target, ast.Name) and node.target.id == "_KNOWN_BROKEN"
+        elif isinstance(node, ast.Assign):
+            matches = any(
+                isinstance(target, ast.Name) and target.id == "_KNOWN_BROKEN"
+                for target in node.targets
+            )
+        else:
+            continue
+        if matches and node.value is not None:
+            listed = {
                 element.value
                 for element in ast.walk(node.value)
                 if isinstance(element, ast.Constant) and isinstance(element.value, str)
             }
+            return listed | _REMOVED_IN_410
     raise AssertionError("_KNOWN_BROKEN is gone from tests/test_scripts_import.py")
+
+
+# Removed in #410 rather than ported: each imported a module that never existed,
+# and each had a working replacement (`scripts/cache_fulltext.py` for OA full
+# text, `just validate-references` for snippet checking).
+_REMOVED_IN_410 = {
+    "curate_evidence_with_pdfs.py",
+    "extract_evidence_snippets.py",
+    "quick_literature_review.py",
+    "review_literature.py",
+    "test_pdf_fetching.py",
+}
 
 
 def _strings_in(node: ast.AST) -> list[str]:
@@ -120,7 +150,11 @@ def test_no_working_script_points_at_a_script_that_cannot_run():
     # named three of the five, so a pointer at `test_pdf_fetching` or
     # `extract_evidence_snippets` sailed through (#487 review).
     dead = {name.removesuffix(".py") for name in _known_broken()}
-    assert len(dead) >= 5, f"the known-broken list has shrunk unexpectedly: {sorted(dead)}"
+    # Was `>= 5` against `_KNOWN_BROKEN` alone. That list is empty since #410
+    # removed the scripts, so the bound now rests on `_REMOVED_IN_410` — a
+    # gone file is still a dead pointer, and this check would otherwise have
+    # quietly started passing on nothing.
+    assert len(dead) >= 5, f"the dead-pointer list has shrunk unexpectedly: {sorted(dead)}"
     offenders = []
     for path in sorted((REPO / "scripts").glob("*.py")):
         if path.stem in dead:

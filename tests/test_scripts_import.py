@@ -39,23 +39,18 @@ _EXECUTES_ON_IMPORT = {
     "term_label_audit.py",
 }
 
-# All import `communitymech.literature_enhanced`, which has never existed in any
-# commit on any branch — verified over all 498 commits. They were added in
-# `7c658e6` (the 7th commit, 2026-02-18; the repo's first is `79f5196`).
+# Empty, and kept rather than deleted: #410 was about five scripts that imported
+# `communitymech.literature_enhanced`, a module that never existed in any of the
+# repo's 498 commits. They were removed rather than ported, because porting meant
+# deciding whether to keep a capability their CLI flags advertised and the code
+# never had — a 6-tier PDF cascade with "fallback mirrors". Answering "no": the
+# OA full-text need is served by `scripts/cache_fulltext.py`, which works and
+# which the #183 sweep used to cache 64 of 125 references.
 #
-# Not a curation call in general: #88 already ported the same import in two other
-# scripts, and `fix_invalid_snippets.py` followed that recipe here because it
-# passed `download_pdf=False` throughout, so nothing was lost. These five pass a
-# *variable* for PDF fetching, or call `fetch_pdf_url`, and `LiteratureFetcher`
-# has no PDF surface at all — porting them means deciding whether to drop a
-# capability their CLI flags advertise. That decision is #410, which stays open.
-_KNOWN_BROKEN = {
-    "curate_evidence_with_pdfs.py",
-    "extract_evidence_snippets.py",
-    "quick_literature_review.py",
-    "review_literature.py",
-    "test_pdf_fetching.py",
-}
+# The name stays so the tests below keep their shape if a script ever breaks
+# this way again. `test_no_script_imports_a_module_that_does_not_exist` is the
+# real guard now, and unlike this list it cannot go stale.
+_KNOWN_BROKEN: set[str] = set()
 
 
 # `python scripts/foo.py` puts `scripts/` on sys.path, which is how the sibling
@@ -213,75 +208,81 @@ def test_a_script_parses(script: Path):
     ast.parse(script.read_text())
 
 
-def test_the_known_broken_list_is_still_accurate():
-    """A name that starts importing must leave the list, or the list rots.
+def test_no_script_imports_a_module_that_does_not_exist():
+    """The invariant #410 actually wanted, in place of a list of exceptions.
 
-    Without this, fixing one of the six would leave it permanently exempt from
-    the check above — the failure mode of every allowlist.
+    The old guard was `_KNOWN_BROKEN`, five names plus three tests keeping the
+    list honest. That records breakage; it does not prevent it, and a sixth
+    script importing a sixth phantom module would simply have been added to it.
+
+    This resolves every `from communitymech.X import ...` in `scripts/` against
+    the installed package. It is deliberately narrow — only this package, not
+    third-party imports, which fail for environment reasons a test should not
+    adjudicate.
     """
-    fixed = []
-    for name in sorted(_KNOWN_BROKEN):
-        path = SCRIPTS / name
-        if not path.exists():
-            continue
-        result = subprocess.run(
-            [
-                sys.executable,
-                "-c",
-                _PROBE.format(path=str(path), scripts=str(SCRIPTS)),
-            ],
-            capture_output=True,
-            text=True,
-            cwd=REPO,
-            timeout=120,
-        )
-        if result.returncode == 0:
-            fixed.append(name)
-    assert not fixed, f"these now import and should be removed from _KNOWN_BROKEN: {fixed} (#410)"
+    import importlib.util
+
+    offenders = []
+    for path in sorted(SCRIPTS.glob("*.py")):
+        for node in ast.walk(ast.parse(path.read_text(encoding="utf-8"))):
+            if not isinstance(node, ast.ImportFrom) or not node.module:
+                continue
+            if not node.module.startswith("communitymech"):
+                continue
+            try:
+                found = importlib.util.find_spec(node.module)
+            except (ImportError, ValueError):
+                found = None
+            if found is None:
+                offenders.append(f"{path.name}:{node.lineno} imports {node.module}")
+    assert offenders == [], (
+        "these scripts import a `communitymech` module that cannot be "
+        "resolved, so they fail before `--help` (#410):\n" + "\n".join(offenders)
+    )
 
 
-def test_the_known_broken_all_share_one_cause():
-    """The list is one bug, not a bucket.
+def test_that_guard_can_actually_fail(tmp_path):
+    """Mutation check, in-tree: the sweep above must reject a phantom import.
 
-    If a script joins it for a different reason, that reason wants its own issue
-    rather than being absorbed into #410's count.
+    Written because the guard it replaces was a list — and a list-driven test
+    passes cleanly once the list is empty, which is exactly the state this file
+    is now in. Without this, `test_no_script_imports_a_module_that_does_not_exist`
+    could resolve nothing at all and still report success.
     """
-    for name in sorted(_KNOWN_BROKEN):
-        path = SCRIPTS / name
-        if not path.exists():
-            continue
-        imports = {
-            node.module
-            for node in ast.walk(ast.parse(path.read_text()))
-            if isinstance(node, ast.ImportFrom) and node.module
-        }
-        assert any(
-            "literature_enhanced" in module for module in imports
-        ), f"{name} is in _KNOWN_BROKEN but does not import literature_enhanced"
+    import importlib.util
+
+    assert importlib.util.find_spec("communitymech.literature") is not None
+    try:
+        missing = importlib.util.find_spec("communitymech.literature_enhanced")
+    except (ImportError, ValueError):
+        missing = None
+    assert missing is None, (
+        "`communitymech.literature_enhanced` now resolves. If it was genuinely "
+        "implemented, #410 can be revisited; if something is shadowing the "
+        "package, the guard above is not testing what it claims"
+    )
 
 
-def test_every_known_broken_script_says_so_in_its_docstring():
-    """A reader opening the file should not have to run it to find out.
+def test_the_removed_scripts_are_gone_and_stay_gone():
+    """They are superseded, and a reintroduction should be deliberate.
 
-    `_KNOWN_BROKEN` records the breakage for the *suite*; it is invisible to
-    someone who opens `curate_evidence_with_pdfs.py` and sees 586 lines of
-    plausible code. Each carries a docstring warning naming the phantom module,
-    why porting is not an import swap, and what to use instead (#410).
-
-    Asserted against `_KNOWN_BROKEN` rather than a fixed list, so a script
-    joining it later cannot arrive undocumented.
+    Each had a working replacement by the time it was removed: OA full text via
+    `cache_fulltext.py`, snippet checking via `just validate-references`. A file
+    reappearing under one of these names is most likely a revert that did not
+    mean to bring back a script that cannot start.
     """
-    undocumented = []
-    for name in sorted(_KNOWN_BROKEN):
-        path = SCRIPTS / name
-        if not path.exists():
-            continue
-        docstring = ast.get_docstring(ast.parse(path.read_text())) or ""
-        if "has never run" not in docstring or "literature_enhanced" not in docstring:
-            undocumented.append(name)
-    assert not undocumented, (
-        "these are in _KNOWN_BROKEN but their docstrings do not say so — a "
-        f"reader would take them for working tools (#410): {undocumented}"
+    removed = {
+        "curate_evidence_with_pdfs.py",
+        "extract_evidence_snippets.py",
+        "quick_literature_review.py",
+        "review_literature.py",
+        "test_pdf_fetching.py",
+    }
+    back = sorted(name for name in removed if (SCRIPTS / name).exists())
+    assert back == [], (
+        f"{back} were removed in #410 as unrunnable and superseded. If one is "
+        "genuinely wanted again it needs a working literature backend first — "
+        "see scripts/cache_fulltext.py."
     )
 
 
@@ -303,4 +304,47 @@ def test_the_replacement_named_in_those_docstrings_exists():
     assert "def fetch_paper(" in fetcher, (
         "the docstrings contrast the phantom fetch_paper with this one; if it is "
         "gone or renamed, they now describe nothing"
+    )
+
+
+def test_docs_do_not_reference_a_script_that_is_not_there():
+    """Nothing walked `docs/` for script references until #523.
+
+    #410's guard and its replacement both check `scripts/` — `print` and
+    `subprocess` calls in Python files. A curator following a runbook is reading
+    prose, which is precisely where neither looks. The five removed scripts were
+    named in three docs, and only a hand grep found them.
+
+    Deliberately checks *existence*, not tone. An earlier version of this idea
+    tried to flag "unwarned" instructions and I filed #523 against
+    `AUTOMATION_TOOLS.md` on that basis — wrongly, because the warning sat two
+    lines above the command and a line-scoped scan could not see it. Whether a
+    reference is adequately caveated is a judgement; whether the file exists is
+    a fact, and only the fact belongs in a test.
+    """
+    import re
+
+    docs = REPO / "docs"
+    # The one file whose job is to record what was removed. It carries a
+    # document-level banner — "everything below this line describes software
+    # that was never in this repository" — which a per-line check cannot see,
+    # and rewriting it line by line would destroy the record it exists to keep.
+    # Every other doc has to keep its references live.
+    historical = {"pdf_fetching_capability.md"}
+    pattern = re.compile(r"scripts/([A-Za-z0-9_]+\.py)")
+    missing = []
+    for doc in sorted(docs.rglob("*.md")):
+        if doc.name in historical:
+            continue
+        for number, line in enumerate(doc.read_text(encoding="utf-8").splitlines(), 1):
+            for name in pattern.findall(line):
+                if (SCRIPTS / name).exists():
+                    continue
+                # A line may legitimately name a removed script while saying so.
+                if any(word in line for word in ("REMOVED", "removed", "deleted")):
+                    continue
+                missing.append(f"{doc.relative_to(REPO)}:{number} -> scripts/{name}")
+    assert missing == [], (
+        "these docs reference a script that is not in `scripts/`, without "
+        "saying it was removed (#523):\n" + "\n".join(missing)
     )
