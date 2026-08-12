@@ -288,6 +288,39 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: exchange of further molecules beyond the unidirectional feeding with sucrose
     explanation: Supports additional interaction mechanisms beyond the engineered sucrose cross-feeding link.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 10.0
+  working_volume_unit: mL
+  instrument_detail: >-
+    125 mL baffled Erlenmeyer flasks holding roughly 10 mL of alginate-bead suspension in M3
+    minimal medium, on a Multitron Pro rotary shaker. The cyanobacterium is encapsulated in
+    barium-alginate hydrogel rather than free in suspension; that encapsulation is what
+    shields it from 2,4-DNT toxicity, so it is a property of the setup and not of the strain.
+    Cells were stepped from 25 to 50 mM NaCl over two days before the final medium.
+  notes: >-
+    No operating temperature or light intensity. The paper gives 32 °C and 150 rpm for
+    Lysogeny broth cultures, and LB is the P. putida preculture medium - the coculture runs
+    on M3 with light and CO2 as inputs, so those numbers are not the community's (#529). The
+    incubator model is recorded instead of a temperature invented for it.
+
+    `cultivation_mode` is BATCH: the medium is exchanged between acclimation steps rather
+    than fed continuously, and no dilution rate is reported.
+  evidence:
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the alginate bead suspension were portioned in ~ 10‐ml aliquots into 125‐ml baffled
+      Erlenmeyer flasks
+    explanation: The vessel and the working volume the coculture was run in.
+  - reference: PMID:32064751
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By encapsulating S. elongatus within a barium-alginate hydrogel, cyanobacterial cells
+      were protected from the toxic effects of 2,4-DNT, enhancing the performance of the co-culture
+    explanation: Why the encapsulation belongs in the setup rather than being incidental.
+
 environmental_factors:
 - name: Light and CO2
   value: Illumination with CO2 as primary carbon input
