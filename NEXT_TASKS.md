@@ -31,6 +31,29 @@ The other 22 are independent of each other and of `main`:
 **Loose end:** `origin/enrich-cultivation-183y` is pushed with a commit
 (`2de2e11`, hCom2) and **has no PR**. Open one or delete the branch.
 
+### The queue has started blocking new work
+
+Not merging is no longer neutral. A concrete case, measured today:
+
+The snippet-rendering artefact fixed in #539 (`MPOB T` -> `MPOBT`) and #552
+(`CO 2` -> `CO2`) has now bitten twice, which makes it a candidate for a
+committed gate. **That gate cannot be added.** Run against `main` it reports
+**6 violations** — the three strain designations in
+`Syntrophobacter_Methanobacterium_Syntrophy` and the three formula subscripts in
+`hCom2_Complex_Gut_Microbiome` — because both fixes live only on unmerged
+branches. A guard committed today would be red on `main` on arrival.
+
+The same applies to anything else that would assert a corpus-wide property: 17
+curated records and two schema changes are queued, so `main` is 28 PRs behind
+what the tests would be written against.
+
+**A caution on the sweep that established the artefact is isolated.** The first
+version flattened the snippet but compared it against the cache file's *raw*
+text, so any occurrence spanning a line break was invisible. Re-run with both
+sides flattened it finds exactly the six above and nothing else — so #540's
+"isolated, no batch fix needed" conclusion is true, but it was reached by a check
+that could not have shown it. Corrected on #552.
+
 ### What the 26 PRs contain
 
 - **17 records** curated for #183 (`cultivation_setup`), each with the "what is
