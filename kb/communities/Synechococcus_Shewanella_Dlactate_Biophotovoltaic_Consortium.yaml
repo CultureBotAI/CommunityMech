@@ -226,6 +226,49 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: temporal/spatial separation design conquered the physiological incompatibility
     explanation: Supports the spatial-temporal device organization as the compatibility mechanism.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: BIOELECTROCHEMICAL_SYSTEM
+  instrument_detail: >-
+    Dual-chamber electrochemical devices on M9 medium, used to compare current production
+    from monocultures against the consortium. The cyanobacterium charges the system in the
+    light by making d-lactate; Shewanella discharges it in the dark by oxidising that
+    d-lactate to the anode. The consortium sustained electricity production for over 40 days.
+  electrode_detail: >-
+    Anode-respiring: the engineered S. oneidensis releases electrons from d-lactate and
+    transfers them to the anode. No applied potential is recorded because the paper reports
+    power output rather than poised-potential operation.
+  notes: >-
+    Light and dark are the operating cycle, not a condition. Charging and discharging are run
+    sequentially under light and dark, and the paper's own attempt to run the consortium under
+    continuous light failed - it produced no current, because photosynthetic oxygen raised
+    dissolved oxygen and Shewanella is itself light-sensitive. Recording an illumination
+    setting as a single value would flatten the finding into a parameter.
+
+    `cultivation_mode` is BATCH because the devices are charged and discharged rather than
+    fed and drained; no dilution or feed rate is reported.
+
+    The LB at 30 °C elsewhere in the paper is the S. oneidensis preculture, not the
+    consortium, and is deliberately not recorded here (#529).
+  evidence:
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dual-chamber electrochemical devices (Supplementary Fig. 14a, b) were used to evaluate
+      the efficiency of current production in mono-cultures and microbial consortia in this study
+    explanation: The vessel, stated for the consortium as well as the monocultures.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The charging process (photosynthetic production of d-lactate) and discharging process
+      are implemented sequentially under light and dark conditions, respectively
+    explanation: The light/dark cycle is the operating regime, which is why it is not a field.
+  - reference: PMID:31537786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: can produce relatively high-power electricity from light for over 40 days
+    explanation: Duration the consortium was operated for.
+
 environmental_factors:
 - name: Light-driven charging phase
   value: Continuous illumination with 3 percent carbon dioxide for cyanobacterial D-lactate production
