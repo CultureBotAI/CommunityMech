@@ -566,6 +566,45 @@ ecological_interactions:
     snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
       microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
     explanation: Supports metabolite exchange interactions in community assembly
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Serial-dilution passaging of the ten-member community in liquid culture. Each strain was
+    grown alone for 48 h, normalised to the lowest OD600 in that medium, then equal volumes
+    were mixed so the starting inoculum held all ten at roughly equal concentration.
+    Triplicate cultures were incubated 48 h at 30 °C with shaking at 200 rpm and passaged
+    every 48 h at 1:10 into fresh medium.
+  notes: >-
+    Two media were run in parallel, R2A and MOPS, because the study's question is whether the
+    same ten strains form different stable communities in different environments. Recording
+    one would misrepresent the design, so both are named here rather than a single
+    growth_media entry standing in for them.
+
+    No `system_type` or `working_volume`. The 10 mL test tubes named in the source are for the
+    individual seed cultures; the source does not say what the community passages were run in,
+    and carrying the seed-culture vessel across would be the preculture error (#529).
+
+    Predicted a likely refusal in #543, on the assumption that a plant-associated SynCom lives
+    on the plant. That was wrong: this community was assembled and passaged in liquid medium
+    and never put on a Populus root in this study. Recorded because the prediction failing is
+    the useful part - the remaining candidates there need the same reading rather than
+    inheriting the guess.
+  evidence:
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Equal volumes of the normalized culture were mixed together, and the community was
+      transferred into fresh medium using a 1:10 dilution
+    explanation: The community itself was passaged, not just its members.
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Triplicate cultures, for both media, were incubated for 48 h at 30 °C with shaking
+      at 200 rpm
+    explanation: Temperature, agitation and the 48 h passage interval, for the community cultures.
+
 environmental_factors:
 - name: Growth medium context
   value: two media environments
