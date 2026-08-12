@@ -113,6 +113,30 @@ def issue_severity(issue: dict) -> str:
     return issue.get("severity") or severity_of(issue["type"])
 
 
+def _participant_terms(participant: object) -> set[str]:
+    """Every string a `participating_taxa` entry could use to name a member.
+
+    Matches how the auditor already resolves `source_taxon`/`target_taxon` —
+    by `preferred_term`, by `term.label` and by `term.id` — because a
+    participant named only by CURIE is still a participant, and an id-only
+    match is the case an independent name-only matcher got wrong on 8 entries
+    when #319 was measured.
+    """
+    if isinstance(participant, str):
+        return {participant}
+    if not isinstance(participant, dict):
+        return set()
+    found = set()
+    if participant.get("preferred_term"):
+        found.add(participant["preferred_term"])
+    term = participant.get("term") or {}
+    if isinstance(term, dict):
+        for key in ("label", "id"):
+            if term.get(key):
+                found.add(term[key])
+    return found
+
+
 class NetworkIntegrityAuditor:
     """Audit community YAML files for network data integrity issues."""
 
@@ -355,7 +379,31 @@ class NetworkIntegrityAuditor:
             # connections at all and every taxon in the 107 records that use them
             # exclusively counted as disconnected by construction (#304).
             if scope == "COMMUNITY_LEVEL":
-                connected_taxa.update(taxonomy_by_term)
+                # `participating_taxa` narrows the credit to the members the
+                # statement is actually about (#312). Absent or empty means
+                # "every member", which is what every record says today — so
+                # this changes no finding until a curator names participants.
+                named = interaction.get("participating_taxa") or []
+                if named:
+                    for participant in named:
+                        # Name first, id only if no name matched. Curators copy
+                        # the whole `taxon_term` block, which carries both — and
+                        # resolving the id as well as the name credited every
+                        # member sharing that id, so an entry naming one strain
+                        # of 28 credited all 28 and the narrowing did nothing.
+                        # Precedence, not union: the more specific reference wins.
+                        by_name = {
+                            token
+                            for token in _participant_terms(participant)
+                            if token in taxonomy_by_term
+                        }
+                        if by_name:
+                            connected_taxa.update(by_name)
+                            continue
+                        for token in _participant_terms(participant):
+                            connected_taxa.update(taxonomy_keys_by_id.get(token, []))
+                else:
+                    connected_taxa.update(taxonomy_by_term)
 
             # Check source_taxon (only required for PAIRWISE interactions)
             source = interaction.get("source_taxon")

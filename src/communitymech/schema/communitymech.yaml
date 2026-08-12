@@ -1202,6 +1202,33 @@ classes:
       target_taxon:
         description: Target organism (if applicable)
         range: TaxonDescriptor
+      participating_taxa:
+        description: >-
+          Which members a COMMUNITY_LEVEL interaction is actually about, when it is
+          about some of them rather than all. Optional and usually absent: a statement
+          that genuinely holds across the whole community should leave it empty, and
+          an empty list means "every member", not "none".
+
+          Exists because the connectivity audit credits a COMMUNITY_LEVEL interaction
+          as connecting every member of the record, which is unavoidably coarse - in a
+          record carrying both kinds of edge, a taxon in no pairwise edge is credited
+          by an unrelated community-level one. 407 of 522 taxa were credited solely
+          that way. Naming participants narrows the credit to them (#312).
+
+          Not a second way to write a pairwise edge. If an interaction is between two
+          named organisms it wants `source_taxon`/`target_taxon` and PAIRWISE scope;
+          this is for a statement over a named subset, such as three of eight members
+          cross-feeding while the rest do not.
+
+          Name participants by `preferred_term`, not by CURIE alone. Entries resolve
+          by preferred_term, term.label or term.id, and in strain-level records the
+          id does not identify a member: GLBRC_Populus_Variovorax_SynCom28 has 28 taxa
+          under one NCBITaxon id, so naming two of them by CURIE credits all 28 and the
+          slot appears to do nothing. That is the sound reading of an ambiguous
+          reference, and it is also exactly the record shape where narrowing matters
+          most (#524).
+        range: TaxonDescriptor
+        multivalued: true
       metabolites:
         description: Metabolites involved in the interaction
         range: MetaboliteDescriptor
