@@ -221,6 +221,44 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: production of more robust biofilms by the three members together than individually
     explanation: Supports biofilm formation as an emergent three-member community phenotype.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 28.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Liquid culture in half-strength tryptic soy broth at 28 °C with vigorous shaking, with
+    strains propagated on 1/10-strength tryptic soy agar. Interactions were also assayed on
+    plates and across three media - LB, half-strength TSB, and soybean root exudate - because
+    which interactions appear depends on the medium: the inhibition among these strains shows
+    up predominantly under the lower-nutrient condition.
+  notes: >-
+    No `system_type` or `working_volume`. The source says "liquid culture" and names the
+    broth, never the vessel or the fill, and the interaction assays run on both plates and in
+    liquid - so a single vessel value would misdescribe half the experiments rather than
+    approximate them.
+
+    Nutrient level is recorded as part of the setup rather than as an environmental factor
+    because it is a manipulated variable here: dilute TSA and TSB are chosen, and the paper's
+    point is that antagonism among the three members is medium-dependent. A record showing
+    only "TSB" would lose the half-strength, which is where the interactions are.
+
+    Media and temperature are stated for the strains generally, which for a three-member
+    model community assembled from those strains is also the coculture's condition; the
+    coculture sentences name the same media (#529).
+  evidence:
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterial strains were propagated on 1/10-strength tryptic soy agar (TSA) and grown
+      in liquid culture in 1/2-strength tryptic soy broth (TSB) at 28°C with vigorous shaking
+    explanation: Temperature, agitation, and the two dilute media the community is grown on.
+  - reference: PMID:30837345
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhizosphere isolates were grown alone or in coculture with P. koreensis CI12 in soybean
+      root exudate
+    explanation: Cocultures were run in root exudate as well as defined broth.
+
 environmental_factors:
 - name: Rhizosphere Origin
   value: Field-grown soybean root/rhizosphere-associated isolates
