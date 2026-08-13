@@ -262,6 +262,64 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: maintenance of populations of 105 to 106 CFU/mL for 50 days
     explanation: Supports long-term maintenance of both members under controlled oxygen transfer.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 50.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    50 mL shake cultures at 30 °C under semi-aerobic conditions, with oxygen delivered at a
+    controlled rate by diffusion through neoprene tubing at roughly 8 μmol/L per hour.
+    Populations of 1e5 to 1e6 CFU/mL were held for 50 days.
+  notes: >-
+    The oxygen rate is the experiment, not a condition around it. The consortium is
+    "maintained by controlled oxygen transport": the yeast protects the anaerobe from
+    introduced oxygen in exchange for the sugars its cellulose hydrolysis releases, so
+    removing the oxygen removes the reason the partnership exists. Recording
+    "semi-aerobic" without the rate would lose that.
+
+    Only cocultures degraded filter paper under these conditions - the monocultures did not -
+    which is why the conditions belong to the community rather than to either member (#529).
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only co-cultures were able to degrade filter paper when mono- and co-cultures were
+      incubated at 30°C under semi-aerobic conditions
+    explanation: Temperature and oxygen regime, stated for the cocultures specifically.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using controlled oxygen delivery by diffusion through neoprene tubing at a calculated
+      rate of approximately 8 μmol/L hour, we demonstrate establishment of the symbiotic relationship
+    explanation: The oxygen-delivery mechanism and rate that maintain the consortium.
+- cultivation_mode: BATCH
+  system_type: BIOREACTOR_UNSPECIFIED
+  working_volume: 500.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    The scale-up arm: 500 mL bioreactors, reported as showing symbiotic population dynamics
+    comparable to the 50 mL shake cultures.
+  notes: >-
+    Recorded as a second entry rather than merged, because the comparability between scales is
+    a result rather than a detail - it is what the paper offers as evidence the symbiosis is
+    not an artefact of small-volume culture.
+
+    `system_type` is BIOREACTOR_UNSPECIFIED: the source says "bioreactors" and never says what
+    kind. Abstract-only, so no agitation, medium composition or oxygen-transfer figures for
+    this arm either.
+  evidence:
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Comparable symbiotic population dynamics were observed in scaled up 500 mL bioreactors
+      as those in 50 mL shake cultures
+    explanation: Both vessels and volumes, and that the two scales behaved alike.
+
 environmental_factors:
 - name: Controlled oxygen transfer
   value: approximately 8 micromol/L hour diffusive oxygen delivery
