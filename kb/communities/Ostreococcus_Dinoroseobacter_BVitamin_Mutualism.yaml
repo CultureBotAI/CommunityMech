@@ -185,6 +185,45 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: could supply thiamine and B12 to its hosts in exchange for a source of fixed carbon
     explanation: Supports the inferred exchange of bacterial vitamins for algal fixed carbon.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 18.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    18 °C under a 16:8 h light:dark cycle, applied to the axenic controls and the cocultures
+    alike. B-vitamins were supplied to cultures at defined concentrations - 0.40 nM cobalamin,
+    2.05 nM biotin, 296 nM thiamine - and it is their presence or absence that is varied.
+  notes: >-
+    The photoperiod has no schema field, so it is in instrument_detail rather than dropped.
+    For a mutualism whose alga fixes the carbon it trades for vitamins, a light:dark cycle is
+    not ambient detail: it is the energy input the whole exchange runs on, and a record giving
+    only the temperature would omit the half that matters.
+
+    The vitamin concentrations are the experimental variable rather than a medium recipe. The
+    question is which combinations let O. tauri grow, given that it is auxotrophic for B12 and
+    B1 and its partner supplies them, so the numbers are recorded and the combinations are
+    left to the interactions.
+
+    No `system_type` or `working_volume`: the source names neither. Abstract-only, 1.5 KB
+    cached.
+
+    The conditions are the community's on the source's own wording - "All axenic AND
+    co-cultures containing O. tauri were grown at 18°C" - rather than inferred from the axenic
+    controls, which is the distinction #529 exists for.
+  evidence:
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 h light:dark
+      cycle
+    explanation: Temperature and photoperiod, stated for the cocultures as well as the controls.
+  - reference: PMID:30228381
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin,
+      2.05 nM biotin, 296 nM thiamine'
+    explanation: The vitamin concentrations whose presence and absence the study varies.
+
 environmental_factors:
 - name: B-vitamin availability
   value: cobalamin, thiamine, biotin, niacin, and p-aminobenzoic acid amendments varied experimentally
