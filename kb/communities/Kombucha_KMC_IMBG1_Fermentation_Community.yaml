@@ -166,6 +166,41 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: bacterial core component in nsBTS remained the same
     explanation: Supports a relatively stable bacterial core despite growth-condition changes.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 28.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Filter-sterilised black tea extract (Lipton, 1.2% w/v) with sucrose at 3.0% w/v, cultivated
+    14 days at 28 °C without shaking to obtain a matured KMC-IMBG1. The study then grows the
+    same community across different microenvironments to see how composition responds.
+  notes: >-
+    Static, and central rather than incidental: kombucha forms a floating cellulose pellicle at
+    the air-liquid interface, so an unshaken culture is what allows the community to structure
+    itself. Shaking it would not be the same community.
+
+    The tea is both medium and substrate. Recording only "black tea" would lose the sucrose,
+    which is the carbon the acetobacteria and yeasts actually ferment - the tea supplies the
+    matrix and the minor nutrients.
+
+    No `system_type` or `working_volume`: the source names neither, and for an open-vessel
+    fermentation defined by its air-liquid interface a vessel enum would say little anyway.
+
+    This is one of only six records in the KB whose source states that the *community* was
+    cultivated rather than its members - which for kombucha is unsurprising, since it has no
+    members to grow separately.
+  evidence:
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A matured KMC-IMBG1 was obtained after cultivation for 14 days at 28°C without shaking
+    explanation: Duration, temperature and static operation for the community itself.
+  - reference: PMID:26061774
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: black tea (Lipton, 1.2%, w/v) extract with sucrose (3.0%, w/v)
+    explanation: The medium, and the sucrose that is the fermentable carbon.
+
 environmental_factors:
 - name: sweetened black tea substrate
   value: black tea extract with sucrose
