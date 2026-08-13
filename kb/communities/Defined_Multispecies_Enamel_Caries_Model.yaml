@@ -135,6 +135,46 @@ taxonomy:
       Streptococcus mutans, S. salivarius and S. sanguinis, were grown on the
       surface of salivary-pellicle-coated enamel slabs
     explanation: Documents Streptococcus sanguinis as a member of the enamel caries consortium.
+cultivation_setup:
+- cultivation_mode: SEMI_CONTINUOUS
+  system_type: OTHER
+  instrument_detail: >-
+    Biofilms grown for 4 days on the surface of salivary-pellicle-coated enamel slabs of known
+    baseline surface hardness, with the growth medium changed daily. Sucrose was varied at
+    0.5 and 1.0%, fluoride at 0.4, 0.8 and 1.0 ppm F, and calcium at 1.0 and 2.0 mM.
+  notes: >-
+    The substrate is the readout, not just a surface. Enamel slabs of known baseline hardness
+    are what let the model measure caries as surface-microhardness change, lesion depth and
+    mineral loss - so "enamel slab" is part of the instrument, and the salivary pellicle is
+    what makes the surface colonisable in the first place.
+
+    `cultivation_mode` is SEMI_CONTINUOUS because the medium was changed daily while the
+    biofilm stayed on its slab. Neither BATCH nor CONTINUOUS fits: the biomass is retained
+    across changes, which is the point of a biofilm model.
+
+    `system_type` is OTHER - a pellicle-coated enamel slab has no enum value, and any vessel
+    type would describe the container rather than the system.
+
+    Sucrose, fluoride and calcium are recorded as the ranges they were varied over, not as
+    settings. They are the independent variables of both studies in this paper, and a single
+    value would describe one arm of an experiment designed as a matrix.
+
+    No temperature or atmosphere: the abstract gives neither, and the cached entry is 2.1 KB.
+  evidence:
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Defined-multispecies biofilms, formed by Lactobacillus casei, Streptococcus mutans, S.
+      salivarius and S. sanguinis, were grown on the surface of salivary-pellicle-coated enamel
+      slabs, with known baseline surface hardness; growth medium was changed daily
+    explanation: The substrate, the daily medium change, and that all four members were grown together.
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: evaluating the effects of varying medium concentration of sucrose (0.5 and 1.0%) and
+      fluoride (0.4, 0.8 and 1.0 ppm F) in study 1, and calcium (1.0 and 2.0 mM Ca) in study 2
+    explanation: The three varied amendments and their ranges.
+
 environmental_factors:
 - name: Sucrose concentration
   value: 0.5-1.0
