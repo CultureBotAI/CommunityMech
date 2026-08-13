@@ -245,6 +245,52 @@ growth_media:
     snippet: or 0.5% fructose as carbon sources for 24 h at 37 °C
     explanation: The alternative carbon source at the same concentration and conditions.
 
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Anaerobic Hungate tubes of YCFA medium at 37 °C, 24 h per passage, transferred to fresh
+    medium every 24 h for five transfers to establish community stability. Media were filter
+    sterilised and degassed overnight in a COY anaerobic chamber under 75% N2 / 20% CO2 /
+    5% H2. Carbon was supplied as either 0.5% wheat straw fibre or 0.5% fructose.
+  controls_notes: >-
+    Atmosphere set by the chamber during media preparation and by the sealed Hungate tube
+    thereafter, rather than by a per-vessel gas control.
+  notes: >-
+    The two carbon sources are the experiment, not alternatives to pick between. Each species
+    grows on both independently but not on media lacking them, and the study compares
+    proteome complementarity across the two - so recording one would halve the design.
+
+    Five serial 24 h transfers are recorded because they are what makes the community stable
+    rather than a fresh mixture: the source gives that as their purpose.
+
+    `system_type` is SERUM_BOTTLE, the nearest value for a butyl-stoppered anaerobic culture
+    tube. A Hungate tube is that kind of vessel and the enum has no entry for it - the same
+    approximation, labelled the same way, as the Balch tubes in the cellobiose biofilm record.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteria were grown anaerobically in Hungate tubes containing yeast casitone fatty acids
+      (YCFA) medium 49 , supplemented with 0.5% wheat straw fibre (collected at the Agricultural
+      Research Organization, Volcani Center, Israel) or 0.5% fructose as carbon sources for 24 h
+      at 37 °C
+    explanation: Vessel, medium, both carbon sources, duration and temperature.
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To ensure bacterial community stability, the cultures were transferred to fresh media
+      every 24 h over a span of 5 transfers
+    explanation: The transfer regime, and that community stability is its purpose.
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cultivation media were filter sterilized and degassed overnight in an anaerobic
+      chamber (COY Lab) with a gas composition of 75% nitrogen, 20% carbon dioxide and 5% hydrogen
+    explanation: How anaerobiosis was established before inoculation.
+
 environmental_factors:
 - name: Distinct carbon sources
   description: >
