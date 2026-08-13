@@ -246,6 +246,70 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: less so towards continuous perturbations
     explanation: Supports reduced robustness under continuous perturbation.
+cultivation_setup:
+- cultivation_mode: SEMI_CONTINUOUS
+  system_type: OTHER
+  working_volume: 20.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    The biofilm arm. Chips inoculated by 90 min adhesion at 30 °C in a humid atmosphere,
+    nonadherent cells rinsed away, then incubated at 30 °C in 9 cm polystyrene Petri dishes
+    holding 20 mL of 1/20 TSB, with the growth medium changed every 24 h.
+  notes: >-
+    `cultivation_mode` is SEMI_CONTINUOUS: the medium is renewed daily while the biofilm stays
+    on its chip, so biomass is retained across changes. Same reading as the enamel caries
+    model, and for the same reason - a biofilm model that discarded its biomass at each change
+    would not be one.
+
+    The 90 min adhesion step with a rinse is recorded because it defines what the community
+    IS here: only cells that attached in that window are in the biofilm, and the rinse removes
+    the rest. Skipping it would describe a culture rather than a biofilm.
+
+    The medium is deliberately dilute - 1/20 TSB, 5% strength - which is nutrient limitation
+    chosen to resemble a cleaned milk line rather than a rich laboratory broth.
+
+    `system_type` is OTHER: chips in a Petri dish have no enum value, as with the enamel slabs
+    and the agar plates elsewhere in this sweep.
+
+    The 30 °C on TSA/TSB at 60 rpm given elsewhere is routine strain maintenance, not this
+    assay (#529) - though here both happen to be 30 °C.
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For biofilm formation, inoculated chips were incubated at 30°C in polystyrene Petri
+      dishes, 9‐cm diameter, containing 20 ml of 1/20 TSB. The growth medium was changed every 24 h
+    explanation: Vessel, working volume, dilute medium, temperature and the daily medium change.
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: incubated at 30°C in a humid atmosphere for 90 min to allow bacterial adhesion.
+      Nonadherent cells were removed by gentle rinsing with 20 ml of TSB diluted to 5% in water
+    explanation: The adhesion window and rinse that determine which cells form the biofilm.
+- cultivation_mode: BATCH
+  system_type: OTHER
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    The planktonic comparison arm. The same four-species mixture in a 9 cm Petri dish,
+    incubated 24, 48 or 72 h at 30 °C with agitation at 60 rpm specifically to PREVENT biofilm
+    formation.
+  notes: >-
+    Recorded as a separate entry because the agitation exists to suppress the phenotype the
+    other arm studies. The contrast between attached and planktonic growth of the same four
+    species is the experiment, so merging the two would erase it - the same call as the
+    biofilm/planktonic arms in the cellobiose record and the two H2-supply arms in the
+    electrolysis one.
+  evidence:
+  - reference: PMID:34964290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This planktonic coculture mixture was placed in a 9‐cm diameter Petri dish and incubated
+      for 24, 48, or 72 h at 30°C with agitation at 60 rpm to prevent biofilm formation
+    explanation: The planktonic arm, and that agitation is there to suppress biofilm formation.
+
 environmental_factors:
 - name: industrial milk pasteurization-line source
   value: biofilm from a gasket in a milk pasteurization line
