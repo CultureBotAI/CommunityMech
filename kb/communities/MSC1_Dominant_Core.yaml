@@ -589,6 +589,44 @@ ecological_interactions:
     snippet: Several soil consortia were derived that had tractable richness (30-50 OTUs) with diverse
       phyla representative of the native soil, including Actinobacteria, Bacteroidetes, Firmicutes, Proteobacteria,
       and Verrucomicrobia
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  operating_temperature: 20.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Chitin/soil extract agar plates at 20 °C, with colonies re-plated onto the same medium
+    until enough biomass was available. Chitin is the primary carbon and nitrogen substrate,
+    chosen because it is complex enough that no single species performs every step. MSC-1
+    interactions were then studied both by pairwise co-cultivation in liquid media and by
+    growth in soil.
+  notes: >-
+    The medium is solid on purpose, and the source says why: it "helped to retain some
+    physical structure needed to allow for spatial interactions between species". That is a
+    design decision about what kind of community can form, not a convenience - a shaken
+    liquid culture would have selected differently. Recorded because a reader seeing only
+    "agar" would take it for the default.
+
+    `system_type` is OTHER: an agar-plate consortium has no enum value, and FLASK or a reactor
+    type would assert a liquid culture this is not. Same call as the cheese-rind record.
+
+    The Mason-jar step - 100 g of sieved field soil with 0 to 100 ppm powdered chitin - is the
+    enrichment the isolates came from, not the consortium's own cultivation. Same distinction
+    as the Cyprus bioleaching column: sampling is the origin, plating is the cultivation.
+  evidence:
+  - reference: PMID:32983014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To collect isolates for model soil consortium-1 (MSC-1), the community was plated onto
+      chitin/soil extract agar and incubated at 20°C
+    explanation: Medium and temperature for the consortium itself.
+  - reference: PMID:32983014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The solid medium helped to retain some physical structure needed to allow for spatial
+      interactions between species
+    explanation: Why the medium is solid — a design choice about which interactions can occur.
+
 environmental_factors:
 - name: Source environment
   value: arid grassland soil
