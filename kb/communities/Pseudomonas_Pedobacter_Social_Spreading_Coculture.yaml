@@ -205,6 +205,60 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: initiation of social spreading requires close association between the two species of bacteria
     explanation: Supports the contact/proximity dependence of the canonical pair.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  operating_temperature: 20.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Spots of each species placed on TSB-NK agar and incubated at 20 °C, monitored daily for
+    the point at which the two colonies touch and spreading begins. TSB-NK is 10%-strength
+    tryptic soy (3 g/L) with NaCl (5 g/L) and KH2PO4 (1 g/L), solidified with 2% agar.
+    Inocula were grown in 2 mL TSB-NK at 20 °C for 24 h with shaking at 160 rpm; assays ran
+    4 days.
+  notes: >-
+    The agar is hard on purpose and that is the entire result. At 2% agar neither species is
+    motile alone; the mixed colony spreads across the surface anyway, which is the emergent
+    phenotype the paper names "interspecies social spreading". A softer agar would permit
+    motility in monoculture and there would be nothing to observe.
+
+    Contact matters as much as composition: spreading initiates only once the two colonies
+    grow into each other, so the plates were monitored daily for that moment rather than run
+    to a fixed endpoint. Recorded because "4 days" alone would suggest a duration was chosen
+    rather than observed.
+
+    The salt amendments are part of the setup, not the recipe. The paper varies them - assays
+    with no salts, and with NaCl and KH2PO4 individually - to ask which affect spreading, so
+    "TSB" without them would describe a different assay.
+
+    `system_type` is OTHER: an agar-plate coculture has no enum value, as with the cheese-rind
+    and MSC1 records.
+
+    The 30 °C given for P. fluorescens is its routine growth temperature; both species and the
+    assays run at 20 °C (#529).
+  evidence:
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Our standard assay condition, TSB-NK, consists of 10% strength tryptic soy (3 g/liter)
+      supplemented with NaCl (5 g/liter) and KH2PO4 (1 g/liter)
+    explanation: The medium composition, including the salts the study varies.
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Once the inoculation liquid had dried, plates were incubated at 20°C and monitored daily
+      to determine the time at which colony growth led to contact between the isolates, and when
+      spreading phenotypes developed.
+    explanation: Temperature, and that contact between colonies is the observed trigger. From the
+      adjacent-plating assay, where the drops are placed near each other but not touching.
+  - reference: PMID:30700513
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fluorescens Pf0-1 and Pedobacter on TSB-NK medium solidified with 2% agar, a mixed colony
+      of the two bacteria expanded across the surface of the agar, an environment in which neither
+      monoculture exhibited motility
+    explanation: The 2% agar, and that it is non-permissive for either species alone.
+
 environmental_factors:
 - name: low-nutrient high-salt hard agar
   value: TSB-NK medium with 2% agar, requiring low nutrient and high NaCl conditions for Pf0-1 plus V48 social spreading
