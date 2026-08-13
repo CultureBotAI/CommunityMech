@@ -199,6 +199,37 @@ growth_media:
       at 25 °C
     explanation: Names the medium, duration and temperature for the bacterial preculture.
 
+cultivation_setup:
+- cultivation_mode: BATCH
+  instrument_detail: >-
+    Sawdust of Mars meteorite EETA79001 wetted at regolith:water ratios from 4:1 to 1:10, held
+    up to 23 days under terrestrial conditions. The regolith is the substrate and the variable
+    at once - the question is whether real martian material supports growth at all, and at
+    what water content.
+  notes: >-
+    Recorded for the panel, and the distinction matters. This record is a four-member *panel*,
+    not a co-culture: its own description calls it that, its members were tested for growth
+    separately, and it carries zero ecological_interactions. So these are conditions under
+    which each member was grown on the same substrate, not conditions under which a community
+    was grown. Filed as #573, because a panel modelled as a community is a record-shape
+    question rather than a curation one.
+
+    No temperature: the source says "terrestrial conditions" without a figure, the same
+    situation as "ambient temperature" in the PET record and "room temperature" in the
+    cheese-rind one. No vessel or working volume either - the ratio is given by mass, and the
+    source scales it rather than fixing a volume.
+
+    The water ratio range is kept as a range for the reason ranges are kept elsewhere in this
+    sweep: 4:1 to 1:10 spans two orders of magnitude and is what the experiment varies, so a
+    single value would assert a condition that was never the point.
+  evidence:
+  - reference: PMID:38665180
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: for up to 23 days under terrestrial conditions using regolith:water ratios from 4:1
+      to 1:10
+    explanation: Duration, the stated temperature regime, and the water-content range varied.
+
 environmental_factors:
 - name: Actual martian regolith substrate (Mars meteorite EETA79001)
   value: EETA79001 meteorite sawdust
