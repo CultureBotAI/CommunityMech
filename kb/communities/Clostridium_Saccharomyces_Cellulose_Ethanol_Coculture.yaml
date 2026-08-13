@@ -264,15 +264,17 @@ ecological_interactions:
     explanation: Supports long-term maintenance of both members under controlled oxygen transfer.
 cultivation_setup:
 - cultivation_mode: BATCH
-  system_type: FLASK
+  system_type: SERUM_BOTTLE
   working_volume: 50.0
   working_volume_unit: mL
   operating_temperature: 30.0
   operating_temperature_unit: °C
   instrument_detail: >-
-    50 mL shake cultures at 30 °C under semi-aerobic conditions, with oxygen delivered at a
-    controlled rate by diffusion through neoprene tubing at roughly 8 μmol/L per hour.
-    Populations of 1e5 to 1e6 CFU/mL were held for 50 days.
+    50 mL cultures at 30 °C under semi-aerobic conditions in sealed 100 mL serum bottles, with
+    oxygen delivered at a controlled rate by diffusion through 10 cm of neoprene tubing fixed
+    to stainless steel tubing inserted through the seal, at roughly 8 μmol/L per hour.
+    Populations of 1e5 to 1e6 CFU/mL were held for 50 days. α-Cellulose was the model
+    substrate, chosen because it carries no additional carbon sources.
   notes: >-
     The oxygen rate is the experiment, not a condition around it. The consortium is
     "maintained by controlled oxygen transport": the yeast protects the anaerobe from
@@ -282,6 +284,13 @@ cultivation_setup:
 
     Only cocultures degraded filter paper under these conditions - the monocultures did not -
     which is why the conditions belong to the community rather than to either member (#529).
+
+    `system_type` corrected from FLASK to SERUM_BOTTLE. The abstract said "50 mL shake
+    cultures", which read as flasks; the full text, fetched after this record was first
+    curated, shows a sealed 100 mL serum bottle with the oxygen-transfer tubing inserted
+    through the seal. The seal is the point - a flask could not hold a controlled oxygen
+    transfer rate, which is the entire mechanism here. The 50 mL is the working volume in a
+    100 mL vessel.
   evidence:
   - reference: PMID:23628342
     supports: SUPPORT
@@ -295,6 +304,12 @@ cultivation_setup:
     snippet: Using controlled oxygen delivery by diffusion through neoprene tubing at a calculated
       rate of approximately 8 μmol/L hour, we demonstrate establishment of the symbiotic relationship
     explanation: The oxygen-delivery mechanism and rate that maintain the consortium.
+  - reference: PMID:23628342
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Controlled oxygen transfer reactor with 10 cm neoprene tubing fixed to stainless steel
+      tubing inserted into a sealed 100 mL serum bottle
+    explanation: The actual vessel and how the oxygen line enters it.
 - cultivation_mode: BATCH
   system_type: BIOREACTOR_UNSPECIFIED
   working_volume: 500.0
