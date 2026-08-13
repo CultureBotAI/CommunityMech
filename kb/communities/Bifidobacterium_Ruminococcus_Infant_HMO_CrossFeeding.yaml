@@ -148,24 +148,35 @@ ecological_interactions:
     snippet: HMO utilization can vary with an individual's microbiome
     explanation: Supports the inter-individual variability of HMO utilization.
 cultivation_setup:
-- instrument_detail: >-
-    All cultivation was done inside a Coy Labs anaerobic chamber under 70% N2 / 25% CO2 /
-    5% H2. Media were sparged with N2 and reduced with l-cysteine hydrochloride, and sugar
-    solutions were equilibrated in the chamber for at least 48 h before use, so the carbon
-    source itself was anoxic at the point of mixing.
+- cultivation_mode: BATCH
+  system_type: OTHER
+  working_volume: 3.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    3 mL of growth medium in a 24-deep-well block, 48 h at 37 °C with shaking per passage,
+    serially passaged 30 µL into 3 mL for three passages after an initial 48 h recovery of the
+    stool inoculum. All cultivation inside a Coy Labs anaerobic chamber under 70% N2 /
+    25% CO2 / 5% H2; media sparged with N2 and reduced with l-cysteine hydrochloride, and
+    sugar solutions equilibrated in the chamber for at least 48 h before use, so the carbon
+    source itself was anoxic at the point of mixing. Mono- and cocultures were harvested at
+    24, 72 and 144 h. A cell-free negative control was run for each medium.
   controls_notes: >-
     Atmosphere controlled by the chamber rather than by a headspace in each vessel, which is
     why gas composition is recorded here and not as a per-culture setting.
   notes: >-
-    Deliberately partial, and worth saying so rather than padding. The source states the
-    chamber and its gas mix for "all cultivation work", which covers the B. breve /
-    R. gnavus cocultures - so that much is theirs. It then defers the coculture's vessel,
-    volume and temperature to "(Methods)", which the cached text does not carry.
+    This record was first curated as "deliberately partial", on the claim that the source
+    defers the vessel, volume and temperature to "(Methods)" that the cache does not carry.
+    That claim was wrong. The cache holds 91 KB and states all three; I searched it badly and
+    then wrote the absence up as a property of the source. Corrected here.
 
-    So no `system_type`, no `working_volume`, no `operating_temperature`. The 37 °C with
-    shaking elsewhere in the paper belongs to a 48 h inoculum recovery step, not to the
-    cocultures (#529), and the gas mix is a genuine fact about how this community was grown
-    rather than a placeholder for the ones that are missing.
+    The 37 °C is not only an inoculum-recovery step, which is the other thing that note got
+    wrong: the three subsequent passages are each 48 h at 37 °C, so it is the cultivation
+    temperature throughout.
+
+    `system_type` is OTHER: a 24-deep-well block has no enum value, and FLASK or a tube type
+    would misdescribe a plate format. Same call as the deep-well plates in the hCom2 record.
 
     The cocultures were run with 2'-fucosyllactose, or its constituents l-fucose and
     d-lactose, as the sole carbohydrate source; that design is the cross-feeding this record
@@ -183,6 +194,20 @@ cultivation_setup:
     snippet: Sugar solutions were loosely capped and stored in the anaerobic chamber for at least
       48 h before mixing with BHI-based media for cultivation
     explanation: The carbon source was anoxic before it reached the culture.
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 15 µL of this mixture was added into 3 mL of a growth medium in a 24-deep-well block.
+      The culture was allowed to recover for 48 h at 37 °C with shaking, after which it underwent
+      three more passages of 30 µL into 3 mL of fresh liquid medium, with each allowed to grow for
+      48 h at 37 °C
+    explanation: Vessel, working volume, temperature and the serial-passage regime.
+  - reference: PMID:37973815
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Mono- and co-cultures were harvested 24, 72, and 144 h after inoculation for community
+      composition assessment
+    explanation: The sampling schedule, stated for the cocultures.
 
 environmental_factors:
 - name: 2'-fucosyllactose supplementation
