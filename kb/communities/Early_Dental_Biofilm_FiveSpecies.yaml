@@ -188,6 +188,66 @@ related_ingredients:
       real-time microscopic analyses of the biofilm pH in response to salivary
       solutions containing glucose.
     explanation: Names glucose as the carbohydrate challenge fueling biofilm acidogenesis.
+cultivation_setup:
+- cultivation_mode: CONTINUOUS
+  system_type: OTHER
+  operating_temperature: 35.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    A flow cell system permitting direct microscopic examination, with the five strains
+    inoculated SEQUENTIALLY rather than together and biofilms grown 26 h at 35 °C.
+    Architecture and composition were read by fluorescence in situ hybridisation and confocal
+    laser scanning microscopy, and the extracellular pH landscape at the biofilm/substrate
+    interface followed over time with a ratiometric pH-sensitive dye.
+  notes: >-
+    The vessel exists to make the measurement possible. This model's result is a spatially
+    resolved pH landscape at the interface between biofilm and substrate, which requires
+    imaging the biofilm undisturbed - so a flow channel is not one vessel among several that
+    would have done, it is what the experiment is.
+
+    `system_type` is OTHER rather than MICROFLUIDIC_DEVICE. A flow channel for confocal
+    imaging is millimetre-scale and the source calls it a flow channel, not a chip;
+    MICROFLUIDIC_DEVICE would assert a format the paper does not claim. The description
+    carries what the enum cannot.
+
+    `cultivation_mode` is CONTINUOUS because a flow channel is fed continuously. The source
+    does not give a flow rate, so `feed_or_dilution_rate` is unset.
+
+    Sequential inoculation is recorded because it is a choice about assembly order in a
+    biofilm, where who arrives first determines who can attach. Co-inoculating the same five
+    strains would be a different model.
+
+    No working volume or flow rate: the source gives neither.
+
+    The full text was not cached when this record was first curated, which is why two of its
+    existing snippets - including the 26 h at 35 °C - had been failing reference validation.
+    `scripts/cache_fulltext.py` retrieved 63 KB from PMC3179500 during this pass, and the
+    record now validates at zero issues. The snippets were correct all along; the cache was
+    the problem.
+
+    Second of the two under-curated communities from the #573 survey, after the enamel caries
+    model. Both turned out to have a cultivation system that is part of the measurement -
+    enamel slabs of known hardness there, flow channels here.
+  evidence:
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were inoculated sequentially into a flow cell system that permitted direct microscopic
+      examination, and biofilms were grown for 26 h at 35°C
+    explanation: The flow cell, sequential inoculation, duration and temperature.
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biofilms were grown in flow channels that allowed for direct microscopic analysis of
+      the biofilms in situ
+    explanation: The cultivation system, and the reason it was chosen.
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The architecture and composition of the biofilms were analysed using fluorescence in
+      situ hybridization and confocal laser scanning microscopy
+    explanation: How the biofilm was read without disturbing it.
+
 environmental_factors:
 - name: Glucose challenge
   description: >-
