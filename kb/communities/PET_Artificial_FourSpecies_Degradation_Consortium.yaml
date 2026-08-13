@@ -299,14 +299,16 @@ ecological_interactions:
     snippet: obtaining a four-species microbial consortium
     explanation: Supports medium choice as a way to stabilize the four-member consortium.
 cultivation_setup:
-- cultivation_mode: BATCH
+- cultivation_mode: FED_BATCH
   working_volume: 20.0
   working_volume_unit: mL
   instrument_detail: >-
-    20 mL of Wn medium with 2 μg/mL erythromycin, at ambient temperature, with a PET film as
-    the substrate. The four members go in at a fixed ratio - Bs_PETase : Bs_MHETase :
-    R. jostii : P. putida of 3 : 1 : 10 : 1e-5 - which the source reports as the optimum. The
-    four-species consortium reached 23.2% weight loss of the PET film.
+    20 mL of Wn medium with 2 μg/mL erythromycin, at ambient temperature, with a UV-irradiated
+    PET film as the substrate. A further 10 mL of Wn medium is supplemented on days 2, 3 and 4
+    of the 7-day degradation, in triplicate. Members are washed into Wn and diluted to
+    OD600 = 2 before combining, giving a final ratio of Bs_PETase : Bs_MHETase : R. jostii :
+    P. putida of 3 : 1 : 10 : 1e-5, set by inoculation volume. The four-species consortium
+    reached 23.2% weight loss of the PET film.
   notes: >-
     The inoculation ratio is recorded because it is a designed parameter, not a starting
     condition that happened to be used: it was optimised, and the P. putida share is 1e-5,
@@ -317,19 +319,26 @@ cultivation_setup:
     the engineered B. subtilis modules; it is part of what keeps the consortium the
     consortium.
 
+    `cultivation_mode` is FED_BATCH, corrected from BATCH. The full text - fetched after this
+    record was first curated from its abstract - shows 10 mL of fresh Wn medium supplemented on
+    days 2, 3 and 4. That is feeding, not a single charge, and the original value was wrong
+    rather than merely thin.
+
     No `operating_temperature`: the source says "ambient temperature" and gives no figure, and
     turning that into a number would invent precision - the same call as "room temperature" in
-    the cheese-rind record. The 37 °C and 30 °C the source does give belong to the strains
-    grown separately beforehand, at two different temperatures, so neither is the community's
-    (#529).
+    the cheese-rind record. The full text confirms the #529 reading: the 37 °C and 30 °C are
+    for LB precultures, and they differ BY STRAIN (B. subtilis and P. putida at 37 °C,
+    R. jostii at 30 °C), so there was never a single preculture value to mistake for the
+    community's.
 
-    No `system_type`: the vessel is never named.
+    No `system_type`: the vessel is never named, even in the methods.
   evidence:
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The consortium was inoculated into 20 mL W n medium with 2 μg/mL erythromycin
-    explanation: Working volume, medium and the selection antibiotic, stated for the consortium.
+    snippet: The consortium was inoculated into 20 mL Wn medium with 2 μg/mL erythromycin, and 10
+      mL Wn medium was supplemented on the 2nd, 3rd, and 4th days of degradation
+    explanation: Working volume, medium, antibiotic, and the feeding schedule that makes it fed-batch.
   - reference: PMID:35003008
     supports: SUPPORT
     evidence_source: IN_VITRO
