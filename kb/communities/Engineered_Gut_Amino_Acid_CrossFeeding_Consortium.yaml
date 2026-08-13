@@ -204,6 +204,51 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: low-protein diet showed significantly greater population evenness
     explanation: Supports the in vivo mouse-gut population-evenness result under low-protein diet.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Anaerobic batch coculture in modified M9 minimal medium at 37 °C, all strains inoculated
+    at equal ratios, run 27 h for growth trajectories and 24 h for the amino-acid
+    supplementation comparison. Carbon supplied as starch plus glucose - 0.5% / 0.5% in the
+    trajectory runs and 0.2% / 0.5% in the supplementation runs.
+  notes: >-
+    The medium is defined by what is left out. M9 WITHOUT the cross-fed amino acids is what
+    makes the auxotrophs depend on each other; the paired condition adds them back at 1 mM,
+    and the comparison between the two is the experiment. Recording "M9" alone would describe
+    a consortium under no selection to cross-feed at all. Fourth instance of this shape in the
+    sweep, after the thiamine-free P20, the B12-free BG11, and the fumarate excluded from the
+    syntrophy record.
+
+    Equal inoculation ratios are recorded because they are a designed starting point for a
+    cross-feeding consortium, where unequal ratios would confound the growth trajectories the
+    study reports.
+
+    The two carbon formulations differ between experiments (0.5%/0.5% starch/glucose for the
+    27 h trajectories, 0.2%/0.5% for the 24 h supplementation runs). Both are given rather
+    than one, since neither is "the" condition.
+
+    No `system_type` or `working_volume`: the source says batch culture and defers the vessel
+    to Materials and Methods that the cached text does not reach. Stated as a limit of this
+    cache rather than of the source, which is the distinction I got wrong in #542 and #577.
+  evidence:
+  - reference: PMID:31409662
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All strains were inoculated at equal ratios and grown anaerobically at 37°C for 27 h
+      in M9 minimal medium with specific modifications as described in Materials and Methods, without
+      supplementation of any of the cross-fed amino acids, and with 0.5% starch and 0.5% glucose as
+      carbon sources
+    explanation: Inoculation ratio, atmosphere, temperature, duration, medium and carbon sources.
+  - reference: PMID:31409662
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We grew consortia in batch culture for 24 h anaerobically in modified M9 medium as
+      described in Materials and Methods with and without supplementation of 1 mM concentrations of
+      the cross-fed amino acids
+    explanation: Batch mode, and the paired with/without amino-acid conditions that are the design.
+
 environmental_factors:
 - name: anaerobic modified M9 medium
   value: Modified M9 minimal medium with starch and glucose carbon sources
