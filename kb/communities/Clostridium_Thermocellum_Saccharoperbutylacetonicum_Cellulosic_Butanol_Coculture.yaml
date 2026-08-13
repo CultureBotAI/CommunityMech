@@ -224,6 +224,41 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: high butanol production correlates with low hydrogen production
     explanation: Supports the proposed hydrogen-butanol relationship in the same species-pair coculture.
+cultivation_setup:
+- cultivation_mode: BATCH
+  instrument_detail: >-
+    Sequential, two-temperature batch. C. thermocellum is incubated with 4% Avicel crystalline
+    cellulose for at least 24 h at 60 °C; strain N1-4 is then added and the coculture held at
+    30 °C, with butanol peaking at 7.9 g/L after 9 days. Acetone was undetectable.
+  notes: >-
+    `operating_temperature` is deliberately unset. There is no single one: 60 °C is where the
+    thermophile hydrolyses the cellulose, 30 °C is where the mesophile ferments the sugars,
+    and recording either would describe a system in which one of the two members cannot work.
+    The pair of temperatures is the design, not a range to be averaged - the same reasoning
+    as the ramped retention time and the swept dilution rate elsewhere in this sweep, but
+    sharper, because here the two values belong to different organisms.
+
+    The 24 h head start is part of it too: the partners are not co-inoculated. Cellulose must
+    already be hydrolysed before the butanol producer arrives, which is why this is a
+    sequential coculture rather than a simultaneous one.
+
+    No vessel, working volume, agitation or medium composition - abstract-only, and the
+    cached entry is 2.1 KB. What is here is unusually specific for that tier because the
+    abstract reports the schedule as a result.
+  evidence:
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol was produced from Avicel cellulose after it was incubated with C. thermocellum
+      for at least 24 h at 60°C before the addition of strain N1-4
+    explanation: The thermophilic hydrolysis stage, its temperature, and the sequential inoculation.
+  - reference: PMID:21764954
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Butanol produced by strain N1-4 on 4% Avicel cellulose peaked (7.9 g/liter) after 9
+      days of incubation at 30°C
+    explanation: The mesophilic fermentation stage, its temperature, duration and substrate loading.
+
 environmental_factors:
 - name: Crystalline cellulose substrate
   value: 4% Avicel cellulose
