@@ -170,6 +170,54 @@ ecological_interactions:
     snippet: Both algal growth enhancement and algal death are driven by the bacterially-produced phytohormone
       indole-3-acetic acid
     explanation: Supports the dual growth-promoting and algicidal role of bacterial IAA.
+cultivation_setup:
+- cultivation_mode: BATCH
+  operating_temperature: 18.0
+  operating_temperature_unit: °C
+  instrument_detail: >-
+    Standing cultures in a Percival chamber at 18 °C under a 12/12 h light/dark cycle, in
+    L1-Si - a seawater-based medium with additional phosphorus. The coculture is assembled
+    sequentially: algae are inoculated first and the bacteria introduced four days later, then
+    followed for 20 days.
+  notes: >-
+    The medium is non-permissive for one partner on purpose. Phaeobacter does not grow in
+    L1-Si alone - the paper shows it flat in the absence of algae - so the bacterium's growth
+    in coculture IS the measurement of dependence. Recording "L1-Si" as a neutral medium would
+    lose that; it is chosen precisely because the bacterium cannot use it.
+
+    Fifth instance of this shape in the sweep, after the thiamine-free P20, the B12-free BG11,
+    the amino-acid-free M9, and the fumarate excluded from the syntrophy record. In each the
+    medium is defined by what the partner cannot do without help.
+
+    The four-day offset is part of the design rather than scheduling: the alga is established
+    before the bacterium arrives, so the bacterium meets a functioning phycosphere rather than
+    bare medium.
+
+    Standing, not shaken - relevant for a phycosphere interaction, where the exchange happens
+    in the diffusive boundary layer around the algal cell and agitation would disrupt it.
+
+    The 1/2YTSS named for Phaeobacter is its routine rich medium, not this experiment's (#529).
+
+    No `system_type` or `working_volume`: the source gives the chamber but not the vessel.
+  evidence:
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Algae were grown in standing cultures in a Percival chamber (Percival Scientific, IA,
+      USA) at 18°C under a light/dark cycle of 12/12 hr
+    explanation: Temperature, photoperiod, and that the cultures are standing rather than shaken.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To grow a co-culture, we inoculated algae into L1-Si medium and, after four days,
+      introduced bacteria into the algal culture
+    explanation: The medium and the sequential, four-day-offset assembly of the coculture.
+  - reference: PMID:27855786
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Of note, alone these bacteria do not grow in the L1-Si medium
+    explanation: Why the medium choice is the experiment — it is non-permissive for the bacterium.
+
 environmental_factors:
 - name: L1-Si seawater medium
   value: Seawater-based L1 medium without silicate
