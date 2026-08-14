@@ -54,6 +54,22 @@ def _http_error(code: int) -> urllib.error.HTTPError:
     return urllib.error.HTTPError("https://example.invalid", code, "boom", {}, None)
 
 
+class _Response:
+    """The context-manager shape `urlopen` returns, with a fixed body."""
+
+    def __init__(self, body: bytes):
+        self._body = body
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def read(self) -> bytes:
+        return self._body
+
+
 class _Opener:
     """Replays a scripted sequence of outcomes, counting calls."""
 
@@ -66,18 +82,7 @@ class _Opener:
         outcome = self.outcomes.pop(0)
         if isinstance(outcome, Exception):
             raise outcome
-
-        class _Response:
-            def __enter__(self_inner):
-                return self_inner
-
-            def __exit__(self_inner, *exc):
-                return False
-
-            def read(self_inner):
-                return outcome
-
-        return _Response()
+        return _Response(outcome)
 
 
 def test_get_retries_a_503_and_returns_the_eventual_answer(mod, monkeypatch):
