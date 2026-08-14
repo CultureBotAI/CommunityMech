@@ -28,6 +28,8 @@ Usage:
 import html
 import re
 import sys
+import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -43,11 +45,37 @@ _INLINE = r"</?(sub|sup|italic|bold|i|b|underline|sc|monospace|named-content|sty
 _HEADERS = {"User-Agent": "communitymech-cache-fulltext"}
 
 
-def _get(url: str) -> bytes:
-    # EPMC is a fixed trusted https host; url is not user-controlled.
-    req = urllib.request.Request(url, headers=_HEADERS)  # noqa: S310
-    with urllib.request.urlopen(req, timeout=60) as r:  # noqa: S310
-        return r.read()
+_RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
+_ATTEMPTS = 4
+
+
+def _get(url: str, *, attempts: int = _ATTEMPTS, sleep=time.sleep) -> bytes:
+    """GET with backoff on the statuses Europe PMC returns while it is busy.
+
+    Retried because a 503 here is not an answer (#586). The same reference
+    returned 504, then 503, then a clean ``not open-access`` verdict inside
+    ninety seconds; only the third was true. Without the retry the transient
+    ones reach the caller as a hard failure and get recorded as "this paper
+    cannot be retrieved" — a property of the network mistaken for a property of
+    the source, the same confusion as #577/#578.
+
+    Retries only transient statuses. A 404 is a real answer and is raised at
+    once; retrying it would just slow the sweep down to reach the same verdict.
+    """
+    for attempt in range(attempts):
+        try:
+            # EPMC is a fixed trusted https host; url is not user-controlled.
+            req = urllib.request.Request(url, headers=_HEADERS)  # noqa: S310
+            with urllib.request.urlopen(req, timeout=60) as r:  # noqa: S310
+                return r.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in _RETRY_STATUS or attempt == attempts - 1:
+                raise
+        except (urllib.error.URLError, TimeoutError):
+            if attempt == attempts - 1:
+                raise
+        sleep(2**attempt)
+    raise AssertionError("unreachable")  # pragma: no cover
 
 
 def _pmcid(pmid: str) -> tuple[str | None, bool]:
@@ -250,11 +278,29 @@ def main() -> int:
         for ref in refs:
             print(cache_from_file(ref, path))
         return 0
+    # Each reference is independent, so one failure must not cost the rest their
+    # attempt (#586). Before this, an unhandled HTTPError on item 3 of 20 left
+    # items 4-20 unattempted, and the output gave no way to tell "not attempted"
+    # from "attempted and unavailable" -- so a transient outage silently shrank
+    # the sweep and its tail was recorded as unretrievable.
+    failed = []
     for ref in args:
-        if ref.lower().startswith("doi:") or ref.startswith("10."):
-            print(cache_one_doi(ref))
-        else:
-            print(cache_one(ref))
+        try:
+            if ref.lower().startswith("doi:") or ref.startswith("10."):
+                print(cache_one_doi(ref))
+            else:
+                print(cache_one(ref))
+        except Exception as exc:  # noqa: BLE001 - one bad ref must not end the sweep
+            # `[error]`, never `[skip]`: a skip is a verdict about the paper, an
+            # error is the absence of one. Anything reading this output to build
+            # a "needs access" list must be able to tell them apart.
+            print(f"[error] {ref}: {type(exc).__name__}: {exc}")
+            failed.append(ref)
+    if failed:
+        print(
+            f"[error] {len(failed)} of {len(args)} reference(s) ended without a verdict: {failed}"
+        )
+        return 1
     return 0
 
 
