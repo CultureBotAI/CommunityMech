@@ -154,10 +154,24 @@ def _pmcid_for_doi(doi: str) -> tuple[str | None, bool]:
 
 
 def _unpaywall_location(doi: str) -> str | None:
-    """Best OA URL for a DOI per Unpaywall, or None.
+    """Where an OA copy of this DOI lives, per Unpaywall — in one of four states.
 
-    Only used to tell the curator where the text lives when Europe PMC has no
-    full text. Requires UNPAYWALL_EMAIL; the API 422s on placeholder addresses.
+    Only used to tell the curator where the text is when Europe PMC has no full
+    text. Requires UNPAYWALL_EMAIL; the API 422s on placeholder addresses.
+
+    Returns:
+        * a URL — Unpaywall knows of an OA copy;
+        * ``None`` — Unpaywall answered, and knows of none. **A fact about the
+          paper.**
+        * ``_LookupFailed`` — the lookup did not complete. *Not* a fact about
+          the paper, and the distinction is the whole point of #589: these last
+          two were both ``None``, so an outage was reported as a paywall;
+        * ``_NoEmailConfigured`` — no lookup was attempted at all.
+
+    The type is annotated ``str | None`` because both sentinel classes subclass
+    ``str``; callers must branch with ``isinstance``, not truthiness, since a
+    ``_LookupFailed`` carrying a message is truthy and would otherwise be
+    mistaken for a URL.
     """
     import json
     import os
