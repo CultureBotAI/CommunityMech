@@ -43,6 +43,37 @@ when the paper is **paywalled** (abstract-only) — make **no change** and say s
 Growth values in `growth_media` are strings (ranges allowed); `cultivation_setup`
 numerics are floats.
 
+## Three ways a condition can be wrong while every check passes
+
+These are the failure modes the #183 sweep actually hit, repeatedly. All three
+produce a block that is schema-valid, verbatim-sourced, and false. No validator
+catches any of them, so they have to be caught by reading.
+
+**1. The medium is defined by what it OMITS (#583 — five instances).** When a
+community's interactions turn on auxotrophy, vitamin exchange or a metabolic
+dependency, check whether the medium is defined by subtraction before writing
+down what it contains. Recording "P20 medium" where the source says "P20 without
+thiamine" describes a system in which the partnership is unnecessary — the
+auxotroph no longer needs its partner. Seen with thiamine-free P20, B12-free
+BG11, amino-acid-free M9, a non-permissive L1-Si, and a fumarate deliberately
+withheld from a syntrophic coculture. The inverse also occurs: a component listed
+for the *pure cultures* must not be carried into the coculture's medium.
+
+**2. The conditions belong to a MEMBER, not the community (#529).** A SynCom
+paper almost always describes growing its members; describing growing the
+*community* is a different sentence, and sometimes it does not exist because the
+community was only ever assembled in a host, on a plant, or as an inoculum. Check
+that the sentence carrying the numbers is about the community. Watch for
+precultures — a paper giving 37 °C for one strain and 30 °C for another has no
+single value to borrow.
+
+**3. A thin cache is not a thin source.** Before concluding a record cannot be
+enriched, run `uv run python scripts/cache_fulltext.py PMID:<id>`. In one sweep,
+six of thirteen attempts retrieved 60–150 KB of full text from caches of 1–3 KB,
+and two records already curated "as far as the abstract allows" turned out to
+have *wrong* values — a `BATCH` that was fed on days 2/3/4, and a `FLASK` that was
+a sealed serum bottle whose seal was the entire mechanism.
+
 ## Deep-research workflow (per record)
 
 1. Read the record; find its primary `reference` (a PMID/doi in the evidence).
