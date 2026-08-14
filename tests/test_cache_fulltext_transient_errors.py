@@ -186,3 +186,171 @@ def test_a_clean_batch_still_returns_zero(mod, monkeypatch, capsys):
 
     assert mod.main() == 0
     assert "[error]" not in capsys.readouterr().out
+
+
+# --- the two review findings on #587 ---------------------------------------
+
+
+def test_from_file_gets_the_same_guard_as_the_network_path(mod, monkeypatch, capsys, tmp_path):
+    """#588 — the `--from-file` branch kept the bare loop for the whole fix.
+
+    Both branches now go through `_sweep`, so this asserts the property rather
+    than the plumbing: a raise on one ref must not strand the ones after it.
+    """
+    source = tmp_path / "paper.txt"
+    source.write_text("full text")
+    attempted = []
+
+    def fake_from_file(ref, path):
+        attempted.append(ref)
+        if ref == "b":
+            raise OSError("corrupt PDF")
+        return f"[cached] {ref}: ok"
+
+    monkeypatch.setattr(mod, "cache_from_file", fake_from_file)
+    monkeypatch.setattr(
+        mod.sys, "argv", ["cache_fulltext.py", "a", "b", "c", "--from-file", str(source)]
+    )
+
+    code = mod.main()
+
+    assert attempted == ["a", "b", "c"], f"refs after the failure were stranded: {attempted}"
+    assert code == 1
+    assert "[error] b:" in capsys.readouterr().out
+
+
+def test_an_unpaywall_outage_is_not_reported_as_no_oa_copy(mod, monkeypatch, tmp_path):
+    """#589 — a failed lookup must not read as a fact about the paper."""
+    cache = tmp_path / "DOI_10.1_x.md"
+    cache.write_text("abstract")
+    monkeypatch.setattr(mod, "_doi_cache_path", lambda doi: cache)
+    monkeypatch.setattr(mod, "_pmcid_for_doi", lambda doi: (None, False))
+    monkeypatch.setattr(mod, "_unpaywall_location", lambda doi: mod._LookupFailed("URLError: down"))
+
+    message = mod.cache_one_doi("10.1/x")
+
+    assert message.startswith("[error]"), f"an outage was reported as a verdict: {message}"
+    assert "unknown" in message and "retry" in message
+    assert "set UNPAYWALL_EMAIL" not in message, "told the curator to set a var they may have set"
+
+
+def test_a_real_absence_is_still_a_skip(mod, monkeypatch, tmp_path):
+    """The other side of #589: a confirmed 'no OA copy' must stay a verdict."""
+    cache = tmp_path / "DOI_10.1_x.md"
+    cache.write_text("abstract")
+    monkeypatch.setattr(mod, "_doi_cache_path", lambda doi: cache)
+    monkeypatch.setattr(mod, "_pmcid_for_doi", lambda doi: (None, False))
+    monkeypatch.setattr(mod, "_unpaywall_location", lambda doi: None)
+
+    message = mod.cache_one_doi("10.1/x")
+
+    assert message.startswith("[skip]")
+    assert "knows of no OA copy" in message
+
+
+def test_unpaywall_distinguishes_outage_from_absence(mod, monkeypatch):
+    """`_unpaywall_location` itself must return three distinguishable things."""
+    monkeypatch.setenv("UNPAYWALL_EMAIL", "someone@example.org")
+
+    monkeypatch.setattr(
+        mod,
+        "_get",
+        lambda url, **kw: (_ for _ in ()).throw(urllib.error.URLError("down")),
+    )
+    outage = mod._unpaywall_location("10.1/x")
+    assert isinstance(outage, mod._LookupFailed), "an outage collapsed back into None"
+
+    monkeypatch.setattr(mod, "_get", lambda url, **kw: b'{"is_oa": false}')
+    assert mod._unpaywall_location("10.1/x") is None, "a real absence must stay None"
+
+    monkeypatch.setattr(
+        mod, "_get", lambda url, **kw: b'{"is_oa": true, "best_oa_location": {"url": "u"}}'
+    )
+    found = mod._unpaywall_location("10.1/x")
+    assert found == "u" and not isinstance(found, mod._LookupFailed)
+
+
+def test_oa_but_no_xml_is_a_skip_not_an_error(mod, monkeypatch, tmp_path):
+    """#590 — the mirror of #586: a stable fact reported as an outage.
+
+    Europe PMC answers `isOpenAccess: Y` and then 404s on `fullTextXML` for the
+    same PMCID (observed on PMID:25692519 / PMC4333721, identical on retry).
+    There is nothing to retry, so it is a verdict and must not inflate the
+    no-verdict count that #587 added.
+    """
+    cache = tmp_path / "PMID_1.md"
+    cache.write_text("abstract only")
+    monkeypatch.setattr(mod, "_cache_path", lambda pmid: cache)
+    monkeypatch.setattr(mod, "_pmcid", lambda pmid: ("PMC4333721", True))
+    monkeypatch.setattr(
+        mod,
+        "_fulltext_xml",
+        lambda pmcid: (_ for _ in ()).throw(
+            urllib.error.HTTPError("https://example.invalid", 404, "nf", {}, None)
+        ),
+    )
+
+    message = mod.cache_one("1")
+
+    assert message.startswith("[skip]"), f"a stable verdict was filed as an outage: {message}"
+    assert "serves no full-text XML" in message
+    assert "not open-access" not in message, "conflated with the genuinely-closed case"
+    assert cache.read_text() == "abstract only", "wrote to the cache despite retrieving nothing"
+
+
+def test_oa_but_no_xml_is_a_skip_on_the_doi_path_too(mod, monkeypatch, tmp_path):
+    """The DOI path needs its own test, not its sibling's (#590).
+
+    Found by mutation: reverting the guard reddened nothing, because the only
+    test covered `cache_one` and the DOI branch sits earlier in the file. The
+    mutation was valid and the suite was blind to it — a check that reports
+    clean because it never ran.
+    """
+    cache = tmp_path / "DOI_10.1_x.md"
+    cache.write_text("abstract only")
+    monkeypatch.setattr(mod, "_doi_cache_path", lambda doi: cache)
+    monkeypatch.setattr(mod, "_pmcid_for_doi", lambda doi: ("PMC4333721", True))
+    monkeypatch.setattr(
+        mod,
+        "_fulltext_xml",
+        lambda pmcid: (_ for _ in ()).throw(
+            urllib.error.HTTPError("https://example.invalid", 404, "nf", {}, None)
+        ),
+    )
+
+    message = mod.cache_one_doi("10.1/x")
+
+    assert message.startswith("[skip]"), f"a stable verdict was filed as an outage: {message}"
+    assert "serves no full-text XML" in message
+    assert cache.read_text() == "abstract only", "wrote to the cache despite retrieving nothing"
+
+
+def test_a_non_404_from_fulltext_still_propagates(mod, monkeypatch, tmp_path):
+    """Only 404 is the verdict. A 503 here is still an outage and must raise."""
+    cache = tmp_path / "PMID_1.md"
+    cache.write_text("abstract only")
+    monkeypatch.setattr(mod, "_cache_path", lambda pmid: cache)
+    monkeypatch.setattr(mod, "_pmcid", lambda pmid: ("PMC1", True))
+    monkeypatch.setattr(
+        mod,
+        "_fulltext_xml",
+        lambda pmcid: (_ for _ in ()).throw(
+            urllib.error.HTTPError("https://example.invalid", 503, "down", {}, None)
+        ),
+    )
+
+    with pytest.raises(urllib.error.HTTPError):
+        mod.cache_one("1")
+
+
+def test_a_returned_error_reaches_the_exit_code(mod, monkeypatch, capsys):
+    """A handler that *returns* `[error]` must fail the sweep, not just print.
+
+    Found while fixing #589: `cache_one_doi` reports a failed Unpaywall lookup
+    by return value rather than by raising, so the exception path alone would
+    have printed `[error]` and still exited 0.
+    """
+    monkeypatch.setattr(mod, "cache_one", lambda ref: f"[error] {ref}: lookup did not complete")
+    monkeypatch.setattr(mod.sys, "argv", ["cache_fulltext.py", "7"])
+
+    assert mod.main() == 1, "a printed [error] did not reach the exit code"

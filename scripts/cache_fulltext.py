@@ -49,6 +49,24 @@ _RETRY_STATUS = frozenset({429, 500, 502, 503, 504})
 _ATTEMPTS = 4
 
 
+class _LookupFailed(str):
+    """An Unpaywall lookup that did not complete, carrying why.
+
+    A `str` subclass so it stays printable, but a distinct type so callers can
+    tell it from a URL and from `None`. The three states a caller needs are
+    genuinely different (#589): an OA location, a confirmed absence, and no
+    answer at all — collapsing the last two into `None` is what made the script
+    report an outage as a property of the paper.
+    """
+
+
+class _NoEmailConfigured(str):
+    """UNPAYWALL_EMAIL is unset, so no lookup was attempted."""
+
+
+_NO_EMAIL = _NoEmailConfigured("")
+
+
 def _get(url: str, *, attempts: int = _ATTEMPTS, sleep=time.sleep) -> bytes:
     """GET with backoff on the statuses Europe PMC returns while it is busy.
 
@@ -91,7 +109,28 @@ def _pmcid(pmid: str) -> tuple[str | None, bool]:
     return r.get("pmcid"), r.get("isOpenAccess") == "Y" and r.get("inEPMC") == "Y"
 
 
+class _NoFullTextServedError(Exception):
+    """Europe PMC says the paper is OA, then 404s on its full text (#590).
+
+    A stable inconsistency in Europe PMC's own metadata, not an outage:
+    `isOpenAccess: Y` and `inEPMC: Y` from the search endpoint, and a 404 from
+    `fullTextXML` for the very same PMCID. Distinguished because it is a
+    *verdict* — there is nothing to retry — and #587 would otherwise report it
+    as "no verdict", inflating the count it added to make under-retrieval
+    visible. The mirror of the bug that PR fixed.
+    """
+
+
 def _fulltext(pmcid: str) -> str:
+    try:
+        return _fulltext_xml(pmcid)
+    except urllib.error.HTTPError as exc:
+        if exc.code == 404:
+            raise _NoFullTextServedError(pmcid) from exc
+        raise
+
+
+def _fulltext_xml(pmcid: str) -> str:
     xml = _get(f"{EPMC}/{pmcid}/fullTextXML").decode("utf-8", "replace")
     xml = re.sub(_INLINE, "", xml)
     text = re.sub(r"<[^>]+>", " ", xml)
@@ -125,12 +164,18 @@ def _unpaywall_location(doi: str) -> str | None:
 
     email = os.environ.get("UNPAYWALL_EMAIL")
     if not email:
-        return None
+        return _NO_EMAIL
     try:
         url = f"https://api.unpaywall.org/v2/{urllib.parse.quote(doi)}?email={urllib.parse.quote(email)}"
         data = json.loads(_get(url))
-    except Exception:
-        return None
+    except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+        # Not `None` (#589). `None` is this function's way of saying "Unpaywall
+        # knows of no OA copy" — a fact about the paper. A timeout or a 500 is
+        # the absence of an answer, and reporting it as the former told the
+        # curator to go set an env var they had already set. Narrowed from a
+        # bare `except Exception` at the same time, so a genuine bug in here
+        # surfaces instead of being swallowed as "no OA copy".
+        return _LookupFailed(f"{type(exc).__name__}: {exc}")
     if not data.get("is_oa"):
         return None
     loc = data.get("best_oa_location") or {}
@@ -164,18 +209,31 @@ def cache_one_doi(doi: str) -> str:
         return f"[ok] {doi}: full text already cached"
     pmcid, oa = _pmcid_for_doi(doi)
     if not pmcid or not oa:
+        head = f"{doi}: no Europe PMC full text (pmcid={pmcid}, oa={oa})"
         where = _unpaywall_location(doi)
+        # Three outcomes, three messages (#589). Previously the last two were
+        # both `None` and both produced the "set UNPAYWALL_EMAIL" advice — wrong
+        # for anyone who had set it, and it filed an outage as a paywall.
+        if isinstance(where, _LookupFailed):
+            return (
+                f"[error] {head}; the Unpaywall lookup did not complete "
+                f"({where}) — whether an OA copy exists is unknown, retry"
+            )
+        if isinstance(where, _NoEmailConfigured):
+            return f"[skip] {head}; set UNPAYWALL_EMAIL to look up an OA location"
         if where:
             return (
-                f"[skip] {doi}: no Europe PMC full text (pmcid={pmcid}, oa={oa}); "
-                f"Unpaywall OA location is {where} — retrieve by hand if the "
-                f"publisher blocks automated download"
+                f"[skip] {head}; Unpaywall OA location is {where} — retrieve by "
+                f"hand if the publisher blocks automated download"
             )
+        return f"[skip] {head}; Unpaywall knows of no OA copy"
+    try:
+        text = _fulltext(pmcid)
+    except _NoFullTextServedError:  # same verdict as the PMID path (#590)
         return (
-            f"[skip] {doi}: no Europe PMC full text (pmcid={pmcid}, oa={oa}); "
-            f"set UNPAYWALL_EMAIL to look up an OA location"
+            f"[skip] {doi}: Europe PMC reports OA ({pmcid}) but serves no "
+            f"full-text XML; try another route"
         )
-    text = _fulltext(pmcid)
     sep = f"\n\n{MARKER} (Europe PMC {pmcid}) =====\n\n"
     cache.write_text(
         cache.read_text(encoding="utf-8").rstrip() + sep + text + "\n", encoding="utf-8"
@@ -255,12 +313,67 @@ def cache_one(pmid: str) -> str:
     pmcid, oa = _pmcid(pmid)
     if not pmcid or not oa:
         return f"[skip] {pmid}: not open-access in Europe PMC (pmcid={pmcid}, oa={oa})"
-    text = _fulltext(pmcid)
+    try:
+        text = _fulltext(pmcid)
+    except _NoFullTextServedError:
+        # Worded distinctly from the `not open-access` skip above, because the
+        # two call for different follow-up (#590): this paper has an OA copy
+        # that Europe PMC simply is not serving, so an Unpaywall lookup or a
+        # `--from-file` retrieval may still get it.
+        return (
+            f"[skip] {pmid}: Europe PMC reports OA ({pmcid}) but serves no "
+            f"full-text XML; try another route"
+        )
     sep = f"\n\n{MARKER} (Europe PMC {pmcid}) =====\n\n"
     cache.write_text(
         cache.read_text(encoding="utf-8").rstrip() + sep + text + "\n", encoding="utf-8"
     )
     return f"[cached] {pmid}: appended {len(text)} chars of OA full text from {pmcid}"
+
+
+def _sweep(refs: list[str], handler) -> int:
+    """Run `handler` over every ref, and report how many produced no verdict.
+
+    Shared by both of `main`'s branches on purpose (#588). Each reference is
+    independent, so one failure must not cost the rest their attempt: before
+    this, an unhandled HTTPError on item 3 of 20 left items 4-20 unattempted,
+    and the output gave no way to tell "not attempted" from "attempted and
+    unavailable" — so a transient outage silently shrank the sweep and its tail
+    was recorded as unretrievable (#586).
+
+    Extracted rather than copied into the second loop. Copying is how the two
+    branches drifted in the first place: the `--from-file` path kept the
+    original bare loop for the entire life of the network-path fix.
+    """
+    failed = []
+    for ref in refs:
+        try:
+            message = handler(ref)
+            print(message)
+            # A handler can also *return* a no-verdict outcome rather than
+            # raising — `cache_one_doi` does, when the Unpaywall lookup fails
+            # (#589). Both must reach the exit code, or the sweep prints
+            # `[error]` and still reports success.
+            if message.startswith("[error]"):
+                failed.append(ref)
+        except Exception as exc:  # noqa: BLE001 - one bad ref must not end the sweep
+            # `[error]`, never `[skip]`: a skip is a verdict about the paper, an
+            # error is the absence of one. Anything reading this output to build
+            # a "needs access" list must be able to tell them apart.
+            print(f"[error] {ref}: {type(exc).__name__}: {exc}")
+            failed.append(ref)
+    if failed:
+        print(
+            f"[error] {len(failed)} of {len(refs)} reference(s) ended without a verdict: {failed}"
+        )
+        return 1
+    return 0
+
+
+def _fetch(ref: str) -> str:
+    if ref.lower().startswith("doi:") or ref.startswith("10."):
+        return cache_one_doi(ref)
+    return cache_one(ref)
 
 
 def main() -> int:
@@ -273,35 +386,9 @@ def main() -> int:
         if i + 1 >= len(args) or i == 0:
             print("usage: cache_fulltext.py <PMID|DOI> --from-file <path>")
             return 2
-        refs = args[:i]
         path = Path(args[i + 1])
-        for ref in refs:
-            print(cache_from_file(ref, path))
-        return 0
-    # Each reference is independent, so one failure must not cost the rest their
-    # attempt (#586). Before this, an unhandled HTTPError on item 3 of 20 left
-    # items 4-20 unattempted, and the output gave no way to tell "not attempted"
-    # from "attempted and unavailable" -- so a transient outage silently shrank
-    # the sweep and its tail was recorded as unretrievable.
-    failed = []
-    for ref in args:
-        try:
-            if ref.lower().startswith("doi:") or ref.startswith("10."):
-                print(cache_one_doi(ref))
-            else:
-                print(cache_one(ref))
-        except Exception as exc:  # noqa: BLE001 - one bad ref must not end the sweep
-            # `[error]`, never `[skip]`: a skip is a verdict about the paper, an
-            # error is the absence of one. Anything reading this output to build
-            # a "needs access" list must be able to tell them apart.
-            print(f"[error] {ref}: {type(exc).__name__}: {exc}")
-            failed.append(ref)
-    if failed:
-        print(
-            f"[error] {len(failed)} of {len(args)} reference(s) ended without a verdict: {failed}"
-        )
-        return 1
-    return 0
+        return _sweep(args[:i], lambda ref: cache_from_file(ref, path))
+    return _sweep(args, _fetch)
 
 
 if __name__ == "__main__":
