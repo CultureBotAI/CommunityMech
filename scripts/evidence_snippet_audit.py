@@ -11,11 +11,19 @@ abstract text), normalize whitespace, and classify:
                (e.g. record "10% CO 2" vs cached "10% CO2"): a faithful quote of
                the paper whose cache carries a PDF/XML extraction artefact. This
                is the class `just validate-references` reports as an error
+  ASSEMBLED  - every comma/semicolon-separated part is in the source but the
+               whole is not: cells joined from a table, or a quote welded from
+               two places. Supported content, but not a verbatim quote (#596)
   MISMATCH   - real abstract content exists but the snippet is absent (suspect)
   NOCONTENT  - cache missing or stub-only (no abstract body to verify against)
 
+Nearly all MISMATCH hits are a *retrieval* gap, not a curation one: 290 of 296
+in the #596 survey sat on an abstract-only cache while quoting Methods. Run
+`scripts/cache_fulltext.py` for the reference before reading a MISMATCH as a
+bad snippet.
+
 Usage: uv run python scripts/evidence_snippet_audit.py [--list-mismatch]
-       [--list-nocontent] [--list-rendering]
+       [--list-nocontent] [--list-rendering] [--list-assembled]
 """
 
 import difflib
@@ -33,6 +41,7 @@ CACHE = Path(__file__).resolve().parent.parent / "references_cache"
 LIST_MM = "--list-mismatch" in sys.argv
 LIST_NC = "--list-nocontent" in sys.argv
 LIST_RD = "--list-rendering" in sys.argv
+LIST_AS = "--list-assembled" in sys.argv
 
 # Sections that contain curated/paraphrased snippets, not the real abstract.
 # Stripping them prevents circular self-matching.
@@ -93,15 +102,63 @@ GREEK = {
 }
 
 
+# Typographic symbols a curator spells out when reading a rendered page, and
+# the letters they spell them with. Needed because `alnum` strips punctuation
+# but NOT letters: the cache's "(ATCC® 47054)" reduces to "atcc47054" while a
+# record's "(ATCC(R) 47054)" keeps the R and reduces to "atccr47054", so a
+# faithful quote lands in MISMATCH instead of RENDERING (#596). Mapping the
+# symbol to the same letters makes the two agree.
+SYMBOLS = {
+    "®": "r",
+    "™": "tm",
+    "©": "c",
+}
+
+
 def alnum(s: str) -> str:
-    """Lowercase, transliterate Greek, keep only [a-z0-9].
+    """Lowercase, transliterate Greek and typographic symbols, keep only [a-z0-9].
 
     Robust to punctuation/whitespace spacing and Greek-letter vs spelled-out
     differences (e.g. abstract "β-5" vs snippet "beta-5")."""
     s = s.lower()
     for g, name in GREEK.items():
         s = s.replace(g, name)
+    for symbol, spelled in SYMBOLS.items():
+        s = s.replace(symbol, spelled)
     return re.sub(r"[^a-z0-9]", "", s)
+
+
+# A snippet is "assembled" when every comma/semicolon-separated part of it is in
+# the source but the whole is not. Two real shapes produce this:
+#
+#   * cells joined from a table — OMM12 quotes "Lactobacillus reuteri I49,
+#     Enterococcus faecalis KB1, Blautia coccoides YL58", three non-adjacent rows
+#     of a strain table, each present verbatim;
+#   * a quote welded from two places — PET's "R. jostii was added to reduce the
+#     inhibition caused by terephthalic acid" takes the opening of one sentence
+#     and the tail of another 35KB away.
+#
+# Reported as its own bucket rather than folded into MATCH. The content is
+# supported and it is not a fabrication, but it is *not a verbatim quote*, and
+# a matcher loose enough to call it one would be loose enough to hide a real
+# mismatch — which is the failure this whole audit exists to prevent.
+_ASSEMBLED_MIN_PART = 12
+
+
+def assembled_parts(snippet: str, content: str) -> list[str] | None:
+    """The parts a non-matching snippet was assembled from, or None.
+
+    None when the snippet has no multi-part structure, or when any substantial
+    part is absent from the source — the latter stays a MISMATCH, since a
+    snippet with an unsupported clause is not merely reformatted.
+    """
+    parts = [p.strip() for p in re.split(r"[;,]", snippet) if len(p.strip()) >= _ASSEMBLED_MIN_PART]
+    if len(parts) < 2:
+        return None
+    haystack = alnum(content)
+    if not all(alnum(p) in haystack for p in parts):
+        return None
+    return parts
 
 
 def cache_text(reference: str) -> tuple[str, bool]:
@@ -182,6 +239,7 @@ def main() -> None:
     file_mismatch = defaultdict(list)
     file_nocontent = defaultdict(int)
     file_rendering = defaultdict(int)
+    file_assembled = defaultdict(list)
     cache_cache = {}
 
     for f in sorted(COMM.glob("*.yaml")):
@@ -222,6 +280,12 @@ def main() -> None:
                 else:
                     stats["RENDERING"] += 1
                     file_rendering[f.name] += 1
+            elif assembled_parts(snip, content) is not None:
+                # Every part is in the source; the join is not. Supported content,
+                # but not a verbatim quote — kept out of both MATCH and MISMATCH
+                # so it is neither blessed nor called a fabrication (#596).
+                stats["ASSEMBLED"] += 1
+                file_assembled[f.name].append((path, ref, snip[:70]))
             elif cov >= 0.6:
                 stats["WEAK"] += 1
                 file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
@@ -231,7 +295,7 @@ def main() -> None:
 
     total = sum(stats.values())
     print(f"# {total} evidence snippets scanned across {len(list(COMM.glob('*.yaml')))} files")
-    for k in ("MATCH", "RENDERING", "WEAK", "MISMATCH", "NOCONTENT"):
+    for k in ("MATCH", "RENDERING", "ASSEMBLED", "WEAK", "MISMATCH", "NOCONTENT"):
         print(f"  {k:<10} {stats[k]}")
 
     print(
@@ -259,6 +323,13 @@ def main() -> None:
         print("\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
         for fn, n in sorted(file_nocontent.items(), key=lambda x: -x[1])[:30]:
             print(f"  {n:>2}  {fn}")
+
+    if LIST_AS:
+        print("\n# ASSEMBLED (every part is in the source; the join is not —")
+        print("# a table flattened into prose, or a quote welded from two places)")
+        for fn, rows in sorted(file_assembled.items(), key=lambda x: -len(x[1])):
+            for _path, ref, snip in rows:
+                print(f"  {fn} {ref}\n      {snip}...")
 
 
 if __name__ == "__main__":
