@@ -15,17 +15,6 @@ Cached source notes:
 - It supports shared tryptophan biosynthesis, loss of some Buchnera nutritional functions, Serratia
   takeover of functions, and stable metabolic complementation in the consortium.
 
-Key snippets used in curated records:
-- "The genome sequencing of Buchnera aphidicola BCc from the aphid Cinara cedri"
-- "not able to synthesize tryptophan and riboflavin"
-- "the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc"
-- "endosymbiont Serratia symbiotica SCc, which coexists with B. aphidicola"
-- "taken over by S. symbiotica"
-- "metabolic complementation giving functional stability to the whole consortium"
-- "both bacteria are evolving together towards the establishment of a powerful consortium"
-- "both bacteria are involved in the synthesis of tryptophan"
-- "phloem sap, which has unbalanced nitrogen/carbon content and is deficient"
-
 ===== OPEN-ACCESS FULL TEXT (Europe PMC PMC3213167) =====
 
 331 plosgen PLoS Genetics PLoS Genet PLOS PMC3213167 3213167 3213167 22102823 10.1371/journal.pgen.1002357 
