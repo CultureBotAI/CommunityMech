@@ -342,15 +342,13 @@ check-docs-current:
     # this gate reported it current, green in exactly the case where the
     # regeneration it gates on had not happened (#442 review).
     just gen-html
-    # EVERY generator whose output is committed under docs/ must run here. Not
-    # just gen-html: docs/community_umap.html comes from `gen-umap`, which this
-    # gate did not run, so that page could drift from its template forever and
-    # the gate stayed green because nothing regenerated it to produce a diff
-    # (#602 — a palette re-step reached the template and not the page). Safe to
-    # run: the embedding is seeded, so two runs are byte-identical. Adding a
-    # generator without adding it here is the omission this comment exists to
-    # make visible.
-    just gen-umap
+    # NOT `just gen-umap`, though docs/community_umap.html is also committed
+    # here. That recipe needs data/embeddings/*.tsv.gz, which is a large local
+    # artefact absent from CI, so running it here fails the gate outright
+    # (#602). The drift it would have caught — a template edit that never
+    # reaches the published page — is gated instead by
+    # tests/test_network_palette.py::test_published_umap_page_matches_the_template,
+    # which compares the two without regenerating anything.
     # An orphan: a page whose record was renamed or deleted. gen-html only ever
     # writes, so the stale page stays tracked and published while the diff stays
     # empty. f8d85b1 is a rename of exactly that shape.

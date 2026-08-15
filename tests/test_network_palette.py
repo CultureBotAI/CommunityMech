@@ -419,3 +419,39 @@ def test_umap_palette_has_the_expected_shape():
     palette = _umap_palette()
     assert len(palette) >= 8, f"only {len(palette)} UMAP categories parsed: {sorted(palette)}"
     assert "_other" in palette, "the collapsed-category grey was not identified"
+
+
+def test_published_umap_page_matches_the_template():
+    """The published UMAP page must carry the template's colours (#602).
+
+    `check-docs-current` regenerates and diffs `docs/`, but only via `gen-html`.
+    `docs/community_umap.html` comes from `gen-umap`, which needs a large
+    embeddings artefact that CI does not have — so that recipe cannot run in the
+    gate, and the page could drift from its template indefinitely with nothing
+    to notice. Caught for real while re-stepping the palette in #601: the
+    template had the new colours, `gen-html` ran clean, the gate said
+    "✅ docs/ matches the KB", and the published page still served the old ones.
+
+    Comparing the two files needs no embeddings, so it works where regeneration
+    does not. It checks the property that actually matters — what a reader is
+    served — rather than the process that produces it.
+    """
+    published = Path(__file__).parent.parent / "docs/community_umap.html"
+    if not published.is_file():
+        pytest.skip("docs/community_umap.html is not built in this checkout")
+
+    def categories(text: str) -> dict[str, str]:
+        block = re.search(r"const\s+categoryColors\s*=\s*\{(.*?)\};", text, re.DOTALL)
+        assert block, "categoryColors not found"
+        return dict(re.findall(r"'([A-Z_]+)':\s*'(#[0-9a-fA-F]{6})'", block.group(1)))
+
+    in_template = categories(UMAP_TEMPLATE.read_text())
+    on_page = categories(published.read_text())
+
+    drifted = {k: (v, on_page.get(k)) for k, v in in_template.items() if on_page.get(k) != v}
+    assert not drifted, (
+        "docs/community_umap.html does not carry the template's category "
+        "colours — a template edit that never reached the published page "
+        f"(#602). template vs published: {drifted}. Run `just gen-umap` and "
+        "commit the result."
+    )
