@@ -33,6 +33,7 @@ import colorsys
 import itertools
 import math
 import re
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -46,8 +47,28 @@ SCHEMA = Path(__file__).parent.parent / "src/communitymech/schema/communitymech.
 # replaced measured 0.0 (taxon and MUTUALISM were the same hex).
 MIN_SEPARATION = 15.0
 
-# Enum whose permissible values the palette must cover exactly.
+# Enum whose permissible values the palette must cover, apart from FOLDED.
 INTERACTION_ENUM = "InteractionTypeEnum"
+
+# Types deliberately drawn with the grey "Other" swatch rather than a hue of
+# their own (#532). Nine colours cannot be separated under protan, deutan AND
+# tritan at once — the comment on `test_tritan_collisions_are_documented` said
+# so, and the palette shipped with four tritan collisions as the price. Seven
+# can: dropping these two frees the magenta region, which is where MUTUALISM had
+# to move to stop colliding with CROSS_FEEDING under tritanopia.
+#
+# Chosen on usage, not aesthetics, and the counts are re-checked by
+# `test_folded_types_are_still_the_rare_ones` so this cannot quietly become
+# wrong as the KB grows.
+FOLDED = {
+    "STRAIN_COMPETITION": "1 occurrence in the KB",
+    "PREDATION": "11 occurrences; the next-rarest coloured type has 67",
+}
+
+# No coloured type may be rarer than a folded one by more than this factor —
+# the justification is "these two are far rarer than everything else", and that
+# claim has to keep holding.
+FOLD_HEADROOM = 2
 
 
 # --------------------------------------------------------------------------
@@ -166,11 +187,18 @@ def test_palette_covers_the_interaction_enum_exactly():
     than failing, so only this comparison catches a newly added enum value.
     """
     palette, enum = set(_palette()), _enum_values()
-    assert not (enum - palette), (
+    uncoloured = enum - palette - set(FOLDED)
+    assert not uncoloured, (
         f"{INTERACTION_ENUM} values with no colour in {TEMPLATE.name}: "
-        f"{sorted(enum - palette)}. They would render as a grey 'Other' swatch "
+        f"{sorted(uncoloured)}. They would render as a grey 'Other' swatch "
         f"on every page instead of failing. Add them to `interaction_legend` "
-        f"and rerun this module to confirm separation still holds."
+        f"and rerun this module to confirm separation still holds — or, if they "
+        f"are genuinely too rare to earn a hue, add them to FOLDED with a count."
+    )
+    stale_folds = set(FOLDED) - enum
+    assert not stale_folds, (
+        f"FOLDED names values not in {INTERACTION_ENUM}: {sorted(stale_folds)}. "
+        f"Remove them, or restore the enum value."
     )
     assert not (palette - enum), (
         f"colours in {TEMPLATE.name} for values not in {INTERACTION_ENUM}: "
@@ -256,9 +284,21 @@ def test_tritan_collisions_are_documented():
         for a, b in itertools.combinations(swatches, 2)
         if _delta_e(swatches[a], swatches[b], "tritan") < MIN_SEPARATION
     )
-    assert len(collisions) <= 4, (
+    # Ratcheted from 4 to 1 by #532. Folding the two rarest types freed the
+    # magenta region, MUTUALISM moved into it, and CROSS_FEEDING/MUTUALISM went
+    # from ΔE 1.8 to 68.4 under tritanopia. The single survivor is
+    # SYNTROPHY/_taxon, which shape already separates — taxa are circles and
+    # every interaction is a non-circular symbol (#270).
+    between_types = [c for c in collisions if not (c[1].startswith("_") or c[2].startswith("_"))]
+    assert between_types == [], (
+        f"two interaction types collide under tritanopia: {between_types}. "
+        f"Since #532 the coloured types are separable under normal, protan, "
+        f"deutan AND tritan; do not trade that away."
+    )
+    assert len(collisions) <= 1, (
         f"tritanopia collisions grew to {len(collisions)} pairs: {collisions}. "
-        f"The palette shipped with 4; a retune should not make this worse."
+        f"The palette ships with 1 (a type against the grey taxon node, which "
+        f"shape distinguishes); a retune should not make this worse."
     )
 
 
@@ -275,3 +315,33 @@ def test_hues_are_spread_around_the_wheel():
         f"two interaction hues are only {min(gaps):.1f}° apart (hues: "
         f"{[round(h) for h in hues]}); colours this close read as one family."
     )
+
+
+def test_folded_types_are_still_the_rare_ones():
+    """The fold is justified by usage, so the usage claim must keep holding (#532).
+
+    `FOLDED` drops two interaction types to the grey "Other" swatch because they
+    are far rarer than everything else — 1 and 11 occurrences against a
+    next-rarest coloured type of 67. That is a fact about today's KB, not a
+    property of the enum, and curation moves. If a folded type becomes common,
+    the reasoning has inverted and somebody should look rather than discover it
+    in a figure.
+    """
+    counts = Counter()
+    for path in sorted((Path(__file__).parent.parent / "kb/communities").glob("*.yaml")):
+        for match in re.finditer(
+            r"interaction_type:\s*([A-Z_]+)", path.read_text(encoding="utf-8")
+        ):
+            counts[match.group(1)] += 1
+
+    assert counts, "no interaction types found; the scan is broken"
+
+    rarest_coloured = min(counts.get(key, 0) for key in _palette())
+    for folded in FOLDED:
+        assert counts.get(folded, 0) * FOLD_HEADROOM <= rarest_coloured, (
+            f"{folded} is folded into the grey 'Other' swatch as too rare to "
+            f"earn a hue, but it now has {counts.get(folded, 0)} occurrences "
+            f"against a rarest-coloured-type count of {rarest_coloured}. Give it "
+            f"a colour and re-run the separation tests, or widen FOLD_HEADROOM "
+            f"deliberately."
+        )
