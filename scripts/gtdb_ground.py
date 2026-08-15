@@ -157,6 +157,58 @@ def resolve_kg_microbe_dir(explicit: str | None) -> Path:
     )
 
 
+# GTDB appends an alphabetic suffix to every clade split off a genus/family that
+# does NOT contain the nomenclatural type: `g__Enterococcus_B` is Enterococcus
+# minus the lineage holding *E. faecalis*, which keeps the bare `g__Enterococcus`.
+# So the suffix is GTDB's own published marker for "not the type-anchored clade".
+_NON_TYPE_SUFFIX = re.compile(r"^(?P<base>[A-Z][A-Za-z0-9-]*)_(?P<suffix>[A-Z]+)$")
+
+
+def non_type_clade(name: str) -> str | None:
+    """The unsuffixed sibling of a GTDB name, when the name is a non-type clade.
+
+    Returns the base name (`Enterococcus` for `Enterococcus_B`), else None.
+
+    Used to *flag* rather than to *resolve* (#374). Grounding by majority-of-
+    genomes and GTDB's type-species rule disagree whenever a non-type clade is
+    more heavily sequenced. Verified against GTDB R226, that is one taxon of the
+    five where the two denominators differ — `Enterococcus` grounds to
+    `g__Enterococcus_B` while *E. faecalis* sits in `g__Enterococcus`. The other
+    four agree because the majority happens to be the type clade, which is luck
+    and not construction; nothing stops them flipping as sequencing depth shifts.
+
+    Deliberately not used to override the answer. Preferring the type clade
+    would change what every existing grounding means, on the evidence of a
+    single live case — and the majority answer is not obviously wrong, since a
+    user asking for "NCBI genus X" may well want the clade most of X's genomes
+    are in. Emitting both and letting a curator see the conflict costs nothing
+    and forecloses nothing.
+    """
+    match = _NON_TYPE_SUFFIX.match(name or "")
+    return match.group("base") if match else None
+
+
+def _non_type_warning(chosen: str, weights: dict) -> str:
+    """Human-readable note for a grounding that is not the type-anchored clade.
+
+    Says whether the unsuffixed sibling was even a contender, because the two
+    cases call for different curator action: if it drew genomes here, this is a
+    close call worth a look; if it drew none, the NCBI name's genomes simply do
+    not sit in the type clade at all, which is a stronger statement.
+    """
+    base = non_type_clade(chosen)
+    sibling = weights.get(base)
+    if sibling:
+        return (
+            f"{chosen} is not the type-anchored clade; GTDB reserves {base} for the "
+            f"lineage holding the nomenclatural type, which drew {int(sibling)} genomes here (#374)"
+        )
+    return (
+        f"{chosen} is not the type-anchored clade; GTDB reserves {base} for the "
+        f"lineage holding the nomenclatural type, which drew no genomes here (#374)"
+    )
+
+
 def _curie(name: str, prefix: str) -> str:
     return f"GTDB:{prefix}__" + name.replace(" ", "_")
 
@@ -584,6 +636,15 @@ def resolve_higher(
                 "is_reclassified": top != _clean_label(label),
                 "via": f"ncbi_rank_{prefix}",
                 "n_alt": len(weights),
+                # The majority answer is a non-type clade, so it disagrees with
+                # GTDB's own naming rule (#374). Reported, not resolved: the
+                # curator decides. Key omitted entirely when there is no
+                # conflict, so its presence always means something.
+                **(
+                    {"non_type_clade_warning": _non_type_warning(top, weights)}
+                    if non_type_clade(top)
+                    else {}
+                ),
             }
         # Same tie-break as `top` above: ties here were still row-ordered, so the
         # AMBIGUOUS option list a curator reads was not reproducible (#382 review).
@@ -1913,6 +1974,12 @@ def main(argv: list[str] | None = None) -> int:
         # record's *nitrite* oxidizer. The number alone did not say "look here".
         near = "  ⚠ NEAR-TIE" if _is_near_tie(g.get("majority_fraction")) else ""
         print(f"  majority     : {g['majority_fraction']}{via}{of}{thin}{near}")
+        # Printed, not just stored (#374). The whole value of flagging rather
+        # than resolving is that a curator sees the conflict at the moment they
+        # ground the taxon; a key that only ever appears in emitted YAML would
+        # be found later or not at all.
+        if g.get("non_type_clade_warning"):
+            print(f"  ⚠ NON-TYPE   : {g['non_type_clade_warning']}")
         if args.emit_yaml:
             print("  --- gtdb_classification block ---")
             for line in emit_block(g, mapping_source).splitlines():
