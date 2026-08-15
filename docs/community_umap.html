@@ -5003,18 +5003,24 @@
         const margin = { top: 20, right: 20, bottom: 40, left: 40 };
 
         // Color schemes for different attributes with semantic, non-clashing colors
-        // Categorical 8 (CVD-safe, ordered by frequency) + Other (grey).
+        // Categorical 8 + Other (grey). Re-stepped in #601 so the set clears the
+        // same floor tests/test_network_palette.py holds the network palette to:
+        // delta-E >= 15 under normal, protan AND deutan vision. The previous set
+        // was described as CVD-safe but measured 6.9 under protanopia
+        // (LIGNOCELLULOSE/METHANOGENESIS - the classic red/green convergence).
+        // Hues keep their semantic assignment; separation comes from lightness.
+        // Do not retune by eye or one colour at a time.
         // The 8 most frequent categories get a distinct colour; the rest
         // (and OTHER) collapse to grey. Order is the colourblind-safety mechanism.
         const categoryColors = {
-            'RHIZOSPHERE': '#2a78d6',            // blue
-            'BIOTECHNOLOGY': '#1baf7a',          // aqua
-            'BIOREMEDIATION': '#eda100',         // yellow
-            'LIGNOCELLULOSE': '#008300',         // green
-            'SYNTROPHY': '#4a3aa7',              // violet
-            'METHANOGENESIS': '#e34948',         // red
-            'PHYTOPLANKTON': '#e87ba4',          // magenta
-            'CARBON_SEQUESTRATION': '#eb6834',   // orange
+            'RHIZOSPHERE': '#3169e1',            // blue
+            'BIOTECHNOLOGY': '#6bc6bf',          // aqua
+            'BIOREMEDIATION': '#f2a011',         // amber
+            'LIGNOCELLULOSE': '#49ba6f',         // green
+            'SYNTROPHY': '#5511f2',              // violet
+            'METHANOGENESIS': '#cb0d0a',         // red
+            'PHYTOPLANKTON': '#9f086f',          // magenta
+            'CARBON_SEQUESTRATION': '#e3703f',   // orange
             'OTHER': '#898781',                  // grey - collapsed
             'EXTREME_ENVIRONMENT': '#898781',    // grey - collapsed
             'BIOMINING': '#898781',              // grey - collapsed

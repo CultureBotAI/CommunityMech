@@ -345,3 +345,77 @@ def test_folded_types_are_still_the_rare_ones():
             f"a colour and re-run the separation tests, or widen FOLD_HEADROOM "
             f"deliberately."
         )
+
+
+# --------------------------------------------------------------------------
+# The UMAP page's category palette (#601)
+# --------------------------------------------------------------------------
+
+UMAP_TEMPLATE = Path(__file__).parent.parent / "src/communitymech/templates/community_umap.html"
+
+
+def _umap_palette() -> dict[str, str]:
+    """The category → colour map on the UMAP page, minus the collapsed greys.
+
+    Parsed from the template rather than duplicated here, for the same reason
+    `_palette()` is: a copy in the test would keep passing after the page
+    changed. Entries sharing the grey are the deliberately collapsed
+    categories — they are one visual class, so they are folded to a single
+    `_other` swatch rather than compared against each other.
+    """
+    text = UMAP_TEMPLATE.read_text()
+    # Scoped to `categoryColors` deliberately. The page defines several
+    # independent schemes (`stateColors`, `originColors`) for other colour-by
+    # modes; they are never on screen together, so comparing across them would
+    # invent failures — a first version of this parser did exactly that.
+    block = re.search(r"const\s+categoryColors\s*=\s*\{(.*?)\};", text, re.DOTALL)
+    assert block, f"categoryColors not found in {UMAP_TEMPLATE.name} — did it move?"
+    pairs = re.findall(r"'([A-Z_]+)':\s*'(#[0-9a-fA-F]{6})'", block.group(1))
+    assert pairs, f"no category colours parsed from {UMAP_TEMPLATE.name}"
+    by_key = dict(pairs)
+    grey = Counter(by_key.values()).most_common(1)[0][0]
+    palette = {k: v for k, v in by_key.items() if v != grey}
+    palette["_other"] = grey
+    return palette
+
+
+@pytest.mark.parametrize("kind", [None, "protan", "deutan"])
+def test_umap_categories_stay_separated_under_colour_vision_deficiency(kind):
+    """One standard for both palettes (#601).
+
+    The network palette has been gated at MIN_SEPARATION since #269; the UMAP
+    page's palette was hand-picked, described as "CVD-safe 8" in #199, and read
+    by no test. Measured, it sat at ΔE 6.9 under protanopia —
+    LIGNOCELLULOSE/METHANOGENESIS, the classic red/green convergence — and
+    BIOTECHNOLOGY collided with the collapsed grey at 10.4 under deuteranopia.
+
+    Same defect shape as #588: a rule applied to one artefact and not its
+    sibling.
+    """
+    palette = _umap_palette()
+    worst = min(
+        (
+            (_delta_e(palette[a], palette[b], kind), a, b)
+            for a, b in itertools.combinations(palette, 2)
+        ),
+        key=lambda row: row[0],
+    )
+    distance, first, second = worst
+    assert distance >= MIN_SEPARATION, (
+        f"UMAP categories {first} ({palette[first]}) and {second} "
+        f"({palette[second]}) are only ΔE {distance:.1f} apart under "
+        f"{kind or 'normal'} vision, below the {MIN_SEPARATION} floor. "
+        f"Re-step them together rather than lowering the floor — hues carry "
+        f"semantic meaning here, so separate on lightness."
+    )
+
+
+def test_umap_palette_has_the_expected_shape():
+    """Guard: an empty or half-parsed palette passes the separation test.
+
+    `_umap_palette` reads a JS object literal out of an HTML template, which is
+    exactly the kind of extraction that silently returns `{}` after a refactor.
+    """
+    palette = _umap_palette()
+    assert len(palette) >= 8, f"only {len(palette)} UMAP categories parsed: {sorted(palette)}"
+    assert "_other" in palette, "the collapsed-category grey was not identified"
