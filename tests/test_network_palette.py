@@ -33,6 +33,7 @@ import colorsys
 import itertools
 import math
 import re
+from collections import Counter
 from pathlib import Path
 
 import pytest
@@ -46,8 +47,28 @@ SCHEMA = Path(__file__).parent.parent / "src/communitymech/schema/communitymech.
 # replaced measured 0.0 (taxon and MUTUALISM were the same hex).
 MIN_SEPARATION = 15.0
 
-# Enum whose permissible values the palette must cover exactly.
+# Enum whose permissible values the palette must cover, apart from FOLDED.
 INTERACTION_ENUM = "InteractionTypeEnum"
+
+# Types deliberately drawn with the grey "Other" swatch rather than a hue of
+# their own (#532). Nine colours cannot be separated under protan, deutan AND
+# tritan at once — the comment on `test_tritan_collisions_are_documented` said
+# so, and the palette shipped with four tritan collisions as the price. Seven
+# can: dropping these two frees the magenta region, which is where MUTUALISM had
+# to move to stop colliding with CROSS_FEEDING under tritanopia.
+#
+# Chosen on usage, not aesthetics, and the counts are re-checked by
+# `test_folded_types_are_still_the_rare_ones` so this cannot quietly become
+# wrong as the KB grows.
+FOLDED = {
+    "STRAIN_COMPETITION": "1 occurrence in the KB",
+    "PREDATION": "11 occurrences; the next-rarest coloured type has 67",
+}
+
+# No coloured type may be rarer than a folded one by more than this factor —
+# the justification is "these two are far rarer than everything else", and that
+# claim has to keep holding.
+FOLD_HEADROOM = 2
 
 
 # --------------------------------------------------------------------------
@@ -166,11 +187,18 @@ def test_palette_covers_the_interaction_enum_exactly():
     than failing, so only this comparison catches a newly added enum value.
     """
     palette, enum = set(_palette()), _enum_values()
-    assert not (enum - palette), (
+    uncoloured = enum - palette - set(FOLDED)
+    assert not uncoloured, (
         f"{INTERACTION_ENUM} values with no colour in {TEMPLATE.name}: "
-        f"{sorted(enum - palette)}. They would render as a grey 'Other' swatch "
+        f"{sorted(uncoloured)}. They would render as a grey 'Other' swatch "
         f"on every page instead of failing. Add them to `interaction_legend` "
-        f"and rerun this module to confirm separation still holds."
+        f"and rerun this module to confirm separation still holds — or, if they "
+        f"are genuinely too rare to earn a hue, add them to FOLDED with a count."
+    )
+    stale_folds = set(FOLDED) - enum
+    assert not stale_folds, (
+        f"FOLDED names values not in {INTERACTION_ENUM}: {sorted(stale_folds)}. "
+        f"Remove them, or restore the enum value."
     )
     assert not (palette - enum), (
         f"colours in {TEMPLATE.name} for values not in {INTERACTION_ENUM}: "
@@ -256,9 +284,21 @@ def test_tritan_collisions_are_documented():
         for a, b in itertools.combinations(swatches, 2)
         if _delta_e(swatches[a], swatches[b], "tritan") < MIN_SEPARATION
     )
-    assert len(collisions) <= 4, (
+    # Ratcheted from 4 to 1 by #532. Folding the two rarest types freed the
+    # magenta region, MUTUALISM moved into it, and CROSS_FEEDING/MUTUALISM went
+    # from ΔE 1.8 to 68.4 under tritanopia. The single survivor is
+    # SYNTROPHY/_taxon, which shape already separates — taxa are circles and
+    # every interaction is a non-circular symbol (#270).
+    between_types = [c for c in collisions if not (c[1].startswith("_") or c[2].startswith("_"))]
+    assert between_types == [], (
+        f"two interaction types collide under tritanopia: {between_types}. "
+        f"Since #532 the coloured types are separable under normal, protan, "
+        f"deutan AND tritan; do not trade that away."
+    )
+    assert len(collisions) <= 1, (
         f"tritanopia collisions grew to {len(collisions)} pairs: {collisions}. "
-        f"The palette shipped with 4; a retune should not make this worse."
+        f"The palette ships with 1 (a type against the grey taxon node, which "
+        f"shape distinguishes); a retune should not make this worse."
     )
 
 
@@ -274,4 +314,144 @@ def test_hues_are_spread_around_the_wheel():
     assert min(gaps) >= 5.0, (
         f"two interaction hues are only {min(gaps):.1f}° apart (hues: "
         f"{[round(h) for h in hues]}); colours this close read as one family."
+    )
+
+
+def test_folded_types_are_still_the_rare_ones():
+    """The fold is justified by usage, so the usage claim must keep holding (#532).
+
+    `FOLDED` drops two interaction types to the grey "Other" swatch because they
+    are far rarer than everything else — 1 and 11 occurrences against a
+    next-rarest coloured type of 67. That is a fact about today's KB, not a
+    property of the enum, and curation moves. If a folded type becomes common,
+    the reasoning has inverted and somebody should look rather than discover it
+    in a figure.
+    """
+    counts = Counter()
+    for path in sorted((Path(__file__).parent.parent / "kb/communities").glob("*.yaml")):
+        for match in re.finditer(
+            r"interaction_type:\s*([A-Z_]+)", path.read_text(encoding="utf-8")
+        ):
+            counts[match.group(1)] += 1
+
+    assert counts, "no interaction types found; the scan is broken"
+
+    rarest_coloured = min(counts.get(key, 0) for key in _palette())
+    for folded in FOLDED:
+        assert counts.get(folded, 0) * FOLD_HEADROOM <= rarest_coloured, (
+            f"{folded} is folded into the grey 'Other' swatch as too rare to "
+            f"earn a hue, but it now has {counts.get(folded, 0)} occurrences "
+            f"against a rarest-coloured-type count of {rarest_coloured}. Give it "
+            f"a colour and re-run the separation tests, or widen FOLD_HEADROOM "
+            f"deliberately."
+        )
+
+
+# --------------------------------------------------------------------------
+# The UMAP page's category palette (#601)
+# --------------------------------------------------------------------------
+
+UMAP_TEMPLATE = Path(__file__).parent.parent / "src/communitymech/templates/community_umap.html"
+
+
+def _umap_palette() -> dict[str, str]:
+    """The category → colour map on the UMAP page, minus the collapsed greys.
+
+    Parsed from the template rather than duplicated here, for the same reason
+    `_palette()` is: a copy in the test would keep passing after the page
+    changed. Entries sharing the grey are the deliberately collapsed
+    categories — they are one visual class, so they are folded to a single
+    `_other` swatch rather than compared against each other.
+    """
+    text = UMAP_TEMPLATE.read_text()
+    # Scoped to `categoryColors` deliberately. The page defines several
+    # independent schemes (`stateColors`, `originColors`) for other colour-by
+    # modes; they are never on screen together, so comparing across them would
+    # invent failures — a first version of this parser did exactly that.
+    block = re.search(r"const\s+categoryColors\s*=\s*\{(.*?)\};", text, re.DOTALL)
+    assert block, f"categoryColors not found in {UMAP_TEMPLATE.name} — did it move?"
+    pairs = re.findall(r"'([A-Z_]+)':\s*'(#[0-9a-fA-F]{6})'", block.group(1))
+    assert pairs, f"no category colours parsed from {UMAP_TEMPLATE.name}"
+    by_key = dict(pairs)
+    grey = Counter(by_key.values()).most_common(1)[0][0]
+    palette = {k: v for k, v in by_key.items() if v != grey}
+    palette["_other"] = grey
+    return palette
+
+
+@pytest.mark.parametrize("kind", [None, "protan", "deutan"])
+def test_umap_categories_stay_separated_under_colour_vision_deficiency(kind):
+    """One standard for both palettes (#601).
+
+    The network palette has been gated at MIN_SEPARATION since #269; the UMAP
+    page's palette was hand-picked, described as "CVD-safe 8" in #199, and read
+    by no test. Measured, it sat at ΔE 6.9 under protanopia —
+    LIGNOCELLULOSE/METHANOGENESIS, the classic red/green convergence — and
+    BIOTECHNOLOGY collided with the collapsed grey at 10.4 under deuteranopia.
+
+    Same defect shape as #588: a rule applied to one artefact and not its
+    sibling.
+    """
+    palette = _umap_palette()
+    worst = min(
+        (
+            (_delta_e(palette[a], palette[b], kind), a, b)
+            for a, b in itertools.combinations(palette, 2)
+        ),
+        key=lambda row: row[0],
+    )
+    distance, first, second = worst
+    assert distance >= MIN_SEPARATION, (
+        f"UMAP categories {first} ({palette[first]}) and {second} "
+        f"({palette[second]}) are only ΔE {distance:.1f} apart under "
+        f"{kind or 'normal'} vision, below the {MIN_SEPARATION} floor. "
+        f"Re-step them together rather than lowering the floor — hues carry "
+        f"semantic meaning here, so separate on lightness."
+    )
+
+
+def test_umap_palette_has_the_expected_shape():
+    """Guard: an empty or half-parsed palette passes the separation test.
+
+    `_umap_palette` reads a JS object literal out of an HTML template, which is
+    exactly the kind of extraction that silently returns `{}` after a refactor.
+    """
+    palette = _umap_palette()
+    assert len(palette) >= 8, f"only {len(palette)} UMAP categories parsed: {sorted(palette)}"
+    assert "_other" in palette, "the collapsed-category grey was not identified"
+
+
+def test_published_umap_page_matches_the_template():
+    """The published UMAP page must carry the template's colours (#602).
+
+    `check-docs-current` regenerates and diffs `docs/`, but only via `gen-html`.
+    `docs/community_umap.html` comes from `gen-umap`, which needs a large
+    embeddings artefact that CI does not have — so that recipe cannot run in the
+    gate, and the page could drift from its template indefinitely with nothing
+    to notice. Caught for real while re-stepping the palette in #601: the
+    template had the new colours, `gen-html` ran clean, the gate said
+    "✅ docs/ matches the KB", and the published page still served the old ones.
+
+    Comparing the two files needs no embeddings, so it works where regeneration
+    does not. It checks the property that actually matters — what a reader is
+    served — rather than the process that produces it.
+    """
+    published = Path(__file__).parent.parent / "docs/community_umap.html"
+    if not published.is_file():
+        pytest.skip("docs/community_umap.html is not built in this checkout")
+
+    def categories(text: str) -> dict[str, str]:
+        block = re.search(r"const\s+categoryColors\s*=\s*\{(.*?)\};", text, re.DOTALL)
+        assert block, "categoryColors not found"
+        return dict(re.findall(r"'([A-Z_]+)':\s*'(#[0-9a-fA-F]{6})'", block.group(1)))
+
+    in_template = categories(UMAP_TEMPLATE.read_text())
+    on_page = categories(published.read_text())
+
+    drifted = {k: (v, on_page.get(k)) for k, v in in_template.items() if on_page.get(k) != v}
+    assert not drifted, (
+        "docs/community_umap.html does not carry the template's category "
+        "colours — a template edit that never reached the published page "
+        f"(#602). template vs published: {drifted}. Run `just gen-umap` and "
+        "commit the result."
     )

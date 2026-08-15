@@ -342,6 +342,13 @@ check-docs-current:
     # this gate reported it current, green in exactly the case where the
     # regeneration it gates on had not happened (#442 review).
     just gen-html
+    # NOT `just gen-umap`, though docs/community_umap.html is also committed
+    # here. That recipe needs data/embeddings/*.tsv.gz, which is a large local
+    # artefact absent from CI, so running it here fails the gate outright
+    # (#602). The drift it would have caught — a template edit that never
+    # reaches the published page — is gated instead by
+    # tests/test_network_palette.py::test_published_umap_page_matches_the_template,
+    # which compares the two without regenerating anything.
     # An orphan: a page whose record was renamed or deleted. gen-html only ever
     # writes, so the stale page stays tracked and published while the diff stays
     # empty. f8d85b1 is a rename of exactly that shape.
