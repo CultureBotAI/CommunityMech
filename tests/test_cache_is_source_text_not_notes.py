@@ -52,8 +52,21 @@ CACHE = REPO / "references_cache"
 # wording someone reached for.
 _SNIPPET_LISTING = re.compile(r"snippets used in curated records", re.IGNORECASE)
 
-# Set by cache_fulltext.py when it appends genuinely retrieved text.
-_FULL_TEXT_MARKER = "===== OPEN-ACCESS FULL TEXT"
+# Both spellings used on disk for "retrieved full text follows" (#594).
+# `cache_fulltext.py` writes and recognises only the first; six files carry the
+# second, written by an earlier re-fetch pass. Keying on one of them is how two
+# caches holding 48K and 38K of real full text got classified as notes-only and
+# deleted while fixing #592 — caught in review, but only by listing byte sizes
+# rather than trusting the classifier. Recognise both, deliberately.
+_FULL_TEXT_MARKERS = (
+    "===== OPEN-ACCESS FULL TEXT",
+    "Full text (re-fetched",
+)
+
+
+def _has_retrieved_full_text(body: str) -> bool:
+    return any(marker in body for marker in _FULL_TEXT_MARKERS)
+
 
 # A real abstract is a paragraph of prose. A stub is a title, a couple of links,
 # and some bullets. Prose length separates them where file size cannot: 308
@@ -109,7 +122,7 @@ def test_no_md_stub_shadows_a_real_txt_abstract():
         if not txt.is_file():
             continue
         body = md.read_text(errors="replace")
-        if _FULL_TEXT_MARKER in body:
+        if _has_retrieved_full_text(body):
             continue  # carries genuinely retrieved full text; not a stub
         prose = _longest_paragraph(body)
         if prose < _PROSE_FLOOR and txt.stat().st_size > len(body):
@@ -159,6 +172,45 @@ def _cache_files_in(directory: pathlib.Path) -> list[pathlib.Path]:
     return sorted(p for p in directory.iterdir() if p.is_file() and p.suffix in {".md", ".txt"})
 
 
+@pytest.mark.parametrize(
+    ("name", "marker"),
+    [
+        ("PMID_33097854.md", "===== OPEN-ACCESS FULL TEXT (Europe PMC PMC8027193) ====="),
+        # The spelling that cost 48K and 38K of real full text in #593 before it
+        # was caught. Six files on disk use it and nothing recognised it.
+        ("PMID_25036636.md", "Full text (re-fetched 2026-06-17 via NCBI BioC PMC):"),
+        ("PMID_26061774.md", "Full text (re-fetched 2026-06-15 via Europe PMC fullTextXML):"),
+    ],
+)
+def test_both_full_text_markers_are_recognised(name, marker):
+    """A file holding real full text must never read as a notes-only stub (#594).
+
+    This is the check whose absence let two caches with tens of KB of retrieved
+    text be classified as notes and deleted. It asserts on the marker set
+    directly, so adding a third spelling to the corpus without adding it here
+    fails rather than silently reclassifying real text as disposable.
+    """
+    assert _has_retrieved_full_text(f"# {name}\n\n{marker}\n\nbody text\n")
+
+
+def test_the_marker_set_still_matches_the_corpus():
+    """Every distinct 'full text follows' spelling on disk must be in the set.
+
+    A constant whose value is pinned but whose completeness is not is the defect
+    behind #471, #518 and #594. This one is checked against reality.
+    """
+    unrecognised = []
+    for path in CACHE.glob("*.md"):
+        body = path.read_text(errors="replace")
+        if re.search(r"^Full text \(", body, re.M) and not _has_retrieved_full_text(body):
+            unrecognised.append(path.name)
+    assert unrecognised == [], (
+        "these caches announce full text with a spelling _FULL_TEXT_MARKERS does "
+        "not know, so tooling will treat them as notes-only and may delete "
+        "them (#594):\n" + "\n".join(f"  {n}" for n in unrecognised)
+    )
+
+
 def test_the_shadowing_gate_can_fire(tmp_path):
     """Mutation check for the second gate, using the real PMID_26323627 shape."""
     cache = tmp_path / "references_cache"
@@ -172,7 +224,7 @@ def test_the_shadowing_gate_can_fire(tmp_path):
         md.name
         for md in sorted(cache.glob("*.md"))
         if md.with_suffix(".txt").is_file()
-        and _FULL_TEXT_MARKER not in md.read_text()
+        and not _has_retrieved_full_text(md.read_text())
         and _longest_paragraph(md.read_text()) < _PROSE_FLOOR
         and md.with_suffix(".txt").stat().st_size > md.stat().st_size
     ]
@@ -228,5 +280,5 @@ def test_the_walk_reaches_the_real_corpus():
     files = _cache_files()
     assert len(files) > 400, f"only {len(files)} cache files walked; the glob is broken"
     assert any(
-        _FULL_TEXT_MARKER in p.read_text(errors="replace") for p in files[:200] + files[-200:]
+        _has_retrieved_full_text(p.read_text(errors="replace")) for p in files[:200] + files[-200:]
     ), "no cache file carries retrieved full text; the read is broken"
