@@ -50,6 +50,16 @@ _ACCEPTED: dict[tuple[str, str], str] = {
         "writes Actinobacteria, Chloroflexi, and so on. Only Geobacter matches, "
         "so the ratio measures nomenclature drift rather than relevance."
     ),
+    ("Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml", "PMID:33531396"): (
+        "Same nomenclature drift as Rifle, and surfaced by the same fix. The "
+        "source IS this community — 'Acetylene-Fueled Trichloroethene Reductive "
+        "Dechlorination in a Groundwater Enrichment Culture' — and it names the "
+        "member eight times as the phylum 'Actinobacteria'. The KB grounds it to "
+        "'Actinomycetota', the 2021 renaming, which appears in the paper zero "
+        "times. The record previously passed only because its second member is "
+        "the domain 'Bacteria', which matched vacuously; dropping uninformative "
+        "labels removed that false pass and left the real drift visible."
+    ),
 }
 
 # Below this share of members named in the source, the pairing is suspect.
@@ -73,6 +83,25 @@ _THRESHOLD = 0.5
 # missed the 47 KB one it was written for. 12 KB is the same bar used to pick
 # candidates worth reading in the first place.
 _FULL_TEXT_BYTES = 12_000
+
+# Taxon labels too broad to discriminate. A record whose only "member" is
+# `Bacteria` cannot be checked by this test: the word appears in essentially
+# every microbiology paper, so matching it would be a false pass and failing on
+# it is a false alarm. `NCycle_Bioflocculation_Model_Consortium` is the live
+# case — its member is NCBITaxon `Bacteria` with the preferred term "N-cycle
+# bacterial consortium members", and its source is titled "Establishing a
+# co-culture aggregate of N-cycle bacteria...", i.e. exactly the right paper.
+# Skipped with a reason rather than added to `_ACCEPTED`, because nothing is
+# being excused — there is simply no name here to look for.
+_UNINFORMATIVE_LABELS = {
+    "bacteria",
+    "archaea",
+    "fungi",
+    "eukaryota",
+    "viruses",
+    "microorganisms",
+    "prokaryotes",
+}
 
 
 def _cache_path(reference: str) -> pathlib.Path | None:
@@ -102,7 +131,10 @@ def _member_words(document: dict) -> list[str]:
         term = entry.get("taxon_term") or {}
         name = (term.get("term") or {}).get("label") or term.get("preferred_term") or ""
         head = name.split()[0] if name.split() else ""
-        if len(head) > 3 and head[0].isupper():
+        # A domain-rank label carries no discriminating power (see
+        # _UNINFORMATIVE_LABELS): matching it would pass any microbiology paper,
+        # so it is dropped rather than counted either way.
+        if len(head) > 3 and head[0].isupper() and head.lower() not in _UNINFORMATIVE_LABELS:
             words.append(head)
     return words
 
@@ -131,7 +163,9 @@ def _pairs() -> list[tuple[str, str, float, int]]:
             text = cached.read_text(errors="replace")
             if len(text) < _FULL_TEXT_BYTES:
                 continue  # abstract-only: the ratio would measure the cache
-            named = sum(1 for word in members if re.search(rf"\b{re.escape(word)}", text))
+            named = sum(
+                1 for word in members if re.search(rf"\b{re.escape(word)}", text, re.IGNORECASE)
+            )
             found.append((path.name, reference, named / len(members), len(members)))
     return found
 
@@ -195,7 +229,7 @@ def test_the_check_can_actually_fail():
     cached = _cache_path("PMID:33841379")
     assert cached is not None, "the rejected example's source is no longer cached"
     text = cached.read_text(errors="replace")
-    named = sum(1 for word in members if re.search(rf"\b{re.escape(word)}", text))
+    named = sum(1 for word in members if re.search(rf"\b{re.escape(word)}", text, re.IGNORECASE))
     assert named / len(members) < _THRESHOLD, (
         "PMID:33841379 now names most of that record's members. If the record "
         "or the cache changed, re-check whether the paper studies the coculture "
