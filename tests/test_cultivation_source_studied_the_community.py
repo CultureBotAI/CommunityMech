@@ -50,6 +50,46 @@ _ACCEPTED: dict[tuple[str, str], str] = {
         "writes Actinobacteria, Chloroflexi, and so on. Only Geobacter matches, "
         "so the ratio measures nomenclature drift rather than relevance."
     ),
+    # Four nomenclature modernisations, all surfaced at once when a fresh
+    # retrieval round gave these references full text for the first time. In each
+    # the KB uses the current name and the paper uses the one current when it was
+    # written, so the ratio measures the renaming rather than the relevance.
+    ("Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml", "PMID:37973815"): (
+        "Mediterraneibacter gnavus is the 2021 renaming of Ruminococcus gnavus, "
+        "which is what the paper writes."
+    ),
+    ("BioModels_MODEL2204300001_Kefir_Community_Model.yaml", "PMID:33398099"): (
+        "Maudiozyma is the recent renaming of Kazachstania, which is what the " "paper writes."
+    ),
+    ("Cellulose_Methane_Quad_Culture_SynCom.yaml", "PMID:36847519"): (
+        "Nitratidesulfovibrio vulgaris is the renaming of Desulfovibrio vulgaris, "
+        "which is what the paper writes."
+    ),
+    ("MSC1_Dominant_Core.yaml", "PMID:32983014"): (
+        "Bacteroidota is the renaming of Bacteroidetes, which is what the paper " "writes."
+    ),
+    ("SIHUMIx_Human_Intestinal_Model_Community.yaml", "PMID:33622394"): (
+        "Lactiplantibacillus plantarum is the 2020 renaming of Lactobacillus "
+        "plantarum, which is what the paper writes."
+    ),
+    ("Synthetic_Periphyton_Freshwater_Biofilm.yaml", "PMID:35869094"): (
+        "Cyanobacteriota is the renaming of Cyanobacteria, which is what the " "paper writes."
+    ),
+    ("Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml", "PMID:33897653"): (
+        "Hyphomicrobiales is the renaming of Rhizobiales, which is what the " "paper writes."
+    ),
+    # NOT a renaming, and NOT accepted as correct. Recorded here only so the gate
+    # stays meaningful for everything else while the defect is tracked: the record
+    # claims Thiobacillus thioparus and neither of its two references mentions
+    # Thiobacillus or thioparus at all. Both snippets are verbatim quotes and both
+    # validate, which is exactly why nothing else catches it. See #605 — the same
+    # shape as Synechococcus_Yarrowia_SPC. Remove this entry when the membership
+    # is either re-cited or withdrawn.
+    ("PGM_Spent_Catalyst_Bioleaching.yaml", "PMID:38138568"): (
+        "KNOWN DEFECT, tracked in #605: Thiobacillus thioparus appears in no "
+        "cited source. Not a nomenclature difference — the record separately "
+        "lists the two Acidithiobacillus species the paper does name."
+    ),
     ("Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml", "PMID:33531396"): (
         "Same nomenclature drift as Rifle, and surfaced by the same fix. The "
         "source IS this community — 'Acetylene-Fueled Trichloroethene Reductive "
@@ -75,6 +115,18 @@ _ACCEPTED: dict[tuple[str, str], str] = {
 # source abbreviates the second genus after first use ("T. thermosaccharolyticum"),
 # which is normal scientific prose rather than a warning sign. It flagged four
 # records that had each been verified by reading.
+# NOTE ON THIS LIST'S SHAPE. Eight of its entries are now nomenclature
+# modernisation — the KB uses the current name, the paper uses the one current
+# when it was written, and the ratio measures the renaming rather than the
+# relevance. They arrive in batches, because each fresh retrieval round gives
+# several references full text for the first time and they all fail at once.
+#
+# Adding entries one at a time is not the fix. The check should ask whether the
+# current name OR ANY SYNONYM appears, resolved through NCBITaxon, at which point
+# every one of those eight disappears and what remains is the interesting
+# residue: members that appear under no name at all (#605). Recorded here rather
+# than built because it needs an ontology lookup this module deliberately does
+# not have — it is pure arithmetic so it can run in the blocking gate.
 _THRESHOLD = 0.5
 
 # Only full-text caches are checked. An abstract names few members by nature, so
@@ -130,7 +182,15 @@ def _member_words(document: dict) -> list[str]:
     for entry in document.get("taxonomy") or []:
         term = entry.get("taxon_term") or {}
         name = (term.get("term") or {}).get("label") or term.get("preferred_term") or ""
-        head = name.split()[0] if name.split() else ""
+        words = name.split()
+        # "Candidatus" is a nomenclatural status marker, not a genus, so the
+        # first word of "Candidatus Methylacidiphilum" is useless as a search
+        # key — and it matches any paper that discusses any Candidatus taxon.
+        # 53 taxa in the KB carry the prefix; every one of them was contributing
+        # the same worthless word until this line existed.
+        if words and words[0].lower() in {"candidatus", "ca."}:
+            words = words[1:]
+        head = words[0] if words else ""
         # A domain-rank label carries no discriminating power (see
         # _UNINFORMATIVE_LABELS): matching it would pass any microbiology paper,
         # so it is dropped rather than counted either way.
