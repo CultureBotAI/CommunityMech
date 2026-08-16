@@ -566,12 +566,12 @@
 
         <div class="main-container">
             <!-- Plot and legend on top -->
-            <div class="plot-container">
-                <div id="umap-plot"></div>
-                <div class="legend" id="legend"></div>
-            </div>
-
-            <!-- Facet/search panel below the plot -->
+            <!-- Filters precede the plot (#199). The dataviz rubric puts
+                 filter controls above the chart they act on; this panel sat
+                 below it, so a reader met the plot before the means of
+                 narrowing it. Reordered in the DOM rather than with
+                 flex-direction: column-reverse, so screen-reader and tab
+                 order match what is on screen. -->
             <div class="filter-panel">
                 <!-- Enhanced search -->
                 <div class="search-container">
@@ -629,6 +629,12 @@
                         <div id="origin-checkboxes" class="facet-checkboxes"></div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Facet/search panel below the plot -->
+            <div class="plot-container">
+                <div id="umap-plot"></div>
+                <div class="legend" id="legend"></div>
             </div>
         </div>
 

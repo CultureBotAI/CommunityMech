@@ -455,3 +455,28 @@ def test_published_umap_page_matches_the_template():
         f"(#602). template vs published: {drifted}. Run `just gen-umap` and "
         "commit the result."
     )
+
+
+def test_umap_filters_precede_the_plot():
+    """Filter controls come before the chart they act on (#199).
+
+    The dataviz rubric puts filters above the plot; this panel sat below it, so
+    a reader met the visualisation before the means of narrowing it. Asserted on
+    DOM order rather than on CSS because that is what screen readers and tab
+    order follow — a `flex-direction: column-reverse` would satisfy the eye and
+    not the keyboard.
+
+    Checked in the template *and* in the published page, since those can drift
+    (#602).
+    """
+    for source in (UMAP_TEMPLATE, Path(__file__).parent.parent / "docs/community_umap.html"):
+        if not source.is_file():
+            continue
+        text = source.read_text()
+        filters = text.find('class="filter-panel"')
+        plot = text.find('class="plot-container"')
+        assert filters != -1 and plot != -1, f"expected both panels in {source.name}"
+        assert filters < plot, (
+            f"in {source.name} the filter panel comes after the plot it filters. "
+            f"Reorder the DOM (not the CSS — screen readers follow source order)."
+        )
