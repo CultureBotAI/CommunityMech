@@ -417,3 +417,103 @@ def test_the_gap_rule_still_catches_a_real_truncation(tmp_path):
     assert len(issues) == 1, issues
     assert issues[0].truncated_to == "no clean CHEBI term"
     assert "needs minting" in issues[0].lost
+
+
+# --------------------------------------------------------------------------
+# Flow collections (#489)
+# --------------------------------------------------------------------------
+
+
+def _flow_fixture(tmp_path, body: str):
+    path = tmp_path / "r.yaml"
+    path.write_text(body, encoding="utf-8")
+    return path
+
+
+@pytest.mark.parametrize(
+    ("line", "key"),
+    [
+        ("flow_seq: [a, b] #489 lost", "flow_seq"),
+        ("flow_map: {x: 1, y: 2} #489 lost", "flow_map"),
+        ("nested: [[a], [b]] #489 lost", "nested"),
+    ],
+)
+def test_a_comment_after_a_flow_collection_is_reported(tmp_path, line, key):
+    """The blind spot #489 found, in both rules.
+
+    `find_truncated_scalars` anchored only on scalar `end_mark`s. For
+    `key: [a, b] # c` the last scalar's end_mark sits BEFORE the `]`, so the
+    remainder was `] # c`, which does not start with `#`, and the line was
+    skipped — under the strict rule and the relaxed one alike. The check's
+    promise is that a mid-line `#` cannot silently eat a value, and this was a
+    shape where it could.
+    """
+    path = _flow_fixture(tmp_path, f"id: CommunityMech:000999\n{line}\n")
+
+    for require_gap in (False, True):
+        found = [issue.key for issue in find_truncated_scalars(path, require_gap=require_gap)]
+        assert key in found, f"not reported with require_gap={require_gap}"
+
+
+def test_a_deliberate_comment_after_a_flow_collection_is_exempt(tmp_path):
+    """And the relaxed rule must still exempt a real end-of-line comment.
+
+    The first version of this fix set `value = ""` for collection-end events.
+    That collided with the empty-value special case — for a SCALAR, an empty
+    value means the whole value became a comment, so the gap exemption does not
+    apply — and every flow collection with a deliberate comment was reported.
+    A flag distinguishes the two; an overloaded sentinel did not.
+    """
+    path = _flow_fixture(
+        tmp_path,
+        "id: CommunityMech:000998\ndeliberate: [a, b]   # three spaces, a real comment\n",
+    )
+
+    assert find_truncated_scalars(path, require_gap=True) == []
+    # Still reported under the strict rule, which is what "strict" means.
+    assert [i.key for i in find_truncated_scalars(path, require_gap=False)] == ["deliberate"]
+
+
+def test_a_block_collection_is_not_anchored_on(tmp_path):
+    """Flow style only. A block collection ends on a later line.
+
+    Its `end_mark` says nothing about the line the comment is on, so anchoring
+    on it would report a standalone comment as a truncation.
+
+    **This test documents behaviour it cannot gate**, and says so rather than
+    implying otherwise. Two fixtures were tried and neither discriminates,
+    because a block collection's end_mark lands on the next *token*: before an
+    ordinary key it reads "next: 1", and before a trailing comment it lands past
+    EOF. Either way the remainder never starts with `#`, so anchoring on block
+    collections changes nothing observable — a mutation that does it still passes
+    all 55 tests.
+
+    The restriction in the validator is therefore defensive. Keeping this test
+    records the shape and stops a future refactor from reporting standalone
+    comments, even though it would not have caught the mutation.
+    """
+    path = _flow_fixture(
+        tmp_path,
+        "id: CommunityMech:000997\nblock:\n  - a\n  - b\n# a standalone comment\n",
+    )
+
+    assert find_truncated_scalars(path, require_gap=False) == [], (
+        "a standalone comment after a block sequence was reported as a "
+        "truncation; block collections must not be anchored on"
+    )
+
+
+def test_a_quoted_scalar_inside_a_flow_collection_is_still_safe(tmp_path):
+    """The reason `conf/id_label_targets.yaml` was safe before this fix.
+
+    Every value there is quoted, and a quoted scalar delimits itself. The fix
+    must not turn that into a report — the collection ends before the comment,
+    so only a genuine trailing `#` is in question.
+    """
+    path = _flow_fixture(
+        tmp_path,
+        "id: CommunityMech:000996\n"
+        'entry: { id: "CHEBI:33104", reason: "no clean term; needs minting" }\n',
+    )
+
+    assert find_truncated_scalars(path, require_gap=False) == []

@@ -130,11 +130,49 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
         return []
 
     issues: list[ScalarIssue] = []
+    # PyYAML puts `flow_style` on the START events only — Sequence/MappingEnd
+    # carry no such attribute, so `getattr(event, "flow_style", None) is not
+    # False` (my first attempt) was always true and excluded nothing. Track it
+    # from the starts instead.
+    #
+    # This restriction is DEFENSIVE, not load-bearing, and no test can make it
+    # fail: a block collection's end_mark lands on the next *token*, so it skips
+    # over comment lines entirely and can never produce a remainder starting
+    # with `#`. Removing the restriction changes nothing observable today. It is
+    # here so the intent is stated rather than accidental — the same reason
+    # `_species_denominator` documents a rule that is currently a no-op on the
+    # KB. Verified by inspection: for `k:\n  - a\nnext: 1`, the SequenceEnd
+    # remainder is "next: 1"; with a trailing comment it is past EOF.
+    flow_stack: list[bool] = []
     for event in events:
-        # A quoted scalar ('"', "'") or a block scalar ('|', '>') delimits itself,
-        # so a `#` inside it is literal and a `#` after it ends a value that was
-        # already complete. Only `style is None` — a plain scalar — can be cut.
-        if not isinstance(event, yaml.ScalarEvent) or event.style is not None:
+        if isinstance(event, (yaml.SequenceStartEvent, yaml.MappingStartEvent)):
+            flow_stack.append(bool(event.flow_style))
+        # Two kinds of event can have a comment eat their tail.
+        #
+        # A plain scalar. A quoted ('"', "'") or block ('|', '>') scalar
+        # delimits itself, so a `#` inside it is literal and a `#` after it ends
+        # a value that was already complete. Only `style is None` can be cut.
+        #
+        # And the END of a FLOW collection (#489). `key: [a, b] # comment`
+        # anchors nothing useful on the last scalar: `b`'s end_mark sits before
+        # the `]`, so the remainder is `] # comment`, which does not start with
+        # `#`, and the line was skipped under both rules. The collection's own
+        # end event carries an end_mark after the bracket, where the same
+        # remainder logic works. Flow style only — a block collection ends on a
+        # later line and its end_mark says nothing about this one.
+        if isinstance(event, yaml.ScalarEvent) and event.style is None:
+            value, is_collection = event.value, False
+        elif isinstance(event, (yaml.SequenceEndEvent, yaml.MappingEndEvent)) and (
+            flow_stack.pop() if flow_stack else False
+        ):
+            # A flag, not an empty `value`. Overloading `value = ""` here made
+            # the gap rule treat every flow collection as total loss — for a
+            # SCALAR an empty value means the whole thing became a comment — and
+            # `deliberate_flow: [a, b]   # note` was reported. A collection that
+            # ends before the `#` has its value intact; only the comment after
+            # it is in question.
+            value, is_collection = "", True
+        else:
             continue
 
         end = event.end_mark
@@ -143,7 +181,11 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
         remainder = lines[end.line][end.column :]
         if not remainder.lstrip().startswith("#"):
             continue
-        if require_gap and event.value != "" and len(remainder) - len(remainder.lstrip()) >= 2:
+        if (
+            require_gap
+            and (value != "" or is_collection)
+            and len(remainder) - len(remainder.lstrip()) >= 2
+        ):
             # Two or more spaces: written as a deliberate end-of-line comment.
             #
             # Except when the value is EMPTY. `description:  #400 all of it` is
@@ -161,7 +203,7 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
                 file=str(path),
                 line=end.line + 1,
                 key=key,
-                truncated_to=event.value.strip(),
+                truncated_to=value.strip(),
                 lost=remainder.strip(),
             )
         )
