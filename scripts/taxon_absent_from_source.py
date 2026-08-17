@@ -136,6 +136,28 @@ def aliases(curie: str) -> set[str]:
     return names
 
 
+# NCBITaxon synonyms are not clean names. They arrive quoted and carrying
+# authorship, e.g. '"""Candidatus Eisenbacteria"" Anantharaman et al. 2016"' and
+# 'Mediterraneibacter gnavus (Moore et al. 1976) Togo et al. 2023'. Left as-is,
+# the first of those yielded the search key '"""Candidatus' and reported
+# Mercury_SFA_EFPC_Sediment_Community as making an unsupported claim — while its
+# source names "Eisenbacteria" three times.
+_AUTHORSHIP = re.compile(
+    r"\s*\(?[A-Z][A-Za-z-]+(?:\s+(?:and|&)\s+[A-Z][A-Za-z-]+)?"
+    r"(?:\s+et\s+al\.?)?,?\s*\d{4}\)?\s*$"
+)
+
+
+def clean_name(name: str) -> str:
+    """A synonym reduced to the name itself, without quotes or authorship."""
+    name = name.replace('"', " ").replace("'", " ")
+    previous = None
+    while previous != name:  # authorship can be stacked: "(Moore 1976) Togo 2023"
+        previous = name
+        name = _AUTHORSHIP.sub("", name).strip()
+    return " ".join(name.split())
+
+
 def search_keys(name: str, *, require_capital: bool = True) -> list[str]:
     """The distinctive word(s) to look for in a source, from one name.
 
@@ -150,7 +172,7 @@ def search_keys(name: str, *, require_capital: bool = True) -> list[str]:
     is case-insensitive anyway; the capital was only ever a proxy for "looks
     like a proper name", and it is the wrong proxy here.
     """
-    words = name.split()
+    words = clean_name(name).split()
     if words and words[0].lower() in STATUS_PREFIXES:
         words = words[1:]
     if not words:
@@ -226,7 +248,13 @@ def main() -> int:
                 # lipolytica, and matching only "Candida" cleared a claim on a
                 # paper that discusses an unrelated Candida. Require the species
                 # epithet too, so the rescue is about THIS organism.
-                epithet = name.split()[1] if len(name.split()) > 1 else None
+                # From the CLEANED, prefix-stripped name. Using the raw string
+                # here looked for 'Eisenbacteria""' and never matched, so the
+                # quote fix above did nothing on its own.
+                parts_of = clean_name(name).split()
+                if parts_of and parts_of[0].lower() in STATUS_PREFIXES:
+                    parts_of = parts_of[1:]
+                epithet = parts_of[1] if len(parts_of) > 1 else None
                 needed = keys_for + ([epithet] if epithet and len(epithet) > 3 else [])
                 if all(any(mentions(k, t) for t in texts) for k in needed):
                     hit = " ".join(needed)
