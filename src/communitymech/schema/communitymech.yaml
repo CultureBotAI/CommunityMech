@@ -973,14 +973,16 @@ classes:
           the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
-          half held. Of the 154 blocks currently true, 33 are grounded above
+          half held. Of the 115 blocks currently true, 33 are grounded above
           species — through genus, family, order, class and phylum — so the rank
-          was wrong for a fifth of them. And it does not mean GTDB reclassified
-          anything. Partitioning the 154 by why the names differ (#441):
+          is wrong for nearly a third of them. And it does not mean GTDB
+          reclassified anything. Partitioning the 115 by why the names differ
+          (#441):
 
-          * 40 dropped strain designations — `Escherichia coli K-12` ->
-            `Escherichia coli`. GTDB carries no strain suffixes, so the names
-            differ while the placement does not.
+          * 0 dropped strain designations. There were 40 — `Escherichia coli
+            K-12` -> `Escherichia coli` — and #480 removed them: GTDB carries no
+            strain suffixes, so the names differed while the placement did not.
+            `name_differs` now treats that as no difference.
           * 24 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
             marker on the same name, not a rename.
           * 11 that are both at once — `Buchnera aphidicola BCc` ->
@@ -990,7 +992,7 @@ classes:
           * 3 rank-appropriate nomenclatural endings on one stem —
             `Chlorobiota` -> `Chlorobiia`, `Nitrososphaerota` ->
             `Nitrososphaeria`.
-          * 71 genuinely different names, and only some of those are GTDB
+          * 72 genuinely different names, and only some of those are GTDB
             reclassifications. `Allobosea` -> `Bosea` is an *NCBI* rename: both
             databases place the organism in the same genus concept, and NCBI
             moved its label because the bacterial name was a later homonym of
@@ -998,19 +1000,27 @@ classes:
             `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
             `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So 83 of 154 — 54% — are not reclassifications under any reading, and
-          that is a floor: the 71 "genuinely different" include an unknown
+          So 43 of 115 — 37% — are not reclassifications under any reading, and
+          that is a floor: the 72 "genuinely different" include an unknown
           number of NCBI renames and spelling variants. Filter on this slot to
           find "the two labels are not identical", which is what it computes.
-          Do not read it as provenance. #480 proposes narrowing it, which is a
-          data migration and a modelling decision rather than a doc fix.
+          Do not read it as provenance.
 
-          Two call sites compute it, not one: `gtdb_ground.py` uses
+          #480 narrowed it: dropping the 40 strain-designation cases took the
+          non-reclassification share from 54% to 37%, and the genuinely-different
+          share from 46% to 63%. Polyphyly suffixes are deliberately still
+          reported — `Bacillota` -> `Bacillota_A` is a real GTDB distinction, and
+          #480 records that folding it in here is the arguable middle rather than
+          the obvious next step. An enum (#480 option 3) is where this wants to
+          end up.
+
+          ONE call site computes it now, `name_differs` (#482). Two used to:
           `bool(sp and ref and sp != ref)` on the species path, which produced
-          121 of these 154, and `top != _clean_label(label)` on the
-          genus-and-higher path. They differ — the first has a crosswalk
-          fallback for `ref` and a null-guard that returns False where the
-          second returns True.
+          121 of the then-154, and `top != _clean_label(label)` on the
+          genus-and-higher path. They disagreed — the first had a crosswalk
+          fallback for `ref` and a null-guard returning False where the second
+          returned True, so a missing label read as a name change at genus rank
+          and not at species rank.
 
           Counts are pinned by `tests/test_is_reclassified_semantics.py`, which
           fails when they drift; a count in this text reaches no generated
