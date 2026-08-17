@@ -12,6 +12,12 @@ on:
       # workflow's paths filter, which is half of why four ids ended up used
       # twice (#310) — editing an isolate has to re-run the uniqueness gate.
       - "data/isolates/**"
+      # kb/taxa carries CommunityMech:taxon:* ids for exactly the same reason,
+      # and `test_id_uniqueness.py` reads it — as do 7 other test modules. It was
+      # in no workflow's filter at all, so none of them ran when a taxon record
+      # changed (#471). The isolates note above describes this defect one
+      # directory over; this is the directory it was still true of.
+      - "kb/taxa/**"
       - "src/communitymech/schema/**"
       - "src/communitymech/**/*.py"
       - "scripts/**/*.py"

@@ -33,6 +33,14 @@ on:
       # Isolates carry ids too, and were outside every
       # validation glob until #350.
       - "data/isolates/**"
+      # Taxa were outside every *trigger* until #471 — a subtler version of the
+      # same defect. This workflow runs `just validate-terms-taxa`, whose entire
+      # input is kb/taxa/*.yaml, and Engine B carries a `taxa_yaml` target; but
+      # kb/taxa appeared in NO workflow's paths filter, so a PR touching only a
+      # taxon record triggered exactly one check (vendored-sync, the unfiltered
+      # one) and nothing validated the record. Verified by opening such a PR
+      # (#629, closed unmerged): 1 check, and it read no YAML.
+      - "kb/taxa/**"
       - "output/kgx/**"
       - "src/communitymech/schema/**"
       - "scripts/validate_id_label_correspondence.py"

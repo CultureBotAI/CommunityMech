@@ -54,15 +54,26 @@ def test_that_target_checks_the_id_label_pair_canonically():
 
 
 def test_the_isolate_records_are_actually_matched_by_that_glob():
-    """A target whose glob matches nothing passes vacuously."""
+    """A target whose glob matches nothing passes vacuously.
+
+    Compared as a SET against the records on disk, not against a count floor.
+    `len(matched) >= 4` was pinned to the file count of the day: it caught the
+    glob matching nothing, but a glob narrowed to `data/isolates/*_Recovery.yaml`
+    — or simply a 5th record the glob did not reach — passed while the records it
+    skipped went unchecked (#474). "Matches less" is the realistic failure; only
+    "matches nothing" was caught.
+    """
     target = next(t for t in _targets() if t.get("glob", "").startswith("data/isolates/"))
     # Glob from the repo root, which is what the validator does — resolving it
     # against data/isolates/ instead silently looked for data/isolates/isolates/
     # and matched nothing, so this test failed while the config was correct.
-    matched = list(REPO.glob(target["glob"]))
-    assert len(matched) >= 4, (
-        f"{target['glob']!r} matches {len(matched)} files; the isolate records "
-        f"are {sorted(p.name for p in ISOLATES.glob('*.yaml'))}"
+    matched = {p.resolve() for p in REPO.glob(target["glob"])}
+    records = {p.resolve() for p in ISOLATES.glob("*.yaml")}
+    assert records, "no isolate records on disk; this test would pass vacuously"
+    assert matched == records, (
+        f"{target['glob']!r} does not match the isolate records exactly. "
+        f"Unmatched: {sorted(p.name for p in records - matched)}; "
+        f"matched but not a record: {sorted(p.name for p in matched - records)}"
     )
 
 
@@ -163,21 +174,45 @@ def test_no_isolate_carries_the_nonexistent_dysprosium_id():
 
 
 @pytest.mark.parametrize("record", sorted(p.name for p in ISOLATES.glob("*.yaml")))
-def test_every_isolate_ontology_label_is_a_string_pair(record: str):
+def test_every_isolate_ontology_id_is_paired_with_a_label(record: str):
     """Guard for the sweep above: the pairs it checks must actually be there.
 
     If `term` blocks were restructured, the glob could keep matching while the
     (id, label) pairs it looks for no longer exist — passing for the wrong
     reason.
+
+    Stated as an invariant, not a count. The previous form asserted `pairs > 0`,
+    which is not vacuous — renaming every nested `label` to `name` in one record
+    does produce `assert 0 > 0` — but it only trips on TOTAL loss. A partial
+    restructure leaving one pair anywhere in a 23-pair record passed, which is
+    precisely the scenario the docstring describes (#474).
+
+    "Every ontology-prefixed id carries a string label" needs no baseline to
+    compare against, so it cannot rot as records are added, and it fails on the
+    first unpaired id rather than the last. The prefixes come from the gate's own
+    `adapters:` block, so the test and the gate cannot drift apart: a prefix
+    added there is checked here without touching this file.
     """
+    prefixes = tuple(f"{p}:" for p in yaml.safe_load(CONFIG.read_text())["adapters"])
+    assert prefixes, "no adapters configured; this test would pass vacuously"
+
     document = yaml.safe_load((ISOLATES / record).read_text()) or {}
-    pairs, stack = 0, [document]
+    paired, unpaired, stack = 0, [], [document]
     while stack:
         node = stack.pop()
         if isinstance(node, dict):
-            if isinstance(node.get("id"), str) and isinstance(node.get("label"), str):
-                pairs += 1
+            identifier = node.get("id")
+            if isinstance(identifier, str) and identifier.startswith(prefixes):
+                if isinstance(node.get("label"), str):
+                    paired += 1
+                else:
+                    unpaired.append(identifier)
             stack.extend(node.values())
         elif isinstance(node, list):
             stack.extend(node)
-    assert pairs > 0, f"{record} carries no (id, label) pair for the gate to check"
+
+    assert not unpaired, (
+        f"{record}: ontology ids with no string `label` beside them, so Engine B "
+        f"reads no pair there and the id goes unchecked (#474): {sorted(unpaired)}"
+    )
+    assert paired > 0, f"{record} carries no ontology (id, label) pair for the gate to check"
