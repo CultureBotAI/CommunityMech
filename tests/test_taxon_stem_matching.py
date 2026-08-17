@@ -185,3 +185,47 @@ def test_matching_reads_abstracts_but_reporting_needs_full_text(check, tmp_path,
     # Full text: both.
     assert "body text" in check.cached_text("PMID:2")
     assert check.has_full_text("PMID:2")
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        # The real NCBITaxon synonym that produced a false accusation.
+        ('"""Candidatus Eisenbacteria"" Anantharaman et al. 2016"', "Candidatus Eisenbacteria"),
+        # Stacked authorship — the reason the stripper loops.
+        (
+            "Mediterraneibacter gnavus (Moore et al. 1976) Togo et al. 2023",
+            "Mediterraneibacter gnavus",
+        ),
+        ("Ruminococcus gnavus", "Ruminococcus gnavus"),
+        ("Thiobacillus thioparus", "Thiobacillus thioparus"),
+    ],
+)
+def test_synonyms_are_stripped_of_quotes_and_authorship(check, raw, expected):
+    """NCBITaxon synonyms are not clean names (#605).
+
+    They arrive quoted and carrying authorship. Left alone, the first case here
+    yielded the search key '\"\"\"Candidatus' and reported
+    `Mercury_SFA_EFPC_Sediment_Community` as making an unsupported claim about
+    *Candidatus Eiseniibacteriota* — while its source names "Eisenbacteria"
+    three times.
+    """
+    assert check.clean_name(raw) == expected
+
+
+def test_the_eisenbacteria_synonym_yields_a_usable_key(check):
+    """End of the same chain: cleaning must survive into `search_keys`."""
+    raw = '"""Candidatus Eisenbacteria"" Anantharaman et al. 2016"'
+    assert check.search_keys(raw, require_capital=False) == ["Eisenbacteria"]
+    assert _matches(check, "Eisenbacteria", "the candidate phyla Eisenbacteria and Rokubacteria")
+
+
+def test_cleaning_does_not_swallow_a_real_epithet(check):
+    """The stripper must not mistake a species name for an author.
+
+    `_AUTHORSHIP` keys on a trailing four-digit year, so a binomial with no year
+    is untouched. Without this, "Bacillus cereus" could lose its epithet and the
+    synonym check would match on genus alone — the looseness #619 removed.
+    """
+    assert check.clean_name("Bacillus cereus") == "Bacillus cereus"
+    assert check.clean_name("Leptospirillum ferriphilum") == "Leptospirillum ferriphilum"
