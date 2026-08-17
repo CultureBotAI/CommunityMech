@@ -40,8 +40,14 @@ JUSTFILE = REPO / "justfile"
 # make this test noisy enough to be disabled, which is how guards die.
 DATA_ROOTS = ("kb/", "data/", "output/")
 
-# A path with a glob character, rooted at one of the data surfaces.
-_INPUT_GLOB = re.compile(r"(?<![\w/.-])((?:kb|data|output)/[\w*.-]+(?:/[\w*.-]+)*)")
+# A path rooted at one of the data surfaces, DERIVED from DATA_ROOTS rather than
+# spelling the roots a second time. The two were separate literals, so adding a
+# fourth surface to DATA_ROOTS left this regex blind to it: recipes reading the
+# new root reported no inputs and the coverage assertion passed by having nothing
+# to check (#635). That is the "list that cannot notice a new member" defect this
+# module exists to gate — one source now, so it cannot recur here.
+_ROOT_ALTERNATION = "|".join(re.escape(root.rstrip("/")) for root in DATA_ROOTS)
+_INPUT_GLOB = re.compile(rf"(?<![\w/.-])((?:{_ROOT_ALTERNATION})/[\w*.-]+(?:/[\w*.-]+)*)")
 
 
 def _workflow_paths(document: dict) -> list[str] | None:
@@ -190,6 +196,22 @@ def test_the_justfile_parser_finds_the_recipes_this_test_relies_on():
     assert "kb/taxa/*.yaml" in _inputs_of("validate-terms-taxa", recipes), (
         "the parser does not see kb/taxa/*.yaml in validate-terms-taxa, so the "
         "coverage assertions below cannot fail for the reason they exist"
+    )
+
+
+@pytest.mark.parametrize("root", DATA_ROOTS)
+def test_the_input_scanner_covers_every_declared_data_root(root: str):
+    """The derivation in #635 is now the untested part, so test it.
+
+    Parametrised over DATA_ROOTS itself, not over a written-out list of roots —
+    a second literal is precisely what caused #635.
+    """
+    body = f"    uv run thing {root}records/*.yaml\n"
+    found = {m.group(1) for m in _INPUT_GLOB.finditer(body)}
+    assert found == {f"{root}records/*.yaml"}, (
+        f"the input scanner does not see paths under the declared root {root!r}, so "
+        f"recipes reading it report no inputs and the coverage checks pass by having "
+        f"nothing to check (#635). Found: {found}"
     )
 
 
