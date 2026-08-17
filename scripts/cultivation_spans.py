@@ -143,7 +143,9 @@ def main() -> int:
     found: set[str] = set()
     references_of(document, found)
     print(f"# {path.name}  ({document.get('id', '')})")
-    print(f"# origin={document.get('community_origin')} category={document.get('community_category')}")
+    print(
+        f"# origin={document.get('community_origin')} category={document.get('community_category')}"
+    )
     print(f"# lacks conditions: {lacks_conditions(document)}")
 
     for reference in sorted(found):
