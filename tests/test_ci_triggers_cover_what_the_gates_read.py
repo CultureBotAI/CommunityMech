@@ -145,7 +145,14 @@ def _recipe_bodies() -> dict[str, tuple[list[str], str]]:
 
 
 def _inputs_of(recipe: str, recipes: dict, seen: set[str] | None = None) -> set[str]:
-    """Data-surface globs a recipe reads, following its dependencies."""
+    """Data-surface globs a recipe reads, through dependencies AND `just` calls.
+
+    Both edges, because a recipe delegates either way. `check-docs-current` runs
+    `just gen-html` from its body rather than declaring it, and following only
+    declared dependencies means a recipe that delegates *entirely* reports no
+    inputs — so the coverage assertion would pass by finding nothing to check,
+    which is the vacuous pass this whole module exists to close (#634).
+    """
     seen = seen if seen is not None else set()
     if recipe in seen or recipe not in recipes:
         return set()
@@ -157,7 +164,7 @@ def _inputs_of(recipe: str, recipes: dict, seen: set[str] | None = None) -> set[
     # input reports a gap in the one place the justfile documents there is none.
     code = "\n".join(line for line in body.splitlines() if not line.lstrip().startswith("#"))
     found = {m.group(1) for m in _INPUT_GLOB.finditer(code)}
-    for dep in deps:
+    for dep in [*deps, *re.findall(r"\bjust\s+([a-zA-Z][\w-]*)", code)]:
         found |= _inputs_of(dep, recipes, seen)
     return found
 
@@ -184,6 +191,26 @@ def test_the_justfile_parser_finds_the_recipes_this_test_relies_on():
         "the parser does not see kb/taxa/*.yaml in validate-terms-taxa, so the "
         "coverage assertions below cannot fail for the reason they exist"
     )
+
+
+def test_inputs_are_followed_through_a_recipe_that_only_delegates():
+    """A recipe whose body is `just other` must still report other's inputs.
+
+    Synthetic, not read off the justfile: every real delegation today happens to
+    name its input directly too, so a regression here would change no verdict and
+    no assertion over real data could notice. That is exactly why it needs pinning
+    — a recipe added later that only delegates would report no inputs, and the
+    coverage check would pass by having nothing to check (#634).
+    """
+    recipes = {
+        "gate": ([], "    just inner\n"),
+        "inner": ([], "    uv run thing kb/taxa/*.yaml\n"),
+        "declared": (["inner"], "    echo hi\n"),
+        "loop": ([], "    just loop\n"),  # a cycle must terminate, not recurse forever
+    }
+    assert _inputs_of("gate", recipes) == {"kb/taxa/*.yaml"}, "body `just` call not followed"
+    assert _inputs_of("declared", recipes) == {"kb/taxa/*.yaml"}, "dependency not followed"
+    assert _inputs_of("loop", recipes) == set()
 
 
 @pytest.mark.parametrize("workflow", [p.name for p in _workflow_files()])
