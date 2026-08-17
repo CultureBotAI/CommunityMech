@@ -34,6 +34,7 @@ schema now says.
 from __future__ import annotations
 
 import glob
+import importlib.util
 import pathlib
 import re
 
@@ -41,6 +42,7 @@ import pytest
 import yaml
 
 REPO = pathlib.Path(__file__).parent.parent
+GROUND = REPO / "scripts/gtdb_ground.py"
 SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 RECORD_GLOBS = ("kb/communities/*.yaml", "data/isolates/*.yaml", "kb/taxa/*.yaml")
 
@@ -57,15 +59,17 @@ _PLACEHOLDER = re.compile(r"\bsp\d{6,}$")
 # notice. Exact numbers mean curation updates them deliberately, and the
 # failure message says where else the same number is written.
 EXPECTED = {
-    "different_name": 71,
-    "strain_dropped": 40,
+    "different_name": 72,
+    # 0 since #480: a dropped strain designation is no longer a difference.
+    # The key stays, with its reason, so the bucket cannot silently repopulate.
+    "strain_dropped": 0,
     "polyphyly_only": 24,
     "strain_dropped_and_polyphyly": 11,
     "gtdb_placeholder_same_genus": 5,
     "nomenclatural_ending": 3,
 }
-NOT_A_RECLASSIFICATION = 83
-TOTAL_TRUE = 154
+NOT_A_RECLASSIFICATION = 43
+TOTAL_TRUE = 115
 ABOVE_SPECIES = 33
 
 
@@ -189,9 +193,14 @@ def test_the_majority_of_true_values_are_not_reclassifications():
         f"{not_reclassified} of {TOTAL_TRUE} are not reclassifications, "
         f"expected {NOT_A_RECLASSIFICATION}. {_DRIFT}"
     )
-    assert not_reclassified / TOTAL_TRUE > 0.5, (
-        "fewer than half are now non-reclassifications; the schema says 54% "
-        "and should be recomputed"
+    # No longer a majority, and that is the #480 improvement rather than a
+    # regression: removing the 40 strain-drop blocks took the
+    # non-reclassification share from 54% to 38%, and the genuinely-different
+    # share from 46% to 62%. Pinned as a band so the direction cannot quietly
+    # reverse.
+    assert 0.3 < not_reclassified / TOTAL_TRUE < 0.45, (
+        f"{not_reclassified / TOTAL_TRUE:.0%} of true values are not "
+        "reclassifications; #480 left this at 38% and the schema says so"
     )
 
 
@@ -279,3 +288,141 @@ def test_the_schema_and_this_file_quote_the_same_numbers():
 def test_the_classifier_itself(ncbi: str, gtdb: str, expected: str):
     """Every count above is only as good as this function."""
     assert classify(ncbi, gtdb) == expected
+
+
+def _blocks_with_stored_flag():
+    """(ncbi_label, gtdb_taxon, gtdb_id, stored_flag) for EVERY grounded block.
+
+    `_blocks` yields only the ones already flagged true, which is right for
+    counting buckets and wrong for checking that the tool would reproduce what
+    is stored — a block wrongly left `false` would be invisible to it.
+    """
+    for pattern in RECORD_GLOBS:
+        for path in sorted(glob.glob(str(REPO / pattern))):
+            stack = [yaml.safe_load(pathlib.Path(path).read_text()) or {}]
+            while stack:
+                node = stack.pop()
+                if isinstance(node, dict):
+                    grounding = node.get("gtdb_classification")
+                    if isinstance(grounding, dict) and "is_reclassified" in grounding:
+                        yield (
+                            (node.get("term") or {}).get("label") or "",
+                            grounding.get("gtdb_taxon") or "",
+                            grounding.get("gtdb_id") or "",
+                            grounding["is_reclassified"],
+                        )
+                    stack.extend(node.values())
+                elif isinstance(node, list):
+                    stack.extend(node)
+
+
+# --------------------------------------------------------------------------
+# One definition, and a dropped strain is not one (#480, #482)
+# --------------------------------------------------------------------------
+
+
+@pytest.fixture(scope="module")
+def ground():
+    spec = importlib.util.spec_from_file_location("gtdb_ground_semantics", GROUND)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+@pytest.mark.parametrize(
+    ("label", "gtdb"),
+    [
+        ("Escherichia coli K-12", "Escherichia coli"),
+        ("Mucispirillum schaedleri ASF457", "Mucispirillum schaedleri"),
+        ("Bacteroides thetaiotaomicron VPI-5482", "Bacteroides thetaiotaomicron"),
+    ],
+)
+def test_a_dropped_strain_designation_is_not_a_difference(ground, label, gtdb):
+    """#480. GTDB carries no strain designations, so the organism has not moved."""
+    assert ground.name_differs(label, gtdb) is False
+
+
+@pytest.mark.parametrize(
+    ("label", "gtdb"),
+    [
+        ("Agrobacterium deltae", "Agrobacterium leguminum"),
+        ("Bacillota", "Bacillota_A"),
+        ("Veillonella parvula", "Veillonella parvula_A"),
+    ],
+)
+def test_a_real_name_difference_is_still_reported(ground, label, gtdb):
+    assert ground.name_differs(label, gtdb) is True
+
+
+def test_the_polyphyly_suffix_is_not_swallowed_by_the_strain_rule(ground):
+    """Polyphyly survives the strain rule, though NOT for the reason I first wrote.
+
+    I claimed the trailing space in `gtdb + " "` was what protected it. It is
+    not, and a mutation removing the space passed every test. The real reason is
+    direction: for a dropped strain the NCBI label is the LONGER string
+    (`Escherichia coli K-12` starts with `Escherichia coli`), while for polyphyly
+    the GTDB name is longer (`Bacillota_A` against `Bacillota`), so no prefix
+    test on the label can match it either way.
+
+    The space still earns its place — it stops a GTDB name that is a bare prefix
+    of the label, such as `Bacillus` against a label `Bacillusfoo`, from reading
+    as a strain drop — but that is a different guarantee, and no data exercises
+    it. Recorded so the next person does not trust the wrong mechanism.
+    """
+    assert ground.name_differs("Bacillota", "Bacillota_A") is True
+    assert ground.name_differs("Veillonella parvula", "Veillonella parvula_A") is True
+    assert ground.name_differs("Escherichia coli K-12", "Escherichia coli") is False
+    # The guarantee the space actually provides, on synthetic input.
+    assert ground.name_differs("Bacillusfoo", "Bacillus") is True
+
+
+@pytest.mark.parametrize(
+    ("label", "gtdb"),
+    [(None, "Escherichia coli"), ("Escherichia coli", None), ("", "Escherichia coli")],
+)
+def test_missing_information_is_not_a_difference(ground, label, gtdb):
+    """#482's disagreement: the higher-rank path returned True here.
+
+    `top != ""` is true for any non-empty name, so an unparseable label read as
+    a name change at genus rank and not at species rank — for the same absence
+    of information.
+    """
+    assert ground.name_differs(label, gtdb) is False
+
+
+def test_both_call_sites_use_the_shared_function():
+    """#482. Two expressions was the defect; one function is the fix.
+
+    Asserted on the source, because a second copy drifts silently — the two
+    disagreed for as long as they both existed and nothing noticed.
+    """
+    source = GROUND.read_text(encoding="utf-8")
+    assignments = [line.strip() for line in source.splitlines() if '"is_reclassified":' in line]
+    assert len(assignments) >= 2, f"expected both call sites, found {assignments}"
+    for line in assignments:
+        assert (
+            "name_differs(" in line or 'g["is_reclassified"]' in line
+        ), f"an is_reclassified assignment computes its own answer: {line!r}"
+
+
+def test_the_corpus_agrees_with_the_tool():
+    """Stored data and tool must agree, or the next --apply reverts the migration.
+
+    #480 names this as the constraint on the migration. Recomputing every stored
+    block from its own label and gtdb_taxon must reproduce what is on disk.
+    """
+    spec = importlib.util.spec_from_file_location("gtdb_ground_corpus", GROUND)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    disagreements = []
+    for label, gtdb, _gtdb_id, stored in _blocks_with_stored_flag():
+        expected = module.name_differs(label, gtdb)
+        if bool(stored) != expected:
+            disagreements.append(f"{label!r} -> {gtdb!r}: stored={stored} computed={expected}")
+
+    assert disagreements == [], (
+        "stored is_reclassified values disagree with the current rule, so the "
+        "next `gtdb_ground.py --apply` would rewrite them (#480):\n"
+        + "\n".join(f"  {line}" for line in disagreements[:20])
+    )

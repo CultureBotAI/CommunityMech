@@ -238,6 +238,42 @@ def _clean_label(label: str | None) -> str:
     return s
 
 
+def name_differs(ncbi_label: str | None, gtdb_name: str | None, *, fallback: str = "") -> bool:
+    """Does the GTDB name say something the NCBI name did not? (#480, #482)
+
+    ONE definition, used by both the species and the higher-rank path. They used
+    to compute this separately and disagree: the species path had a crosswalk
+    fallback and a null-guard yielding False when either side was missing, while
+    the higher-rank path had neither and returned True for the same absence of
+    information (#482). 121 of the 154 true values came from the species path,
+    so the expression usually quoted for this slot governed the minority of the
+    data.
+
+    A **dropped strain designation is not a difference** (#480 option 1). GTDB
+    carries no strain designations, so `Escherichia coli K-12` maps to
+    `Escherichia coli`: the names differ and the organism has not moved. 40 of
+    the 154 true values were this, and no reading of "reclassified" covers it.
+
+    Polyphyly suffixes — `Bacillota` -> `Bacillota_A` — are deliberately still
+    reported. They are a real GTDB-specific distinction a consumer may want to
+    see, and #480 records that burying them in this boolean is the arguable
+    middle rather than the obvious next step. The slot stays a name-inequality
+    indicator; #480 option 3 (an enum) is where this wants to end up.
+    """
+    reference = _clean_label(ncbi_label) or (fallback or "").strip()
+    gtdb = (gtdb_name or "").strip()
+    if not gtdb or not reference:
+        # Missing information is not a difference. This is the species path's
+        # null-guard, now applied at both ranks.
+        return False
+    if reference == gtdb:
+        return False
+    # `Escherichia coli K-12` against `Escherichia coli`: the GTDB name is the
+    # NCBI name with a strain designation removed. Anchored on a word boundary
+    # so `Bacillota` does not swallow `Bacillota_A`, which is a different fact.
+    return not reference.startswith(gtdb + " ")
+
+
 def _is_species(clean: str) -> bool:
     """Binomial heuristic: >=2 tokens with a lowercase second token (species epithet)."""
     toks = clean.split()
@@ -446,7 +482,7 @@ def _ground_species(rows, source_id, label, via, exclude_unnamed=True):
         "gtdb_lineage": _lineage(top, COL_GTDB_SPECIES),
         "majority_fraction": fraction,
         "total_genomes": total,
-        "is_reclassified": bool(sp and ref and sp != ref),
+        "is_reclassified": name_differs(label, sp, fallback=top[COL_NCBI_SPECIES]),
         "via": via,
     }
 
@@ -633,7 +669,7 @@ def resolve_higher(
                 # from it — 4/7 and 4000/7000 both store as 0.571.
                 "support_genomes": int(tw),
                 "total_genomes": int(total),
-                "is_reclassified": top != _clean_label(label),
+                "is_reclassified": name_differs(label, top),
                 "via": f"ncbi_rank_{prefix}",
                 "n_alt": len(weights),
                 # The majority answer is a non-type clade, so it disagrees with
