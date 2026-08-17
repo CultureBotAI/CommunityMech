@@ -59,6 +59,23 @@ UNINFORMATIVE = {
 }
 STATUS_PREFIXES = {"candidatus", "ca."}
 
+# Rank suffixes. A paper naming the genus Thermotoga supports a claim about the
+# phylum Thermotogota, and one writing "Ignavibacteria" supports
+# "Ignavibacteriota" — whole-word matching called both absent. Truncating to the
+# stem and matching as a PREFIX fixes it, while the leading \b keeps the match
+# honest: "\bThiobacill" still does not match "Acidithiobacillus", which is a
+# different genus the PGM paper does name and which must not rescue that claim.
+_RANK_SUFFIXES = ("ota", "ales", "aceae", "ineae", "mycetes", "phyceae", "ia", "a")
+_MIN_STEM = 6
+
+
+def stem_of(word: str) -> str:
+    """`word` reduced to a stem long enough to stay specific."""
+    for suffix in _RANK_SUFFIXES:
+        if word.lower().endswith(suffix) and len(word) - len(suffix) >= _MIN_STEM:
+            return word[: -len(suffix)]
+    return word
+
 
 def cached_text(reference: str) -> str:
     """Full text for a reference, or "" if only an abstract (or nothing) is cached.
@@ -120,6 +137,21 @@ def search_keys(name: str, *, require_capital: bool = True) -> list[str]:
     return [head]
 
 
+def mentions(name: str, text: str) -> bool:
+    """Does `text` name this taxon, allowing a rank change but not a substring?
+
+    The one place the matching rule lives. It was inline in `main()`, and the
+    test file re-implemented it — so removing the leading word boundary here
+    changed nothing that any test could see, and the safety property the whole
+    loosening depends on was unpinned. A test that rebuilds the logic it is
+    checking is not checking it.
+
+    The leading `\b` is that property: `Thiobacillus` must not match inside
+    `Acidithiobacillus`.
+    """
+    return bool(re.search(rf"\b{re.escape(stem_of(name))}", text, re.IGNORECASE))
+
+
 def taxa(document: object):
     """(label, curie, [references]) for every taxonomy entry with evidence."""
     for entry in (document or {}).get("taxonomy", []) or []:
@@ -145,7 +177,7 @@ def main() -> int:
             if not keys:
                 continue
             checked += 1
-            if any(re.search(rf"\b{re.escape(k)}", t, re.I) for k in keys for t in texts):
+            if any(re.search(rf"\b{re.escape(stem_of(k))}", t, re.I) for k in keys for t in texts):
                 continue
 
             # Current name is absent. Before calling it unsupported, ask whether
@@ -166,9 +198,7 @@ def main() -> int:
                 # epithet too, so the rescue is about THIS organism.
                 epithet = name.split()[1] if len(name.split()) > 1 else None
                 needed = keys_for + ([epithet] if epithet and len(epithet) > 3 else [])
-                if all(
-                    any(re.search(rf"\b{re.escape(k)}", t, re.I) for t in texts) for k in needed
-                ):
+                if all(any(mentions(k, t) for t in texts) for k in needed):
                     hit = " ".join(needed)
                     break
             if hit:
