@@ -30,6 +30,7 @@ longer produces. Re-run this script after any change to the grounding rules.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import importlib.util
 import sys
 from pathlib import Path
@@ -69,6 +70,20 @@ def _outcome(result) -> tuple:
     if result.get("ambiguous"):
         return ("AMBIGUOUS", "")
     return (result.get("gtdb_id") or "NONE", result.get("majority_fraction", ""))
+
+
+def _content_hash(path: Path, *, chars: int = 12) -> str:
+    """Short sha256 of a file, read in chunks.
+
+    Chunked because the crosswalk is ~3 MB gzipped and this runs on a laptop;
+    truncated to 12 characters because the purpose is identifying which build
+    produced a report, not resisting an adversary.
+    """
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for block in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(block)
+    return digest.hexdigest()[:chars]
 
 
 def main() -> int:
@@ -138,7 +153,17 @@ def main() -> int:
     with open(args.out, "w") as fh:
         # Provenance: the upstream crosswalk churns (the KB already carries two
         # build vintages), so a bare table would go stale silently.
-        fh.write(f"# mapping: {mapping.name}\tbytes={stat.st_size}\tmtime={int(stat.st_mtime)}\n")
+        #
+        # Identified by size and content hash, NOT by mtime (#479). An mtime is a
+        # fact about one filesystem: it differs per machine and per re-download
+        # even when the bytes are identical, so a "regenerate and diff" gate on
+        # this report — the pattern check-docs-current uses — would flap
+        # everywhere and report drift where there is none. A hash identifies the
+        # input reproducibly, which is what provenance is for.
+        fh.write(
+            f"# mapping: {mapping.name}\tbytes={stat.st_size}"
+            f"\tsha256={_content_hash(mapping)}\n"
+        )
         fh.write(f"# taxa={len(rows)}\tvarying={differ_from_default}\n")
         fh.write(
             "ncbi_id\tlabel\t"
