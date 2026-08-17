@@ -78,20 +78,46 @@ def stem_of(word: str) -> str:
 
 
 def cached_text(reference: str) -> str:
-    """Full text for a reference, or "" if only an abstract (or nothing) is cached.
+    """Every cached word for a reference — abstract included.
 
-    Abstract-only entries are excluded deliberately. A member named once in a
-    Methods table will not appear in an abstract, so checking against one
-    measures cache depth rather than support — the mistake corrected in #577.
+    **Abstracts count here, and that is the opposite of the rule in the
+    cultivation check.** There, an abstract-only cache is excluded because
+    growth conditions live in Methods, so matching against an abstract measures
+    cache depth rather than support (#577). Membership is different: a paper
+    almost always names its organisms in the abstract, so an abstract that names
+    a taxon is real evidence for it.
+
+    Importing the cultivation rule here produced a false positive worth naming.
+    `Ferroplasma_Leptospirillum_Syntrophy` was reported as claiming
+    *Leptospirillum ferriphilum* unsupported, while one of its two references —
+    a 2.8 KB abstract with no full-text marker — names "ferriphilum" six times.
+    The check had skipped the file that answered the question.
+    """
+    stem = str(reference).replace(":", "_").replace("/", "_")
+    parts = []
+    for suffix in (".md", ".txt"):
+        path = CACHE / f"{stem}{suffix}"
+        if path.is_file():
+            parts.append(path.read_text(errors="replace"))
+    return " ".join(" ".join(parts).split())
+
+
+def has_full_text(reference: str) -> bool:
+    """Whether a reference has retrieved full text, not just an abstract.
+
+    Used to decide whether ABSENCE is worth reporting, which is a different
+    question from what to MATCH against. Matching uses every cached word,
+    including abstracts, because a paper names its organisms there. But absence
+    from an abstract alone means little — an abstract will not list every minor
+    member — so reporting it would bury the real cases: allowing abstract-only
+    references to be reported took this list from 17 entries to 78.
     """
     stem = str(reference).replace(":", "_").replace("/", "_")
     for suffix in (".md", ".txt"):
         path = CACHE / f"{stem}{suffix}"
-        if path.is_file():
-            body = path.read_text(errors="replace")
-            if any(marker in body for marker in FULL_TEXT_MARKERS):
-                return " ".join(body.split())
-    return ""
+        if path.is_file() and any(m in path.read_text(errors="replace") for m in FULL_TEXT_MARKERS):
+            return True
+    return False
 
 
 def aliases(curie: str) -> set[str]:
@@ -172,7 +198,11 @@ def main() -> int:
         for label, curie, refs in taxa(document):
             texts = [t for t in (cached_text(r) for r in refs) if t]
             if not texts:
-                continue  # nothing to check against; not this script's business
+                continue  # nothing cached; not this script's business
+            # Match against everything, but only report absence where at least
+            # one reference has real full text behind it.
+            if not any(has_full_text(r) for r in refs):
+                continue
             keys = search_keys(label)
             if not keys:
                 continue
