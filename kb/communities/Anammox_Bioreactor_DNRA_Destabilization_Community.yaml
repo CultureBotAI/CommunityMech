@@ -197,7 +197,123 @@ environmental_factors:
     snippet: from inoculation, through a performance destabilization event,
       to robust steady-state performance
     explanation: Supports the curated performance trajectory.
-growth_media: []
+growth_media:
+- name: synthetic anammox medium mimicking municipal sidestream effluent
+  composition:
+  - name: ammonium
+    chebi_term:
+      preferred_term: ammonium
+      term:
+        id: CHEBI:28938
+        label: ammonium
+  - name: nitrite
+    chebi_term:
+      preferred_term: nitrite
+      term:
+        id: CHEBI:16301
+        label: nitrite
+  - name: bicarbonate
+    chebi_term:
+      preferred_term: bicarbonate
+      term:
+        id: CHEBI:17544
+        label: hydrogencarbonate
+  ph_range: 6.9-7.2
+  temperature: 37
+  temperature_unit: "\xB0C"
+  atmosphere: ANAEROBIC
+  headspace_gas: Ar:CO2 = 95:5, supplied continuously at 50 mL/min
+  inoculum_source: biomass from a pilot-scale deammonification process treating sidestream effluent at
+    San Francisco Public Utilities Commission, San Francisco, CA
+  inoculum_size: 2
+  inoculum_unit: g volatile suspended solids (VSS)/L
+  vessel_type: 1 L membrane bioreactor with a PVDF hollow-fibre module
+  preparation_notes: Trace-nutrient concentrations were not enumerated in the main text (Additional file
+    1, Table S8); influent copper, iron, molybdenum and zinc were increased on Day 353. The reactor was
+    re-inoculated from the same source on Days 147 and 203 after a performance crash. Circumneutral pH
+    was maintained by the Ar:CO2 headspace rather than by a pH controller, so 6.9-7.2 is a reported operating
+    range, not a setpoint.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synthetic media containing ammonium, nitrite, bicarbonate, and trace nutrients (meant to
+      mimic sidestream effluent at a municipal wastewater treatment plant) was fed to the bioreactor
+    explanation: Names the synthetic medium and its ammonium, nitrite, bicarbonate and trace-nutrient
+      components.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The bioreactor was originally inoculated with approximately 2\u2009g volatile suspended\
+      \ solids (VSS) L\u22121 of biomass from a pilot-scale deammonification process treating sidestream\
+      \ effluent at San Francisco Public Utilities Commission (SFPUC) in San Francisco, CA."
+    explanation: Gives the inoculum source and loading.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Mixed gas was supplied continuously to the bioreactor (Ar:CO2 = 95:5; 50\u2009mL\u2009min\u2212\
+      1) to eliminate dissolved oxygen and maintain a circumneutral pH range of 6.9\u20137.2."
+    explanation: Gives the headspace gas mixture, its flow rate, and the resulting pH range.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Temperature was maintained at 37\u2009\xB0 C with an electric heating blanket (Eppendorf,\
+      \ Hauppauge, NY). Mixing was provided by an impeller at a rate of 200\u2009rpm."
+    explanation: Gives the incubation temperature.
+cultivation_setup:
+- cultivation_mode: CONTINUOUS
+  system_type: MEMBRANE_BIOREACTOR
+  instrument_detail: Laboratory-scale membrane bioreactor (MBR), 1 L working volume, operated for over
+    440 days, fitted with a polyvinylidene fluoride hollow-fibre membrane module (0.4 um pore size, 260
+    cm2 surface area, Litree Company, China). Mixed by impeller at 200 rpm and sparged with Ar:CO2 (95:5)
+    at 50 mL/min to exclude oxygen.
+  manufacturer_model: Litree Company hollow-fibre membrane module (0.4 um, 260 cm2)
+  working_volume: 1
+  working_volume_unit: L
+  operating_temperature: 37
+  operating_temperature_unit: "\xB0C"
+  retention_time: 12
+  retention_time_unit: h
+  retention_time_type: HRT
+  temperature_controlled: true
+  controls_notes: 'Temperature held at 37 C by electric heating blanket (Eppendorf). pH was not actively
+    controlled: the Ar:CO2 sparge both excluded dissolved oxygen and held the reactor at pH 6.9-7.2, so
+    ph_controlled and do_controlled are left unset rather than asserted true.'
+  notes: HRT was 48 h for the first 145 days and reduced to 12 h thereafter; 12 h is recorded here as
+    the value for the majority of the 440-day run, with both in the evidence below. Solids were retained
+    entirely for the first 100 days, after which SRT was set to 50 days.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "with a working volume of 1\u2009L was constructed and operated for over 440\u2009days (Additional\
+      \ file 1"
+    explanation: Identifies the reactor as a 1 L MBR run for over 440 days.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The bioreactor was operated in a continuous flow mode. For the first 145\u2009days, the\
+      \ hydraulic retention time (HRT) was maintained at 48\u2009h; afterwards it was reduced to 12\u2009\
+      h."
+    explanation: Gives continuous-flow operation and both HRT values.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "No solids were removed from the bioreactor for the first 100\u2009days of operation; afterwards,\
+      \ the solids retention time (SRT) was reduced to 50\u2009days."
+    explanation: Gives the solids retention regime.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "A polyvinylidene fluoride hollow fiber membrane module with a 0.4-\u03BCm pore size and\
+      \ total surface area of 260\u2009cm2 (Litree Company, China) was mounted in the bioreactor."
+    explanation: Gives the membrane module specification.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Temperature was maintained at 37\u2009\xB0 C with an electric heating blanket (Eppendorf,\
+      \ Hauppauge, NY). Mixing was provided by an impeller at a rate of 200\u2009rpm."
+    explanation: Gives the controlled temperature and the impeller speed.
 external_resources:
 - name: Primary publication for the anammox/DNRA destabilization community
   repository: OTHER
