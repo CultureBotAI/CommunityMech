@@ -154,3 +154,34 @@ def test_candidatus_prefix_is_skipped(check):
     """ "Candidatus" is a status marker, not a genus; 53 KB taxa carry it."""
     assert check.search_keys("Candidatus Methanogaster") == ["Methanogaster"]
     assert check.search_keys("Candidatus Brocadia") == ["Brocadia"]
+
+
+def test_matching_reads_abstracts_but_reporting_needs_full_text(check, tmp_path, monkeypatch):
+    """Two different questions, deliberately answered by two different rules.
+
+    `cached_text` returns every cached word including abstracts, because a paper
+    names its organisms in the abstract — excluding them reported
+    *Leptospirillum ferriphilum* as unsupported while one of its references named
+    "ferriphilum" six times in a 2.8 KB abstract.
+
+    `has_full_text` is separate, and gates whether ABSENCE is worth reporting.
+    Absence from an abstract alone means little, since an abstract will not list
+    every minor member; letting abstract-only references be reported took the
+    list from 17 entries to 78 and would have buried the real cases.
+    """
+    cache = tmp_path / "references_cache"
+    cache.mkdir()
+    (cache / "PMID_1.txt").write_text("an abstract naming Leptospirillum ferriphilum", "utf-8")
+    (cache / "PMID_2.md").write_text(
+        "header\n\n===== OPEN-ACCESS FULL TEXT (Europe PMC PMC1) =====\n\nbody text",
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(check, "CACHE", cache)
+
+    # Abstract-only: its words are matchable, but it cannot justify a report.
+    assert "ferriphilum" in check.cached_text("PMID:1")
+    assert not check.has_full_text("PMID:1")
+
+    # Full text: both.
+    assert "body text" in check.cached_text("PMID:2")
+    assert check.has_full_text("PMID:2")
