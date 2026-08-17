@@ -237,7 +237,20 @@ def test_inputs_are_followed_through_a_recipe_that_only_delegates():
 
 @pytest.mark.parametrize("workflow", [p.name for p in _workflow_files()])
 def test_every_data_surface_a_workflow_reads_can_also_trigger_it(workflow: str):
-    """The gate. A step reading kb/taxa in a workflow kb/taxa cannot trigger."""
+    """The gate. A step reading kb/taxa in a workflow kb/taxa cannot trigger.
+
+    Covers two ways a step names its input: through a `just` recipe, and as a
+    literal path in the `run:` block. Several workflows invoke a gate without
+    `just` at all — `xargs -0 uv run linkml-validate`, `uv run communitymech
+    audit-network`, `python -m communitymech.export` — and following only recipes
+    left those steps unexamined (#636).
+
+    What this still cannot see: a tool whose input paths live in Python rather
+    than on the command line. `communitymech audit-network` reads kb/communities
+    and data/isolates from inside the package, and no workflow/justfile parsing
+    reveals that. `test_a_data_directory_is_not_invisible_to_every_workflow` is
+    the weaker backstop for that case; #636 holds the decision.
+    """
     document = yaml.safe_load((WORKFLOWS / workflow).read_text(encoding="utf-8"))
     patterns = _workflow_paths(document)
     if patterns is None:
@@ -246,18 +259,20 @@ def test_every_data_surface_a_workflow_reads_can_also_trigger_it(workflow: str):
     recipes = _recipe_bodies()
     uncovered = {}
     for command in _steps(document):
-        for invoked in re.findall(r"\bjust\s+([a-zA-Z][\w-]*)", command):
+        code = "\n".join(line for line in command.splitlines() if not line.strip().startswith("#"))
+        for invoked in re.findall(r"\bjust\s+([a-zA-Z][\w-]*)", code):
             for glob in _inputs_of(invoked, recipes):
                 if not _glob_covered(glob, patterns):
-                    uncovered.setdefault(glob, set()).add(invoked)
+                    uncovered.setdefault(glob, set()).add(f"just {invoked}")
+        # Literal paths in the step itself, for the gates that skip `just`.
+        for glob in {m.group(1) for m in _INPUT_GLOB.finditer(code)}:
+            if not _glob_covered(glob, patterns):
+                uncovered.setdefault(glob, set()).add("a run: step directly")
 
     assert not uncovered, (
         f"{workflow} runs steps that read data this workflow's paths filter does "
         f"not match, so a PR changing only that data does not run them (#471). "
-        + "; ".join(
-            f"{g} (read by `just {'`, `just '.join(sorted(r))}`)"
-            for g, r in sorted(uncovered.items())
-        )
+        + "; ".join(f"{g} (read by {', '.join(sorted(r))})" for g, r in sorted(uncovered.items()))
         + f". Filter is: {patterns}"
     )
 
