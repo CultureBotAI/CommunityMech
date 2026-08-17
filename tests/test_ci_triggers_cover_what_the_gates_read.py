@@ -98,10 +98,14 @@ def _probes(glob: str) -> list[str]:
 
 
 def _covered(path: str, patterns: list[str]) -> bool:
-    return any(
-        _as_regex(p).search(path) if p.endswith("/**") else _as_regex(p).match(path)
-        for p in patterns
-    )
+    """Anchored deliberately: a GitHub `paths:` pattern is rooted at the repo.
+
+    `kb/taxa/**` does not match `vendor/kb/taxa/x.yaml`. This used to pick
+    `.search` for `/**` patterns and `.match` otherwise, which chose between two
+    identical behaviours — `_as_regex` anchors both ends, so the branch was dead
+    and implied an unanchored semantics the code never had (#633).
+    """
+    return any(_as_regex(pattern).match(path) for pattern in patterns)
 
 
 def _glob_covered(glob: str, patterns: list[str]) -> bool:
@@ -245,12 +249,25 @@ def test_a_data_directory_is_not_invisible_to_every_workflow():
     kb/taxa passed each per-workflow check for years by being absent from all of
     them at once. Enumerating the directories that exist, rather than the ones a
     filter mentions, is what makes a newly added surface fail here.
+
+    A backstop, not the real check: being matched by *some* filter is weaker than
+    being matched by the filter of a workflow that validates it. The per-workflow
+    test above is what establishes that. This one only catches a surface no
+    workflow can see at all.
     """
+    # Existence filtered BEFORE iterating, not in the comprehension's `if`: that
+    # clause is evaluated after `iterdir()`, so it never guarded the call it was
+    # written to guard. `output/` is gitignored with no tracked files, so it is
+    # absent on a fresh clone — i.e. on every CI runner — and this raised
+    # FileNotFoundError there while passing locally, where output/ has been built
+    # (#632). The #602 shape, inside the test meant to prevent it.
+    roots = [REPO / root.rstrip("/") for root in DATA_ROOTS]
     surfaces = sorted(
-        f"{d.parent.name}/{d.name}"
-        for root in DATA_ROOTS
-        for d in (REPO / root.rstrip("/")).iterdir()
-        if (REPO / root.rstrip("/")).is_dir() and d.is_dir() and any(d.glob("*.yaml"))
+        f"{directory.parent.name}/{directory.name}"
+        for root in roots
+        if root.is_dir()
+        for directory in root.iterdir()
+        if directory.is_dir() and any(directory.glob("*.yaml"))
     )
     assert surfaces, "found no data directories; this test would pass vacuously"
 
