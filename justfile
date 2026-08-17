@@ -126,6 +126,15 @@ cache-fulltext *pmids:
 validate-references FILE:
     uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
 
+# Same, with the validator's "only abstract available" note corrected (#496) and
+# its silent stripping of [bracketed] text called out (#622). Prefer this when
+# triaging: the raw note is a claim about the CACHE that the validator is not in
+# a position to make, and it has sent readers after a caching gap twice.
+validate-references-explained FILE:
+    #!/usr/bin/env bash
+    set -o pipefail
+    just validate-references {{FILE}} 2>&1 | uv run python scripts/annotate_reference_errors.py
+
 # Snippet audit across ALL records (the tool that actually reconciles with
 # validate-references). Buckets: MATCH / RENDERING / WEAK / MISMATCH / NOCONTENT.
 audit-snippets *args:
