@@ -40,93 +40,43 @@ CACHE = REPO / "references_cache"
 # (record, reference) pairs where a low ratio is correct and understood. Each
 # needs a reason: an empty allow-list entry is how the next Methylacidiphilum
 # gets waved through.
-_ACCEPTED: dict[tuple[str, str], str] = {
-    ("Rifle_Aquifer_Bioanode_EET_Community.yaml", "PMID:32849356"): (
-        "The paper studies this community — it is the metagenomic "
-        "characterization of its anode-biofilm and planktonic fractions — but "
-        "the KB records six of the seven members under current NCBI phylum "
-        "names (Actinomycetota, Chloroflexota, Acidobacteriota, Bacillota, "
-        "Pseudomonadota, Ignavibacteriota) that postdate the 2020 source, which "
-        "writes Actinobacteria, Chloroflexi, and so on. Only Geobacter matches, "
-        "so the ratio measures nomenclature drift rather than relevance."
-    ),
-    # Four nomenclature modernisations, all surfaced at once when a fresh
-    # retrieval round gave these references full text for the first time. In each
-    # the KB uses the current name and the paper uses the one current when it was
-    # written, so the ratio measures the renaming rather than the relevance.
-    ("Bifidobacterium_Ruminococcus_Infant_HMO_CrossFeeding.yaml", "PMID:37973815"): (
-        "Mediterraneibacter gnavus is the 2021 renaming of Ruminococcus gnavus, "
-        "which is what the paper writes."
-    ),
-    ("BioModels_MODEL2204300001_Kefir_Community_Model.yaml", "PMID:33398099"): (
-        "Maudiozyma is the recent renaming of Kazachstania, which is what the " "paper writes."
-    ),
-    ("Cellulose_Methane_Quad_Culture_SynCom.yaml", "PMID:36847519"): (
-        "Nitratidesulfovibrio vulgaris is the renaming of Desulfovibrio vulgaris, "
-        "which is what the paper writes."
-    ),
-    ("MSC1_Dominant_Core.yaml", "PMID:32983014"): (
-        "Bacteroidota is the renaming of Bacteroidetes, which is what the paper " "writes."
-    ),
-    ("SIHUMIx_Human_Intestinal_Model_Community.yaml", "PMID:33622394"): (
-        "Lactiplantibacillus plantarum is the 2020 renaming of Lactobacillus "
-        "plantarum, which is what the paper writes."
-    ),
-    ("Synthetic_Periphyton_Freshwater_Biofilm.yaml", "PMID:35869094"): (
-        "Cyanobacteriota is the renaming of Cyanobacteria, which is what the " "paper writes."
-    ),
-    ("Thiocyanate_Afipia_Thiobacillus_Bioreactor_Community.yaml", "PMID:33897653"): (
-        "Hyphomicrobiales is the renaming of Rhizobiales, which is what the " "paper writes."
-    ),
-    # NOT a renaming, and NOT accepted as correct. Recorded here only so the gate
-    # stays meaningful for everything else while the defect is tracked: the record
-    # claims Thiobacillus thioparus and neither of its two references mentions
-    # Thiobacillus or thioparus at all. Both snippets are verbatim quotes and both
-    # validate, which is exactly why nothing else catches it. See #605 — the same
-    # shape as Synechococcus_Yarrowia_SPC. Remove this entry when the membership
-    # is either re-cited or withdrawn.
-    ("PGM_Spent_Catalyst_Bioleaching.yaml", "PMID:38138568"): (
-        "KNOWN DEFECT, tracked in #605: Thiobacillus thioparus appears in no "
-        "cited source. Not a nomenclature difference — the record separately "
-        "lists the two Acidithiobacillus species the paper does name."
-    ),
-    ("Acetylene_Fueled_TCE_Dechlorination_Groundwater_Enrichment.yaml", "PMID:33531396"): (
-        "Same nomenclature drift as Rifle, and surfaced by the same fix. The "
-        "source IS this community — 'Acetylene-Fueled Trichloroethene Reductive "
-        "Dechlorination in a Groundwater Enrichment Culture' — and it names the "
-        "member eight times as the phylum 'Actinobacteria'. The KB grounds it to "
-        "'Actinomycetota', the 2021 renaming, which appears in the paper zero "
-        "times. The record previously passed only because its second member is "
-        "the domain 'Bacteria', which matched vacuously; dropping uninformative "
-        "labels removed that false pass and left the real drift visible."
-    ),
-}
+_ACCEPTED: dict[tuple[str, str], str] = {}
+# EMPTY as the result of a fix, not for never having been used.
+#
+# All ten entries became obsolete at once when `_member_words` stopped discarding
+# all but the last member (#637) and `_names_member` learned the ICNP phylum
+# renamings. Nine were pure nomenclature -- the KB writing Actinomycetota where a
+# 2020 paper writes Actinobacteria -- exactly as the note below predicted. They
+# now score 50-100% unaided.
+#
+# ONE was not a renaming, and must not be forgotten because the arithmetic stopped
+# flagging it. `PGM_Spent_Catalyst_Bioleaching.yaml` / PMID:38138568 claims
+# *Thiobacillus thioparus*, which appears in no cited source; both its snippets
+# are verbatim and both validate, which is why nothing else catches it. It now
+# scores 50% -- at the threshold, not below. Of its FOUR members, two are named
+# and two (Sulfobacillus, Thiobacillus) appear zero times in the source; an
+# earlier version of this comment said "three other members ARE named", which was
+# simply wrong. Once the genus renamings above are resolved (#639) the other five
+# records that sat at 0.50 rise to 75-100% and PGM is the only one left at the
+# boundary -- so the ratio discriminates again instead of scoring it the same as
+# five healthy records. A limit of this heuristic, not a clearance. Tracked in
+# #605; dropping the waiver does not close it.
 
 # Below this share of members named in the source, the pairing is suspect.
 #
-# Strict `<`, and the boundary moved twice before settling. It was briefly `<=`,
-# because under the old `preferred_term`-first extraction the rejected
-# Methylacidiphilum case scored exactly 50% and a strict `<` let it through.
-# Reading `term.label` first fixed the extraction and the case now scores **0%**
-# — its members resolve to "Candidatus" and "Galdieria", neither in the source —
-# so `<` catches it with room to spare.
+# Strict `<`. `<=` is actively wrong: a two-member coculture scores 50% whenever
+# the source abbreviates the second genus after first use
+# ("T. thermosaccharolyticum"), which is normal scientific prose rather than a
+# warning sign -- it flagged four records each already verified by reading.
 #
-# `<=` is actively wrong here: a two-member coculture scores 50% whenever the
-# source abbreviates the second genus after first use ("T. thermosaccharolyticum"),
-# which is normal scientific prose rather than a warning sign. It flagged four
-# records that had each been verified by reading.
-# NOTE ON THIS LIST'S SHAPE. Eight of its entries are now nomenclature
-# modernisation — the KB uses the current name, the paper uses the one current
-# when it was written, and the ratio measures the renaming rather than the
-# relevance. They arrive in batches, because each fresh retrieval round gives
-# several references full text for the first time and they all fail at once.
-#
-# Adding entries one at a time is not the fix. The check should ask whether the
-# current name OR ANY SYNONYM appears, resolved through NCBITaxon, at which point
-# every one of those eight disappears and what remains is the interesting
-# residue: members that appear under no name at all (#605). Recorded here rather
-# than built because it needs an ontology lookup this module deliberately does
-# not have — it is pure arithmetic so it can run in the blocking gate.
+# The cost of that, stated rather than left implicit: at two members this ratio
+# cannot tell "the source names one partner and not the other" from "half the
+# community". The rejected Methylacidiphilum case is precisely that, scoring 1/2,
+# so the threshold does NOT catch the case this module was written for. An earlier
+# comment here claimed it scored 0% and was caught with room to spare; that was an
+# artefact of `_member_words` returning one member instead of two (#637). The
+# finding is now pinned as a fact below rather than resting on arithmetic that
+# cannot see it.
 _THRESHOLD = 0.5
 
 # Only full-text caches are checked. An abstract names few members by nature, so
@@ -178,7 +128,13 @@ def _member_words(document: dict) -> list[str]:
     — extracted six times, matched never, and scored the record 0% of 6. The
     ontology label is an actual taxon name, which is what this check wants.
     """
-    words = []
+    # Accumulated separately from the per-entry split. `words` used to be both,
+    # so `words = name.split()` discarded every member examined so far and the
+    # function returned only the LAST member -- plus a duplicate of its own head
+    # word, which also inflated the denominator. A 4-member record reported
+    # "0% of 2 members" (#637). The check claimed to ask whether a paper names
+    # the community, and asked about one taxon.
+    heads: list[str] = []
     for entry in document.get("taxonomy") or []:
         term = entry.get("taxon_term") or {}
         name = (term.get("term") or {}).get("label") or term.get("preferred_term") or ""
@@ -195,8 +151,79 @@ def _member_words(document: dict) -> list[str]:
         # _UNINFORMATIVE_LABELS): matching it would pass any microbiology paper,
         # so it is dropped rather than counted either way.
         if len(head) > 3 and head[0].isupper() and head.lower() not in _UNINFORMATIVE_LABELS:
-            words.append(head)
-    return words
+            heads.append(head)
+    return heads
+
+
+# Taxon names renamed since the sources were written, current -> prior.
+# A record grounded to a CURRENT NCBITaxon phylum whose source predates the rename
+# names none of its members by this check's reckoning, which reads as "the paper
+# did not study this community" when the paper IS the record's own source. Nine of
+# the ten waivers this module used to carry were only this. The note by _ACCEPTED
+# predicted it: "adding entries one at a time is not the fix".
+_PRIOR_NAME = {
+    "Actinomycetota": "Actinobacteria",
+    "Bacillota": "Firmicutes",
+    "Bacteroidota": "Bacteroidetes",
+    "Pseudomonadota": "Proteobacteria",
+    "Planctomycetota": "Planctomycetes",
+    "Acidobacteriota": "Acidobacteria",
+    "Verrucomicrobiota": "Verrucomicrobia",
+    "Chloroflexota": "Chloroflexi",
+    "Cyanobacteriota": "Cyanobacteria",
+    "Nitrospirota": "Nitrospirae",
+    "Spirochaetota": "Spirochaetes",
+    "Thermoproteota": "Crenarchaeota",
+    "Nitrososphaerota": "Thaumarchaeota",
+    "Deinococcota": "Deinococcus-Thermus",
+    "Fusobacteriota": "Fusobacteria",
+    "Chlamydiota": "Chlamydiae",
+    "Mycoplasmatota": "Tenericutes",
+    "Synergistota": "Synergistetes",
+    "Gemmatimonadota": "Gemmatimonadetes",
+    "Armatimonadota": "Armatimonadetes",
+    "Aquificota": "Aquificae",
+    "Thermotogota": "Thermotogae",
+    "Chlorobiota": "Chlorobi",
+    "Elusimicrobiota": "Elusimicrobia",
+    "Ignavibacteriota": "Ignavibacteriae",
+    # --- genus rank (#639) ---
+    # Where the corpus actually sits. Six of 65 pairs scored exactly 0.50 and
+    # passed only because the comparison is strict; five were a renamed genus and
+    # nothing else. Each verified against the cached source: the current name
+    # appears ZERO times and the prior name repeatedly, so these are drift rather
+    # than a source that is about something else.
+    "Mediterraneibacter": "Ruminococcus",  # Ruminococcus 7x
+    "Methanothrix": "Methanosaeta",  # Methanosaeta 9x
+    "Nitratidesulfovibrio": "Desulfovibrio",  # Desulfovibrio 13x
+    "Lachnoclostridium": "Clostridium",  # Clostridium 12x
+    "Acetivibrio": "Clostridium",  # Clostridium 10x
+    "Desmonostoc": "Nostoc",  # Nostoc 17x
+    "Limnospira": "Arthrospira",  # Arthrospira 9x
+}
+
+# Prior names with MORE THAN ONE successor here. A split is weaker evidence than
+# a rename: a paper saying "Clostridium" is not thereby about *Acetivibrio*,
+# because the genus was carved up and most of it stayed elsewhere. `Euryarchaeota`
+# was dropped from the table for exactly this reason (#640) -- Methanobacteriota,
+# Halobacteriota and Thermoplasmatota all descend from parts of it, so matching on
+# it would be a false pass in the one direction that matters.
+#
+# `Clostridium` is kept, and listed here rather than left looking like a rename,
+# because both entries were checked against their own sources: each paper calls
+# the organism by its full prior binomial (Clostridium thermocellum,
+# C. clariflavum), so within these records the genus match is sound. The test
+# below fails on any split NOT acknowledged here, so the next one cannot arrive
+# silently.
+_KNOWN_SPLIT_PRIORS = {"Clostridium"}
+
+
+def _names_member(word: str, text: str) -> bool:
+    """Does the source name this taxon, under its current or its prior name?"""
+    for candidate in (word, _PRIOR_NAME.get(word)):
+        if candidate and re.search(rf"\b{re.escape(candidate)}", text, re.IGNORECASE):
+            return True
+    return False
 
 
 def _pairs() -> list[tuple[str, str, float, int]]:
@@ -223,9 +250,7 @@ def _pairs() -> list[tuple[str, str, float, int]]:
             text = cached.read_text(errors="replace")
             if len(text) < _FULL_TEXT_BYTES:
                 continue  # abstract-only: the ratio would measure the cache
-            named = sum(
-                1 for word in members if re.search(rf"\b{re.escape(word)}", text, re.IGNORECASE)
-            )
+            named = sum(1 for word in members if _names_member(word, text))
             found.append((path.name, reference, named / len(members), len(members)))
     return found
 
@@ -273,25 +298,149 @@ def test_the_accepted_pairs_have_reasons_and_are_current(pairs):
 def test_the_check_can_actually_fail():
     """Mutation check, without touching the corpus.
 
-    The assertion above passes today because every shipped record is fine —
-    which is also what it would do if `_member_words` returned nothing, or the
-    cache lookup silently missed every file. This runs the same arithmetic on
-    the case that was rejected, and requires it to score below the threshold.
-    """
-    document = yaml.safe_load(
-        (COMMUNITIES / "Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture.yaml").read_text(
-            encoding="utf-8"
-        )
-    )
-    members = _member_words(document)
-    assert len(members) >= 2, "the rejected example no longer has two named members"
+    The corpus assertion passes today because every shipped record is fine --
+    which is also what it would do if `_member_words` returned nothing or the
+    cache lookup missed every file. Synthetic input, because no shipped record
+    can serve: a record scoring below the threshold would be a corpus bug, so the
+    only honest failing case is a made-up one.
 
+    This used to run the arithmetic on the real Methylacidiphilum example and
+    require it to score below the threshold. It did -- but only because
+    `_member_words` returned one member instead of two (#637). Corrected, it
+    scores exactly 1/2, so it no longer demonstrates anything about the check.
+    """
+    document = {
+        "taxonomy": [
+            {"taxon_term": {"term": {"label": "Methanocaldococcus jannaschii"}}},
+            {"taxon_term": {"term": {"label": "Pyrococcus furiosus"}}},
+        ]
+    }
+    members = _member_words(document)
+    assert members == ["Methanocaldococcus", "Pyrococcus"], members
+
+    absent = "A study of Escherichia coli grown in a chemostat. Nothing else was cultured."
+    assert sum(1 for w in members if _names_member(w, absent)) / len(members) < _THRESHOLD
+
+    # ...and it must NOT fire when the source does name them, or it would flag
+    # everything and be switched off.
+    present = "We cocultured Methanocaldococcus jannaschii with Pyrococcus furiosus."
+    assert sum(1 for w in members if _names_member(w, present)) / len(members) >= _THRESHOLD
+
+
+def test_the_prior_name_is_what_makes_a_renamed_member_match():
+    """The synonym table must be load-bearing, not decorative.
+
+    Both ranks, because they fail differently. Removing the PHYLUM entries makes
+    records fail outright. Removing the GENUS entries does not — those records
+    fall back to exactly 0.50, which the strict `<` still passes, so the corpus
+    assertion stays green while the table silently stops working. That is the
+    "check that reports clean because it never ran" shape, and it is why each
+    renamed genus is asserted here by name rather than left to the corpus.
+    """
+    phyla = "Dominant phyla were Actinobacteria, Firmicutes and Planctomycetes."
+    for current in ("Actinomycetota", "Bacillota", "Planctomycetota"):
+        assert _names_member(current, phyla), f"{current} does not match its prior name"
+    assert not _names_member("Thermotogota", phyla), "matches a phylum the text never names"
+
+    # One line per genus in the table, each phrased as its own source writes it.
+    genera = [
+        ("Mediterraneibacter", "cross-feeding with Ruminococcus gnavus"),
+        ("Methanothrix", "acetoclastic Methanosaeta concilii dominated"),
+        ("Nitratidesulfovibrio", "Desulfovibrio vulgaris Hildenborough"),
+        ("Lachnoclostridium", "co-culture with Clostridium clariflavum"),
+        ("Acetivibrio", "Clostridium thermocellum was grown"),
+        ("Desmonostoc", "Nostoc muscorum UTAD_N213"),
+        ("Limnospira", "Arthrospira platensis UTEX LB 2340"),
+    ]
+    for current, sentence in genera:
+        assert _names_member(current, sentence), f"{current} does not match its prior name"
+        assert not _names_member(
+            current, "an unrelated study of Escherichia coli"
+        ), f"{current} matches text naming neither it nor its prior name"
+
+
+def test_the_rejected_coculture_source_still_never_names_the_alga():
+    """The #529 finding itself, as a fact rather than as a ratio.
+
+    `Methylacidiphilum_Galdieria_Thermoacidophilic_Coculture` has 47k characters
+    of cached full text describing a LABFORS 3 bioreactor, and curating those
+    numbers would have been wrong because the source is a *Methylacidiphilum*
+    monoculture study. The evidence for that is not a percentage -- it is that
+    *Galdieria* appears zero times. Pinned directly, so the finding survives
+    further changes to the threshold or the extraction, both of which have now
+    moved three times.
+    """
     cached = _cache_path("PMID:33841379")
     assert cached is not None, "the rejected example's source is no longer cached"
     text = cached.read_text(errors="replace")
-    named = sum(1 for word in members if re.search(rf"\b{re.escape(word)}", text, re.IGNORECASE))
-    assert named / len(members) < _THRESHOLD, (
-        "PMID:33841379 now names most of that record's members. If the record "
-        "or the cache changed, re-check whether the paper studies the coculture "
-        "— the whole point of #529 is that it does not"
+
+    assert not re.search(r"\bGaldieria", text, re.IGNORECASE), (
+        "PMID:33841379 now mentions Galdieria -- re-check whether it studies the "
+        "coculture after all, since #529 rests on it not doing so"
     )
+    assert re.search(r"\bMethylacidiphilum", text, re.IGNORECASE), (
+        "the source no longer names Methylacidiphilum either, so this is not the "
+        "paper #529 was about and the pairing needs re-checking from scratch"
+    )
+
+
+def test_no_accepted_entry_is_dead():
+    """A waiver that no longer fires is a decision nobody is making.
+
+    All ten entries became obsolete at once when the member extraction was fixed
+    (#637), and each would have gone on excusing a record that no longer needed
+    excusing -- including one that was a real defect (#605) rather than a
+    renaming, whose note would have sat in the list looking settled.
+
+    Vacuous while the list is empty, deliberately: it becomes load-bearing the
+    moment someone adds an entry, which is exactly when it is needed.
+    """
+    stale = []
+    for (record, reference), reason in _ACCEPTED.items():
+        path = COMMUNITIES / record
+        assert path.is_file(), f"{record} in _ACCEPTED no longer exists"
+        assert reason.strip(), f"{record}/{reference} is excused without a reason"
+        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        members = _member_words(document)
+        cached = _cache_path(reference)
+        if not members or cached is None:
+            continue
+        text = cached.read_text(errors="replace")
+        if len(text) < _FULL_TEXT_BYTES:
+            continue
+        named = sum(1 for word in members if _names_member(word, text))
+        if named / len(members) >= _THRESHOLD:
+            stale.append(f"  {record} / {reference}: now names {named}/{len(members)}")
+
+    assert not stale, (
+        "these _ACCEPTED entries no longer fire -- the check passes them on their "
+        "own merits, so each waiver is dead and hides whatever it excused:\n" + "\n".join(stale)
+    )
+
+
+def test_no_unacknowledged_split_in_the_synonym_table():
+    """Two current names sharing a prior name means a split, not a rename.
+
+    A rename is 1:1 and the match is sound. A split is 1:many, and matching the
+    ancestor is weak evidence that can pass a source which is about a different
+    descendant — a false pass in the direction this whole module exists to catch.
+    Mechanically detectable even though "is this really a rename?" is not.
+    """
+    successors: dict[str, list[str]] = {}
+    for current, prior in _PRIOR_NAME.items():
+        successors.setdefault(prior, []).append(current)
+
+    splits = {
+        prior: sorted(names)
+        for prior, names in successors.items()
+        if len(names) > 1 and prior not in _KNOWN_SPLIT_PRIORS
+    }
+    assert not splits, (
+        "these prior names have several successors in _PRIOR_NAME, so matching "
+        "them is a split rather than a rename and can pass a source about a "
+        f"different descendant. Acknowledge in _KNOWN_SPLIT_PRIORS with a reason, "
+        f"or drop the entry: {splits}"
+    )
+
+    unused = _KNOWN_SPLIT_PRIORS - {p for p, n in successors.items() if len(n) > 1}
+    assert not unused, f"_KNOWN_SPLIT_PRIORS names priors that are not split: {unused}"
