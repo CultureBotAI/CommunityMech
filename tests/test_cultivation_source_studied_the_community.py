@@ -53,10 +53,14 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # flagging it. `PGM_Spent_Catalyst_Bioleaching.yaml` / PMID:38138568 claims
 # *Thiobacillus thioparus*, which appears in no cited source; both its snippets
 # are verbatim and both validate, which is why nothing else catches it. It now
-# scores 50% -- at the threshold, not below -- because the record's three other
-# members ARE named, so the ratio cannot see one fabricated member among several
-# real ones. A limit of this heuristic, not a clearance. Tracked in #605; dropping
-# it from this list does not close it.
+# scores 50% -- at the threshold, not below. Of its FOUR members, two are named
+# and two (Sulfobacillus, Thiobacillus) appear zero times in the source; an
+# earlier version of this comment said "three other members ARE named", which was
+# simply wrong. Once the genus renamings above are resolved (#639) the other five
+# records that sat at 0.50 rise to 75-100% and PGM is the only one left at the
+# boundary -- so the ratio discriminates again instead of scoring it the same as
+# five healthy records. A limit of this heuristic, not a clearance. Tracked in
+# #605; dropping the waiver does not close it.
 
 # Below this share of members named in the source, the pairing is suspect.
 #
@@ -151,13 +155,13 @@ def _member_words(document: dict) -> list[str]:
     return heads
 
 
-# Phylum names the ICNP renamed in 2021-22 (Oren & Garrity), current -> prior.
+# Taxon names renamed since the sources were written, current -> prior.
 # A record grounded to a CURRENT NCBITaxon phylum whose source predates the rename
 # names none of its members by this check's reckoning, which reads as "the paper
 # did not study this community" when the paper IS the record's own source. Nine of
 # the ten waivers this module used to carry were only this. The note by _ACCEPTED
 # predicted it: "adding entries one at a time is not the fix".
-_PRIOR_PHYLUM_NAME = {
+_PRIOR_NAME = {
     "Actinomycetota": "Actinobacteria",
     "Bacillota": "Firmicutes",
     "Bacteroidota": "Bacteroidetes",
@@ -169,7 +173,6 @@ _PRIOR_PHYLUM_NAME = {
     "Cyanobacteriota": "Cyanobacteria",
     "Nitrospirota": "Nitrospirae",
     "Spirochaetota": "Spirochaetes",
-    "Methanobacteriota": "Euryarchaeota",
     "Thermoproteota": "Crenarchaeota",
     "Nitrososphaerota": "Thaumarchaeota",
     "Deinococcota": "Deinococcus-Thermus",
@@ -184,12 +187,40 @@ _PRIOR_PHYLUM_NAME = {
     "Chlorobiota": "Chlorobi",
     "Elusimicrobiota": "Elusimicrobia",
     "Ignavibacteriota": "Ignavibacteriae",
+    # --- genus rank (#639) ---
+    # Where the corpus actually sits. Six of 65 pairs scored exactly 0.50 and
+    # passed only because the comparison is strict; five were a renamed genus and
+    # nothing else. Each verified against the cached source: the current name
+    # appears ZERO times and the prior name repeatedly, so these are drift rather
+    # than a source that is about something else.
+    "Mediterraneibacter": "Ruminococcus",  # Ruminococcus 7x
+    "Methanothrix": "Methanosaeta",  # Methanosaeta 9x
+    "Nitratidesulfovibrio": "Desulfovibrio",  # Desulfovibrio 13x
+    "Lachnoclostridium": "Clostridium",  # Clostridium 12x
+    "Acetivibrio": "Clostridium",  # Clostridium 10x
+    "Desmonostoc": "Nostoc",  # Nostoc 17x
+    "Limnospira": "Arthrospira",  # Arthrospira 9x
 }
+
+# Prior names with MORE THAN ONE successor here. A split is weaker evidence than
+# a rename: a paper saying "Clostridium" is not thereby about *Acetivibrio*,
+# because the genus was carved up and most of it stayed elsewhere. `Euryarchaeota`
+# was dropped from the table for exactly this reason (#640) -- Methanobacteriota,
+# Halobacteriota and Thermoplasmatota all descend from parts of it, so matching on
+# it would be a false pass in the one direction that matters.
+#
+# `Clostridium` is kept, and listed here rather than left looking like a rename,
+# because both entries were checked against their own sources: each paper calls
+# the organism by its full prior binomial (Clostridium thermocellum,
+# C. clariflavum), so within these records the genus match is sound. The test
+# below fails on any split NOT acknowledged here, so the next one cannot arrive
+# silently.
+_KNOWN_SPLIT_PRIORS = {"Clostridium"}
 
 
 def _names_member(word: str, text: str) -> bool:
     """Does the source name this taxon, under its current or its prior name?"""
-    for candidate in (word, _PRIOR_PHYLUM_NAME.get(word)):
+    for candidate in (word, _PRIOR_NAME.get(word)):
         if candidate and re.search(rf"\b{re.escape(candidate)}", text, re.IGNORECASE):
             return True
     return False
@@ -296,12 +327,36 @@ def test_the_check_can_actually_fail():
     assert sum(1 for w in members if _names_member(w, present)) / len(members) >= _THRESHOLD
 
 
-def test_the_prior_phylum_name_is_what_makes_a_renamed_member_match():
-    """The synonym table must be load-bearing, not decorative."""
-    text = "Dominant phyla were Actinobacteria, Firmicutes and Planctomycetes."
+def test_the_prior_name_is_what_makes_a_renamed_member_match():
+    """The synonym table must be load-bearing, not decorative.
+
+    Both ranks, because they fail differently. Removing the PHYLUM entries makes
+    records fail outright. Removing the GENUS entries does not — those records
+    fall back to exactly 0.50, which the strict `<` still passes, so the corpus
+    assertion stays green while the table silently stops working. That is the
+    "check that reports clean because it never ran" shape, and it is why each
+    renamed genus is asserted here by name rather than left to the corpus.
+    """
+    phyla = "Dominant phyla were Actinobacteria, Firmicutes and Planctomycetes."
     for current in ("Actinomycetota", "Bacillota", "Planctomycetota"):
-        assert _names_member(current, text), f"{current} does not match its prior name"
-    assert not _names_member("Thermotogota", text), "matches a phylum the text never names"
+        assert _names_member(current, phyla), f"{current} does not match its prior name"
+    assert not _names_member("Thermotogota", phyla), "matches a phylum the text never names"
+
+    # One line per genus in the table, each phrased as its own source writes it.
+    genera = [
+        ("Mediterraneibacter", "cross-feeding with Ruminococcus gnavus"),
+        ("Methanothrix", "acetoclastic Methanosaeta concilii dominated"),
+        ("Nitratidesulfovibrio", "Desulfovibrio vulgaris Hildenborough"),
+        ("Lachnoclostridium", "co-culture with Clostridium clariflavum"),
+        ("Acetivibrio", "Clostridium thermocellum was grown"),
+        ("Desmonostoc", "Nostoc muscorum UTAD_N213"),
+        ("Limnospira", "Arthrospira platensis UTEX LB 2340"),
+    ]
+    for current, sentence in genera:
+        assert _names_member(current, sentence), f"{current} does not match its prior name"
+        assert not _names_member(
+            current, "an unrelated study of Escherichia coli"
+        ), f"{current} matches text naming neither it nor its prior name"
 
 
 def test_the_rejected_coculture_source_still_never_names_the_alga():
@@ -361,3 +416,31 @@ def test_no_accepted_entry_is_dead():
         "these _ACCEPTED entries no longer fire -- the check passes them on their "
         "own merits, so each waiver is dead and hides whatever it excused:\n" + "\n".join(stale)
     )
+
+
+def test_no_unacknowledged_split_in_the_synonym_table():
+    """Two current names sharing a prior name means a split, not a rename.
+
+    A rename is 1:1 and the match is sound. A split is 1:many, and matching the
+    ancestor is weak evidence that can pass a source which is about a different
+    descendant — a false pass in the direction this whole module exists to catch.
+    Mechanically detectable even though "is this really a rename?" is not.
+    """
+    successors: dict[str, list[str]] = {}
+    for current, prior in _PRIOR_NAME.items():
+        successors.setdefault(prior, []).append(current)
+
+    splits = {
+        prior: sorted(names)
+        for prior, names in successors.items()
+        if len(names) > 1 and prior not in _KNOWN_SPLIT_PRIORS
+    }
+    assert not splits, (
+        "these prior names have several successors in _PRIOR_NAME, so matching "
+        "them is a split rather than a rename and can pass a source about a "
+        f"different descendant. Acknowledge in _KNOWN_SPLIT_PRIORS with a reason, "
+        f"or drop the entry: {splits}"
+    )
+
+    unused = _KNOWN_SPLIT_PRIORS - {p for p, n in successors.items() if len(n) > 1}
+    assert not unused, f"_KNOWN_SPLIT_PRIORS names priors that are not split: {unused}"
