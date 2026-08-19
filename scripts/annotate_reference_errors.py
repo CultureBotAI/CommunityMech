@@ -85,8 +85,16 @@ def diagnose(reference: str, snippet: str) -> str:
     # and ask whether the surviving fragments are all present and in order —
     # the same test the elision branch uses, rather than trying to rebuild the
     # original string.
-    if "  " in " ".join(snippet.split(" ")):
-        fragments = [f.strip() for f in re.split(r" {2,}", snippet.strip()) if f.strip()]
+    # Exotic whitespace is unified WITHOUT collapsing runs, because the run IS the
+    # signal here. `cached()` normalises the cache, so a fragment that keeps its
+    # U+00A0 is looked up in text that has none and is never found — one fragment
+    # of two matched and the branch bailed, reporting a verbatim quote as absent
+    # (#642). Normalising the usual way (`" ".join(snippet.split())`) is the wrong
+    # repair: it collapses the double space that marks the gap, leaving a single
+    # fragment that still lacks the stripped bracket and still fails.
+    unified = re.sub(r"[^\S ]", " ", snippet)
+    if "  " in unified:
+        fragments = [f.strip() for f in re.split(r" {2,}", unified.strip()) if f.strip()]
         if len(fragments) > 1:
             position, ordered = 0, True
             for fragment in fragments:
