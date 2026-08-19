@@ -261,12 +261,12 @@ cultivation_setup:
     rewetting after a dry-down, and the field precipitation treatment is a LEGACY carried in the soil
     rather than a condition applied here -- the 50%/100% MAP plots were manipulated in the field through
     May 2018, not during this incubation.
-  temperature_controlled: false
   controls_notes: '''Incubated at room temperature in the dark'' is the whole of the reported environmental
-    control: no setpoint, no thermostat and no value. temperature_controlled is false because ambient
-    room temperature is stated as the condition -- that is a positive description of no regulation, unlike
-    a source that simply omits temperature. ph_controlled and do_controlled stay unset, because the source
-    says nothing either way (#644).'
+    control: no setpoint, no thermostat and no value. All of temperature_controlled, ph_controlled and
+    do_controlled are left UNSET. ''Room temperature'' states a setpoint, not the absence of a controller
+    -- a climate-controlled building holds a room at 21 C and the phrase is identical -- so false would
+    assert that regulation was absent, which the source does not say (#646). Unset is also the corpus
+    convention: 82 cultivation_setup blocks leave this field unset and 14 assert true; none assert false.'
   evidence:
   - reference: PMID:41964077
     supports: SUPPORT
