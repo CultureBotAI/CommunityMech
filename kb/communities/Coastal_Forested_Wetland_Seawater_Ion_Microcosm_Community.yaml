@@ -319,7 +319,6 @@ growth_media:
     unit: mL/L
   salinity: 5
   salinity_unit: ppt
-  atmosphere: ANAEROBIC
   inoculum_source: intact soil cores from the Timberlake Observatory for Wetland Restoration, North Carolina
     (35 54 22 N, 76 09 25 W), a restored forested freshwater wetland on Eutric Histosol under Atlantic
     white cedar, collected 2011
@@ -330,9 +329,11 @@ growth_media:
   preparation_notes: 'Four treatments: deionized water (control), artificial seawater (+ASW), ASW without
     sulfate (+ASW-SO4) and sulfate only (+SO4). In +ASW-SO4 the omitted K2SO4 was replaced with equivalent
     additional NaCl and KCl, which is what isolates the sulfate effect from the other seawater ions. The
-    composition above is the full +ASW medium. NO INCUBATION TEMPERATURE, pH OR LIGHT REGIME IS REPORTED
-    in the source, so those fields are left unset rather than inferred; the cores are the growth substrate
-    and the inoculum together, so there is no separate formulated growth medium.'
+    composition above is the full +ASW medium. NO INCUBATION TEMPERATURE, pH, LIGHT REGIME OR ATMOSPHERE
+    IS REPORTED in the source, so those fields are left unset rather than inferred. The cores were fitted
+    with a gas-tight lid only to measure fluxes, so they were not held under a defined headspace and `atmosphere`
+    is unset rather than ANAEROBIC (#644); the cores are the growth substrate and the inoculum together,
+    so there is no separate formulated growth medium.'
   evidence:
   - reference: PMID:38628812
     supports: SUPPORT
@@ -389,11 +390,10 @@ cultivation_setup:
     is the core''s geometric volume (pi x 1.25^2 x 30 cm = ~147 cm3), not a reported figure -- the source
     gives dimensions rather than a volume. The manipulation is the water chemistry, not the vessel: this
     is a static incubation, so there is no feed, dilution or retention time to record.'
-  temperature_controlled: false
-  controls_notes: The source reports no temperature, pH or dissolved-oxygen control, and no incubation
-    temperature at all. temperature_controlled is set false on that basis rather than left unset, because
-    a static core under a maintained water level is described with no thermal regulation; ph_controlled
-    and do_controlled stay unset because the source says nothing either way.
+  controls_notes: 'The source reports no incubation temperature, no pH and no dissolved-oxygen control.
+    All three of temperature_controlled, ph_controlled and do_controlled are therefore left UNSET rather
+    than false: false would assert that temperature was not controlled, which is a finding the source
+    does not support, and an absence recorded as a finding is the #183 failure mode (#644).'
   evidence:
   - reference: PMID:38628812
     supports: SUPPORT
@@ -422,53 +422,6 @@ cultivation_setup:
       \ and another aliquot analyzed for porewater and soil biogeochemistry."
     explanation: Gives the incubation length.
 related_ingredients:
-- preferred_term: sulfate
-  chebi_term:
-    id: CHEBI:16189
-    label: sulfate
-  relevance: Sulfate is the explicitly manipulated ion in this microcosm
-    experiment; an environment-analog cultivation medium for this community
-    would need sulfate as a controllable variable rather than a fixed
-    background anion, since the study disentangles sulfate effects from other
-    seawater ions on the community.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: tease apart the effects of sulfate from other seawater ions
-    explanation: Anchors sulfate as the central controllable environmental
-      variable for any medium designed to dogfood this community.
-- preferred_term: seawater ions
-  chebi_term:
-    id: CHEBI:26710
-    label: sodium chloride
-  relevance: Artificial-seawater ions (NaCl as the representative bulk salt)
-    drove the community shifts and GHG emission changes more strongly than
-    sulfate alone; any cultivation medium for this community would need a
-    seawater-equivalent ion background, not just sulfate.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: other ions present in seawater, not sulfate, drive ecological and
-      biogeochemical responses to seawater intrusion
-    explanation: Anchors NaCl-dominated artificial seawater (representative
-      bulk seawater-ion mixture) as the primary driver of community responses.
-- preferred_term: methane
-  chebi_term:
-    id: CHEBI:16183
-    label: methane
-  relevance: Methane is one of the headline greenhouse gas emission endpoints
-    monitored across all microcosm treatments; an environment-analog medium
-    targeting this community would need methane in the headspace as a key
-    quantitative endpoint.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: emissions of carbon dioxide, methane, and nitrous oxide
-    explanation: Anchors methane as a measured greenhouse gas endpoint of this
-      microcosm community.
 associated_datasets: []
 external_resources:
 - name: Primary publication for coastal forested wetland seawater-ion microcosms
