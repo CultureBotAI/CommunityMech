@@ -187,7 +187,107 @@ environmental_factors:
       tannin-like compounds (indicative of decomposing plant-derived compounds)
     explanation: Supports the SOC compositional shift driven by the precipitation
       legacy.
-growth_media: []
+growth_media:
+- name: rewetted Hopland grassland topsoil, labelled with 98-atom% H2-18O (or natural-abundance water
+    as control)
+  inoculum_source: topsoil (0-15 cm) from the Hopland Research and Extension Center, northern California
+    (39 00 14.6 N, 123 05 09.1 W), from eight plots under 50% and 100% mean-annual-precipitation treatments,
+    collected August 2018 at the end of the summer dry-down when gravimetric soil moisture was 3%
+  inoculum_size: 5
+  inoculum_unit: g sieved soil per 15 mL vial
+  incubation_time: 168
+  incubation_time_unit: h
+  vessel_type: 15 mL Nalgene flat-bottom vial, two per sealed 500 mL mason jar with septum-fitted lid
+  light_regime: dark
+  preparation_notes: 'Roots removed and soil sieved to 2 mm before use. The wet-up is the experiment:
+    1 mL of 98-atom% H2-18O (or natural-abundance water for controls) was pipetted evenly onto 5 g of
+    soil and mixed, taking it from 3% to an average 22% gravimetric moisture. 88 microcosms in total.
+    The soil is substrate and inoculum together, so there is no formulated medium. Held at ROOM TEMPERATURE,
+    which the source does not quantify, so `temperature` is left unset rather than assigned a conventional
+    20-25 C. No pH or atmosphere is reported: the jars were sealed with air headspace for CO2 accumulation,
+    which is not a defined gas mix, so `atmosphere` and `headspace_gas` are also unset.'
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "This field site is at the Hopland Research and Extension Center (HREC) located in Northern\
+      \ California (39\xB0 00\u2032 14.6\u2033 N, 123\xB0 05\u2032 09.1\u2033 W) on territory originally\
+      \ occupied by the indigenous Pomo Nation."
+    explanation: Gives the field site and its coordinates.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "In August 2018, at the end of the summer dry-down when the gravimetric soil moisture was\
+      \ 3%, topsoil samples (0\u201315 cm, approximately 4700 cm3) were collected from eight plots (n\
+      \ = 4 each for 50 and 100% MAP; total of 48 samples) with cleaned shovels"
+    explanation: Gives the sampling depth, date and the 3% starting moisture.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: immediately placed into jumbo-sized Ziplock bags, and transferred to Lawrence Livermore National
+      Laboratory where roots were removed and soils were homogenized by sieving (2 mm) to remove rocks
+      and large plant debris in a greenhouse with a dry and hot atmosphere.
+    explanation: Gives root removal and 2 mm sieving.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Briefly, 5 g of sieved soil from each of the 8 plots was transferred each to 11 Nalgene flat
+      bottom vials (15 mL) for a total of 88 microcosms.
+    explanation: Gives the soil mass, vial format and microcosm count.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One milliliter of isotopically enriched water (98-atom H218O) or natural abundance water
+      (control) was slowly and evenly pipetted onto the soil and gently mixed with the pipette tip, resulting
+      in a final average gravimetric soil moisture of 22%.
+    explanation: Gives the 18O label, the control, and the resulting 22% moisture.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two vials each were then immediately sealed inside a 500-mL mason jar with lids fitted with
+      septa (to facilitate headspace sampling) and incubated at room temperature in the dark.
+    explanation: Gives the jar containment and that incubation was at room temperature in the dark.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 'Laboratory wet-up microcosms: 5 g of sieved soil in a 15 mL Nalgene flat-bottom
+    vial, two vials sealed inside a 500 mL mason jar whose lid carries a septum for headspace sampling.
+    Incubated in the dark at room temperature; jars destructively harvested at 0, 3, 24, 48, 72 and 168
+    h, four vials per timepoint, with 5 mL headspace drawn into N2-filled 20 mL serum bottles for CO2.'
+  working_volume: 15
+  working_volume_unit: mL
+  notes: system_type is OTHER because no CultivationSystemEnum value denotes a soil vial in a mason jar;
+    SERUM_BOTTLE would name the gas-sampling vessel rather than the growth vessel. The manipulation is
+    rewetting after a dry-down, and the field precipitation treatment is a LEGACY carried in the soil
+    rather than a condition applied here -- the 50%/100% MAP plots were manipulated in the field through
+    May 2018, not during this incubation.
+  temperature_controlled: false
+  controls_notes: '''Incubated at room temperature in the dark'' is the whole of the reported environmental
+    control: no setpoint, no thermostat and no value. temperature_controlled is false because ambient
+    room temperature is stated as the condition -- that is a positive description of no regulation, unlike
+    a source that simply omits temperature. ph_controlled and do_controlled stay unset, because the source
+    says nothing either way (#644).'
+  evidence:
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Briefly, 5 g of sieved soil from each of the 8 plots was transferred each to 11 Nalgene flat
+      bottom vials (15 mL) for a total of 88 microcosms.
+    explanation: Gives the soil mass and vessel.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two vials each were then immediately sealed inside a 500-mL mason jar with lids fitted with
+      septa (to facilitate headspace sampling) and incubated at room temperature in the dark.
+    explanation: Gives the jar, septum lid, and the room-temperature dark incubation.
+  - reference: PMID:41964077
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Parallel jars (total of four vials) were destructively harvested at multiple timepoints following
+      rewetting
+    explanation: 'Gives the destructive-harvest design. Span stops before the ''[before labeling/rewetting]''
+      gloss on purpose: validate-references strips bracketed text and reports the wreckage as absent (#622).
+      The six timepoints are recorded in instrument_detail rather than quoted around the bracket.'
 external_resources:
 - name: Primary publication for the California grassland precipitation legacy
     community
