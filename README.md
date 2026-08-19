@@ -337,26 +337,6 @@ just qc
 
 ---
 
-## Deep Research Provider Triage
-
-CommunityMech uses a community-specific version of DisMech's multi-provider
-workflow. `ecological_mechanism` prioritizes exact composition and directional
-interaction evidence; `datasets_environment` prioritizes repository-native
-accessions, ENVO context, cultivation, and perturbation metadata.
-
-```bash
-just deep-research-providers
-just deep-research-providers datasets_environment
-just deep-research-provider asta ecological_mechanism
-just research-community falcon <community-id-or-path> --dry-run
-```
-
-Triage ranks discovery, synthesis, and verification independently. Provider
-reports seed curation; taxa, strains, metabolites, conditions, causal claims,
-and dataset accessions must still resolve to the cited source.
-
----
-
 ## 🎓 Citation
 
 (TBD once published)
