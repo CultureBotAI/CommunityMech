@@ -96,6 +96,14 @@ _FULL_TEXT_BYTES = 12_000
 # Skipped with a reason rather than added to `_ACCEPTED`, because nothing is
 # being excused — there is simply no name here to look for.
 _UNINFORMATIVE_LABELS = {
+    # NCBITaxon's root-adjacent label, and the least discriminating string here.
+    # It was already being dropped, but only incidentally: `head` is "cellular",
+    # which fails the `head[0].isupper()` test. Capitalise the label and
+    # "Cellular" survives the filter and gets searched for. Two records
+    # (Wetland_Oxygen_Sulfate_GHG_Microcosm, Coastal_Forested_Wetland_Seawater_Ion)
+    # carry it today, so the skip is load-bearing and should not rest on casing.
+    "cellular",
+    "cellular organisms",
     "bacteria",
     "archaea",
     "fungi",
