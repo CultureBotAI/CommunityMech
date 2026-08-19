@@ -269,55 +269,159 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: emissions of carbon dioxide, methane, and nitrous oxide
     explanation: Supports greenhouse gas endpoints.
-growth_media: []
+growth_media:
+- name: artificial seawater (Kester et al. recipe) at 5 ppt, and its sulfate-free and sulfate-only variants
+  composition:
+  - name: sodium chloride
+    concentration: 3.421
+    unit: g/L
+    chebi_term:
+      preferred_term: sodium chloride
+      term:
+        id: CHEBI:26710
+        label: sodium chloride
+  - name: potassium sulfate
+    concentration: 0.573
+    unit: g/L
+    chebi_term:
+      preferred_term: potassium sulfate
+      term:
+        id: CHEBI:32036
+        label: potassium sulfate
+  - name: potassium chloride
+    concentration: 0.097
+    unit: g/L
+  - name: sodium bicarbonate
+    concentration: 0.028
+    unit: g/L
+    chebi_term:
+      preferred_term: sodium bicarbonate
+      term:
+        id: CHEBI:32139
+        label: sodium hydrogencarbonate
+  - name: potassium bromide
+    concentration: 0.001
+    unit: g/L
+  - name: boric acid
+    concentration: 0.004
+    unit: g/L
+  - name: sodium fluoride
+    concentration: 0.429
+    unit: mg/L
+  - name: magnesium chloride hexahydrate (1 M stock)
+    concentration: 8.15
+    unit: mL/L
+  - name: calcium chloride dihydrate (1 M stock)
+    concentration: 1.601
+    unit: mL/L
+  - name: strontium chloride hexahydrate (0.1 M stock)
+    concentration: 0.13
+    unit: mL/L
+  salinity: 5
+  salinity_unit: ppt
+  inoculum_source: intact soil cores from the Timberlake Observatory for Wetland Restoration, North Carolina
+    (35 54 22 N, 76 09 25 W), a restored forested freshwater wetland on Eutric Histosol under Atlantic
+    white cedar, collected 2011
+  incubation_time: 12
+  incubation_time_unit: wk
+  vessel_type: intact soil core, 2.5 cm diameter x 30 cm deep, with a gas-tight Swagelok-ported lid for
+    flux sampling
+  preparation_notes: 'Four treatments: deionized water (control), artificial seawater (+ASW), ASW without
+    sulfate (+ASW-SO4) and sulfate only (+SO4). In +ASW-SO4 the omitted K2SO4 was replaced with equivalent
+    additional NaCl and KCl, which is what isolates the sulfate effect from the other seawater ions. The
+    composition above is the full +ASW medium. NO INCUBATION TEMPERATURE, pH, LIGHT REGIME OR ATMOSPHERE
+    IS REPORTED in the source, so those fields are left unset rather than inferred. The cores were fitted
+    with a gas-tight lid only to measure fluxes, so they were not held under a defined headspace and `atmosphere`
+    is unset rather than ANAEROBIC (#644); the cores are the growth substrate and the inoculum together,
+    so there is no separate formulated growth medium.'
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Laboratory microcosms were started with intact soil cores 2.5\_cm in diameter and 30-cm\
+      \ deep, which then received either deionized water (control), artificial seawater (+ASW), artificial\
+      \ seawater without sulfate (+ASW-SO4), and sulfate only (+SO4)."
+    explanation: Gives the microcosm construction and the four treatments.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "adjusted to 5-ppt salinity. The recipe (in g/L unless otherwise stated) was as follows:\
+      \ 3.421 NaCl, 0.573 K2SO4, 0.097 KCl, 0.028 NaHCO3, 0.001 KBr, 0.004 H3BO3, 0.429\_mg/L NaF, 8.15\_\
+      mL MgCl2-6H2O (1\_M), 1.601\_mL CaCl2-2H2O (1\_M), 0.130\_mL SrCl2-6H2O (0.1\_M)."
+    explanation: 'Gives the artificial-seawater recipe and its 5-ppt salinity. Span starts after the ''[
+      50 ]'' citation marker on purpose: validate-references strips bracketed text before matching and
+      then reports the wreckage as absent (#622), so a span containing a citation cannot validate.'
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the ASW-SO4 treatment, the absent K2SO4 was replaced with an equivalent amount of additional
+      NaCl and KCl.
+    explanation: Gives the substitution that makes the sulfate-free treatment ion-matched.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Soil cores were collected in 2011 from the Timberlake Observatory for Wetland Restoration\
+      \ in North Carolina, USA (35\xB054\u203222\u2032\u2032 N, 76\xB009\u203225\u2032\u2032 W, 0-m elevation),\
+      \ a forested freshwater wetland in the Alligator River estuary that connects to the Albemarle Sound."
+    explanation: Gives the source of the soil cores.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The collection site is characterized by Eutric Histosol soils and Atlantic white cedar vegetation
+    explanation: Gives the soil type and vegetation of the collection site.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The experiment proceeded for 12\_weeks, after which soils from 0- to 5-cm depth and 10-\
+      \ to 15-cm depth profiles were collected, a portion stored at \u221220\xB0C for DNA sequencing,\
+      \ and another aliquot analyzed for porewater and soil biogeochemistry."
+    explanation: Gives the 12-week duration.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 'Static laboratory microcosms: intact soil cores 2.5 cm diameter by 30 cm deep, water
+    level held at the soil surface and topped up every 2 days with the appropriate solution, water column
+    unmixed. For flux measurement each core was fitted with a gas-tight lid carrying a Swagelok brass
+    sampling port with a 0.6 cm rubber septum; headspace was sampled at 0 and 1 h into evacuated 8 mL
+    vials.'
+  working_volume: 147
+  working_volume_unit: mL
+  notes: 'system_type is OTHER because no CultivationSystemEnum value denotes an intact soil core. working_volume
+    is the core''s geometric volume (pi x 1.25^2 x 30 cm = ~147 cm3), not a reported figure -- the source
+    gives dimensions rather than a volume. The manipulation is the water chemistry, not the vessel: this
+    is a static incubation, so there is no feed, dilution or retention time to record.'
+  controls_notes: 'The source reports no incubation temperature, no pH and no dissolved-oxygen control.
+    All three of temperature_controlled, ph_controlled and do_controlled are therefore left UNSET rather
+    than false: false would assert that temperature was not controlled, which is a finding the source
+    does not support, and an absence recorded as a finding is the #183 failure mode (#644).'
+  evidence:
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Laboratory microcosms were started with intact soil cores 2.5\_cm in diameter and 30-cm\
+      \ deep, which then received either deionized water (control), artificial seawater (+ASW), artificial\
+      \ seawater without sulfate (+ASW-SO4), and sulfate only (+SO4)."
+    explanation: Gives the core dimensions and the treatment structure.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Water level was maintained at the soil surface; this was monitored every 2\_days and refilled\
+      \ as necessary with the appropriate solution. The water column was not mixed."
+    explanation: Gives the water-level maintenance and that the column was unmixed.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To measure CO2, CH4, and N2O, cores were fitted with a gas tight lid with a Swagelok brass
+      sampling port with a rubber septum (0.6
+    explanation: Gives the gas-tight lid and sampling port used for flux measurement.
+  - reference: PMID:38628812
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The experiment proceeded for 12\_weeks, after which soils from 0- to 5-cm depth and 10-\
+      \ to 15-cm depth profiles were collected, a portion stored at \u221220\xB0C for DNA sequencing,\
+      \ and another aliquot analyzed for porewater and soil biogeochemistry."
+    explanation: Gives the incubation length.
 related_ingredients:
-- preferred_term: sulfate
-  chebi_term:
-    id: CHEBI:16189
-    label: sulfate
-  relevance: Sulfate is the explicitly manipulated ion in this microcosm
-    experiment; an environment-analog cultivation medium for this community
-    would need sulfate as a controllable variable rather than a fixed
-    background anion, since the study disentangles sulfate effects from other
-    seawater ions on the community.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: tease apart the effects of sulfate from other seawater ions
-    explanation: Anchors sulfate as the central controllable environmental
-      variable for any medium designed to dogfood this community.
-- preferred_term: seawater ions
-  chebi_term:
-    id: CHEBI:26710
-    label: sodium chloride
-  relevance: Artificial-seawater ions (NaCl as the representative bulk salt)
-    drove the community shifts and GHG emission changes more strongly than
-    sulfate alone; any cultivation medium for this community would need a
-    seawater-equivalent ion background, not just sulfate.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: other ions present in seawater, not sulfate, drive ecological and
-      biogeochemical responses to seawater intrusion
-    explanation: Anchors NaCl-dominated artificial seawater (representative
-      bulk seawater-ion mixture) as the primary driver of community responses.
-- preferred_term: methane
-  chebi_term:
-    id: CHEBI:16183
-    label: methane
-  relevance: Methane is one of the headline greenhouse gas emission endpoints
-    monitored across all microcosm treatments; an environment-analog medium
-    targeting this community would need methane in the headspace as a key
-    quantitative endpoint.
-  evidence:
-  - reference: PMID:38628812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: emissions of carbon dioxide, methane, and nitrous oxide
-    explanation: Anchors methane as a measured greenhouse gas endpoint of this
-      microcosm community.
 associated_datasets: []
 external_resources:
 - name: Primary publication for coastal forested wetland seawater-ion microcosms

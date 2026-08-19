@@ -145,3 +145,52 @@ def test_the_stream_rewrites_only_the_note(annotator, capsys, monkeypatch):
     assert "absent from the cached full text" in error_line
     assert "Location: taxonomy[0]" in out, "unrelated lines must survive"
     assert "[ERROR] Text part not found as substring: 'absent phrase'" in out
+
+
+def test_a_bracket_gap_survives_non_breaking_spaces_in_the_source(annotator):
+    """The #642 case: the gap is real but the fragments carry U+00A0.
+
+    Every other test in this file uses plain spaces, which is precisely why the
+    branch looked correct while failing on real sources — many publisher
+    extractions put a non-breaking space between value and unit. `cached()`
+    normalises the cache, so an un-normalised fragment is looked up in text that
+    no longer contains U+00A0 and is never found.
+    """
+    module, cache = annotator
+    _write(
+        cache,
+        "PMID_8.md",
+        "ASW composition followed the recipe of Kester et al. [ 50 ], adjusted to 5-ppt salinity.",
+        full_text=True,
+    )
+
+    # What the validator reports: brackets stripped, U+00A0 still present.
+    note = module.diagnose(
+        "PMID:8",
+        "ASW composition followed the recipe of Kester et al.  , adjusted to 5-ppt salinity.",
+    )
+
+    assert "#622" in note, note
+    assert "the quote is fine and the tool is not" in note
+
+
+def test_normalising_the_gap_away_would_not_be_the_fix(annotator):
+    """Collapsing whitespace kills the very signal the branch reads.
+
+    Guards the specific wrong repair: `" ".join(snippet.split())` unifies U+00A0
+    but also turns the double space into one, leaving a single fragment that
+    still lacks the stripped bracket. A snippet whose gap has been collapsed must
+    NOT be excused.
+    """
+    module, cache = annotator
+    _write(
+        cache, "PMID_9.md", "the recipe of Kester et al. [ 50 ], adjusted to 5-ppt", full_text=True
+    )
+
+    collapsed = " ".join(
+        ["the", "recipe", "of", "Kester", "et", "al.", ",", "adjusted", "to", "5-ppt"]
+    )
+    assert "  " not in collapsed
+    note = module.diagnose("PMID:9", collapsed)
+
+    assert "absent from the cached full text" in note, note

@@ -278,7 +278,123 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: microbial methane (CH4) and carbon dioxide (CO2) emissions
     explanation: Supports methane and carbon dioxide emissions as measured community outputs.
-growth_media: []
+growth_media:
+- name: freshwater wetland soil slurry, with sulfate and oxygen as the manipulated variables
+  composition:
+  - name: sulfate (added treatments only)
+    concentration: 7.2
+    unit: mM
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+  - name: dioxygen (oxic treatments only, as sterile air replacing half the gas phase)
+    chebi_term:
+      preferred_term: dioxygen
+      term:
+        id: CHEBI:15379
+        label: dioxygen
+  atmosphere: ANAEROBIC
+  headspace_gas: anaerobic chamber gas N2:H2 (97:3); in oxic treatments half the gas phase was replaced
+    by sterile air
+  inoculum_source: fresh sediment soil slurry from a seasonally flooded urban freshwater wetland connected
+    to Lake Washington, Seattle, WA (47.642196 N, -122.296236 W), cored to ~60 cm and sampled May 2022
+  inoculum_size: 40
+  inoculum_unit: g fresh sediment soil slurry per 160 mL bottle
+  temperature: 30
+  temperature_unit: "\xB0C"
+  incubation_time: 30
+  incubation_time_unit: d
+  vessel_type: 160 mL serum bottle
+  preparation_notes: 'Cores were sealed air-tight on removal to preserve redox state and processed immediately.
+    Bottles were filled inside an anaerobic chamber, preincubated five days at room temperature, then
+    held at 30 C for 30 days. Four treatments dosed every two days: anoxic no-sulfate (S-O-), anoxic sulfate
+    (S+O-, final ~7.2 mM), oxic no-sulfate (S-O+, half the gas phase replaced by sterile air) and oxic
+    sulfate (S+O+). atmosphere is ANAEROBIC because that is the base condition the microcosms were built
+    and held under; the oxic arms are a perturbation applied every two days, recorded in headspace_gas
+    rather than by relabelling the whole record aerobic. No pH is reported.'
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Triplicate soil samples were collected from a seasonally flooded urban freshwater wetland
+      connected to Lake Washington in Seattle, WA, USA (Coordinates: 47.642196oN, -122.296236oW) in May
+      2022'
+    explanation: Gives the soil source, coordinates and sampling date.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The cores were sealed air-tight upon removal from the natural habitat, to protect the redox
+      state of samples. Samples were then transported to the lab on ice, for immediate processing.
+    explanation: Gives the air-tight handling that preserved the redox state.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Microcosms were set up by filling 160\u2009mL bottles with 40\u2009g fresh sediment soil\
+      \ slurry in an anaerobic chamber. The chamber gas contained N2 : H2 (97:3)."
+    explanation: Gives bottle volume, slurry mass and the anaerobic chamber gas.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "All bottles were preincubated for five days at room temperature and then incubated at 30\u2009\
+      \xB0C for 30 days."
+    explanation: Gives the preincubation and the 30 C, 30-day incubation.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Soil microcosms were divided into four groups, with each group receiving specific treatments\
+      \ every two days: anoxic non-sulfate-addition, anoxic sulfate-addition (resulting in a final SO42-\
+      \ concentration of approximately 7.2\u2009mM), oxic non-sulfate-addition (where half of the gas\
+      \ phase was replaced by sterile air), and oxic sulfate-addition, which was treated with both SO42-\
+      \ and sterile air."
+    explanation: Gives the four treatments and the 7.2 mM sulfate endpoint.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  instrument_detail: 160 mL serum bottles each holding 40 g of fresh sediment soil slurry, assembled in
+    an anaerobic chamber under N2:H2 (97:3). Destructive sampling on days 2, 9, 16, 23 and 30, three bottles
+    per group per time point; 10 mL of gas phase drawn into Labco exetainers, then 10 mL PBS injected
+    and shaken at 200 rpm for 10 min before liquid sampling.
+  working_volume: 160
+  working_volume_unit: mL
+  operating_temperature: 30
+  operating_temperature_unit: "\xB0C"
+  temperature_controlled: true
+  controls_notes: Temperature held at 30 C after a five-day room-temperature preincubation. Oxygen was
+    manipulated rather than controlled -- half the gas phase replaced by sterile air every two days in
+    the oxic arms -- so do_controlled is left unset rather than set true. No pH control is reported.
+  notes: 'Destructive time-course: bottles were sacrificed rather than sampled repeatedly, which is why
+    there is no feed or dilution rate. The 200 rpm shaking is a sampling step, not a cultivation condition,
+    so it is not recorded as shaking_speed.'
+  evidence:
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Microcosms were set up by filling 160\u2009mL bottles with 40\u2009g fresh sediment soil\
+      \ slurry in an anaerobic chamber. The chamber gas contained N2 : H2 (97:3)."
+    explanation: Gives the bottle format, slurry mass and chamber atmosphere.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "All bottles were preincubated for five days at room temperature and then incubated at 30\u2009\
+      \xB0C for 30 days."
+    explanation: Gives the incubation temperature and duration.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sampling was conducted on days 2, 9, 16, 23, and 30, with each group sacrificing three bottles
+      for sampling at the indicated time points.
+    explanation: Gives the destructive sampling schedule.
+  - reference: PMID:38961111
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Soil microcosms were divided into four groups, with each group receiving specific treatments\
+      \ every two days: anoxic non-sulfate-addition, anoxic sulfate-addition (resulting in a final SO42-\
+      \ concentration of approximately 7.2\u2009mM), oxic non-sulfate-addition (where half of the gas\
+      \ phase was replaced by sterile air), and oxic sulfate-addition, which was treated with both SO42-\
+      \ and sterile air."
+    explanation: Gives the treatment structure applied every two days.
 related_ingredients:
 - preferred_term: sulfate
   chebi_term:
