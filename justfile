@@ -578,6 +578,17 @@ research-provider provider:
         uv run --extra dev deep-research-client providers --provider {{provider}}
     fi
 
+# Rank providers for ecological mechanisms or dataset/environment research.
+deep-research-providers focus="ecological_mechanism" *args="":
+    uv run --extra dev python scripts/deep_research_provider.py \
+      --config conf/deep_research_provider.yaml --focus {{focus}} {{args}}
+
+# Show one provider's focus-specific fit, capabilities, and availability.
+deep-research-provider provider focus="ecological_mechanism" *args="":
+    uv run --extra dev python scripts/deep_research_provider.py \
+      --config conf/deep_research_provider.yaml --provider {{provider}} \
+      --focus {{focus}} {{args}}
+
 # Generate LLM-assisted repair suggestions for all communities
 suggest-network-repairs:
     uv run communitymech repair-network-batch --report-only
