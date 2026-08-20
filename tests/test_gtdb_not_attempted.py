@@ -55,8 +55,16 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 REPO = pathlib.Path(__file__).parent.parent
-RECORD_DIRS = ("kb/communities", "data/isolates")
+# Where a gtdb_classification can be, taken from the schema rather than habit:
+# TaxonDescriptor carries the GTDB slots and hangs off BOTH
+# MicrobialCommunity.taxonomy[].taxon_term and CommonTaxon.taxon_term. CommonTaxon
+# records live in kb/taxa, which this list omitted -- harmlessly, but only because
+# kb/taxa holds 0 gtdb_classification blocks today (#656).
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 
 # (record, preferred_term) -> why it stays ungrounded.
 HELD = {
@@ -98,8 +106,7 @@ def _entry(record: str, preferred: str) -> dict:
         if not path.exists():
             continue
         document = yaml.safe_load(path.read_text()) or {}
-        for item in document.get("taxonomy") or []:
-            block = (item or {}).get("taxon_term") or {}
+        for block in iter_taxon_descriptors(document):
             if block.get("preferred_term") == preferred:
                 return block
     raise AssertionError(f"{preferred!r} is gone from {record}")
@@ -149,8 +156,7 @@ def test_no_taxon_is_silently_outstanding():
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             document = yaml.safe_load(path.read_text()) or {}
-            for item in document.get("taxonomy") or []:
-                block = (item or {}).get("taxon_term") or {}
+            for block in iter_taxon_descriptors(document):
                 if block.get("gtdb_grounding_status") != "NOT_ATTEMPTED":
                     continue
                 key = (path.name, block.get("preferred_term"))

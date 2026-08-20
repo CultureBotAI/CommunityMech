@@ -30,11 +30,19 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 REPO = Path(__file__).parent.parent
 # `data/isolates/` uses the same `taxonomy[].taxon_term` shape and carries no
 # grounding today, but a grounded isolate would otherwise slip past unseen — the
 # directory has been outside a gate's scope once already (#310).
-RECORD_DIRS = ("kb/communities", "data/isolates")
+# Where a gtdb_classification can be, taken from the schema rather than habit:
+# TaxonDescriptor carries the GTDB slots and hangs off BOTH
+# MicrobialCommunity.taxonomy[].taxon_term and CommonTaxon.taxon_term. CommonTaxon
+# records live in kb/taxa, which this list omitted -- harmlessly, but only because
+# kb/taxa holds 0 gtdb_classification blocks today (#656).
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 
 
 def _grounded_taxa():
@@ -43,10 +51,7 @@ def _grounded_taxa():
     paths = [p for d in RECORD_DIRS for p in sorted((REPO / d).glob("*.yaml"))]
     for path in paths:
         data = yaml.safe_load(path.read_text()) or {}
-        for taxon in data.get("taxonomy") or []:
-            if not isinstance(taxon, dict):
-                continue
-            term_block = taxon.get("taxon_term") or {}
+        for term_block in iter_taxon_descriptors(data):
             grounding = term_block.get("gtdb_classification")
             if not grounding:
                 continue
