@@ -29,7 +29,26 @@ import pathlib
 import yaml
 
 REPO = pathlib.Path(__file__).parent.parent
-RECORD_DIRS = ("kb/communities", "kb/taxa", "data/isolates")
+
+
+def _record_dirs() -> list[str]:
+    """Record directories, read from the id/label gate's config rather than listed.
+
+    The repo already spells this set out in six separate places and they
+    disagree — three GTDB tests omit `kb/taxa` (#656). A seventh hardcoded copy
+    would mean a new record surface is silently unguarded here too, which is the
+    "list that cannot notice a new member" failure this repo keeps hitting
+    (#635, #471, #630).
+
+    `conf/id_label_targets.yaml` enumerates the surfaces carrying curated
+    (id, label) pairs and is loaded by a blocking gate, so it is the closest
+    thing to a canonical list. Its non-YAML target (the KGX TSV export) is
+    dropped: it holds no snippets.
+    """
+    config = yaml.safe_load((REPO / "conf/id_label_targets.yaml").read_text(encoding="utf-8"))
+    globs = [t["glob"] for t in config["targets"] if t.get("glob", "").endswith(".yaml")]
+    return sorted({glob.rsplit("/", 1)[0] for glob in globs})
+
 
 # Snippets that already contain a bracket, with what is known about each. Keyed
 # by (record, the bracketed fragment) so a DIFFERENT bracketed snippet in the
@@ -58,7 +77,7 @@ _KNOWN_BRACKETED = {
 def _snippets() -> list[tuple[str, str]]:
     """(record filename, snippet) for every snippet in the KB."""
     found = []
-    for directory in RECORD_DIRS:
+    for directory in _record_dirs():
         for path in sorted((REPO / directory).glob("*.yaml")):
             document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
             stack = [document]
@@ -120,3 +139,18 @@ def test_every_known_bracketed_snippet_still_exists():
         "and should be removed (or #622 is fixed and this whole file should go):\n"
         + "\n".join(stale)
     )
+
+
+def test_the_record_directories_come_from_config_and_are_real():
+    """The derivation in #656 is now the untested part, so test it.
+
+    Guards both ends: that the config still yields the surfaces this gate must
+    walk, and that each one exists. A config edit that dropped a directory would
+    otherwise shrink this gate's coverage silently.
+    """
+    directories = _record_dirs()
+    assert set(directories) == {"kb/communities", "kb/taxa", "data/isolates"}, directories
+    for directory in directories:
+        path = REPO / directory
+        assert path.is_dir(), f"{directory} is configured but does not exist"
+        assert list(path.glob("*.yaml")), f"{directory} holds no YAML records"
