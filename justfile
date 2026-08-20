@@ -102,6 +102,17 @@ audit-writers *args:
 cache-fulltext *pmids:
     PYTHONPATH=src uv run python scripts/cache_fulltext.py {{pmids}}
 
+# Cache the text of a paper's SUPPLEMENTARY files (#653). Open access does not
+# mean the Methods are accessible: a Letter-format article can be fully OA, fully
+# cached and 30 KB while every Method sits in a supplementary .docx. Written to
+# <stem>.supplement.md, NEVER appended to the article cache -- validate-references
+# matches snippets against that file, so mixing the two would let a snippet
+# validate against text that is not the article. e.g.:
+#   just cache-supplements PMID:42099455
+#   just cache-supplements --list PMID:42099455     # show members, write nothing
+cache-supplements *refs:
+    PYTHONPATH=src uv run python scripts/cache_supplements.py {{refs}}
+
 # Validate evidence references in a community file.
 #
 # NB on the output (issue #257): the tool's "Total checks: N" line counts

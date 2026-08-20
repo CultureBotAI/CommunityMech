@@ -42,6 +42,12 @@ REPO = pathlib.Path(__file__).parent.parent
 # Writes YAML, but not a curated community record — so there is no record whose
 # history it could belong to.
 _EXEMPT = {
+    "scripts/cache_supplements.py": (
+        "writes references_cache/<stem>.supplement.md, not kb records — it "
+        "retrieves a paper's supplementary text and never edits a record. It is "
+        "deliberately kept out of the article cache too, so it cannot alter what "
+        "validate-references matches against (#653)"
+    ),
     "scripts/enrich_edison_response.py": "writes research/communities, not kb records",
     "scripts/research_community_edison.py": "writes research/communities, not kb records",
     "scripts/suggest_related_ingredients.py": "writes data/ingredients, not kb records",
