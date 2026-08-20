@@ -34,8 +34,16 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 REPO = pathlib.Path(__file__).parent.parent
-RECORD_DIRS = ("kb/communities", "data/isolates")
+# Where a gtdb_classification can be, taken from the schema rather than habit:
+# TaxonDescriptor carries the GTDB slots and hangs off BOTH
+# MicrobialCommunity.taxonomy[].taxon_term and CommonTaxon.taxon_term. CommonTaxon
+# records live in kb/taxa, which this list omitted -- harmlessly, but only because
+# kb/taxa holds 0 gtdb_classification blocks today (#656).
+RECORD_DIRS = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
 
 
 @pytest.fixture(scope="module")
@@ -63,8 +71,7 @@ def _grounded_taxa():
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             document = yaml.safe_load(path.read_text()) or {}
-            for entry in document.get("taxonomy") or []:
-                block = (entry or {}).get("taxon_term") or {}
+            for block in iter_taxon_descriptors(document):
                 grounding = block.get("gtdb_classification")
                 term = block.get("term")
                 if not isinstance(grounding, dict) or not isinstance(term, dict):
@@ -142,8 +149,7 @@ def test_every_curated_block_says_why():
     for directory in RECORD_DIRS:
         for path in sorted((REPO / directory).glob("*.yaml")):
             document = yaml.safe_load(path.read_text()) or {}
-            for entry in document.get("taxonomy") or []:
-                block = (entry or {}).get("taxon_term") or {}
+            for block in iter_taxon_descriptors(document):
                 grounding = block.get("gtdb_classification")
                 if not isinstance(grounding, dict):
                     continue

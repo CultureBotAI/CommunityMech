@@ -33,7 +33,7 @@ import pathlib
 import pytest
 import yaml
 
-from communitymech.paths import default_record_roots
+from communitymech.paths import default_record_roots, taxon_descriptor_roots
 
 REPO = pathlib.Path(__file__).parent.parent
 WORKFLOW = REPO / ".github/workflows/network-quality.yml"
@@ -190,3 +190,58 @@ def test_no_constructor_hardcodes_the_old_root():
         "`default_record_roots()` at the call site and silently narrows what "
         "gets audited (#350, #521):\n" + "\n".join(offenders)
     )
+
+
+def test_the_gtdb_gates_sweep_every_root_a_grounding_can_live_in():
+    """A GTDB gate that skips a root reports clean on what it never read (#656).
+
+    Three gates carried their own `RECORD_DIRS = ("kb/communities",
+    "data/isolates")`. The schema does not agree: `gtdb_classification` lives on
+    `TaxonDescriptor`, which hangs off `CommonTaxon.taxon_term` as well as
+    `MicrobialCommunity.taxonomy[].taxon_term`, and `CommonTaxon` records live in
+    `kb/taxa`. The omission was invisible because `kb/taxa` holds no groundings
+    yet — so the gates found nothing either way.
+
+    Asserted positively, on the value each module computes, rather than by
+    grepping for the old literal: a file that stopped defining `RECORD_DIRS`
+    entirely would pass a negative check.
+    """
+    import importlib.util
+
+    expected = tuple(str(p.relative_to(REPO)) for p in taxon_descriptor_roots())
+    modules = (
+        "test_gtdb_grounding_freshness",
+        "test_gtdb_not_attempted",
+        "test_gtdb_uncurated_blocks_match_the_tool",
+    )
+    wrong = {}
+    for name in modules:
+        spec = importlib.util.spec_from_file_location(name, REPO / f"tests/{name}.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        actual = tuple(getattr(module, "RECORD_DIRS", ()))
+        if actual != expected:
+            wrong[name] = actual
+
+    assert not wrong, (
+        f"these GTDB gates do not sweep every root a grounding can live in. "
+        f"Expected {expected}, got {wrong}. Use `taxon_descriptor_roots()` (#656)."
+    )
+
+
+def test_the_two_root_lists_stay_distinct():
+    """Widening `default_record_roots()` would be the wrong fix (#656).
+
+    `kb/taxa` holds `CommonTaxon`, not `MicrobialCommunity`. Callers that mean
+    community records — the network auditor, `validate_strict` — must not begin
+    sweeping a different root class because a GTDB gate needed a wider list.
+    """
+    community = default_record_roots()
+    descriptor = taxon_descriptor_roots()
+
+    assert (REPO / "kb/taxa") not in community, (
+        "`default_record_roots()` now includes kb/taxa, which holds CommonTaxon "
+        "records; the network auditor and validate_strict would sweep a root "
+        "class they do not model"
+    )
+    assert set(community) < set(descriptor), "the descriptor roots must be a strict superset"

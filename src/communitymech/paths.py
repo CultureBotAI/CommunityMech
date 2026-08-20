@@ -36,6 +36,7 @@ REPORTS = REPO_ROOT / "reports"
 DOCS = REPO_ROOT / "docs"
 KB_COMMUNITIES = REPO_ROOT / "kb" / "communities"
 DATA_ISOLATES = REPO_ROOT / "data" / "isolates"
+KB_TAXA = REPO_ROOT / "kb" / "taxa"
 
 
 def default_record_roots() -> list[Path]:
@@ -53,6 +54,33 @@ def default_record_roots() -> list[Path]:
     copies that made the drift invisible.
     """
     return [KB_COMMUNITIES, DATA_ISOLATES]
+
+
+def taxon_descriptor_roots() -> list[Path]:
+    """Every directory whose records can carry a `TaxonDescriptor` (#656).
+
+    A superset of `default_record_roots()`, and a different question. That list
+    answers "where do `MicrobialCommunity` records live"; this one answers "where
+    can a `gtdb_classification` be", which the schema decides:
+
+        MicrobialCommunity.taxonomy[].taxon_term -> TaxonDescriptor
+        CommonTaxon.taxon_term                   -> TaxonDescriptor
+
+    and `TaxonDescriptor` carries `gtdb_grounding_status`, `gtdb_candidates` and
+    `gtdb_classification`. `CommonTaxon` records live in `kb/taxa`, so a GTDB
+    gate that sweeps only the community roots cannot see a grounding there.
+
+    Three such gates did exactly that, each with its own
+    `RECORD_DIRS = ("kb/communities", "data/isolates")`. It was harmless only by
+    accident: `kb/taxa` holds 2 records with 0 `gtdb_classification` blocks
+    today, so there was nothing to miss. The first taxon record to gain one would
+    have been skipped by all three, silently and with a clean report.
+
+    Kept separate from `default_record_roots()` rather than widening it: callers
+    that mean "community records" — the network auditor, `validate_strict` — must
+    not start sweeping a different root class by side effect.
+    """
+    return [KB_COMMUNITIES, DATA_ISOLATES, KB_TAXA]
 
 
 def looks_like_a_checkout() -> bool:
