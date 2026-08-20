@@ -226,6 +226,9 @@ PROVIDERS: dict[str, Provider] = {
 }
 
 ALIASES = {"edison": "falcon", "futurehouse": "falcon", "claude-code": "claude_code"}
+_ALL_CAPABILITIES = frozenset(
+    cap for provider in PROVIDERS.values() for cap in provider.capabilities
+)
 COST_VALUE = {"low": 1, "medium": 2, "high": 3, "very_high": 4}
 TIME_VALUE = {"fast": 1, "medium": 2, "slow": 3, "very_slow": 4}
 SYNTHESIS_VALUE = {"none": 0, "summary": 1, "deep": 2, "agentic": 3}
@@ -296,6 +299,13 @@ def load_config(path: Path) -> dict[str, Any]:
             capabilities = stage.get("capabilities", {})
             if not isinstance(capabilities, dict):
                 raise ValueError(f"Stage {focus_name}.{stage_name}.capabilities must be a mapping")
+            unknown_caps = set(capabilities) - _ALL_CAPABILITIES
+            if unknown_caps:
+                raise ValueError(
+                    f"Stage {focus_name}.{stage_name}.capabilities names unknown "
+                    f"capability/ies {sorted(unknown_caps)}; no provider declares "
+                    f"them, so they would silently score 0"
+                )
         adjustments = focus.get("provider_adjustments")
         if adjustments is not None:
             if not isinstance(adjustments, dict):
@@ -339,7 +349,14 @@ def rank_stage(config: Mapping[str, Any], focus_name: str, stage_name: str) -> l
     stage = focus["stages"][stage_name]
     adjustments = focus.get("provider_adjustments", {})
     raw = {name: _score(provider, stage, adjustments) for name, provider in PROVIDERS.items()}
-    high = max(raw.values()) or 1.0
+    # `or 1.0` only guards an exact-zero max; a large negative
+    # provider_adjustments value can push every score negative, leaving
+    # `high` negative too. Every fit then clamps to 0 (max(0.0, raw[name])
+    # below), collapsing the ranking to alphabetical order instead of the
+    # intended relative comparison. Guard the sign, not just falsiness.
+    high = max(raw.values())
+    if high <= 0:
+        high = 1.0
     rows = []
     for name, provider in PROVIDERS.items():
         status, reason = provider_status(name)
