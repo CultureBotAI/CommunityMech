@@ -297,9 +297,70 @@ related_ingredients:
     snippet: methane is generated both from bacterial methylphosphonate degradation and archaeal methanogenesis
     explanation: Names methylphosphonate as the bacterial substrate for one methane-generating pathway.
 growth_media:
-- name: Pond R2 water as culture medium, with soil slurry and a single added methanogenic substrate
+- name: Pond R2 water with soil slurry, no substrate added (control)
+  atmosphere: ANAEROBIC
+  headspace_gas: 'Type B vinyl anaerobic chamber: non-flammable hydrogen mixture (<5%), CO2 5%, N2 balance;
+    H2 falls to 0.2-0.6% during oxygen scavenging, too little to support hydrogenotrophic methanogenesis,
+    and controls without substrate showed minimal methanogenesis'
+  inoculum_source: 10-15 mL of soil from a core collected at Pond R2 (unrestored), March 2015
+  incubation_time: 14
+  incubation_time_unit: d
+  light_regime: dark
+  vessel_type: autoclaved 100 mL glass bottle, capped and crimped, held inside the anaerobic chamber
+  preparation_notes: 'Pond R2 water is the medium, not a formulation: it was equilibrated overnight in
+    the anaerobic chamber to strip oxygen, then 10-15 mL of Pond R2 soil was slurried into 15 mL of it.
+    Each bottle then received 15 mL of ONE substrate solution or pure medium, three replicates each (n
+    = 12 total). The four treatments are recorded as four media because no bottle ever held more than
+    one substrate; a single composition listing all three would describe a medium that never existed (#652).
+    atmosphere is ANAEROBIC on the stated chamber gas mix, not inferred from habitat (cf. #644, #649).
+    No chamber temperature is reported.'
+  evidence:
+  - &id001
+    reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Water collected from Pond R2 (unrestored) was used as a culture medium for a substrate addition
+      incubation experiment.
+    explanation: States that Pond R2 water served as the culture medium.
+  - &id002
+    reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The experiment was conducted in a Type B Vinyl Anaerobic Chamber (Coy Lab Products, Inc.
+      Michigan) enriched with non-flammable hydrogen gas mixture (less than 5%), CO2 (5%), and N2 (balance).
+    explanation: Gives the anaerobic chamber and its gas composition.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The hydrogen concentration is typically reduced down to 0.2\u22120.6% during oxygen scavenging\
+      \ and is not enough to support hydrogenotrophic methanogenesis."
+    explanation: Gives the residual H2 and why it cannot drive hydrogenotrophic methanogenesis.
+  - &id003
+    reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "After the water equilibrated overnight in the chamber to remove remaining oxygen, 10\u2212\
+      15\u2009mL of soil from an additional core collected from Pond R2 in March 2015 were mixed with\
+      \ 15\u2009mL culture medium to make a soil slurry, which was funneled into autoclaved 100\u2009\
+      mL glass bottles."
+    explanation: Gives oxygen removal, the soil-to-medium ratio and the bottle format.
+  - &id004
+    reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Fifteen milliliters solutions of trimethylamine (15\u2009mM), methanol (20\u2009mM), acetate\
+      \ (20\u2009mM), or pure culture medium (control) were prepared and injected into the glass bottles\
+      \ with three replicates for each treatment (n\u2009=\u200912 total)."
+    explanation: Gives the three substrates, their concentrations, the control and the replication.
+  - reference: doi:10.1038/s41396-021-01067-w
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CH4 production was measured with a Picarro G2508 Cavity Ringdown Spectrometer (Picarro, Inc.
+      California) after substrate addition and every other day for two weeks.
+    explanation: Gives the two-week incubation and measurement cadence.
+- name: Pond R2 water with soil slurry, amended with trimethylamine
   composition:
-  - name: trimethylamine (one treatment)
+  - name: trimethylamine
     concentration: 15
     unit: mM
     chebi_term:
@@ -307,7 +368,30 @@ growth_media:
       term:
         id: CHEBI:18139
         label: trimethylamine
-  - name: methanol (one treatment)
+  atmosphere: ANAEROBIC
+  headspace_gas: 'Type B vinyl anaerobic chamber: non-flammable hydrogen mixture (<5%), CO2 5%, N2 balance;
+    H2 falls to 0.2-0.6% during oxygen scavenging, too little to support hydrogenotrophic methanogenesis,
+    and controls without substrate showed minimal methanogenesis'
+  inoculum_source: 10-15 mL of soil from a core collected at Pond R2 (unrestored), March 2015
+  incubation_time: 14
+  incubation_time_unit: d
+  light_regime: dark
+  vessel_type: autoclaved 100 mL glass bottle, capped and crimped, held inside the anaerobic chamber
+  preparation_notes: 'Pond R2 water is the medium, not a formulation: it was equilibrated overnight in
+    the anaerobic chamber to strip oxygen, then 10-15 mL of Pond R2 soil was slurried into 15 mL of it.
+    Each bottle then received 15 mL of ONE substrate solution or pure medium, three replicates each (n
+    = 12 total). The four treatments are recorded as four media because no bottle ever held more than
+    one substrate; a single composition listing all three would describe a medium that never existed (#652).
+    atmosphere is ANAEROBIC on the stated chamber gas mix, not inferred from habitat (cf. #644, #649).
+    No chamber temperature is reported.'
+  evidence:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+- name: Pond R2 water with soil slurry, amended with methanol
+  composition:
+  - name: methanol
     concentration: 20
     unit: mM
     chebi_term:
@@ -315,7 +399,30 @@ growth_media:
       term:
         id: CHEBI:17790
         label: methanol
-  - name: acetate (one treatment)
+  atmosphere: ANAEROBIC
+  headspace_gas: 'Type B vinyl anaerobic chamber: non-flammable hydrogen mixture (<5%), CO2 5%, N2 balance;
+    H2 falls to 0.2-0.6% during oxygen scavenging, too little to support hydrogenotrophic methanogenesis,
+    and controls without substrate showed minimal methanogenesis'
+  inoculum_source: 10-15 mL of soil from a core collected at Pond R2 (unrestored), March 2015
+  incubation_time: 14
+  incubation_time_unit: d
+  light_regime: dark
+  vessel_type: autoclaved 100 mL glass bottle, capped and crimped, held inside the anaerobic chamber
+  preparation_notes: 'Pond R2 water is the medium, not a formulation: it was equilibrated overnight in
+    the anaerobic chamber to strip oxygen, then 10-15 mL of Pond R2 soil was slurried into 15 mL of it.
+    Each bottle then received 15 mL of ONE substrate solution or pure medium, three replicates each (n
+    = 12 total). The four treatments are recorded as four media because no bottle ever held more than
+    one substrate; a single composition listing all three would describe a medium that never existed (#652).
+    atmosphere is ANAEROBIC on the stated chamber gas mix, not inferred from habitat (cf. #644, #649).
+    No chamber temperature is reported.'
+  evidence:
+  - *id001
+  - *id002
+  - *id003
+  - *id004
+- name: Pond R2 water with soil slurry, amended with acetate
+  composition:
+  - name: acetate
     concentration: 20
     unit: mM
     chebi_term:
@@ -332,53 +439,18 @@ growth_media:
   incubation_time_unit: d
   light_regime: dark
   vessel_type: autoclaved 100 mL glass bottle, capped and crimped, held inside the anaerobic chamber
-  preparation_notes: 'The medium is pond water from the site, not a formulation: water from Pond R2 was
-    equilibrated overnight in the chamber to strip oxygen, then 10-15 mL of soil was mixed with 15 mL
-    of it to make a slurry. Each bottle received 15 mL of ONE substrate -- trimethylamine 15 mM, methanol
-    20 mM, acetate 20 mM -- or pure medium as control, three replicates each (n = 12). The three substrates
-    are alternative treatments, not components of a single medium; they are listed together because the
-    schema has one composition list per medium. atmosphere is ANAEROBIC on the strength of the stated
-    chamber gas mix, not inferred from the habitat (cf. #644, #649).'
+  preparation_notes: 'Pond R2 water is the medium, not a formulation: it was equilibrated overnight in
+    the anaerobic chamber to strip oxygen, then 10-15 mL of Pond R2 soil was slurried into 15 mL of it.
+    Each bottle then received 15 mL of ONE substrate solution or pure medium, three replicates each (n
+    = 12 total). The four treatments are recorded as four media because no bottle ever held more than
+    one substrate; a single composition listing all three would describe a medium that never existed (#652).
+    atmosphere is ANAEROBIC on the stated chamber gas mix, not inferred from habitat (cf. #644, #649).
+    No chamber temperature is reported.'
   evidence:
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Water collected from Pond R2 (unrestored) was used as a culture medium for a substrate addition
-      incubation experiment.
-    explanation: States that Pond R2 water served as the culture medium.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The experiment was conducted in a Type B Vinyl Anaerobic Chamber (Coy Lab Products, Inc.
-      Michigan) enriched with non-flammable hydrogen gas mixture (less than 5%), CO2 (5%), and N2 (balance).
-    explanation: Gives the anaerobic chamber and its gas composition.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: "The hydrogen concentration is typically reduced down to 0.2\u22120.6% during oxygen scavenging\
-      \ and is not enough to support hydrogenotrophic methanogenesis."
-    explanation: Gives the residual H2 and why it cannot drive hydrogenotrophic methanogenesis.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: "After the water equilibrated overnight in the chamber to remove remaining oxygen, 10\u2212\
-      15\u2009mL of soil from an additional core collected from Pond R2 in March 2015 were mixed with\
-      \ 15\u2009mL culture medium to make a soil slurry, which was funneled into autoclaved 100\u2009\
-      mL glass bottles."
-    explanation: Gives oxygen removal, the soil-to-medium ratio and the bottle format.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: "Fifteen milliliters solutions of trimethylamine (15\u2009mM), methanol (20\u2009mM), acetate\
-      \ (20\u2009mM), or pure culture medium (control) were prepared and injected into the glass bottles\
-      \ with three replicates for each treatment (n\u2009=\u200912 total)."
-    explanation: Gives the three substrates, their concentrations, the control and the replication.
-  - reference: doi:10.1038/s41396-021-01067-w
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: CH4 production was measured with a Picarro G2508 Cavity Ringdown Spectrometer (Picarro, Inc.
-      California) after substrate addition and every other day for two weeks.
-    explanation: Gives the two-week incubation and measurement cadence.
+  - *id001
+  - *id002
+  - *id003
+  - *id004
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
