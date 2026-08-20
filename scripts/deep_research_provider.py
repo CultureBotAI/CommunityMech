@@ -309,6 +309,12 @@ def load_config(path: Path) -> dict[str, Any]:
                         f"provider {raw_name!r} (resolved to {name!r}); "
                         f"known providers: {', '.join(sorted(PROVIDERS))}"
                     )
+                if name in canonical:
+                    raise ValueError(
+                        f"Focus {focus_name!r}.provider_adjustments has multiple "
+                        f"keys resolving to provider {name!r} (e.g. {raw_name!r}); "
+                        f"use a single canonical key per provider"
+                    )
                 canonical[name] = value
             focus["provider_adjustments"] = canonical
     return data

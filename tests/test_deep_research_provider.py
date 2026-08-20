@@ -96,6 +96,37 @@ def test_provider_adjustments_unknown_key_is_rejected(tmp_path):
         drp.load_config(profile)
 
 
+def test_provider_adjustments_colliding_aliases_are_rejected(tmp_path):
+    """Two raw keys that canonicalize to the same provider (edison/falcon)
+    must not silently let the second overwrite the first."""
+    profile = tmp_path / "collision.yaml"
+    profile.write_text(
+        "default_focus: f\n"
+        "focuses:\n"
+        "  f:\n"
+        "    stages:\n"
+        "      discovery: {}\n"
+        "    provider_adjustments:\n"
+        "      edison: 3\n"
+        "      falcon: 5\n"
+    )
+    with pytest.raises(ValueError, match="multiple"):
+        drp.load_config(profile)
+
+
+def test_main_rejects_unknown_provider_argument():
+    focus = next(iter(drp.load_config(CONFIG_PATH)["focuses"]))
+    with pytest.raises(ValueError, match="Unknown provider"):
+        drp.main(
+            ["--config", str(CONFIG_PATH), "--focus", focus, "--provider", "not-a-real-provider"]
+        )
+
+
+def test_main_rejects_unknown_focus_argument():
+    with pytest.raises(ValueError, match="Unknown focus"):
+        drp.main(["--config", str(CONFIG_PATH), "--focus", "not-a-real-focus"])
+
+
 def test_provider_adjustment_actually_changes_rank_order(monkeypatch):
     """The canonicalization test above only checks the config-loading side;
     this proves the bonus actually reaches the score — the exact silent-no-op
