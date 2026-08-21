@@ -44,7 +44,7 @@ checked=0
 for f in "${FILES[@]}"; do
   [ -f "$f" ] || { echo "MISSING: $f not present locally"; fail=1; continue; }
   url="https://raw.githubusercontent.com/${CANON_REPO}/${REF}/${f}"
-  if ! curl -fsSL --retry 3 --retry-delay 2 --max-time 30 "$url" -o "$tmp"; then
+  if ! curl -fsSL --max-time 10 --retry 2 --retry-delay 1 --retry-max-time 15 "$url" -o "$tmp"; then
     echo "ERROR: could not fetch $f from ${CANON_REPO}@${REF:0:8} ($url)"; fail=1; continue
   fi
   # byte-exact comparison (temp file preserves the trailing newline that $() would strip)
@@ -61,7 +61,7 @@ for entry in "${MAPPED[@]}"; do
   for cand in $glob; do [ -f "$cand" ] && local="$cand" && break; done
   if [ -z "$local" ]; then echo "MISSING: no local file matching $glob"; fail=1; continue; fi
   url="https://raw.githubusercontent.com/${CANON_REPO}/${REF}/${hubf}"
-  if ! curl -fsSL --retry 3 --retry-delay 2 --max-time 30 "$url" -o "$tmp"; then
+  if ! curl -fsSL --max-time 10 --retry 2 --retry-delay 1 --retry-max-time 15 "$url" -o "$tmp"; then
     echo "ERROR: could not fetch $hubf from ${CANON_REPO}@${REF:0:8} ($url)"; fail=1; continue
   fi
   if ! cmp -s "$tmp" "$local"; then
