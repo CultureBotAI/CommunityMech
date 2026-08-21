@@ -235,3 +235,142 @@ environmental_factors:
     snippet: boosts yield without super nodulation penalty in 325 sites of 19 provinces
     explanation: Establishes the field scale of the evaluation and that yield was checked against a
       super-nodulation trade-off.
+growth_media:
+- name: peanut medium, for the ARC/A. flavus co-culture
+  composition:
+  - name: potato infusion
+    concentration: 200
+    unit: g/L
+  - name: dextrose
+    concentration: 20
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: peanut flour
+    concentration: 1.5
+    unit: g/L
+  temperature: 28
+  temperature_unit: "\xB0C"
+  atmosphere: AEROBIC
+  shaking_speed: 200
+  shaking_speed_unit: rpm
+  incubation_time: 4
+  incubation_time_unit: d
+  vessel_type: 100 mL flask containing 15 mL of medium
+  preparation_notes: 'Autoclaved 20 min at 121 C. This is the medium in which the SynCom meets its target:
+    A. flavus at 5x10^5 spores/mL and the bacterial strain at 1x10^7 CFU/mL, with an A. flavus-only control.
+    Quoted from the SUPPLEMENTARY methods, which is where this paper puts them -- the article body says
+    only ''Co-cultured with A. flavus in liquid medium''. That text is appended to the reference cache
+    under its own marker so the quote validates (#653).'
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: And then A. flavus was mixed with the bacteria strain in a 100-mL flask containing 15 mL
+      of peanut medium (potato 200 g/L, dextrose 20 g/L, and peanut flour 1.5 g/L; autoclaved for 20 min
+      at 121
+    explanation: Gives the co-culture vessel and the peanut-medium composition.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The final concentrations of A. flavus was 5\xD7105 spores/mL and that of the bacterial strain\
+      \ was 1\xD7107 colony-forming units (CFU)/mL."
+    explanation: Gives the inoculation densities of both partners and the control.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixtures were incubated with constant shaking (200 rpm) for 4 d.
+    explanation: Gives the shaking speed and 4-day duration.
+- name: LB medium, for the ARC bacterial strains
+  temperature: 28
+  temperature_unit: "\xB0C"
+  atmosphere: AEROBIC
+  shaking_speed: 200
+  shaking_speed_unit: rpm
+  incubation_time: 24
+  incubation_time_unit: h
+  preparation_notes: Grown to provide the bacterial partner, then counted by plate count. Pure isolates
+    were separately held in LB broth at 28 C and 180 rpm to logarithmic phase before glycerol storage
+    -- a different speed, kept in prose rather than overwriting the co-culture figure. Quoted from the
+    SUPPLEMENTARY methods, which is where this paper puts them -- the article body says only 'Co-cultured
+    with A. flavus in liquid medium'. That text is appended to the reference cache under its own marker
+    so the quote validates (#653).
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Bacteria strain was grown in LB medium for 24 h at 28 \u02DAC with shaking at 200 rpm."
+    explanation: Gives the LB medium, temperature, shaking speed and duration.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Pure isolates were cultured in LB broth at 28\xB0C with shaking at 180 rpm to the logarithmic\
+      \ phase, mixed 1:1 with 50% sterile glycerol, and stored at "
+    explanation: Gives the separate isolate-maintenance regime at 180 rpm.
+- name: TY medium, for Bradyrhizobium
+  composition:
+  - name: tryptone
+    concentration: 5
+    unit: g/L
+  - name: yeast extract
+    concentration: 3
+    unit: g/L
+  - name: calcium chloride
+    concentration: 10
+    unit: mM
+    chebi_term:
+      preferred_term: calcium dichloride
+      term:
+        id: CHEBI:3312
+        label: calcium dichloride
+  ph: 7.0
+  temperature: 28
+  temperature_unit: "\xB0C"
+  atmosphere: AEROBIC
+  preparation_notes: The rhizobial partner is grown apart from the SynCom and from A. flavus; its own
+    medium because no vessel held all three. Quoted from the SUPPLEMENTARY methods, which is where this
+    paper puts them -- the article body says only 'Co-cultured with A. flavus in liquid medium'. That
+    text is appended to the reference cache under its own marker so the quote validates (#653).
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The Bradyrhizobium strain was grown in TY medium (5 g/L tryptone, 3 g/L yeast extract, 10
+      mM CaCl2, pH 7.0) at 28
+    explanation: Gives the TY composition, pH and temperature.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: 100 mL flask holding 15 mL of peanut medium, incubated with constant shaking at 200
+    rpm for 4 days at 28 C. A. flavus at 5x10^5 spores/mL met the bacterial strain at 1x10^7 CFU/mL, against
+    an A. flavus-only control.
+  working_volume: 15
+  working_volume_unit: mL
+  operating_temperature: 28
+  operating_temperature_unit: "\xB0C"
+  notes: 'Three media are recorded because the partners were raised apart: LB for the ARC strains, TY
+    for Bradyrhizobium, peanut medium for the confrontation itself. Every figure comes from the supplementary
+    methods; the article body states no medium at all. ph_controlled and do_controlled are unset -- a
+    shaken flask has neither.'
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: And then A. flavus was mixed with the bacteria strain in a 100-mL flask containing 15 mL
+      of peanut medium (potato 200 g/L, dextrose 20 g/L, and peanut flour 1.5 g/L; autoclaved for 20 min
+      at 121
+    explanation: Gives the flask and working volume.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixtures were incubated with constant shaking (200 rpm) for 4 d.
+    explanation: Gives shaking and duration.
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The final concentrations of A. flavus was 5\xD7105 spores/mL and that of the bacterial strain\
+      \ was 1\xD7107 colony-forming units (CFU)/mL."
+    explanation: Gives what was inoculated at what density.

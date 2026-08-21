@@ -19,12 +19,19 @@ present: it has cached full text, passes the full-text-marker check, and is 30 K
 That is why #653 called supplement retrieval the higher-value capability -- more
 so than further full-text fetching, since these articles are already open.
 
-**Supplement text is cached to its own file**, `<stem>.supplement.md`, never
-appended to the article cache. Two reasons, both learned the hard way here:
-`validate-references` matches snippets against the article cache, so mixing
-supplement prose into it would let a snippet "validate" against text that is not
-the article; and a classifier that knows only some markers has twice deleted real
-full text it did not recognise. A separate file cannot be mistaken for either.
+Supplement text is cached to its own file, `<stem>.supplement.md`. That file is
+the retrieval artefact and is what gets committed.
+
+`--append` additionally copies it into the article cache, under its own marker,
+which is what makes a supplement-backed snippet **validatable**: the reference
+validator only ever reads the article cache. The curation decision that
+supplementary text may back a snippet was made deliberately (the supplement is
+part of the publication); the marker keeps the provenance visible, so a reader
+can always tell which part of the paper a quote came from.
+
+Appending targets whichever file the validator actually reads -- `.md` if it
+exists, else the legacy `.txt` -- because appending to the other one is silently
+ignored at validation time, exactly as `cache_fulltext._cache_path` documents.
 
 Only text actually retrieved is written -- never fabricated, and never inferred
 from a filename. Idempotent: an existing supplement cache is left alone unless
@@ -33,6 +40,7 @@ from a filename. Idempotent: an existing supplement cache is left alone unless
 Usage:
     uv run python scripts/cache_supplements.py PMID:42099455
     uv run python scripts/cache_supplements.py --list PMID:42099455
+    uv run python scripts/cache_supplements.py --append PMID:42099455
     uv run python scripts/cache_supplements.py --candidates
 """
 
@@ -173,6 +181,46 @@ def fetch_supplement(reference: str) -> tuple[str, list[str]]:
     return "\n\n".join(chunks), notes
 
 
+def article_cache_path(reference: str) -> Path | None:
+    """The cache file the reference validator actually reads, or None.
+
+    `.md` if present, else the legacy `.txt` -- the same rule
+    `cache_fulltext._cache_path` documents, and for the same reason: text
+    appended to the other file is silently ignored during validation, which
+    looks exactly like a snippet that does not match.
+
+    None when neither exists: appending would then CREATE a file that is not an
+    article cache, and a later reader would have no way to know the article body
+    was never there.
+    """
+    stem = reference.strip().replace(":", "_").replace("/", "_")
+    md = CACHE_DIR / f"{stem}.md"
+    if md.is_file():
+        return md
+    txt = CACHE_DIR / f"{stem}.txt"
+    return txt if txt.is_file() else None
+
+
+def append_to_article_cache(reference: str) -> str:
+    """Copy cached supplement text into the article cache so snippets validate."""
+    supplement = supplement_path(reference)
+    if not supplement.is_file():
+        return f"[skip] {reference}: no supplement cached yet; run without --append first"
+    target = article_cache_path(reference)
+    if target is None:
+        return (
+            f"[skip] {reference}: no article cache to append to. Fetch the article "
+            f"first (just cache-fulltext {reference}); creating one from a supplement "
+            f"alone would misrepresent it as the article body"
+        )
+    existing = target.read_text(encoding="utf-8", errors="replace")
+    if MARKER in existing:
+        return f"[skip] {reference}: {target.name} already carries the supplement marker"
+    body = supplement.read_text(encoding="utf-8", errors="replace")
+    target.write_text(existing.rstrip("\n") + "\n\n" + body.rstrip("\n") + "\n", encoding="utf-8")
+    return f"[ok] {reference}: appended supplement text to {target.name} ({target.stat().st_size} bytes)"
+
+
 def cache_one(reference: str, *, force: bool = False) -> str:
     path = supplement_path(reference)
     if path.is_file() and not force:
@@ -232,7 +280,7 @@ def candidates() -> int:
 
 
 def main() -> int:
-    argv = [a for a in sys.argv[1:] if a not in {"--force", "--list", "--candidates"}]
+    argv = [a for a in sys.argv[1:] if a not in {"--force", "--list", "--candidates", "--append"}]
     force = "--force" in sys.argv
     if "--candidates" in sys.argv:
         return candidates()
@@ -243,7 +291,9 @@ def main() -> int:
     failed = []
     for reference in argv:
         try:
-            if "--list" in sys.argv:
+            if "--append" in sys.argv:
+                print(append_to_article_cache(reference))
+            elif "--list" in sys.argv:
                 _, notes = fetch_supplement(reference)
                 print(f"[list] {reference}:")
                 for note in notes:
