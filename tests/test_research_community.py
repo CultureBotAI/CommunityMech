@@ -51,10 +51,6 @@ def test_build_command_for_falcon_research():
         output_file=Path(
             "research/communities/Yogurt_TwoSpecies_Starter_Culture-deep-research-falcon.md"
         ),
-        citations_file=Path(
-            "research/communities/"
-            "Yogurt_TwoSpecies_Starter_Culture-deep-research-falcon.md.citations.md"
-        ),
         variables={
             "community_name": "Yogurt Two-Species Starter Culture",
             "community_id": "CommunityMech:000164",
@@ -69,7 +65,11 @@ def test_build_command_for_falcon_research():
     ]
     assert "--provider" in command
     assert "falcon" in command
-    assert "--separate-citations" in command
+    # NO --separate-citations: the client's regex-based sidecar is malformed
+    # (see build_command's docstring comment / CultureMech's
+    # docs/RESEARCH_ARTIFACT_CONTRACT.md). The report's own References
+    # section is the trustworthy artifact.
+    assert "--separate-citations" not in command
     assert command[-2:] == ["--max-cost", "1"]
     assert not any("test-key" in arg for arg in command)
 

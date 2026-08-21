@@ -16,6 +16,18 @@ sys.modules[SPEC.name] = drp
 SPEC.loader.exec_module(drp)
 
 
+def _run_json(extra):
+    """Run main() with --json and return the parsed document."""
+    import contextlib
+    import io
+    import json
+
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        drp.main(["--config", str(CONFIG_PATH), "--json", *extra])
+    return json.loads(buf.getvalue())
+
+
 def test_profile_has_domain_specific_default_and_three_stage_triage():
     config = drp.load_config(CONFIG_PATH)
     focus = config["focuses"][config["default_focus"]]
@@ -32,7 +44,14 @@ def test_edison_aliases_resolve_to_falcon(alias):
 
 
 def test_falcon_platform_key_is_recognized_without_exposing_it():
-    status, reason = drp.provider_status("falcon", {"EDISON_PLATFORM_API_KEY": "secret"})
+    """Credential RECOGNITION, asked of `credential_status`.
+
+    `provider_status` now reports falcon as blocked whatever the credential says
+    (#290), so this has to ask the lower-level question or adding a provider to
+    KNOWN_BLOCKED would silently drop the check that its env-var aliases are
+    spelled right.
+    """
+    status, reason = drp.credential_status("falcon", {"EDISON_PLATFORM_API_KEY": "secret"})
     assert status == "available"
     assert reason == "credential configured"
     assert "secret" not in reason
@@ -64,6 +83,9 @@ def test_unknown_default_focus_is_rejected(tmp_path):
         drp.load_config(profile)
 
 
+# --- provider_adjustments / capabilities validation -------------------------
+
+
 def test_provider_adjustments_alias_key_is_canonicalized(tmp_path):
     profile = tmp_path / "aliased.yaml"
     profile.write_text(
@@ -79,6 +101,26 @@ def test_provider_adjustments_alias_key_is_canonicalized(tmp_path):
     config = drp.load_config(profile)
     adjustments = config["focuses"]["f"]["provider_adjustments"]
     assert adjustments == {"falcon": 3, "claude_code": 2}
+
+
+def test_provider_adjustments_explicit_null_is_rejected(tmp_path):
+    """focus.get("provider_adjustments", {}) only supplies the {} default
+    when the key is absent — an explicit YAML `provider_adjustments: null`
+    still returns None, which used to skip validation entirely (guarded
+    behind `if adjustments is not None:`) and crash later in
+    rank_stage/_score with AttributeError instead of this clean
+    ValueError."""
+    profile = tmp_path / "nulladj.yaml"
+    profile.write_text(
+        "default_focus: f\n"
+        "focuses:\n"
+        "  f:\n"
+        "    stages:\n"
+        "      discovery: {}\n"
+        "    provider_adjustments: null\n"
+    )
+    with pytest.raises(ValueError, match="provider_adjustments must be a mapping"):
+        drp.load_config(profile)
 
 
 def test_provider_adjustments_unknown_key_is_rejected(tmp_path):
@@ -114,33 +156,30 @@ def test_provider_adjustments_colliding_aliases_are_rejected(tmp_path):
         drp.load_config(profile)
 
 
-def test_main_rejects_unknown_provider_argument():
-    focus = next(iter(drp.load_config(CONFIG_PATH)["focuses"]))
-    with pytest.raises(ValueError, match="Unknown provider"):
-        drp.main(
-            ["--config", str(CONFIG_PATH), "--focus", focus, "--provider", "not-a-real-provider"]
-        )
-
-
-def test_main_rejects_unknown_focus_argument():
-    with pytest.raises(ValueError, match="Unknown focus"):
-        drp.main(["--config", str(CONFIG_PATH), "--focus", "not-a-real-focus"])
+def test_stage_capabilities_unknown_key_is_rejected(tmp_path):
+    profile = tmp_path / "badcap.yaml"
+    profile.write_text(
+        "default_focus: f\n"
+        "focuses:\n"
+        "  f:\n"
+        "    stages:\n"
+        "      discovery:\n"
+        "        capabilities:\n"
+        "          acadmic_search: 5\n"  # typo of "academic_search"
+    )
+    with pytest.raises(ValueError, match="unknown capability"):
+        drp.load_config(profile)
 
 
 def test_provider_adjustment_actually_changes_rank_order(monkeypatch):
-    """The canonicalization test above only checks the config-loading side;
-    this proves the bonus actually reaches the score — the exact silent-no-op
-    failure mode proteintraitsmech#487's review found."""
+    """Config-loading validation alone doesn't prove the bonus reaches the
+    ranking — this proves it does."""
     monkeypatch.setenv("ASTA_API_KEY", "test-only")
-    monkeypatch.setenv("CONSENSUS_API_KEY", "test-only")
     config = drp.load_config(CONFIG_PATH)
     focus_name = config["default_focus"]
     stage_name = next(iter(config["focuses"][focus_name]["stages"]))
 
     baseline = drp.rank_stage(config, focus_name, stage_name)
-    # Boost whichever provider ranks last, not a hardcoded name — a provider
-    # already at fit=100 (the ceiling) can't visibly increase, so the choice
-    # has to guarantee headroom regardless of this repo's specific weights.
     target = min(baseline, key=lambda row: row["fit"])["provider"]
     baseline_fit = {row["provider"]: row["fit"] for row in baseline}
 
@@ -152,29 +191,147 @@ def test_provider_adjustment_actually_changes_rank_order(monkeypatch):
     assert boosted[0]["provider"] == target
 
 
-def test_json_provider_filter_keeps_recommended_and_fallback_consistent(capsys, monkeypatch):
-    """--json --provider must not leave recommended_available/fallback_available
-    naming a provider that isn't in the filtered ranking (mediaingredientmech#412 review)."""
-    monkeypatch.setenv("CONSENSUS_API_KEY", "test-only")
-    rc = drp.main(
-        [
-            "--config",
-            str(CONFIG_PATH),
-            "--focus",
-            next(iter(drp.load_config(CONFIG_PATH)["focuses"])),
-            "--provider",
-            "consensus",
-            "--json",
-        ]
-    )
-    assert rc == 0
-    import json
+def test_exact_zero_max_score_does_not_divide_by_zero(monkeypatch):
+    """`high = max(raw.values()); if high <= 0: high = 1.0` exists to guard
+    an exact-zero max (every raw score landing at 0, e.g. through cancelling
+    adjustments) from a ZeroDivisionError. It does NOT make the ranking
+    meaningful when every score is negative — that's CultureMech#315, a
+    separate, harder problem (0.0 divided by any nonzero number, positive or
+    negative, is still 0.0, so this guard is a no-op for the negative case).
+    This test covers only what the guard actually does."""
+    monkeypatch.setenv("ASTA_API_KEY", "test-only")
+    config = drp.load_config(CONFIG_PATH)
+    focus_name = config["default_focus"]
+    stage_name = next(iter(config["focuses"][focus_name]["stages"]))
+    # Zero out every capability weight and adjustment so every raw score is
+    # exactly 0.0 — the precise edge case `or 1.0` was written for.
+    stage = config["focuses"][focus_name]["stages"][stage_name]
+    stage["capabilities"] = {}
+    stage["synthesis_weight"] = 0
+    stage["speed_weight"] = 0
+    stage["cost_weight"] = 0
+    config["focuses"][focus_name]["provider_adjustments"] = {}
 
-    payload = json.loads(capsys.readouterr().out)
-    for stage in payload["stages"]:
-        ranking_providers = {row["provider"] for row in stage["ranking"]}
-        assert ranking_providers <= {"consensus"}
-        for key in ("recommended_available", "fallback_available"):
-            entry = stage[key]
-            if entry is not None:
-                assert entry["provider"] in ranking_providers
+    rows = drp.rank_stage(config, focus_name, stage_name)  # must not raise ZeroDivisionError
+    assert all(row["fit"] == 0 for row in rows)
+
+
+# --- policy and machine-readable consistency (#290) ------------------------
+
+
+def test_a_measured_dead_provider_is_not_recommended(monkeypatch):
+    """The tool used to contradict the justfile beside it.
+
+    #284 measured falcon returning HTTP 402 and cyberian HTTP 500, and recorded
+    both in the provider table. The triage tool still routed every stage to
+    falcon, because "available" only ever meant "an env var is set".
+    """
+    status, reason = drp.provider_status("falcon", {"EDISON_API_KEY": "secret"})
+    assert status == "blocked"
+    assert "402" in reason
+    assert "secret" not in reason
+
+    # Exercise the override end-to-end through rank_stage/build_report, not
+    # just the direct provider_status() call above. With no credentials set
+    # at all every provider is "unavailable" and recommended_available is
+    # None for an unrelated reason, making an assertion against
+    # build_report() vacuous unless falcon is actually made
+    # "available"-but-blocked here.
+    monkeypatch.setenv("EDISON_API_KEY", "test-only")
+    config = drp.load_config(CONFIG_PATH)
+    report = drp.build_report(config, config["default_focus"])
+    for stage in report["stages"]:
+        falcon_row = next(row for row in stage["ranking"] if row["provider"] == "falcon")
+        assert falcon_row["status"] == "blocked"
+        # Checking recommended_available's None-or-not-blocked would still
+        # pass vacuously if nothing else happens to be available either —
+        # assert against recommendable() directly instead, which has no
+        # None-branch escape hatch.
+        assert "falcon" not in {row["provider"] for row in drp.recommendable(stage["ranking"])}
+
+
+def test_provider_filtered_json_never_recommends_a_provider_it_did_not_rank(monkeypatch):
+    """`--provider asta --json` recommended claude_code out of a document whose
+    only ranked provider was asta. The human path took a different branch, so
+    only machine consumers saw it."""
+    monkeypatch.setenv("ASTA_API_KEY", "test-only")
+    out = _run_json(["--provider", "asta"])
+    for stage in out["stages"]:
+        ranked = {row["provider"] for row in stage["ranking"]}
+        assert ranked == {"asta"}
+        recommended = stage["recommended_available"]
+        assert recommended is None or recommended["provider"] in ranked
+        fallback = stage["fallback_available"]
+        assert fallback is None or fallback["provider"] in ranked
+
+
+def test_no_paid_keeps_the_medium_cost_provider(monkeypatch):
+    """`medium` is not "paid" here: claude_code is the medium-cost provider and
+    keeping it is the point of asking."""
+    monkeypatch.setenv("ASTA_API_KEY", "test-only")
+    config = drp.load_config(CONFIG_PATH)
+    report = drp.build_report(config, config["default_focus"], no_paid=True)
+    for stage in report["stages"]:
+        recommended = stage["recommended_available"]
+        if recommended:
+            assert recommended["cost"] not in drp.PAID_COSTS
+
+
+def test_recommendable_no_paid_actually_excludes_a_high_cost_row():
+    """The test above can pass even with no_paid filtering fully removed, if
+    the ambient environment never makes a genuinely paid provider available.
+    This exercises recommendable() directly against a hand-built row set that
+    guarantees a high-cost candidate is in contention, so the filter has
+    something real to exclude."""
+    rows = [
+        {"provider": "cheap", "status": "available", "cost": "low"},
+        {"provider": "midpriced", "status": "available", "cost": "medium"},
+        {"provider": "pricey", "status": "available", "cost": "very_high"},
+    ]
+    with_paid = drp.recommendable(rows, no_paid=False)
+    without_paid = drp.recommendable(rows, no_paid=True)
+    assert {r["provider"] for r in with_paid} == {"cheap", "midpriced", "pricey"}
+    assert {r["provider"] for r in without_paid} == {"cheap", "midpriced"}
+
+
+def test_an_allowlist_confines_the_recommendation(monkeypatch):
+    monkeypatch.setenv("ASTA_API_KEY", "test-only")
+    config = drp.load_config(CONFIG_PATH)
+    report = drp.build_report(config, config["default_focus"], allow=frozenset({"asta"}))
+    for stage in report["stages"]:
+        recommended = stage["recommended_available"]
+        assert recommended is None or recommended["provider"] == "asta"
+        # The full ranking is still reported — the allowlist bounds the
+        # RECOMMENDATION, it does not hide what else exists.
+        assert len(stage["ranking"]) == len(drp.PROVIDERS)
+
+
+def test_recommendable_allow_actually_excludes_a_disallowed_row():
+    """test_an_allowlist_confines_the_recommendation above can pass even with
+    --allow filtering fully removed, if the ambient environment never makes
+    a genuinely disallowed provider available. This exercises
+    recommendable() directly against a hand-built row set that guarantees a
+    disallowed candidate is in contention."""
+    rows = [
+        {"provider": "in_scope", "status": "available", "cost": "low"},
+        {"provider": "out_of_scope", "status": "available", "cost": "low"},
+    ]
+    unfiltered = drp.recommendable(rows)
+    filtered = drp.recommendable(rows, allow=frozenset({"in_scope"}))
+    assert {r["provider"] for r in unfiltered} == {"in_scope", "out_of_scope"}
+    assert {r["provider"] for r in filtered} == {"in_scope"}
+
+
+def test_an_unknown_provider_in_the_allowlist_is_rejected():
+    with pytest.raises(ValueError, match="Unknown provider"):
+        drp.main(["--config", str(CONFIG_PATH), "--allow", "not_a_provider"])
+
+
+def test_main_rejects_unknown_provider_argument():
+    with pytest.raises(ValueError, match="Unknown provider"):
+        drp.main(["--config", str(CONFIG_PATH), "--provider", "not-a-real-provider"])
+
+
+def test_main_rejects_unknown_focus_argument():
+    with pytest.raises(ValueError, match="Unknown focus"):
+        drp.main(["--config", str(CONFIG_PATH), "--focus", "not-a-real-focus"])
