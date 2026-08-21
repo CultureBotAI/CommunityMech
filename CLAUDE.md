@@ -65,6 +65,10 @@ Several optional repository commands use modules from a sibling
 `just gen-qc-dashboard`, `just knowledge-gap-scan`,
 `just gen-discussions-data`, and `just new-history`.
 
+The reusable backlog condition is in `prompts/backlog-loop.goal.md`.
+Kept under 4000 characters for /goal, it is measured on the trimmed string. Claude Code
+rejects an over-long condition rather than truncating it.
+
 ## Schema and ontology invariants
 
 - Change `src/communitymech/schema/communitymech.yaml`, then run
@@ -101,7 +105,7 @@ supplement text into the article cache. If support is absent, omit the claim or
 record uncertainty instead of weakening the validator.
 
 `just qc-references` is separate from `just qc`: it can use the network and the
-corpus has a known evidence-repair backlog. It is not a CI gate.
+corpus has a known evidence-repair backlog (#417). It is not a CI gate.
 
 ## Editing a community or taxon record
 
