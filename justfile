@@ -27,6 +27,12 @@ _require-claw module:
       exit 1
     fi
 
+# deep-research-client and edison-client are deliberately marked Python 3.12+
+# in pyproject.toml. Fail before uv reports a missing executable/module on the
+# core-supported Python 3.10/3.11 interpreters (#667).
+_require-research-python:
+    @uv run python -c 'import sys; sys.exit("error: deep-research commands require Python 3.12 or newer") if sys.version_info < (3, 12) else None'
+
 # List all commands
 default:
     @just --list
@@ -506,7 +512,7 @@ templates_dir := "templates"
 # Examples:
 #   just research-community falcon Yogurt_TwoSpecies_Starter_Culture --dry-run
 #   just research-community falcon CommunityMech:000164
-research-community provider target *args="":
+research-community provider target *args="": _require-research-python
     uv run --extra dev python scripts/research_community.py \
       --provider {{provider}} \
       --target {{target}} \
@@ -522,7 +528,7 @@ research-entity provider target *args="": (research-community provider target ar
 # Examples:
 #   just research-community-edison Yogurt_TwoSpecies_Starter_Culture --dry-run
 #   just research-community-edison CommunityMech:000164 --job literature-high
-research-community-edison target *args="":
+research-community-edison target *args="": _require-research-python
     uv run --extra dev python scripts/research_community_edison.py \
       --target {{target}} \
       --template {{templates_dir}}/community_mechanism_research.md \
@@ -534,7 +540,7 @@ research-community-edison target *args="":
 # + InteractionDownstream). Same Edison plumbing as research-community-edison, with
 # the causal template + a `causal` label so it does NOT overwrite the mechanism run.
 #   just research-community-causal Cellulose_Methane_Quad_Culture_SynCom --dry-run
-research-community-causal target *args="":
+research-community-causal target *args="": _require-research-python
     uv run --extra dev python scripts/research_community_edison.py \
       --target {{target}} \
       --template {{templates_dir}}/community_causal_graph_research.md \
@@ -543,7 +549,7 @@ research-community-causal target *args="":
       {{args}}
 
 # Edison deep research for a batch of communities (JSON list of stems/ids/paths).
-research-community-edison-batch batch *args="":
+research-community-edison-batch batch *args="": _require-research-python
     uv run --extra dev python scripts/research_community_edison.py \
       --batch {{batch}} \
       --template {{templates_dir}}/community_mechanism_research.md \
@@ -551,7 +557,7 @@ research-community-edison-batch batch *args="":
       {{args}}
 
 # Retroactively backfill Edison provenance sidecars (no re-billing).
-enrich-edison-response *args="":
+enrich-edison-response *args="": _require-research-python
     uv run --extra dev python scripts/enrich_edison_response.py {{args}}
 
 # Scout recent literature for NEW communities (Europe PMC, free; dedups vs kb/communities).
@@ -572,7 +578,7 @@ ground-taxa-gtdb *args="":
     uv run python scripts/gtdb_ground.py {{args}}
 
 # List available deep-research-client providers.
-research-providers:
+research-providers: _require-research-python
     #!/usr/bin/env bash
     set -euo pipefail
     if [[ -z "${EDISON_API_KEY:-}" && -n "${FUTUREHOUSE_API_KEY:-}" ]]; then
@@ -582,7 +588,7 @@ research-providers:
     fi
 
 # Show detailed availability and parameters for one provider.
-research-provider provider:
+research-provider provider: _require-research-python
     #!/usr/bin/env bash
     set -euo pipefail
     if [[ -z "${EDISON_API_KEY:-}" && -n "${FUTUREHOUSE_API_KEY:-}" ]]; then
