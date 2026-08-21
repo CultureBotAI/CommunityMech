@@ -73,6 +73,13 @@ def test_ci_exercises_minimum_and_modern_supported_python():
     assert python_version("python-compatibility") == "3.13"
 
 
+def test_modern_python_lane_installs_just_for_repository_contract_tests():
+    document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
+    uses = {str(step.get("uses", "")) for step in document["jobs"]["python-compatibility"]["steps"]}
+
+    assert "extractions/setup-just@v3" in uses
+
+
 def test_commands_that_invoke_research_dependencies_have_a_python_preflight():
     text = JUSTFILE.read_text(encoding="utf-8")
     guard = re.search(r"^_require-research-python:\n(?P<body>(?:[ \t]+.*\n)+)", text, re.MULTILINE)

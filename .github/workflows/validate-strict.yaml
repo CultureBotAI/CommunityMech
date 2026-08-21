@@ -91,6 +91,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The full suite includes repository-contract tests that inspect recipes
+      # through `just --show`; keep this lane equivalent to validate-strict.
+      - uses: extractions/setup-just@v3
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
