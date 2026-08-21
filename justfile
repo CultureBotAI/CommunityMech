@@ -411,11 +411,13 @@ knowledge-gap-scan *args: (_require-claw "kg_microbe_kgscan")
 gen-all: gen-html gen-umap
     @echo "✅ All HTML pages regenerated"
 
-# Clean generated files
+# Clean disposable build artifacts only. Generated source and published docs are
+# tracked inputs/outputs and must never be removed here; regenerate them explicitly
+# with `just gen-python` / `just gen-html` when needed.
 clean:
-    rm -rf src/communitymech/datamodel/*.py
-    rm -rf docs/*.md
     rm -rf .linkml-cache
+    rm -rf build dist src/communitymech.egg-info
+    rm -rf output/kgx
 
 # Format code
 format:
