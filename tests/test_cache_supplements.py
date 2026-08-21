@@ -167,3 +167,68 @@ def test_an_existing_cache_is_not_refetched_unless_forced(module, tmp_path, monk
     monkeypatch.setattr(module, "fetch_supplement", refuse)
 
     assert module.cache_one("PMID:1").startswith("[skip]")
+
+
+def test_append_targets_the_file_the_validator_actually_reads(module, tmp_path, monkeypatch):
+    """`.md` when it exists, else the legacy `.txt` (#653).
+
+    The trap `cache_fulltext._cache_path` documents: text appended to the file
+    the validator does NOT read is silently ignored, and the result looks exactly
+    like a snippet that does not match its source. A curator would then "fix" a
+    correct quote.
+    """
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    (tmp_path / "PMID_1.supplement.md").write_text("supp text", encoding="utf-8")
+
+    (tmp_path / "PMID_1.txt").write_text("legacy article", encoding="utf-8")
+    assert module.article_cache_path("PMID:1").name == "PMID_1.txt"
+
+    (tmp_path / "PMID_1.md").write_text("modern article", encoding="utf-8")
+    assert module.article_cache_path("PMID:1").name == "PMID_1.md", ".md must win once present"
+
+
+def test_append_refuses_when_there_is_no_article_cache(module, tmp_path, monkeypatch):
+    """A supplement alone must not become a file that poses as the article.
+
+    Creating `PMID_1.md` from supplementary text would let every later reader --
+    and every gate that counts cached full text -- treat a supplement as the
+    article body.
+    """
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    (tmp_path / "PMID_1.supplement.md").write_text("supp text", encoding="utf-8")
+
+    message = module.append_to_article_cache("PMID:1")
+
+    assert message.startswith("[skip]")
+    assert not (tmp_path / "PMID_1.md").exists()
+    assert not (tmp_path / "PMID_1.txt").exists()
+
+
+def test_append_is_idempotent_and_keeps_the_article_text(module, tmp_path, monkeypatch):
+    """Appending twice must not duplicate, and must not overwrite the article."""
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    (tmp_path / "PMID_1.supplement.md").write_text(
+        f"{module.MARKER} (PMID:1) =====\n\nGrown in LB medium.", encoding="utf-8"
+    )
+    article = tmp_path / "PMID_1.md"
+    article.write_text("The article body says something.", encoding="utf-8")
+
+    first = module.append_to_article_cache("PMID:1")
+    after_first = article.read_text(encoding="utf-8")
+    second = module.append_to_article_cache("PMID:1")
+
+    assert first.startswith("[ok]") and second.startswith("[skip]")
+    assert article.read_text(encoding="utf-8") == after_first, "second append changed the file"
+    assert "The article body says something." in after_first, "the article text was lost"
+    assert "Grown in LB medium." in after_first, "the supplement text did not arrive"
+    assert after_first.count(module.MARKER) == 1, "the marker was duplicated"
+
+
+def test_append_requires_the_supplement_to_have_been_fetched(module, tmp_path, monkeypatch):
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    (tmp_path / "PMID_1.md").write_text("article", encoding="utf-8")
+
+    message = module.append_to_article_cache("PMID:1")
+
+    assert message.startswith("[skip]")
+    assert module.MARKER not in (tmp_path / "PMID_1.md").read_text(encoding="utf-8")
