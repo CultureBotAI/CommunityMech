@@ -17,11 +17,7 @@ def _tracked_paths() -> set[Path]:
         check=True,
         capture_output=True,
     )
-    return {
-        (REPO / path.decode()).resolve()
-        for path in result.stdout.split(b"\0")
-        if path
-    }
+    return {(REPO / path.decode()).resolve() for path in result.stdout.split(b"\0") if path}
 
 
 def _clean_commands() -> list[list[str]]:
@@ -48,15 +44,14 @@ def test_clean_targets_no_tracked_files():
     for command in _clean_commands():
         assert command[:2] == ["rm", "-rf"], f"unaudited clean command: {command}"
         for target in command[2:]:
-            assert not any(token in target for token in ("$", "`", "$(")), (
-                f"clean target must be an explicit path or glob: {target}"
-            )
+            assert not any(
+                token in target for token in ("$", "`", "$(")
+            ), f"clean target must be an explicit path or glob: {target}"
             matches = glob.glob(str(REPO / target), recursive=True)
             offenders.update(Path(match).resolve() for match in matches if Path(match).is_file())
 
-    assert not offenders & tracked, (
-        "clean would delete tracked files:\n"
-        + "\n".join(str(path.relative_to(REPO)) for path in sorted(offenders & tracked))
+    assert not offenders & tracked, "clean would delete tracked files:\n" + "\n".join(
+        str(path.relative_to(REPO)) for path in sorted(offenders & tracked)
     )
 
 
