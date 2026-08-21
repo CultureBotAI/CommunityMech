@@ -57,11 +57,24 @@ _KNOWN_BROKEN: set[str] = set()
 # imports between these files resolve (`from scout_communities import ...`).
 # Loading the file without that made four scripts look broken when they are not —
 # the probe has to match how the thing is actually invoked.
+#
+# The probe module must also be registered in sys.modules before exec_module
+# runs, not just constructed via module_from_spec. Without it, a script that
+# defines a `from __future__ import annotations` dataclass (postponed string
+# annotations) crashes here: dataclasses._is_type does
+# `sys.modules.get(cls.__module__).__dict__` while checking for ClassVar/
+# InitVar, and cls.__module__ is '_probe' — a module that exists as an object
+# but was never actually stored in sys.modules, so .get() returns None and
+# .__dict__ raises. `python scripts/foo.py` (the real invocation path) doesn't
+# hit this: running as __main__ registers sys.modules['__main__'] for free.
+# Reproduced directly: deep_research_provider.py's frozen Provider dataclass
+# fails this probe without the registration and imports cleanly with it.
 _PROBE = (
     "import sys, importlib.util; "
     "sys.path.insert(0, {scripts!r}); "
     "spec = importlib.util.spec_from_file_location('_probe', {path!r}); "
     "mod = importlib.util.module_from_spec(spec); "
+    "sys.modules['_probe'] = mod; "
     "spec.loader.exec_module(mod)"
 )
 

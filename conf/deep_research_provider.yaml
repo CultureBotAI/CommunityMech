@@ -1,0 +1,47 @@
+mech: CommunityMech
+target: microbial community composition, ecological interactions, environments, cultivation, and datasets
+default_focus: ecological_mechanism
+evidence_policy: Curate exact taxa, interactions, conditions, and accessions only when explicitly supported; preserve community and experimental context.
+focuses:
+  ecological_mechanism:
+    label: community composition and mechanistic ecological interactions
+    objective: Find strain-resolved membership, cross-feeding, syntrophy, competition, facilitation, metabolites, and directional effects.
+    source_priorities:
+      - primary co-culture, synthetic-community, and community perturbation studies
+      - PubMed/PMC methods, supplements, and data availability sections
+      - NCBI, KBase, JGI/IMG/GOLD, NMDC, MGnify, and BioModels
+    provider_adjustments: {openscientist: 4, falcon: 4, asta: 3, claude_code: 2, cyberian: 2}
+    stages:
+      discovery:
+        objective: Retrieve interaction studies, exact compositions, conditions, and dataset records.
+        capabilities: {academic_search: 5, scientific_literature: 5, structured_databases: 3, citation_tracking: 3, snippets: 2}
+        speed_weight: 1
+      synthesis:
+        objective: Reconstruct direction, mediator, context, and endpoint for each ecological interaction.
+        capabilities: {synthesis: 5, scientific_literature: 4, citation_tracking: 4, hypothesis_tracking: 2, structured_databases: 2}
+        synthesis_weight: 2
+      verification:
+        objective: Cross-check taxon/strain identity, exchanged metabolites, conditions, and edge evidence.
+        capabilities: {citation_tracking: 5, scientific_literature: 4, structured_databases: 3, academic_search: 3, snippets: 2}
+        cost_weight: 1
+  datasets_environment:
+    label: environmental context, cultivation conditions, and dataset accessions
+    objective: Resolve ENVO context, perturbations, media, atmosphere, endpoints, and repository accessions.
+    source_priorities:
+      - repository-native study and sample metadata
+      - primary publication methods and data availability
+      - institutional protocol and project pages
+    provider_adjustments: {claude_code: 4, perplexity: 3, asta: 2, cyberian: 2}
+    stages:
+      discovery:
+        objective: Search repository records and linked publications across the web and literature.
+        capabilities: {structured_databases: 5, web_search: 5, academic_search: 3, citation_tracking: 3}
+        speed_weight: 1
+      synthesis:
+        objective: Join publication claims to exact projects, samples, environments, and experimental conditions.
+        capabilities: {synthesis: 5, structured_databases: 4, citation_tracking: 4, web_search: 3}
+        synthesis_weight: 2
+      verification:
+        objective: Resolve every accession and environment/taxon identifier at its source.
+        capabilities: {structured_databases: 5, citation_tracking: 5, web_search: 4}
+        cost_weight: 1
