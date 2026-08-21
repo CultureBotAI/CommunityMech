@@ -239,8 +239,47 @@ def canonical_provider(name: str) -> str:
     return ALIASES.get(key, key)
 
 
+# Providers whose credential is configurable but which do not actually work, with
+# what happened when each was called (#284). A credential check cannot discover
+# this: "Available" in `deep-research-client providers` means an env var is set,
+# nothing more. Without this table the triage tool recommended `falcon` as the
+# primary route for every stage while the justfile beside it recorded that falcon
+# returns HTTP 402 — the tool contradicting its own documentation (#290).
+#
+# Remove an entry when the provider is verified working again, rather than
+# editing the reason.
+KNOWN_BLOCKED: dict[str, str] = {
+    "falcon": "HTTP 402 Payment Required (measured #284)",
+    "cyberian": "HTTP 500; wraps an agentapi service that is not running (#284)",
+}
+
+# Costs that count as "paid" for --no-paid. `medium` is deliberately NOT here:
+# claude_code is the medium-cost provider, and keeping it is usually the point of
+# asking for no paid providers in the first place.
+PAID_COSTS = frozenset({"high", "very_high"})
+
+
 def provider_status(provider: str, environ: Mapping[str, str] | None = None) -> tuple[str, str]:
-    """Return status and a safe explanation without exposing credential values."""
+    """Whether this provider can actually be routed to, and why.
+
+    A measured-dead provider reports `blocked` however well its credential is
+    configured — that is the whole point, since a configured credential is what
+    made `falcon` look routable while returning HTTP 402. Credential recognition
+    is still a separate, testable question: see `credential_status`.
+    """
+    if provider in KNOWN_BLOCKED:
+        return "blocked", KNOWN_BLOCKED[provider]
+    return credential_status(provider, environ)
+
+
+def credential_status(provider: str, environ: Mapping[str, str] | None = None) -> tuple[str, str]:
+    """Status from local configuration alone, ignoring whether the provider works.
+
+    Kept separate from `provider_status` so "do we recognise this env var name"
+    stays covered for providers that are currently blocked — otherwise adding a
+    provider to KNOWN_BLOCKED would silently drop the test that its credential
+    aliases are spelled right.
+    """
     env = os.environ if environ is None else environ
     if provider == "deeper_med":
         return "stub", "no public API"
@@ -304,13 +343,14 @@ def load_config(path: Path) -> dict[str, Any]:
                 raise ValueError(
                     f"Stage {focus_name}.{stage_name}.capabilities names unknown "
                     f"capability/ies {sorted(unknown_caps)}; no provider declares "
-                    f"them, so they would silently score 0"
+                    f"them, so they would silently score 0. Known capabilities: "
+                    f"{', '.join(sorted(_ALL_CAPABILITIES))}"
                 )
         adjustments = focus.get("provider_adjustments")
         if adjustments is not None:
             if not isinstance(adjustments, dict):
                 raise ValueError(f"Focus {focus_name!r}.provider_adjustments must be a mapping")
-            canonical = {}
+            canonical: dict[str, Any] = {}
             for raw_name, value in adjustments.items():
                 name = canonical_provider(str(raw_name))
                 if name not in PROVIDERS:
@@ -349,11 +389,15 @@ def rank_stage(config: Mapping[str, Any], focus_name: str, stage_name: str) -> l
     stage = focus["stages"][stage_name]
     adjustments = focus.get("provider_adjustments", {})
     raw = {name: _score(provider, stage, adjustments) for name, provider in PROVIDERS.items()}
-    # `or 1.0` only guards an exact-zero max; a large negative
-    # provider_adjustments value can push every score negative, leaving
-    # `high` negative too. Every fit then clamps to 0 (max(0.0, raw[name])
-    # below), collapsing the ranking to alphabetical order instead of the
-    # intended relative comparison. Guard the sign, not just falsiness.
+    # `or 1.0` only replaces an exact-zero max (e.g. every raw score landing
+    # at precisely 0 through cancelling adjustments) — a real, if rare, case
+    # this guards. It does NOT fix the harder case where every score is
+    # negative: fit is 0/high either way there (0.0 divided by any nonzero
+    # number is 0.0), so the ranking still collapses to alphabetical order
+    # once every candidate is "actively bad" rather than merely "not the
+    # best." That needs a different normalization (e.g. min-max instead of
+    # max-only) and is a real design decision, not a one-line fix — see
+    # CultureMech#315.
     high = max(raw.values())
     if high <= 0:
         high = 1.0
@@ -378,14 +422,36 @@ def rank_stage(config: Mapping[str, Any], focus_name: str, stage_name: str) -> l
     return sorted(rows, key=lambda row: (-row["fit"], row["provider"]))
 
 
-def build_report(config: Mapping[str, Any], focus_name: str) -> dict[str, Any]:
+def recommendable(
+    rows: list[dict[str, Any]], *, allow: frozenset[str] | None = None, no_paid: bool = False
+) -> list[dict[str, Any]]:
+    """The rows a recommendation may be drawn from, in ranked order.
+
+    One place, so the text and JSON paths cannot disagree — the JSON filter used
+    to narrow `ranking` while leaving `recommended_available` untouched, so
+    `--provider asta --json` recommended `claude_code` out of a document whose
+    only ranked provider was asta (#290).
+    """
+    out = [row for row in rows if row["status"] == "available" and row["provider"] != "mock"]
+    if allow is not None:
+        out = [row for row in out if row["provider"] in allow]
+    if no_paid:
+        out = [row for row in out if row["cost"] not in PAID_COSTS]
+    return out
+
+
+def build_report(
+    config: Mapping[str, Any],
+    focus_name: str,
+    *,
+    allow: frozenset[str] | None = None,
+    no_paid: bool = False,
+) -> dict[str, Any]:
     focus = config["focuses"][focus_name]
     stages = []
     for stage_name, stage in focus["stages"].items():
         ranking = rank_stage(config, focus_name, stage_name)
-        available = [
-            row for row in ranking if row["status"] == "available" and row["provider"] != "mock"
-        ]
+        available = recommendable(ranking, allow=allow, no_paid=no_paid)
         stages.append(
             {
                 "name": stage_name,
@@ -476,6 +542,15 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     parser.add_argument("--list-focuses", action="store_true", help="List domain-specific focuses")
     parser.add_argument("--json", action="store_true", help="Emit machine-readable triage JSON")
+    parser.add_argument(
+        "--allow",
+        help="Comma-separated allowlist; only these providers may be recommended",
+    )
+    parser.add_argument(
+        "--no-paid",
+        action="store_true",
+        help=f"Never recommend a provider whose cost is {' or '.join(sorted(PAID_COSTS))}",
+    )
     return parser.parse_args(argv)
 
 
@@ -496,26 +571,27 @@ def main(argv: list[str] | None = None) -> int:
         raise ValueError(
             f"Unknown provider {args.provider!r}; choose one of: {', '.join(PROVIDERS)}"
         )
-    report = build_report(config, focus_name)
+    allow = (
+        frozenset(canonical_provider(p) for p in args.allow.split(",") if p.strip())
+        if args.allow
+        else None
+    )
+    if allow is not None:
+        unknown = allow - set(PROVIDERS)
+        if unknown:
+            raise ValueError(f"Unknown provider(s) in --allow: {', '.join(sorted(unknown))}")
+    report = build_report(config, focus_name, allow=allow, no_paid=args.no_paid)
     if args.json:
         if provider_name:
             for stage in report["stages"]:
                 stage["ranking"] = [
                     row for row in stage["ranking"] if row["provider"] == provider_name
                 ]
-                # recommended_available/fallback_available were computed by
-                # build_report() from the *unfiltered* ranking, so they can
-                # name a provider no longer present in the filtered ranking
-                # above — recompute both from the filtered set the same way
-                # build_report() does, instead of leaving stale, internally-
-                # inconsistent values in the JSON.
-                available = [
-                    row
-                    for row in stage["ranking"]
-                    if row["status"] == "available" and row["provider"] != "mock"
-                ]
-                stage["recommended_available"] = available[0] if available else None
-                stage["fallback_available"] = available[1] if len(available) > 1 else None
+                # Recompute from what survived, so the document cannot recommend a
+                # provider absent from its own ranking (#290).
+                kept = recommendable(stage["ranking"], allow=allow, no_paid=args.no_paid)
+                stage["recommended_available"] = kept[0] if kept else None
+                stage["fallback_available"] = kept[1] if len(kept) > 1 else None
         print(json.dumps(report, indent=2))
     else:
         print_report(report, provider_name)
