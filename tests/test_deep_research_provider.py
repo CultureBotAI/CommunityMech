@@ -260,3 +260,13 @@ def test_an_allowlist_confines_the_recommendation(monkeypatch):
 def test_an_unknown_provider_in_the_allowlist_is_rejected():
     with pytest.raises(ValueError, match="Unknown provider"):
         drp.main(["--config", str(CONFIG_PATH), "--allow", "not_a_provider"])
+
+
+def test_main_rejects_unknown_provider_argument():
+    with pytest.raises(ValueError, match="Unknown provider"):
+        drp.main(["--config", str(CONFIG_PATH), "--provider", "not-a-real-provider"])
+
+
+def test_main_rejects_unknown_focus_argument():
+    with pytest.raises(ValueError, match="Unknown focus"):
+        drp.main(["--config", str(CONFIG_PATH), "--focus", "not-a-real-focus"])
