@@ -48,7 +48,8 @@ gh issue list --state open --limit 300 --json number,title,body,labels,createdAt
 Do not truncate silently. If the queue exceeds 300, say so explicitly and
 paginate (`gh issue list ... --json ... -q ...` supports `--limit` up to
 GitHub's cap; beyond that, note the true count via `gh issue list --state open
---json number | jq length` and sample rather than claim full coverage).
+--limit 1000 --json number | jq length` — omitting `--limit` silently caps at
+gh's default of 30 — and sample rather than claim full coverage).
 
 ### Step 2 — Group and dedupe
 
@@ -107,12 +108,12 @@ This skill does not close issues, comment, or create/update a tracker issue on
 its own. When the user confirms:
 - **Closing stale/duplicate issues**: use `gh issue close <N> --comment
   "<reason>"`, one at a time, with the evidence from Step 3 in the comment.
-- **Maintaining the tracker issue**: this repo already has one — **#669**,
-  "[P0-P2 tracker] Repository safety, test, documentation, CI, and packaging
-  remediation". Update it in place (`gh issue comment 669 --body "..."` or
-  edit its body) rather than creating a second one. Only create a new tracker
-  if the user explicitly says #669 has been superseded/closed and a fresh one
-  is wanted.
+- **Maintaining the tracker issue**: as of this skill's authoring, this repo
+  had one open — **#669**, "[P0-P2 tracker] Repository safety, test,
+  documentation, CI, and packaging remediation". Verify it's still open
+  before trusting this note (`gh issue view 669 --json state`); update it in
+  place rather than creating a second one. Only create a new tracker if #669
+  is confirmed closed/superseded and the user wants a fresh one.
 
 Never bulk-close without per-item confirmation of the evidence — an agent
 closing a live issue because it *looks* stale is worse than leaving noise in
