@@ -111,9 +111,13 @@ sparingly and justify it; most issues are P1 or P2.
 ### Step 6 — Act only when asked
 
 This skill does not close issues, comment, or create/update a tracker issue on
-its own. When the user confirms:
-- **Closing stale/duplicate issues**: use `gh issue close <N> --comment
-  "<reason>"`, one at a time, with the evidence from Step 3 in the comment.
+its own, and a general "yes, go ahead" is not blanket approval to loop over
+every STALE/CLOSE candidate unattended:
+- **Closing stale/duplicate issues**: confirm with the user which specific
+  issue number(s) to close before each closure — do not treat one general
+  approval as authorization for an unattended `gh issue close` loop. Once
+  confirmed, use `gh issue close <N> --comment "<reason>"`, one at a time,
+  with the evidence from Step 3 in the comment.
 - **Maintaining the tracker issue**: as of this skill's authoring, this repo
   had one open — **#669**, "[P0-P2 tracker] Repository safety, test,
   documentation, CI, and packaging remediation". Verify it's still open
