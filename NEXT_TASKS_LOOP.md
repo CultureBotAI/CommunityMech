@@ -1,7 +1,7 @@
 # Loop-ready backlog
 
 Which open issues suit an autonomous `/goal` run with
-[`prompts/backlog-loop.goal.md`](prompts/backlog-loop.goal.md), and which do not.
+[`prompts/backlog-loop-goal.md`](prompts/backlog-loop-goal.md), and which do not.
 
 `NEXT_TASKS.md` is the full backlog and stays the source of truth for *what* is
 deferred. This file answers a narrower question: *what can be handed to a loop

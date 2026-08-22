@@ -65,7 +65,7 @@ Several optional repository commands use modules from a sibling
 `just gen-qc-dashboard`, `just knowledge-gap-scan`,
 `just gen-discussions-data`, and `just new-history`.
 
-The reusable backlog condition is in `prompts/backlog-loop.goal.md`.
+The reusable backlog condition is in `prompts/backlog-loop-goal.md`.
 Kept under 4000 characters for /goal, it is measured on the trimmed string. Claude Code
 rejects an over-long condition rather than truncating it.
 

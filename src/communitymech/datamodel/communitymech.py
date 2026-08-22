@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-12T12:31:37
+# Generation date: 2026-08-22T12:36:58
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -5100,6 +5100,7 @@ slots.curationEvent__timestamp = Slot(
     model_uri=COMMUNITYMECH.curationEvent__timestamp,
     domain=None,
     range=Union[str, XSDDateTime],
+    pattern=re.compile(r"^20[0-9]{2}-"),
 )
 
 slots.curationEvent__curator = Slot(

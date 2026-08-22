@@ -636,7 +636,7 @@ schedule (2026-07-25, closes claw #23) — until then it fired only on claw-side
 changes and so could never notice the hub moving. So: do **not** repoint
 `CANON_REPO` or bump `.vendored_canon_ref` to a claw commit. Any note that this
 is "blocked on claw being made public", or that claw Actions fail on exhausted
-runner minutes, is stale — claw is still private, that blocks nothing now, and
+runner minutes, is stale — claw is public, that blocks nothing now, and
 its scheduled runs were green daily 2026-07-25 through 2026-07-30. **CommunityMech
 never carried that claim** (verified 2026-07-30: `CANON_REPO` here is
 `CultureBotAI/CultureMech` and `.vendored_canon_ref` is `6be694f3`, matching MIM
