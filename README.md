@@ -1,391 +1,271 @@
 # CommunityMech
 
-**Microbial Community Mechanisms Knowledge Base**
+CommunityMech is a LinkML knowledge base for microbial community composition,
+ecological interactions, cultivation conditions, environments, and supporting
+evidence. Curated YAML is the canonical record format; validation, static HTML,
+and KGX exports are derived from it.
 
-A LinkML-based knowledge base for modeling microbial community structure, function, and ecological interactions with evidence-based validation.
+The project is adapted from the
+[Monarch Initiative dismech project](https://github.com/monarch-initiative/dismech).
 
----
+## What is in this repository
 
-## 🎯 Project Vision
+- `kb/communities/` — canonical `MicrobialCommunity` records.
+- `data/isolates/` — additional `MicrobialCommunity` records kept separate from
+  the main community collection.
+- `kb/taxa/` — reusable `CommonTaxon` genome and gene records.
+- `src/communitymech/schema/` — LinkML schemas.
+- `src/communitymech/datamodel/communitymech.py` — generated Python datamodel;
+  never edit it by hand.
+- `src/communitymech/validators/` — cross-field checks LinkML cannot express.
+- `references_cache/` — committed source text used for reproducible evidence
+  checks.
+- `history/` — append-only curation provenance.
+- `docs/` — the committed GitHub Pages site and maintainer guides.
+- `scripts/` — repository-oriented curation and validation utilities.
 
-Model specific microbial communities as individual YAML files, combining:
-- Rich, expressive YAML for agent consumption
-- Validated evidence chains (anti-hallucination)
-- Ontology-grounded terms (NCBITaxon, ENVO, CHEBI, GO)
-- Causal graphs for ecological interactions
-- Faceted browser for scientists
-- KG export for integration (via Koza)
+CommunityMech currently operates from a source checkout. Some commands resolve
+the KB, caches, reports, and generated site relative to the repository root. The
+long-term installed-package contract is being decided in
+[#668](https://github.com/CultureBotAI/CommunityMech/issues/668).
 
-**Adapted from**: [Monarch Initiative's dismech](https://github.com/monarch-initiative/dismech)
+## Architecture
 
----
-
-## 🏗️ Architecture
-
+```text
+community YAML + taxon YAML
+            |
+            +--> LinkML schema validation
+            +--> strict cross-field validators
+            +--> ontology id/label validation
+            +--> cached/network evidence validation
+            |
+            +--> deterministic custom Python KGX emitter
+            +--> static browser and per-community HTML
 ```
-Rich YAML Source
-  kb/communities/Human_Gut_Healthy_Adult.yaml
-       ↓
-  Validation Stack
-  ├── Schema validation (linkml-validate)
-  ├── Term validation (linkml-term-validator + OAK)
-  └── Reference validation (snippets vs PubMed)
-       ↓
-  Dual Output
-  ├── Koza Transform → KGX Edges (for KG stacks)
-  └── Browser Export → Faceted Search (for scientists)
-```
 
----
+The KGX path is a custom Python emitter, not a Koza transform. YAML retains the
+full curation context and remains the source of truth.
 
-## 🚀 Quick Start
+## Requirements and installation
 
-### Installation
+Core development supports Python 3.10 and newer. Deep-research and Edison
+commands require Python 3.12 or newer because their optional dependencies do.
+
+Install [uv](https://docs.astral.sh/uv/) and
+[just](https://github.com/casey/just), then run:
 
 ```bash
-# Clone repository
 git clone https://github.com/CultureBotAI/CommunityMech.git
 cd CommunityMech
-
-# Install dependencies
 just install
-
-# Or with uv directly
-uv sync --extra dev
+just test
 ```
 
-### Validate a Community
+`just install` installs the `dev` extra from `pyproject.toml`. CI uses the frozen
+`uv.lock`; commit `pyproject.toml` and `uv.lock` together when dependencies
+change.
+
+## Validate records
+
+For one community record:
 
 ```bash
-# Schema validation
-just validate kb/communities/Human_Gut_Healthy_Adult.yaml
-
-# Reference validation (prevent hallucination)
-just validate-references kb/communities/Human_Gut_Healthy_Adult.yaml
-
-# Term validation (check ontology terms)
-just validate-terms
+FILE=kb/communities/Yogurt_TwoSpecies_Starter_Culture.yaml
+just validate "$FILE"
+just validate-strict "$FILE"
+just validate-gtdb "$FILE"
+just validate-gtdb-domain "$FILE"
+just validate-terms "$FILE"
 ```
 
-### Generate Outputs
+Evidence validation is separate because it may use the committed cache and the
+network:
 
 ```bash
-# Export to KG (Koza transform)
-just kgx-export
-
-# Generate faceted browser
-just gen-browser
-
-# Generate HTML pages
-just gen-html-all
+just validate-references-explained "$FILE"
 ```
 
-> **Note**: Commands above are planned for implementation. See [COMMUNITY_MECH_PLAN.md](COMMUNITY_MECH_PLAN.md) for development roadmap.
-
----
-
-## 📁 Repository Structure
-
-```
-CommunityMech/
-├── src/
-│   └── communitymech/
-│       ├── schema/
-│       │   └── communitymech.yaml      # LinkML schema
-│       ├── datamodel/                   # Generated Python models
-│       ├── export/
-│       │   ├── kgx_export.py           # Koza transform to KG
-│       │   └── browser_export.py       # Faceted browser export
-│       ├── render.py                    # HTML page generator
-│       └── templates/                   # Jinja2 templates
-├── kb/
-│   └── communities/
-│       ├── Human_Gut_Healthy_Adult.yaml
-│       ├── Human_Gut_IBD_UC.yaml
-│       ├── Soil_Grassland_Temperate.yaml
-│       └── ...
-├── conf/
-│   ├── oak_config.yaml                  # OAK ontology adapters
-│   └── qc_config.yaml                   # QC configuration
-├── app/                                  # Faceted browser
-│   ├── index.html
-│   ├── data.js
-│   └── schema.js
-├── pages/
-│   └── communities/                     # Rendered HTML pages
-├── tests/
-│   └── test_communities.py
-├── .claude/
-│   └── skills/                          # Claude Code curation skills
-├── justfile                             # Task runner
-├── pyproject.toml
-├── COMMUNITY_MECH_PLAN.md              # Full implementation plan
-├── QUICK_START.md                       # Quick reference
-└── README.md
-```
-
----
-
-## 📖 Documentation
-
-- **[Implementation Plan](COMMUNITY_MECH_PLAN.md)** - Complete 11-phase plan
-- **[Quick Start Guide](QUICK_START.md)** - Quick reference
-- **[Schema Documentation](docs/)** - LinkML schema reference
-- **[Cross-Repo Linking](docs/cross_repo_linking.md)** - Environmental linking to CultureMech and MediaIngredientMech
-- **[Growth Media Linking](docs/media_linking.md)** - Cultivation-based media linking
-
----
-
-## 📦 KGX export (downstream consumer contract)
-
-CommunityMech publishes its community knowledge graph as KGX TSV on
-every release. The artifact has stable column shapes, deterministic
-edge IDs, and propagates literature evidence directly into edge
-metadata so downstream graphs preserve provenance.
-
-### Where to find it
-
-- **Latest release:** GitHub Releases page → `nodes.tsv.gz`,
-  `edges.tsv.gz`, and `manifest.json` attached to each release.
-- **CI artifacts:** every push and release run uploads the same
-  files to the workflow's Artifacts panel
-  (`.github/workflows/kgx-release.yaml`, ~90-day retention).
-- **Local build:** `just kgx-export` writes them to
-  `output/kgx/`. `just kgx-validate` runs structural checks.
-
-### File schemas
-
-`nodes.tsv` columns: `id, category, name, description, provided_by`
-
-`edges.tsv` columns: `id, subject, predicate, object, category, publications, supporting_text, knowledge_level, agent_type, primary_knowledge_source`
-
-Edge `id` values are deterministic UUID5 derived from `(subject,
-predicate, object, qualifier)` — re-running the export with the
-same input produces byte-identical IDs.
-
-### Edge types
-
-| Predicate | Subject category | Object category | Edge category |
-|---|---|---|---|
-| `biolink:located_in` | `biolink:OrganismalEntity` (community) | `biolink:EnvironmentalFeature` (ENVO) | `biolink:OrganismToEnvironmentAssociation` |
-| `biolink:has_part` | `biolink:OrganismalEntity` (community) | `biolink:OrganismTaxon` (NCBITaxon) | `biolink:OrganismToOrganismAssociation` |
-| `biolink:related_to` | `biolink:OrganismalEntity` (community) | `biolink:ChemicalEntity` (CHEBI metals/REE) | `biolink:ChemicalEntityToOrganismalEntityAssociation` |
-| `biolink:occurs_in` | `biolink:OrganismalEntity` (community) | growth medium | `biolink:Association` |
-
-### Provenance & evidence
-
-Every edge derived from a community evidence claim carries:
-
-- `publications`: pipe-separated CURIEs (e.g.
-  `PMID:18936492|DOI:10.1099/00207713-50-4-1539`)
-- `supporting_text`: pipe-separated verbatim snippets (the same
-  ones that pass MIM's anti-hallucination Phase 1 validator)
-- `knowledge_level`: `knowledge_assertion` (curator-asserted)
-- `agent_type`: `manual_agent`
-- `primary_knowledge_source`: `infores:communitymech`
-
-### Stability commitments
-
-- Column order in both TSVs is fixed; new columns will only be
-  appended at the right.
-- Edge IDs are stable across runs unless the underlying
-  `(subject, predicate, object, qualifier)` tuple changes.
-- `infores:communitymech` is the canonical knowledge-source id.
-- Bare element names in `metals_present` / `rare_earth_elements_present`
-  are auto-resolved to verified CHEBI atom CURIEs (26 elements
-  covered as of 2026-05); see `_ELEMENT_CHEBI` in
-  `src/communitymech/export/kgx_export.py` for the full table.
-
-### Upstream details
-
-The export is implemented as a custom Python emitter (no Koza
-dependency for a 78-record / ~580-edge scale). Schema, evidence
-slots, and edge selection are documented in:
-[`../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md`](../../culturebotai-claw/docs/proposals/phase3_communitymech_kgx_export_with_publications.md).
-
----
-
-## 🧬 Example Community File
-
-```yaml
-name: Human Gut Healthy Adult
-ecological_state: HEALTHY
-
-environment_term:
-  preferred_term: human gut
-  term:
-    id: ENVO:0001998
-    label: human gut environment
-
-taxonomy:
-  - taxon_term:
-      preferred_term: Faecalibacterium prausnitzii
-      term:
-        id: NCBITaxon:853
-        label: Faecalibacterium prausnitzii
-    abundance_level: ABUNDANT
-    functional_role: [KEYSTONE, CORE]
-    evidence:
-      - reference: PMID:18936492
-        supports: SUPPORT
-        snippet: "F. prausnitzii represents more than 5%..."
-
-ecological_interactions:
-  - name: Butyrate Production
-    source_taxon:
-      preferred_term: Faecalibacterium prausnitzii
-      term:
-        id: NCBITaxon:853
-    metabolites:
-      - preferred_term: butyrate
-        term:
-          id: CHEBI:30089
-    downstream:
-      - target: Host Colonocyte Energy
-    evidence:
-      - reference: PMID:18936492
-```
-
----
-
-## 🔬 Key Features
-
-### 1. Evidence-Based
-- Every claim backed by PMID references
-- Snippets validated against PubMed abstracts
-- Prevents AI hallucination
-
-### 2. Ontology-Grounded
-- **NCBITaxon** - Microbial taxa
-- **ENVO** - Environments
-- **CHEBI** - Chemical entities/metabolites
-- **GO** - Biological processes
-- **UBERON** - Host anatomy
-
-### 3. Causal Graphs
-- Model ecological interactions as directed graphs
-- Represent cross-feeding, competition, mutualism
-- Visualize with D3.js/Cytoscape
-
-### 4. Dual Output
-- **Rich YAML** - For agent consumption (full context)
-- **Simple KG** - For graph algorithms (Biolink edges)
-
-### 5. Cross-Repository Linking
-- **Environmental linking** to CultureMech media and MediaIngredientMech ingredients
-- Environment-based discovery via shared ENVO terms
-- `related_media` for environmentally relevant media (complements `growth_media`)
-- `related_ingredients` for environmentally significant compounds
-- SPARQL query patterns for cross-repo joins
-
-### 6. Scientist-Friendly
-- Faceted browser (no coding required)
-- Click-through to evidence
-- Interactive visualizations
-
----
-
-## 🛠️ Development Status
-
-**Current Phase**: Foundation (Sprint 1)
-
-- [x] Repository created
-- [x] Implementation plan documented
-- [x] Reference implementation analyzed (Monarch dismech)
-- [x] Seed data added (35 communities)
-- [x] Schema design (LinkML schema with full validation)
-- [x] First example community YAML
-- [x] Cross-repo environmental linking (CultureMech + MediaIngredientMech)
-- [ ] Validation stack setup
-- [ ] Koza transform implementation
-- [ ] Faceted browser adaptation
-- [ ] HTML rendering
-
-See [COMMUNITY_MECH_PLAN.md](COMMUNITY_MECH_PLAN.md) for the complete roadmap.
-
----
-
-## 🤝 Contributing
-
-This is a private repository during initial development. Once the core infrastructure is in place, we'll open it up for community contributions.
-
-### Development Workflow
-
-1. Create a new branch for your feature/community
-2. Add/modify community YAML files
-3. Run validation: `just qc`
-4. Commit with evidence validation
-5. Create PR for review
-
----
-
-## 📊 Validation Stack
+Repository-wide checks:
 
 ```bash
-# Schema validation
-just validate kb/communities/YourCommunity.yaml
-
-# Reference validation (anti-hallucination)
-just validate-references kb/communities/YourCommunity.yaml
-
-# Term validation (ontology checking)
-just validate-terms-file kb/communities/YourCommunity.yaml
-
-# Full QC
-just qc
+just qc                 # lint, tests, schema, strict, GTDB, scalar, and term gates
+just qc-references      # qc plus the corpus-wide literature sweep
 ```
 
----
+The corpus-wide reference sweep has a known evidence-repair backlog and is not a
+CI gate. A red reference result is not permission to weaken the validator; fix
+the evidence or record the unresolved curation work.
 
-## Deep Research Provider Triage
+Validation layers serve different purposes:
 
-CommunityMech uses a community-specific version of DisMech's multi-provider
-workflow. `ecological_mechanism` prioritizes exact composition and directional
-interaction evidence; `datasets_environment` prioritizes repository-native
-accessions, ENVO context, cultivation, and perturbation metadata.
+| Layer | Command | What it checks |
+|---|---|---|
+| LinkML | `just validate FILE` | Schema shape, required fields, enums, patterns |
+| Strict | `just validate-strict FILE` | Closed-schema and cross-field invariants |
+| Taxonomy | `just validate-gtdb FILE` | GTDB grounding coherence |
+| Domain | `just validate-gtdb-domain FILE` | Prokaryotic NCBI-domain expectations |
+| Terms | `just validate-terms FILE` | Ontology identifier/label correspondence |
+| Evidence | `just validate-references-explained FILE` | Snippets against cached or fetched source text |
+| History | `just validate-history PATH` | Append-only history record shape |
+
+## Curation workflow
+
+1. Read the schema and a strong neighboring record before editing.
+2. Make the smallest source-supported YAML change.
+3. Use canonical ontology identifiers and labels; never invent CURIEs.
+4. Add `EvidenceItem` entries at the assertions they support.
+5. Add an append-only history record as described in
+   [history/README.md](history/README.md).
+6. Run focused validation, then `just qc` when the change is ready.
+7. Regenerate committed HTML when a community record or renderer changes.
+
+Evidence is a curation policy as well as a data structure. The schema permits
+some assertions without an `evidence` list, so schema validity alone does not
+prove that every claim has support. Curators should leave unsupported claims
+absent or explicitly uncertain rather than infer them from co-occurrence.
+
+## Generate outputs
+
+```bash
+just gen-html             # render docs/ from community YAML and templates
+just check-docs-current   # fail if committed docs disagree with the KB
+just gen-browser          # regenerate faceted-browser data
+just kgx-export           # write output/kgx/{nodes.tsv,edges.tsv,manifest.json}
+just kgx-validate         # validate the generated KGX files
+```
+
+`just gen-umap` additionally requires the local embedding artifact documented in
+the [UMAP guide](docs/UMAP_VISUALIZATION.md). `just gen-all` combines HTML and
+UMAP generation.
+
+GitHub Pages serves the committed `docs/` tree. Do not hand-edit generated
+community pages; update their YAML or templates and regenerate them.
+
+## KGX downstream contract
+
+Release builds publish `nodes.tsv.gz`, `edges.tsv.gz`, and `manifest.json`.
+Local output is written under `output/kgx/`.
+
+`nodes.tsv` columns:
+
+```text
+id, category, name, description, provided_by
+```
+
+`edges.tsv` columns:
+
+```text
+id, subject, predicate, object, category, publications, supporting_text,
+knowledge_level, agent_type, primary_knowledge_source
+```
+
+Edge identifiers are deterministic UUID5 values derived from the edge tuple.
+Evidence-bearing edges propagate publication CURIEs and supporting snippets.
+See the implementation in
+[`src/communitymech/export/kgx_export.py`](src/communitymech/export/kgx_export.py)
+and the release workflow in
+[`kgx-release.yaml`](.github/workflows/kgx-release.yaml).
+
+## Deep research
+
+Provider triage does not run a provider or spend credits:
 
 ```bash
 just deep-research-providers
 just deep-research-providers datasets_environment
-just deep-research-provider asta ecological_mechanism
-just research-community falcon <community-id-or-path> --dry-run
+just deep-research-provider claude_code ecological_mechanism
 ```
 
-Triage ranks discovery, synthesis, and verification independently. Provider
-reports seed curation; taxa, strains, metabolites, conditions, causal claims,
-and dataset accessions must still resolve to the cited source.
+An actual research run requires Python 3.12+, provider authentication, and may
+incur cost:
 
----
+```bash
+just research-community claude_code CommunityMech:000164 --dry-run
+```
 
-## 🎓 Citation
+Research reports under `research/` are raw artifacts, not canonical data.
+Accepted findings must be curated into community YAML with exact source support,
+ontology grounding, validation, and history. Never read, print, or commit `.env`
+credentials.
 
-(TBD once published)
+## Schema-valid example
 
-Based on the dismech framework:
-- Monarch Initiative. (2024). dismech: Disorder Mechanisms Knowledge Base. https://github.com/monarch-initiative/dismech
+This minimal record is derived from the curated yogurt community. A regression
+test extracts this fenced block and validates it against the current LinkML
+schema.
 
----
+```yaml
+id: CommunityMech:000164
+name: Yogurt Two-Species Starter Culture
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+environment_term:
+  preferred_term: laboratory yogurt fermentation culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+taxonomy:
+  - taxon_term:
+      preferred_term: Streptococcus thermophilus
+      term:
+        id: NCBITaxon:1308
+        label: Streptococcus thermophilus
+    functional_role: [CROSS_FEEDER]
+    evidence:
+      - reference: PMID:30594386
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: Streptococcus thermophilus and Lactobacillus delbrueckii ssp. bulgaricus
+  - taxon_term:
+      preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+      term:
+        id: NCBITaxon:1585
+        label: Lactobacillus delbrueckii subsp. bulgaricus
+    functional_role: [CROSS_FEEDER]
+    evidence:
+      - reference: PMID:30594386
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: Lactobacillus delbrueckii ssp. bulgaricus
+ecological_interactions:
+  - name: Streptococcus Formate Support
+    interaction_type: CROSS_FEEDING
+    source_taxon:
+      preferred_term: Streptococcus thermophilus
+      term:
+        id: NCBITaxon:1308
+        label: Streptococcus thermophilus
+    target_taxon:
+      preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
+      term:
+        id: NCBITaxon:1585
+        label: Lactobacillus delbrueckii subsp. bulgaricus
+    metabolites:
+      - preferred_term: formate
+        term:
+          id: CHEBI:15740
+          label: formate
+    evidence:
+      - reference: PMID:20889781
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: S. thermophilus is suggested to provide L. bulgaricus with formic acid
+```
 
-## 📝 License
+## Documentation
 
-BSD-3-Clause (matching the dismech framework)
+- [Quick-start guide](docs/QUICK_START.md)
+- [Automation tools](docs/AUTOMATION_TOOLS.md)
+- [Network quality guide](docs/NETWORK_QUALITY_GUIDE.md)
+- [Cross-repository linking](docs/cross_repo_linking.md)
+- [Growth-media linking](docs/media_linking.md)
+- [Curation history](history/README.md)
+- [Historical implementation notes](notes/README.md)
 
----
+## Contributing
 
-## 🔗 Related Projects
+Keep changes focused and preserve unrelated work in dirty checkouts. Do not
+hand-edit generated models or generated community pages. Pull requests should
+include the relevant validation results and any required regenerated artifacts.
 
-- [dismech](https://github.com/monarch-initiative/dismech) - Disease mechanisms KB (inspiration)
-- [LinkML](https://linkml.io/) - Modeling framework
-- [Koza](https://github.com/monarch-initiative/koza) - KG transformation tool
-- [BugSigDB](https://bugsigdb.org/) - Microbial signatures database
-- [OAK](https://github.com/INCATools/ontology-access-kit) - Ontology access toolkit
-
----
-
-## 📧 Contact
-
-For questions or collaboration inquiries, please open an issue.
-
----
-
-**Status**: 🚧 Under active development
+CommunityMech is licensed under the [BSD 3-Clause License](LICENSE).

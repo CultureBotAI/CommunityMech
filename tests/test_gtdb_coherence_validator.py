@@ -22,6 +22,7 @@ the constraint should move into the schema.
 from __future__ import annotations
 
 import subprocess
+import sys
 from pathlib import Path
 
 import pytest
@@ -711,9 +712,7 @@ def test_nothing_else_writes_relative_to_the_working_directory(tmp_path):
 
     result = subprocess.run(
         [
-            "uv",
-            "run",
-            "python",
+            sys.executable,
             str(REPO / "scripts/validate_strict.py"),
             str(fixture),
             "--out",
