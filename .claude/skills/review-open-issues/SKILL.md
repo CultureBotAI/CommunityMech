@@ -41,24 +41,19 @@ ranking; it does not implement fixes.
 ### Step 1 — Fetch the full open-issue queue
 
 ```bash
-gh issue list --state open --limit 300 --json number,title,body,labels,createdAt,updatedAt \
-  -q '.[] | "\(.number)\t\(.createdAt[:10])\t\(.title)"'
+queue_file="${TMPDIR:-/tmp}/communitymech-open-issues.json"
+gh issue list --state open --limit 5000 \
+  --json number,title,body,labels,comments,createdAt,updatedAt > "$queue_file"
+jq -r '.[] | [.number, .createdAt[:10], .title] | @tsv' "$queue_file"
+jq length "$queue_file"
 ```
 
-The `-q` filter above only prints `number`/`createdAt`/`title` for a scannable
-overview — `body` and `labels` are still fetched (Step 2's grouping and Step 3's
-staleness checks need them) but not shown by this line. Use `gh issue view <N>`
-to read an individual issue's body, or widen the `-q` expression if scanning
-bodies in bulk.
-
-Do not truncate silently. `gh issue list --limit` has no hard cap near 300 —
-`gh` auto-paginates through GitHub's API, so a repo with thousands of open
-issues still returns the full set from a single call with a high enough
-`--limit`. If the 300-item fetch above turns out to be short, first confirm
-the true count (`gh issue list --state open --limit 5000 --json number | jq
-length` — omitting `--limit` silently caps at gh's default of 30), then
-re-run Step 1 with `--limit` comfortably above that count rather than
-sampling.
+The first command preserves every requested field; the second derives a
+scannable overview without throwing away the bodies and labels needed below.
+Read and group from the saved JSON, not from the overview alone. Omitting
+`--limit` silently caps at gh's default of 30. If the saved array has exactly
+5000 entries, treat that as possible truncation and re-run with a higher limit
+before claiming full-queue coverage.
 
 ### Step 2 — Group and dedupe
 
@@ -68,23 +63,29 @@ several may describe the same root cause from different angles. Group by:
 - same file/function named,
 - near-identical failure scenario.
 
+Inspect each saved issue object's title, body, labels, and comments while
+grouping. A group is an organizational aid, not permission to skip its
+individual issues.
 Note groups explicitly in the report; do not silently merge them (a human may
 want to close duplicates deliberately, not have them hidden).
 
 ### Step 3 — Check each issue against current reality
 
-For each issue (or each group's representative), spot-check:
+For every issue, check:
 
-- **Already fixed?** `git log --oneline --all --perl-regexp --grep "#<N>\b"`
-  and `gh pr list --state merged --search "<N>"` — an issue whose fix already
-  merged should be flagged STALE/CLOSE, not re-surfaced as open work. Plain
-  `--grep "#<N>"` substring-matches unrelated numbers (`#48` also matches
-  `#480`, `#4823`, ...) — the `\b` word-boundary anchor above is required, not
-  optional. Treat the `gh pr list --search` result as a lead, not proof:
-  GitHub's search matches the number anywhere in the indexed text, not
-  anchored to an issue reference (`--search "248"` also returns unrelated
-  PRs like #14006 that never mention issue 248) — open and read each
-  candidate PR before citing it as evidence.
+- **Already fixed on the default branch?** Refresh the base ref with `git fetch
+  origin main`, then use `git log --oneline origin/main --perl-regexp --grep
+  "#<N>\b"`. Plain `--grep "#<N>"` substring-matches unrelated numbers (`#48`
+  also matches `#480`, `#4823`, ...), so the `\b` boundary is required. Do not
+  use `--all`: commits found only on an unmerged branch are work in progress,
+  not evidence that the issue is fixed.
+- **Closed by a merged PR?** Get exact linked candidates with `gh issue view
+  <N> --json closedByPullRequestsReferences --jq
+  '.closedByPullRequestsReferences[] | [.number, .url] | @tsv'`, then verify
+  each candidate's `mergedAt` using `gh pr view <PR> --json mergedAt`. Do not
+  use a bare-number `gh pr list --search`: it substring-matches unrelated PR
+  text. An issue whose fix actually reached `main` should be flagged
+  STALE/CLOSE, not re-surfaced as open work.
 - **Still reproducible?** If the issue names a specific file/line/function,
   confirm it still exists in that shape (`grep`/`git log -p` the cited
   location) — code moves, and a stale issue pointing at a renamed/removed
@@ -152,12 +153,9 @@ the queue.
 
 ## Notes & limitations
 
-- `gh issue list --json` doesn't include `comments` unless explicitly
-  requested (add `comments` to the `--json` field list) — Step 1's query
-  above doesn't request it, so a "fixed already" claim buried in a later
-  comment thread won't surface from that fetch alone; either widen the
-  `--json` fields or check `gh issue view <N> --comments` for issues that
-  look ambiguous.
+- `comments` must remain in Step 1's explicit `--json` field list; otherwise a
+  "fixed already" claim buried in a later comment thread will not be present
+  in the saved queue.
 - Cross-repo issues (a defect described once but relevant to multiple Mechs)
   are common in this org — note if an issue's fix should propagate elsewhere,
   but do not open issues in sibling repos without being asked.
