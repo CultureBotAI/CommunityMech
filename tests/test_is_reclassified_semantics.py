@@ -64,12 +64,12 @@ EXPECTED = {
     # The key stays, with its reason, so the bucket cannot silently repopulate.
     "strain_dropped": 0,
     "polyphyly_only": 24,
-    "strain_dropped_and_polyphyly": 11,
+    "strain_dropped_and_polyphyly": 12,
     "gtdb_placeholder_same_genus": 5,
     "nomenclatural_ending": 3,
 }
-NOT_A_RECLASSIFICATION = 43
-TOTAL_TRUE = 115
+NOT_A_RECLASSIFICATION = 44
+TOTAL_TRUE = 116
 ABOVE_SPECIES = 33
 
 

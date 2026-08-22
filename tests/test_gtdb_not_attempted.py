@@ -43,6 +43,10 @@ label either:
   `g__Geobacter` at 0.948 — so the descriptor adds nothing the grounding
   contradicts.
 
+One later curation entry is also held: `Clostridium beijerinckii NCIMB 8052`
+has no strain-level crosswalk row, while the species name is split across three
+GTDB species. That is an explicit curation hold, not outstanding untriaged work.
+
 What distinguishes these from the two held descriptors is that "Nitrospira-like"
 and "Nitrospirae core floodplain members" would have to be grounded to a
 *non-type split*, so the descriptor and the weak target compound.
@@ -80,6 +84,13 @@ HELD = {
     ),
     ("East_River_Floodplain_Core_Microbiome.yaml", "Nitrospirae core floodplain members"): (
         "as above, plus a preferred_term that is a descriptor rather than a taxon"
+    ),
+    (
+        "Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml",
+        "Clostridium beijerinckii NCIMB 8052",
+    ): (
+        "strain-level crosswalk row absent, and the species name is split across "
+        "three GTDB species; a candidate needs genome-level evidence"
     ),
 }
 

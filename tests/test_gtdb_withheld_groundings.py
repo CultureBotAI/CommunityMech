@@ -64,6 +64,13 @@ WITHHELD = {
     ("East_River_Floodplain_Core_Microbiome.yaml", "Nitrospirae core floodplain members"): (
         "As the AMD_Nitrososphaerota_Archaeal Nitrospira entry (#374, #377, #401)."
     ),
+    (
+        "Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml",
+        "Clostridium beijerinckii NCIMB 8052",
+    ): (
+        "The strain ID has no NCBI2GTDB row and the species name is split across "
+        "three GTDB species; do not choose one without genome-level evidence."
+    ),
 }
 
 

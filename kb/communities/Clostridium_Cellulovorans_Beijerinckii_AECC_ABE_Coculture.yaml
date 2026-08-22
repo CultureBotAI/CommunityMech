@@ -1,0 +1,368 @@
+id: CommunityMech:000323
+name: Clostridium cellulovorans-Beijerinckii AECC ABE Coculture
+description: >
+  A defined anaerobic artificial symbiosis pairing the cellulolytic,
+  butyrate-producing mesophile Clostridium cellulovorans 743B with the
+  non-cellulolytic solventogenic bacterium Clostridium beijerinckii NCIMB
+  8052. The coculture was designed for consolidated bioprocessing of alkali
+  extracted deshelled corn cobs, where C. cellulovorans saccharifies
+  lignocellulose and produces butyric acid, and C. beijerinckii converts the
+  released soluble sugars and butyric acid into acetone-butanol-ethanol
+  solvents. The system is DOE-relevant as a lignocellulosic biomass-to-biofuel
+  community model using an agricultural residue feedstock.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >
+    Produce acetone-butanol-ethanol solvents from alkali extracted deshelled
+    corn cobs through one-pot consolidated bioprocessing by combining a
+    lignocellulose-saccharifying partner with a solventogenic partner.
+  assembly_strategy: >
+    Co-culture C. cellulovorans 743B with C. beijerinckii NCIMB 8052 under
+    anaerobic conditions using AECC as the sole carbon source.
+  perturbation_design: >
+    Optimize the artificial symbiosis for AECC degradation, solvent production,
+    and strain-abundance dynamics measured by 16S rRNA gene qPCR.
+  measurement_endpoints:
+  - AECC degradation
+  - total solvent production
+  - acetone concentration
+  - butanol concentration
+  - ethanol concentration
+  - strain abundance by 16S rRNA gene qPCR
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Artificial symbiosis for acetone-butanol-ethanol (ABE) fermentation
+    explanation: Supports the engineered artificial-symbiosis objective for ABE production.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture of Clostridium beijerinckii and Clostridium cellulovorans
+    explanation: Supports the two-member coculture design.
+environment_term:
+  preferred_term: anaerobic lignocellulose-fed laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled in vitro anaerobic coculture using alkali extracted deshelled
+    corn cobs as the sole carbon source for ABE fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_K_cellulovorans
+      gtdb_taxon: Clostridium_K cellulovorans
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_K;s__Clostridium_K cellulovorans
+      ncbi_source_id: NCBITaxon:573061
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Cellulolytic, anaerobic, butyrate-producing mesophile used to saccharify AECC.
+  strain_designation:
+    strain_name: 743B
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium cellulovorans 743B to saccharify lignocellulose and produce butyric acid
+    explanation: Supports C. cellulovorans 743B as the lignocellulose-saccharifying, butyric-acid-producing member.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: celluloytic, anaerobic, butyrate-producing mesophile (C. cellulovorans 743B)
+    explanation: Supports the anaerobic cellulolytic and butyrate-producing role.
+- taxon_term:
+    preferred_term: Clostridium beijerinckii NCIMB 8052
+    term:
+      id: NCBITaxon:1520
+      label: Clostridium beijerinckii
+    gtdb_grounding_status: WITHHELD
+    notes: >
+      Non-cellulolytic solventogenic bacterium that consumes soluble sugars
+      and butyric acid for butanol production. The strain is retained in
+      preferred_term and strain_designation; the taxon term is grounded at the
+      species because the 2026-07-25 kg-microbe NCBI2GTDB table has no direct
+      row for the NCIMB 8052 strain ID. GTDB splits the species name across
+      GTDB:s__Clostridium_beijerinckii, GTDB:s__Clostridium_beijerinckii_A, and
+      GTDB:s__Clostridium_beijerinckii_E; no species-level candidate is asserted
+      for this strain without additional genome-level evidence.
+  strain_designation:
+    strain_name: NCIMB 8052
+    culture_collections:
+    - collection: NCIMB
+      accession: NCIMB 8052
+  abundance_level: ABUNDANT
+  functional_role:
+  - SECONDARY_FERMENTER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clostridium beijerinckii NCIMB 8052 to produce butanol
+    explanation: Supports C. beijerinckii NCIMB 8052 as the butanol-producing member.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: non-celluloytic, solventogenic bacterium (C. beijerinckii NCIMB 8052)
+    explanation: Supports the solventogenic, non-cellulolytic role.
+ecological_interactions:
+- name: Lignocellulose Saccharification Feeding Solventogenesis
+  description: >
+    C. cellulovorans 743B saccharifies AECC lignocellulose and releases soluble
+    sugars that are subsequently utilized by C. beijerinckii NCIMB 8052 for ABE
+    solvent production.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+  target_taxon:
+    preferred_term: Clostridium beijerinckii NCIMB 8052
+    term:
+      id: NCBITaxon:1520
+      label: Clostridium beijerinckii
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  - preferred_term: acetone
+    term:
+      id: CHEBI:15347
+      label: acetone
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: soluble sugars and butyric acid generated can be subsequently utilized by Clostridium beijerinckii NCIMB 8052
+    explanation: Supports cross-feeding of C. cellulovorans products to C. beijerinckii.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produce solvents by consolidated bioprocessing (CBP) with alkali extracted deshelled corn cobs (AECC)
+    explanation: Supports AECC lignocellulose conversion to ABE solvents by the coculture.
+- name: Butyric Acid Support of Butanol Production
+  description: >
+    C. cellulovorans replaces external butyric-acid addition by producing
+    butyric acid in situ, which supports solventogenesis and butanol production
+    by C. beijerinckii.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
+  target_taxon:
+    preferred_term: Clostridium beijerinckii NCIMB 8052
+    term:
+      id: NCBITaxon:1520
+      label: Clostridium beijerinckii
+  metabolites:
+  - preferred_term: butyric acid
+    term:
+      id: CHEBI:30772
+      label: butyric acid
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produce butyric acid, instead of adding cellulase and butyric acid to the medium
+    explanation: Supports in situ butyric acid production by C. cellulovorans as part of the design.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: soluble sugars and butyric acid generated can be subsequently utilized
+    explanation: Supports use of generated butyric acid by the solventogenic partner.
+- name: Cooperation and Competition During Coculture Dynamics
+  description: >
+    The two strains cooperate through division of labor but also show changing
+    abundance dynamics consistent with cooperation and competition during the
+    co-culture process.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: mechanisms of cooperation and competition between the two strains during the co-culture process
+    explanation: Supports the coexistence of cooperative and competitive dynamics.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: real-time PCR assay based on the 16S rRNA gene sequence was performed
+    explanation: Supports strain-abundance tracking as evidence for community dynamics.
+environmental_factors:
+- name: Alkali extracted deshelled corn cobs
+  value: sole carbon source
+  description: AECC was the lignocellulosic feedstock for consolidated bioprocessing in the coculture.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alkali extracted deshelled corn cobs (AECC), a low-cost renewable feedstock, as the sole carbon source
+    explanation: Supports AECC as the sole carbon source.
+- name: Optimized AECC degradation
+  value: 68.6 g/L AECC degraded
+  description: Under optimized conditions the coculture degraded a high AECC loading.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degraded 68.6 g/L AECC
+    explanation: Supports the reported AECC degradation endpoint.
+- name: Solvent production
+  value: 11.8 g/L total solvents in less than 80 h
+  description: The coculture produced acetone, butanol, and ethanol from AECC under optimized conditions.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produced 11.8 g/L solvents
+    explanation: Supports the total ABE solvent output.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2.64 g/L acetone, 8.30 g/L butanol and 0.87 g/L ethanol
+    explanation: Supports the curated solvent composition.
+growth_media:
+- name: AECC consolidated bioprocessing coculture
+  composition:
+  - name: alkali extracted deshelled corn cobs
+    concentration: '68.6'
+    unit: g/L degraded under optimized conditions
+  - name: butanol
+    chebi_term:
+      preferred_term: butanol
+      term:
+        id: CHEBI:28885
+        label: butan-1-ol
+  atmosphere: ANAEROBIC
+  incubation_time: less than 80
+  incubation_time_unit: h
+  inoculum_source: C. cellulovorans 743B and C. beijerinckii NCIMB 8052 laboratory cultures.
+  preparation_notes: >
+    The PubMed abstract supports AECC as the sole carbon source and the
+    anaerobic cellulolytic/solventogenic coculture design; detailed mineral
+    salts and pH-control conditions are not curated from the abstract.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: alkali extracted deshelled corn cobs (AECC), a low-cost renewable feedstock, as the sole carbon source
+    explanation: Supports the carbon-source component of the coculture medium.
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in less than 80 h
+    explanation: Supports the reported optimized-process time window.
+external_resources:
+- name: Exact-system primary publication - AECC to ABE artificial symbiosis
+  repository: OTHER
+  resource_id: PMID:25023325
+  url: https://pubmed.ncbi.nlm.nih.gov/25023325/
+  description: >
+    Primary publication reporting AECC degradation and ABE solvent production
+    by the C. cellulovorans 743B and C. beijerinckii NCIMB 8052 coculture.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture of Clostridium beijerinckii and Clostridium cellulovorans
+    explanation: Supports the primary article as the exact-system source.
+- name: Open full text - AECC to ABE artificial symbiosis
+  repository: OTHER
+  resource_id: PMCID:PMC4223388
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4223388/
+  description: >
+    Open-access full text for the Microbial Cell Factories study of the
+    C. cellulovorans 743B and C. beijerinckii NCIMB 8052 coculture.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PMC4223388
+    explanation: Links the PMC full text to the PubMed-indexed primary publication.
+related_ingredients:
+- preferred_term: cellulose
+  chebi_term:
+    id: CHEBI:18246
+    label: (1->4)-beta-D-glucan
+  relevance: >
+    Cellulose is a major lignocellulosic component of AECC that C. cellulovorans
+    saccharifies during consolidated bioprocessing.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: saccharify lignocellulose
+    explanation: Supports lignocellulose saccharification by the primary degrader.
+- preferred_term: butyric acid
+  chebi_term:
+    id: CHEBI:30772
+    label: butyric acid
+  relevance: >
+    Butyric acid is produced by C. cellulovorans and then used by C. beijerinckii
+    during solventogenesis.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: produce butyric acid
+    explanation: Supports butyric acid as a generated intermediate.
+- preferred_term: butanol
+  chebi_term:
+    id: CHEBI:28885
+    label: butan-1-ol
+  relevance: >
+    Butanol is the major solvent product reported for the optimized coculture.
+  evidence:
+  - reference: PMID:25023325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 8.30 g/L butanol
+    explanation: Supports butanol as a major product.
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this AECC
+  acetone-butanol-ethanol coculture.

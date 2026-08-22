@@ -86,11 +86,15 @@ _ELEMENT_CHEBI: dict[str, tuple[str, str]] = {
     "NEODYMIUM": ("CHEBI:33372", "neodymium atom"),
     "PRASEODYMIUM": ("CHEBI:49828", "praseodymium atom"),
     "SAMARIUM": ("CHEBI:33374", "samarium atom"),
+    "EUROPIUM": ("CHEBI:49591", "europium(3+) cation"),
     "DYSPROSIUM": ("CHEBI:33377", "dysprosium atom"),
     "ERBIUM": ("CHEBI:33379", "erbium"),
     "GADOLINIUM": ("CHEBI:33375", "gadolinium atom"),
+    "HOLMIUM": ("CHEBI:49650", "holmium(3+) cation"),
     "TERBIUM": ("CHEBI:33376", "terbium atom"),
+    "THULIUM": ("CHEBI:33380", "thulium atom"),
     "YTTERBIUM": ("CHEBI:33381", "ytterbium"),
+    "LUTETIUM": ("CHEBI:49746", "lutetium(3+) cation"),
     "YTTRIUM": ("CHEBI:33331", "yttrium atom"),
 }
 

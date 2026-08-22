@@ -1076,6 +1076,16 @@ WITHHELD_GROUNDINGS = {
         "refused by this module's majority policy rather than by the schema "
         "(#374, #377, #401). The preferred_term is a descriptor, not a taxon."
     ),
+    (
+        "Clostridium_Cellulovorans_Beijerinckii_AECC_ABE_Coculture.yaml",
+        "Clostridium beijerinckii NCIMB 8052",
+    ): (
+        "The strain-level NCBITaxon ID has no row in the 2026-07-25 kg-microbe "
+        "NCBI2GTDB table, while the species name is split across "
+        "GTDB:s__Clostridium_beijerinckii, GTDB:s__Clostridium_beijerinckii_A, "
+        "and GTDB:s__Clostridium_beijerinckii_E. Withhold rather than asserting "
+        "one species-level GTDB split for NCIMB 8052 without genome-level evidence."
+    ),
 }
 
 

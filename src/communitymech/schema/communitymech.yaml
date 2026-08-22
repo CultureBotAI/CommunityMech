@@ -973,10 +973,10 @@ classes:
           the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
-          half held. Of the 115 blocks currently true, 33 are grounded above
+          half held. Of the 116 blocks currently true, 33 are grounded above
           species — through genus, family, order, class and phylum — so the rank
           is wrong for nearly a third of them. And it does not mean GTDB
-          reclassified anything. Partitioning the 115 by why the names differ
+          reclassified anything. Partitioning the 116 by why the names differ
           (#441):
 
           * 0 dropped strain designations. There were 40 — `Escherichia coli
@@ -985,7 +985,7 @@ classes:
             `name_differs` now treats that as no difference.
           * 24 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
             marker on the same name, not a rename.
-          * 11 that are both at once — `Buchnera aphidicola BCc` ->
+          * 12 that are both at once — `Buchnera aphidicola BCc` ->
             `Buchnera aphidicola_F`.
           * 5 GTDB placeholders for an unnamed species within the same genus —
             `Dyadobacter sp.` -> `Dyadobacter sp017744695`.
@@ -1000,15 +1000,15 @@ classes:
             `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
             `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So 43 of 115 — 37% — are not reclassifications under any reading, and
+          So 44 of 116 — 38% — are not reclassifications under any reading, and
           that is a floor: the 72 "genuinely different" include an unknown
           number of NCBI renames and spelling variants. Filter on this slot to
           find "the two labels are not identical", which is what it computes.
           Do not read it as provenance.
 
           #480 narrowed it: dropping the 40 strain-designation cases took the
-          non-reclassification share from 54% to 37%, and the genuinely-different
-          share from 46% to 63%. Polyphyly suffixes are deliberately still
+          non-reclassification share from 54% to 38%, and the genuinely-different
+          share from 46% to 62%. Polyphyly suffixes are deliberately still
           reported — `Bacillota` -> `Bacillota_A` is a real GTDB distinction, and
           #480 records that folding it in here is the arguable middle rather than
           the obvious next step. An enum (#480 option 3) is where this wants to

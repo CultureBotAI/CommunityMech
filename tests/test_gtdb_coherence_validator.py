@@ -510,7 +510,9 @@ def test_the_status_distribution_is_what_was_measured():
     # resolved by *deciding not to ground them* — two near-ties (#396) and two
     # non-type splits whose type-bearing term is unrepresentable (#374, #377).
     # WITHHELD is the value for that; NOT_ATTEMPTED says "nothing explains why".
-    assert counts["WITHHELD"] == 5, "the #416 withhold and #401's four must stay marked"
+    assert (
+        counts["WITHHELD"] == 6
+    ), "the #416 withhold, #401's four, and the C. beijerinckii split must stay marked"
     # This was `1 <= NOT_ATTEMPTED`, on the reasoning that 0 almost certainly
     # meant the value was being mislabelled rather than the work being done.
     # It is now genuinely 0, and the difference is that every one of the nine
