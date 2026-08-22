@@ -17,8 +17,10 @@ Files written per task (under ``out_dir``):
                                Every SDK-exposed field, future-proof
                                against new ones.
     {stem}-citations.md        Parsed reference list from
-                               ``formatted_answer`` (PaperQA convention,
-                               matches the falcon citations.md sidecar).
+                               ``formatted_answer`` (PaperQA convention).
+                               Unrelated to falcon's removed
+                               --separate-citations sidecar; Edison's own
+                               extractor here is not affected.
     {stem}-agent-state.json    ``agent_state`` (tool-call trace) +
                                ``environment_frame`` + verbose
                                ``metadata``. Only written when verbose
@@ -517,11 +519,9 @@ def _existing_sidecars(
     whole point is provenance, an auditor following the meta would read the wrong
     trajectory.
 
-    Pass ``written`` (the keys this run actually wrote) to report truthfully. It
-    is optional so the call sites that genuinely want a disk snapshot keep
-    working — ``enrich_edison_response`` backfills sidecars for the *same*
-    ``task_id`` already recorded in the meta, so for it "what is on disk now" is
-    the honest answer.
+    Pass ``written`` (the keys this run actually wrote) to report truthfully.
+    With ``written=None``, this returns a disk snapshot only; callers must
+    separately validate that task-specific artifacts belong to their task id.
     """
     on_disk = {
         "answer_md": (out_dir / f"{stem}.md").exists(),

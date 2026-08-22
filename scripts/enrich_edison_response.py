@@ -67,14 +67,41 @@ def _strip_meta_suffix(name: str) -> str:
     return name
 
 
-def needs_enrichment(out_dir: Path, stem: str, *, force: bool) -> dict[str, bool]:
-    """Return a dict of which sidecars are missing for this stem."""
+def _agent_state_matches_task(out_dir: Path, stem: str, task_id: str) -> bool:
+    """Whether the saved trace is readable and belongs to the task."""
+    path = out_dir / f"{stem}-agent-state.json"
+    try:
+        payload = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError):
+        return False
+    return isinstance(payload, dict) and str(payload.get("task_id") or "") == task_id
+
+
+def _attributable_sidecars(out_dir: Path, stem: str, task_id: str) -> dict[str, bool]:
+    """Return on-disk sidecars this task's metadata may truthfully claim."""
+    sidecars = ec._existing_sidecars(out_dir, stem)  # pylint: disable=protected-access
+    if sidecars["agent_state_json"]:
+        sidecars["agent_state_json"] = _agent_state_matches_task(out_dir, stem, task_id)
+    return sidecars
+
+
+def needs_enrichment(
+    out_dir: Path, stem: str, *, force: bool, task_id: str | None = None
+) -> dict[str, bool]:
+    """Return which sidecars are absent or cannot be attributed to this task."""
+    task_set_unverified = bool(task_id) and not _agent_state_matches_task(out_dir, stem, task_id)
     return {
-        "response_json": force or not (out_dir / f"{stem}-response.json").exists(),
-        "citations_md": force or not (out_dir / f"{stem}-citations.md").exists(),
-        "agent_state_json": force or not (out_dir / f"{stem}-agent-state.json").exists(),
-        "files_json": force or not (out_dir / f"{stem}-files.json").exists(),
-        "answer_md": force or not (out_dir / f"{stem}.md").exists(),
+        "response_json": force
+        or task_set_unverified
+        or not (out_dir / f"{stem}-response.json").exists(),
+        "citations_md": force
+        or task_set_unverified
+        or not (out_dir / f"{stem}-citations.md").exists(),
+        "agent_state_json": force
+        or task_set_unverified
+        or not (out_dir / f"{stem}-agent-state.json").exists(),
+        "files_json": force or task_set_unverified or not (out_dir / f"{stem}-files.json").exists(),
+        "answer_md": force or task_set_unverified or not (out_dir / f"{stem}.md").exists(),
     }
 
 
@@ -91,13 +118,12 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
 
     stem = _strip_meta_suffix(meta_path.name)
     out_dir = meta_path.parent
-    missing = needs_enrichment(out_dir, stem, force=force)
+    prior_task_set_verified = _agent_state_matches_task(out_dir, stem, task_id)
+    missing = needs_enrichment(out_dir, stem, force=force, task_id=task_id)
     if not any(missing.values()):
         return {"path": str(meta_path), "status": "already-complete", "wrote": []}
 
-    print(
-        f"  + enriching {stem}  (missing: " f"{[k for k, v in missing.items() if v]})", flush=True
-    )
+    print(f"  + enriching {stem}  (missing: {[k for k, v in missing.items() if v]})", flush=True)
 
     if dry_run:
         return {
@@ -197,7 +223,11 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
     # inventory). Always attempt, even when files.json already exists,
     # so re-running picks up artifacts that were missed before.
     artifacts_manifest: list[dict[str, Any]] = []
-    if files_listing is None and (out_dir / f"{stem}-files.json").exists():
+    if (
+        files_listing is None
+        and prior_task_set_verified
+        and (out_dir / f"{stem}-files.json").exists()
+    ):
         try:
             files_listing = json.loads((out_dir / f"{stem}-files.json").read_text())
         except (OSError, json.JSONDecodeError):
@@ -213,13 +243,24 @@ def enrich_one(client: Any, meta_path: Path, *, force: bool, dry_run: bool) -> d
             wrote.append("artifacts")
 
     # Refresh the meta yaml with the now-richer field set
+    if prior_task_set_verified:
+        attributable_sidecars = _attributable_sidecars(out_dir, stem, task_id)
+    else:
+        attributable_sidecars = ec._existing_sidecars(  # pylint: disable=protected-access
+            out_dir, stem, set(wrote)
+        )
+        if attributable_sidecars["agent_state_json"]:
+            attributable_sidecars["agent_state_json"] = _agent_state_matches_task(
+                out_dir, stem, task_id
+            )
+
     updates: dict[str, Any] = {
         "answer_chars": len(answer or ""),
         "formatted_answer_chars": len(formatted_answer or ""),
         "has_answer_reasoning": bool(getattr(primary, "answer_reasoning", None)),
         "answer_reasoning_chars": len(getattr(primary, "answer_reasoning", "") or ""),
         "citations_parsed": len(ec.parse_citations(formatted_answer or answer)),
-        "sidecar_files": ec._existing_sidecars(out_dir, stem),  # pylint: disable=protected-access
+        "sidecar_files": attributable_sidecars,
         "artifacts_fetched": [a for a in artifacts_manifest if a.get("status") == "fetched"],
         "artifacts_skipped": [a for a in artifacts_manifest if a.get("status") != "fetched"],
         "enriched_at": ec._to_iso(datetime.now(timezone.utc)),
