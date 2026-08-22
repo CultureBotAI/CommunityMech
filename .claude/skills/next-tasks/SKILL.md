@@ -131,6 +131,8 @@ record the new state.
 
 - `scout-communities` — find *new* work from the literature (this skill only
   works the existing backlog).
+- `review-open-issues` — triage the full open-issue queue periodically; use
+  this skill for routine "what's next" checks and `NEXT_TASKS.md` upkeep.
 - `deep-research-community`, `add-growth-conditions`, `review-communities`,
   `evidence-curation`, `manage-identifiers` — the skills a chosen backlog item
   is usually handed off to.
