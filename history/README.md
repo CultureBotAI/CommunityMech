@@ -107,18 +107,15 @@ Writing the md5 into this prose instead would go stale the first time the schema
 gains a field and nobody updates the hash — a confident false negative. A runnable
 command cannot decay that way.
 
-The vendored copy exists so validation has **no dependency on claw**, which is
-private — a public repo's CI cannot check it out without a token. `just
+The vendored copy exists so validation has **no dependency on a claw checkout**.
+`just
 validate-history` and the `curation-history` workflow both use the local copy and
 work with no claw checkout at all.
 
 Only `just new-history` needs claw, via `CLAW_SRC`. That is a dev-time scaffolder,
 and anyone writing curation records has claw checked out.
 
-Changing the schema means changing the canonical copy and re-vendoring here — the
-same hub-and-spoke rule as `mech_shared.yaml`. This copy is **not** yet on
-`scripts/check_vendored_sync.sh`, so nothing enforces that rule automatically.
-Adding it is not a one-liner: that check diffs against the public
-`CultureBotAI/CultureMech` hub over tokenless `raw.githubusercontent`, and this
-file's canonical copy lives in claw, which is private. Until a public canonical
-copy exists in the hub, the `diff` above is the check.
+Changing the schema means changing CultureMech's canonical copy first and
+re-vendoring here — the same hub-and-spoke rule as `mech_shared.yaml`.
+`scripts/check_vendored_sync.sh` now includes the path-mapped `history.yaml`, so
+the pinned CultureMech reference enforces the copy byte-for-byte.

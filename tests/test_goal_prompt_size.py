@@ -24,7 +24,8 @@ Two things this file used to assert are wrong, and both mattered (#363):
   same axis; it is the wrong axis, and it would have rejected a legal prompt
   that used non-ASCII punctuation.
 
-`prompts/backlog-loop.goal.md` is 3959 trimmed characters — **41 to spare**.
+The canonical `prompts/backlog-loop-goal.md` is guarded below and by the
+vendored fleet frontmatter test.
 
 `test_goal_prompts_are_ascii_only` stays, for a narrower reason than before: JS
 `.length` counts UTF-16 code units, so an astral character (emoji, some
@@ -59,21 +60,21 @@ LIMIT_UNIT = "characters"
 
 
 def _goal_prompts() -> list:
-    return sorted(PROMPTS.glob("*.goal.md"))
+    path = PROMPTS / "backlog-loop-goal.md"
+    return [path] if path.is_file() else []
 
 
 def test_there_is_something_to_check():
     """A glob that matches nothing passes every parametrised test vacuously."""
     assert PROMPTS.is_dir(), f"{PROMPTS} does not exist"
-    assert _goal_prompts(), f"no *.goal.md found in {PROMPTS}"
+    assert _goal_prompts(), f"no backlog-loop-goal.md found in {PROMPTS}"
 
 
 @pytest.mark.parametrize("path", _goal_prompts(), ids=lambda p: p.name)
 def test_goal_prompt_fits_the_measured_budget(path: Path):
     """Trimmed characters, because that is what the handler compares.
 
-    `/goal` does `r.trim()` first, so a trailing newline is free — the file is
-    3959 trimmed against 3960 raw, and that one character is real headroom.
+    `/goal` does `r.trim()` first, so a trailing newline is free.
     """
     text = path.read_text(encoding="utf-8")
     trimmed = len(text.strip())

@@ -7,4 +7,8 @@ synonym_field: synonyms
 id_field: id
 discussions_field: discussions
 topic_context_terms: ["microbial community", "microbiome", "consortium", "syntrophy", "co-culture"]
+# Coined consortium names rarely occur verbatim in abstracts. Accept a signal
+# sentence only when it contains either the whole label/synonym or at least two
+# distinctive label tokens; one generic overlap is still rejected.
+topic_token_min_matches: 2
 min_score: 8
