@@ -425,7 +425,13 @@ def rank_stage(config: Mapping[str, Any], focus_name: str, stage_name: str) -> l
                 "limitation": provider.limitation,
             }
         )
-    return sorted(rows, key=lambda row: (-row["fit"], row["provider"]))
+    # Preserve relative order when the absolute-zero fit floor collapses
+    # several (or all) negative raw scores to fit=0.  The public fit meaning
+    # stays unchanged; raw score is only a deterministic tie-breaker.
+    return sorted(
+        rows,
+        key=lambda row: (-row["fit"], -raw[row["provider"]], row["provider"]),
+    )
 
 
 def recommendable(

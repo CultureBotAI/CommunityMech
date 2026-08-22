@@ -20,6 +20,8 @@ REF_FILE="scripts/.vendored_canon_ref"
 
 # Same-path vendored files: identical relative path in the hub and here.
 FILES=(
+  scripts/check_vendored_sync.sh
+  tests/test_provider_triage_contract.py
   scripts/validate_id_label_correspondence.py
   scripts/chem_formula.py
   tests/test_id_label_empty_adapter.py
@@ -31,7 +33,24 @@ FILES=(
 # by this repo's package while the hub's is culturemech. Format "local_glob|hub".
 MAPPED=(
   "src/*/schema/mech_shared.yaml|src/culturemech/schema/mech_shared.yaml"
+  "src/*/schema/history.yaml|src/culturemech/schema/history.yaml"
 )
+
+# Edison capture is shared only by the Mechs that have an Edison runner.
+# Select it by repository identity rather than file existence: existence-based
+# selection would let deleting the local copy silently remove it from the gate.
+REPO_ID="${GITHUB_REPOSITORY:-$(git config --get remote.origin.url || true)}"
+case "$REPO_ID" in
+  *CultureMech*|*TraitMech*|*MediaIngredientMech*|*CommunityMech*)
+    FILES+=(scripts/_edison_capture.py)
+    ;;
+  *proteintraitsmech*)
+    ;;
+  *)
+    echo "ERROR: cannot identify Mech repository from: $REPO_ID" >&2
+    exit 2
+    ;;
+esac
 
 [ -f "$REF_FILE" ] || { echo "ERROR: $REF_FILE missing (pinned canonical commit)"; exit 2; }
 REF="$(tr -d '[:space:]' < "$REF_FILE")"
