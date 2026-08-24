@@ -24,6 +24,29 @@ Before changing anything:
 - Do not make network calls, spend provider credits, or apply generated curation
   unless the task authorizes it.
 
+## Fact-based answers only
+
+Never state a comparison, count, status, or historical claim without having
+verified it in the current conversation via a tool call (`gh`, `git`, `grep`,
+`Read`, etc.). "I recall," "this is typically the case," or a prior summary
+are not verification -- the KB, issue tracker, and generated artifacts change
+between turns and across concurrent sessions.
+
+- Prefer a live check over memory: `gh api`/`gh issue view`/`gh pr view` over
+  a remembered issue list; `git log`/`git blame` over a recalled commit; a
+  fresh `Read` of a `kb/communities/` or `kb/taxa/` record over trusting an
+  earlier read of the same file.
+- Tracking issues with checklists (for example #669) record priority and
+  sequencing, not current state -- their sub-issue checkboxes and P0/P1/P2
+  counts move as work lands. Re-fetch with `gh issue view` before citing what
+  is open, closed, or "done" rather than repeating a count from earlier in
+  the conversation.
+- If a claim can't be verified this session, say so ("I did not check X" /
+  "I don't know") instead of presenting a plausible guess as fact.
+- Re-verify rather than repeat: restating an earlier claim in this same
+  conversation without re-checking it is exactly the failure mode this rule
+  exists to prevent.
+
 ## Canonical and generated files
 
 | Path | Role | Editing rule |
