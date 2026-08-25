@@ -39,6 +39,23 @@ def test_template_vars_include_community_context():
     assert "formate" in variables["interaction_summary"]
 
 
+def test_template_vars_include_stub_discovery_source(tmp_path):
+    path = tmp_path / "candidate.stub.yaml"
+    variables = template_vars(
+        {
+            "name": "Candidate community",
+            "_scout": {
+                "source_reference": "PMID:41905048",
+                "year": "2026",
+                "journal": "Journal of Hazardous Materials",
+            },
+        },
+        path,
+    )
+
+    assert variables["source_summary"] == ("PMID:41905048 | 2026 | Journal of Hazardous Materials")
+
+
 def test_provider_args_mirror_dismech_cborg_shortcut():
     assert provider_args("falcon") == ["--provider", "falcon"]
     assert provider_args("cborg") == ["--use-cborg"]

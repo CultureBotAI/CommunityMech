@@ -9,6 +9,7 @@
 - **Community origin:** {community_origin}
 - **Environment:** {environment_summary}
 - **Description:** {description}
+- **Seed publication / discovery source:** {source_summary}
 
 ## Existing Record Context
 - **Taxa:** {taxonomy_summary}
@@ -24,6 +25,9 @@ Research the microbial community **{community_name}** as a candidate CommunityMe
 mechanism record. Focus on source-backed community composition, ecological
 interactions, mechanisms, environmental controls, cultivation conditions, and
 datasets that can improve `kb/communities/{community_file}`.
+
+Start with the seed publication when one is supplied above, verify its identifiers,
+and use it as the primary source for claims about this exact community.
 
 ## Required Findings
 
