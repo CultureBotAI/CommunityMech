@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste-Sludge Electro-Fermentation Biofilm-Suspension Community - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <h1>Waste-Sludge Electro-Fermentation Biofilm-Suspension Community</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000328</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        waste-activated-sludge electro-fermentation reactor
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>An engineered waste-activated-sludge electro-fermentation community with spatially differentiated electrode-biofilm and planktonic fractions. The source reports biofilm-associated reductive debromination of 4-bromophenol and suspension-associated acidogenesis for volatile-fatty-acid recovery. The five genera recorded here are enriched functional examples, not an exhaustive inventory of the sludge community.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Syntrophomonas</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=862"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:862
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"enriching electroactive bacteria (e.g., Syntrophomonas and Geobacter)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Geobacter</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=28231"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:28231
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">ELECTROGEN</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"enriching electroactive bacteria (e.g., Syntrophomonas and Geobacter)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Hydrogenophaga</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=47420"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:47420
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"dehalogenators (e.g., Hydrogenophaga)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Sedimentibacter</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=190972"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:190972
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"enriching fermentative bacteria (e.g., Sedimentibacter and Petrimonas)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Petrimonas</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=307628"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:307628
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">SECONDARY_FERMENTER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"enriching fermentative bacteria (e.g., Sedimentibacter and Petrimonas)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+        
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Waste-Sludge Electro-Fermentation Biofilm-Suspension Community</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy, niche partitioning).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle"
+                             data-color="#7f30cf"></svg> Syntrophy
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolSquare2"
+                             data-color="#1212ed"></svg> Niche partitioning
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Biofilm-Suspension Spatial Division of Labor</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Multi-omics analysis revealed a distinct spatial division of labor"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"Electrode biofilms primarily governed reductive debromination"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"planktonic suspensions mainly drove acidogenesis"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Biofilm Electroactivity and Dehalogenation</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"enriching electroactive bacteria (e.g., Syntrophomonas and Geobacter) and dehalogenators (e.g., Hydrogenophaga)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Suspension Acidogenesis</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"enriching fermentative bacteria (e.g., Sedimentibacter and Petrimonas) and accelerating hydrolysis and fatty acid biosynthesis pathways"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>EET-Reinforced Biofilm-Suspension Syntrophy</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"extracellular electron transfer as the key factor reinforcing this biofilm-suspension syntrophy, significantly contributing to both dehalogenation and acidogenesis"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        
+        </section>
+
+        <!-- Associated Datasets -->
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>External Resources</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Primary publication - biofilm-suspension electro-fermentation syntrophy</strong>
+                            
+                            <br><span class="dataset-description">Primary multi-omics study of spatial division of labor in the waste-sludge electro-fermentation community.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"This work investigated the cooperation between biofilms and suspensions in EFS"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Waste activated sludge feedstock</strong></td>
+                        <td>waste activated sludge</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"Electro-fermentation systems (EFS) offer a promising approach for waste activated sludge valorization"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Halogenated model pollutant</strong></td>
+                        <td>4-bromophenol</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"4-bromophenol, 4-BP, as model pollutant"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Community performance</strong></td>
+                        <td>97.4% 4-bromophenol removal; 40.2% higher VFA production than control</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41793807/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41793807</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"achieving 97.4% removal of 4-BP while increasing VFAs production by 40.2% compared to the control"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    Waste-activated-sludge electro-fermentation matrix
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+
+                    
+                </div>
+
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> The abstract identifies waste activated sludge and 4-bromophenol but does not report basal medium composition, loading, pH, temperature, atmosphere, or electrode materials.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/41793807"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:41793807
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"EFS designed to synchronize carbon recovery (volatile fatty acid, VFAs) production and halogenated contaminant degradation (4-bromophenol, 4-BP, as model pollutant)"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#9f2ebb",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "COMMENSALISM": "#cf7830",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12"
+        };
+        var unmappedColor = "#929caa";
+
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "COMMENSALISM": "symbolWye",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+        
+        taxonData["Syntrophomonas"] = {
+            id: "NCBITaxon:862",
+            label: "Syntrophomonas",
+            abundance: "UNKNOWN",
+            roles: ["SYNTROPHIC_PARTNER"]
+        };
+        
+        taxonData["Geobacter"] = {
+            id: "NCBITaxon:28231",
+            label: "Geobacter",
+            abundance: "UNKNOWN",
+            roles: ["ELECTROGEN", "SYNTROPHIC_PARTNER"]
+        };
+        
+        taxonData["Hydrogenophaga"] = {
+            id: "NCBITaxon:47420",
+            label: "Hydrogenophaga",
+            abundance: "UNKNOWN",
+            roles: ["PRIMARY_DEGRADER"]
+        };
+        
+        taxonData["Sedimentibacter"] = {
+            id: "NCBITaxon:190972",
+            label: "Sedimentibacter",
+            abundance: "UNKNOWN",
+            roles: ["SECONDARY_FERMENTER"]
+        };
+        
+        taxonData["Petrimonas"] = {
+            id: "NCBITaxon:307628",
+            label: "Petrimonas",
+            abundance: "UNKNOWN",
+            roles: ["SECONDARY_FERMENTER"]
+        };
+        
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+        
+        (function() {
+            var intId = "interaction:0";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 3;
+
+            nodes.push({
+                id: intId,
+                label: "Biofilm-Suspension Spatial Division of Labor",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Biofilm Electroactivity and Dehalogenation",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Suspension Acidogenesis",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:3";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "EET-Reinforced Biofilm-Suspension Syntrophy",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 9;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
+            .attr("stroke-width", 1.5);
+
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
+        // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+    
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>
