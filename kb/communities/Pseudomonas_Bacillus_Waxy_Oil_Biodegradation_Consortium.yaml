@@ -1,0 +1,184 @@
+id: CommunityMech:000324
+name: Pseudomonas-Bacillus Waxy Oil Biodegradation Consortium
+description: >
+  A defined two-member consortium of Pseudomonas aeruginosa PA12 and Bacillus
+  subtilis G1 engineered to biodegrade waxy crude oil. Bacillus improves access
+  to the oil-water interface and supplies metabolic precursors, while
+  Pseudomonas performs deeper oxidation of long-chain alkanes and aromatics.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Improve microbial wax removal and hydrocarbon conversion from waxy crude oil.
+  assembly_strategy: Combine Pseudomonas aeruginosa PA12 with Bacillus subtilis G1 in a two-member consortium.
+  measurement_endpoints:
+  - wax removal
+  - monoculture and coculture degradation efficiency
+  - multi-omics evidence of metabolic cooperation
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a synergistic Pseudomonas aeruginosa PA12-Bacillus subtilis G1 consortium was applied to biodegrade waxy crude oil
+    explanation: Supports the exact two-strain design and biodegradation objective.
+environment_term:
+  preferred_term: waxy crude oil laboratory consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled two-member consortium cultivated with waxy crude oil as substrate.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa PA12
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: PA12
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa PA12-Bacillus subtilis G1 consortium
+    explanation: Identifies P. aeruginosa PA12 as a consortium member.
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PA12 assimilates these intermediates, activating its alkB-fad-ben/cat metabolic axis
+    explanation: Supports PA12 as the member responsible for deep hydrocarbon oxidation.
+- taxon_term:
+    preferred_term: Bacillus subtilis G1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: G1
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa PA12-Bacillus subtilis G1 consortium
+    explanation: Identifies B. subtilis G1 as a consortium member.
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: G1 remodels the oil-water interface via lipopeptides and small-molecule metabolites
+    explanation: Supports the interfacial-remodeling role of G1.
+ecological_interactions:
+- name: Interfacial Remodeling and Precursor Cross-feeding
+  description: >
+    B. subtilis G1 uses lipopeptides and small molecules to remodel the oil-water
+    interface, improve substrate accessibility, and supply precursors assimilated
+    by P. aeruginosa PA12.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Bacillus subtilis G1
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Pseudomonas aeruginosa PA12
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhancing substrate accessibility and supplying precursors to PA12
+    explanation: Supports substrate-access facilitation and precursor transfer from G1 to PA12.
+- name: Multilayer Cooperative Hydrocarbon Degradation
+  description: >
+    The consortium combines interface remodeling, metabolic cross-feeding,
+    signal exchange, and redox-energy homeostasis to outperform either monoculture.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a multilayer cooperative mechanism integrating interfacial remodeling, metabolic cross-feeding, signal exchange, and redox-energy homeostasis
+    explanation: Supports the reported community-level cooperative mechanism.
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: monocultures showed lower degradation efficiencies, reaching 52.5% for PA12 and 42.0% for G1
+    explanation: Supports performance beyond either monoculture.
+environmental_factors:
+- name: Waxy crude oil loading
+  value: '2'
+  unit: '% w/v'
+  description: Waxy crude oil was the biodegradation substrate.
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biodegrade waxy crude oil (2% w/v)
+    explanation: Supports the substrate identity and loading.
+- name: Wax removal
+  value: '85.5'
+  unit: percent within 12 days
+  description: Wax removal achieved by the two-member consortium.
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: achieving 85.5% wax removal within 12 d
+    explanation: Supports the measured consortium performance and incubation period.
+growth_media:
+- name: Waxy crude oil biodegradation culture
+  composition:
+  - name: waxy crude oil
+    concentration: '2'
+    unit: '% w/v'
+  incubation_time: '12'
+  incubation_time_unit: days
+  inoculum_source: Pseudomonas aeruginosa PA12 and Bacillus subtilis G1 laboratory cultures.
+  preparation_notes: The abstract does not report the basal medium composition, pH, temperature, or aeration conditions.
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: waxy crude oil (2% w/v), achieving 85.5% wax removal within 12 d
+    explanation: Supports the substrate loading and reported culture duration.
+external_resources:
+- name: Primary publication - PA12-G1 waxy oil consortium
+  repository: OTHER
+  resource_id: PMID:41905048
+  url: https://pubmed.ncbi.nlm.nih.gov/41905048/
+  description: Primary multi-omics study of the exact two-strain consortium.
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a synergistic Pseudomonas aeruginosa PA12-Bacillus subtilis G1 consortium
+    explanation: Links the resource to the exact community.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this waxy-oil biodegradation consortium.

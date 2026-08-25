@@ -1,0 +1,164 @@
+id: CommunityMech:000325
+name: Euglena-Chlorella Microalgal Biorefinery Coculture
+description: >
+  A defined coculture of Euglena gracilis and Chlorella pyrenoidosa optimized
+  for biomass, lipid, and alpha-tocopherol production. The two phototrophs show
+  complementary light-harvesting, carbon-fixation, electron-transport, and
+  metabolite-secretion functions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: Maximize biomass, lipid, and alpha-tocopherol production in a two-member microalgal coculture.
+  assembly_strategy: Coculture Euglena gracilis and Chlorella pyrenoidosa at an optimized 3:7 inoculation ratio in TAP medium.
+  perturbation_design: Compare the optimized coculture with monocultures and test alpha-lipoic acid supplementation.
+  measurement_endpoints:
+  - biomass concentration
+  - lipid productivity
+  - alpha-tocopherol yield
+  - logarithmic growth-phase duration
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: developed a synergistic co-culture system using Euglena gracilis (EG) and Chlorella pyrenoidosa (CP)
+    explanation: Supports the exact two-species engineered coculture.
+environment_term:
+  preferred_term: microalgal laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled TAP-medium coculture optimized for microalgal biorefinery outputs.
+taxonomy:
+- taxon_term:
+    preferred_term: Euglena gracilis
+    term:
+      id: NCBITaxon:3039
+      label: Euglena gracilis
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic microalgal member; GTDB does not classify eukaryotes.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture system using Euglena gracilis (EG) and Chlorella pyrenoidosa (CP)
+    explanation: Identifies E. gracilis as a coculture member.
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: EG primarily enhanced light-harvesting capacity and antioxidative metabolite secretion
+    explanation: Supports the light-harvesting and metabolite-secretion role of E. gracilis.
+- taxon_term:
+    preferred_term: Chlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Chlorella pyrenoidosa is the publication name; NCBI currently labels taxon 3078 Auxenochlorella pyrenoidosa.
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture system using Euglena gracilis (EG) and Chlorella pyrenoidosa (CP)
+    explanation: Identifies C. pyrenoidosa as a coculture member.
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CP intensified electron transport activity, enhanced carbon fixation capacity, and released lipid-associated metabolites
+    explanation: Supports the electron-transport, carbon-fixation, and metabolite-release role of C. pyrenoidosa.
+ecological_interactions:
+- name: Complementary Microalgal Metabolic Division of Labor
+  description: >
+    E. gracilis enhances light harvesting and antioxidative metabolite secretion,
+    while C. pyrenoidosa enhances electron transport, carbon fixation, and release
+    of lipid-associated metabolites.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Multi-omics analysis revealed a clear metabolic division of labor
+    explanation: Supports community-level metabolic specialization.
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: collectively driving process intensification in terms of biomass and lipid productivity
+    explanation: Supports the combined effect of complementary member functions.
+- name: Synergistic Biorefinery Production
+  description: >
+    The coculture increased biomass, lipid productivity, and alpha-tocopherol
+    yield relative to monocultures and shortened the logarithmic growth phase.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: corresponding to 1.18-1.52-fold, 1.58-2.81-fold, and 2.13-9.90-fold increases relative to monoculture systems
+    explanation: Supports coculture production gains relative to monocultures.
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the logarithmic growth phase was reduced by 50% (3 days)
+    explanation: Supports the shortened logarithmic growth phase.
+environmental_factors:
+- name: Inoculation ratio
+  value: '3:7'
+  unit: Euglena gracilis:Chlorella pyrenoidosa
+  description: Optimized member inoculation ratio in TAP medium.
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: optimized inoculation ratio of EG:CP = 3:7 in TAP medium
+    explanation: Supports the optimized inoculation ratio and medium.
+- name: Coculture production endpoints
+  value: 1.23 g/L biomass; 163.7 mg/L/d lipid; 1976.28 micrograms/L alpha-tocopherol
+  description: Production outputs reported for the optimized coculture.
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biomass concentration of 1.23 g/L, lipid productivity of 163.7 mg/L/d, and alpha-tocopherol yield of 1976.28 mug/L
+    explanation: Supports all three quantitative production endpoints.
+- name: Alpha-lipoic acid supplementation
+  value: exogenous supplementation
+  description: Supplementation further increased biomass, lipid productivity, and alpha-tocopherol production.
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: exogenous alpha-lipoic acid supplementation further amplified biomass accumulation
+    explanation: Supports alpha-lipoic acid as a tested positive perturbation.
+growth_media:
+- name: TAP medium microalgal coculture
+  inoculum_size: '3:7'
+  inoculum_unit: Euglena gracilis:Chlorella pyrenoidosa ratio
+  preparation_notes: The abstract identifies TAP medium but does not provide its formulation or detailed physical cultivation conditions.
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: optimized inoculation ratio of EG:CP = 3:7 in TAP medium
+    explanation: Supports TAP as the cultivation medium and the optimized inoculation ratio.
+external_resources:
+- name: Primary publication - Euglena-Chlorella metabolic division of labor
+  repository: OTHER
+  resource_id: PMID:42248260
+  url: https://pubmed.ncbi.nlm.nih.gov/42248260/
+  description: Primary multi-omics study of the exact two-species microalgal coculture.
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culture system using Euglena gracilis (EG) and Chlorella pyrenoidosa (CP)
+    explanation: Links the resource to the exact community.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this microalgal coculture.

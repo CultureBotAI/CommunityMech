@@ -1,0 +1,345 @@
+id: CommunityMech:000326
+name: Staphylococcus-Candida Context-Dependent Biofilm Coculture
+description: >
+  A defined interkingdom biofilm composed of Staphylococcus aureus and Candida
+  albicans. Primary studies of this exact species composition report outcomes
+  ranging from contact-dependent antagonism to hypha-supported colonization and
+  copper-mediated mutualism, demonstrating strong dependence on strains,
+  nutrients, surfaces, growth state, and colonization order.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Resolve mechanisms and context dependence in S. aureus-C. albicans dual-species biofilms.
+  assembly_strategy: Coculture S. aureus and C. albicans in defined in vitro dual-species biofilm systems.
+  perturbation_design: Compare biofilm and planktonic states, nutrient conditions, surface types, strain combinations, colonization order, copper availability, and antifungal treatment.
+  measurement_endpoints:
+  - biofilm biomass and viable cell counts
+  - extracellular matrix and metabolic activity
+  - fungal morphology and biofilm architecture
+  - transcriptomic and proteomic responses
+  - copper uptake and export
+  evidence:
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interaction mechanism of the co-culture of the two species
+    explanation: Supports mechanistic analysis of the exact dual-species system.
+  - reference: PMID:42413741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: investigated how S. aureus strain heterogeneity influences C. albicans within dual-species biofilms
+    explanation: Supports strain identity as an explicit perturbation in this community.
+environment_term:
+  preferred_term: interkingdom laboratory biofilm
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined in vitro biofilms studied on plastic and other biotic or abiotic surfaces.
+taxonomy:
+- taxon_term:
+    preferred_term: Staphylococcus aureus
+    term:
+      id: NCBITaxon:1280
+      label: Staphylococcus aureus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Staphylococcus_aureus
+      gtdb_taxon: Staphylococcus aureus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Staphylococcales;f__Staphylococcaceae;g__Staphylococcus;s__Staphylococcus aureus
+      ncbi_source_id: NCBITaxon:1280
+      majority_fraction: 1.0
+      total_genomes: 37403
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida albicans and Staphylococcus aureus can coexist
+    explanation: Identifies S. aureus as a member of the dual-species biofilm.
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the bacterium Staphylococcus aureus along a nutritional axis of mutualism
+    explanation: Independently supports S. aureus membership in the exact biofilm composition.
+- taxon_term:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB does not classify eukaryotes.
+  abundance_level: ABUNDANT
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida albicans and Staphylococcus aureus can coexist
+    explanation: Identifies C. albicans as a member of the dual-species biofilm.
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the fungus Candida albicans forms biofilms with the bacterium Staphylococcus aureus
+    explanation: Independently supports C. albicans membership in the exact biofilm composition.
+ecological_interactions:
+- name: Antagonistic Dual-Species Biofilm Suppression
+  description: >
+    In one defined coculture, dual-species biofilms had reduced biomass, cell
+    counts, metabolic activity, EPS, and structural density relative to
+    single-species biofilms, with metabolic and signaling pathways suppressed in both members.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: there is an antagonistic effect between C. albicans and S. aureus
+    explanation: Supports antagonism in the reported dairy and clinical surface model.
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: significantly reduced biomass, cell counts, metabolic activity, and EPS content
+    explanation: Supports the measured suppressive biofilm phenotype.
+- name: Contact-Dependent Strain-Specific Fungal Suppression
+  description: >
+    Across 60 S. aureus strains, most strains suppressed C. albicans growth by
+    a contact-dependent mechanism, while matrix composition and antifungal
+    response varied among strain combinations.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Staphylococcus aureus
+    term:
+      id: NCBITaxon:1280
+      label: Staphylococcus aureus
+  target_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  evidence:
+  - reference: PMID:42413741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The majority of the 60 S. aureus strains tested suppressed fungal growth in a contact-dependent manner
+    explanation: Supports strain-dependent, contact-mediated inhibition of C. albicans.
+  - reference: PMID:42413741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dual-species biofilms varied significantly in their bacterial-to-fungal cell ratios and in the composition of the biofilm-associated extracellular matrix
+    explanation: Supports variation in community composition and matrix across strain combinations.
+- name: Copper-Mediated Nutritional Mutualism
+  description: >
+    In plastic-grown biofilms, C. albicans increased copper uptake through Ctr1
+    while S. aureus increased copper export through CsoR and CopZ; disrupting
+    copper availability reduced dual-species biomass.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. albicans increased copper uptake via transporter Ctr1, while S. aureus enhanced copper export via regulator CsoR and export chaperone CopZ
+    explanation: Supports complementary copper handling by the two members.
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dual-species biofilms are consistently larger than single-species counterparts
+    explanation: Supports cooperative biofilm growth in the copper-economy study.
+- name: Candida Biofilm Scaffold Supports Staphylococcus Colonization
+  description: >
+    Early C. albicans biofilms provide a contact-dependent physical scaffold
+    that increases S. aureus cell numbers during biofilm maturation.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  target_taxon:
+    preferred_term: Staphylococcus aureus
+    term:
+      id: NCBITaxon:1280
+      label: Staphylococcus aureus
+  evidence:
+  - reference: PMID:33831044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: early C. albicans biofilms enhanced the numbers of E. coli and S. aureus
+    explanation: Supports increased S. aureus abundance in the presence of early Candida biofilms.
+  - reference: PMID:33831044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: contact with C. albicans was required for the increased bacterial cell numbers observed
+    explanation: Supports contact dependence of the facilitation.
+  - reference: PMID:33831044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. albicans provided a scaffold for initial bacterial adhesion
+    explanation: Supports the physical-scaffold mechanism.
+- name: Growth-State and Hyphal Context Dependence
+  description: >
+    C. albicans suppresses S. aureus in planktonic coculture, whereas
+    hyphae-competent biofilms support mutual adaptation, biomass accumulation,
+    cohesion, and resistance.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41324029
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. albicans dominated in planktonic co-culture, suppressing S. aureus growth, whereas biofilm conditions favored mutual adaptation
+    explanation: Supports interaction reversal between planktonic and biofilm states.
+  - reference: PMID:41324029
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: hyphae-competent C. albicans forming dual-species biofilms with S. aureus that accumulated substantial biomass
+    explanation: Supports the role of hyphal morphology in cooperative biofilm accumulation.
+- name: Staphylococcus-Induced Candida Virulence Response
+  description: >
+    S. aureus changes the C. albicans transcriptome in dual-species biofilms,
+    including expression programs associated with virulence, biofilm formation,
+    protein binding, and heat-shock responses.
+  interaction_type: COLONIZATION_FACILITATION
+  source_taxon:
+    preferred_term: Staphylococcus aureus
+    term:
+      id: NCBITaxon:1280
+      label: Staphylococcus aureus
+  target_taxon:
+    preferred_term: Candida albicans
+    term:
+      id: NCBITaxon:5476
+      label: Candida albicans
+  evidence:
+  - reference: PMID:34888261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Upregulated genes in dual-species biofilms corresponded to multiple gene ontology terms, including those attributed to virulence, biofilm formation and protein binding
+    explanation: Supports the Candida transcriptional response to S. aureus.
+  - reference: PMID:34888261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: S. aureus pushes C. albicans towards a more virulent genotype
+    explanation: Supports the study's interpretation of increased Candida virulence-associated expression.
+environmental_factors:
+- name: Surface-associated biofilm growth
+  value: plastic and other biotic or abiotic surfaces
+  description: Interaction outcomes were evaluated in surface-associated in vitro biofilms.
+  evidence:
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using in vitro biofilms formed on plastic
+    explanation: Supports plastic as one tested biofilm surface.
+  - reference: PMID:42413741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: across different nutrient conditions and surface types
+    explanation: Supports surface and nutrient context as experimental variables.
+- name: Copper availability
+  value: depletion and supplementation
+  description: Both copper depletion and supplementation reduced dual-species biofilm biomass in the copper-economy study.
+  evidence:
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: specific sensitivity to both copper depletion and supplementation, with corresponding reductions in biomass
+    explanation: Supports copper availability as a determinant of community biomass.
+- name: Growth state
+  value: planktonic versus biofilm
+  description: Growth state changed the direction and outcome of the interaction.
+  evidence:
+  - reference: PMID:41324029
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. albicans dominated in planktonic co-culture, suppressing S. aureus growth, whereas biofilm conditions favored mutual adaptation
+    explanation: Supports growth state as a determinant of interaction outcome.
+growth_media:
+- name: Context-dependent dual-species biofilm media
+  preparation_notes: >
+    Multiple exact-composition studies used distinct nutrient conditions. One
+    study specifically compared yeast growth in YPD with hyphal induction by
+    RPMI substrates; complete formulations are not curated from the abstracts.
+  evidence:
+  - reference: PMID:41324029
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Compared to yeast cells in YPD, hyphal growth induced by RPMI substrates significantly augmented biofilm formation
+    explanation: Supports YPD and RPMI as experimentally contrasted growth contexts.
+external_resources:
+- name: Primary publication - antagonistic phenotypic and transcriptomic study
+  repository: OTHER
+  resource_id: PMID:42629020
+  url: https://pubmed.ncbi.nlm.nih.gov/42629020/
+  description: Exact-composition study reporting antagonistic dual-species biofilm outcomes.
+  evidence:
+  - reference: PMID:42629020
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dual-species biofilms formed by Staphylococcus aureus and Candida albicans
+    explanation: Links the publication to the exact species composition.
+- name: Primary publication - copper-driven mutualism
+  repository: OTHER
+  resource_id: PMID:42359480
+  url: https://pubmed.ncbi.nlm.nih.gov/42359480/
+  description: Exact-composition study of copper-mediated cooperation.
+  evidence:
+  - reference: PMID:42359480
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida albicans forms biofilms with the bacterium Staphylococcus aureus
+    explanation: Links the publication to the exact species composition.
+- name: Primary publication - clinical-strain biofilm dynamics
+  repository: OTHER
+  resource_id: PMID:41324029
+  url: https://pubmed.ncbi.nlm.nih.gov/41324029/
+  description: Exact-composition study of growth-state, hyphal, and colonization-order effects.
+  evidence:
+  - reference: PMID:41324029
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interaction dynamics of S. aureus and C. albicans in both planktonic and biofilm states
+    explanation: Links the publication to the exact species composition.
+- name: Primary publication - Candida transcriptome response
+  repository: OTHER
+  resource_id: PMID:34888261
+  url: https://pubmed.ncbi.nlm.nih.gov/34888261/
+  description: Exact-composition RNA-seq study of C. albicans responses to S. aureus.
+  evidence:
+  - reference: PMID:34888261
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: effects that S. aureus elicits on the C. albicans transcriptome
+    explanation: Links the publication to the exact species composition.
+- name: Primary publication - Candida scaffold and antifungal intervention
+  repository: OTHER
+  resource_id: PMID:33831044
+  url: https://pubmed.ncbi.nlm.nih.gov/33831044/
+  description: Exact-composition study of Candida-supported S. aureus biofilms and antifungal perturbation.
+  evidence:
+  - reference: PMID:33831044
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dual-species biofilm formation between C. albicans and three respiratory pathogens commonly associated with VAP (Pseudomonas aeruginosa, Escherichia coli and Staphylococcus aureus) was studied using quantitative PCR.
+    explanation: Explicitly links this publication to the C. albicans-S. aureus pair.
+- name: Primary publication - S. aureus strain heterogeneity
+  repository: OTHER
+  resource_id: PMID:42413741
+  url: https://pubmed.ncbi.nlm.nih.gov/42413741/
+  description: Exact-composition study of 60 S. aureus strains paired with C. albicans.
+  evidence:
+  - reference: PMID:42413741
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: how S. aureus strain heterogeneity influences C. albicans within dual-species biofilms
+    explanation: Links the publication to the exact species composition.
+metals_present:
+- COPPER
+metal_relevance: SIGNIFICANT
+metal_notes: Copper depletion and supplementation both reduced dual-species biofilm biomass in the cited in vitro study.
