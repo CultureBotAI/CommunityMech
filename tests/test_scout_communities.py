@@ -42,3 +42,25 @@ def test_stub_queue_entry_is_batch_compatible(tmp_path: Path):
     assert entry["file_path"] == str(path.resolve())
     assert entry["reference"] == "PMID:12345678"
     assert entry["title"] == "A sourced synthetic community"
+
+
+@pytest.mark.parametrize("reverse", [False, True])
+def test_same_title_publication_versions_prefer_pmid(reverse: bool):
+    journal = _hit(
+        pmid="87654321",
+        doi="10.1000/journal",
+        title="Metabolic Synergy in a Microbial Consortium",
+        journal="Current Microbiology",
+    )
+    preprint = _hit(
+        pmid="",
+        doi="10.21203/rs.3.rs-123/v1",
+        title="Metabolic synergy in a microbial consortium",
+        journal="",
+    )
+    hits = [preprint, journal] if reverse else [journal, preprint]
+
+    deduplicated = scout.deduplicate_title_versions(hits)
+
+    assert len(deduplicated) == 1
+    assert deduplicated[0]["pmid"] == "87654321"

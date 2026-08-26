@@ -181,6 +181,38 @@ def score_hit(hit: dict) -> tuple[int, list[str]]:
     return len(matched) + title_bonus, matched
 
 
+def deduplicate_title_versions(hits: list[dict]) -> list[dict]:
+    """Collapse publication versions with the same normalized title.
+
+    Europe PMC can return both a preprint and its indexed journal article. Prefer
+    the PMID-bearing version so one paper cannot overwrite its sibling's stub.
+    """
+    selected: dict[str, dict] = {}
+    order: list[str] = []
+
+    for position, hit in enumerate(hits):
+        title_key = re.sub(r"[^a-z0-9]+", " ", hit.get("title", "").lower()).strip()
+        key = title_key or f"__untitled_{position}"
+        if key not in selected:
+            selected[key] = hit
+            order.append(key)
+            continue
+
+        current = selected[key]
+        hit_priority = (
+            bool((hit.get("pmid") or "").strip()),
+            bool((hit.get("journal") or "").strip()),
+        )
+        current_priority = (
+            bool((current.get("pmid") or "").strip()),
+            bool((current.get("journal") or "").strip()),
+        )
+        if hit_priority > current_priority:
+            selected[key] = hit
+
+    return [selected[key] for key in order]
+
+
 def query_epmc(query: str, since: int, limit: int) -> list[dict]:
     """Query Europe PMC, return normalized hit dicts (title/abstract/pmid/doi/...)."""
     full_query = f"({query}) AND (FIRST_PDATE:[{since}-01-01 TO 3000-12-31]) AND HAS_ABSTRACT:Y"
@@ -384,6 +416,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         candidates.append(hit)
 
+    candidates = deduplicate_title_versions(candidates)
     candidates.sort(key=lambda h: (h["dedup"] != "NEW", -h["score"], -int(h.get("year") or 0)))
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
