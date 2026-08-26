@@ -1,0 +1,221 @@
+id: CommunityMech:000331
+name: Pseudomonas-Paracoccus Bifenthrin-Degrading Consortium
+description: >
+  A defined two-strain consortium of Pseudomonas aeruginosa PA and Paracoccus
+  pantotrophus PP assembled from contaminated-soil isolates for bifenthrin
+  biodegradation. P. aeruginosa PA hydrolyzes bifenthrin, while P. pantotrophus
+  PP oxidizes the resulting bifenthrin-alcohol intermediate; PA extracellular
+  polymeric substances also modify the local chemical microenvironment.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Improve bifenthrin biodegradation by combining a bifenthrin hydrolyzer with a strain that removes the inhibitory bifenthrin-alcohol intermediate.
+  assembly_strategy: Construct a two-strain synthetic consortium from contaminated-soil isolates Pseudomonas aeruginosa PA and Paracoccus pantotrophus PP.
+  measurement_endpoints:
+  - bifenthrin removal
+  - degradation rate constant
+  - intermediate transformation
+  - extracellular polymeric substance composition and function
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP) were isolated from contaminated soil and constructed into a synthetic consortium (PA+PP)
+    explanation: Supports the exact strain composition, isolate origin, and synthetic assembly.
+environment_term:
+  preferred_term: aqueous bifenthrin-degradation laboratory assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The consortium was tested in an optimized aqueous mineral-salts-medium assay.
+modeled_environment:
+- preferred_term: bifenthrin-contaminated soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: Both strains were isolated from contaminated soil and the consortium was designed for bifenthrin-pollution remediation.
+taxonomy:
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa PA
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: PA
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP)
+    explanation: Identifies Pseudomonas aeruginosa PA as a member of the exact consortium.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin
+    explanation: Supports PA's primary bifenthrin-degradation role.
+- taxon_term:
+    preferred_term: Paracoccus pantotrophus PP
+    term:
+      id: NCBITaxon:82367
+      label: Paracoccus pantotrophus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Paracoccus_pantotrophus
+      gtdb_taxon: Paracoccus pantotrophus
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhodobacterales;f__Rhodobacteraceae;g__Paracoccus;s__Paracoccus pantotrophus
+      ncbi_source_id: NCBITaxon:82367
+      majority_fraction: 0.88
+      total_genomes: 26
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: PP
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas aeruginosa strain PA (PA) and Paracoccus pantotrophus strain PP (PP)
+    explanation: Identifies Paracoccus pantotrophus PP as a member of the exact consortium.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PP, as the oxidizer, efficiently degraded bifenthrin alcohol
+    explanation: Supports PP's intermediate-degradation and cross-feeding roles.
+ecological_interactions:
+- name: Hydrolyzer-oxidizer division of labor
+  description: >
+    PA hydrolyzes bifenthrin into bifenthrin alcohol and
+    trifluorochloro-chrysanthemic acid, while PP oxidizes bifenthrin alcohol and
+    thereby relieves inhibition of PA hydrolases.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and trifluorochloro-chrysanthemic acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
+    explanation: Supports the strain-specific hydrolysis and oxidation steps.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: relieving steric hindrance on PA hydrolases and establishing an essential cooperative degradation partnership
+    explanation: Supports the functional consequence of PP removing the inhibitory intermediate.
+- name: Bifenthrin-intermediate cross-feeding
+  description: PP consumes the bifenthrin-alcohol product generated by PA, coupling the two degradation steps.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas aeruginosa PA
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  target_taxon:
+    preferred_term: Paracoccus pantotrophus PP
+    term:
+      id: NCBITaxon:82367
+      label: Paracoccus pantotrophus
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and trifluorochloro-chrysanthemic acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
+    explanation: Demonstrates sequential production and consumption of the bifenthrin-alcohol intermediate.
+environmental_factors:
+- name: PA extracellular polymeric substances
+  value: promoted bifenthrin adsorption and electron transfer
+  description: PA-secreted extracellular polymeric substances modified the consortium's local chemical microenvironment.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PA-secreted extracellular polymeric substances (EPS), which are rich in polysaccharides, proteins, and humic-like components, promoted bifenthrin adsorption and electron transfer
+    explanation: Supports PA-mediated physical and chemical modification of the consortium microenvironment without assigning an unsupported ecological-interaction class.
+- name: Initial bifenthrin concentration
+  value: '100'
+  unit: mg/L
+  description: Bifenthrin was supplied from an acetone stock to the aqueous mineral salts medium.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bifenthrin was introduced into the aqueous MSM system at a nominal initial concentration of 100 mg/L using an acetone stock solution
+    explanation: Supports the nominal bifenthrin concentration, aqueous matrix, and stock solvent.
+- name: Tween 80 dispersant
+  value: '0.1'
+  unit: percent
+  description: Tween 80 was used to disperse bifenthrin in the aqueous assay.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dispersed with 0.1% Tween 80
+    explanation: Supports the dispersant concentration.
+- name: Bifenthrin removal
+  value: '92.38'
+  unit: percent
+  description: The optimized PA+PP assay removed 92.38% of bifenthrin within seven days.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resulting in 92.38% removal within 7 days
+    explanation: Supports the removal endpoint and assay duration.
+- name: Consortium degradation rate constant
+  value: '0.26'
+  unit: d-1
+  description: The PA+PP degradation rate constant exceeded either monoculture rate constant.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: k3 = 0.26 d-1 > k1 = 0.15 d-1> k2 = 0.10 d-1
+    explanation: Supports the consortium and monoculture degradation-rate comparison.
+growth_media:
+- name: Bifenthrin aqueous mineral salts medium assay
+  composition:
+  - name: mineral salts medium
+  - name: bifenthrin
+    concentration: '100'
+    unit: mg/L
+  - name: Tween 80
+    concentration: '0.1'
+    unit: percent
+  incubation_time: '7'
+  incubation_time_unit: days
+  preparation_notes: Bifenthrin was added from an acetone stock. The abstract does not report the mineral salts medium formulation, inoculum ratio, temperature, pH, or agitation.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: aqueous MSM system at a nominal initial concentration of 100 mg/L using an acetone stock solution and dispersed with 0.1% Tween 80
+    explanation: Supports the assay matrix and reported additions.
+external_resources:
+- name: Primary publication - PA+PP bifenthrin consortium
+  repository: OTHER
+  resource_id: PMID:42269294
+  url: https://pubmed.ncbi.nlm.nih.gov/42269294/
+  description: Primary mechanistic study of the exact PA+PP synthetic consortium.
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: constructed into a synthetic consortium (PA+PP), which synergistically enhanced bifenthrin degradation
+    explanation: Links the publication to the exact community and its biodegradation phenotype.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this bifenthrin-bioremediation consortium.

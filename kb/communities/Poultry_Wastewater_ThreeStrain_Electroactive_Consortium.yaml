@@ -1,0 +1,281 @@
+id: CommunityMech:000330
+name: Poultry-Wastewater Three-Strain Electroactive Consortium
+description: >
+  A defined equal-volume consortium of Lysinibacillus sphaericus A1, Bacillus
+  cereus A2, and Lactococcus lactis A4 tested in dual-chamber microbial fuel
+  cells containing amended, sterilized poultry slaughterhouse wastewater. The
+  consortium produced more power and removed more chemical oxygen demand than
+  the constituent strains tested separately during the 30-day experiment.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Compare electricity generation and chemical oxygen demand removal by three pure cultures and their defined consortium in poultry-wastewater microbial fuel cells.
+  assembly_strategy: Standardize each strain to OD600 0.8 +/- 0.05 and combine 1 mL of each culture in equal volumes in the anode chamber.
+  measurement_endpoints:
+  - power density
+  - voltage and current density
+  - chemical oxygen demand removal
+  - anode-associated biofilm morphology
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study evaluated the electrochemical activity and COD removal efficiency of three individual bacterial strains
+    explanation: Supports the comparative microbial fuel-cell design and its principal endpoints.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A volume of 1 mL of each culture was introduced into the anode chambers of the MFCs, either individually or as an equal-volume mixture to form the microbial consortium.
+    explanation: Supports the inoculum volume and equal-volume consortium assembly.
+environment_term:
+  preferred_term: poultry-wastewater microbial fuel-cell laboratory system
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The community was tested in controlled dual-chamber microbial fuel cells rather than directly in an operating wastewater-treatment facility.
+modeled_environment:
+- preferred_term: poultry slaughterhouse waste water
+  term:
+    id: ENVO:00002001
+    label: waste water
+  notes: Poultry slaughterhouse wastewater was amended, sterilized, and used as the anolyte base matrix.
+taxonomy:
+- taxon_term:
+    preferred_term: Lysinibacillus sphaericus A1
+    term:
+      id: NCBITaxon:1421
+      label: Lysinibacillus sphaericus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Lysinibacillus_sp006864135
+    - GTDB:s__Lysinibacillus_sphaericus
+    - GTDB:s__Lysinibacillus_sphaericus_A
+    - GTDB:s__Lysinibacillus_sphaericus_B
+    notes: The article abstract spells the species epithet "sphericus", while the methods identify strain A1 as Lysinibacillus sphaericus; the NCBI-grounded accepted name is used here.
+  strain_designation:
+    strain_name: A1
+  functional_role:
+  - ELECTROGEN
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Three electroactive bacterial strains were used in this study:
+      Lysinibacillus sphaericus A1, Bacillus cereus A2, and Lactococcus lactis
+      A4.
+    explanation: Identifies strain A1 as an electroactive member of the exact consortium.
+- taxon_term:
+    preferred_term: Bacillus cereus A2
+    term:
+      id: NCBITaxon:1396
+      label: Bacillus cereus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_A_anthracis
+    - GTDB:s__Bacillus_A_bombysepticus
+    - GTDB:s__Bacillus_A_cereus
+    - GTDB:s__Bacillus_A_cereus_K
+    - GTDB:s__Bacillus_A_cereus_S
+    - GTDB:s__Bacillus_A_cereus_U
+    - GTDB:s__Bacillus_A_hominis
+    - GTDB:s__Bacillus_A_luti
+    - GTDB:s__Bacillus_A_mobilis
+    - GTDB:s__Bacillus_A_mycoides
+    - GTDB:s__Bacillus_A_nitratireducens
+    - GTDB:s__Bacillus_A_pacificus
+    - GTDB:s__Bacillus_A_paramycoides
+    - GTDB:s__Bacillus_A_paranthracis
+    - GTDB:s__Bacillus_A_pseudomycoides
+    - GTDB:s__Bacillus_A_sp003400245
+    - GTDB:s__Bacillus_A_sp018966865
+    - GTDB:s__Bacillus_A_thuringiensis
+    - GTDB:s__Bacillus_A_thuringiensis_AB
+    - GTDB:s__Bacillus_A_thuringiensis_K
+    - GTDB:s__Bacillus_A_thuringiensis_S
+    - GTDB:s__Bacillus_A_toyonensis
+    - GTDB:s__Bacillus_A_tropicus
+  strain_designation:
+    strain_name: A2
+  functional_role:
+  - ELECTROGEN
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Three electroactive bacterial strains were used in this study:
+      Lysinibacillus sphaericus A1, Bacillus cereus A2, and Lactococcus lactis
+      A4.
+    explanation: Identifies strain A2 as an electroactive member of the exact consortium.
+- taxon_term:
+    preferred_term: Lactococcus lactis A4
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lactococcus_lactis
+      gtdb_taxon: Lactococcus lactis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Streptococcaceae;g__Lactococcus;s__Lactococcus lactis
+      ncbi_source_id: NCBITaxon:1358
+      majority_fraction: 0.92
+      total_genomes: 893
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: A4
+  functional_role:
+  - ELECTROGEN
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Three electroactive bacterial strains were used in this study:
+      Lysinibacillus sphaericus A1, Bacillus cereus A2, and Lactococcus lactis
+      A4.
+    explanation: Identifies strain A4 as an electroactive member of the exact consortium.
+ecological_interactions:
+- name: Complementary electroactive consortium performance
+  description: >
+    Combining the three electroactive strains produced an emergent improvement
+    in power output and chemical oxygen demand removal relative to the pure
+    cultures, consistent with the source's interpretation of complementary
+    metabolic functions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: selecting complementary strains with diverse metabolic functions can substantially improve system performance
+    explanation: Supports metabolic complementarity as the proposed basis for the consortium-level improvement.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Compared with single cultures, the consortium produced approximately 15% higher power density than L. sphericus A1, about 29% higher than B. cereus A2, and more than threefold higher than L. lactis A4.
+    explanation: Quantifies the emergent power-density improvement over each pure culture.
+environmental_factors:
+- name: Operation duration
+  value: '30'
+  unit: days
+  description: All pure-culture and consortium microbial fuel cells were monitored for 30 days.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All inocula were tested in dual-chamber MFCs for 30 days
+    explanation: Supports the operation duration and reactor configuration.
+- name: Maximum consortium power density
+  value: '170'
+  unit: mW/m2
+  description: The consortium produced the highest reported power density among the tested inocula.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium showed the highest power of 170 mW/m2
+    explanation: Supports the consortium power-density endpoint.
+- name: Chemical oxygen demand removal
+  value: '84.4'
+  unit: percent
+  description: The consortium had the highest chemical oxygen demand removal reported in the comparison.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest COD removal (84.4%) was also recorded
+    explanation: Supports the reported chemical oxygen demand removal percentage.
+growth_media:
+- name: Inoculum preparation medium
+  composition:
+  - name: Luria-Bertani broth
+    concentration: '10'
+    unit: percent
+  temperature: '37'
+  temperature_unit: C
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  inoculum_source: Revived pure cultures of L. sphaericus A1, B. cereus A2, and L. lactis A4.
+  preparation_notes: Each strain was first revived on nutrient meat broth for 24 h at 37 C, then cultivated overnight in 10% Luria-Bertani broth and standardized to OD600 0.8 +/- 0.05.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For inoculum preparation, the strains were cultivated in 10% Luria–Bertani broth
+    explanation: Supports the inoculum medium.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: on a rotary shaker at 150 rpm and 37 °C overnight
+    explanation: Supports the inoculum incubation conditions.
+- name: Amended poultry slaughterhouse wastewater anolyte
+  composition:
+  - name: poultry slaughterhouse wastewater
+  - name: glucose
+    concentration: '3'
+    unit: g/L
+  - name: tryptone
+    concentration: '10'
+    unit: g/L
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  ph: '7.0 +/- 0.1'
+  incubation_time: '30'
+  incubation_time_unit: days
+  vessel_type: dual-chamber microbial fuel cell
+  preparation_notes: The amended wastewater was autoclaved at 121 C for 20 min, making it a sterilized model substrate rather than untreated slaughterhouse wastewater.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the wastewater was supplemented with glucose (3 g/L
+    explanation: Supports glucose supplementation of the wastewater anolyte.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: tryptone (10 g/L
+    explanation: Supports tryptone supplementation of the wastewater anolyte.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yeast extract (5 g/L
+    explanation: Supports yeast-extract supplementation of the wastewater anolyte.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The pH of the amended wastewater was adjusted to 7.0 ± 0.1.
+    explanation: Supports the initial anolyte pH.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: MICROBIAL_FUEL_CELL
+  instrument_detail: Laboratory dual-chamber microbial fuel cell with an amended wastewater anolyte.
+  notes: The study describes the units as small-volume batch reactors intended for controlled performance comparison.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Due to the small reactor volume and batch mode operation
+    explanation: Supports batch cultivation mode.
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All inocula were tested in dual-chamber MFCs for 30 days
+    explanation: Supports the microbial fuel-cell system classification.
+external_resources:
+- name: Primary publication - poultry-wastewater electroactive consortium
+  repository: OTHER
+  resource_id: PMID:41594859
+  url: https://pubmed.ncbi.nlm.nih.gov/41594859/
+  description: Primary laboratory microbial fuel-cell comparison of the exact three-strain consortium and its individual members.
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lysinibacillus sphericus A1, Bacillus cereus A2 and Lactococcus lactis A4, compared with a developed consortium
+    explanation: Links the publication to the exact three-strain composition despite the abstract's epithet spelling.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this wastewater microbial fuel-cell consortium.
