@@ -1,0 +1,147 @@
+id: CommunityMech:000334
+name: Bosea-Pseudomonas Dimethachlon-Degradation Consortium
+description: >
+  A defined two-strain consortium reconstructed from the dimethachlon-enriched
+  community JHJ-2. Bosea sp. S6 transforms dimethachlon into the toxic
+  intermediate 3,5-dichloroaniline, and Pseudomonas sp. KH-1 consumes that
+  intermediate, completing a sequential degradation and detoxification handoff.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Combine complementary transformation steps to remove dimethachlon and its toxic 3,5-dichloroaniline metabolite from contaminated soil.
+  assembly_strategy: Isolate strains S6 and KH-1 from the JHJ-2 enrichment and reconstruct them as a defined two-strain consortium.
+  measurement_endpoints:
+  - dimethachlon removal
+  - 3,5-dichloroaniline removal
+  - zebrafish toxicity of transformation products
+  - soil bioaugmentation performance
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic consortium was constructed, comprising Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline, and Pseudomonas sp. KH-1, which degrades 3,5-dichloroaniline
+    explanation: Supports the exact composition, reconstruction, and complementary design.
+environment_term:
+  preferred_term: dimethachlon-contaminated soil bioaugmentation system
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: The synthetic consortium was applied to dimethachlon-contaminated soil after construction from isolates recovered from enrichment JHJ-2.
+taxonomy:
+- taxon_term:
+    preferred_term: Bosea sp. S6
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      curated: true
+      curation_note: NCBITaxon:85413 is the bacterial genus that NCBI renamed Allobosea; the source uses its retained Bosea name. The GTDB lineage is pinned because the mapping snapshot retains the pre-rename genus name.
+      gtdb_id: GTDB:g__Bosea
+      gtdb_taxon: Bosea
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Beijerinckiaceae;g__Bosea
+      ncbi_source_id: NCBITaxon:85413
+      majority_fraction: 1.0
+      support_genomes: 34
+      total_genomes: 34
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: S6
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline
+    explanation: Identifies S6 and supports its upstream transformation role.
+- taxon_term:
+    preferred_term: Pseudomonas sp. KH-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: KH-1
+  functional_role:
+  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas sp. KH-1, which degrades 3,5-dichloroaniline
+    explanation: Identifies KH-1 and supports its intermediate-degradation role.
+ecological_interactions:
+- name: Sequential dimethachlon-metabolite handoff
+  description: >
+    S6 produces 3,5-dichloroaniline from dimethachlon and KH-1 consumes that
+    toxic intermediate, coupling the two strain-specific degradation steps.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bosea sp. S6
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  target_taxon:
+    preferred_term: Pseudomonas sp. KH-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: 3,5-dichloroaniline
+    term:
+      id: CHEBI:19904
+      label: 3,5-dichloroaniline
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline, and Pseudomonas sp. KH-1, which degrades 3,5-dichloroaniline
+    explanation: Directly supports production and consumption of the shared intermediate by the two strains.
+environmental_factors:
+- name: Complete contaminant and metabolite removal in soil
+  value: complete removal
+  description: Bioaugmentation removed both dimethachlon and 3,5-dichloroaniline from contaminated soil.
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioaugmentation with the synthetic consortium led to the complete removal of dimethachlon and its highly toxic metabolite 3,5-dichloroaniline from contaminated soil.
+    explanation: Supports the soil-level remediation endpoint.
+- name: Transformation-product toxicity
+  value: non-toxic in zebrafish assay
+  description: The combined transformations converted dimethachlon into products reported as non-toxic in the study's zebrafish assay.
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Toxicity assays using the zebrafish showed that dimethachlon is converted into non-toxic products by the synthetic consortium (strains S6 and KH-1).
+    explanation: Supports detoxification by the exact two-strain consortium.
+external_resources:
+- name: Primary publication - S6 and KH-1 dimethachlon consortium
+  repository: OTHER
+  resource_id: PMID:41326129
+  url: https://pubmed.ncbi.nlm.nih.gov/41326129/
+  description: Primary construction and functional study of the exact two-strain consortium.
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both strains were isolated from the enriched consortium JHJ-2 and synergistically degrade dimethachlon
+    explanation: Links the primary publication to the defined consortium and its enrichment origin.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth transformation role was reported for this pesticide-degradation consortium.
