@@ -299,22 +299,20 @@ validate-products:
 report-label-drift:
     uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml --report reports/label_drift.tsv
 
-# NOTE: the id↔label validator + its shared tests are vendored byte-identical
+# NOTE: the id↔label validator + its shared tests are governed byte-identically
 # across the Mech repos. The old self-generated sha256 pin (verify-/refresh-
 # validator-pin) was retired — it only compared a copy to a hash from the SAME
-# repo, so all repos could pass while diverged. Drift is now caught by the
-# shared-reference check: the `vendored-sync` CI job runs
-# scripts/check_vendored_sync.sh, which diffs these files against
-# CultureBotAI/CultureMech@<scripts/.vendored_canon_ref>. To propagate a change:
-# PR into that hub → merge → bump .vendored_canon_ref here.
+# repo, so every repo could pass while diverged. Drift is now caught by the
+# `vendored-sync` CI job: scripts/check_vendored_sync.sh verifies this repo's
+# applicable payloads against the CultureBotAI/culturebotai-claw manifest at
+# the full commit in scripts/.vendored_canon_ref. To propagate a change, update
+# the artifact and manifest in claw, merge, then coordinate the Mech pin bumps.
 
 # NOTE: the shared LinkML module (mech_shared.yaml) is vendored byte-identical
 # across the Mech repos (package-namespaced path per repo). Its self-generated
 # sha256 pin (verify-/refresh-schema-pin) was retired — same self-referential
-# flaw as the id-label pin. It is now covered by the shared-reference drift check
-# (scripts/check_vendored_sync.sh diffs src/*/schema/mech_shared.yaml against the
-# hub's copy at CultureBotAI/CultureMech@<scripts/.vendored_canon_ref>) plus the
-# hub's nightly vendored-fleet-audit.yml.
+# flaw as the id-label pin. It is now covered by the same pinned claw manifest;
+# the claw fleet audit verifies the coordinated commit and pin across all Mechs.
 
 # Validate schema-level ontology term meanings
 validate-schema-terms:

@@ -594,6 +594,14 @@ own MIM issue if we later want to persist `MIM:<name>` as a key.
 
 ## 3. Cross-Mech validator pin guard — DONE (4-repo invariant)
 
+**Current governance update (2026-08-25; supersedes the topology chronology
+below):** reviewed `CultureBotAI/culturebotai-claw#133` makes
+`CultureBotAI/culturebotai-claw` the canonical manifest and payload source.
+CommunityMech is one of five pinned consumers. Shared changes land in claw first
+and then roll to all five Mechs at one immutable claw commit. The older notes
+below remain as incident history; their CultureMech-hub instructions are no
+longer active.
+
 **Done** (2026-06-15, culturebotai-claw#6 Option 1): the pin now covers the full
 vendored set via a `VENDORED_IDLABEL_FILES` manifest — the validator `.py` **plus**
 the two byte-identical shared tests (`tests/test_id_label_empty_adapter.py`,
