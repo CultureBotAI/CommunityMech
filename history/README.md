@@ -86,16 +86,16 @@ Deliberately split:
 
 ## Where the schema lives
 
-Two copies, on purpose:
+Authority and consumer copies are separate on purpose:
 
-- **Canonical**: `culturebotai-claw/shared/history/history.yaml`, with the
-  scaffolder at `culturebotai-claw/src/kg_microbe_history/`.
+- **Canonical**:
+  `culturebotai-claw/src/kg_microbe_governance/artifacts/schema/history.yaml`.
 - **Vendored here**: `src/communitymech/schema/history.yaml`, byte-identical.
 
 Check that identity rather than trusting this file — with a claw checkout:
 
 ```bash
-diff "${CLAW_SRC:-../../culturebotai-claw/src}/../shared/history/history.yaml" \
+diff "${CLAW_SRC:-../../culturebotai-claw/src}/kg_microbe_governance/artifacts/schema/history.yaml" \
      src/communitymech/schema/history.yaml && echo "in sync"
 ```
 
@@ -115,7 +115,8 @@ work with no claw checkout at all.
 Only `just new-history` needs claw, via `CLAW_SRC`. That is a dev-time scaffolder,
 and anyone writing curation records has claw checked out.
 
-Changing the schema means changing CultureMech's canonical copy first and
-re-vendoring here — the same hub-and-spoke rule as `mech_shared.yaml`.
-`scripts/check_vendored_sync.sh` now includes the path-mapped `history.yaml`, so
-the pinned CultureMech reference enforces the copy byte-for-byte.
+Changing the schema means changing claw's canonical
+`src/kg_microbe_governance/artifacts/schema/history.yaml`, updating its artifact
+manifest, merging a reviewed claw commit, and coordinating that immutable pin
+across the five Mechs. The unfiltered `vendored-sync` workflow verifies this
+copy byte-for-byte against the public pinned manifest on every PR and main push.

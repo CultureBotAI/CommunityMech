@@ -56,11 +56,11 @@ permissions:
 
 # The vendored-sync job used to live here and inherited the `paths:` filter
 # above, which is scoped to this workflow's expensive OAK-backed check. That
-# filter listed only 2 of the 6 files the drift checker compares, so the guard
-# almost never fired (CultureBotAI/TraitMech#198). It now has its own workflow —
-# .github/workflows/vendored-sync.yaml — with no paths filter, because it is
-# bash + curl and there is nothing to save by filtering it. The filter above is
-# correct for THIS job, which needs uv + a cached OAK ontology download.
+# filter listed only 2 of the 6 files governed at the time, so the guard almost
+# never fired (CultureBotAI/TraitMech#198). It now has its own unfiltered
+# workflow, reads all 14 applicable artifacts from claw's pinned manifest, and
+# uses only a thin Bash launcher plus Python's standard library. The filter
+# above is correct for THIS job, which needs uv + a cached OAK ontology download.
 
 jobs:
   label-correspondence:
