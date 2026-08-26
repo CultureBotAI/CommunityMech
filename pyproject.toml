@@ -90,15 +90,16 @@ communitymech = ["py.typed"]
 [tool.black]
 line-length = 100
 target-version = ["py310", "py311", "py312"]
-# Vendored, byte-pinned id-label validator tests — must not be reformatted here
-# (would break the cross-Mech sha256 pin). See [tool.ruff] extend-exclude note.
+# Manifest-governed Python payloads that are not Black-formatted must not be
+# reformatted here (that would break the pinned claw byte contract). See the
+# [tool.ruff] extend-exclude note for the existing id-label exclusions.
 # `force-exclude` so a named invocation honours it too. Without it,
 # `black scripts/chem_formula.py` reformats a file that is vendored
 # byte-identical across the Mech repos and would break `vendored-sync` — the
 # directory form is excluded, the explicit form was not (#412 review).
 force-exclude = '''
 /tests/test_id_label_(empty_adapter|unknown_prefix|plausibility)\.py$
-|/scripts/(validate_id_label_correspondence|chem_formula)\.py$
+|/scripts/(check_vendored_sync|validate_id_label_correspondence|chem_formula)\.py$
 '''
 
 [tool.ruff]
