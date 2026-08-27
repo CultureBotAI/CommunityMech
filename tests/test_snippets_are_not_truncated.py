@@ -46,13 +46,36 @@ _CACHE_RUN_TOGETHER = {
         "parvus",
         "cocultivated",
     ),
+    # The abstract's italic taxon names lost their surrounding spaces when the
+    # markdown was fetched, so "...related to Leptospirillum spp., Acidithiobacillus
+    # ferrooxidans..." is cached as "...related toLeptospirillumspp.,Acidithiobacillus
+    # ferrooxidans...". The snippet ends at "related to", which IS a word boundary in
+    # the article; only the cache disagrees.
+    #
+    # This became visible when the DOI caches were renamed to the lowercase form the
+    # stem convention produces (#690). Before that, `_cached` could not find
+    # DOI_10.1128_aem.69.8.4853-4865.2003.md on Linux -- its fallback upper-cases the
+    # WHOLE stem, so "doi_10.1128_aem..." became "DOI_10.1128_AEM...", which matches
+    # nothing -- and the record was skipped on CI while failing on macOS, where the
+    # filesystem ignores case.
+    (
+        "Tinto_River_Iron_Cycling_Community.yaml",
+        "to",
+        "Leptospirillumspp",
+    ),
 }
 
 
 def _cached(reference: str) -> str:
     """The cached text for a PMID/DOI, or "" if it was never fetched."""
     key = reference.replace(":", "_").replace("/", "_")
-    for pattern in (f"{key}*", f"{key.upper()}*"):
+    # `key.upper()` was a second pattern here, meant to catch the uppercase-prefix
+    # caches. It never could: it upper-cases the WHOLE stem, so
+    # "doi_10.1128_aem..." becomes "DOI_10.1128_AEM..." and matches no real
+    # filename. The prefixes are canonically lowercase since #690, so the
+    # fallback is dropped rather than fixed -- a pattern that cannot match is
+    # worse than none, because it looks like coverage.
+    for pattern in (f"{key}*",):
         for path in sorted(glob.glob(str(CACHE / pattern))):
             try:
                 return " ".join(pathlib.Path(path).read_text().split())
