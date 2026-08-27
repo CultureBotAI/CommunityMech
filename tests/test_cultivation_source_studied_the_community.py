@@ -101,21 +101,30 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # silently omits a third of its subject is the "green by blindness" shape that
 # produced #471 and #686 elsewhere in this repo.
 #
-# Three reasons, which fail differently:
+# Four reasons, which fail differently:
 #
 # * `every member is domain-rank` -- the taxonomy is "Bacteria" / "Archaea" /
 #   "cellular organisms". `_member_words` drops those deliberately (matching
 #   "Bacteria" would pass any microbiology paper), so the record has no search
 #   key left. This is a real limit of the heuristic, not a fixable extraction
-#   bug: there is nothing in the record specific enough to look for. Six of the
-#   eleven were curated in the #183 growth-conditions sweep, so the blind spot
-#   correlates with exactly the records that most recently gained conditions.
+#   bug: there is nothing in the record specific enough to look for. TEN of the
+#   eleven carry a #183 commit touching them -- verified per record with
+#   `git log origin/main --perl-regexp --grep '#183\b' -- <path>`, only
+#   NCycle_Bioflocculation_Model_Consortium does not. So this is not a
+#   correlation with the growth-conditions sweep, it is very nearly a
+#   description of it: #183 selected records LACKING conditions, and those are
+#   disproportionately environmental or metagenomic communities whose taxonomy
+#   sits at domain rank. The sweep that added the conditions and the check that
+#   would vet their sources have almost disjoint reach.
 # * `no taxonomy members at all` -- one record, and a curation gap rather than a
 #   heuristic limit: a named SynCom whose membership is unrecorded.
 # * `no cited source has cached full text` -- the reference resolves only to an
 #   abstract (< _FULL_TEXT_BYTES). The ratio would measure the cache rather than
 #   the paper. Caching the full text moves the record into coverage, which is
 #   why this list must be re-derived rather than trusted.
+# * `the cultivation_setup cites no reference at all` -- no record is in this
+#   state, so the entry exists to keep the branch honest rather than to excuse
+#   anything (see `_classify`).
 #
 # An exact-set assertion, not a bound: a record that BECOMES checkable has to
 # leave, or the list rots into a permanent excuse the way `_ACCEPTED`'s ten
@@ -126,7 +135,8 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 _DOMAIN_RANK = "every member is domain-rank"
 _NO_MEMBERS = "no taxonomy members at all"
 _NO_FULL_TEXT = "no cited source has cached full text"
-_BLIND_REASONS = frozenset({_DOMAIN_RANK, _NO_MEMBERS, _NO_FULL_TEXT})
+_NO_REFERENCES = "the cultivation_setup cites no reference at all"
+_BLIND_REASONS = frozenset({_DOMAIN_RANK, _NO_MEMBERS, _NO_FULL_TEXT, _NO_REFERENCES})
 
 _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
     _DOMAIN_RANK: (
@@ -344,33 +354,55 @@ def _names_member(word: str, text: str) -> bool:
     return False
 
 
-def _pairs() -> list[tuple[str, str, float, int]]:
-    """(record, reference, share_of_members_named, member_count) for cached sources."""
-    found = []
-    for path in _record_paths():
-        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        setups = document.get("cultivation_setup") or []
-        if not setups:
-            continue
-        members = _member_words(document)
-        if not members:
-            continue
-        references = {
+def _classify(path: pathlib.Path) -> tuple[list[tuple[str, str, float, int]], str | None]:
+    """One record's scored pairs, and the reason it was blind (or None).
+
+    Single-sourced deliberately. `_pairs()` and `_blind()` each used to decide
+    "is this pair checkable" on their own, which is two implementations of one
+    rule and the drift that #350 and #656 are both about -- and a blind list
+    computed by a second copy of the rule can disagree with the check it
+    documents while both look right.
+    """
+    document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+    setups = document.get("cultivation_setup") or []
+    if not setups:
+        return [], None  # out of scope entirely, not blind
+
+    members = _member_words(document)
+    if not members:
+        return [], _NO_MEMBERS if not (document.get("taxonomy") or []) else _DOMAIN_RANK
+
+    references = sorted(
+        {
             evidence.get("reference")
             for setup in setups
             for evidence in (setup.get("evidence") or [])
             if isinstance(evidence, dict) and evidence.get("reference")
         }
-        for reference in sorted(references):
-            cached = _cache_path(reference)
-            if cached is None:
-                continue  # nothing to check against; not this test's business
-            text = cached.read_text(errors="replace")
-            if len(text) < _FULL_TEXT_BYTES:
-                continue  # abstract-only: the ratio would measure the cache
-            named = sum(1 for word in members if _names_member(word, text))
-            found.append((path.name, reference, named / len(members), len(members)))
-    return found
+    )
+    if not references:
+        # Distinct from "the cache is thin": there is nothing cited to look at.
+        # No record is in this state today, so the branch is written from the
+        # schema rather than from a case -- but labelling it "no cached full
+        # text" would send someone to fetch a paper that was never named.
+        return [], _NO_REFERENCES
+
+    scored = []
+    for reference in references:
+        cached = _cache_path(reference)
+        if cached is None:
+            continue  # nothing to check against; not this test's business
+        text = cached.read_text(errors="replace")
+        if len(text) < _FULL_TEXT_BYTES:
+            continue  # abstract-only: the ratio would measure the cache
+        named = sum(1 for word in members if _names_member(word, text))
+        scored.append((path.name, reference, named / len(members), len(members)))
+    return scored, None if scored else _NO_FULL_TEXT
+
+
+def _pairs() -> list[tuple[str, str, float, int]]:
+    """(record, reference, share_of_members_named, member_count) for cached sources."""
+    return [pair for path in _record_paths() for pair in _classify(path)[0]]
 
 
 def _blind() -> dict[str, str]:
@@ -381,27 +413,9 @@ def _blind() -> dict[str, str]:
     """
     out: dict[str, str] = {}
     for path in _record_paths():
-        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
-        setups = document.get("cultivation_setup") or []
-        if not setups:
-            continue
-        if not _member_words(document):
-            out[path.name] = _NO_MEMBERS if not (document.get("taxonomy") or []) else _DOMAIN_RANK
-            continue
-        references = {
-            evidence.get("reference")
-            for setup in setups
-            for evidence in (setup.get("evidence") or [])
-            if isinstance(evidence, dict) and evidence.get("reference")
-        }
-        for reference in sorted(references):
-            cached = _cache_path(reference)
-            if cached is None:
-                continue
-            if len(cached.read_text(errors="replace")) >= _FULL_TEXT_BYTES:
-                break
-        else:
-            out[path.name] = _NO_FULL_TEXT
+        reason = _classify(path)[1]
+        if reason is not None:
+            out[path.name] = reason
     return out
 
 
@@ -459,6 +473,31 @@ def test_the_records_this_check_cannot_see_are_itemised(blind):
         if derived[name] != _BLIND[name]
     )
     assert changed == [], "the reason a record is blind has changed:\n" + "\n".join(changed)
+
+
+def test_a_setup_citing_nothing_is_not_reported_as_a_thin_cache(tmp_path):
+    """The one blindness reason no shipped record exercises.
+
+    Zero records have a `cultivation_setup` with no evidence reference today, so
+    without this the branch is unreachable and could say anything. Before it
+    existed the record fell through to `no cited source has cached full text`,
+    which would send a curator to fetch full text for a paper that was never
+    cited in the first place.
+    """
+    path = tmp_path / "Nothing_Cited.yaml"
+    path.write_text(
+        yaml.safe_dump(
+            {
+                "taxonomy": [{"taxon_term": {"term": {"label": "Geobacter sulfurreducens"}}}],
+                "cultivation_setup": [{"temperature": "30 C"}],
+            }
+        ),
+        encoding="utf-8",
+    )
+    scored, reason = _classify(path)
+    assert scored == []
+    assert reason == _NO_REFERENCES, reason
+    assert reason in _BLIND_REASONS
 
 
 def test_the_blind_reasons_are_the_known_ones(blind):
