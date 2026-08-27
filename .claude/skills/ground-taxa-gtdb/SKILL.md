@@ -295,7 +295,7 @@ taxonomy entries and their id anchors do not line up.
   *Chlorobium* went unprotected — it survived earlier sweeps only because its
   recompute happened to fail (#376).
 - **`is_reclassified: true`** — GTDB uses a different name than NCBI at that
-  rank. Read it as exactly that and no more: 54% of the true values are a
+  rank. Read it as exactly that and no more: 38% of the true values are a
   dropped strain designation, a polyphyly suffix, a GTDB placeholder
   epithet, or a nomenclatural ending rather than any kind of
   reclassification (#441, #480)

@@ -181,6 +181,38 @@ def score_hit(hit: dict) -> tuple[int, list[str]]:
     return len(matched) + title_bonus, matched
 
 
+def deduplicate_title_versions(hits: list[dict]) -> list[dict]:
+    """Collapse publication versions with the same normalized title.
+
+    Europe PMC can return both a preprint and its indexed journal article. Prefer
+    the PMID-bearing version so one paper cannot overwrite its sibling's stub.
+    """
+    selected: dict[str, dict] = {}
+    order: list[str] = []
+
+    for position, hit in enumerate(hits):
+        title_key = re.sub(r"[^a-z0-9]+", " ", hit.get("title", "").lower()).strip()
+        key = title_key or f"__untitled_{position}"
+        if key not in selected:
+            selected[key] = hit
+            order.append(key)
+            continue
+
+        current = selected[key]
+        hit_priority = (
+            bool((hit.get("pmid") or "").strip()),
+            bool((hit.get("journal") or "").strip()),
+        )
+        current_priority = (
+            bool((current.get("pmid") or "").strip()),
+            bool((current.get("journal") or "").strip()),
+        )
+        if hit_priority > current_priority:
+            selected[key] = hit
+
+    return [selected[key] for key in order]
+
+
 def query_epmc(query: str, since: int, limit: int) -> list[dict]:
     """Query Europe PMC, return normalized hit dicts (title/abstract/pmid/doi/...)."""
     full_query = f"({query}) AND (FIRST_PDATE:[{since}-01-01 TO 3000-12-31]) AND HAS_ABSTRACT:Y"
@@ -275,15 +307,22 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "scout"
 
 
+def source_reference(hit: dict) -> str:
+    """Return the preferred publication reference for a scouting hit."""
+    if pmid := (hit.get("pmid") or "").strip():
+        return f"PMID:{pmid}"
+    if doi := (hit.get("doi") or "").strip():
+        return f"doi:{doi}"
+    return ""
+
+
 def emit_stub(hit: dict, out_dir: Path) -> Path:
     """Write a minimal review-only draft record (placeholder id, NOT minted)."""
     stub_dir = out_dir / "stubs"
     stub_dir.mkdir(parents=True, exist_ok=True)
-    ref = (
-        f"PMID:{hit['pmid']}"
-        if hit.get("pmid")
-        else (f"doi:{hit['doi']}" if hit.get("doi") else "")
-    )
+    ref = source_reference(hit)
+    if not ref:
+        raise ValueError("Cannot emit a community stub without a PMID or DOI")
     name = hit["title"][:120]
     stub = {
         "id": "CommunityMech:XXXXXX",  # placeholder — mint via manage-identifiers
@@ -302,6 +341,19 @@ def emit_stub(hit: dict, out_dir: Path) -> Path:
         yaml.dump(stub, default_flow_style=False, sort_keys=False, allow_unicode=True, width=100)
     )
     return path
+
+
+def stub_queue_entry(hit: dict, path: Path) -> dict[str, str]:
+    """Build a deep-research batch entry for a sourced stub."""
+    try:
+        file_path = str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        file_path = str(path.resolve())
+    return {
+        "file_path": file_path,
+        "reference": source_reference(hit),
+        "title": hit["title"],
+    }
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -364,6 +416,7 @@ def main(argv: list[str] | None = None) -> int:
             continue
         candidates.append(hit)
 
+    candidates = deduplicate_title_versions(candidates)
     candidates.sort(key=lambda h: (h["dedup"] != "NEW", -h["score"], -int(h.get("year") or 0)))
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
@@ -420,9 +473,17 @@ def main(argv: list[str] | None = None) -> int:
     stub_note = ""
     if args.emit_stubs:
         new_hits = [h for h in candidates if h["dedup"] == "NEW"]
-        for h in new_hits:
-            emit_stub(h, args.out_dir)
-        stub_note = f" · {len(new_hits)} stubs -> {args.out_dir / 'stubs'}"
+        sourced_hits = [h for h in new_hits if source_reference(h)]
+        stub_queue = [stub_queue_entry(h, emit_stub(h, args.out_dir)) for h in sourced_hits]
+        stub_queue_path = args.out_dir / f"scout-{slug}-stub-queue.json"
+        stub_queue_path.write_text(json.dumps(stub_queue, indent=2, ensure_ascii=False))
+        skipped = len(new_hits) - len(sourced_hits)
+        stub_note = (
+            f" · {len(stub_queue)} sourced stubs -> {args.out_dir / 'stubs'}"
+            f" · batch queue: {stub_queue_path}"
+        )
+        if skipped:
+            stub_note += f" · {skipped} unsourced NEW hits skipped"
 
     n_new = sum(1 for h in candidates if h["dedup"] == "NEW")
     print(

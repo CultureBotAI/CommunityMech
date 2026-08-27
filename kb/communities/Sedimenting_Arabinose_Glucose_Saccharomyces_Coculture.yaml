@@ -1,0 +1,196 @@
+id: CommunityMech:000329
+name: Sedimenting Arabinose-Glucose Saccharomyces Coculture
+description: >
+  A defined two-member Saccharomyces cerevisiae coculture that partitions
+  glucose and arabinose fermentation between specialist strains. ACE2 deletion
+  gives the arabinose specialist a multicellular, fast-sedimenting phenotype,
+  allowing selective biomass retention during sequential-batch cultivation and
+  faster mixed-sugar conversion.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Shorten mixed glucose-arabinose conversion time by selectively concentrating the slower arabinose specialist between sequential-batch cycles.
+  assembly_strategy: Pair a glucose-specialist S. cerevisiae strain with a diploid ACE2-deletion arabinose-specialist S. cerevisiae strain selected for fast sedimentation.
+  passaging_regimen: Anaerobic sequential-batch cultivation with a biomass-settling phase between cultivation cycles.
+  perturbation_design: Compare sedimenting and non-sedimenting arabinose specialists and increase biomass settling from 30 minutes to 1 hour.
+  measurement_endpoints:
+  - time to full arabinose conversion in monoculture
+  - mixed-sugar batch duration in coculture
+  - glucose and arabinose depletion timing
+  - effect of settling duration on biomass retention and conversion kinetics
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increasing the biomass concentration through selective sedimentation of a slow-fermenting strain in sequential batch fermentations
+    explanation: Supports the engineering objective and cultivation strategy.
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Deletion of ACE2 in a diploid, arabinose-specialist Saccharomyces cerevisiae strain yielded a multicellular, fast-sedimenting phenotype
+    explanation: Supports the genetic and phenotypic design of the arabinose specialist.
+environment_term:
+  preferred_term: anaerobic sequential-batch yeast coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic bioreactor coculture with biomass settling between sequential-batch cycles.
+taxonomy:
+- taxon_term:
+    preferred_term: glucose-specialist Saccharomyces cerevisiae strain
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast member; GTDB does not classify eukaryotes. The PubMed abstract does not provide the formal strain designation.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of a glucose-specialist S. cerevisiae strain with the sedimenting arabinose specialist
+    explanation: Identifies the glucose-specialist member of the two-strain coculture.
+- taxon_term:
+    preferred_term: sedimenting arabinose-specialist Saccharomyces cerevisiae strain
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic yeast member; GTDB does not classify eukaryotes. The PubMed abstract does not provide the formal strain designation.
+  strain_designation:
+    genetic_modification: ACE2 deletion in a diploid arabinose-specialist background, producing a multicellular fast-sedimenting phenotype.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Deletion of ACE2 in a diploid, arabinose-specialist Saccharomyces cerevisiae strain yielded a multicellular, fast-sedimenting phenotype
+    explanation: Identifies the engineered arabinose specialist and its sedimenting phenotype.
+ecological_interactions:
+- name: Glucose-Arabinose Substrate Specialization
+  description: The two S. cerevisiae strains occupy distinct metabolic niches as glucose and arabinose specialists during mixed-substrate fermentation.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of a glucose-specialist S. cerevisiae strain with the sedimenting arabinose specialist on a glucose-arabinose mixture
+    explanation: Supports the exact two-specialist composition and substrate partitioning.
+- name: Selective Sedimentation Accelerates Mixed-Sugar Conversion
+  description: Retention of the fast-sedimenting arabinose specialist raises its biomass concentration across cycles, shortening coculture batch time and approaching simultaneous sugar depletion.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: showed a 29% shorter batch time than corresponding co-cultures with the non-sedimenting arabinose specialist
+    explanation: Supports improved coculture kinetics attributable to the sedimenting specialist.
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted in near-simultaneous depletion of both sugars
+    explanation: Supports the effect of longer settling on batch duration and depletion timing.
+environmental_factors:
+- name: Mixed-sugar substrate
+  value: glucose 10 g/L and arabinose 10 g/L
+  description: Equal glucose and arabinose concentrations were supplied to the two-specialist coculture.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: on a glucose-arabinose mixture (10 g·L-1 of each sugar)
+    explanation: Supports both substrate identities and concentrations.
+- name: Biomass settling period
+  value: 30 minutes or 1 hour
+  description: Settling duration was varied to control selective retention of the sedimenting arabinose specialist.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with a 30-min biomass settling period between cultivation cycles
+    explanation: Supports the baseline settling period.
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increasing the biomass settling period to 1 h further reduced the batch time
+    explanation: Supports the longer settling treatment.
+- name: Atmosphere
+  value: anaerobic
+  description: Sequential-batch fermentation was performed anaerobically.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic sequential batch bioreactors
+    explanation: Supports the oxygen regime and cultivation mode.
+growth_media:
+- name: Glucose-arabinose mixed-sugar fermentation medium
+  composition:
+  - name: glucose
+    concentration: '10'
+    unit: g/L
+  - name: arabinose
+    concentration: '10'
+    unit: g/L
+  atmosphere: ANAEROBIC
+  vessel_type: sequential-batch bioreactor
+  preparation_notes: The abstract reports sugar concentrations and anaerobic operation but not the basal medium formulation, pH, temperature, or working volume.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: on a glucose-arabinose mixture (10 g·L-1 of each sugar)
+    explanation: Supports the mixed-sugar medium composition.
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic sequential batch bioreactors
+    explanation: Supports the atmosphere and vessel mode.
+cultivation_setup:
+- cultivation_mode: SEQUENCING_BATCH
+  system_type: BIOREACTOR_UNSPECIFIED
+  instrument_detail: Sequential-batch bioreactor with a biomass-settling period between cycles.
+  notes: The abstract does not report reactor model, volume, temperature, pH control, or agitation.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: anaerobic sequential batch bioreactors with a 30-min biomass settling period between cultivation cycles
+    explanation: Supports both the standardized cultivation mode and settling configuration.
+external_resources:
+- name: Primary publication - sedimenting glucose-arabinose specialist coculture
+  repository: OTHER
+  resource_id: PMID:42461012
+  url: https://pubmed.ncbi.nlm.nih.gov/42461012/
+  description: Primary study of the exact two-member specialist coculture curated in this record.
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultures of a glucose-specialist S. cerevisiae strain with the sedimenting arabinose specialist
+    explanation: Links the publication to the exact two-member system.
+- name: Related exact-species publication - glucose-xylose specialist yeast consortium
+  repository: OTHER
+  resource_id: PMID:38278783
+  url: https://pubmed.ncbi.nlm.nih.gov/38278783/
+  description: A separate two-strain S. cerevisiae specialist consortium with the same species-only composition but different engineered strains and glucose-xylose substrates.
+  evidence:
+  - reference: PMID:38278783
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium involves two strains with each specializing in glucose or xylose utilization for ethanol production
+    explanation: Supports the same two-member S. cerevisiae species composition while distinguishing the specialist substrates.
+- name: Related exact-species publication - three-strain glucose-xylose-arabinose consortium
+  repository: OTHER
+  resource_id: PMID:30010916
+  url: https://pubmed.ncbi.nlm.nih.gov/30010916/
+  description: A three-strain S. cerevisiae specialist consortium with the same species-only composition but an additional xylose-specialist member.
+  evidence:
+  - reference: PMID:30010916
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a consortium of three 'specialist' Saccharomyces cerevisiae strains
+    explanation: Supports the related exact-species composition and distinguishes its three-member design.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this mixed-sugar yeast coculture.

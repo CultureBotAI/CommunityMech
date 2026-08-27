@@ -1,0 +1,256 @@
+id: CommunityMech:000333
+name: Clostridium-E. coli-Nitratidesulfovibrio Minority-Mediator Consortium
+description: >
+  A defined anaerobic three-strain consortium containing Clostridium
+  acetobutylicum ATCC 824, Escherichia coli DH10B, and Nitratidesulfovibrio
+  vulgaris Hildenborough NCIMB 8303. In glucose-yeast extract medium, the
+  minority N. vulgaris population persists as a physical and metabolic mediator,
+  reduces E. coli-associated inhibition of C. acetobutylicum growth, and can
+  exchange cytoplasmic material with both other members.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Test how a minority species changes pairwise growth, metabolite exchange, and hydrogen production in a reconstituted three-bacterium community.
+  assembly_strategy: Combine washed exponential-phase cultures at equal OD600 contributions in a 1:1:1 ratio.
+  measurement_endpoints:
+  - growth kinetics
+  - glucose consumption
+  - organic-acid and solvent production
+  - hydrogen production
+  - transfer of fluorescent cytoplasmic labels
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'In this study, we explore the intricate bacterial interplay between three key players involved in biomass degradation: Clostridium acetobutylicum (Gram-positive), Escherichia coli, and Nitratidesulfovibrio vulgaris Hildenborough (Gram-negative) using synthetic reconstituted consortium.'
+    explanation: Supports the defined three-member synthetic design and its interaction-focused objective.
+environment_term:
+  preferred_term: anaerobic glucose-yeast extract laboratory consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The consortium was studied in anaerobic Hungate tubes containing GY medium under an N2 headspace.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium acetobutylicum ATCC 824
+    term:
+      id: NCBITaxon:272562
+      label: Clostridium acetobutylicum ATCC 824
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_S_acetobutylicum
+      gtdb_taxon: Clostridium_S acetobutylicum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_S;s__Clostridium_S acetobutylicum
+      ncbi_source_id: NCBITaxon:272562
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: ATCC 824
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We obtained anaerobic strict strains N. vulgaris Hildenborough from NCIMB 8303 and C. acetobutylicum ATCC824
+    explanation: Identifies the exact C. acetobutylicum strain used in the consortium.
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. acetobutylicum fully utilized the glucose, producing lactate, acetate, butyrate and hydrogen
+    explanation: Supports its glucose-fermenting role in this culture.
+- taxon_term:
+    preferred_term: Escherichia coli DH10B
+    term:
+      id: NCBITaxon:316385
+      label: Escherichia coli str. K-12 substr. DH10B
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+      ncbi_source_id: NCBITaxon:316385
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: DH10B
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the facultative anaerobic strain Escherichia coli DH10B
+    explanation: Identifies the exact E. coli strain used in the consortium.
+- taxon_term:
+    preferred_term: Nitratidesulfovibrio vulgaris Hildenborough NCIMB 8303
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Nitratidesulfovibrio_vulgaris
+      gtdb_taxon: Nitratidesulfovibrio vulgaris
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Nitratidesulfovibrio;s__Nitratidesulfovibrio vulgaris
+      ncbi_source_id: NCBITaxon:882
+      majority_fraction: 1.0
+      total_genomes: 7
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: Hildenborough NCIMB 8303
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We obtained anaerobic strict strains N. vulgaris Hildenborough from NCIMB 8303
+    explanation: Identifies the exact N. vulgaris strain and culture collection accession.
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: N. vulgaris emerges as an unexpected mediator and protector
+    explanation: Supports the minority member's mediator role in the three-member community.
+ecological_interactions:
+- name: Minority-member mediation of community interactions
+  description: >
+    N. vulgaris physically associates with both other members and exchanges
+    cytoplasmic material bidirectionally, allowing it to act as a mediator even
+    though C. acetobutylicum and E. coli do not exchange cytoplasmic material
+    directly.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Confocal microscopy confirmed that N. vulgaris exchanges cytoplasmic material with both C. acetobutylicum and E. coli bidirectionally, suggesting its role as a mediator in the consortium.
+    explanation: Directly supports the mediator mechanism and its dependence on N. vulgaris.
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Thus, N. vulgaris may function as a shuttle between E. coli and C. acetobutylicum.
+    explanation: Supports the shuttle interpretation of the fluorescent-label transfer experiment.
+- name: E. coli-associated inhibition of C. acetobutylicum
+  description: >
+    E. coli passively competes with C. acetobutylicum through resource use and
+    medium acidification; adding N. vulgaris restores the C. acetobutylicum-like
+    second growth phase in the three-member consortium.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli DH10B
+    term:
+      id: NCBITaxon:316385
+      label: Escherichia coli str. K-12 substr. DH10B
+  target_taxon:
+    preferred_term: Clostridium acetobutylicum ATCC 824
+    term:
+      id: NCBITaxon:272562
+      label: Clostridium acetobutylicum ATCC 824
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results indicate that E. coli engages in passive competition with C. acetobutylicum
+    explanation: Supports classification of the pairwise relationship as competition.
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of N. vulgaris could prevent the inhibition of C. acetobutylicum growth by E. coli
+    explanation: Supports the protective effect observed after adding the minority member.
+- name: E. coli-to-Clostridium lactate cross-feeding
+  description: C. acetobutylicum consumes lactate associated with E. coli metabolism in coculture.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli DH10B
+    term:
+      id: NCBITaxon:316385
+      label: Escherichia coli str. K-12 substr. DH10B
+  target_taxon:
+    preferred_term: Clostridium acetobutylicum ATCC 824
+    term:
+      id: NCBITaxon:272562
+      label: Clostridium acetobutylicum ATCC 824
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the utilization of lactate by C. acetobutylicum is observed in both conditions, i.e., in the consortia C. acetobutylicum E. coli and C. acetobutylicum in E. coli's supernatant
+    explanation: Supports consumption by C. acetobutylicum of an E. coli-associated extracellular metabolite.
+environmental_factors:
+- name: Initial member ratio
+  value: 1:1:1
+  description: The three strains contributed equally based on OD600.
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with two or three strains to constitute an artificial consortium in a 1:1 or 1:1:1 ratio according to the absorbance at 600 nm
+    explanation: Supports the three-member inoculation ratio.
+- name: Minority-member growth protection
+  value: C. acetobutylicum doubling time 5.5 h in the three-member consortium versus 9 h with E. coli alone
+  description: Adding N. vulgaris increased the second-phase growth rate relative to the C. acetobutylicum-E. coli coculture.
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: doubling time of 5.5 h) vs. μmax = 0.06 ± 4.2 × 10−3 OD.h−1 (doubling time of 9 h
+    explanation: Supports the reported growth-rate contrast.
+growth_media:
+- name: Glucose-yeast extract medium
+  composition:
+  - name: glucose
+    concentration: '14'
+    unit: mmol/L
+    chebi_term:
+      preferred_term: D-glucose
+      term:
+        id: CHEBI:17634
+        label: D-glucose
+  - name: yeast extract
+    concentration: '0.1'
+    unit: percent
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  headspace_gas: N2
+  inoculum_size: 10 percent total; members combined 1:1:1 by OD600
+  vessel_type: Hungate tubes
+  preparation_notes: The medium used Starkey-like inorganic nutrients, with MgCl2 replacing MgSO4; cultures contained 10 mL and were incubated without shaking.
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The growth medium (glucose-yeast extract (GY) medium) used for studying monocultures and co-cultures was prepared with glucose (14 mmol.L-1) and 0.1% yeast extract
+    explanation: Supports the named medium and its two quantified organic components.
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All monocultures and co-cultures were carried out in anaerobic conditions in Hungates tubes with 10 mL of GY medium as describe above and incubated at 37 C without shaking.
+    explanation: Supports the vessel, volume, atmosphere, temperature, and agitation.
+external_resources:
+- name: Primary publication - minority mediator synthetic consortium
+  repository: OTHER
+  resource_id: PMID:41684672
+  url: https://pubmed.ncbi.nlm.nih.gov/41684672/
+  description: Open-access primary study of the exact three-strain consortium and its physical and metabolic interactions.
+  evidence:
+  - reference: PMID:41684672
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: N. vulgaris emerges as an unexpected mediator and protector, reshaping the relationship between E. coli and C. acetobutylicum.
+    explanation: Links the publication to the record's defining mediator phenotype.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth transformation role was reported for this consortium.

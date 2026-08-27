@@ -174,6 +174,16 @@ def summarize_evidence(doc: dict[str, Any]) -> str:
     return " | ".join(rows[:40])
 
 
+def summarize_source_context(doc: dict[str, Any]) -> str:
+    """Return discovery provenance carried by a review-only scout stub."""
+    scout = doc.get("_scout")
+    if not isinstance(scout, dict):
+        return ""
+    return " | ".join(
+        str(scout.get(key, "")) for key in ("source_reference", "year", "journal") if scout.get(key)
+    )
+
+
 def template_vars(doc: dict[str, Any], community_file: Path) -> dict[str, str]:
     return {
         "community_name": str(doc.get("name", community_file.stem)),
@@ -184,6 +194,7 @@ def template_vars(doc: dict[str, Any], community_file: Path) -> dict[str, str]:
         "ecological_state": str(doc.get("ecological_state", "")),
         "community_origin": str(doc.get("community_origin", "")),
         "description": str(doc.get("description", "")),
+        "source_summary": summarize_source_context(doc),
         "environment_summary": summarize_environment(doc),
         "taxonomy_summary": summarize_taxonomy(doc),
         "interaction_summary": summarize_interactions(doc),

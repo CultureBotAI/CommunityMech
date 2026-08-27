@@ -1,0 +1,165 @@
+id: CommunityMech:000332
+name: Kefir Flavor Lentilactobacillus-Kluyveromyces Coculture
+description: >
+  A defined cross-kingdom coculture of milk-kefir isolates Lentilactobacillus
+  kefiri SLAM023B and Kluyveromyces marxianus SLAM005Y. One study reports
+  complementary flavor-metabolism roles and enhanced ester synthesis during
+  milk kefir fermentation; a second publication evaluates the same exact pair
+  as a combined probiotic preparation in animal host models.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Characterize cooperative flavor-compound formation by an exact kefir-derived bacterial-yeast coculture.
+  assembly_strategy: Coculture genome-sequenced L. kefiri SLAM023B and K. marxianus SLAM005Y isolated from milk kefir and compare their combined flavor metabolism with strain-resolved roles.
+  measurement_endpoints:
+  - genome-based metabolic pathway predictions
+  - flavor-associated metabolites
+  - ester synthesis
+  - correlation-supported metabolic complementarity
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we investigated flavor compound biosynthesis and development by kefir-derived lactic acid bacteria and yeast during kefir fermentation, integrating genome-based predictions with metabolite validation
+    explanation: Supports the coculture objective and combined genomic and metabolite measurements.
+environment_term:
+  preferred_term: defined milk-kefir fermentation coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The exact two-strain coculture was assembled and studied under controlled fermentation conditions.
+modeled_environment:
+- preferred_term: milk kefir dairy environment
+  term:
+    id: ENVO:00003862
+    label: dairy
+  notes: Both strains were isolated from milk kefir and evaluated in milk kefir fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Lentilactobacillus kefiri SLAM023B
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Lentilactobacillus_kefiri
+      gtdb_taxon: Lentilactobacillus kefiri
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Lactobacillaceae;g__Lentilactobacillus;s__Lentilactobacillus kefiri
+      ncbi_source_id: NCBITaxon:33962
+      majority_fraction: 1.0
+      total_genomes: 32
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: SLAM023B
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lentilactobacillus kefiri SLAM023B and Kluyveromyces marxianus SLAM005Y were isolated and subjected to hybrid genome sequencing
+    explanation: Identifies SLAM023B as a member of the flavor-development coculture.
+  - reference: PMID:40969199
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two strains, Kluyveromyces marxianus SLAM 005Y and Lentilactobacillus kefiri SLAM 023B, were isolated from Korean household milk kefir.
+    explanation: Independently identifies the same L. kefiri strain in the exact two-strain probiotic study; the paper inserts a space in the strain designation.
+- taxon_term:
+    preferred_term: Kluyveromyces marxianus SLAM005Y
+    term:
+      id: NCBITaxon:4911
+      label: Kluyveromyces marxianus
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Eukaryotic fungal member; GTDB classifies bacteria and archaea, not fungi.
+  strain_designation:
+    strain_name: SLAM005Y
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lentilactobacillus kefiri SLAM023B and Kluyveromyces marxianus SLAM005Y were isolated and subjected to hybrid genome sequencing
+    explanation: Identifies SLAM005Y as a member of the flavor-development coculture.
+  - reference: PMID:40969199
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two strains, Kluyveromyces marxianus SLAM 005Y and Lentilactobacillus kefiri SLAM 023B, were isolated from Korean household milk kefir.
+    explanation: Independently identifies the same K. marxianus strain in the exact two-strain probiotic study; the paper inserts a space in the strain designation.
+ecological_interactions:
+- name: Complementary flavor metabolism and potential cross-feeding
+  description: >
+    K. marxianus SLAM005Y produces fruity fusel alcohols while L. kefiri
+    SLAM023B contributes fatty-acid-derived precursors. Their coculture
+    increases ester synthesis, and correlation analysis supports complementary
+    roles and a potential, rather than directly demonstrated, cross-feeding
+    mechanism.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ethyl acetate
+    term:
+      id: CHEBI:27750
+      label: ethyl acetate
+  - preferred_term: isoamyl acetate
+    term:
+      id: CHEBI:31725
+      label: isoamyl acetate
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: K. marxianus SLAM005Y produced fruity fusel alcohols, whereas L. kefiri SLAM023B contributed fatty acid-derived precursors.
+    explanation: Supports the complementary strain-resolved flavor-metabolism roles.
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coculture of the 2 strains significantly enhanced ester synthesis, particularly ethyl acetate and isoamyl acetate
+    explanation: Supports the community-level ester-synthesis phenotype and named products.
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Correlation analysis supported the complementary metabolic roles and potential cross-feeding mechanisms between the strains
+    explanation: Supports cross-feeding as a correlation-backed potential mechanism, not a directly resolved transfer pathway.
+environmental_factors:
+- name: Enhanced ethyl acetate and isoamyl acetate synthesis
+  value: significantly enhanced in coculture
+  description: Coculture increased synthesis of two flavor-associated acetate esters relative to the strain-resolved comparison.
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coculture of the 2 strains significantly enhanced ester synthesis, particularly ethyl acetate and isoamyl acetate
+    explanation: Supports the direction and identity of the ester response.
+growth_media:
+- name: Milk kefir fermentation matrix
+  preparation_notes: The cached abstract establishes milk kefir fermentation as the experimental context but does not report the milk formulation, inoculum ratio, temperature, pH, agitation, or duration.
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: during milk kefir fermentation
+    explanation: Supports the fermentation matrix and context without adding unreported protocol details.
+external_resources:
+- name: Primary publication - exact-pair kefir flavor study
+  repository: OTHER
+  resource_id: PMID:42217781
+  url: https://pubmed.ncbi.nlm.nih.gov/42217781/
+  description: Genome-based and metabolite-validated flavor-development study of the exact SLAM023B-SLAM005Y coculture.
+  evidence:
+  - reference: PMID:42217781
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coculture of the 2 strains significantly enhanced ester synthesis
+    explanation: Links the publication to the exact two-strain coculture and its principal phenotype.
+- name: Exact-composition publication - combined probiotic study
+  repository: OTHER
+  resource_id: PMID:40969199
+  url: https://pubmed.ncbi.nlm.nih.gov/40969199/
+  description: Independent in vivo study using the same K. marxianus SLAM005Y and L. kefiri SLAM023B composition as a combined probiotic preparation.
+  evidence:
+  - reference: PMID:40969199
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two strains, Kluyveromyces marxianus SLAM 005Y and Lentilactobacillus kefiri SLAM 023B
+    explanation: Establishes that this separate publication uses the same exact species and strain composition.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this kefir-derived coculture.

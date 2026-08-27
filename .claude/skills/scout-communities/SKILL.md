@@ -58,7 +58,9 @@ Optional:
 - `--limit N` — max Europe PMC hits to fetch (default `40`).
 - `--min-score N` — drop hits below this community-signal score (default `1`).
 - `--include-cited` — keep hits already cited by a record (default: drop them).
-- `--emit-stubs` — write review-only draft `*.stub.yaml` records for `NEW` hits.
+- `--emit-stubs` — write review-only draft `*.stub.yaml` records for sourced
+  `NEW` hits and a batch-compatible `*-stub-queue.json`. Hits without a PMID or
+  DOI remain in the candidate report but do not produce stubs.
 - `--out-dir PATH` — default `research/scouting/`.
 
 ## Workflow
@@ -90,6 +92,10 @@ rows; `TITLE_OVERLAP` rows are likely already curated (verify before adding).
 The machine-readable `scout-<slug>-queue.json` carries the same candidates
 (reference, title, year, score, dedup) for scripting the next step.
 
+With `--emit-stubs`, `scout-<slug>-stub-queue.json` contains `file_path`,
+`reference`, and `title` for each emitted stub and can be passed directly to
+`research-community-edison-batch`.
+
 ### Step 3 — Hand promising candidates to curation
 
 For each candidate you want to add:
@@ -110,6 +116,7 @@ enter `kb/communities/`.
 research/scouting/
 ├── scout-<slug>.md              # ranked candidate report (read this)
 ├── scout-<slug>-queue.json      # candidates as JSON (for scripting)
+├── scout-<slug>-stub-queue.json # sourced stub paths; Edison batch-compatible
 └── stubs/                       # only with --emit-stubs; review-only drafts
     └── <title-slug>.stub.yaml   # placeholder id — mint before adding
 ```
