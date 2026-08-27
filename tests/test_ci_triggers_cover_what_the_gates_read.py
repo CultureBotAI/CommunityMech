@@ -235,6 +235,23 @@ def test_inputs_are_followed_through_a_recipe_that_only_delegates():
     assert _inputs_of("loop", recipes) == set()
 
 
+# Roots whose contents a build produces rather than the checkout providing. A
+# `paths:` filter cannot usefully name one: the directory is gitignored, so no
+# file under it ever appears in a pull request, and listing it advertises a
+# trigger that can never fire. `output/kgx/**` sat in label-correspondence's
+# filter for exactly that reason and was inert (#686).
+#
+# The obligation for a generated input is different in kind, not absent: the
+# workflow must BUILD it before the step that reads it. That is
+# `tests/test_generated_gate_inputs_are_built_in_ci.py`, and it is why these
+# globs are exempted here rather than simply ignored.
+_GENERATED_ROOTS = ("output/",)
+
+
+def _is_generated(glob: str) -> bool:
+    return glob.startswith(_GENERATED_ROOTS)
+
+
 @pytest.mark.parametrize("workflow", [p.name for p in _workflow_files()])
 def test_every_data_surface_a_workflow_reads_can_also_trigger_it(workflow: str):
     """The gate. A step reading kb/taxa in a workflow kb/taxa cannot trigger.
@@ -262,11 +279,11 @@ def test_every_data_surface_a_workflow_reads_can_also_trigger_it(workflow: str):
         code = "\n".join(line for line in command.splitlines() if not line.strip().startswith("#"))
         for invoked in re.findall(r"\bjust\s+([a-zA-Z][\w-]*)", code):
             for glob in _inputs_of(invoked, recipes):
-                if not _glob_covered(glob, patterns):
+                if not _is_generated(glob) and not _glob_covered(glob, patterns):
                     uncovered.setdefault(glob, set()).add(f"just {invoked}")
         # Literal paths in the step itself, for the gates that skip `just`.
         for glob in {m.group(1) for m in _INPUT_GLOB.finditer(code)}:
-            if not _glob_covered(glob, patterns):
+            if not _is_generated(glob) and not _glob_covered(glob, patterns):
                 uncovered.setdefault(glob, set()).add("a run: step directly")
 
     assert not uncovered, (
@@ -286,7 +303,7 @@ def test_every_engine_b_target_can_trigger_the_workflow_that_runs_it():
     CI — which is what `taxa_yaml` was.
     """
     targets = yaml.safe_load((REPO / "conf/id_label_targets.yaml").read_text())["targets"]
-    globs = [t["glob"] for t in targets if t.get("glob")]
+    globs = [t["glob"] for t in targets if t.get("glob") and not _is_generated(t["glob"])]
     assert globs, "no glob targets parsed; this test would pass vacuously"
 
     running = [

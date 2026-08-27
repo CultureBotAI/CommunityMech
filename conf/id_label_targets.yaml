@@ -125,15 +125,25 @@ targets:
     kind: tabular
     format: tsv
     glob: "output/kgx/nodes.tsv"
+    # output/kgx/ is gitignored, so this glob matched nothing on CI and the
+    # target skipped with exit 0 -- the gate printed "All id-label pairs
+    # correspond" having never looked at the export (#686). Three real CHEBI
+    # MISMATCHes were sitting behind that skip. The workflow now runs
+    # `just kgx-export` first; `required: true` turns a missing artifact into a
+    # MISSING_GLOB error so a build that silently stops producing it fails
+    # loudly instead of going quiet.
+    required: true
     policy: canonical_or_synonym
     pairs:
       - [id, name]
     # Residuals that flow into the KGX export from the community YAMLs, plus
-    # one exporter-side label choice ("mercury(2+) cation") that diverges
-    # from OAK canonical by design. Accepted as OK_EXCEPTION (see communities_yaml
-    # note above; enforcement restored per issue #134).
+    # note above; enforcement restored per issue #134). The one exporter-side
+    # label choice here -- "mercury(2+) cation" against OAK's "mercury(2+)" --
+    # was NOT a design decision, it was a typo in a hand-written map, and three
+    # more of the same shape (europium, holmium, lutetium) were sitting
+    # unwaived and unseen because this target never ran on CI (#686). All four
+    # are fixed at the exporter, so the waiver is gone rather than multiplied.
     exceptions:
-      - { id: "CHEBI:16793", label: "mercury(2+) cation", reason: "exporter-side label (kgx_export.py line 82) uses the +cation suffix; OAK canonical is mercury(2+)" }
       - { id: "ENVO:00000274", label: "soda lake", reason: "see communities_yaml exception" }
       - { id: "ENVO:00002229", label: "anaerobic environment", reason: "see communities_yaml exception" }
       - { id: "ENVO:01001442", label: "phyllosphere", reason: "see communities_yaml exception" }

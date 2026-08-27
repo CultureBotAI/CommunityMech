@@ -1,0 +1,128 @@
+"""A gate that reads a generated artifact must build it first (#686).
+
+`conf/id_label_targets.yaml` carries a `kgx_nodes` target globbing
+`output/kgx/nodes.tsv`. `output/kgx/` is gitignored and holds zero tracked
+files, and no CI job built the export before `just validate-products` ran. So
+on every CI run the glob matched nothing, the target skipped, and the gate
+printed::
+
+    - kgx_nodes: no files match ['output/kgx/nodes.tsv']
+    ✅ All id↔label pairs correspond.
+
+Reproduced by moving the local artifact aside: exit 0, target skipped, gate
+green. It was green by blindness, and three genuine CHEBI MISMATCHes
+(europium/holmium/lutetium, all the `+ cation` typo already waived once for
+mercury) were sitting behind the skip.
+
+`output/kgx/**` in the workflow's own `paths:` filter was inert for the same
+reason: no file under a gitignored directory can appear in a pull request.
+
+Two conditions have to hold together, which is why this is one module rather
+than a note in a comment:
+
+* the workflow builds the artifact before the step that validates it, and
+* the target is `required: true`, so an artifact that stops being produced is a
+  MISSING_GLOB error rather than a silent skip.
+
+Either alone restores the hole. A `required` target with nothing building it
+fails every run; a build step with an optional target goes quiet again the day
+the build breaks.
+"""
+
+from __future__ import annotations
+
+import pathlib
+
+import pytest
+import yaml
+
+REPO = pathlib.Path(__file__).parent.parent
+CONFIG = REPO / "conf/id_label_targets.yaml"
+WORKFLOW = REPO / ".github/workflows/label-correspondence.yaml"
+
+# Directories whose contents are produced by a build rather than committed. A
+# target globbing into one of these cannot rely on the checkout providing it.
+_GENERATED_ROOTS = ("output/",)
+
+
+def _targets() -> list[dict]:
+    return (yaml.safe_load(CONFIG.read_text(encoding="utf-8")) or {}).get("targets") or []
+
+
+def _globs(target: dict) -> list[str]:
+    glob = target.get("glob")
+    return glob if isinstance(glob, list) else [glob] if glob else []
+
+
+def _generated_targets() -> list[dict]:
+    return [
+        target
+        for target in _targets()
+        if any(g.startswith(_GENERATED_ROOTS) for g in _globs(target))
+    ]
+
+
+def _steps() -> list[dict]:
+    document = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8")) or {}
+    return [
+        step for job in (document.get("jobs") or {}).values() for step in (job.get("steps") or [])
+    ]
+
+
+def test_there_is_a_generated_target_to_check():
+    """Guard: with no such target every assertion below passes vacuously."""
+    generated = _generated_targets()
+    assert generated, (
+        "no id↔label target globs into a generated directory any more. If that "
+        "is deliberate, delete this module; if a target was renamed, update "
+        "_GENERATED_ROOTS (#686)."
+    )
+
+
+@pytest.mark.parametrize("target", _generated_targets(), ids=lambda t: t["name"])
+def test_a_generated_target_is_required(target):
+    """Optional + generated = the exact combination that skipped silently."""
+    assert target.get("required") is True, (
+        f"target {target['name']!r} globs a generated path {_globs(target)} but is "
+        f"not `required: true`. Without it a missing artifact is a skip, not an "
+        f"error, and the gate reports success having read nothing (#686)."
+    )
+
+
+def test_the_workflow_builds_the_export_before_it_validates():
+    """Order matters: building after the check is the same as not building."""
+    steps = _steps()
+    runs = [(index, str(step.get("run") or "")) for index, step in enumerate(steps)]
+    build = [index for index, run in runs if "kgx-export" in run]
+    validate = [index for index, run in runs if "validate-products" in run]
+
+    assert validate, "label-correspondence no longer runs `just validate-products`"
+    assert build, (
+        "label-correspondence runs `just validate-products`, whose kgx_nodes "
+        "target reads output/kgx/ — a gitignored directory absent from a fresh "
+        "checkout — but no step builds it. Add a `just kgx-export` step before "
+        "the enforce step (#686)."
+    )
+    assert min(build) < min(validate), (
+        f"`just kgx-export` runs at step {min(build)}, after `just "
+        f"validate-products` at step {min(validate)}. Building the artifact "
+        f"after the gate reads it leaves the gate reading nothing (#686)."
+    )
+
+
+def test_the_report_step_also_gets_the_artifact():
+    """The drift report reads the same targets; it must not run before the build.
+
+    It is the triage artifact people read when the gate fails, so a report
+    generated without the export would quietly under-report exactly when it
+    matters most.
+    """
+    runs = [(index, str(step.get("run") or "")) for index, step in enumerate(_steps())]
+    build = [index for index, run in runs if "kgx-export" in run]
+    report = [index for index, run in runs if "report-label-drift" in run]
+    if not report:
+        pytest.skip("workflow no longer generates the drift report")
+    assert build and min(build) < min(report), (
+        "`just report-label-drift` reads the same config as the gate, so it "
+        "must run after `just kgx-export` too (#686)."
+    )

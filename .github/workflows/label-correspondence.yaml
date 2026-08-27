@@ -41,7 +41,10 @@ on:
       # one) and nothing validated the record. Verified by opening such a PR
       # (#629, closed unmerged): 1 check, and it read no YAML.
       - "kb/taxa/**"
-      - "output/kgx/**"
+      # `output/kgx/**` used to be listed here and could never match: the
+      # directory is gitignored, so no file under it appears in a pull request.
+      # It advertised a trigger that could not fire. The export is now BUILT by
+      # this workflow (#686), so the records above are the real trigger for it.
       - "src/communitymech/schema/**"
       - "scripts/validate_id_label_correspondence.py"
       - "conf/id_label_targets.yaml"
@@ -87,6 +90,14 @@ jobs:
         with:
           path: ~/.data/oaklib
           key: oaklib-${{ runner.os }}-v1
+
+      # The KGX export is a GENERATED product: output/kgx/ is gitignored, so it
+      # does not exist in a fresh checkout. Without this step the `kgx_nodes`
+      # target's glob matched nothing, the target skipped, and the gate below
+      # passed without ever reading the export (#686). Build it before anything
+      # validates it.
+      - name: Build the KGX export the id↔label gate reads
+        run: just kgx-export
 
       # Always generate + upload the drift report first, so the triage artifact
       # exists even when the enforce step below fails the build.
