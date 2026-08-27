@@ -234,11 +234,29 @@ _UNINFORMATIVE_LABELS = {
 }
 
 
+# The cache filenames as they exist on disk, keyed by lowercase name. Built once.
+#
+# `references_cache/` uses two conventions for the same prefix -- 133 files named
+# `DOI_*` and 79 named `doi_*` -- while every reference in the corpus writes
+# `doi:` in lowercase. The stem convention (`reference.replace(":", "_")`) yields
+# `doi_...`, so the `DOI_*` half is found only by a filesystem that ignores case.
+#
+# macOS ignores case and Linux does not, which is the whole failure: this module
+# scored six records locally and reported them BLIND on CI, and the first
+# diagnosis here blamed uncommitted files in the working tree -- wrong, and only
+# disproved by hiding them and watching the result invert. 117 of the corpus's
+# 514 distinct references (23%) resolve this way. Tracked in #690, which also
+# covers the seven scripts and the upstream validator that share the convention;
+# fixing the filenames is that issue's job, and this lookup stops the platform
+# deciding what this check can see in the meantime.
+_CACHE_BY_LOWER_NAME = {path.name.lower(): path for path in CACHE.glob("*") if path.is_file()}
+
+
 def _cache_path(reference: str) -> pathlib.Path | None:
     stem = reference.replace(":", "_").replace("/", "_")
     for suffix in (".md", ".txt"):
-        candidate = CACHE / f"{stem}{suffix}"
-        if candidate.is_file():
+        candidate = _CACHE_BY_LOWER_NAME.get(f"{stem}{suffix}".lower())
+        if candidate is not None:
             return candidate
     return None
 
