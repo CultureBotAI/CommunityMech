@@ -315,6 +315,13 @@ it. Before citing any of the following, confirm how it was obtained:
   place of the example. Write any report, comment, or title containing shell
   examples via `--body-file` or a quoted heredoc (`<<'EOF'`), then read the
   result back before posting.
+- **A green local run is not a green CI run.** The developer machines here are
+  macOS, whose filesystem ignores case; the runners are Linux, whose does not.
+  A file lookup can succeed on one and fail on the other with no code
+  difference — that is #690, where 23% of `references_cache/` is reachable only
+  by case-folding. Before blaming the working tree for a local/CI divergence,
+  test the premise: the first diagnosis of #688's failure blamed uncommitted
+  files, and hiding them *inverted* the result rather than reproducing it.
 - **An outage is not a verdict.** A provider returning 403/402, or a fetch
   failing, means the check did not run — it does not mean the thing is absent.
 
