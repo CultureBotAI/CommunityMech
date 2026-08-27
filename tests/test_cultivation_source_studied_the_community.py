@@ -33,9 +33,37 @@ import re
 import pytest
 import yaml
 
+from communitymech.paths import default_record_roots
+
 REPO = pathlib.Path(__file__).parent.parent
-COMMUNITIES = REPO / "kb/communities"
 CACHE = REPO / "references_cache"
+
+
+def _record_paths() -> list[pathlib.Path]:
+    """Every `MicrobialCommunity` record, from the shared root list (#529).
+
+    This module globbed `kb/communities` alone. `data/isolates` holds records of
+    the same root class, which may carry `cultivation_setup` and cite the same
+    literature, and it was outside the sweep -- the defect `default_record_roots()`
+    exists to prevent, and the one that produced #310 and #471 elsewhere.
+
+    Harmless the day it was found: 4 isolate records, 0 with a `cultivation_setup`,
+    so there was nothing to miss. The first isolate to gain one would have been
+    skipped silently, with a clean report -- which is how the two issues above
+    also began. `tests/test_record_roots_are_shared.py` did not catch this because
+    its hard-coded-root scan reads `src/communitymech/**`, not `tests/`.
+    """
+    return [path for root in default_record_roots() for path in sorted(root.glob("*.yaml"))]
+
+
+def _record_path(name: str) -> pathlib.Path | None:
+    """Resolve a record filename against every root, not just the first."""
+    for root in default_record_roots():
+        candidate = root / name
+        if candidate.is_file():
+            return candidate
+    return None
+
 
 # (record, reference) pairs where a low ratio is correct and understood. Each
 # needs a reason: an empty allow-list entry is how the next Methylacidiphilum
@@ -61,6 +89,88 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # boundary -- so the ratio discriminates again instead of scoring it the same as
 # five healthy records. A limit of this heuristic, not a clearance. Tracked in
 # #605; dropping the waiver does not close it.
+
+# Records that carry a `cultivation_setup` but that this discriminator cannot
+# see at all -- it scores them zero times, in either direction (#529).
+#
+# The issue's own sentence is "the point is that the ratio is looked at once, by
+# someone, rather than never." For these it is never, and until this list existed
+# that fact was invisible: `_pairs()` drops them with a `continue` and the corpus
+# assertion passes on what remains. Measured when this list was written: **27 of
+# the 93 records carrying a `cultivation_setup` are blind, 29%.** A gate that
+# silently omits a third of its subject is the "green by blindness" shape that
+# produced #471 and #686 elsewhere in this repo.
+#
+# Three reasons, which fail differently:
+#
+# * `every member is domain-rank` -- the taxonomy is "Bacteria" / "Archaea" /
+#   "cellular organisms". `_member_words` drops those deliberately (matching
+#   "Bacteria" would pass any microbiology paper), so the record has no search
+#   key left. This is a real limit of the heuristic, not a fixable extraction
+#   bug: there is nothing in the record specific enough to look for. Six of the
+#   eleven were curated in the #183 growth-conditions sweep, so the blind spot
+#   correlates with exactly the records that most recently gained conditions.
+# * `no taxonomy members at all` -- one record, and a curation gap rather than a
+#   heuristic limit: a named SynCom whose membership is unrecorded.
+# * `no cited source has cached full text` -- the reference resolves only to an
+#   abstract (< _FULL_TEXT_BYTES). The ratio would measure the cache rather than
+#   the paper. Caching the full text moves the record into coverage, which is
+#   why this list must be re-derived rather than trusted.
+#
+# An exact-set assertion, not a bound: a record that BECOMES checkable has to
+# leave, or the list rots into a permanent excuse the way `_ACCEPTED`'s ten
+# entries did (#637).
+# Named once. The reason strings are compared in three places -- the list, the
+# classifier, and the known-reasons check -- and three copies of a literal is how
+# they drift apart.
+_DOMAIN_RANK = "every member is domain-rank"
+_NO_MEMBERS = "no taxonomy members at all"
+_NO_FULL_TEXT = "no cited source has cached full text"
+_BLIND_REASONS = frozenset({_DOMAIN_RANK, _NO_MEMBERS, _NO_FULL_TEXT})
+
+_BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
+    _DOMAIN_RANK: (
+        "California_Grassland_Precipitation_Legacy_Soil_Community.yaml",
+        "Coastal_Forested_Wetland_Seawater_Ion_Microcosm_Community.yaml",
+        "LBNL_Brachypodium_Drought_SynCom15.yaml",
+        "LBNL_Human_Gut_Interaction_SynCom.yaml",
+        "Maize_Benzoxazinoid_Metabolizing_SynComs.yaml",
+        "NCycle_Bioflocculation_Model_Consortium.yaml",
+        "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
+        "SkinCom_Synthetic_Skin_Community.yaml",
+        "South_Bay_Salt_Pond_Methane_Restoration_Community.yaml",
+        "Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml",
+        "hCom2_Complex_Gut_Microbiome.yaml",
+    ),
+    _NO_MEMBERS: ("Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml",),
+    _NO_FULL_TEXT: (
+        "Aalborg_East_Full_Scale_EBPR_Community.yaml",
+        "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml",
+        "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml",
+        "Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml",
+        "Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.yaml",
+        "Defined_Multispecies_Enamel_Caries_Model.yaml",
+        "Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml",
+        "Industrial_Bioreactor_Consortium.yaml",
+        "Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml",
+        "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml",
+        "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml",
+        "Rammelsberg_Cobalt_Nickel_Tailings.yaml",
+        "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
+        "Trichoderma_Lactate_Platform.yaml",
+        "Urine_Nitrification_SynCom.yaml",
+    ),
+}
+
+_BLIND: dict[str, str] = {
+    name: reason for reason, group in _BLIND_BY_REASON.items() for name in group
+}
+
+# The checked population when `_BLIND` was measured. A floor, not a target: the
+# previous guard asserted `>= 1`, which would have passed if coverage collapsed
+# from 67 pairs to one.
+_CHECKED_PAIRS_FLOOR = 60
+
 
 # Below this share of members named in the source, the pairing is suspect.
 #
@@ -237,7 +347,7 @@ def _names_member(word: str, text: str) -> bool:
 def _pairs() -> list[tuple[str, str, float, int]]:
     """(record, reference, share_of_members_named, member_count) for cached sources."""
     found = []
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in _record_paths():
         document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         setups = document.get("cultivation_setup") or []
         if not setups:
@@ -263,17 +373,98 @@ def _pairs() -> list[tuple[str, str, float, int]]:
     return found
 
 
+def _blind() -> dict[str, str]:
+    """Records with a `cultivation_setup` that the discriminator never scores.
+
+    Derived, never read from `_BLIND` -- a list that describes itself cannot
+    notice that the corpus moved underneath it.
+    """
+    out: dict[str, str] = {}
+    for path in _record_paths():
+        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        setups = document.get("cultivation_setup") or []
+        if not setups:
+            continue
+        if not _member_words(document):
+            out[path.name] = _NO_MEMBERS if not (document.get("taxonomy") or []) else _DOMAIN_RANK
+            continue
+        references = {
+            evidence.get("reference")
+            for setup in setups
+            for evidence in (setup.get("evidence") or [])
+            if isinstance(evidence, dict) and evidence.get("reference")
+        }
+        for reference in sorted(references):
+            cached = _cache_path(reference)
+            if cached is None:
+                continue
+            if len(cached.read_text(errors="replace")) >= _FULL_TEXT_BYTES:
+                break
+        else:
+            out[path.name] = _NO_FULL_TEXT
+    return out
+
+
 @pytest.fixture(scope="module")
 def pairs() -> list[tuple[str, str, float, int]]:
     return _pairs()
 
 
+@pytest.fixture(scope="module")
+def blind() -> dict[str, str]:
+    return _blind()
+
+
 def test_there_are_pairs_to_check(pairs):
-    """Guard: with nothing cached the check below passes on an empty list."""
-    assert len(pairs) >= 1, (
-        f"only {len(pairs)} cultivation_setup/reference pairs have a cached "
-        f"source; this check is close to vacuous"
+    """Guard: with nothing cached the check below passes on an empty list.
+
+    The bound is the measured population rather than `>= 1`, which was the
+    original and could not tell full coverage from near-total collapse.
+    """
+    assert len(pairs) >= _CHECKED_PAIRS_FLOOR, (
+        f"only {len(pairs)} cultivation_setup/reference pairs are being checked, "
+        f"below the floor of {_CHECKED_PAIRS_FLOOR} (67 when measured). Coverage "
+        f"has collapsed -- check whether the reference cache or the member "
+        f"extraction broke before lowering this number."
     )
+
+
+def test_the_records_this_check_cannot_see_are_itemised(blind):
+    """29% of the subject is invisible to the discriminator; say which 29% (#529).
+
+    Both directions. A NEW blind record must be acknowledged rather than
+    silently dropped, and a record that BECOMES checkable -- typically because
+    its source got cached -- must leave the list, or `_BLIND` decays into a
+    permanent excuse the way `_ACCEPTED` did before #637.
+    """
+    derived = _blind()
+    appeared = sorted(set(derived) - set(_BLIND))
+    disappeared = sorted(set(_BLIND) - set(derived))
+    assert appeared == [], (
+        "these records carry a `cultivation_setup` that this check cannot score, "
+        "and are not acknowledged in `_BLIND` (#529):\n"
+        + "\n".join(f"  {name}: {derived[name]}" for name in appeared)
+        + "\n\nPrefer removing the blindness to recording it: cache the cited "
+        "source's full text, or ground the members below domain rank. Add to "
+        "`_BLIND` only when neither is possible."
+    )
+    assert disappeared == [], (
+        "these are listed in `_BLIND` but are now scored normally -- take them "
+        "out, an excuse that no longer applies is how the list stops meaning "
+        "anything:\n" + "\n".join(f"  {name}" for name in disappeared)
+    )
+    changed = sorted(
+        f"  {name}: listed as {_BLIND[name]!r}, now {derived[name]!r}"
+        for name in set(derived) & set(_BLIND)
+        if derived[name] != _BLIND[name]
+    )
+    assert changed == [], "the reason a record is blind has changed:\n" + "\n".join(changed)
+
+
+def test_the_blind_reasons_are_the_known_ones(blind):
+    """A new reason string means the classifier changed and the notes did not."""
+    unknown = sorted({reason for reason in blind.values() if reason not in _BLIND_REASONS})
+    assert unknown == [], f"unrecognised blindness reasons: {unknown}"
 
 
 def test_every_source_names_most_of_the_community(pairs):
@@ -405,8 +596,8 @@ def test_no_accepted_entry_is_dead():
     """
     stale = []
     for (record, reference), reason in _ACCEPTED.items():
-        path = COMMUNITIES / record
-        assert path.is_file(), f"{record} in _ACCEPTED no longer exists"
+        path = _record_path(record)
+        assert path is not None, f"{record} in _ACCEPTED no longer exists"
         assert reason.strip(), f"{record}/{reference} is excused without a reason"
         document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         members = _member_words(document)
