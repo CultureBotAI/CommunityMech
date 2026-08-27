@@ -21,6 +21,15 @@ on:
       # changed (#471). The isolates note above describes this defect one
       # directory over; this is the directory it was still true of.
       - "kb/taxa/**"
+      # .claude/ was the third instance of the defect the two notes above
+      # describe. `tests/test_skill_frontmatter.py` reads .claude/skills and
+      # .claude/commands, but neither was in any workflow's filter, so a
+      # skill-only PR ran exactly one check — vendored-sync, which is
+      # deliberately unfiltered and runs no pytest (#687). The trigger guard in
+      # tests/test_ci_triggers_cover_what_the_gates_read.py is scoped to
+      # DATA_ROOTS and is blind to a non-data directory.
+      - ".claude/skills/**"
+      - ".claude/commands/**"
       - "src/communitymech/schema/**"
       - "src/communitymech/**/*.py"
       - "scripts/**/*.py"
