@@ -96,8 +96,8 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # The issue's own sentence is "the point is that the ratio is looked at once, by
 # someone, rather than never." For these it is never, and until this list existed
 # that fact was invisible: `_pairs()` drops them with a `continue` and the corpus
-# assertion passes on what remains. Measured when this list was written: **27 of
-# the 93 records carrying a `cultivation_setup` are blind, 29%.** A gate that
+# assertion passes on what remains. Measured when this list was written: **30 of
+# the 93 records carrying a `cultivation_setup` are blind, 32%.** A gate that
 # silently omits a third of its subject is the "green by blindness" shape that
 # produced #471 and #686 elsewhere in this repo.
 #
@@ -121,7 +121,13 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # * `no cited source has cached full text` -- the reference resolves only to an
 #   abstract (< _FULL_TEXT_BYTES). The ratio would measure the cache rather than
 #   the paper. Caching the full text moves the record into coverage, which is
-#   why this list must be re-derived rather than trusted.
+#   why this list must be re-derived rather than trusted. Three entries arrived
+#   with new records rather than from neglect: the sources for Methane_MFC,
+#   Sedimenting_Arabinose and Waste_Sludge are not open access.
+#   `just cache-fulltext` was run on PMID:42551599, PMID:41793807,
+#   PMID:30010916 and PMID:42461012 and refused all four -- "not open-access in
+#   Europe PMC (pmcid=None, oa=False)". Listing them is the honest outcome, not
+#   a shortcut past caching.
 # * `the cultivation_setup cites no reference at all` -- no record is in this
 #   state, so the entry exists to keep the branch honest rather than to excuse
 #   anything (see `_classify`).
@@ -154,6 +160,9 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
     ),
     _NO_MEMBERS: ("Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml",),
     _NO_FULL_TEXT: (
+        "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
+        "Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml",
+        "Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml",
         "Aalborg_East_Full_Scale_EBPR_Community.yaml",
         "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml",
         "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml",
