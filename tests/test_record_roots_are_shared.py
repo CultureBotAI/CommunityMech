@@ -29,6 +29,7 @@ from __future__ import annotations
 
 import ast
 import pathlib
+import re
 
 import pytest
 import yaml
@@ -245,3 +246,137 @@ def test_the_two_root_lists_stay_distinct():
         "class they do not model"
     )
     assert set(community) < set(descriptor), "the descriptor roots must be a strict superset"
+
+
+# --- tests are gates too (#689) -------------------------------------------
+#
+# `test_no_constructor_hardcodes_the_old_root` scans `src/communitymech/**`. But
+# many of this repository's gates ARE tests, and a test that globs
+# `kb/communities` alone is invisible to that scan. That is how the #529
+# discriminator swept one root for months, and it is why the check below
+# exists: `tests/` is where the omission actually happens.
+#
+# Only modules that SWEEP the directory are classified. A test naming one record
+# as a fixture is not making a scope decision, so asking it to justify itself
+# would be noise that trains people to add entries without thinking.
+#
+# Two buckets, and the difference is evidence, not taste. `data/isolates` holds
+# 4 records carrying 66 snippets, 3 `ecological_interactions`, 3
+# `gtdb_classification` blocks, 0 `cultivation_setup` and 0 `go_terms`; none of
+# the 4 is rendered into `docs/` (324 pages for 324 kb/communities records).
+_COMMUNITY_ONLY: dict[str, str] = {
+    "test_writers_leave_a_trace.py": (
+        "scoped by its own argument to tools that edit kb/communities records; "
+        "its _EXEMPT entries name research/ and data/ingredients explicitly"
+    ),
+    "test_docs_do_not_contradict_the_kb.py": (
+        "docs/communities is rendered from kb/communities only -- 324 pages for "
+        "324 records, and 0 of the 4 isolates has a page"
+    ),
+    "test_network_palette.py": (
+        "the per-community palette is generated for those same rendered pages"
+    ),
+}
+
+# Sweeps one root where the other holds the same kind of content. Each line is
+# work, not a decision -- the measured consequence is stated so that "does this
+# matter" is not re-litigated from scratch each time.
+_OWED_BOTH_ROOTS: dict[str, str] = {
+    "test_snippet_truncation.py": "66 snippets in data/isolates are never checked",
+    "test_snippet_rendering_artefacts.py": "the same 66 snippets",
+    "test_interaction_participants_outside_taxonomy.py": "3 isolate interactions unchecked",
+    "test_community_level_connectivity_credit.py": (
+        "isolates carry interactions and score no credit"
+    ),
+    "test_participating_taxa.py": "same #312 credit question, same 3 interactions",
+    "test_ncbi_domain_scope.py": "3 gtdb_classification blocks in data/isolates unchecked",
+    "test_gtdb_near_tie_marker.py": "the same 3 groundings",
+    "test_no_duplicate_yaml_keys.py": "YAML hygiene applies to all 4 isolate records",
+    "test_network_auditor.py": (
+        "passes communities_dir= explicitly, overriding the auditor's shared "
+        "default -- the exact shape #350 fixed in the auditor and left here"
+    ),
+    "test_cultivation_units_are_constrained.py": (
+        "0 isolates carry a cultivation_setup today, so nothing is missed yet "
+        "and nothing would notice the first one that does"
+    ),
+    "test_no_vacuous_go_annotations.py": "0 isolate go_terms today; latent in the same way",
+}
+
+_SWEEP_MARKERS = ("kb/communities", '"kb" / "communities"')
+_SHARED_MARKERS = ("default_record_roots", "data/isolates", "taxon_descriptor_roots")
+
+
+def _sweeping_test_modules() -> dict[str, str]:
+    """Test modules that glob kb/communities and never name the other root."""
+    found = {}
+    for path in sorted((REPO / "tests").glob("test_*.py")):
+        text = path.read_text(encoding="utf-8")
+        if not any(marker in text for marker in _SWEEP_MARKERS):
+            continue
+        if any(marker in text for marker in _SHARED_MARKERS):
+            continue
+        constants = re.findall(r"^\s*(\w+)\s*=\s*[^\n]*kb[\"/ ]*communities", text, re.M)
+        globs_a_constant = any(
+            re.search(rf"\b{name}\b[^\n]*\.glob\(|\.glob\([^\n]*\b{name}\b", text)
+            for name in constants
+        )
+        inline_glob = re.search(r'kb/communities"\)\.glob|"communities"\)\.glob', text)
+        if globs_a_constant or inline_glob:
+            found[path.name] = text
+    return found
+
+
+def test_the_sweep_scanner_finds_modules():
+    """Guard: a scanner returning nothing makes both checks below vacuous."""
+    found = _sweeping_test_modules()
+    assert len(found) >= 10, (
+        f"only {len(found)} sweeping test modules found; the detection in "
+        f"_sweeping_test_modules() has broken and the classification below is "
+        f"no longer being enforced (#689)"
+    )
+
+
+def test_every_sweeping_test_declares_its_scope():
+    """A new corpus sweep must say which roots it means, when it is written."""
+    unclassified = sorted(
+        name
+        for name in _sweeping_test_modules()
+        if name not in _COMMUNITY_ONLY and name not in _OWED_BOTH_ROOTS
+    )
+    assert unclassified == [], (
+        "these test modules sweep kb/communities and never mention the other "
+        "root, and are in neither list:\n"
+        + "\n".join(f"  {name}" for name in unclassified)
+        + "\n\nPrefer fixing it to recording it: sweep `default_record_roots()` "
+        "(or `taxon_descriptor_roots()` for a GTDB check). If kb/communities "
+        "alone is genuinely right, add it to `_COMMUNITY_ONLY` with the reason; "
+        "if it should cover both and does not yet, add it to `_OWED_BOTH_ROOTS` "
+        "with what is being missed (#689)."
+    )
+
+
+def test_neither_scope_list_has_rotted():
+    """A module that started sweeping both roots must leave the lists."""
+    sweeping = set(_sweeping_test_modules())
+    gone = sorted((set(_COMMUNITY_ONLY) | set(_OWED_BOTH_ROOTS)) - sweeping)
+    assert gone == [], (
+        "these are classified but no longer sweep a single root -- either they "
+        f"were fixed, renamed, or deleted; take them out: {gone}"
+    )
+    assert not (set(_COMMUNITY_ONLY) & set(_OWED_BOTH_ROOTS)), "a module cannot be both"
+    blank = sorted(
+        name
+        for name, why in {**_COMMUNITY_ONLY, **_OWED_BOTH_ROOTS}.items()
+        if not (why or "").strip()
+    )
+    assert blank == [], f"a scope decision needs a reason: {blank}"
+
+
+def test_the_owed_backlog_has_not_grown():
+    """11 when measured. A twelfth is a choice, not a drift."""
+    assert len(_OWED_BOTH_ROOTS) <= 11, (
+        f"{len(_OWED_BOTH_ROOTS)} test modules now sweep one root where both "
+        f"apply, up from 11. The alternative to adding a line here is calling "
+        f"`default_record_roots()` in the new test (#689)."
+    )
