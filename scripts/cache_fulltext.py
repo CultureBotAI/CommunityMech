@@ -199,19 +199,30 @@ def _unpaywall_location(doi: str) -> str | None:
 def _doi_cache_path(doi: str) -> Path:
     """The cache file the reference validator reads for this DOI.
 
-    Mirrors _cache_path: prefer the ``.md`` the validator reads, else the legacy
-    ``.txt``. Matches the existing on-disk convention, e.g.
-    ``DOI_10.1039_C3EE42189A.md``.
+    Lowercase ``doi_`` is the canonical form, because that is what the stem
+    convention produces from a ``doi:`` reference::
+
+        reference.replace(":", "_").replace("/", "_")
+
+    This function used to prefer ``DOI_`` and fall back to ``doi_`` last, so a
+    DOI with no cache yet was created as ``DOI_...`` — unreachable on a
+    case-sensitive filesystem the moment anything tried to read it back. That is
+    how 133 of them accumulated (#690). Renaming those without fixing this would
+    have refilled the set on the next fetch.
+
+    The uppercase form is still READ, so an old file someone has locally is
+    found rather than silently re-fetched; it is never the name a new file gets.
     """
     slug = doi.replace("/", "_")
-    md = CACHE_DIR / f"DOI_{slug}.md"
-    if md.exists():
-        return md
-    txt = CACHE_DIR / f"DOI_{slug}.txt"
-    if txt.exists():
-        return txt
-    lower_md = CACHE_DIR / f"doi_{slug}.md"
-    return lower_md if lower_md.exists() else md
+    for candidate in (
+        CACHE_DIR / f"doi_{slug}.md",
+        CACHE_DIR / f"doi_{slug}.txt",
+        CACHE_DIR / f"DOI_{slug}.md",  # legacy, read-only
+        CACHE_DIR / f"DOI_{slug}.txt",
+    ):
+        if candidate.exists():
+            return candidate
+    return CACHE_DIR / f"doi_{slug}.md"
 
 
 def cache_one_doi(doi: str) -> str:

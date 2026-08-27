@@ -110,6 +110,35 @@ def test_the_workflow_builds_the_export_before_it_validates():
     )
 
 
+def test_no_other_workflow_runs_the_gate_without_building():
+    """This module names one workflow; a second one running the gate is a hole.
+
+    The checks above read `label-correspondence.yaml` because that is where the
+    gate lives today. If another workflow starts running `just
+    validate-products` without a `just kgx-export` before it, the target skips
+    there exactly as it did here — and every assertion above would still pass,
+    because they are looking at a different file.
+    """
+    offenders = []
+    for path in sorted(WORKFLOW.parent.glob("*.y*ml")):
+        document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
+        runs = [
+            str(step.get("run") or "")
+            for job in (document.get("jobs") or {}).values()
+            for step in (job.get("steps") or [])
+        ]
+        validates = [index for index, run in enumerate(runs) if "validate-products" in run]
+        builds = [index for index, run in enumerate(runs) if "kgx-export" in run]
+        if validates and (not builds or min(builds) > min(validates)):
+            offenders.append(path.name)
+
+    assert offenders == [], (
+        "these workflows run `just validate-products` without building "
+        "output/kgx first, so its kgx_nodes target skips and the gate passes "
+        f"having read nothing (#686): {offenders}"
+    )
+
+
 def test_the_report_step_also_gets_the_artifact():
     """The drift report reads the same targets; it must not run before the build.
 

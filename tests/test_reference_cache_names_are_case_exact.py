@@ -37,7 +37,7 @@ import re
 
 import pytest
 
-from communitymech.paths import KB_TAXA, REFERENCES_CACHE, default_record_roots
+from communitymech.paths import KB_TAXA, REFERENCES_CACHE, REPO_ROOT, default_record_roots
 
 # `reference:` is the slot every EvidenceItem carries. Matching the YAML text
 # rather than loading each document keeps this independent of the schema's
@@ -130,3 +130,48 @@ def test_the_case_check_can_actually_fail(tmp_path):
     # ...and the reverse: a correctly-named file must NOT be flagged.
     ok = {"doi_10.1000_example.md"}
     assert f"{stem}.md" in ok
+
+
+def test_the_fetcher_names_a_new_doi_cache_the_way_readers_look_for_it(tmp_path):
+    """Renaming the 133 was pointless if the fetcher refills the set (#690).
+
+    `scripts/cache_fulltext.py::_doi_cache_path` used to prefer `DOI_` and fall
+    back to `doi_` last, so a DOI with no cache yet was CREATED as `DOI_...` --
+    unreachable on a case-sensitive filesystem the moment anything read it back.
+    That is how the 133 accumulated, and it would have refilled on the next
+    fetch.
+    """
+    # Compiled from the source text on every run, NOT imported. `scripts/` is
+    # not a package, so loading it through importlib writes a
+    # scripts/__pycache__ entry -- and Python validates that cache on (mtime,
+    # size). Flipping `doi_` to `DOI_` changes neither, so a mutation and its
+    # restore within the same second are indistinguishable to the loader. That
+    # served a STALE module here and produced a false red; the same mechanism
+    # would just as happily produce a false green.
+    source = (REPO_ROOT / "scripts" / "cache_fulltext.py").read_text(encoding="utf-8")
+    module: dict = {"__file__": str(REPO_ROOT / "scripts" / "cache_fulltext.py")}
+    exec(compile(source, "scripts/cache_fulltext.py", "exec"), module)  # noqa: S102
+    module["CACHE_DIR"] = tmp_path
+    doi_cache_path = module["_doi_cache_path"]
+
+    fresh = doi_cache_path("10.9999/never-seen-before")
+    assert fresh.name == "doi_10.9999_never-seen-before.md", (
+        f"a DOI with no cache yet would be written as {fresh.name!r}; readers "
+        f"build the stem with reference.replace(':', '_') and look for "
+        f"'doi_...', so this file could never be found on Linux"
+    )
+    assert fresh.name == f"{_stem('doi:10.9999/never-seen-before')}.md"
+
+    # ...and an existing uppercase file is still FOUND, so a local legacy cache
+    # is not silently re-fetched.
+    #
+    # Asserted as "the returned path exists", not as path equality. On Linux the
+    # function returns the uppercase name; on macOS the lowercase candidate
+    # already `.exists()` and is returned first, resolving to the same file. Path
+    # equality would therefore pass on one platform and fail on the other -- the
+    # very asymmetry this module is about, so it must not be baked into the test.
+    legacy = tmp_path / "DOI_10.9999_legacy.md"
+    legacy.write_text("cached", encoding="utf-8")
+    found = doi_cache_path("10.9999/legacy")
+    assert found.exists(), f"a legacy uppercase cache was not found: {found.name}"
+    assert found.read_text(encoding="utf-8") == "cached"
