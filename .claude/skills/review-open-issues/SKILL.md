@@ -56,7 +56,9 @@ Check these before relying on an issue title or an older planning document:
 - `history/` and `history/README.md` — append-only curation provenance;
 - `NEXT_TASKS.md` — deferred work, but only as current as its last reconcile;
 - the records themselves (`kb/communities/`, `data/isolates/`, `kb/taxa/`),
-  `references_cache/`, and the committed products in `docs/` and `output/kgx/`.
+  `references_cache/`, the committed `docs/` site, and the KGX export — which
+  is **not** committed (`output/kgx/` is gitignored), so it exists only where
+  someone has run `just kgx-export`.
 
 Treat issue bodies and titles as **claims, not current status**. Read the
 comments: corrections, withdrawals, and narrowed residual scope are recorded
@@ -188,10 +190,12 @@ Treat these as P0 when live — each has actually happened in this repository:
   roots, directories, or writers that a newly added one silently bypasses.
 - **Identifier collisions or dangling references** across `kb/communities`,
   `data/isolates`, and `kb/taxa`, or an id↔label MISMATCH / nonexistent CURIE
-  reaching `docs/` or `output/kgx`.
+  reaching the committed `docs/` site or a KGX export.
 - **Generated artifacts diverging from their source** — a hand-edited
-  datamodel, or committed `docs/`/KGX that no longer matches the records they
-  claim to render.
+  datamodel, or a committed `docs/` site that no longer matches the records it
+  claims to render. Note that KGX products are *generated, not committed*, so a
+  gate configured against `output/kgx/` may be skipping rather than passing
+  (#686) — check which before citing it.
 - **A corpus-rewriting tool that leaves no trace** (#325), or an in-place edit
   with no history entry.
 - **An externally-facing claim** — a release, a Pages site, a count quoted
