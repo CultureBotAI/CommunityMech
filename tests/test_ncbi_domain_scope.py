@@ -23,9 +23,20 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
 from communitymech.validators.ncbi_domain import BACTERIA, EUKARYOTA, domain_of, outside_gtdb_scope
 
 REPO = pathlib.Path(__file__).parent.parent
+
+
+# A GTDB grounding can live on any `TaxonDescriptor`, and the schema hangs that
+# class off two roots: MicrobialCommunity.taxonomy[].taxon_term and
+# CommonTaxon.taxon_term. So this needs BOTH the wider directory list and the
+# shared walker -- iterating `document["taxonomy"]` over kb/taxa finds nothing,
+# because a CommonTaxon has no `taxonomy` key at all (#656, #689).
+def _record_paths() -> list[pathlib.Path]:
+    return [p for root in taxon_descriptor_roots() for p in sorted(root.glob("*.yaml"))]
 
 
 @pytest.mark.parametrize(
@@ -79,9 +90,8 @@ def test_an_unavailable_adapter_degrades_rather_than_guesses(monkeypatch):
 def _statuses():
     counts = collections.Counter()
     offenders = []
-    for path in sorted((REPO / "kb/communities").glob("*.yaml")):
-        for entry in (yaml.safe_load(path.read_text()) or {}).get("taxonomy") or []:
-            term_block = entry.get("taxon_term") or {}
+    for path in _record_paths():
+        for term_block in iter_taxon_descriptors(yaml.safe_load(path.read_text())):
             status = term_block.get("gtdb_grounding_status")
             if not status:
                 continue

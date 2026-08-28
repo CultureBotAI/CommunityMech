@@ -281,30 +281,33 @@ _COMMUNITY_ONLY: dict[str, str] = {
 # Sweeps one root where the other holds the same kind of content. Each line is
 # work, not a decision -- the measured consequence is stated so that "does this
 # matter" is not re-litigated from scratch each time.
-_OWED_BOTH_ROOTS: dict[str, str] = {
-    "test_snippet_truncation.py": "66 snippets in data/isolates are never checked",
-    "test_snippet_rendering_artefacts.py": "the same 66 snippets",
-    "test_interaction_participants_outside_taxonomy.py": "3 isolate interactions unchecked",
-    "test_community_level_connectivity_credit.py": (
-        "isolates carry interactions and score no credit"
-    ),
-    "test_participating_taxa.py": "same #312 credit question, same 3 interactions",
-    "test_ncbi_domain_scope.py": "3 gtdb_classification blocks in data/isolates unchecked",
-    "test_gtdb_near_tie_marker.py": "the same 3 groundings",
-    "test_no_duplicate_yaml_keys.py": "YAML hygiene applies to all 4 isolate records",
-    "test_network_auditor.py": (
-        "passes communities_dir= explicitly, overriding the auditor's shared "
-        "default -- the exact shape #350 fixed in the auditor and left here"
-    ),
-    "test_cultivation_units_are_constrained.py": (
-        "0 isolates carry a cultivation_setup today, so nothing is missed yet "
-        "and nothing would notice the first one that does"
-    ),
-    "test_no_vacuous_go_annotations.py": "0 isolate go_terms today; latent in the same way",
-}
+_OWED_BOTH_ROOTS: dict[str, str] = {}
+# EMPTY as the result of the work, not for never having been used. All eleven
+# were converted in #689: each now sweeps `record_files()` (or, for the two GTDB
+# gates, `taxon_descriptor_roots()` with the shared `iter_taxon_descriptors`
+# walker, because a CommonTaxon has no `taxonomy` key for a directory fix to
+# reach).
+#
+# Nothing new was found, and that was checked before the conversion rather than
+# hoped for afterwards: the truncation gate examined 66 isolate snippets and
+# flagged 0, no isolate interaction participant sits outside its taxonomy, and
+# the auditor reports 0 issues of any kind across the 4 records. The value is
+# that a defect arriving in an isolate tomorrow is now visible to eleven gates
+# that could not have seen it.
+#
+# `test_network_auditor` was the sharpest of the eleven: it passed
+# `communities_dir=` explicitly, silently replacing the auditor's own
+# `default_record_roots()` default -- the shape #350 fixed IN the auditor and
+# left standing in its test. The override is gone, so the default is now under
+# test as much as the corpus is.
 
 _SWEEP_MARKERS = ("kb/communities", '"kb" / "communities"')
-_SHARED_MARKERS = ("default_record_roots", "data/isolates", "taxon_descriptor_roots")
+_SHARED_MARKERS = (
+    "default_record_roots",
+    "taxon_descriptor_roots",
+    "record_files",
+    "data/isolates",
+)
 
 
 def _sweeping_test_modules() -> dict[str, str]:
@@ -328,13 +331,24 @@ def _sweeping_test_modules() -> dict[str, str]:
 
 
 def test_the_sweep_scanner_finds_modules():
-    """Guard: a scanner returning nothing makes both checks below vacuous."""
-    found = _sweeping_test_modules()
-    assert len(found) >= 10, (
-        f"only {len(found)} sweeping test modules found; the detection in "
-        f"_sweeping_test_modules() has broken and the classification below is "
-        f"no longer being enforced (#689)"
+    """Guard: a scanner returning nothing makes both checks below vacuous.
+
+    Calibrated against `_COMMUNITY_ONLY` rather than a written-out number. The
+    count legitimately FELL when #689 converted eleven modules, so a fixed
+    threshold would have had to be lowered -- and a threshold that gets lowered
+    to match reality is not measuring anything. What must stay true is that the
+    scanner still finds the modules that are classified as single-root, because
+    those are the ones the checks below are about.
+    """
+    found = set(_sweeping_test_modules())
+    missing = sorted(set(_COMMUNITY_ONLY) - found)
+    assert missing == [], (
+        f"the scanner no longer sees these classified single-root modules, so "
+        f"the checks below are not enforcing anything for them: {missing}. "
+        f"Either they were converted -- in which case take them out of "
+        f"`_COMMUNITY_ONLY` -- or `_sweeping_test_modules()` has broken (#689)."
     )
+    assert found, "the scanner found no sweeping modules at all; detection has broken"
 
 
 def test_every_sweeping_test_declares_its_scope():
@@ -373,10 +387,12 @@ def test_neither_scope_list_has_rotted():
     assert blank == [], f"a scope decision needs a reason: {blank}"
 
 
-def test_the_owed_backlog_has_not_grown():
-    """11 when measured. A twelfth is a choice, not a drift."""
-    assert len(_OWED_BOTH_ROOTS) <= 11, (
-        f"{len(_OWED_BOTH_ROOTS)} test modules now sweep one root where both "
-        f"apply, up from 11. The alternative to adding a line here is calling "
-        f"`default_record_roots()` in the new test (#689)."
+def test_the_owed_backlog_stays_empty():
+    """It reached zero in #689. Re-entering it is a decision, not a drift."""
+    assert _OWED_BOTH_ROOTS == {}, (
+        "a test module has been recorded as sweeping one root where both apply:\n"
+        + "\n".join(f"  {name}: {why}" for name, why in sorted(_OWED_BOTH_ROOTS.items()))
+        + "\n\nThe list was emptied in #689 by converting all eleven. Prefer "
+        "calling `record_files()` in the new test to re-opening the backlog; if "
+        "the sweep genuinely cannot cover both roots, say why here."
     )

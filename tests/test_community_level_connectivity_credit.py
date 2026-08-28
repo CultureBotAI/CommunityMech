@@ -35,7 +35,13 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import record_files
+
 REPO = pathlib.Path(__file__).parent.parent
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
 
 
@@ -54,7 +60,7 @@ def _names(block: dict) -> set[str]:
 def _survey() -> dict[str, int]:
     records = with_cl = mixed = cl_only = 0
     taxa = solely = 0
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in record_files():
         document = yaml.safe_load(path.read_text()) or {}
         records += 1
         interactions = [

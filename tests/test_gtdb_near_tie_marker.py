@@ -21,13 +21,26 @@ a decision rather than a coin flip.
 from __future__ import annotations
 
 import importlib.util
+import pathlib
 import subprocess
 from pathlib import Path
 
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 REPO = Path(__file__).parent.parent
+
+
+# A GTDB grounding can live on any `TaxonDescriptor`, and the schema hangs that
+# class off two roots: MicrobialCommunity.taxonomy[].taxon_term and
+# CommonTaxon.taxon_term. So this needs BOTH the wider directory list and the
+# shared walker -- iterating `document["taxonomy"]` over kb/taxa finds nothing,
+# because a CommonTaxon has no `taxonomy` key at all (#656, #689).
+def _record_paths() -> list[pathlib.Path]:
+    return [p for root in taxon_descriptor_roots() for p in sorted(root.glob("*.yaml"))]
 
 
 def _module():
@@ -85,9 +98,9 @@ def test_the_bound_is_where_the_population_gap_is():
 
 
 def _grounded():
-    for path in sorted((REPO / "kb/communities").glob("*.yaml")):
-        for entry in (yaml.safe_load(path.read_text()) or {}).get("taxonomy") or []:
-            block = (entry.get("taxon_term") or {}).get("gtdb_classification")
+    for path in _record_paths():
+        for descriptor in iter_taxon_descriptors(yaml.safe_load(path.read_text())):
+            block = descriptor.get("gtdb_classification")
             if block:
                 yield path.name, block
 

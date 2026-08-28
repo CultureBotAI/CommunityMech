@@ -36,6 +36,10 @@ import pytest
 import yaml
 
 REPO = pathlib.Path(__file__).parent.parent
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
 
 # GO terms so close to the root of the biological-process branch that asserting

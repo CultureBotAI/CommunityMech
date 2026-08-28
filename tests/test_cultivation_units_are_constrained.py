@@ -38,8 +38,14 @@ import subprocess
 import pytest
 import yaml
 
+from communitymech.paths import record_files
+
 REPO = pathlib.Path(__file__).parent.parent
 SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
 
 # slot -> the enum it must be ranged to.
@@ -80,7 +86,7 @@ def test_every_value_in_the_corpus_is_permissible(schema):
     """
     enums = schema["enums"]
     offenders = []
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in record_files():
         for entry in (yaml.safe_load(path.read_text()) or {}).get("cultivation_setup") or []:
             for slot, enum_name in CONSTRAINED.items():
                 value = entry.get(slot)
@@ -95,7 +101,7 @@ def test_the_corpus_actually_uses_these_slots():
     """Guard: at zero populated slots the test above passes on nothing."""
     populated = sum(
         1
-        for path in COMMUNITIES.glob("*.yaml")
+        for path in record_files()
         for entry in (yaml.safe_load(path.read_text()) or {}).get("cultivation_setup") or []
         for slot in CONSTRAINED
         if entry.get(slot) is not None
@@ -127,11 +133,7 @@ def test_a_wrong_unit_is_actually_rejected(tmp_path):
     real record, writes the exact string this issue was filed about, and
     requires a non-zero exit.
     """
-    source = next(
-        p
-        for p in sorted(COMMUNITIES.glob("*.yaml"))
-        if "operating_temperature_unit: °C" in p.read_text()
-    )
+    source = next(p for p in record_files() if "operating_temperature_unit: °C" in p.read_text())
     broken = tmp_path / "broken.yaml"
     broken.write_text(
         source.read_text().replace(
