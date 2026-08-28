@@ -18,6 +18,7 @@ from communitymech.network.auditor import (
     issue_severity,
     severity_of,
 )
+from communitymech.paths import record_files
 
 
 @pytest.fixture
@@ -1268,10 +1269,16 @@ def test_the_kb_has_no_duplicate_taxon_names():
     error — so the test audited zero records and passed vacuously (#334). It is
     the sole support for gating on this finding, so an empty sweep must fail.
     """
-    communities = Path(__file__).parent.parent / "kb/communities"
-    assert len(list(communities.glob("*.yaml"))) > 100, "audited an empty or wrong directory"
+    # No `communities_dir=` override. Passing one silently replaced the
+    # auditor's own `default_record_roots()` default, so this swept
+    # kb/communities alone -- the shape #350 fixed IN the auditor and left
+    # standing in its test. The auditor's default is the thing under test here
+    # as much as the corpus is (#689).
+    records = record_files()
+    assert len(records) > 100, "audited an empty or wrong directory"
+    assert any(p.parent.name == "isolates" for p in records), "isolates are not being audited"
 
-    auditor = NetworkIntegrityAuditor(communities_dir=communities)
+    auditor = NetworkIntegrityAuditor()
     auditor.audit_all(quiet=True)
 
     offenders = sorted(

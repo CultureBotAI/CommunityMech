@@ -38,8 +38,9 @@ import sys
 import pytest
 import yaml
 
+from communitymech.paths import record_files
+
 REPO = pathlib.Path(__file__).parent.parent
-COMMUNITIES = REPO / "kb/communities"
 CACHE = REPO / "references_cache"
 
 # Superscript markers that a PDF renders raised and a text cache closes up.
@@ -78,10 +79,19 @@ def _evidence(document: object):
             yield from _evidence(value)
 
 
+def _record_files() -> list[pathlib.Path]:
+    """Indirection, so the mutation check below can point the walk at one record.
+
+    It used to monkeypatch a `COMMUNITIES` constant. Sweeping both roots means
+    the walk is a call rather than a directory, so the seam moves here (#689).
+    """
+    return record_files()
+
+
 def _artefacts() -> list[str]:
     """Snippets that fail only because a subscript was written with a space."""
     found = []
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in _record_files():
         document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         for reference, snippet in _evidence(document):
             if not isinstance(snippet, str):
@@ -137,7 +147,7 @@ def test_the_gate_can_actually_fire(tmp_path, monkeypatch):
     # This module, by identity rather than by import path — `tests/` is not a
     # package, so `import tests.test_...` raises ModuleNotFoundError.
     module = sys.modules[__name__]
-    monkeypatch.setattr(module, "COMMUNITIES", record)
+    monkeypatch.setattr(module, "_record_files", lambda: sorted(record.glob("*.yaml")))
     found = module._artefacts()
     assert found, "the gate found nothing in a record built to contain the defect"
     assert "MPOB T" in found[0] and "MPOBT" in found[0]
@@ -151,7 +161,7 @@ def test_the_walk_reaches_the_corpus(artefacts):
     """
     seen = 0
     cached = 0
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in _record_files():
         document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         for reference, snippet in _evidence(document):
             if isinstance(snippet, str):

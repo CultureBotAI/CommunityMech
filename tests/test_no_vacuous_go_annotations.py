@@ -35,8 +35,13 @@ import pathlib
 import pytest
 import yaml
 
+from communitymech.paths import record_files
+
 REPO = pathlib.Path(__file__).parent.parent
-COMMUNITIES = REPO / "kb/communities"
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 
 # GO terms so close to the root of the biological-process branch that asserting
 # them of a microbial community conveys nothing. Each needs a reason, so that
@@ -66,7 +71,7 @@ def _walk(node, filename):
 
 def _descriptors(corpus: pathlib.Path | None = None):
     """Every (file, preferred_term, id, label) biological-process descriptor."""
-    for path in sorted((corpus or COMMUNITIES).glob("*.yaml")):
+    for path in sorted(corpus.glob("*.yaml")) if corpus else record_files():
         document = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
         yield from _walk(document, path.name)
 

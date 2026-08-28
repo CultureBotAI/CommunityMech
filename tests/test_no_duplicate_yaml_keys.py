@@ -26,6 +26,11 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.paths import record_files
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
 
 # Empty since #289 was fixed: both records that needed a curator decision have
@@ -58,7 +63,7 @@ def _find_duplicates(text: str) -> list[tuple[str, int]]:
 
 
 def _community_files() -> list[Path]:
-    return sorted(COMMUNITIES.glob("*.yaml"))
+    return record_files()
 
 
 def test_there_are_community_files_to_check():

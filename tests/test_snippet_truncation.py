@@ -40,7 +40,11 @@ from pathlib import Path
 import pytest
 import yaml
 
-COMMUNITIES = Path(__file__).parent.parent / "kb/communities"
+from communitymech.paths import record_files
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 CACHE = Path(__file__).parent.parent / "references_cache"
 
 # Snippet ends with a single capital + period, e.g. "… from C." — the shape an
@@ -85,7 +89,7 @@ def _evidence_items(node):
 
 
 def _community_files() -> list[Path]:
-    return sorted(COMMUNITIES.glob("*.yaml"))
+    return record_files()
 
 
 def test_there_are_community_files_to_check():

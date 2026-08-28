@@ -56,6 +56,31 @@ def default_record_roots() -> list[Path]:
     return [KB_COMMUNITIES, DATA_ISOLATES]
 
 
+def record_files() -> list[Path]:
+    """Every `MicrobialCommunity` record file, across every root (#689).
+
+    `default_record_roots()` answers "which directories"; almost every caller
+    then writes the same `for root in ...: root.glob("*.yaml")` line. Eleven test
+    modules skipped that step entirely and globbed `kb/communities` alone --
+    correct-looking, and blind to 4 records carrying 66 snippets, 3 interactions
+    and 3 GTDB groundings.
+
+    One function so the loop is written once, and so a module that wants both
+    roots cannot get half of them by writing slightly less code than the module
+    next to it.
+    """
+    return [path for root in default_record_roots() for path in sorted(root.glob("*.yaml"))]
+
+
+def record_path(name: str) -> Path | None:
+    """Resolve a record filename against every root, for named fixtures."""
+    for root in default_record_roots():
+        candidate = root / name
+        if candidate.is_file():
+            return candidate
+    return None
+
+
 def taxon_descriptor_roots() -> list[Path]:
     """Every directory whose records can carry a `TaxonDescriptor` (#656).
 
