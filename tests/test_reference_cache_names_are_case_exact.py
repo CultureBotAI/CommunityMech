@@ -175,3 +175,63 @@ def test_the_fetcher_names_a_new_doi_cache_the_way_readers_look_for_it(tmp_path)
     found = doi_cache_path("10.9999/legacy")
     assert found.exists(), f"a legacy uppercase cache was not found: {found.name}"
     assert found.read_text(encoding="utf-8") == "cached"
+
+
+# The prefix casing each cache filename must use. Derived from the citations, not
+# chosen: a `doi:` reference makes the stem `doi_`, a `PMID:` reference `PMID_`.
+#
+# This is a separate assertion from the resolve check below, because it catches
+# the regression EARLIER. `linkml-reference-validator` normalises a reference id
+# to `DOI:` and builds its cache path from that, so every cache miss it fills
+# writes `DOI_*` — the exact split that accumulated 133 files (#690). The resolve
+# check only notices once a record cites the new file; this notices as soon as
+# the file exists.
+_CANONICAL_PREFIXES = {
+    "doi",
+    "PMID",
+    "pmc",
+    "europepmc",
+    "epmc",
+    "openalex",
+    "semanticscholar",
+}
+
+
+def test_every_cache_filename_uses_the_canonical_prefix_casing(cache_names):
+    """A `DOI_*` file is a fetch that will be unreachable on Linux (#690)."""
+    wrong = []
+    for name in sorted(cache_names):
+        prefix = name.split("_", 1)[0] if "_" in name else name
+        if prefix in _CANONICAL_PREFIXES:
+            continue
+        match = next(
+            (p for p in _CANONICAL_PREFIXES if p.lower() == prefix.lower()),
+            None,
+        )
+        if match is not None:
+            wrong.append(f"  {name}   ->   {match}_{name.split('_', 1)[1]}")
+    assert wrong == [], (
+        "these cache files use a prefix casing no reference resolves to, so "
+        "nothing can find them on a case-sensitive filesystem (#690):\n"
+        + "\n".join(wrong)
+        + "\n\nRename each (via a temporary name — `git mv DOI_x.md doi_x.md` "
+        "is a no-op under core.ignorecase=true). If a fetch created it, the "
+        "fetcher is writing the wrong name: see scripts/cache_fulltext.py for "
+        "the fixed form."
+    )
+
+
+def test_the_canonical_prefix_set_still_describes_the_cache(cache_names):
+    """Guard: a prefix nobody listed makes the check above skip it silently."""
+    prefixes = {name.split("_", 1)[0] for name in cache_names if "_" in name}
+    unknown = sorted(
+        p
+        for p in prefixes
+        if p not in _CANONICAL_PREFIXES
+        and not any(p.lower() == c.lower() for c in _CANONICAL_PREFIXES)
+    )
+    assert unknown == [], (
+        f"cache files use prefixes this check does not know about: {unknown}. "
+        f"Add them to _CANONICAL_PREFIXES with the casing the citation produces, "
+        f"or the casing check passes over them without looking (#690)."
+    )
