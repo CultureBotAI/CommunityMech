@@ -30,6 +30,11 @@ nothing if this session immediately writes a fresh one. So:
 
 Both are asserted by `tests/test_no_stale_bytecode.py` rather than trusted.
 
+**Scope.** `spec_from_file_location` is how this was found, not the boundary of
+it. A regular import's bytecode is validated by the same (mtime, size) check, so
+`src/communitymech/` is exposed identically — and it is mutated by gate work
+more often than `scripts/` is.
+
 **On deleting files from a fixture.** `__pycache__/` is gitignored derived data
 whose only purpose is to be a cache, and the alternative is silently executing
 code that is not in the repository. The cost of being wrong is one recompile.
@@ -48,9 +53,29 @@ REPO = pathlib.Path(__file__).parent.parent
 # stale entry is executed instead of the file under test.
 LOADED_BY_PATH = ("scripts",)
 
+# ...and the package the suite imports normally. `spec_from_file_location` is
+# how this was FOUND, not the boundary of it: CPython validates a regular
+# import's bytecode with the same (mtime, size) check, so a same-length edit to
+# `src/communitymech/paths.py` between two runs is exactly as invisible. The
+# gate work in this repository mutates that package as routinely as it mutates
+# `scripts/`, so scoping the guard to the symptom would have left the more
+# frequently mutated tree uncovered.
+IMPORTED_NORMALLY = ("src/communitymech",)
+
+
+def guarded_roots() -> list[pathlib.Path]:
+    """The source trees whose bytecode must never shadow the file on disk."""
+    return [REPO / name for name in (*LOADED_BY_PATH, *IMPORTED_NORMALLY)]
+
 
 def _pycache_dirs() -> list[pathlib.Path]:
-    return [REPO / name / "__pycache__" for name in LOADED_BY_PATH]
+    """Every bytecode cache currently under a guarded root.
+
+    Re-derived on each call, never cached. `rglob` because subpackages carry
+    their own `__pycache__` -- a list of top-level directories would miss
+    `export/`, `network/`, `validation/` and any added later.
+    """
+    return [d for root in guarded_roots() for d in sorted(root.rglob("__pycache__"))]
 
 
 # Set at conftest import, which pytest does before collecting any test module —

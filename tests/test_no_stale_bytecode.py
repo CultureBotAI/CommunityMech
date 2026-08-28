@@ -17,8 +17,7 @@ import importlib.util
 import pathlib
 import sys
 
-import pytest
-from conftest import LOADED_BY_PATH, _pycache_dirs
+from conftest import IMPORTED_NORMALLY, LOADED_BY_PATH, _pycache_dirs, guarded_roots
 
 REPO = pathlib.Path(__file__).parent.parent
 
@@ -32,23 +31,31 @@ def test_the_session_does_not_write_bytecode():
     )
 
 
-@pytest.mark.parametrize("directory", _pycache_dirs(), ids=lambda p: p.parent.name)
-def test_no_bytecode_cache_survives_for_a_path_loaded_directory(directory: pathlib.Path):
-    """Condition 2, after the loads have happened.
+def test_no_bytecode_cache_survives_under_a_guarded_root():
+    """Condition 2, after a load has actually happened.
 
-    Ordering is not assumed: the assertion is re-derived here, and the load
-    below puts the mechanism under test even when this module runs first.
+    Parametrising over the *existing* caches would be self-defeating: conftest
+    sweeps them at session start, so the list would be empty at collection time
+    and the check would pass by having nothing to look at. It asks the question
+    of the guarded ROOTS instead, and triggers a real load first so the
+    mechanism is under test even when this module runs before any other.
     """
-    script = REPO / directory.parent.name / "cache_fulltext.py"
-    if script.is_file():
-        spec = importlib.util.spec_from_file_location("_stale_probe", script)
-        module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(module)
+    script = REPO / "scripts" / "cache_fulltext.py"
+    assert script.is_file(), "the probe script is gone; pick another scripts/ module"
+    spec = importlib.util.spec_from_file_location("_stale_probe", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
 
-    assert not directory.exists(), (
-        f"{directory.relative_to(REPO)} exists after loading a module from it. "
-        f"A .pyc there can be served in place of the file under test when a "
-        f"source edit changes neither mtime nor size (#693)."
+    # ...and an ordinary import of the package, which is the other exposure.
+    import communitymech.paths  # noqa: F401
+
+    surviving = sorted(str(d.relative_to(REPO)) for d in _pycache_dirs())
+    assert surviving == [], (
+        "these bytecode caches exist after loading and importing from a guarded "
+        "root:\n"
+        + "\n".join(f"  {d}" for d in surviving)
+        + "\n\nA .pyc there can be served in place of the file under test when "
+        "a source edit changes neither mtime nor size (#693)."
     )
 
 
@@ -62,9 +69,14 @@ def test_the_directories_being_guarded_are_the_ones_tests_load_from():
     ]
     assert len(loaders) >= 20, f"only {len(loaders)} modules load by path; the scan broke"
 
+    assert IMPORTED_NORMALLY, "the imported package is unguarded"
+    for root in guarded_roots():
+        assert root.is_dir(), f"{root} is guarded but does not exist"
+
     for name in LOADED_BY_PATH:
-        assert (REPO / name).is_dir(), f"{name}/ is guarded but does not exist"
         assert not (REPO / name / "__init__.py").exists(), (
-            f"{name}/ has become a package, so tests can import it normally and "
-            f"this guard may be describing a problem that no longer exists (#693)"
+            f"{name}/ has become a package, so tests can import it normally "
+            f"instead of by path. That removes the loader this guard was "
+            f"written for -- though not the (mtime, size) staleness itself, "
+            f"which is why the package tree is guarded too (#693)"
         )
