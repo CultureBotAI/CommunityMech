@@ -46,23 +46,6 @@ _CACHE_RUN_TOGETHER = {
         "parvus",
         "cocultivated",
     ),
-    # The abstract's italic taxon names lost their surrounding spaces when the
-    # markdown was fetched, so "...related to Leptospirillum spp., Acidithiobacillus
-    # ferrooxidans..." is cached as "...related toLeptospirillumspp.,Acidithiobacillus
-    # ferrooxidans...". The snippet ends at "related to", which IS a word boundary in
-    # the article; only the cache disagrees.
-    #
-    # This became visible when the DOI caches were renamed to the lowercase form the
-    # stem convention produces (#690). Before that, `_cached` could not find
-    # DOI_10.1128_aem.69.8.4853-4865.2003.md on Linux -- its fallback upper-cases the
-    # WHOLE stem, so "doi_10.1128_aem..." became "DOI_10.1128_AEM...", which matches
-    # nothing -- and the record was skipped on CI while failing on macOS, where the
-    # filesystem ignores case.
-    (
-        "Tinto_River_Iron_Cycling_Community.yaml",
-        "to",
-        "Leptospirillumspp",
-    ),
 }
 
 
