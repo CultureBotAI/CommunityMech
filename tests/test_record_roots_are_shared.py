@@ -302,22 +302,39 @@ _OWED_BOTH_ROOTS: dict[str, str] = {}
 # test as much as the corpus is.
 
 _SWEEP_MARKERS = ("kb/communities", '"kb" / "communities"')
-_SHARED_MARKERS = (
-    "default_record_roots",
-    "taxon_descriptor_roots",
-    "record_files",
-    "data/isolates",
-)
+
+# `_SHARED_MARKERS` used to short-circuit the scan: a module mentioning
+# `record_files` was assumed converted and skipped. Reviewing #689 showed that is
+# not sound. `test_no_vacuous_go_annotations` imported `record_files`, never
+# called it -- its sweep read `(corpus or COMMUNITIES).glob(...)`, which the
+# conversion's pattern did not match -- and ruff then deleted the unused import,
+# leaving a module that looked converted, was not, and passed this scan twice
+# over. Presence of a name is not proof of its use.
+#
+# The detection below is now the whole test: a module that still globs a constant
+# bound to `kb/communities` is flagged whatever else it says. A genuinely
+# converted module cannot trip it, because it no longer has such a glob.
+
+
+def _code_only(text: str) -> str:
+    """Source with docstrings and comments removed.
+
+    The scan reads for a `kb/communities` glob, and prose contains those too:
+    `test_isolates_are_covered_by_id_checks.py` DISCUSSES reverting a loop to
+    `Path("kb/communities").glob("*.yaml")` in a docstring, and was flagged for
+    describing the defect it exists to prevent. A guard that cannot tell code
+    from commentary teaches people to reword their explanations.
+    """
+    without_strings = re.sub(r'("""|\'\'\')(?:.|\n)*?\1', '""', text)
+    return re.sub(r"#[^\n]*", "", without_strings)
 
 
 def _sweeping_test_modules() -> dict[str, str]:
     """Test modules that glob kb/communities and never name the other root."""
     found = {}
     for path in sorted((REPO / "tests").glob("test_*.py")):
-        text = path.read_text(encoding="utf-8")
+        text = _code_only(path.read_text(encoding="utf-8"))
         if not any(marker in text for marker in _SWEEP_MARKERS):
-            continue
-        if any(marker in text for marker in _SHARED_MARKERS):
             continue
         constants = re.findall(r"^\s*(\w+)\s*=\s*[^\n]*kb[\"/ ]*communities", text, re.M)
         globs_a_constant = any(

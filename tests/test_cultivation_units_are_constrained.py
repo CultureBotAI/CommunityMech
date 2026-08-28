@@ -46,7 +46,6 @@ SCHEMA = REPO / "src/communitymech/schema/communitymech.yaml"
 # Both record roots, not kb/communities alone. `data/isolates` holds the same
 # root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
 # gtdb_classification blocks -- and this module could not see any of it (#689).
-COMMUNITIES = REPO / "kb/communities"
 
 # slot -> the enum it must be ranged to.
 CONSTRAINED = {

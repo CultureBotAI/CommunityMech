@@ -41,7 +41,6 @@ import yaml
 from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
-COMMUNITIES = REPO / "kb/communities"
 CACHE = REPO / "references_cache"
 
 # Superscript markers that a PDF renders raised and a text cache closes up.

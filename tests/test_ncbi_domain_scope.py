@@ -131,7 +131,7 @@ def test_sulcia_is_a_bacterium_not_a_spider():
     The id↔label gate cannot catch this class: `NCBITaxon:2716471` really is
     labelled "Sulcia" (#292).
     """
-    for path in sorted((REPO / "kb/communities").glob("*.yaml")):
+    for path in _record_paths():
         text = path.read_text()
         assert "NCBITaxon:2716471" not in text, f"{path.name} still uses the spider id"
 
