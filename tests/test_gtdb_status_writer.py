@@ -22,6 +22,9 @@ from pathlib import Path
 import pytest
 import yaml
 
+from communitymech.paths import taxon_descriptor_roots
+from communitymech.taxon_blocks import iter_taxon_descriptors
+
 REPO = Path(__file__).parent.parent
 
 
@@ -435,14 +438,14 @@ def test_every_curated_pin_carries_a_note_and_a_value():
     recorded, so a silent change to a pinned grounding fails.
     """
     pins = {}
-    for path in sorted((REPO / "kb/communities").glob("*.yaml")):
-        for entry in yaml.safe_load(path.read_text()).get("taxonomy") or []:
-            term_block = entry.get("taxon_term") or {}
-            block = term_block.get("gtdb_classification") or {}
-            if block.get("curated"):
-                key = (path.name, (term_block.get("term") or {}).get("id"))
-                pins[key] = block.get("gtdb_id")
-                assert block.get("curation_note"), f"{path.name}: curated with no note"
+    for root in taxon_descriptor_roots():
+        for path in sorted(root.glob("*.yaml")):
+            for term_block in iter_taxon_descriptors(yaml.safe_load(path.read_text())):
+                block = term_block.get("gtdb_classification") or {}
+                if block.get("curated"):
+                    key = (path.name, (term_block.get("term") or {}).get("id"))
+                    pins[key] = block.get("gtdb_id")
+                    assert block.get("curation_note"), f"{path.name}: curated with no note"
 
     assert pins, "no curated pins found; the flag protects nothing"
     # The two known pins are value-pinned, so a mapping build that makes either

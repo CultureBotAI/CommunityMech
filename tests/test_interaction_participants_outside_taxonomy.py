@@ -47,9 +47,13 @@ import pathlib
 import pytest
 
 from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
+from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
-COMMUNITIES = REPO / "kb/communities"
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 
 # (record, participant) for every interaction endpoint absent from `taxonomy`,
 # grouped by why it is absent. Sourced from the auditor itself, not re-derived:
@@ -121,9 +125,9 @@ ACCOUNTED_FOR = UMBRELLA | HOST | ANTAGONIST | ABIOTIC
 
 def _outside_taxonomy() -> set[tuple[str, str]]:
     """Every (record, participant) the auditor reports as not a member."""
-    auditor = NetworkIntegrityAuditor(COMMUNITIES)
+    auditor = NetworkIntegrityAuditor()
     found = set()
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in record_files():
         for issue in auditor.audit_community(path) or []:
             if issue["type"] in (IssueType.UNKNOWN_SOURCE, IssueType.UNKNOWN_TARGET):
                 found.add((path.name, issue.get("taxon")))
@@ -181,9 +185,9 @@ def test_all_of_them_are_warnings_not_errors(outside):
     interaction turns that participant into an error and reddens the build on a
     record nobody changed the biology of.
     """
-    auditor = NetworkIntegrityAuditor(COMMUNITIES)
+    auditor = NetworkIntegrityAuditor()
     errors = []
-    for path in sorted(COMMUNITIES.glob("*.yaml")):
+    for path in record_files():
         for issue in auditor.audit_community(path) or []:
             if (
                 issue["type"] in (IssueType.UNKNOWN_SOURCE, IssueType.UNKNOWN_TARGET)

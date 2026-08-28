@@ -36,8 +36,13 @@ import pytest
 import yaml
 
 from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
+from communitymech.paths import record_files
 
 REPO = pathlib.Path(__file__).parent.parent
+
+# Both record roots, not kb/communities alone. `data/isolates` holds the same
+# root class -- 4 records with 66 snippets, 3 ecological_interactions and 3
+# gtdb_classification blocks -- and this module could not see any of it (#689).
 COMMUNITIES = REPO / "kb/communities"
 # #312's illustration: 28 taxa, every interaction COMMUNITY_LEVEL.
 EXAMPLE = COMMUNITIES / "GLBRC_Populus_Variovorax_SynCom28.yaml"
@@ -157,7 +162,7 @@ def test_the_corpus_is_unchanged_by_this_feature():
     """
     users = [
         path.name
-        for path in sorted(COMMUNITIES.glob("*.yaml"))
+        for path in record_files()
         for interaction in (yaml.safe_load(path.read_text()) or {}).get("ecological_interactions")
         or []
         if isinstance(interaction, dict) and interaction.get("participating_taxa")
