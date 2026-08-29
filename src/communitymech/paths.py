@@ -40,8 +40,10 @@ KB_TAXA = REPO_ROOT / "kb" / "taxa"
 
 
 # The prefix casing a cache filename must use, keyed by the lowercase form.
-# Derived from the citations rather than chosen: a `doi:` reference makes the
-# stem `doi_`, a `PMID:` reference `PMID_`.
+# DERIVED from the citations, not chosen: a `doi:` reference makes the stem
+# `doi_`, a `PMID:` reference `PMID_`. Those are the only two prefixes any
+# record cites (1096 and 4716 occurrences; zero of anything else), so those are
+# the only two whose casing a reader can be wrong about.
 #
 # Defined here because two things need it and must not disagree --
 # `scripts/normalize_cache_names.py`, which renames, and
@@ -51,12 +53,16 @@ KB_TAXA = REPO_ROOT / "kb" / "taxa"
 CANONICAL_CACHE_PREFIXES: dict[str, str] = {
     "doi": "doi",
     "pmid": "PMID",
-    "pmc": "pmc",
-    "europepmc": "europepmc",
-    "epmc": "epmc",
-    "openalex": "openalex",
-    "semanticscholar": "semanticscholar",
 }
+
+# Prefixes that exist on disk and that NO record cites: 20 `pmc_`, 9
+# `europepmc_`, 6 `epmc_`, 3 `openalex_`, 1 `semanticscholar_`. Nothing in this
+# repository writes or resolves them, so there is no citation to derive a
+# "correct" casing from and renaming them would be a guess dressed as a rule.
+# Listed so the checker knows they were considered rather than overlooked.
+UNRESOLVED_CACHE_PREFIXES: frozenset[str] = frozenset(
+    {"pmc", "europepmc", "epmc", "openalex", "semanticscholar"}
+)
 
 
 def canonical_cache_name(name: str) -> str | None:
@@ -70,6 +76,8 @@ def canonical_cache_name(name: str) -> str | None:
     if "_" not in name:
         return None
     prefix, rest = name.split("_", 1)
+    if prefix.lower() in UNRESOLVED_CACHE_PREFIXES:
+        return None
     canonical = CANONICAL_CACHE_PREFIXES.get(prefix.lower())
     if canonical is None or canonical == prefix:
         return None
