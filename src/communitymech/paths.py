@@ -39,6 +39,43 @@ DATA_ISOLATES = REPO_ROOT / "data" / "isolates"
 KB_TAXA = REPO_ROOT / "kb" / "taxa"
 
 
+# The prefix casing a cache filename must use, keyed by the lowercase form.
+# Derived from the citations rather than chosen: a `doi:` reference makes the
+# stem `doi_`, a `PMID:` reference `PMID_`.
+#
+# Defined here because two things need it and must not disagree --
+# `scripts/normalize_cache_names.py`, which renames, and
+# `tests/test_reference_cache_names_are_case_exact.py`, which checks. A second
+# copy is how #690's split survived a rename: the repo-side writer was fixed and
+# the upstream one, which nobody had listed, went on producing `DOI_*` (#697).
+CANONICAL_CACHE_PREFIXES: dict[str, str] = {
+    "doi": "doi",
+    "pmid": "PMID",
+    "pmc": "pmc",
+    "europepmc": "europepmc",
+    "epmc": "epmc",
+    "openalex": "openalex",
+    "semanticscholar": "semanticscholar",
+}
+
+
+def canonical_cache_name(name: str) -> str | None:
+    """The name this cache file should have, or None if it is already right.
+
+    Only the prefix is normalised. The rest of a DOI-derived stem is
+    case-SIGNIFICANT -- `10.1134/S0026261716060059` is a real DOI whose suffix
+    is uppercase -- so lowercasing the whole filename would break resolution
+    rather than fix it.
+    """
+    if "_" not in name:
+        return None
+    prefix, rest = name.split("_", 1)
+    canonical = CANONICAL_CACHE_PREFIXES.get(prefix.lower())
+    if canonical is None or canonical == prefix:
+        return None
+    return f"{canonical}_{rest}"
+
+
 def default_record_roots() -> list[Path]:
     """Every directory holding `MicrobialCommunity` records, in one place.
 
