@@ -59,7 +59,16 @@ def _record_paths() -> list[pathlib.Path]:
         ("not-a-curie", False),
     ],
 )
-def test_scope_is_decided_only_when_it_can_be(curie, expected):
+def test_scope_is_decided_only_when_it_can_be(curie, expected, request):
+    """`False` holds with or without a lookup; `True` cannot be reached without one.
+
+    Only the True cases request the adapter. The False half is the
+    one-directional property every caller relies on -- "not established" rather
+    than "in scope" -- so skipping it when the database is missing would drop the
+    safety check exactly when the risk is highest (#704).
+    """
+    if expected:
+        request.getfixturevalue("requires_ncbi_adapter")
     assert outside_gtdb_scope(curie) is expected
 
 
@@ -103,7 +112,7 @@ def _statuses():
     return counts, offenders
 
 
-def test_every_final_status_is_backed_by_a_domain_lookup():
+def test_every_final_status_is_backed_by_a_domain_lookup(requires_ncbi_adapter):
     """The claim #392 could not make, now checkable rather than asserted.
 
     A NO_GTDB_EQUIVALENT whose taxon is a bacterium is the exact failure that
@@ -120,7 +129,7 @@ def test_every_final_status_is_backed_by_a_domain_lookup():
     assert counts["UNRESOLVED"] > 0, "nothing unresolved at all — suspiciously clean"
 
 
-def test_sulcia_is_a_bacterium_not_a_spider():
+def test_sulcia_is_a_bacterium_not_a_spider(requires_ncbi_adapter):
     """`NCBITaxon:2716471` is a spider genus, and three records used it.
 
     Found because the domain lookup called a bacterial endosymbiont a eukaryote.

@@ -47,6 +47,8 @@ import pathlib
 import shutil
 import sys
 
+import pytest
+
 REPO = pathlib.Path(__file__).parent.parent
 
 # Directories whose modules tests load by file path rather than by import, so a
@@ -94,3 +96,44 @@ os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
 for _directory in _pycache_dirs():
     if _directory.is_dir():
         shutil.rmtree(_directory, ignore_errors=True)
+
+
+def _ncbi_adapter_available() -> bool:
+    """Is the NCBITaxon SQLite database actually reachable right now?
+
+    `validate-strict` has no OAK cache step -- `label-correspondence` does -- so
+    that lane re-downloads `ncbitaxon.db.gz` on every run. When the download
+    returns 0 bytes, as it did on main at 22673ba, the adapter is None and every
+    lookup answers None. Assertions about a lookup result then fail for a reason
+    that has nothing to do with the change under test, which is how a real
+    failure gets waved through as "the flaky one" (#704).
+    """
+    from communitymech.validators import ncbi_domain
+
+    return ncbi_domain._adapter() is not None
+
+
+@pytest.fixture
+def requires_ncbi_adapter():
+    """Skip a test that cannot mean anything without the taxonomy database.
+
+    Deliberately NOT applied to the tests that assert the ABSENT case --
+    `test_an_unavailable_adapter_degrades_rather_than_guesses` and
+    `test_an_unavailable_ontology_is_reported_not_silently_passed` are the ones
+    that must still run when the adapter is gone, since that is their subject.
+
+    Nor to the one-directional half of `outside_gtdb_scope`: `False` must hold
+    with or without a lookup, and that is the property the callers rely on.
+    Skipping it because the database is missing would drop the safety check
+    exactly when the risk is highest.
+    """
+    # Function-scoped on purpose.  is already lru_cached, so
+    # re-asking costs nothing, and a session-scoped fixture would freeze the
+    # answer at whatever the first test saw -- including a monkeypatched one.
+    if not _ncbi_adapter_available():
+        pytest.skip(
+            "the NCBITaxon adapter is unavailable, so a domain lookup cannot be "
+            "made; asserting its result would test nothing (#704). "
+            "label-correspondence caches ~/.data/oaklib and is the lane that "
+            "exercises this for real."
+        )

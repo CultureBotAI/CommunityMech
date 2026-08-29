@@ -424,7 +424,7 @@ def test_every_kb_taxonomy_entry_carries_a_status():
     assert not missing, f"{len(missing)} taxa have no status:\n" + "\n".join(missing[:10])
 
 
-def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping):
+def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping, requires_ncbi_adapter):
     """Re-derive every status and compare it to disk.
 
     The KB-level assertions elsewhere read files the sweep already wrote, so a

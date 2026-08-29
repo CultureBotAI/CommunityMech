@@ -73,6 +73,21 @@ jobs:
         # are available for the test step below.
         run: uv sync --frozen --all-extras
 
+      # This lane runs the whole test suite, and parts of it consult NCBITaxon
+      # through OAK. Without a cache the runner re-downloads ncbitaxon.db.gz
+      # every time -- and when that download returned 0 bytes, main went red for
+      # a reason no PR had caused (#704). label-correspondence has cached
+      # ~/.data/oaklib since it was written; this lane never did.
+      #
+      # The cache is not the whole fix. A cold cache or an upstream outage still
+      # leaves the adapter absent, which is why the affected assertions now skip
+      # with a reason rather than failing. Cache first, skip as the backstop.
+      - name: Cache OAK ontologies
+        uses: actions/cache@v4
+        with:
+          path: ~/.data/oaklib
+          key: oaklib-${{ runner.os }}-v1
+
       - name: Run validate-strict (closed-schema LinkML validation)
         run: just validate-strict
 
@@ -118,6 +133,13 @@ jobs:
 
       - name: Install dependencies
         run: uv sync --frozen --all-extras
+
+      # Same reasoning as the lane above: this one runs the suite too (#704).
+      - name: Cache OAK ontologies
+        uses: actions/cache@v4
+        with:
+          path: ~/.data/oaklib
+          key: oaklib-${{ runner.os }}-v1
 
       - name: Run tests
         run: uv run pytest tests/ -q --no-cov
