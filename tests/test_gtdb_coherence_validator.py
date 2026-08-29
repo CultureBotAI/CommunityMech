@@ -640,9 +640,12 @@ def test_a_curation_note_survives_yaml_parsing_intact():
     truncated = []
     for directory in ("kb/communities", "data/isolates"):
         for path in sorted((REPO / directory).glob("*.yaml")):
+            # No `if "curation_note:" not in text: continue` shortcut. It saved
+            # a parse and decided coverage by substring: a note written with any
+            # other spacing would have been skipped silently, and a guard may
+            # narrow but never excuse (#700). 328 files parse in well under a
+            # second, which is not worth a blind spot.
             text = path.read_text()
-            if "curation_note:" not in text:
-                continue
             document = yaml.safe_load(text)
             parsed = [
                 block["curation_note"]
