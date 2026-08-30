@@ -55,6 +55,8 @@ import functools
 import re
 import sys
 
+from communitymech import ontology_adapters
+
 # NCBI ranks at or below which one id denotes one organism. Anything broader is
 # a clade that may legitimately host several distinct entries.
 #
@@ -179,14 +181,13 @@ def _core(name: str) -> tuple[str, str] | None:
     return genus, epithet
 
 
-@functools.lru_cache(maxsize=1)
-def _adapter():
-    try:
-        from oaklib import get_adapter  # type: ignore[import-untyped]
-
-        return get_adapter("sqlite:obo:ncbitaxon")
-    except Exception:
-        return None
+# The same accessor `ncbi_domain` uses, bound to the module-local name so
+# `monkeypatch.setattr(module, "_adapter", lambda: None)` still reaches it --
+# `test_an_unavailable_ontology_stays_silent` does exactly that. Sharing it is
+# what makes "is NCBITaxon available?" one question with one answer (#704);
+# while there were two copies, a measurement against either was silently a
+# measurement against half the suite.
+_adapter = ontology_adapters.ncbitaxon_adapter
 
 
 _warned_no_adapter = False

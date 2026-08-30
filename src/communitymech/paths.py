@@ -39,6 +39,51 @@ DATA_ISOLATES = REPO_ROOT / "data" / "isolates"
 KB_TAXA = REPO_ROOT / "kb" / "taxa"
 
 
+# The prefix casing a cache filename must use, keyed by the lowercase form.
+# DERIVED from the citations, not chosen: a `doi:` reference makes the stem
+# `doi_`, a `PMID:` reference `PMID_`. Those are the only two prefixes any
+# record cites (1096 and 4716 occurrences; zero of anything else), so those are
+# the only two whose casing a reader can be wrong about.
+#
+# Defined here because two things need it and must not disagree --
+# `scripts/normalize_cache_names.py`, which renames, and
+# `tests/test_reference_cache_names_are_case_exact.py`, which checks. A second
+# copy is how #690's split survived a rename: the repo-side writer was fixed and
+# the upstream one, which nobody had listed, went on producing `DOI_*` (#697).
+CANONICAL_CACHE_PREFIXES: dict[str, str] = {
+    "doi": "doi",
+    "pmid": "PMID",
+}
+
+# Prefixes that exist on disk and that NO record cites: 20 `pmc_`, 9
+# `europepmc_`, 6 `epmc_`, 3 `openalex_`, 1 `semanticscholar_`. Nothing in this
+# repository writes or resolves them, so there is no citation to derive a
+# "correct" casing from and renaming them would be a guess dressed as a rule.
+# Listed so the checker knows they were considered rather than overlooked.
+UNRESOLVED_CACHE_PREFIXES: frozenset[str] = frozenset(
+    {"pmc", "europepmc", "epmc", "openalex", "semanticscholar"}
+)
+
+
+def canonical_cache_name(name: str) -> str | None:
+    """The name this cache file should have, or None if it is already right.
+
+    Only the prefix is normalised. The rest of a DOI-derived stem is
+    case-SIGNIFICANT -- `10.1134/S0026261716060059` is a real DOI whose suffix
+    is uppercase -- so lowercasing the whole filename would break resolution
+    rather than fix it.
+    """
+    if "_" not in name:
+        return None
+    prefix, rest = name.split("_", 1)
+    if prefix.lower() in UNRESOLVED_CACHE_PREFIXES:
+        return None
+    canonical = CANONICAL_CACHE_PREFIXES.get(prefix.lower())
+    if canonical is None or canonical == prefix:
+        return None
+    return f"{canonical}_{rest}"
+
+
 def default_record_roots() -> list[Path]:
     """Every directory holding `MicrobialCommunity` records, in one place.
 

@@ -141,7 +141,16 @@ cache-supplements *refs:
 # class separately as RENDERING; validator errors == RENDERING + MISMATCH there.
 # Do not "fix" a RENDERING hit by editing the snippet to match the cache.
 validate-references FILE:
+    #!/usr/bin/env bash
+    # The normalise step is not cosmetic. On a cache MISS the validator fetches,
+    # and it names what it fetches `DOI_*` -- a casing no reader here resolves
+    # to, so the next run misses again and re-fetches. Left alone that loop never
+    # converges (#697). The validator's exit code is preserved: normalising must
+    # not turn a failing validation green.
     uv run linkml-reference-validator validate data {{FILE}} -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml
+    code=$?
+    PYTHONPATH=src uv run python scripts/normalize_cache_names.py
+    exit $code
 
 # Same, with the validator's "only abstract available" note corrected (#496) and
 # its silent stripping of [bracketed] text called out (#622). Prefer this when
@@ -166,6 +175,10 @@ validate-references-all:
         echo "\\nValidating references in $file..."
         uv run linkml-reference-validator validate data "$file" -s src/communitymech/schema/communitymech.yaml --config conf/reference_validator.yaml || rc=1
     done
+    # Once for the whole sweep rather than per file: any miss can write a
+    # mis-cased name, and renaming after each of 300 files costs more than it
+    # saves (#697).
+    PYTHONPATH=src uv run python scripts/normalize_cache_names.py
     exit $rc
 
 # Validate cross-repo IDs (CultureMech, MediaIngredientMech) in one community file.
@@ -320,7 +333,14 @@ validate-schema-terms:
 
 # Repair references with suggested fixes (dry-run)
 repair-references FILE:
+    #!/usr/bin/env bash
+    # `repair` fetches on a miss exactly as `validate` does, so it can leave a
+    # `DOI_*` name behind even in --dry-run: the dry run is about not editing the
+    # RECORD, not about not writing a cache (#697).
     uv run linkml-reference-validator repair data {{FILE}} -s src/communitymech/schema/communitymech.yaml --dry-run
+    code=$?
+    PYTHONPATH=src uv run python scripts/normalize_cache_names.py
+    exit $code
 
 # Run tests
 test:

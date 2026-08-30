@@ -37,7 +37,15 @@ import re
 
 import pytest
 
-from communitymech.paths import KB_TAXA, REFERENCES_CACHE, REPO_ROOT, default_record_roots
+from communitymech.paths import (
+    CANONICAL_CACHE_PREFIXES,
+    KB_TAXA,
+    REFERENCES_CACHE,
+    REPO_ROOT,
+    UNRESOLVED_CACHE_PREFIXES,
+    canonical_cache_name,
+    default_record_roots,
+)
 
 # `reference:` is the slot every EvidenceItem carries. Matching the YAML text
 # rather than loading each document keeps this independent of the schema's
@@ -177,39 +185,23 @@ def test_the_fetcher_names_a_new_doi_cache_the_way_readers_look_for_it(tmp_path)
     assert found.read_text(encoding="utf-8") == "cached"
 
 
-# The prefix casing each cache filename must use. Derived from the citations, not
-# chosen: a `doi:` reference makes the stem `doi_`, a `PMID:` reference `PMID_`.
+# The canonical prefixes are IMPORTED, never re-listed here. A second copy of
+# "which casing is right" is how #690's two halves got out of step, and this
+# module and `scripts/normalize_cache_names.py` must agree by construction
+# rather than by review (#697).
 #
-# This is a separate assertion from the resolve check below, because it catches
-# the regression EARLIER. `linkml-reference-validator` normalises a reference id
-# to `DOI:` and builds its cache path from that, so every cache miss it fills
-# writes `DOI_*` — the exact split that accumulated 133 files (#690). The resolve
-# check only notices once a record cites the new file; this notices as soon as
-# the file exists.
-_CANONICAL_PREFIXES = {
-    "doi",
-    "PMID",
-    "pmc",
-    "europepmc",
-    "epmc",
-    "openalex",
-    "semanticscholar",
-}
+# `UNRESOLVED_CACHE_PREFIXES` are the five that exist on disk and that no record
+# cites -- there is no citation to derive a correct casing from, so they are
+# known about rather than overlooked, and neither renamed nor flagged.
 
 
 def test_every_cache_filename_uses_the_canonical_prefix_casing(cache_names):
     """A `DOI_*` file is a fetch that will be unreachable on Linux (#690)."""
-    wrong = []
-    for name in sorted(cache_names):
-        prefix = name.split("_", 1)[0] if "_" in name else name
-        if prefix in _CANONICAL_PREFIXES:
-            continue
-        match = next(
-            (p for p in _CANONICAL_PREFIXES if p.lower() == prefix.lower()),
-            None,
-        )
-        if match is not None:
-            wrong.append(f"  {name}   ->   {match}_{name.split('_', 1)[1]}")
+    wrong = [
+        f"  {name}   ->   {canonical_cache_name(name)}"
+        for name in sorted(cache_names)
+        if canonical_cache_name(name) is not None
+    ]
     assert wrong == [], (
         "these cache files use a prefix casing no reference resolves to, so "
         "nothing can find them on a case-sensitive filesystem (#690):\n"
@@ -223,15 +215,12 @@ def test_every_cache_filename_uses_the_canonical_prefix_casing(cache_names):
 
 def test_the_canonical_prefix_set_still_describes_the_cache(cache_names):
     """Guard: a prefix nobody listed makes the check above skip it silently."""
+    known = set(CANONICAL_CACHE_PREFIXES) | UNRESOLVED_CACHE_PREFIXES
     prefixes = {name.split("_", 1)[0] for name in cache_names if "_" in name}
-    unknown = sorted(
-        p
-        for p in prefixes
-        if p not in _CANONICAL_PREFIXES
-        and not any(p.lower() == c.lower() for c in _CANONICAL_PREFIXES)
-    )
+    unknown = sorted(p for p in prefixes if p.lower() not in known)
     assert unknown == [], (
         f"cache files use prefixes this check does not know about: {unknown}. "
-        f"Add them to _CANONICAL_PREFIXES with the casing the citation produces, "
+        f"Add them to CANONICAL_CACHE_PREFIXES with the casing the citation "
+        f"produces, or to UNRESOLVED_CACHE_PREFIXES in communitymech.paths, "
         f"or the casing check passes over them without looking (#690)."
     )

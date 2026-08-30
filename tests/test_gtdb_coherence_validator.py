@@ -424,7 +424,7 @@ def test_every_kb_taxonomy_entry_carries_a_status():
     assert not missing, f"{len(missing)} taxa have no status:\n" + "\n".join(missing[:10])
 
 
-def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping):
+def test_the_stored_statuses_reproduce_from_the_classifier(gtdb, mapping, requires_ncbi_adapter):
     """Re-derive every status and compare it to disk.
 
     The KB-level assertions elsewhere read files the sweep already wrote, so a
@@ -640,9 +640,12 @@ def test_a_curation_note_survives_yaml_parsing_intact():
     truncated = []
     for directory in ("kb/communities", "data/isolates"):
         for path in sorted((REPO / directory).glob("*.yaml")):
+            # No `if "curation_note:" not in text: continue` shortcut. It saved
+            # a parse and decided coverage by substring: a note written with any
+            # other spacing would have been skipped silently, and a guard may
+            # narrow but never excuse (#700). 328 files parse in well under a
+            # second, which is not worth a blind spot.
             text = path.read_text()
-            if "curation_note:" not in text:
-                continue
             document = yaml.safe_load(text)
             parsed = [
                 block["curation_note"]

@@ -41,7 +41,7 @@ def _doc(curie: str, lineage: str | None, name: str = "x") -> dict:
     return {"taxonomy": [{"taxon_term": descriptor}]}
 
 
-def test_the_defect_that_prompted_this_is_caught():
+def test_the_defect_that_prompted_this_is_caught(requires_ncbi_adapter):
     """#365, reconstructed: the plant Bosea carrying a bacterial lineage."""
     problems = check_record(_doc(PLANT_BOSEA, BACTERIAL, "Bosea sp."))
 
@@ -50,7 +50,7 @@ def test_the_defect_that_prompted_this_is_caught():
     assert "eukaryote" in problems[0]
 
 
-def test_a_block_on_a_eukaryote_is_caught_whatever_the_lineage_says():
+def test_a_block_on_a_eukaryote_is_caught_whatever_the_lineage_says(requires_ncbi_adapter):
     """The id alone settles it — GTDB models no eukaryotic lineage to compare."""
     assert len(check_record(_doc(PLANT_BOSEA, "", "Bosea sp."))) == 1
     empty_block = {
@@ -72,7 +72,7 @@ def test_the_corrected_id_is_accepted():
     assert check_record(_doc(BACTERIAL_BOSEA, BACTERIAL, "Bosea sp.")) == []
 
 
-def test_the_two_ids_really_are_what_the_fix_assumes():
+def test_the_two_ids_really_are_what_the_fix_assumes(requires_ncbi_adapter):
     """The whole fix rests on these two lookups, so assert them directly."""
     assert domain_of(PLANT_BOSEA) == "NCBITaxon:2759", "169215 must be the plant"
     assert domain_of(BACTERIAL_BOSEA) == "NCBITaxon:2", "85413 must be the bacterium"
@@ -179,7 +179,7 @@ def test_a_non_string_lineage_does_not_abort_the_run():
     assert check_record(document) == []
 
 
-def test_an_interaction_participant_is_checked_too():
+def test_an_interaction_participant_is_checked_too(requires_ncbi_adapter):
     """`source_taxon`/`target_taxon` share `taxon_term`'s range, so a block is
     schema-valid there — and both #365 records named the plant id in one (#439).
     """
@@ -201,7 +201,7 @@ def test_an_interaction_participant_is_checked_too():
     assert "Syntrophic Partnership with Bosea" in problems[0]
 
 
-def test_the_committed_kb_is_clean():
+def test_the_committed_kb_is_clean(requires_ncbi_adapter):
     # Without this the test passes vacuously wherever NCBITaxon is missing:
     # every domain comes back None and nothing is judged (cf. #433).
     assert domain_of("NCBITaxon:2") == "NCBITaxon:2", "NCBITaxon unavailable; this proves nothing"
@@ -249,7 +249,7 @@ def test_no_record_still_grounds_anything_on_the_plant_bosea():
     assert hits == [], f"the plant genus Bosea is still used for a bacterium in {hits}"
 
 
-def test_the_gate_fires_through_validate_strict(tmp_path):
+def test_the_gate_fires_through_validate_strict(tmp_path, requires_ncbi_adapter):
     """It must run in CI, not only when called directly."""
     probe = tmp_path / "Broken.yaml"
     probe.write_text(

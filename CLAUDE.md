@@ -221,6 +221,56 @@ accepted taxon, strain, metabolite, condition, causal direction, accession,
 citation, and snippet before curating it into YAML. Record LLM assistance in the
 new history entry.
 
+## Proving a gate can fail
+
+Gate tests here are defended by mutation testing -- break the thing, confirm the
+specific test goes red, restore. A dozen modules carry an explicit
+`test_the_check_can_actually_fail`. The ritual has three ways to lie, and two of
+them produce a **false green**: a test certified as able to fail when it cannot
+(#696).
+
+1. **Prove the mutation applied** before trusting a red. `grep -c` the new text,
+   or assert the replacement count. A red from an unapplied mutation is
+   impossible, so this only ever catches false greens -- which is the point.
+   Two real cases: a tuple entry Black had collapsed onto one line, and
+   `parents[2]` in `paths.py`, which appears twice.
+2. **Prove the restore took.** The suite must be green on the *very next* run.
+   Needing a second run is the stale-bytecode symptom fixed in #693; if it
+   happens again, something is serving a module that is not on disk.
+3. **Choose a mutation this machine can see.** `kb/taxa` -> `kb/TAXA` is a real
+   change on Linux and a no-op on macOS. Prefer changing a value the assertion
+   names over a path, a filename, or anything the filesystem may normalise.
+4. **Back up by copy, not by `git checkout --`.** Restoring with `git checkout`
+   discards unrelated uncommitted work in the same file. `cp` to a scratch path
+   and copy back.
+5. **Run a control arm.** Rules 1-3 all interrogate the *mutated* run, and
+   rule 4 the restore. None of them catches a red that had a second sufficient
+   cause. So
+   before attributing a red to the mutation, put an **unmutated** copy through
+   the identical harness and confirm it is GREEN.
+
+   `test_the_check_can_actually_fail` in `test_ncbitaxon_adapter_is_shared.py`
+   shipped without one (#709). It copied a test module to `tmp_path`, removed a
+   fixture argument, and asserted a red. It got a red -- from `fixture
+   'requires_ncbi_adapter' not found`, because pytest loads a conftest from the
+   test file's own directory and the copy had none. The unmutated copy failed
+   identically. The mutation applied, the restore took, the filesystem saw it,
+   and the check still could not fail.
+
+### A guard may narrow, never excuse
+
+Related failure, same shape (#700): **a substring may decide what a guard LOOKS
+AT; it must never decide that something is FINE.**
+
+`test_record_roots_are_shared.py` skipped any module whose text contained
+`record_files`, treating the presence of a name as proof of its use. A module
+imported it, never called it, and `ruff --fix` then deleted the unused import --
+leaving something that read as converted, was not, and passed the guard twice.
+
+Deciding membership by substring is fine when it widens the candidate set and a
+structural check follows. Exempting on presence is how a rename, an auto-fix, or
+an unused import turns a gate off with nobody noticing.
+
 ## Code changes
 
 - Keep reusable runtime code under `src/communitymech/`; keep one-off curation

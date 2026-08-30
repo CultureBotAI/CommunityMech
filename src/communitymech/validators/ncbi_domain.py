@@ -32,6 +32,8 @@ from __future__ import annotations
 
 import functools
 
+from communitymech import ontology_adapters
+
 # NCBI's top-level divisions. A taxon at or under one of the first two is in
 # GTDB's scope; at or under one of the last two it is permanently outside it.
 BACTERIA = "NCBITaxon:2"
@@ -42,21 +44,12 @@ VIRUSES = "NCBITaxon:10239"
 OUT_OF_SCOPE = (EUKARYOTA, VIRUSES)
 
 
-@functools.lru_cache(maxsize=1)
-def _adapter():
-    """The NCBITaxon adapter, or None if it cannot be built.
-
-    Cached because building it opens a large SQLite database, and a grounding run
-    asks about a few hundred taxa.
-    """
-    try:
-        # oaklib ships no py.typed marker; same ignore as
-        # `cross_repo_environment.py`, which imports it the same way.
-        from oaklib import get_adapter  # type: ignore[import-untyped]
-
-        return get_adapter("sqlite:obo:ncbitaxon")
-    except Exception:
-        return None
+# The shared accessor, bound to the module-local name the callers below and the
+# tests that simulate an outage both use. Aliased rather than called through
+# `ontology_adapters.` so `monkeypatch.setattr(module, "_adapter", ...)` keeps
+# working -- several tests take that route to assert the ABSENT case, which is
+# the behaviour that matters most when the ontology is genuinely gone.
+_adapter = ontology_adapters.ncbitaxon_adapter
 
 
 @functools.lru_cache(maxsize=4096)

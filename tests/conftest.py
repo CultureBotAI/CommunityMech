@@ -47,6 +47,8 @@ import pathlib
 import shutil
 import sys
 
+import pytest
+
 REPO = pathlib.Path(__file__).parent.parent
 
 # Directories whose modules tests load by file path rather than by import, so a
@@ -94,3 +96,52 @@ os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
 for _directory in _pycache_dirs():
     if _directory.is_dir():
         shutil.rmtree(_directory, ignore_errors=True)
+
+
+def _ncbi_adapter_available() -> bool:
+    """Is the NCBITaxon SQLite database actually reachable right now?
+
+    Asks `communitymech.ontology_adapters`, which is the single place the
+    adapter is built. That matters more than the deduplication: while
+    `ncbi_domain` and `shared_taxon_ids` each built their own, this predicate
+    could only ever be about one of them, and the first version of this fixture
+    was -- so it gated the 12 tests that fail when `ncbi_domain` has no adapter
+    and left the nine that fail when `shared_taxon_ids` has none, which CI then
+    found (#704).
+
+    Why it can be unavailable at all: OAK downloads `ncbitaxon.db.gz` from
+    `s3.amazonaws.com/bbop-sqlite`, and that URL has been answering **403** --
+    verified from a developer machine, so it is upstream, not a runner. A cache
+    step cannot repair it, since a cache only warms from a download that
+    succeeds; it only preserves an already-warm one.
+    """
+    from communitymech.ontology_adapters import ncbitaxon_available
+
+    return ncbitaxon_available()
+
+
+@pytest.fixture
+def requires_ncbi_adapter():
+    """Skip a test that cannot mean anything without the taxonomy database.
+
+    Deliberately NOT applied to the tests that assert the ABSENT case --
+    `test_an_unavailable_adapter_degrades_rather_than_guesses` and
+    `test_an_unavailable_ontology_is_reported_not_silently_passed` are the ones
+    that must still run when the adapter is gone, since that is their subject.
+
+    Nor to the one-directional half of `outside_gtdb_scope`: `False` must hold
+    with or without a lookup, and that is the property the callers rely on.
+    Skipping it because the database is missing would drop the safety check
+    exactly when the risk is highest.
+    """
+    # Function-scoped on purpose. `ncbitaxon_adapter` is already lru_cached, so
+    # re-asking costs nothing, and a session-scoped fixture would freeze the
+    # answer at whatever the first test saw -- including a monkeypatched one.
+    if not _ncbi_adapter_available():
+        pytest.skip(
+            "the NCBITaxon adapter is unavailable, so a taxonomy lookup cannot "
+            "be made: this check was SKIPPED, NOT PASSED (#704). It is the "
+            "wording `shared_taxon_ids` already prints to stderr for the same "
+            "situation, and it is the whole safety of skipping -- a green run "
+            "that had no ontology must never read as a clean KB."
+        )
