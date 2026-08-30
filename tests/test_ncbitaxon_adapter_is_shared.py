@@ -158,34 +158,74 @@ def test_the_gated_modules_survive_an_unavailable_ontology(tmp_path):
     assert " skipped" in result.stdout, result.stdout[-2000:]
 
 
-def test_the_check_can_actually_fail(tmp_path, monkeypatch):
-    """The outage guard reds when a gated test loses its gate.
+def _run_copy_of(module: str, tmp_path: pathlib.Path, mutate=None) -> subprocess.CompletedProcess:
+    """Run a copy of a gated test module with NCBITaxon unreachable.
 
-    Written as a real mutation rather than asserted about: a copy of
-    `test_prokaryotic_lineage.py` with one `requires_ncbi_adapter` argument
-    removed must fail under the same unreachable-ontology environment that the
-    unmutated pair passes under.
+    `tests/conftest.py` is copied next to it, and that detail is the whole
+    reason this helper exists. pytest loads a conftest from the test file's own
+    directory; a copy dropped in `tmp_path` alone gets none, so every test
+    requesting `requires_ncbi_adapter` errors with "fixture not found" -- and a
+    mutation check built on that reds whether or not the mutation did anything.
+    The first version of the test below did exactly that and passed, which is
+    the #696 failure mode reproduced inside the file documenting it.
     """
-    mutated = tmp_path / "test_mutated_lineage.py"
-    source = (REPO / "tests" / "test_prokaryotic_lineage.py").read_text(encoding="utf-8")
-    target = "def test_the_committed_kb_is_clean(requires_ncbi_adapter):"
-    assert source.count(target) == 1, "the mutation target moved; re-point it"
-    mutated.write_text(
-        source.replace(target, "def test_the_committed_kb_is_clean():"), encoding="utf-8"
+    workspace = tmp_path / module
+    workspace.mkdir(parents=True)
+    (workspace / "conftest.py").write_text(
+        (REPO / "tests" / "conftest.py").read_text(encoding="utf-8"), encoding="utf-8"
     )
-    # Prove the mutation is in the file that will be executed, not merely in the
-    # string that was written (CLAUDE.md, "Proving a gate can fail", point 1).
-    assert "def test_the_committed_kb_is_clean():" in mutated.read_text(encoding="utf-8")
+    source = (REPO / "tests" / module).read_text(encoding="utf-8")
+    if mutate is not None:
+        source = mutate(source)
+    copied = workspace / module
+    copied.write_text(source, encoding="utf-8")
 
-    env = _outage_env(tmp_path)
+    env = _outage_env(workspace)
     env["PYTHONPATH"] = str(REPO / "src")
-    result = subprocess.run(
-        [sys.executable, "-m", "pytest", "-q", "-p", "no:randomly", str(mutated)],
+    return subprocess.run(
+        [sys.executable, "-m", "pytest", "-q", "-p", "no:randomly", str(copied)],
         cwd=REPO,
         env=env,
         capture_output=True,
         text=True,
     )
-    if "ncbitaxon" not in (result.stdout + result.stderr).lower():
-        pytest.skip("the unreachable-ontology environment did not take; proves nothing")
-    assert result.returncode != 0, result.stdout[-3000:]
+
+
+def test_the_check_can_actually_fail(tmp_path):
+    """Removing one test's gate reds the outage run -- and nothing else does.
+
+    Two arms, because one proves nothing. The control runs an UNMUTATED copy
+    through the identical harness: if that is red, the harness is the cause and
+    a red from the mutated arm means nothing. Only with the control green does
+    the mutated arm's red belong to the mutation.
+    """
+    module = "test_prokaryotic_lineage.py"
+    target = "def test_the_committed_kb_is_clean(requires_ncbi_adapter):"
+    assert (REPO / "tests" / module).read_text(encoding="utf-8").count(
+        target
+    ) == 1, "the mutation target moved; re-point it rather than deleting this test"
+
+    control = _run_copy_of(module, tmp_path / "control")
+    if "skipped" not in control.stdout:
+        pytest.skip(
+            "the control run skipped nothing, so nothing below would mean "
+            "anything. Either the ontology was still reachable or the harness "
+            "itself is broken -- the tail says which, and a fixture-not-found "
+            f"error means the conftest copy above stopped working:\n"
+            f"{control.stdout[-1200:]}"
+        )
+    assert control.returncode == 0, (
+        "the control arm is red, so this test cannot attribute anything to the "
+        f"mutation:\n{control.stdout[-3000:]}"
+    )
+
+    mutated = _run_copy_of(
+        module,
+        tmp_path / "mutated",
+        mutate=lambda text: text.replace(target, "def test_the_committed_kb_is_clean():"),
+    )
+    assert mutated.returncode != 0, (
+        "an ungated test survived an unavailable ontology, so the outage guard "
+        f"above cannot detect one:\n{mutated.stdout[-3000:]}"
+    )
+    assert "test_the_committed_kb_is_clean" in mutated.stdout, mutated.stdout[-3000:]
