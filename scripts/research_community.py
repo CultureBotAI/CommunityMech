@@ -12,6 +12,11 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from deep_research_contract import (
+    ContractError,
+    render_prompt_template,
+    run_codex_research,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 COMMUNITIES_DIR = REPO_ROOT / "kb" / "communities"
@@ -268,6 +273,9 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     parser.add_argument("--template", type=Path, default=DEFAULT_TEMPLATE)
     parser.add_argument("--research-dir", type=Path, default=DEFAULT_RESEARCH_DIR)
     parser.add_argument("--client-command", default="deep-research-client")
+    parser.add_argument("--timeout", type=int, default=1800)
+    parser.add_argument("--min-chars", type=int, default=1000)
+    parser.add_argument("--min-sources", type=int, default=3)
     parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -281,12 +289,47 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv or sys.argv[1:])
     community_file = resolve_community_file(args.target)
     doc = load_community(community_file)
+    provider = args.provider.strip().casefold().replace("-", "_")
 
     output_dir = args.research_dir / "communities"
-    output_file = output_dir / f"{community_file.stem}-deep-research-{args.provider}.md"
+    output_file = output_dir / f"{community_file.stem}-deep-research-{provider}.md"
     variables = template_vars(doc, community_file)
+    print(  # noqa: T201
+        f"Researching: {variables['community_name']} ({provider}) -> {output_file}"
+    )
+    if provider == "codex":
+        if args.passthrough_args:
+            print(  # noqa: T201
+                "Codex does not accept deep-research-client passthrough arguments",
+                file=sys.stderr,
+            )
+            return 2
+        try:
+            prompt = render_prompt_template(args.template, variables)
+            if args.dry_run:
+                print(  # noqa: T201
+                    "codex --search --ask-for-approval never exec [schema validated]"
+                )
+                print(f"prompt: {len(prompt)} characters")  # noqa: T201
+                return 0
+            summary = run_codex_research(
+                prompt,
+                output_file,
+                repo_root=REPO_ROOT,
+                timeout=args.timeout,
+                min_chars=args.min_chars,
+                min_sources=args.min_sources,
+            )
+        except ContractError as exc:
+            print(f"Codex research rejected: {exc}", file=sys.stderr)  # noqa: T201
+            return 1
+        print(  # noqa: T201
+            f"Validated {summary.characters} characters and {summary.sources} sources"
+        )
+        return 0
+
     command = build_command(
-        provider=args.provider,
+        provider=provider,
         template=args.template,
         output_file=output_file,
         variables=variables,
@@ -294,15 +337,12 @@ def main(argv: list[str] | None = None) -> int:
         client_command=args.client_command,
     )
 
-    print(  # noqa: T201
-        f"Researching: {variables['community_name']} ({args.provider}) -> {output_file}"
-    )
     if args.dry_run:
         print(shlex.join(command))  # noqa: T201
         return 0
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    subprocess.run(command, check=True, env=research_env(args.provider))
+    subprocess.run(command, check=True, env=research_env(provider))
     return 0
 
 

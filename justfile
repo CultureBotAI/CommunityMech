@@ -615,6 +615,10 @@ research-provider provider: _require-research-python
         uv run --extra dev deep-research-client providers --provider {{provider}}
     fi
 
+# Non-billing provider checks; see docs/DEEP_RESEARCH_PROVIDERS.md.
+deep-research-canary provider="all" *args="": _require-research-python
+    uv run --extra dev python scripts/deep_research_contract.py {{provider}} {{args}}
+
 # Rank providers for ecological mechanisms or dataset/environment research.
 deep-research-providers focus="ecological_mechanism" *args="":
     uv run --extra dev python scripts/deep_research_provider.py \
