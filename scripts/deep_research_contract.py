@@ -58,7 +58,13 @@ def _canonical_url(value: str) -> str:
     if parsed.scheme not in {"http", "https"} or not parsed.netloc:
         raise ContractError(f"invalid source URL: {value!r}")
     return urlunsplit(
-        (parsed.scheme.casefold(), parsed.netloc.casefold(), parsed.path, parsed.query, "")
+        (
+            parsed.scheme.casefold(),
+            parsed.netloc.casefold(),
+            parsed.path,
+            parsed.query,
+            "",
+        )
     )
 
 
@@ -232,9 +238,7 @@ def run_codex_research(
             payload = json.loads(response_path.read_text(encoding="utf-8"))
         except json.JSONDecodeError as exc:
             raise ContractError("codex exec returned invalid JSON") from exc
-        summary = validate_codex_payload(
-            payload, min_chars=min_chars, min_sources=min_sources
-        )
+        summary = validate_codex_payload(payload, min_chars=min_chars, min_sources=min_sources)
         rendered = render_codex_payload(payload)
         publish_path = destination.with_name(f".{destination.name}.tmp")
         publish_path.write_text(rendered, encoding="utf-8")
@@ -268,9 +272,7 @@ def codex_canary(
     )
     for command, required in checks:
         try:
-            completed = runner(
-                command, capture_output=True, text=True, timeout=20, check=False
-            )
+            completed = runner(command, capture_output=True, text=True, timeout=20, check=False)
         except (OSError, subprocess.TimeoutExpired) as exc:
             return CanaryResult("codex", False, f"could not run {' '.join(command[:2])}: {exc}")
         output = (completed.stdout or "") + (completed.stderr or "")
@@ -310,7 +312,9 @@ def openscientist_canary(
             "openscientist", False, "deep-research-client did not list openscientist"
         )
     return CanaryResult(
-        "openscientist", True, "credential shape valid and provider discovered; no job submitted"
+        "openscientist",
+        True,
+        "credential shape valid and provider discovered; no job submitted",
     )
 
 

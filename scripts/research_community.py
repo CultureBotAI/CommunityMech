@@ -294,9 +294,7 @@ def main(argv: list[str] | None = None) -> int:
     output_dir = args.research_dir / "communities"
     output_file = output_dir / f"{community_file.stem}-deep-research-{provider}.md"
     variables = template_vars(doc, community_file)
-    print(  # noqa: T201
-        f"Researching: {variables['community_name']} ({provider}) -> {output_file}"
-    )
+    print(f"Researching: {variables['community_name']} ({provider}) -> {output_file}")  # noqa: T201
     if provider == "codex":
         if args.passthrough_args:
             print(  # noqa: T201
