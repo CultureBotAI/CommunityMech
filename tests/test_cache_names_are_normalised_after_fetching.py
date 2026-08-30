@@ -98,6 +98,21 @@ def test_the_validator_exit_code_survives_the_normaliser(recipe: str):
     )
 
 
+def _script() -> dict:
+    """The normaliser's namespace, executed from source.
+
+    From source rather than imported: `scripts/` is not a package, and a `.pyc`
+    validated on (mtime, size) can serve a module that is not the file under
+    test -- which produced a false red here once already (#693).
+    """
+    path = REPO / "scripts" / NORMALISER
+    module: dict = {"__file__": str(path)}
+    exec(  # noqa: S102
+        compile(path.read_text(encoding="utf-8"), f"scripts/{NORMALISER}", "exec"), module
+    )
+    return module
+
+
 def test_the_normaliser_renames_via_a_temporary_name(tmp_path):
     """`DOI_x.md` -> `doi_x.md` is a no-op on a case-insensitive filesystem.
 
@@ -105,9 +120,7 @@ def test_the_normaliser_renames_via_a_temporary_name(tmp_path):
     a second copy of "how to rename safely" is how the two halves of #690 got out
     of step in the first place.
     """
-    source = (REPO / "scripts" / NORMALISER).read_text(encoding="utf-8")
-    module: dict = {"__file__": str(REPO / "scripts" / NORMALISER)}
-    exec(compile(source, f"scripts/{NORMALISER}", "exec"), module)  # noqa: S102
+    module = _script()
 
     bad = tmp_path / "DOI_10.9999_example.md"
     bad.write_text("cached text", encoding="utf-8")
@@ -123,9 +136,7 @@ def test_the_normaliser_renames_via_a_temporary_name(tmp_path):
 
 def test_the_normaliser_leaves_a_real_conflict_alone(tmp_path):
     """Two distinct files, one per casing, is a choice no script should make."""
-    source = (REPO / "scripts" / NORMALISER).read_text(encoding="utf-8")
-    module: dict = {"__file__": str(REPO / "scripts" / NORMALISER)}
-    exec(compile(source, f"scripts/{NORMALISER}", "exec"), module)  # noqa: S102
+    module = _script()
 
     upper = tmp_path / "DOI_10.9999_clash.md"
     lower = tmp_path / "doi_10.9999_clash.md"
@@ -147,3 +158,69 @@ def test_only_the_prefix_is_normalised():
     assert canonical_cache_name("doi_10.1134_S0026261716060059.md") is None
     assert canonical_cache_name("PMID_123.md") is None
     assert canonical_cache_name("README.md") is None
+
+
+def test_an_interrupted_rename_is_recovered_not_orphaned(tmp_path):
+    """A `.casetmp` left by a dead run must not stay unreachable (#705).
+
+    It is invisible twice: no reader resolves the name, and
+    `canonical_cache_name` returns None for it, so a later pass of this very
+    script steps over it. The reference then reads as a cache MISS -- and a miss
+    sends the fetcher back to the network, which is the loop #697 exists to
+    close, arrived at from the other side.
+    """
+    module = _script()
+    stranded = tmp_path / "DOI_10.9999_interrupted.md.casetmp"
+    stranded.write_text("a real fetch", encoding="utf-8")
+
+    assert [p.name for p in module["orphans"](tmp_path)] == [stranded.name]
+    assert module["recover"](stranded).startswith("[recovered]")
+
+    recovered = tmp_path / "doi_10.9999_interrupted.md"
+    assert recovered.read_text(encoding="utf-8") == "a real fetch"
+    assert not list(tmp_path.glob("*.casetmp"))
+
+
+def test_a_leftover_temporary_is_never_clobbered(tmp_path):
+    """`Path.rename` overwrites its destination silently, and that destination
+    holds a cached fetch. Refuse instead (#705)."""
+    module = _script()
+    fetched = tmp_path / "DOI_10.9999_blocked.md"
+    fetched.write_text("the new fetch", encoding="utf-8")
+    leftover = tmp_path / "DOI_10.9999_blocked.md.casetmp"
+    leftover.write_text("an older interrupted fetch", encoding="utf-8")
+
+    message = module["rename"](fetched, tmp_path / "doi_10.9999_blocked.md")
+
+    assert message.startswith("[conflict]"), message
+    assert leftover.read_text(encoding="utf-8") == "an older interrupted fetch"
+    assert fetched.read_text(encoding="utf-8") == "the new fetch"
+
+
+def test_the_check_can_actually_fail(tmp_path):
+    """Both #705 guards red when removed, mutated in the executed source.
+
+    The mutations are applied to the script TEXT and executed from it, so there
+    is no bytecode between the change and the run, and the assertion that each
+    mutation is present is what separates a real red from an unapplied one
+    (CLAUDE.md, "Proving a gate can fail").
+    """
+    source = (REPO / "scripts" / NORMALISER).read_text(encoding="utf-8")
+
+    guard = "    if temporary.exists():"
+    assert source.count(guard) == 1, "the clobber guard moved; re-point this"
+    without_guard = source.replace(guard, "    if False:  # mutated: the leftover check is gone")
+    assert "if False:  # mutated" in without_guard
+    module: dict = {"__file__": str(REPO / "scripts" / NORMALISER)}
+    exec(compile(without_guard, f"scripts/{NORMALISER}", "exec"), module)  # noqa: S102
+
+    fetched = tmp_path / "DOI_10.9999_mutated.md"
+    fetched.write_text("the new fetch", encoding="utf-8")
+    leftover = tmp_path / "DOI_10.9999_mutated.md.casetmp"
+    leftover.write_text("an older interrupted fetch", encoding="utf-8")
+    module["rename"](fetched, tmp_path / "doi_10.9999_mutated.md")
+    assert not leftover.exists(), (
+        "with the guard removed the leftover should have been clobbered; it "
+        "survived, so `test_a_leftover_temporary_is_never_clobbered` would pass "
+        "with or without the guard it is meant to defend"
+    )

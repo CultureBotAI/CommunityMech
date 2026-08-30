@@ -243,6 +243,19 @@ them produce a **false green**: a test certified as able to fail when it cannot
 4. **Back up by copy, not by `git checkout --`.** Restoring with `git checkout`
    discards unrelated uncommitted work in the same file. `cp` to a scratch path
    and copy back.
+5. **Run a control arm.** Rules 1-3 all interrogate the *mutated* run, and
+   rule 4 the restore. None of them catches a red that had a second sufficient
+   cause. So
+   before attributing a red to the mutation, put an **unmutated** copy through
+   the identical harness and confirm it is GREEN.
+
+   `test_the_check_can_actually_fail` in `test_ncbitaxon_adapter_is_shared.py`
+   shipped without one (#709). It copied a test module to `tmp_path`, removed a
+   fixture argument, and asserted a red. It got a red -- from `fixture
+   'requires_ncbi_adapter' not found`, because pytest loads a conftest from the
+   test file's own directory and the copy had none. The unmutated copy failed
+   identically. The mutation applied, the restore took, the filesystem saw it,
+   and the check still could not fail.
 
 ### A guard may narrow, never excuse
 

@@ -27,6 +27,10 @@ from pathlib import Path
 
 from communitymech.paths import REFERENCES_CACHE, canonical_cache_name
 
+# The name a rename passes through, so that `DOI_x.md` -> `doi_x.md` is two
+# real renames rather than one no-op on a filesystem that ignores case.
+TEMPORARY_SUFFIX = ".casetmp"
+
 
 def plan(cache_dir: Path) -> list[tuple[Path, Path]]:
     """(current, wanted) for every file whose prefix casing is wrong."""
@@ -44,10 +48,44 @@ def rename(current: Path, wanted: Path) -> str:
     """Rename via a temporary name, so it works where case is ignored."""
     if wanted.exists() and not _same_file(current, wanted):
         return f"[conflict] {current.name}: {wanted.name} already exists and differs"
-    temporary = current.with_name(current.name + ".casetmp")
+    temporary = current.with_name(current.name + TEMPORARY_SUFFIX)
+    if temporary.exists():
+        # `Path.rename` would clobber it without a word, and a leftover
+        # temporary IS a cache file -- an earlier run died holding it. Refuse
+        # and let `recover` deal with it (#705).
+        return (
+            f"[conflict] {current.name}: {temporary.name} is left over from an "
+            f"interrupted run; it holds a fetch nothing else can reach"
+        )
     current.rename(temporary)
     temporary.rename(wanted)
     return f"[renamed] {current.name} -> {wanted.name}"
+
+
+def orphans(cache_dir: Path) -> list[Path]:
+    """Temporaries left behind by a run that died between the two renames."""
+    return [
+        path
+        for path in sorted(cache_dir.iterdir())
+        if path.is_file() and path.name.endswith(TEMPORARY_SUFFIX)
+    ]
+
+
+def recover(path: Path) -> str:
+    """Finish an interrupted rename, rather than leaving the fetch unreachable.
+
+    A `.casetmp` file is invisible twice over: no reader resolves the name, and
+    `canonical_cache_name` returns None for it, so a later run of this script
+    passes straight over it. The reference then reads as a cache MISS, and a
+    miss sends the fetcher back to the network -- the loop #697 closes, reached
+    from the other side (#705).
+    """
+    stem = path.name[: -len(TEMPORARY_SUFFIX)]
+    wanted = path.with_name(canonical_cache_name(stem) or stem)
+    if wanted.exists() and not _same_file(path, wanted):
+        return f"[conflict] {path.name}: {wanted.name} already exists and differs"
+    path.rename(wanted)
+    return f"[recovered] {path.name} -> {wanted.name}"
 
 
 def _same_file(a: Path, b: Path) -> bool:
@@ -72,11 +110,21 @@ def main(argv: list[str] | None = None) -> int:
         print(f"no cache directory at {args.cache_dir}", file=sys.stderr)
         return 0  # nothing to normalise is not an error
 
-    pairs = plan(args.cache_dir)
-    if not pairs:
-        return 0
-
     conflicts = 0
+
+    # Before anything else: an interrupted earlier run leaves a `.casetmp`
+    # holding a real fetch that nothing can reach, and it also blocks the rename
+    # that would have produced it (#705).
+    for path in orphans(args.cache_dir):
+        if args.check:
+            print(f"[would recover] {path.name}")
+            conflicts += 1
+            continue
+        message = recover(path)
+        print(message)
+        conflicts += message.startswith("[conflict]")
+
+    pairs = plan(args.cache_dir)
     for current, wanted in pairs:
         if args.check:
             print(f"[would rename] {current.name} -> {wanted.name}")
@@ -86,7 +134,7 @@ def main(argv: list[str] | None = None) -> int:
         conflicts += message.startswith("[conflict]")
 
     if args.check:
-        return 1
+        return 1 if (pairs or conflicts) else 0
     # A conflict is left for a human: both casings exist as distinct files, and
     # choosing between two fetches of the same reference is not this script's
     # call.
