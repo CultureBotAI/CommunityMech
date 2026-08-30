@@ -249,7 +249,7 @@ def test_no_record_still_grounds_anything_on_the_plant_bosea():
     assert hits == [], f"the plant genus Bosea is still used for a bacterium in {hits}"
 
 
-def test_the_gate_fires_through_validate_strict(tmp_path):
+def test_the_gate_fires_through_validate_strict(tmp_path, requires_ncbi_adapter):
     """It must run in CI, not only when called directly."""
     probe = tmp_path / "Broken.yaml"
     probe.write_text(

@@ -101,16 +101,23 @@ for _directory in _pycache_dirs():
 def _ncbi_adapter_available() -> bool:
     """Is the NCBITaxon SQLite database actually reachable right now?
 
-    `validate-strict` has no OAK cache step -- `label-correspondence` does -- so
-    that lane re-downloads `ncbitaxon.db.gz` on every run. When the download
-    returns 0 bytes, as it did on main at 22673ba, the adapter is None and every
-    lookup answers None. Assertions about a lookup result then fail for a reason
-    that has nothing to do with the change under test, which is how a real
-    failure gets waved through as "the flaky one" (#704).
-    """
-    from communitymech.validators import ncbi_domain
+    Asks `communitymech.ontology_adapters`, which is the single place the
+    adapter is built. That matters more than the deduplication: while
+    `ncbi_domain` and `shared_taxon_ids` each built their own, this predicate
+    could only ever be about one of them, and the first version of this fixture
+    was -- so it gated the 12 tests that fail when `ncbi_domain` has no adapter
+    and left the nine that fail when `shared_taxon_ids` has none, which CI then
+    found (#704).
 
-    return ncbi_domain._adapter() is not None
+    Why it can be unavailable at all: OAK downloads `ncbitaxon.db.gz` from
+    `s3.amazonaws.com/bbop-sqlite`, and that URL has been answering **403** --
+    verified from a developer machine, so it is upstream, not a runner. A cache
+    step cannot repair it, since a cache only warms from a download that
+    succeeds; it only preserves an already-warm one.
+    """
+    from communitymech.ontology_adapters import ncbitaxon_available
+
+    return ncbitaxon_available()
 
 
 @pytest.fixture
@@ -127,13 +134,14 @@ def requires_ncbi_adapter():
     Skipping it because the database is missing would drop the safety check
     exactly when the risk is highest.
     """
-    # Function-scoped on purpose.  is already lru_cached, so
+    # Function-scoped on purpose. `ncbitaxon_adapter` is already lru_cached, so
     # re-asking costs nothing, and a session-scoped fixture would freeze the
     # answer at whatever the first test saw -- including a monkeypatched one.
     if not _ncbi_adapter_available():
         pytest.skip(
-            "the NCBITaxon adapter is unavailable, so a domain lookup cannot be "
-            "made; asserting its result would test nothing (#704). "
-            "label-correspondence caches ~/.data/oaklib and is the lane that "
-            "exercises this for real."
+            "the NCBITaxon adapter is unavailable, so a taxonomy lookup cannot "
+            "be made: this check was SKIPPED, NOT PASSED (#704). It is the "
+            "wording `shared_taxon_ids` already prints to stderr for the same "
+            "situation, and it is the whole safety of skipping -- a green run "
+            "that had no ontology must never read as a clean KB."
         )

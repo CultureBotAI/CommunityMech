@@ -41,7 +41,7 @@ def _entry(name: str, curie: str) -> dict:
     return {"taxon_term": {"preferred_term": name, "term": {"id": curie, "label": name}}}
 
 
-def test_the_defect_that_prompted_this_is_caught():
+def test_the_defect_that_prompted_this_is_caught(requires_ncbi_adapter):
     """#292's first error, reconstructed exactly."""
     problems = check_record(
         [
@@ -138,7 +138,7 @@ def test_one_organism_spelled_two_ways_is_not_a_clash(label, names, curie):
     assert check_record([_entry(n, curie) for n in names]) == [], label
 
 
-def test_a_rename_exemption_does_not_swallow_the_real_defect():
+def test_a_rename_exemption_does_not_swallow_the_real_defect(requires_ncbi_adapter):
     """The exemption is per-name, so an unrelated species is still caught.
 
     `Bacteroides vulgatus` *is* a name NCBITaxon lists for 821; `Bacteroides
@@ -236,7 +236,7 @@ def test_a_guild_label_never_yields_a_genus(name):
     assert _core(name) is None
 
 
-def test_the_431_defect_shape_is_now_caught():
+def test_the_431_defect_shape_is_now_caught(requires_ncbi_adapter):
     """Two *Candidatus* species under one species id — #431's worked example."""
     problems = check_record(
         [
@@ -247,7 +247,7 @@ def test_the_431_defect_shape_is_now_caught():
     assert len(problems) == 1, problems
 
 
-def test_two_strain_isolates_of_different_genera_are_caught():
+def test_two_strain_isolates_of_different_genera_are_caught(requires_ncbi_adapter):
     problems = check_record(
         [_entry("Marinobacter CS1", "NCBITaxon:2742"), _entry("Mameliella CS4", "NCBITaxon:2742")]
     )
@@ -304,7 +304,7 @@ def test_a_strain_code_is_never_over_grounded_even_at_species_rank():
     )
 
 
-def test_an_sp_on_a_species_id_is_reported_as_over_grounding(caplog):
+def test_an_sp_on_a_species_id_is_reported_as_over_grounding(caplog, requires_ncbi_adapter):
     """The loss #449 recorded, restored — and framed as the claim it is.
 
     A species id asserts one named species, so `Variovorax sp.` sitting on
@@ -329,7 +329,7 @@ def test_an_sp_on_a_species_id_is_reported_as_over_grounding(caplog):
     assert "genus id" in problems[0], "the remedy is specific enough to state"
 
 
-def test_a_clash_takes_precedence_over_over_grounding():
+def test_a_clash_takes_precedence_over_over_grounding(requires_ncbi_adapter):
     """One id, one message: a wrong organism is the more serious claim."""
     problems = check_record(
         [
@@ -355,7 +355,7 @@ def test_a_broad_id_shared_across_guilds_is_fine():
     )
 
 
-def test_a_differing_genus_is_caught_even_under_a_genus_id():
+def test_a_differing_genus_is_caught_even_under_a_genus_id(requires_ncbi_adapter):
     """The one clash a genus-rank id cannot absorb."""
     problems = check_record(
         [
@@ -388,7 +388,7 @@ def test_the_binomial_core_is_extracted_as_documented(name, expected):
     assert _core(name) == expected
 
 
-def test_the_committed_kb_is_clean():
+def test_the_committed_kb_is_clean(requires_ncbi_adapter):
     # Without this the test passes vacuously wherever NCBITaxon is missing
     # (#433): every rank comes back None, nothing is judged, and "no problems"
     # means "nothing was looked at".
@@ -404,7 +404,7 @@ def test_the_committed_kb_is_clean():
     assert not problems, "\n".join(problems)
 
 
-def test_the_gate_fires_through_validate_strict(tmp_path):
+def test_the_gate_fires_through_validate_strict(tmp_path, requires_ncbi_adapter):
     """It must run in CI, not only when called directly.
 
     The fixture is vendored rather than fetched with `git show main:...`. That
@@ -472,7 +472,7 @@ def _cli(*args, cwd):
     )
 
 
-def test_the_cli_separates_a_finding_from_a_usage_error(tmp_path):
+def test_the_cli_separates_a_finding_from_a_usage_error(tmp_path, requires_ncbi_adapter):
     """`just validate-taxon-ids` must not report a typo'd path as a finding."""
     clean = tmp_path / "Clean.yaml"
     clean.write_text(
@@ -525,7 +525,7 @@ def test_an_unavailable_ontology_stays_silent(monkeypatch):
         real.cache_clear()
 
 
-def test_what_this_gate_does_not_catch():
+def test_what_this_gate_does_not_catch(requires_ncbi_adapter):
     """Stated plainly, because #292's *second* defect is outside it.
 
     `Nitrospiraceae bacterium` carried `NCBITaxon:1236` (class
@@ -587,7 +587,7 @@ def test_the_moved_case_still_does_not_fire_at_species_rank():
     )
 
 
-def test_spp_is_treated_as_unnamed_not_as_a_named_epithet():
+def test_spp_is_treated_as_unnamed_not_as_a_named_epithet(requires_ncbi_adapter):
     """`spp.` is the plural of `sp.` and means the same thing.
 
     Matching only `^sp\d*$` left it parsing as a *named* epithet, so
