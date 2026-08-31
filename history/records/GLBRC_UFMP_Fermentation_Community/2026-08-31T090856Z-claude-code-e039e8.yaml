@@ -1,0 +1,46 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/GLBRC_UFMP_Fermentation_Community.yaml
+  slug: GLBRC_UFMP_Fermentation_Community
+session:
+  id: 2026-08-31T090856Z-claude-code-e039e8
+  timestamp: '2026-08-31T09:08:56Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/486
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  summary: Withdraw an Olsenella uli grounding the source contradicts, for both MAGs
+  details: 'Both Olsenella MAGs asserted the NAMED species Olsenella uli, at NCBITaxon:133926
+    and at GTDB s__Olsenella_uli, with identical blocks (majority_fraction 1.0, total_genomes
+    29). Read from the source''s own Table 2 (PMID:37324413, full text cached): ATO3 is ''Olsenella_B''
+    with reference genome ''N/A'' - no species assignment at all - and ATO6 is ''Olsenella_B
+    sp900119625'' with reference genome GCF_900119625.1, where sp900119625 is GTDB''s placeholder
+    for an UNNAMED species. Neither MAG is Olsenella uli, so for ATO6 the record contradicted
+    its own preferred_term within one taxon block, which is what #486 reported, and ATO3 carried
+    the same defect one step less visibly. The paper says only that ATO3 is ''closely related
+    to'' Tractidigestivibacter scatoligenes. Checked what sp900119625 actually is, against
+    kg-microbe NCBI2GTDB.tsv.gz built 2026-07-25: NCBI 1797112 (''Olsenella sp. kh2p3'') maps
+    to GTDB ''Tractidigestivibacter sp900119625'', 7 genomes, majority 1.0 - a different genus
+    in the same family Atopobiaceae. Both taxa are now grounded at GENUS, NCBITaxon:133925
+    ''Olsenella'', which is what the paper''s own ''Olsenella_B'' naming supports and is strictly
+    weaker than a species claim. No GTDB block is stored on either: the status is AMBIGUOUS with the classifier''s seven-candidate list, because GTDB splits NCBI genus Olsenella across g__Thermophilibacter, g__Olsenella, g__Parafannyhessea and g__Olsenella_F/G/H/I with no majority. I first wrote WITHHELD and the coherence gate rejected it, correctly and in two ways: the classifier reproduces AMBIGUOUS, and WITHHELD is pinned at exactly six entries reserved for specific curator decisions (#416, #401''s four, the C. beijerinckii split), so using it here would have diluted a deliberate marker. WITHHELD means the tool CAN ground and a curator declined; here the tool cannot. Olsenella_B is absent from the candidate list - GTDB has moved it since the paper, which is itself why the sp900119625 trail leads to Tractidigestivibacter. Moving ATO6 there would assert it IS NCBI strain kh2p3, which no source says. The crosswalk row is recorded in the notes so a curator
+    can finish the re-grounding. Also re-grounded the community-level interaction participant
+    ''Olsenella (Actinobacteriota)'', which carried the species id NCBITaxon:133926 while
+    its own preferred_term names the genus. Note that #624, fixed in the same session, is
+    why this was hard to see: mapping_source recorded ''GTDB release latest (built <mtime>)'',
+    which identifies no input. Validated: validate, validate-strict, validate-terms, validate-gtdb
+    and validate-references all pass; the shared-taxon-id gate (#292) reports nothing, as
+    it did before. The record''s two audit-network findings (UNKNOWN_SOURCE and NAME_MISMATCH
+    on that same interaction) are pre-existing and byte-identical on main - checked by running
+    the audit against main''s copy - and are not addressed here.'

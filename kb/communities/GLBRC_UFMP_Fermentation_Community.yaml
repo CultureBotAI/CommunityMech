@@ -60,20 +60,33 @@ taxonomy:
 - taxon_term:
     preferred_term: Olsenella_B sp. (MAG ATO3)
     term:
-      id: NCBITaxon:133926
-      label: Olsenella uli
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Olsenella_uli
-      gtdb_taxon: Olsenella uli
-      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Olsenella;s__Olsenella uli
-      ncbi_source_id: NCBITaxon:133926
-      majority_fraction: 1.0
-      total_genomes: 29
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+      id: NCBITaxon:133925
+      label: Olsenella
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Thermophilibacter
+    - GTDB:g__Olsenella
+    - GTDB:g__Parafannyhessea
+    - GTDB:g__Olsenella_H
+    - GTDB:g__Olsenella_F
+    - GTDB:g__Olsenella_G
+    - GTDB:g__Olsenella_I
     notes: 'Dominant Actinobacteriota member (up to 61.5% relative abundance). Degrades lactose via the
       Leloir pathway, producing acetic and lactic acids.
+
+      Grounded at GENUS. The source''s Table 2 gives this MAG as `Olsenella_B` with reference genome
+      `N/A` — it has no species assignment, and the paper says only that it is "closely related to"
+      Tractidigestivibacter scatoligenes. An earlier version asserted the named species Olsenella uli
+      at both NCBI and GTDB, which the paper does not support (#486).
+
+      No GTDB grounding is stored: grounding through the old NCBI species id was circular — feeding
+      Olsenella uli in returns Olsenella uli out, at majority_fraction 1.0, which reads as confidence
+      about a claim that was assumed.
+
+      GTDB splits NCBI genus Olsenella across seven genera with no majority, so the status is
+      AMBIGUOUS rather than a guess. `Olsenella_B` is not among the candidates — GTDB has moved it
+      since the paper was written, which is itself why the sp900119625 trail leads to
+      Tractidigestivibacter.
 
       '
   strain_designation:
@@ -350,19 +363,33 @@ taxonomy:
 - taxon_term:
     preferred_term: Olsenella_B sp900119625 (MAG ATO6)
     term:
-      id: NCBITaxon:133926
-      label: Olsenella uli
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Olsenella_uli
-      gtdb_taxon: Olsenella uli
-      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Coriobacteriia;o__Coriobacteriales;f__Atopobiaceae;g__Olsenella;s__Olsenella uli
-      ncbi_source_id: NCBITaxon:133926
-      majority_fraction: 1.0
-      total_genomes: 29
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+      id: NCBITaxon:133925
+      label: Olsenella
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Thermophilibacter
+    - GTDB:g__Olsenella
+    - GTDB:g__Parafannyhessea
+    - GTDB:g__Olsenella_H
+    - GTDB:g__Olsenella_F
+    - GTDB:g__Olsenella_G
+    - GTDB:g__Olsenella_I
     notes: 'Second Olsenella MAG (up to 13.9% relative abundance). Lactose degradation via Leloir pathway.
+
+      Grounded at GENUS. The source''s Table 2 gives this MAG as `Olsenella_B sp900119625` with
+      reference genome `GCF_900119625.1`; `sp900119625` is GTDB''s placeholder for an UNNAMED species,
+      so asserting the named Olsenella uli contradicted the record''s own preferred_term (#486).
+
+      What sp900119625 actually is, from kg-microbe NCBI2GTDB.tsv.gz (2026-07-25): NCBI 1797112
+      (`Olsenella sp. kh2p3`) maps to GTDB `Tractidigestivibacter sp900119625`, 7 genomes,
+      majority 1.0 — a different genus in the same family (Atopobiaceae). The grounding is not moved
+      there, because that would assert this MAG IS NCBI strain kh2p3, which no source says. A curator
+      re-grounding it has the crosswalk row above to work from.
+
+      GTDB splits NCBI genus Olsenella across seven genera with no majority, so the status is
+      AMBIGUOUS rather than a guess. `Olsenella_B` is not among the candidates — GTDB has moved it
+      since the paper was written, which is itself why the sp900119625 trail leads to
+      Tractidigestivibacter.
 
       '
   strain_designation:
@@ -547,9 +574,11 @@ ecological_interactions:
   source_taxon:
     preferred_term: Olsenella (Actinobacteriota)
     term:
-      id: NCBITaxon:133926
-      label: Olsenella uli
-    notes: Representative of Actinobacteriota acid producers
+      id: NCBITaxon:133925
+      label: Olsenella
+    notes: 'Representative of Actinobacteriota acid producers. Grounded at genus, which is what this
+      participant''s own preferred_term names — it carried the species id NCBITaxon:133926
+      (Olsenella uli) while standing for the genus at COMMUNITY_LEVEL scope (#486).'
   target_taxon:
     preferred_term: Clostridium (Firmicutes)
     term:
