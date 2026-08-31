@@ -1,0 +1,46 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Synechococcus_Saccharomyces_SPC.yaml
+  slug: Synechococcus_Saccharomyces_SPC
+session:
+  id: 2026-08-31T040657Z-claude-code-e812af
+  timestamp: '2026-08-31T04:06:57Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/605
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  - description
+  summary: Correct the heterotroph to the strain the source actually co-cultured
+  details: 'The record described a Synechococcus elongatus PCC 7942 cscB+ / Yarrowia lipolytica
+    Po1g consortium converting sucrose to lipids for biofuel. Its only reference, PMID:28127397
+    (Hays et al. 2017), contains zero occurrences of Yarrowia, lipolytica or Po1g in 77 KB
+    of cached open-access full text; the paper''s three heterotrophs are Bacillus subtilis,
+    Escherichia coli and Saccharomyces cerevisiae. The KB already holds one record per dyad
+    for the first two (CommunityMech:000066, Synechococcus_Bacillus_SPC), so this was the
+    third dyad written up with the wrong yeast. Nothing was fabricated at the snippet level:
+    all eight snippets are verbatim quotes, which is why validate-references passed the record.
+    The record''s own growth_media preparation_notes already conceded that the source''s yeast
+    partner was S. cerevisiae. Corrected the member to Saccharomyces cerevisiae W303Clump
+    (NCBITaxon:4932), not W303: the paper states that wild-type W303 did not grow in co-culture,
+    and that the evolved W303Clump derivative did and persisted for over two months. That
+    REFUTE evidence item is recorded on the taxon so the distinction is not lost. Removed
+    the lipid/biofuel framing entirely - the source reports no product for this dyad, and
+    its photoproduction demonstrations use B. subtilis (alpha-amylase) and E. coli (polyhydroxybutyrate);
+    triacylglycerol (CHEBI:17855) and lipid biosynthetic process (GO:0008610) had no support
+    and are gone. Renamed the interaction from ''Sucrose to Lipid Conversion'' to ''Sucrose
+    Utilization by the Heterotrophic Partner''. File renamed to Synechococcus_Saccharomyces_SPC.yaml
+    to match its two siblings; id CommunityMech:000067 unchanged. Validated: just validate,
+    validate-strict and validate-references all pass; the reference check was proved to actually
+    read the record by planting a fabricated snippet (exit 1, ERROR) and restoring it (exit
+    0).'

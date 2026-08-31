@@ -1,9 +1,10 @@
 id: CommunityMech:000049
 name: PGM Spent Catalyst Bioleaching Consortium
-description: 'An engineered acidophilic microbial consortium designed for sustainable recovery of platinum
-  group metals (PGMs) from spent automotive catalysts and hydroprocessing catalysts. This bioleaching
-  system employs a two-stage mechanism combining Acidithiobacillus thiooxidans for alumina support dissolution
-  with biogenic thiosulfate producers for PGM complexation and mobilization. Spent three-way catalysts
+description: 'An acidophilic bioleaching system for recovery of platinum group metals (PGMs) from
+  spent automotive catalysts and hydroprocessing catalysts. Acidithiobacillus thiooxidans is the only
+  organism the cited sources name: it generates sulfuric acid that dissolves the alumina support. The
+  thiosulfate used for PGM complexation was sourced separately, from a biogas biodesulfurization
+  bioreactor whose community the source does not characterise taxonomically. Spent three-way catalysts
   (TWC) from automotive exhaust systems contain precious metals (Pt, Pd, Rh) deposited on alumina (Al₂O₃)
   supports, while spent petroleum refinery hydroprocessing catalysts contain Pd, Ni, Mo, and Al. The consortium
   operates under acidic conditions in column bioreactors, achieving exceptional recovery rates: 93.2%
@@ -23,9 +24,12 @@ ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: BIOMINING
 engineering_design:
-  objective: An engineered acidophilic microbial consortium designed for sustainable recovery of platinum
-    group metals (PGMs) from spent automotive catalysts and hydroprocessing catalysts.
-  assembly_strategy: Engineered 4-member consortium configured for biomining objectives.
+  objective: Acidophilic bioleaching for recovery of platinum group metals (PGMs) from spent automotive
+    catalysts and hydroprocessing catalysts, using the one organism the sources name.
+  assembly_strategy: 'Single named organism (Acidithiobacillus thiooxidans) in column bioleaching,
+    with thiosulfate supplied from a separate biodesulfurization bioreactor. An earlier version of
+    this record asserted a 4-member consortium; three of those members are named in none of its
+    three references and were removed (#605).'
   measurement_endpoints:
   - Interaction-level mechanistic characterization
   - Member-level abundance and persistence tracking
@@ -77,14 +81,14 @@ taxonomy:
       sulfur (S⁰) and reduced inorganic sulfur compounds (RISC) to sulfuric acid, which dissolves the
       alumina (γ-Al₂O₃) support matrix of automotive and hydroprocessing catalysts. The acidic attack
       on alumina follows: Al₂O₃ + 3H₂SO₄ → Al₂(SO₄)₃ + 3H₂O, releasing embedded PGM particles and solubilizing
-      aluminum as sulfate (achieving 33.4% Al recovery from petroleum catalysts). Critically, At. thiooxidans
-      also produces thiosulfate (S₂O₃²⁻) as an intermediate during sulfur oxidation, which serves as the
-      key complexing agent for PGM mobilization. In the presence of copper and ammonia (thiosulfate-copper-ammonia
-      leaching system), biogenic thiosulfate forms stable Pd(S₂O₃)₂²⁻ and other PGM-thiosulfate complexes,
-      achieving 93.2% Pd extraction from spent catalysts. This dual functionality—acid generation for
-      support dissolution and thiosulfate production for PGM complexation—makes At. thiooxidans the cornerstone
-      organism of the consortium. Operates optimally at pH 1.5-3.0 and 28-30°C in column bioreactors with
-      continuous substrate percolation.
+      aluminum as sulfate (achieving 33.4% Al recovery from petroleum catalysts). This organism''s role in
+      the cited work is acid generation for support dissolution. An earlier version of this note also
+      credited it with producing the thiosulfate that complexes the PGMs; the sources do not support that
+      and one of them contradicts it. PMID:31059950 and doi:10.1016/j.jenvman.2019.04.081, the two
+      At. thiooxidans papers, never mention thiosulfate at all, and in PMID:38138568 the biogenic
+      thiosulfate is made in a separate biogas biodesulfurization bioreactor operating at pH 8-10 under
+      anoxic to microaerobic conditions - conditions an acidophile growing at pH 1.5-3.0 does not share.
+      The two stages are documented in two different systems, not in one organism (#605).
 
       '
   functional_role:
@@ -122,272 +126,7 @@ taxonomy:
       Al) from an uncrushed petroleum refinery spent hydroprocessing catalyst using Acidithiobacillus
       thiooxidans has been reported
     explanation: Establishes thiosulfate production mechanism for PGM leaching
-- taxon_term:
-    preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Acidithiobacillus_ferrooxidans
-      gtdb_taxon: Acidithiobacillus ferrooxidans
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Acidithiobacillales;f__Acidithiobacillaceae;g__Acidithiobacillus;s__Acidithiobacillus ferrooxidans
-      ncbi_source_id: NCBITaxon:920
-      majority_fraction: 1.0
-      total_genomes: 10
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
-    notes: 'Supporting acidophilic bacterium that contributes to bioleaching through dual iron and sulfur
-      oxidation capabilities. At. ferrooxidans oxidizes both ferrous iron (Fe²⁺ → Fe³⁺) and reduced sulfur
-      compounds, providing supplementary acid generation and metabolic versatility. In spent catalyst
-      systems, this organism may oxidize iron impurities present in catalyst matrices and contribute to
-      overall sulfur oxidation. The organism''s ability to fix CO₂ and nitrogen reduces nutrient requirements.
-      Commonly employed in mixed-culture bioleaching consortia alongside At. thiooxidans for enhanced
-      metal recovery from complex waste substrates. Thrives at pH 1.5-2.5 and temperature 28-35°C, complementing
-      At. thiooxidans in column bioreactor operations.
-
-      '
-  functional_role:
-  - PRIMARY_DEGRADER
-  - SYNTROPHIC_PARTNER
-  abundance_level: ABUNDANT
-  abundance_value: Supporting member in mixed acidophilic consortium
-  evidence:
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at
-      5% pulp density using both commercially available and biogenic thiosulfate, highlighting the method's
-      versatility for Pd bioleaching from both thiosulfate sources.
-    explanation: Documents At. ferrooxidans co-occurrence in PGM bioleaching systems
-  - reference: doi:10.1016/j.jenvman.2019.04.081
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The feasibility of column bioleaching in the recovery of valuable metals (Ni, V, Mo, and
-      Al) from an uncrushed petroleum refinery spent hydroprocessing catalyst using Acidithiobacillus
-      thiooxidans has been reported
-    explanation: Establishes metabolic role in catalyst bioleaching
-- taxon_term:
-    preferred_term: Sulfobacillus thermosulfidooxidans
-    term:
-      id: NCBITaxon:28034
-      label: Sulfobacillus thermosulfidooxidans
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Sulfobacillus_thermosulfidooxidans
-      gtdb_taxon: Sulfobacillus thermosulfidooxidans
-      gtdb_lineage: d__Bacteria;p__Bacillota_E;c__Sulfobacillia;o__Sulfobacillales;f__Sulfobacillaceae;g__Sulfobacillus;s__Sulfobacillus thermosulfidooxidans
-      ncbi_source_id: NCBITaxon:28034
-      majority_fraction: 1.0
-      total_genomes: 6
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
-    notes: 'Moderately thermophilic, facultatively autotrophic bacterium contributing to sulfur and iron
-      oxidation in catalyst bioleaching systems. Sulfobacillus species oxidize reduced sulfur compounds
-      and Fe²⁺, providing metabolic redundancy with Acidithiobacillus. The facultative autotrophy enables
-      mixotrophic growth on organic compounds plus inorganic electron donors, offering metabolic flexibility.
-      Sulfobacillus exhibits exceptional tolerance to elevated metal concentrations including Pd, Ni,
-      Mo, and Al present in spent catalyst leachates, enabling sustained activity as metal concentrations
-      accumulate during bioleaching. The spore-forming capability provides resilience to fluctuating bioreactor
-      conditions. While typically more abundant in thermophilic operations (50-60°C), mesophilic strains
-      can contribute at 30-37°C in mixed consortia for catalyst processing.
-
-      '
-  functional_role:
-  - PRIMARY_DEGRADER
-  - SYNTROPHIC_PARTNER
-  abundance_level: COMMON
-  abundance_value: Contributes to metal-tolerant sulfur oxidation in consortia
-  evidence:
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at
-      5% pulp density using both commercially available and biogenic thiosulfate, highlighting the method's
-      versatility for Pd bioleaching from both thiosulfate sources.
-    explanation: Establishes role in metal-tolerant catalyst bioleaching
-  - reference: doi:10.1016/j.jenvman.2019.04.081
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Among various operational modifications, submerged bioleaching in continuous mode was considered
-      as the best strategy in which about 82.9% of Ni, 33.4% of Al, and 22.7% of Mo were leached after
-      315 h of column operation
-    explanation: Documents presence in industrial catalyst bioleaching
-- taxon_term:
-    preferred_term: Thiobacillus thioparus
-    term:
-      id: NCBITaxon:931
-      label: Thiobacillus thioparus
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Thiobacillus_thioparus
-      gtdb_taxon: Thiobacillus thioparus
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Thiobacillaceae;g__Thiobacillus;s__Thiobacillus thioparus
-      ncbi_source_id: NCBITaxon:931
-      majority_fraction: 1.0
-      total_genomes: 1
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-    notes: 'Neutrophilic to slightly acidophilic sulfur-oxidizing bacterium that produces thiosulfate
-      as a key metabolic intermediate. While At. thiooxidans operates at extremely low pH (1.5-3.0), T.
-      thioparus thrives at pH 5.0-8.0 and contributes to biogenic thiosulfate production under less acidic
-      conditions. In two-stage bioleaching processes, T. thioparus may be employed after initial acidic
-      alumina dissolution to generate high concentrations of thiosulfate for PGM complexation without
-      extreme acidity. The organism oxidizes thiosulfate, tetrathionate, and elemental sulfur, producing
-      sulfate and accumulating thiosulfate intermediates that serve as PGM chelators. This enables pH-modulated
-      bioleaching strategies where acidic dissolution is followed by near-neutral thiosulfate leaching
-      for selective PGM recovery.
-
-      '
-  functional_role:
-  - PRIMARY_PRODUCER
-  abundance_level: COMMON
-  abundance_value: Used in two-stage or pH-modulated PGM bioleaching processes
-  evidence:
-  - reference: PMID:31059950
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The feasibility of column bioleaching in the recovery of valuable metals (Ni, V, Mo, and
-      Al) from an uncrushed petroleum refinery spent hydroprocessing catalyst using Acidithiobacillus
-      thiooxidans has been reported
-    explanation: Establishes thiosulfate production for PGM recovery
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Bioleaching of palladium (Pd) using the thiosulfate-copper-ammonia leaching processes, with
-      biogenic thiosulfate sourced from a bioreactor used for biogas biodesulfurization, is proposed as
-      a sustainable alternative to conventional methods
-    explanation: Documents role in green PGM leaching chemistry
 ecological_interactions:
-- name: Complementary Iron and Sulfur Oxidation
-  description: 'Acidithiobacillus ferrooxidans provides complementary metabolic capability through dual
-    iron and sulfur oxidation, working synergistically with At. thiooxidans in the bioleaching consortium.
-    At. ferrooxidans oxidizes ferrous iron (Fe²⁺ → Fe³⁺) present as impurities in spent catalyst matrices,
-    generating ferric iron that can chemically attack metal sulfides and enhance overall leaching kinetics.
-    The organism also oxidizes reduced sulfur compounds, contributing supplementary sulfuric acid production
-    for alumina dissolution. This dual functionality complements At. thiooxidans, which specializes in
-    sulfur oxidation and thiosulfate production. The metabolic versatility of At. ferrooxidans enhances
-    consortium robustness against substrate heterogeneity in spent catalysts from different sources (automotive
-    TWC, petroleum hydroprocessing). Both organisms fix CO₂ autotrophically, reducing nutrient requirements
-    for industrial-scale operation. The synergistic iron-sulfur oxidation by mixed acidophile consortia
-    improves PGM recovery efficiency compared to monocultures, demonstrating functional complementarity
-    in catalyst bioleaching systems.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Acidithiobacillus ferrooxidans
-    term:
-      id: NCBITaxon:920
-      label: Acidithiobacillus ferrooxidans
-  target_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
-  metabolites:
-  - preferred_term: iron(2+)
-    term:
-      id: CHEBI:29033
-      label: iron(2+)
-    notes: Substrate for iron oxidation
-  - preferred_term: iron(3+)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
-    notes: Product enhancing leaching kinetics
-  - preferred_term: sulfuric acid
-    term:
-      id: CHEBI:26836
-      label: sulfuric acid
-    notes: Complementary acid generation
-  biological_processes:
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  evidence:
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at
-      5% pulp density using both commercially available and biogenic thiosulfate, highlighting the method's
-      versatility for Pd bioleaching from both thiosulfate sources.
-    explanation: Documents At. ferrooxidans contribution to mixed consortium PGM recovery
-  - reference: doi:10.1016/j.jenvman.2019.04.081
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The feasibility of column bioleaching in the recovery of valuable metals (Ni, V, Mo, and
-      Al) from an uncrushed petroleum refinery spent hydroprocessing catalyst using Acidithiobacillus
-      thiooxidans has been reported
-    explanation: Establishes metabolic synergy in catalyst bioleaching
-- name: Metal-Tolerant Sulfur Oxidation and Metabolic Redundancy
-  description: 'Sulfobacillus thermosulfidooxidans contributes metabolic redundancy and enhanced metal
-    tolerance to the bioleaching consortium. This facultatively autotrophic bacterium oxidizes reduced
-    sulfur compounds and ferrous iron, providing backup functionality that parallels Acidithiobacillus
-    capabilities. The critical advantage is Sulfobacillus'' exceptional tolerance to elevated concentrations
-    of Pd, Ni, Mo, and Al that accumulate in pregnant leach solution during catalyst processing. As PGM
-    and base metal concentrations increase during bioleaching, Acidithiobacillus activity may be inhibited
-    by metal toxicity, but Sulfobacillus maintains sulfur oxidation and acid generation through its superior
-    metal resistance. This tolerance enables sustained bioleaching performance even as metal concentrations
-    approach extraction targets (93.2% Pd, 82.9% Ni). Additionally, the facultative autotrophy allows
-    mixotrophic growth on organic compounds plus inorganic electron donors, providing metabolic flexibility
-    when catalyst matrices contain carbonaceous deposits. The spore-forming capability ensures survival
-    during bioreactor disruptions. This functional redundancy with enhanced stress tolerance makes Sulfobacillus
-    a valuable consortium member for robust industrial-scale PGM recovery operations.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Sulfobacillus thermosulfidooxidans
-    term:
-      id: NCBITaxon:28034
-      label: Sulfobacillus thermosulfidooxidans
-  target_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
-  metabolites:
-  - preferred_term: palladium
-    term:
-      id: CHEBI:33363
-      label: palladium
-    notes: Tolerated at high concentrations during recovery
-  - preferred_term: nickel(2+)
-    term:
-      id: CHEBI:49786
-      label: nickel(2+)
-    notes: Tolerated metal in leachate
-  - preferred_term: sulfuric acid
-    term:
-      id: CHEBI:26836
-      label: sulfuric acid
-    notes: Redundant acid generation under metal stress
-  biological_processes:
-  - preferred_term: response to metal ion
-    term:
-      id: GO:0010038
-      label: response to metal ion
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  evidence:
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: A remarkable 96.2 and 93.2% of the total Pd was successfully extracted from the solid at
-      5% pulp density using both commercially available and biogenic thiosulfate, highlighting the method's
-      versatility for Pd bioleaching from both thiosulfate sources.
-    explanation: Documents Sulfobacillus role in metal-tolerant catalyst bioleaching
-  - reference: doi:10.1016/j.jenvman.2019.04.081
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Among various operational modifications, submerged bioleaching in continuous mode was considered
-      as the best strategy in which about 82.9% of Ni, 33.4% of Al, and 22.7% of Mo were leached after
-      315 h of column operation
-    explanation: Establishes performance in high-metal environments
 - name: Alumina Support Matrix Dissolution
   description: 'Acidithiobacillus thiooxidans and supporting sulfur oxidizers generate sulfuric acid through
     oxidation of elemental sulfur and reduced inorganic sulfur compounds. The bacterially-produced acid
@@ -454,10 +193,10 @@ ecological_interactions:
       thiooxidans has been reported
     explanation: Quantifies alumina dissolution efficiency
 - name: Biogenic Thiosulfate-PGM Complexation
-  description: 'Biogenic thiosulfate (S₂O₃²⁻) produced as an intermediate during bacterial sulfur oxidation
-    serves as the primary complexing agent for PGM mobilization. At. thiooxidans and other sulfur oxidizers
-    generate thiosulfate during incomplete oxidation of S⁰ and RISC, with thiosulfate accumulating in
-    the bioleaching solution. In the presence of copper ions (Cu²⁺ or Cu⁺) and ammonia (NH₃/NH₄⁺), thiosulfate
+  description: 'Biogenic thiosulfate (S₂O₃²⁻) serves as the primary complexing agent for PGM
+    mobilization. The source produces it in a separate biogas biodesulfurization bioreactor at pH 8-10,
+    not in the acidic bioleaching column; the record does not claim At. thiooxidans makes it (#605). In
+    the presence of copper ions (Cu²⁺ or Cu⁺) and ammonia (NH₃/NH₄⁺), thiosulfate
     forms highly stable complexes with palladium and other PGMs through the thiosulfate-copper-ammonia
     (TCA) leaching system. For palladium, the primary reaction is: Pd⁰ + 2S₂O₃²⁻ + Cu²⁺ + NH₃ → Pd(S₂O₃)₂²⁻
     + Cu-NH₃ complexes. This mechanism achieves exceptional 93.2% Pd extraction from spent petroleum catalysts.
@@ -598,67 +337,6 @@ ecological_interactions:
       biogenic thiosulfate sourced from a bioreactor used for biogas biodesulfurization, is proposed as
       a sustainable alternative to conventional methods
     explanation: Establishes sustainability advantages
-- name: Thiosulfate Metabolic Cycling
-  description: 'Thiosulfate (S₂O₃²⁻) occupies a central position in the sulfur oxidation metabolism of
-    the bioleaching consortium, serving dual roles as a metabolic intermediate and PGM complexing agent.
-    During oxidation of elemental sulfur and reduced sulfur compounds, At. thiooxidans and other sulfur
-    oxidizers produce thiosulfate through incomplete oxidation pathways. The thiosulfate can either be:
-    (1) further oxidized to sulfate (S₂O₃²⁻ → SO₄²⁻) to generate energy and sulfuric acid, or (2) accumulate
-    in solution where it complexes with PGMs. The balance between thiosulfate oxidation and accumulation
-    is critical for bioleaching efficiency. Conditions that favor thiosulfate accumulation (moderate pH,
-    presence of copper/ammonia, partial sulfur oxidation) enhance PGM complexation, while complete oxidation
-    to sulfate maximizes alumina dissolution. This metabolic flexibility enables the consortium to perform
-    both alumina support dissolution (via sulfuric acid) and PGM mobilization (via thiosulfate) in integrated
-    or staged processes. The biological control of thiosulfate levels through microbial metabolism represents
-    a unique advantage over chemical PGM leaching where thiosulfate must be externally added and controlled.
-
-    '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
-    term:
-      id: NCBITaxon:930
-      label: Acidithiobacillus thiooxidans
-  target_taxon:
-    preferred_term: Thiobacillus thioparus
-    term:
-      id: NCBITaxon:931
-      label: Thiobacillus thioparus
-  metabolites:
-  - preferred_term: thiosulfate
-    term:
-      id: CHEBI:16094
-      label: thiosulfate(2-)
-    notes: Metabolic intermediate and PGM complexant
-  - preferred_term: sulfate
-    term:
-      id: CHEBI:16189
-      label: sulfate
-    notes: Final oxidation product
-  - preferred_term: sulfur
-    term:
-      id: CHEBI:26833
-      label: sulfur atom
-    notes: Initial substrate
-  biological_processes:
-  - preferred_term: sulfur compound metabolic process
-    term:
-      id: GO:0006790
-      label: sulfur compound metabolic process
-  evidence:
-  - reference: PMID:31059950
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The bacterial attachment study with FESEM indicated that the metal toxicity was induced on
-      bacterial cells attached to the sulfur particles
-    explanation: Describes dual role of thiosulfate in bioleaching
-  - reference: PMID:38138568
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Bioleaching of palladium (Pd) using the thiosulfate-copper-ammonia leaching processes, with
-      biogenic thiosulfate sourced from a bioreactor used for biogas biodesulfurization, is proposed as
-      a sustainable alternative to conventional methods
-    explanation: Establishes metabolic integration of thiosulfate cycling
 environmental_factors:
 - name: pH for Alumina Dissolution
   value: 1.5-3.0

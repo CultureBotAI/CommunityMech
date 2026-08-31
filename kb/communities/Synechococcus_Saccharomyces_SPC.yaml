@@ -1,10 +1,11 @@
 id: CommunityMech:000067
-name: Synechococcus-Yarrowia Synthetic Photosynthetic Consortium
+name: Synechococcus-Saccharomyces Synthetic Photosynthetic Consortium
 description: 'A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus
-  PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with the oleaginous yeast Yarrowia
-  lipolytica Po1g. The cyanobacterium fixes CO2 and exports sucrose, which Y. lipolytica converts to lipids
-  for biofuel production. This system demonstrates photosynthetic carbon capture coupled to lipid biosynthesis
-  in a modular platform.
+  PCC 7942 (engineered to secrete sucrose via the cscB+ transporter) with the budding yeast Saccharomyces
+  cerevisiae W303Clump. The cyanobacterium fixes CO2 and exports sucrose, which supports heterotrophic
+  growth of the yeast. Wild-type W303 did not grow in co-culture; W303Clump, an evolved derivative
+  carrying mutations that enhance fitness in dilute sucrose, did, and maintained viability in continuous
+  co-culture for more than two months.
 
   '
 ecological_state: ENGINEERED
@@ -12,10 +13,11 @@ community_origin: ENGINEERED
 community_category: OTHER
 engineering_design:
   objective: A synthetic, light-driven consortium pairing the cyanobacterium Synechococcus elongatus PCC
-    7942 (engineered to secrete sucrose via the cscB+ transporter) with the oleaginous yeast Yarrowia
-    lipolytica Po1g.
-  assembly_strategy: Bottom-up co-culture of engineered Synechococcus elongatus PCC 7942 cscB+ and Yarrowia
-    lipolytica Po1g in defined medium under light-driven sucrose cross-feeding conditions.
+    7942 (engineered to secrete sucrose via the cscB+ transporter) with Saccharomyces cerevisiae
+    W303Clump.
+  assembly_strategy: Bottom-up co-culture of engineered Synechococcus elongatus PCC 7942 cscB+ and
+    Saccharomyces cerevisiae W303Clump in defined medium under light-driven sucrose cross-feeding
+    conditions.
   measurement_endpoints:
   - Interaction-level mechanistic characterization
   - Member-level abundance and persistence tracking
@@ -64,11 +66,16 @@ taxonomy:
       accession: '7942'
       url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
 - taxon_term:
-    preferred_term: Yarrowia lipolytica Po1g
+    preferred_term: Saccharomyces cerevisiae W303Clump
     term:
-      id: NCBITaxon:4952
-      label: Yarrowia lipolytica
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: 'W303Clump is an evolved derivative of S. cerevisiae W303, selected in low-sucrose media
+      before this study. The parental wild-type strain did not grow in co-culture, so the partner
+      that makes this dyad work is the evolved strain specifically.
+
+      '
   abundance_level: ABUNDANT
   functional_role:
   - CROSS_FEEDER
@@ -76,8 +83,20 @@ taxonomy:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'RESULTS: We observed heterotrophic growth dependent upon cyanobacterial photosynthate in
-      each co-culture pair'
+    snippet: S. cerevisiae W303Clump maintains viability in continuous culture with sucrose-secreting
+      S. elongatus for greater than two months
+    explanation: Establishes the yeast as a persisting member of the co-culture.
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: W303Clump (originally called Recreated02 in Koschwanez et al. 2013) contains mutations in
+      genes CSE2, IRA1, MTH1, and UBR1 that enhance fitness in dilute sucrose
+    explanation: Identifies the strain and why it, rather than the parent, can use the secreted sucrose.
+  - reference: PMID:28127397
+    supports: REFUTE
+    evidence_source: IN_VITRO
+    snippet: Wild type (WT) S. cerevisiae W303 did not grow in co-culture with or without IPTG induction
+    explanation: Records that the parental strain is NOT a member; only the evolved W303Clump is.
 ecological_interactions:
 - name: CO2 Fixation and Sucrose Production
   interaction_type: CROSS_FEEDING
@@ -101,38 +120,36 @@ ecological_interactions:
       id: GO:0005986
       label: sucrose biosynthetic process
   downstream:
-  - target: Sucrose to Lipid Conversion
+  - target: Sucrose Utilization by the Heterotrophic Partner
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: We previously engineered a model cyanobacterium, Synechococcus elongatus PCC 7942, to secrete
       the bulk of the carbon it fixes as sucrose, a carbohydrate that can be utilized by many other microbes
-- name: Sucrose to Lipid Conversion
+- name: Sucrose Utilization by the Heterotrophic Partner
+  description: 'The yeast grows on the sucrose the cyanobacterium secretes. The paper reports no
+    product formation for this dyad -- its photoproduction demonstrations use B. subtilis
+    (alpha-amylase) and E. coli (polyhydroxybutyrate) -- so nothing beyond sucrose catabolism is
+    claimed here.
+
+    '
   interaction_type: CROSS_FEEDING
   source_taxon:
-    preferred_term: Yarrowia lipolytica Po1g
+    preferred_term: Saccharomyces cerevisiae W303Clump
     term:
-      id: NCBITaxon:4952
-      label: Yarrowia lipolytica
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
   metabolites:
   - preferred_term: sucrose
     term:
       id: CHEBI:17992
       label: sucrose
-  - preferred_term: triacylglycerol
-    term:
-      id: CHEBI:17855
-      label: triglyceride
   biological_processes:
   - preferred_term: sucrose catabolic process
     term:
       id: GO:0005987
       label: sucrose catabolic process
-  - preferred_term: lipid biosynthetic process
-    term:
-      id: GO:0008610
-      label: lipid biosynthetic process
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
@@ -167,11 +184,11 @@ growth_media:
   shaking_speed_unit: rpm
   vessel_type: Multitron Infors HT shaking incubator
   preparation_notes: >-
-    S. elongatus propagated in BG-11 + 1 g/L HEPES (pH 8, 35 °C, constant light). In the source
-    (Hays et al. 2017) the yeast partner tested was Saccharomyces cerevisiae, grown in the yeast
-    co-culture medium CoY BG-11; the general co-culture conditions (35 °C, 150 rpm, 2% CO2, ~80
-    µmol PAR) apply across all cyanobacterium/heterotroph dyads. 2% sucrose added to acclimate;
-    IPTG induces sucrose export.
+    S. elongatus propagated in BG-11 + 1 g/L HEPES (pH 8, 35 °C, constant light); the yeast partner
+    grown in the yeast co-culture medium CoY BG-11. The general co-culture conditions (35 °C, 150
+    rpm, 2% CO2, ~80 µmol PAR) apply across all cyanobacterium/heterotroph dyads in the source. 2%
+    sucrose added to acclimate; IPTG induces sucrose export. Long-term co-cultures were run in
+    Phenometrics environmental photobioreactors on a 16:8 light:dark cycle.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
