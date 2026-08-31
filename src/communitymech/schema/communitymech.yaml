@@ -1049,8 +1049,14 @@ classes:
         range: string
       mapping_source:
         description: >-
-          Provenance of the mapping (source table + GTDB release/build), e.g.
-          "kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-18)".
+          Provenance of the mapping: the source table and a content digest of
+          it, e.g. "kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file
+          mtime 2026-07-25)". The digest is what identifies the input -- an
+          earlier form recorded "GTDB release latest (built <mtime>)", where
+          "latest" was a literal nothing read and the mtime is a filesystem
+          attribute rather than a property of the data, so a block that differs
+          from today's crosswalk could not be told from one that is wrong
+          (#624). Blocks written before that change still carry the old string.
     rules:
       # A numerator with no denominator says nothing — 4 supporting genomes is
       # unreadable without knowing whether that is 4 of 7 or 4 of 4000 (#383).
