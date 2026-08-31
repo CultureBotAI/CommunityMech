@@ -446,6 +446,13 @@ check-docs-current:
         echo "❌ published pages with no record (delete them):$orphans"
         exit 1
     fi
+    # That loop covers docs/communities/ only. The TOP-LEVEL pages
+    # (community_umap.html, community_graph.html, browser.html) embed record ids
+    # and links too, and a rename left dead ones there with every gate green
+    # (#714). They are checked by
+    # tests/test_published_pages_name_real_records.py rather than here, because
+    # neither can be regenerated in this recipe: gen-umap needs the embeddings
+    # artefact (see above) and community_graph.html has no generator at all.
     if [ -n "$(git status --porcelain docs/)" ]; then
         echo "❌ docs/ is not what gen-html produces. Run 'just gen-html' and commit:"
         git status --short docs/

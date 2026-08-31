@@ -276,6 +276,13 @@ _COMMUNITY_ONLY: dict[str, str] = {
     "test_network_palette.py": (
         "the per-community palette is generated for those same rendered pages"
     ),
+    "test_published_pages_name_real_records.py": (
+        "resolves the record names the PUBLISHED pages carry, and publishing is "
+        "kb/communities-only: render.py sources that directory alone, giving 325 "
+        "pages for 325 records, and 0 of the 4 isolates has a page or is linked "
+        "from any top-level page (measured, #714). If isolates are ever published "
+        "-- the same question #519 asks about the UMAP -- this becomes both roots"
+    ),
 }
 
 # Sweeps one root where the other holds the same kind of content. Each line is
