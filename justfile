@@ -76,6 +76,20 @@ validate-taxa:
 validate-terms-taxa:
     #!/usr/bin/env bash
     set -uo pipefail
+    # Engine A cannot survive an unreachable ontology: `linkml-term-validator`
+    # passes vacuously on most files and dies on one with a raw DownloadError
+    # traceback, so its exit code stops meaning "label drift" (#708). Ask first
+    # whether the check can run at all, and decline out loud if it cannot. This
+    # is a positive reachability probe, NOT a reading of the checker's error
+    # text -- deciding something is fine from a substring is what #700 forbids.
+    if ! PYTHONPATH=src uv run python scripts/validate_id_label_correspondence.py \
+            --check-adapters >/dev/null 2>/tmp/cm-ontology-preflight.$$; then
+        echo "⚠️  $(cat /tmp/cm-ontology-preflight.$$)"
+        echo "⚠️  Engine A was SKIPPED, NOT PASSED: it cannot look anything up (#708)."
+        rm -f /tmp/cm-ontology-preflight.$$
+        exit 0
+    fi
+    rm -f /tmp/cm-ontology-preflight.$$
     rc=0
     for file in kb/taxa/*.yaml; do
         echo "Validating terms in $file..."
@@ -289,6 +303,20 @@ validate-terms FILE:
 validate-terms-all:
     #!/usr/bin/env bash
     set -uo pipefail
+    # Engine A cannot survive an unreachable ontology: `linkml-term-validator`
+    # passes vacuously on most files and dies on one with a raw DownloadError
+    # traceback, so its exit code stops meaning "label drift" (#708). Ask first
+    # whether the check can run at all, and decline out loud if it cannot. This
+    # is a positive reachability probe, NOT a reading of the checker's error
+    # text -- deciding something is fine from a substring is what #700 forbids.
+    if ! PYTHONPATH=src uv run python scripts/validate_id_label_correspondence.py \
+            --check-adapters >/dev/null 2>/tmp/cm-ontology-preflight.$$; then
+        echo "⚠️  $(cat /tmp/cm-ontology-preflight.$$)"
+        echo "⚠️  Engine A was SKIPPED, NOT PASSED: it cannot look anything up (#708)."
+        rm -f /tmp/cm-ontology-preflight.$$
+        exit 0
+    fi
+    rm -f /tmp/cm-ontology-preflight.$$
     rc=0
     for file in kb/communities/*.yaml data/isolates/*.yaml; do
         echo "Validating terms in $file..."
