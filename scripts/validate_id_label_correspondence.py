@@ -50,11 +50,6 @@ repos already use, and classifies the pair:
                         id has no CURIE prefix at all (e.g. ``UNMAPPED_0001``)
     SKIPPED_EMPTY_ADAPTER  configured adapter loaded but holds no terms (e.g. a
                         0-byte sqlite stub); db needs populating, data isn't wrong
-    SKIPPED_UNREACHABLE_ADAPTER  a pinned OBO ontology could not be downloaded
-                        (the bbop-sqlite outage, #708). SKIPPED, NOT PASSED: the
-                        check did not run, and an outage is not a verdict about
-                        the KB. Requires BOTH a DownloadError and a pinned
-                        ontology name, because a typo raises the same error.
 
 Policy (per target, ``conf/id_label_targets.yaml``)
     ``canonical``            accept only the canonical OBO label (strict;
@@ -180,7 +175,7 @@ _CANONICAL_LABEL_CONTEXTS = (
 # absent from the current ontology snapshot) with a documented ``reason``.
 _OK_VERDICTS = {"OK_CANONICAL", "OK_SYNONYM", "OK_ID_ONLY", "OK_EXCEPTION"}
 # Benign skips: not OK (still surfaced in the report) but never fail enforce.
-_SKIP_VERDICTS = {"SKIPPED_NO_ADAPTER", "SKIPPED_EMPTY_ADAPTER", "SKIPPED_UNREACHABLE_ADAPTER"}
+_SKIP_VERDICTS = {"SKIPPED_NO_ADAPTER", "SKIPPED_EMPTY_ADAPTER"}
 
 _CURIE_RE = re.compile(r"^([A-Za-z][A-Za-z0-9.]*):(.+)$")
 _WS_RE = re.compile(r"\s+")
@@ -219,66 +214,6 @@ LOAD_FAILED = object()
 # would be reported as a false ``ID_NOT_FOUND``. Treated as a benign skip
 # (``SKIPPED_EMPTY_ADAPTER``) — the db needs populating, the data isn't wrong.
 EMPTY_ADAPTER = object()
-
-# Sentinel for a CONFIGURED adapter whose ontology could not be DOWNLOADED.
-#
-# An outage is not a verdict about the KB (#708). While
-# ``s3.amazonaws.com/bbop-sqlite`` answered 403 for every build — ncbitaxon, go,
-# chebi, envo, uberon, cl — this gate produced 6250+ ADAPTER_ERROR rows with
-# ``canonical=''`` on every term of every record, and `main` was red for two
-# days on a condition no PR caused and none could fix.
-#
-# Reporting that as an ERROR conflates "the check could not run" with "the check
-# found something". The repository already answers this elsewhere — both
-# ``shared_taxon_ids`` and ``ncbi_domain`` print "skipped, not passed" and exit 0
-# — so this makes the third component agree rather than inventing a policy.
-UNREACHABLE_ADAPTER = object()
-
-# The ontology names this config is allowed to ask OAK for.
-#
-# **This list is what makes the downgrade above safe, and it is not optional.**
-# A typo'd ontology name raises the SAME ``DownloadError`` as a real outage —
-# verified: ``sqlite:obo:not_a_real_ontology_xyz`` fails identically to
-# ``sqlite:obo:go``, and S3 answers 403 for a nonexistent key just as it does for
-# a forbidden one, so neither the exception type nor the HTTP status can tell
-# them apart. Without this pin, one typo in ``conf/id_label_targets.yaml`` would
-# silently downgrade a whole ontology to "skipped" and the gate would report
-# clean while checking nothing — #686's failure mode, reintroduced by the fix
-# for #708.
-#
-# So the two conditions are independent and BOTH are required: the exception
-# type narrows the candidates, and this structural pin decides. That ordering is
-# CLAUDE.md's "a guard may narrow, never excuse" (#700).
-# ``tests/test_id_label_adapter_unreachable.py`` asserts the config agrees.
-PINNED_ONTOLOGY_NAMES = frozenset({"chebi", "cl", "envo", "go", "ncbitaxon", "uberon"})
-
-
-def _is_download_failure(exc: BaseException) -> bool:
-    """Did this adapter load fail because the ontology could not be fetched?
-
-    ``isinstance`` against pystow's real type rather than a name match: pystow
-    is a hard dependency of oaklib, so the import is safe, and some other
-    library's class that happens to be called ``DownloadError`` must not count.
-    Note this is only ever the NARROWING half — ``_is_pinned_obo_selector`` is
-    what actually authorises the downgrade.
-    """
-    try:
-        from pystow.utils import DownloadError
-    except Exception:  # pragma: no cover - pystow is an oaklib dependency
-        return False
-    return isinstance(exc, DownloadError)
-
-
-def _is_pinned_obo_selector(selector: str) -> bool:
-    """True for ``sqlite:obo:<name>`` where <name> is pinned above.
-
-    Anything else — a local path, a different scheme, an unpinned name — is not
-    eligible for the unreachable downgrade and stays a fatal ADAPTER_ERROR.
-    """
-    prefix = "sqlite:obo:"
-    if not selector.startswith(prefix):
-        return False
-    return selector[len(prefix):].strip().lower() in PINNED_ONTOLOGY_NAMES
 
 
 class AdapterPool:
@@ -329,22 +264,8 @@ class AdapterPool:
 
                 adapter = get_adapter(self._selectors[key])
             except Exception as exc:  # pragma: no cover - environment dependent
-                selector = self._selectors[key]
-                # Both conditions, in this order. `DownloadError` alone would
-                # also cover a typo'd ontology name; the pin is what separates
-                # "the server is down" from "we asked for something that does
-                # not exist" (#708).
-                unreachable = _is_download_failure(exc) and _is_pinned_obo_selector(selector)
-                if unreachable:
-                    print(
-                        f"  ! {key} is UNREACHABLE ({selector}): {exc}. "
-                        f"Its ids will be SKIPPED, NOT PASSED.",
-                        file=sys.stderr,
-                    )
-                    self._cache[key] = UNREACHABLE_ADAPTER
-                else:
-                    print(f"  ! failed to load adapter for {key}: {exc}", file=sys.stderr)
-                    self._cache[key] = LOAD_FAILED
+                print(f"  ! failed to load adapter for {key}: {exc}", file=sys.stderr)
+                self._cache[key] = LOAD_FAILED
             else:
                 self._cache[key] = EMPTY_ADAPTER if self._is_empty(adapter, key) else adapter
         return self._cache[key]
@@ -930,9 +851,6 @@ def run(config_path: Path, report_path: Path | None) -> int:
                     elif adapter is LOAD_FAILED:
                         rec = {"id": curie, "label": label, "canonical": "",
                                "verdict": "ADAPTER_ERROR"}
-                    elif adapter is UNREACHABLE_ADAPTER:
-                        rec = {"id": curie, "label": label, "canonical": "",
-                               "verdict": "SKIPPED_UNREACHABLE_ADAPTER"}
                     elif adapter is EMPTY_ADAPTER:
                         rec = {"id": curie, "label": label, "canonical": "",
                                "verdict": "SKIPPED_EMPTY_ADAPTER"}
@@ -1011,21 +929,9 @@ def run(config_path: Path, report_path: Path | None) -> int:
         "HYDRATION_STATE_MISMATCH",
         "SKIPPED_NO_ADAPTER",
         "SKIPPED_EMPTY_ADAPTER",
-        "SKIPPED_UNREACHABLE_ADAPTER",
     ):
         if verdict in counts:
             print(f"  {verdict:>20}: {counts[verdict]}")
-
-    # Say it where a reader of a GREEN run will see it. A skip that only shows
-    # up as one row in a verdict table is how "nothing was checked" comes to
-    # read as "nothing was wrong" (#708).
-    unreachable = counts.get("SKIPPED_UNREACHABLE_ADAPTER", 0)
-    if unreachable:
-        print(
-            f"\n⚠️  {unreachable} id(s) were SKIPPED, NOT PASSED: their ontology "
-            f"could not be downloaded. This run did not check them, and a clean "
-            f"result here says nothing about them (#708)."
-        )
 
     if report_path is not None:
         report_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1066,69 +972,15 @@ def run(config_path: Path, report_path: Path | None) -> int:
     return 0
 
 
-def unreachable_ontologies(config_path: Path) -> list[str]:
-    """Pinned ontologies configured here that cannot be downloaded right now.
-
-    A POSITIVE reachability probe, run before a checker rather than a reading of
-    its wreckage afterwards. That direction is the point: `linkml-term-validator`
-    reacts to the same outage by passing 328 files vacuously and dying on the
-    329th with a raw `DownloadError` traceback, and telling those two apart from
-    real label drift by grepping its stderr would be deciding something is FINE
-    from a substring -- exactly what CLAUDE.md forbids (#700).
-
-    Asking first costs one adapter construction per ontology and answers a
-    different, honest question: can this check run at all?
-    """
-    config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
-    selectors: dict[str, str] = {}
-
-    def walk(node):
-        if isinstance(node, dict):
-            for key, value in node.items():
-                if key == "adapters" and isinstance(value, dict):
-                    selectors.update(value)
-                else:
-                    walk(value)
-        elif isinstance(node, list):
-            for item in node:
-                walk(item)
-
-    walk(config)
-    pool = AdapterPool(selectors)
-    return sorted(
-        prefix for prefix in selectors if pool.get(prefix) is UNREACHABLE_ADAPTER
-    )
-
-
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("-c", "--config", type=Path, default=REPO_ROOT / "conf" / "id_label_targets.yaml")
     ap.add_argument("--report", type=Path, default=None,
                     help="Write a drift TSV here and exit 0 (baseline mode).")
-    ap.add_argument(
-        "--check-adapters",
-        action="store_true",
-        help=(
-            "Probe the configured ontologies and exit 3 if a pinned one is "
-            "unreachable, without validating anything. Lets a recipe whose "
-            "checker cannot survive an outage decline to run rather than "
-            "report a result it did not earn (#708)."
-        ),
-    )
     args = ap.parse_args(argv)
     if not args.config.is_file():
         print(f"Config not found: {args.config}", file=sys.stderr)
         return 2
-    if args.check_adapters:
-        unreachable = unreachable_ontologies(args.config)
-        if unreachable:
-            print(
-                "unreachable ontologies: " + ", ".join(unreachable),
-                file=sys.stderr,
-            )
-            return 3
-        print("all configured ontologies are reachable")
-        return 0
     return run(args.config, args.report)
 
 

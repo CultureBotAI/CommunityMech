@@ -76,20 +76,19 @@ validate-taxa:
 validate-terms-taxa:
     #!/usr/bin/env bash
     set -uo pipefail
-    # Engine A cannot survive an unreachable ontology: `linkml-term-validator`
-    # passes vacuously on most files and dies on one with a raw DownloadError
-    # traceback, so its exit code stops meaning "label drift" (#708). Ask first
-    # whether the check can run at all, and decline out loud if it cannot. This
-    # is a positive reachability probe, NOT a reading of the checker's error
-    # text -- deciding something is fine from a substring is what #700 forbids.
-    if ! PYTHONPATH=src uv run python scripts/validate_id_label_correspondence.py \
-            --check-adapters >/dev/null 2>/tmp/cm-ontology-preflight.$$; then
-        echo "⚠️  $(cat /tmp/cm-ontology-preflight.$$)"
-        echo "⚠️  Engine A was SKIPPED, NOT PASSED: it cannot look anything up (#708)."
-        rm -f /tmp/cm-ontology-preflight.$$
+    # Ask whether the ontologies are reachable before running a check that
+    # cannot survive their absence (#708). A positive probe, NOT a reading of
+    # the checker's error text -- deciding something is fine from a substring is
+    # what #700 forbids. scripts/ontology_preflight.py explains why the finer
+    # fix (skip only the unreachable ontology, keep checking the rest) has to go
+    # upstream to claw instead of being made here.
+    if ! PYTHONPATH=src uv run python scripts/ontology_preflight.py 2>/tmp/cm-preflight.$$; then
+        echo "⚠️  $(cat /tmp/cm-preflight.$$)"
+        echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+        rm -f /tmp/cm-preflight.$$
         exit 0
     fi
-    rm -f /tmp/cm-ontology-preflight.$$
+    rm -f /tmp/cm-preflight.$$
     rc=0
     for file in kb/taxa/*.yaml; do
         echo "Validating terms in $file..."
@@ -303,20 +302,19 @@ validate-terms FILE:
 validate-terms-all:
     #!/usr/bin/env bash
     set -uo pipefail
-    # Engine A cannot survive an unreachable ontology: `linkml-term-validator`
-    # passes vacuously on most files and dies on one with a raw DownloadError
-    # traceback, so its exit code stops meaning "label drift" (#708). Ask first
-    # whether the check can run at all, and decline out loud if it cannot. This
-    # is a positive reachability probe, NOT a reading of the checker's error
-    # text -- deciding something is fine from a substring is what #700 forbids.
-    if ! PYTHONPATH=src uv run python scripts/validate_id_label_correspondence.py \
-            --check-adapters >/dev/null 2>/tmp/cm-ontology-preflight.$$; then
-        echo "⚠️  $(cat /tmp/cm-ontology-preflight.$$)"
-        echo "⚠️  Engine A was SKIPPED, NOT PASSED: it cannot look anything up (#708)."
-        rm -f /tmp/cm-ontology-preflight.$$
+    # Ask whether the ontologies are reachable before running a check that
+    # cannot survive their absence (#708). A positive probe, NOT a reading of
+    # the checker's error text -- deciding something is fine from a substring is
+    # what #700 forbids. scripts/ontology_preflight.py explains why the finer
+    # fix (skip only the unreachable ontology, keep checking the rest) has to go
+    # upstream to claw instead of being made here.
+    if ! PYTHONPATH=src uv run python scripts/ontology_preflight.py 2>/tmp/cm-preflight.$$; then
+        echo "⚠️  $(cat /tmp/cm-preflight.$$)"
+        echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+        rm -f /tmp/cm-preflight.$$
         exit 0
     fi
-    rm -f /tmp/cm-ontology-preflight.$$
+    rm -f /tmp/cm-preflight.$$
     rc=0
     for file in kb/communities/*.yaml data/isolates/*.yaml; do
         echo "Validating terms in $file..."
@@ -333,6 +331,21 @@ validate-terms-all:
 # silently skips an id it cannot resolve even under --no-lenient, so a
 # nonexistent CURIE is caught here or nowhere (#471).
 validate-products:
+    #!/usr/bin/env bash
+    set -uo pipefail
+    # Ask whether the ontologies are reachable before running a check that
+    # cannot survive their absence (#708). A positive probe, NOT a reading of
+    # the checker's error text -- deciding something is fine from a substring is
+    # what #700 forbids. scripts/ontology_preflight.py explains why the finer
+    # fix (skip only the unreachable ontology, keep checking the rest) has to go
+    # upstream to claw instead of being made here.
+    if ! PYTHONPATH=src uv run python scripts/ontology_preflight.py 2>/tmp/cm-preflight.$$; then
+        echo "⚠️  $(cat /tmp/cm-preflight.$$)"
+        echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
+        rm -f /tmp/cm-preflight.$$
+        exit 0
+    fi
+    rm -f /tmp/cm-preflight.$$
     uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml
 
 # Baseline (non-failing): unified id↔label drift report across community
