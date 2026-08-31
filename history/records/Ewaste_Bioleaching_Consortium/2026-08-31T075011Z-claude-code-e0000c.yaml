@@ -1,0 +1,35 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Ewaste_Bioleaching_Consortium.yaml
+  slug: Ewaste_Bioleaching_Consortium
+session:
+  id: 2026-08-31T075011Z-claude-code-e0000c
+  timestamp: '2026-08-31T07:50:11Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/596
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  summary: Repair evidence snippets to verbatim contiguous spans
+  details: 'Not a typo: a meaning change. The snippet said ''bioleaching of 10% (w/v) PCBs
+    in a stirred tank bioreactor''; the source says ''abiotic chemical leaching'', describing
+    the step that PREPARED a metal-ion solution rather than the microbial one. Replaced with
+    the passage describing the 2.2-L STR carrying the bacteria and ferric lixiviant, and corrected
+    the explanation, which had described the abiotic step as the cultivation. Found by splitting
+    #596''s MISMATCH bucket by whether the cited source is cached as full text. Of 117 mismatches,
+    104 sit on an abstract-only cache (absence proves nothing there, per the #605 rule) and
+    13 were against real cached full text -- the only ones where absence is evidence. All
+    13 had a long contiguous fragment (23-113 characters) already present in the source, so
+    none was a fabrication: each was a real quote carrying a wrong span. Repaired to a verbatim
+    contiguous span, verified by re-running the audit: full-text mismatches went 13 -> 0.
+    Contiguous on purpose -- CLAUDE.md forbids combining non-contiguous text, so an elision
+    was repaired rather than taught to the tool.'

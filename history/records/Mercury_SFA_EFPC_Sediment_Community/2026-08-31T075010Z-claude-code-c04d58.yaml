@@ -1,0 +1,32 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Mercury_SFA_EFPC_Sediment_Community.yaml
+  slug: Mercury_SFA_EFPC_Sediment_Community
+session:
+  id: 2026-08-31T075010Z-claude-code-c04d58
+  timestamp: '2026-08-31T07:50:10Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/596
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  summary: Repair evidence snippets to verbatim contiguous spans
+  details: '''27 of the 28 MAGs..contained'' elided the parenthetical naming the exception.
+    Replaced with the contiguous sentence, which keeps the exception (MAG 124) rather than
+    hiding it. Found by splitting #596''s MISMATCH bucket by whether the cited source is cached
+    as full text. Of 117 mismatches, 104 sit on an abstract-only cache (absence proves nothing
+    there, per the #605 rule) and 13 were against real cached full text -- the only ones where
+    absence is evidence. All 13 had a long contiguous fragment (23-113 characters) already
+    present in the source, so none was a fabrication: each was a real quote carrying a wrong
+    span. Repaired to a verbatim contiguous span, verified by re-running the audit: full-text
+    mismatches went 13 -> 0. Contiguous on purpose -- CLAUDE.md forbids combining non-contiguous
+    text, so an elision was repaired rather than taught to the tool.'
