@@ -28,12 +28,46 @@ this module is for.
 from __future__ import annotations
 
 import functools
+import os
+from pathlib import Path
 from typing import Any
 
 # OAK's selector for the NCBITaxon SQLite build. Written once here so that a
 # grep for it has exactly one hit under `src/`, which is what
 # `tests/test_ncbitaxon_adapter_is_shared.py` asserts.
 NCBITAXON_SELECTOR = "sqlite:obo:ncbitaxon"
+
+
+def _local_build(name: str) -> Any | None:
+    """The already-downloaded SQLite build for `name`, or None.
+
+    **Why this is tried first.** `sqlite:obo:<name>` does not ask whether the
+    database is usable; it asks pystow to ensure the **`.db.gz`** is present and
+    re-downloads when it is not. So a machine holding a perfectly good
+    `ncbitaxon.db` and no `.gz` re-downloads anyway — and while
+    `s3.amazonaws.com/bbop-sqlite` answers 403, that turns a working ontology
+    into "unavailable".
+
+    That is not hypothetical. Verified on a developer machine: `go.db` (1.7 GB)
+    and `cl.db` (0.5 GB) are present without their `.gz`, `sqlite:obo:go` fails,
+    and `sqlite:<path>/go.db` answers `label("GO:0015979") == "photosynthesis"`.
+    CI is the same shape — the `oaklib-Linux-v1` cache restores 6.7 GB
+    successfully and every ontology was still reported unreachable (#707).
+
+    Opening a path never touches the network, so this cannot mask an outage: if
+    the file is absent we fall through to the selector exactly as before.
+    """
+    home = os.environ.get("PYSTOW_HOME")
+    root = Path(home) if home else Path.home() / ".data"
+    database = root / "oaklib" / f"{name}.db"
+    if not database.is_file() or database.stat().st_size == 0:
+        return None
+    try:
+        from oaklib import get_adapter  # type: ignore[import-untyped]
+
+        return get_adapter(f"sqlite:{database}")
+    except Exception:
+        return None
 
 
 @functools.lru_cache(maxsize=1)
@@ -49,6 +83,9 @@ def ncbitaxon_adapter() -> Any | None:
     identically: they decline to judge. Distinguishing them here would invite a
     caller to treat one of them as "fine".
     """
+    local = _local_build("ncbitaxon")
+    if local is not None:
+        return local
     try:
         # oaklib ships no py.typed marker; same ignore as the call sites this
         # replaced.
