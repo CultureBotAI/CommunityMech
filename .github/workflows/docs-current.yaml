@@ -37,6 +37,10 @@ on:
     # Verifying that the listed paths exist is not the same as verifying they
     # cover what changes the output. Both were checked against the tree.
     paths: &trigger_paths
+      # The justfile defines every recipe the steps below run, so a change to
+      # one of them changes what this gate DOES. Without this entry the gate
+      # that would have judged that change is the one that does not run (#717).
+      - "justfile"
       - "kb/communities/**"
       - "src/communitymech/templates/**"
       - "src/communitymech/render.py"
