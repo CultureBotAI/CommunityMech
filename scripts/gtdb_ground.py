@@ -55,6 +55,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import hashlib
 import os
 import re
 import sys
@@ -137,6 +138,54 @@ HIGHER_RANKS = [
 ]
 # GTDB lineage columns (col, prefix), domain..species.
 GTDB_RANK_COLS = [(12, "d"), (13, "p"), (14, "c"), (15, "o"), (16, "f"), (17, "g"), (18, "s")]
+
+
+def mapping_digest(mapping_path: Path) -> str:
+    """A short content digest of the NCBI2GTDB crosswalk.
+
+    Streamed in chunks: the file is ~3 MB gzipped now and there is no reason for
+    a provenance string to depend on how much memory the machine has.
+    """
+    digest = hashlib.sha256()
+    with mapping_path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()[:16]
+
+
+def describe_mapping(mapping_path: Path) -> str:
+    """What produced a grounding, in a form that identifies it.
+
+    This string is written into `gtdb_classification.mapping_source` on every
+    block, and it used to read:
+
+        kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+
+    **"latest" was a hardcoded literal.** Nothing read a GTDB release; the word
+    was typed into an f-string. And the only varying part, `built`, came from
+    `mapping_path.stat().st_mtime` -- a filesystem timestamp, not a property of
+    the data. It changes on copy, checkout or rsync, two different crosswalks
+    can share one, and the same crosswalk has different ones on two machines.
+
+    So a block recorded nothing that identifies the input it came from, which is
+    #624: `audit_grounding_provenance.py` reports 78 species-rank blocks whose
+    `total_genomes` disagrees with today's crosswalk, and there was no way to
+    tell "grounded against an older crosswalk" from "wrong".
+
+    A content digest is that way. Two blocks carrying the same digest were
+    grounded against byte-identical inputs; two carrying different ones were
+    not, and the difference is explained. The mtime is kept as a human-readable
+    hint, clearly secondary to the hash.
+
+    Existing blocks keep the old string until they are re-grounded -- this fixes
+    what NEW groundings record, not the corpus, and re-grounding 747 blocks is a
+    curation change rather than a provenance one.
+    """
+    built = datetime.fromtimestamp(mapping_path.stat().st_mtime, tz=timezone.utc).date().isoformat()
+    return (
+        f"kg-microbe NCBI2GTDB.tsv.gz sha256:{mapping_digest(mapping_path)} "
+        f"(file mtime {built})"
+    )
 
 
 def resolve_kg_microbe_dir(explicit: str | None) -> Path:
@@ -1879,8 +1928,7 @@ def main(argv: list[str] | None = None) -> int:
 
     kg_dir = resolve_kg_microbe_dir(args.kg_microbe_dir)
     mapping_path = kg_dir / MAPPING_REL
-    built = datetime.fromtimestamp(mapping_path.stat().st_mtime, tz=timezone.utc).date().isoformat()
-    mapping_source = f"kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built {built})"
+    mapping_source = describe_mapping(mapping_path)
     print(f"[gtdb] mapping: {mapping_path}  ({mapping_source})", file=sys.stderr)
 
     targets = []
