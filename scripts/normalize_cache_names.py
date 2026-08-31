@@ -138,6 +138,21 @@ def main(argv: list[str] | None = None) -> int:
     # A conflict is left for a human: both casings exist as distinct files, and
     # choosing between two fetches of the same reference is not this script's
     # call.
+    #
+    # Said loudly, because the recipes that run this DISCARD its exit code on
+    # purpose -- normalising must not turn a failing validation green (#697) --
+    # so a conflict would otherwise be one line in the middle of a long
+    # validation log (#706). The committed tree is separately gated by
+    # tests/test_no_case_conflicting_cache_pairs.py, which reads git's index
+    # rather than the filesystem so the clash is visible on macOS too.
+    if conflicts:
+        print(
+            f"\n⚠️  {conflicts} cache name conflict(s): both casings exist as "
+            f"distinct files, so on a case-sensitive filesystem at most one is "
+            f"reachable. Nothing was renamed for those; a human has to choose "
+            f"which fetch to keep (#706).",
+            file=sys.stderr,
+        )
     return 1 if conflicts else 0
 
 
