@@ -229,3 +229,68 @@ def test_the_check_can_actually_fail(tmp_path):
         f"above cannot detect one:\n{mutated.stdout[-3000:]}"
     )
     assert "test_the_committed_kb_is_clean" in mutated.stdout, mutated.stdout[-3000:]
+
+
+# --------------------------------------------------------------------------
+# Preferring an already-downloaded build (#707).
+#
+# `sqlite:obo:<name>` does not ask whether the database is usable; it asks
+# pystow to ensure the `.db.gz` is present and re-downloads when it is not. So a
+# machine holding a good `ncbitaxon.db` and no `.gz` re-downloads anyway — and
+# while bbop-sqlite answers 403 that turns a working ontology into "unavailable".
+#
+# Verified on a developer machine: `go.db` (1.7 GB) and `cl.db` (0.5 GB) are
+# present without their `.gz`, `sqlite:obo:go` fails, and `sqlite:<path>/go.db`
+# answers `label("GO:0015979") == "photosynthesis"`. CI is the same shape: the
+# `oaklib-Linux-v1` cache restores 6.7 GB successfully and every ontology was
+# still reported unreachable.
+# --------------------------------------------------------------------------
+
+
+def _selector_seen(monkeypatch, tmp_path, *, create: bool):
+    """The selector `ncbitaxon_adapter` passes to OAK, with/without a local db."""
+    import oaklib
+
+    from communitymech import ontology_adapters
+
+    if create:
+        directory = tmp_path / "oaklib"
+        directory.mkdir(parents=True)
+        (directory / "ncbitaxon.db").write_bytes(b"not really sqlite, but present")
+    monkeypatch.setenv("PYSTOW_HOME", str(tmp_path))
+
+    seen = []
+
+    def _record(selector):
+        seen.append(selector)
+        return object()
+
+    monkeypatch.setattr(oaklib, "get_adapter", _record)
+    ontology_adapters.ncbitaxon_adapter.cache_clear()
+    try:
+        ontology_adapters.ncbitaxon_adapter()
+    finally:
+        ontology_adapters.ncbitaxon_adapter.cache_clear()
+    return seen
+
+
+def test_an_already_downloaded_build_is_used_instead_of_re_downloading(monkeypatch, tmp_path):
+    """A present `.db` is opened by path, which never touches the network."""
+    seen = _selector_seen(monkeypatch, tmp_path, create=True)
+    assert seen, "no adapter was constructed at all"
+    assert seen[0].startswith("sqlite:"), seen
+    assert seen[0].endswith(
+        "ncbitaxon.db"
+    ), f"the selector should name the local build, not trigger a download: {seen[0]}"
+    assert seen[0] != "sqlite:obo:ncbitaxon"
+
+
+def test_without_a_local_build_it_still_asks_obo(monkeypatch, tmp_path):
+    """The other direction, so the test above cannot pass vacuously.
+
+    If this ever stops happening, a machine with no cache would silently stop
+    trying to fetch the ontology at all — which would mask an outage rather than
+    survive one.
+    """
+    seen = _selector_seen(monkeypatch, tmp_path, create=False)
+    assert seen == ["sqlite:obo:ncbitaxon"], seen

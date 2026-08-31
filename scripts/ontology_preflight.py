@@ -37,6 +37,7 @@ ontology is unreachable; 2 = usage/config error.
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -129,6 +130,54 @@ def unreachable_ontologies(config_path: Path) -> list[str]:
     return unreachable
 
 
+def oaklib_directory() -> Path:
+    """Where OAK keeps its downloaded SQLite builds.
+
+    `pystow` roots at ``$PYSTOW_HOME`` when set and ``~/.data`` otherwise, and
+    OAK puts its sqlite builds in the ``oaklib`` module under that. Resolved the
+    same way here rather than hardcoded, so the report below describes the
+    directory actually in use — including under the empty-``PYSTOW_HOME``
+    simulation the tests run.
+    """
+    home = os.environ.get("PYSTOW_HOME")
+    root = Path(home) if home else Path.home() / ".data"
+    return root / "oaklib"
+
+
+def describe_cache(selectors: dict[str, str]) -> list[str]:
+    """What is actually on disk where OAK looks, as report lines.
+
+    Printed whenever something is unreachable, because "unreachable" on its own
+    is not diagnosable. In CI it was actively misleading: the `oaklib-Linux-v1`
+    cache restores 6.7 GB successfully — "Cache restored from key:
+    oaklib-Linux-v1" — and every ontology was still reported unreachable, with
+    nothing in the log to say whether the files were absent, misnamed, or
+    somewhere else entirely (#707).
+    """
+    directory = oaklib_directory()
+    lines = [f"  oaklib directory: {directory}"]
+    if not directory.is_dir():
+        lines.append("  it does not exist — nothing was ever downloaded or restored here")
+        return lines
+
+    entries = sorted(directory.iterdir())
+    total = sum(entry.stat().st_size for entry in entries if entry.is_file())
+    lines.append(f"  {len(entries)} entries, {total / 1e9:.2f} GB")
+    for prefix, selector in sorted(selectors.items()):
+        if not selector.startswith(_OBO_SELECTOR_PREFIX):
+            continue
+        name = selector[len(_OBO_SELECTOR_PREFIX) :]
+        found = []
+        for suffix in (".db", ".db.gz"):
+            candidate = directory / f"{name}{suffix}"
+            if candidate.exists():
+                found.append(f"{candidate.name} {candidate.stat().st_size / 1e9:.2f} GB")
+        lines.append(
+            f"    {prefix:<12} {', '.join(found) if found else 'no .db or .db.gz present'}"
+        )
+    return lines
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Probe ontology reachability (#708).")
     parser.add_argument("-c", "--config", type=Path, default=DEFAULT_CONFIG)
@@ -141,6 +190,8 @@ def main(argv: list[str] | None = None) -> int:
     unreachable = unreachable_ontologies(args.config)
     if unreachable:
         print("unreachable ontologies: " + ", ".join(unreachable), file=sys.stderr)
+        for line in describe_cache(configured_adapters(args.config)):
+            print(line, file=sys.stderr)
         return 3
     print("all configured ontologies are reachable")
     return 0
