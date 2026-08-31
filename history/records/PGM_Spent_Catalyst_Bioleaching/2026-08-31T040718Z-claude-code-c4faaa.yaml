@@ -1,0 +1,49 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/PGM_Spent_Catalyst_Bioleaching.yaml
+  slug: PGM_Spent_Catalyst_Bioleaching
+session:
+  id: 2026-08-31T040718Z-claude-code-c4faaa
+  timestamp: '2026-08-31T04:07:18Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/605
+events:
+- type: EDIT
+  outcome: needs_followup
+  sections:
+  - members
+  - interactions
+  - description
+  summary: Remove three members no cited source names, and the interactions between them
+  details: 'Issue #605 named one unsupported member here, Thiobacillus thioparus. Checking
+    all four against all three references found three unsupported, not one. Measured across
+    PMID:31059950 (3.3 KB abstract), PMID:38138568 (68 KB open-access full text) and doi:10.1016/j.jenvman.2019.04.081
+    (3.3 KB abstract): the only organism named anywhere is Acidithiobacillus thiooxidans,
+    9 occurrences. Acidithiobacillus ferrooxidans, Sulfobacillus thermosulfidooxidans and
+    Thiobacillus thioparus each occur zero times, under their full names and under the abbreviations
+    a paper would use. An earlier case-insensitive grep for ''Thiobacillus'' returned 6 hits
+    in one source; every one was the tail of ''Acidithiobacillus'', so the boundary-correct
+    count is the one recorded here. Each removed member carried evidence snippets that are
+    genuine verbatim quotes about a DIFFERENT organism - for example an At. ferrooxidans entry
+    whose explanation reads ''Documents At. ferrooxidans co-occurrence in PGM bioleaching
+    systems'' attached to a snippet about Pd extraction percentages that never mentions the
+    organism. Their long taxon_term notes are general microbiology (pH optima, spore formation,
+    metal tolerance) rather than anything from these papers. Removed: the three taxon blocks,
+    and interactions ''Complementary Iron and Sulfur Oxidation'', ''Metal-Tolerant Sulfur
+    Oxidation and Metabolic Redundancy'' and ''Thiosulfate Metabolic Cycling'', all of which
+    had a removed member as source or target. Kept At. thiooxidans and the three interactions
+    describing its own mechanism. Corrected the description, which conflated two different
+    systems - column bioleaching of petroleum catalysts with At. thiooxidans, and a thiosulfate-copper-ammonia
+    process whose thiosulfate came from a separate biogas biodesulfurization bioreactor that
+    the source never characterises taxonomically - and the assembly_strategy, which asserted
+    an ''Engineered 4-member consortium''. Outcome is needs_followup, not changed: the record
+    now has one member and no between-member interactions, which raises the question #573
+    asks about panels versus communities. Validated: just validate, validate-strict and validate-references
+    pass.'
