@@ -1,4 +1,4 @@
-"""A snippet containing `[` can never be validated while #622 stands.
+r"""A snippet containing a closed `[...]` cannot be validated while #622 stands.
 
 `validate-references` removes a bracket **and its contents** from the query
 before matching (`_split_query`, supporting_text_validator.py:308) but not from
@@ -15,6 +15,14 @@ evidence it carries is unchecked in a KB whose premise is that every claim is
 checked. Three separate snippets hit this during #183 curation, and two of the
 three were ordinary citation markers — `Kester et al. [ 50 ]`, `(0 h [before
 labeling/rewetting]` — which makes a large share of Methods prose unquotable.
+
+**The bracket has to close inside the snippet.** `re.sub(r"\[.*?\]", " ", text)`
+needs a pair, so an unclosed `[` is left alone and the quote matches — measured:
+of the four pinned below, `Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture`
+validates cleanly (exit 0) because its `[e.g. poly(3‐hydroxybutyrate)` never
+closes. The gate still covers it. An unclosed bracket is a fragile thing to rely
+on — extending the quote by a few words would close the pair and break it — and
+a rule with an exception nobody can see is worse than a blunt one.
 
 This is a guard against a **tool limitation**, not a rule about good quoting.
 The four existing snippets below are correct; they are pinned so their number
@@ -61,7 +69,10 @@ _KNOWN_BRACKETED = {
     # short and stops before it, so this pin does not depend on reproducing an
     # exotic dash correctly.
     ("Synechococcus_Pseudomonas_PhotoPHA_DNT_Coculture.yaml", "[e.g. poly(3"): (
-        "Verbatim in a 156 KB cached full text."
+        "Verbatim in a 156 KB cached full text, and the only one of the four "
+        "that currently VALIDATES: its bracket never closes inside the snippet, "
+        "so the validator's `\\[.*?\\]` finds no pair and strips nothing. Still "
+        "pinned -- lengthening the quote by a few words would close it."
     ),
     ("Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml", "[v/v]"): (
         "Verbatim in a 157 KB cached full text; the gas ratio N2:CO2 (80:20 [v/v])."
