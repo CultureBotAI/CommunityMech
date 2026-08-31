@@ -224,3 +224,42 @@ def test_the_check_can_actually_fail(tmp_path):
         "survived, so `test_a_leftover_temporary_is_never_clobbered` would pass "
         "with or without the guard it is meant to defend"
     )
+
+
+def test_a_conflict_is_announced_where_a_reader_will_see_it(tmp_path, capsys, monkeypatch):
+    """A `[conflict]` must not be one line in the middle of a validation log.
+
+    The recipes discard this script's exit code on purpose -- normalising must
+    not turn a failing validation green (#697) -- so the exit code cannot be the
+    signal. The banner is (#706).
+
+    Driven by stubbing `rename`, because the real conflict needs two files whose
+    names differ only by case and macOS cannot hold both; the filesystem, not
+    the code, is what makes it unreachable here.
+    """
+    module = _script()
+    (tmp_path / "DOI_10.9999_clash.md").write_text("from the fetcher", encoding="utf-8")
+
+    def _always_conflicts(current, wanted):
+        return f"[conflict] {current.name}: {wanted.name} already exists and differs"
+
+    monkeypatch.setitem(module, "rename", _always_conflicts)
+
+    code = module["main"](["--cache-dir", str(tmp_path)])
+
+    captured = capsys.readouterr()
+    assert code == 1, "a conflict must still be a non-zero exit from the script itself"
+    assert "cache name conflict" in captured.err, captured.err
+    assert "#706" in captured.err, captured.err
+
+
+def test_no_conflict_means_no_banner(tmp_path, capsys):
+    """The other direction, so the test above cannot pass vacuously."""
+    module = _script()
+    (tmp_path / "DOI_10.9999_fine.md").write_text("cached", encoding="utf-8")
+
+    code = module["main"](["--cache-dir", str(tmp_path)])
+
+    captured = capsys.readouterr()
+    assert code == 0, captured.err
+    assert "cache name conflict" not in captured.err, captured.err
