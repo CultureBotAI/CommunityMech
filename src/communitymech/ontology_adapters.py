@@ -104,3 +104,42 @@ def ncbitaxon_available() -> bool:
     is cached, so this is a dictionary hit after the first call.
     """
     return ncbitaxon_adapter() is not None
+
+
+# The OBO ontologies this repository grounds to, keyed by CURIE prefix. Kept
+# beside the NCBITaxon selector rather than in a second file so "which
+# ontologies do we use" has one answer here; `conf/id_label_targets.yaml` is the
+# other place that names them, and `tests/test_id_label_adapter_unreachable.py`
+# already holds the two in step.
+OBO_DATABASES: dict[str, str] = {
+    "CHEBI": "chebi",
+    "CL": "cl",
+    "ENVO": "envo",
+    "GO": "go",
+    "NCBITaxon": "ncbitaxon",
+    "UBERON": "uberon",
+}
+
+
+@functools.lru_cache(maxsize=len(OBO_DATABASES))
+def ontology_adapter(prefix: str) -> Any | None:
+    """An adapter for a CURIE prefix, or None when the ontology is unavailable.
+
+    Prefers an already-downloaded build for the same reason `ncbitaxon_adapter`
+    does: `sqlite:obo:<name>` re-downloads whenever the `.db.gz` is missing,
+    even beside a perfectly good `.db`. In CI the restored cache holds 20 GB of
+    `.db` files and not one `.gz`, so every ontology reported unavailable while
+    all of them were sitting there (#707).
+    """
+    name = OBO_DATABASES.get(prefix)
+    if name is None:
+        return None
+    local = _local_build(name)
+    if local is not None:
+        return local
+    try:
+        from oaklib import get_adapter  # type: ignore[import-untyped]
+
+        return get_adapter(f"sqlite:obo:{name}")
+    except Exception:
+        return None
