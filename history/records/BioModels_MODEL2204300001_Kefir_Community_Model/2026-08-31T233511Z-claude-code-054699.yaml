@@ -1,0 +1,30 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/BioModels_MODEL2204300001_Kefir_Community_Model.yaml
+  slug: BioModels_MODEL2204300001_Kefir_Community_Model
+session:
+  id: 2026-08-31T233511Z-claude-code-054699
+  timestamp: '2026-08-31T23:35:11Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/596
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  summary: Repair a non-contiguous snippet the newly fetched full text exposed
+  details: 'The snippet joined two non-contiguous spans with ''..'', which CLAUDE.md''s evidence
+    policy forbids. Both halves are verbatim in PMID:41343683, and the defect only became
+    visible once that reference''s open-access full text was cached in this same pass - against
+    the previous abstract-only cache the whole snippet was unverifiable either way. Replaced
+    with the first contiguous clause, ''we report here on our work updating, correcting and
+    generating new SED-ML files for 1055 curated mechanistic models in BioModels'', verified
+    verbatim in the fetched text. Same class as the thirteen repaired in PR #719. Validated:
+    just validate and validate-strict pass; the corpus audit moves it into MATCH.'
