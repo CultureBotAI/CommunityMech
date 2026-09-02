@@ -62,92 +62,49 @@ on:
 permissions:
   contents: read
 
-# The vendored-sync job used to live here and inherited the `paths:` filter
-# above, which is scoped to this workflow's expensive OAK-backed check. That
-# filter listed only 2 of the 6 files governed at the time, so the guard almost
-# never fired (CultureBotAI/TraitMech#198). It now has its own unfiltered
-# workflow, reads all 14 applicable artifacts from claw's pinned manifest, and
-# uses only a thin Bash launcher plus Python's standard library. The filter
-# above is correct for THIS job, which needs uv + a cached OAK ontology download.
-
+# This job's body now lives in claw as a reusable workflow shared across the
+# fleet (culturebotai-claw#180, Phase 5). TraitMech was the canary; MIM and
+# CultureMech followed. This is the fourth and last adopter, and it needed
+# three claw changes first, because three things here are this repository's and
+# would otherwise have been erased by consolidation:
+#
+#   rotating OAK cache key claw#302  a fixed key froze the snapshot forever
+#                                    (#707). This repository already had the
+#                                    fix; claw had the frozen version, so the
+#                                    change went the other way for once.
+#   extra-enforce-recipes  claw#303  the two Engine A gates below are steps in
+#                                    THIS job, and a `uses:` job cannot carry
+#                                    steps
+#   uv-version             claw#306  all six workflows here pin uv 0.12.5
+#
+# `report-when` is NOT passed: this job already reports before enforcing and
+# uploads with always(), which is the reusable workflow's default. That input
+# exists for CultureMech (claw#299), whose enforce pass is 6m14s and which
+# therefore pays for the report only on failure. Restating a default here would
+# imply a decision this repository has not made.
+#
+# What stays here is the trigger filter above, with the reasons recorded in it.
 jobs:
   label-correspondence:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: extractions/setup-just@v3
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.10"
-      - name: Install uv
-        # setup-uv v9.0.0
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
-        with:
-          version: "0.12.5"
-          enable-cache: true
-      - name: Install dependencies
-        run: uv sync --frozen
-
-      # Cache OAK sqlite ontologies (NCBITaxon/ENVO/CHEBI/GO) across runs.
-      # The month stamp is the whole point. With a FIXED key the post-step says
-      # "Cache hit occurred on the primary key oaklib-Linux-v1, not saving
-      # cache" -- verbatim, in every run -- so whatever was first stored is
-      # frozen for good and no later download can ever reach the cache (#707).
-      # A rotating primary key with a prefix restore-key keeps the hit rate
-      # (each month restores the previous month's copy as its base) while
-      # letting the entry be re-saved with anything newly fetched.
-      - name: Ontology cache stamp
-        id: oak-cache-stamp
-        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache OAK ontologies
-        uses: actions/cache@v4
-        with:
-          path: ~/.data/oaklib
-          key: oaklib-${{ runner.os }}-${{ steps.oak-cache-stamp.outputs.month }}
-          restore-keys: |
-            oaklib-${{ runner.os }}-
-
-      # The KGX export is a GENERATED product: output/kgx/ is gitignored, so it
-      # does not exist in a fresh checkout. Without this step the `kgx_nodes`
-      # target's glob matched nothing, the target skipped, and the gate below
-      # passed without ever reading the export (#686). Build it before anything
-      # validates it.
-      - name: Build the KGX export the id↔label gate reads
-        run: just kgx-export
-
-      # Always generate + upload the drift report first, so the triage artifact
-      # exists even when the enforce step below fails the build.
-      - name: Generate id↔label drift report
-        run: just report-label-drift
-
-      - name: Upload drift report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: label-drift-report-${{ github.run_id }}
-          path: reports/label_drift.tsv
-          if-no-files-found: warn
-
-      # Phase 2 blocking gate: fail on any id↔label error-class verdict
-      # (MISMATCH / ID_NOT_FOUND / UNKNOWN_PREFIX / ADAPTER_ERROR /
-      # MISSING_COLUMN). Curator-accepted residuals pass as OK_EXCEPTION.
-      - name: Enforce id↔label correspondence
-        run: just validate-products
-
-      # Engine A (LinkML-native) for the CommonTaxon gene records: enforce that
-      # GeneAnnotation.go_terms[].label is the canonical GO label (the
-      # go_terms id↔label binding). kb/taxa/ roots are CommonTaxon, not the
-      # schema tree_root, so this uses --target-class CommonTaxon.
-      - name: Enforce id↔label correspondence (kb/taxa go_terms)
-        run: just validate-terms-taxa
-
-      # Engine A over the community records and isolates. Deferred since #134
-      # for want of an exceptions mechanism; enabled once the residuals it could
-      # see were fixed (#277). If this starts failing, fixing the term is the
-      # only remedy - this tool has no waiver, which is the whole reason it was
-      # deferred. Dropping the step is how it came to be off for months, so
-      # prefer a pinned ontology or an upstream fix over that.
-      - name: Enforce id-label correspondence (kb/communities, data/isolates)
-        run: just validate-terms-all
+    # Pinned to a claw commit, not a branch: a moving ref would change this
+    # gate with no commit in this repository to show for it. This ref is the
+    # first that carries all four inputs above.
+    uses: CultureBotAI/culturebotai-claw/.github/workflows/label-correspondence-reusable.yaml@cd110848da4d92b39c6ba44b86810d42fd5117c2
+    with:
+      python-version: "3.10"
+      # Pinned in all six workflows here; claw's default lets uv float.
+      uv-version: "0.12.5"
+      uv-sync-args: "--frozen"
+      # output/kgx/ is gitignored, so the export the gate reads does not exist
+      # in a fresh checkout. Without building it the kgx_nodes glob matched
+      # nothing, the target skipped, and the gate passed without reading the
+      # export (#686).
+      prepare-recipe: "kgx-export"
+      # Engine A, over record sets whose roots are not the schema tree_root:
+      # kb/taxa/ is CommonTaxon (#471), and kb/communities + data/isolates were
+      # deferred since #134 and enabled at #277. Neither has a waiver -- fixing
+      # the term is the only remedy, which is why dropping the step is how they
+      # came to be off for months. They run after `validate-products`.
+      extra-enforce-recipes: |
+        validate-terms-taxa
+        validate-terms-all
