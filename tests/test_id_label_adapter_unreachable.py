@@ -134,7 +134,9 @@ def test_an_unreachable_pinned_ontology_is_reported(tmp_path, monkeypatch, patch
     import oaklib
 
     monkeypatch.setattr(oaklib, "get_adapter", _raise(_FakeDownloadError("403")))
-    assert patched.unreachable_ontologies(_config(tmp_path, {"GO": "sqlite:obo:go"})) == ["GO"]
+    monkeypatch.setattr(patched, "REPO_ROOT", tmp_path)
+    config = _corpus_config(tmp_path, {"GO": "sqlite:obo:go"}, ["GO:0015979"])
+    assert patched.unreachable_ontologies(config) == ["GO"]
 
 
 def test_a_reachable_ontology_is_not_reported(tmp_path, monkeypatch):
@@ -175,11 +177,14 @@ def test_the_exit_code_distinguishes_the_two_outcomes(tmp_path, monkeypatch, pat
     """3 means "cannot run"; 0 means "go ahead". The recipes branch on this."""
     import oaklib
 
+    monkeypatch.setattr(patched, "REPO_ROOT", tmp_path)
+    config = _corpus_config(tmp_path, {"GO": "sqlite:obo:go"}, ["GO:0015979"])
+
     monkeypatch.setattr(oaklib, "get_adapter", _raise(_FakeDownloadError("403")))
-    assert patched.main(["-c", str(_config(tmp_path, {"GO": "sqlite:obo:go"}))]) == 3
+    assert patched.main(["-c", str(config)]) == 3
 
     monkeypatch.setattr(oaklib, "get_adapter", lambda _sel: object())
-    assert patched.main(["-c", str(_config(tmp_path, {"GO": "sqlite:obo:go"}))]) == 0
+    assert patched.main(["-c", str(config)]) == 0
 
 
 # --------------------------------------------------------------------------
@@ -251,4 +256,111 @@ def test_the_vendored_validator_was_not_edited():
     assert "SKIPPED_UNREACHABLE_ADAPTER" not in text, (
         "the vendored id/label validator has been edited locally; that change "
         "belongs in culturebotai-claw, not here"
+    )
+
+
+# --------------------------------------------------------------------------
+# Only ontologies the corpus actually cites can block a run (#716).
+#
+# The validator builds an adapter lazily, per prefix encountered, so one that
+# nothing references is never touched. Requiring it anyway is pure loss, and it
+# happened: CI has no `cl.db`, the corpus has zero CL ids, and
+# `validate-products` skipped 6288 checkable pairs because of it.
+# --------------------------------------------------------------------------
+
+
+def _corpus_config(tmp_path, adapters: dict[str, str], curies: list[str]):
+    """A config whose glob points at one record carrying `curies`.
+
+    The glob is relative, and callers point the module's `REPO_ROOT` at
+    `tmp_path`, which is how the real config's globs resolve too.
+    """
+    import yaml as _yaml
+
+    records = tmp_path / "records"
+    records.mkdir(parents=True, exist_ok=True)
+    (records / "one.yaml").write_text(
+        _yaml.safe_dump({"taxonomy": [{"taxon_term": {"term": {"id": c}}} for c in curies]}),
+        encoding="utf-8",
+    )
+    config = tmp_path / "targets.yaml"
+    config.write_text(
+        _yaml.safe_dump({"targets": [{"glob": "records/*.yaml", "adapters": adapters}]}),
+        encoding="utf-8",
+    )
+    return config
+
+
+def test_an_unreachable_ontology_nothing_cites_is_not_reported(tmp_path, monkeypatch, patched):
+    """The CL case: unreachable, unused, and therefore harmless."""
+    import oaklib
+
+    monkeypatch.setattr(
+        oaklib, "get_adapter", lambda _sel: (_ for _ in ()).throw(_FakeDownloadError("403"))
+    )
+    monkeypatch.setattr(patched, "REPO_ROOT", tmp_path)
+    config = _corpus_config(tmp_path, {"CL": "sqlite:obo:cl"}, ["NCBITaxon:562"])
+    assert patched.unreachable_ontologies(config) == []
+
+
+def test_an_unreachable_ontology_the_corpus_cites_is_still_reported(tmp_path, monkeypatch, patched):
+    """The other direction, so the test above cannot pass vacuously.
+
+    If this stopped holding, a genuinely missing ontology would be waved through
+    and the checker would meet it as an ADAPTER_ERROR instead.
+    """
+    import oaklib
+
+    monkeypatch.setattr(
+        oaklib, "get_adapter", lambda _sel: (_ for _ in ()).throw(_FakeDownloadError("403"))
+    )
+    monkeypatch.setattr(patched, "REPO_ROOT", tmp_path)
+    config = _corpus_config(tmp_path, {"GO": "sqlite:obo:go"}, ["GO:0015979"])
+    assert patched.unreachable_ontologies(config) == ["GO"]
+
+
+def test_a_curie_only_mentioned_in_prose_does_not_count_as_in_use(tmp_path, monkeypatch, patched):
+    """A CURIE quoted in a note is prose, not a claim.
+
+    The distinction is not academic: an earlier measurement of unresolvable ids
+    scanned the file text and reported `CHEBI:49782`, which appears only inside
+    a note explaining that it was REPLACED. Counting prose here would let a
+    retired id in a comment re-block a whole check.
+    """
+    import oaklib
+    import yaml as _yaml
+
+    monkeypatch.setattr(
+        oaklib, "get_adapter", lambda _sel: (_ for _ in ()).throw(_FakeDownloadError("403"))
+    )
+    monkeypatch.setattr(patched, "REPO_ROOT", tmp_path)
+
+    records = tmp_path / "records"
+    records.mkdir()
+    (records / "one.yaml").write_text(
+        _yaml.safe_dump(
+            {
+                "taxonomy": [
+                    {
+                        "taxon_term": {
+                            "term": {"id": "NCBITaxon:562"},
+                            "notes": "The id this replaced, GO:0070812, exists in no release.",
+                        }
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    config = tmp_path / "targets.yaml"
+    config.write_text(
+        _yaml.safe_dump(
+            {"targets": [{"glob": "records/*.yaml", "adapters": {"GO": "sqlite:obo:go"}}]}
+        ),
+        encoding="utf-8",
+    )
+
+    assert patched.unreachable_ontologies(config) == [], (
+        "a GO CURIE mentioned only in a note counted as in use, so prose can "
+        "block a check that has no GO ids to look up"
     )
