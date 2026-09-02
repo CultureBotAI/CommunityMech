@@ -132,6 +132,11 @@ corpus has a known evidence-repair backlog (#417). It is not a CI gate.
 
 ## Editing a community or taxon record
 
+Use [curate-yaml-record](.claude/skills/curate-yaml-record/SKILL.md) when the
+request is to audit or improve one named community, isolate, or reusable taxon
+record. It is read-only for review requests and applies the evidence, guarded
+write, and append-only history contracts below.
+
 1. Read the target, schema, and strong neighboring records.
 2. Check whether the same taxon should reference a reusable record in `kb/taxa`.
 3. Make the smallest source-supported change; preserve experimental context and
