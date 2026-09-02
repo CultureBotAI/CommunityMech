@@ -89,12 +89,47 @@ def test_a_generated_target_is_required(target):
     )
 
 
+def _job_inputs() -> dict[str, str]:
+    """The `with:` inputs of every job, flattened.
+
+    The gate moved to a reusable workflow in claw (#731): a job that is `uses:`
+    plus `with:` has no `steps:`, so the recipes are inputs now rather than
+    `run:` lines. The local workflow names them explicitly instead of relying on
+    claw's defaults, so what this repository runs stays readable here.
+    """
+    document = yaml.safe_load(WORKFLOW.read_text(encoding="utf-8")) or {}
+    inputs: dict[str, str] = {}
+    for job in (document.get("jobs") or {}).values():
+        if isinstance(job, dict):
+            for key, value in (job.get("with") or {}).items():
+                inputs[key] = str(value)
+    return inputs
+
+
 def test_the_workflow_builds_the_export_before_it_validates():
     """Order matters: building after the check is the same as not building."""
     steps = _steps()
     runs = [(index, str(step.get("run") or "")) for index, step in enumerate(steps)]
     build = [index for index, run in runs if "kgx-export" in run]
     validate = [index for index, run in runs if "validate-products" in run]
+
+    if not (build or validate):
+        # The reusable-workflow form. Order is claw's to guarantee -- it runs
+        # `prepare-recipe` before `enforce-recipe` -- so what this repository
+        # can still assert is that the export IS named as the preparation for
+        # the gate it feeds, and that both are named here rather than inherited
+        # from a default in another repo.
+        inputs = _job_inputs()
+        assert inputs.get("enforce-recipe") == "validate-products", (
+            "label-correspondence no longer names `validate-products` as its "
+            f"enforce-recipe: {inputs.get('enforce-recipe')!r}"
+        )
+        assert "kgx-export" in inputs.get("prepare-recipe", ""), (
+            "label-correspondence runs `validate-products`, whose kgx_nodes "
+            "target reads output/kgx/ — gitignored and absent from a fresh "
+            "checkout — but no prepare-recipe builds it (#686)."
+        )
+        return
 
     assert validate, "label-correspondence no longer runs `just validate-products`"
     assert build, (

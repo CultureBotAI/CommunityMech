@@ -100,6 +100,13 @@ jobs:
       # nothing, the target skipped, and the gate passed without reading the
       # export (#686).
       prepare-recipe: "kgx-export"
+      # Named explicitly rather than left to claw's defaults. Both ARE the
+      # defaults today, but a gate whose identity lives in another repository's
+      # default is a gate this one cannot see: nothing here would change if it
+      # moved, and the tests that check "does CI run Engine B" would have
+      # nothing to read. Stating them keeps that answer in this file (#716).
+      enforce-recipe: "validate-products"
+      drift-report-recipe: "report-label-drift"
       # Engine A, over record sets whose roots are not the schema tree_root:
       # kb/taxa/ is CommonTaxon (#471), and kb/communities + data/isolates were
       # deferred since #134 and enabled at #277. Neither has a waiver -- fixing

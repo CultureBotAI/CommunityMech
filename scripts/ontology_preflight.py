@@ -113,10 +113,57 @@ def configured_adapters(config_path: Path) -> dict[str, str]:
     return selectors
 
 
+def prefixes_in_use(config_path: Path) -> set[str]:
+    """CURIE prefixes that actually appear in the targets this config names.
+
+    An ontology no record cites cannot change the answer: the validator builds
+    an adapter lazily, per prefix encountered, so it never touches one nothing
+    references. Blocking the whole check on it is pure loss -- and it happened.
+    CI has no `cl.db`, the corpus has zero CL ids, and `validate-products`
+    skipped 6288 checkable pairs because of it (#716).
+
+    Reads the same `glob:` targets the validator does, and only id SLOTS: a
+    CURIE quoted in a note is prose, not a claim (that mistake is recorded in
+    `tests/test_every_ontology_id_resolves.py`).
+    """
+    config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
+    globs = [
+        target["glob"]
+        for target in (config.get("targets") or [])
+        if isinstance(target, dict) and str(target.get("glob", "")).endswith(".yaml")
+    ]
+
+    found: set[str] = set()
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            value = node.get("id")
+            if isinstance(value, str) and ":" in value:
+                found.add(value.split(":", 1)[0])
+            for key, item in node.items():
+                if key.endswith("_id") and isinstance(item, str) and ":" in item:
+                    found.add(item.split(":", 1)[0])
+                walk(item)
+        elif isinstance(node, list):
+            for item in node:
+                walk(item)
+
+    for pattern in globs:
+        for path in sorted(REPO_ROOT.glob(pattern)):
+            walk(yaml.safe_load(path.read_text(encoding="utf-8")) or {})
+    return found
+
+
 def unreachable_ontologies(config_path: Path) -> list[str]:
-    """Configured prefixes whose pinned ontology cannot be downloaded now."""
+    """Configured prefixes IN USE whose pinned ontology cannot be reached now.
+
+    "In use" is the load-bearing word -- see `prefixes_in_use`.
+    """
+    used = prefixes_in_use(config_path)
     unreachable = []
     for prefix, selector in sorted(configured_adapters(config_path).items()):
+        if prefix not in used:
+            continue
         try:
             from oaklib import get_adapter  # type: ignore[import-untyped]
 

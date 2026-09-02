@@ -180,11 +180,28 @@ def _workflow_files() -> list[pathlib.Path]:
 
 
 def _steps(document: dict) -> list[str]:
+    """Every recipe a workflow causes to run, however it says so.
+
+    Two forms now, because the id/label gate moved to a reusable workflow in
+    claw (#731). A job that is `uses:` plus `with:` carries no `steps:` at all,
+    so reading only `run:` blocks reported that nothing runs Engine B -- and
+    three tests went red on main saying exactly that.
+
+    The recipe names in `with:` are read as commands, which is what they become:
+    the reusable workflow runs `just <input>`. The local workflow names them
+    explicitly rather than relying on claw's defaults, so this stays answerable
+    from this repository.
+    """
     commands = []
     for job in (document.get("jobs") or {}).values():
-        for step in (job or {}).get("steps") or []:
+        if not isinstance(job, dict):
+            continue
+        for step in job.get("steps") or []:
             if isinstance(step, dict) and isinstance(step.get("run"), str):
                 commands.append(step["run"])
+        for key, value in (job.get("with") or {}).items():
+            if key.endswith("recipe") or key.endswith("recipes"):
+                commands.extend(str(value).split())
     return commands
 
 

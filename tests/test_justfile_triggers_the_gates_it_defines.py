@@ -28,6 +28,7 @@ the two would make this test unfalsifiable.
 
 from __future__ import annotations
 
+import fnmatch
 import pathlib
 import re
 
@@ -120,4 +121,53 @@ def test_a_workflow_running_a_recipe_triggers_on_the_justfile(workflow: pathlib.
         f"{workflow.name} runs a just recipe but does not list `justfile` in its "
         f"paths filter, so editing that recipe does not run this gate (#717). "
         f"Current filter: {sorted(paths)}"
+    )
+
+
+# --------------------------------------------------------------------------
+# A workflow file is a data surface the test suite READS (#731's fallout).
+#
+# Eight test modules parse `.github/workflows/`: the CI-trigger guard, the
+# generated-input guard, the cache-key guard, the justfile-trigger guard above,
+# and more. So a change to any workflow can break the suite -- and #731 changed
+# only `label-correspondence.yaml`, which matched no path in the lane that runs
+# the suite. The suite never ran, three tests broke, and main went red with two
+# green checks to show for it.
+#
+# Same shape as the rest of this module, one level up: there a gate did not
+# trigger on its own recipe, here it did not trigger on its own subject.
+# --------------------------------------------------------------------------
+
+
+def _runs_pytest(document) -> bool:
+    return any("pytest" in block for block in _run_blocks(document))
+
+
+def _pytest_workflows() -> list[pathlib.Path]:
+    out = []
+    for path in _workflows():
+        document = yaml.safe_load(path.read_text(encoding="utf-8"))
+        if document and _runs_pytest(document) and _paths(document):
+            out.append(path)
+    return out
+
+
+def test_there_is_a_filtered_workflow_running_pytest():
+    """Guard on the guard: no such lane makes the check below vacuous."""
+    assert _pytest_workflows(), "no path-filtered workflow runs pytest"
+
+
+@pytest.mark.parametrize("lane", _pytest_workflows(), ids=lambda p: p.name)
+def test_the_suite_runs_when_any_workflow_changes(lane: pathlib.Path):
+    """Every workflow file must be able to trigger the lane that runs the tests."""
+    patterns = {entry.strip("\"'") for entry in _paths(yaml.safe_load(lane.read_text()))}
+    uncovered = sorted(
+        str(path.relative_to(REPO))
+        for path in _workflows()
+        if not any(fnmatch.fnmatch(str(path.relative_to(REPO)), p) for p in patterns)
+    )
+    assert uncovered == [], (
+        f"{lane.name} runs the test suite, and eight test modules read "
+        f"`.github/workflows/`, but these workflow files cannot trigger it — so "
+        f"editing one breaks the suite with nothing to run it (#731):\n  " + "\n  ".join(uncovered)
     )
