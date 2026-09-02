@@ -333,25 +333,37 @@ validate-terms-all:
 validate-products:
     #!/usr/bin/env bash
     set -uo pipefail
-    # Ask whether the ontologies are reachable before running a check that
-    # cannot survive their absence (#708). A positive probe, NOT a reading of
-    # the checker's error text -- deciding something is fine from a substring is
-    # what #700 forbids. scripts/ontology_preflight.py explains why the finer
-    # fix (skip only the unreachable ontology, keep checking the rest) has to go
-    # upstream to claw instead of being made here.
-    if ! PYTHONPATH=src uv run python scripts/ontology_preflight.py 2>/tmp/cm-preflight.$$; then
+    # Engine B takes its adapters from a config, so it can be pointed at
+    # ontology builds that are ALREADY DOWNLOADED instead of asking pystow to
+    # re-fetch them. That is the whole difference between checking 6288 pairs
+    # and checking none: `sqlite:obo:` re-downloads whenever the `.db.gz` is
+    # missing, and CI restores 20 GB of `.db` files with no `.gz` at all (#707,
+    # #716). The validator itself is a governed vendored artifact and is not
+    # touched -- only the `-c` it already accepts.
+    mkdir -p tmp
+    PYTHONPATH=src uv run python scripts/resolve_ontology_config.py --out tmp/id_label_targets.resolved.yaml >/dev/null
+    # The preflight asks about the RESOLVED config, because that is what this
+    # checker will actually use. Engine A below keeps asking about the original,
+    # since it has no config to point anywhere (#708).
+    if ! PYTHONPATH=src uv run python scripts/ontology_preflight.py -c tmp/id_label_targets.resolved.yaml 2>/tmp/cm-preflight.$$; then
         echo "⚠️  $(cat /tmp/cm-preflight.$$)"
         echo "⚠️  SKIPPED, NOT PASSED: this check could not look anything up (#708)."
         rm -f /tmp/cm-preflight.$$
         exit 0
     fi
     rm -f /tmp/cm-preflight.$$
-    uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml
+    uv run python scripts/validate_id_label_correspondence.py -c tmp/id_label_targets.resolved.yaml
 
 # Baseline (non-failing): unified id↔label drift report across community
 # YAMLs + KGX products to reports/label_drift.tsv. Use before enforcing.
 report-label-drift:
-    uv run python scripts/validate_id_label_correspondence.py -c conf/id_label_targets.yaml --report reports/label_drift.tsv
+    #!/usr/bin/env bash
+    set -uo pipefail
+    # Same resolution as validate-products: a drift report built from adapters
+    # that could not load is 6300 ADAPTER_ERROR rows and no drift (#716).
+    mkdir -p tmp
+    PYTHONPATH=src uv run python scripts/resolve_ontology_config.py --out tmp/id_label_targets.resolved.yaml >/dev/null
+    uv run python scripts/validate_id_label_correspondence.py -c tmp/id_label_targets.resolved.yaml --report reports/label_drift.tsv
 
 # NOTE: the id↔label validator + its shared tests are governed byte-identically
 # across the Mech repos. The old self-generated sha256 pin (verify-/refresh-
