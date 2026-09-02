@@ -37,7 +37,14 @@ on:
       - "justfile"
       - "pyproject.toml"
       - "uv.lock"
-      - ".github/workflows/validate-strict.yaml"
+      # Every workflow file, not just this one. Six test modules READ these
+      # files -- the CI-trigger guard, the generated-input guard, the cache-key
+      # guard, the justfile-trigger guard -- so a workflow is a data surface
+      # this lane checks. #731 changed only label-correspondence.yaml, that
+      # matched no path here, the suite never ran, and three tests broke on main
+      # unnoticed. Same shape as #717, one level up: there the gate did not
+      # trigger on its own recipe, here it did not trigger on its own subject.
+      - ".github/workflows/**"
   push:
     branches: [main]
     paths: *trigger_paths
