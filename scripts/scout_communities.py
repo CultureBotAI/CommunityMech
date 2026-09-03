@@ -4,7 +4,8 @@
 Discovery counterpart to ``deep-research-community``: instead of enriching a
 community you already curate, this queries Europe PMC for recently published
 papers describing defined/structured microbial communities, dedups the hits
-against the records already in ``kb/communities/`` (both by cited PMID/DOI and
+against every curated record root -- ``kb/communities/`` AND ``data/isolates/``
+-- (both by cited PMID/DOI and
 by community-name token overlap), scores each hit by how strongly it reads as a
 *community* paper, and writes a curator-facing report plus a machine-readable
 queue.
@@ -38,7 +39,9 @@ import yaml
 EPMC_SEARCH = "https://www.ebi.ac.uk/europepmc/webservices/rest/search"
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-COMMUNITIES_DIR = REPO_ROOT / "kb" / "communities"
+# `communitymech` is the source of the record roots below; scripts/ is run by
+# path rather than imported, so the package is not on sys.path by default.
+sys.path.insert(0, str(REPO_ROOT / "src"))
 DEFAULT_OUT_DIR = REPO_ROOT / "research" / "scouting"
 
 # Words that signal a paper is about a *defined/structured community*, not a
@@ -120,7 +123,26 @@ def _tokens(text: str) -> set[str]:
     return {t for t in re.findall(r"[a-z0-9]+", text.lower()) if len(t) >= 4 and t not in STOPWORDS}
 
 
-def build_dedup_index(communities_dir: Path) -> dict:
+def record_files() -> list[Path]:
+    """Every MicrobialCommunity record, from EVERY root that holds one.
+
+    `kb/communities/` is not the whole corpus: `data/isolates/` carries records
+    with the same root class, and 5 references are cited only from there. Deduping
+    against communities alone reports those papers as NEW when they are already
+    curated -- the recurring shape in this repository, where `data/isolates` sat
+    outside every validation glob (#350) and `kb/taxa` outside every CI trigger
+    (#471).
+
+    Uses the shared `default_record_roots()` rather than a local list, which is
+    the whole point of that helper (#689): a root added later is picked up here
+    without anyone remembering this file.
+    """
+    from communitymech.paths import default_record_roots
+
+    return [path for root in default_record_roots() for path in sorted(root.glob("*.yaml"))]
+
+
+def build_dedup_index(paths: list[Path] | None = None) -> dict:
     """Index existing records: cited PMIDs/DOIs and per-record name token sets."""
     cited_pmids: set[str] = set()
     cited_dois: set[str] = set()
@@ -130,7 +152,7 @@ def build_dedup_index(communities_dir: Path) -> dict:
     doi_re = re.compile(r"reference:\s*doi:(\S+)", re.IGNORECASE)
     name_re = re.compile(r"^name:\s*(.+)$", re.MULTILINE)
 
-    for path in sorted(communities_dir.glob("*.yaml")):
+    for path in paths if paths is not None else record_files():
         text = path.read_text(errors="replace")
         cited_pmids.update(pmid_re.findall(text))
         cited_dois.update(d.lower().rstrip(".,;") for d in doi_re.findall(text))
@@ -398,7 +420,7 @@ def main(argv: list[str] | None = None) -> int:
     if n_filled:
         print(f"[scout] backfilled DOIs for {n_filled} ref-less hits (CrossRef)", file=sys.stderr)
 
-    index = build_dedup_index(COMMUNITIES_DIR)
+    index = build_dedup_index()
     print(
         f"[scout] dedup index: {len(index['cited_pmids'])} PMIDs, "
         f"{len(index['cited_dois'])} DOIs, {len(index['name_token_sets'])} records",

@@ -1,10 +1,10 @@
 ---
 name: scout-communities
-description: Discover newly published microbial communities to add to CommunityMech. Queries Europe PMC for recent papers describing defined/structured communities (consortia, SynComs, co-cultures, syntrophic pairs), dedups hits against the existing kb/communities/ records (by cited PMID/DOI and community-name overlap), scores each by how strongly it reads as a community paper, and emits a curator report + queue (+ optional draft stubs) ready to hand to deep-research-community.
+description: Discover newly published microbial communities to add to CommunityMech. Queries Europe PMC for recent papers describing defined/structured communities (consortia, SynComs, co-cultures, syntrophic pairs), dedups hits against every curated record root (kb/communities/ and data/isolates/) by cited PMID/DOI and community-name overlap, scores each by how strongly it reads as a community paper, and emits a curator report + queue (+ optional draft stubs) ready to hand to deep-research-community.
 category: research
 requires_database: false
 requires_internet: true
-version: 1.0.0
+version: 1.1.0
 ---
 
 # Scout New Communities (Europe PMC discovery)
@@ -15,7 +15,7 @@ version: 1.0.0
 **discovery** counterpart to `deep-research-community` (which *enriches* a
 community you already have a record for). It queries Europe PMC for recently
 published papers about defined/structured communities, filters out anything
-already covered by `kb/communities/`, ranks what's left, and produces a
+already covered by a curated record, ranks what's left, and produces a
 curator-facing shortlist.
 
 Free + reproducible: Europe PMC REST search needs **no API key** and spends no
@@ -29,7 +29,11 @@ mine one paper in depth.
 
 1. **Query** Europe PMC (`resultType=core`, relevance-ranked, date-filtered to
    recent first-publication dates, abstract required).
-2. **Dedup** each hit against existing records two ways:
+2. **Dedup** each hit against existing records two ways. The index spans
+   **every record root** — `kb/communities/` *and* `data/isolates/`, read from
+   `default_record_roots()` — because both hold `MicrobialCommunity` records and
+   5 references are cited only from isolates. Scanning communities alone
+   reported those as `NEW` (fixed; see Notes).
    - cited **PMID/DOI** already present in any `kb/communities/*.yaml`
      (`ALREADY_CITED`), and
    - **community-name token overlap** with the hit title (`TITLE_OVERLAP`,
@@ -129,6 +133,14 @@ research/scouting/
 - **Dedup is heuristic**: token-overlap can miss a community reported under a
   very different name, and can flag a genuinely new community that shares words
   with an existing one. Always eyeball `TITLE_OVERLAP` rows.
+- **A false `NEW` costs research, not correctness** — which is why the
+  isolates gap sat unnoticed. Nothing fails; a curator simply goes and researches
+  a community that already exists. `tests/test_scouting_dedups_every_record_root.py`
+  now derives the isolate-only references and asserts each is in the index.
+- **`--since` defaults to 2024** and is a floor, not a window. Left at the
+  default a pass in 2026 re-surfaces everything since 2024, including hits from
+  earlier passes under `research/scouting/`. Raise it when you want only what is
+  new since the last sweep.
 - **Preprints appear alongside published versions** (e.g. a bioRxiv DOI plus the
   PNAS PMID for the same study) — the report shows both; pick the version of
   record.
