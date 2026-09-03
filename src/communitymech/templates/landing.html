@@ -26,7 +26,9 @@
   .hero .tagline{margin:0 auto;max-width:660px;font-size:1.15rem}
   .stats{display:flex;flex-wrap:wrap;gap:24px;justify-content:center;margin-top:30px}
   .stat{background:rgba(255,255,255,.6);border:1px solid var(--line);border-radius:12px;
-        padding:12px 22px;min-width:120px}
+        padding:12px 22px;min-width:120px;color:inherit;text-decoration:none}
+  a.stat:hover{background:rgba(255,255,255,.85);text-decoration:none}
+  a.stat:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   .stat b{display:block;font-size:1.7rem;line-height:1.1}
   .stat span{font-size:.74rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
   .wrap{max-width:980px;margin:0 auto;padding:48px 24px}
@@ -75,9 +77,9 @@
     <h1>CommunityMech</h1>
     <p class="tagline">Microbial community knowledge base — curated, evidence-backed interaction networks.</p>
     <div class="stats">
-      <div class="stat"><b>{{ num_communities }}</b><span>communities</span></div>
-      <div class="stat"><b>16</b><span>categories</span></div>
-      <div class="stat"><b>512-D</b><span>v3 embeddings</span></div>
+      <a class="stat" href="browser.html"><b>{{ num_communities }}</b><span>communities</span></a>
+      <a class="stat" href="browser.html#category-facet"><b>16</b><span>categories</span></a>
+      <a class="stat" href="community_umap.html"><b>512-D</b><span>v3 embeddings</span></a>
     </div>
   </header>
   <main class="wrap">
