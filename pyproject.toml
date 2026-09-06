@@ -18,7 +18,16 @@ dependencies = [
     "pyyaml>=6.0",
     "click>=8.0.0",
     "jinja2>=3.0.0",
-    "oaklib>=0.5.0",
+    # Below 0.7.2, `sqlite:obo:` resolves against https://s3.amazonaws.com/bbop-sqlite
+    # as an f-string literal, and that bucket is retired: it answers 403, which is
+    # the "outage" #704/#708/#716/#732 built the local-build fallback and the
+    # SKIPPED-NOT-PASSED gates around. 0.7.2 moved the default to the CDN at
+    # https://semanticsql.berkeleybop.io (oaklib#897, semantic-sql#110).
+    #
+    # >=0.7.3, not 0.7.2: 0.7.2 declares requires_python <3.14 while this project
+    # claims >=3.10 with no ceiling (the local venv is 3.14). 0.7.3 widened it to
+    # <3.15. Matches the sibling Mechs and culturebotai-claw.
+    "oaklib>=0.7.3",
     "requests>=2.31.0",
     "numpy>=1.24.0",
     "pandas>=2.0.0",
@@ -28,8 +37,9 @@ dependencies = [
     # Provides pkg_resources, imported at load time by eutils (a transitive
     # oaklib dep). uv does not install setuptools into the venv unless declared,
     # so without this `from oaklib import get_adapter` fails in CI with
-    # ModuleNotFoundError: No module named 'pkg_resources'. Capped <81 because
-    # setuptools 81 removed pkg_resources entirely.
+    # ModuleNotFoundError: No module named 'pkg_resources'. Capped <81: 81 still
+    # ships pkg_resources but deprecates it with a warning to pin <81, and 82
+    # removed it entirely (#742).
     "setuptools>=61.0,<81",
     "matplotlib>=3.7",  # kg_microbe_qc dashboard chart (shared generator in claw)
 ]
