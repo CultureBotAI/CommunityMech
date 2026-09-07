@@ -23,7 +23,7 @@ PREFIX = "NCBITaxon"
 
 # (old_id, old_label) -> new_id   (label becomes canon[new_id])
 # Replacement ids cross-checked against the kg-microbe ncbitaxon snapshot
-# (/Users/marcin/.../kg-microbe/data/transformed/ontologies/ncbitaxon_nodes.tsv),
+# (kg-microbe's data/transformed/ontologies/ncbitaxon_nodes.tsv),
 # then verified to exist in OAK's current sqlite:obo:ncbitaxon adapter.
 REPOINT = {
     (

@@ -12,6 +12,7 @@ Data Source: KG-Microbe (https://github.com/Knowledge-Graph-Hub/kg-microbe)
 import argparse
 import csv
 import json
+import os
 import re
 import sys
 import time
@@ -21,7 +22,15 @@ from pathlib import Path
 import yaml
 
 # Repo-anchored: a relative default follows the cwd (#407).
-_REPORTS = Path(__file__).resolve().parent.parent / "reports"
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+_REPORTS = _REPO_ROOT / "reports"
+_KB_DIR = _REPO_ROOT / "kb" / "communities"
+# kg-microbe-paper's Input_Files: KGM_DATA_DIR, else the sibling-checkout
+# guess (CommunityMech#744).
+_KGM_DATA_DIR = os.environ.get(
+    "KGM_DATA_DIR",
+    str(_REPO_ROOT.parent / "paper_KGM" / "kg-microbe-paper" / "data" / "Input_Files"),
+)
 
 try:
     import duckdb
@@ -108,7 +117,7 @@ class KGMStrainLookup:
 
     def __init__(
         self,
-        kgm_data_dir="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/paper_KGM/kg-microbe-paper/data/Input_Files",
+        kgm_data_dir=_KGM_DATA_DIR,
         db_path="kgm_taxonomy.duckdb",
         force_reload=False,
     ):
@@ -606,7 +615,7 @@ class KGMStrainLookup:
 
     def validate_community_taxa(
         self,
-        yaml_dir="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities",
+        yaml_dir=_KB_DIR,
     ) -> dict:
         """
         Validate all taxa in community YAMLs against kg-microbe database.
@@ -647,7 +656,7 @@ class KGMStrainLookup:
     def generate_corrections_report(
         self,
         output_dir=_REPORTS,
-        yaml_dir="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities",
+        yaml_dir=_KB_DIR,
     ):
         """
         Generate comprehensive correction recommendations based on kg-microbe.
@@ -858,8 +867,8 @@ def main():
     parser.add_argument(
         "--kgm-data-dir",
         type=str,
-        default="/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/paper_KGM/kg-microbe-paper/data/Input_Files",
-        help="Path to kg-microbe data directory",
+        default=_KGM_DATA_DIR,
+        help="Path to kg-microbe data directory (default: $KGM_DATA_DIR or the sibling checkout)",
     )
     parser.add_argument(
         "--db-path", type=str, default="kgm_taxonomy.duckdb", help="Path to DuckDB database file"
