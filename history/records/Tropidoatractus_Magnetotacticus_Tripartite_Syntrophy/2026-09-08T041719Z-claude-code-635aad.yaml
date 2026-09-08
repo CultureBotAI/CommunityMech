@@ -1,0 +1,31 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml
+  slug: Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy
+session:
+  id: 2026-09-08T041719Z-claude-code-635aad
+  timestamp: '2026-09-08T04:17:19Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/751
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  summary: Replace a cellular-component GO term with a process term in CommunityMech:000337
+  details: 'Self-review of PR #747. biological_processes carried GO:0042566 hydrogenosome,
+    which is a cellular component rather than a biological process; the slot''s range is a
+    GO term and no gate checks which of GO''s three aspects it belongs to, so validate-terms
+    passed on it because the label was right. Replaced with GO:0006113 fermentation, which
+    is the process the organelle carries out and is what the interaction actually means. Aspect
+    was checked structurally, by asserting GO:0008150 is among the term''s rdfs:subClassOf
+    ancestors, not by reading the label. The same check over the whole corpus found 30 more
+    entries that are molecular functions or cellular components, filed as issue #751; that
+    population is pre-existing and is not touched here.'
