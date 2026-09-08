@@ -1,0 +1,41 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml
+  slug: Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture
+session:
+  id: 2026-09-08T031432Z-claude-code-939363
+  timestamp: '2026-09-08T03:14:32Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/748
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  - cultivation
+  summary: Apply self-review findings to CommunityMech:000336
+  details: 'Adversarial review of PR #747, addressing the record''s own defects rather than
+    restating what it does. Three changes. (1) C. ljungdahlii carried abundance_level COMMON,
+    which this schema defines as 0.01-0.1% relative abundance, while the record''s own evidence
+    snippet puts it at approximately 25% of the population - three orders of magnitude out.
+    Changed to DOMINANT, and both members'' explanations now name the threshold they are being
+    judged against instead of reasoning from the English word. The same defect turns out to
+    affect 76 of 91 abundance assignments across two-to-four-member synthetic communities
+    in the corpus, filed as issue #748. (2) interaction_type was unset on the cell-fusion
+    and DNA-transfer interactions. COMMENSALISM on the DNA transfer asserted that the recipient
+    benefits and MUTUALISM on the fusion asserted that both do; neither is established by
+    PMID:32873766 or PMID:38214507, which show acquisition, integration and structure but
+    not benefit. InteractionTypeEnum classifies by sign and has no value for a transfer mechanism,
+    filed as issue #749; the slot is optional, so leaving it unset and saying why in each
+    description is the honest reading. (3) cultivation_setup notes now record that ph_controlled
+    false is inferred from the absence of any pH-control apparatus in the Methods rather than
+    quoted from a statement that pH was uncontrolled. Re-validated with validate, validate-strict,
+    validate-gtdb, validate-terms, validate-references and audit-network, and docs regenerated.'

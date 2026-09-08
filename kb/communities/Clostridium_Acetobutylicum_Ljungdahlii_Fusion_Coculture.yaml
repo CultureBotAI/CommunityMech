@@ -109,7 +109,10 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: C. ljungdahlii represents approximately 25% of the coculture population
-    explanation: Sources C. acetobutylicum as the majority member, hence DOMINANT.
+    explanation: >-
+      Sources C. acetobutylicum as the majority partner at roughly three quarters
+      of the population, well above this schema's greater-than-1% DOMINANT
+      threshold.
 - taxon_term:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -132,7 +135,7 @@ taxonomy:
   strain_designation:
     strain_name: DSM 13528
     notes: Wild type.
-  abundance_level: COMMON
+  abundance_level: DOMINANT
   functional_role:
   - PRIMARY_PRODUCER
   - CROSS_FEEDER
@@ -152,7 +155,11 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: C. ljungdahlii represents approximately 25% of the coculture population
-    explanation: Sources C. ljungdahlii as the minority member, hence COMMON rather than ABUNDANT.
+    explanation: >-
+      Sources C. ljungdahlii as the minority partner at roughly a quarter of the
+      population. Still DOMINANT on this schema's threshold, which is greater than
+      1%; the minority status is carried by the number in this snippet, not by a
+      lower abundance_level.
 ecological_interactions:
 - name: Gas syntrophy - CO2 and H2 transfer to the acetogen
   description: >-
@@ -396,7 +403,11 @@ ecological_interactions:
     RNA, and DNA in bulk. The structural demonstration is in the 2020 mBio paper,
     not in the transcriptomic seed paper, which states that it could not identify
     the genes driving fusion.
-  interaction_type: MUTUALISM
+
+    interaction_type is deliberately unset. InteractionTypeEnum classifies by
+    sign, and no cited source establishes that the fusion itself benefits either
+    partner - the demonstrated benefits belong to the syntrophy and the
+    amino-acid exchange, which have their own entries. Tracked as issue 749.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Clostridium acetobutylicum
@@ -428,7 +439,10 @@ ecological_interactions:
     Plasmid DNA from C. ljungdahlii is acquired by C. acetobutylicum and
     integrated into its genome, a horizontal transfer route mediated by the cell
     fusion rather than by conjugation, transduction, or transformation.
-  interaction_type: COMMENSALISM
+
+    interaction_type is deliberately unset for the same reason as the fusion
+    entry: COMMENSALISM would assert that the recipient benefits, and the cited
+    work shows acquisition and integration, not benefit. Tracked as issue 749.
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -506,6 +520,11 @@ cultivation_setup:
 
     The transwell arm is not given its own cultivation_setup entry because it is a
     perturbation of this one, not a separate cultivation of the community.
+
+    ph_controlled: false is read off the absence of any pH-control apparatus in
+    the Methods rather than from a statement that pH was uncontrolled. A static
+    screw-cap bottle in an anaerobic incubator has no controller, so the reading
+    is safe, but it is an inference and not a quoted claim.
   evidence:
   - reference: PMID:40298437
     supports: SUPPORT
