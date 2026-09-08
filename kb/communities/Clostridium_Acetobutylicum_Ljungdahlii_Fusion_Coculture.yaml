@@ -166,7 +166,12 @@ ecological_interactions:
     C. acetobutylicum releases CO2 and H2 during glucose catabolism and
     C. ljungdahlii consumes them through the Wood-Ljungdahl pathway. This is the
     founding interaction of the pairing and the one the coculture was built on.
-  interaction_type: SYNTROPHY
+
+    Typed CROSS_FEEDING rather than SYNTROPHY despite the sources calling the
+    pairing a syntrophy. InteractionTypeEnum defines SYNTROPHY as obligate
+    metabolic cooperation, and the seed paper grows both species as monocultures
+    in the same experiment, so the cooperation is demonstrably facultative here.
+  interaction_type: CROSS_FEEDING
   source_taxon:
     preferred_term: Clostridium acetobutylicum
     term:
@@ -464,7 +469,12 @@ ecological_interactions:
     The wild-type pairing makes isopropanol and 2,3-butanediol, which neither
     species makes alone. This is the defining emergent phenotype of the coculture
     and it comes from the 2019 founding paper, not from the transcriptomic study.
-  interaction_type: MUTUALISM
+
+    interaction_type is deliberately unset. InteractionTypeEnum classifies by
+    sign, and emergence is not a sign: the source reports that the pairing makes
+    products neither member makes alone, not that either member benefits from
+    making them. The benefits this pairing does have are recorded on the
+    interactions that demonstrate them. Tracked as issue 749.
   scope: COMMUNITY_LEVEL
   participating_taxa:
   - preferred_term: Clostridium acetobutylicum
