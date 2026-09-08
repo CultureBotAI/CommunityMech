@@ -153,25 +153,41 @@ def test_a_curie_is_ambiguous_where_members_share_an_id(example):
     assert _disconnected(example) == 0
 
 
+# The records that deliberately use the slot. Pinned as an exact set rather than
+# an allowlist: adding *or* removing a user fails, so the population cannot drift
+# in either direction. The slot was unused when #312 proposed it; these three
+# arrived together in one curation pass, and the connectivity numbers in
+# `tests/test_community_level_connectivity_credit.py` were re-checked against
+# them and are still inside their bands.
+USERS = {
+    "Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml",
+    "Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml",
+    "Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml",
+}
+
+
 def test_the_corpus_is_unchanged_by_this_feature():
-    """Nothing uses the slot yet, so no finding may move.
+    """Only the records that mean to use the slot do.
 
     Asserted on the corpus rather than trusted from the schema: an
     `ifabsent` or a default that quietly populated the slot would change 312
-    records' connectivity without anyone editing a record.
+    records' connectivity without anyone editing a record. That is still the
+    failure this catches — a silent default would put every record in `users`,
+    not just the three named below.
     """
-    users = [
+    users = {
         path.name
         for path in record_files()
         for interaction in (yaml.safe_load(path.read_text()) or {}).get("ecological_interactions")
         or []
         if isinstance(interaction, dict) and interaction.get("participating_taxa")
-    ]
-    assert users == [], (
-        f"{len(users)} records now use participating_taxa. That is fine and "
-        f"expected eventually — but the connectivity numbers in "
+    }
+    assert users == USERS, (
+        f"{len(users)} records use participating_taxa, expected {len(USERS)}. "
+        f"Adding a user is fine — but the connectivity numbers in "
         f"tests/test_community_level_connectivity_credit.py were measured "
-        f"without it, so check them: {sorted(set(users))[:5]}"
+        f"before the slot was used, so re-check them and then update USERS. "
+        f"Added: {sorted(users - USERS)}. Removed: {sorted(USERS - users)}"
     )
 
 

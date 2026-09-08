@@ -1,0 +1,39 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml
+  slug: Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture
+session:
+  id: 2026-09-08T070006Z-claude-code-077576
+  timestamp: '2026-09-08T07:00:06Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/752
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  summary: Retype the gas transfer and drop an unearned sign from CommunityMech:000336
+  details: 'Third adversarial review pass on PR #747. Two interaction_type values changed.
+    The CO2/H2 transfer was SYNTROPHY, which InteractionTypeEnum defines as obligate metabolic
+    cooperation; PMID:40298437 grows both species as monocultures in the same experiment,
+    so the cooperation is demonstrably facultative and the type asserted something the source
+    disproves. Retyped CROSS_FEEDING with the reason in the interaction''s description. Every
+    source calls this pairing a syntrophy, so the mismatch is between the literature''s loose
+    usage and this schema''s strict definition rather than a curation slip; filed as issue
+    #752, which also notes that the other 134 SYNTROPHY uses in the corpus are unaudited and
+    that any coculture record whose source reports a monoculture arm is mechanically checkable.
+    The emergent non-native metabolites interaction was MUTUALISM; the source reports that
+    the pairing makes isopropanol and 2,3-butanediol which neither member makes alone, not
+    that either member benefits from making them, and emergence is not a sign. interaction_type
+    is now unset there with the reason recorded, as for the fusion and DNA-transfer entries,
+    tracked by issue #749. No evidence, snippet or taxonomy changed. Re-validated with validate,
+    validate-strict, validate-terms, validate-gtdb, validate-references and audit-network,
+    and the snippet audit was proved non-vacuous on this branch by planting an absent snippet
+    and watching the record surface as a fabrication suspect.'

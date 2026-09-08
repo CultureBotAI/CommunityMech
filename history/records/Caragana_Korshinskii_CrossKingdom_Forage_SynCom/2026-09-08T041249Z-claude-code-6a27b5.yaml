@@ -1,0 +1,51 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml
+  slug: Caragana_Korshinskii_CrossKingdom_Forage_SynCom
+session:
+  id: 2026-09-08T041249Z-claude-code-6a27b5
+  timestamp: '2026-09-08T04:12:49Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: CREATE
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  - environment
+  - evidence
+  summary: Create the Caragana korshinskii cross-kingdom forage SynCom record from abstract-only
+    evidence
+  details: 'New record CommunityMech:000338, found by scout-communities (Europe PMC, presets
+    general and syncom, 2026-09-07) and researched with the deep-research-community skill
+    via the non-Edison fallback (claude_code provider, 565 s, $2.99; Edison is 403 at /auth/login,
+    issue #745). Report at research/communities/Caragana_Korshinskii_CrossKingdom_Forage_SynCom.stub-deep-research-claude_code.md;
+    research/ is gitignored. Deliberately thin, and the record says why in its own description:
+    the paper is gold open access at BMC but has no PMC deposit, Europe PMC serves no full
+    text, and the publisher returns a bot challenge, so references_cache/PMID_42432469.md
+    is content_type abstract_only and every strain designation, ensiling parameter, control
+    value, pH and organic-acid measurement and sequence accession is unreadable rather than
+    unreported. All 13 snippets were verified as exact substrings of the cached abstract.
+    Two candidate snippets failed on the abstract''s hard line wraps and were shortened; a
+    third had to stop before the >95% figure because the cache renders it with a thin space
+    (U+2009) after the greater-than sign, which no faithful quote can reproduce - the record
+    records the figure in prose and the evidence explanation says why the snippet stops where
+    it does. Three warnings from the report were honoured. The >95% Lactobacillus surge is
+    an amplicon genus bin and is not attributed to the inoculated Lactiplantibacillus plantarum,
+    which under current taxonomy is a different genus; that evidence item is PARTIAL. No lignin
+    catabolism process term is asserted against Aspergillus niger, because the source''s word
+    is potential and A. niger is not a ligninolytic white-rot fungus. And no parameter from
+    the neighbouring Caragana papers was imported, since those belong to different groups
+    and would be fabricated evidence here. Grounding: L. plantarum and B. subtilis are both
+    AMBIGUOUS with candidates recorded, A. niger is NO_GTDB_EQUIVALENT as a eukaryote. Staphylococcus
+    is an antagonist rather than a member (#319), so the suppression interaction is scoped
+    COMMUNITY_LEVEL and the pair is registered in tests/test_interaction_participants_outside_taxonomy.py,
+    whose ANTAGONIST group and census prose moved from 3 to 4 and from 25 to 26 participants.
+    Validated with validate, validate-strict, validate-gtdb, validate-terms, validate-references
+    and audit-network. Re-curate once a PMC deposit appears; the record carries the Europe
+    PMC check to run.'

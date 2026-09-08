@@ -59,18 +59,18 @@ _PLACEHOLDER = re.compile(r"\bsp\d{6,}$")
 # notice. Exact numbers mean curation updates them deliberately, and the
 # failure message says where else the same number is written.
 EXPECTED = {
-    "different_name": 73,
+    "different_name": 74,
     # 0 since #480: a dropped strain designation is no longer a difference.
     # The key stays, with its reason, so the bucket cannot silently repopulate.
     "strain_dropped": 0,
-    "polyphyly_only": 24,
+    "polyphyly_only": 26,
     "strain_dropped_and_polyphyly": 13,
     "gtdb_placeholder_same_genus": 5,
     "nomenclatural_ending": 3,
 }
-NOT_A_RECLASSIFICATION = 45
-TOTAL_TRUE = 118
-ABOVE_SPECIES = 34
+NOT_A_RECLASSIFICATION = 47
+TOTAL_TRUE = 121
+ABOVE_SPECIES = 35
 
 
 def _normalise(name: str) -> str:
@@ -200,7 +200,8 @@ def test_the_majority_of_true_values_are_not_reclassifications():
     # reverse.
     assert 0.3 < not_reclassified / TOTAL_TRUE < 0.45, (
         f"{not_reclassified / TOTAL_TRUE:.0%} of true values are not "
-        "reclassifications; #480 left this at 38% and the schema says so"
+        "reclassifications; #480 left this at 38%, curation since has moved it "
+        "to 39%, and the schema says so"
     )
 
 

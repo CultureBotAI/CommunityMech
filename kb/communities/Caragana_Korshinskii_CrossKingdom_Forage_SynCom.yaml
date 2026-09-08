@@ -1,0 +1,301 @@
+id: CommunityMech:000338
+name: Caragana korshinskii Cross-Kingdom Forage Bio-Valorization SynCom
+description: >
+  A defined three-member, two-kingdom synthetic microbial community assembled to
+  break the lignocellulose barrier of Caragana korshinskii, a shrub legume used
+  as an arid-region feed resource. Lactobacillus plantarum supplies rapid
+  acidification, Bacillus subtilis supplies fibrolytic enzyme secretion, and
+  Aspergillus niger supplies what the source calls oxidative delignification
+  potential. Against the control, the SynCom treatment reached higher in vitro
+  dry matter digestibility (49.68%) and neutral detergent fibre digestibility
+  (25.65%), shifted the silage microbiome so that Lactobacillus exceeded 95% of
+  it, suppressed the spoilage genera Staphylococcus and Weissella by competitive
+  exclusion, and upregulated predicted pyruvate metabolism and amino-acid
+  biosynthesis.
+
+  CURATION SCOPE. Only the abstract of the source is available: the paper is
+  gold open access at the publisher but has no PMC deposit, Europe PMC serves no
+  full text, and the publisher blocks programmatic retrieval, so
+  references_cache/PMID_42432469.md is content_type abstract_only. Strain
+  designations, inoculation rates, ensiling vessel, temperature, moisture and
+  duration, control-arm values, pH and organic-acid data, sequencing methods and
+  any sequence accessions are all unavailable and are therefore absent here
+  because they were not readable, not because the study did not report them.
+  Re-check with the Europe PMC search for EXT_ID:42432469 and curate the rest
+  once a pmcid appears.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: >-
+    Overcome the recalcitrant lignocellulose barrier that limits the use of
+    Caragana korshinskii as livestock feed, by combining acidification, fibrolytic
+    enzyme secretion and oxidative delignification in one consortium.
+  assembly_strategy: >-
+    Rational cross-kingdom assembly of three members with complementary declared
+    functions - a lactic acid bacterium, a fibrolytic bacillus, and a filamentous
+    fungus - applied to the forage as a silage inoculant.
+  measurement_endpoints:
+  - In vitro dry matter digestibility
+  - In vitro neutral detergent fibre digestibility
+  - Silage microbiome composition by amplicon profiling
+  - Predicted metabolic module abundance from functional prediction
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study established a cross-kingdom synthetic
+    explanation: Sources the deliberate cross-kingdom assembly as the design.
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: digestibility (49.68%) and neutral detergent fiber digestibility (25.65%)
+    explanation: Sources the two digestibility endpoints and their reported values.
+environment_term:
+  preferred_term: Caragana korshinskii silage
+  term:
+    id: ENVO:00003030
+    label: silage
+  notes: >-
+    Silage fermentation of chopped Caragana korshinskii forage. The vessel,
+    moisture, temperature and ensiling duration are not recoverable from the
+    accessible text.
+taxonomy:
+- taxon_term:
+    preferred_term: Lactobacillus plantarum
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Lactiplantibacillus_plantarum
+    - GTDB:s__Lactiplantibacillus_plantarum_A
+    - GTDB:s__Lactiplantibacillus_paraplantarum
+    notes: >-
+      The source writes "Lactobacillus plantarum"; the canonical NCBITaxon label
+      for the same taxon is Lactiplantibacillus plantarum after the 2020
+      reclassification of Lactobacillus sensu lato, so the paper's wording is kept
+      in preferred_term.
+
+      GTDB splits this NCBI taxon with no majority holder, so no single grounding
+      is stored. The contenders are carried in gtdb_candidates for a curator to
+      choose from without re-running the tool.
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: integrating Lactobacillus plantarum for rapid acidification with the fibrolytic
+    explanation: Sources this member and its declared acidification role.
+- taxon_term:
+    preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Bacillus_subtilis
+    - GTDB:s__Bacillus_inaquosorum
+    - GTDB:s__Bacillus_atrophaeus
+    notes: >-
+      GTDB splits the NCBI species with no majority holder. The tool's option list
+      also contained GTDB:s__Bacillus_A_cereus and
+      GTDB:s__Synechocystis_sp000284455, which are not plausible readings of this
+      organism and are left out of gtdb_candidates rather than recorded as
+      contenders.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enzyme secretion of Bacillus subtilis and the oxidative delignification
+    explanation: Sources this member and its declared fibrolytic enzyme role.
+- taxon_term:
+    preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      A filamentous fungus. GTDB covers Bacteria and Archaea only, so a eukaryote
+      has no counterpart there and never will.
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: potential of Aspergillus niger
+    explanation: Sources this member and its declared delignification role.
+ecological_interactions:
+- name: Complementary lignocellulose attack by the two degraders
+  description: >-
+    B. subtilis contributes secreted fibrolytic enzymes and A. niger contributes
+    what the source calls oxidative delignification potential, so the two attack
+    different parts of the same recalcitrant substrate. Community-level because
+    the source describes complementary contributions to one process rather than an
+    effect of one organism on the other.
+
+    The word "potential" is the authors' own and this record does not upgrade it.
+    A. niger is a well-characterised cellulase and hemicellulase producer rather
+    than a ligninolytic white-rot fungus, and no lignin measurement is available,
+    so no lignin catabolism process term is asserted against it.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+  metabolites:
+  - preferred_term: lignocellulose
+    term:
+      id: CHEBI:180683
+      label: lignocellulose
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enzyme secretion of Bacillus subtilis and the oxidative delignification
+    explanation: Sources the fibrolytic half of the division of labour.
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yet its utilization is severely impeded by the recalcitrant
+    explanation: Sources lignocellulose recalcitrance as the barrier the pair is assembled against.
+- name: Competitive exclusion of spoilage genera
+  description: >-
+    The SynCom drove the silage microbiome toward Lactobacillus, which exceeded
+    95% of it, and the source attributes the suppression of the spoilage genera
+    Staphylococcus and Weissella to competitive exclusion.
+
+    Staphylococcus and Weissella are outcomes of the treatment, not members of the
+    community, so they appear here as interaction participants without appearing in
+    taxonomy (#319). The interaction is scoped COMMUNITY_LEVEL rather than pairwise
+    for the same reason: the source attributes the suppression to the assembled
+    consortium, not to one member acting on the pathogen.
+
+    One caution the abstract cannot settle: the >95% figure is an amplicon genus
+    bin reading "Lactobacillus", and under current taxonomy the inoculated organism
+    is Lactiplantibacillus. Whether that population is the inoculum or a resident
+    Lactobacillus-group taxon is not determinable from the accessible text, so this
+    record does not attribute the surge to the inoculated strain.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Staphylococcus
+    term:
+      id: NCBITaxon:1279
+      label: Staphylococcus
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: effectively suppressing spoilage genera like Staphylococcus and Weissella via
+    explanation: Sources the suppressed genera and names competitive exclusion as the mechanism.
+  - reference: PMID:42432469
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: shift in the microbiome, where Lactobacillus abundance surged to
+    explanation: >-
+      Sources the community shift toward Lactobacillus. PARTIAL because the genus
+      bin cannot be equated with the inoculated Lactiplantibacillus plantarum, and
+      because the snippet stops before the percentage: the cached text renders it
+      with a thin space after the greater-than sign, which no faithful quote can
+      reproduce.
+- name: Acidification-driven preservation
+  description: >-
+    Functional prediction attributes upregulated pyruvate metabolism and
+    amino-acid biosynthesis to the SynCom, which the source links to rapid
+    acidification and protein preservation across the consortium. Community-level:
+    the prediction is over the whole treated microbiome, not one member.
+
+    Only pyruvate is annotated as a metabolite. The abstract says "rapid
+    acidification" without naming an acid, and a lactic acid bacterium's product
+    is an inference rather than a source-backed claim, so lactate is not asserted
+    anywhere in this record.
+
+    interaction_type is deliberately unset. The source describes a coordinated
+    degradation-fermentation-preservation process driven by the consortium, which
+    is a statement about the silage rather than about any member benefiting from
+    another. MUTUALISM would assert a member-to-member benefit the abstract does
+    not make. Tracked as issue 749.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Lactobacillus plantarum
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+  - preferred_term: Bacillus subtilis
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Aspergillus niger
+    term:
+      id: NCBITaxon:5061
+      label: Aspergillus niger
+  metabolites:
+  - preferred_term: pyruvate
+    term:
+      id: CHEBI:15361
+      label: pyruvate
+  biological_processes:
+  - preferred_term: pyruvate metabolic process
+    term:
+      id: GO:0006090
+      label: pyruvate metabolic process
+  - preferred_term: amino acid biosynthetic process
+    term:
+      id: GO:0008652
+      label: amino acid biosynthetic process
+  evidence:
+  - reference: PMID:42432469
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: upregulated key metabolic modules, specifically pyruvate metabolism and amino
+    explanation: >-
+      Sources the two upregulated modules. PARTIAL because this is metagenomic
+      prediction rather than measured flux or expression.
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acid biosynthesis pathways, facilitating rapid acidification and protein
+    explanation: Sources acidification and protein preservation as the outcome the modules are read as driving.
+environmental_factors:
+- name: Substrate
+  value: Caragana korshinskii forage
+  description: >-
+    A woody, high-fibre shrub legume of arid regions whose lignocellulose is the
+    barrier this consortium is assembled to attack.
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yet its utilization is severely impeded by the recalcitrant
+    explanation: Sources the substrate's recalcitrance as the defining condition.
+external_resources:
+- name: Primary publication - cross-kingdom forage SynCom
+  repository: OTHER
+  resource_id: PMID:42432469
+  url: https://pubmed.ncbi.nlm.nih.gov/42432469/
+  description: >-
+    BMC Microbiology, published online 2026-07-10, doi:10.1186/s12866-026-05353-5.
+    Gold open access at the publisher, but with no PMC deposit at curation time, so
+    only the abstract is cached here.
+  evidence:
+  - reference: PMID:42432469
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These findings delineate a coordinated
+    explanation: Identifies the publication by its own summary sentence.
+associated_datasets: []
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this forage SynCom.
