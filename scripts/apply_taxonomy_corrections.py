@@ -12,6 +12,8 @@ from pathlib import Path
 
 import yaml
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 
 # Color codes
 class Colors:
@@ -169,9 +171,7 @@ def main():
     print(f"{Colors.CYAN}Auto-updating NCBITaxon IDs (preserving preferred_term){Colors.RESET}\n")
 
     # Paths
-    kb_dir = Path(
-        "/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities"
-    )
+    kb_dir = REPO_ROOT / "kb" / "communities"
     corrections_file = Path("ncbitaxon_corrections.tsv")
 
     if not corrections_file.exists():

@@ -15,6 +15,8 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent))
 from enhance_strain_data import Colors, StrainExtractor, StrainInfo
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 
 class YAMLUpdater:
     """Updates YAML files with strain designations"""
@@ -153,9 +155,7 @@ def main():
     print(f"{Colors.CYAN}Automatically updating YAML files with strain data{Colors.RESET}\n")
 
     # Paths
-    kb_dir = Path(
-        "/Users/marcin/Documents/VIMSS/ontology/KG-Hub/KG-Microbe/CommunityMech/CommunityMech/kb/communities"
-    )
+    kb_dir = REPO_ROOT / "kb" / "communities"
     kgm_db = Path("kgm_taxonomy.duckdb")
 
     # Extract strain data first
