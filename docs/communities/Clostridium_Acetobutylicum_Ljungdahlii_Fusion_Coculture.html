@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clostridium acetobutylicum-Clostridium ljungdahlii Syntrophic Fusion Coculture - CommunityMech</title>
+    <style>
+        :root {
+            --primary: #3D7DD6;
+            --secondary: #64748b;
+            --background: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FBD3E3, #CBDDF6);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: var(--text);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .metadata {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .metadata-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .metadata-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metadata-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .metadata-value {
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-engineered { background: #dbeafe; color: #1e40af; }
+        .badge-natural { background: #d1fae5; color: #065f46; }
+
+        .description {
+            background: var(--card);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            background: var(--card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+        }
+
+        th, td {
+            padding: 0.75rem 1rem;
+            text-align: left;
+        }
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            color: var(--text);
+            border-bottom: 2px solid var(--border);
+        }
+
+        tr:not(:last-child) td {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .term-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+        }
+
+        .term-link:hover {
+            text-decoration: underline;
+        }
+
+        .interaction-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .interaction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .interaction-type {
+            padding: 0.25rem 0.75rem;
+            background: #f0fdf4;
+            color: #166534;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .interaction-flow {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid var(--primary);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .flow-item {
+            margin: 0.5rem 0;
+        }
+
+        .flow-arrow {
+            color: var(--primary);
+            margin: 0 0.5rem;
+        }
+
+        .evidence-list {
+            list-style: none;
+            margin: 0.5rem 0;
+        }
+
+        .evidence-item {
+            background: var(--background);
+            color: var(--text);
+            border-left: 3px solid #ca8a04;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 4px;
+        }
+
+        .empty-state {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+        }
+
+        .empty-state p {
+            margin: 0.5rem 0;
+        }
+
+        .empty-state-note {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        .pmid-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .pmid-link:hover {
+            text-decoration: underline;
+        }
+
+        .snippet {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        .roles-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .role-badge {
+            padding: 0.25rem 0.5rem;
+            background: #ede9fe;
+            color: #5b21b6;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .dataset-description {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Network diagram */
+        .network-container {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0 2rem;
+            position: relative;
+        }
+
+        .network-container svg {
+            width: 100%;
+            display: block;
+        }
+
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 0.75rem 0 0;
+            border-top: 1px solid var(--border);
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .legend-swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+
+        .legend-circle {
+            border-radius: 50%;
+        }
+
+        .network-tooltip {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.95);
+            color: #f8fafc;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.15s;
+            max-width: 280px;
+            z-index: 10;
+        }
+
+        .network-tooltip strong {
+            color: #93c5fd;
+        }
+    /* ---- Dark theme (OS default; superseded by the toggle) ---- */
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+  :root:not([data-theme="light"]) header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+  :root:not([data-theme="light"]) th{background:#232a3d}
+  :root:not([data-theme="light"]) .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+  :root:not([data-theme="light"]) .interaction-flow{background:rgba(255,255,255,.04)}
+  :root:not([data-theme="light"]) .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+  :root:not([data-theme="light"]) .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+  :root:not([data-theme="light"]) .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+}
+:root[data-theme="dark"]{--primary:#6ea6f0; --secondary:#99a2b5; --background:#101420; --card:#1a1f2e; --border:#2a3142; --text:#e8ecf4; --text-muted:#99a2b5; --success:#34d399; --warning:#fbbf24; --net-label:#cbd5e1;}
+:root[data-theme="dark"] header{background:linear-gradient(135deg,#1d2740,#101420);border-bottom-color:#2a3142}
+:root[data-theme="dark"] th{background:#232a3d}
+:root[data-theme="dark"] .interaction-type{background:rgba(52,211,153,.14);color:#34d399}
+:root[data-theme="dark"] .interaction-flow{background:rgba(255,255,255,.04)}
+:root[data-theme="dark"] .evidence-item{background:rgba(251,191,36,.10);border-left-color:#fbbf24}
+:root[data-theme="dark"] .empty-state{background:rgba(255,255,255,.03);border-color:#2a3142;color:#99a2b5}
+:root[data-theme="dark"] .role-badge{background:rgba(180,153,240,.16);color:#c4b5fd}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../browser.html" class="back-link">← Back to Communities</a>
+            <h1>Clostridium acetobutylicum-Clostridium ljungdahlii Syntrophic Fusion Coculture</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Metadata Overview -->
+        <section class="metadata">
+            <div class="metadata-grid">
+                <div class="metadata-item">
+                    <span class="metadata-label">Community ID</span>
+                    <span class="metadata-value">
+                        <code style="background: var(--border); color: var(--text); padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.9rem;">CommunityMech:000336</code>
+                    </span>
+                </div>
+
+                <div class="metadata-item">
+                    <span class="metadata-label">Ecological State</span>
+                    <span class="metadata-value">
+                        <span class="badge badge-engineered">
+                            ENGINEERED
+                        </span>
+                    </span>
+                </div>
+
+                
+                <div class="metadata-item">
+                    <span class="metadata-label">Environment</span>
+                    <span class="metadata-value">
+                        static anaerobic laboratory coculture in loosened screw-cap bottles
+                        <br>
+                        <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_01001405"
+                           class="term-link" target="_blank" rel="noopener noreferrer">
+                            ENVO:01001405
+                        </a>
+                    </span>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <!-- Description -->
+        
+        <section class="description">
+            <p>A defined two-member anaerobic coculture of the solventogen Clostridium acetobutylicum ATCC 824 and the acetogen Clostridium ljungdahlii DSM 13528. CO2 and H2 produced by C. acetobutylicum feed C. ljungdahlii, and the pairing also produces interspecies cell fusion with large-scale exchange of protein, RNA, and DNA between the two organisms. RNA sequencing of the coculture against the two monocultures, and of membrane-separated against unseparated cocultures in a transwell system, separates the effect of soluble signals from the effect of direct cell-to-cell contact. The transcriptional program shows differential regulation of the C. ljungdahlii Wood-Ljungdahl pathway and of the motility machinery, and of amino-acid biosynthesis and degradation; arginine and histidine made by C. acetobutylicum are proposed to be metabolized by C. ljungdahlii for extra ATP and carbon. The authors read the pairing as mutualistic rather than the commensalism previously assumed.
+This record is scoped to the WILD-TYPE pairing. The same laboratory has since reported much higher isopropanol and butanol titers from the same species pair using genetically modified C. acetobutylicum; those are properties of the engineered pairing and are deliberately not curated here.
+</p>
+        </section>
+        
+
+        <!-- Taxonomy -->
+        
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Clostridium acetobutylicum</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1488"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1488
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_DEGRADER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>DOMINANT</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"Monocultures of C. acetobutylicum ATCC 824 and C. ljungdahlii DSM 13528 as well as cocultures combining the species were grown for RNA extraction"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"CO2 and H2 produced by the former feed the latter"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"C. ljungdahlii represents approximately 25% of the coculture population"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Clostridium ljungdahlii</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1538"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1538
+                            </a>
+                        </td>
+                        <td>
+                            
+                            <div class="roles-list">
+                                
+                                <span class="role-badge">PRIMARY_PRODUCER</span>
+                                
+                                <span class="role-badge">CROSS_FEEDER</span>
+                                
+                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
+                                
+                            </div>
+                            
+                        </td>
+                        <td>COMMON</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"Monocultures of C. acetobutylicum ATCC 824 and C. ljungdahlii DSM 13528 as well as cocultures combining the species were grown for RNA extraction"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"autotrophic Wood-Ljungdahl pathway metabolism and genes of the motility machinery"</div>
+                                    
+                                </li>
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"C. ljungdahlii represents approximately 25% of the coculture population"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        <!-- Ecological Interactions -->
+        <section>
+            <h2>Ecological Interactions</h2>
+        
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for Clostridium acetobutylicum-Clostridium ljungdahlii Syntrophic Fusion Coculture</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, mutualism, syntrophy, competition, commensalism).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolSquare"
+                             data-color="#9f2ebb"></svg> Mutualism
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTriangle"
+                             data-color="#7f30cf"></svg> Syntrophy
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTimes"
+                             data-color="#a91919"></svg> Competition
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolWye"
+                             data-color="#cf7830"></svg> Commensalism
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Gas syntrophy - CO2 and H2 transfer to the acetogen</h3>
+                    <span class="interaction-type">SYNTROPHY</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    carbon dioxide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16526"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16526</a>), 
+                    
+                    hydrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        carbon fixation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0015977"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0015977</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"CO2 and H2 produced by the former feed the latter"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30391511/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30391511</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"ljungdahlii which fixes CO2, achieved carbon recoveries into C2-C4 alcohols"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Arginine cross-feeding to the acetogen</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    L-arginine
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=16467"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:16467</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        L-arginine biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006526"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006526</a>)
+                    </li>
+                    
+                    <li>
+                        L-arginine catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006527"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006527</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"C. ljungdahlii may utilize arginine produced by C. acetobutylicum for additional ATP production"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"C. acetobutylicum does not have homologs for the arginine deiminase pathway"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Histidine degradation feeding the acetogen</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    L-histidine
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=15971"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:15971</a>), 
+                    
+                    L-glutamate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=29985"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:29985</a>)
+                    
+                </p>
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        L-histidine catabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006548"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006548</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"four genes involved in histidine degradation to glutamate (CLJU_c21460-21480, 21500) were strongly upregulated early in coculture"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"we also identified differential regulation of biosynthetic genes of several amino acids, and notably of arginine and histidine"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Hydrogen removal relieving hydrogenase feedback inhibition</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    hydrogen
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=18276"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:18276</a>)
+                    
+                </p>
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"consumption of H2 by C. ljungdahlii would relieve feedback inhibition of C. acetobutylicum"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"The effect was small, but was present in all three biological replicates"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"paint a more complex syntrophic picture and suggest a mutualistic relationship"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Contact-dependent growth stimulation of both partners</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        translation
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006412"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006412</a>)
+                    </li>
+                    
+                    <li>
+                        pyrimidine nucleotide biosynthetic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0006221"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0006221</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"suggests that direct cell-to-cell contact stimulates cell growth of both organisms"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"separated by a permeable membrane (0.4 µm pore size)"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Competition for yeast-extract amino acids and product inhibition</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    butyrate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>), 
+                    
+                    butanol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=28885"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:28885</a>)
+                    
+                </p>
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"inhibitory metabolites (such as butyrate and butanol) and competition for yeast-extract amino acids from the dominating C. acetobutylicum drive C. ljungdahlii to adopt a survival strategy"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Interspecies cell fusion and cytoplasmic material exchange</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+
+                
+
+                
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+                    
+                    <li>
+                        cell-cell fusion
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0140253"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0140253</a>)
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32873766/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32873766</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"transmission electron microscopy and electron tomography demonstrated cell wall and membrane fusions between the two organisms"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"result in interspecies cell fusion involving large-scale exchange of protein, RNA, and DNA between the two organisms"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Interspecies DNA transfer and genomic integration</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+                
+                <p><strong>Source Taxon:</strong> Clostridium ljungdahlii</p>
+                
+
+                
+                <p><strong>Target Taxon:</strong> Clostridium acetobutylicum</p>
+                
+
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38214507/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38214507</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"we isolated C. acetobutylicum cells which acquired and integrated into their genome portions of plasmid DNA from a plasmid-carrying C. ljungdahlii strain"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Emergent non-native metabolites</h3>
+                    <span class="interaction-type">MUTUALISM</span>
+                </div>
+
+                
+
+                
+
+                
+                <p><strong>Metabolites:</strong>
+                    
+                    isopropanol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17824"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17824</a>), 
+                    
+                    2,3-butanediol
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=62064"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:62064</a>)
+                    
+                </p>
+                
+
+                
+
+                
+
+                
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30391511/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30391511</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"resulted in the production of non-native metabolites, namely isopropanol"</div>
+                        
+                    </li>
+                    
+                    <li class="evidence-item">
+                        <div>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30391511/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30391511</a>
+                            
+                            - SUPPORT (IN_VITRO)
+                        </div>
+                        
+                        <div class="snippet">"direct cell-to-cell interactions and material exchange among the two microbes"</div>
+                        
+                    </li>
+                    
+                </ul>
+                
+            </div>
+            
+        
+        </section>
+
+        <!-- Associated Datasets -->
+        
+        <section>
+            <h2>Associated Datasets</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Dataset</th>
+                        <th>Type</th>
+                        <th>Repository</th>
+                        <th>Accession</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>RNA-seq reads for the coculture, transwell, and monoculture arms</strong>
+                            
+                            <br><span class="dataset-description">54 BioSamples (SAMN44010615-SAMN44010668) covering the Type I bottle comparison and the Type II transwell comparison, in biological triplicate.</span>
+                            
+                        </td>
+                        <td><span class="role-badge">METATRANSCRIPTOMICS</span></td>
+                        <td>NCBI_BIOPROJECT</td>
+                        <td>
+                            
+                            <a href="https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1167669" class="term-link" target="_blank" rel="noopener noreferrer">PRJNA1167669</a>
+                            
+                        </td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Environmental Factors -->
+        
+        <section>
+            <h2>External Resources</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Repository</th>
+                        <th>Resource ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>
+                            <strong>Seed publication - coculture transcriptional program</strong>
+                            
+                            <br><span class="dataset-description">Open-access mSystems study of the coculture transcriptome, the amino-acid exchange, and the mutualism reclassification.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"we used RNA sequencing to identify genes differentially expressed in this coculture using two types of comparisons"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Founding syntrophy publication</strong>
+                            
+                            <br><span class="dataset-description">The 2019 Metabolic Engineering paper that built the coculture and reported the non-native metabolites.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/30391511/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:30391511</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/30391511/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:30391511</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"consisting of the solventogen Clostridium acetobutylicum, which converts simple"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Cell-fusion structural evidence</strong>
+                            
+                            <br><span class="dataset-description">The 2020 mBio paper with the electron microscopy and tomography that demonstrated the fusion.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/32873766/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:32873766</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/32873766/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:32873766</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"transmission electron microscopy and electron tomography demonstrated cell wall and membrane fusions between the two organisms"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td>
+                            <strong>Interspecies DNA transfer</strong>
+                            
+                            <br><span class="dataset-description">The 2024 mBio paper reporting plasmid DNA transfer and genomic integration.</span>
+                            
+                        </td>
+                        <td>OTHER</td>
+                        <td>
+                            
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/38214507/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:38214507</a>
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/38214507/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:38214507</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"we isolated C. acetobutylicum cells which acquired and integrated into their genome portions of plasmid DNA from a plasmid-carrying C. ljungdahlii strain"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        
+        <section>
+            <h2>Environmental Factors</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Value</th>
+                        <th>Unit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td><strong>Chamber atmosphere</strong></td>
+                        <td>85% N2, 10% CO2, and 5% H2</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"inside an anaerobic chamber (atmosphere composed of 85% N2, 10% CO2, and 5% H2)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Headspace venting</strong></td>
+                        <td>screw caps loosened</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"The screw cap bottle lids were loosened to allow accumulated gas to escape"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                    <tr>
+                        <td><strong>Physical separation control</strong></td>
+                        <td>0.4 µm permeable membrane</td>
+                        <td>N/A</td>
+                    </tr>
+                    
+                    <tr class="evidence-row-container">
+                        <td colspan="3">
+                            <ul class="evidence-list">
+                                
+                                <li class="evidence-item">
+                                    
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40298437/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40298437</a>
+                                    
+                                    - SUPPORT (IN_VITRO)
+                                    
+                                    <div class="snippet">"separated by a permeable membrane (0.4 µm pore size)"</div>
+                                    
+                                </li>
+                                
+                            </ul>
+                        </td>
+                    </tr>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        
+
+        <!-- Growth Media -->
+        
+        <section>
+            <h2>Growth Media</h2>
+            
+            <div class="metadata">
+                <h3>
+                    Turbo CGM complex growth medium
+                    
+                </h3>
+
+                
+
+                <div class="metadata-grid" style="margin-top: 1rem;">
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Temperature</span>
+                        <span class="metadata-value">37.0 °C</span>
+                    </div>
+                    
+
+                    
+                    <div class="metadata-item">
+                        <span class="metadata-label">Atmosphere</span>
+                        <span class="metadata-value">ANAEROBIC</span>
+                    </div>
+                    
+                </div>
+
+                
+                <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Concentration</th>
+                            <th>Unit</th>
+                            <th>CHEBI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td><strong>yeast extract</strong></td>
+                            <td>5</td>
+                            <td>g/L</td>
+                            <td>
+                                
+                                N/A
+                                
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+                
+
+                
+                <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
+                    <strong>Preparation notes:</strong> A complex medium chosen because it supports both species; the paper cites its earlier work for the formulation rather than restating the full recipe, so only the yeast-extract concentration is asserted here. Pre-cultures were heat shocked at 80°C to kill non-sporulated cells before inoculation. Note that C. ljungdahlii does not use glucose in this system; the paper tracks its fructose consumption.
+                </p>
+                
+
+                
+                <div style="margin-top: 1rem;">
+                    <h4 style="color: var(--text);">Evidence</h4>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40298437"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:40298437
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"using the complex (5 g/L yeast extract) Turbo CGM growth medium"</p>
+                        
+                    </div>
+                    
+                    <div class="evidence-item">
+                        
+                        <a href="https://pubmed.ncbi.nlm.nih.gov/40298437"
+                           class="pmid-link" target="_blank" rel="noopener">
+                            PMID:40298437
+                        </a>
+                        
+
+                        
+                        <p class="snippet">"heat shocked at 80°C to kill non-sporulated cells"</p>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Generated by CommunityMech | <a href="https://github.com/CultureBotAI/CommunityMech">View on GitHub</a></p>
+        </div>
+    </footer>
+
+    
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#9f2ebb",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "COMMENSALISM": "#cf7830",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12"
+        };
+        var unmappedColor = "#929caa";
+
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "COMMENSALISM": "symbolWye",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+        
+        taxonData["Clostridium acetobutylicum"] = {
+            id: "NCBITaxon:1488",
+            label: "Clostridium acetobutylicum",
+            abundance: "DOMINANT",
+            roles: ["PRIMARY_DEGRADER", "CROSS_FEEDER", "SYNTROPHIC_PARTNER"]
+        };
+        
+        taxonData["Clostridium ljungdahlii"] = {
+            id: "NCBITaxon:1538",
+            label: "Clostridium ljungdahlii",
+            abundance: "COMMON",
+            roles: ["PRIMARY_PRODUCER", "CROSS_FEEDER", "SYNTROPHIC_PARTNER"]
+        };
+        
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+        
+        (function() {
+            var intId = "interaction:0";
+            var intType = "SYNTROPHY";
+            var metabolites = [];
+            
+            
+            metabolites.push("carbon dioxide");
+            
+            metabolites.push("hydrogen");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("carbon fixation");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Gas syntrophy - CO2 and H2 transfer to the acetogen",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:1";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("L-arginine");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("L-arginine biosynthetic process");
+            
+            processes.push("L-arginine catabolic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Arginine cross-feeding to the acetogen",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:2";
+            var intType = "CROSS_FEEDING";
+            var metabolites = [];
+            
+            
+            metabolites.push("L-histidine");
+            
+            metabolites.push("L-glutamate");
+            
+            
+            var processes = [];
+            
+            
+            processes.push("L-histidine catabolic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Histidine degradation feeding the acetogen",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:3";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("hydrogen");
+            
+            
+            var processes = [];
+            
+            var evidenceCount = 3;
+
+            nodes.push({
+                id: intId,
+                label: "Hydrogen removal relieving hydrogenase feedback inhibition",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:4";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("translation");
+            
+            processes.push("pyrimidine nucleotide biosynthetic process");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Contact-dependent growth stimulation of both partners",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:5";
+            var intType = "COMPETITION";
+            var metabolites = [];
+            
+            
+            metabolites.push("butyrate");
+            
+            metabolites.push("butanol");
+            
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Competition for yeast-extract amino acids and product inhibition",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:6";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            
+            processes.push("cell-cell fusion");
+            
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Interspecies cell fusion and cytoplasmic material exchange",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:7";
+            var intType = "COMMENSALISM";
+            var metabolites = [];
+            
+            var processes = [];
+            
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "Interspecies DNA transfer and genomic integration",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+            var srcKey = "Clostridium ljungdahlii";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+            
+
+            
+            var tgtKey = "Clostridium acetobutylicum";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+            
+        })();
+        
+        (function() {
+            var intId = "interaction:8";
+            var intType = "MUTUALISM";
+            var metabolites = [];
+            
+            
+            metabolites.push("isopropanol");
+            
+            metabolites.push("2,3-butanediol");
+            
+            
+            var processes = [];
+            
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Emergent non-native metabolites",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+            
+
+            
+        })();
+        
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 11;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
+            .attr("stroke-width", 1.5);
+
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
+        // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+    
+    <script src="../theme-toggle.js"></script>
+</body>
+</html>

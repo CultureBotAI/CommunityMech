@@ -1,0 +1,47 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml
+  slug: Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture
+session:
+  id: 2026-09-08T024312Z-claude-code-e9f340
+  timestamp: '2026-09-08T02:43:12Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: CREATE
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  - environment
+  - cultivation
+  - media
+  - datasets
+  - evidence
+  summary: Create the wild-type C. acetobutylicum-C. ljungdahlii syntrophic fusion coculture
+    record from a deep-research pass
+  details: 'New record CommunityMech:000336, discovered by scout-communities (Europe PMC,
+    preset syncom/syntrophy, 2026-09-07) and researched with the deep-research-community skill.
+    Edison (research-community-edison) could not run: the platform returns HTTP 403 at /auth/login
+    (issue #745), so the skill''s documented non-Edison fallback was used instead - deep-research-client
+    with the claude_code provider, 550 s, $2.72, report at research/communities/Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.stub-deep-research-claude_code.md
+    (research/ is gitignored). Every claim in that report was re-verified here before curation:
+    all 21 evidence snippets were checked as exact substrings of the committed reference caches,
+    NCBITaxon/CHEBI/GO/ENVO ids and labels were resolved against local OAK builds, and both
+    GTDB blocks were computed with scripts/gtdb_ground.py against kg-microbe NCBI2GTDB.tsv.gz
+    sha256:761d5537a7edb4b0. Grounded at species rank because neither strain-level id (NCBITaxon:272562,
+    NCBITaxon:748727) has a row in the current mapping; strain designations ATCC 824 and DSM
+    13528 are carried in strain_designation instead. Scoped deliberately to the WILD-TYPE
+    pairing: the same laboratory''s higher isopropanol/butanol titers come from genetically
+    modified C. acetobutylicum and are excluded. The report''s over-claim warnings were honoured
+    - the arginine cross-feeding keeps the paper''s hedged wording, the H2-removal mutualism
+    records that the effect was small, and no fusion mechanism is asserted because the seed
+    paper states it could not identify one. Fusion structure is cited to PMID:32873766 and
+    DNA transfer to PMID:38214507 rather than to the transcriptomic seed paper. Validated
+    with just validate, validate-strict, validate-gtdb, validate-terms and validate-references-explained;
+    the reference validation was mutation-checked (a deliberately corrupted snippet turned
+    it red, and the restored file was green on the next run).'

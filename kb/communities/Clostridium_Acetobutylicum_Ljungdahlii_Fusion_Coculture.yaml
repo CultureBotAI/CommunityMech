@@ -1,0 +1,656 @@
+id: CommunityMech:000336
+name: Clostridium acetobutylicum-Clostridium ljungdahlii Syntrophic Fusion Coculture
+description: >
+  A defined two-member anaerobic coculture of the solventogen Clostridium
+  acetobutylicum ATCC 824 and the acetogen Clostridium ljungdahlii DSM 13528.
+  CO2 and H2 produced by C. acetobutylicum feed C. ljungdahlii, and the pairing
+  also produces interspecies cell fusion with large-scale exchange of protein,
+  RNA, and DNA between the two organisms. RNA sequencing of the coculture
+  against the two monocultures, and of membrane-separated against unseparated
+  cocultures in a transwell system, separates the effect of soluble signals from
+  the effect of direct cell-to-cell contact. The transcriptional program shows
+  differential regulation of the C. ljungdahlii Wood-Ljungdahl pathway and of the
+  motility machinery, and of amino-acid biosynthesis and degradation; arginine
+  and histidine made by C. acetobutylicum are proposed to be metabolized by
+  C. ljungdahlii for extra ATP and carbon. The authors read the pairing as
+  mutualistic rather than the commensalism previously assumed.
+
+  This record is scoped to the WILD-TYPE pairing. The same laboratory has since
+  reported much higher isopropanol and butanol titers from the same species pair
+  using genetically modified C. acetobutylicum; those are properties of the
+  engineered pairing and are deliberately not curated here.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: SYNTROPHY
+engineering_design:
+  objective: >-
+    Find the genes involved in and affected by the interspecies cell fusion seen
+    when C. acetobutylicum and C. ljungdahlii are cocultured, and separate
+    contact-dependent from medium-mediated effects.
+  assembly_strategy: >-
+    Coculture the two wild-type strains in a complex medium that supports both,
+    and compare against each species grown alone.
+  perturbation_design: >-
+    Two contrasts. Type I compared the coculture with the two monocultures,
+    capturing soluble signals and direct cell-to-cell interaction together.
+    Type II compared cocultures separated by a permeable transwell membrane with
+    unseparated cocultures on the same plate, isolating the contribution of
+    physical contact.
+  measurement_endpoints:
+  - Differential gene expression by RNA sequencing, per species
+  - Contact-dependent versus medium-mediated transcriptional response
+  - Wood-Ljungdahl pathway and autotrophic energy metabolism gene regulation
+  - Motility and chemotaxis gene regulation
+  - Amino-acid biosynthesis and degradation gene regulation
+  - Supernatant free amino-acid profile
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we used RNA sequencing to identify genes differentially expressed in this coculture using two types of comparisons
+    explanation: Sources RNA sequencing of the coculture as the study design.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The second type compared membrane-separated versus -unseparated cocultures, isolating the impact of interspecies physical contact
+    explanation: Sources the membrane-separation contrast as the contact-isolating perturbation.
+environment_term:
+  preferred_term: static anaerobic laboratory coculture in loosened screw-cap bottles
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Defined anaerobic laboratory coculture of two Clostridium species, grown
+    statically in an anaerobic chamber, plus a transwell configuration in which a
+    permeable membrane keeps the species physically apart.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_S_acetobutylicum
+      gtdb_taxon: Clostridium_S acetobutylicum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_S;s__Clostridium_S acetobutylicum
+      ncbi_source_id: NCBITaxon:1488
+      majority_fraction: 1.0
+      total_genomes: 44
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: >-
+      Grounded at species rank. The strain-level id NCBITaxon:272562
+      (Clostridium acetobutylicum ATCC 824) carries no row in the current
+      NCBI2GTDB table, so the species-rank grounding is the one that reproduces.
+  strain_designation:
+    strain_name: ATCC 824
+    notes: >-
+      Wild type. RNA-seq reads for this species were aligned against the ATCC 824
+      chromosome and the pSOL1 megaplasmid, which carries the solvent-formation
+      genes.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Monocultures of C. acetobutylicum ATCC 824 and C. ljungdahlii DSM 13528 as well as cocultures combining the species were grown for RNA extraction
+    explanation: Sources both members and their strain designations as the exact composition.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO2 and H2 produced by the former feed the latter
+    explanation: Sources C. acetobutylicum as the gas-producing partner of the pair.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. ljungdahlii represents approximately 25% of the coculture population
+    explanation: Sources C. acetobutylicum as the majority member, hence DOMINANT.
+- taxon_term:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_B_ljungdahlii
+      gtdb_taxon: Clostridium_B ljungdahlii
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_B;s__Clostridium_B ljungdahlii
+      ncbi_source_id: NCBITaxon:1538
+      majority_fraction: 1.0
+      total_genomes: 4
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: >-
+      Grounded at species rank on 4 genomes. The strain-level id
+      NCBITaxon:748727 (Clostridium ljungdahlii DSM 13528) carries no row in the
+      current NCBI2GTDB table.
+  strain_designation:
+    strain_name: DSM 13528
+    notes: Wild type.
+  abundance_level: COMMON
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Monocultures of C. acetobutylicum ATCC 824 and C. ljungdahlii DSM 13528 as well as cocultures combining the species were grown for RNA extraction
+    explanation: Sources both members and their strain designations as the exact composition.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: autotrophic Wood-Ljungdahl pathway metabolism and genes of the motility machinery
+    explanation: Sources the acetogen's Wood-Ljungdahl metabolism as the responding pathway.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. ljungdahlii represents approximately 25% of the coculture population
+    explanation: Sources C. ljungdahlii as the minority member, hence COMMON rather than ABUNDANT.
+ecological_interactions:
+- name: Gas syntrophy - CO2 and H2 transfer to the acetogen
+  description: >-
+    C. acetobutylicum releases CO2 and H2 during glucose catabolism and
+    C. ljungdahlii consumes them through the Wood-Ljungdahl pathway. This is the
+    founding interaction of the pairing and the one the coculture was built on.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CO2 and H2 produced by the former feed the latter
+    explanation: Sources the direction of the gas transfer.
+  - reference: PMID:30391511
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ljungdahlii which fixes CO2, achieved carbon recoveries into C2-C4 alcohols
+    explanation: Sources CO2 fixation by the acetogen as the sink half of the syntrophy.
+- name: Arginine cross-feeding to the acetogen
+  description: >-
+    C. ljungdahlii strongly upregulates its arginine deiminase genes in
+    coculture, a pathway C. acetobutylicum lacks, while C. acetobutylicum
+    upregulates arginine biosynthesis. The authors read this as arginine made by
+    the solventogen being catabolized by the acetogen for extra ATP. The paper
+    words the conclusion as a possibility, and no growth measurement on arginine
+    was reported for this coculture.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: L-arginine
+    term:
+      id: CHEBI:16467
+      label: L-arginine
+  biological_processes:
+  - preferred_term: L-arginine biosynthetic process
+    term:
+      id: GO:0006526
+      label: L-arginine biosynthetic process
+  - preferred_term: L-arginine catabolic process
+    term:
+      id: GO:0006527
+      label: L-arginine catabolic process
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. ljungdahlii may utilize arginine produced by C. acetobutylicum for additional ATP production
+    explanation: Sources the direction and the benefit, in the paper's own hedged wording.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. acetobutylicum does not have homologs for the arginine deiminase pathway
+    explanation: Sources the pathway asymmetry that makes the acetogen the consumer.
+- name: Histidine degradation feeding the acetogen
+  description: >-
+    Four C. ljungdahlii genes for histidine degradation to glutamate are strongly
+    upregulated early in coculture. The net reaction releases ammonia, glutamate,
+    and a tetrahydrofolate intermediate of the Wood-Ljungdahl pathway's eastern
+    branch, so histidine feeds carbon into the pathway the acetogen runs.
+  interaction_type: CROSS_FEEDING
+  source_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: L-histidine
+    term:
+      id: CHEBI:15971
+      label: L-histidine
+  - preferred_term: L-glutamate
+    term:
+      id: CHEBI:29985
+      label: L-glutamate(1-)
+  biological_processes:
+  - preferred_term: L-histidine catabolic process
+    term:
+      id: GO:0006548
+      label: L-histidine catabolic process
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: four genes involved in histidine degradation to glutamate (CLJU_c21460-21480, 21500) were strongly upregulated early in coculture
+    explanation: Sources histidine degradation by the acetogen as a coculture-induced response.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we also identified differential regulation of biosynthetic genes of several amino acids, and notably of arginine and histidine
+    explanation: Sources amino-acid biosynthesis regulation as one of the study's findings.
+- name: Hydrogen removal relieving hydrogenase feedback inhibition
+  description: >-
+    Local consumption of H2 by C. ljungdahlii is hypothesized to relieve feedback
+    inhibition of the C. acetobutylicum hydrogenase, which is the return benefit
+    that makes the pairing mutualistic rather than commensal. The measured effect
+    was small, though reproducible across the three biological replicates.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  target_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consumption of H2 by C. ljungdahlii would relieve feedback inhibition of C. acetobutylicum
+    explanation: Sources the hypothesized return benefit to the solventogen.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The effect was small, but was present in all three biological replicates
+    explanation: Sources the size of the effect, which the record's description carries rather than overstates.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: paint a more complex syntrophic picture and suggest a mutualistic relationship
+    explanation: Sources the authors' reclassification of the pairing as mutualistic.
+- name: Contact-dependent growth stimulation of both partners
+  description: >-
+    In the transwell arm, removing the membrane enriches ribosomal-protein genes
+    in C. acetobutylicum and pyrimidine biosynthesis genes in C. ljungdahlii among
+    the most upregulated genes, which the authors read as direct cell-to-cell
+    contact stimulating growth in both organisms. Community-level because the
+    effect is reciprocal and has no single source.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  - preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  biological_processes:
+  - preferred_term: translation
+    term:
+      id: GO:0006412
+      label: translation
+  - preferred_term: pyrimidine nucleotide biosynthetic process
+    term:
+      id: GO:0006221
+      label: pyrimidine nucleotide biosynthetic process
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: suggests that direct cell-to-cell contact stimulates cell growth of both organisms
+    explanation: Sources the reciprocal, contact-dependent growth stimulation.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: separated by a permeable membrane (0.4 µm pore size)
+    explanation: Sources the transwell separation that licenses calling the effect contact-dependent.
+- name: Competition for yeast-extract amino acids and product inhibition
+  description: >-
+    Alongside the cross-feeding, the majority C. acetobutylicum depletes the
+    shared free amino acids of the yeast extract and accumulates butyrate and
+    butanol, which together push C. ljungdahlii into a survival response. The
+    same amino-acid pool is therefore both cross-fed and competed for, at
+    different phases of the culture.
+  interaction_type: COMPETITION
+  source_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  target_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: butanol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inhibitory metabolites (such as butyrate and butanol) and competition for yeast-extract amino acids from the dominating C. acetobutylicum drive C. ljungdahlii to adopt a survival strategy
+    explanation: Sources both the inhibitory products and the amino-acid competition, and their direction.
+- name: Interspecies cell fusion and cytoplasmic material exchange
+  description: >-
+    The two species fuse their cell walls and membranes and exchange protein,
+    RNA, and DNA in bulk. The structural demonstration is in the 2020 mBio paper,
+    not in the transcriptomic seed paper, which states that it could not identify
+    the genes driving fusion.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  - preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  biological_processes:
+  - preferred_term: cell-cell fusion
+    term:
+      id: GO:0140253
+      label: cell-cell fusion
+  evidence:
+  - reference: PMID:32873766
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transmission electron microscopy and electron tomography demonstrated cell wall and membrane fusions between the two organisms
+    explanation: Sources the structural evidence for fusion, from the paper that produced it.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: result in interspecies cell fusion involving large-scale exchange of protein, RNA, and DNA between the two organisms
+    explanation: Sources the material classes exchanged across the fusion.
+- name: Interspecies DNA transfer and genomic integration
+  description: >-
+    Plasmid DNA from C. ljungdahlii is acquired by C. acetobutylicum and
+    integrated into its genome, a horizontal transfer route mediated by the cell
+    fusion rather than by conjugation, transduction, or transformation.
+  interaction_type: COMMENSALISM
+  source_taxon:
+    preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  target_taxon:
+    preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  evidence:
+  - reference: PMID:38214507
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we isolated C. acetobutylicum cells which acquired and integrated into their genome portions of plasmid DNA from a plasmid-carrying C. ljungdahlii strain
+    explanation: Sources the direction of transfer and the genomic integration.
+- name: Emergent non-native metabolites
+  description: >-
+    The wild-type pairing makes isopropanol and 2,3-butanediol, which neither
+    species makes alone. This is the defining emergent phenotype of the coculture
+    and it comes from the 2019 founding paper, not from the transcriptomic study.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Clostridium acetobutylicum
+    term:
+      id: NCBITaxon:1488
+      label: Clostridium acetobutylicum
+  - preferred_term: Clostridium ljungdahlii
+    term:
+      id: NCBITaxon:1538
+      label: Clostridium ljungdahlii
+  metabolites:
+  - preferred_term: isopropanol
+    term:
+      id: CHEBI:17824
+      label: propan-2-ol
+  - preferred_term: 2,3-butanediol
+    term:
+      id: CHEBI:62064
+      label: butane-2,3-diol
+  evidence:
+  - reference: PMID:30391511
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resulted in the production of non-native metabolites, namely isopropanol
+    explanation: Sources isopropanol as a metabolite the pairing makes and neither member makes alone.
+  - reference: PMID:30391511
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: direct cell-to-cell interactions and material exchange among the two microbes
+    explanation: Sources direct interaction and material exchange as the cause of the rearranged metabolism.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  working_volume: 60.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  ph_controlled: false
+  temperature_controlled: true
+  instrument_detail: >-
+    100 mL screw-cap bottles at 60 mL working volume, held static in an anaerobic
+    incubator. The caps were left loose so gas made by the culture could escape
+    rather than pressurize the bottle.
+  controls_notes: >-
+    A parallel transwell arm (Corning 7910, 0.4 µm membrane) ran the same
+    coculture with the two species physically separated; one well per plate had
+    its membrane removed to serve as the mixed control on the same plate.
+  notes: >-
+    Recorded as SERUM_BOTTLE for the vessel class even though the paper's bottles
+    are screw-capped rather than crimp-sealed: they are the same static sealed
+    glass format, and the loosened cap is captured in instrument_detail rather
+    than by picking a different system_type.
+
+    The transwell arm is not given its own cultivation_setup entry because it is a
+    perturbation of this one, not a separate cultivation of the community.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: C. acetobutylicum monocultures and cocultures were grown in 100 mL screw cap bottles and grown statically at 37°C in an anaerobic incubator
+    explanation: Sources the vessel, the static mode, and the temperature.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Turbo CGM was inoculated with 17% of this exponential pre-culture to a final volume of 60 mL
+    explanation: Sources the working volume and the inoculum fraction.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A transwell system (Corning, Prod. No. 7910) was used to prepare cocultures for RNA extraction in which
+    explanation: Sources the transwell apparatus used for the physical-separation control.
+environmental_factors:
+- name: Chamber atmosphere
+  value: 85% N2, 10% CO2, and 5% H2
+  description: The cocultures were grown inside an anaerobic chamber with this gas mix.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inside an anaerobic chamber (atmosphere composed of 85% N2, 10% CO2, and 5% H2)
+    explanation: Sources the chamber gas composition.
+- name: Headspace venting
+  value: screw caps loosened
+  description: >-
+    Caps were left loose so that gas produced by the culture escaped instead of
+    pressurizing the bottle, which matters because the community's defining
+    exchange is a gas transfer.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The screw cap bottle lids were loosened to allow accumulated gas to escape
+    explanation: Sources the venting and its purpose.
+- name: Physical separation control
+  value: 0.4 µm permeable membrane
+  description: >-
+    In the Type II arm a transwell membrane let solutes pass while preventing the
+    two species from touching, which is what separates contact-dependent from
+    medium-mediated effects.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: separated by a permeable membrane (0.4 µm pore size)
+    explanation: Sources the pore size of the separating membrane.
+growth_media:
+- name: Turbo CGM complex growth medium
+  composition:
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  atmosphere: ANAEROBIC
+  headspace_gas: 85% N2, 10% CO2, 5% H2 chamber atmosphere
+  vessel_type: 100 mL screw-cap bottle, caps loosened
+  temperature: 37.0
+  preparation_notes: >-
+    A complex medium chosen because it supports both species; the paper cites its
+    earlier work for the formulation rather than restating the full recipe, so
+    only the yeast-extract concentration is asserted here. Pre-cultures were heat
+    shocked at 80°C to kill non-sporulated cells before inoculation. Note that
+    C. ljungdahlii does not use glucose in this system; the paper tracks its
+    fructose consumption.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using the complex (5 g/L yeast extract) Turbo CGM growth medium
+    explanation: Sources the medium name and its yeast-extract concentration.
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: heat shocked at 80°C to kill non-sporulated cells
+    explanation: Sources the heat-shock step in pre-culture preparation.
+associated_datasets:
+- title: RNA-seq reads for the coculture, transwell, and monoculture arms
+  dataset_type: METATRANSCRIPTOMICS
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1167669
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1167669
+  description: >-
+    54 BioSamples (SAMN44010615-SAMN44010668) covering the Type I bottle
+    comparison and the Type II transwell comparison, in biological triplicate.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: deposited in NCBI’s sequence reads archive under the BioProject PRJNA1167669 containing 54 BioSamples
+    explanation: Sources the accession and the sample count.
+external_resources:
+- name: Seed publication - coculture transcriptional program
+  repository: OTHER
+  resource_id: PMID:40298437
+  url: https://pubmed.ncbi.nlm.nih.gov/40298437/
+  description: >-
+    Open-access mSystems study of the coculture transcriptome, the amino-acid
+    exchange, and the mutualism reclassification.
+  evidence:
+  - reference: PMID:40298437
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we used RNA sequencing to identify genes differentially expressed in this coculture using two types of comparisons
+    explanation: Identifies the seed publication by its own study design.
+- name: Founding syntrophy publication
+  repository: OTHER
+  resource_id: PMID:30391511
+  url: https://pubmed.ncbi.nlm.nih.gov/30391511/
+  description: >-
+    The 2019 Metabolic Engineering paper that built the coculture and reported
+    the non-native metabolites.
+  evidence:
+  - reference: PMID:30391511
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: consisting of the solventogen Clostridium acetobutylicum, which converts simple
+    explanation: Identifies the founding publication by its description of the pairing.
+- name: Cell-fusion structural evidence
+  repository: OTHER
+  resource_id: PMID:32873766
+  url: https://pubmed.ncbi.nlm.nih.gov/32873766/
+  description: >-
+    The 2020 mBio paper with the electron microscopy and tomography that
+    demonstrated the fusion.
+  evidence:
+  - reference: PMID:32873766
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transmission electron microscopy and electron tomography demonstrated cell wall and membrane fusions between the two organisms
+    explanation: Identifies the publication that established fusion structurally.
+- name: Interspecies DNA transfer
+  repository: OTHER
+  resource_id: PMID:38214507
+  url: https://pubmed.ncbi.nlm.nih.gov/38214507/
+  description: The 2024 mBio paper reporting plasmid DNA transfer and genomic integration.
+  evidence:
+  - reference: PMID:38214507
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we isolated C. acetobutylicum cells which acquired and integrated into their genome portions of plasmid DNA from a plasmid-carrying C. ljungdahlii strain
+    explanation: Identifies the publication that established DNA transfer.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this coculture.
