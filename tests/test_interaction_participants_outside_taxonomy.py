@@ -1,13 +1,13 @@
-"""The 25 interaction participants that are not taxonomy members (#319).
+"""The 26 interaction participants that are not taxonomy members (#319).
 
 `UNKNOWN_SOURCE`/`UNKNOWN_TARGET` gate at error severity unless the interaction
 carries `scope: COMMUNITY_LEVEL`, which downgrades them to warning (#326). Every
 one is a warning today, so `main` is green — but the population has grown since
 #319 counted it, unnoticed, which is the thing this file fixes.
 
-The auditor reports **27 findings** over **25 distinct participants**: two are
+The auditor reports **28 findings** over **26 distinct participants**: two are
 named as both a source and a target, in different interactions. The sets below
-are the 25, since the question is about organisms rather than edges.
+are the 26, since the question is about organisms rather than edges.
 
 #319 asks a policy question: **should hosts and antagonists be `taxonomy`
 members?** That is a curation decision and this file does not make it. What it
@@ -23,12 +23,12 @@ warnings" is much harder to decide about than four kinds of thing:
 * **HOST (6)** — the plant or animal the community lives on or in. `Medicago
   truncatula (host legume)`, `Arabidopsis thaliana`, `Lactuca sativa`,
   `Hordeum vulgare`, `Hypnum plumaeforme (moss host)`.
-* **ANTAGONIST (3)** — a pathogen the community suppresses, i.e. the point of
-  the experiment rather than a member of it. `Rhizoctonia solani`,
-  `Aeromonas hydrophila`, `Pseudomonas aeruginosa`.
+* **ANTAGONIST (4)** — a pathogen or spoilage taxon the community suppresses,
+  i.e. the point of the experiment rather than a member of it. `Rhizoctonia
+  solani`, `Aeromonas hydrophila`, `Pseudomonas aeruginosa`, `Staphylococcus`.
 * **ABIOTIC (2)** — `anode`, and the biofilm on it.
 
-HOST and ANTAGONIST are the real question, and they are **9 of the 25** — a
+HOST and ANTAGONIST are the real question, and they are **10 of the 26** — a
 much smaller commitment than the headline count suggests. A community
 *interacts with* its host
 without the host being a member, which is an argument for leaving them out; the
@@ -105,6 +105,7 @@ HOST = {
     ("PMI_Variovorax_Thermotolerance_Collection.yaml", "Arabidopsis thaliana"),
 }
 ANTAGONIST = {
+    ("Caragana_Korshinskii_CrossKingdom_Forage_SynCom.yaml", "Staphylococcus"),
     ("Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml", "Aeromonas hydrophila"),
     ("Rice_Duckweed_Bacillus_SynCom.yaml", "Rhizoctonia solani"),
     (
@@ -204,13 +205,13 @@ def test_all_of_them_are_warnings_not_errors(outside):
 
 @pytest.mark.parametrize(
     ("group", "expected"),
-    [("UMBRELLA", 14), ("HOST", 6), ("ANTAGONIST", 3), ("ABIOTIC", 2)],
+    [("UMBRELLA", 14), ("HOST", 6), ("ANTAGONIST", 4), ("ABIOTIC", 2)],
 )
 def test_the_group_sizes_are_what_the_decision_was_sized_against(group: str, expected: int):
     """#319's decision applies per group, so the group sizes are the input to it.
 
     UMBRELLA needs no decision — those name members that are present, only more
-    coarsely. HOST and ANTAGONIST are the real question, and they are 9 of 25,
+    coarsely. HOST and ANTAGONIST are the real question, and they are 10 of 26,
     which is a much smaller commitment than the headline count suggests.
     """
     assert len(globals()[group]) == expected

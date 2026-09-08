@@ -1,0 +1,50 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.yaml
+  slug: Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy
+session:
+  id: 2026-09-08T041229Z-claude-code-b502be
+  timestamp: '2026-09-08T04:12:29Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+events:
+- type: CREATE
+  outcome: changed
+  sections:
+  - members
+  - interactions
+  - environment
+  - cultivation
+  - datasets
+  - evidence
+  summary: Create the Tropidoatractus magnetotacticus tripartite syntrophy record
+  details: 'New record CommunityMech:000337, found by scout-communities (Europe PMC, preset
+    syntrophy, 2026-09-07) and researched with the deep-research-community skill. Edison is
+    returning HTTP 403 at /auth/login (issue #745), so the skill''s documented non-Edison
+    fallback ran instead: deep-research-client with the claude_code provider, 445 s, $2.06,
+    report at research/communities/Tropidoatractus_Magnetotacticus_Tripartite_Syntrophy.stub-deep-research-claude_code.md
+    (research/ is gitignored). The OA full text was cached from PMC13416559 before the report
+    landed, so all 27 evidence snippets were checked as exact substrings of references_cache/PMID_42475569.md
+    rather than trusted from the report. One report claim was wrong and was corrected here:
+    it gave NCBITaxon:3469242 as the registered species Tropidoatractus magnetotacticus, but
+    the local NCBITaxon build shows that id''s canonical label is still the provisional Tropidoatractus
+    sp. MC-2025a, which is what the record stores, with the published binomial in preferred_term.
+    Three members: the ciliate host at NO_GTDB_EQUIVALENT because GTDB is bacteria and archaea
+    only, the magnetotactic sulfate reducer GROUNDED at phylum rank GTDB:p__Desulfobacterota,
+    and the methanogen GROUNDED at genus rank GTDB:g__Methanoregula, all computed with scripts/gtdb_ground.py
+    against kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0. The symbiont is deliberately
+    held at phylum rank because 16S and dsrA place it differently. The report''s warnings
+    were honoured: the H2 edge to the sulfate reducer is PARTIAL because the source says only
+    could potentially; the magnetotaxis edge carries the failed-FISH limit as PARTIAL evidence;
+    sulfate reduction is PARTIAL as genomic potential with no expression; no geochemistry
+    is asserted because none was measured; and the inferred competition between the two H2
+    consumers is not curated because the paper never asserts it. The three-member census also
+    moved four repo-wide counters, updated in the same change: is_reclassified totals in tests/test_is_reclassified_semantics.py,
+    the schema description and the ground-taxa-gtdb skill (#441), and the participating_taxa
+    user set. Validated with validate, validate-strict, validate-gtdb, validate-gtdb-domain,
+    validate-terms, validate-references and audit-network; the reference validation was mutation-checked
+    with a control arm.'

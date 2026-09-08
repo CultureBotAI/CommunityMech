@@ -1,0 +1,451 @@
+id: CommunityMech:000337
+name: Tropidoatractus magnetotacticus Magnetotactic Ciliate Tripartite Syntrophy
+description: >
+  A natural tripartite anaerobic symbiosis inside a single ciliate cell, found in
+  freshwater rainforest stream sediment near Libreville, Gabon. The host,
+  Tropidoatractus magnetotacticus sp. nov., produces H2 in hydrogenosomal
+  mitochondrion-related organelles. Two intracellular prokaryotic partners consume
+  it: a magnetotactic sulfate-reducing bacterial population in the
+  Thermodesulfobacteriota that encodes and expresses a magnetosome gene cluster,
+  and an endosymbiotic hydrogenotrophic methanogen affiliated with Methanoregula.
+  The bacterial partner biomineralizes chains of ferrimagnetic magnetite
+  nanoparticles inside the host, so the eukaryote's magnetotaxis is a trait
+  acquired from a symbiont rather than one it encodes itself.
+
+  "Tripartite" names three functional guilds, not three genomes. The sulfate
+  reducer bin splits by GC content into a magnetosome-bearing and a
+  magnetosome-free population, and refined binning yielded six MAGs for the
+  former, two for the methanogen, and four sub-bins for the ciliate.
+
+  The whole syntrophic network is built from gene presence and transcript
+  expression. No metabolite concentration or flux was measured, no FISH
+  confirmation succeeded, and the source microcosm died after two years, so
+  nothing here rests on a cultivated or re-samplable system.
+ecological_state: STABLE
+community_origin: NATURAL
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: anoxic freshwater rainforest stream sediment
+  term:
+    id: ENVO:00002127
+    label: stream sediment
+  notes: >-
+    Sediment from a small freshwater rainforest stream in the Arboretum de Raponda
+    Walker near Libreville, Gabon (0 deg 34' 34.5" N, 9 deg 18' 54.6" E), collected
+    17 September 2022. Anoxia is inferred from the obligate-anaerobe biology of the
+    host and its partners rather than measured; no geochemistry was reported for
+    the site, which is why ENVO:00002134 anaerobic stream sediment is not used here.
+taxonomy:
+- taxon_term:
+    preferred_term: Tropidoatractus magnetotacticus
+    term:
+      id: NCBITaxon:3469242
+      label: Tropidoatractus sp. MC-2025a
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      The eukaryotic host, an anaerobic ciliate in the family Tropidoatractidae
+      (order Metopida, class Armophorea), described in the source as the new
+      species Tropidoatractus magnetotacticus. NCBITaxon:3469242 is the taxon NCBI
+      registered for the sequenced material and its canonical label is still the
+      provisional "Tropidoatractus sp. MC-2025a"; the published binomial is carried
+      in preferred_term until NCBI adopts it. GTDB covers Bacteria and Archaea only,
+      so a eukaryote has no counterpart there and never will.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The ciliate robustly nests within the family Tropidoatractidae
+    explanation: Sources the host's family placement.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metatranscriptomes of sorted T. magnetotacticus cells show eukaryotic hydrogenosomal Fe-hydrogenase gene expression
+    explanation: Sources the host as the H2 producer of the network.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The average relative abundance of the ciliate_bin was 14.5%
+    explanation: Sources the host as the largest of the three genomic bins, well above the DOMINANT threshold of 1%.
+- taxon_term:
+    preferred_term: magnetotactic sulfate-reducing bacterial endosymbiont
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:p__Desulfobacterota
+      gtdb_taxon: Desulfobacterota
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota
+      ncbi_source_id: NCBITaxon:200940
+      majority_fraction: 0.998
+      support_genomes: 3673
+      total_genomes: 3681
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [grounded at p__ rank; 3 GTDB taxa under the NCBI taxon]
+    notes: >-
+      The source's internal label for this population is "Magneto_SRB_bin".
+
+      Held at phylum rank on purpose. Two markers place this population
+      differently - 16S falls between Solidesulfovibrio magneticus RS-1,
+      Fundidesulfovibrio magnetotacticus and the ectosymbiont "Candidatus
+      Desulfarcum epimagneticum", while dsrA is closest to Desulfarculus - so a
+      genus assignment would pick a side the source does not.
+
+      "Candidatus Desulfarcum epimagneticum" is the comparator whose magnetosome
+      gene cluster this one resembles, not a member of this community; it is an
+      ectosymbiont of a different protist in a different study.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: a genomic population of MTB (Thermodesulfobacteriota) in magnetically sorted T. magnetotacticus cells was found that encoded and expressed a magnetosome gene cluster responsible for magnetosome Fe3O4 biomineralization
+    explanation: Sources the phylum-level identity and the expressed magnetosome gene cluster.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Electron microscopy revealed T. magnetotacticus hosts numerous internal rod-shaped bacteria containing these magnetosome chains
+    explanation: Sources the intracellular location of the magnetosome-bearing bacteria.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: were not organized into digestive vacuoles, indicating they were not ingested prey cells
+    explanation: Sources the partner as a symbiont rather than prey, which is what makes it a member.
+  - reference: PMID:42475569
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: Metabolic reconstruction indicates that the MTB syntrophic partner harbors genes for dissimilatory sulfate reduction
+    explanation: >-
+      Sources sulfate reduction as genomic potential only. Marked PARTIAL because no
+      expression of dsr, apr or sat is reported, so the capacity is encoded rather
+      than shown to be active.
+- taxon_term:
+    preferred_term: endosymbiotic hydrogenotrophic methanogen
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methanoregula
+      gtdb_taxon: Methanoregula
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanomicrobia;o__Methanomicrobiales;f__Methanospirillaceae;g__Methanoregula
+      ncbi_source_id: NCBITaxon:395331
+      majority_fraction: 1.0
+      support_genomes: 2
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz sha256:761d5537a7edb4b0 (file mtime 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >-
+      The source's internal label for this population is "methanogen_bin".
+
+      Genus rank, from two high-quality MAGs of about 1 Mb whose reduction the
+      source reads as typical of endosymbionts. The grounding rests on two genomes
+      in the mapping, which is thin.
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: T. magnetotacticus also housed a second genomic population affiliated with the endosymbiotic methanogen Methanoregula
+    explanation: Sources the third member and its genus-level affiliation.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: encoded a complete methanogenesis pathway
+    explanation: Sources the methanogenic capacity of this population.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: accounted for 2% (n = 4, SD = 0.7) and 1% (n = 4, SD = 1.3) of the metagenomes and metatranscriptomes reads
+    explanation: >-
+      Sources the methanogen at 2% of metagenome reads, above this schema's
+      greater-than-1% DOMINANT threshold while being the smallest of the three bins.
+ecological_interactions:
+- name: Host hydrogen transfer to the magnetotactic sulfate reducer
+  description: >-
+    H2 produced by the host's hydrogenosomal Fe-hydrogenase is proposed to serve as
+    the electron donor for the intracellular sulfate-reducing partner. The source
+    words this as a possibility rather than a demonstration, and no hydrogen
+    measurement was made.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Tropidoatractus magnetotacticus
+    term:
+      id: NCBITaxon:3469242
+      label: Tropidoatractus sp. MC-2025a
+  target_taxon:
+    preferred_term: magnetotactic sulfate-reducing bacterial endosymbiont
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: hydrogenosome
+    term:
+      id: GO:0042566
+      label: hydrogenosome
+  evidence:
+  - reference: PMID:42475569
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: The Magneto_SRB_bin syntrophic partner could potentially utilize H2 (and or other fermentation products) released from the ciliate MROs
+    explanation: >-
+      Sources the edge in the source's own hedged wording. PARTIAL because
+      "could potentially" is the strongest claim the paper makes for this pair.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The SRB and methanogen populations likely use the H2 produced by the MRO hydrogenosomal Fe-hydrogenase as an electron donor
+    explanation: Sources H2 from the host organelle as the donor for both partners.
+- name: Host hydrogen transfer to the endosymbiotic methanogen
+  description: >-
+    The Methanoregula endosymbiont consumes host-produced H2 through hydrogenotrophic
+    methanogenesis. This is the best supported of the metabolic edges, resting on an
+    expressed complete methanogenesis pathway.
+  interaction_type: SYNTROPHY
+  source_taxon:
+    preferred_term: Tropidoatractus magnetotacticus
+    term:
+      id: NCBITaxon:3469242
+      label: Tropidoatractus sp. MC-2025a
+  target_taxon:
+    preferred_term: endosymbiotic hydrogenotrophic methanogen
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis from carbon dioxide
+    term:
+      id: GO:0019386
+      label: methanogenesis, from carbon dioxide
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: endosymbiotic Methanoregula cells efficiently consume host-produced H2
+    explanation: Sources the direction and the consumer.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: encoded a complete methanogenesis pathway
+    explanation: Sources the methanogenic route that makes the partner an H2 sink.
+- name: Symbiont-conferred magnetotaxis
+  description: >-
+    The magnetosome gene cluster is encoded and expressed by the bacterial partner,
+    not by the ciliate, and the magnetite chains it builds give the host cell a
+    magnetic moment. The host's magnetotaxis is therefore a trait supplied by a
+    symbiont.
+
+    Two limits belong with this claim. The physical identity of the rod-shaped
+    bacteria seen by electron microscopy with the genome carrying the magnetosome
+    gene cluster is inferred from metagenomics, because every FISH attempt failed
+    on low cell numbers. And what the magnetotaxis is for in the field is
+    hypothesis: the source suggests it might guide the anaerobic host down into
+    anoxic sediment, and says outright that whether the observed south-seeking
+    orientation reflects native behaviour is unclear.
+
+    interaction_type is MUTUALISM because the source frames the whole association as
+    reciprocal, but note that InteractionTypeEnum has no value for a symbiont
+    supplying a behavioural capability rather than a metabolite. See issue 749.
+  interaction_type: MUTUALISM
+  source_taxon:
+    preferred_term: magnetotactic sulfate-reducing bacterial endosymbiont
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  target_taxon:
+    preferred_term: Tropidoatractus magnetotacticus
+    term:
+      id: NCBITaxon:3469242
+      label: Tropidoatractus sp. MC-2025a
+  metabolites:
+  - preferred_term: magnetite
+    term:
+      id: CHEBI:46726
+      label: magnetite
+  biological_processes:
+  - preferred_term: magnetosome assembly
+    term:
+      id: GO:0140923
+      label: magnetosome assembly
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: T. magnetotacticus exhibits magnetotaxis due to the magnetic moment of internal ferrimagnetic magnetite (Fe3O4) nanoparticles forming ellipsoidal
+    explanation: Sources the magnetite chains as the physical basis of the host's magnetotaxis.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: a genomic population of MTB (Thermodesulfobacteriota) in magnetically sorted T. magnetotacticus cells was found that encoded and expressed a magnetosome gene cluster responsible for magnetosome Fe3O4 biomineralization
+    explanation: Sources the symbiont, not the host, as the genome that encodes and expresses the magnetosome cluster.
+  - reference: PMID:42475569
+    supports: PARTIAL
+    evidence_source: IN_VIVO
+    snippet: All attempts at fluorescent in situ hybridization (FISH) to independently verify the identity of the internal MTB also failed because of the low cell numbers
+    explanation: >-
+      Records the limit on this edge. PARTIAL because the link between the observed
+      bacteria and the magnetosome-bearing genome is metagenomic inference that
+      independent verification could not confirm.
+- name: Tripartite electron sink improving host energetics
+  description: >-
+    Taken together the two internal partners act as sinks for H2 and other
+    fermentation products, which the source reads as improving the efficiency of the
+    host's own energy metabolism. This is the return leg that makes the association
+    syntrophy rather than one-way consumption, and it has no single source or target
+    because both partners contribute.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Tropidoatractus magnetotacticus
+    term:
+      id: NCBITaxon:3469242
+      label: Tropidoatractus sp. MC-2025a
+  - preferred_term: magnetotactic sulfate-reducing bacterial endosymbiont
+    term:
+      id: NCBITaxon:200940
+      label: Thermodesulfobacteriota
+  - preferred_term: endosymbiotic hydrogenotrophic methanogen
+    term:
+      id: NCBITaxon:395331
+      label: Methanoregula
+  metabolites:
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: likely act as sinks for H2 (and potentially other fermentation products), thereby improving the efficiency of the host
+    explanation: Sources the reciprocal benefit to the host from partner H2 consumption.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: 'a tripartite syntrophic network whereby anaerobic fermentation products from T. magnetotacticus are consumed by two syntrophic partners: MTB producing the magnetosome chains and hydrogenotrophic methanogens'
+    explanation: Sources the three-guild network as the paper's own summary of the association.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  temperature_controlled: false
+  ph_controlled: false
+  instrument_detail: >-
+    Bulk sediment held as a microcosm and subsampled repeatedly over about two
+    years. No medium, no feeding and no defined culture: the community was never
+    cultivated, only kept alive in its own sediment.
+  controls_notes: >-
+    Cells for sequencing were concentrated by the capillary racetrack method on a
+    Magnetodrome microscope stage with a 2 mT field applied antiparallel to the
+    capillary's long axis, then collected by syringe. That is a magnetic sorting
+    step, not a growth condition.
+  notes: >-
+    Recorded so the provenance of the sequenced material is legible, not because
+    this community was cultured. The microcosm died after two years and no further
+    material was available, so nothing here can be re-sampled.
+
+    temperature_controlled and ph_controlled are false because the sediment sat at
+    room temperature in a dark room with no control of either; that is read off the
+    described storage rather than from a statement that neither was controlled.
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: it was stored at room temperature in a dark room
+    explanation: Sources the storage temperature and the absence of light.
+environmental_factors:
+- name: Geomagnetic inclination at collection
+  value: -27.9 degrees
+  description: >-
+    The site sits in the southern geomagnetic hemisphere, which is the control on
+    the south-seeking polarity the cells show: reversing an applied field reverses
+    their swimming direction.
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: swim antiparallel to an applied magnetic field, consistent with a
+    explanation: Sources the south-seeking swimming behaviour.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Reversing the magnetic field direction inverted the swimming direction
+    explanation: Sources the magnetic field as the directional cue.
+- name: Collection site
+  value: freshwater rainforest stream, Libreville, Gabon
+  description: >-
+    A small stream in hilly, densely vegetated terrain in the Arboretum de Raponda
+    Walker; sediment collected 17 September 2022.
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: from a small freshwater rainforest stream in hilly, densely vegetated terrain
+    explanation: Sources the habitat type of the collection site.
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A sediment sample was collected on September 17th, 2022, in the
+    explanation: Sources the sample material and collection date.
+associated_datasets:
+- title: Magnetically sorted ciliate metagenomes and metatranscriptomes
+  dataset_type: METAGENOMICS
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1363731
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1363731
+  description: >-
+    Raw reads for the magnetically sorted T. magnetotacticus cells, registered under
+    the provisional organism name Tropidoatractus sp. MC-2025a. Four metagenomes and
+    four metatranscriptomes, from two magnetic sorts with two technical replicates
+    each.
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Metatranscriptomes of sorted T. magnetotacticus cells show eukaryotic hydrogenosomal Fe-hydrogenase gene expression
+    explanation: Sources the sorted-cell metatranscriptomes this dataset holds.
+external_resources:
+- name: Primary publication - magnetotaxis via tripartite syntrophy
+  repository: OTHER
+  resource_id: PMID:42475569
+  url: https://pubmed.ncbi.nlm.nih.gov/42475569/
+  description: >-
+    Open-access PNAS description of the magnetotactic ciliate, its two internal
+    partners, and the syntrophic network inferred from their expressed metabolism.
+  evidence:
+  - reference: PMID:42475569
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Our findings show how magnetotaxis can emerge as a trait in eukaryotes via syntrophic cooperation
+    explanation: Identifies the publication by its own headline finding.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: >-
+  Iron is central rather than incidental here: the community's defining trait is a
+  magnetic one, produced by genetically controlled magnetite biomineralization in
+  the bacterial partner.
