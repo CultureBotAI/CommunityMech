@@ -1,0 +1,45 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: kb/communities
+  slug: biological-process-regrounding
+session:
+  id: 2026-09-10T035955Z-claude-code-b99c64
+  timestamp: '2026-09-10T03:59:55Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/751
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  summary: Reground 29 wrong-aspect GO terms in biological_processes across 17 records
+  details: 'Resolves #751. BiologicalProcessDescriptor.term is described as a GO biological
+    process term, but nothing checked which of GO''s three aspects a term belongs to, so a
+    molecular function or cellular component with a correct label passed validate-terms cleanly.
+    32 entries did: 28 molecular functions, 2 cellular components, and 3 uses of GO:0070812
+    organohalide respiration, which resolves to nothing in the pinned build and is already
+    an exception in conf/id_label_targets.yaml, so it is excluded here as a resolution failure
+    rather than an aspect error. 17 entries were swapped to genuine process terms, each verified
+    BP by ancestor against GO:0008150 in the local build rather than by label: cellulase activity
+    to GO:0030245, xylanase activity to GO:0045493, chitinase activity to GO:0006032, urease
+    activity to GO:0043419, ammonia monooxygenase activity to GO:0019329, oxidoreductase acting
+    on nitrogenous donors to GO:0019332, monoatomic anion transporter activity to GO:0015703
+    chromate transport, metal ion sequestering activity and metal ion binding to GO:0061687,
+    and extracellular region to GO:0009306 protein secretion. 12 uses of GO:0009055 electron
+    transfer activity were removed rather than substituted: EBI OLS returns nothing for extracellular
+    electron transport or interspecies electron transfer, and every GO electron-transport-chain
+    term denotes an intracellular series of complexes, so any substitute would repeat the
+    error being fixed. METPO:1007214 and METPO:1007215 are proposed for those in proposals/metpo_communitymech_interaction_semantics_v1/.
+    Regrounding two activities onto one process collided in 11 interactions and 2 more duplicates
+    predated the sweep; all 13 were deduplicated. An earlier attempt used a regex to clear
+    emptied biological_processes keys and silently merged non-empty lists into the preceding
+    one across 204 records; it was reverted before validation and redone with a local structural
+    check that only drops a key when the very next line is not one of its items. tests/test_biological_processes_are_processes.py
+    now checks the aspect structurally, mutation-tested with a control arm.'
