@@ -170,6 +170,7 @@ ecological_interactions:
     metabolic cooperation, and the seed paper grows both species as monocultures
     in the same experiment, so the cooperation is demonstrably facultative here.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium acetobutylicum
     term:
@@ -194,6 +195,11 @@ ecological_interactions:
     term:
       id: GO:0015977
       label: carbon fixation
+  downstream:
+  - target: Hydrogen removal relieving hydrogenase feedback inhibition
+    description: >
+      Acetogenic consumption of C. acetobutylicum-derived H2 is the reciprocal
+      sink hypothesized to relieve hydrogenase feedback in the solventogen.
   evidence:
   - reference: PMID:40298437
     supports: SUPPORT
@@ -214,6 +220,7 @@ ecological_interactions:
     words the conclusion as a possibility, and no growth measurement on arginine
     was reported for this coculture.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium acetobutylicum
     term:
@@ -256,6 +263,7 @@ ecological_interactions:
     and a tetrahydrofolate intermediate of the Wood-Ljungdahl pathway's eastern
     branch, so histidine feeds carbon into the pathway the acetogen runs.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium acetobutylicum
     term:
@@ -298,6 +306,7 @@ ecological_interactions:
     that makes the pairing mutualistic rather than commensal. The measured effect
     was small, though reproducible across the three biological replicates.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -375,6 +384,7 @@ ecological_interactions:
     same amino-acid pool is therefore both cross-fed and competed for, at
     different phases of the culture.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium acetobutylicum
     term:
@@ -426,6 +436,16 @@ ecological_interactions:
     term:
       id: GO:0140253
       label: cell-cell fusion
+  downstream:
+  - target: Interspecies DNA transfer and genomic integration
+    description: >
+      Cell fusion provides a physical route for C. ljungdahlii plasmid DNA to
+      cross into C. acetobutylicum and integrate into its genome.
+  - target: Emergent non-native metabolites
+    description: >
+      Fusion-mediated material exchange is the direct-contact mechanism
+      associated with wild-type production of metabolites neither monoculture
+      produces.
   evidence:
   - reference: PMID:32873766
     supports: SUPPORT
@@ -446,6 +466,7 @@ ecological_interactions:
     interaction_type is deliberately unset for the same reason as the fusion
     entry: COMMENSALISM would assert that the recipient benefits, and the cited
     work shows acquisition and integration, not benefit. Tracked as issue 749.
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -456,6 +477,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:1488
       label: Clostridium acetobutylicum
+  metabolites:
+  - preferred_term: DNA
+    term:
+      id: CHEBI:16991
+      label: deoxyribonucleic acid
   evidence:
   - reference: PMID:38214507
     supports: SUPPORT
