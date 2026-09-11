@@ -25,6 +25,7 @@ prefixes:
   OBI: http://purl.obolibrary.org/obo/OBI_
   PMID: http://www.ncbi.nlm.nih.gov/pubmed/
   doi: https://doi.org/
+  GITHUB: https://github.com/
   xsd: http://www.w3.org/2001/XMLSchema#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
 
@@ -765,9 +766,9 @@ classes:
     description: An evidence item linking a claim to a publication
     attributes:
       reference:
-        description: The publication reference (PMID:12345678 or doi:10.1038/... format required)
+        description: The publication or article-linked repository reference.
         required: true
-        pattern: "^(PMID:|doi:|bioproject:).*"
+        pattern: "^(PMID:|doi:|bioproject:|GITHUB:).*"
         implements:
           - linkml:authoritative_reference
       supports:
@@ -847,8 +848,8 @@ classes:
           Version string if reported (e.g. "3.0"). Leave empty when the source
           does not report a version — do not infer one.
       tool_reference:
-        description: "Citation for the tool itself (PMID:/doi:/bioproject: format)."
-        pattern: "^(PMID:|doi:|bioproject:).*"
+        description: "Citation for the tool itself (PMID:/doi:/bioproject:/GITHUB: format)."
+        pattern: "^(PMID:|doi:|bioproject:|GITHUB:).*"
       role:
         description: >-
           What this tool did in the chain (e.g. "GEM reconstruction", "model
