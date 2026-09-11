@@ -1,0 +1,49 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: kb/communities
+  slug: biological-process-regrounding
+session:
+  id: 2026-09-11T020728Z-claude-code-8d9619
+  timestamp: '2026-09-11T02:07:28Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/758
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  summary: 'Repair a bulk-edit corruption and an id collision found reviewing PR #755'
+  details: 'Adversarial review of PR #755 found four defects in the PR itself. First, the
+    #751 sweep corrupted data/isolates/Chromobacterium_Gold_Biocyanidation.yaml. Its empty-key
+    removal treated a child as a line starting with the key''s own indent plus a dash; that
+    file indents list items deeper than their key, so the check read a populated biological_processes
+    list as empty, deleted the key, and YAML re-parented its five GO terms into the preceding
+    metabolites list - metabolites 18 to 23, processes 5 to 0. Every validator passed on the
+    result, because a metabolite entry and a process entry have the identical shape, so the
+    move is schema-valid, label-valid and invisible to the network audit. Only diffing per-key
+    entry counts against origin/main found it. The file is restored from origin/main and needed
+    no regrounding at all: its five terms were already biological processes. tests/test_descriptor_slots_use_their_own_ontology.py
+    now asserts that metabolites hold CHEBI ids and biological_processes hold GO ids, and
+    was mutation-tested by reproducing the exact corruption, which it catches by name. Second,
+    all eight METPO ids in the new proposal cohort were already in use by metpo_communitymech_v1,
+    METPO:1007214 most awkwardly since it already denotes the DIET community category and
+    was being reused for the DIET interaction. The check that missed this was a grep for 10071
+    followed by two digits, which cannot match 1007200 or above and so reported a maximum
+    of 1007193 against a real maximum of 1008132. The cohort moved to 1008200-1008215 and
+    tests/test_proposal_ids_are_unique.py now gates it; there was no test over proposals/
+    before. Third and fourth, deduplicating by GO id alone discarded curator wording: At_RSPHERE_SynCom
+    kept the generic ''symbiotic process'' over ''plant-bacterium mutualism'', and in Chromium_Sulfur_Reduction_Enrichment
+    two distinct molecular functions, metal ion sequestering activity and metal ion binding,
+    were both regrounded onto GO:0061687 and then collapsed, losing ''biosorption''. Both
+    specific wordings are restored, and the Chromium entry now records the collapse and that
+    GO has no term distinguishing sequestration from binding. Noted but not fixed here: GO:0009437
+    in the Chromobacterium record carries the correct label ''carnitine metabolic process''
+    under the preferred_term ''cyanide catabolic process'', a wrong id that validate-terms
+    cannot see because it only checks that an id and its label agree.'

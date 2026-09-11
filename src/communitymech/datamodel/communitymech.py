@@ -1,5 +1,5 @@
 # Auto generated from communitymech.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-31T01:30:31
+# Generation date: 2026-09-09T20:30:33
 # Schema: communitymech
 #
 # id: https://w3id.org/communitymech
@@ -2507,7 +2507,12 @@ class InteractionTypeEnum(EnumDefinitionImpl):
     )
     COMPETITION = PermissibleValue(text="COMPETITION", description="Both negatively affected (-/-)")
     PREDATION = PermissibleValue(text="PREDATION", description="One benefits, other harmed (+/-)")
-    SYNTROPHY = PermissibleValue(text="SYNTROPHY", description="Obligate metabolic cooperation")
+    SYNTROPHY = PermissibleValue(
+        text="SYNTROPHY",
+        description="""Metabolic cooperation in which one partner's product is another's substrate, and removing that product is what makes the first partner's metabolism favourable.
+**Obligacy is not asserted.** This value used to read \"Obligate metabolic cooperation\", which the corpus's 135 uses do not honour and which a single record can rarely establish: showing that neither partner grows alone needs a monoculture arm, and where sources have one they often disprove obligacy. CommunityMech:000336 is the worked case - every paper calls that pairing a syntrophy and its seed paper grows both species as monocultures in the same experiment (#752).
+Where the distinction matters, state it in the interaction's `description` with the evidence for it. METPO:1007200 obligate syntrophy interaction and METPO:1007201 facultative syntrophy interaction are proposed in `proposals/metpo_communitymech_interaction_semantics_v1/` so it can eventually be typed rather than narrated.""",
+    )
     NICHE_PARTITIONING = PermissibleValue(
         text="NICHE_PARTITIONING",
         description="""Strains/species occupy distinct ecological niches, reducing competition through spatial or temporal separation""",
@@ -2549,17 +2554,42 @@ class InteractionScopeEnum(EnumDefinitionImpl):
 
 class AbundanceEnum(EnumDefinitionImpl):
     """
-    Relative abundance categories
+    How prominent a member is **within its own record** - an ordinal rank among that community's members, not a
+    measured share of it (#748).
+    These values used to name percentage bands: DOMINANT >1%, ABUNDANT 0.1-1%, COMMON 0.01-0.1%, RARE <0.01%. Nothing
+    enforced them and the corpus never meant them. Restricting to `community_origin: SYNTHETIC` records of at most
+    four members, where the arithmetic admits no doubt because every member of a closed four-member community exceeds
+    1%, **76 of 91 assignments claimed the member was below 1%**. Both members of a two-species coculture marked
+    ABUNDANT is the characteristic shape, and it is not a curation error - it says "these two are co-equal partners",
+    which is a useful thing to record and is what the words were being used for.
+    **For a measured number use `relative_abundance`** (a fraction in [0, 1], or another basis via
+    `relative_abundance_unit`) or `absolute_abundance`. Those slots have existed since #161 and are, as of #748, used
+    by 0 of the 1068 taxa in the corpus - which is the other half of why this enum drifted into carrying a job it was
+    never checked on.
     """
 
-    DOMINANT = PermissibleValue(text="DOMINANT", description="Greater than 1% relative abundance")
-    ABUNDANT = PermissibleValue(text="ABUNDANT", description="0.1-1% relative abundance")
-    COMMON = PermissibleValue(text="COMMON", description="0.01-0.1% relative abundance")
-    RARE = PermissibleValue(text="RARE", description="Less than 0.01% relative abundance")
+    DOMINANT = PermissibleValue(
+        text="DOMINANT",
+        description="""The most prominent member, or one of several co-equal most prominent members. The community's character is largely this taxon's.""",
+    )
+    ABUNDANT = PermissibleValue(
+        text="ABUNDANT",
+        description="A major member, but one the record does not present as the most prominent.",
+    )
+    COMMON = PermissibleValue(
+        text="COMMON",
+        description="Reliably present and consequential, without being a major share of the community.",
+    )
+    RARE = PermissibleValue(
+        text="RARE",
+        description="""A minor or trace member. Present, and reported as such, but not a driver of the community's behaviour.""",
+    )
 
     _defn = EnumDefinition(
         name="AbundanceEnum",
-        description="Relative abundance categories",
+        description="""How prominent a member is **within its own record** - an ordinal rank among that community's members, not a measured share of it (#748).
+These values used to name percentage bands: DOMINANT >1%, ABUNDANT 0.1-1%, COMMON 0.01-0.1%, RARE <0.01%. Nothing enforced them and the corpus never meant them. Restricting to `community_origin: SYNTHETIC` records of at most four members, where the arithmetic admits no doubt because every member of a closed four-member community exceeds 1%, **76 of 91 assignments claimed the member was below 1%**. Both members of a two-species coculture marked ABUNDANT is the characteristic shape, and it is not a curation error - it says \"these two are co-equal partners\", which is a useful thing to record and is what the words were being used for.
+**For a measured number use `relative_abundance`** (a fraction in [0, 1], or another basis via `relative_abundance_unit`) or `absolute_abundance`. Those slots have existed since #161 and are, as of #748, used by 0 of the 1068 taxa in the corpus - which is the other half of why this enum drifted into carrying a job it was never checked on.""",
     )
 
 

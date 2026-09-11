@@ -1,0 +1,42 @@
+history_version: 1
+target:
+  kind: schema
+  path: src/communitymech/schema/communitymech.yaml
+  slug: communitymech
+session:
+  id: 2026-09-10T035849Z-claude-code-0402da
+  timestamp: '2026-09-10T03:58:49Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/748
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - schema
+  summary: Make abundance_level ordinal and stop SYNTROPHY asserting obligacy
+  details: 'Resolves #748 and the in-repo half of #752. AbundanceEnum''s values named percentage
+    bands - DOMINANT >1%, ABUNDANT 0.1-1%, COMMON 0.01-0.1%, RARE <0.01% - that the corpus
+    never honoured: restricted to SYNTHETIC records of at most four members, where every member
+    necessarily exceeds 1%, 76 of 91 assignments claimed the member was below 1%. The decisive
+    fact for choosing the fix is that the typed numeric slots already exist and are empty:
+    relative_abundance and absolute_abundance landed in #161 and are used by 0 of 1068 taxa,
+    so the enum was carrying a job it was never checked on while the slot built for that job
+    sat unused. The values are now defined as an ordinal rank within a record and point at
+    relative_abundance for a measured share, which makes every existing assignment correct
+    rather than requiring a 392-taxon sweep. Two of the three records added in #747 were re-ranked
+    under the new reading, since they had been curated against the threshold: C. ljungdahlii
+    DOMINANT to ABUNDANT as the minority partner at 25%, and the Methanoregula endosymbiont
+    DOMINANT to COMMON as the smallest of three bins at 2%. SYNTROPHY read ''Obligate metabolic
+    cooperation'', which the corpus''s 135 uses do not honour; PMID:40298437 grows both members
+    of CommunityMech:000336 as monocultures in the same experiment, so the value asserted
+    what its own source disproves. It no longer claims obligacy and points at the METPO classes
+    proposed for the distinction. tests/test_abundance_level_is_ordinal.py pins the new semantics
+    with four checks, mutation-tested with a control arm: reintroducing a percentage band
+    turns it red, the restored schema is green, and planting contradictory numeric and ordinal
+    values fires the consistency check by name.'
