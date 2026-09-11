@@ -1,0 +1,205 @@
+id: CommunityMech:000343
+name: Komagataella-E. coli Co-inducible Biosynthesis Coculture
+description: >-
+  A defined two-member engineered yeast-bacterium consortium pairing
+  Komagataella phaffii with Escherichia coli for co-inducible relayed
+  biosynthesis of natural products. Low-level glucose-responsive and
+  blue-light-responsive transcriptional systems were rebuilt separately for the
+  two hosts so a single signal could co-induce compound synthesis in
+  coculture. After pathway redirection, genome mining, and rewiring of
+  acyl-donor degradation targets, the living consortium produced the reporter
+  molecule simvastatin from a simple carbon source and also supported inducible
+  biosynthesis of (2S)-naringenin.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >-
+    Establish a yeast-bacterium synthetic consortium that supports co-growth of
+    Komagataella phaffii and Escherichia coli and coordinates natural-product
+    biosynthesis without engineered interactions.
+  assembly_strategy: >-
+    Pair K. phaffii with E. coli under selected co-growth conditions, rebuild
+    low-level glucose-responsive and blue-light-responsive transcriptional
+    systems separately in the host chassis, and redirect biosynthetic pathways
+    plus acyl-donor degradation targets so the coculture can make reporter
+    natural products.
+  measurement_endpoints:
+  - K. phaffii-E. coli co-growth under selected conditions
+  - Single-signal co-induced compound synthesis in coculture
+  - Simvastatin production by the living consortium
+  - Inducible (2S)-naringenin production by the living consortium
+  notes: >-
+    The accessible PubMed abstract supports species-level membership,
+    co-induction logic, a simple-carbon-source consortium culture, and the two
+    reporter compounds, but it does not name the exact strains, the exchanged
+    biosynthetic intermediate, or which pathway segment was assigned to each
+    host.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      This study explores yeast-bacterium consortium without engineered
+      interactions for the co-inducible relayed synthesis of natural products.
+    explanation: >-
+      Supports the design goal of a yeast-bacterium consortium for
+      co-inducible relayed biosynthesis.
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Low-level glucose- and blue light-responsive transcriptional systems are
+      rebuilt separately for each host, allowing single-signal co-induced
+      activation of compound synthesis in coculture.
+    explanation: >-
+      Supports the separately rebuilt induction systems and single-signal
+      coculture activation endpoint.
+environment_term:
+  preferred_term: engineered yeast-bacterium laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    The consortium was assayed under selected co-growth conditions in a
+    controlled coculture on a simple carbon source.
+taxonomy:
+- taxon_term:
+    preferred_term: Komagataella phaffii
+    term:
+      id: NCBITaxon:460519
+      label: Komagataella phaffii
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Yeast member of the engineered consortium; the abstract identifies the
+      member at species level but does not name the K. phaffii strain.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The Komagataella phaffii-Escherichia coli consortium is explored for
+      co-growth under selected conditions.
+    explanation: >-
+      Identifies Komagataella phaffii as the yeast member of the two-species
+      engineered consortium.
+- taxon_term:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: >-
+      Bacterial member of the engineered consortium; the abstract identifies
+      the member at species level but does not name the E. coli strain.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The Komagataella phaffii-Escherichia coli consortium is explored for
+      co-growth under selected conditions.
+    explanation: >-
+      Identifies Escherichia coli as the bacterial member of the two-species
+      engineered consortium.
+ecological_interactions:
+- name: Co-inducible relayed natural-product synthesis
+  description: >-
+    The K. phaffii-E. coli coculture was engineered so glucose-responsive and
+    blue-light-responsive transcriptional systems rebuilt in the two hosts
+    allowed single-signal activation of compound synthesis across the
+    consortium, yielding simvastatin and (2S)-naringenin as reporter products.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      allowing single-signal co-induced activation of compound synthesis in
+      coculture.
+    explanation: >-
+      Supports the community-level co-induction behavior in the engineered
+      two-species coculture.
+environmental_factors:
+- name: Glucose and blue-light induction
+  value: low-level glucose- and blue light-responsive transcriptional systems
+  description: >-
+    Low-level glucose-responsive and blue-light-responsive transcriptional
+    systems were rebuilt separately for the host chassis so a single signal
+    could co-induce compound synthesis in the coculture.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Low-level glucose- and blue light-responsive transcriptional systems are
+      rebuilt separately for each host
+    explanation: >-
+      Supports glucose and blue light response systems as engineered regulatory
+      inputs in the coculture design.
+growth_media:
+- name: Simple-carbon-source biosynthesis coculture
+  inoculum_source: Komagataella phaffii and Escherichia coli engineered chassis.
+  preparation_notes: >-
+    The abstract reports a living consortium cultured on a simple carbon source
+    but does not provide medium composition, induction schedule, incubation
+    temperature, or inoculation ratios.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cultured on simple carbon source
+    explanation: >-
+      Supports the simple-carbon-source cultivation condition used for the
+      reporter simvastatin-producing living consortium.
+external_resources:
+- name: Primary publication - K. phaffii-E. coli co-inducible biosynthesis coculture
+  repository: OTHER
+  resource_id: PMID:42492893
+  url: https://pubmed.ncbi.nlm.nih.gov/42492893/
+  description: >-
+    Metabolic Engineering 2026 primary article describing the
+    Komagataella phaffii and Escherichia coli consortium for co-inducible
+    relayed synthesis of simvastatin and (2S)-naringenin.
+  evidence:
+  - reference: PMID:42492893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Synthetic yeast-bacterium consortium enables co-inducible relayed
+      synthesis of chemicals.
+    explanation: >-
+      Lists the exact primary publication for the K. phaffii-E. coli
+      co-inducible biosynthesis coculture.
+discussions:
+- discussion_id: kphaffii_ecoli_relayed_intermediate
+  prompt: >-
+    Which biosynthetic intermediate or intermediates pass between K. phaffii
+    and E. coli during simvastatin and naringenin production?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Co-inducible relayed natural-product synthesis
+  rationale: >-
+    The abstract reports relayed synthesis and single-signal co-induction in
+    coculture, but the accessible cache does not identify the exchanged
+    metabolite or assign each reporter pathway segment to K. phaffii versus
+    E. coli.
+  posed_by: codex
+  posed_date: '2026-09-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth processing role is reported for the
+  K. phaffii-E. coli co-inducible biosynthesis coculture.
