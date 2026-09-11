@@ -1,0 +1,661 @@
+id: CommunityMech:000350
+name: High-Ammonia Biogas 0B Butyrate-Oxidizing Enrichment
+description: >-
+  A thermophilic, high-ammonia syntrophic butyrate-oxidizing enrichment
+  culture maintained in yeast-extract-free 0B medium after derivation from a
+  propionate-fed biogas reactor community. The enrichment was inoculated from a
+  laboratory bioreactor that originated from large-scale food- and
+  slaughterhouse-waste digestate, then followed as a single long-running,
+  butyrate-fed anaerobic culture at 51 C for 972 days. Amplicon and
+  metagenomic analyses recovered MAG1, a putative novel ammonia-tolerant
+  syntrophic butyrate oxidizer proposed as Candidatus Syntrophothermus
+  ammoniitolerans, together with a putative syntrophic acetate-oxidizing MAG
+  related to Candidatus Thermosyntrophaceticus schinkii and hydrogenotrophic
+  Methanoculleus and Methanothermobacter MAGs that likely close the network by
+  consuming formate or H2 and producing methane.
+ecological_state: STABLE
+community_origin: ENGINEERED
+community_category: SYNTROPHY
+environment_term:
+  preferred_term: thermophilic high-ammonia 0B enrichment culture
+  term:
+    id: ENVO:01001825
+    label: active anaerobic enrichment culturing unit
+  notes: >-
+    Butyrate-fed, yeast-extract-free anaerobic laboratory enrichment culture
+    inoculated with biomass from a thermophilic, high-ammonia, propionate-fed
+    biogas reactor.
+modeled_environment:
+- preferred_term: anaerobic digester sludge
+  term:
+    id: ENVO:00003965
+    label: anaerobic digester sludge
+taxonomy:
+- taxon_term:
+    preferred_term: Candidatus Syntrophothermus ammoniitolerans MAG1
+    term:
+      id: NCBITaxon:129001
+      label: Syntrophothermus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      MAG1 is the recovered putative syntrophic butyrate-oxidizing MAG. The
+      authors assign it to the genus Syntrophothermus and propose the
+      provisional species name Candidatus Syntrophothermus ammoniitolerans.
+  strain_designation:
+    strain_name: MAG1
+  abundance_level: ABUNDANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      MAG1 affiliated with a lineage within the genus Syntrophothermus
+    explanation: >-
+      Supports genus-level placement of MAG1 in the butyrate-oxidizing
+      enrichment culture.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      we propose the provisional name ‘Candidatus Syntrophothermus
+      ammoniitolerans’ for MAG1.
+    explanation: Supports the proposed MAG1 Candidatus name.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      The genetic repertoire of MAG1 further strengthened its involvement in
+      SBO, as it encoded a complete set of genes for the β-oxidation pathway
+    explanation: >-
+      Supports MAG1 as the inferred syntrophic butyrate-oxidizing bacterium.
+- taxon_term:
+    preferred_term: Candidatus Thermosyntrophaceticus-like SAOB MAG2
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: >-
+        kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+        [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >-
+      MAG2 is a moderate-quality bacterial MAG with high similarity to
+      Candidatus Thermosyntrophaceticus schinkii; the source treats it as a
+      putative syntrophic acetate-oxidizing bacterium because a complete
+      Wood-Ljungdahl pathway could not be annotated directly in MAG2.
+  strain_designation:
+    strain_name: MAG2
+  abundance_level: COMMON
+  functional_role:
+  - SECONDARY_FERMENTER
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      MAG2, which showed high similarity to ‘Candidatus
+      Thermosyntrophaceticus schinkii’
+    explanation: Supports MAG2 as a Thermosyntrophaceticus-like bacterium.
+  - reference: PMID:42527912
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      suggesting that MAG2 also possesses the genomic potential for SAO
+    explanation: >-
+      Supports, with appropriate uncertainty, the inference that MAG2 could
+      oxidize acetate syntrophically.
+- taxon_term:
+    preferred_term: Candidatus Methanoculleus thermohydrogenotrophicum MAG3
+    term:
+      id: NCBITaxon:1671625
+      label: Candidatus Methanoculleus thermohydrogenotrophicum
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      MAG3 is the recovered hydrogenotrophic methanogen assigned to
+      Candidatus Methanoculleus thermohydrogenotrophicum in the study.
+  strain_designation:
+    strain_name: MAG3
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      ‘Candidatus Methanoculleus thermohydrogenotrophicum’ (MAG3),
+      Methanothermobacter wolfeii (MAG4) and Methanothermobacter tenebrarum
+      (MAG5)
+    explanation: Identifies MAG3 as a Methanoculleus methanogen.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Metagenomic analyses of these MAGs revealed a complete set of genes for
+      hydrogenotrophic methanogenesis through H2, CO2, or formate utilization
+    explanation: >-
+      Supports MAG3 as an inferred H2/formate-consuming hydrogenotrophic
+      methanogen.
+- taxon_term:
+    preferred_term: Methanothermobacter wolfeii and tenebrarum MAGs
+    term:
+      id: NCBITaxon:145260
+      label: Methanothermobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Combined genus-level entry for the two recovered Methanothermobacter MAGs
+      MAG4 and MAG5, assigned in the study to Methanothermobacter wolfeii and
+      Methanothermobacter tenebrarum.
+  strain_designation:
+    strain_name: MAG4 / MAG5
+  abundance_level: DOMINANT
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      ‘Candidatus Methanoculleus thermohydrogenotrophicum’ (MAG3),
+      Methanothermobacter wolfeii (MAG4) and Methanothermobacter tenebrarum
+      (MAG5)
+    explanation: >-
+      Identifies the two Methanothermobacter MAGs recovered from the 0B
+      enrichment.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Methanothermobacter represented about 94% of the archaeal reads in
+      amplicon sequencing
+    explanation: >-
+      Supports Methanothermobacter as the late dominant archaeal lineage in
+      culture 0B.
+ecological_interactions:
+- name: Syntrophic Butyrate Oxidation by MAG1
+  description: >-
+    Candidatus Syntrophothermus ammoniitolerans MAG1 is inferred to oxidize
+    butyrate through beta-oxidation, releasing acetate and reduced electron
+    carriers whose removal by acetate oxidizers and hydrogenotrophic
+    methanogens makes the overall butyrate-to-methane conversion favorable.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Syntrophothermus ammoniitolerans MAG1
+    term:
+      id: NCBITaxon:129001
+      label: Syntrophothermus
+  target_taxon:
+    preferred_term: Candidatus Thermosyntrophaceticus-like SAOB MAG2
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  downstream:
+  - target: Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
+    description: >-
+      MAG1 produces acetate during butyrate beta-oxidation; MAG2 is then
+      inferred to oxidize acetate with Methanoculleus consuming released H2 or
+      formate.
+  - target: Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
+    description: >-
+      MAG1 produces acetate during butyrate beta-oxidation; MAG2 is then
+      inferred to oxidize acetate with Methanothermobacter consuming released
+      H2 or formate.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Acetate produced during butyrate oxidation was further oxidized by
+      syntrophic acetate-oxidizing bacteria and ultimately converted to methane
+      by hydrogenotrophic methanogens
+    explanation: >-
+      Supports the flow from butyrate oxidation through acetate oxidation to
+      hydrogenotrophic methanogenesis.
+- name: Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
+  description: >-
+    The Candidatus Thermosyntrophaceticus-like MAG2 is inferred to consume
+    acetate produced during MAG1-driven butyrate oxidation and to route
+    electrons to H2 or formate for Candidatus Methanoculleus
+    thermohydrogenotrophicum MAG3.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Thermosyntrophaceticus-like SAOB MAG2
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Candidatus Methanoculleus thermohydrogenotrophicum MAG3
+    term:
+      id: NCBITaxon:1671625
+      label: Candidatus Methanoculleus thermohydrogenotrophicum
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42527912
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      suggesting that MAG2 also possesses the genomic potential for SAO
+    explanation: >-
+      Supports the inferred, but not directly transcription-validated,
+      syntrophic acetate oxidation role of MAG2.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      members of the genera Methanoculleus and Methanothermobacter likely
+      served as hydrogenotrophic methanogenic partners
+    explanation: >-
+      Names Methanoculleus as one inferred hydrogenotrophic partner genus.
+- name: Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
+  description: >-
+    The Candidatus Thermosyntrophaceticus-like MAG2 is inferred to consume
+    acetate produced during MAG1-driven butyrate oxidation and to route
+    electrons to H2 or formate for Methanothermobacter MAG4 and MAG5.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Thermosyntrophaceticus-like SAOB MAG2
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: Methanothermobacter wolfeii and tenebrarum MAGs
+    term:
+      id: NCBITaxon:145260
+      label: Methanothermobacter
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42527912
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      suggesting that MAG2 also possesses the genomic potential for SAO
+    explanation: >-
+      Supports the inferred, but not directly transcription-validated,
+      syntrophic acetate oxidation role of MAG2.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      members of the genera Methanoculleus and Methanothermobacter likely
+      served as hydrogenotrophic methanogenic partners
+    explanation: >-
+      Names Methanothermobacter as one inferred hydrogenotrophic partner genus.
+environmental_factors:
+- name: High-ammonia biogas origin
+  value: elevated ammonia digestate
+  description: >-
+    The enrichment originated from a high-ammonia thermophilic biogas process
+    treating food and slaughterhouse waste.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The bioreactor was inoculated with digestate from a large-scale biogas
+      plant treating food waste from households and industries and minor
+      fractions of slaughterhouse waste.
+    explanation: Supports the source of the syntrophic community.
+- name: Long-term 0B butyrate enrichment
+  value: 972 days and 8 degradation cycles
+  description: >-
+    The 0B culture was maintained without yeast extract and repeatedly fed 30
+    mM sodium butyrate over eight depletion cycles.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      To further enrich the SBO community, subsequent transfers were performed
+      in medium lacking yeast extract and supplemented with sodium butyrate (0B
+      medium).
+    explanation: Supports the 0B medium regime.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      95 972 NA Number of degradation cycles 1 8 NA
+    explanation: Supports the 972-day, eight-cycle duration of the 0B culture.
+- name: Thermophilic static dark incubation
+  value: 51 +/- 1 C
+  unit: degrees Celsius
+  description: >-
+    The butyrate enrichment was incubated statically in the dark at
+    thermophilic temperature.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      incubated statically in the dark at 51 ± 1 °C.
+    explanation: Supports the static, dark, thermophilic incubation condition.
+growth_media:
+- name: 0B sodium-butyrate basal medium
+  atmosphere: ANAEROBIC
+  headspace_gas: N2:CO2 80:20
+  temperature: 51 +/- 1
+  temperature_unit: C
+  light_regime: dark
+  inoculum_source: propionate-fed thermophilic biogas reactor biomass
+  inoculum_size: 5
+  inoculum_unit: percent v/v
+  incubation_time: 972
+  incubation_time_unit: days
+  vessel_type: 500 mL anaerobic flask with 250 mL working volume
+  composition:
+  - name: sodium butyrate
+    concentration: 30
+    unit: mM
+    chebi_term:
+      preferred_term: butyrate
+      term:
+        id: CHEBI:17968
+        label: butyrate
+  - name: ammonium chloride
+  preparation_notes: >-
+    The 0B culture used an anoxic basal medium lacking yeast extract and
+    supplemented with 30 mM sodium butyrate; ammonium chloride was carried over
+    from the basal-medium recipe.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Batch cultivations were established in 500 mL anaerobic flasks
+      containing 250 mL anoxic basal medium and an N2:CO2 (80:20) headspace
+    explanation: Supports the anaerobic flask volume, working volume, and gas mix.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      To further enrich the SBO community, subsequent transfers were performed
+      in medium lacking yeast extract and supplemented with sodium butyrate (0B
+      medium).
+    explanation: >-
+      Supports the sodium-butyrate, yeast-extract-free 0B medium regime.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Following depletion of the supplied substrate and its degradation
+      products, the 0B culture was fed additional substrate (30 mM sodium
+      butyrate)
+    explanation: Supports the 30 mM sodium butyrate amendment.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Reducing agents, vitamins, mineral solutions, and ammonium chloride were
+      added as described above
+    explanation: Supports ammonium chloride as a 0B medium component.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 250.0
+  working_volume_unit: mL
+  operating_temperature: 51.0
+  operating_temperature_unit: °C
+  controls_notes: >-
+    Batch cultivations used 500 mL anaerobic flasks containing 250 mL anoxic
+    basal medium under an N2:CO2 80:20 headspace; the 0B enrichment was
+    maintained as a single long-term culture and refed with butyrate after
+    depletion of supplied substrate and its degradation products.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Within the duration of the present study, attempts to repeatedly transfer
+      the 0B culture in medium without yeast extract were unsuccessful
+    explanation: >-
+      Supports recording the 0B enrichment as a single long-term culture rather
+      than as a repeatably transferred serial enrichment.
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Following depletion of the supplied substrate and its degradation
+      products, the 0B culture was fed additional substrate (30 mM sodium
+      butyrate) on days 330, 449, 488, 554, 629, 678, 764 and 848.
+    explanation: Supports the long-term butyrate refeeding schedule.
+associated_datasets:
+- title: High-ammonia syntrophic butyrate-oxidizing enrichment MAGs
+  accession: PRJNA1419612
+  dataset_type: METAGENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1419612
+  description: >-
+    NCBI BioProject containing the sequencing data and MAG assemblies generated
+    from the 0B butyrate enrichment, YB cultures, and acetate control.
+  publication: PMID:42527912
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      The sequencing data and metagenome-assembled genomes (MAGs) generated in
+      this study have been deposited in NCBI under Bioproject PRJNA1419612
+    explanation: Links the 0B metagenomic datasets to BioProject PRJNA1419612.
+external_resources:
+- name: Primary publication - high-ammonia thermophilic 0B enrichment
+  repository: OTHER
+  resource_id: PMID:42527912
+  url: https://pubmed.ncbi.nlm.nih.gov/42527912/
+  description: >-
+    Open-access BMC Microbiology study combining cultivation, 16S rRNA amplicon
+    sequencing, and metagenomics to resolve syntrophic butyrate oxidation under
+    thermophilic high-ammonia conditions.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      we combine metagenomics and cultivation studies to describe a novel
+      ammonia-tolerant syntrophic butyrate-oxidizing bacterium
+    explanation: Identifies the seed publication and curated enrichment.
+related_ingredients:
+- preferred_term: butyrate
+  chebi_term:
+    id: CHEBI:17968
+    label: butyrate
+  relevance: >-
+    Butyrate was the supplied fatty acid substrate for the 0B enrichment and is
+    inferred to be oxidized by MAG1.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Following depletion of the supplied substrate and its degradation
+      products, the 0B culture was fed additional substrate (30 mM sodium
+      butyrate)
+    explanation: Anchors butyrate as the repeatedly supplied substrate.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: >-
+    Acetate is the product of syntrophic butyrate oxidation and the substrate
+    for the inferred SAO branch.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Acetate produced during butyrate oxidation was further oxidized by
+      syntrophic acetate-oxidizing bacteria
+    explanation: Anchors acetate as the intermediate between SBOB and SAOB.
+- preferred_term: dihydrogen
+  chebi_term:
+    id: CHEBI:18276
+    label: dihydrogen
+  relevance: >-
+    Hydrogen is one of the low-potential electron carriers inferred to couple
+    fatty-acid oxidation to hydrogenotrophic methanogenesis.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: H2- or formate-consuming partners
+    explanation: Anchors H2 as a consumed interspecies electron carrier.
+- preferred_term: formate
+  chebi_term:
+    id: CHEBI:15740
+    label: formate
+  relevance: >-
+    Formate is the second electron carrier inferred to connect syntrophic
+    fatty-acid oxidizers with the hydrogenotrophic methanogens.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: H2- or formate-consuming partners
+    explanation: Anchors formate as a consumed interspecies electron carrier.
+- preferred_term: methane
+  chebi_term:
+    id: CHEBI:16183
+    label: methane
+  relevance: >-
+    Methane is the terminal product made by Methanoculleus and
+    Methanothermobacter through hydrogenotrophic methanogenesis.
+  evidence:
+  - reference: PMID:42527912
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Thereafter, the 0B culture subsequently converted butyrate to methane
+      without substantial lag phases during the subsequent seven butyrate
+      depletion cycles
+    explanation: Anchors methane as the terminal product of the 0B enrichment.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth cycling was curated for this thermophilic
+  high-ammonia syntrophic butyrate-oxidizing enrichment.
+discussions:
+- discussion_id: kg-high-ammonia-mag2-sao-inference
+  prompt: >-
+    Does the moderate-quality Candidatus Thermosyntrophaceticus-like MAG2
+    actively perform syntrophic acetate oxidation in the 0B enrichment, and
+    what is the division of hydrogen versus formate transfer among the MAG1,
+    MAG2, Methanoculleus, and Methanothermobacter MAGs?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Syntrophic Acetate Oxidation by MAG2 to Methanoculleus
+  - ecological_interactions#Syntrophic Acetate Oxidation by MAG2 to Methanothermobacter
+  rationale: >-
+    The 0B enrichment couples butyrate loss to methane formation, but MAG2 was
+    reconstructed at moderate quality and a complete Wood-Ljungdahl pathway was
+    inferred from a close relative rather than completely annotated in MAG2
+    itself.
+  evidence:
+  - reference: PMID:42527912
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Owing to the relatively low completeness of MAG2, a complete
+      Wood-Ljungdahl pathway could not be annotated
+    explanation: >-
+      Documents the main uncertainty around MAG2's acetate-oxidizing role.
