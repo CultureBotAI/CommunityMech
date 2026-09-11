@@ -32,8 +32,6 @@ taxonomy:
     gtdb_grounding_status: UNRESOLVED
     notes: Includes Doudnabacteria (SM2F11), Saccharibacteria, Parcubacteria,
       and Microgenomates recovered from grassland soil.
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:34402646
     supports: SUPPORT
@@ -51,8 +49,6 @@ taxonomy:
     notes: DPANN archaea recovered from the rare biosphere include
       Diapherotrites, Parvarchaeota, Aenigmarchaeota, Nanoarchaeota, and
       Nanohaloarchaeota.
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:34402646
     supports: SUPPORT
@@ -61,27 +57,133 @@ taxonomy:
       Nanoarchaeota, and Nanohaloarchaeota (DPANN)
     explanation: Supports the soil DPANN archaeal membership.
 ecological_interactions:
-- name: Rare-Biosphere Enrichment via Size Filtration
-  description: Particles smaller than 0.2 micrometers concentrated from
-    grassland soil enriched CPR and DPANN sequences 100- to 1,000-fold
-    compared to bulk soil, exposing organisms estimated at 1 to 100 cells
-    per gram.
-  interaction_type: NICHE_PARTITIONING
+- name: Sub-0.2-Micrometer Soil Concentrate Metagenomics
+  description: >
+    Grassland soil particles small enough to pass a 0.2-micrometer filter were
+    concentrated before metagenomic sequencing to target ultra-small CPR and
+    DPANN cells that standard soil metagenomes rarely recover.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in symbiotic interaction
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Rare CPR-DPANN Draft Genome Recovery
+    description: >
+      The small-particle concentrates produced draft CPR and DPANN genomes that
+      were not recovered from bulk metagenomes.
+  evidence:
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      size fractionating small particles from soil, an approach typically used
+      for the recovery of viral metagenomes
+    explanation: >
+      Supports small-particle soil fractionation as the targeted recovery
+      strategy.
+- name: Rare CPR-DPANN Draft Genome Recovery
+  description: >
+    Concentrated soil metagenomes yielded 26 low-contamination draft genomes
+    from CPR bacteria or DPANN archaea and recovered no CPR or DPANN genomes
+    from the paired bulk metagenomes.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in symbiotic interaction
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Bulk-Soil Rare-Biosphere Enrichment
+    description: >
+      Comparing concentrate and bulk coverage quantified how strongly
+      size-fractionation enriched the target CPR and DPANN lineages.
+  - target: Reduced Symbiont Metabolic Profiles
+    description: >
+      The recovered draft genomes were complete enough to inspect central
+      carbon, TCA-cycle, lipid-, nucleotide-, and electron-transport capacity.
+  evidence:
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      From these data, we resolved 26 draft genomes that were >70% complete
+    explanation: >
+      Supports recovery of CPR and DPANN draft genomes from the concentrated
+      soil metagenomes.
+- name: Bulk-Soil Rare-Biosphere Enrichment
+  description: >
+    CPR and DPANN genomes were absent or near the detection limit in bulk soil
+    metagenomes, while small-particle concentrates enriched them 100- to
+    1,000-fold and exposed lineages estimated at 1 to 100 cells per gram of
+    soil.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in symbiotic interaction
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
   evidence:
   - reference: PMID:34402646
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: enriched 100- to 1,000-fold compared to that in bulk soil
-    explanation: Supports the enrichment factor of size-filtration.
-- name: Aerobic-Metabolism Components in Soil CPR
-  description: Some soil Saccharibacteria, Parcubacteria, and Doudnabacteria
-    encode components of aerobic metabolism, indicating adaptation to oxic
-    soil conditions despite the predominantly anaerobic lifestyles of CPR
-    elsewhere.
-  interaction_type: NICHE_PARTITIONING
+    explanation: >
+      Supports the rare-biosphere enrichment factor of the size-fractionated
+      concentrates.
+- name: Reduced Symbiont Metabolic Profiles
+  description: >
+    Most recovered CPR and DPANN genomes lacked extensive lipid, nucleotide,
+    TCA-cycle, and electron-transport pathways, supporting anaerobic symbiotic
+    lifestyles that depend on resources from nearby soil organisms.
   scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
+  biological_processes:
+  - preferred_term: biological process involved in symbiotic interaction
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Soil CPR Ubiquinol-Oxidase Capacity
+    description: >
+      Against a background of otherwise reduced metabolism, a subset of CPR
+      bacteria carried cytochrome bo3 ubiquinol oxidase operons.
   evidence:
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      suggesting they live anaerobic lifestyles and depend on resources from
+      other organisms
+    explanation: >
+      Supports symbiont-like metabolic dependence in the recovered CPR and
+      DPANN genomes.
+- name: Soil CPR Ubiquinol-Oxidase Capacity
+  description: >
+    Doudnabacteria, Saccharibacteria, Parcubacteria, and unbinned CPR
+    sequences carried cytochrome bo3 ubiquinol terminal oxidase operons that
+    appear to have been acquired laterally during adaptation to oxic soil.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: aerobic respiration
+    term:
+      id: GO:0009060
+      label: aerobic respiration
+  evidence:
+  - reference: PMID:34402646
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      acquired aerobic capacity via lateral transfer that may enable adaptation
+      to oxic soil environments
+    explanation: >
+      Supports laterally acquired aerobic capacity as an adaptation of soil
+      CPR bacteria.
   - reference: PMID:34402646
     supports: SUPPORT
     evidence_source: IN_VIVO

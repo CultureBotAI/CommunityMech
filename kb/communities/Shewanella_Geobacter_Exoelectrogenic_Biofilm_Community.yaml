@@ -151,21 +151,17 @@ ecological_interactions:
     under mixed-species bioelectrochemical conditions.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Shewanella oneidensis
-    term:
-      id: NCBITaxon:70863
-      label: Shewanella oneidensis
-  target_taxon:
-    preferred_term: anode-associated biofilm community
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   biological_processes:
   - preferred_term: biofilm formation
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Accelerated Electron Transfer in Mixed-Species Anode Communities
+    description: >
+      Formation of the three-species anode biofilm creates the mixed-community
+      state in which positive strain interactions can accelerate electron
+      transfer to the electrode.
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT
@@ -176,6 +172,7 @@ ecological_interactions:
   description: Transcriptomic results indicated positive interactions among strains in the mixed
     community, including central-metabolism upregulation by S. oneidensis and G. sulfurreducens.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis
     term:
@@ -186,6 +183,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:35554
       label: Geobacter sulfurreducens
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Accelerated Electron Transfer in Mixed-Species Anode Communities
+    description: Positive interactions among individual strains in the mixed
+      anode biofilm were proposed to drive accelerated electron transfer in the
+      bioelectrochemical community.
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT
@@ -202,16 +209,11 @@ ecological_interactions:
     electron transfer and electrical-energy conversion in the bioelectrochemical system.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Shewanella oneidensis
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: NCBITaxon:70863
-      label: Shewanella oneidensis
-  target_taxon:
-    preferred_term: anode
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:28087529
     supports: SUPPORT

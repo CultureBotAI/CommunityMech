@@ -63,9 +63,6 @@ taxonomy:
     isolation_source: Populus deltoides rhizosphere
   abundance_level: DOMINANT
   abundance_value: Dominant in complex R2A medium
-  functional_role:
-  - PRIMARY_DEGRADER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -84,9 +81,6 @@ taxonomy:
     isolation_source: Populus deltoides rhizosphere
   abundance_level: DOMINANT
   abundance_value: Dominant in minimal MOPS medium
-  functional_role:
-  - PRIMARY_DEGRADER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -113,8 +107,6 @@ taxonomy:
   strain_designation:
     strain_name: AP49
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -141,8 +133,6 @@ taxonomy:
   strain_designation:
     strain_name: CF142
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -169,8 +159,6 @@ taxonomy:
   strain_designation:
     strain_name: CF313
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -197,8 +185,6 @@ taxonomy:
   strain_designation:
     strain_name: BC15
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -225,8 +211,6 @@ taxonomy:
   strain_designation:
     strain_name: AP07
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -253,8 +237,6 @@ taxonomy:
   strain_designation:
     strain_name: CF402
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -271,8 +253,6 @@ taxonomy:
   strain_designation:
     strain_name: YR139
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -299,8 +279,6 @@ taxonomy:
   strain_designation:
     strain_name: BT03
     isolation_source: Populus deltoides rhizosphere
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -309,59 +287,70 @@ taxonomy:
       combined and passaged in two different media environments to form stable microbial communities
     explanation: Documents membership of defined Populus-derived strains in the PD10 community
 ecological_interactions:
-- name: Medium-Dependent Cross-Feeding
-  description: Metabolic exchanges among members shape community structure and differ by growth medium.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pseudomonas sp. GM17
-    term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Variovorax sp. CF313
-    term:
-      id: NCBITaxon:34072
-      label: Variovorax
+- name: Medium-Dependent Stable Community Assembly
+  description: Serial passaging of the same ten-strain Populus rhizosphere inoculum in R2A versus
+    MOPS-glucose produced distinct stable communities after the first several growth cycles.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: MOPS Minimal-Medium Four-Strain Coexistence
+    description: The MOPS-glucose condition selected a stable community dominated by Pseudomonas,
+      Variovorax, Rhizobium, and Sphingobium.
+  - target: R2A Pantoea-Dominated Stable Community
+    description: The R2A condition selected a community dominated by Pantoea, Pseudomonas,
+      Sphingobium, and viable Bacillus biomass.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
+    snippet: In this study, 10 bacterial strains isolated from the Populus deltoides rhizosphere were
+      combined and passaged in two different media environments to form stable microbial communities
+    explanation: Supports medium-dependent stable-community assembly from a defined ten-strain
+      rhizosphere inoculum.
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The membership and relative abundances of the strains stabilized after around 5 growth cycles
+      and resulted in just a few dominant strains that depended on the medium
+    explanation: Supports medium-dependent convergence to a few dominant surviving strains.
 - name: Selective Antagonism During Assembly
-  description: Antagonistic relationships contribute to which strains persist in the final stable community.
+  description: Pairwise screens showed that Pseudomonas was antagonistic to most other members, while
+    Pantoea showed positive interactions with several strains, implicating both competition and
+    facilitation in final community selection.
   interaction_type: COMPETITION
-  source_taxon:
-    preferred_term: Pseudomonas sp. GM17
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. GM17
     term:
       id: NCBITaxon:306
       label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Pantoea sp. YR343
+  - preferred_term: Pantoea sp. YR343
     term:
       id: NCBITaxon:53335
       label: Pantoea
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Final community selection can also depend on selective antagonistic relationships and metabolic
-      exchanges
-    explanation: Supports competition and antagonism as drivers of community selection
-- name: Metabolite Exchange with Pantoea
-  description: Cross-feeding interaction supporting Pantoea dominance in R2A medium.
+    snippet: Pseudomonas sp. GM17 cells were antagonistic to the growth of the majority of the other
+      community members, while Pantoea sp. YR343 demonstrated positive interactions with several strains
+    explanation: Supports selective antagonism and positive pairwise interactions as experimentally
+      screened assembly mechanisms.
+- name: Pantoea-Centered R2A Metabolite Export
+  description: The R2A community FBA model predicted that dominant Pantoea sp. YR343 exports more
+    metabolite classes than it receives from the other R2A community members.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Pantoea sp. YR343
     term:
@@ -372,168 +361,124 @@ ecological_interactions:
     term:
       id: NCBITaxon:165695
       label: Sphingobium
+  metabolites:
+  - preferred_term: organic acid
+    term:
+      id: CHEBI:64709
+      label: organic acid
+  - preferred_term: purine derivative
+    term:
+      id: CHEBI:26385
+      label: purines
+  - preferred_term: biogenic amine
+    term:
+      id: CHEBI:50790
+      label: biogenic amine
+  downstream:
+  - target: R2A Pantoea-Dominated Stable Community
+    description: FBA-predicted export by Pantoea provides a computational exchange mechanism for
+      R2A community persistence.
+  evidence:
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In the community model using R2A medium, metabolite exchange can also be predicted. Here,
+      the dominant strain Pantoea sp. YR343, based on the 16S rRNA marker data, is expected
+      to export a greater range of metabolites than it receives from the other two members of the community
+    explanation: Supports Pantoea as the dominant modeled metabolite exporter in the R2A community.
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Organic acids, purine derivatives and biogenic amines are predicted to be excreted and
+      support the growth of the other community members
+    explanation: Identifies the metabolite classes predicted to support other R2A community members.
+- name: MOPS Minimal-Medium Four-Strain Coexistence
+  description: In MOPS-glucose minimal medium, Pseudomonas sp. GM17 dominated while Variovorax sp. CF313,
+    Rhizobium sp. CF142, and Sphingobium sp. AP49 persisted in stable proportions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Rhizobium
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pantoea sp. YR343
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. GM17
     term:
-      id: NCBITaxon:53335
-      label: Pantoea
-  target_taxon:
-    preferred_term: Rhizobium sp. CF142
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Variovorax sp. CF313
+    term:
+      id: NCBITaxon:34072
+      label: Variovorax
+  - preferred_term: Rhizobium sp. CF142
     term:
       id: NCBITaxon:379
       label: Rhizobium
+  - preferred_term: Sphingobium sp. AP49
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+  downstream:
+  - target: Pantoea-Centered R2A Metabolite Export
+    description: The MOPS and R2A survivor sets were both analyzed by community FBA to estimate
+      potential metabolic exchange in the stable community context.
+  evidence:
+  - reference: PMID:33995895
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In MOPS medium, Pseudomonas sp. GM17 is the most abundant member along with three other
+      strains, Variovorax sp. CF313, Rhizobium sp. CF142 and Sphingobium sp. AP49, that
+      persist in consistent proportions
+    explanation: Supports the four-strain MOPS survivor set and its stable coexistence.
+- name: R2A Pantoea-Dominated Stable Community
+  description: In R2A complex medium, Pantoea sp. YR343, Pseudomonas sp. GM17, and Sphingobium sp.
+    AP49 dominated the 16S profile, while metaproteomics also detected notable viable Bacillus sp. BC15.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Bacillus
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pseudomonas sp. GM17
+  participating_taxa:
+  - preferred_term: Pantoea sp. YR343
+    term:
+      id: NCBITaxon:53335
+      label: Pantoea
+  - preferred_term: Pseudomonas sp. GM17
     term:
       id: NCBITaxon:306
       label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Bacillus sp. BC15
+  - preferred_term: Sphingobium sp. AP49
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+  - preferred_term: Bacillus sp. BC15
     term:
       id: NCBITaxon:1386
       label: Bacillus <firmicutes>
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Pantoea-Centered R2A Metabolite Export
+    description: The R2A FBA model predicted Pantoea-centered metabolite export in the Pantoea-dominated
+      stable community.
+  - target: Selective Antagonism During Assembly
+    description: Pairwise interaction screening found Pseudomonas antagonism and Pantoea positive
+      effects that can contribute to R2A community selection.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Caulobacter
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pseudomonas sp. GM17
-    term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Caulobacter sp. AP07
-    term:
-      id: NCBITaxon:75
-      label: Caulobacter
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
+    snippet: For 16S rRNA gene amplicon sequencing, three members dominate in abundance when grown
+      in R2A complex medium, and Pantoea sp. YR343 is the member with highest content
+      after 15 passages
+    explanation: Supports Pantoea-dominated R2A community membership in the 16S time series.
   - reference: PMID:33995895
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Duganella
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pantoea sp. YR343
-    term:
-      id: NCBITaxon:53335
-      label: Pantoea
-  target_taxon:
-    preferred_term: Duganella sp. CF402
-    term:
-      id: NCBITaxon:75654
-      label: Duganella
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Streptomyces
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pseudomonas sp. GM17
-    term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Streptomyces mirabilis YR139
-    term:
-      id: NCBITaxon:68239
-      label: Streptomyces mirabilis
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
-- name: Cross-Feeding with Paraburkholderia
-  description: Metabolic exchange supporting community assembly.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Pantoea sp. YR343
-    term:
-      id: NCBITaxon:53335
-      label: Pantoea
-  target_taxon:
-    preferred_term: Paraburkholderia sp. BT03
-    term:
-      id: NCBITaxon:1822464
-      label: Paraburkholderia
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:33995895
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To unravel the underlying metabolic interactions, flux balance analysis was used to model
-      microbial growth and identify potential metabolic exchanges involved in shaping the microbial communities
-    explanation: Supports metabolite exchange interactions in community assembly
+    snippet: Additionally, there is a notable abundance of Bacillus sp. BC15 not seen in 16S rRNA
+      gene amplicon sequencing data.
+    explanation: Supports viable Bacillus biomass in the R2A community by metaproteomics.
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 30.0

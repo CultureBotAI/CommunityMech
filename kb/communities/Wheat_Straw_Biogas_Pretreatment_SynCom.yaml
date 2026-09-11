@@ -98,13 +98,107 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Synthetic Community Fermentation-Enzyme Production
+  description: The four Bacillus, Acinetobacter, Trichoderma, and Aspergillus
+    degraders are assembled as synthetic microbial communities for
+    fermentation-enzyme production, yielding the crude enzyme solution used for
+    wheat-straw pretreatment.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignocellulose
+    term:
+      id: CHEBI:180683
+      label: lignocellulose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  downstream:
+  - target: Lignocellulose Enzyme Pretreatment
+    description: Crude enzyme from the fermentation-production community was
+      applied to wheat straw for the enzyme pretreatment that depolymerizes
+      cellulose, hemicellulose, and lignin.
+  evidence:
+  - reference: PMID:38748977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic microbial communities were constructed for fermentation-enzyme
+      production
+    explanation: Supports the fermentation-enzyme production step driven by
+      the constructed degrader community.
 - name: Lignocellulose Enzyme Pretreatment
   description: Bacterial and fungal enzyme producers jointly degrade wheat straw polymers before anaerobic
     digestion.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: hemicellulose
+    term:
+      id: CHEBI:61266
+      label: hemicellulose
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  downstream:
+  - target: Enhanced Biogas Production after Anaerobic Digestion
+    description: Improved wheat-straw enzymatic digestion feeds downstream
+      anaerobic digestion and increases the cumulative biogas yield.
   evidence:
   - *id001
+  - reference: PMID:38748977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yielding cellulose, hemicellulose, and lignin degradation rates of 39.85, 36.99,
+      and 19.21%, respectively.
+    explanation: Quantifies degradation of the three major wheat-straw
+      polymers by the synthetic microbial community enzyme pretreatment.
+- name: Enhanced Biogas Production after Anaerobic Digestion
+  description: Wheat straw pretreated with the synthetic-community crude enzyme
+    solution produced the highest cumulative biogas in the subsequent anaerobic
+    digestion stage, outperforming untreated straw and both commercial enzyme
+    pretreatments.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  evidence:
+  - reference: PMID:38748977
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SMCEP displayed the highest cumulative biogas production at 801.16 mL/g TS
+    explanation: Supports the anaerobic-digestion endpoint after synthetic
+      microbial community enzyme-producing pretreatment.
 environmental_factors:
 - name: defined synthetic community design
   value: Core microorganisms with lignocellulose-degrading abilities were screened from straw and forest

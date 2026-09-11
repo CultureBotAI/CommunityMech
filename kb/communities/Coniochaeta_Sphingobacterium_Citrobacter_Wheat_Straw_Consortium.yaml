@@ -149,6 +149,12 @@ ecological_interactions:
     and is inferred to contribute cellulose and xylan degradation at early stages plus lignin modification
     at later stages.
   interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Coniochaeta sp. 2T2.1
+    term:
+      id: NCBITaxon:1571157
+      label: Coniochaeta sp. 2T2.1
   source_taxon:
     preferred_term: Coniochaeta sp. 2T2.1
     term:
@@ -176,6 +182,10 @@ ecological_interactions:
     term:
       id: GO:0045493
       label: xylan catabolic process
+  downstream:
+  - target: Community Wheat-Straw Degradation
+    description: Fungal cellulose, xylan, and lignin-modification activity contributes
+      to the tripartite consortium's wheat-straw degradation output.
   evidence:
   - reference: PMID:31769802
     supports: SUPPORT
@@ -192,6 +202,7 @@ ecological_interactions:
     with w15 associated mainly with hemicellulose degradation and vitamin B2 production and so4 associated
     with oligosaccharide or sugar-dimer degradation and detoxification.
   interaction_type: NICHE_PARTITIONING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Sphingobacterium multivorum w15
     term:
@@ -231,11 +242,16 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: C. freundii so4 in the degradation of oligosaccharides or sugar dimers
     explanation: Supports secondary carbohydrate utilization by C. freundii so4.
+  downstream:
+  - target: Community Wheat-Straw Degradation
+    description: Bacterial hemicellulose, oligosaccharide, and sugar-dimer
+      partitioning contributes to wheat-straw degradation by the full consortium.
 - name: Inter-Kingdom Interaction And Amensalism Signal
   description: The bacterial pair altered Coniochaeta gene expression, including upregulation of oxidases
     and transporter genes, while the tripartite consortium showed suppression of the fungal hemicellulolytic
     arsenal and lower degradation percentages under the tested conditions.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Sphingobacterium multivorum w15
     term:
@@ -262,6 +278,43 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: lower degradation percentages within the microbial consortium
     explanation: Supports that the tripartite outcome was not simply synergistic under the tested conditions.
+- name: Community Wheat-Straw Degradation
+  description: Coniochaeta sp. 2T2.1, Sphingobacterium paramultivorum w15, and
+    Citrobacter freundii so4 collectively degrade wheat straw through alternative
+    lignocellulose, hemicellulose, oligosaccharide, and detoxification roles.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: xylan
+    term:
+      id: CHEBI:37166
+      label: xylan
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  evidence:
+  - reference: PMID:36991472
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The synergism and alternative functional roles presented in this study enhance
+      the eco-enzymological understanding of the degradation of lignocellulose
+      in this tripartite microbial consortium.
+    explanation: Supports the full consortium output assembled from the fungal and
+      bacterial lignocellulose-degradation roles.
 environmental_factors:
 - name: Wheat straw substrate
   value: wheat straw

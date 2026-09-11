@@ -1,32 +1,39 @@
 id: CommunityMech:000076
 name: Wheat Synthetic Consortium C1
-description: 'A synthetic 3-member rhizosphere consortium (C1) for biocontrol of soilborne fungal pathogens
-  in wheat. The consortium consists of Cupriavidus campinensis B20, Asticcacaulis sp. B27, and an additional
-  rhizosphere isolate. Together, these bacteria suppress Rhizoctonia solani AG8 through production of
-  antimicrobial compounds, volatile organic compounds, and induced systemic resistance in wheat plants,
-  providing effective biological control for sustainable agriculture.
+description: 'A four-member wheat-rhizosphere synthetic consortium (SynCom 1/C1)
+  composed of Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas sp. B12, and
+  Pseudomonas sp. P25. Yin et al. reported that C1 inhibited Rhizoctonia solani
+  AG8 radial growth in dual culture and significantly reduced wheat root rot
+  while increasing wheat fresh root weight under AG8 challenge.
 
   '
 ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: A synthetic 3-member rhizosphere consortium (C1) for biocontrol of soilborne fungal pathogens
-    in wheat.
-  assembly_strategy: Bottom-up assembly from wheat rhizosphere isolates selected for antifungal activity
-    against soilborne pathogens, combined into a defined 3-member consortium.
+  objective: Test whether a four-Pseudomonas wheat-rhizosphere SynCom could inhibit
+    Rhizoctonia solani AG8 and protect wheat from root rot.
+  assembly_strategy: Bottom-up assembly of four Pseudomonas isolates from a wheat
+    rhizosphere strain collection as SynCom 1.
   measurement_endpoints:
-  - Interaction-level mechanistic characterization
-  - Member-level abundance and persistence tracking
-  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters
-    when available.
-  perturbation_design: 'Designed condition space included: Target pathogen, Application.'
+  - In vitro Rhizoctonia solani AG8 radial-growth inhibition by dual culture
+  - Wheat root rot score and fresh root weight under AG8 challenge
+  - Auxin production by SynCom culture supernatants
+  - Volatile, hydrogen cyanide, and cell-free supernatant effects on AG8
+  notes: SynCom 1 grouped four Pseudomonas isolates from the 14-member antifungal
+    strain panel and the paper compared whole-SynCom outcomes with individual
+    strain phenotypes.
+  perturbation_design: The designed assay panel compared water controls, 14 single
+    wheat-rhizosphere isolates, and 10 SynCom mixtures across AG8 inhibition,
+    auxin, volatile, hydrogen cyanide, and cell-free supernatant phenotypes.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Table 1 names the four Pseudomonas isolates that make up SynCom
+      1.
 environment_term:
   preferred_term: rhizosphere
   term:
@@ -34,126 +41,245 @@ environment_term:
     label: rhizosphere
 taxonomy:
 - taxon_term:
-    preferred_term: Cupriavidus campinensis B20
+    preferred_term: Pseudomonas sp. B5
     term:
-      id: NCBITaxon:151783
-      label: Cupriavidus campinensis
+      id: NCBITaxon:286
+      label: Pseudomonas
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:s__Cupriavidus_campinensis
-      gtdb_taxon: Cupriavidus campinensis
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Cupriavidus;s__Cupriavidus campinensis
-      ncbi_source_id: NCBITaxon:151783
-      majority_fraction: 1.0
-      total_genomes: 13
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B5
+    isolation_source: wheat rhizosphere
   abundance_level: DOMINANT
   functional_role:
-  - SYNTROPHIC_PARTNER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Identifies Pseudomonas sp. B5 as a C1 member.
 - taxon_term:
-    preferred_term: Asticcacaulis sp. B27
+    preferred_term: Pseudomonas sp. B11
     term:
-      id: NCBITaxon:1872648
-      label: Asticcacaulis sp.
-    gtdb_grounding_status: UNRESOLVED
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B11
+    isolation_source: wheat rhizosphere
   abundance_level: DOMINANT
   functional_role:
-  - SYNTROPHIC_PARTNER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Identifies Pseudomonas sp. B11 as a C1 member.
 - taxon_term:
-    preferred_term: Triticum aestivum
+    preferred_term: Pseudomonas sp. B12
     term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
-    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B12
+    isolation_source: wheat rhizosphere
+  abundance_level: DOMINANT
   functional_role:
-  - PRIMARY_PRODUCER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Identifies Pseudomonas sp. B12 as a C1 member.
+- taxon_term:
+    preferred_term: Pseudomonas sp. P25
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: P25
+    isolation_source: wheat rhizosphere
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Identifies Pseudomonas sp. P25 as a C1 member.
 ecological_interactions:
-- name: Pathogen Suppression
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Cupriavidus campinensis B20
-    term:
-      id: NCBITaxon:151783
-      label: Cupriavidus campinensis
-  target_taxon:
-    preferred_term: Triticum aestivum
-    term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
+- name: Equal-Ratio Pseudomonas C1 Assembly
+  description: >
+    Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas sp. B12, and
+    Pseudomonas sp. P25 were combined at equal ratios as the same-genus C1
+    consortium within the ten-SynCom wheat-rhizosphere design.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
   biological_processes:
-  - preferred_term: defense response to fungus
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0050832
-      label: defense response to fungus
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: C1 SynCom inhibition of R. solani AG8 radial growth
+    description: >
+      The assembled four-Pseudomonas C1 inoculum was tested directly against
+      Rhizoctonia solani AG8 mycelial growth.
+  - target: C1 SynCom protection of wheat under AG8 challenge
+    description: >
+      The same assembled C1 inoculum was tested for root-rot suppression on
+      AG8-challenged wheat.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
-- name: Biocontrol Activity
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Asticcacaulis sp. B27
+    snippet: SynCom 1(C1) Pseudomonas sp. B5, Pseudomonas sp. B11, Pseudomonas
+      sp. B12, Pseudomonas sp. P25
+    explanation: Table 1 names the four Pseudomonas isolates that make up SynCom
+      1.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynComs were obtained by mixing the individuals in equal ratios
+    explanation: Supports the equal-ratio inoculum construction used for C1 and
+      the other wheat-rhizosphere SynComs.
+- name: C1 SynCom inhibition of R. solani AG8 radial growth
+  description: The four-Pseudomonas C1 SynCom inhibited Rhizoctonia solani AG8
+    radial growth in the in vitro dual-culture assay.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. B5
     term:
-      id: NCBITaxon:1872648
-      label: Asticcacaulis sp.
-  target_taxon:
-    preferred_term: Triticum aestivum
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. B11
     term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. B12
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. P25
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
   biological_processes:
   - preferred_term: interspecies interaction
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  - preferred_term: defense response
-    term:
-      id: GO:0006952
-      label: defense response
+  downstream:
+  - target: C1 SynCom protection of wheat under AG8 challenge
+    description: Direct antagonism of the AG8 fungal pathogen in dual culture is
+      the in vitro counterpart of the root-rot biocontrol phenotype observed when
+      the same four-Pseudomonas consortium is applied to AG8-challenged wheat.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8,
+      and C10, inhibited the growth of R. solani AG8 to varying degrees
+    explanation: Places C1 among the SynComs with significant AG8 radial-growth
+      inhibition.
+- name: C1 SynCom protection of wheat under AG8 challenge
+  description: C1 significantly reduced wheat root rot scores and increased wheat
+    fresh root weight relative to AG8-challenged controls in greenhouse soil.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. B5
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. B11
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. B12
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. P25
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom C1, composed of four different Pseudomonas members, significantly
+      reduced wheat root rot and increased root weight, compared with the controls
+    explanation: Supports the host-protection outcome measured for the whole C1
+      consortium.
 environmental_factors:
+- name: Host plant
+  value: Triticum aestivum
+  description: Wheat was the crop host challenged with Rhizoctonia solani AG8 in
+    the greenhouse root-rot assay.
 - name: Target pathogen
   value: Rhizoctonia solani AG8
-  description: Soilborne fungal pathogen causing root disease in wheat
+  description: Soilborne fungal pathogen used for dual-culture and wheat root-rot
+    biocontrol assays.
 - name: Application
   value: biological control
-  description: Sustainable alternative to chemical fungicides for crop protection
-- name: Mechanism
-  value: multiple modes
-  description: 'Biocontrol through cell-free supernatants, volatile organic compounds, and induced systemic
-    resistance in the host plant
-
-    '
+  description: C1 was tested as a synthetic bacterial consortium for suppressing
+    AG8-caused wheat root rot.
 metals_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Metal/REE detected via environmental factor measurements
@@ -162,32 +288,17 @@ related_ingredients:
   chebi_term:
     id: CHEBI:16411
     label: indole-3-acetic acid
-  relevance: Bacterial auxin produced by all 10 SynComs in Yin et al. 2022 — the IAA concentration
-    correlates negatively with primary root length, indicating IAA-mediated root growth modulation as
-    a SynCom-driven plant-physiology effect.
+  relevance: C1 culture supernatant contained bacterial auxin in the SynCom panel
+    assay, but Yin et al. concluded that C1's synergistic effect was not via IAA
+    or volatiles.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a large proportion of the tested bacteria, including 10 single strains and all 10 SynComs,
-      produced auxin at various concentrations
-    explanation: Names auxin (IAA) production as a SynCom-wide trait correlated with Arabidopsis root
-      growth changes.
-- preferred_term: hydrogen cyanide
-  chebi_term:
-    id: CHEBI:18407
-    label: hydrogen cyanide
-  relevance: Antifungal volatile produced by Pseudomonas sp. P25 in the wheat-rhizosphere strain
-    collection — one of the antagonistic mechanisms tested against Rhizoctonia solani AG8 in Yin
-    et al. 2022.
-  evidence:
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Some bacteria can produce hydrogen cyanide, an inorganic compound, that showed antagonistic
-      activity against pathogens
-    explanation: Establishes hydrogen cyanide as a tested antifungal mechanism in the SynCom-member
-      collection.
+    snippet: including 10 single strains and all 10 SynComs, produced auxin at various
+      concentrations
+    explanation: Supports indole-3-acetic acid as a measured metabolite produced
+      by C1 in the SynCom panel.
 growth_media:
 - name: 1/4 x tryptic soy agar (TSA)
   temperature: '25'
@@ -195,17 +306,21 @@ growth_media:
   incubation_time: '48'
   incubation_time_unit: h
   vessel_type: Petri dish
-  preparation_notes: Wheat-rhizosphere strains maintained on 1/4x TSA / 1x TSB at 25°C; SynCom members
-    grown on 1/4x TSA plates before assembly. Liquid TSB cultures grown shaking at 250 rpm, 25°C.
+  preparation_notes: Wheat-rhizosphere strains were maintained on 1/4x TSA / 1x
+    TSB at 25°C; SynCom members were grown on 1/4x TSA plates before assembly.
+    Liquid TSB cultures were grown shaking at 250 rpm, 25°C.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Each bacterium was grown in a Petri dish with 1/4 x TSA medium at 25°C for 48 h
-    explanation: Reports the medium, temperature and incubation time for SynCom member cultivation.
+    snippet: Each bacterium was grown in a Petri dish with 1/4 x TSA medium at 25°C
+      for 48 h
+    explanation: Reports the medium, temperature and incubation time for SynCom
+      member cultivation.
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: were grown on 1/4 x tryptic soy agar/1 x tryptic soy broth (TSA/TSB, BD, Franklin Lakes,
-      NJ) at 25°C
-    explanation: Confirms the TSA/TSB medium and 25°C maintenance temperature for the strains.
+    snippet: were grown on 1/4 x tryptic soy agar/1 x tryptic soy broth (TSA/TSB,
+      BD, Franklin Lakes, NJ) at 25°C
+    explanation: Confirms the TSA/TSB medium and 25°C maintenance temperature for
+      the strains.

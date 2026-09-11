@@ -3,8 +3,8 @@ name: Cable Bacteria beneath Photosynthetic Biofilm Sediment Community
 description: >
   A coastal sediment community in which long filamentous Desulfobulbaceae cable bacteria connect
   sulfide-rich deeper sediment to oxygen supplied near the sediment-water interface by an oxygenic
-  photosynthetic biofilm. The system links sulfur oxidation, oxygen production, sulfate-reduction-driven
-  sulfide supply, and centimeter-scale long-distance electron transfer.
+  photosynthetic biofilm. The system links sulfur oxidation, oxygen production, sulfide availability,
+  and centimeter-scale long-distance electron transfer.
 ecological_state: TRANSIENT
 community_origin: NATURAL
 community_category: OTHER
@@ -58,39 +58,13 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: a photosynthetic algal biofilm
     explanation: Supports inclusion of the phototrophic surface biofilm member.
-- taxon_term:
-    preferred_term: sediment sulfate-reducing bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Taxonomically unresolved sediment bacteria that maintain high sulfate reduction and sulfide
-      supply in the reduced sediment horizon.
-  functional_role:
-  - PRIMARY_DEGRADER
-  - CROSS_FEEDER
-  evidence:
-  - reference: PMID:25416774
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: sediments with high rates of sulfate reduction
-    explanation: Supports a sulfate-reducing guild as the sulfide source for cable-bacteria activity.
 ecological_interactions:
 - name: Photosynthesis Stimulates Cable-Bacteria Electron Harvesting
   description: Oxygenic photosynthesis by the surface biofilm increases oxygen availability near the
     sediment-water interface, enabling cable bacteria to couple deeper sulfide oxidation to surface oxygen
     reduction.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: oxygenic algal biofilm
     term:
@@ -111,6 +85,11 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Electrogenic Sulfide Oxidation across Sediment Redox Zones
+    description: Photosynthetic oxygen supplied at the sediment-water interface
+      is the oxidant that lets cable bacteria couple deep sulfide oxidation to
+      surface oxygen reduction.
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
@@ -120,17 +99,8 @@ ecological_interactions:
 - name: Electrogenic Sulfide Oxidation across Sediment Redox Zones
   description: Cable bacteria harvest electrons from free sulfide in deeper sediment and conduct those
     electrons along filaments to oxygen near the sediment-water interface.
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: sediment sulfate-reducing bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-  target_taxon:
-    preferred_term: Desulfobulbaceae cable bacteria
-    term:
-      id: NCBITaxon:213121
-      label: Desulfobulbaceae
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
   metabolites:
   - preferred_term: hydrogen sulfide
     term:
@@ -140,11 +110,6 @@ ecological_interactions:
     term:
       id: CHEBI:15379
       label: dioxygen
-  biological_processes:
-  - preferred_term: sulfate reduction
-    term:
-      id: GO:0019420
-      label: dissimilatory sulfate reduction
   evidence:
   - reference: PMID:25416774
     supports: SUPPORT
@@ -156,31 +121,45 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: transferring these electrons along their longitudinal axes
     explanation: Supports long-distance electron transfer along cable-bacteria filaments.
-- name: Sulfate Recycling in Contaminated Aquifer Sediments
-  description: Related cable-bacteria activity in hydrocarbon-contaminated aquifer sediment recycles sulfate
-    over centimeter distances, linking the sediment mechanism to pollutant-degrading redox interfaces.
+  downstream:
+  - target: Rapid Redox Signal Transmission under Diel Illumination
+    description: Cable-bacteria electron transfer rapidly transmits surface
+      photosynthesis changes to sulfide concentrations centimeters below the
+      sediment surface.
+- name: Rapid Redox Signal Transmission under Diel Illumination
+  description: >
+    Changes in photosynthesis at the sediment surface immediately and
+    repeatably changed sulfide concentrations at depth, showing that cable
+    bacteria transmit the light-driven surface redox perturbation into deeper
+    sediment.
+  scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Desulfobulbaceae cable bacteria
+  participating_taxa:
+  - preferred_term: Desulfobulbaceae cable bacteria
     term:
       id: NCBITaxon:213121
       label: Desulfobulbaceae
-  target_taxon:
-    preferred_term: sediment sulfate-reducing bacteria
+  - preferred_term: oxygenic algal biofilm
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:3041
+      label: Chlorophyta
   metabolites:
-  - preferred_term: sulfate
+  - preferred_term: hydrogen sulfide
     term:
-      id: CHEBI:16189
-      label: sulfate
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
   evidence:
-  - reference: PMID:27058505
+  - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: direct recycling of sulfate by electron transfer
-    explanation: Supports sulfate recycling as a mechanism relevant to contaminated aquifer sediments.
+    snippet: Changes in photosynthesis at the sediment surface had an immediate
+      and repeatable effect on sulfide concentrations at depth
+    explanation: Supports rapid transmission of a surface photosynthesis
+      perturbation to deeper sulfide chemistry.
 environmental_factors:
 - name: diel light-dark cycle
   value: Alternating light and dark periods
@@ -201,16 +180,6 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: free sulfide in deeper sediment horizons
     explanation: Supports deeper sulfide as the electron donor reservoir.
-- name: oxic-anoxic interface
-  value: Oxygenated surface over anoxic sediment
-  description: Cable bacteria were also detected at oxic-anoxic interfaces in hydrocarbon-contaminated
-    aquifer sediments.
-  evidence:
-  - reference: PMID:27058505
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: oxic-anoxic interfaces in aquifer sediments
-    explanation: Supports the redox-interface setting for cable-bacteria activity.
 related_ingredients:
 - preferred_term: sulfide
   chebi_term:
@@ -233,37 +202,12 @@ related_ingredients:
     Oxygen near the sediment-water interface is the terminal electron acceptor for long-distance
     electron transfer, spatially separated from sulfide at depth.
   evidence:
-  - reference: PMID:27058505
+  - reference: PMID:25416774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: spatial separation of oxygen and sulfide
-    explanation: Names oxygen as the acceptor separated from sulfide across the redox interface.
-- preferred_term: sulfate
-  chebi_term:
-    id: CHEBI:16189
-    label: sulfate
-  relevance: >
-    Cable-bacteria long-distance electron transfer drives direct recycling of sulfate over
-    centimeter distances at oxic-anoxic interfaces.
-  evidence:
-  - reference: PMID:27058505
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: direct recycling of sulfate by electron transfer
-    explanation: Names sulfate as the product recycled by cable-bacteria electron transfer.
-- preferred_term: iron sulfide
-  chebi_term:
-    id: CHEBI:75896
-    label: iron sulfides
-  relevance: >
-    Aquifer sediment was amended with iron sulfide as a reduced sulfur source supporting
-    sulfur-oxidizing cable-bacteria activity in the incubations.
-  evidence:
-  - reference: PMID:27058505
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: amended with iron sulfide
-    explanation: Names iron sulfide as the amended reduced-sulfur source in the sediment incubation.
+    snippet: to oxygen present near the sediment-water interface
+    explanation: Names oxygen as the terminal electron acceptor at the
+      sediment-water interface.
 associated_datasets:
 - title: Cable bacteria photosynthetic biofilm sediment article
   dataset_type: PHENOTYPE
@@ -278,34 +222,3 @@ associated_datasets:
     evidence_source: IN_VITRO
     snippet: Rapid redox signal transmission by "Cable Bacteria"
     explanation: Links this record to the primary cable-bacteria biofilm source.
-growth_media:
-- name: aerated filtered natural seawater over intact salt-marsh sediment cores
-  temperature: '16'
-  temperature_unit: °C
-  salinity: '28'
-  salinity_unit: '‰'
-  light_regime: 12-h light/dark cycle
-  light_intensity: '300'
-  light_intensity_unit: μmol photons m-2 s-1
-  vessel_type: Plexiglas core liners (4-cm diameter)
-  inoculum_source: intertidal salt-marsh sediment, Rattekaai (Oosterschelde, Netherlands)
-  preparation_notes: Sediment cores incubated in a temperature-controlled room (16 ± 1°C) under
-    recirculating aerated filtered Oosterschelde seawater; an oxygenic photosynthetic surface biofilm
-    overlies the suboxic/anoxic cable-bacteria zones on an imposed 12-h light/dark cycle.
-  evidence:
-  - reference: PMID:25416774
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: temperature-controlled room (16 ± ∼1°C)
-    explanation: States the 16°C incubation temperature of the sediment experiments.
-  - reference: PMID:25416774
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: aerated filtered seawater from the Oosterschelde (salinity 28‰ ± 1‰)
-    explanation: States the aerated seawater medium and its 28‰ salinity.
-  - reference: PMID:25416774
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Light was provided by cool white fluorescent lighting (∼300 μmol of photons m−2 s−1)
-    explanation: States the ~300 μmol photons m-2 s-1 illumination for the photosynthetic surface
-      biofilm.

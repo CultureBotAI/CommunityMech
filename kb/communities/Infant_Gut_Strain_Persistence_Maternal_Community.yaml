@@ -112,6 +112,16 @@ ecological_interactions:
     driver of long-term colonization.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Bacteroides and Bifidobacterium First-Year Persistence
+    description: Vertically transmitted maternal gut strains were significantly
+      more likely to become infant persisters, and persistent early colonizers
+      were concentrated in Bacteroides and Bifidobacterium.
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
@@ -134,6 +144,15 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
+  - preferred_term: cell adhesion
+    term:
+      id: GO:0007155
+      label: cell adhesion
+  downstream:
+  - target: Bacteroides and Bifidobacterium First-Year Persistence
+    description: Genes for surface adhesion, iron acquisition, and carbohydrate
+      degradation were enriched in persistent strains, providing functional
+      traits that may explain their first-year retention.
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
@@ -142,28 +161,45 @@ ecological_interactions:
       carbohydrate degradation may explain persistence
     explanation: Supports the three genomic trait categories curated as
       persistence determinants.
-- name: Microbiome Convergence by Age One
-  description: Infants' initially distinct microbiomes converge by age 1 year.
+- name: Bacteroides and Bifidobacterium First-Year Persistence
+  description: Bacteroides and Bifidobacterium were the main genera among the
+    approximately 11 percent of early colonizer strains that persisted through
+    the first year of life.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: persistent infant Bacteroides colonizers
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+  - preferred_term: persistent infant Bifidobacterium colonizers
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  - preferred_term: cell adhesion
+    term:
+      id: GO:0007155
+      label: cell adhesion
   evidence:
   - reference: PMID:34622230
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: infants' initially distinct microbiomes converge by age 1 year
-    explanation: Supports the developmental convergence trajectory.
-- name: Full-Term Versus Preterm Persistence Disparity
-  description: Persistent early colonizers are more prevalent in full-term
-    than in preterm infants, indicating birth status as a structuring factor.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  evidence:
+    snippet: Approximately 11% of early colonizers, primarily Bacteroides and
+      Bifidobacterium, persist during the first year of life
+    explanation: Supports the first-year persister node and the major persistent
+      genera.
   - reference: PMID:34622230
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: those are more prevalent in full-term, compared with preterm
-      infants
-    explanation: Supports the birth-status disparity in persistence.
+    snippet: When considering all infants, Bacteroides and Bifidobacterium strains
+      were more likely to persist than were strains of other bacterial genera
+    explanation: Supports Bacteroides and Bifidobacterium as the genera most
+      associated with first-year persistence.
 environmental_factors:
 - name: Birth status
   value: full-term (n=13) vs preterm (n=9) infants

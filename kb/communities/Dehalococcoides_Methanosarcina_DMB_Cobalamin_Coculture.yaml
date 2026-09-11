@@ -111,6 +111,7 @@ ecological_interactions:
   description: M. barkeri Fusaro produces factor III cobamide, and when DMB is added the coculture can generate
     a cobalamin that supports Dehalococcoides reductive dechlorination activity and growth.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri strain Fusaro
     term:
@@ -139,6 +140,12 @@ ecological_interactions:
     term:
       id: GO:0070812
       label: organohalide respiration
+  downstream:
+  - target: Cobalamin-Dependent Reductive Dechlorination
+    description: >
+      DMB-guided biosynthesis converts the Methanosarcina cobamide supply into
+      a cobalamin compatible with the Dehalococcoides reductive
+      dechlorination machinery.
   evidence:
   - reference: PMID:23479750
     supports: SUPPORT
@@ -154,6 +161,7 @@ ecological_interactions:
   description: M. barkeri Fusaro produced factor III extracellular cobamide, but that cobamide alone did not
     satisfy Dehalococcoides corrinoid requirements under the tested chlorinated-ethene conditions.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri strain Fusaro
     term:
@@ -174,6 +182,12 @@ ecological_interactions:
     term:
       id: GO:0070812
       label: organohalide respiration
+  downstream:
+  - target: Cobalamin-Dependent Reductive Dechlorination
+    description: >
+      Unguided factor III production leaves the Dehalococcoides corrinoid
+      requirement unsatisfied, so organohalide respiration remains constrained
+      unless DMB enables compatible cobalamin production.
   evidence:
   - reference: PMID:23479750
     supports: SUPPORT
@@ -189,6 +203,7 @@ ecological_interactions:
   description: BAV1 uses cobalamin-dependent organohalide respiration to detoxify chlorinated ethenes, and
     insufficient cobalamin causes incomplete dechlorination and vinyl chloride accumulation.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dehalococcoides mccartyi BAV1
     term:

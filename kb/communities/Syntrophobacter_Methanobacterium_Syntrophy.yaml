@@ -112,11 +112,17 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophobacter fumaroxidans
     term:
       id: NCBITaxon:119484
       label: Syntrophobacter fumaroxidans
+  target_taxon:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
   metabolites:
   - preferred_term: propionate
     term:
@@ -192,11 +198,17 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanobacterium formicicum
     term:
       id: NCBITaxon:2162
       label: Methanobacterium formicicum
+  target_taxon:
+    preferred_term: Syntrophobacter fumaroxidans
+    term:
+      id: NCBITaxon:119484
+      label: Syntrophobacter fumaroxidans
   metabolites:
   - preferred_term: dihydrogen
     term:
@@ -227,6 +239,10 @@ ecological_interactions:
       (sulfate or fumarate). Reciprocal arm of the syntrophic loop; DIRECTLY IMPLIED by the
       axenic-vs-syntrophic contrast rather than demonstrated by a partner-removal or
       carrier-inhibition perturbation in this exact pair.
+  - target: Syntrophic Propionate-to-Methane Conversion
+    description: >
+      Reciprocal formate and H2 exchange links S. fumaroxidans propionate
+      oxidation to M. formicicum hydrogenotrophic methanogenesis.
   evidence:
   - reference: PMID:29611893
     supports: SUPPORT
@@ -250,6 +266,55 @@ ecological_interactions:
       were used in its sulfidogenic metabolism
     explanation: Confirms the importance of formate as an interspecies electron carrier in addition to
       H2
+- name: Syntrophic Propionate-to-Methane Conversion
+  description: >
+    S. fumaroxidans grows syntrophically on propionate with the
+    H2/formate-consuming methanogen M. formicicum, combining bacterial
+    propionate oxidation, interspecies carrier transfer, and hydrogenotrophic
+    methanogenesis into a coupled anaerobic conversion.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Syntrophobacter fumaroxidans
+    term:
+      id: NCBITaxon:119484
+      label: Syntrophobacter fumaroxidans
+  - preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
+  metabolites:
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: propionate catabolic process
+    term:
+      id: GO:0019543
+      label: propionate catabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:29611893
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We performed a proteome analysis of S. fumaroxidans growing with propionate axenically
+      with sulfate or fumarate, and in syntrophy with Methanospirillum hungatei, Methanobacterium
+      formicicum or Desulfovibrio desulfuricans
+    explanation: >
+      Establishes S. fumaroxidans syntrophic propionate growth with the exact
+      M. formicicum partner.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: FLASK

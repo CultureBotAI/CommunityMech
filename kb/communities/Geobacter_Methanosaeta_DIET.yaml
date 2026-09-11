@@ -114,6 +114,7 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Geobacter metallireducens
     term:
@@ -136,9 +137,10 @@ ecological_interactions:
       id: GO:0006068
       label: ethanol catabolic process
   downstream:
-  - target: Direct Electron Acceptance and Methanogenesis
-    description: Electrons transferred via DIET are accepted by M. harundinacea for
-      methanogenesis
+  - target: Conductive Aggregate-Mediated DIET
+    description: Ethanol metabolism and extracellular electron transfer by
+      aggregate-associated Geobacter feed the conductive aggregates where
+      Geobacter and Methanosaeta exchange electrons by DIET.
   evidence:
   - reference: doi:10.1039/C3EE42189A
     supports: SUPPORT
@@ -150,6 +152,44 @@ ecological_interactions:
       (DIET)
     explanation: Demonstrates ethanol oxidation coupled to direct electron transfer
       in conductive aggregates
+- name: Conductive Aggregate-Mediated DIET
+  description: >
+    G. metallireducens and M. harundinacea cells in conductive aggregates
+    exchange electrons by direct interspecies electron transfer through
+    electrically conductive pili, replacing diffusible H2 or formate as the
+    interspecies electron carrier.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  target_taxon:
+    preferred_term: Methanosaeta harundinacea
+    term:
+      id: NCBITaxon:301375
+      label: Methanothrix harundinacea
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Direct Electron Acceptance and Methanogenesis
+    description: Conductive-aggregate electron transfer delivers electrons to
+      M. harundinacea for carbon dioxide reduction to methane.
+  evidence:
+  - reference: doi:10.1039/C3EE42189A
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Furthermore, Geobacter species, the most abundant bacteria in the aggregates,
+      highly expressed genes for ethanol metabolism and for extracellular electron
+      transfer via electrically conductive pili, suggesting that Geobacter and Methanosaeta
+      species were exchanging electrons via direct interspecies electron transfer
+      (DIET)
+    explanation: Supports conductive aggregate-mediated electron transfer
+      between Geobacter and Methanosaeta cells.
 - name: Direct Electron Acceptance and Methanogenesis
   description: 'Methanosaeta harundinacea accepts electrons directly from G. metallireducens
     via DIET and uses them to reduce CO2 to methane. Unlike traditional hydrogen-mediated
@@ -162,6 +202,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosaeta harundinacea
     term:

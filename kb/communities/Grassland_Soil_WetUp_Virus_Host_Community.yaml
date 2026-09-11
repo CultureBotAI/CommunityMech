@@ -72,6 +72,15 @@ ecological_interactions:
     increasing four-fold within one week.
   interaction_type: PREDATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: virus-host interaction
+    term:
+      id: GO:0044003
+      label: symbiont-mediated perturbation of host process
+  downstream:
+  - target: Viral Lysis Drives Microbial Death
+    description: Wet-up lytic viral activity produces measurable host-cell
+      lysis by one week after rewetting.
   evidence:
   - reference: PMID:37730729
     supports: SUPPORT
@@ -84,12 +93,43 @@ ecological_interactions:
     snippet: Viral richness decreases by 50% within 24 h post wet-up, while
       viral biomass increases four-fold within one week
     explanation: Supports the time-course richness and biomass dynamics.
-- name: Viral Lysis Drives Microbial Death and CO2 Efflux
+- name: Viral Lysis Drives Microbial Death
   description: Viruses drive measurable and continuous cell lysis, accounting
-    for up to 46 percent of microbial death one week after wet-up and
-    contributing to soil microbial biomass turnover and the widely reported
-    wet-up CO2 efflux.
+    for up to 46 percent of microbial death one week after wet-up.
   interaction_type: PREDATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: soil DNA viruses (virions)
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
+  target_taxon:
+    preferred_term: grassland soil bacterial hosts
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: virus-host interaction
+    term:
+      id: GO:0044003
+      label: symbiont-mediated perturbation of host process
+  downstream:
+  - target: Lysis-Coupled Biomass Turnover and CO2 Efflux
+    description: Virus-driven bacterial death contributes to microbial biomass
+      turnover and the post-wet-up CO2 efflux from seasonally dry soil.
+  evidence:
+  - reference: PMID:37730729
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: up to 46% of microbial death driven by viral lysis one week
+      following wet-up
+    explanation: Supports the curated quantitative attribution of microbial
+      death to viral lysis.
+- name: Lysis-Coupled Biomass Turnover and CO2 Efflux
+  description: Viral lysis contributes to turnover of soil microbial biomass
+    and the widely reported CO2 efflux following wet-up of seasonally dry soils.
+  interaction_type: PREDATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: soil DNA viruses (virions)
     term:
@@ -105,19 +145,7 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
-  biological_processes:
-  - preferred_term: virus-host interaction
-    term:
-      id: GO:0044003
-      label: symbiont-mediated perturbation of host process
   evidence:
-  - reference: PMID:37730729
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: up to 46% of microbial death driven by viral lysis one week
-      following wet-up
-    explanation: Supports the curated quantitative attribution of microbial
-      death to viral lysis.
   - reference: PMID:37730729
     supports: SUPPORT
     evidence_source: IN_VIVO

@@ -74,21 +74,22 @@ taxonomy:
       accession: '7942'
       url: https://pcc.pasteur.fr/pcc-catalogue/products-page/pcc-7942
 - taxon_term:
-    preferred_term: Escherichia coli K-12
+    preferred_term: Escherichia coli W delta-cscR
     term:
-      id: NCBITaxon:83333
-      label: Escherichia coli K-12
+      id: NCBITaxon:562
+      label: Escherichia coli
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
       gtdb_id: GTDB:s__Escherichia_coli
       gtdb_taxon: Escherichia coli
       gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia coli
-      ncbi_source_id: NCBITaxon:83333
+      ncbi_source_id: NCBITaxon:562
       majority_fraction: 1.0
-      total_genomes: 50
+      total_genomes: 166397
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-    notes: 'Heterotrophic partner that utilizes secreted sucrose from the cyanobacterium.
+    notes: 'Heterotrophic E. coli W delta-cscR partner that was engineered for
+      improved growth on low sucrose secreted by the cyanobacterium.
 
       '
   functional_role:
@@ -98,11 +99,10 @@ taxonomy:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'Here, we tested the capability of sucrose-secreting cyanobacteria to act as a flexible platform
-      for the construction of synthetic, light-driven consortia by pairing them with three disparate heterotrophs:
-      Bacillus subtilis, Escherichia coli, or Saccharomyces cerevisiae'
-    explanation: E. coli is one of the heterotrophic partners that can be supported by the sucrose-secreting
-      platform
+    snippet: E. coli W was obtained from ATCC (#9637) and the corresponding
+      W ΔcscR strain was generously provided by Dr. Claudia Vicker’s laboratory
+    explanation: Identifies the sucrose-improved E. coli W derivative used in
+      the Synechococcus/E. coli dyad.
 ecological_interactions:
 - name: CO2 Fixation and Sucrose Production
   description: 'Synechococcus elongatus fixes atmospheric CO2 through photosynthesis and converts the
@@ -111,6 +111,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus PCC 7942 cscB+
     term:
@@ -148,11 +149,12 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
-    preferred_term: Escherichia coli K-12
+    preferred_term: Escherichia coli W delta-cscR
     term:
-      id: NCBITaxon:83333
-      label: Escherichia coli K-12
+      id: NCBITaxon:562
+      label: Escherichia coli
   metabolites:
   - preferred_term: sucrose
     term:
@@ -163,6 +165,11 @@ ecological_interactions:
     term:
       id: GO:0005987
       label: sucrose catabolic process
+  downstream:
+  - target: E. coli Stimulation of Cyanobacterial Growth
+    description: E. coli W delta-cscR growth on Synechococcus-derived
+      photosynthate establishes the reciprocal dyad in which the heterotroph
+      increases cyanobacterial growth relative to axenic controls.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
@@ -171,6 +178,42 @@ ecological_interactions:
       sucrose utilization, as well as other species-independent interactions that we observed across all
       dyads
     explanation: Demonstrates stable, long-term growth of the consortium
+- name: E. coli Stimulation of Cyanobacterial Growth
+  description: E. coli W delta-cscR persists on cyanobacterial photosynthate and
+    stimulates cscB+ Synechococcus elongatus growth relative to axenic
+    cyanobacterial controls in the synthetic photosynthetic coculture platform.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli W delta-cscR
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inoculation of each heterotrophic species enhanced cyanobacterial growth
+    explanation: Supports stimulation of S. elongatus growth by the tested
+      heterotrophic partners, including the E. coli W delta-cscR dyad.
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      all three evolutionarily unrelated heterotrophs can significantly
+      increase cyanobacterial growth under a range of growth conditions
+    explanation: Supports the reverse positive interaction from the E. coli
+      heterotroph to cscB+ S. elongatus.
 environmental_factors:
 - name: Light
   value: Continuous illumination
@@ -265,7 +308,7 @@ growth_media:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: CoB BG-11 consists of BG-11 supplemented with 106 mM NaCl, 4 mM NH4Cl and 25 mM HEPPSO,
+    snippet: CoBBG-11 consists of BG-11 supplemented with 106 mM NaCl, 4 mM NH4Cl and 25 mM HEPPSO,
       pH 8.3-KOH
     explanation: Defined prokaryote co-culture medium for the Synechococcus/E. coli consortium.
 cultivation_setup:

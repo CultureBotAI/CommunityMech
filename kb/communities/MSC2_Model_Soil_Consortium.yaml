@@ -217,6 +217,72 @@ associated_datasets:
   url: https://pubmed.ncbi.nlm.nih.gov/36154140/
   description: Primary publication describing MSC-2 assembly, multiomics, and community interaction results.
 ecological_interactions:
+- name: Primary Chitin Polymer Degradation
+  description: >-
+    Dyadobacter, Ensifer MSC1_011, Variovorax, Sinorhizobium, and Rhodococcus
+    MSC-2 members can grow on chitin as the sole carbon source and act as primary
+    degraders that initiate chitin decomposition before nondegraders profit from
+    released breakdown products.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Dyadobacter sp. MSC1_007
+    term:
+      id: NCBITaxon:1914288
+      label: Dyadobacter sp.
+  - preferred_term: Ensifer adhaerens MSC1_011
+    term:
+      id: NCBITaxon:106592
+      label: Ensifer adhaerens
+  - preferred_term: Variovorax beijingensis MSC1_012
+    term:
+      id: NCBITaxon:2496117
+      label: Variovorax beijingensis
+  - preferred_term: Sinorhizobium meliloti MSC1_014
+    term:
+      id: NCBITaxon:382
+      label: Sinorhizobium meliloti
+  - preferred_term: Rhodococcus sp. MSC1_016
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: chitin
+    term:
+      id: CHEBI:17029
+      label: chitin
+  - preferred_term: chitooligosaccharide
+    term:
+      id: CHEBI:23104
+      label: chitooligosaccharide
+  biological_processes:
+  - preferred_term: chitin catabolic process
+    term:
+      id: GO:0006032
+      label: chitin catabolic process
+  - preferred_term: chitinase activity
+    term:
+      id: GO:0004568
+      label: chitinase activity
+  downstream:
+  - target: Chitin Breakdown Product Sharing
+    description: Primary chitin degradation releases soluble decomposition products
+      that other MSC-2 members can consume in the mixed community.
+  evidence:
+  - reference: PMID:36154140
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This analysis showed that Dyadobacter, one Ensifer strain (strain PNNL_MSC-1_Str_011),
+      Variovorax, Sinorhizobium, and Rhodococcus grew with chitin
+    explanation: Identifies the MSC-2 members that grew with chitin as their sole
+      carbon source in monoculture assays.
+  - reference: PMID:36154140
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: certain species act as primary degraders of carbon sources and that the most successful
+      species are likely those that can take the most advantage of breakdown products
+    explanation: Supports primary-degrader roles followed by secondary use of chitin
+      breakdown products.
 - name: Chitin Breakdown Product Sharing
   description: >-
     Community growth on chitin is supported by interspecies sharing of decomposition
@@ -229,6 +295,11 @@ ecological_interactions:
     term:
       id: CHEBI:17029
       label: chitin
+  downstream:
+  - target: Community-Responsive Streptomyces Chitin Phenotype
+    description: Initial community chitin breakdown provides products that let
+      Streptomyces grow and express a chitin-decomposition phenotype not seen
+      during monoculture growth on chitin.
   evidence:
   - reference: PMID:36154140
     supports: SUPPORT
@@ -240,11 +311,31 @@ ecological_interactions:
     Streptomyces exhibits a community-responsive chitin phenotype, and MSC-2 organizes
     members into distinct functional roles during decomposition.
   interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces sp. MSC1_001
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
   source_taxon:
     preferred_term: Streptomyces sp. MSC1_001
     term:
       id: NCBITaxon:1931
       label: Streptomyces sp.
+  metabolites:
+  - preferred_term: chitin
+    term:
+      id: CHEBI:17029
+      label: chitin
+  - preferred_term: chitooligosaccharide
+    term:
+      id: CHEBI:23104
+      label: chitooligosaccharide
+  biological_processes:
+  - preferred_term: chitin catabolic process
+    term:
+      id: GO:0006032
+      label: chitin catabolic process
   evidence:
   - reference: PMID:36154140
     supports: SUPPORT

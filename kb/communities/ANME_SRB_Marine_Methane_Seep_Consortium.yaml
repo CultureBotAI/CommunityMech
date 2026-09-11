@@ -70,22 +70,20 @@ taxonomy:
   - SYNTROPHIC_PARTNER
   abundance_value: Bacterial partner in structured ANME-SRB aggregates.
   evidence:
-  - reference: PMID:19383036
+  - reference: PMID:34986141
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: sulfate-reducing bacteria (DSS), frequently found as organized consortia
-    explanation: Supports sulfate-reducing bacteria as the partner guild.
-  - reference: PMID:11034209
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: a bacterium related to sulphate-reducing bacteria
-    explanation: Supports bacterial sulfate-reducer affiliation in the original marine consortium report.
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      syntrophic partnership between anaerobic methanotrophic (ANME) archaea
+      and sulfate-reducing bacteria (SRB)
+    explanation: Supports sulfate-reducing bacteria as the ANME partner guild.
 ecological_interactions:
 - name: Sulfate-Coupled Anaerobic Methane Oxidation
   description: ANME-SRB aggregates oxidize methane under anoxic conditions while sulfate is reduced by the
     bacterial partner. This syntrophy couples carbon and sulfur cycling in marine sediments and acts as
     an important methane sink at the seafloor.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: anaerobic methanotrophic archaea
     term:
@@ -115,11 +113,15 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: Sulfate-coupled anaerobic oxidation of methane (AOM) is performed by multicellular consortia
     explanation: Directly supports sulfate-coupled AOM by multicellular ANME-SRB consortia.
-  - reference: PMID:19383036
+  - reference: PMID:34986141
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Methane release from the oceans is controlled in large part by syntrophic interactions
-    explanation: Supports the ecological significance of the syntrophic methane-oxidizing aggregates.
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      syntrophic partnership between anaerobic methanotrophic (ANME) archaea
+      and sulfate-reducing bacteria (SRB)
+    explanation: >
+      Supports the syntrophic ANME-SRB partnership coupling anaerobic methane
+      oxidation to sulfate reduction.
 - name: Direct Interspecies Electron Transfer
   description: Comparative genomics indicates that conserved protein complexes move electrons from ANME
     cells to the SRB outer membrane, providing a mechanistic basis for partner coupling in sulfate-reducing
@@ -127,6 +129,7 @@ ecological_interactions:
     multiheme (S-layer-associated) cytochromes, proposed as the principal mechanism of sulfate-dependent
     AOM.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: anaerobic methanotrophic archaea
     term:
@@ -160,17 +163,97 @@ ecological_interactions:
     snippet: multiheme cytochromes containing putative S-layer domains
     explanation: Supports the hypothesized conductive conduit (multiheme cytochromes / conductive pili)
       as the principal DIET mechanism for sulfate-dependent AOM.
+- name: Sulfite Inhibition of ANME Methane Oxidation
+  description: >
+    Millimolar sulfite inhibited the ANME partner in methane-seep sediment
+    microcosms and immediately decreased the rate of anaerobic oxidation of
+    methane, indicating that sulfite is a suppressive sulfur perturbation on
+    consortium AOM rather than a productive extracellular intermediate.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  target_taxon:
+    preferred_term: anaerobic methanotrophic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: sulfite
+    term:
+      id: CHEBI:17359
+      label: sulfite
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: >
+      Sulfite addition suppressed the ANME-driven methane oxidation that
+      normally feeds sulfate-reducing bacterial partners.
+  evidence:
+  - reference: PMID:30559729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      sulfite at concentration of 1.0 mM was found to be inhibitory to ANME,
+      leading to an immediate decrease in the rate of AOM
+    explanation: >
+      Supports sulfite as an inhibitory perturbation of ANME-mediated
+      anaerobic methane oxidation.
+- name: Zero-Valent Sulfur Inhibition of ANME Methane Oxidation
+  description: >
+    Zero-valent sulfur supplied as polythionate or polysulfide inhibited methane
+    oxidation by ANME-2a/2c in methane-seep sediment microcosms, arguing against
+    zero-valent sulfur as a productive diffusible intermediate from ANME to the
+    sulfate-reducing partner.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  target_taxon:
+    preferred_term: anaerobic methanotrophic archaea
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  metabolites:
+  - preferred_term: sulfur atom
+    term:
+      id: CHEBI:26833
+      label: sulfur atom
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Sulfate-Coupled Anaerobic Methane Oxidation
+    description: >
+      Zero-valent sulfur compounds suppressed ANME-2a/2c methane oxidation in
+      tests of the ANME/SRB syntrophy mechanism.
+  evidence:
+  - reference: PMID:30559729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      zero-valent sulfur amendments were inhibitory to ANME-2a/2c while growth
+      in their syntrophic SRB partner was not observed
+    explanation: >
+      Supports zero-valent sulfur as an inhibitory, rather than transferred,
+      sulfur species in ANME/SRB methane-seep microcosms.
 environmental_factors:
 - name: Methane-rich anoxic marine sediment
   value: Gas-hydrate-rich and methane-seep sediments
   description: ANME-SRB aggregates occur in methane-rich anoxic marine sediments where methane oxidation
     and sulfate reduction are tightly coupled.
   evidence:
-  - reference: PMID:11034209
+  - reference: PMID:34986141
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: abundant in gas-hydrate-rich sediments
-    explanation: Supports the methane-rich sediment environment.
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Anaerobic oxidation of methane (AOM) coupled to sulfate reduction is a
+      key microbiological process in ocean sediments
+    explanation: >
+      Supports ocean sediment as the marine environment for sulfate-coupled
+      anaerobic methane oxidation.
 - name: Sulfate availability
   value: Sulfate as terminal electron acceptor
   description: Sulfate availability enables the sulfate-reducing partner to couple with ANME methane
@@ -303,4 +386,3 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: Push-core samples of seafloor sediment were collected from different locations on the Costa Rica margin
     explanation: Supports the seafloor methane-seep sediment origin of the incubated inoculum.
-

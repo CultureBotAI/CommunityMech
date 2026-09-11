@@ -127,6 +127,11 @@ ecological_interactions:
     term:
       id: CHEBI:17015
       label: riboflavin
+  downstream:
+  - target: Enhanced CO2-to-Acetate Conversion
+    description: >
+      Biofilm-localized DIET in the S. oneidensis-C. aceticum consortium
+      contributes electron flow for enhanced CO2-to-acetate electrosynthesis.
   evidence:
   - reference: PMID:41236292
     supports: SUPPORT
@@ -160,6 +165,12 @@ ecological_interactions:
     term:
       id: CHEBI:15740
       label: formate
+  downstream:
+  - target: Enhanced CO2-to-Acetate Conversion
+    description: >
+      H2/formate-mediated electron transfer in the S. oneidensis-A. woodii
+      consortium contributes planktonic electron flow for enhanced
+      CO2-to-acetate electrosynthesis.
   evidence:
   - reference: PMID:41236292
     supports: SUPPORT
@@ -168,6 +179,41 @@ ecological_interactions:
       phase
     explanation: H2/formate-mediated IET as the electron-transfer mode of the S. oneidensis-A. woodii
       consortium.
+- name: Enhanced CO2-to-Acetate Conversion
+  description: >
+    Co-cultivation of Shewanella oneidensis MR-1 with either electroactive
+    Clostridium aceticum or nonelectroactive Acetobacterium woodii boosts
+    acetate production by linking spatially organized interspecies electron
+    transfer to CO2 reduction.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-cultivation markedly boosts acetate production by up to 88%
+    explanation: Supports enhanced acetate production in the Shewanella-acetogen consortia.
+  - reference: PMID:41236292
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: orchestrating electron flow to optimize CO2-to-acetate conversion
+    explanation: >
+      Supports Shewanella-mediated electron-flow organization as the mechanism
+      that improves CO2-to-acetate conversion.
 growth_media:
 - name: DSMZ-Medium 135 base medium (optimized, cathode chamber)
   temperature: '37'
@@ -190,7 +236,7 @@ growth_media:
   - reference: PMID:41236292
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The culture medium for these bacteria is an optimized DSMZ-Medium135 base medium
+    snippet: The culture medium for these bacteria is an optimized DSMZ‐Medium135 base medium
     explanation: Source names the DSMZ-Medium 135 base medium used to grow the consortium.
 cultivation_setup:
 - cultivation_mode: BATCH
@@ -209,7 +255,7 @@ cultivation_setup:
   - reference: PMID:41236292
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The reactor consists of an H-type dual-chamber design, where a proton exchange membrane (Nafion 117) separates the anode and cathode compartments
+    snippet: The reactor consists of an H‐type dual‐chamber design, where a proton exchange membrane (Nafion 117) separates the anode and cathode compartments
     explanation: Documents the bioelectrochemical H-type dual-chamber MES reactor system.
   - reference: PMID:41236292
     supports: SUPPORT

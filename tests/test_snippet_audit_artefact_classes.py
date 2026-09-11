@@ -30,8 +30,10 @@ loose enough to hide the defect this audit exists to find, so
 
 from __future__ import annotations
 
+import io
 import importlib.util
 import pathlib
+import sys
 
 import pytest
 
@@ -45,6 +47,92 @@ def audit():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def _write_cache(cache: pathlib.Path) -> None:
+    cache.mkdir()
+    (cache / "PMID_1.md").write_text(
+        "---\n"
+        "content_type: abstract_only\n"
+        "---\n"
+        "## Content\n"
+        "This source text contains the community quote and the isolate quote. "
+        + "Additional real source prose. " * 12,
+        encoding="utf-8",
+    )
+
+
+def _write_record(path: pathlib.Path, snippet: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        "id: CommunityMech:000999\n"
+        "evidence:\n"
+        "- reference: PMID:1\n"
+        f"  snippet: {snippet}\n",
+        encoding="utf-8",
+    )
+
+
+# --- executable scope ------------------------------------------------------
+
+
+def test_main_defaults_to_shared_record_files(audit, tmp_path, monkeypatch):
+    """The audit's executable path must use both MicrobialCommunity roots."""
+    cache = tmp_path / "references_cache"
+    _write_cache(cache)
+    community = tmp_path / "kb/communities/community.yaml"
+    isolate = tmp_path / "data/isolates/isolate.yaml"
+    _write_record(community, "community quote")
+    _write_record(isolate, "isolate quote")
+
+    monkeypatch.setattr(audit, "CACHE", cache)
+    monkeypatch.setattr(audit, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(audit, "record_files", lambda: [community, isolate])
+
+    out = io.StringIO()
+
+    assert audit.main([], out) == 0
+    assert "# 2 evidence snippets scanned across 2 files" in out.getvalue()
+    assert "MATCH      2" in out.getvalue()
+
+
+def test_main_accepts_explicit_record_paths(audit, tmp_path, monkeypatch):
+    """A targeted audit should not fall back to the whole corpus."""
+    cache = tmp_path / "references_cache"
+    _write_cache(cache)
+    first = tmp_path / "first.yaml"
+    second = tmp_path / "second.yaml"
+    _write_record(first, "community quote")
+    _write_record(second, "isolate quote")
+
+    monkeypatch.setattr(audit, "CACHE", cache)
+    monkeypatch.setattr(audit, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(audit, "record_files", lambda: pytest.fail("record_files was called"))
+
+    out = io.StringIO()
+
+    assert audit.main([str(second)], out) == 0
+    assert "# 1 evidence snippets scanned across 1 files" in out.getvalue()
+    assert str(first) not in out.getvalue()
+
+
+def test_write_report_honors_injected_output_for_assembled(audit, capsys):
+    report = audit.AuditReport(
+        record_count=1,
+        stats=audit.Counter({"ASSEMBLED": 1}),
+        file_mismatch={},
+        file_nocontent={},
+        file_rendering={},
+        file_assembled={"data/isolates/example.yaml": [("path", "PMID:1", "part, part")]},
+        yaml_errors=[],
+    )
+    out = io.StringIO()
+
+    audit.write_report(report, out, list_assembled=True)
+
+    assert "# ASSEMBLED" in out.getvalue()
+    assert "data/isolates/example.yaml" in out.getvalue()
+    assert capsys.readouterr().out == ""
 
 
 # --- 1. typographic symbols ------------------------------------------------
@@ -158,7 +246,7 @@ def test_the_corpus_classification_is_stable(audit):
     import subprocess
 
     result = subprocess.run(
-        ["uv", "run", "python", str(SCRIPT)],
+        [sys.executable, str(SCRIPT)],
         capture_output=True,
         text=True,
         cwd=REPO,

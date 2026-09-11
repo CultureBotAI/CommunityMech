@@ -100,12 +100,20 @@ taxonomy:
       the lactate platform to produce 196 kilograms of butyric acid per metric ton of beechwood
 ecological_interactions:
 - name: Cellulose Hydrolysis to Soluble Sugars
+  description: T. reesei hydrolyzes lignocellulosic carbohydrates to soluble
+    sugars that enter the engineered lactate-centered food chain.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma reesei Rut-C30
     term:
       id: NCBITaxon:51453
       label: Trichoderma reesei
+  target_taxon:
+    preferred_term: Lactobacillus pentosus
+    term:
+      id: NCBITaxon:1589
+      label: Lactiplantibacillus pentosus
   metabolites:
   - preferred_term: cellulose
     term:
@@ -126,6 +134,9 @@ ecological_interactions:
       label: cellulose catabolic process
   downstream:
   - target: Lactic Acid Fermentation and Oxygen Depletion
+    description: Soluble carbohydrates released by T. reesei are funneled by
+      lactic-acid bacteria to lactate, the central intermediate of the
+      short-chain-fatty-acid platform.
   evidence:
   - reference: PMID:32855308
     supports: SUPPORT
@@ -134,12 +145,21 @@ ecological_interactions:
       to short-chain fatty acids, which included the funneling of the lignocellulosic carbohydrates to
       lactate as a central intermediate in engineered food chains
 - name: Lactic Acid Fermentation and Oxygen Depletion
+  description: L. pentosus ferments fungal hydrolysis products to lactate and
+    helps shape the oxygen gradient that lets the downstream obligate
+    anaerobic butyrate producer coexist in the membrane-aerated reactor.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Lactobacillus pentosus
     term:
       id: NCBITaxon:1589
       label: Lactiplantibacillus pentosus
+  target_taxon:
+    preferred_term: Clostridium tyrobutyricum
+    term:
+      id: NCBITaxon:1519
+      label: Clostridium tyrobutyricum
   metabolites:
   - preferred_term: glucose
     term:
@@ -164,6 +184,8 @@ ecological_interactions:
       label: fermentation
   downstream:
   - target: Butyric Acid Production from Lactate
+    description: Lactate produced by L. pentosus supplies the central
+      fermentation intermediate that C. tyrobutyricum converts to butyrate.
   evidence:
   - reference: PMID:32855308
     supports: SUPPORT
@@ -171,7 +193,10 @@ ecological_interactions:
     snippet: A spatial niche enabled in situ cellulolytic enzyme production by an aerobic fungus next
       to facultative anaerobic lactic acid bacteria and the product-forming anaerobes
 - name: Butyric Acid Production from Lactate
+  description: C. tyrobutyricum consumes lactate from the engineered platform
+    and produces butyrate as the target short-chain fatty acid.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Clostridium tyrobutyricum
     term:
@@ -278,7 +303,7 @@ growth_media:
   - reference: PMID:32855308
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The temperature was set to 30°C and the pH to 6.0 using 4 N phosphoric acid
+    snippet: The temperature was set to 30 °C and the pH to 6.0 using 4 N phosphoric acid
       and 4 M sodium hydroxide.
     explanation: Methods specify the reactor setpoints (30°C, pH 6.0) for the lactate-platform
       coculture.
@@ -286,8 +311,8 @@ growth_media:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The remaining medium components were added when the reactor was inoculated
-      with 5% (v/v) T. reesei. After 48 hours, the lactic acid bacteria were inoculated
-      to an optical density (OD600) of 0.5 by centrifuging the cells at 3000 rpm for 10 min
+      with 5 % (v/v) T. reesei. After 48 hours, the lactic acid bacteria were inoculated
+      to an optical density (OD600) of 0.5 by centrifuging the cells at 3000 rpm for 10 minutes
       and suspending them in fresh Mandels medium.
     explanation: Identifies Mandels medium as the reactor medium and the sequential inoculum
       sizes used in the platform.
@@ -312,7 +337,7 @@ cultivation_setup:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: The membrane bioreactors were based on Multifors 2 and Labfors 5 bioreactors
-      (Infors HT, Switzerland) with 0.5 and 2.7 liter working volume, respectively. Both
+      (Infors HT, Bottmingen/Basel, Switzerland) with 0.5 and 2.7 liter working volume, respectively. Both
       reactors were modified with a tubular polydimethylsiloxane (PDMS) membrane.
     explanation: Defines the reactor hardware, manufacturer/models, and working volumes.
   - reference: PMID:32855308

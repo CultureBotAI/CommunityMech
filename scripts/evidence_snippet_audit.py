@@ -2,9 +2,9 @@
 """Audit evidence snippets against their cited reference's cached abstract.
 
 For every EvidenceItem (any dict with both `reference` and `snippet`) in
-kb/communities/*.yaml, locate the reference's cache file, strip the circular
-"Quoted snippets used in curated records" list (so we match only against real
-abstract text), normalize whitespace, and classify:
+every MicrobialCommunity record, locate the reference's cache file, strip the
+circular "Quoted snippets used in curated records" list (so we match only
+against real abstract text), normalize whitespace, and classify:
 
   MATCH      - snippet is a literal (whitespace-normalized) substring of the text
   RENDERING  - matches only after punctuation/whitespace/Greek normalization
@@ -22,26 +22,26 @@ in the #596 survey sat on an abstract-only cache while quoting Methods. Run
 `scripts/cache_fulltext.py` for the reference before reading a MISMATCH as a
 bad snippet.
 
-Usage: uv run python scripts/evidence_snippet_audit.py [--list-mismatch]
-       [--list-nocontent] [--list-rendering] [--list-assembled]
+Usage: python scripts/evidence_snippet_audit.py [--list-mismatch]
+       [--list-nocontent] [--list-rendering] [--list-assembled] [records...]
 """
 
+import argparse
 import difflib
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
+from dataclasses import dataclass
 from pathlib import Path
+from typing import TextIO
 
 import yaml
 
-COMM = Path("kb/communities")
+from communitymech.paths import REPO_ROOT, record_files
+
 # Repo-anchored (#407). Tests override this attribute; a relative default also
 # resolved against the cwd, so importing the module from elsewhere read nothing.
 CACHE = Path(__file__).resolve().parent.parent / "references_cache"
-LIST_MM = "--list-mismatch" in sys.argv
-LIST_NC = "--list-nocontent" in sys.argv
-LIST_RD = "--list-rendering" in sys.argv
-LIST_AS = "--list-assembled" in sys.argv
 
 # Sections that contain curated/paraphrased snippets, not the real abstract.
 # Stripping them prevents circular self-matching.
@@ -144,6 +144,22 @@ def alnum(s: str) -> str:
 # mismatch — which is the failure this whole audit exists to prevent.
 _ASSEMBLED_MIN_PART = 12
 
+MismatchRow = tuple[str, str, float, str, str]
+AssembledRow = tuple[str, str, str]
+
+
+@dataclass
+class AuditReport:
+    """Evidence-snippet classifications for one audit run."""
+
+    record_count: int
+    stats: Counter[str]
+    file_mismatch: dict[str, list[MismatchRow]]
+    file_nocontent: dict[str, int]
+    file_rendering: dict[str, int]
+    file_assembled: dict[str, list[AssembledRow]]
+    yaml_errors: list[str]
+
 
 def assembled_parts(snippet: str, content: str) -> list[str] | None:
     """The parts a non-matching snippet was assembled from, or None.
@@ -228,35 +244,41 @@ def walk(node, path, out):
             walk(v, f"{path}[{i}]", out)
 
 
-def main() -> None:
-    """Run the audit over the whole KB and print the report.
+def display_path(path: Path) -> str:
+    """Return a stable repo-relative path when possible."""
+    try:
+        return str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
 
-    Wrapped in a function so the resolution helpers above can be imported
-    and tested without the module printing a full audit as a side effect
-    of import (#306).
-    """
-    stats = defaultdict(int)
+
+def audit_records(paths: list[Path]) -> AuditReport:
+    """Classify every evidence snippet in the supplied record paths."""
+    stats: Counter[str] = Counter()
     file_mismatch = defaultdict(list)
     file_nocontent = defaultdict(int)
     file_rendering = defaultdict(int)
     file_assembled = defaultdict(list)
+    yaml_errors: list[str] = []
     cache_cache = {}
+    sorted_paths = sorted(paths)
 
-    for f in sorted(COMM.glob("*.yaml")):
+    for f in sorted_paths:
+        label = display_path(f)
         try:
             data = yaml.safe_load(f.read_text())
         except Exception as e:
-            print(f"YAML ERROR {f.name}: {e}")
+            yaml_errors.append(f"YAML ERROR {label}: {e}")
             continue
         items = []
-        walk(data, f.name, items)
+        walk(data, label, items)
         for path, ref, snip in items:
             if ref not in cache_cache:
                 cache_cache[ref] = cache_text(ref)
             content, has = cache_cache[ref]
             if not has:
                 stats["NOCONTENT"] += 1
-                file_nocontent[f.name] += 1
+                file_nocontent[label] += 1
                 continue
             cov = coverage(snip, content)
             # snippets that stitch non-contiguous excerpts with ".." / "…" are legit
@@ -279,58 +301,130 @@ def main() -> None:
                     stats["MATCH"] += 1
                 else:
                     stats["RENDERING"] += 1
-                    file_rendering[f.name] += 1
+                    file_rendering[label] += 1
             elif assembled_parts(snip, content) is not None:
                 # Every part is in the source; the join is not. Supported content,
                 # but not a verbatim quote — kept out of both MATCH and MISMATCH
                 # so it is neither blessed nor called a fabrication (#596).
                 stats["ASSEMBLED"] += 1
-                file_assembled[f.name].append((path, ref, snip[:70]))
+                file_assembled[label].append((path, ref, snip[:70]))
             elif cov >= 0.6:
                 stats["WEAK"] += 1
-                file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
+                file_mismatch[label].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
             else:
                 stats["MISMATCH"] += 1
-                file_mismatch[f.name].append((path, ref, round(cov, 2), snip[:70], "MISMATCH"))
+                file_mismatch[label].append(
+                    (path, ref, round(cov, 2), snip[:70], "MISMATCH")
+                )
 
+    return AuditReport(
+        record_count=len(sorted_paths),
+        stats=stats,
+        file_mismatch=dict(file_mismatch),
+        file_nocontent=dict(file_nocontent),
+        file_rendering=dict(file_rendering),
+        file_assembled=dict(file_assembled),
+        yaml_errors=yaml_errors,
+    )
+
+
+def write_report(
+    report: AuditReport,
+    output: TextIO,
+    *,
+    list_mismatch: bool = False,
+    list_nocontent: bool = False,
+    list_rendering: bool = False,
+    list_assembled: bool = False,
+) -> None:
+    """Print a snippet-audit report."""
+    for error in report.yaml_errors:
+        print(error, file=output)
+
+    stats = report.stats
     total = sum(stats.values())
-    print(f"# {total} evidence snippets scanned across {len(list(COMM.glob('*.yaml')))} files")
+    print(f"# {total} evidence snippets scanned across {report.record_count} files", file=output)
     for k in ("MATCH", "RENDERING", "ASSEMBLED", "WEAK", "MISMATCH", "NOCONTENT"):
-        print(f"  {k:<10} {stats[k]}")
+        print(f"  {k:<10} {stats[k]}", file=output)
 
     print(
         "\n# Files with MISMATCH/WEAK (content present but snippet absent)"
-        " — fabrication suspects"
+        " — fabrication suspects",
+        file=output,
     )
-    ranked = sorted(file_mismatch.items(), key=lambda x: -len(x[1]))
+    ranked = sorted(report.file_mismatch.items(), key=lambda x: -len(x[1]))
     for fn, rows in ranked:
         hard = sum(1 for r in rows if r[4] == "MISMATCH")
-        print(f"  {len(rows):>2} ({hard} hard)  {fn}")
+        print(f"  {len(rows):>2} ({hard} hard)  {fn}", file=output)
 
-    if LIST_MM:
-        print("\n# MISMATCH/WEAK detail")
+    if list_mismatch:
+        print("\n# MISMATCH/WEAK detail", file=output)
         for fn, rows in ranked:
             for path, ref, cov, snip, kind in rows:
-                print(f"  [{kind} cov={cov}] {fn} {ref}\n      {snip}...")
+                print(f"  [{kind} cov={cov}] {fn} {ref}\n      {snip}...", file=output)
 
-    if LIST_RD:
-        print("\n# Files by RENDERING (faithful quote; differs from cache only by")
-        print("# punctuation/whitespace/Greek — this is what validate-references flags)")
-        for fn, n in sorted(file_rendering.items(), key=lambda x: -x[1])[:30]:
-            print(f"  {n:>2}  {fn}")
+    if list_rendering:
+        print("\n# Files by RENDERING (faithful quote; differs from cache only by", file=output)
+        print(
+            "# punctuation/whitespace/Greek — this is what validate-references flags)",
+            file=output,
+        )
+        for fn, n in sorted(report.file_rendering.items(), key=lambda x: -x[1])[:30]:
+            print(f"  {n:>2}  {fn}", file=output)
 
-    if LIST_NC:
-        print("\n# Top files by NOCONTENT (unverifiable; cache stub/missing)")
-        for fn, n in sorted(file_nocontent.items(), key=lambda x: -x[1])[:30]:
-            print(f"  {n:>2}  {fn}")
+    if list_nocontent:
+        print("\n# Top files by NOCONTENT (unverifiable; cache stub/missing)", file=output)
+        for fn, n in sorted(report.file_nocontent.items(), key=lambda x: -x[1])[:30]:
+            print(f"  {n:>2}  {fn}", file=output)
 
-    if LIST_AS:
-        print("\n# ASSEMBLED (every part is in the source; the join is not —")
-        print("# a table flattened into prose, or a quote welded from two places)")
-        for fn, rows in sorted(file_assembled.items(), key=lambda x: -len(x[1])):
+    if list_assembled:
+        print(
+            "\n# ASSEMBLED (every part is in the source; the join is not —",
+            file=output,
+        )
+        print(
+            "# a table flattened into prose, or a quote welded from two places)",
+            file=output,
+        )
+        for fn, rows in sorted(report.file_assembled.items(), key=lambda x: -len(x[1])):
             for _path, ref, snip in rows:
-                print(f"  {fn} {ref}\n      {snip}...")
+                print(f"  {fn} {ref}\n      {snip}...", file=output)
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "paths",
+        nargs="*",
+        type=Path,
+        help="Specific record YAML files to audit. Defaults to every MicrobialCommunity record.",
+    )
+    parser.add_argument("--list-mismatch", action="store_true")
+    parser.add_argument("--list-nocontent", action="store_true")
+    parser.add_argument("--list-rendering", action="store_true")
+    parser.add_argument("--list-assembled", action="store_true")
+    return parser
+
+
+def main(argv: list[str] | None = None, output: TextIO | None = None) -> int:
+    """Run the audit and print the report.
+
+    Wrapped in a function so the resolution helpers above can be imported
+    and tested without the module printing a full audit as a side effect
+    of import (#306).
+    """
+    args = build_parser().parse_args(argv)
+    report = audit_records(args.paths or record_files())
+    write_report(
+        report,
+        output or sys.stdout,
+        list_mismatch=args.list_mismatch,
+        list_nocontent=args.list_nocontent,
+        list_rendering=args.list_rendering,
+        list_assembled=args.list_assembled,
+    )
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

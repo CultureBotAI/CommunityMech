@@ -114,6 +114,7 @@ ecological_interactions:
     Sphingobium sp. cleaves lignin-derived dimers, supplying aromatic
     intermediates that R. opacus can funnel into target products.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Sphingobium sp.
     term:
@@ -134,6 +135,12 @@ ecological_interactions:
       id: CHEBI:53650
       label: guaiacylglycerol-beta-guaiacyl ether
     notes: Representative beta-O-4 lignin-derived dimer substrate tested in the study.
+  downstream:
+  - target: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
+    description: >
+      Sphingobium cleavage of lignin-derived dimers supplies the monomers that
+      R. opacus funnels into cis,cis-muconate and gallate in the designed
+      coculture.
   evidence:
   - reference: PMID:36030484
     supports: SUPPORT
@@ -184,11 +191,17 @@ ecological_interactions:
     term:
       id: CHEBI:6457
       label: lignin
+  downstream:
+  - target: Funneling of Lignin-Derived Dimers to cis,cis-Muconate and Gallate
+    description: >
+      Activity across beta-O-4, 4-O-5, and beta-5 dimer linkage classes
+      broadens the substrate pool that the Sphingobium-Rhodococcus coculture can
+      funnel into cis,cis-muconate and gallate.
   evidence:
   - reference: PMID:36030484
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: beta-O-4 type dimer guaiacylglycerol-beta-guaiacyl ether
+    snippet: β-O-4 type dimer guaiacylglycerol-β-guaiacyl ether
     explanation: Supports beta-O-4 dimer coverage.
   - reference: PMID:36030484
     supports: SUPPORT
@@ -198,7 +211,7 @@ ecological_interactions:
   - reference: PMID:36030484
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: beta-5 type dimer balanophonin
+    snippet: β-5 type dimer balanophonin
     explanation: Supports beta-5 dimer coverage.
 environmental_factors:
 - name: Lignin-derived dimer substrates

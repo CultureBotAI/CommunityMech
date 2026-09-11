@@ -91,6 +91,17 @@ ecological_interactions:
     term:
       id: NCBITaxon:492670
       label: Bacillus velezensis
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: SynCom Y Fusaric Acid and Wilt Resistance
+    description: >
+      The EPS-rich dual-species biofilm tolerated more fusaric acid than either
+      monoculture and links the Agrobacterium-Bacillus biofilm synergy to pot-level
+      watermelon Fusarium wilt suppression.
   evidence:
   - reference: PMID:42125264
     supports: SUPPORT
@@ -99,6 +110,40 @@ ecological_interactions:
       polysaccharide production and metabolic activity.
     explanation: Measured emergent synergy (biofilm, EPS, metabolic activity) in co-culture vs monocultures.
     confidence_score: 0.9
+- name: SynCom Y Fusaric Acid and Wilt Resistance
+  description: SynCom Y biofilms showed higher resistance to fusaric acid than either monoculture
+    and the two-strain inoculum reduced watermelon Fusarium wilt incidence more effectively than
+    single-strain treatments in pots, connecting the cooperative biofilm to emergent biocontrol
+    performance.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: fusaric acid
+    term:
+      id: CHEBI:5199
+      label: Fusaric acid
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The two-strain biofilm showed a notable biomass decrease at 17 μg/mL FA, indicating
+      enhanced resistance to FA compared with single-species biofilms
+    explanation: SynCom Y tolerated higher fusaric acid before biofilm biomass decreased than either
+      single-species biofilm.
+    confidence_score: 0.85
+  - reference: PMID:42125264
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The SynCom Y, composed of A. deltaense LSQ16 and B. velezensis WB, exhibited a disease
+      incidence of 18.33% and a control efficacy of 79.13%
+    explanation: Watermelon pot trials showed stronger Fusarium wilt control by SynCom Y than by
+      single-strain treatments.
+    confidence_score: 0.85
 - name: Predicted cross-feeding from A. deltaense LSQ16 to B. velezensis WB
   description: Genome-scale metabolic modeling predicts LSQ16 donates metabolites to WB (including
     L-ornithine, guanine, guanosine, malate, phosphate). Two predicted donations (L-ornithine,
@@ -136,6 +181,12 @@ ecological_interactions:
     term:
       id: CHEBI:26020
       label: phosphate
+  downstream:
+  - target: Synergistic biofilm and EPS formation in co-culture
+    description: >
+      Experimentally validated L-ornithine and guanine additions connect the
+      predicted LSQ16-to-WB donation route to enhanced B. velezensis biofilm
+      formation in the measured co-culture synergy.
   evidence:
   - reference: PMID:42125264
     supports: SUPPORT
@@ -238,7 +289,7 @@ growth_media:
   - reference: PMID:42125264
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'Subsequently, they were inoculated at 10% ( v / v ) into 2 mL of LBGM medium. For
+    snippet: 'Subsequently, they were inoculated at 10% (v/v) into 2 mL of LBGM medium. For
       single-species biofilms, the bacterial suspension was directly introduced into 24-well plates.'
     explanation: Biofilm medium (LBGM), inoculum size (10% v/v), and vessel (24-well plate).
   - reference: PMID:42125264

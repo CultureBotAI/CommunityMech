@@ -81,13 +81,140 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Methane-Driven Chromium Reduction
-  description: Methanotrophs and partner genera couple methane oxidation with Cr(VI) reduction through
-    extracellular electron transfer.
+- name: Methylocystis Hypoxic Methane Oxidation
+  description: Under hypoxic methane-fed conditions, Methylocystis is the core
+    microorganism oxidizing methane and initiating electron flow toward Cr(VI)
+    reduction.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methylocystis sp.
+    term:
+      id: NCBITaxon:133
+      label: Methylocystis
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  downstream:
+  - target: Extracellular Electron Transfer to Cr(VI)
+    description: Hypoxic methane oxidation by Methylocystis supplies electrons that
+      reach Cr(VI) through extracellular electron transfer mediated by c-type
+      cytochromes, conductive pili, and dominant partner genera.
+  evidence:
+  - reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: under hypoxic conditions, Methylocystis (6.30%) was the core microorganism driving
+      methane oxidation
+    explanation: Supports Methylocystis as the methane-oxidizing core taxon in the
+      hypoxic Cr(VI)-reducing SynCom.
+- name: Extracellular Electron Transfer to Cr(VI)
+  description: Methylocystis achieves extracellular electron transfer through
+    multiheme c-type cytochromes and conductive pili or jointly with dominant
+    Hyphomicrobium and Thiobacillus partners, coupling methane oxidation to Cr(VI)
+    reduction.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methylocystis sp.
+    term:
+      id: NCBITaxon:133
+      label: Methylocystis
+  - preferred_term: Hyphomicrobium sp.
+    term:
+      id: NCBITaxon:82
+      label: Hyphomicrobium sp.
+  - preferred_term: Thiobacillus sp.
+    term:
+      id: NCBITaxon:919
+      label: Thiobacillus
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  downstream:
+  - target: Methane-Driven Chromium Reduction
+    description: Extracellular electron transfer from methane oxidation connects the
+      methane-oxidizing core and partner genera to Cr(VI) reduction in the
+      chromium-removing SynCom.
+  evidence:
+  - reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: It achieved extracellular electron transfer (EET) through multiheme c-type cytochromes
+      and conductive pili, or jointly with dominant genera such as Hyphomicrobium and
+      Thiobacillus, to couple methane oxidation with Cr(VI) reduction.
+    explanation: Supports the extracellular electron-transfer module linking methane
+      oxidation to Cr(VI) reduction in the three-genus consortium.
+- name: Methane-Driven Chromium Reduction
+  description: The SynCom couples methane oxidation with Cr(VI) reduction through
+    extracellular electron transfer and a quorum-sensing, methane-metabolism, ABC
+    transporter, and porin expression program.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: chromate(2-)
+    term:
+      id: CHEBI:35404
+      label: chromate(2-)
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
   evidence:
   - *id001
+  - reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: to couple methane oxidation with Cr(VI) reduction
+    explanation: Supports methane as the oxidized electron donor and Cr(VI) as
+      the reduced chromium species in the community-level electron-transfer process.
+  - reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: significant enrichment of differentially expressed proteins involved in quorum
+      sensing and methane metabolism
+    explanation: Supports quorum sensing and methane metabolism as enriched protein
+      functions in the Cr(VI)-reducing SynCom.
+  - reference: PMID:41932525
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inhibiting the methane oxidation would directly reduce the efficiency of Cr(VI) reduction
+    explanation: Supports methane oxidation as the upstream driver of Cr(VI) reduction efficiency.
 environmental_factors:
 - name: defined synthetic community design
   value: SynCom was constructed by controlling methane concentration and chromium load, enriching Methylocystis

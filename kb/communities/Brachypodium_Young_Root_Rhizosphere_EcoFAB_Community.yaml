@@ -122,11 +122,89 @@ taxonomy:
     snippet: Actinobacteria, Bacteroidetes, Firmicutes and Proteobacteria
     explanation: Supports Proteobacteria enrichment in the rhizosphere.
 ecological_interactions:
-- name: Root-Driven Rhizosphere Effect
-  description: A strong rhizosphere effect enriches Actinobacteria,
-    Bacteroidetes, Firmicutes, and Proteobacteria OTUs relative to bulk soil.
+- name: Root-Exudate Rhizosphere Niche Formation
+  description: >
+    Young Brachypodium roots release low-molecular-weight exudates, mucilage,
+    and sloughed root tissues that supply nutrients near the root surface,
+    distinguishing the rhizosphere from surrounding bulk soil and setting the
+    selective context for root-associated microbial enrichment.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: root exudate organic compounds
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Root-Driven Rhizosphere Effect
+    description: >
+      Carbon-rich root deposits create the rhizosphere niche that recruits and
+      selects bacterial OTUs from the surrounding bulk soil.
+  - target: Tip-Versus-Bulk Functional Gradient
+    description: >
+      Root-derived labile nutrients create the contrast between root-tip
+      metabolic and colonization genes and bulk-soil nutrient-limitation and
+      stress genes.
+  evidence:
+  - reference: PMID:37280433
+    supports: SUPPORT
+    evidence_source: REVIEW
+    snippet: >
+      These root exudates contain low-molecular weight organic compounds, and
+      together with mucilage and sloughed off root tissues mainly expelled from
+      root tips, provide a major source of nutrients for the rhizosphere
+      microbiome
+    explanation: >
+      Supports root-derived labile organic compounds as a nutrient supply to
+      rhizosphere microbes.
+  - reference: PMID:37280433
+    supports: SUPPORT
+    evidence_source: REVIEW
+    snippet: >
+      These compounds create an exclusive environment in the rhizosphere that is
+      physiochemically distinct from the surrounding bulk soil
+    explanation: >
+      Supports root exudates as the niche-forming chemical gradient upstream of
+      rhizosphere community selection.
+- name: Root-Driven Rhizosphere Effect
+  description: >
+    The developing Brachypodium primary-root rhizosphere showed a strong root
+    effect in which OTUs affiliated with Actinobacteria, Bacteroidetes,
+    Firmicutes, and Proteobacteria were enriched relative to bulk soil.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: rhizosphere Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: rhizosphere Bacteroidetes
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: rhizosphere Firmicutes
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  - preferred_term: rhizosphere Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  metabolites:
+  - preferred_term: root exudate organic compounds
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:37280433
     supports: SUPPORT
@@ -135,11 +213,23 @@ ecological_interactions:
       several OTUs
     explanation: Supports the rhizosphere-effect community shaping.
 - name: Tip-Versus-Bulk Functional Gradient
-  description: Genes for metabolic pathways and root colonization are enriched
-    in root tips, whereas nutrient-limitation and environmental-stress genes
-    dominate in bulk soil, indicating gradients in labile carbon and nutrients.
+  description: >
+    Bulk-metagenome functional profiles separated root tips from bulk soil:
+    root tips were enriched for substrate-utilization and root-colonization
+    KOs, whereas bulk soil overrepresented nutrient-acquisition and
+    environmental-stress machinery under limited labile-carbon availability.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: labile root carbon
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  biological_processes:
+  - preferred_term: metabolic process
+    term:
+      id: GO:0008152
+      label: metabolic process
   evidence:
   - reference: PMID:37280433
     supports: SUPPORT
@@ -153,20 +243,6 @@ ecological_interactions:
     snippet: genes associated with nutrient-limitation and environmental stress
       were prominent in the bulk soil compared to root tips
     explanation: Supports the bulk-soil stress and nutrient-limitation signature.
-- name: Compositional Invariance Across Containers and Root Zones
-  description: 16S rRNA community composition did not differ between root tips
-    and root base or across EcoFABs versus pot and tube containers, indicating
-    container-independent rhizosphere assembly at the 16S level.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  evidence:
-  - reference: PMID:37280433
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: microbial community composition did not differ between root tips
-      and root base or across different growth containers
-    explanation: Supports compositional invariance across spatial zones and
-      containers.
 environmental_factors:
 - name: Growth container
   value: EcoFABs versus conventional pots and tubes

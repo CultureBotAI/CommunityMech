@@ -182,6 +182,7 @@ ecological_interactions:
   description: SUP05-associated incomplete sulfide-driven denitrification releases nitrite, creating a
     metabolic connection to anammox bacteria and nitrogen loss in the sulfide-nitrate transition zone.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: SUP05 Gammaproteobacteria
     term:
@@ -232,6 +233,7 @@ ecological_interactions:
     to be performed by other community members that complete denitrification under low-oxygen and anoxic
     conditions.
   interaction_type: NICHE_PARTITIONING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: SUP05 Gammaproteobacteria
     term:
@@ -270,11 +272,6 @@ ecological_interactions:
     column.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Saanich Inlet redox-gradient microorganisms
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   metabolites:
   - preferred_term: dioxygen
     term:
@@ -297,6 +294,11 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
+  downstream:
+  - target: SUP05 Nitrite Leakage Supports Anammox
+    description: Sulfide-nitrate transition zones position SUP05 nitrite production upstream of anammox.
+  - target: Complementary Nitrous Oxide Reduction Niche
+    description: Redox partitioning separates SUP05 partial denitrification from nitrous oxide reduction.
   evidence:
   - reference: PMID:27655888
     supports: SUPPORT

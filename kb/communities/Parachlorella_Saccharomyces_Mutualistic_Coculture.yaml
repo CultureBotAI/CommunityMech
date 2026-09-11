@@ -80,6 +80,12 @@ ecological_interactions:
     term:
       id: CHEBI:16526
       label: carbon dioxide
+  downstream:
+  - target: Fourfold Microalgal Biomass and Lipid Increase
+    description: >
+      Reciprocal O2/CO2 exchange helps the coculture overcome microalgal
+      productivity limits and contributes to the higher biomass and lipid
+      production measured in coculture.
   evidence:
   - reference: PMID:42217804
     supports: SUPPORT
@@ -103,6 +109,21 @@ ecological_interactions:
     term:
       id: NCBITaxon:3074
       label: Parachlorella kessleri
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  downstream:
+  - target: Fourfold Microalgal Biomass and Lipid Increase
+    description: >
+      Yeast sustains microalgal growth after glucose depletion and promotes
+      lipid accumulation, directly supporting the coculture biomass and lipid
+      endpoint.
   evidence:
   - reference: PMID:42217804
     supports: SUPPORT
@@ -127,6 +148,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:4932
       label: Saccharomyces cerevisiae
+  metabolites:
+  - preferred_term: exopolysaccharide
+    term:
+      id: CHEBI:72813
+      label: exopolysaccharide
   evidence:
   - reference: PMID:42217804
     supports: SUPPORT
@@ -135,6 +161,41 @@ ecological_interactions:
       via exopolysaccharides (EPS) - derived molecules
     explanation: Inferred microalga-to-yeast metabolic support via EPS-derived molecules sustaining
       yeast viability.
+- name: Fourfold Microalgal Biomass and Lipid Increase
+  description: >
+    The Parachlorella-Saccharomyces coculture increased biomass and lipid
+    production fourfold relative to the microalgal monoculture, integrating gas
+    exchange and yeast-supported phototrophic growth into the target
+    lipid-productivity phenotype.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  evidence:
+  - reference: PMID:42217804
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: biomass and lipid production increased 4-fold compared to microalgal monoculture grown in
+      BBM + NO3 medium
+    explanation: >
+      Supports the increased biomass and lipid-production endpoint of the
+      microalga-yeast coculture.
 growth_media:
 - name: BBM + NO3 medium
   preparation_notes: 'Microalga-yeast co-culture; yeast supplied with glucose as initial carbon source,

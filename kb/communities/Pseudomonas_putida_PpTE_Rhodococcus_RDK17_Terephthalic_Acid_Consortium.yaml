@@ -110,6 +110,11 @@ ecological_interactions:
     term:
       id: CHEBI:15702
       label: terephthalic acid
+  downstream:
+  - target: Pp-TE Dominance During TPA Coculture
+    description: >
+      Competition for terephthalic acid contributes to Pp-TE dominance in the
+      two-member TPA coculture fermentations.
   evidence:
   - reference: PMID:42324694
     supports: SUPPORT
@@ -132,6 +137,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:1827
       label: Rhodococcus <high G+C Gram-positive bacteria>
+  biological_processes:
+  - preferred_term: protein secretion by the type VI secretion system
+    term:
+      id: GO:0033103
+      label: protein secretion by the type VI secretion system
+  downstream:
+  - target: Pp-TE Dominance During TPA Coculture
+    description: >
+      Contact-dependent growth inhibition reinforces Pp-TE dominance over RDK17
+      in TPA-fed cocultures.
   evidence:
   - reference: PMID:42324694
     supports: SUPPORT
@@ -140,6 +155,39 @@ ecological_interactions:
       impaired the growth of RDK17 via contact-dependent inhibition
     explanation: Contact-dependent inhibition through the Pp-TE T6SS is interference competition
       against RDK17.
+- name: Pp-TE Dominance During TPA Coculture
+  description: >
+    P. putida Pp-TE consistently dominates Rhodococcus sp. RDK17 in batch and
+    serial-transfer cocultures supplied with terephthalic acid as the sole
+    carbon and energy source.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pseudomonas putida strain Pp-TE (engineered)
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  target_taxon:
+    preferred_term: Rhodococcus sp. strain RDK17 (native)
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: terephthalic acid (TPA)
+    term:
+      id: CHEBI:15702
+      label: terephthalic acid
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42324694
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pp-TE consistently outcompeted RDK17 in batch and multitransfer coculture fermentations
+    explanation: Supports Pp-TE dominance as the outcome of the two-member TPA coculture.
 growth_media:
 - name: minimal medium with terephthalic acid (TPA) as the sole carbon and energy
     source

@@ -102,6 +102,7 @@ ecological_interactions:
     detoxification activity is the mechanistic basis for the coculture's
     improved lactic acid productivity over S. cerevisiae monoculture.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: engineered Acinetobacter baylyi ADP1
     term:
@@ -126,6 +127,12 @@ ecological_interactions:
     term:
       id: GO:0009410
       label: response to xenobiotic stimulus
+  downstream:
+  - target: Simultaneous Detoxification and Product Formation
+    description: >
+      Bioconversion of furan aldehyde inhibitors by A. baylyi ADP1 improves the
+      coculture's lactic acid productivity from synthetic lignocellulosic
+      hydrolysate.
   evidence:
   - reference: PMID:38711153
     supports: SUPPORT
@@ -148,6 +155,7 @@ ecological_interactions:
     providing a secondary high-value product stream alongside S. cerevisiae's
     lactic acid output.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: engineered Saccharomyces cerevisiae
     term:
@@ -163,6 +171,11 @@ ecological_interactions:
     term:
       id: GO:0010025
       label: wax biosynthetic process
+  downstream:
+  - target: Simultaneous Detoxification and Product Formation
+    description: >
+      Routing residual S. cerevisiae carbon and byproducts into wax ester
+      production adds a second product stream to the detoxifying coculture.
   evidence:
   - reference: PMID:38711153
     supports: SUPPORT
@@ -171,6 +184,35 @@ ecological_interactions:
       to wax ester production by A. baylyi ADP1
     explanation: Directly supports cross-feeding of residual S. cerevisiae carbon
       into A. baylyi wax ester biosynthesis.
+- name: Simultaneous Detoxification and Product Formation
+  description: >
+    The engineered S. cerevisiae-A. baylyi ADP1 coculture simultaneously
+    detoxifies furan aldehydes in synthetic lignocellulosic hydrolysate and
+    produces lactic acid plus wax esters as value products.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: furfural
+    term:
+      id: CHEBI:34768
+      label: furfural
+  - preferred_term: 5-hydroxymethylfurfural
+    term:
+      id: CHEBI:412516
+      label: 5-hydroxymethylfurfural
+  biological_processes:
+  - preferred_term: response to xenobiotic stimulus
+    term:
+      id: GO:0009410
+      label: response to xenobiotic stimulus
+  evidence:
+  - reference: PMID:38711153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: simultaneous inhibitor detoxification and production of lactic acid and wax esters
+    explanation: >
+      Supports the paired detoxification and production outputs of the defined
+      S. cerevisiae-A. baylyi ADP1 coculture.
 environmental_factors:
 - name: Furan aldehyde inhibitors in synthetic lignocellulosic hydrolysate
   value: furfural and 5-hydroxymethylfurfural present

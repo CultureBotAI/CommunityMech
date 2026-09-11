@@ -205,12 +205,17 @@ ecological_interactions:
 - name: PAO Phosphate Storage Under EBPR Selection
   description: EBPR process cycling selects for bacteria that accumulate and use intracellular polyphosphate,
     enabling phosphorus removal from wastewater.
+  scope: COMMUNITY_LEVEL
   interaction_type: NICHE_PARTITIONING
-  source_taxon:
-    preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
+  participating_taxa:
+  - preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
     term:
       id: NCBITaxon:327159
       label: Candidatus Accumulibacter
+  - preferred_term: Tetrasphaera-related actinobacterial PAOs
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
   metabolites:
   - preferred_term: phosphate
     term:
@@ -221,6 +226,12 @@ ecological_interactions:
     term:
       id: GO:0006796
       label: phosphate-containing compound metabolic process
+  downstream:
+  - target: Stable Full-Scale EBPR Phosphorus Removal
+    description: >
+      Polyphosphate-accumulating organisms provide the phosphate-storage
+      metabolism that removes phosphorus from wastewater in the stable
+      full-scale EBPR process.
   evidence:
   - reference: PMID:22170425
     supports: SUPPORT
@@ -232,6 +243,7 @@ ecological_interactions:
   description: Fermenters and macromolecule-hydrolyzing bacteria provide substrates to polyphosphate-accumulating
     organisms, linking community trophic structure to phosphorus removal.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: EBPR flanking bacteria
     term:
@@ -247,6 +259,12 @@ ecological_interactions:
     term:
       id: CHEBI:30089
       label: acetate
+  downstream:
+  - target: PAO Phosphate Storage Under EBPR Selection
+    description: >
+      Substrate release by fermenting and hydrolytic flanking bacteria
+      supplies PAOs, linking community trophic support to the
+      phosphorus-storage process selected in the full-scale EBPR plant.
   evidence:
   - reference: PMID:22170425
     supports: SUPPORT
@@ -257,9 +275,14 @@ ecological_interactions:
 - name: Sludge Floc and Biofilm Formation
   description: Activated sludge biomass retention depends on floc and biofilm formation, and the EBPR
     metagenome was enriched for genes linked to cell wall, capsule, and extracellular macromolecule functions.
+  scope: COMMUNITY_LEVEL
   interaction_type: COLONIZATION_FACILITATION
-  source_taxon:
-    preferred_term: EBPR flanking bacteria
+  participating_taxa:
+  - preferred_term: Bacteroidetes flanking community members
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: EBPR flanking bacteria
     term:
       id: NCBITaxon:2
       label: Bacteria
@@ -268,6 +291,11 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Stable Full-Scale EBPR Phosphorus Removal
+    description: >
+      Activated-sludge floc and biofilm formation retain biomass in the plant,
+      sustaining the phosphorus-removing community selected by EBPR operation.
   evidence:
   - reference: PMID:22170425
     supports: SUPPORT
@@ -281,6 +309,59 @@ ecological_interactions:
       that leads to the good settling properties that are required to retain the biomass in the plant.
     explanation: Supports sludge floc and biofilm formation as a retention mechanism in the engineered
       community.
+- name: Stable Full-Scale EBPR Phosphorus Removal
+  description: The Aalborg East activated-sludge community maintained stable enhanced biological
+    phosphorus removal for several years, removing more than 95% of incoming phosphorus through PAO
+    phosphate storage and biomass retention in settling flocs.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  participating_taxa:
+  - preferred_term: Candidatus Accumulibacter phosphatis and related PAOs
+    term:
+      id: NCBITaxon:327159
+      label: Candidatus Accumulibacter
+  - preferred_term: Tetrasphaera-related actinobacterial PAOs
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: Bacteroidetes flanking community members
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  - preferred_term: EBPR flanking bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:18367
+      label: phosphate(3-)
+  - preferred_term: polyphosphate
+    term:
+      id: CHEBI:16838
+      label: polyphosphate
+  biological_processes:
+  - preferred_term: phosphate-containing compound metabolic process
+    term:
+      id: GO:0006796
+      label: phosphate-containing compound metabolic process
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: stable EBPR performance for several years prior to the time of sampling removing >95% of the incoming P
+    explanation: Supports stable high-efficiency phosphorus removal by the full-scale community.
+  - reference: PMID:22170425
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: phosphate metabolism and biofilm formation
+    explanation: Supports coupling of phosphate metabolism and biomass-retaining biofilm formation in the
+      EBPR metagenome.
 environmental_factors:
 - name: Full-scale Aalborg East WWTP operating context
   value: domestic wastewater; stable EBPR; greater than 95% incoming phosphorus removed
@@ -323,25 +404,22 @@ associated_datasets:
 growth_media:
 - name: domestic wastewater (full-scale EBPR activated sludge)
   inoculum_source: activated sludge from the aeration tank at Aalborg East WWTP, Denmark
-  preparation_notes: Municipal EBPR plant fed mainly domestic wastewater; influent phosphorus
-    10-20 mg P/L with >95% removal and effluent below 0.5 mg P/L. No incubation temperature,
-    pH, or defined atmosphere reported for this full-scale in situ community.
+  preparation_notes: Municipal EBPR plant fed mainly domestic wastewater and maintained stable
+    phosphorus removal above 95% before sampling. No incubation temperature, pH, or defined
+    atmosphere reported for this full-scale in situ community.
   evidence:
   - reference: PMID:22170425
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Activated sludge was taken from the aeration tank at Aalborg East WWTP, Denmark
-      (57.044565° N, 10.047598° E) on 4 August 2009.
-    explanation: Identifies the wastewater medium and sampling of activated sludge from the
-      aeration tank.
+    snippet: The plant treats mainly domestic wastewater and serves 100 000 person equivalents
+      with an average load of 45 000 person equivalents.
+    explanation: Identifies the municipal domestic wastewater feeding the full-scale EBPR plant.
   - reference: PMID:22170425
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: The plant had stable EBPR performance for several years prior to the time of sampling
-      removing >95% of the incoming P (10-20 mg P l-1) resulting in effluent concentrations
-      below 0.5 mg P l-1.
-    explanation: Reports the influent and effluent phosphorus concentrations of the treated
-      wastewater.
+      removing >95% of the incoming P
+    explanation: Reports the high-efficiency phosphorus removal of the treated wastewater.
 cultivation_setup:
 - cultivation_mode: CONTINUOUS
   system_type: BIOREACTOR_UNSPECIFIED

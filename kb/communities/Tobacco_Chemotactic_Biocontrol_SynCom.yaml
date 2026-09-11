@@ -62,12 +62,93 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Root-Exudate Prebiotic Enhancement
+  description: Root-exudate-derived vitamin C, propionic acid, and esculetin
+    stimulate growth of the chemotactic SynCom strains and increase the
+    antagonistic activity of their fermentation broth against Ralstonia
+    solanacearum.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: L-ascorbic acid
+    term:
+      id: CHEBI:29073
+      label: L-ascorbic acid
+  - preferred_term: propionic acid
+    term:
+      id: CHEBI:30768
+      label: propionic acid
+  - preferred_term: esculetin
+    term:
+      id: CHEBI:490095
+      label: esculetin
+  downstream:
+  - target: Chemotactic Bacterial Wilt Suppression
+    description: Prebiotic-stimulated SynCom growth and antagonistic bioactivity
+      strengthen the chemotactic consortium's suppression of Ralstonia.
+  evidence:
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vitamin C, propionic acid, and esculetin significantly promoted the growth and
+      antagonistic ability of chemotactic SynCom strains
+    explanation: Supports the root-exudate-derived compounds as prebiotics that
+      increase growth and pathogen antagonism by the chemotactic SynCom.
 - name: Chemotactic Bacterial Wilt Suppression
   description: Chemotactic SynCom members colonize the rhizosphere and suppress Ralstonia invasion.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: L-ascorbic acid
+    term:
+      id: CHEBI:29073
+      label: L-ascorbic acid
+  - preferred_term: propionic acid
+    term:
+      id: CHEBI:30768
+      label: propionic acid
+  - preferred_term: esculetin
+    term:
+      id: CHEBI:490095
+      label: esculetin
+  biological_processes:
+  - preferred_term: chemotaxis
+    term:
+      id: GO:0006935
+      label: chemotaxis
+  downstream:
+  - target: Tobacco Field Protection and Yield Enhancement
+    description: Rhizosphere colonization and antagonism by the chemotactic
+      SynCom carry through the bioorganic fertilizer into lower field
+      Ralstonia invasion and higher tobacco yield.
   evidence:
   - *id001
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: vitamin C, propionic acid, and esculetin significantly promoted the growth and antagonistic
+      ability of chemotactic SynCom strains
+    explanation: Names the three root-exudate prebiotics that promoted
+      chemotactic SynCom growth and antagonism against Ralstonia solanacearum.
+- name: Tobacco Field Protection and Yield Enhancement
+  description: Bioorganic fertilizer carrying the chemotactic SynCom protects
+    diseased tobacco fields from Ralstonia solanacearum invasion and increases
+    crop yield under field conditions.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: chemotaxis
+    term:
+      id: GO:0006935
+      label: chemotaxis
+  evidence:
+  - reference: PMID:40670700
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bioorganic fertilizer containing chemotactic SynCom can protect diseased tobacco
+      field from R. solanacearum invasion and enhance yields
+    explanation: Supports the field endpoint of the chemotactic SynCom
+      bioorganic fertilizer.
 environmental_factors:
 - name: defined synthetic community design
   value: Two Pseudomonas strains and one Bacillus strain selected from healthy tobacco rhizosphere isolates.

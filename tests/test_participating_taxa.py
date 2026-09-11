@@ -5,14 +5,11 @@ the record. Defensible — such an interaction asserts something holding across
 the community rather than between a named pair — and unavoidably coarse, because
 `EcologicalInteraction` had only `source_taxon` and `target_taxon` and no way to
 say *which* members participate. In a record carrying both kinds of edge, a
-taxon in no pairwise edge was credited by an unrelated community-level one:
-**407 of 522 taxa** were credited solely that way.
+taxon in no pairwise edge could be credited by an unrelated community-level one.
 
 `participating_taxa` is the refinement #312 proposed. Optional, and absent or
-empty means "every member" — so the corpus behaves identically today (measured:
-55 findings before, 55 after, same breakdown). Nothing changes until a curator
-names participants, which is the property that makes this safe to land ahead of
-any curation.
+empty means "every member"; when a curator names participants, the
+community-level credit narrows to those taxa.
 
 Two things here were found by running the code rather than reading it, and both
 are pinned below:
@@ -36,8 +33,6 @@ import pytest
 import yaml
 
 from communitymech.network.auditor import IssueType, NetworkIntegrityAuditor
-from communitymech.paths import record_files
-
 REPO = pathlib.Path(__file__).parent.parent
 
 # Both record roots, not kb/communities alone. `data/isolates` holds the same

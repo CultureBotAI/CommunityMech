@@ -87,6 +87,33 @@ taxonomy:
       transfer system of Fe0-S. oneidensis-P. aeruginosa
     explanation: Establishes P. aeruginosa as the electron-accepting denitrifier.
 ecological_interactions:
+- name: Shewanella Fe0-Biocorrosion Electron Harvesting
+  description: Shewanella oneidensis uses its membrane-bound CymA-OmcA-MtrC complexes
+    to harvest electrons and conserve energy from metallic-iron biocorrosion when
+    Fe0 is supplied as the sole electron donor.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Fe0-dependent electro-syntrophic electron transfer
+    description: Electron harvest from Fe0 by S. oneidensis feeds the direct electron
+      cross-feeding system that supplies P. aeruginosa.
+  evidence:
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using Fe0 as the sole electron donor, S. oneidensis can act as a bio-engine to harvest
+      electrons and conserve energy from Fe0 biocorrosion
+    explanation: Supports the upstream Fe0 electron-harvesting role of S. oneidensis.
 - name: Fe0-dependent electro-syntrophic electron transfer
   description: Direct electron cross-feeding in which S. oneidensis harvests electrons from Fe0
     biocorrosion via its CymA-OmcA-MtrC complexes and transfers them to P. aeruginosa, which uses
@@ -105,6 +132,20 @@ ecological_interactions:
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Pseudomonas Nitrate Reduction by Accepted Electrons
+    description: Electrons transferred from S. oneidensis to P. aeruginosa are accepted
+      by the denitrifier to drive nitrate reduction.
   evidence:
   - reference: PMID:39504696
     supports: SUPPORT
@@ -119,6 +160,34 @@ ecological_interactions:
       for denitrification enzymes, intracellular electron transfer proteins, and quorum sensing of
       P. aeruginosa
     explanation: Electron cross-feeding upregulates denitrification and electron-transfer gene expression in P. aeruginosa.
+- name: Pseudomonas Nitrate Reduction by Accepted Electrons
+  description: Pseudomonas aeruginosa accepts electrons from the Fe0-Shewanella electron-transfer
+    system and uses them for nitrate reduction under anaerobic conditions.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:39504696
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. aeruginosa can accept electrons for nitrate reduction via the constructed electron
+      transfer system of Fe0-S. oneidensis-P. aeruginosa
+    explanation: Supports P. aeruginosa nitrate reduction as the downstream electron-accepting
+      process.
 growth_media:
 - name: Anaerobic Fe0-fed denitrification medium
   composition:

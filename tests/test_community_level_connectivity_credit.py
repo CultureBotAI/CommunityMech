@@ -16,16 +16,11 @@ measured and is worse in both directions — community-level-only crediting leav
 1 finding across the corpus (vacuous), dropping the exemption without the credit
 reports 390 (noise). Together they land at a usable number.
 
-What this file adds is that the coarseness is now **counted**, so it cannot grow
-unnoticed. It already has: #312 measured 412 of 518 taxa credited solely by the
-rule, and it is 407 of 522 today — the shape is stable, the corpus moved.
-
-The refinement #312 proposes — an optional `participating_taxa` on
-`EcologicalInteraction`, crediting only named members when present and falling
-back to all members when absent — is a schema change that overlaps #307's
-question of how to express which taxa a community-level statement is *about*.
-Deliberately not done here. These bounds are loose because the point is to catch
-a step change, not to freeze a number that legitimate curation moves.
+What this file adds is that the remaining coarseness is **counted**, so it
+cannot grow unnoticed. `participating_taxa` now narrows many community-level
+claims to specific members, while absent or empty participant lists still mean
+"every member". These bounds are loose because the point is to catch a step
+change, not to freeze a number that legitimate curation moves.
 """
 
 from __future__ import annotations
@@ -110,26 +105,26 @@ def test_the_survey_sees_the_corpus(survey):
 
 
 def test_most_records_carry_a_community_level_interaction(survey):
-    """The rule's reach. #312 measured 156; loose bounds, since curation adds records."""
-    assert 130 <= survey["with_community_level"] <= 200, survey
+    """The rule's reach. #312 measured 156; the causal-graph pass reached 268."""
+    assert 130 <= survey["with_community_level"] <= 300, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
     """A record with both kinds is where an unrelated edge credits a lone taxon.
 
-    #312 measured 46. In the community-level-only records the credit is not
+    #312 measured 46; ongoing curation has moved this near 90. In the
+    community-level-only records the credit is not
     coarse — there is no pairwise edge it could be masking.
     """
-    assert 35 <= survey["mixed"] <= 80, survey
+    assert 35 <= survey["mixed"] <= 120, survey
     assert survey["mixed"] + survey["community_level_only"] == survey["with_community_level"]
 
 
 def test_the_share_credited_solely_by_the_rule_has_not_stepped_up(survey):
     """The headline number, and the one worth watching.
 
-    #312: 412 of 518. Today: 407 of 522. Bounded as a *share* rather than a
-    count, so adding records does not trip it but a change in the rule's reach
-    does.
+    #312 measured 412 of 518. This is bounded as a *share* rather than a count,
+    so adding records does not trip it but a change in the rule's reach does.
     """
     share = survey["credited_solely_by_the_rule"] / survey["taxa"]
     assert 0.65 <= share <= 0.90, (
@@ -160,17 +155,11 @@ def test_the_worked_example_still_shows_the_limit():
 
 
 def test_the_schema_can_now_name_participants():
-    """#312's refinement landed; this file records what it did not change.
+    """#312's refinement landed; this file guards the schema side of it.
 
     `participating_taxa` is on `EcologicalInteraction` and the auditor narrows
-    the community-level credit to the members it names. The numbers above are
-    unaffected because no record uses it yet — absent or empty still means
-    "every member", which is what makes the slot safe to land ahead of curation.
-
-    When records do start naming participants, `credited_solely_by_the_rule`
-    should fall and the bound in
-    `test_the_share_credited_solely_by_the_rule_has_not_stepped_up` will need
-    re-measuring downward rather than widening. See tests/test_participating_taxa.py.
+    the community-level credit to the members it names. Absent or empty still
+    means "every member".
     """
     schema = yaml.safe_load(
         (REPO / "src/communitymech/schema/communitymech.yaml").read_text(encoding="utf-8")

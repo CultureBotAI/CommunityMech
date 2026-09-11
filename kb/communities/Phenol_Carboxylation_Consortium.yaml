@@ -1,114 +1,120 @@
 id: CommunityMech:000053
 name: Phenol Carboxylation Consortium
-description: 'An obligate syntrophic 4-member consortium for anaerobic degradation of phenol via carboxylation
-  to benzoate. The consortium consists of a short motile rod, a long non-motile rod, Desulfovibrio sp.,
-  and Methanospirillum sp. (methanogen). Under methanogenic conditions (N2/CO2), phenol is carboxylated
-  to benzoate, which is then degraded to acetate, CH4, and CO2. The three bacterial types exhibit obligate
-  syntrophic interdependence with the methanogen for complete aromatic pollutant mineralization.
-
-  '
+description: >
+  A purified two-member anaerobic syntrophic coculture in which
+  Syntrophorhabdus aromaticivorans strain UI(T) oxidizes phenol, p-cresol,
+  4-hydroxybenzoate, isophthalate, and benzoate in association with the
+  hydrogenotrophic methanogen Methanospirillum hungatei DSM 864. The
+  M. hungatei partner supplies the H2-scavenging methanogenic sink needed for
+  strain UI(T) to mineralize aromatic substrates to acetate and methane, and
+  blocking methanogenesis or raising hydrogen partial pressure halts phenol
+  and 4-hydroxybenzoate degradation.
 ecological_state: STABLE
 community_origin: NATURAL
 community_category: SYNTROPHY
 environment_term:
-  preferred_term: anaerobic environment
+  preferred_term: anaerobic methanogenic laboratory coculture
   term:
     id: ENVO:01001825
     label: active anaerobic enrichment culturing unit
+  notes: >
+    Strain UI(T) was isolated from a methanogenic isophthalate-degrading
+    enrichment culture derived from granular sludge and purified as a defined
+    syntrophic coculture with M. hungatei.
 taxonomy:
 - taxon_term:
-    preferred_term: Short motile rod bacterium
+    preferred_term: Syntrophorhabdus aromaticivorans strain UI(T)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  abundance_level: DOMINANT
-  functional_role:
-  - PRIMARY_DEGRADER
-  evidence:
-  - reference: PMID:18281436
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading
-      organism capable of oxidizing phenol in association with an H(2)-scavenging methanogen partner
-- taxon_term:
-    preferred_term: Long non-motile rod bacterium
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  abundance_level: DOMINANT
-  functional_role:
-  - PRIMARY_DEGRADER
-  evidence:
-  - reference: PMID:18281436
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Phenol degradation under methanogenic conditions has long been studied, but the anaerobes
-      responsible for the degradation reaction are still largely unknown
-- taxon_term:
-    preferred_term: Desulfovibrio sp.
-    term:
-      id: NCBITaxon:885
-      label: Desulfovibrio sp.
+      id: NCBITaxon:328301
+      label: Syntrophorhabdus aromaticivorans
     gtdb_grounding_status: UNRESOLVED
-  abundance_level: RARE
+    notes: >
+      Strain UI(T) is the syntrophic phenol- and aromatic-acid-oxidizing
+      bacterium isolated from the UI enrichment and later named
+      Syntrophorhabdus aromaticivorans.
+  strain_designation:
+    strain_name: UI
+    type_strain: true
+    culture_collections:
+    - collection: JCM
+      accession: JCM 13376
+    - collection: DSM
+      accession: DSM 17771
+  abundance_value: Aromatic-compound oxidizer in syntrophic coculture
   functional_role:
+  - PRIMARY_DEGRADER
   - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:18281436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading
-      organism capable of oxidizing phenol in association with an H(2)-scavenging methanogen partner
+    snippet: Syntrophorhabdus aromaticivorans gen. nov., sp. nov., is proposed for strain UI(T)
+    explanation: Supports the species identity of the strain UI(T) aromatic degrader.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pure syntrophic culture of strain UIT with M. hungatei (JCM 13376T) was obtained
+    explanation: Supports purification of strain UI(T) as a defined coculture with M. hungatei.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: type strain is UIT (= JCM 13376T [in coculture with M. hungatei DSM 864]
+      = DSM 17771T [in coculture with Desulfovibrio sp. strain UIS])
+    explanation: Supports the JCM and DSM culture collection accessions for strain UI(T).
 - taxon_term:
-    preferred_term: Methanospirillum sp.
+    preferred_term: Methanospirillum hungatei
     term:
-      id: NCBITaxon:45200
-      label: Methanospirillum sp.
-    gtdb_grounding_status: UNRESOLVED
-  abundance_level: ABUNDANT
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanospirillum_hungatei
+      gtdb_taxon: Methanospirillum hungatei
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanomicrobia;o__Methanomicrobiales;f__Methanospirillaceae;g__Methanospirillum;s__Methanospirillum hungatei
+      ncbi_source_id: NCBITaxon:2203
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
+    notes: >
+      Hydrogenotrophic methanogen paired with strain UI(T) in the JCM 13376T
+      two-member coculture.
+  strain_designation:
+    strain_name: DSM 864
+  abundance_value: H2-scavenging methanogenic syntrophic partner
   functional_role:
   - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
   evidence:
   - reference: PMID:18281436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Syntrophorhabdus aromaticivorans gen. nov., sp. nov., is proposed for strain UI(T), and the
-      novel family Syntrophorhabdaceae fam. nov. is described.
+    snippet: pure syntrophic culture of strain UIT with M. hungatei (JCM 13376T) was obtained
+    explanation: Supports M. hungatei as the methanogenic partner of the purified strain UI(T) coculture.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: type strain is UIT (= JCM 13376T [in coculture with M. hungatei DSM 864]
+    explanation: Supports the DSM 864 strain designation for the M. hungatei partner.
 ecological_interactions:
-- name: Phenol Carboxylation to Benzoate
+- name: Phenol Oxidation by Syntrophorhabdus
+  description: >
+    Syntrophorhabdus aromaticivorans strain UI(T) oxidizes phenol in the
+    M. hungatei coculture and forms 4-hydroxybenzoate and benzoate as transient
+    intermediates, initiating methanogenic aromatic-compound mineralization by
+    the defined pair.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
-    preferred_term: Short motile rod bacterium
+    preferred_term: Syntrophorhabdus aromaticivorans strain UI(T)
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:328301
+      label: Syntrophorhabdus aromaticivorans
   target_taxon:
-    preferred_term: Long non-motile rod bacterium
+    preferred_term: Methanospirillum hungatei
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
   metabolites:
   - preferred_term: phenol
     term:
@@ -118,32 +124,127 @@ ecological_interactions:
     term:
       id: CHEBI:30746
       label: benzoic acid
+  - preferred_term: 4-hydroxybenzoate
+    term:
+      id: CHEBI:17879
+      label: 4-hydroxybenzoate
+  biological_processes:
+  - preferred_term: phenol-containing compound metabolic process
+    term:
+      id: GO:0018958
+      label: phenol-containing compound metabolic process
+  downstream:
+  - target: Community Aromatic Mineralization to Acetate and Methane
+    description: >
+      Phenol oxidation by strain UI(T) supplies the aromatic-intermediate flux
+      that the syntrophic coculture carries through to acetate and methane.
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: During the degradation of phenol, a small amount of 4-hydroxybenzoate (a maximum of 4 microM)
+      and benzoate (a maximum of 11 microM) were formed as transient intermediates.
+    explanation: Identifies the transient intermediates produced during syntrophic phenol degradation.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading
+      organism capable of oxidizing phenol in association with an H(2)-scavenging methanogen partner
+    explanation: Supports strain UI(T) as the syntrophic phenol oxidizer in association with a methanogen.
+- name: M. hungatei H2 Scavenging and Methanogenesis
+  description: >
+    Methanospirillum hungatei provides the methanogenic sink for the
+    S. aromaticivorans syntrophy. Inhibition of methanogenesis with 2-BES and
+    exposure to high hydrogen partial pressure both stopped aromatic-substrate
+    degradation, supporting H2 scavenging as a required syntrophic electron sink.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  target_taxon:
+    preferred_term: Syntrophorhabdus aromaticivorans strain UI(T)
+    term:
+      id: NCBITaxon:328301
+      label: Syntrophorhabdus aromaticivorans
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+    concentration: Interspecies electron carrier maintained at low partial pressure
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
   biological_processes:
-  - preferred_term: phenol-containing compound catabolic process
+  - preferred_term: methane biosynthetic process
     term:
-      id: GO:0018958
-      label: phenol-containing compound metabolic process
+      id: GO:0015948
+      label: methanogenesis
   downstream:
-  - target: Benzoate Degradation to Acetate and Methane
+  - target: Phenol Oxidation by Syntrophorhabdus
+    description: >
+      M. hungatei H2 scavenging keeps the electron sink active for strain UI(T);
+      when methanogenesis was blocked or hydrogen partial pressure was raised,
+      phenol and 4-hydroxybenzoate degradation stopped.
+  - target: Community Aromatic Mineralization to Acetate and Methane
+    description: >
+      Methanogenic H2 scavenging is the partner process that lets aromatic
+      oxidation continue through to acetate and methane in the coculture.
   evidence:
   - reference: PMID:18281436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When 4-hydroxybenzoate was used as the substrate, phenol (maximum, 20 microM) and benzoate
-      (maximum, 92 microM) were detected as intermediates, which were then further degraded to acetate
-      and methane by the coculture
-- name: Benzoate Degradation to Acetate and Methane
+    snippet: The addition of 5 mM 2-BES to a coculture with M. hungatei completely inhibited
+      the degradation of isophthalate, phenol, and 4-hydroxybenzoate.
+    explanation: Blocking methanogenesis stopped aromatic-substrate degradation in the M. hungatei coculture.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degradation of phenol and 4-hydroxybenzoate was completely stopped when the cultures were
+      exposed to a gas phase containing a high partial pressure of hydrogen
+    explanation: Raising H2 pressure blocked degradation, supporting the need for H2 scavenging.
+- name: Community Aromatic Mineralization to Acetate and Methane
+  description: >
+    The S. aromaticivorans-M. hungatei coculture couples strain UI(T) aromatic
+    substrate oxidation to methanogenic electron disposal, consuming phenol,
+    p-cresol, isophthalate, 4-hydroxybenzoate, and benzoate for growth and
+    producing acetate and methane as end products.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Methanospirillum sp.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Syntrophorhabdus aromaticivorans strain UI(T)
     term:
-      id: NCBITaxon:45200
-      label: Methanospirillum sp.
+      id: NCBITaxon:328301
+      label: Syntrophorhabdus aromaticivorans
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
   metabolites:
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  - preferred_term: p-cresol
+    term:
+      id: CHEBI:17847
+      label: p-cresol
+  - preferred_term: isophthalate
+    term:
+      id: CHEBI:30803
+      label: isophthalate(2-)
+  - preferred_term: 4-hydroxybenzoate
+    term:
+      id: CHEBI:17879
+      label: 4-hydroxybenzoate
   - preferred_term: benzoate
     term:
       id: CHEBI:30746
@@ -156,11 +257,11 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
-  - preferred_term: carbon dioxide
-    term:
-      id: CHEBI:16526
-      label: carbon dioxide
   biological_processes:
+  - preferred_term: phenol-containing compound metabolic process
+    term:
+      id: GO:0018958
+      label: phenol-containing compound metabolic process
   - preferred_term: benzoate metabolic process
     term:
       id: GO:0018874
@@ -173,62 +274,64 @@ ecological_interactions:
   - reference: PMID:18281436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When 4-hydroxybenzoate was used as the substrate, phenol (maximum, 20 microM) and benzoate
-      (maximum, 92 microM) were detected as intermediates, which were then further degraded to acetate
-      and methane by the coculture
-- name: Sulfate Reduction Contribution to Syntrophy
-  description: 'Desulfovibrio sp. contributes to the syntrophic degradation network through sulfate reduction
-    and potential hydrogen production. While the three bacterial types (short motile rod, long non-motile
-    rod, and Desulfovibrio) exhibit obligate syntrophic interdependence with Methanospirillum for complete
-    phenol mineralization, Desulfovibrio may play a complementary role in electron transfer or provide
-    alternative pathways for metabolite exchange. The presence of a sulfate-reducing bacterium alongside
-    the phenol-degrading rods suggests functional diversity that enhances consortium stability and degradation
-    efficiency under varying environmental conditions.
-
-    '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Desulfovibrio sp.
-    term:
-      id: NCBITaxon:885
-      label: Desulfovibrio sp.
-  target_taxon:
-    preferred_term: Methanospirillum sp.
-    term:
-      id: NCBITaxon:45200
-      label: Methanospirillum sp.
-  metabolites:
-  - preferred_term: dihydrogen
-    term:
-      id: CHEBI:18276
-      label: dihydrogen
-    notes: Potential electron carrier
+    snippet: In syntrophic coculture with M. hungatei , strain UIT could utilize isophthalate,
+      benzoate, phenol, p -cresol, and 4-hydroxybenzoate for growth and produce
+      acetate and methane as end products.
+    explanation: Supports the defined M. hungatei coculture's aromatic-substrate range and products.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: No substrates that support the fermentative growth of strain UIT in pure culture
+      (in the presence of 2-BES) were found
+    explanation: Supports the obligate syntrophic requirement for strain UI(T) aromatic mineralization.
+environmental_factors:
+- name: Strict anaerobic cultivation
+  value: 50-ml serum vials; 20 ml medium; 37 C; no shaking
+  description: >
+    Strain UI(T) and M. hungatei were maintained under strict anaerobic
+    laboratory culture conditions for the syntrophic substrate utilization and
+    inhibition assays.
   evidence:
   - reference: PMID:18281436
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: This isolate is the first tangible, obligately anaerobic, syntrophic substrate-degrading
-      organism capable of oxidizing phenol in association with an H(2)-scavenging methanogen partner
-    explanation: Establishes syntrophic relationships in the consortium
-environmental_factors:
-- name: Gas phase
-  value: N2/CO2
-  description: 'Under N2/CO2 atmosphere, complete degradation occurs; under H2/CO2, benzoate forms but
-    is not further degraded
-
-    '
-- name: Syntrophic dependence
+    snippet: All cultivations were performed anaerobically in 50-ml serum vials containing
+      20 ml medium at 37°C without shaking.
+    explanation: Supports the strictly anaerobic batch-culture conditions.
+- name: Methanogenesis and hydrogen partial pressure
   value: obligate
-  description: 'Microscopic observations showed obligate syntrophic interdependence among the two rod-shaped
-    bacteria and the methanogen
-
-    '
-- name: Substrate
-  value: phenol (aromatic pollutant)
-  description: 'Phenol serves as the sole carbon source, representing a major aromatic pollutant target
-    for bioremediation
-
-    '
+  description: >
+    Methanogenesis and low hydrogen partial pressure were both required for
+    phenol and 4-hydroxybenzoate degradation by the M. hungatei coculture:
+    2-BES inhibited methanogenesis, and externally supplied hydrogen stopped
+    degradation.
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The addition of 5 mM 2-BES to a coculture with M. hungatei completely inhibited
+      the degradation of isophthalate, phenol, and 4-hydroxybenzoate.
+    explanation: Supports methanogenesis as required for aromatic-substrate degradation.
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: degradation of phenol and 4-hydroxybenzoate was completely stopped when the cultures were
+      exposed to a gas phase containing a high partial pressure of hydrogen
+    explanation: Supports low H2 as a required syntrophic condition.
+- name: AQDS terminal electron acceptor
+  value: AQDS can replace the methanogen under 2-BES
+  description: >
+    Anthraquinone-2,6-disulfonate provided an alternate terminal electron
+    acceptor for strain UI(T), converting phenol or isophthalate to acetate in
+    the presence of the methanogenesis inhibitor 2-BES and therefore testing the
+    electron-acceptor role normally supplied by the methanogen.
+  evidence:
+  - reference: PMID:18281436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: AQDS was able to replace methanogen as an electron acceptor and only acetate
+      (and CO2) was produced
+    explanation: Supports AQDS as an abiotic electron-acceptor bypass for methanogen-dependent syntrophy.
 related_ingredients:
 - preferred_term: phenol
   chebi_term:

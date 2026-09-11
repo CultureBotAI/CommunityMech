@@ -127,9 +127,10 @@ ecological_interactions:
     acetate and benzoate to CO2, with electrons accepted by Fe(III); this coupling
     is supported by concurrent increases in Fe(III)-reduction, benzoate-degradation,
     and pyruvate-metabolism gene abundance during extended thaw.
+  scope: COMMUNITY_LEVEL
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+  participating_taxa:
+  - preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
     term:
       id: NCBITaxon:28065
       label: Rhodoferax
@@ -159,6 +160,15 @@ ecological_interactions:
     term:
       id: GO:0006826
       label: iron ion transport
+  downstream:
+  - target: Fe(II) Oxidation by Chemoautotrophic Gallionella
+    description: Fe(III) reduction generates Fe(II), the substrate that
+      Gallionella-linked chemoautotrophy oxidizes back toward Fe(III) in the
+      inferred thaw-associated iron cycle.
+  - target: Fe(III) Reduction Suppresses Acetoclastic Methanogenesis
+    description: Rhodoferax-associated Fe(III) reduction oxidizes acetate and
+      therefore competes for the same acetate pool needed by acetoclastic
+      methanogens under reducing thaw conditions.
   evidence:
   - reference: PMID:37996661
     supports: SUPPORT
@@ -175,13 +185,13 @@ ecological_interactions:
     examined, the iron-cycling guild outcompetes methanogens, reducing CH4
     metabolism gene abundance.
   interaction_type: COMPETITION
-  source_taxon:
-    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
     term:
       id: NCBITaxon:28065
       label: Rhodoferax
-  target_taxon:
-    preferred_term: wet sedge tundra methanogens
+  - preferred_term: wet sedge tundra methanogens
     term:
       id: NCBITaxon:224756
       label: Methanomicrobia
@@ -211,14 +221,14 @@ ecological_interactions:
   description: Chemoautotrophic Fe(II)-oxidizing Gallionella sp. regenerates
     Fe(III) from Fe(II), closing the iron redox cycle that supports the
     heterotrophic Fe(III)-reducer's carbon-oxidation activity.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: chemoautotrophic Fe(II)-oxidizing Gallionella sp.
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
+  participating_taxa:
+  - preferred_term: chemoautotrophic Fe(II)-oxidizing Gallionella sp.
     term:
       id: NCBITaxon:96
       label: Gallionella
-  target_taxon:
-    preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
+  - preferred_term: heterotrophic Fe(III)-reducing Rhodoferax sp.
     term:
       id: NCBITaxon:28065
       label: Rhodoferax
@@ -236,6 +246,11 @@ ecological_interactions:
     term:
       id: GO:0006826
       label: iron ion transport
+  downstream:
+  - target: Fe(III) Reduction Coupled to Organic Acid Oxidation
+    description: Gallionella-linked Fe(II) oxidation can regenerate the Fe(III)
+      pool used by Rhodoferax-associated organic acid oxidation in the inferred
+      thaw-associated iron cycle.
   evidence:
   - reference: PMID:37996661
     supports: PARTIAL

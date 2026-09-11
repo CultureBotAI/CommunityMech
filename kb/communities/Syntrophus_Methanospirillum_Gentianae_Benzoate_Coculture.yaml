@@ -118,6 +118,7 @@ ecological_interactions:
     Methanospirillum hungatei, yielding acetate and methane under methanogenic
     conditions.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus gentianae
     term:
@@ -167,6 +168,7 @@ ecological_interactions:
     syntrophic partner activity and product concentrations constrain the
     community.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus gentianae
     term:
@@ -191,6 +193,11 @@ ecological_interactions:
     term:
       id: GO:0018874
       label: benzoate metabolic process
+  downstream:
+  - target: Methanogenic Benzoate Degradation
+    description: Accumulated acetate and hydrogen thermodynamically inhibit the
+      syntrophic reaction, lowering benzoate-degradation rates when products
+      build up.
   evidence:
   - reference: PMID:33657722
     supports: SUPPORT
@@ -207,6 +214,7 @@ ecological_interactions:
     thermodynamically, while acetate and propionate additions lowered the
     degradation rate, linking product accumulation to community performance.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus gentianae
     term:
@@ -231,6 +239,10 @@ ecological_interactions:
     term:
       id: GO:0018874
       label: benzoate metabolic process
+  downstream:
+  - target: Minimum Energy Threshold for Syntrophic Growth
+    description: Hydrogen and acetate product accumulation constrain the free
+      energy remaining to the benzoate-fermenting Syntrophus partner.
   evidence:
   - reference: PMID:33657722
     supports: SUPPORT

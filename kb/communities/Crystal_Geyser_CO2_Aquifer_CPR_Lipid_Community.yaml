@@ -75,6 +75,12 @@ ecological_interactions:
     term:
       id: GO:0015977
       label: carbon fixation
+  downstream:
+  - target: Lipid Redistribution to CPR Symbionts
+    description: >
+      Autotrophic bacterial and archaeal production supplies deep-subsurface
+      organic carbon to the complex community that includes lipid-limited CPR
+      putative symbionts.
   evidence:
   - reference: PMID:32203118
     supports: SUPPORT
@@ -89,6 +95,7 @@ ecological_interactions:
     community members, with the partner bacteria/archaea also adapting to
     high in situ pressure via increased fatty acid unsaturation.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: deep-aquifer CO2-fixing bacteria and archaea
     term:
@@ -99,6 +106,25 @@ ecological_interactions:
     term:
       id: NCBITaxon:1783273
       label: Patescibacteria group
+  metabolites:
+  - preferred_term: lipid
+    term:
+      id: CHEBI:18059
+      label: lipid
+  - preferred_term: fatty acid
+    term:
+      id: CHEBI:35366
+      label: fatty acid
+  biological_processes:
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
+  downstream:
+  - target: CPR Lysolipid Enrichment as Curvature Adaptation
+    description: >
+      Imported or redistributed community lipids form CPR bacterial membranes,
+      whose lysolipid enrichment is a candidate response to high curvature.
   evidence:
   - reference: PMID:32203118
     supports: SUPPORT
@@ -112,12 +138,29 @@ ecological_interactions:
     snippet: adapt to high in situ pressure by increasing fatty acid
       unsaturation
     explanation: Supports the pressure-adaptive unsaturation of partner lipids.
+  - reference: PMID:32203118
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the redistribution of lipids into putative symbionts within this community
+    explanation: >
+      Supports lipid redistribution from other deep-aquifer community members
+      into CPR putative symbionts.
 - name: CPR Lysolipid Enrichment as Curvature Adaptation
   description: Unusually high abundance of lysolipids attributed to CPR
     bacteria may represent an adaptation to membrane curvature stress induced
     by their small cell sizes.
   interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lipid
+    term:
+      id: CHEBI:18059
+      label: lipid
+  biological_processes:
+  - preferred_term: lipid metabolic process
+    term:
+      id: GO:0006629
+      label: lipid metabolic process
   evidence:
   - reference: PMID:32203118
     supports: SUPPORT

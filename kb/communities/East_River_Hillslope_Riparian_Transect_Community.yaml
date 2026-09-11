@@ -244,6 +244,28 @@ ecological_interactions:
     hillslope-to-riparian transect.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  downstream:
+  - target: Riparian Carbon Nitrogen and Sulfur Functional Zone
+    description: Groundwater saturation and weathered shale stratify the transect
+      into floodplain niches where carbon, nitrogen, and sulfur pathway genes
+      differentiated riparian communities from hillslope communities.
+  - target: Depth-Enriched Uncultivated Bacterial Lineages
+    description: The same depth and saturation gradient that separates PLM4
+      water-table samples localizes CPR bacteria primarily to floodplain and
+      groundwater-saturated sediments.
+  - target: Weathered Shale and Saturated Sediment Selenium Reduction
+    description: Weathered shale and saturated sediments expose communities to
+      mobilized selenium and the below-water-table redox conditions where srdA
+      selenate-reductase genes were enriched.
   evidence:
   - reference: PMID:31380022
     supports: SUPPORT
@@ -255,6 +277,12 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: strongly impact microbial community structure and metabolic potential
     explanation: Supports niche filtering across the transect.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the proximity to sulfate and nitrate rich Mancos shale bedrock
+    explanation: Supports sulfate and nitrate as shale-associated chemical
+      mediators of the depth-structured community shift.
 - name: Riparian Carbon Nitrogen and Sulfur Functional Zone
   description: Riparian-zone communities differ from hillslope communities in
     capacities for carbon fixation, nitrogen fixation, and sulfate reduction,
@@ -307,6 +335,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:1783273
       label: Patescibacteria group
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:31380022
     supports: SUPPORT
@@ -318,12 +351,24 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: riparian zone saturated sediments we found Candidate Phyla Radiation bacteria
     explanation: Supports CPR presence specifically in saturated riparian sediments.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Many are likely obligate symbionts, and as such they may often associate
+      with anaerobic hosts
+    explanation: Supports interspecies dependency as the microbial context for
+      CPR bacteria in anaerobic floodplain sediments.
 - name: Weathered Shale and Saturated Sediment Selenium Reduction
   description: Selenium reduction is prominent at depth in weathered shale and
     saturated riparian sediments, indicating a water-quality-relevant redox
     function associated with the deeper transect microbiome.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: selenate
+    term:
+      id: CHEBI:15075
+      label: selenate
   evidence:
   - reference: PMID:31380022
     supports: SUPPORT
@@ -335,6 +380,13 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: weathered shale and saturated riparian zone sediments
     explanation: Supports the environmental location of selenium-reduction potential.
+  - reference: PMID:31380022
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Selenate reductase encoded by the gene srdA, which is associated with
+      selenate respiration
+    explanation: Supports selenate as the substrate-linked reductase signal
+      enriched in the deeper transect microbiome.
 environmental_factors:
 - name: Hillslope-to-riparian transect position
   value: depth-resolved hillslope to riparian zone transect

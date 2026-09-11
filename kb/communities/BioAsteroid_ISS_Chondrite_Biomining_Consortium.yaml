@@ -154,10 +154,10 @@ ecological_interactions:
     leaching relative to non-biological controls under microgravity. This is
     interpreted as heterotrophic bioleaching through proton, organic-acid and
     complexing-compound release.
-  interaction_type: CROSS_FEEDING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Penicillium simplicissimum DSM 1078
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Penicillium simplicissimum DSM 1078
     term:
       id: NCBITaxon:69488
       label: Penicillium simplicissimum
@@ -202,15 +202,14 @@ ecological_interactions:
     forming a mixed filamentous (fungus) and rod-shaped-cell (bacterium) biofilm
     on the rock, providing the physical microbe-mineral contact required for
     bioleaching.
+  scope: COMMUNITY_LEVEL
   interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Sphingomonas desiccabilis CP1D
+  participating_taxa:
+  - preferred_term: Sphingomonas desiccabilis CP1D
     term:
       id: NCBITaxon:429134
       label: Sphingomonas desiccabilis
-  target_taxon:
-    preferred_term: Penicillium simplicissimum DSM 1078
+  - preferred_term: Penicillium simplicissimum DSM 1078
     term:
       id: NCBITaxon:69488
       label: Penicillium simplicissimum
@@ -219,6 +218,19 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    description: >
+      Fungal growth as mycelia on the meteorite surface provides the
+      microbe-mineral contact through which P. simplicissimum releases
+      carboxylic acids and other complexing metabolites that enhance elemental
+      dissolution from the L-chondrite under microgravity.
+  - target: Bacterial antagonism of fungal palladium leaching in the consortium
+    description: >
+      Mixed biofilm formation places rod-shaped S. desiccabilis cells and
+      P. simplicissimum filaments on the same meteorite surface in the
+      consortium treatment where the bacterium was inferred to antagonize
+      fungal palladium leaching.
   evidence:
   - reference: PMID:41617698
     supports: SUPPORT
@@ -253,6 +265,11 @@ ecological_interactions:
     term:
       id: CHEBI:33363
       label: palladium
+  downstream:
+  - target: Fungal bioleaching of platinum-group and critical elements from L-chondrite
+    description: >
+      Sphingomonas antagonism in the two-member consortium specifically reduced
+      the palladium-leaching output relative to the Penicillium-alone treatment.
   evidence:
   - reference: PMID:41617698
     supports: SUPPORT

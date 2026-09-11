@@ -78,7 +78,8 @@ taxonomy:
   - reference: PMID:19114510
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. thermophilus LMG 18311 was obtained from the BCCM collection
+    snippet: S. thermophilus LMG 18311 in response to the presence of L. delbrueckii
+      subsp. bulgaricus ATCC 11842 during growth in milk at two growth stages
     explanation: Supports a strain-specific S. thermophilus member in one exact-composition coculture.
 - taxon_term:
     preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
@@ -110,13 +111,14 @@ taxonomy:
   - reference: PMID:19114510
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: L. delbrueckii subsp. bulgaricus ATCC 11842 from ATCC
+    snippet: L. delbrueckii subsp. bulgaricus ATCC 11842 during growth in milk at two growth stages
     explanation: Supports a strain-specific L. delbrueckii subsp. bulgaricus member in one coculture.
 ecological_interactions:
 - name: Streptococcus Formate and Carbon Dioxide Support
   description: S. thermophilus produces formate and carbon dioxide-linked growth factors that stimulate
     L. delbrueckii subsp. bulgaricus, accelerating yogurt fermentation and acidification.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus thermophilus
     term:
@@ -149,7 +151,7 @@ ecological_interactions:
   - reference: PMID:20889781
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. thermophilus is suggested to provide L. bulgaricus with formic acid
+    snippet: formic acid, folic acid, and fatty acids are provided by S. thermophilus
     explanation: Supports formate/formic-acid transfer from S. thermophilus to L. bulgaricus.
   - reference: PMID:20889781
     supports: SUPPORT
@@ -165,6 +167,7 @@ ecological_interactions:
   description: L. delbrueckii subsp. bulgaricus releases peptides and amino acids from milk proteins,
     supporting S. thermophilus growth and acidification in milk.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Lactobacillus delbrueckii subsp. bulgaricus
     term:
@@ -193,11 +196,17 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Streptococcus Formate and Carbon Dioxide Support
+    description: >
+      Proteolytic nitrogen released by L. delbrueckii supports
+      S. thermophilus growth, enabling the formate and carbon dioxide return
+      flow that accelerates protocooperative acidification.
   evidence:
   - reference: PMID:20889781
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: nonproteolytic S. thermophilus profits from the proteolytic action
+    snippet: Proteolysis by L. bulgaricus supplies both strains with amino acids
     explanation: Supports nitrogen cross-feeding from proteolytic L. bulgaricus to S. thermophilus.
   - reference: PMID:19114510
     supports: SUPPORT
@@ -208,6 +217,7 @@ ecological_interactions:
   description: S. thermophilus urease activity generates ammonia nitrogen and carbon dioxide effects that
     help maintain rapid acidification during protocooperative yogurt fermentation.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus thermophilus
     term:
@@ -238,6 +248,7 @@ ecological_interactions:
   description: S. thermophilus NADH oxidase removes dissolved oxygen in milk, allowing faster coculture
     fermentation with L. delbrueckii subsp. bulgaricus.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus thermophilus
     term:
@@ -253,6 +264,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Streptococcus Formate and Carbon Dioxide Support
+    description: S. thermophilus oxygen removal relieves dissolved-oxygen
+      suppression of yogurt fermentation and is associated with earlier
+      formate accumulation during the two-species acidification process.
   evidence:
   - reference: PMID:24936380
     supports: SUPPORT
@@ -273,7 +289,7 @@ environmental_factors:
   - reference: PMID:19114510
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. thermophilus with L. delbrueckii subsp. bulgaricus
+    snippet: presence of L. delbrueckii subsp. bulgaricus ATCC 11842 during growth in milk
     explanation: Supports cocultivation of the two species in milk.
 - name: dissolved oxygen
   value: dissolved oxygen suppresses fermentation; S. thermophilus removes oxygen through NADH oxidase
@@ -296,8 +312,6 @@ environmental_factors:
     explanation: Supports ammonia nitrogen and carbon dioxide as urease-linked environmental factors.
 growth_media:
 - name: milk coculture fermentation
-  temperature: '42'
-  temperature_unit: C
   atmosphere: FACULTATIVE_ANAEROBIC
   preparation_notes: S. thermophilus and L. delbrueckii subsp. bulgaricus were co-inoculated into milk for
     thermophilic fermentation; exact strains, inoculum ratios, and temperature vary by study.
@@ -305,13 +319,8 @@ growth_media:
   - reference: PMID:19114510
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. thermophilus with L. delbrueckii subsp. bulgaricus
+    snippet: presence of L. delbrueckii subsp. bulgaricus ATCC 11842 during growth in milk
     explanation: Supports milk coculture as an experimental growth condition.
-  - reference: PMID:19114510
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: grown at 42 C in Marguerite milk
-    explanation: Supports the milk fermentation temperature for one exact-composition coculture.
 - name: skim milk yogurt fermentation
   temperature: '43'
   temperature_unit: C
@@ -388,6 +397,6 @@ associated_datasets:
   - reference: PMID:19395564
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Lactobacillus bulgaricus and Streptococcus thermophilus have been used in starter cultures
+    snippet: Lactobacillus bulgaricus and Streptococcus thermophilus, used in yogurt starter cultures
     explanation: Lists a computational/genomic publication with the same two-species yogurt starter composition.
 metal_relevance: NOT_APPLICABLE

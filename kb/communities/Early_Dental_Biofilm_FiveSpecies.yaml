@@ -170,6 +170,112 @@ taxonomy:
       mitis, Streptococcus downei and Actinomyces naeslundii were employed in
       the model.
     explanation: Documents Actinomyces naeslundii as a member of the five-species model.
+ecological_interactions:
+- name: Actinomyces and S. mitis coaggregation during early biofilm assembly
+  description: >-
+    Actinomyces naeslundii AK6 and Streptococcus mitis SK24 formed visible
+    coaggregates in diluted Todd-Hewitt broth within 15 min, indicating a
+    direct cell-cell association that can contribute to mixed-species early
+    dental biofilm assembly.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Actinomyces naeslundii
+    term:
+      id: NCBITaxon:1655
+      label: Actinomyces naeslundii
+  target_taxon:
+    preferred_term: Streptococcus mitis
+    term:
+      id: NCBITaxon:28037
+      label: Streptococcus mitis
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Five-species glucose acidification of the biofilm interface
+    description: Direct A. naeslundii-S. mitis coaggregation contributes to
+      assembly of the reproducible five-species biofilm that was challenged
+      with glucose for microscale pH imaging.
+  evidence:
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      cells of A. naeslundii AK6 and S. mitis SK24 formed clearly visible,
+      slowly settling coaggregates within 15 min
+    explanation: >-
+      Documents the strongest pairwise coaggregation among the five strains used
+      to assemble the early dental biofilm.
+- name: Actinomyces and S. sanguinis coaggregation during early biofilm assembly
+  description: >-
+    Actinomyces naeslundii AK6 also coaggregated with Streptococcus sanguinis
+    SK150, forming small suspended aggregates within 2 h and providing a second
+    direct pairwise attachment interaction in the five-member biofilm.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Actinomyces naeslundii
+    term:
+      id: NCBITaxon:1655
+      label: Actinomyces naeslundii
+  target_taxon:
+    preferred_term: Streptococcus sanguinis
+    term:
+      id: NCBITaxon:1305
+      label: Streptococcus sanguinis
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Five-species glucose acidification of the biofilm interface
+    description: Direct A. naeslundii-S. sanguinis coaggregation provides a
+      second attachment route into the five-species biofilm whose glucose
+      metabolism generated stable acidic microenvironments.
+  evidence:
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      When A. naeslundii AK6 was mixed with S. sanguinis SK150, small uniform
+      aggregates that remained in suspension formed within 2 h
+    explanation: >-
+      Documents weaker but positive coaggregation between A. naeslundii and S.
+      sanguinis in the same pairwise assay.
+- name: Five-species glucose acidification of the biofilm interface
+  description: >-
+    After the five species were established as a reproducible flow-channel
+    biofilm, glucose addition immediately triggered biofilm acid production and
+    generated stable extracellular pH microenvironments at the biofilm-substrate
+    interface.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: glycolytic process
+    term:
+      id: GO:0006096
+      label: glycolytic process
+  evidence:
+  - reference: PMID:21966490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Anaerobic glycolysis in the model biofilms created a mildly acidic
+      environment. Decrease in pH in different areas of the biofilms varied,
+      and distinct extracellular pH-microenvironments were conserved over
+      several hours.
+    explanation: >-
+      Supports a whole-community acidification node in the causal graph without
+      assigning the effect to one member.
 related_ingredients:
 - preferred_term: glucose
   chebi_term:

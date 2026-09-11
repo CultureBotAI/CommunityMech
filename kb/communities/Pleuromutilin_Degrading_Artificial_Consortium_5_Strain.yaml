@@ -154,13 +154,162 @@ taxonomy:
       and Pseudomonas songnenensis'
     explanation: Names Pseudomonas songnenensis as a member of the artificial consortium.
 ecological_interactions:
-- name: Cooperative pleuromutilin biodegradation by the artificial consortium
-  description: The five-strain artificial consortium collectively degrades the antibiotic
-    pleuromutilin, reaching a degradation rate of 91.97%; potential degradation products and
-    metabolic pathways were proposed. In the parent natural community, functional specialization
-    across core taxa was identified under pleuromutilin stress.
-  interaction_type: NICHE_PARTITIONING
+- name: En4 Gradient Enrichment and Domestication
+  description: >
+    The natural En4 consortium was developed for efficient pleuromutilin
+    degradation by gradient enrichment and domestication under pleuromutilin
+    selection.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: pleuromutilin
+    term:
+      id: CHEBI:8269
+      label: Pleuromutilin
+  downstream:
+  - target: Pleuromutilin-Stress Core Specialization
+    description: >
+      Gradient enrichment and domestication imposed pleuromutilin stress on
+      En4, enabling community analysis of stress-associated diversity loss and
+      core-taxon specialization.
+  - target: Fourteen-Degrader Bacterial Isolation
+    description: >
+      The domesticated natural En4 consortium was the source community for
+      isolating pleuromutilin-degrading bacteria.
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      A natural microbial consortium (En4) was developed in this study to
+      achieve efficient degradation of pleuromutilin through gradient
+      enrichment and domestication
+    explanation: >
+      Supports gradient enrichment and domestication of the natural En4
+      pleuromutilin-degrading consortium.
+- name: Pleuromutilin-Stress Core Specialization
+  description: >
+    Pleuromutilin stress reduced diversity in the natural consortium and
+    selected specialized core taxa, chiefly within Proteobacteria and including
+    pollutant-degrading genera enriched during the enrichment.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: pleuromutilin
+    term:
+      id: CHEBI:8269
+      label: Pleuromutilin
+  downstream:
+  - target: Five-Strain Artificial Consortium Construction
+    description: >
+      Functional specialization in the pleuromutilin-selected parent
+      consortium established the source pool that was reduced to the
+      five-strain artificial degradation consortium.
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >
+      pleuromutilin stress significantly reduced microbial diversity, and core
+      communities with functional specialization were identified across
+      multiple taxa
+    explanation: >
+      Supports pleuromutilin-associated diversity loss and functional
+      specialization across core taxa in the natural consortium.
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >
+      bacterial genera that have the potential to degrade pollutants, such as
+      Allorhizobium-Neorhizobium-Pararhizobium-Rhizobium and Cupriavidus were
+      significantly enriched
+    explanation: >
+      Supports enrichment of pollutant-degrading bacteria under pleuromutilin
+      stress.
+- name: Fourteen-Degrader Bacterial Isolation
+  description: >
+    Fourteen pleuromutilin-degrading bacteria were isolated from the natural
+    En4 consortium as the strain source for designing an artificial degradation
+    community.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: pleuromutilin
+    term:
+      id: CHEBI:8269
+      label: Pleuromutilin
+  downstream:
+  - target: Five-Strain Artificial Consortium Construction
+    description: >
+      Isolates from the natural consortium were assembled into a defined
+      artificial consortium containing five named strains.
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 14 degrading bacteria were isolated from the natural microbial community
+    explanation: >
+      Supports isolation of pleuromutilin-degrading bacteria from the natural
+      En4 consortium.
+- name: Five-Strain Artificial Consortium Construction
+  description: >
+    A defined artificial consortium was built from Stenotrophomonas pavanii,
+    Stenotrophomonas maltophilia, Lysinibacillus sphaericus, Lysinibacillus
+    mangiferihumi, and Pseudomonas songnenensis.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: pleuromutilin
+    term:
+      id: CHEBI:8269
+      label: Pleuromutilin
+  downstream:
+  - target: Ninety-Two-Percent Pleuromutilin Degradation
+    description: >
+      The five-strain artificial consortium was the defined community that
+      achieved high pleuromutilin degradation.
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      an efficient artificial microbial consortium comprising five strains:
+      Stenotrophomonas pavanii, Stenotrophomonas maltophilia, Lysinibacillus
+      sphaericus, Lysinibacillus mangiferihumi, and Pseudomonas songnenensis
+    explanation: >
+      Supports construction and membership of the five-strain artificial
+      pleuromutilin-degrading consortium.
+- name: Ninety-Two-Percent Pleuromutilin Degradation
+  description: >
+    The defined artificial consortium degraded pleuromutilin with a measured
+    degradation rate of 91.97%.
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: pleuromutilin
+    term:
+      id: CHEBI:8269
+      label: Pleuromutilin
+  downstream:
+  - target: Artificial-Consortium Metabolic Profiling
+    description: >
+      The high-degradation artificial consortium was profiled to propose
+      pleuromutilin degradation products and metabolic pathways.
+  evidence:
+  - reference: PMID:42133144
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: was constructed, achieving a degradation rate of 91.97%
+    explanation: >
+      Supports the measured 91.97% pleuromutilin degradation rate of the
+      five-strain artificial consortium.
+- name: Artificial-Consortium Metabolic Profiling
+  description: >
+    Metabolic profiling during artificial-consortium pleuromutilin degradation
+    was used to propose potential pleuromutilin degradation products and
+    metabolic pathways.
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
   metabolites:
   - preferred_term: pleuromutilin
     term:
@@ -170,15 +319,10 @@ ecological_interactions:
   - reference: PMID:42133144
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'an efficient artificial microbial consortium comprising five strains: Stenotrophomonas
-      pavanii, Stenotrophomonas maltophilia, Lysinibacillus sphaericus, Lysinibacillus mangiferihumi,
-      and Pseudomonas songnenensis, was constructed, achieving a degradation rate of 91.97%.'
-    explanation: The constructed five-strain consortium cooperatively degrades pleuromutilin at
-      91.97% efficiency (community-level function).
-  - reference: PMID:42133144
-    supports: SUPPORT
-    evidence_source: OTHER
-    snippet: core communities with functional specialization were identified across multiple taxa,
-      primarily at the level of Proteobacteria
-    explanation: Functional specialization across core taxa under pleuromutilin stress supports
-      niche partitioning within the degrading community.
+    snippet: >
+      The metabolic profile of the artificial microbial consortia during the
+      degradation of pleuromutilin were studied, and potential degradation
+      products and metabolic pathways were proposed
+    explanation: >
+      Supports downstream metabolic profiling of pleuromutilin degradation by
+      the artificial consortium.

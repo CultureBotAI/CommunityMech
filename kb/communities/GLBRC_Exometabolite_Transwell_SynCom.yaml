@@ -54,11 +54,95 @@ ecological_interactions:
 - name: Exometabolite-Mediated Interaction
   description: Community members interact chemically through small molecules, extracellular enzymes, and
     antibiotics in shared medium.
-  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: N-acyl-L-homoserine lactone
+    term:
+      id: CHEBI:55474
+      label: N-acyl-L-homoserine lactone
+    notes: AHLs were the diffusible quorum-sensing molecules used in the Cv017-Cv026 reporter assay.
+  - preferred_term: antibacterial agent
+    term:
+      id: CHEBI:33282
+      label: antibacterial agent
+    notes: Antibiotics are one exometabolite class assayed from the shared reservoir.
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  downstream:
+  - target: AHL Diffusion and Violacein Induction
+    description: >
+      Cv017-produced acyl-homoserine lactones cross the filter-plate reservoir and activate the
+      Cv026 quorum-sensing reporter without direct cell contact.
+  - target: Three-Member Exometabolite Time Series
+    description: >
+      A physically separated three-member community accumulates and depletes detectable nonpolar
+      exometabolite features over a 15- to 35-hour stationary-phase time course.
   evidence:
   - *id001
+- name: AHL Diffusion and Violacein Induction
+  description: >
+    Chromobacterium violaceum Cv017 produces acyl-homoserine lactones that diffuse through the
+    Transwell reservoir and induce quorum sensing, vioC transcription, and violacein production in
+    the physically separated Cv026 biosensor.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: N-acyl-L-homoserine lactone
+    term:
+      id: CHEBI:55474
+      label: N-acyl-L-homoserine lactone
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  evidence:
+  - reference: PMID:29152587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: AHLs from Cv017 diffused through wells to induce quorum sensing and violacein
+      production in Cv026
+    explanation: >
+      Demonstrates that a diffusible AHL signal moved across the filter-plate reservoir and activated
+      the Cv026 quorum-sensing biosensor.
+- name: Three-Member Exometabolite Time Series
+  description: >
+    A stationary-phase Burkholderia thailandensis, Chromobacterium violaceum and Pseudomonas syringae
+    Transwell community produced a reproducible nonpolar exometabolite profile in which mass features
+    were depleted, produced de novo, or enriched at early and mid time points.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: antibacterial agent
+    term:
+      id: CHEBI:33282
+      label: antibacterial agent
+    notes: Bactobolin was identified as an accumulated antibacterial feature in the three-member assay.
+  evidence:
+  - reference: PMID:29152587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We observed both decreases in existing features (clusters A and B) and production of
+      new features over time (clusters D, E, and F)
+    explanation: >
+      Supports time-resolved exometabolite depletion and production in the physically separated
+      three-member demonstration community.
 related_ingredients:
+- preferred_term: N-acyl-L-homoserine lactone
+  chebi_term:
+    id: CHEBI:55474
+    label: N-acyl-L-homoserine lactone
+  relevance: >
+    Diffusible quorum-sensing signal class produced by C. violaceum Cv017 and sensed by the
+    C. violaceum Cv026 biosensor across the shared Transwell reservoir.
+  evidence:
+  - reference: PMID:29152587
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: AHLs from Cv017 diffused through wells to induce quorum sensing and violacein
+      production in Cv026
+    explanation: Anchors AHLs as the experimentally observed diffusible signal in the Transwell system.
 - preferred_term: antibiotics
   chebi_term:
     id: CHEBI:33282

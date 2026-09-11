@@ -254,6 +254,50 @@ taxonomy:
     snippet: B. megaterium (AS1.217), B. subtilis (CMCC 63501), P. fluorescens (ATCC 13525), B. licheniformis (ATCC 11946), and B. mucilaginosus (AS1.232)
     explanation: Names Bacillus licheniformis (ATCC 11946) as one of the five tested PSB strains.
 ecological_interactions:
+- name: PSB attachment to regolith particles concentrates phosphate dissolution
+  description: >
+    The effective PSBs attached to lunar regolith simulant particles after the
+    early planktonic-growth phase, creating a particle-associated microbial pool
+    that tracked dissociation of insoluble inorganic phosphorus. The attachment
+    trait complements organic-acid secretion by binding the cells to mineral
+    particles and creating extracellular microenvironments where protons and
+    organic acids can decompose phosphate minerals.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus mucilaginosus (AS1.232)
+    term:
+      id: NCBITaxon:61624
+      label: Paenibacillus mucilaginosus
+  - preferred_term: Bacillus megaterium (AS1.217)
+    term:
+      id: NCBITaxon:1404
+      label: Priestia megaterium
+  - preferred_term: Pseudomonas fluorescens (ATCC 13525)
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Phosphorus solubilization from lunar regolith simulant via organic-acid secretion
+    description: Particle attachment forms a stable bacteria-mineral interface
+      that supports local proton and organic-acid attack on insoluble phosphate
+      minerals in the regolith simulant.
+  evidence:
+  - reference: PMID:37945659
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: attachment of PSBs to the regolith simulant particles was also an important factor in the dissociation of insoluble inorganic phosphorus
+    explanation: Links PSB attachment to regolith particles with insoluble-phosphorus dissociation.
+  - reference: PMID:37945659
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: developing biofilms to tightly bind with mineral particles, forming a stable bacteria-mineral complex
+    explanation: Supports biofilm-like particle binding as an inferred mechanism concentrating mineral dissolution.
 - name: Phosphorus solubilization from lunar regolith simulant via organic-acid secretion
   description: >
     The phosphorus-solubilizing bacteria synthesize organic acids from carbon
@@ -282,6 +326,11 @@ ecological_interactions:
     term:
       id: GO:0016053
       label: organic acid biosynthetic process
+  downstream:
+  - target: Phosphorus-enabled promotion of Nicotiana benthamiana growth
+    description: Organic-acid phosphate solubilization raises the available
+      phosphorus pool in the regolith simulant that drives the downstream
+      Nicotiana growth response.
   evidence:
   - reference: PMID:37945659
     supports: SUPPORT
@@ -301,11 +350,6 @@ ecological_interactions:
     with PSBs 18 days before sowing.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Nicotiana benthamiana
-    term:
-      id: NCBITaxon:4100
-      label: Nicotiana benthamiana
   metabolites:
   - preferred_term: phosphate
     term:

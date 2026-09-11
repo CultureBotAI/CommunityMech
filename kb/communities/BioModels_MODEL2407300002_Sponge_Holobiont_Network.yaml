@@ -60,9 +60,8 @@ taxonomy:
       total_genomes: 7448
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 2 GTDB taxa under the NCBI taxon]
-    notes: Ammonia-oxidizing archaeon from Stylissa holobiont. Specific species identification requires
-      supplementary materials from doi:10.1038/s41467-024-55222-w. Likely Nitrosopumilus-like based on
-      typical sponge microbiome composition.
+    notes: Ammonia-oxidizing archaeon Cenoporarchaeum stylissae from the
+      Stylissa holobiont genome-scale model.
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
@@ -87,8 +86,8 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Nitrite-oxidizing bacterium from Stylissa holobiont. Specific species identification requires
-      supplementary materials. Likely Nitrospira-like based on typical sponge microbiome composition.
+    notes: Nitrite-oxidizing bacterium Nitrospongiibacter stylissae from the
+      Stylissa holobiont genome-scale model.
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
@@ -113,9 +112,8 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Newly discovered bacterial taxon with key role in cross-feeding activities. Dynamically adjusts
-      metabolism with nutrient inputs. Specific taxonomic identification requires supplementary materials
-      from doi:10.1038/s41467-024-55222-w.
+    notes: Newly described Deltaporibacter stylissae, a Myxococcota symbiont
+      with a key modeled role in cross-feeding and nitrogen cycling.
   functional_role:
   - CROSS_FEEDER
   evidence:
@@ -154,6 +152,14 @@ ecological_interactions:
     term:
       id: GO:0019329
       label: ammonia oxidation
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  downstream:
+  - target: Stable Ammonia-Supported Nitrifying Consortium
+    description: Model simulations used AOA nitrite production to test how
+      ammonia flux can maintain an actively growing AOA-NOB community.
   evidence:
   - reference: PMID:39738126
     supports: PARTIAL
@@ -161,6 +167,13 @@ ecological_interactions:
     snippet: constraint-based, genome-scale metabolic networks for the microbiome of the sponge Stylissa sp.
     explanation: Supports presence of both AOA and bacterial species enabling coupled nitrification in
       the holobiont.
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: ammonia oxidation of C. stylissae was able to support the growth
+      of N. stylissae
+    explanation: Supports modeled nitrite transfer from the archaeal ammonia
+      oxidizer to the nitrite-oxidizing bacterium.
 - name: Nutrient-Responsive Cross-Feeding Network
   description: A newly discovered bacterial taxon serves a key role in cross-feeding activities within
     the Stylissa holobiont, dynamically adjusting its metabolism with nutrient inputs. This organism mediates
@@ -170,6 +183,25 @@ ecological_interactions:
     through cross-feeding interactions.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Sponge-derived organic inputs passed through the modeled symbiont
+      exchange network.
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Deltaporibacter Nitrogen-Linked Cross-Feeding
+    description: Nutrient-responsive cross-feeding is centered on the newly
+      described Deltaporibacter symbiont.
+  - target: Nutrient-Dependent Symbiont Trophic Balance
+    description: Organic-input-dependent exchange changes whether the modeled
+      symbiont community is net heterotrophic or net autotrophic.
   evidence:
   - reference: PMID:39738126
     supports: SUPPORT
@@ -189,9 +221,107 @@ ecological_interactions:
     that structure the eight-species microbial community and drive their metabolic interactions.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+    notes: Organic substrates that were enriched in sponge tissue and modeled
+      as candidate microbiome inputs.
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Nutrient-Responsive Cross-Feeding Network
+    description: Sponge-derived nutrients define the model boundary conditions
+      that drive symbiont cross-feeding and community stability.
   evidence:
   - reference: PMID:39738126
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
     snippet: constraint-based, genome-scale metabolic networks for the microbiome of the sponge Stylissa sp.
     explanation: Supports host-microbiome metabolic integration in the Stylissa holobiont.
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Our models define the importance of sponge-derived nutrients for
+      microbiome stability
+    explanation: Supports sponge-derived nutrients as the modeled inputs that
+      stabilize the symbiont community.
+- name: Stable Ammonia-Supported Nitrifying Consortium
+  description: Simulations of Cenoporarchaeum stylissae and Nitrospongiibacter
+    stylissae predicted that ammonia availability sets the boundary for a
+    stable, actively growing nitrifying consortium in the Stylissa microbiome.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: a stable and actively growing nitrifying community can only be
+      achieved with ammonia concentrations
+    explanation: Supports ammonia as the modeled control on AOA-NOB nitrifier
+      stability.
+- name: Deltaporibacter Nitrogen-Linked Cross-Feeding
+  description: The Deltaporibacter stylissae model identifies a less-studied
+    Myxococcota sponge symbiont as a central participant in cross-feeding and
+    nitrogen cycling under the simulated nutrient regimes.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Deltaporibacter stylissae within the Myxococcota, which appears
+      in Stylissa sp. to be central in cross-feeding activities and nitrogen cycling
+    explanation: Supports the central modeled role of the newly described
+      Deltaporibacter symbiont.
+- name: Nutrient-Dependent Symbiont Trophic Balance
+  description: The genome-scale community model predicts that alternative
+    sponge-derived organic inputs can flip the whole symbiont community between
+    net heterotrophy and net autotrophy.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:39738126
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: different organic inputs can result in net heterotrophy or
+      autotrophy of the symbiont community
+    explanation: Supports the nutrient-dependent trophic behavior predicted
+      for the Stylissa symbiont community.

@@ -120,6 +120,7 @@ ecological_interactions:
   description: Engineered S. elongatus UTEX 2973 converts light and carbon dioxide into D-lactate,
     which serves as the transferred energy carrier for S. oneidensis MR-1.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus UTEX 2973
     term:
@@ -149,6 +150,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Shewanella Anode Electron Transfer
+    description: >
+      Photosynthetically produced D-lactate is the engineered carrier oxidized
+      by S. oneidensis as it releases electrons to the anode.
   evidence:
   - reference: PMID:31537786
     supports: SUPPORT
@@ -164,6 +170,7 @@ ecological_interactions:
   description: S. oneidensis MR-1 oxidizes D-lactate and uses its extracellular electron transfer
     machinery to release electrons to the anode for current production.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis MR-1
     term:
@@ -184,6 +191,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Photosynthetic D-Lactate Cross-Feeding
+    description: >
+      Physical and temporal separation prevents light- and oxygen-associated
+      inhibition of S. oneidensis while preserving D-lactate transfer from the
+      engineered cyanobacterium.
   evidence:
   - reference: PMID:31537786
     supports: SUPPORT
@@ -200,6 +213,7 @@ ecological_interactions:
     so temporal and spatial separation protected the exoelectrogenic partner while allowing D-lactate
     transfer to support durable power generation.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus UTEX 2973
     term:

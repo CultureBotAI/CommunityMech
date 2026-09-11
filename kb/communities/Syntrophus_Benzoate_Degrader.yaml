@@ -1,13 +1,10 @@
 id: CommunityMech:000071
 name: Syntrophus Benzoate Degrader
-description: 'A syntrophic, obligate two-member anaerobic consortium consisting of Syntrophus aciditrophicus
-  SB, which degrades benzoate and other aromatic compounds to acetate and H2/formate, and Methanospirillum
-  hungatei, a hydrogen-utilizing methanogen. S. aciditrophicus degrades benzoate only in coculture with
-  H2-using microorganisms, as it uses protons as the electron acceptor with H2 and formate as electron
-  sink products. The removal of H2 by M. hungatei is thermodynamically essential for continued benzoate
-  degradation by S. aciditrophicus. This syntrophic relationship is important for understanding aromatic
-  compound degradation and bioremediation in anaerobic environments such as sediments and contaminated
-  aquifers.
+description: 'A two-member anaerobic syntrophic coculture consisting of Syntrophus aciditrophicus
+  SB, which metabolizes benzoate and alicyclic intermediates in coculture with hydrogen-using partners,
+  and Methanospirillum hungatei, a hydrogenotrophic methanogen. S. aciditrophicus-M. hungatei cocultures
+  convert benzoate to acetate and methane while keeping hydrogen low enough for syntrophic benzoate
+  degradation to proceed under methanogenic, strictly anaerobic conditions.
 
   '
 ecological_state: STABLE
@@ -18,10 +15,9 @@ environment_term:
   term:
     id: ENVO:00002007
     label: sediment
-  notes: 'Isolated from anaerobic sediments. Grown as syntrophic coculture under strict anaerobic conditions.
-    S. aciditrophicus degrades benzoate and other aromatic compounds such as cyclohexane-1-carboxylate
-    and crotonate in syntrophic association with hydrogen-using microorganisms, making this consortium
-    important for bioremediation of aromatic contaminants in anaerobic environments.
+  notes: 'Syntrophus aciditrophicus strain SB was isolated from sewage-treatment
+    sediment and grown in benzoate-fed syntrophic coculture under strict anaerobic
+    conditions with Methanospirillum hungatei.
 
     '
 taxonomy:
@@ -40,24 +36,25 @@ taxonomy:
       total_genomes: 5
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-    notes: 'Anaerobic, syntrophic bacterium that degrades benzoate and other aromatic compounds to acetate,
-      H2, and formate. Cannot grow on benzoate alone; requires syntrophic association with H2-utilizing
-      partners. Uses protons as electron acceptor, producing H2 and formate as electron sink products.
-      Also degrades crotonate and cyclohexane-1-carboxylate syntrophically.
+    notes: 'Anaerobic syntrophic benzoate degrader isolated from a sewage treatment
+      plant. In coculture with hydrogen-using partners it metabolizes benzoate
+      through cyclohexane carboxylate, cyclohex-1-ene carboxylate, pimelate,
+      and glutarate intermediates.
 
       '
   functional_role:
   - PRIMARY_DEGRADER
   - SYNTROPHIC_PARTNER
-  abundance_value: Aromatic compound degrader - requires syntrophic partner
+  abundance_value: Benzoate degrader in methanogenic syntrophy
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. aciditrophicus degrades benzoate to acetate, H2, and formate in syntrophic association
-      with hydrogen-using microorganisms
-    explanation: Establishes S. aciditrophicus as the primary degrader that oxidizes benzoate to acetate,
-      H2, and formate
+    snippet: The metabolism of benzoate, cyclohex-1-ene carboxylate, and cyclohexane
+      carboxylate by “ Syntrophus aciditrophicus ” in cocultures with hydrogen-using
+      microorganisms was studied.
+    explanation: Establishes S. aciditrophicus as the benzoate and alicyclic-acid
+      degrader in hydrogen-user cocultures.
 - taxon_term:
     preferred_term: Methanospirillum hungatei
     term:
@@ -73,37 +70,46 @@ taxonomy:
       total_genomes: 5
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
-    notes: 'Hydrogen-utilizing methanogen that consumes H2 and CO2 to produce methane. Essential syntrophic
-      partner that maintains low H2 partial pressure, enabling thermodynamically unfavorable benzoate
-      degradation by S. aciditrophicus.
+    notes: 'Hydrogen-utilizing methanogen paired with S. aciditrophicus in the
+      two-member benzoate coculture. It couples H2 consumption to methane
+      production during community benzoate metabolism.
 
       '
   functional_role:
   - SYNTROPHIC_PARTNER
   abundance_value: H2-utilizing methanogen - syntrophic partner
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. aciditrophicus with M. hungatei efficiently degrade benzoate with production
-      of methane
-    explanation: Establishes M. hungatei as the H2-utilizing syntrophic partner
+    snippet: Time course experiments relating methane production to benzoate consumption
+      in “ S. aciditrophicus ”- M. hungatei cocultures indicated that the amount
+      of methane produced per mole of benzoate consumed was much less than theoretically
+      predicted (0.75 mol of methane per mol of benzoate) during the initial stages
+      of benzoate metabolism.
+    explanation: Establishes M. hungatei as the methanogenic partner that
+      produces methane in benzoate-grown cocultures.
 ecological_interactions:
-- name: Benzoate Degradation and H2/Formate Production
-  description: 'Syntrophus aciditrophicus degrades benzoate (an aromatic compound) to acetate, using protons
-    as the electron acceptor and producing H2 and formate as electron sink products. This benzoate degradation
-    is thermodynamically unfavorable under standard conditions and only proceeds when H2 partial pressure
-    is kept extremely low by a syntrophic partner. The organism senses aromatic compounds and is obligately
-    dependent on syntrophic H2 removal for growth on benzoate. This capability is important for bioremediation
-    of aromatic contaminants in anaerobic environments.
+- name: Syntrophus Benzoate Metabolism
+  description: 'S. aciditrophicus strain SB metabolizes benzoate in coculture with
+    hydrogen-using partners and transiently produces cyclohexane carboxylate,
+    cyclohex-1-ene carboxylate, pimelate, and glutarate during growth on
+    benzoate. These Syntrophus reactions initiate the methanogenic coculture
+    conversion of benzoate to acetate and methane.
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus aciditrophicus SB
     term:
       id: NCBITaxon:56780
       label: Syntrophus aciditrophicus SB
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
   metabolites:
   - preferred_term: benzoate
     term:
@@ -120,56 +126,70 @@ ecological_interactions:
       id: CHEBI:18276
       label: dihydrogen
     concentration: Electron sink product - must be maintained at low levels
-  - preferred_term: formate
+  - preferred_term: carbon dioxide
     term:
-      id: CHEBI:15740
-      label: formate
-    concentration: Electron sink product
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Benzoate oxidation product
   biological_processes:
   - preferred_term: benzoate metabolic process
     term:
       id: GO:0018874
       label: benzoate metabolic process
   downstream:
-  - target: Interspecies Hydrogen Transfer and Methanogenesis
-    description: H2 and formate produced by S. aciditrophicus are consumed by M. hungatei for methanogenesis
+  - target: Community Benzoate Mineralization to Acetate and Methane
+    description: S. aciditrophicus benzoate metabolism supplies reduced products
+      to the methanogenic partner and enables methane-producing benzoate mineralization
+      by the coculture.
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. aciditrophicus degrades benzoate to acetate, H2, and formate in syntrophic association
-      with hydrogen-using microorganisms
-    explanation: Demonstrates the core metabolic activity of S. aciditrophicus in benzoate degradation
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+    snippet: In this study, we investigated the pathway for syntrophic benzoate metabolism
+      in “ Syntrophus aciditrophicus ” strain SB by identifying and quantifying
+      metabolites produced during growth of this organism with benzoate, cyclohexane
+      carboxylate, and cyclohex-1-ene carboxylate in cocultures with hydrogen-utilizing
+      partners
+    explanation: Demonstrates S. aciditrophicus strain SB syntrophic metabolism
+      with hydrogen-utilizing partners.
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Benzoate degradation by S. aciditrophicus requires the removal of H2 by syntrophic partners
-    explanation: Demonstrates thermodynamic dependence on low H2 levels for benzoate degradation
+    snippet: During growth of the “ S. aciditrophicus ”- M. hungatei cocultures with
+      benzoate, cyclohexane carboxylate, cyclohex-1-ene carboxylate, pimelate,
+      and glutarate were detected as their TMS derivatives.
+    explanation: Identifies the alicyclic and dicarboxylate intermediates
+      produced during benzoate-grown S. aciditrophicus-M. hungatei coculture.
 - name: Interspecies Hydrogen Transfer and Methanogenesis
-  description: 'Methanospirillum hungatei consumes the H2 and formate produced by S. aciditrophicus, combining
-    H2 with CO2 to produce methane via hydrogenotrophic methanogenesis. This H2 removal maintains a low
-    H2 partial pressure, making the thermodynamically unfavorable benzoate degradation by S. aciditrophicus
-    energetically feasible. This interspecies hydrogen transfer (IHT) enables the complete mineralization
-    of benzoate to methane and CO2 in anaerobic environments.
+  description: 'M. hungatei functions as the hydrogen-using methanogen in the
+    S. aciditrophicus coculture. Hydrogen consumption keeps the concentration
+    of hydrogen produced during benzoate oxidation low, a thermodynamic requirement
+    for anaerobic benzoate degradation through interspecies hydrogen transfer.
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanospirillum hungatei
     term:
       id: NCBITaxon:2203
       label: Methanospirillum hungatei
+  target_taxon:
+    preferred_term: Syntrophus aciditrophicus SB
+    term:
+      id: NCBITaxon:56780
+      label: Syntrophus aciditrophicus SB
   metabolites:
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
     concentration: Consumed from environment - must be maintained at low levels
-  - preferred_term: formate
+  - preferred_term: carbon dioxide
     term:
-      id: CHEBI:15740
-      label: formate
-    concentration: Consumed from environment
+      id: CHEBI:16526
+      label: carbon dioxide
+    concentration: Cosubstrate for hydrogenotrophic methanogenesis
   - preferred_term: methane
     term:
       id: CHEBI:16183
@@ -180,29 +200,99 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Community Benzoate Mineralization to Acetate and Methane
+    description: Methanogenic hydrogen removal closes the syntrophic electron
+      sink that lets benzoate oxidation continue to methane production.
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. aciditrophicus with M. hungatei efficiently degrade benzoate with production
-      of methane
-    explanation: Demonstrates successful syntrophic coculture with M. hungatei as H2-utilizing partner
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+    snippet: The pure culture of S. aciditrophicus produced approximately 0.5 mol of cyclohexane
+      carboxylate and 1.5 mol of acetate per mol of benzoate, while a coculture
+      of S . aciditrophicus with the hydrogen-using methanogen Methanospirillum
+      hungatei produced 3 mol of acetate and 0.75 mol of methane per mol of
+      benzoate.
+    explanation: Demonstrates methane-producing syntrophy between S. aciditrophicus
+      and M. hungatei.
+  - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: H2 removal by the methanogen is essential for benzoate degradation to proceed
-    explanation: Confirms that S. aciditrophicus is obligately dependent on syntrophic H2 removal
+    snippet: Degradation proceeds only if the concentration of hydrogen produced during
+      benzoate oxidation is continuously maintained at a low level by a hydrogen-using
+      microorganism ( 12 , 19 , 24 , 26 ).
+    explanation: Confirms the low-hydrogen requirement that the methanogen satisfies.
+- name: Community Benzoate Mineralization to Acetate and Methane
+  description: 'The two-member S. aciditrophicus-M. hungatei coculture consumes
+    benzoate and completes the methanogenic community outcome by producing acetate
+    and methane at the stoichiometry predicted for syntrophic benzoate degradation.
+
+    '
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Syntrophus aciditrophicus SB
+    term:
+      id: NCBITaxon:56780
+      label: Syntrophus aciditrophicus SB
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: benzoate
+    term:
+      id: CHEBI:30746
+      label: benzoic acid
+    concentration: Aromatic substrate consumed by the coculture
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    concentration: Syntrophic benzoate degradation product
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    concentration: Methanogenesis product
+  biological_processes:
+  - preferred_term: benzoate metabolic process
+    term:
+      id: GO:0018874
+      label: benzoate metabolic process
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: doi:10.1128/aem.67.12.5520-5525.2001
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The pure culture of S. aciditrophicus produced approximately 0.5 mol of cyclohexane
+      carboxylate and 1.5 mol of acetate per mol of benzoate, while a coculture
+      of S . aciditrophicus with the hydrogen-using methanogen Methanospirillum
+      hungatei produced 3 mol of acetate and 0.75 mol of methane per mol of
+      benzoate.
+    explanation: Supports acetate and methane as the methanogenic benzoate-coculture
+      products.
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only after 100% of the benzoate was consumed (day 11) was the methane-to-benzoate
+      ratio (0.76) close to the theoretical value, 0.75.
+    explanation: Supports complete benzoate consumption and the expected methane
+      yield in S. aciditrophicus-M. hungatei coculture.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
   description: Both organisms are obligate anaerobes requiring anoxic conditions
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.4.1728-1738.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: S. aciditrophicus is an anaerobic bacterium that degrades benzoate in syntrophic association
-      with hydrogen-using microorganisms
-    explanation: Establishes strict anaerobic requirement
+    snippet: All media and stock solutions were prepared anaerobically by the techniques
+      described by Balch and Wolfe ( 6 ).
+    explanation: Establishes anaerobic preparation of the coculture medium.
 - name: Hydrogen Partial Pressure
   value: Must be maintained at low levels
   description: 'Low H2 partial pressure is critical for syntrophic benzoate degradation. The methanogen
@@ -211,41 +301,17 @@ environmental_factors:
 
     '
   evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
+  - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Benzoate degradation by S. aciditrophicus requires the removal of H2 by syntrophic partners
-    explanation: Demonstrates that H2 removal is essential for syntrophic metabolism
-- name: Aromatic Compound Sensing
-  value: Present
-  description: 'S. aciditrophicus possesses aromatic compound sensing capabilities, allowing it to detect
-    and respond to benzoate and other aromatic substrates in the environment.
-
-    '
-  evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: S. aciditrophicus responds to benzoate and other aromatic compounds for degradation
-    explanation: Indicates aromatic compound sensing mechanism
-- name: Bioremediation Potential
-  value: High for aromatic compounds
-  description: 'The consortium has significant potential for bioremediation of benzoate and other aromatic
-    contaminants in anaerobic environments such as sediments and contaminated aquifers.
-
-    '
-  evidence:
-  - reference: doi:10.1128/aem.66.3.847-853.2000
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Syntrophic benzoate degradation is important for bioremediation of aromatic contaminants
-      in anaerobic environments
-    explanation: Establishes bioremediation relevance
-metals_present:
-- IRON
-metal_relevance: SIGNIFICANT
-metal_notes: Metal/REE detected via environmental factor measurements; Metal/REE detected via keyword
-  matching in description (context-validated)
+    snippet: Degradation proceeds only if the concentration of hydrogen produced during
+      benzoate oxidation is continuously maintained at a low level by a hydrogen-using
+      microorganism ( 12 , 19 , 24 , 26 ).
+    explanation: Demonstrates that H2 removal is essential for syntrophic metabolism.
+metals_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this
+  syntrophic benzoate-degrading coculture.
 growth_media:
 - name: sulfate-free benzoate basal medium
   temperature: '37'
@@ -254,14 +320,15 @@ growth_media:
   preparation_notes: >-
     S. aciditrophicus-M. hungatei cocultures grown in sulfate-free (<5 µM) benzoate basal medium;
     all media prepared anaerobically by the Balch-Wolfe technique; test substrate at 1.2-1.7 mM.
-    Conditions are from a closely related study of the same two organisms (Jackson & McInerney 2001,
-    doi:10.1128/aem.67.12.5520-5525.2001), as the record's primary reference is not openly accessible.
+    The earlier coculture study used basal medium containing 1.2-1.5 mM sodium benzoate
+    under an 80% N2-20% CO2 headspace.
   evidence:
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures of S. aciditrophicus and M. hungatei were established and grown in sulfate-free
-      (<5 μM) benzoate basal medium as described previously.
+    snippet: Cocultures of S. aciditrophicus and M. hungatei were established and
+      grown in sulfate-free (<5 μM) benzoate basal medium as described previously
+      ( 8 ).
     explanation: Names the sulfate-free benzoate basal medium for the S. aciditrophicus-M. hungatei
       coculture.
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
@@ -272,6 +339,6 @@ growth_media:
   - reference: doi:10.1128/aem.67.12.5520-5525.2001
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All media and stock solutions were prepared anaerobically by using the techniques described
-      by Balch and Wolfe.
+    snippet: All media and stock solutions were prepared anaerobically by using the
+      techniques described by Balch and Wolfe ( 3 ).
     explanation: Establishes strict anaerobic preparation of the culture medium.

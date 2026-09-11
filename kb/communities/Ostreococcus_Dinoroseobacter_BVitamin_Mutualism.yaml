@@ -87,6 +87,7 @@ ecological_interactions:
   description: D. shibae alleviates O. tauri requirements for cobalamin and thiamine, enabling algal
     growth without external addition of those vitamins in coculture.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dinoroseobacter shibae
     term:
@@ -115,6 +116,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Stable B-Vitamin Mutualism Maintains Coculture
+    description: Dinoroseobacter rescue of algal B12 and B1 auxotrophy
+      maintains the O. tauri partner within the stable reciprocal B-vitamin
+      mutualism.
   evidence:
   - reference: PMID:30228381
     supports: SUPPORT
@@ -125,6 +131,7 @@ ecological_interactions:
   description: O. tauri reciprocally satisfies vitamin requirements of D. shibae, including biotin-linked
     auxotrophy, supporting a stable long-term coculture rather than a one-way commensal association.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Ostreococcus tauri
     term:
@@ -155,18 +162,18 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: alga is in turn able to satisfy the reciprocal vitamin requirements of its bacterial partner in a stable long-term co-culture
     explanation: Supports reciprocal vitamin provisioning from O. tauri to D. shibae.
-- name: Photosynthate-Supported Roseobacter Association
-  description: The heterotrophic D. shibae partner is interpreted as receiving fixed carbon from the
-    photosynthetic alga while providing vitamins, consistent with a marine phytoplankton-bacterium
-    cross-feeding mutualism.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Ostreococcus tauri
+- name: Stable B-Vitamin Mutualism Maintains Coculture
+  description: Reciprocal B-vitamin complementation lets O. tauri and D. shibae persist through
+    repeated subculture in a stable, self-sustaining mutualistic relationship without exogenous fixed
+    carbon or B vitamins.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ostreococcus tauri
     term:
       id: NCBITaxon:70448
       label: Ostreococcus tauri
-  target_taxon:
-    preferred_term: Dinoroseobacter shibae
+  - preferred_term: Dinoroseobacter shibae
     term:
       id: NCBITaxon:215813
       label: Dinoroseobacter shibae
@@ -179,12 +186,17 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Algal Rescue of Bacterial Vitamin Requirements
+    description: Fixed carbon supplied by O. tauri supports the D. shibae
+      partner that has reciprocal vitamin requirements in the stable long-term
+      coculture.
   evidence:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: could supply thiamine and B12 to its hosts in exchange for a source of fixed carbon
-    explanation: Supports the inferred exchange of bacterial vitamins for algal fixed carbon.
+    snippet: O. tauri and D. shibae continued to grow in a stable self-sustaining mutualistic
+    explanation: Supports stable long-term coculture under B-vitamin exchange conditions.
 cultivation_setup:
 - cultivation_mode: BATCH
   operating_temperature: 18.0
@@ -214,14 +226,12 @@ cultivation_setup:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 h light:dark
-      cycle
+    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 hour light:dark
     explanation: Temperature and photoperiod, stated for the cocultures as well as the controls.
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin,
-      2.05 nM biotin, 296 nM thiamine'
+    snippet: 0.40 nM cobalamin
     explanation: The vitamin concentrations whose presence and absence the study varies.
 
 environmental_factors:
@@ -243,7 +253,7 @@ environmental_factors:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: grown at 18°C with a 16:8 h light:dark cycle
+    snippet: grown at 18°C with a 16:8 hour light:dark
     explanation: Supports the culture temperature and photoperiod.
 growth_media:
 - name: L1 marine algal medium
@@ -257,12 +267,12 @@ growth_media:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 h light:dark cycle
+    snippet: All axenic and co-cultures containing O. tauri were grown at 18°C with a 16:8 hour light:dark
     explanation: Supports the temperature and light regime for O. tauri-containing cultures.
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin, 2.05 nM biotin, 296 nM thiamine"
+    snippet: 2.05 nM biotin, 296 nM thiamine, 812 nM niacin and 291 nM p-aminobenzoic acid
     explanation: Supports the defined B-vitamin amendment concentrations used in culture assays.
 associated_datasets:
 - title: Ostreococcus-Dinoroseobacter B-vitamin rescue phenotyping
@@ -276,7 +286,7 @@ associated_datasets:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Growth of O. tauri and D. shibae under different B-vitamin combinations
+    snippet: Growth of O. tauri and D. shibae under different B-vitamin profiles
     explanation: Supports phenotypic growth-assay data associated with the coculture.
 related_ingredients:
 - preferred_term: cobalamin
@@ -289,7 +299,7 @@ related_ingredients:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin, 2.05 nM biotin, 296 nM thiamine'
+    snippet: 0.40 nM cobalamin
     explanation: Names cobalamin verbatim as a defined B-vitamin amendment central to the exchange.
 - preferred_term: thiamine
   chebi_term:
@@ -301,8 +311,8 @@ related_ingredients:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: could supply thiamine and B12 to its hosts in exchange for a source of fixed carbon
-    explanation: Names thiamine verbatim as a bacterial-provided vitamin exchanged for fixed carbon.
+    snippet: thiamine (B1) and cobalamin (B12)
+    explanation: Names thiamine verbatim among the vitamins required by O. tauri in this mutualism.
 - preferred_term: biotin
   chebi_term:
     id: CHEBI:15956
@@ -313,6 +323,6 @@ related_ingredients:
   - reference: PMID:30228381
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'B-vitamins were added to cultures at the following concentrations: 0.40 nM cobalamin, 2.05 nM biotin, 296 nM thiamine'
+    snippet: 2.05 nM biotin
     explanation: Names biotin verbatim among the defined B-vitamin amendments central to the assays.
 metal_relevance: NOT_APPLICABLE

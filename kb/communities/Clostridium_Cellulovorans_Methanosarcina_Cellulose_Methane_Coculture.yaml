@@ -114,6 +114,7 @@ ecological_interactions:
   description: C. cellulovorans degrades cellulose and releases H2, formate, acetate, and other
     fermentation products that can feed methanogenesis by M. barkeri.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium cellulovorans 743B
     term:
@@ -150,6 +151,12 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Multi-Substrate Methanogenesis by M. barkeri
+    description: >
+      Hydrogen, formate, and acetate released during C. cellulovorans cellulose
+      fermentation supply the substrates consumed by M. barkeri for
+      multi-substrate methanogenesis.
   evidence:
   - reference: PMID:28191038
     supports: SUPPORT
@@ -167,11 +174,17 @@ ecological_interactions:
     fermentation to generate methane through hydrogenotrophic/formate-linked and acetoclastic
     methanogenic routes.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri Fusaro
     term:
       id: NCBITaxon:269797
       label: Methanosarcina barkeri str. Fusaro
+  target_taxon:
+    preferred_term: Clostridium cellulovorans 743B
+    term:
+      id: NCBITaxon:573061
+      label: Clostridium cellulovorans 743B
   metabolites:
   - preferred_term: dihydrogen
     term:
@@ -198,6 +211,12 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Methanogen-Enabled Cellulose Degradation and pH Stabilization
+    description: >
+      M. barkeri consumption of cellulose-fermentation products lowers hydrogen
+      and volatile fatty acid accumulation, stabilizing pH and improving
+      cellulose degradation by C. cellulovorans.
   evidence:
   - reference: PMID:28191038
     supports: SUPPORT
@@ -214,6 +233,7 @@ ecological_interactions:
   description: Product consumption by M. barkeri lowers H2 and VFA accumulation, stabilizes pH, and
     improves cellulose degradation relative to C. cellulovorans monoculture.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanosarcina barkeri Fusaro
     term:

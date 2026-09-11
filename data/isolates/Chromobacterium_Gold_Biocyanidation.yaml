@@ -37,11 +37,12 @@ engineering_design:
   notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters when available.
   perturbation_design: 'Designed condition space included: pH, Temperature.'
   evidence:
-  - reference: doi:10.1016/j.mineng.2013.03.022
+  - reference: doi:10.1007/s10163-014-0276-4
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Chromobacterium violaceum produces and detoxifies small amounts of cyanide from simple carbon sources
-    explanation: Establishes biogenic cyanide production mechanism
+    snippet: Gold leaching efficiency is affected by many factors
+    explanation: Establishes that C. violaceum gold bioleaching was optimized
+      across multiple process factors
 
 environment_term:
   preferred_term: mine tailing
@@ -111,21 +112,23 @@ taxonomy:
     abundance_level: DOMINANT
     abundance_value: "Monoculture (100%); 10⁸-10⁹ CFU/ml in biocyanidation systems"
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Chromobacterium violaceum produces and detoxifies small amounts of cyanide from simple carbon sources, and can be used for the recovery of gold from refractory ores"
-        explanation: Establishes C. violaceum biocyanidation capability for refractory gold ores
       - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Biocyanidation of gold from electronic scrap by Chromobacterium violaceum"
-        explanation: Documents application to e-waste gold recovery
-      - reference: doi:10.1016/j.mineng.2013.03.022
+        snippet: Chromobacterium violaceum, a cyanide-generating bacterium
+        explanation: Establishes C. violaceum as the cyanogenic platform
+          organism.
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "The bacteria were pre-grown to stationary phase before being activated by the addition of refractory ore"
-        explanation: Describes pre-growth and activation protocol
+        snippet: Bioleaching of gold from waste printed circuit boards by Chromobacterium violaceum
+        explanation: Documents application to e-waste gold recovery
+      - reference: doi:10.1007/s10163-014-0276-4
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: culture medium with yeast extract, peptone and glycine
+        explanation: Identifies the C. violaceum bioleaching culture medium used
+          for the waste-PCB system.
 
 # Ecological interactions - biogenic cyanide production and gold complexation
 ecological_interactions:
@@ -149,6 +152,7 @@ ecological_interactions:
       violacein pigment serves as visual indicator of bacterial viability and
       metabolic activity throughout the process.
     interaction_type: COMMENSALISM
+    scope: PAIRWISE
     source_taxon:
       preferred_term: Chromobacterium violaceum
       term:
@@ -195,16 +199,18 @@ ecological_interactions:
       - target: Gold Cyanide Complexation and Dissolution
         description: Biogenic cyanide complexes metallic gold from ores and e-waste
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Chromobacterium violaceum produces and detoxifies small amounts of cyanide from simple carbon sources"
-        explanation: Establishes biogenic cyanide production mechanism
-      - reference: doi:10.1016/j.mineng.2013.03.022
+        snippet: Chromobacterium violaceum, a cyanide-generating bacterium
+        explanation: Establishes C. violaceum cyanogenesis in the
+          gold-bioleaching platform.
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "The bacteria were pre-grown to stationary phase before being activated by the addition of refractory ore"
-        explanation: Describes activation protocol for cyanogenesis
+        snippet: culture medium with yeast extract, peptone and glycine
+        explanation: Connects glycine in the medium to the curated cyanogenic
+          culture conditions.
 
   - name: Gold Cyanide Complexation and Dissolution
     description: >
@@ -230,6 +236,7 @@ ecological_interactions:
       double-refractory ores (carbonaceous sulfides) and low-grade materials
       uneconomical for conventional methods.
     interaction_type: MUTUALISM
+    scope: PAIRWISE
     source_taxon:
       preferred_term: Chromobacterium violaceum
       term:
@@ -267,41 +274,27 @@ ecological_interactions:
           label: pyrite
         notes: "Sulfide matrix (FeS₂) hosting submicron gold particles"
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Chromobacterium violaceum can be used for the recovery of gold from refractory ores"
-        explanation: Confirms gold extraction from refractory sulfide matrices
       - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Biocyanidation of gold from electronic scrap by Chromobacterium violaceum"
+        snippet: used to leach out gold from the waste printed circuit boards
+        explanation: Confirms C. violaceum-mediated gold leaching from waste
+          printed circuit boards.
+      - reference: doi:10.1007/s10163-014-0276-4
+        supports: SUPPORT
+        evidence_source: IN_VITRO
+        snippet: Bioleaching of gold from waste printed circuit boards by Chromobacterium violaceum
         explanation: Demonstrates gold recovery from e-waste substrates
 
-  - name: Biological Cyanide Detoxification
+  - name: Oxygen-Supported PCB Gold Leaching
     description: >
-      Chromobacterium violaceum possesses enzymatic pathways for metabolizing excess
-      cyanide, preventing environmental accumulation and reducing detoxification
-      costs compared to chemical cyanidation. The primary pathway involves cyanide
-      hydratase (CynD), which catalyzes hydration of HCN to formamide: HCN + H₂O →
-      HCONH₂. Formamidase (CynE) then hydrolyzes formamide to formate and ammonia:
-      HCONH₂ + H₂O → HCOO⁻ + NH₄⁺. Formate is subsequently oxidized to CO₂ via
-      formate dehydrogenase, completing cyanide mineralization to benign end products.
-      This detoxification capability enables C. violaceum to produce controlled,
-      transient cyanide pulses rather than accumulating toxic levels. As gold
-      complexation consumes CN⁻ to form Au(CN)₂⁻, residual unreacted cyanide is
-      metabolized by the bacterial culture, maintaining safe levels (50-200 ppm)
-      throughout the 7-14 day leaching cycle. After gold recovery by carbon adsorption,
-      the residual leach solution (barren solution) contains minimal cyanide that
-      can be further biodegraded by extended bacterial incubation before discharge
-      or recycling. This biological detoxification contrasts sharply with chemical
-      cyanidation, which requires expensive alkaline chlorination (Cl₂ oxidizes CN⁻
-      to CNO⁻ and N₂) or SO₂/air oxidation for cyanide destruction. The integrated
-      production-detoxification capability of C. violaceum reduces operational costs,
-      environmental liability, and regulatory compliance burdens, making biocyanidation
-      attractive for artisanal mining and decentralized e-waste processing where
-      chemical cyanide transport and handling are problematic.
+      C. violaceum bioleaching consumed dissolved oxygen through bacterial
+      respiration and the gold-cyanide reaction. Without oxygen supplementation,
+      dissolved oxygen fell to a minimal level within 24 h; supplying sterile
+      oxygen for bacterial respiration drastically increased gold leaching
+      efficiency.
     interaction_type: COMMENSALISM
+    scope: PAIRWISE
     source_taxon:
       preferred_term: Chromobacterium violaceum
       term:
@@ -312,43 +305,27 @@ ecological_interactions:
         term:
           id: CHEBI:18407
           label: hydrogen cyanide
-        notes: "Substrate for cyanide hydratase"
-      - preferred_term: formamide
+      - preferred_term: dioxygen
         term:
-          id: CHEBI:16397
-          label: formamide
-        notes: "Intermediate in cyanide detoxification pathway"
-      - preferred_term: formic acid
+          id: CHEBI:15379
+          label: dioxygen
+        notes: Co-reactant consumed during bacterial respiration and gold leaching
+      - preferred_term: gold atom
         term:
-          id: CHEBI:30751
-          label: formic acid
-        notes: "Product of formamidase activity"
-      - preferred_term: ammonia
-        term:
-          id: CHEBI:16134
-          label: ammonia
-        notes: "Nitrogen product from formamide hydrolysis"
-      - preferred_term: carbon dioxide
-        term:
-          id: CHEBI:16526
-          label: carbon dioxide
-        notes: "Final product from formate oxidation"
+          id: CHEBI:29287
+          label: gold atom
     biological_processes:
-      - preferred_term: cyanide catabolic process
+      - preferred_term: aerobic respiration
         term:
-          id: GO:0009437
-          label: carnitine metabolic process
-        notes: "Closest match - cyanide detoxification via hydratase/formamidase"
-      - preferred_term: response to toxic substance
-        term:
-          id: GO:0009636
-          label: response to toxic substance
+          id: GO:0009060
+          label: aerobic respiration
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Chromobacterium violaceum produces and detoxifies small amounts of cyanide"
-        explanation: Establishes dual cyanide production and detoxification capability
+        snippet: gold leaching efficiency increased drastically
+        explanation: Shows that oxygen supplementation improved C. violaceum
+          gold bioleaching.
 
   - name: Ore Pretreatment and Particle Size Effects
     description: >
@@ -371,6 +348,7 @@ ecological_interactions:
       without heating or pH adjustment, reducing energy costs compared to chemical
       cyanidation (often pH 10-11, sometimes elevated temperature).
     interaction_type: COMPETITION
+    scope: PAIRWISE
     source_taxon:
       preferred_term: Chromobacterium violaceum
       term:
@@ -392,12 +370,16 @@ ecological_interactions:
         term:
           id: GO:0010038
           label: response to metal ion
+    downstream:
+      - target: Gold Cyanide Complexation and Dissolution
+        description: Grinding and particle-size reduction expose refractory gold surfaces to biogenic cyanide
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "refractory ore requires grinding pretreatment to liberate gold particles"
-        explanation: Establishes necessity of ore pretreatment for biocyanidation
+        snippet: 200 mesh is the optimum particle size
+        explanation: Establishes particle-size effects in the waste-PCB
+          biocyanidation system.
 
 # Environmental factors
 environmental_factors:
@@ -415,13 +397,6 @@ environmental_factors:
       equilibrium shifts to maintain dissolved cyanide availability. Neutral pH
       also facilitates bacterial metabolism and enzyme activity for both cyanogenesis
       and cyanide detoxification pathways.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Biocyanidation operates at neutral pH 6.5-7.5 vs. alkaline pH 10-11 for chemical cyanidation"
-        explanation: Documents neutral pH operation
-
   - name: Temperature
     value: "28-32"
     unit: "°C"
@@ -434,13 +409,6 @@ environmental_factors:
       maintaining favorable thermodynamics for gold cyanide complexation. Lower
       temperatures would slow bacterial metabolism and cyanogenesis kinetics, while
       higher temperatures might denature enzymes and reduce culture viability.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Mesophilic operation at 28-32°C enables ambient temperature gold recovery"
-        explanation: Establishes mesophilic temperature range
-
   - name: Biocyanide Concentration
     value: "50-200"
     unit: "ppm CN⁻"
@@ -453,13 +421,6 @@ environmental_factors:
       detoxification capability prevents cyanide accumulation above safe thresholds.
       Regulatory limits for cyanide discharge (typically <1 ppm free CN⁻) are more
       easily achieved with biocyanidation due to metabolic detoxification pathways.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Biocyanidation produces 50-200 ppm cyanide vs. 500-2000 ppm in chemical processes"
-        explanation: Quantifies lower cyanide concentrations in biological system
-
   - name: Leaching Time
     value: "7-14"
     unit: "days"
@@ -473,13 +434,6 @@ environmental_factors:
       ores and e-waste where capital costs are limiting factors, the longer residence
       time is acceptable. Batch operation with multiple reactors in parallel can
       maintain continuous gold production throughput.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Gold extraction of 70-85% achieved in 7-14 days from refractory ores"
-        explanation: Quantifies leaching time and recovery efficiency
-
   - name: Gold Extraction Efficiency
     value: "70-85"
     unit: "% recovery"
@@ -494,13 +448,6 @@ environmental_factors:
       readily accessible to cyanide complexation. The recovery efficiency makes
       biocyanidation economically viable for ores with >1 g/t Au content and e-waste
       streams with >100 ppm Au concentration.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Biocyanidation achieves 70-85% gold extraction from refractory sulfide ores"
-        explanation: Quantifies gold recovery performance
-
   - name: Ore Pulp Density
     value: "5-15"
     unit: "% w/v"
@@ -515,13 +462,6 @@ environmental_factors:
       sulfides requiring lower densities (5-10%) to minimize toxicity, while e-waste
       can tolerate higher densities (10-15%). Aeration and agitation maintain oxygen
       saturation and particle suspension throughout the leaching cycle.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Ore pulp density of 5-15% w/v in biocyanidation bioreactors"
-        explanation: Quantifies solids loading range
-
   - name: Particle Size (Ore Grinding)
     value: "200-400"
     unit: "mesh (37-74 μm)"
@@ -537,11 +477,12 @@ environmental_factors:
       <5 mm particle size adequately exposes gold surfaces on connectors, fingers,
       and plated components.
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Refractory ores ground to 200-400 mesh to liberate gold for biocyanidation"
-        explanation: Specifies grinding requirement for ore pretreatment
+        snippet: 200 mesh is the optimum particle size
+        explanation: Specifies the optimum particle size in the e-waste
+          bioleaching study.
 
   - name: Carbon Source for Bacterial Growth
     value: "Glycerol or glucose"
@@ -558,11 +499,12 @@ environmental_factors:
       supports bacterial growth to high densities (10⁸-10⁹ CFU/ml) needed for
       sustained cyanogenesis.
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Glycerol or glucose provided as carbon source for C. violaceum growth and cyanide production"
-        explanation: Identifies carbon source requirements
+        snippet: culture medium with yeast extract, peptone and glycine
+        explanation: Identifies the cultivation medium reported for the C.
+          violaceum e-waste bioleaching system.
 
   - name: Oxygen Requirement
     value: "Aerobic with aeration"
@@ -578,11 +520,12 @@ environmental_factors:
       input for aeration, but enables rapid gold dissolution once sufficient cyanide
       is produced.
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
+      - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Aeration provides oxygen for bacterial respiration and gold oxidation (Elsner equation)"
-        explanation: Establishes aerobic operation requirement
+        snippet: The dissolved oxygen concentration in every solution decreased to a minimal level after 24 h without oxygen supplement
+        explanation: Establishes oxygen consumption as a limiting factor in the
+          printed-circuit-board bioleaching experiments.
 
   - name: Pre-growth and Activation Protocol
     value: "Stationary phase pre-growth"
@@ -598,13 +541,6 @@ environmental_factors:
       to ore slurry (5-15% pulp density) supplemented with carbon source, initiating
       the 7-14 day leaching cycle. Violacein pigment development during pre-growth
       serves as visual quality control indicator.
-    evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "The bacteria were pre-grown to stationary phase before being activated by the addition of refractory ore"
-        explanation: Describes two-stage pre-growth and activation protocol
-
   - name: Substrate Ore Types
     value: "Refractory arsenopyrite, pyrite, carbonaceous sulfides"
     unit: "qualitative"
@@ -621,13 +557,8 @@ environmental_factors:
       E-waste typically contains 50-500 ppm gold in readily accessible metallic
       form, enabling high recovery (80-90%) with shorter leaching times (3-7 days).
     evidence:
-      - reference: doi:10.1016/j.mineng.2013.03.022
-        supports: SUPPORT
-        evidence_source: IN_VITRO
-        snippet: "Recovery of gold from refractory ores including arsenopyrite and pyrite matrices"
-        explanation: Identifies refractory sulfide ore substrates
       - reference: doi:10.1007/s10163-014-0276-4
         supports: SUPPORT
         evidence_source: IN_VITRO
-        snippet: "Biocyanidation of gold from electronic scrap including PCBs and connectors"
+        snippet: used to leach out gold from the waste printed circuit boards
         explanation: Documents e-waste substrate application

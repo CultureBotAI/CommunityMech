@@ -59,6 +59,7 @@ ecological_interactions:
   description: In sulfate-free coculture, D. desulfuricans catabolizes lactate and M. barkeri performs
     methanogenesis, yielding acetate and methane during early incubation.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio desulfuricans
     term:
@@ -94,6 +95,13 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Acetate Conversion by Methanosarcina
+    description: Acetate produced during lactate degradation becomes the substrate for the later
+      Methanosarcina acetate-to-methane conversion phase.
+  - target: Hydrogen Inhibition of Acetate Degradation
+    description: Hydrogen produced during Desulfovibrio growth on lactate creates the inhibitory
+      condition that delays M. barkeri acetate degradation.
   evidence:
   - reference: PMID:16345708
     supports: SUPPORT
@@ -105,6 +113,7 @@ ecological_interactions:
   description: After lactate depletion, acetate produced during early lactate degradation is converted by
     M. barkeri to methane and presumably carbon dioxide.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Methanosarcina barkeri
     term:
@@ -142,6 +151,7 @@ ecological_interactions:
   description: Hydrogen produced during Desulfovibrio growth can inhibit acetate degradation by M. barkeri,
     making hydrogen dynamics an important regulator of syntrophic carbon flow.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio desulfuricans
     term:
@@ -259,4 +269,3 @@ associated_datasets:
   description: Publication reporting lactate degradation, acetate dynamics, hydrogen effects, and methane
     production in Desulfovibrio-methanogen cocultures.
 metal_relevance: NOT_APPLICABLE
-

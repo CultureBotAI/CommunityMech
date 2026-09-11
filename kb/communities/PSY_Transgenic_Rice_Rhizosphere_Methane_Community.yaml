@@ -148,6 +148,7 @@ ecological_interactions:
     lowers H2 available for hydrogenotrophic methanogens, reducing CH4
     production.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: rhizosphere H2-oxidizing bacteria
     term:
@@ -172,6 +173,10 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
+    description: Elevated bacterial H2 oxidation lowers H2 availability for
+      hydrogenotrophic archaeal methanogenesis in the PSY rice rhizosphere.
   evidence:
   - reference: PMID:41582156
     supports: SUPPORT
@@ -194,6 +199,11 @@ ecological_interactions:
     community-level interaction.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: rhizosphere H2-oxidizing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
   metabolites:
   - preferred_term: amino acid
     term:
@@ -208,6 +218,10 @@ ecological_interactions:
     term:
       id: GO:0009063
       label: amino acid catabolic process
+  downstream:
+  - target: H2 Oxidation Outcompetes Hydrogenotrophic Methanogenesis
+    description: Gluconeogenic acids in PSY root exudates likely stimulate the
+      H2-oxidizing bacterial genomes enriched for amino-acid utilization genes.
   evidence:
   - reference: PMID:41582156
     supports: SUPPORT
@@ -221,11 +235,20 @@ ecological_interactions:
     further restricting H2 supply to hydrogenotrophic methanogens.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: rhizosphere H2-producing bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
   metabolites:
   - preferred_term: dihydrogen
     term:
       id: CHEBI:18276
       label: dihydrogen
+  downstream:
+  - target: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
+    description: Suppressed H2 production further lowers the H2 available to
+      hydrogenotrophic methanogens in the PSY rice rhizosphere.
   evidence:
   - reference: PMID:41582156
     supports: SUPPORT
@@ -233,6 +256,41 @@ ecological_interactions:
     snippet: suppressed H2 production in the PSY rhizosphere
     explanation: Supports the metabolic-model prediction of suppressed H2
       production under PSY conditions.
+- name: H2 Limitation Suppresses Hydrogenotrophic Methanogenesis
+  description: Increased bacterial H2 oxidation and suppressed H2-producing gene
+    activity lower the rhizosphere H2 pool available to hydrogenotrophic
+    methanogens, reducing cumulative CH4 emissions from PSY rice genotypes.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: elevated H2 oxidation and suppressed H2 production in the PSY
+      rhizosphere
+    explanation: Supports the coupled H2-consumption and H2-production changes
+      predicted for the PSY rhizosphere.
+  - reference: PMID:41582156
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: decreased CH4 emissions are due to a lower amount of H2 available
+      for hydrogenotrophic methanogenesis
+    explanation: Supports low H2 availability as the mechanism for reduced
+      hydrogenotrophic methane production.
 environmental_factors:
 - name: PSY transgene background
   value: PSY1 vs PSY2 vs control rice

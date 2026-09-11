@@ -107,6 +107,7 @@ ecological_interactions:
     T. reesei cellulases hydrolyze cellulose, releasing hydrolysate sugars that
     enable growth of noncellulolytic S. coelicolor in the coculture.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma reesei RUT-C30
     term:
@@ -131,6 +132,11 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
+  downstream:
+  - target: Noncellulolytic Partner Dependency
+    description: >
+      Cellulase-driven hydrolysis by T. reesei is the upstream source of the
+      hydrolysate sugars that noncellulolytic S. coelicolor depends on.
   evidence:
   - reference: PMID:36314761
     supports: SUPPORT
@@ -147,6 +153,7 @@ ecological_interactions:
     Because S. coelicolor is noncellulolytic in this system, its growth depends
     on sugars released from cellulose by the T. reesei partner.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Trichoderma reesei RUT-C30
     term:
@@ -167,6 +174,12 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
+  downstream:
+  - target: Tunable Filamentous Population Dynamics
+    description: >
+      Streptomyces coelicolor dependency on Trichoderma reesei cellulase products
+      makes the initial two-member population balance determine later
+      cellulose-supported growth, cellulase formation, and pigment production.
   evidence:
   - reference: PMID:36314761
     supports: SUPPORT

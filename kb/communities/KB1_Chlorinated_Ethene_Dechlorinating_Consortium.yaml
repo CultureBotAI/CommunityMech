@@ -118,6 +118,7 @@ ecological_interactions:
     anaerobic conditions, driving sequential reductive dechlorination of PCE and TCE to ethene in laboratory
     microcosms and field groundwater.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Dehalococcoides spp. in KB-1
     term:
@@ -153,6 +154,7 @@ ecological_interactions:
     can synthesize the cobalamin lower ligand DMB, supporting Dehalococcoides dechlorination in vitamin-free
     medium and highlighting a cofactor-mediated syntrophic dependency.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Acetobacterium spp. in KB-1
     term:
@@ -173,6 +175,10 @@ ecological_interactions:
     term:
       id: GO:0006766
       label: vitamin metabolic process
+  downstream:
+  - target: Reductive Dechlorination to Ethene
+    description: Acetogen-derived cobalamin support supplies the cofactor context required for
+      complete Dehalococcoides reductive dechlorination in KB-1 without exogenous vitamins.
   evidence:
   - reference: PMID:31441646
     supports: SUPPORT
@@ -184,6 +190,68 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: substantial increase in cobalamin
     explanation: Supports cobalamin availability as part of the Acetobacterium-Dehalococcoides interaction.
+- name: Sporomusa DMB-Guided Cobalamin Support
+  description: Sporomusa is a dominant acetogen in vitamin-free KB-1 cultures. A
+    Sporomusa sp. strain KB-1 isolate was also tested as a Dehalococcoides partner
+    population; its phenolic cobamides did not by themselves satisfy Dehalococcoides
+    corrinoid requirements, but DMB amendment guided cobalamin biosynthesis in
+    Sporomusa sp. cocultures and supported Dehalococcoides reductive dechlorination
+    activity and growth.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Sporomusa spp. in KB-1
+    term:
+      id: NCBITaxon:2375
+      label: Sporomusa
+  target_taxon:
+    preferred_term: Dehalococcoides spp. in KB-1
+    term:
+      id: NCBITaxon:61434
+      label: Dehalococcoides
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: 5,6-dimethylbenzimidazole
+    term:
+      id: CHEBI:15890
+      label: 5,6-dimethylbenzimidazole
+  biological_processes:
+  - preferred_term: vitamin metabolic process
+    term:
+      id: GO:0006766
+      label: vitamin metabolic process
+  - preferred_term: cobalamin transport
+    term:
+      id: GO:0015889
+      label: cobalamin transport
+  downstream:
+  - target: Reductive Dechlorination to Ethene
+    description: DMB-guided cobalamin support can supply the corrinoid cofactor
+      context required for Dehalococcoides reductive dechlorination.
+  evidence:
+  - reference: PMID:31441646
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the lower ligand of cobalamin, and Sporomusa are dominant acetogens
+    explanation: Establishes Sporomusa as a dominant acetogenic member of the KB-1
+      cultures grown without exogenous vitamins.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sporomusa ovata and Sporomusa sp. strain KB-1, as Dehalococcoides
+      partner populations
+    explanation: Identifies Sporomusa sp. strain KB-1 as a tested Dehalococcoides
+      coculture partner.
+  - reference: PMID:23479750
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Dehalococcoides dechlorination activity and growth occurred in M. barkeri
+      and Sporomusa sp. co-cultures amended with 10 µM 5',6'-dimethylbenzimidazole
+    explanation: Supports DMB-guided cobalamin biosynthesis by Sporomusa sp. as a
+      mechanism that can restore Dehalococcoides dechlorination activity and growth.
 environmental_factors:
 - name: Anaerobic contaminated groundwater
   value: Reducing conditions after methanol and acetate amendment

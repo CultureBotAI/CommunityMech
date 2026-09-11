@@ -53,14 +53,142 @@ taxonomy:
   - CROSS_FEEDER
   evidence:
   - *id001
+- taxon_term:
+    preferred_term: segmented filamentous bacteria
+    term:
+      id: NCBITaxon:49082
+      label: Candidatus Neoarthromitus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Chicken SFB were assembled as two draft Candidatus Arthromitus sp. genomes; they are
+      represented here with the NCBI genus-level SFB taxon because the paper did not assign
+      species-level taxonomy to SFB-chicken-1 or SFB-chicken-2.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Two metagenomic bins of SFB were reconstructed from the sequencing data of the 7-day-old
+      SynComBac10 chicken terminal ileum samples
+    explanation: Supports SFB as in vivo colonists whose draft genomes were assembled from
+      SynComBac10-treated chicken ileum contents.
+- taxon_term:
+    preferred_term: Salmonella enterica serovar Typhimurium
+    term:
+      id: NCBITaxon:90371
+      label: Salmonella enterica subsp. enterica serovar Typhimurium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Salmonella_enterica
+      gtdb_taxon: Salmonella enterica
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Salmonella;s__Salmonella enterica
+      ncbi_source_id: NCBITaxon:90371
+      majority_fraction: 1.0
+      total_genomes: 21226
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Salmonella Typhimurium challenge pathogen used to test pathogen resistance after
+      SynComBac10-driven SFB establishment.
+  evidence:
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: challenged by pathogens of Salmonella typhimurium, E. coli, or Clostridium perfringens
+    explanation: Identifies Salmonella Typhimurium as a pathogen tested against the stable
+      SynComBac10 consortium.
 ecological_interactions:
 - name: SynCom-Stimulated SFB Cross-Feeding
-  description: SynComBac10-derived metabolites likely facilitate early establishment of segmented filamentous
-    bacteria.
+  description: SynComBac10-derived metabolites, including staphyloferrin B from multiple SynCom
+    members, are predicted to facilitate early establishment of segmented filamentous bacteria in
+    the chicken intestine.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: chicken intestinal SynComBac10 members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: segmented filamentous bacteria
+    term:
+      id: NCBITaxon:49082
+      label: Candidatus Neoarthromitus
+  metabolites:
+  - preferred_term: staphyloferrin B
+    term:
+      id: CHEBI:134612
+      label: staphyloferrin B
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: SFB-Driven Th17 Immune Priming
+    description: SynComBac10 metabolite cross-feeding is the proposed mechanism for early SFB
+      establishment, which then induces Th17 cell-mediated immune responses.
   evidence:
-  - *id001
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: staphyloferrin B, a siderophore, could be provided from six SynComBac10 members
+      (L. reuteri CML393, B. velezensis CML396, E. faecium CML291, M. funiformis CML154,
+      R. lituseburensis CML137, and E. sp. CML138) to SFB
+    explanation: In-silico transfer analysis predicts staphyloferrin B as an iron-scavenging
+      metabolite supplied by six SynComBac10 members to SFB.
+- name: SFB-Driven Th17 Immune Priming
+  description: Segmented filamentous bacteria enriched after SynComBac10 exposure induce Th17
+    cell-mediated immune responses in the chicken gut.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: segmented filamentous bacteria
+    term:
+      id: NCBITaxon:49082
+      label: Candidatus Neoarthromitus
+  biological_processes:
+  - preferred_term: regulation of innate immune response
+    term:
+      id: GO:0045088
+      label: regulation of innate immune response
+  downstream:
+  - target: SFB-Mediated Salmonella Resistance
+    description: Th17 immune priming by SFB supplies the host-mediated protective mechanism that
+      increases resistance to Salmonella infection.
+  evidence:
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SFB), which in turn induced Th17 cell-mediated immune responses, thereby conferring resistance
+      to Salmonella infection
+    explanation: SynComBac10-promoted SFB growth is reported upstream of Th17 immune responses
+      and Salmonella resistance.
+- name: SFB-Mediated Salmonella Resistance
+  description: SFB-mediated immune responses protect the host from Salmonella infection in
+    SynComBac10-treated chickens.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: segmented filamentous bacteria
+    term:
+      id: NCBITaxon:49082
+      label: Candidatus Neoarthromitus
+  - preferred_term: Salmonella enterica serovar Typhimurium
+    term:
+      id: NCBITaxon:90371
+      label: Salmonella enterica subsp. enterica serovar Typhimurium
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:40266232
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SFB-enriched SynComBac10 chickens were highly resistant to Salmonella infection due to
+      the SFB-mediated immune responses
+    explanation: Supports SFB-mediated host immunity as the resistance mechanism that suppresses
+      Salmonella infection in SynComBac10-treated chickens.
 environmental_factors:
 - name: early-life gut SynCom exposure
   value: Chickens were exposed early in life to SynComBac10 and evaluated for gut maturation and Salmonella

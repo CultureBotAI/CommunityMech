@@ -238,6 +238,7 @@ ecological_interactions:
   description: Coculturing C. thermocellum JN4 with T. thermosaccharolyticum GD17 improves overall
     cellulosic biofuel production efficiency.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium thermocellum JN4
     term:
@@ -272,6 +273,7 @@ ecological_interactions:
   description: T. thermosaccharolyticum GD17 has a competitive metabolic advantage over C. thermocellum
     JN4 in converting glucose or cellobiose into final fermentation products.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
     term:
@@ -296,6 +298,12 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Cellulosic Biofuel Efficiency Enhancement
+    description: >
+      GD17 capture and conversion of cellobiose or glucose released from
+      lignocellulose accounts for the increased formation of fermentation end
+      products in the cellulosic biofuel coculture.
   evidence:
   - reference: PMID:31551972
     supports: SUPPORT
@@ -311,6 +319,7 @@ ecological_interactions:
   description: Despite relieving carbon catabolite repression, T. thermosaccharolyticum GD17 hampers
     C. thermocellum JN4 growth in coculture.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Thermoanaerobacterium thermosaccharolyticum GD17
     term:
@@ -326,6 +335,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Cellulosic Biofuel Efficiency Enhancement
+    description: >
+      GD17-driven suppression of the cellulolytic JN4 population can rebalance
+      the coculture away from cellulose degradation, making that competition a
+      negative regulator of net cellulosic biofuel formation.
   evidence:
   - reference: PMID:31551972
     supports: SUPPORT
@@ -337,6 +352,11 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: relieves the carbon catabolite repression of C. thermocellum JN4
     explanation: Supports the narrower mechanism that GD17 can also relieve carbon catabolite repression.
+  - reference: PMID:31551972
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: re-balanced cocultures largely stopped degrading cellulose
+    explanation: Supports the link between GD17-biased community structure and loss of cellulose degradation.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE

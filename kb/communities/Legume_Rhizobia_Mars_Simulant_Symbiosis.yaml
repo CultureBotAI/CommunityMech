@@ -116,29 +116,94 @@ taxonomy:
     snippet: Sinorhizobium meliloti and Sinorhizobium medicae
     explanation: Names Sinorhizobium medicae as a rhizobial symbiont in the study.
 ecological_interactions:
-- name: Legume-rhizobia nitrogen-fixing symbiosis on Mars simulants
+- name: Mars Simulant Root Nodulation
   description: >
-    The rhizobia Sinorhizobium meliloti and Sinorhizobium medicae nodulate the roots of
-    the model legume Medicago truncatula grown on Mars soil simulants and fix
-    atmospheric nitrogen inside the nodules, providing fixed nitrogen to the host in
-    exchange for plant photosynthate. Root nodules developed comparably to sand-grown
-    controls and nifH nitrogen-fixation reporter-gene expression was detected in the
-    nodules, showing the mutualism is functional on the simulants.
+    Sinorhizobium meliloti and Sinorhizobium medicae nodulate Medicago
+    truncatula roots grown on MMS-1 and MMS-2 Mars soil simulants at average
+    numbers mostly comparable to sand-grown controls.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Sinorhizobium spp. (rhizobial symbionts)
+  participating_taxa:
+  - preferred_term: Sinorhizobium meliloti
     term:
       id: NCBITaxon:382
       label: Sinorhizobium meliloti
-    notes: >
-      Represents the two rhizobial symbionts (S. meliloti and S. medicae); grounded to
-      S. meliloti as the representative nodulating partner.
-  target_taxon:
-    preferred_term: Medicago truncatula (host legume)
+  - preferred_term: Sinorhizobium medicae
     term:
-      id: NCBITaxon:3880
-      label: Medicago truncatula
+      id: NCBITaxon:110321
+      label: Sinorhizobium medicae
+  biological_processes:
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
+  downstream:
+  - target: Mars Simulant Nodule nifH Expression
+    description: Nodules formed on Mars soil simulants express the rhizobial
+      nifH reporter, linking physical nodule development to nitrogen-fixation
+      activity.
+  evidence:
+  - reference: PMID:34879082
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: root nodules could develop on M. truncatula roots when grown on these Mars soil simulants
+    explanation: Supports functional nodulation of the host legume on Mars soil simulants.
+- name: Mars Simulant Nodule nifH Expression
+  description: Sinorhizobium meliloti 1021 carrying a PnifH::uidA reporter
+    expressed nifH inside Medicago truncatula root nodules on each tested Mars
+    soil simulant, indicating nitrogenase-gene activity inside the nodules.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sinorhizobium meliloti
+    term:
+      id: NCBITaxon:382
+      label: Sinorhizobium meliloti
+  - preferred_term: Sinorhizobium medicae
+    term:
+      id: NCBITaxon:110321
+      label: Sinorhizobium medicae
+  metabolites:
+  - preferred_term: dinitrogen
+    term:
+      id: CHEBI:17997
+      label: dinitrogen
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Mars Simulant Legume-Rhizobia Support
+    description: Nitrogen-fixation gene expression in nodules shows that Mars
+      simulant substrates can support the Medicago-rhizobia mutualism through
+      the reporter-assayed nitrogen-fixation stage.
+  evidence:
+  - reference: PMID:34879082
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: detected nifH (a reporter gene for nitrogen fixation) expression inside these nodules
+    explanation: Supports active nitrogen fixation (nifH expression) inside the nodules.
+- name: Mars Simulant Legume-Rhizobia Support
+  description: MMS-1 and MMS-2 Mars soil simulants support the Medicago
+    truncatula symbiosis with Sinorhizobium meliloti and Sinorhizobium medicae;
+    the study identified simulant chemistry, rather than grain size, as the
+    stronger control on plant mass.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sinorhizobium meliloti
+    term:
+      id: NCBITaxon:382
+      label: Sinorhizobium meliloti
+  - preferred_term: Sinorhizobium medicae
+    term:
+      id: NCBITaxon:110321
+      label: Sinorhizobium medicae
   biological_processes:
   - preferred_term: nodulation
     term:
@@ -152,13 +217,17 @@ ecological_interactions:
   - reference: PMID:34879082
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: root nodules could develop on M. truncatula roots when grown on these Mars soil simulants
-    explanation: Supports functional nodulation of the host legume on Mars soil simulants.
+    snippet: Mars simulant soils used in this study can support the symbiotic association
+      between M. truncatula and its rhizobial partners
+    explanation: Supports the paper's conclusion that the tested Mars simulants
+      can support the legume-rhizobia association.
   - reference: PMID:34879082
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: detected nifH (a reporter gene for nitrogen fixation) expression inside these nodules
-    explanation: Supports active nitrogen fixation (nifH expression) inside the nodules.
+    snippet: the chemical composition of the simulants is more critical than their grain size
+      for plant mass
+    explanation: Links the supported symbiosis to the observed plant-mass
+      difference between MMS-2 and MMS-1 simulants.
 environmental_factors:
 - name: Mojave Mars Simulant grades (MMS-1) and MMS-2 substrate
   value: MMS-1 (Coarse/Fine/Unsorted/Superfine) and MMS-2

@@ -198,6 +198,16 @@ ecological_interactions:
     additionally reporting that the community acts on multiple targets in the fungus.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
+    description: >
+      A. flavus suppression supplies the pathogen-control branch of ARC's coupled
+      peanut field phenotype.
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
@@ -213,6 +223,20 @@ ecological_interactions:
     the fungus facilitates colonisation by the nitrogen-fixing symbiont.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
+    description: >
+      Enhanced rhizobia-legume nodulation supplies the nitrogen-fixation branch
+      of ARC's coupled peanut field phenotype.
   evidence:
   - reference: PMID:42099455
     supports: SUPPORT
@@ -221,6 +245,42 @@ ecological_interactions:
       at harvest
     explanation: Supports facilitation of the rhizobia-legume symbiosis as a community-level effect
       distinct from the antifungal activity.
+- name: Coupled Aflatoxin Prevention and Nodulation-Supported Yield
+  description: >
+    SynCom ARC joins A. flavus inhibition with rhizobia-legume nodulation
+    induction, enhanced nitrogenase activity, retained active nodules, and
+    improved photosynthesis and carbon supply, producing lower aflatoxin and
+    higher yield without a super-nodulation penalty in field trials.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:42099455
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom ARC inhibits multiple targets in A. flavus, recruits and activates nodulation
+      and nitrogen fixation in rhizobia and peanut, and improves photosynthesis and carbon supply
+      for aflatoxin prevention and nodulation induction, balancing yield increase
+    explanation: >
+      Supports the field outcome as a coupled product of pathogen inhibition,
+      rhizobial activation, peanut nitrogen fixation, and improved
+      photosynthetic carbon supply.
 environmental_factors:
 - name: Multi-year multi-site field trial
   value: 4 years; 325 sites across 19 provinces

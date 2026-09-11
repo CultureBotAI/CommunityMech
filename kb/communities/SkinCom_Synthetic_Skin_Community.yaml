@@ -46,18 +46,121 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Skin Microbe-Metabolite Response
-  description: The standardized SkinCom enables reproducible assays of microbial responses to skin-relevant
-    chemicals.
-  interaction_type: CROSS_FEEDING
+- name: Oxic-Anoxic SkinCom Member Growth Profiling
+  description: >
+    Each aerobic or anaerobic human-skin type strain was cultured in BHI and profiled for growth
+    over several days before its abundance was tuned for SkinCom assembly.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Defined-Cell SkinCom Assembly
+    description: >
+      Member growth curves informed the automated, cell-counted construction of balanced SkinCom
+      formulations.
+  evidence:
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We monitored the growth rate of each species over 144 h through optical density
+      measurements.
+    explanation: >
+      Anchors the per-member growth characterization used before tuning the SkinCom assembly.
+- name: Defined-Cell SkinCom Assembly
+  description: >
+    A programmable CellenONE microfluidic device assembled SkinComs from pico-liter droplets so
+    wells were defined by the number of cells added at assembly time.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: 1x BHI SkinCom Diversity Selection
+    description: >
+      Defined-cell assembly enabled direct comparison of SkinCom starting ratios and BHI
+      concentrations for reproducible diverse growth.
+  evidence:
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This method ensures that communities are defined by the number of cells at assembly
+      time, yielding highly reproducible results.
+    explanation: >
+      Supports the assembly step that made the standardized SkinCom composition reproducible.
+- name: 1x BHI SkinCom Diversity Selection
+  description: >
+    SkinCom maintained better diversity in 1x BHI than in diluted 0.1x BHI, leading the authors to
+    use 1x BHI under aerobic conditions for later experiments.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Aerobe-Facilitated Cutibacterium Oxic Proliferation
+    description: >
+      The 1x BHI aerobic SkinCom condition retained all intended isolates and exposed the
+      community-dependent growth of C. acnes in an oxic setting.
+  - target: Cosmetic Chemical Response Concordance
+    description: >
+      The reproducible aerobic SkinCom was used to compare in-vitro cosmetic-chemical responses
+      with those observed in a human trial.
+  evidence:
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: superior diversity observed in 1× BHI cultures, we decided to carry out all subsequent
+      experiments under aerobic conditions using 1× BHI
+    explanation: >
+      Explains why 1x BHI became the standardized SkinCom medium for subsequent assays.
+- name: Aerobe-Facilitated Cutibacterium Oxic Proliferation
+  description: >
+    Cutibacterium acnes failed to grow axenically under oxic conditions but was detected in the
+    oxic SkinCom, consistent with facilitation by oxygen consumption from aerobic members.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: metagenomic results confirmed the ability of C. acnes to proliferate in an oxic
+      setting, likely facilitated by oxygen consumption by aerobic members of the SkinCom
+    explanation: >
+      Supports the community-level oxygen-consumption facilitation that allowed the anaerobic
+      member to persist in oxic SkinCom culture.
+- name: Cosmetic Chemical Response Concordance
+  description: >
+    The standardized SkinCom reproduced most measured skin-microbe responses to common cosmetic
+    chemicals in vitro when compared with a human trial.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: response to xenobiotic stimulus
+    term:
+      id: GO:0009410
+      label: response to xenobiotic stimulus
   evidence:
   - *id001
+  - reference: PMID:39111313
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 66% of the responses to common cosmetic chemicals in vitro were in agreement with
+      a human trial
+    explanation: >
+      Links the standardized SkinCom to reproducible in-vitro responses to skin-applied chemicals.
 environmental_factors:
 - name: standardized skin model conditions
   value: SkinCom was evaluated in vitro and after application to dorsal skin of mice.

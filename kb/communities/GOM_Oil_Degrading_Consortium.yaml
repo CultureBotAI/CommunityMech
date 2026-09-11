@@ -31,7 +31,7 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'The final consortium consists of four bacteria isolated from the Gulf of Mexico, from four
-      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter , and Alcanivorax'
+      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax'
 - taxon_term:
     preferred_term: Halopseudomonas aestusnigri GOM5
     term:
@@ -55,7 +55,7 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'The final consortium consists of four bacteria isolated from the Gulf of Mexico, from four
-      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter , and Alcanivorax'
+      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax'
 - taxon_term:
     preferred_term: Paenarthrobacter sp. GOM3
     term:
@@ -79,7 +79,7 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'The final consortium consists of four bacteria isolated from the Gulf of Mexico, from four
-      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter , and Alcanivorax'
+      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax'
 - taxon_term:
     preferred_term: Alcanivorax sp. GOM
     term:
@@ -94,20 +94,14 @@ taxonomy:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: 'The final consortium consists of four bacteria isolated from the Gulf of Mexico, from four
-      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter , and Alcanivorax'
+      genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax'
 ecological_interactions:
-- name: Aliphatic Hydrocarbon Degradation
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Alcanivorax sp. GOM
-    term:
-      id: NCBITaxon:1872427
-      label: Alcanivorax sp.
-  target_taxon:
-    preferred_term: Halopseudomonas aestusnigri GOM5
-    term:
-      id: NCBITaxon:857252
-      label: Halopseudomonas aestusnigri
+- name: Consortium n-Alkane Biodegradation
+  description: The four-member Gulf of Mexico consortium degraded n-alkanes from
+    light crude oil, one of the two GC-MS-measured contaminant classes supporting
+    its improved crude-oil removal.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: alkane
     term:
@@ -123,26 +117,22 @@ ecological_interactions:
       id: GO:0043448
       label: alkane catabolic process
   downstream:
-  - target: Polyaromatic Hydrocarbon Degradation
+  - target: Enhanced Light Crude Oil Removal
+    description: Consortium-scale n-alkane biodegradation contributes to improved
+      gravimetric light-crude-oil removal by the selected four-strain consortium.
   evidence:
   - reference: doi:10.3389/fmars.2022.962071
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing
-      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n -alkanes degradation with a preference
+      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference
       for specific chain length
-- name: Polyaromatic Hydrocarbon Degradation
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Pseudomonas sp. GOM
-    term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Paenarthrobacter sp. GOM3
-    term:
-      id: NCBITaxon:2782567
-      label: Paenarthrobacter sp. GOM3
+- name: Consortium Polyaromatic Hydrocarbon Biodegradation
+  description: The selected four-strain consortium degraded 12 measured
+    polyaromatic hydrocarbons from light crude oil alongside its n-alkane
+    biodegradation activity.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: fluorene
     term:
@@ -165,8 +155,36 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing
-      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n -alkanes degradation with a preference
+      12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference
       for specific chain length
+  downstream:
+  - target: Enhanced Light Crude Oil Removal
+    description: PAH biodegradation is one measured hydrocarbon-removal activity
+      of the consortium that reached higher total crude-oil removal than any
+      individual member.
+- name: Enhanced Light Crude Oil Removal
+  description: The Plackett-Burman-selected Pseudomonas, Halopseudomonas, Paenarthrobacter,
+    and Alcanivorax consortium removed more light crude oil than any constituent
+    grown alone over the 75-day assay.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: alkane
+    term:
+      id: CHEBI:18310
+      label: alkane
+  - preferred_term: polyaromatic hydrocarbons
+    term:
+      id: CHEBI:33848
+      label: polycyclic arene
+  evidence:
+  - reference: doi:10.3389/fmars.2022.962071
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Individually, bacterial oil removal by these microorganisms was evaluated by
+      gravimetry, reaching 39% at maximum after 75 days, whereas in consortium
+      it was ~62%.
+    explanation: Supports the enhanced whole-consortium oil-removal endpoint.
 environmental_factors:
 - name: Oil removal efficiency
   value: 62% (consortium) vs 39% (individual)

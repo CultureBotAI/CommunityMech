@@ -138,13 +138,47 @@ taxonomy:
       anti-inflammatory effects
     explanation: Names the fourth member and its principal fermentation product.
 ecological_interactions:
-- name: Partner-Specific Proteome Remodelling Reduces Functional Overlap
+- name: Partner-Specific Proteome Remodelling
   description: >
-    Members modulate protein abundance in response to which specific partners are present, producing
-    reproducible partner-specific expression shifts that significantly reduce functional overlap
-    between community members and are frequently associated with increased community productivity.
-    Because the response depends on partner identity rather than on the carbon source, the division
-    of labour is regulatory — the members reshape their realised niche by what they express.
+    Members modulate protein abundance in response to which specific partners
+    are present, producing reproducible partner-specific expression shifts. Because
+    the response depends on partner identity rather than on the carbon source, the
+    division of labour is regulatory: the members reshape their realised niche by
+    what they express.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  downstream:
+  - target: Reduced Functional Overlap and Metabolic Complementarity
+    description: Partner-specific protein-abundance shifts reduce functional overlap
+      and promote metabolic complementarity between the co-cultured gut anaerobes.
+  evidence:
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These interactions led to reproducible, partner-specific expression shifts that
+      significantly reduced functional overlap and were frequently associated with increased
+      community productivity
+    explanation: States that biotic interactions cause reproducible, partner-specific
+      protein-abundance shifts.
+  - reference: PMID:42032280
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We found that biotic interactions, rather than abiotic conditions, were the dominant
+      drivers of proteomic variation
+    explanation: Recorded on this interaction rather than as a separate edge, because "partner
+      identity outweighed carbon source" is a property of the same partner-specific remodelling
+      rather than a second interaction between taxa. The design varied carbon source independently,
+      which is what gives the comparison force.
+- name: Reduced Functional Overlap and Metabolic Complementarity
+  description: >
+    Partner-specific protein shifts significantly reduce overlap in the functions
+    expressed by the four gut anaerobes, promoting butyrate-, formate-, and
+    acetate-centered metabolic complementarity across the community.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -164,6 +198,10 @@ ecological_interactions:
       id: CHEBI:30089
       label: acetate
     notes: Fermentation end product of Marvinbryantia formatexigens.
+  downstream:
+  - target: Increased Community Productivity
+    description: The reduction in functional redundancy was frequently associated
+      with increased productivity of the assembled gut-derived communities.
   evidence:
   - reference: PMID:42032280
     supports: SUPPORT
@@ -174,15 +212,26 @@ ecological_interactions:
     explanation: States the central result — partner-specific, reproducible shifts that reduce
       functional overlap — which is what makes this niche partitioning rather than a generic
       co-culture effect.
+- name: Increased Community Productivity
+  description: The partner-specific proteomic shifts and reduced functional overlap
+    were frequently associated with increased productivity across the gut-derived
+    isolate, pairwise, and four-member community experiments.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  evidence:
   - reference: PMID:42032280
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We found that biotic interactions, rather than abiotic conditions, were the dominant
-      drivers of proteomic variation
-    explanation: Recorded on this interaction rather than as a separate edge, because "partner
-      identity outweighed carbon source" is a property of the same partner-specific remodelling
-      rather than a second interaction between taxa. The design varied carbon source independently,
-      which is what gives the comparison force.
+    snippet: These interactions led to reproducible, partner-specific expression shifts that
+      significantly reduced functional overlap and were frequently associated with increased
+      community productivity
+    explanation: Links partner-specific proteome remodeling to the downstream
+      community-productivity phenotype.
 growth_media:
 - name: YCFA with wheat straw fibre, anaerobic Hungate tubes
   composition:

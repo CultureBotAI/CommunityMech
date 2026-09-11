@@ -102,6 +102,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:1827
       label: Rhodococcus <high G+C Gram-positive bacteria>
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Syntrophic naphthalene mineralization circuit
+    description: Conductive biochar-mediated electron transfer bridges the engineered
+      Pseudomonas bio-anode and Rhodococcus bio-cathode that jointly mineralize
+      naphthalene.
   evidence:
   - reference: PMID:42139785
     supports: SUPPORT
@@ -131,13 +141,37 @@ ecological_interactions:
     term:
       id: CHEBI:16482
       label: naphthalene
+  downstream:
+  - target: Enhanced Naphthalene Removal and Mineralization
+    description: >
+      Biochar-mediated electron flux feeds the Pseudomonas-Rhodococcus
+      syntrophic circuit that removes and mineralizes naphthalene.
   evidence:
   - reference: PMID:42139785
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Electrochemical and multi-omics analyses confirmed the establishment of this syntrophic
+    snippet: Electrochemical and multi‑omics analyses confirmed the establishment of this syntrophic
       circuit, demonstrating elevated electron flux, coordinated upregulation of catabolic genes
     explanation: Confirms the syntrophic naphthalene-mineralizing circuit between the two members.
+- name: Enhanced Naphthalene Removal and Mineralization
+  description: >
+    The biochar-bridged engineered circuit achieved more than 98.3% naphthalene
+    removal and 89.5% mineralization by coordinating electron flux between
+    Pseudomonas and Rhodococcus and limiting intermediate accumulation.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  evidence:
+  - reference: PMID:42139785
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The resulting bioelectrochemical synergy achieved exceptional naphthalene removal
+      (>98.3%) and mineralization efficiency (89.5%)
+    explanation: Supports the measured removal and mineralization endpoint of the engineered consortium.
 cultivation_setup:
 - system_type: BIOELECTROCHEMICAL_SYSTEM
   instrument_detail: Immobilized engineered microbial system (imGEM) co-anchoring engineered Pseudomonas

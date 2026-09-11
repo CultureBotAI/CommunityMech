@@ -184,86 +184,177 @@ taxonomy:
       respectively.
     explanation: Names Seep-SRB2 (in Seep-SRB1+2) as an SRB partner of the third consortium.
 ecological_interactions:
-- name: ANME-1/Desulfofervidus syntrophy via direct interspecies electron transport
-  description: The ANME-1 archaeon and its Desulfofervidus SRB partner form a syntrophic partnership
-    coupling anaerobic oxidation of methane to sulfate reduction. Redox conduction (consistent with
-    multiheme cytochrome c) enables direct interspecies electron transport from the methane-oxidizing
-    archaeon to the sulfate-reducing bacterium over micrometer-scale distances.
+- name: ANME methane oxidation supplies syntrophic electrons
+  description: >
+    ANME-1, ANME-2a, and ANME-2c archaea oxidize methane in sediment-free
+    enrichments, supplying methane-derived electrons that are passed to their
+    sulfate-reducing bacterial partners in each consortium type.
   interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: ANME-1
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: ANME-1 (anaerobic methanotrophic archaea, clade 1)
     term:
       id: NCBITaxon:588814
       label: Candidatus Methanophagales
-  target_taxon:
-    preferred_term: Desulfofervidus
-    term:
-      id: NCBITaxon:1902583
-      label: Candidatus Desulfofervidus
-  evidence:
-  - reference: PMID:40845095
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Anaerobic methanotrophic archaea (ANME) and sulfate-reducing bacteria (SRB) form
-      syntrophic partnerships in marine sediments to consume greenhouse gas methane.
-    explanation: Establishes the ANME/SRB syntrophic partnership coupling methane oxidation to
-      sulfate reduction.
-  - reference: PMID:40845095
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Collectively, our results establish that marine ANME/SRB symbiosis uses redox conduction,
-      consistent with multiheme cytochrome c, for direct interspecies electron transport.
-    explanation: Documents redox-conduction-based direct interspecies electron transport between the
-      partners.
-- name: ANME-2a/Seep-SRB1 syntrophy via direct interspecies electron transport
-  description: The ANME-2a archaeon and its Seep-SRB1 partner form a syntrophic consortium coupling
-    anaerobic methane oxidation to sulfate reduction, using redox conduction for direct interspecies
-    electron transport over micrometer-scale distances.
-  interaction_type: SYNTROPHY
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: ANME-2a
+  - preferred_term: ANME-2a (anaerobic methanotrophic archaea, clade 2a)
     term:
       id: NCBITaxon:588816
       label: ANME-2 cluster
-  target_taxon:
-    preferred_term: Seep-SRB1
-    term:
-      id: NCBITaxon:213119
-      label: Desulfobacteraceae
-  evidence:
-  - reference: PMID:40845095
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Generator-collector measurements further demonstrated that these redox components
-      facilitate electron transport over micrometer-scale distances, sufficient to link archaeal and
-      bacterial partners.
-    explanation: Direct interspecies electron transport links the archaeal and bacterial partners of
-      the consortium.
-- name: ANME-2a+2c/Seep-SRB1+2 syntrophy via direct interspecies electron transport
-  description: A multi-partner consortium in which ANME-2c (with ANME-2a) couples anaerobic methane
-    oxidation to sulfate reduction by Seep-SRB2 (with Seep-SRB1) through redox-conduction-based direct
-    interspecies electron transport.
-  interaction_type: SYNTROPHY
-  scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: ANME-2c
+  - preferred_term: ANME-2c (anaerobic methanotrophic archaea, clade 2c)
     term:
       id: NCBITaxon:3386252
       label: Candidatus Methanogaster
-  target_taxon:
-    preferred_term: Seep-SRB2
+  metabolites:
+  - preferred_term: methane
     term:
-      id: NCBITaxon:213118
-      label: Desulfobacterales
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  downstream:
+  - target: Redox-Conduction Direct Interspecies Electron Transport
+    description: Methane-derived electrons are conducted from ANME cells to SRB
+      partners to support the interspecies syntrophy.
   evidence:
   - reference: PMID:40845095
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Diverse ANME/SRB consortia exhibited high dry conductance close to electrogenic biofilms.
-    explanation: The diverse ANME/SRB consortia, including ANME-2a+2c/Seep-SRB1+2, are conductive
-      syntrophic partnerships.
+    snippet: >
+      Anaerobic methanotrophic archaea (ANME) and sulfate-reducing bacteria
+      (SRB) form syntrophic partnerships in marine sediments to consume
+      greenhouse gas methane
+    explanation: Establishes the methane-consuming ANME/SRB syntrophic
+      partnership.
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      methane-derived electrons are directly conducted from ANME to SRB to drive
+      sulfate reduction
+    explanation: Supports methane oxidation as the upstream source of electrons
+      transferred to SRB partners.
+- name: Redox-Conduction Direct Interspecies Electron Transport
+  description: >
+    The ANME/SRB aggregates use redox-conduction electron transfer, consistent
+    with multiheme cytochrome c, to move electrons over micrometer-scale
+    distances between methane-oxidizing archaeal cells and sulfate-reducing
+    bacterial cells.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: ANME-1 (anaerobic methanotrophic archaea, clade 1)
+    term:
+      id: NCBITaxon:588814
+      label: Candidatus Methanophagales
+  - preferred_term: Desulfofervidus (sulfate-reducing bacterial partner of ANME-1)
+    term:
+      id: NCBITaxon:1902583
+      label: Candidatus Desulfofervidus
+  - preferred_term: ANME-2a (anaerobic methanotrophic archaea, clade 2a)
+    term:
+      id: NCBITaxon:588816
+      label: ANME-2 cluster
+  - preferred_term: ANME-2c (anaerobic methanotrophic archaea, clade 2c)
+    term:
+      id: NCBITaxon:3386252
+      label: Candidatus Methanogaster
+  - preferred_term: Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a)
+    term:
+      id: NCBITaxon:213119
+      label: Desulfobacteraceae
+  - preferred_term: Seep-SRB2 (additional sulfate-reducing bacterial partner)
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacterales
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: SRB sulfate reduction accepts methane-derived electrons
+    description: Redox-conduction electron transfer links archaeal methane
+      oxidation to SRB sulfate reduction in the sediment-free enrichments.
+  evidence:
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Cyclic voltammetry revealed redox activity centered at 28 +/- 11, 94 +/-
+      6, and 24 +/- 7 millivolts for ANME-1/Desulfofervidus,
+      ANME-2a/Seep-SRB1, and ANME-2a+2c/Seep-SRB1+2 consortia,
+      respectively
+    explanation: Names the three ANME/SRB consortium types that showed redox
+      activity.
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Generator-collector measurements further demonstrated that these redox
+      components facilitate electron transport over micrometer-scale distances,
+      sufficient to link archaeal and bacterial partners
+    explanation: Supports micrometer-scale electron transport between the ANME
+      and SRB cells.
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      marine ANME/SRB symbiosis uses redox conduction, consistent with
+      multiheme cytochrome c, for direct interspecies electron transport
+    explanation: Establishes redox conduction as the direct interspecies
+      electron-transfer mechanism.
+- name: SRB sulfate reduction accepts methane-derived electrons
+  description: >
+    Desulfofervidus, Seep-SRB1, and Seep-SRB2 sulfate-reducing bacterial
+    partners receive electrons from adjacent ANME archaea and couple that
+    electron flow to sulfate reduction in the ANME/SRB consortia.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Desulfofervidus (sulfate-reducing bacterial partner of ANME-1)
+    term:
+      id: NCBITaxon:1902583
+      label: Candidatus Desulfofervidus
+  - preferred_term: Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a)
+    term:
+      id: NCBITaxon:213119
+      label: Desulfobacteraceae
+  - preferred_term: Seep-SRB2 (additional sulfate-reducing bacterial partner)
+    term:
+      id: NCBITaxon:213118
+      label: Desulfobacterales
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  evidence:
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      ANME-1 partnered with sulfate-reducing Desulfofervidus
+      (ANME-1/Desulfofervidus consortia) grown at 50°C, ANME-2a partnered
+      with Seep-SRB1 (ANME-2a/Seep-SRB1 consortia) grown at 10°C, and ANME-2a
+      and ANME-2c partnered with Seep-SRB1 and Seep-SRB2 grown at 20°C
+    explanation: Names the sulfate-reducing bacterial partners paired with each
+      ANME lineage in the sediment-free enrichment cultures.
+  - reference: PMID:40845095
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      methane-derived electrons are directly conducted from ANME to SRB to drive
+      sulfate reduction
+    explanation: Connects electron acceptance by SRB partners to sulfate
+      reduction.
 curation_history:
 - timestamp: '2026-07-02T00:00:00+00:00'
   curator: claude-fable-5

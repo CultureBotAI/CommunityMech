@@ -94,6 +94,85 @@ taxonomy:
     snippet: 'Further microbial analysis identified Cetobacterium (p = 0.013), Paraclostridium (p < 0.01), and Pseudomonas (p < 0.01) as key differential taxa. A simplified microbial community comprising these three strains was subsequently constructed'
     explanation: Identifies Pseudomonas as a member genus of the disease-resistance SynCom.
 ecological_interactions:
+- name: SynCom activation of intestinal immune responses
+  description: Dietary administration of the Cetobacterium-Paraclostridium-Pseudomonas
+    SynCom activated intestinal immune responses in crucian carp, including transcriptomic
+    upregulation of the intestinal immune network for IgA production, before the observed
+    enhancement of resistance to Aeromonas hydrophila.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Cetobacterium
+    term:
+      id: NCBITaxon:180162
+      label: Cetobacterium
+  - preferred_term: Paraclostridium
+    term:
+      id: NCBITaxon:1849822
+      label: Paraclostridium
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  downstream:
+  - target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: Immune activation by the simplified gut SynCom is a reported mechanism
+      for the subsequent increase in resistance to A. hydrophila challenge.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the results revealed significant upregulation of immune-related pathways, particularly
+      the intestinal immune network for IgA production
+    explanation: Transcriptomics resolved immune activation as one mechanism induced by the
+      simplified gut SynCom.
+- name: SynCom reinforcement of epithelial barrier defenses
+  description: Dietary administration of the Cetobacterium-Paraclostridium-Pseudomonas
+    SynCom activated tight-junction signaling and elevated proteins associated with
+    intestinal barrier function, strengthening epithelial defenses that restrict opportunistic
+    Aeromonas hydrophila infection.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Cetobacterium
+    term:
+      id: NCBITaxon:180162
+      label: Cetobacterium
+  - preferred_term: Paraclostridium
+    term:
+      id: NCBITaxon:1849822
+      label: Paraclostridium
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  downstream:
+  - target: SynCom-mediated suppression of Aeromonas hydrophila
+    description: Gut-barrier reinforcement cooperates with immune activation to
+      improve host resistance and reduce A. hydrophila abundance after challenge.
+  evidence:
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: activation of tight junction signaling pathways was observed
+    explanation: Supports tight-junction activation as a barrier-preservation
+      response induced by the simplified gut SynCom.
+  - reference: PMID:41280275
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: elevated expression of proteins associated with barrier function
+    explanation: Immunological assays validated elevated expression of barrier-function
+      proteins in fish treated with the protective SynCom.
 - name: SynCom-mediated suppression of Aeromonas hydrophila
   description: The three-genus SynCom (Cetobacterium, Paraclostridium, Pseudomonas) significantly
     reduced the abundance of the pathogen Aeromonas hydrophila by activating intestinal immune
@@ -101,11 +180,24 @@ ecological_interactions:
     direct pairwise microbe-microbe interaction.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Aeromonas hydrophila
+  participating_taxa:
+  - preferred_term: Cetobacterium
     term:
-      id: NCBITaxon:644
-      label: Aeromonas hydrophila
+      id: NCBITaxon:180162
+      label: Cetobacterium
+  - preferred_term: Paraclostridium
+    term:
+      id: NCBITaxon:1849822
+      label: Paraclostridium
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
   evidence:
   - reference: PMID:41280275
     supports: SUPPORT

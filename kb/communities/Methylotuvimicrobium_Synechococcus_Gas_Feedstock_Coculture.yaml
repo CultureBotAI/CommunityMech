@@ -125,6 +125,7 @@ ecological_interactions:
     aerobic methane oxidation by M. alcaliphilum 20z, enabling coculture growth without feeding
     external CH4/O2 mixtures.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus PCC 7002
     term:
@@ -153,6 +154,11 @@ ecological_interactions:
     term:
       id: GO:0015947
       label: methane metabolic process
+  downstream:
+  - target: Methane and Carbon Dioxide Conversion to Biomass
+    description: >
+      Photosynthetic O2 production supports aerobic methane oxidation, allowing
+      the coculture to convert methane and carbon dioxide into biomass.
   evidence:
   - reference: PMID:28092828
     supports: SUPPORT
@@ -169,6 +175,7 @@ ecological_interactions:
   description: CO2 from the supplied gas stream and methanotroph respiration is available to the
     cyanobacterial partner, allowing simultaneous methane and carbon dioxide utilization into biomass.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methylomicrobium alcaliphilum 20z
     term:
@@ -193,6 +200,11 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Methane and Carbon Dioxide Conversion to Biomass
+    description: >
+      Cyanobacterial CO2 assimilation closes the reciprocal O2/CO2 exchange that
+      supports simultaneous gas conversion by the two-member coculture.
   evidence:
   - reference: PMID:28092828
     supports: SUPPORT
@@ -206,6 +218,41 @@ ecological_interactions:
     snippet: individual consumption and production rates of O2 and CO2
     explanation: Supports O2 and CO2 fluxes as measured interaction variables in the same
       species-pair coculture platform.
+- name: Methane and Carbon Dioxide Conversion to Biomass
+  description: >
+    Coupled methanotrophic methane oxidation and cyanobacterial photosynthesis
+    let the two-member coculture convert methane and carbon dioxide from gas
+    feedstocks into microbial biomass.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: oxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: methane metabolic process
+    term:
+      id: GO:0015947
+      label: methane metabolic process
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:28092828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: converts greenhouse gasses, CH4 and CO2, into microbial biomass
+    explanation: Supports conversion of methane and carbon dioxide into biomass by the coculture.
 environmental_factors:
 - name: Gas feedstock composition
   value: diverse gas mixtures ranging from biogas to natural-gas feedstock analogs

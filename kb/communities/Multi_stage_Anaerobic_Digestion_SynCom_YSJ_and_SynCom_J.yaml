@@ -20,6 +20,64 @@ environment_term:
     label: anaerobic bioreactor
   notes: Bioaugmented anaerobic digestion of food waste in semi-continuous reactors. The abstract
     names no individual member organisms of either SynCom.
+taxonomy:
+- taxon_term:
+    preferred_term: SynCom-YSJ hydrolytic members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: >
+    Functionally defined hydrolytic members of the multi-stage SynCom-YSJ;
+    individual species are not named in the accessible abstract.
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members
+      (SynCom-YSJ)
+    explanation: >
+      Supports the hydrolytic functional guild in SynCom-YSJ without asserting
+      species identities absent from the abstract.
+- taxon_term:
+    preferred_term: SynCom-YSJ acidogenic members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: >
+    Functionally defined acidogenic members of the multi-stage SynCom-YSJ;
+    individual species are not named in the accessible abstract.
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members
+      (SynCom-YSJ)
+    explanation: >
+      Supports the acidogenic functional guild in SynCom-YSJ without asserting
+      species identities absent from the abstract.
+- taxon_term:
+    preferred_term: SynCom-YSJ methanogenic members
+    term:
+      id: NCBITaxon:2157
+      label: Archaea
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  abundance_value: >
+    Functionally defined methanogenic members of the multi-stage SynCom-YSJ;
+    individual species are not named in the accessible abstract.
+  evidence:
+  - reference: PMID:41825563
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a multi-stage consortium comprising hydrolytic, acidogenic, and methanogenic members
+      (SynCom-YSJ)
+    explanation: >
+      Supports the methanogenic functional guild in SynCom-YSJ without
+      asserting species identities absent from the abstract.
 ecological_interactions:
 - name: Staged metabolic hand-off across hydrolytic, acidogenic and methanogenic members
   description: SynCom-YSJ is organized as a multi-stage consortium in which hydrolytic, acidogenic
@@ -29,6 +87,33 @@ ecological_interactions:
     relative to the methanogen-only SynCom-J.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Short-chain VFA elevated in the SynCom-bioaugmented digesters.
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+    notes: Short-chain VFA whose accumulation was reduced by both introduced SynComs.
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    notes: Terminal methanogenic product enhanced by the staged SynCom-YSJ design.
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  downstream:
+  - target: Interspecies electron transfer supporting methanogenesis
+    description: Hydrolytic and acidogenic stages feed the methanogenic stage, while
+      SynCom-YSJ upregulates interspecies electron transfer and acetoclastic and
+      hydrogenotrophic methanogenesis as part of the same coordinated metabolic
+      remodeling program.
   evidence:
   - reference: PMID:41825563
     supports: SUPPORT
@@ -44,6 +129,27 @@ ecological_interactions:
     members and methanogens.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+    notes: Terminal product of the upregulated acetoclastic/hydrogenotrophic methanogenesis module.
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  downstream:
+  - target: Deterministic selection of the resident community by SynCom colonization
+    description: SynCom-YSJ metabolic reprogramming couples interspecies electron
+      transfer with acetoclastic and hydrogenotrophic methanogenesis, shifting acetate
+      and propionate pools in the digester microenvironment and selecting the resident
+      community.
   evidence:
   - reference: PMID:41825563
     supports: SUPPORT
@@ -58,6 +164,17 @@ ecological_interactions:
     increase), imposing deterministic selection on the resident native community.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+    notes: Elevated short-chain VFA in the SynCom-remodeled anaerobic-digester microenvironment.
+  - preferred_term: propionate
+    term:
+      id: CHEBI:17272
+      label: propionate
+    notes: Short-chain VFA reduced in the SynCom-remodeled anaerobic-digester microenvironment.
   evidence:
   - reference: PMID:41825563
     supports: SUPPORT

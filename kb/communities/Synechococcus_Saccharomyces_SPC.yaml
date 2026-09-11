@@ -99,7 +99,11 @@ taxonomy:
     explanation: Records that the parental strain is NOT a member; only the evolved W303Clump is.
 ecological_interactions:
 - name: CO2 Fixation and Sucrose Production
+  description: Engineered Synechococcus elongatus PCC 7942 fixes carbon dioxide
+    under light and exports sucrose through the cscB+ transporter, making fixed
+    carbon available to a heterotrophic partner.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus PCC 7942 cscB+
     term:
@@ -121,6 +125,9 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Sucrose Utilization by the Heterotrophic Partner
+    description: The sucrose exported by engineered S. elongatus is the fixed
+      carbon source that supports the evolved Saccharomyces cerevisiae
+      W303Clump partner in continuous coculture.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
@@ -135,6 +142,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae W303Clump
     term:
@@ -150,6 +158,12 @@ ecological_interactions:
     term:
       id: GO:0005987
       label: sucrose catabolic process
+  downstream:
+  - target: Yeast Stimulation of Cyanobacterial Growth
+    description: >
+      Sucrose utilization sustains W303Clump in the light-driven dyad, and the
+      presence of each tested heterotroph, including the yeast partner,
+      reciprocally increased S. elongatus growth.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
@@ -157,6 +171,43 @@ ecological_interactions:
     snippet: Stability and productivity of autotroph/heterotroph co-cultures was dependent on heterotroph
       sucrose utilization, as well as other species-independent interactions that we observed across all
       dyads
+- name: Yeast Stimulation of Cyanobacterial Growth
+  description: >
+    Saccharomyces cerevisiae W303Clump persists on cyanobacterially derived
+    sucrose and, as one of the heterotrophs in this dyad series, stimulates
+    cscB+ S. elongatus growth relative to axenic cyanobacterial controls.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Saccharomyces cerevisiae W303Clump
+    term:
+      id: NCBITaxon:4932
+      label: Saccharomyces cerevisiae
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inoculation of each heterotrophic species enhanced cyanobacterial growth
+    explanation: Supports stimulation of S. elongatus growth by the tested
+      heterotrophic partners, including the W303Clump yeast dyad.
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      all three evolutionarily unrelated heterotrophs can significantly
+      increase cyanobacterial growth under a range of growth conditions
+    explanation: Supports the reverse positive interaction from the yeast
+      heterotroph to cscB+ S. elongatus.
 related_ingredients:
 - preferred_term: sucrose
   chebi_term:

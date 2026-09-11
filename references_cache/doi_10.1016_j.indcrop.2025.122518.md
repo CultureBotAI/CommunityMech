@@ -16,7 +16,7 @@ authors:
 journal: Industrial Crops and Products
 year: '2026'
 doi: 10.1016/j.indcrop.2025.122518
-content_type: unavailable
+content_type: abstract
 ---
 
 # Simplified native SynCom enhances phytoremediation, carbon sequestration, and productivity of Artemisia argyi in heavy metal-contaminated soils
@@ -25,3 +25,7 @@ content_type: unavailable
 **DOI:** [10.1016/j.indcrop.2025.122518](https://doi.org/10.1016/j.indcrop.2025.122518)
 
 ## Content
+
+A top-down design strategy guided the assembly of a simplified, yet functionally complementary SynCom with minimal antagonism.
+
+The selected Pseudomonas-Rahnella pair exhibited strong Cd tolerance (~ 2 mM), Plant growth promotion (PGP) traits, and carbon fixation capacity.

@@ -246,89 +246,59 @@ taxonomy:
       collection from roots and nodules of Lotus japonicus that contains representatives
       of most species previously identified using metagenomics
 ecological_interactions:
-- name: Symbiotic Nitrogen Fixation
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Mesorhizobium sp. LjNodule210
-    term:
-      id: NCBITaxon:68287
-      label: Mesorhizobium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
+- name: Cognate-host preference of commensal SynComs
+  description: Taxonomically paired Lotus japonicus- and Arabidopsis thaliana-derived
+    synthetic communities display host preference only in the multi-species community
+    context, where strains have to compete for root colonization of their cognate
+    host, rather than in mono-associations.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: nitrogen fixation
+  - preferred_term: interspecies interaction between organisms
     term:
-      id: GO:0009399
-      label: nitrogen fixation
-  - preferred_term: nodulation
-    term:
-      id: GO:0009877
-      label: nodulation
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Host preference increases invasion of standing root communities
+    description: Host preference in the competition assay predicts which SynCom can
+      invade an already established cognate-host root community.
   evidence:
   - reference: PMID:34312531
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Sequential inoculation experiments revealed priority effects during root
-      microbiota assembly, where established communities are resilient to invasion
-      by latecomers, and that host preference of commensal bacteria confers a competitive
-      advantage in their cognate host
-- name: Host Preference and Selective Colonization
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Phyllobacteriaceae bacterium
-    term:
-      id: NCBITaxon:1871068
-      label: Phyllobacteriaceae bacterium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  - preferred_term: root colonization
-    term:
-      id: GO:0044010
-      label: single-species biofilm formation
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Sequential inoculation experiments revealed priority effects during root
-      microbiota assembly, where established communities are resilient to invasion
-      by latecomers, and that host preference of commensal bacteria confers a competitive
-      advantage in their cognate host
-- name: Priority Effects and Community Assembly
+    snippet: detected signatures of host preference among commensal bacteria in a community
+      context, but not in mono-associations
+    explanation: The gnotobiotic multi-species assay showed host preference as a
+      community-context phenotype.
+- name: Resident-community priority effect
+  description: Root-associated SynComs established before a second inoculation resist
+    later-arriving communities, so root and rhizosphere assembly depend on inoculation
+    order and resident occupancy of the host-associated niche.
   interaction_type: COMPETITION
-  source_taxon:
-    preferred_term: Phyllobacteriaceae bacterium
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
     term:
-      id: NCBITaxon:1871068
-      label: Phyllobacteriaceae bacterium
-  target_taxon:
-    preferred_term: Burkholderiaceae bacterium
-    term:
-      id: NCBITaxon:2030806
-      label: Burkholderiaceae bacterium
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Host preference increases invasion of standing root communities
+    description: The sequential-inoculation priority effect creates the standing-community
+      context in which cognate-host preference modulates invasion success.
+  evidence:
+  - reference: PMID:34312531
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: established communities are resilient to invasion by latecomers
+    explanation: The sequential-inoculation assay established that resident
+      root-associated communities resisted later-arriving SynComs.
+- name: Host preference increases invasion of standing root communities
+  description: In sequential inoculation experiments, Lotus- and Arabidopsis-derived
+    commensal SynComs invade standing root communities more successfully on their
+    cognate host, showing that host preference gives commensals a competitive advantage
+    during invasion.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: interspecies interaction between organisms
     term:
@@ -338,185 +308,17 @@ ecological_interactions:
   - reference: PMID:34312531
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Sequential inoculation experiments revealed priority effects during root
-      microbiota assembly, where established communities are resilient to invasion
-      by latecomers, and that host preference of commensal bacteria confers a competitive
-      advantage in their cognate host
-- name: Plant Growth Promotion
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Rhizobiaceae bacterium
-    term:
-      id: NCBITaxon:1913961
-      label: Rhizobiaceae bacterium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  biological_processes:
-  - preferred_term: regulation of plant growth
-    term:
-      id: GO:1903338
-      label: regulation of cell wall organization or biogenesis
-  - preferred_term: response to nitrogen compound
-    term:
-      id: GO:1901698
-      label: response to nitrogen compound
-  evidence:
+    snippet: host preference of commensal bacteria confers a competitive advantage in
+      their cognate host
+    explanation: Cognate-host preference explained competitive invasion success in
+      the standing root-community assay.
   - reference: PMID:34312531
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: It remains unclear to what extent the host actively selects these communities
-      and whether commensals are adapted to a specific plant species
-- name: Nitrogen Fixation by Mesorhizobium LjNodule215
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Mesorhizobium sp. LjNodule215
-    term:
-      id: NCBITaxon:68287
-      label: Mesorhizobium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To address this question, we assembled a sequence-indexed bacterial culture
-      collection from roots and nodules of Lotus japonicus that contains representatives
-      of most species previously identified using metagenomics
-- name: Nitrogen Fixation by Mesorhizobium LjNodule218
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Mesorhizobium sp. LjNodule218
-    term:
-      id: NCBITaxon:68287
-      label: Mesorhizobium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  metabolites:
-  - preferred_term: dinitrogen
-    term:
-      id: CHEBI:17997
-      label: dinitrogen
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
-  biological_processes:
-  - preferred_term: nitrogen fixation
-    term:
-      id: GO:0009399
-      label: nitrogen fixation
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Sequential inoculation experiments revealed priority effects during root
-      microbiota assembly, where established communities are resilient to invasion
-      by latecomers, and that host preference of commensal bacteria confers a competitive
-      advantage in their cognate host
-- name: Rhizosphere Colonization by Oxalobacteriaceae
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Oxalobacteriaceae bacterium
-    term:
-      id: NCBITaxon:75682
-      label: Oxalobacteraceae
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: japonicus and Arabidopsis thaliana in a multi-species gnotobiotic system
-      and detected signatures of host preference among commensal bacteria in a community
-      context, but not in mono-associations
-- name: Root Association by Pseudomonadaceae
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudomonadaceae bacterium
-    term:
-      id: NCBITaxon:1914538
-      label: Pseudomonadaceae bacterium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Sequential inoculation experiments revealed priority effects during root
-      microbiota assembly, where established communities are resilient to invasion
-      by latecomers, and that host preference of commensal bacteria confers a competitive
-      advantage in their cognate host
-- name: Commensal Colonization by Microbacteriaceae
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Microbacteriaceae bacterium
-    term:
-      id: NCBITaxon:1873462
-      label: Microbacteriaceae bacterium
-  target_taxon:
-    preferred_term: Lotus japonicus
-    term:
-      id: NCBITaxon:34305
-      label: Lotus japonicus
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:34312531
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: japonicus and Arabidopsis thaliana in a multi-species gnotobiotic system
-      and detected signatures of host preference among commensal bacteria in a community
-      context, but not in mono-associations
+    snippet: host preference in commensal bacteria from diverse taxonomic groups is
+      associated with their invasiveness into standing root-associated communities
+    explanation: Taxonomically diverse SynComs showed the association between host
+      preference and invasion into established root-associated communities.
 related_ingredients:
 - preferred_term: glucose
   chebi_term:

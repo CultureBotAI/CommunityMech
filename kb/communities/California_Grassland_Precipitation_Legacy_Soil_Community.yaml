@@ -62,12 +62,11 @@ taxonomy:
     explanation: Supports the bacterial community membership tracked by 16S
       sequencing and qSIP.
 ecological_interactions:
-- name: Necromass Cross-Feeding at High Community Growth Efficiency
+- name: Necromass Recycling at High Community Growth Efficiency
   description: At high community growth efficiency, microbes consumed more
     energetically favorable N-rich necromass released through high microbial
     turnover, supporting amino acid and peptidoglycan biosynthesis and aromatic
     compound degradation.
-  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
@@ -105,7 +104,6 @@ ecological_interactions:
     carbohydrate metabolism and lipid turnover consistent with increased
     investment in plant detritus degradation and membrane repair and maintenance
     rather than growth.
-  interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
   biological_processes:
   - preferred_term: carbohydrate metabolic process
@@ -134,8 +132,23 @@ ecological_interactions:
     microbial turnover. Respiration rates remained similar, but microbial growth
     dropped by about one order of magnitude and mortality dropped by about two
     orders of magnitude, lowering community growth efficiency.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: water
+    term:
+      id: CHEBI:15377
+      label: water
+    notes: Field rainfall and laboratory H2-18O wet-up water imposed the moisture
+      history and rewetting response measured in the grassland soil.
+  downstream:
+  - target: Necromass Recycling at High Community Growth Efficiency
+    description: Reduced winter precipitation suppresses microbial mortality,
+      limiting the high-turnover, N-rich necromass pool that otherwise supports
+      high-CGE biosynthesis after rewetting.
+  - target: Plant Detritus Degradation at Low Community Growth Efficiency
+    description: The lower-growth, lower-mortality legacy shifts the community
+      toward low-CGE plant-detritus degradation and lipid repair or maintenance
+      instead of new biomass production.
   evidence:
   - reference: PMID:41964077
     supports: SUPPORT

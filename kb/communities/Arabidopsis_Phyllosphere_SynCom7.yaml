@@ -53,12 +53,124 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Host-Genotype-Structured Assembly
-  description: Arabidopsis host genotype shifts the abundance and composition of the phyllosphere SynCom.
-  interaction_type: NICHE_PARTITIONING
+- name: Seven-Strain Phyllosphere SynCom Construction
+  description: >
+    Twenty candidate isolates were tested for Arabidopsis thaliana phyllosphere
+    colonization, absence of plant disease or growth inhibition, and representation of
+    the dominant phyllosphere lineages before seven strains were selected for the
+    reduced-complexity SynCom.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Candidate-Gene Mutant Phyllosphere Inoculation
+    description: >
+      The reduced-complexity, colonization-competent isolate set enabled controlled
+      spray inoculation of Arabidopsis mutants in a gnotobiotic phyllosphere system.
   evidence:
-  - *id001
+  - reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: To be included in the synthetic community, strains were chosen that met two criteria
+    explanation: >
+      Supports the colonization and host-health criteria used to choose the seven
+      strains in the Arabidopsis phyllosphere SynCom.
+- name: Candidate-Gene Mutant Phyllosphere Inoculation
+  description: >
+    The seven-strain synthetic community was inoculated onto a controlled panel of 55
+    Arabidopsis mutants with altered surface structure, cell wall, defense signaling,
+    secondary metabolism, or pathogen recognition.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Cuticle-Mutant SynCom Abundance Increase
+    description: >
+      Screening the host mutant panel identified lacs2 and pec1 as the alleles with
+      the strongest SynCom perturbation relative to the wild type.
+  - target: EIN2 Ethylene-Signaling Composition Shift
+    description: >
+      The same gnotobiotic host-mutant screen also identified the ethylene-signaling
+      factor EIN2 as a plant genetic axis that shifted SynCom composition.
+  evidence:
+  - reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: From a panel of 55 plant mutants with alterations in the surface structure, cell wall,
+      defense signaling, secondary metabolism, and pathogen recognition
+    explanation: >
+      Defines the candidate-gene Arabidopsis mutant panel used to expose host-genotype
+      effects on the seven-member phyllosphere SynCom.
+- name: Cuticle-Mutant SynCom Abundance Increase
+  description: >
+    The cuticle-formation mutants lacs2 and pec1 produced the strongest phyllosphere
+    SynCom perturbations and increased bacterial abundance relative to wild-type
+    Arabidopsis, consistent with differential bacterial benefit from a modified cuticle.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Host alleles that resulted in the strongest perturbation of the microbiota relative
+      to the wild-type were lacs2 and pec1
+    explanation: >
+      Identifies the lacs2 and pec1 cuticle mutants as the strongest genotype effects
+      in the seven-strain SynCom screen.
+- name: EIN2 Ethylene-Signaling Composition Shift
+  description: >
+    Loss of the Arabidopsis ethylene-signaling factor EIN2 changed the composition of
+    the seven-member bacterial community in the gnotobiotic phyllosphere system.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ethylene
+    term:
+      id: CHEBI:18153
+      label: ethene
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: we identified ein2, which is involved in ethylene signaling, as a host factor modulating
+      the community's composition
+    explanation: >
+      Supports EIN2-dependent ethylene signaling as one host-genotype axis that
+      modulates Arabidopsis phyllosphere SynCom composition.
+- name: Natural-Accession Phyllosphere Community Shift
+  description: >
+    Four of nine tested Arabidopsis accessions altered the seven-member phyllosphere
+    SynCom's composition or total abundance, showing that natural plant variation
+    could be used to search for further host genes affecting phyllosphere microbiota.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:24743269
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: of the nine natural accessions tested, four were found to modify community composition
+      and abundance
+    explanation: >
+      Extends the controlled SynCom assay from candidate mutants to natural
+      Arabidopsis accessions with altered phyllosphere community structure.
 environmental_factors:
 - name: defined synthetic community design
   value: Seven bacterial strains representing abundant phyllosphere phyla were inoculated onto gnotobiotic
@@ -114,8 +226,8 @@ growth_media:
   - reference: PMID:24743269
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Plants were grown under short-day conditions (a 9-h photoperiod) in a standard growth chamber,
-      as previously described.
+    snippet: Plants were grown under short-day conditions (a 9-h photoperiod) in a standard growth
+      chamber
     explanation: Gives the 9-h short-day photoperiod and growth-chamber conditions of the gnotobiotic
       host system.
   - reference: PMID:24743269

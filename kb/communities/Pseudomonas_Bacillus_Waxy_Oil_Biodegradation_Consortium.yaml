@@ -98,6 +98,7 @@ ecological_interactions:
     interface, improve substrate accessibility, and supply precursors assimilated
     by P. aeruginosa PA12.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus subtilis G1
     term:
@@ -108,6 +109,22 @@ ecological_interactions:
     term:
       id: NCBITaxon:287
       label: Pseudomonas aeruginosa
+  metabolites:
+  - preferred_term: alkane
+    term:
+      id: CHEBI:18310
+      label: alkane
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  downstream:
+  - target: Multilayer Cooperative Hydrocarbon Degradation
+    description: >
+      Bacillus-mediated oil-water interface remodeling and precursor transfer
+      form one layer of the cooperative network that lets the two-member
+      consortium outperform either monoculture.
   evidence:
   - reference: PMID:41905048
     supports: SUPPORT
@@ -120,6 +137,17 @@ ecological_interactions:
     signal exchange, and redox-energy homeostasis to outperform either monoculture.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  downstream:
+  - target: High-Efficiency Waxy Oil Removal
+    description: >
+      Interface remodeling, precursor cross-feeding, signal exchange, and
+      redox-energy homeostasis drive high-efficiency wax removal by the
+      two-member consortium.
   evidence:
   - reference: PMID:41905048
     supports: SUPPORT
@@ -129,8 +157,37 @@ ecological_interactions:
   - reference: PMID:41905048
     supports: SUPPORT
     evidence_source: IN_VITRO
+    snippet: via aromatic intermediates, fatty acids, and quorum-sensing signals
+    explanation: Supports quorum-sensing signals as one layer of the reported
+      cooperative network between the two strains.
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
     snippet: monocultures showed lower degradation efficiencies, reaching 52.5% for PA12 and 42.0% for G1
     explanation: Supports performance beyond either monoculture.
+- name: High-Efficiency Waxy Oil Removal
+  description: >
+    The PA12-G1 cooperative network improved waxy crude oil conversion, producing
+    85.5% wax removal within 12 days compared with lower PA12 and G1 monoculture
+    degradation efficiencies.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: alkane
+    term:
+      id: CHEBI:18310
+      label: alkane
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  evidence:
+  - reference: PMID:41905048
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: achieving 85.5% wax removal within 12 d
+    explanation: Supports the endpoint of high-efficiency wax removal by the two-member consortium.
 environmental_factors:
 - name: Waxy crude oil loading
   value: '2'

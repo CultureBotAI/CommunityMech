@@ -144,38 +144,204 @@ taxonomy:
     snippet: Desulfovibrio and Enterococcus enriched in the electrode biofilm
     explanation: Identifies Desulfovibrio as a member enriched in the electrode biofilm.
 ecological_interactions:
-- name: Spatially organized syntrophy enhancing inorganic carbon removal
-  description: Reduced HRT enriched a spatially organized consortium (planktonic Enterococcus/Clostridium;
-    electrode-biofilm Desulfovibrio/Enterococcus) whose syntrophic organization enhanced biomass-specific
-    inorganic carbon removal 2.6-fold and redirected carbon flux toward acetate.
-  interaction_type: SYNTROPHY
+- name: HRT-Driven Mixotrophic Consortium Enrichment
+  description: >
+    A continuous bioreactor held at 300 mV under progressively shorter
+    hydraulic retention times used HRT to enrich a specialized mixotrophic
+    consortium for inorganic-carbon utilization and acetate production.
+  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Desulfovibrio
-    term:
-      id: NCBITaxon:872
-      label: Desulfovibrio
-  target_taxon:
-    preferred_term: Enterococcus
-    term:
-      id: NCBITaxon:1350
-      label: Enterococcus
   metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
   - preferred_term: acetate
     term:
       id: CHEBI:30089
       label: acetate
+  downstream:
+  - target: Planktonic and Electrode-Biofilm Spatial Partitioning
+    description: >
+      HRT-driven enrichment yielded a community partitioned between the
+      planktonic phase and electrode biofilm.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A continuous electrostimulated bioreactor was operated at a constant potential of
+      300 mV for approximately 1200 h under three HRTs
+    explanation: >
+      Defines the 300 mV continuous reactor and hydraulic-retention-time series
+      that selected the enrichment consortium.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Decreasing HRT promoted the enrichment of a specialized mixotrophic consortium
+    explanation: >
+      Directly supports the reduced-HRT enrichment of a specialized mixotrophic
+      community.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Reducing HRT enhanced inorganic carbon utilization and selectively increased acetate
+      production
+    explanation: >
+      Supports the connection between HRT reduction, inorganic-carbon use, and
+      acetate-selective production.
+- name: Planktonic and Electrode-Biofilm Spatial Partitioning
+  description: >
+    The enriched consortium separated into planktonic Enterococcus/Clostridium and
+    electrode-biofilm Desulfovibrio/Enterococcus populations, creating a spatial
+    organization associated with downstream carbon-flux changes.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+    description: >
+      Spatial enrichment at the electrode biofilm was the context in which
+      predicted carbon-fixation pathways and reducing-equivalent generation were
+      concentrated.
+  - target: Biomass-Specific Inorganic Carbon Removal Increase
+    description: >
+      The organized planktonic and electrode-biofilm consortium exhibited higher
+      biomass-specific inorganic carbon removal.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enterococcus and Clostridium dominating the planktonic phase and Desulfovibrio and
+      Enterococcus enriched in the electrode biofilm
+    explanation: >
+      Identifies the taxa that dominated the planktonic phase and the electrode
+      biofilm of the reduced-HRT enrichment.
+- name: Electrode-Biofilm Carbon-Fixation Pathway Enrichment
+  description: >
+    Functional predictions placed enriched carbon-fixation pathways in the
+    electrode-associated biofilm, suggesting that electrode-associated taxa
+    generated reducing equivalents that supported autotrophic CO2/HCO3- fixation.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: bicarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  downstream:
+  - target: Acetate-Directed Carbon Flux
+    description: >
+      Predicted biofilm carbon fixation supplied autotrophic metabolism consistent
+      with the observed excess acetate beyond heterotrophic stoichiometry.
+  evidence:
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Functional predictions further revealed the enrichment of carbon fixation pathways,
+      particularly in the electrode-associated biofilm
+    explanation: >
+      Supports predicted electrode-biofilm enrichment of carbon-fixation pathways.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: electrode-associated taxa contributed to the generation of reducing equivalents and
+      supported autotrophic metabolism
+    explanation: >
+      Supports the predicted biofilm role in supplying reducing power for
+      autotrophic carbon fixation.
+- name: Biomass-Specific Inorganic Carbon Removal Increase
+  description: >
+    The spatially organized mixotrophic consortium raised biomass-specific
+    inorganic carbon removal 2.6-fold and thereby routed more inorganic carbon
+    into the electrostimulated reactor's downstream acetogenic metabolism.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: bicarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  downstream:
+  - target: Acetate-Directed Carbon Flux
+    description: >
+      Increased inorganic-carbon utilization was coupled to selective acetate
+      production at the shortest hydraulic retention time.
   evidence:
   - reference: doi:10.21203/rs.3.rs-9518331/v1
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: This syntrophic organization enhanced biomass-specific IC removal by 2.6-fold
-    explanation: States that the community's syntrophic organization enhanced inorganic carbon removal.
+    explanation: >
+      Quantifies the inorganic-carbon removal increase linked to the spatially
+      organized consortium.
+- name: Acetate-Directed Carbon Flux
+  description: >
+    At the 14 h HRT, the enriched electrostimulated consortium selectively
+    redirected carbon flux toward acetate, reached 1470 mg/L acetate, and showed
+    acetate formation beyond heterotrophic stoichiometry consistent with
+    additional CO2/HCO3- fixation.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: bicarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
   - reference: doi:10.21203/rs.3.rs-9518331/v1
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: redirected carbon flux toward acetate, a key product of acetogenic pathways
-    explanation: Identifies acetate as the redirected carbon-flux product of the syntrophic consortium.
+    explanation: >
+      Identifies acetate as the main product toward which carbon flux was
+      redirected in the enrichment.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Acetate reached 1470 mg L
+    explanation: >
+      Supports the peak acetate accumulation reported for the 14 h HRT condition.
+  - reference: doi:10.21203/rs.3.rs-9518331/v1
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the acetate exceeded heterotrophic stoichiometry, indicating additional CO
+    explanation: >
+      Supports additional inorganic-carbon fixation contributing to the measured
+      acetate pool.
 cultivation_setup:
 - cultivation_mode: CONTINUOUS
   system_type: BIOELECTROCHEMICAL_SYSTEM

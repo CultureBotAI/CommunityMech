@@ -381,8 +381,8 @@ class NetworkIntegrityAuditor:
             if scope == "COMMUNITY_LEVEL":
                 # `participating_taxa` narrows the credit to the members the
                 # statement is actually about (#312). Absent or empty means
-                # "every member", which is what every record says today — so
-                # this changes no finding until a curator names participants.
+                # "every member"; non-empty lists opt a record into narrowed
+                # community-level connectivity.
                 named = interaction.get("participating_taxa") or []
                 if named:
                     for participant in named:

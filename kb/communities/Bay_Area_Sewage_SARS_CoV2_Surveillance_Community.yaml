@@ -35,32 +35,124 @@ taxonomy:
     snippet: generate complete and nearly complete SARS-CoV-2 genomes
     explanation: Supports the SARS-CoV-2 population recovered from sewage.
 ecological_interactions:
-- name: Wastewater Genotype Matches Clinical Consensus
-  description: The major consensus SARS-CoV-2 genotypes detected in sewage
-    were identical to clinical genotypes, validating wastewater metatranscriptomics
-    as a community-scale surveillance approach.
-  interaction_type: COMMENSALISM
+- name: Direct Sewage RNA Metatranscriptomics
+  description: >
+    RNA sequenced directly from San Francisco Bay Area municipal sewage carried
+    SARS-CoV-2 signal from infected communities and enabled viral population
+    profiling from wastewater.
   scope: COMMUNITY_LEVEL
-  evidence:
-  - reference: PMID:33468686
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The major consensus SARS-CoV-2 genotypes detected in the sewage
-      were identical to clinical
-    explanation: Supports the sewage-versus-clinical genotype concordance.
-- name: Metatranscriptomic Profiling of Viral Genetic Diversity
-  description: Direct RNA sequencing of municipal wastewater can be used to
-    profile viral genetic diversity across infected communities, extending
-    earlier qPCR-based abundance quantification.
-  interaction_type: COMMENSALISM
-  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Complete Wastewater SARS-CoV-2 Genome Recovery
+    description: >
+      Wastewater RNA sequencing recovered enough viral coverage for complete and
+      nearly complete SARS-CoV-2 consensus genomes.
+  - target: Wastewater Minor SARS-CoV-2 Allele Profiling
+    description: >
+      Wastewater reads also supported metagenomic single-nucleotide variant calling
+      across the sampled SARS-CoV-2 population.
   evidence:
   - reference: PMID:33468686
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: metatranscriptomic sequencing of wastewater can be used to profile
       the viral genetic diversity across infected communities
-    explanation: Supports the metatranscriptomic surveillance approach.
+    explanation: >
+      Supports the metatranscriptomic wastewater step that profiles SARS-CoV-2
+      genetic diversity across an infected human population.
+- name: Complete Wastewater SARS-CoV-2 Genome Recovery
+  description: >
+    Complete and near-complete SARS-CoV-2 consensus genomes assembled from enriched
+    wastewater RNA provided the predominant genotypes present in the sampled Alameda
+    and Marin County sewersheds.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Regional Clinical Genotype Concordance
+    description: >
+      Wastewater consensus genomes could be compared with patient-derived genomes to
+      verify that the major sewage genotypes matched regional clinical genotypes.
+  evidence:
+  - reference: PMID:33468686
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: generate complete and nearly complete SARS-CoV-2 genomes
+    explanation: >
+      Supports genome reconstruction from SARS-CoV-2 RNA sequenced out of municipal
+      sewage.
+- name: Wastewater Minor SARS-CoV-2 Allele Profiling
+  description: >
+    Metagenomic SNV calling identified variable minor SARS-CoV-2 alleles within
+    wastewater samples, exposing sub-consensus viral genotypes in the mixed sewershed
+    population.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Preclinical Local Lineage-Introduction Signal
+    description: >
+      Recurrent wastewater variants could indicate SARS-CoV-2 lineage introductions
+      before those variants appeared in local patient-based sequencing.
+  evidence:
+  - reference: PMID:33468686
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Using a pipeline for single nucleotide variant calling in a metagenomic context, we
+      characterized minor SARS-CoV-2 alleles in the wastewater
+    explanation: >
+      Supports strain-resolved SNV profiling inside the wastewater SARS-CoV-2
+      population.
+- name: Regional Clinical Genotype Concordance
+  description: >
+    Major consensus SARS-CoV-2 genotypes from sewage were identical to clinical
+    genomes from the same region, demonstrating that wastewater genome sequencing
+    captured locally prevalent viral genotypes.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  evidence:
+  - reference: PMID:33468686
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The major consensus SARS-CoV-2 genotypes detected in the sewage
+      were identical to clinical
+    explanation: >
+      Supports the sewage-versus-clinical genotype concordance of predominant
+      SARS-CoV-2 genotypes in the region.
+- name: Preclinical Local Lineage-Introduction Signal
+  description: >
+    Some recurrent SARS-CoV-2 variants detected in wastewater had been seen outside
+    California but not yet in California clinical genomes, showing that wastewater
+    sequencing could reveal introductions before local clinical detection.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  evidence:
+  - reference: PMID:33468686
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: wastewater sequencing can provide evidence for recent introductions of viral lineages
+      before they are detected by local clinical sequencing
+    explanation: >
+      Supports the downstream surveillance inference made from recurrent wastewater
+      SARS-CoV-2 genotypes not yet detected in local clinical data.
 environmental_factors:
 - name: Sampling region
   value: San Francisco Bay Area municipal utility districts

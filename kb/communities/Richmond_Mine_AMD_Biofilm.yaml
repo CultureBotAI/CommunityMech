@@ -213,13 +213,13 @@ taxonomy:
       representatives that branch near the crenarchaeal/euryarchaeal divide have been
       detected in a variety of acidic ecosystems
     explanation: Documents ARMAN discovery in Richmond Mine
-  - reference: doi:10.1073/pnas.0914294107
+  - reference: PMID:20421484
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: always present in communities associated with acid mine drainage (AMD)
-      at Iron Mountain in northern California with pH < 1.5, and are usually found
-      in low abundance (5–25%) in the community
-    explanation: Quantifies ARMAN abundance in AMD biofilms
+    snippet: reconstructed composite, near-complete approximately 1-Mb genomes
+      for three lineages, referred to as ARMAN (archaeal Richmond Mine acidophilic
+      nanoorganisms), from environmental samples and a biofilm filtrate
+    explanation: Documents near-complete ARMAN genomes from Richmond Mine
 - taxon_term:
     preferred_term: Parvarchaeota (ARMAN-4/5)
     term:
@@ -251,7 +251,7 @@ taxonomy:
       limited to AMD and hot spring habitats. These nanoorganisms have genomes ~1
       Mb with 80-90% completeness. Despite small size, they contribute to carbon and
       nitrogen cycling through degradation of multiple saccharides and proteins, generating
-      ATP via aerobic respiration and fermentation. Found exclusively in extreme acidic
+      ATP via aerobic respiration and fermentation. Found in extreme acidic
       environments.
 
       '
@@ -286,6 +286,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Leptospirillum group II
     term:
@@ -340,6 +341,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Ferroplasma acidarmanus
     term:
@@ -392,6 +394,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Leptospirillum group II
     term:
@@ -447,6 +450,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Leptospirillum ferrodiazotrophum
     term:
@@ -482,51 +486,70 @@ ecological_interactions:
     snippet: Although only Leptospirillum group III can fix nitrogen, these proteins
       were not identified by proteomics
     explanation: Highlights keystone role in nitrogen-limited environment
-- name: Organic Carbon Scavenging by ARMAN
-  description: 'Ultra-small ARMAN archaea (Micrarchaeota and Parvarchaeota) scavenge
-    organic carbon from lysed cells and fermentation products in the biofilm. Despite
-    minimal genomes (~1 Mb), these nanoorganisms possess complete TCA cycles and can
-    degrade saccharides, proteins, and fatty acids. They generate ATP through aerobic
-    respiration and fermentation. ARMAN cells have been observed with cell walls penetrated
-    by cell wall-lacking Thermoplasmatales archaea (possibly Ferroplasma), suggesting
-    potential parasitic or nutrient exchange relationships. Their small size (200-400
-    nm) and reduced genomes suggest dependence on other community members for essential
-    metabolites.
+- name: Thermoplasmatales-ARMAN Cell Contact
+  description: 'Ultrasmall ARMAN archaea occur with Thermoplasmatales in Richmond
+    Mine acid biofilms; 3D cryo-electron tomography showed Thermoplasmatales
+    protuberances penetrating ARMAN cell walls and cytoplasmic membranes, indicating
+    direct interspecies contact that could support parasitic or syntrophic exchange.
 
     '
-  interaction_type: CROSS_FEEDING
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
+    preferred_term: Ferroplasma acidarmanus
+    term:
+      id: NCBITaxon:97393
+      label: Ferroplasma acidarmanus
+  target_taxon:
     preferred_term: Micrarchaeota (ARMAN-1/2)
     term:
       id: NCBITaxon:1801631
       label: Microcaldota
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: interspecies interaction between organisms
+  evidence:
+  - reference: PMID:20421484
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: tomographic reconstructions clearly show penetration of the ARMAN cell wall and
+      cytoplasmic membranes by protuberances extended from cells of the archaeal order
+      Thermoplasmatales
+    explanation: Supports direct Thermoplasmatales-ARMAN cell contact in acid mine biofilm.
+- name: Thermoplasmatales-Parvarchaeota Cell Contact
+  description: 'Ultrasmall ARMAN-4 and ARMAN-5 Parvarchaeota co-occur with
+    Thermoplasmatales in Richmond Mine acid biofilms; 3D cryo-electron tomography
+    showed Thermoplasmatales projections penetrating ARMAN cell envelopes,
+    consistent with direct interspecies contact.
+
+    '
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ferroplasma acidarmanus
+    term:
+      id: NCBITaxon:97393
+      label: Ferroplasma acidarmanus
   target_taxon:
     preferred_term: Parvarchaeota (ARMAN-4/5)
     term:
       id: NCBITaxon:1462422
       label: Candidatus Parvarchaeota
-  metabolites:
-  - preferred_term: organic molecular entity
-    term:
-      id: CHEBI:50860
-      label: organic molecular entity
-    notes: Lysed cell components and fermentation products
   biological_processes:
-  - preferred_term: tricarboxylic acid cycle
+  - preferred_term: interspecies interaction between organisms
     term:
-      id: GO:0006099
-      label: tricarboxylic acid cycle
+      id: GO:0044419
+      label: interspecies interaction between organisms
   evidence:
-  - reference: doi:10.1073/pnas.0914294107
+  - reference: PMID:20421484
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: complete or near complete tricarboxylic acid (TCA) cycles
-    explanation: Documents metabolic capacity in ARMAN genomes
-  - reference: doi:10.1073/pnas.0914294107
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: the ARMAN cell wall is penetrated by cell wall-less Archaea
-    explanation: Suggests potential parasitic or syntrophic interactions
+    snippet: tomographic reconstructions clearly show penetration of the ARMAN cell wall and
+      cytoplasmic membranes by protuberances extended from cells of the archaeal order
+      Thermoplasmatales
+    explanation: Supports direct Thermoplasmatales-Parvarchaeota contact in acid mine biofilm.
 - name: Iron and Sulfur Oxidation at Higher pH Refugia
   description: 'Acidithiobacillus ferrooxidans occupies higher pH niches (pH >1.0)
     such as the Red Pool (pH 1.4) where it can outcompete Leptospirillum and Ferroplasma.
@@ -541,6 +564,7 @@ ecological_interactions:
 
     '
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Acidithiobacillus ferrooxidans
     term:

@@ -88,12 +88,21 @@ taxonomy:
       Bacillus subtilis, Escherichia coli, or Saccharomyces cerevisiae'
 ecological_interactions:
 - name: CO2 Fixation and Sucrose Production
+  description: Engineered Synechococcus elongatus PCC 7942 cscB+ fixes CO2
+    photosynthetically and secretes the bulk of that fixed carbon as sucrose,
+    providing the carbohydrate feedstock for Bacillus subtilis 168.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus PCC 7942 cscB+
     term:
       id: NCBITaxon:32046
       label: Synechococcus elongatus
+  target_taxon:
+    preferred_term: Bacillus subtilis 168
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
   metabolites:
   - preferred_term: sucrose
     term:
@@ -110,6 +119,9 @@ ecological_interactions:
       label: sucrose biosynthetic process
   downstream:
   - target: Sucrose Uptake and Heterotrophic Growth
+    description: Secreted cyanobacterial photosynthate is taken up as the sucrose
+      carbon source that lets the heterotrophic partner grow in the light-driven
+      coculture.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
@@ -117,7 +129,11 @@ ecological_interactions:
     snippet: We previously engineered a model cyanobacterium, Synechococcus elongatus PCC 7942, to secrete
       the bulk of the carbon it fixes as sucrose, a carbohydrate that can be utilized by many other microbes
 - name: Sucrose Uptake and Heterotrophic Growth
+  description: Bacillus subtilis 168 grows heterotrophically on the sucrose-rich
+    photosynthate secreted by engineered Synechococcus, making heterotroph growth
+    dependent on the cyanobacterial carbon-export module.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus subtilis 168
     term:
@@ -133,12 +149,63 @@ ecological_interactions:
     term:
       id: GO:0005987
       label: sucrose catabolic process
+  downstream:
+  - target: Sucrose-Dependent Long-Term Consortium Stabilization
+    description: Heterotrophic sucrose utilization is the positive carbon-flow
+      process that counterbalances destabilizing non-sucrose byproducts and lets
+      both members persist for weeks to months.
   evidence:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: One destabilizing interaction we observed was that non-sucrose byproducts of oxygenic photosynthesis
-      negatively impacted heterotroph growth
+    snippet: We observed heterotrophic growth dependent upon cyanobacterial photosynthate in
+      each co-culture pair
+    explanation: Supports heterotrophic growth on Synechococcus-derived photosynthate.
+- name: Sucrose-Dependent Long-Term Consortium Stabilization
+  description: Robustness of the autotroph-heterotroph coculture depends on
+    heterotroph sucrose utilization together with species-independent interactions,
+    allowing both members to persist under long-term culture and perturbation.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus subtilis 168
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: sucrose catabolic process
+    term:
+      id: GO:0005987
+      label: sucrose catabolic process
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Stability and productivity of autotroph/heterotroph co-cultures was dependent
+      on heterotroph sucrose utilization
+    explanation: Supports sucrose utilization as a stability determinant of the
+      photosynthetic cocultures.
+  - reference: PMID:28127397
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inoculation of each heterotrophic species enhanced cyanobacterial growth in
+      comparison to axenic cultures
+    explanation: Supports the reciprocal growth benefit supplied by heterotrophs
+      to Synechococcus in the sucrose-secreting consortia.
 related_ingredients:
 - preferred_term: sucrose
   chebi_term:
@@ -183,7 +250,7 @@ growth_media:
   - reference: PMID:28127397
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: CoB BG-11 consists of BG-11 supplemented with 106 mM NaCl, 4 mM NH4Cl and 25 mM HEPPSO,
+    snippet: CoBBG-11 consists of BG-11 supplemented with 106 mM NaCl, 4 mM NH4Cl and 25 mM HEPPSO,
       pH 8.3-KOH
     explanation: Defined prokaryote co-culture medium for the Synechococcus/Bacillus consortium.
 cultivation_setup:

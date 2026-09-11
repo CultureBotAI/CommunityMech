@@ -188,6 +188,15 @@ ecological_interactions:
   description: The consortium partitions anaerobic methane oxidation, extracellular electron transfer, and nitrogen fixation while supporting current and ammonium production.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT
@@ -198,6 +207,25 @@ ecological_interactions:
   description: Geobacter and Desulfovibrio are the genera assigned to extracellular electron transfer in the methane-fed fuel cell.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Geobacter
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  - preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Cytochrome c-Mediated Electrogenesis
+    description: The Geobacter and Desulfovibrio EET guild feeds the cytochrome
+      c-mediated electron-transfer pathway that dominates electrogenesis in the
+      methane-fed fuel cell.
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT
@@ -208,16 +236,99 @@ ecological_interactions:
   description: Sulfurivermis, Desulfobulbus, and Azoarcus form the reported nitrogen-fixing functional group.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sulfurivermis
+    term:
+      id: NCBITaxon:2034504
+      label: Sulfurivermis
+  - preferred_term: Desulfobulbus
+    term:
+      id: NCBITaxon:893
+      label: Desulfobulbus
+  - preferred_term: Azoarcus
+    term:
+      id: NCBITaxon:12960
+      label: Azoarcus
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Nitrogen Fixation to Ammonium Accumulation
+    description: >
+      The Sulfurivermis, Desulfobulbus, and Azoarcus diazotroph guild carries
+      the nitrogen-fixation activity that accumulates ammonium in the
+      methane-fed, nitrogen-limited fuel cell.
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Sulfurivermis, Desulfobulbus and Azoarcus acted as the core diazotrophs
     explanation: Supports the reported diazotrophic functional group.
+- name: Nitrogen Fixation to Ammonium Accumulation
+  description: >
+    The methane-fed fuel-cell consortium fixed nitrogen under nitrogen-limited
+    operation, incorporating nitrogen-15 and accumulating ammonium in the
+    medium over the 30-day run.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sulfurivermis
+    term:
+      id: NCBITaxon:2034504
+      label: Sulfurivermis
+  - preferred_term: Desulfobulbus
+    term:
+      id: NCBITaxon:893
+      label: Desulfobulbus
+  - preferred_term: Azoarcus
+    term:
+      id: NCBITaxon:12960
+      label: Azoarcus
+  metabolites:
+  - preferred_term: dinitrogen
+    term:
+      id: CHEBI:17997
+      label: dinitrogen
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: PMID:42551599
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sulfurivermis, Desulfobulbus and Azoarcus acted as the core diazotrophs
+    explanation: Supports the functional guild assigned to biological nitrogen fixation.
+  - reference: PMID:42551599
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ammonium in the medium accumulated to 0.22 ± 0.01 mg/L over a 30-day operation
+    explanation: Supports ammonium accumulation as the measured nitrogen-fixation endpoint.
 - name: Cytochrome c-Mediated Electrogenesis
   description: Cytochrome c-mediated electron transfer was identified as the dominant electrogenic pathway at community level.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Geobacter
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  - preferred_term: Desulfovibrio
+    term:
+      id: NCBITaxon:872
+      label: Desulfovibrio
+  biological_processes:
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
   evidence:
   - reference: PMID:42551599
     supports: SUPPORT

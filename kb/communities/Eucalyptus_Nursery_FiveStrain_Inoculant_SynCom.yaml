@@ -203,6 +203,71 @@ taxonomy:
       tree nursery
     explanation: Names the host and the nursery field setting in which the consortium was assessed.
 ecological_interactions:
+- name: Complementary Nitrogen-Phosphate Trait Pool
+  description: >
+    The five-strain consortium was built from Eucalyptus root and rhizosphere isolates selected in
+    previous work for phosphate solubilization, indolic-compound production, nifH presence, nitrogen
+    cycling traits and rhizosphere colonization traits. That trait pool is the engineered community
+    starting point for the nursery-scale root-endophyte and seedling-performance responses.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:18367
+      label: phosphate(3-)
+    notes: Phosphate solubilization was a primary trait used when selecting members of the SynCom.
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    notes: Indolic-compound production was detected in some candidate strains in previous studies.
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Root Endophytic Community Restructuring
+    description: >
+      The trait-selected consortium was applied to Eucalyptus seedlings before their root endophytic
+      communities were profiled after 13 weeks.
+  - target: Genotype-Dependent Improvement of Seedling Quality and Survival
+    description: >
+      The same five-strain inoculant was followed through the nursery assay to quantify seedling
+      quality classes and mortality across three host genotypes.
+  evidence:
+  - reference: PMID:42050290
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These bacteria were selected for their strong performance in phosphate solubilization
+      tests, and some exhibited the presence of the nifH gene (indicating potential nitrogen-fixing
+      capacity) as well as the production of indolic compounds
+    explanation: >
+      Names phosphate solubilization, nifH presence and indolic-compound production as previously
+      characterized plant-growth-promoting traits of the five-strain Eucalyptus consortium.
+- name: Root Endophytic Community Restructuring
+  description: >
+    The five-strain inoculant changed 13-week Eucalyptus root endophytic community structure by
+    Bray-Curtis nMDS and two-way PERMANOVA without a significant shift in richness or Shannon
+    diversity. The source did not resolve this into a pairwise displacement or niche-partitioning
+    mechanism, so this is curated as a measured community-level graph node.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:42050290
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: While inoculation did not significantly affect bacterial richness and diversity, it
+      altered the root microbial community structure
+    explanation: >
+      States the compositional shift and the absence of a diversity change, which together define
+      the measured community-level effect of introducing the inoculant.
 - name: Genotype-Dependent Improvement of Seedling Quality and Survival
   description: >
     Two of three Eucalyptus genotypes showed improved seedling quality after inoculation, and one
@@ -210,16 +275,21 @@ ecological_interactions:
     rather than a uniform property of the consortium.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
   evidence:
   - reference: PMID:42050290
-    supports: PARTIAL
+    supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Two genotypes exhibited improved seedling quality, with a higher proportion classified
       into superior categories, and one genotype showed a significant reduction in mortality (from
       21.8% to 6.7%)
-    explanation: PARTIAL - the host benefit is measured and quantified, but the paper does not
-      identify which consortium members or mechanisms produce it, and the effect did not hold across
-      all three genotypes.
+    explanation: >
+      Supports the host-genotype-dependent seedling quality and survival
+      response to five-strain inoculation.
 growth_media:
 - name: Phytate Low liquid medium, strain preculture
   composition:
@@ -266,21 +336,6 @@ growth_media:
     explanation: The applied cell density per strain.
 
 environmental_factors:
-- name: Root community restructuring without diversity change
-  description: >
-    Inoculation altered root microbial community structure while leaving bacterial richness and
-    diversity unchanged, so the effect is compositional. This is recorded as a measured outcome
-    rather than as a typed ecological interaction: the paper resolves neither which taxa were
-    displaced nor which niches were divided, so NICHE_PARTITIONING would assert a mechanism the
-    source does not establish.
-  evidence:
-  - reference: PMID:42050290
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: While inoculation did not significantly affect bacterial richness and diversity, it
-      altered the root microbial community structure
-    explanation: States the compositional shift and the absence of a diversity change, which
-      together are the community-level result of introducing the inoculant.
 - name: Tree-nursery field trial
   value: three Eucalyptus clones; 13 weeks
   description: >

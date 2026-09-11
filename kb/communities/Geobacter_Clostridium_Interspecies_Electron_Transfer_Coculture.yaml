@@ -165,6 +165,7 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Geobacter sulfurreducens
     term:
@@ -226,6 +227,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium pasteurianum
     term:
@@ -266,6 +268,14 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  - preferred_term: electron transfer activity
+    term:
+      id: GO:0009055
+      label: electron transfer activity
+  downstream:
+  - target: Increased 1,3-Propanediol and Butyrate Production
+    description: The electron-transfer-induced metabolic shift redirects glycerol
+      fermentation products toward higher 1,3-propanediol and butyrate yields.
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
@@ -297,11 +307,52 @@ ecological_interactions:
       explanation saying it quantifies the shift toward 1,3-propanediol - the same defect as this
       one, left for a separate pass. Snippet also completed here, having been truncated mid-word
       at "with o".'
+- name: Increased 1,3-Propanediol and Butyrate Production
+  description: 'The metabolic shift in C. pasteurianum changed glycerol-fermentation
+    output toward the more reduced end product 1,3-propanediol and the carboxylate
+    butyrate. In coculture with G. sulfurreducens, 1,3-propanediol production increased
+    by 37% and butyrate production increased by 38%, while butanol and ethanol decreased
+    by 16% and 20%, respectively. This product-yield node records the measured output of
+    the upstream electron-transfer-induced fermentation shift without asserting whether
+    the electrons entered C. pasteurianum by contact-dependent or mediated transfer.
+
+    '
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Clostridium pasteurianum
+    term:
+      id: NCBITaxon:1501
+      label: Clostridium pasteurianum
+  metabolites:
+  - preferred_term: 1,3-propanediol
+    term:
+      id: CHEBI:16109
+      label: propane-1,3-diol
+    concentration: Increased by 37% in coculture
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:30772
+      label: butyric acid
+    concentration: Increased by 38% in coculture
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:28287150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pasteurianum metabolic pattern was significantly altered towards improved
+      1,3-propanediol and butyrate production (+37% and +38% resp.) at the expense
+      of butanol and ethanol production (-16% and -20% resp.)
+    explanation: Documents the product-yield shift caused by coculture with G. sulfurreducens.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic
   description: Both organisms are obligate anaerobes requiring anoxic conditions for
-    growth and DIET
+    glycerol fermentation and interspecies electron transfer
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
@@ -365,7 +416,7 @@ environmental_factors:
     explanation: Describes method for monitoring bacterial populations and electron
       transfer
 growth_media:
-- name: Glycerol Fermentation Medium for DIET Coculture
+- name: Glycerol Fermentation Medium for Electron-Transfer Coculture
   composition:
   - name: Glycerol
     concentration: '10'
@@ -466,10 +517,11 @@ growth_media:
   preparation_notes: Medium supplemented with 10 mL vitamin solution (DSMZ medium
     141), 10 mL trace element solution (DSMZ medium 141), and 0.5 mL trace element
     solution SL-10 (DSMZ medium 320) per liter. Cultures maintained at 35°C with constant
-    agitation under strict anaerobic conditions using Hungate technique. Physical
-    contact between bacteria enables electron exchange either directly via interspecies
-    wiring or indirectly using soluble electron mediators like L-cysteine present
-    in medium.
+    agitation under strict anaerobic conditions using Hungate technique. The medium
+    supported glycerol fermentation by C. pasteurianum and acetate oxidation by G.
+    sulfurreducens during interspecies electron transfer; the cited discovery study
+    did not resolve whether electron transfer was contact-dependent or mediated by
+    soluble molecule(s).
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
@@ -482,7 +534,7 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: The present study deals with a co-culture of Geobacter sulfurreducens
       and Clostridium pasteurianum during glycerol fermentation
-    explanation: Confirms glycerol fermentation medium for DIET coculture
+    explanation: Confirms the glycerol fermentation medium for the electron-transfer coculture
   - reference: PMID:28287150
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -497,7 +549,7 @@ related_ingredients:
     id: CHEBI:17754
     label: glycerol
   relevance: Central fermentable substrate of the coculture; C. pasteurianum ferments
-    glycerol and DIET from G. sulfurreducens redirects its fermentation product profile.
+    glycerol and electron uptake from G. sulfurreducens redirects its fermentation product profile.
   evidence:
   - reference: PMID:28287150
     supports: SUPPORT
@@ -509,7 +561,7 @@ related_ingredients:
   chebi_term:
     id: CHEBI:16109
     label: propane-1,3-diol
-  relevance: Key DIET-enhanced product; electron transfer shifts C. pasteurianum carbon
+  relevance: Key electron-transfer-enhanced product; electron transfer shifts C. pasteurianum carbon
     flux toward increased 1,3-propanediol, the industrially relevant target metabolite.
   evidence:
   - reference: PMID:28287150
@@ -523,7 +575,7 @@ related_ingredients:
   chebi_term:
     id: CHEBI:17968
     label: butyrate
-  relevance: Co-enhanced DIET product; alongside 1,3-propanediol, butyrate production
+  relevance: Co-enhanced electron-transfer product; alongside 1,3-propanediol, butyrate production
     rises (+38%) when C. pasteurianum receives electrons from G. sulfurreducens.
   evidence:
   - reference: PMID:28287150
