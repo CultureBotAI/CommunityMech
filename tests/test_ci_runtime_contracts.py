@@ -15,9 +15,23 @@ SETUP_UV_ACTION = "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
 UV_VERSION = "0.12.5"
 
 
+# A workflow vendored byte-identical from culturebotai-claw carries this banner
+# on its first line. Its action pins and uv version are claw's decision, and
+# check_vendored_sync.sh fails on any local edit, so a repository-local pin
+# contract cannot bind it -- it can only report a drift nobody here may fix
+# (culturebotai-claw#391; same shape as CultureMech#437).
+GOVERNED_BANNER = "# Governed by culturebotai-claw"
+
+
 def _workflow_documents() -> list[tuple[Path, dict]]:
     paths = sorted([*WORKFLOWS.glob("*.yaml"), *WORKFLOWS.glob("*.yml")])
-    return [(path, yaml.safe_load(path.read_text(encoding="utf-8"))) for path in paths]
+    documents = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8")
+        if text.startswith(GOVERNED_BANNER):
+            continue
+        documents.append((path, yaml.safe_load(text)))
+    return documents
 
 
 def _steps(document: dict):

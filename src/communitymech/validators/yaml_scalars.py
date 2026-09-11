@@ -95,8 +95,19 @@ class ScalarIssue:
         return f"{self.file}:{self.line}: {self.message}"
 
 
+# A file vendored byte-identical from culturebotai-claw opens with this banner.
+# Its trailing `# vN` comments on action pins are claw's, and
+# check_vendored_sync.sh fails on any local edit, so a report here could only
+# ask for a change nobody in this repository may make (culturebotai-claw#391).
+GOVERNED_BANNER = "# Governed by culturebotai-claw"
+
+
 def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[ScalarIssue]:
     """Report plain scalars in `path` that a mid-line comment cut short.
+
+    A governed file (see GOVERNED_BANNER) is skipped outright rather than
+    relaxed: RELAXED_FILES loosens the heuristic for files this repository
+    owns, and this one it does not.
 
     `require_gap` reports only comments written *tight* against the value —
     fewer than two spaces before the `#`. YAML cannot distinguish
@@ -119,6 +130,9 @@ def find_truncated_scalars(path: Path, *, require_gap: bool = False) -> list[Sca
     `key: value # comment` with a single space gets a false report. It is
     offered for trees where the alternative is no checking at all (#400).
     """
+    with path.open(encoding="utf-8") as handle:
+        if handle.readline().startswith(GOVERNED_BANNER):
+            return []
     text = path.read_text()
     lines = text.splitlines()
 
