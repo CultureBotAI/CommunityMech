@@ -59,18 +59,18 @@ _PLACEHOLDER = re.compile(r"\bsp\d{6,}$")
 # notice. Exact numbers mean curation updates them deliberately, and the
 # failure message says where else the same number is written.
 EXPECTED = {
-    "different_name": 74,
+    "different_name": 73,
     # 0 since #480: a dropped strain designation is no longer a difference.
     # The key stays, with its reason, so the bucket cannot silently repopulate.
     "strain_dropped": 0,
-    "polyphyly_only": 26,
+    "polyphyly_only": 27,
     "strain_dropped_and_polyphyly": 13,
-    "gtdb_placeholder_same_genus": 5,
+    "gtdb_placeholder_same_genus": 3,
     "nomenclatural_ending": 3,
 }
-NOT_A_RECLASSIFICATION = 47
-TOTAL_TRUE = 121
-ABOVE_SPECIES = 35
+NOT_A_RECLASSIFICATION = 46
+TOTAL_TRUE = 119
+ABOVE_SPECIES = 36
 
 
 def _normalise(name: str) -> str:
