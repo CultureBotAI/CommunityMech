@@ -3277,7 +3277,9 @@ slots.evidenceItem__reference = Slot(
     model_uri=COMMUNITYMECH.evidenceItem__reference,
     domain=None,
     range=str,
-    pattern=re.compile(r"^(PMID:|doi:|bioproject:|GITHUB:).*"),
+    pattern=re.compile(
+        r"^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$"
+    ),
 )
 
 slots.evidenceItem__supports = Slot(
@@ -3422,7 +3424,9 @@ slots.computationalTool__tool_reference = Slot(
     model_uri=COMMUNITYMECH.computationalTool__tool_reference,
     domain=None,
     range=Optional[str],
-    pattern=re.compile(r"^(PMID:|doi:|bioproject:|GITHUB:).*"),
+    pattern=re.compile(
+        r"^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$"
+    ),
 )
 
 slots.computationalTool__role = Slot(
