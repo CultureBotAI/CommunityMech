@@ -186,6 +186,7 @@ USERS = {
     "BioModels_MODEL2405300001_Infant_Gut_HMO_SynCom.yaml",
     "BioRock_ISS_Basalt_Biomining_Consortium.yaml",
     "Bosea_Pseudomonas_Dimethachlon_Degradation_Consortium.yaml",
+    "Bothnian_Bay_GAC_Dependent_CIET_SAO_Consortium.yaml",
     "Brachypodium_Young_Root_Rhizosphere_EcoFAB_Community.yaml",
     "Buchnera_Serratia_Cinara_Cedri_Endosymbiont_Consortium.yaml",
     "Butyrivibrio_Selenomonas_Ruminococcus_Lignocellulolytic_Rumen_Consortium.yaml",
