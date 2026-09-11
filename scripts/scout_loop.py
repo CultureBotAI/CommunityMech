@@ -109,7 +109,7 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--out-dir", type=Path, default=sc.DEFAULT_OUT_DIR)
     args = p.parse_args(argv)
 
-    index = sc.build_dedup_index(sc.COMMUNITIES_DIR)
+    index = sc.build_dedup_index()
     seen_refs: set[str] = set()
     seen_titles: set[str] = set()
     for pmid in index["cited_pmids"]:
