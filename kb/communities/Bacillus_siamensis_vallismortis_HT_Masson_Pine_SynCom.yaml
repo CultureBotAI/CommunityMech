@@ -1,0 +1,222 @@
+id: CommunityMech:000347
+name: Bacillus siamensis-vallismortis HT Masson Pine SynCom
+description: >-
+  A two-strain HT synthetic plant growth-promoting rhizobacterial community
+  assembled from Trichoderma koningiopsis-conditioned Pinus massoniana
+  rhizosphere isolates. The community combines Bacillus siamensis RW5 and
+  Bacillus vallismortis RW8 and was tested against Fusarium oxysporum
+  damping-off in Masson pine seedlings. Relative to the pathogen challenge
+  control, HT reduced disease incidence by 36.67%, increased seedling height by
+  9.44%, enhanced protective enzyme activity, alleviated membrane damage, and
+  activated the resistance genes PR1, FLS2, and CAT1.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >-
+    Build a simplified PGPR SynCom from Trichoderma koningiopsis-conditioned
+    Masson pine rhizosphere isolates and test whether the reduced community
+    suppresses Fusarium oxysporum damping-off while promoting Pinus massoniana
+    seedling growth.
+  assembly_strategy: >-
+    Profile the bacterial community enriched by T. koningiopsis in the Masson
+    pine rhizosphere, isolate PGPR strains from the T. koningiopsis-inoculated
+    treatment, screen them for F. oxysporum inhibition, and combine Bacillus
+    siamensis RW5 with Bacillus vallismortis RW8 as the two-member HT SynCom.
+  perturbation_design: >-
+    Compare individual inhibitory isolates and synthetic communities for in
+    vitro F. oxysporum inhibition, then challenge Masson pine seedlings with
+    F. oxysporum with or without SynCom inoculation.
+  measurement_endpoints:
+  - F. oxysporum inhibitory effect
+  - Masson pine damping-off disease incidence
+  - Masson pine seedling height
+  - Protective enzyme activity and membrane-damage physiology
+  - Plant hormone and MAPK signaling gene expression
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Synthetic PGPR communities were constructed from isolated strains to
+      validate their effects on disease suppression and growth promotion.
+    explanation: >-
+      Supports the isolated-strain PGPR SynCom construction strategy.
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HT = RW5, RW8
+    explanation: >-
+      Figure 4 defines HT as a reduced two-strain SynCom containing RW5 and RW8.
+environment_term:
+  preferred_term: Masson pine rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: >-
+    PGPR isolates came from the T. koningiopsis-inoculated Pinus massoniana
+    rhizosphere, and the resulting SynCom was assayed against damping-off in
+    Masson pine seedlings.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus siamensis RW5
+    term:
+      id: NCBITaxon:659243
+      label: Bacillus siamensis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_siamensis
+      gtdb_taxon: Bacillus siamensis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus siamensis
+      ncbi_source_id: NCBITaxon:659243
+      majority_fraction: 0.85
+      total_genomes: 26
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Strain RW5; one of the two HT SynCom members.
+  strain_designation:
+    strain_name: RW5
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: OQ996945 B. siamensis strain RW5
+    explanation: >-
+      The 16S phylogeny in Figure 4b identifies RW5 as Bacillus siamensis.
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HT = RW5, RW8
+    explanation: Identifies RW5 as an HT SynCom member.
+- taxon_term:
+    preferred_term: Bacillus vallismortis RW8
+    term:
+      id: NCBITaxon:72361
+      label: Bacillus vallismortis
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Strain RW8; one of the two HT SynCom members. Bacillus vallismortis was
+      not present in existing CommunityMech GTDB groundings; the exact NCBI
+      species id was verified from NCBI Taxonomy.
+  strain_designation:
+    strain_name: RW8
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: OQ996934 B. vallismortis strain RW8
+    explanation: >-
+      The 16S phylogeny in Figure 4b identifies RW8 as Bacillus vallismortis.
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: HT = RW5, RW8
+    explanation: Identifies RW8 as an HT SynCom member.
+ecological_interactions:
+- name: HT SynCom Suppression of Fusarium oxysporum
+  description: >-
+    The two-member HT PGPR SynCom, composed of B. siamensis RW5 and
+    B. vallismortis RW8, suppresses Fusarium oxysporum more effectively than the
+    individual inhibitory isolates and links a T. koningiopsis-assembled Bacillus
+    pair to fungal damping-off biocontrol.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Fusarium oxysporum
+    term:
+      id: NCBITaxon:5507
+      label: Fusarium oxysporum
+  downstream:
+  - target: HT SynCom Masson Pine Damping-Off Protection
+    description: >-
+      In vitro suppression of F. oxysporum was carried into seedling challenge
+      assays, where HT reduced disease incidence and promoted Masson pine
+      growth.
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Four synthetic communities (SynComs) (C1, C2, HT, and 2K) were further
+      constructed, exhibiting superior inhibitory effects against F. oxysporum
+      compared to individual strains.
+    explanation: >-
+      Supports HT as one of four constructed SynComs that inhibited the fungal
+      pathogen more strongly than individual isolates.
+- name: HT SynCom Masson Pine Damping-Off Protection
+  description: >-
+    HT inoculation protects Fusarium-challenged Pinus massoniana seedlings by
+    reducing damping-off disease incidence by 36.67%, increasing seedling height
+    by 9.44%, enhancing protective enzyme activity, alleviating membrane damage,
+    and modulating plant hormone and MAPK signaling to activate PR1, FLS2, and
+    CAT1.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Pinus massoniana
+    term:
+      id: NCBITaxon:88730
+      label: Pinus massoniana
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  downstream:
+  - target: Protective Enzyme and Resistance-Gene Activation
+    description: >-
+      The disease-suppressive C2 and HT SynComs also enhanced protective enzyme
+      activity, reduced membrane injury, and activated plant defense genes.
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Compared to the control, the C2 and HT SynComs increased seedling height
+      by 10.18% and 9.44%, and reduced disease incidence by 50% and 36.67%,
+      respectively.
+    explanation: >-
+      Supports the HT in vivo outcome: 9.44% higher seedling height and 36.67%
+      lower disease incidence in Masson pine seedlings.
+- name: Protective Enzyme and Resistance-Gene Activation
+  description: >-
+    C2 and HT treatment enhanced protective enzyme activity, alleviated membrane
+    damage, and upregulated key Masson pine resistance genes downstream of plant
+    hormone and MAPK signaling pathways.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Pinus massoniana
+    term:
+      id: NCBITaxon:88730
+      label: Pinus massoniana
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      These treatments also enhanced protective enzyme activity and alleviated
+      membrane damage.
+    explanation: >-
+      Supports the host physiology arm of the HT and C2 protection response.
+  - reference: PMID:42144568
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      At the molecular level, the C2 and HT SynComs boost plant resistance by
+      modulating the plant hormone and mitogen-activated protein kinase (MAPK)
+      signaling pathways, thereby activating the expression of crucial
+      resistance genes such as PR1, FLS2, and CAT1.
+    explanation: >-
+      Supports the plant defense signaling response associated with C2 and HT.
