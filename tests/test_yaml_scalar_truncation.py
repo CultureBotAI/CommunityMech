@@ -62,6 +62,20 @@ def _write(tmp_path: Path, text: str, name: str = "probe.yaml") -> Path:
         ),
     ],
 )
+def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
+    """Each of these loses data on parse — verified against PyYAML itself."""
+    path = _write(tmp_path, text)
+    issues = find_truncated_scalars(path)
+
+    assert len(issues) == 1, f"{name}: expected one issue, got {issues}"
+    assert lost in issues[0].lost
+
+    # The premise: YAML really does drop it. Without this the test could be
+    # asserting a rule nobody needs.
+    parsed = yaml.safe_load(text)
+    assert lost not in str(parsed), f"{name}: YAML kept the tail, nothing to report"
+
+
 def test_a_governed_file_is_skipped_and_the_same_text_ungoverned_is_not(tmp_path):
     """A file vendored from culturebotai-claw carries `# vN` comments one
     space after its action pins -- the exact shape this scanner calls a
@@ -75,20 +89,6 @@ def test_a_governed_file_is_skipped_and_the_same_text_ungoverned_is_not(tmp_path
 
     assert find_truncated_scalars(governed) == []
     assert len(find_truncated_scalars(plain)) == 1
-
-
-def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
-    """Each of these loses data on parse — verified against PyYAML itself."""
-    path = _write(tmp_path, text)
-    issues = find_truncated_scalars(path)
-
-    assert len(issues) == 1, f"{name}: expected one issue, got {issues}"
-    assert lost in issues[0].lost
-
-    # The premise: YAML really does drop it. Without this the test could be
-    # asserting a rule nobody needs.
-    parsed = yaml.safe_load(text)
-    assert lost not in str(parsed), f"{name}: YAML kept the tail, nothing to report"
 
 
 @pytest.mark.parametrize(
