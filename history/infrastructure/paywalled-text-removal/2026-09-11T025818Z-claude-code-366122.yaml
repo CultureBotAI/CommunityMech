@@ -1,0 +1,51 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: references_cache
+  slug: paywalled-text-removal
+session:
+  id: 2026-09-11T025818Z-claude-code-366122
+  timestamp: '2026-09-11T02:58:18Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: claude-opus-5
+    agent_tool: claude-code
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/754
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  summary: Remove a publication PDF and five paywalled article bodies from a public repository
+  details: 'Resolves #754 at the maintainer''s direction: no publication PDFs on GitHub. Removed
+    references_pdfs/Faghihinezhad_2026_propanotrophic_TCE_cDCE_DCE.pdf, a 14 MB Elsevier article
+    PDF committed in PR #73, and the external_resources entry in Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml
+    that pointed readers at it. Trimmed five reference caches from article bodies to abstracts:
+    doi_10.1016_j.jenvman.2026.129957 at 110 kB carrying the Elsevier all-rights-reserved
+    line, PMID_24994654 at 10 kB carrying the AAAS copyright, PMID_28075122 at 24 kB, PMID_25036636
+    at 48 kB and PMID_36070752 at 139 kB, all five reported by Europe PMC as not open access.
+    The last two already contained a restored PUBMED ABSTRACT section from #595, so their
+    bodies could be excised without refetching; the first three were replaced with abstracts
+    fetched from Europe PMC. scripts/cache_fulltext.py already refuses non-OA papers, so none
+    of these arrived through it; the likely route is the curator-supplied-file escape hatch,
+    whose docstring assumes open access but cannot enforce it. Two of the five were found
+    only after the new gate was written - my own survey had keyed full-text detection on a
+    content_type marker or a FULL TEXT separator, which these files lack, so a 48 kB and a
+    139 kB body were invisible to it. 78 evidence items stopped verifying against the trimmed
+    caches and were deleted with a ruamel round-trip, leaving 63 claim blocks across 5 records
+    with no evidence at all; that consequence is filed as #765 rather than papered over, and
+    the evidence policy''s instruction is explicit that the failure is the correct outcome.
+    One further item was dropped by hand: an engineering_design snippet quoting the paper
+    title, which lives in cache front matter that the validator excludes. tests/test_no_paywalled_text_in_repo.py
+    now blocks both forms, looking for PDFs anywhere in the tree and for a publisher rights
+    assertion beside a body-sized cache file, with a Creative Commons marker exempting a file
+    since PMID_39111313 is CC BY-NC and still contains the string all rights reserved in publisher
+    furniture. The size threshold is 9000 bytes, chosen because a PubMed abstract dump with
+    affiliations reaches about 7 kB while the removed bodies were 10, 24, 48, 110 and 139
+    kB. references_cache/README.md now states what may be kept, what may not, why the repository
+    being public makes the difference, and that a broken snippet must not be fixed by restoring
+    the text. Two cultivation_setup blocks lost every reference and are registered in the
+    #529 blind list with that reason.'
