@@ -237,12 +237,14 @@ taxonomy:
     snippet: Beta- and Gammaproteobacteria
     explanation: Supports the Proteobacteria classes with EET capacity.
 ecological_interactions:
-- name: Acetate Oxidation Coupled to Anode Electron Donation
-  description: Geobacter and other EET-capable organisms oxidize acetate and
-    transfer electrons to the poised anode via multiheme cytochromes,
-    porin-cytochrome complexes, and e-pili.
-  interaction_type: SYNTROPHY
+- name: Acetate-Fed Iron-Oxide-Like Bioanode Selection
+  description: >
+    Microbial electrochemical cells inoculated with Rifle aquifer material were
+    fed acetate as the sole carbon source and poised at iron-oxide-like anode
+    potentials for years, enriching electrode-attached biofilms whose growth
+    depended on extracellular electron transfer to the anode.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: acetate
     term:
@@ -253,12 +255,138 @@ ecological_interactions:
     term:
       id: GO:0009061
       label: anaerobic respiration
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Multiheme Geobacter Electrode Dominance
+    description: >
+      The acetate bioanodes selected a novel MHC-rich Geobacter as the dominant
+      electrode-attached organism.
+  - target: Non-Geobacter EET Gene Repertoire
+    description: >
+      The same enrichments also recovered diverse non-Geobacter organisms with
+      MHCs, candidate porin-cytochrome complexes, and e-pili.
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: using acetate as the sole carbon source
     explanation: Supports acetate as the sole electron donor.
+- name: Multiheme Geobacter Electrode Dominance
+  description: >
+    Six near-complete and one partial Geobacter genomes dominated the
+    electrode-attached biofilm DNA, with the leading S0_RifleGW_Geobacter_53_40
+    genome encoding 72 candidate multiheme c-type cytochromes.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: novel multiheme-cytochrome Geobacter sp.
+    term:
+      id: NCBITaxon:28231
+      label: Geobacter
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Candidate Porin-Cytochrome Complex Distribution
+    description: >
+      Geobacter genomes had the greatest number and diversity of candidate
+      porin-cytochrome complex porin types.
+  - target: e-Pili and OmcS Conductive Filament Potential
+    description: >
+      Five of six Geobacter genomes encoded putative e-pili, and nearly all
+      OmcS homologs detected in the dataset were assigned to Geobacter genomes.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      A novel Geobacter sp. with at least 72 putative multiheme c-type
+      cytochromes (MHCs) was the dominant electrode-attached organism
+    explanation: >
+      Supports the Geobacter dominance and multiheme-cytochrome capacity that
+      made Geobacter the primary anode-biofilm genome.
+- name: Non-Geobacter EET Gene Repertoire
+  description: >
+    Beyond the dominant Geobacter, Actinobacteria, Ignavibacteria, Chloroflexi,
+    Acidobacteria, Firmicutes, and Beta- and Gammaproteobacteria genomes also
+    encoded large multiheme c-type cytochromes, candidate porin-cytochrome
+    complexes, and/or putative conductive e-pili.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: EET-capable Rifle aquifer Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: EET-capable Rifle aquifer Ignavibacteria
+    term:
+      id: NCBITaxon:1134404
+      label: Ignavibacteriota
+  - preferred_term: EET-capable Rifle aquifer Chloroflexi
+    term:
+      id: NCBITaxon:200795
+      label: Chloroflexota
+  - preferred_term: EET-capable Rifle aquifer Acidobacteria
+    term:
+      id: NCBITaxon:57723
+      label: Acidobacteriota
+  - preferred_term: EET-capable Rifle aquifer Firmicutes
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  - preferred_term: EET-capable Rifle aquifer Beta- and Gammaproteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Candidate Porin-Cytochrome Complex Distribution
+    description: >
+      Acidobacteria, Betaproteobacteria, and Ignavibacteria were among the
+      high-MHC genomes encoding candidate porin-cytochrome complexes.
+  - target: e-Pili and OmcS Conductive Filament Potential
+    description: >
+      Some Acidobacteria, Ignavibacteria, and Beta- and Gammaproteobacteria
+      genomes met strict e-pilus criteria.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      a diverse range of other electrode-associated organisms also harbored
+      putative MHCs with at least 10 heme-binding motifs
+    explanation: >
+      Supports the non-Geobacter breadth of candidate extracellular
+      electron-transfer genes.
+- name: Candidate Porin-Cytochrome Complex Distribution
+  description: >
+    Twelve high-MHC near-complete genomes encoded at least one candidate
+    outer-membrane porin-cytochrome complex, extending potential trans-outer
+    membrane electron conduits from Geobacter into Acidobacteria,
+    Betaproteobacteria, and Ignavibacteria.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Rifle Mineral Redox Candidate Set
+    description: >
+      Candidate porin-cytochrome complexes were one line of genomic evidence
+      used to identify Rifle organisms likely to mediate extracellular mineral
+      redox transformations.
+  evidence:
   - reference: PMID:32849356
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -266,12 +394,62 @@ ecological_interactions:
       porin-cytochrome complexes and e-pili
     explanation: Supports the multiheme-cytochrome, porin-cytochrome, and
       e-pili EET machinery.
-- name: Subset of Rifle Aquifer Organisms Mediates EET
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Twelve of the 53 near-complete genomes that contain one or more MHCs
+      harbor at least one putative PCC
+    explanation: >
+      Supports the distribution of candidate porin-cytochrome complexes among
+      high-MHC genomes.
+- name: e-Pili and OmcS Conductive Filament Potential
+  description: >
+    Putative conductive type-IV pilins were detected in 16 of the 31
+    EET-related genomes under strict aromatic-residue criteria, and cytochrome
+    OmcS homolog searches recovered 22 sequences, nearly all from Geobacter,
+    that could support conductive extracellular filaments.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Rifle Mineral Redox Candidate Set
+    description: >
+      Conductive e-pilus and OmcS homolog predictions supplied a second
+      extracellular-electron-transfer route in candidate Rifle aquifer
+      organisms.
+  evidence:
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 16/31 contained pili meeting the strict criteria
+    explanation: >
+      Supports the strict candidate e-pilus set among genomes with EET-related
+      genes.
+  - reference: PMID:32849356
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      A total of 22 sequences were deemed to be true OmcS homologs, with all
+      but one of these found in five of the six Geobacter genomes
+    explanation: >
+      Supports the OmcS homolog search as a Geobacter-enriched conductive
+      filament signal.
+- name: Rifle Mineral Redox Candidate Set
   description: Only a small subset of the thousands of organisms previously
     detected in the Rifle aquifer have the genetic potential to mediate
     mineral redox transformations.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
   evidence:
   - reference: PMID:32849356
     supports: SUPPORT

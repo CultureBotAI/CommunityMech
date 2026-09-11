@@ -48,8 +48,6 @@ taxonomy:
       total_genomes: 8737
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -68,8 +66,14 @@ taxonomy:
       total_genomes: 860
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Cytobacillus firmus
+    term:
+      id: NCBITaxon:1399
+      label: Cytobacillus firmus
+    gtdb_grounding_status: UNRESOLVED
   evidence:
   - *id001
 - taxon_term:
@@ -78,8 +82,6 @@ taxonomy:
       id: NCBITaxon:1931
       label: Streptomyces sp.
     gtdb_grounding_status: UNRESOLVED
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -88,16 +90,85 @@ taxonomy:
       id: NCBITaxon:306
       label: Pseudomonas sp.
     gtdb_grounding_status: UNRESOLVED
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Phytophthora Suppression
-  description: Rhizosphere isolates combine antagonism and plant growth-promoting traits to suppress pathogen
-    damage.
+- name: Complementary PGPR Trait Pool
+  description: The five-member pepper SynCom combines phosphate solubilization, indole-3-acetic-acid
+    production, siderophore synthesis, ammonia production, and biofilm formation to provide complementary
+    plant growth-promoting functions.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:26020
+      label: phosphate
+    notes: Plant-accessible phosphorus pool mobilized by SynCom phosphate-solubilizing activity
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    notes: Auxin produced by SynCom members during plant-growth promotion assays
+  - preferred_term: siderophore
+    term:
+      id: CHEBI:26672
+      label: siderophore
+    notes: Iron-mobilizing chelator produced by SynCom members
+  biological_processes:
+  - preferred_term: plant growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Pepper Growth Under Phytophthora Challenge
+    description: The complementary PGPR trait set contributes nutrient-mobilization and phytohormone
+      functions to the growth improvement observed in P. capsici-challenged pepper plants.
+  evidence:
+  - *id001
+- name: Direct Phytophthora capsici Antagonism
+  description: SynCom members show strong direct antagonism against Phytophthora capsici and secrete
+    biocontrol-associated enzymes and siderophores, led by Streptomyces roseicoloratus T14 and Pseudomonas
+    frederiksbergensis A6 inhibition activity.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: siderophore
+    term:
+      id: CHEBI:26672
+      label: siderophore
+    notes: Iron-chelating antagonist trait screened across the pepper SynCom members
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  downstream:
+  - target: Pepper Growth Under Phytophthora Challenge
+    description: Direct Phytophthora antagonism supplies the disease-suppression component of the SynCom's
+      pepper-protection phenotype under pathogen pressure.
+  evidence:
+  - *id001
+- name: Pepper Growth Under Phytophthora Challenge
+  description: The complete five-member SynCom reduces Phytophthora capsici disease severity while improving
+    pepper root length, plant height, biomass, stem diameter, and chlorophyll content.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    notes: Plant-growth-promoting auxin from the full SynCom trait suite
+  biological_processes:
+  - preferred_term: plant growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
   evidence:
   - *id001
 environmental_factors:

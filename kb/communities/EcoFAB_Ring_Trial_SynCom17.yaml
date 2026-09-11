@@ -547,48 +547,173 @@ taxonomy:
       root exudate composition, and final bacterial community structure
     explanation: Documents SynCom member participation in ring trial
 ecological_interactions:
-- name: Paraburkholderia Competitive Exclusion
-  description: 'Paraburkholderia sp. OAS925 competitively excludes other SynCom members on Brachypodium
-    roots, achieving ~98% dominance through high motility, acid resistance, and T3SS-mediated colonization.
-    When Paraburkholderia is removed (SynCom16), community structure shifts to Rhodococcus dominance with
-    greater variability.
-
-    '
-  interaction_type: COMPETITION
-  source_taxon:
-    preferred_term: Paraburkholderia sp. OAS925
+- name: SynCom17 EcoFAB Ring-Trial Perturbation
+  description: >
+    The full 17-member switchgrass-rhizosphere SynCom was introduced into Brachypodium
+    distachyon EcoFAB 2.0 devices as a standardized inoculum, then compared with axenic,
+    SynCom16, and plant-free medium controls across five laboratories.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
     term:
-      id: NCBITaxon:1822464
-      label: Paraburkholderia
-  target_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Paraburkholderia-Dominated SynCom17 Root Assembly
+    description: >
+      The standardized SynCom17 treatment yielded root communities that reproducibly
+      converged on high Paraburkholderia abundance across laboratories.
+  - target: Treatment-Structured Rhizosphere Exometabolites
+    description: >
+      SynCom17 was one of the ring-trial treatments that drove reproducible,
+      treatment-dependent changes in the spent EcoFAB medium metabolome.
   evidence:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Paraburkholderia sp. OAS925 could dramatically shift microbiome composition
-    explanation: Documents competitive exclusion by Paraburkholderia across multiple labs
-- name: Root Exudate Modulation
-  description: 'Brachypodium distachyon root exudation is modulated by the bacterial community. Nitrogen
-    form (nitrate, ammonium, ammonium nitrate) and nitrogen starvation alter exudate composition, with
-    amino acids and alkaloids abundant under nitrogen supply and shikimates-phenylpropanoids increasing
-    under nitrogen deficiency.
-
-    '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Paraburkholderia sp. OAS925
+    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
+      root exudate composition, and final bacterial community structure
+    explanation: >
+      Anchors the standardized EcoFAB 2.0 SynCom ring trial and its treatment-dependent
+      plant, exudate, and community-structure outcomes.
+- name: Paraburkholderia Acid-Tolerant Root Colonization Traits
+  description: >
+    Paraburkholderia sp. OAS925 was the only SynCom17 member whose genome carried the
+    surveyed acid-resistance systems and a type III secretion system; fluorescence microscopy
+    also detected early root-tip and maturation-zone colonization, biofilm formation, and
+    active swimming near B. distachyon roots.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Paraburkholderia sp. OAS925
     term:
       id: NCBITaxon:1822464
       label: Paraburkholderia
-  target_taxon:
-    preferred_term: Methylobacterium sp. OAE515
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Paraburkholderia-Dominated SynCom17 Root Assembly
+    description: >
+      Acid-resistance genes, a unique T3SS module, biofilm formation, and rapid
+      acidic-condition motility provided candidate mechanisms for Paraburkholderia
+      dominance in the full SynCom17 root microbiome.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Comparative genomic analysis showed that the Paraburkholderia sp. OAS925 genome
+    explanation: >
+      Supports Paraburkholderia-specific comparative-genomic signatures, including
+      acid-resistance genes and a T3SS module.
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Clear RFP signals were detected at the root tip and in the maturation zone at 1 DAI
+    explanation: >
+      Documents early Paraburkholderia OAS925 colonization in B. distachyon roots
+      grown in the EcoFAB 2.0 device.
+- name: Paraburkholderia-Dominated SynCom17 Root Assembly
+  description: >
+    By 22 days after inoculation, SynCom17 root microbiomes were dominated by
+    Paraburkholderia sp. OAS925 across all five laboratories, whereas the Paraburkholderia-free
+    SynCom16 condition produced more variable roots enriched in Rhodococcus, Mycobacterium,
+    and Methylobacterium.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Paraburkholderia sp. OAS925
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+  - preferred_term: Rhodococcus sp. OAS809
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Mycobacterium sp. OAE908
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
+  - preferred_term: Methylobacterium sp. OAE515
     term:
       id: NCBITaxon:407
       label: Methylobacterium
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Treatment-Structured Rhizosphere Exometabolites
+    description: >
+      The Paraburkholderia-dominated SynCom17 root community coincided with a
+      rhizosphere exometabolite profile distinct from axenic and SynCom16 treatments.
+  - target: SynCom17 Plant Biomass and Root Development Decrease
+    description: >
+      The same SynCom17 treatment that selected Paraburkholderia-dominated roots
+      produced the strongest B. distachyon biomass and root-development decreases.
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the root microbiome inoculated with SynCom17 was dominated by Paraburkholderia sp.
+      OAS925 across all laboratories
+    explanation: >
+      Reports the reproducible Paraburkholderia dominance in root samples and the
+      altered SynCom16 community observed when OAS925 was removed.
+- name: Treatment-Structured Rhizosphere Exometabolites
+  description: >
+    Targeted LC-MS/MS of spent EcoFAB medium resolved treatment-dependent metabolite
+    clusters, including diverse metabolites increased in SynCom17, an amino-acid-rich
+    cluster with lower relative concentrations in SynCom17, and a smaller nucleoside
+    cluster increased in SynCom16 or in both SynCom treatments.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A second large cluster consisted of metabolites with lower relative concentrations in the
+      SynCom17 treatment, represented mainly by amino acids
+    explanation: >
+      Identifies the amino-acid-rich metabolite cluster whose abundance was reduced
+      in the SynCom17 rhizosphere profile.
+- name: SynCom17 Plant Biomass and Root Development Decrease
+  description: >
+    Compared with axenic plants, the SynCom17 treatment significantly decreased shoot
+    fresh weight and dry weight in the combined laboratory analysis and consistently
+    reduced root development from 14 days after inoculation onward.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:40920748
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom17 caused a consistent decrease in root development observed after 14 DAI onwards
+    explanation: >
+      Supports the reproducible root-development decrease measured for the full
+      SynCom17 treatment across EcoFAB laboratories.
+- name: Nitrogen-Status EcoFAB Root Exudation
+  description: >
+    Brachypodium distachyon grown in EcoFAB 2.0 altered its root-exudate metabolite
+    profile in response to nitrate, ammonium, ammonium nitrate, and nitrogen
+    starvation; nitrogen deficiency reduced nitrogen-containing compounds and
+    increased shikimate-phenylpropanoid metabolites.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: shikimic acid
     term:
@@ -605,321 +730,9 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: nitrogen deficiency decreased nitrogen-containing compounds but increased shikimates-phenylpropanoids
-    explanation: Documents exudate modulation by nitrogen status in EcoFAB 2.0
-- name: SynCom16 Community Assembly with Rhodococcus
-  description: In absence of Paraburkholderia, Rhodococcus becomes dominant and supports other community
-    members.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Variovorax sp. OAS795
-    term:
-      id: NCBITaxon:34072
-      label: Variovorax
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics in SynCom systems
-- name: Cross-Feeding with Rhizobium
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Mycobacterium sp. OAE908
-    term:
-      id: NCBITaxon:1763
-      label: Mycobacterium
-  target_taxon:
-    preferred_term: Rhizobium sp. OAE497
-    term:
-      id: NCBITaxon:379
-      label: Rhizobium
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Bosea
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Methylobacterium sp. OAE515
-    term:
-      id: NCBITaxon:407
-      label: Methylobacterium
-  target_taxon:
-    preferred_term: Bosea sp. OAE506
-    term:
-      id: NCBITaxon:85413
-      label: Allobosea
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Bradyrhizobium
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Bradyrhizobium sp. OAE829
-    term:
-      id: NCBITaxon:374
-      label: Bradyrhizobium
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Lysobacter
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Mycobacterium sp. OAE908
-    term:
-      id: NCBITaxon:1763
-      label: Mycobacterium
-  target_taxon:
-    preferred_term: Lysobacter sp. OAE881
-    term:
-      id: NCBITaxon:68
-      label: Lysobacter
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Arthrobacter
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Arthrobacter sp. OAP107
-    term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Marmoricola
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Methylobacterium sp. OAE515
-    term:
-      id: NCBITaxon:407
-      label: Methylobacterium
-  target_taxon:
-    preferred_term: Marmoricola sp. OAE513
-    term:
-      id: NCBITaxon:86795
-      label: Marmoricola
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Chitinophaga
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Mycobacterium sp. OAE908
-    term:
-      id: NCBITaxon:1763
-      label: Mycobacterium
-  target_taxon:
-    preferred_term: Chitinophaga sp. OAE865
-    term:
-      id: NCBITaxon:79328
-      label: Chitinophaga
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Mucilaginibacter
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Mucilaginibacter sp. OAE612
-    term:
-      id: NCBITaxon:423349
-      label: Mucilaginibacter
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Niastella
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Methylobacterium sp. OAE515
-    term:
-      id: NCBITaxon:407
-      label: Methylobacterium
-  target_taxon:
-    preferred_term: Niastella sp. OAS944
-    term:
-      id: NCBITaxon:354354
-      label: Niastella
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Gottfriedia
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Mycobacterium sp. OAE908
-    term:
-      id: NCBITaxon:1763
-      label: Mycobacterium
-  target_taxon:
-    preferred_term: Gottfriedia sp. OAE603
-    term:
-      id: NCBITaxon:2837503
-      label: Gottfriedia
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Brevibacillus
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodococcus sp. OAS809
-    term:
-      id: NCBITaxon:1827
-      label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Brevibacillus sp. OAP136
-    term:
-      id: NCBITaxon:55080
-      label: Brevibacillus
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
-- name: Cross-Feeding with Paenibacillus
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Methylobacterium sp. OAE515
-    term:
-      id: NCBITaxon:407
-      label: Methylobacterium
-  target_taxon:
-    preferred_term: Paenibacillus sp. OAE614
-    term:
-      id: NCBITaxon:44249
-      label: Paenibacillus
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  evidence:
-  - reference: PMID:40920748
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All participating laboratories observed consistent inoculum-dependent changes in plant phenotype,
-      root exudate composition, and final bacterial community structure
-    explanation: Documents community assembly dynamics
+    explanation: >
+      Documents nitrogen-status exudate modulation by B. distachyon grown in
+      EcoFAB 2.0 devices.
 environmental_factors:
 - name: Nitrogen Source
   value: NH4NO3
@@ -1035,5 +848,5 @@ growth_media:
   - reference: PMID:40920748
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The plates were then moved to the growth chamber with a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C with photosynthetic photon flux density (PPFD) at 110 – 140 µmol/m 2 /s and 70% humidity if tunable.
+    snippet: The plates were then moved to the growth chamber with a 14 h photoperiod (16 h for lab C) at 26 °C and 10 h dark at 20 °C with photosynthetic photon flux density (PPFD) at 110–140 µmol/m2/s and 70% humidity if tunable.
     explanation: Names the plant growth-chamber photoperiod, light/dark temperatures, light intensity, and humidity.

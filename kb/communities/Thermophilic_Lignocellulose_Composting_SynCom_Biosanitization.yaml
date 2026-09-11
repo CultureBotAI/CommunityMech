@@ -151,6 +151,33 @@ taxonomy:
       Bacillus cereus, Achromobacter sp., Pseudomonas sp., Cladosporium sp., and Trichoderma harzianum)
     explanation: Names Trichoderma harzianum as a fungal member of the composting SynCom.
 ecological_interactions:
+- name: SynCom-driven lignocellulose decomposition and humification
+  description: The five-member SynCom intensifies thermophilic fermentation,
+    rapidly lowers the carbon/nitrogen ratio, and enhances humification in the
+    manure-composting matrix.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  downstream:
+  - target: Community-level bio-sanitization of high-risk pathogens
+    description: Intensified thermophilic fermentation and faster organic-matter
+      turnover create the SynCom-driven composting trajectory linked to deep
+      bio-sanitization and high-risk pathogen elimination.
+  - target: SynCom-driven suppression of horizontal gene transfer
+    description: The SynCom-driven composting trajectory is tied to metabolic
+      reprogramming away from a biofilm-dependent defense-survival mode,
+      restricting horizontal gene transfer opportunities in the compost.
+  evidence:
+  - reference: PMID:41839407
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom-driven rapid decrease in carbon/nitrogen ratio and enhanced humification
+    explanation: Supports the SynCom as the driver of faster humification and
+      carbon/nitrogen turnover in thermophilic compost.
 - name: Community-level bio-sanitization of high-risk pathogens
   description: By intensifying thermophilic fermentation and driving down the carbon/nitrogen ratio,
     the SynCom collapses high-risk ARG-mobilome interactomes and eliminates high-risk pathogens
@@ -158,11 +185,11 @@ ecological_interactions:
     pairwise edge.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Pseudomonas aeruginosa
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: NCBITaxon:287
-      label: Pseudomonas aeruginosa
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:41839407
     supports: SUPPORT
@@ -178,6 +205,11 @@ ecological_interactions:
     horizontal gene transfer and suppresses key recombinases (XerD, IntI1).
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: horizontal gene transfer
+    term:
+      id: GO:0009292
+      label: horizontal gene transfer
   evidence:
   - reference: PMID:41839407
     supports: SUPPORT

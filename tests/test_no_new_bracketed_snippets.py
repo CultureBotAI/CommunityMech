@@ -77,11 +77,6 @@ _KNOWN_BRACKETED = {
     ("Syntrophomonas_Methanococcus_Butyrate_Growth_Coordination_Coculture.yaml", "[v/v]"): (
         "Verbatim in a 157 KB cached full text; the gas ratio N2:CO2 (80:20 [v/v])."
     ),
-    ("Maize_Root_Simplified_Community.yaml", "[0.8% (wt/vol)]"): (
-        "NOT confirmed either way: the cache for PMID:28275097 is 3.4 KB with no "
-        "full-text marker, so it is abstract-only and absence is not reportable "
-        "from it (the #605 rule). Recheck once its full text is cached."
-    ),
 }
 
 

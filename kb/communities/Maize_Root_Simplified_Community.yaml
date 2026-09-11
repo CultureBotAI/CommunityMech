@@ -55,22 +55,17 @@ taxonomy:
     - GTDB:s__Enterobacter_roggenkampii
     - GTDB:s__Enterobacter_sichuanensis
     - GTDB:s__Kosakonia_cowanii
-    notes: 'Keystone species of the SF7-style 7-member maize root SynCom (Niu et al. 2017, PNAS). Its
-      removal causes complete community collapse and takeover by Curtobacterium pusillum on maize roots
-      (host-dependent — the takeover does NOT occur in axenic MS agar without seedlings). In addition
-      to its community-structuring role, E. cloacae is the single most effective biocontrol agent in
-      the consortium, providing the strongest delay of Fusarium verticillioides colonization and the
-      best suppression of seedling blight among the seven members. Niu & Kolter (2018) Bio-protocol
-      designates this strain as ZK5345 (alias used here: AA4).'
+    notes: >
+      Keystone species of the SF7-style 7-member maize root SynCom (Niu et al.
+      2017, PNAS). Its removal causes complete community collapse and takeover
+      by Curtobacterium pusillum on maize roots. Niu & Kolter (2018)
+      Bio-protocol designates this strain as ZK5345 (alias used here: AA4).
   strain_designation:
     strain_name: ZK5345 (alias AA4)
     isolation_source: Maize root host-mediated SynCom selection
     notes: Strain ID ZK5345 from Niu & Kolter 2018 Bio-protocol; legacy alias AA4 retained from
       pre-2018 curation.
   abundance_level: DOMINANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -87,14 +82,6 @@ taxonomy:
       ecosystem
     explanation: Establishes E. cloacae as the keystone species whose presence maintains community
       composition.
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
-      Fusarium verticillioides, indicating a clear benefit to the host
-    explanation: Supports E. cloacae's PRIMARY_DEGRADER role within the consortium that inhibits
-      F. verticillioides; per the Niu 2017 PNAS full text, E. cloacae is the single most effective
-      biocontrol member.
 - taxon_term:
     preferred_term: Stenotrophomonas maltophilia AA1
     term:
@@ -114,8 +101,6 @@ taxonomy:
     - GTDB:s__Stenotrophomonas_sepilia
     - GTDB:s__Stenotrophomonas_sp002192255
   abundance_level: ABUNDANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -132,8 +117,6 @@ taxonomy:
       label: Brucella pituitosa
     gtdb_grounding_status: UNRESOLVED
   abundance_level: ABUNDANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -159,8 +142,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
 - taxon_term:
     preferred_term: Pseudomonas putida
     term:
@@ -184,8 +165,6 @@ taxonomy:
     - GTDB:s__Pseudomonas_E_putida_R
     - GTDB:s__Pseudomonas_E_putida_Y
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
 - taxon_term:
     preferred_term: Curtobacterium pusillum
     term:
@@ -193,8 +172,6 @@ taxonomy:
       label: Curtobacterium pusillum
     gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
 - taxon_term:
     preferred_term: Chryseobacterium indologenes
     term:
@@ -211,8 +188,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
 - taxon_term:
     preferred_term: Zea mays
     term:
@@ -236,10 +211,10 @@ taxonomy:
       id: NCBITaxon:117187
       label: Fusarium verticillioides
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Target phytopathogenic fungus — NOT a SynCom member; included here as the antagonism
-      target of the community's biocontrol activity. Both the whole 7-member consortium and the
-      keystone member E. cloacae individually inhibit F. verticillioides growth in planta and in
-      vitro.
+    notes: >
+      Target phytopathogenic fungus; included here as the antagonism target of
+      the whole seven-member community's in planta and in vitro biocontrol
+      activity.
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -248,212 +223,60 @@ taxonomy:
       Fusarium verticillioides, indicating a clear benefit to the host
     explanation: Establishes F. verticillioides as the antagonism target the SynCom suppresses.
 ecological_interactions:
-- name: Root Colonization and Community Assembly
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Enterobacter cloacae AA4
+- name: Host-Mediated Seven-Strain Root Assembly
+  description: >
+    Host-mediated selection from the maize-root microbiota produced a defined
+    seven-strain bacterial SynCom that colonizes axenic maize seedlings and
+    provides the model root ecosystem for keystone and biocontrol perturbations.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae AA4
     term:
       id: NCBITaxon:550
       label: Enterobacter cloacae
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  - preferred_term: root colonization
-    term:
-      id: GO:0044010
-      label: single-species biofilm formation
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Host Protection from Fusarium verticillioides Disease
-  description: 'E. cloacae provides Zea mays with protection from F. verticillioides-caused
-    seedling blight; the host provides E. cloacae with a root-surface habitat. The direct
-    antagonism against F. verticillioides is captured separately as a COMPETITION edge between
-    E. cloacae and the pathogen.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Enterobacter cloacae AA4
-    term:
-      id: NCBITaxon:550
-      label: Enterobacter cloacae
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus Fusarium
-      verticillioides, indicating a clear benefit to the host
-- name: Root Microbiome Assembly
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Stenotrophomonas maltophilia AA1
+  - preferred_term: Stenotrophomonas maltophilia AA1
     term:
       id: NCBITaxon:40324
       label: Stenotrophomonas maltophilia
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Rhizosphere Nutrient Cycling
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Ochrobactrum pituitosum AA2
+  - preferred_term: Ochrobactrum pituitosum AA2
     term:
       id: NCBITaxon:571256
       label: Brucella pituitosa
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Plant Growth Promotion
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Herbaspirillum frisingense
+  - preferred_term: Herbaspirillum frisingense
     term:
       id: NCBITaxon:92645
       label: Herbaspirillum frisingense
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Root Surface Colonization
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudomonas putida
+  - preferred_term: Pseudomonas putida
     term:
       id: NCBITaxon:303
       label: Pseudomonas putida
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Biofilm Formation and Root Association
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Curtobacterium pusillum
+  - preferred_term: Curtobacterium pusillum
     term:
       id: NCBITaxon:69373
       label: Curtobacterium pusillum
-  target_taxon:
-    preferred_term: Zea mays
-    term:
-      id: NCBITaxon:4577
-      label: Zea mays
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: In this work, from the distinctive microbiota assembled by maize roots, through host-mediated
-      selection, we obtained a greatly simplified synthetic bacterial community consisting of seven strains
-      (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
-      Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
-      of the four most dominant phyla found in maize roots
-- name: Organic Matter Metabolism
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Chryseobacterium indologenes
+  - preferred_term: Chryseobacterium indologenes
     term:
       id: NCBITaxon:253
       label: Chryseobacterium indologenes
-  target_taxon:
-    preferred_term: Zea mays
+  - preferred_term: Zea mays
     term:
       id: NCBITaxon:4577
       label: Zea mays
   biological_processes:
-  - preferred_term: plant-bacterium mutualism
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: E. cloacae Keystone Control of C. pusillum Takeover
+    description: The defined seven-strain assembly enabled leave-one-out root
+      perturbations that identified E. cloacae as the member preventing collapse
+      of the assembled bacterial community.
+  - target: Seven-Strain Suppression of Fusarium
+    description: The assembled root SynCom provides the bacterial consortium
+      whose in planta and in vitro assays established F. verticillioides
+      suppression.
   evidence:
   - reference: PMID:28275097
     supports: SUPPORT
@@ -463,13 +286,14 @@ ecological_interactions:
       (Enterobacter cloacae, Stenotrophomonas maltophilia, Ochrobactrum pituitosum, Herbaspirillum frisingense,
       Pseudomonas putida, Curtobacterium pusillum, and Chryseobacterium indologenes) representing three
       of the four most dominant phyla found in maize roots
-- name: Antifungal Biocontrol of Fusarium verticillioides
-  description: 'The 7-member SynCom directly antagonizes the phytopathogenic fungus Fusarium
-    verticillioides — both in planta and in vitro — providing biocontrol against maize seedling blight.
-    E. cloacae is the most effective individual antagonist; the consortium as a whole acts as a
-    community-level biocontrol agent. This is the defining biocontrol mechanism of the community.
-
-    '
+    explanation: Names the seven host-selected bacterial members that make up the simplified
+      maize-root SynCom.
+- name: E. cloacae Keystone Control of C. pusillum Takeover
+  description: >
+    Removing Enterobacter cloacae from the maize-root SynCom caused collapse of
+    the bacterial community and takeover by Curtobacterium pusillum, identifying
+    E. cloacae as the keystone member that stabilizes the root-associated
+    consortium.
   interaction_type: COMPETITION
   scope: PAIRWISE
   source_taxon:
@@ -478,7 +302,66 @@ ecological_interactions:
       id: NCBITaxon:550
       label: Enterobacter cloacae
   target_taxon:
-    preferred_term: Fusarium verticillioides
+    preferred_term: Curtobacterium pusillum
+    term:
+      id: NCBITaxon:69373
+      label: Curtobacterium pusillum
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Only the removal of E. cloacae led to the complete loss of the community, and C. pusillum
+      took over
+    explanation: Supports E. cloacae as the keystone member that prevents C. pusillum
+      takeover on maize roots.
+  - reference: PMID:28275097
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
+      ecosystem
+    explanation: Names E. cloacae as the model ecosystem's keystone species.
+- name: Seven-Strain Suppression of Fusarium
+  description: >
+    The assembled seven-species maize-root community inhibited the fungal
+    pathogen Fusarium verticillioides in planta and in vitro, giving the
+    simplified root microbiome a biocontrol effect that benefits the maize host.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae AA4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  - preferred_term: Stenotrophomonas maltophilia AA1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Ochrobactrum pituitosum AA2
+    term:
+      id: NCBITaxon:571256
+      label: Brucella pituitosa
+  - preferred_term: Herbaspirillum frisingense
+    term:
+      id: NCBITaxon:92645
+      label: Herbaspirillum frisingense
+  - preferred_term: Pseudomonas putida
+    term:
+      id: NCBITaxon:303
+      label: Pseudomonas putida
+  - preferred_term: Curtobacterium pusillum
+    term:
+      id: NCBITaxon:69373
+      label: Curtobacterium pusillum
+  - preferred_term: Chryseobacterium indologenes
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
+  - preferred_term: Fusarium verticillioides
     term:
       id: NCBITaxon:117187
       label: Fusarium verticillioides
@@ -493,76 +376,8 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
       Fusarium verticillioides, indicating a clear benefit to the host
-    explanation: Establishes E. cloacae-led community antagonism against F. verticillioides as the
-      biocontrol mechanism of the SynCom.
-- name: Keystone Stabilization Against Curtobacterium pusillum Takeover
-  description: 'E. cloacae is the keystone species of the consortium — its presence prevents
-    Curtobacterium pusillum from out-competing the rest of the community on maize roots. Removal of
-    E. cloacae causes complete community collapse with C. pusillum dominating, while removal of any
-    other member leaves the community intact. The takeover is host-dependent (does NOT occur on
-    axenic MS agar without maize seedlings), evidencing a host-conditioned keystone effect rather
-    than a direct in-vitro competitive interaction.
-
-    '
-  interaction_type: COMPETITION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Enterobacter cloacae AA4
-    term:
-      id: NCBITaxon:550
-      label: Enterobacter cloacae
-  target_taxon:
-    preferred_term: Curtobacterium pusillum
-    term:
-      id: NCBITaxon:69373
-      label: Curtobacterium pusillum
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Only the removal of E. cloacae led to the complete loss of the community, and C. pusillum
-      took over
-    explanation: Establishes the keystone-effect interaction — E. cloacae suppresses C. pusillum
-      takeover and thereby stabilizes community composition.
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
-      ecosystem
-    explanation: Names the interaction as a keystone effect.
-- name: Community-Level Biocontrol and Keystone Maintenance
-  description: 'Community-wide emergent phenomenon — the 7-member assembly reproducibly self-organizes
-    on maize roots and exerts biocontrol against F. verticillioides only when E. cloacae is present.
-    This combines the keystone effect with the biocontrol outcome as a community-level property
-    rather than a pairwise source/target edge.
-
-    '
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
-  - preferred_term: symbiotic process
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: In planta and in vitro, this model community inhibited the phytopathogenic fungus
-      Fusarium verticillioides, indicating a clear benefit to the host
-    explanation: Frames F. verticillioides suppression as a community-level emergent property of the
-      assembled 7-member consortium.
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: This result suggests that E. cloacae plays the role of keystone species in this model
-      ecosystem
-    explanation: Frames the keystone effect as inseparable from the community-level biocontrol
-      function — both depend on E. cloacae's presence.
+    explanation: Supports F. verticillioides suppression as the SynCom's fungal
+      biocontrol phenotype.
 environmental_factors:
 - name: Target pathogen
   value: Fusarium verticillioides
@@ -586,52 +401,50 @@ growth_media:
     on 0.1x TSA / tryptic soy broth)
   temperature: '30'
   temperature_unit: °C
-  ph: '6.0'
   light_regime: 16 h light (day) / 8 h dark (night)
   inoculum_source: Maize root-derived bacterial isolates obtained by host-mediated selection
-  vessel_type: Glass test tube (16 x 150 mm) double-tube gnotobiotic chamber (root assembly);
-    9-cm Petri dish (seed germination); pots in a plant growth chamber (soil-grown plants)
+  vessel_type: Glass test tube (16 x 150 mm) double-tube gnotobiotic chamber for
+    gnotobiotic root assembly
   preparation_notes: 'Community members were streaked on 0.1x TSA plates (30 °C, 24-48 h)
     and precultured in tryptic soy broth (TSB) shaken at 30 °C before inoculation. The
     simplified synthetic community was assembled on the roots of axenic maize seedlings
-    grown in sterile 1/2 MS agar [0.8% (wt/vol), pH adjusted to 6.0 to simulate soil pH]
+    grown in sterile 1/2 MS agar [0.8% (wt/vol)]
     within double-tube gnotobiotic chambers. Surface-sterilized seeds were germinated at
-    30 °C in the dark for ~50-55 h. Soil-grown plants were kept in a plant growth chamber
-    at 25 °C with 54% relative humidity under a 16 h light / 8 h dark cycle.'
+    30 °C before bacterial inoculation. Inoculated seedlings were kept at 25 °C with
+    54% relative humidity under a 16 h light / 8 h dark cycle.'
   evidence:
-  - reference: PMID:28275097
+  - reference: doi:10.21769/BioProtoc.2885
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The bacterial strains for inoculation were streaked on 0.1× TSA plates and incubated
-      at 30 °C for 24–48 h. Then, a single colony of each strain was inoculated in 5 mL of
-      tryptic soy broth (TSB) and shaken at 30 °C overnight.
-    explanation: Bacterial member preculture medium (0.1x TSA / TSB) and incubation temperature
+    snippet: Streak the seven bacterial strains ( Stenotrophomonas maltophilia ZK5342,
+      Ochrobactrum pituitosum ZK5343, Curtobacterium pusillum ZK5344, Enterobacter cloacae
+      ZK5345, Chryseobacterium indologenes ZK5346, Herbaspirillum frisingense ZK5347 and
+      Pseudomonas putida ZK5348) on 0.1x TSA plates and incubate at 30 °C for 24-48 h.
+    explanation: Bacterial member preculture medium (0.1x TSA) and incubation temperature
       (30 °C).
-  - reference: PMID:28275097
+  - reference: doi:10.21769/BioProtoc.2885
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: the resulting seedlings were grown in sterile 1/2 Murashige and Skoog (MS) agar
-      [0.8% (wt/vol)] (adjusting the pH to 6.0 to simulate the pH of soil
-    explanation: MS agar cultivation substrate and pH (6.0) for the gnotobiotic root-assembly
-      system.
-  - reference: PMID:28275097
+    snippet: Inoculate a single colony of each strain in 5 ml of tryptic soy broth (TSB)
+      and shake at 120 rpm at 30 °C overnight.
+    explanation: Tryptic soy broth preculture and incubation temperature (30 °C).
+  - reference: doi:10.21769/BioProtoc.2885
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A seed inoculated with bacteria was put into a glass test tube (16 × 150 mm) containing
-      20 mL of 1/2 MS agar
+    snippet: After an incubation of 50 to 55 h in total, choose the germinated maize seeds
+      (Figure 1C) with a root of 1-2 cm for the following steps.
+    explanation: Seed germination stage preceding community inoculation.
+  - reference: doi:10.21769/BioProtoc.2885
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Transfer the maize seeds adhered by bacteria and sterile seeds onto 20 ml ½ Murashige
+      and Skoog (MS) agar (0.8%) in glass tubes (16 x 150 mm) by sterile forceps.
     explanation: Double-tube gnotobiotic chamber vessel used to grow the axenic maize seedlings
       on which the community assembles.
-  - reference: PMID:28275097
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 10 seeds, embryo side up, were placed in a Perti dish (9-cm diameter) filled with
-      7 mL of sterile water and incubated at 30 °C in the dark until the seeds germinated (usually
-      after 50–55 h).
-    explanation: Seed germination conditions (30 °C, dark, ~50-55 h) preceding community inoculation.
-  - reference: PMID:28275097
+  - reference: doi:10.21769/BioProtoc.2885
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: 'the pots were placed in a plant growth chamber under the following conditions:
-      16 h of light (day) and 8 h of dark (night), 25 °C, and a relative humidity of 54%.'
+    snippet: '16 h of light (day) and 8 h of dark (night), 4 ,000 lx, 25 °C and a relative
+      humidity of 54%.'
     explanation: Plant (Zea mays) growth chamber photoperiod, temperature, and humidity for
-      soil-grown host plants.
+      axenic host seedlings.

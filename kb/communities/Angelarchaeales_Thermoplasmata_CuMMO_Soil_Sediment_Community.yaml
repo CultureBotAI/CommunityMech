@@ -63,11 +63,24 @@ taxonomy:
 ecological_interactions:
 - name: Archaeal CuMMO-Driven Aerobic Oxidation
   description: Angelarchaeales encode divergent CuMMOs structurally similar to
-    Nitrososphaerales ammonia monooxygenases, suggesting an aerobic oxidation
-    role in soils and sediments. Substrate specificity is not resolved in the
-    abstract.
-  interaction_type: COMMENSALISM
+    Nitrososphaerales ammonia monooxygenases. The article's genomic and
+    structural analyses support CuMMO activity but do not conclusively determine
+    the exact substrate specificity.
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  downstream:
+  - target: CuMMO-Heterotrophic Metabolic Context
+    description: Conserved CuMMO catalytic residues provide the monooxygenase
+      component of the broader Angelarchaeales metabolic context.
   evidence:
   - reference: PMID:34987183
     supports: SUPPORT
@@ -75,13 +88,28 @@ ecological_interactions:
     snippet: The CuMMO proteins in Ca. Angelarchaeales are more similar in
       structure to those in Nitrososphaerales than those of bacteria
     explanation: Supports the structural similarity to Nitrososphaerales CuMMOs.
+  - reference: PMID:34987183
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: contain all functional residues required for general monooxygenase
+      activity
+    explanation: Supports curation of monooxygenase activity while leaving the
+      exact substrate unresolved.
 - name: Blue Copper Protein Electron Transport Repertoire
   description: Angelarchaeales genomes are enriched in blue copper proteins
     including plastocyanin-like electron carriers and divergent nitrite
     reductase-like (nirK) 2-domain cupredoxin proteins co-located with
     electron-transport machinery.
-  interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: CuMMO-Heterotrophic Metabolic Context
+    description: Blue copper proteins and related carriers place
+      Angelarchaeales CuMMOs in an electron-transport genomic context.
   evidence:
   - reference: PMID:34987183
     supports: SUPPORT
@@ -89,11 +117,17 @@ ecological_interactions:
     snippet: significantly enriched in blue copper proteins (BCPs) relative to
       sibling lineages
     explanation: Supports the BCP enrichment within Angelarchaeales.
+  - reference: PMID:34987183
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: share numerous electron transport mechanisms with the
+      Nitrososphaerales
+    explanation: Supports the shared archaeal electron transport machinery
+      surrounding the CuMMO inference.
 - name: Peptide and Amino Acid Heterotrophy
   description: Angelarchaeales encode significant capacity for peptide and
     amino-acid uptake and degradation, suggesting heterotrophic contributions
     to soil and sediment carbon cycling.
-  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: amino acid
@@ -105,12 +139,68 @@ ecological_interactions:
     term:
       id: GO:0009063
       label: amino acid catabolic process
+  downstream:
+  - target: CuMMO-Heterotrophic Metabolic Context
+    description: Peptide and amino-acid uptake/degradation capacity provides
+      the heterotrophic side of the same Angelarchaeales genomic context.
   evidence:
   - reference: PMID:34987183
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: significant capacity for peptide/amino acid uptake and degradation
     explanation: Supports the peptide and amino acid metabolic repertoire.
+- name: CuMMO-Heterotrophic Metabolic Context
+  description: Angelarchaeales genomes combine divergent CuMMO loci with
+    blue-copper-protein/electron-transport machinery and peptide or amino-acid
+    uptake and degradation genes, supporting a metabolic context for aerobic
+    oxidation plus heterotrophic nutrient use in soils and sediments.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  - preferred_term: cellular amino acid catabolic process
+    term:
+      id: GO:0009063
+      label: amino acid catabolic process
+  downstream:
+  - target: Angelarchaeales Biogeochemical Cycling Potential
+    description: The combined CuMMO and surrounding metabolic repertoire
+      positions Ca. Angelarchaeales as candidate contributors to nitrogen and/or
+      carbon cycling in the source soil and aquifer-sediment ecosystems.
+  evidence:
+  - reference: PMID:34987183
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Ca. Angelarchaeales also encode significant capacity for
+      peptide/amino acid uptake and degradation and share numerous electron
+      transport mechanisms with the Nitrososphaerales
+    explanation: Supports combined heterotrophic and electron-transport
+      capacity in Angelarchaeales genomes.
+- name: Angelarchaeales Biogeochemical Cycling Potential
+  description: By extending archaeal CuMMOs beyond Nitrososphaerales, the
+    Angelarchaeales genomes reveal previously unaccounted candidate contributors
+    to nitrogen and/or carbon cycling in terrestrial soils and aquifer
+    sediments.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  evidence:
+  - reference: PMID:34987183
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: suggests previously unaccounted organisms contribute to critical
+      global nitrogen and/or carbon cycling functions
+    explanation: Supports the inferred biogeochemical relevance of divergent
+      CuMMO-encoding Angelarchaeales.
 environmental_factors:
 - name: Source environment
   value: grassland and hillslope soils plus aquifer sediments

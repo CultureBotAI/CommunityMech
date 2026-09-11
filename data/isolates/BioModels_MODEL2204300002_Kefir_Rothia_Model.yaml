@@ -2,16 +2,20 @@ id: CommunityMech:000321
 name: BioModels MODEL2204300002 Kefir Rothia Model
 description: >-
   BioModels record MODEL2204300002 contains a genome-scale metabolic model for Rothia
-  kefirresidentii KRP, a kefir-associated species used in kefir community interaction modeling.
+  kefirresidentii KRP, a kefir-grain isolate whose genome was used in kefir community
+  amino-acid flux modeling.
 ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: BIOTECHNOLOGY
 engineering_design:
-  objective: BioModels record MODEL2204300002 contains a genome-scale metabolic model for Rothia kefirresidentii KRP, a kefir-associated species used in kefir community interaction modeling.
+  objective: BioModels record MODEL2204300002 contains a genome-scale metabolic model for Rothia kefirresidentii KRP, a kefir-grain isolate used in kefir community amino-acid flux modeling.
   assembly_strategy: Engineered single-member platform represented in community schema for interoperability with multi-member systems.
   measurement_endpoints:
-  - Member-level abundance and persistence tracking
-  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters when available.
+  - Genome-scale metabolic model reconstruction
+  - Flux balance analysis of amino-acid uptake and secretion
+  notes: >-
+    BioModels single-member genome-scale metabolic model represented in the community
+    schema for interoperability with multi-member systems.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
@@ -24,6 +28,11 @@ environment_term:
     id: ENVO:01001405
     label: laboratory environment
   notes: Model context is kefir-associated community interaction analysis.
+modeled_environment:
+- preferred_term: dairy
+  term:
+    id: ENVO:00003862
+    label: dairy
 taxonomy:
 - taxon_term:
     preferred_term: Rothia kefirresidentii KRP
@@ -41,10 +50,143 @@ taxonomy:
       total_genomes: 1075
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >-
+      Strain KRP, internal stock code 156, was isolated from ground kefir grains
+      on GAM agar at 30 degrees C. Its draft whole-genome assembly was deposited as
+      NDFM00000000 and reported as 2,522,693 bp with 58.47% GC.
   strain_designation:
     strain_name: KRP
-  functional_role:
-  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rothia kefirresidentii KRP, and Streptococcus kefirresidentii YK, isolated
+      from kefir grains collected from private sources in Germany
+    explanation: Identifies Rothia kefirresidentii KRP as a kefir-grain isolate.
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: NDFM00000000 for R. kefirresidentii KRP
+    explanation: Reports the DDBJ/ENA/GenBank whole-genome shotgun accession for strain KRP.
+ecological_interactions:
+- name: Rothia KRP GAM Agar Isolation
+  description: >-
+    Rothia kefirresidentii KRP was recovered from ground kefir grains after serial
+    dilution and two days of growth on GAM agar at 30 degrees C. That isolate is
+    the biological input for the genome sequencing and model-building steps
+    represented downstream.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rothia kefirresidentii KRP
+    term:
+      id: NCBITaxon:32207
+      label: Rothia <high G+C Gram-positive bacteria>
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Rothia KRP Whole-Genome Assembly
+    description: The cultured KRP isolate supplied genomic DNA for draft genome sequencing.
+  evidence:
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. kefirresidentii KRP (ISC 156) was isolated from ground kefir grains, plated
+      in serial dilutions on GAM agar and grown for 2 days at 30°C
+    explanation: Establishes the strain code and the GAM agar isolation condition for KRP.
+- name: Rothia KRP Whole-Genome Assembly
+  description: >-
+    Genome sequencing and assembly of the Rothia KRP isolate produced an 81-contig
+    draft genome of 2,522,693 bp with 58.47% GC, then deposited the assembly at
+    DDBJ/ENA/GenBank under accession NDFM00000000. The accession ties the recovered
+    isolate to the genome-scale reconstruction archived in BioModels.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rothia kefirresidentii KRP
+    term:
+      id: NCBITaxon:32207
+      label: Rothia <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: deoxyribonucleic acid
+    term:
+      id: CHEBI:16991
+      label: deoxyribonucleic acid
+  downstream:
+  - target: Rothia KRP Genome-Scale Amino-Acid Flux Model
+    description: The deposited KRP genome supported strain-specific metabolic reconstruction.
+  evidence:
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The draft genome sizes are 5,057,314 bp (GC content, 45.62%) for
+      B. kefirresidentii Opo, 2,522,693 bp (GC content, 58.47%) for
+      R. kefirresidentii KRP
+    explanation: Reports the Rothia KRP draft genome size and GC content.
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: NDFM00000000 for R. kefirresidentii KRP
+    explanation: Reports the DDBJ/ENA/GenBank accession for the KRP WGS assembly.
+- name: Rothia KRP Genome-Scale Amino-Acid Flux Model
+  description: >-
+    The Blasche kefir workflow reconstructed bacterial genome-scale metabolic
+    models with CarveMe and used flux balance analysis to simulate expected
+    amino-acid uptake and secretion rates through fermentation time. BioModels
+    MODEL2204300002 archives the Rothia kefirresidentii KRP SBML model from that
+    workflow.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rothia kefirresidentii KRP
+    term:
+      id: NCBITaxon:32207
+      label: Rothia <high G+C Gram-positive bacteria>
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  biological_processes:
+  - preferred_term: amino acid metabolic process
+    term:
+      id: GO:0006520
+      label: amino acid metabolic process
+  - preferred_term: amino acid transport
+    term:
+      id: GO:0006865
+      label: amino acid transport
+  evidence:
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genome-scale metabolic models were reconstructed for all bacterial species
+    explanation: Supports reconstruction of bacterial kefir genome-scale metabolic models.
+    computational_provenance:
+      prediction_type: GENOME_SCALE_METABOLIC_MODEL
+      tools:
+      - tool_name: CarveMe
+        role: draft genome-scale metabolic model reconstruction
+      model_name: MODEL2204300002
+      model_source: Rothia kefirresidentii KRP genome-scale metabolic model
+      input_accession: NDFM00000000
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The models were used to simulate the expected uptake/secretion rates of amino
+      acids using flux balance analysis
+    explanation: Supports the FBA step that predicted amino-acid exchange potential.
+    computational_provenance:
+      prediction_type: FLUX_BALANCE_ANALYSIS
+      tools:
+      - tool_name: CarveMe
+        role: draft genome-scale metabolic model reconstruction
+      - tool_name: Flux Balance Analysis (FBA)
+        role: expected amino-acid uptake/secretion simulation
+      model_name: MODEL2204300002
+      model_source: Rothia kefirresidentii KRP genome-scale metabolic model
+      input_accession: NDFM00000000
+      simulated_medium: kefir fermentation amino-acid balance
 associated_datasets:
 - title: BioModels model file
   dataset_type: OTHER
@@ -58,6 +200,30 @@ associated_datasets:
   accession: doi:10.1038/s41564-020-00816-5
   url: https://doi.org/10.1038/s41564-020-00816-5
   description: Publication associated with kefir microbial interaction modeling.
+- title: Rothia kefirresidentii KRP WGS assembly
+  dataset_type: OTHER
+  repository: OTHER
+  accession: NDFM00000000
+  url: https://www.ncbi.nlm.nih.gov/nuccore/NDFM00000000
+  description: DDBJ/ENA/GenBank whole-genome shotgun accession for the KRP draft genome.
+growth_media:
+- name: Gifu anaerobic medium agar
+  temperature: '30'
+  temperature_unit: °C
+  incubation_time: '2'
+  incubation_time_unit: d
+  inoculum_source: ground kefir grains
+  vessel_type: GAM agar plate
+  preparation_notes: >-
+    Rothia kefirresidentii KRP (ISC 156) was isolated from ground kefir grains by
+    serial dilution on GAM agar and grown for 2 days at 30 degrees C.
+  evidence:
+  - reference: PMID:28963201
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. kefirresidentii KRP (ISC 156) was isolated from ground kefir grains, plated
+      in serial dilutions on GAM agar and grown for 2 days at 30°C
+    explanation: Names the isolation medium, temperature, and duration used for the Rothia KRP isolate.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS

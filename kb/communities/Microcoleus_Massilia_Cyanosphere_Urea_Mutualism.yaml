@@ -27,8 +27,10 @@ engineering_design:
   - reference: PMID:32968213
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We were able to recreate the C for N resource trading relationship previously proposed
-    explanation: Supports the coculture design as an in vitro reconstruction of a cyanosphere carbon-for-nitrogen mutualism.
+    snippet: We provide evidence for this by establishing such a symbiosis in culture and by showing
+      that it is selective and dependent on nitrogen availability
+    explanation: Supports the coculture design as an in vitro reconstruction of a selective cyanosphere
+      symbiosis.
 environment_term:
   preferred_term: soil biocrust
   term:
@@ -91,14 +93,8 @@ taxonomy:
     isolation_source: Microcoleus vaginatus cyanosphere in biological soil crust.
   abundance_level: COMMON
   functional_role:
-  - SYNTROPHIC_PARTNER
   - CROSS_FEEDER
   evidence:
-  - reference: PMID:32968213
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Massilia sp. METH4
-    explanation: Supports Massilia sp. METH4 as one of the cyanosphere-associated heterotrophic isolates tested with M. vaginatus.
   - reference: doi:10.1093/ismejo/wrae246
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -110,6 +106,7 @@ ecological_interactions:
     nitrogen-limited conditions, with cyanobacterial photosynthate supporting the heterotroph and heterotrophic
     nitrogen acquisition supporting cyanobacterial growth.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Microcoleus vaginatus PCC 9802
     term:
@@ -139,18 +136,15 @@ ecological_interactions:
   - reference: PMID:32968213
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: allowing for copious growth of both partners under nitrogen-free, organic C-free conditions
+    snippet: Co-culturing of pedigreed cyanosphere diazotroph isolates with axenic M. vaginatus resulted
+      in copious growth in C and N-free medium
     explanation: Supports mutualistic growth when neither partner has external organic carbon or fixed nitrogen.
-  - reference: PMID:32968213
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: indicating that M. vaginatus was the source of organic carbon needed to complete the C for N mutualism
-    explanation: Supports the direction of carbon transfer from M. vaginatus to the heterotrophic partner.
 - name: Urea-Mediated Nitrogen Transfer
   description: In the M. vaginatus PCC 9802-Massilia sp. METH4 coculture, Massilia upregulates urea-biosynthesis
     functions while M. vaginatus upregulates urea uptake and urea carboxylase/allophanate hydrolase functions,
     supporting urea as the nitrogen-transfer vehicle.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Massilia sp. METH4
     term:
@@ -175,6 +169,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Carbon-for-Nitrogen Resource Trading
+    description: >
+      Massilia urea release supplies the low-concentration nitrogen vehicle that completes the
+      M. vaginatus carbon-for-nitrogen exchange with its heterotrophic partner.
   evidence:
   - reference: doi:10.1093/ismejo/wrae246
     supports: SUPPORT
@@ -191,6 +190,7 @@ ecological_interactions:
     signals that modulate M. vaginatus motility and bundle formation, optimizing close spatial organization
     for the mutualism.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Massilia sp. METH4
     term:
@@ -221,6 +221,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Carbon-for-Nitrogen Resource Trading
+    description: >
+      GABA and glutamate signaling spatially organizes Massilia near nitrogen-starved M. vaginatus,
+      concentrating diazotrophic cyanosphere partners where they can optimize carbon-for-nitrogen
+      exchange.
   evidence:
   - reference: doi:10.1093/ismejo/wrad029
     supports: SUPPORT
@@ -241,7 +247,8 @@ environmental_factors:
   - reference: PMID:32968213
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: nitrogen-deplete (N−), carbon-free medium solid plates
+    snippet: Co-culturing of pedigreed cyanosphere diazotroph isolates with axenic M. vaginatus resulted
+      in copious growth in C and N-free medium
     explanation: Supports carbon and nitrogen limitation as the coculture condition used for mutualism assays.
 - name: urea availability
   value: low micromolar urea range tested as nitrogen source and transfer vehicle
@@ -285,20 +292,20 @@ growth_media:
     snippet: The heterotrophic mutualists Arthrobacter sp. O80, Bacillus sp. O64, and Massilia sp. METH4, originally isolated from the cyanosphere of M. vaginatus
     explanation: Supports the heterotrophic cyanosphere isolate source and maintenance context for Massilia sp. METH4.
 associated_datasets:
-- title: Exact-composition publication - Microcoleus vaginatus PCC 9802 and Massilia sp. METH4 nutrient exchange
+- title: Carbon-for-nitrogen cyanosphere nutrient-exchange publication
   dataset_type: PHENOTYPE
   repository: OTHER
   accession: PMID:32968213
   url: https://pubmed.ncbi.nlm.nih.gov/32968213/
-  description: Primary publication establishing selective in vitro carbon-for-nitrogen exchange between M.
-    vaginatus PCC 9802 and cyanosphere isolates including the exact M. vaginatus PCC 9802-Massilia sp.
-    METH4 pair.
+  description: Primary publication establishing selective in vitro carbon-for-nitrogen exchange between
+    M. vaginatus and pedigreed cyanosphere diazotroph isolates.
   evidence:
   - reference: PMID:32968213
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Massilia sp. METH4
-    explanation: Lists a publication using the exact M. vaginatus PCC 9802 and Massilia sp. METH4 pair.
+    snippet: Co-culturing of pedigreed cyanosphere diazotroph isolates with axenic M. vaginatus resulted
+      in copious growth in C and N-free medium
+    explanation: Lists a publication that reconstituted a carbon-for-nitrogen cyanosphere nutrient exchange in culture.
 - title: Exact-composition publication - Microcoleus vaginatus PCC 9802 and Massilia sp. METH4 GABA/Glu signaling
   dataset_type: PHENOTYPE
   repository: OTHER

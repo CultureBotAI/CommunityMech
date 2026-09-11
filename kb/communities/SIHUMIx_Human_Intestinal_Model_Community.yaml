@@ -319,6 +319,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: BP5-Linked Blautia Metabolite Exchange
+    description: Community-only sProtein expression included BP5, whose adjacent
+      enzymes were predicted to modulate metabolite exchanges between Blautia
+      producta and the other SIHUMIx members.
   evidence:
   - reference: PMID:33622394
     supports: SUPPORT
@@ -330,6 +335,47 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Two of these novel sProteins have a potential antimicrobial function
     explanation: Supports potential interaction-relevant antimicrobial functions.
+- name: BP5-Linked Blautia Metabolite Exchange
+  description: Metabolic modelling connected the community-only B. producta
+    sProtein BP5 to neighboring valine-biosynthesis and TCA-cycle reactions that
+    modulate B. producta metabolite exchange with other SIHUMIx strains, including
+    acetate production, ATP-from-AMP production, choline uptake, and betaine
+    production.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: choline
+    term:
+      id: CHEBI:15354
+      label: choline
+  biological_processes:
+  - preferred_term: gene expression
+    term:
+      id: GO:0010467
+      label: gene expression
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Anaerobic Fermentation and Short-Chain Fatty Acid Output
+    description: BP5-neighboring reactions were predicted to alter B. producta
+      acetate production for other members, connecting community-specific protein
+      expression to SIHUMIx short-chain-fatty-acid output.
+  evidence:
+  - reference: PMID:33622394
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: An in silico knockout of (R)-2,3-dihydroxy-3-methylbutanoate hydrolyase which is
+      in close genomic neighborhood to BP5 and catalyzes the second-to-last step in valine
+      biosynthesis, led to a reduced metabolite production and concurrently increased metabolite
+      consumption by B. producta for the SIHUMIx community members.
+    explanation: Supports BP5-neighborhood modelling as a predicted mediator of
+      B. producta metabolite exchange with the SIHUMIx community.
 cultivation_setup:
 - cultivation_mode: CHEMOSTAT
   system_type: BIOREACTOR_UNSPECIFIED

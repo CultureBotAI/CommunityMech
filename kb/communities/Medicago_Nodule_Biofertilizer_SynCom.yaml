@@ -34,7 +34,67 @@ environment_term:
   notes: Estuarine soils inoculated with Medicago nodule-derived bacteria.
 taxonomy:
 - taxon_term:
-    preferred_term: Ensifer sp.
+    preferred_term: Pseudomonas sp. N4
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: N4
+    isolation_source: Medicago spp. nodule
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was made up of four strains: Pseudomonas sp. N4,
+      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
+    explanation: Identifies Pseudomonas sp. N4 as a member of the four-strain
+      nodule SynCom.
+- taxon_term:
+    preferred_term: Pseudomonas sp. N8
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: N8
+    isolation_source: Medicago spp. nodule
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was made up of four strains: Pseudomonas sp. N4,
+      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
+    explanation: Identifies Pseudomonas sp. N8 as a member of the four-strain
+      nodule SynCom.
+- taxon_term:
+    preferred_term: Ensifer sp. N10
     term:
       id: NCBITaxon:106591
       label: Ensifer
@@ -42,27 +102,176 @@ taxonomy:
     gtdb_candidates:
     - GTDB:g__Ensifer
     - GTDB:g__Sinorhizobium
+  strain_designation:
+    strain_name: N10
+    isolation_source: Medicago spp. nodule
   functional_role:
-  - CROSS_FEEDER
+  - NITROGEN_FIXING_SYMBIONT
   evidence:
-  - *id001
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was made up of four strains: Pseudomonas sp. N4,
+      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
+    explanation: Identifies Ensifer sp. N10 as a member of the four-strain
+      nodule SynCom.
 - taxon_term:
-    preferred_term: Pseudomonas sp.
+    preferred_term: Ensifer sp. N12
     term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-    gtdb_grounding_status: UNRESOLVED
+      id: NCBITaxon:106591
+      label: Ensifer
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:g__Ensifer
+    - GTDB:g__Sinorhizobium
+  strain_designation:
+    strain_name: N12
+    isolation_source: Medicago spp. nodule
   functional_role:
-  - CROSS_FEEDER
+  - NITROGEN_FIXING_SYMBIONT
   evidence:
-  - *id001
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was made up of four strains: Pseudomonas sp. N4,
+      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
+    explanation: Identifies Ensifer sp. N12 as a member of the four-strain
+      nodule SynCom.
 ecological_interactions:
-- name: Legume Nodule Biofertilization
-  description: Nodule endophytes support growth and nodulation under abiotic stress.
+- name: Four-Strain Nodule PGP Trait Retention
+  description: >
+    Pseudomonas sp. N4, Pseudomonas sp. N8, Ensifer sp. N10, and Ensifer sp.
+    N12 retained a stress-tolerant PGP trait set, including phosphate
+    solubilization, IAA production, ACC deaminase activity, biofilm formation,
+    pectinase activity, salt and PEG tolerance, and growth at at least 40
+    degrees Celsius.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. N4
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. N8
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Ensifer sp. N10
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  - preferred_term: Ensifer sp. N12
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
+  downstream:
+  - target: Abiotic-Stress Antioxidant Protection
+    description: The stress-tolerant PGP endophyte SynCom induced antioxidant
+      enzyme activities that protected M. sativa during abiotic stress.
+  evidence:
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was made up of four strains: Pseudomonas sp. N4,
+      Pseudomonas sp. N8, Ensifer sp. N10 and Ensifer sp. N12
+    explanation: Names the four strains whose stress-tolerant PGP traits were
+      assayed.
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All strains maintained the PGP properties in absence of metals
+    explanation: Supports retention of plant-growth-promoting traits by the
+      selected nodule endophytes.
+- name: Abiotic-Stress Antioxidant Protection
+  description: >
+    The Pseudomonas-Ensifer SynCom increased M. sativa antioxidant enzymatic
+    activities across metal, salt, drought, and heat treatments, providing a
+    common plant-protection mechanism under abiotic stress.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: reactive oxygen species
+    term:
+      id: CHEBI:26523
+      label: reactive oxygen species
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Legume Nodule Biofertilization
+    description: Antioxidant enzyme activation is the shared protective
+      mechanism associated with improved M. sativa growth and nodulation under
+      each abiotic stress.
+  evidence:
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The increase in plant antioxidant enzymatic activities seems to be a common and
+      important mechanism of plant protection induced by the SynCom
+    explanation: Supports antioxidant enzyme activation as a shared mechanism of
+      SynCom-induced plant protection under abiotic stress.
+- name: Legume Nodule Biofertilization
+  description: >
+    The four-strain Pseudomonas-Ensifer SynCom increased M. sativa biomass,
+    nodulation, photosynthesis, and nitrogen content in stressed estuarine
+    soils.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. N4
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Pseudomonas sp. N8
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Ensifer sp. N10
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  - preferred_term: Ensifer sp. N12
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  metabolites:
+  - preferred_term: dinitrogen
+    term:
+      id: CHEBI:17997
+      label: dinitrogen
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: nodulation
+    term:
+      id: GO:0009877
+      label: nodulation
   evidence:
   - *id001
+  - reference: PMID:37299063
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: nodulation (from 1.5- to 3-fold increase in nodules number), photosynthesis and
+      nitrogen content (up to 4-fold under metal stress)
+    explanation: Links the Ensifer-containing SynCom to increased nodulation and plant
+      nitrogen content in pot assays.
 environmental_factors:
 - name: defined synthetic community design
   value: Two Ensifer and two Pseudomonas strains isolated from Medicago nodules were assembled as a SynCom.

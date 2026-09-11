@@ -261,28 +261,24 @@ taxonomy:
       id: NCBITaxon:33075
       label: Acidobacterium capsulatum
     gtdb_grounding_status: UNRESOLVED
-    notes: 'Facultative anaerobic chemoorganotrophic bacterium representing the first described member
-      of the phylum Acidobacteriota (formerly Acidobacteria). Isolated from acidic mineral environments
-      in 1991. Grows at pH 3.0-6.0 with optimum around pH 4.0-4.5. Contains menaquinone as electron carrier.
-      Degrades a wide variety of organic compounds including sugars, amino acids, alcohols, and metabolic
-      intermediates. Can utilize complex substrates such as xylan, hemicelluloses, pectin, starch, and
-      chitin. Organic acid degradation may contribute to pH homeostasis in this heterotroph. More metabolically
-      versatile than Alphaproteobacteria heterotrophs, capable of degrading complex polysaccharides that
-      are not accessible to other AMD heterotrophs. Provides important function in recycling complex organic
-      matter in AMD systems.
+    notes: 'Chemoorganotrophic acidophile representing the first recognized species in the phylum
+      Acidobacteriota (formerly Acidobacteria). Acidobacterium capsulatum was obtained from acid mine
+      drainage in Japan, and cultured type species in Acidobacteria are heterotrophic. Subdivision 1
+      acidobacteria include taxa able to use D-glucose, D-xylose, lactose, and several oligosaccharides
+      as carbon sources, grounding a carbohydrate-utilization role for Acidobacterium-lineage acidophiles
+      without requiring a measured two-member cross-feeding interaction in this AMD heterotroph guild.
 
       '
-  functional_role:
-  - CROSS_FEEDER
   abundance_level: RARE
-  abundance_value: Present in AMD with complex organic matter
+  abundance_value: AMD-derived acidobacterial chemoorganotroph
   evidence:
-  - reference: doi:10.1007/BF02106205
+  - reference: doi:10.3389/fmicb.2016.00744
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Acidobacterium is proposed as a new genus for the acidophilic, chemoorganotrophic
-      bacteria containing menaquinone isolated from acidic mineral environments
-    explanation: Establishes isolation from acidic mineral environment
+    evidence_source: REVIEW
+    snippet: The first recognized strain and species of the phylum Acidobacteria was Acidobacterium
+      capsulatum obtained from an acid mine drainage in Japan
+    explanation: Establishes Acidobacterium capsulatum as an AMD-derived acidobacterial
+      chemoorganotroph.
   - reference: doi:10.3389/fmicb.2016.00744
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -297,25 +293,30 @@ ecological_interactions:
     in AMD systems from autotrophic cell lysis, exudates, and fermentation products. Acidiphilium species,
     Ferrimicrobium acidiphilum, and Acidocella facilis consume dissolved organic carbon (DOC) that would
     otherwise inhibit autotrophic iron oxidizers like Leptospirillum and Acidithiobacillus. By removing
-    inhibitory organic compounds, heterotrophs enable autotrophs to maintain high iron oxidation rates.
-    This cross-feeding relationship is essential for community stability. The complete oxidation of organic
-    substrates by heterotrophs releases CO2 and regenerates inorganic nutrients (NH4+, PO4³⁻) that autotrophs
-    require. This creates a closed nutrient cycle where autotrophs fix CO2 and excrete organic carbon,
-    while heterotrophs consume organic carbon and release inorganic nutrients. The synergism between autotrophic
-    and heterotrophic bacteria optimizes AMD microbial community structure.
+    inhibitory organic compounds, heterotrophs help create conditions that are compatible with autotrophic
+    iron oxidation. Organic-substrate oxidation by these heterotrophs converts dissolved carbon into CO2
+    and keeps the heterotroph guild linked to iron-oxidizing primary producers at the AMD-community level.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Acidiphilium multivorum
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidiphilium multivorum
     term:
       id: NCBITaxon:62140
       label: Acidiphilium multivorum
-  target_taxon:
-    preferred_term: Ferrimicrobium acidiphilum
+  - preferred_term: Acidiphilium cryptum
+    term:
+      id: NCBITaxon:524
+      label: Acidiphilium cryptum
+  - preferred_term: Ferrimicrobium acidiphilum
     term:
       id: NCBITaxon:121039
       label: Ferrimicrobium acidiphilum
+  - preferred_term: Acidocella facilis
+    term:
+      id: NCBITaxon:525
+      label: Acidocella facilis
   metabolites:
   - preferred_term: organic molecular entity
     term:
@@ -350,17 +351,10 @@ ecological_interactions:
   - reference: doi:10.3389/fmicb.2015.00475
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Low-pH conditions appear to be the main factor underlying the limited diversity of the microbial
-      populations thriving in these environments, although temperature, ionic composition, total organic
-      carbon, and dissolved oxygen are also considered to significantly influence their microbial life
-    explanation: Documents organic carbon removal supporting autotrophs
-  - reference: doi:10.1128/msystems.00867-20
-    supports: SUPPORT
-    evidence_source: REVIEW
-    snippet: We found in the genomes of Acidiphilium an abundant repertoire of horizontally transferred
-      genes (HTGs) contributing to environmental adaption and metabolic ability expansion, as indicated
-      by phylogenetic reconstruction and gene context comparison
-    explanation: Establishes carbon cycle coupling between autotrophs and heterotrophs
+    snippet: Heterotrophs in AMD systems create suitable environments for the growth of iron-oxidizers
+      by removing organic components (lysates, exudates) that can be toxic to the primary producers
+    explanation: Supports heterotroph-level removal of organic carbon that would otherwise
+      inhibit AMD iron-oxidizing primary producers.
 - name: Ferric Iron Reduction and Ferrous Iron Regeneration
   description: 'Acidiphilium multivorum and A. cryptum couple organic carbon oxidation to ferric iron
     [Fe(III)] reduction under anaerobic or microaerobic conditions. This process generates ferrous iron
@@ -374,14 +368,14 @@ ecological_interactions:
     at low pH. This iron-carbon coupling is fundamental to AMD biogeochemistry.
 
     '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Acidiphilium multivorum
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidiphilium multivorum
     term:
       id: NCBITaxon:62140
       label: Acidiphilium multivorum
-  target_taxon:
-    preferred_term: Acidiphilium cryptum
+  - preferred_term: Acidiphilium cryptum
     term:
       id: NCBITaxon:524
       label: Acidiphilium cryptum
@@ -426,11 +420,6 @@ ecological_interactions:
       can be mediated by heterotrophic Acidiphilium species that are capable of coupling the reduction
       of Fe(III) to the complete oxidation of a large variety of substrates including glucose and H(2).
     explanation: Demonstrates Fe(III) reduction coupled to diverse organic substrates
-  - reference: doi:10.1093/femsec/49.1.137
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Iron respiration by Acidiphilium cryptum at pH 5
-    explanation: Confirms iron respiration capability
 - name: Heterotrophic Iron Oxidation by Ferrimicrobium
   description: 'Ferrimicrobium acidiphilum uniquely combines heterotrophic metabolism with iron oxidation
     capability, bridging the functional divide between heterotrophs and lithoautotrophs. This obligate
@@ -444,17 +433,13 @@ ecological_interactions:
     a convergent evolution of heterotrophy and lithotrophy in AMD environments.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Ferrimicrobium acidiphilum
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ferrimicrobium acidiphilum
     term:
       id: NCBITaxon:121039
       label: Ferrimicrobium acidiphilum
-  target_taxon:
-    preferred_term: Acidiphilium multivorum
-    term:
-      id: NCBITaxon:62140
-      label: Acidiphilium multivorum
   metabolites:
   - preferred_term: iron(2+)
     term:
@@ -480,6 +465,10 @@ ecological_interactions:
     term:
       id: GO:0019752
       label: carboxylic acid metabolic process
+  downstream:
+  - target: Ferric Iron Reduction and Ferrous Iron Regeneration
+    description: Heterotrophic Fe(II) oxidation regenerates the ferric iron pool
+      that Acidiphilium can use as an anaerobic electron acceptor.
   evidence:
   - reference: doi:10.1099/ijs.0.65409-0
     supports: SUPPORT
@@ -495,78 +484,6 @@ ecological_interactions:
       that permitted accurate optical measurements in turbid suspensions of the intact bacterium under
       physiological conditions
     explanation: Identifies rate-limiting step in iron respiration pathway
-- name: Biofilm Formation and Metal Sequestration
-  description: 'Heterotrophic acidophiles produce extracellular polymeric substances (EPS) that contribute
-    to biofilm formation and metal tolerance in AMD environments. EPS matrices contain carbohydrates,
-    proteins, DNA, lipids, and chelated metals, providing structural integrity to microbial biofilms.
-    These polymers sequester toxic metals (Cu, Zn, As, Pb) from solution, creating protective microenvironments
-    where cells experience lower metal toxicity. The negatively-charged functional groups in EPS bind
-    metal cations, preventing them from damaging cell membranes and intracellular components. Biofilm
-    formation also creates oxygen gradients and pH microniches that enable diverse metabolisms to coexist.
-    Aerobic heterotrophs (Acidocella, Acidisphaera) occupy outer biofilm layers with high oxygen availability,
-    while facultative anaerobes (Acidiphilium) thrive in deeper layers where Fe(III) reduction occurs.
-    Ferrimicrobium links these zones through its dual iron oxidation/ reduction capability. The biofilm
-    architecture maintains community spatial organization and metabolic cooperation in AMD systems.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Acidocella facilis
-    term:
-      id: NCBITaxon:525
-      label: Acidocella facilis
-  target_taxon:
-    preferred_term: Acidiphilium multivorum
-    term:
-      id: NCBITaxon:62140
-      label: Acidiphilium multivorum
-  metabolites:
-  - preferred_term: polysaccharide
-    term:
-      id: CHEBI:18154
-      label: polysaccharide
-    notes: Carbohydrate component of EPS
-  - preferred_term: protein
-    term:
-      id: CHEBI:36080
-      label: protein
-    notes: Protein component of EPS
-  - preferred_term: copper(2+)
-    term:
-      id: CHEBI:29036
-      label: copper(2+)
-    notes: Metal sequestered in EPS matrix
-  - preferred_term: zinc(2+)
-    term:
-      id: CHEBI:29105
-      label: zinc(2+)
-    notes: Metal sequestered in EPS matrix
-  biological_processes:
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  - preferred_term: extracellular matrix organization
-    term:
-      id: GO:0030198
-      label: extracellular matrix organization
-  - preferred_term: metal ion transport
-    term:
-      id: GO:0030001
-      label: metal ion transport
-  evidence:
-  - reference: doi:10.1128/aem.02301-09
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Characterization of Extracellular Polymeric Substances from Acidophilic Microbial Biofilms
-    explanation: Documents EPS composition in acidophilic biofilms
-  - reference: PMID:18330567
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: The efficiency of five extraction methods for extracellular polymeric substances (EPS) was
-      compared on three benthic eukaryotic biofilms isolated from an extreme acidic river, Río Tinto (SW,
-      Spain)
-    explanation: Establishes EPS production by acidophilic communities
 - name: Photoheterotrophic Carbon Cycling
   description: 'Acidisphaera rubrifaciens performs photoheterotrophy in surface AMD biofilms, combining
     light-harvesting with organic carbon metabolism. This bacterium produces bacteriochlorophyll a and
@@ -577,17 +494,13 @@ ecological_interactions:
     an additional energy input pathway that complements the chemotrophic metabolism of other heterotrophs.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Acidisphaera rubrifaciens
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidisphaera rubrifaciens
     term:
       id: NCBITaxon:50715
       label: Acidisphaera rubrifaciens
-  target_taxon:
-    preferred_term: Acidocella facilis
-    term:
-      id: NCBITaxon:525
-      label: Acidocella facilis
   metabolites:
   - preferred_term: organic molecular entity
     term:
@@ -603,67 +516,55 @@ ecological_interactions:
   - reference: PMID:10939661
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: On the basis of these results, it was concluded that the four isolates should be classified
-      into a new genus and a new species, for which the name Acidisphaera rubrifaciens is proposed
-    explanation: Establishes photoheterotrophic metabolism in AMD
-- name: Complex Polysaccharide Degradation
-  description: 'Acidobacterium capsulatum degrades complex organic polymers that are inaccessible to other
-    AMD heterotrophs, including xylan, hemicelluloses, pectin, starch, and chitin. This metabolically
-    versatile organism breaks down these complex substrates into simpler organic compounds (sugars, organic
-    acids) that become available for other heterotrophs. By accessing complex polysaccharide pools, A.
-    capsulatum expands the range of carbon sources available to the AMD heterotroph community. The degradation
-    products support growth of organisms like Acidiphilium and Acidocella that utilize simpler organic
-    substrates. This creates a trophic cascade where complex organic matter degraders enable subsequent
-    heterotrophic metabolism by other community members.
+    snippet: Four strains of aerobic, mesophilic, acidophilic bacteria that produced
+      bacteriochlorophyll (BChl) a were isolated from acidic hot springs and mine drainage
+    explanation: Establishes aerobic bacteriochlorophyll production by acidophilic
+      Acidisphaera-lineage isolates from acidic environments.
+- name: Acidobacterium Carbohydrate Utilization
+  description: 'Acidobacterium capsulatum anchors the acidobacterial chemoorganotrophs found in AMD.
+    Its recovery from acid mine drainage, together with cultured subdivision 1 acidobacteria that can
+    use glucose, xylose, lactose, and multiple oligosaccharides, supports an acidobacterial carbon-use
+    function in the AMD heterotroph guild. This process feeds simple sugars and oligosaccharides into
+    broader community-level organic-carbon turnover.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Acidobacterium capsulatum
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidobacterium capsulatum
     term:
       id: NCBITaxon:33075
       label: Acidobacterium capsulatum
-  target_taxon:
-    preferred_term: Acidiphilium cryptum
-    term:
-      id: NCBITaxon:524
-      label: Acidiphilium cryptum
   metabolites:
-  - preferred_term: polysaccharide
-    term:
-      id: CHEBI:18154
-      label: polysaccharide
-    notes: Complex polysaccharides degraded by A. capsulatum
   - preferred_term: glucose
     term:
       id: CHEBI:17234
       label: glucose
-    notes: Simple sugars released from polysaccharide degradation
-  - preferred_term: organic acid
+  - preferred_term: xylose
     term:
-      id: CHEBI:64709
-      label: organic acid
-    notes: Organic acids produced during complex substrate degradation
+      id: CHEBI:18222
+      label: xylose
+  - preferred_term: lactose
+    term:
+      id: CHEBI:36219
+      label: alpha-lactose
   biological_processes:
-  - preferred_term: polysaccharide catabolic process
+  - preferred_term: carbohydrate metabolic process
     term:
-      id: GO:0000272
-      label: polysaccharide catabolic process
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  downstream:
+  - target: Organic Carbon Scavenging and Remineralization
+    description: Acidobacterial carbohydrate use is part of the heterotrophic
+      organic-carbon sink in AMD.
   evidence:
-  - reference: doi:10.1007/BF02106205
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Acidobacterium is proposed as a new genus for the acidophilic, chemoorganotrophic
-      bacteria containing menaquinone isolated from acidic mineral environments
-    explanation: Establishes chemoorganotrophic metabolism
   - reference: doi:10.3389/fmicb.2016.00744
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: 'Genomic and metagenomic data predict a number of ecologically relevant capabilities for
-      some acidobacteria, including the ability to: use of nitrite as N source, respond to soil macro-,
-      micro nutrients and soil acidity, express multiple active transporters, degrade gellan gum and produce
-      exopolysaccharide (EPS)'
-    explanation: Documents polysaccharide degradation capability
+    evidence_source: REVIEW
+    snippet: At least one species of each of the eight recognized genera of subdivision 1 is able to use
+      D-glucose, D-xylose, and lactose as carbon sources
+    explanation: Supports carbohydrate use in cultured Acidobacteria subdivision 1 genera,
+      including the Acidobacterium lineage.
 environmental_factors:
 - name: pH Range
   value: 2.0-4.0
@@ -702,7 +603,7 @@ environmental_factors:
     in actively cycling AMD, while stagnant or poorly colonized sites may accumulate 100-500 mg/L. High
     DOC inhibits autotrophic iron oxidizers, making heterotrophic DOC removal essential for community
     stability. Heterotrophs utilize glucose, fructose, xylose, ethanol, glycerol, organic acids (malate,
-    citrate, succinate, fumarate), amino acids, and complex polysaccharides (xylan, cellulose, chitin).
+    citrate, succinate, fumarate), amino acids, and other simple or oligomeric carbohydrates.
     The rapid DOC turnover by heterotrophs maintains low steady-state concentrations that permit autotrophic
     activity.
 

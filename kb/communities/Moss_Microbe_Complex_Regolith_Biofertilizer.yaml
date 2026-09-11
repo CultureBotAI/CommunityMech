@@ -44,7 +44,7 @@ engineering_design:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: moss-microbe complex, composed of Hypnum plumaeforme and its associated microorganisms, as a bio-based biofertilizer
+    snippet: moss–microbe complex, composed of Hypnum plumaeforme and its associated microorganisms, as a bio-based biofertilizer
     explanation: States the design goal of testing a moss-microbe complex as a biofertilizer.
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
@@ -161,14 +161,16 @@ ecological_interactions:
     plant-microbe interactions under harsh regolith-simulant conditions.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Hypnum plumaeforme (moss host)
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: NCBITaxon:49761
-      label: Hypnum
-    notes: >
-      Source names the moss Hypnum plumaeforme; NCBI Taxonomy has the genus Hypnum but
-      not this species, so ontology grounding is genus-level.
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Moss-microbe co-treatment enhances barley growth and soil quality
+    description: >
+      Moss-buffered microbial colonization on the low-porosity Martian simulant
+      restores plant growth responses in the combined moss-microbe treatment.
   evidence:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
@@ -178,7 +180,7 @@ ecological_interactions:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: moss acts not merely as an organic input but as a key facilitator of plant-microbe interactions under harsh conditions
+    snippet: moss acts not merely as an organic input but as a key facilitator of plant–microbe interactions under harsh conditions
     explanation: Supports the moss as a facilitator of plant-microbe interactions under harsh regolith-simulant conditions.
 - name: Moss-microbe co-treatment enhances barley growth and soil quality
   description: >
@@ -187,19 +189,51 @@ ecological_interactions:
     organic matter, available phosphate, and cation exchange capacity, indicating a
     community-level synergy of the moss-microbe complex improving plant growth and soil
     functionality on the simulants.
-  interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Hordeum vulgare (barley model crop)
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: NCBITaxon:4513
-      label: Hordeum vulgare
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Moss-Microbe Rhizosphere Metabolite Accumulation
+    description: >
+      The same moss-microbe co-treatment that improved barley growth and soil
+      quality also reprogrammed the rhizosphere metabolite profile.
   evidence:
   - reference: doi:10.1016/j.ecolind.2025.114023
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: moss-microbe co-treatment significantly enhanced shoot biomass, dry weight, organic matter content, available phosphate, and cation exchange capacity
+    snippet: moss–microbe co-treatment significantly enhanced shoot biomass, dry weight, organic matter content, available phosphate, and cation exchange capacity
     explanation: Supports the community-level synergy of moss plus microbes enhancing plant growth and soil quality.
+- name: Moss-Microbe Rhizosphere Metabolite Accumulation
+  description: >
+    Metabolite profiling of the moss-microbe complex treatment revealed significant
+    accumulation of growth-related D-ribose and D-gluconate, suggesting that the
+    complex reprograms rhizosphere metabolism on the soil simulants.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: D-ribose
+    term:
+      id: CHEBI:16988
+      label: D-ribose
+  - preferred_term: D-gluconic acid
+    term:
+      id: CHEBI:33198
+      label: D-gluconic acid
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1016/j.ecolind.2025.114023
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metabolite profiling further revealed the significant accumulation of growth-related compounds such as D-ribose and D-gluconate, suggesting that the moss–microbe complex may reprogram rhizosphere metabolism.
+    explanation: Supports moss-microbe treatment reshaping the rhizosphere metabolite pool.
 environmental_factors:
 - name: Lunar (LHS) and Martian (MGS) soil simulants
   value: LHS and MGS soil simulants

@@ -70,11 +70,129 @@ taxonomy:
   - *id001
 ecological_interactions:
 - name: Straw Humification Cross-Feeding
-  description: Bacillus and Bradyrhizobium cross-feed to promote straw-degrading enzymes and humification.
+  description: >
+    B. siamensis B and B. japonicum G cross-feed in the two-member SynCom,
+    enabling each other to grow.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus siamensis
+    term:
+      id: NCBITaxon:659243
+      label: Bacillus siamensis
+  - preferred_term: Bradyrhizobium japonicum
+    term:
+      id: NCBITaxon:375
+      label: Bradyrhizobium japonicum
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Straw-Degrading Enzyme Stimulation
+    description: >
+      Cross-feeding by the two SynCom members increases cellulase, xylanase,
+      lignin-peroxidase, and nitrogenase activities.
   evidence:
-  - *id001
+  - reference: PMID:41264879
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By cross-feeding, SynCom members enable each other to grow, increase the
+      activities of key enzymes (carboxymethyl cellulase, xylanase, lignin peroxidase,
+      and nitrogenase), and thereby promote maize straw humification
+    explanation: Supports cross-feeding between the two members and the enzyme
+      activities that couple the interaction to straw humification.
+- name: Straw-Degrading Enzyme Stimulation
+  description: >
+    The cross-feeding Bacillus-Bradyrhizobium SynCom increases key
+    carboxymethyl cellulase, xylanase, lignin peroxidase, and nitrogenase
+    activities needed to decompose maize straw and supply nitrogen.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Bacillus siamensis
+    term:
+      id: NCBITaxon:659243
+      label: Bacillus siamensis
+  - preferred_term: Bradyrhizobium japonicum
+    term:
+      id: NCBITaxon:375
+      label: Bradyrhizobium japonicum
+  metabolites:
+  - preferred_term: lignocellulose
+    term:
+      id: CHEBI:180683
+      label: lignocellulose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Maize Straw Humification and Soil Organic Carbon Improvement
+    description: >
+      Higher straw-degrading enzyme and nitrogenase activities promote maize
+      straw humification, and the field inoculation improves soil organic
+      carbon through enhanced microbial-carbon-pump turnover.
+  evidence:
+  - reference: PMID:41264879
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increase the activities of key enzymes (carboxymethyl cellulase, xylanase, lignin
+      peroxidase, and nitrogenase), and thereby promote maize straw humification
+    explanation: Supports increased straw-degrading enzyme activities as the
+      mechanism linking SynCom cross-feeding to maize-straw humification.
+- name: Maize Straw Humification and Soil Organic Carbon Improvement
+  description: >
+    SynCom inoculation promoted maize-straw humification and improved soil
+    organic carbon in field straw-return experiments by enhancing the in vivo
+    turnover pathway of the microbial carbon pump.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Bacillus siamensis
+    term:
+      id: NCBITaxon:659243
+      label: Bacillus siamensis
+  - preferred_term: Bradyrhizobium japonicum
+    term:
+      id: NCBITaxon:375
+      label: Bradyrhizobium japonicum
+  metabolites:
+  - preferred_term: lignocellulose
+    term:
+      id: CHEBI:180683
+      label: lignocellulose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: PMID:41264879
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom inoculation enhanced the in vivo turnover pathway of the microbial
+      carbon pump, thereby promoting straw humification and improving SOC
+    explanation: Supports the field endpoint in which the SynCom improves
+      maize-straw humification and soil organic carbon.
 related_ingredients:
 - preferred_term: lignocellulose
   chebi_term:

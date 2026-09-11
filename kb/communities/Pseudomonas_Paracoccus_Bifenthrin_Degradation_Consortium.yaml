@@ -105,6 +105,16 @@ ecological_interactions:
     thereby relieves inhibition of PA hydrolases.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: Accelerated Bifenthrin Removal
+    description: >
+      Division of labor between bifenthrin hydrolysis and bifenthrin-alcohol
+      oxidation increases bifenthrin removal by the PA+PP consortium.
   evidence:
   - reference: PMID:42269294
     supports: SUPPORT
@@ -130,12 +140,46 @@ ecological_interactions:
     term:
       id: NCBITaxon:82367
       label: Paracoccus pantotrophus
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: Accelerated Bifenthrin Removal
+    description: >
+      Consumption of the bifenthrin-alcohol intermediate couples the two
+      degradation steps and helps the consortium exceed monoculture removal
+      rates.
   evidence:
   - reference: PMID:42269294
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: PA served as the hydrolyzer, cleaving the ester bond of bifenthrin to generate bifenthrin alcohol and trifluorochloro-chrysanthemic acid, while PP, as the oxidizer, efficiently degraded bifenthrin alcohol
     explanation: Demonstrates sequential production and consumption of the bifenthrin-alcohol intermediate.
+- name: Accelerated Bifenthrin Removal
+  description: >
+    The PA+PP consortium removes bifenthrin faster and more completely than
+    either monoculture, reaching high bifenthrin removal within seven days in
+    the optimized aqueous mineral-salts assay.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: k3 = 0.26 d-1 > k1 = 0.15 d-1> k2 = 0.10 d-1
+    explanation: Supports the PA+PP consortium degradation rate exceeding either monoculture.
+  - reference: PMID:42269294
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: resulting in 92.38% removal within 7 days
+    explanation: Supports high bifenthrin removal in the optimized consortium assay.
 environmental_factors:
 - name: PA extracellular polymeric substances
   value: promoted bifenthrin adsorption and electron transfer

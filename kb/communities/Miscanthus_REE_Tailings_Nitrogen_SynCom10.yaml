@@ -48,8 +48,6 @@ taxonomy:
       total_genomes: 8908
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -68,8 +66,6 @@ taxonomy:
       total_genomes: 685
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -88,8 +84,6 @@ taxonomy:
       total_genomes: 35
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -108,8 +102,6 @@ taxonomy:
       total_genomes: 24
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -118,8 +110,6 @@ taxonomy:
       id: NCBITaxon:37927
       label: Sinomonas atrocyanea
     gtdb_grounding_status: UNRESOLVED
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
@@ -128,8 +118,114 @@ ecological_interactions:
     to remove ammonia nitrogen.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Live-SynCom Ammonia Nitrogen Removal
+    description: Nitrifying and denitrifying root-derived strains transform the high
+      ammonia-nitrogen load in REE tailings, reducing pollutant AN in both
+      unplanted and Miscanthus-planted tailing soil.
   evidence:
   - *id001
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: possessing nitrification and denitrification capabilities, to help REEs mine
+      plants efficiently convert pollutant AN into nutrients
+    explanation: Supports nitrification and denitrification as the SynCom
+      capabilities coupled to ammonia-nitrogen removal in rare-earth tailings.
+- name: Live-SynCom Ammonia Nitrogen Removal
+  description: The live Miscanthus-root SynCom reduced ammonia nitrogen in REE
+    tailing soil, both by itself and more strongly when inoculated with Miscanthus
+    plants.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Miscanthus Biomass Stimulation
+    description: Ammonia-nitrogen transformation by live SynCom cells increases
+      the plant-associated removal effect and accompanies larger Miscanthus shoot
+      and root biomass.
+  evidence:
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This SynCom alone achieved a significant reduction of 24.8% in AN content in tailing
+      soil
+    explanation: Quantifies ammonia-nitrogen removal by the live SynCom in REE tailing soil.
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When the SynCom inoculated with plants, the reduction in AN was even more significant
+      (32.6%)
+    explanation: Supports the stronger ammonia-nitrogen removal observed when the SynCom was
+      paired with Miscanthus plants.
+- name: Miscanthus Biomass Stimulation
+  description: Live SynCom inoculation significantly increases Miscanthus shoot and
+    root biomass in REE tailings, and plant roots enrich nitrogen-cycle strains
+    that accelerate nitrogen transformation and absorption.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: live SynCom inoculation significantly increased shoot and root biomass by 39.8%
+      and 49.7%, respectively
+    explanation: Supports the Miscanthus biomass response to live SynCom inoculation.
+  - reference: PMID:39481489
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: seven nitrifying and denitrifying strains of the SynCom are particularly enriched
+    explanation: Supports selective enrichment of nitrogen-cycle strains by Miscanthus
+      roots in the inoculated REE tailings.
 environmental_factors:
 - name: defined synthetic community design
   value: Ten bacterial strains from Miscanthus floridulus roots representing Burkholderia, Paraburkholderia,

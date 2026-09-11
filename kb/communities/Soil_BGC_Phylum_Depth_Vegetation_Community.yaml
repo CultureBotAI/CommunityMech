@@ -39,8 +39,6 @@ taxonomy:
       total_genomes: 91751
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 3 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -64,8 +62,6 @@ taxonomy:
       total_genomes: 300
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 2 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -96,8 +92,6 @@ taxonomy:
       total_genomes: 3
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at c__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -114,8 +108,6 @@ taxonomy:
     notes: A CPR genome encoded a ribosomally synthesized linear
       azole/azoline-containing peptide BGC, a capacity also seen in other
       publicly available CPR genomes.
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
@@ -124,25 +116,128 @@ taxonomy:
       for a ribosomally synthesized linear azole/azoline-containing peptide
     explanation: Supports the curated CPR BGC capacity.
 ecological_interactions:
-- name: BGC Biosynthetic Potential Varies with Phylum, Depth, and Vegetation
-  description: The genetic potential to produce specialized metabolites
-    differs with soil depth and vegetation type within a geographic region,
-    and across the phylogenetic diversity of soil bacteria.
-  interaction_type: NICHE_PARTITIONING
+- name: Three-Site CZO Genome-Resolved Metagenomics
+  description: >
+    Soil and saprolite from three northern California Critical Zone Observatory
+    sites were sequenced to recover a genome-resolved view of bacterial
+    secondary-metabolite potential across vegetation, depth, and bedrock
+    gradients.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Dereplicated-MAG BGC Discovery
+    description: >
+      The metagenomes were filtered and dereplicated into MAGs that could be
+      screened for biosynthetic gene clusters.
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Bacterial Secondary Metabolite Biosynthetic Potential in Soil
-      Varies with Phylum, Depth, and Vegetation Type
-    explanation: Supports the curated phylum-depth-vegetation axes.
-- name: Shallow and Grassland Soils Enrich BGC-Rich Bacteria
-  description: Bacteria with higher biosynthetic potential are enriched in
-    shallow soils and grassland soils, with BGC-type patterns of abundance
-    varying by taxonomy.
-  interaction_type: NICHE_PARTITIONING
+    snippet: >
+      We sampled soils and saprolite from three sites in a northern California
+      Critical Zone Observatory with various vegetation and bedrock
+      characteristics
+    explanation: >
+      Supports the three-site soil and saprolite sampling design.
+- name: Dereplicated-MAG BGC Discovery
+  description: >
+    Genome-resolved metagenomics narrowed thousands of bins to 1,334
+    dereplicated MAGs, then antiSMASH found thousands of biosynthetic gene
+    clusters carried by soil bacteria and archaea.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Phylum-Scale Biosynthetic-Potential Heterogeneity
+    description: >
+      Mapping BGC calls to genome phylogeny revealed uneven
+      secondary-metabolite potential across bacterial phyla.
+  - target: CPR Linaridin BGC Detection
+    description: >
+      The genome-resolved BGC screen recovered a RiPP-class peptide cluster in
+      a Candidate Phyla Radiation bacterium.
+  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
+    description: >
+      The BGC calls were combined with depth- and vegetation-based differential
+      abundance tests to identify where high-potential genomes were enriched.
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Overall, 3,175 BGCs were identified on contigs of >10 kb within the set
+      of 1,334 dereplicated genomes
+    explanation: >
+      Supports the genome-resolved BGC-discovery step.
+- name: Phylum-Scale Biosynthetic-Potential Heterogeneity
+  description: >
+    Biosynthetic gene cluster loads varied strongly across soil bacterial
+    lineages, with prolific individual producers among Actinobacteria,
+    Chloroflexi, and Candidatus Dormibacteraeota.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Depth and Vegetation Enrichment of BGC-Rich Genomes
+    description: >
+      Phylum-resolved BGC assignments let the study compare BGC-rich bacterial
+      abundance by soil depth and vegetation.
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      We obtained genomes for prolific producers of secondary metabolites,
+      including novel groups within the Actinobacteria, Chloroflexi, and
+      candidate phylum "Candidatus Dormibacteraeota."
+    explanation: >
+      Supports the bacterial phyla curated as prolific BGC producers.
+- name: CPR Linaridin BGC Detection
+  description: >
+    One Candidate Phyla Radiation bacterial MAG encoded a RiPP-family
+    ribosomally synthesized linear azole/azoline-containing peptide, extending
+    the BGC survey into genomes from an uncultivated soil lineage.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:32546614
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      one genome of a candidate phyla radiation (CPR) bacterium coded for a
+      ribosomally synthesized linear azole/azoline-containing peptide
+    explanation: >
+      Supports the CPR-associated RiPP BGC finding.
+- name: Depth and Vegetation Enrichment of BGC-Rich Genomes
+  description: >
+    Bacteria with higher BGC content were differentially enriched in shallow
+    and grassland soils, linking secondary-metabolite potential to local
+    environmental structure.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:32546614
     supports: SUPPORT

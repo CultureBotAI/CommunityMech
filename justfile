@@ -179,6 +179,10 @@ validate-references-explained FILE:
 audit-snippets *args:
     uv run python scripts/evidence_snippet_audit.py {{args}}
 
+# Rank records worst-first by curated causal graph readiness.
+rank-causal-graphs *args:
+    PYTHONPATH=src uv run python scripts/rank_causal_graph_readiness.py {{args}}
+
 # Validate references in all community files
 validate-references-all:
     #!/usr/bin/env bash

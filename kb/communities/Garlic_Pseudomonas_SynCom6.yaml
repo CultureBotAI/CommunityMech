@@ -36,17 +36,82 @@ taxonomy:
       id: NCBITaxon:306
       label: Pseudomonas sp.
     gtdb_grounding_status: UNRESOLVED
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Pseudomonas-Mediated Growth Promotion
-  description: Pseudomonas strains selected from garlic rhizosphere promote host plant growth.
-  interaction_type: MUTUALISM
+- name: Top-Down Pseudomonas PGPR Selection
+  description: >
+    Field amplicon and co-occurrence analyses nominated Pseudomonas as a garlic PGPR candidate:
+    the genus was enriched under late-stage or fertile-soil rhizosphere conditions and was
+    prioritized in Apr, May, sandy loam, and loam co-occurrence networks.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Six-Strain Pseudomonas SynCom Assembly
+    description: >
+      The field rhizosphere screen and co-occurrence network analysis selected Pseudomonas as the
+      genus to isolate and carry into a six-strain synthetic community.
   evidence:
-  - *id001
+  - reference: PMID:32762153
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Pseudomonas was enriched in eight comparison groups under the late growth periods
+      and good growth conditions
+    explanation: >
+      Identifies Pseudomonas as a repeatedly enriched genus in garlic rhizospheres from late-growth
+      or higher-yield field conditions.
+  - reference: PMID:32762153
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Compared with the network of Mar and sandy soil datasets, Pseudomonas plays more
+      important role in the Apr, May, sandy loam and loam networks.
+    explanation: >
+      Shows that Pseudomonas was also retained as an important co-occurrence network member in
+      later-growth and more fertile-soil rhizosphere communities.
+- name: Six-Strain Pseudomonas SynCom Assembly
+  description: >
+    Six garlic rhizosphere Pseudomonas isolates with different 16S/BLAST phylogenetic names were
+    mixed in equal proportions to form the M SynCom used for plant-growth testing.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Pseudomonas-Mediated Growth Promotion
+    description: >
+      The equal-proportion six-strain M group was the inoculum whose seedling growth-promotion
+      effect was assayed against sterile-water and B8-7 controls.
+  evidence:
+  - reference: PMID:32762153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Group M consisted of six Pseudomonas sp. strains with different phylogenetic names
+      mixed in equal proportions.
+    explanation: >
+      Defines the six-member Pseudomonas consortium assembled from garlic rhizosphere isolates.
+- name: Pseudomonas-Mediated Growth Promotion
+  description: The six-strain Pseudomonas M SynCom promoted radish seedling growth
+    after assembly from garlic rhizosphere isolates.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:32762153
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom with six Pseudomonas sp. strains significantly promote plant growth.
+    explanation: >
+      Reports the growth-promotion phenotype of the six-strain Pseudomonas SynCom in the seedling
+      assay.
 environmental_factors:
 - name: defined synthetic community design
   value: Six Pseudomonas strains isolated from garlic rhizosphere were combined into a SynCom.
@@ -69,5 +134,5 @@ growth_media:
   - reference: PMID:32762153
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bacterial strains were cultured (28°C for six Pseudomonas strains, 37°C for B8-7, 18 mm × 180 mm glass tubes, shaking at 200 r.p.m.) in 10 ml LB for 2 days.
+    snippet: Bacterial strains were cultured (28°C for six Pseudomonas strains, 37°C for B8‐7, 18 mm × 180 mm glass tubes, shaking at 200 r.p.m.) in 10 ml LB for 2 days.
     explanation: Source states the LB medium, 28 °C temperature, glass-tube vessel, 200 r.p.m. shaking and 2-day incubation of the Pseudomonas SynCom strains.

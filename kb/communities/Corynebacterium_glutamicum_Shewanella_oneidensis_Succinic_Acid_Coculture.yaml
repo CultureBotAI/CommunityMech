@@ -78,12 +78,10 @@ taxonomy:
     explanation: Identifies the electroactive bacterium S. oneidensis as the second member of the
       co-culture.
 ecological_interactions:
-- name: Riboflavin-mediated interspecies electron transfer enhancing succinic acid production
-  description: Pairing C. glutamicum with electroactive S. oneidensis enhances succinic acid
-    biosynthesis through interspecies interactions; riboflavin was the most effective of five
-    screened redox-active additives and further improved production. Co-culture reprogrammed
-    C. glutamicum metabolism, reinforcing its electron transport system and shifting carbon flux
-    toward the reductive TCA pathway.
+- name: Riboflavin-Mediated Redox Coupling
+  description: S. oneidensis provides an electroactive coculture partner for
+    C. glutamicum, and riboflavin is the most effective screened redox-active additive
+    for further improving anaerobic succinic acid production.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -101,6 +99,15 @@ ecological_interactions:
     term:
       id: CHEBI:17015
       label: riboflavin
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Reprogrammed Corynebacterium Reductive TCA Flux
+    description: Coculture redox coupling leads into the transcriptome-level
+      reinforcement of the C. glutamicum electron transport system and reductive TCA flux.
   evidence:
   - reference: PMID:42203120
     supports: SUPPORT
@@ -109,6 +116,38 @@ ecological_interactions:
       additive, and supplementation with 0.1 mM riboflavin further improved production performance.
     explanation: Riboflavin acts as a redox mediator supporting interspecies electron transfer that
       boosts succinic acid production.
+- name: Reprogrammed Corynebacterium Reductive TCA Flux
+  description: In coculture, C. glutamicum globally reprograms metabolism, reinforcing
+    its electron transport system, redistributing carbon flux toward the reductive TCA
+    pathway, and suppressing succinic-acid-consuming pathways.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Corynebacterium glutamicum (ldhA-deleted strain K1)
+    term:
+      id: NCBITaxon:1718
+      label: Corynebacterium glutamicum
+  metabolites:
+  - preferred_term: succinic acid
+    term:
+      id: CHEBI:15741
+      label: succinic acid
+  biological_processes:
+  - preferred_term: tricarboxylic acid cycle
+    term:
+      id: GO:0006099
+      label: tricarboxylic acid cycle
+  downstream:
+  - target: Enhanced Succinic Acid Production
+    description: Redistribution toward the reductive TCA pathway and suppression of
+      succinic-acid-consuming pathways provide the immediate metabolic basis for higher
+      succinic acid yield.
+  evidence:
   - reference: PMID:42203120
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -117,6 +156,34 @@ ecological_interactions:
       carbon flux toward the reductive TCA pathway
     explanation: Co-culture reprograms C. glutamicum metabolism, reinforcing electron transport and
       the reductive TCA pathway consistent with interspecies redox coupling.
+- name: Enhanced Succinic Acid Production
+  description: The optimized coculture increases succinic acid yield over C. glutamicum
+    monoculture without markedly altering glucose consumption, and the ldhA-deleted K1
+    strain maintains an enhanced succinic acid yield in the coculture system.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Corynebacterium glutamicum (ldhA-deleted strain K1)
+    term:
+      id: NCBITaxon:1718
+      label: Corynebacterium glutamicum
+  - preferred_term: Shewanella oneidensis
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  metabolites:
+  - preferred_term: succinic acid
+    term:
+      id: CHEBI:15741
+      label: succinic acid
+  evidence:
+  - reference: PMID:42203120
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The engineered strain maintained enhanced succinic acid production in the co-culture system,
+      reaching a yield of 0.686 g/g
+    explanation: Supports enhanced succinic acid production as the downstream output of
+      the Shewanella-Corynebacterium coculture.
 growth_media:
 - name: unspecified (glucose-based anaerobic succinic acid fermentation medium)
   atmosphere: ANAEROBIC

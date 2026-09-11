@@ -60,8 +60,6 @@ taxonomy:
     strain_name: CF313
     isolation_source: Populus root
     notes: Primary follow-up strain; reduced chlorophyll loss from 20.4% to 17% post heat shock.
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -89,8 +87,6 @@ taxonomy:
   strain_designation:
     strain_name: YR634
     isolation_source: Populus root
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -117,8 +113,6 @@ taxonomy:
   strain_designation:
     strain_name: GV004
     isolation_source: Populus root
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -145,8 +139,6 @@ taxonomy:
   strain_designation:
     strain_name: GV035
     isolation_source: Populus root
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -173,8 +165,6 @@ taxonomy:
   strain_designation:
     strain_name: YR752
     isolation_source: Populus root
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -201,8 +191,6 @@ taxonomy:
   strain_designation:
     strain_name: OV084
     isolation_source: Populus root
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
@@ -211,41 +199,205 @@ taxonomy:
       plant thermotolerance
     explanation: One of six strains that significantly enhanced Arabidopsis thermotolerance.
 ecological_interactions:
-- name: Bacterially-mediated plant thermotolerance
-  description: Direct contact with living Variovorax bacteria enhances Arabidopsis heat tolerance at 45C.
-    Heat-killed bacteria and culture supernatants provide no protection, indicating the benefit requires
-    active bacterial metabolism and physical association.
-  interaction_type: MUTUALISM
+- name: Hydroponic Thermotolerance Assay Establishment
+  description: >
+    A hydroponic Arabidopsis seedling assay was established on PTFE mesh
+    in liquid MS medium to quantify bacterial contributions to host
+    thermotolerance after heat shock and recovery.
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Variovorax
-    term:
-      id: NCBITaxon:34072
-      label: Variovorax
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
-    term:
-      id: NCBITaxon:3702
-      label: Arabidopsis thaliana
+  interaction_type: COLONIZATION_FACILITATION
   biological_processes:
   - preferred_term: response to heat
     term:
       id: GO:0009408
       label: response to heat
+  downstream:
+  - target: Fourteen-Minute Heat-Shock Calibration
+    description: >
+      The reproducible hydroponic chlorophyll assay provided the platform for
+      tuning acute heat-shock exposure before bacterial screening.
   evidence:
   - reference: PMID:37386471
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: A follow-up study demonstrated the reproducibility of this assay and led to the discovery
-      of a novel beneficial interaction
-    explanation: Supports the novel bacterially-mediated thermotolerance interaction between Variovorax
-      and Arabidopsis.
+    snippet: >
+      We designed a rapid phenotyping method to assess the effects of bacteria
+      on plant host thermotolerance.
+    explanation: >
+      Supports establishment of a rapid assay for bacterial effects on plant
+      heat tolerance.
   - reference: PMID:37386471
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: The throughput and reproducibility of the system is ideal for testing many genetic variants
-      of Arabidopsis and bacterial strains
-    explanation: Supports the reproducibility of the thermotolerance phenotype.
+    snippet: >
+      the method was extended to include bacterial isolates and to quantify
+      bacterial contributions to host plant thermotolerance
+    explanation: >
+      Supports using the assay to measure bacterial contributions to
+      Arabidopsis thermotolerance.
+- name: Fourteen-Minute Heat-Shock Calibration
+  description: >
+    The hydroponic assay tested 12-20 minute 45C exposures and selected
+    14 minutes for subsequent experiments because Arabidopsis chlorophyll
+    content dropped sharply after that heat-shock duration.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: response to heat
+    term:
+      id: GO:0009408
+      label: response to heat
+  downstream:
+  - target: Individual Variovorax Strain Thermotolerance Screen
+    description: >
+      The calibrated 14-minute 45C heat shock defined the stress regime for
+      testing each Variovorax strain.
+  evidence:
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a sharp drop was observed after 14 min of 45 °C exposure
+    explanation: >
+      Supports the phenotype used to choose a 14-minute 45C heat-shock
+      treatment.
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Given these results, we selected 14 min of heat shock for further experiments
+    explanation: >
+      Supports carrying the 14-minute heat-shock exposure forward into the
+      bacterial screen.
+- name: Individual Variovorax Strain Thermotolerance Screen
+  description: >
+    Twenty-five Populus-root Variovorax strains were tested individually by
+    inoculating 7-day-old Arabidopsis seedlings, co-culturing for 7 days, and
+    measuring chlorophyll after 45C heat shock and 4 days of recovery.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Six-Strain Variovorax Thermotolerance Hit Set
+    description: >
+      Individual screening identified the subset of Variovorax strains with
+      significant plant thermotolerance phenotypes.
+  evidence:
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Twenty-five bacterial strains from the genus Variovorax were examined
+      for their ability to enhance host plant thermotolerance.
+    explanation: >
+      Supports the 25-strain Variovorax screen.
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Individual strains of Variovorax were added to MS liquid medium to
+      inoculate 7-day-old seedlings and co-cultured for an additional 7 days
+      before heat shock treatment.
+    explanation: >
+      Supports testing each Variovorax strain individually with Arabidopsis.
+- name: Six-Strain Variovorax Thermotolerance Hit Set
+  description: >
+    Six individually tested Variovorax strains, CF313, YR634, GV004, GV035,
+    YR752, and OV084, significantly increased post-heat-shock Arabidopsis
+    chlorophyll content relative to the no-bacteria heat-shocked mock control.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: response to heat
+    term:
+      id: GO:0009408
+      label: response to heat
+  downstream:
+  - target: CF313 Follow-Up Thermotolerance Confirmation
+    description: >
+      The six-strain hit set motivated a focused CF313 confirmation experiment.
+  evidence:
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      plants inoculated with six strains (CF313, YR634, GV004, GV035, YR752,
+      and OV084) showed significantly higher levels of chlorophyll content
+    explanation: >
+      Supports CF313, YR634, GV004, GV035, YR752 and OV084 as
+      thermotolerance-enhancing hits from the screen.
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: To confirm these results, we selected one strain (CF313) for additional experiments
+    explanation: Supports selecting CF313 for downstream follow-up.
+- name: CF313 Follow-Up Thermotolerance Confirmation
+  description: >
+    The CF313 follow-up compared heat shock, thermopriming plus heat shock,
+    and CF313 plus heat shock; CF313 reduced heat-associated chlorophyll loss
+    relative to uninoculated heat-shocked seedlings, confirming a reproducible
+    but weaker benefit than thermopriming.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: response to heat
+    term:
+      id: GO:0009408
+      label: response to heat
+  downstream:
+  - target: CF313 Living-Bacteria Contact Requirement
+    description: >
+      The confirmed CF313 phenotype was decomposed with live-cell,
+      heat-killed-cell, and cell-free-supernatant treatments.
+  evidence:
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      These results suggest that CF313 enhanced thermotolerance in Arabidopsis
+      but to a lesser degree than thermo-priming.
+    explanation: >
+      Supports the follow-up confirmation of CF313-mediated Arabidopsis
+      thermotolerance.
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Plants inoculated with CF313 (Bac + HS) exhibited 17% reduction of chlorophyll content
+    explanation: >
+      Supports the quantified CF313 phenotype in heat-shocked seedlings.
+- name: CF313 Living-Bacteria Contact Requirement
+  description: >
+    Heat-killed CF313 cells and CF313 culture supernatant failed to protect
+    Arabidopsis comparably to living CF313 cells, indicating that the thermal
+    benefit required direct contact with living bacteria.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Plants that were inoculated with heat killed CF313 or the supernatant of
+      CF313 culture exhibited similar phenotype with HS plants
+    explanation: >
+      Supports failed protection by non-living bacteria or culture
+      supernatant.
+  - reference: PMID:37386471
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      indicating that the thermal benefit conferred by CF313 is from direct
+      contact with living bacteria
+    explanation: >
+      Supports direct contact with living CF313 as the inferred requirement for
+      enhanced Arabidopsis thermotolerance.
 environmental_factors:
 - name: Heat shock temperature
   value: '45'

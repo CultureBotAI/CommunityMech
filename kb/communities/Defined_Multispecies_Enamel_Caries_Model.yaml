@@ -216,6 +216,107 @@ environmental_factors:
       There was a decrease in %SMC in response to increased fluoride and
       calcium concentrations (p < 0.001).
     explanation: Supports calcium as a controlled environmental factor in the model.
+ecological_interactions:
+- name: Four-Species Enamel Biofilm Formation
+  description: >-
+    Lactobacillus casei, Streptococcus mutans, Streptococcus salivarius, and
+    Streptococcus sanguinis formed a defined biofilm on salivary-pellicle-coated
+    enamel slabs during the four-day in vitro caries assay.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Sucrose-Responsive Viable Biofilm Shift
+    description: >-
+      The established four-species enamel biofilm provided the viable biomass
+      whose cell counts shifted across the sucrose, fluoride, and calcium arms.
+  - target: Mineral-Dependent Demineralization Restraint
+    description: >-
+      Four days of multispecies biofilm growth on enamel slabs created the
+      demineralization readout modulated by fluoride and calcium.
+  evidence:
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Defined-multispecies biofilms, formed by Lactobacillus casei,
+      Streptococcus mutans, S. salivarius and S. sanguinis, were grown on the
+      surface of salivary-pellicle-coated enamel slabs, with known baseline
+      surface hardness; growth medium was changed daily.
+    explanation: >-
+      Establishes the four-member salivary-pellicle-coated enamel biofilm model
+      and the retained-biofilm daily medium changes.
+- name: Sucrose-Responsive Viable Biofilm Shift
+  description: >-
+    Changing sucrose in the replacement medium was part of a treatment matrix
+    that significantly altered viable-cell counts in the four-species enamel
+    biofilms.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Counts of viable cells on biofilms were significantly affected by sucrose,
+      fluoride and calcium concentrations (p < 0.05).
+    explanation: >-
+      Supports a treatment-dependent shift in viable biofilm counts, including
+      the sucrose arm of the assay matrix.
+- name: Mineral-Dependent Demineralization Restraint
+  description: >-
+    Higher fluoride and calcium concentrations reduced surface-microhardness
+    change, and 0.8-1.0 ppm fluoride also lowered integrated mineral loss and
+    lesion depth in the enamel slabs.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: fluoride
+    term:
+      id: CHEBI:17051
+      label: fluoride
+  - preferred_term: calcium(2+)
+    term:
+      id: CHEBI:29108
+      label: calcium(2+)
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      There was a decrease in %SMC in response to increased fluoride and
+      calcium concentrations (p < 0.001).
+    explanation: >-
+      Supports fluoride- and calcium-dependent reduction in enamel
+      surface-microhardness change.
+  - reference: PMID:23446436
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Lower IML (p < 0.001) and LD (p < 0.05) were found in the presence of 0.8
+      and 1.0 ppm F.
+    explanation: >-
+      Supports reduced integrated mineral loss and lesion depth in the higher
+      fluoride treatments.
 growth_media:
 - name: "defined-multispecies biofilm growth medium (unspecified)"
   incubation_time: '4'

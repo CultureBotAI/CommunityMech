@@ -53,11 +53,47 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Gut Niche Filling and Colonization Resistance
-  description: Iterative niche filling improved stability to fecal challenge and resistance to pathogenic
-    Escherichia coli.
+- name: Fecal-Challenge Open Niche Filling
+  description: Species that engrafted after hCom1 fecal challenge were added to the defined gut consortium,
+    filling open ecological niches to yield hCom2.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: hCom2 Fecal-Challenge Stability
+    description: Filling hCom1's open niches with engrafting gut species produced hCom2's higher stability
+      when challenged again with human fecal microbiota.
+  - target: hCom2 Escherichia coli Colonization Resistance
+    description: Occupying the open gut niches left in hCom1 produced a more complete hCom2 consortium
+      that resisted pathogenic Escherichia coli colonization.
+  evidence:
+  - *id001
+- name: hCom2 Fecal-Challenge Stability
+  description: The augmented hCom2 community remains more stable than hCom1 when challenged with a human
+    fecal community in gnotobiotic mice.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - *id001
+- name: hCom2 Escherichia coli Colonization Resistance
+  description: The niche-filled hCom2 consortium provides robust colonization resistance against pathogenic
+    Escherichia coli in gnotobiotic mice.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
   evidence:
   - *id001
 cultivation_setup:

@@ -128,6 +128,7 @@ ecological_interactions:
   description: Cellulose-producing acetobacteria create a surface pellicle that encloses the mixed yeast
     and bacterial community, physically structuring biochemical interactions.
   interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Komagataeibacter
     term:
@@ -138,6 +139,11 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Yeast-Acetobacter Mutualistic Fermentation
+    description: The cellulose pellicle encloses the mixed yeast-acetobacter
+      culture at the liquid surface, facilitating the close biochemical
+      interplay that maintains kombucha fermentation.
   evidence:
   - reference: doi:10.1186/s13568-015-0124-5
     supports: SUPPORT
@@ -155,6 +161,10 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Yeast-Acetobacter Mutualistic Fermentation
+    description: Growth-condition shifts can recruit accessory bacteria such as
+      lactobacilli that may contribute to the broader KMC fermentative capacity.
   evidence:
   - reference: PMID:26061774
     supports: SUPPORT
@@ -264,7 +274,7 @@ associated_datasets:
   - reference: PMID:26061774
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: submitted to the GenBank database under an accession numbers KF908872-KF90879
+    snippet: submitted to the GenBank database under an accession numbers KF908872 -KF90879
     explanation: Supports the associated GenBank sequence-accession range reported by the study.
 related_ingredients:
 - preferred_term: sucrose

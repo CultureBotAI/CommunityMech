@@ -52,12 +52,193 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Drought Resilience Promotion
-  description: SynCom members encode and express plant growth-promoting traits linked to drought recovery.
-  interaction_type: MUTUALISM
+- name: Network-Cultivation Fifteen-Member Design
+  description: >
+    The Brachypodium SynCom workflow combined rhizobiome network analysis with
+    cultivation-guided methods to choose a reproducible 15-member community that
+    retained ecological connections from the root microbiome.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Five-Phylum Rhizobiome SynCom Assembly
+    description: >
+      Network-guided cultivation yielded a defined community spanning five
+      bacterial phyla from the B. distachyon rhizobiome.
   evidence:
   - *id001
+- name: Five-Phylum Rhizobiome SynCom Assembly
+  description: >
+    The final 15-member SynCom incorporated diverse Brachypodium rhizobiome
+    strains from five bacterial phyla, creating a tractable synthetic community
+    for drought and stability assays.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Genomic Osmoprotectant and Ion-Transport Prediction
+    description: >
+      The defined isolate set was genome analyzed for encoded
+      plant-growth-promoting traits that could support stress resilience.
+  - target: In Vitro and In Planta SynCom Stability
+    description: >
+      The 15-member assembly was tracked as a community under in vitro and plant
+      colonization conditions.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This SynCom incorporates diverse strains from five bacterial phyla
+    explanation: >
+      Supports the five-phyla breadth of the assembled 15-member Brachypodium
+      rhizobiome SynCom.
+- name: Genomic Osmoprotectant and Ion-Transport Prediction
+  description: >
+    Whole-genome analysis of individual SynCom strains predicted multiple
+    plant-growth-promoting traits, including biosynthesis of the osmoprotectants
+    trehalose and betaine and sodium/potassium transporter genes relevant to
+    drought and salinity stress.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: trehalose
+    term:
+      id: CHEBI:27082
+      label: trehalose
+  - preferred_term: glycine betaine
+    term:
+      id: CHEBI:17750
+      label: glycine betaine
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Laboratory PGP Trait Validation
+    description: >
+      Some of the genome-predicted plant-growth-promoting traits were then
+      tested by laboratory phenotypic assays.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genomic analysis of the individual strains was performed to reveal encoded plant
+      growth-promoting traits
+    explanation: >
+      Supports genome-resolved prediction of plant-growth-promoting functions in
+      the SynCom members.
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: genes for the synthesis of osmoprotectants (trehalose and betaine) and Na+/K+
+      transporters
+    explanation: Identifies trehalose and glycine betaine as encoded osmoprotectant
+      traits of the drought-resilience SynCom members.
+- name: Laboratory PGP Trait Validation
+  description: >
+    Laboratory phenotypic assays validated a subset of the predicted
+    plant-growth-promoting traits, connecting the SynCom genome annotations to
+    experimentally observed member functions before plant stress testing.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Brachypodium Drought Recovery Promotion
+    description: >
+      The validated trait pool supplied plausible member functions for the
+      subsequent observation that SynCom-amended Brachypodium recovered better
+      after drought.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: some predicted traits were validated by laboratory phenotypic assays
+    explanation: >
+      Supports phenotypic validation of selected genome-predicted
+      plant-growth-promoting traits.
+- name: In Vitro and In Planta SynCom Stability
+  description: >
+    The 15-member bacterial SynCom persisted as a stable consortium in both the
+    in vitro serial culture and in planta Brachypodium experiments, supporting
+    downstream interpretation of the defined community under plant stress.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Brachypodium Drought Recovery Promotion
+    description: >
+      A stable consortium in planta could remain present during stress and
+      rewatering, enabling the improved plant recovery reported for
+      SynCom-amended plants.
+  - target: Stress Root-Tip Preferential Colonization
+    description: >
+      In planta persistence enabled strain-resolved observation of root-zone
+      spatial enrichment under stress.
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynCom demonstrates strong stability both in vitro and in planta
+    explanation: >
+      Supports the in vitro and plant-associated stability of the assembled
+      15-member SynCom.
+- name: Brachypodium Drought Recovery Promotion
+  description: >
+    Brachypodium plants amended with the 15-member SynCom recovered better from
+    drought stress than unamended plants, with osmoprotectant and ion-transporter
+    genes identified as likely contributors to the observed resilience.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: plants amended with the SynCom recovered better than those without
+    explanation: >
+      Supports improved drought recovery in Brachypodium receiving the
+      15-member SynCom.
+- name: Stress Root-Tip Preferential Colonization
+  description: >
+    Under stress, SynCom strains preferentially colonized Brachypodium root tips,
+    a spatial pattern interpreted as localized plant-microbe signaling mediated
+    by interactions between bacterial strains and root metabolites.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: preferential colonization of SynCom strains around root tips under stress
+    explanation: >
+      Supports stress-associated enrichment of SynCom strains around the root
+      tip.
+  - reference: PMID:40862137
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: likely due to active interactions between plant root metabolites and bacteria
+    explanation: >
+      Supports plant root metabolites as the proposed basis for the localized
+      bacterial colonization response.
 environmental_factors:
 - name: defined synthetic community design
   value: Network analysis and cultivation-guided selection of 15 rhizobiome strains spanning five bacterial

@@ -267,9 +267,10 @@ ecological_interactions:
     g/L), At. ferrooxidans is outcompeted by more acid-tolerant Leptospirillum and Ferroplasma.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Acidithiobacillus ferrooxidans
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus ferrooxidans
     term:
       id: NCBITaxon:920
       label: Acidithiobacillus ferrooxidans
@@ -300,16 +301,15 @@ ecological_interactions:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus thiooxidans kept constant throughout the leaching cycle, and Firmicutes
-      group showed a low and a patchy distribution in the heap
-    explanation: Links At. ferrooxidans to early heap conditions
+    snippet: At. ferrooxidans phylotypes were the most abundant microorganisms during the first
+      part of the leaching cycle (around 200 days of operation)
+    explanation: Anchors At. ferrooxidans as the dominant taxon during the early industrial heap stage
   - reference: doi:10.3389/fmicb.2022.820052
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here Acidithiobacillus ferrooxidans , Leptospirillum ferrooxidans , and Sulfobacillus thermosulfidooxidans
-      were selected to perform bioleaching of chalcopyrite waste rock in the presence of the SX reagent
-      (2.5% v/v LIX984N in kerosene)
-    explanation: Establishes Fe³⁺ as primary oxidant for copper dissolution
+    snippet: 100 and 300 mg/L SX reagent could hardly inhibit At. ferrooxidans from oxidizing Fe2+
+    explanation: Demonstrates ferrous-iron oxidation by At. ferrooxidans during chalcopyrite bioleaching
+      assays
 - name: Ferrous Iron Oxidation in Aged Heaps
   description: 'In aged heaps (>250 days, pH 1.67-1.83), Leptospirillum ferriphilum and Ferroplasma acidiphilum
     take over iron oxidation as conditions become too extreme for At. ferrooxidans. These organisms oxidize
@@ -321,14 +321,14 @@ ecological_interactions:
     oxidation throughout the multi-year heap lifetime.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Ferroplasma acidiphilum
+  - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
@@ -354,14 +354,17 @@ ecological_interactions:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: However, the prokaryotic acidophile microarray (PAM) analysis showed active members of Alphaproteobacteria
-      in all samples and of Sulfobacillus genus in older ones
-    explanation: Documents succession to acid-tolerant iron oxidizers
+    snippet: Acidithiobacillus ferrooxidans was the most abundant during the first part of the leaching
+      cycle, while the abundance of Leptospirillum ferriphilum and Ferroplasma acidiphilum increased with
+      age of the heap
+    explanation: Documents succession from At. ferrooxidans toward Leptospirillum and Ferroplasma in
+      older industrial heap strips
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: increased with age of the heap
-    explanation: Quantifies extreme conditions favoring Leptospirillum/Ferroplasma
+    snippet: changes during the leaching cycle in chemical and physical conditions, such as pH and
+      Fe3+/Fe2+ ion rate, are primary factors shaping the microbial dynamic in the heap
+    explanation: Supports heap-age pH and iron-redox gradients as drivers of the iron-oxidizer shift
 - name: Sulfur Oxidation to Sulfuric Acid
   description: 'Acidithiobacillus thiooxidans oxidizes elemental sulfur (S⁰) and reduced inorganic sulfur
     compounds (RISCs) released from chalcopyrite dissolution to sulfuric acid (H₂SO₄). This process maintains
@@ -373,9 +376,10 @@ ecological_interactions:
     of passivating sulfur layers on mineral surfaces that would inhibit leaching.
 
     '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Acidithiobacillus thiooxidans
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus thiooxidans
     term:
       id: NCBITaxon:930
       label: Acidithiobacillus thiooxidans
@@ -395,6 +399,9 @@ ecological_interactions:
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
+  downstream:
+  - target: Copper Sulfide Dissolution
+    description: Sulfuric acid production sustains the low pH needed for ferric-iron attack on chalcopyrite
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
@@ -405,8 +412,9 @@ ecological_interactions:
   - reference: doi:10.3389/fmicb.2022.820052
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: thermosulfidooxidans preferred to oxidize reduced inorganic sulfur compounds.
-    explanation: Establishes sulfur oxidation mechanism
+    snippet: sulfur-oxidizing microorganisms oxidize RISCs to sulfuric acid
+    explanation: Establishes sulfuric acid production from reduced inorganic sulfur compounds as a
+      bioleaching reaction
 - name: Copper Sulfide Dissolution
   description: 'Ferric iron generated by the microbial consortium oxidizes chalcopyrite (CuFeS₂) and other
     copper sulfide minerals, releasing copper ions into solution for recovery. The primary reaction is:
@@ -419,17 +427,29 @@ ecological_interactions:
     is processed by solvent extraction and electrowinning.
 
     '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Acidithiobacillus ferrooxidans
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus ferrooxidans
     term:
       id: NCBITaxon:920
       label: Acidithiobacillus ferrooxidans
-  target_taxon:
-    preferred_term: Leptospirillum ferriphilum
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
+  - preferred_term: Acidithiobacillus thiooxidans
+    term:
+      id: NCBITaxon:930
+      label: Acidithiobacillus thiooxidans
+  - preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
+  - preferred_term: Sulfobacillus thermosulfidooxidans
+    term:
+      id: NCBITaxon:28034
+      label: Sulfobacillus thermosulfidooxidans
   metabolites:
   - preferred_term: chalcopyrite
     term:
@@ -454,14 +474,27 @@ ecological_interactions:
   downstream:
   - target: Ferrous Iron Oxidation in Early Heaps
     description: Released Fe²⁺ is re-oxidized to regenerate Fe³⁺ oxidant
+  - target: Ferrous Iron Oxidation in Aged Heaps
+    description: Released Fe²⁺ also feeds the acid-tolerant iron oxidizers in aged heap strips
+  - target: Sulfur Oxidation to Sulfuric Acid
+    description: Released reduced inorganic sulfur compounds feed sulfur oxidation to sulfuric acid
+  - target: Thermophilic Iron and Sulfur Oxidation
+    description: Chalcopyrite-associated Fe²⁺ and sulfur substrates feed Sulfobacillus activity in hotter
+      bioleaching niches
   evidence:
   - reference: doi:10.3389/fmicb.2022.820052
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Heap bioleaching, the solubilization of metal ions from metal sulfides by microbial oxidation,
-      is often combined with solvent extraction (SX) and electrowinning to recover, e.g., copper from
-      low-grade ores
-    explanation: Describes mechanism of microbial copper dissolution
+    snippet: Bioleaching, the microbial dissolution of metal sulfides, is caused by Fe3+ ions as
+      the crucial oxidizing reagent
+    explanation: Identifies ferric iron as the oxidant responsible for dissolving copper sulfides
+  - reference: doi:10.3389/fmicb.2022.820052
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Then iron-oxidizing microorganisms re-oxidize Fe2+ to Fe3+, and sulfur-oxidizing
+      microorganisms oxidize RISCs to sulfuric acid
+    explanation: Connects mineral dissolution products to microbial iron regeneration and sulfuric
+      acid production
 - name: Thermophilic Iron and Sulfur Oxidation
   description: 'Sulfobacillus thermosulfidooxidans contributes to iron and sulfur oxidation in thermophilic
     heap sections (50-60°C) where exothermic sulfide oxidation elevates temperatures. This moderately
@@ -474,9 +507,10 @@ ecological_interactions:
     tolerance provide competitive advantage.
 
     '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Sulfobacillus thermosulfidooxidans
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sulfobacillus thermosulfidooxidans
     term:
       id: NCBITaxon:28034
       label: Sulfobacillus thermosulfidooxidans
@@ -493,13 +527,23 @@ ecological_interactions:
     term:
       id: CHEBI:26833
       label: sulfur atom
+  downstream:
+  - target: Copper Sulfide Dissolution
+    description: Sulfobacillus iron and sulfur oxidation can maintain copper extraction in thermophilic
+      chalcopyrite bioleaching
   evidence:
   - reference: doi:10.1111/j.1751-7915.2009.00112.x
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus thiooxidans kept constant throughout the leaching cycle, and Firmicutes
-      group showed a low and a patchy distribution in the heap
+    snippet: the prokaryotic acidophile microarray (PAM) analysis showed active members of Alphaproteobacteria
+      in all samples and of Sulfobacillus genus in older ones
     explanation: Documents Sulfobacillus activity in industrial heaps
+  - reference: doi:10.3389/fmicb.2018.03059
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbial iron oxidation by Sulfobacillus thermosulfidooxidans meets these specifications
+    explanation: Demonstrates iron oxidation by Sulfobacillus thermosulfidooxidans in chalcopyrite
+      bioleaching experiments
 environmental_factors:
 - name: pH Gradient Across Heap Age
   value: 1.67-2.5
@@ -797,7 +841,7 @@ growth_media:
   - reference: doi:10.3389/fmicb.2022.820052
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here Acidithiobacillus ferrooxidans , Leptospirillum ferrooxidans , and Sulfobacillus thermosulfidooxidans
+    snippet: Here Acidithiobacillus ferrooxidans, Leptospirillum ferrooxidans, and Sulfobacillus thermosulfidooxidans
       were selected to perform bioleaching of chalcopyrite waste rock in the presence of the SX reagent
       (2.5% v/v LIX984N in kerosene)
     explanation: Confirms use of standard acidophile cultivation methods for consortium members

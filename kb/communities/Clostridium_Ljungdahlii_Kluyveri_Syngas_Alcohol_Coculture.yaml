@@ -114,6 +114,7 @@ ecological_interactions:
   description: C. ljungdahlii converts syngas into ethanol and acetate, creating
     reduced and oxidized C2 intermediates that support chain elongation by C. kluyveri.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -150,6 +151,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Ethanol-Driven Chain Elongation
+    description: >
+      C. ljungdahlii syngas fermentation produces ethanol and acetate that
+      C. kluyveri uses for reverse beta-oxidation chain elongation.
   evidence:
   - reference: PMID:27877166
     supports: SUPPORT
@@ -165,6 +171,7 @@ ecological_interactions:
   description: C. kluyveri uses ethanol from C. ljungdahlii to perform reverse
     beta-oxidation chain elongation, producing butyrate and caproate.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium kluyveri
     term:
@@ -197,6 +204,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Biological Reduction to Longer-Chain Alcohols
+    description: >
+      Chain elongation generates butyrate and hexanoate that C. ljungdahlii can
+      reduce to the longer-chain alcohols detected in the syngas coculture.
   evidence:
   - reference: PMID:27877166
     supports: SUPPORT
@@ -213,6 +225,7 @@ ecological_interactions:
     longer-chain alcohols using reducing power from syngas, yielding butanol,
     hexanol, and trace octanol.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:
@@ -257,6 +270,7 @@ ecological_interactions:
     because C. ljungdahlii and C. kluyveri have different pH optima, causing a
     process-level tradeoff between acetogenesis, chain elongation, and biological reduction.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium ljungdahlii
     term:

@@ -103,6 +103,7 @@ ecological_interactions:
   description: C. debilis GB1 provides respiratory protection for C. thermocellum under oxidative
     conditions, enabling cellulose utilization by the designed coculture.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Caldibacillus debilis GB1
     term:
@@ -131,6 +132,17 @@ ecological_interactions:
     term:
       id: GO:0030245
       label: cellulose catabolic process
+  downstream:
+  - target: Aerotolerant Ethanogenic Cellulose Conversion
+    description: >
+      C. debilis respiratory protection lets oxygen-sensitive C. thermocellum
+      continue cellulose utilization under aerobic atmosphere, supporting the
+      designed coculture's aerotolerant ethanol production.
+  - target: Oxidative Shift Toward Lactate Production
+    description: >
+      Respiratory protection lets the designed coculture remain active under
+      oxidative conditions, where fermentation-product flux shifted toward
+      lactate accumulation.
   evidence:
   - reference: doi:10.1128/AEM.00735-15
     supports: SUPPORT
@@ -147,6 +159,7 @@ ecological_interactions:
     tolerating oxidative conditions that are normally restrictive for strictly anaerobic cellulolytic
     biofuel producers.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium thermocellum
     term:
@@ -189,12 +202,8 @@ ecological_interactions:
 - name: Oxidative Shift Toward Lactate Production
   description: Oxidative conditions changed the fermentation-product profile of the designed coculture,
     including increased lactate production.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Caldibacillus debilis GB1
-    term:
-      id: NCBITaxon:301148
-      label: Caldibacillus debilis
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: lactate
     term:

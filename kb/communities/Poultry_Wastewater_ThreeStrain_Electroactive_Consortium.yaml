@@ -138,25 +138,63 @@ taxonomy:
       A4.
     explanation: Identifies strain A4 as an electroactive member of the exact consortium.
 ecological_interactions:
-- name: Complementary electroactive consortium performance
+- name: Complementary Electroactive Consortium Performance
   description: >
-    Combining the three electroactive strains produced an emergent improvement
-    in power output and chemical oxygen demand removal relative to the pure
-    cultures, consistent with the source's interpretation of complementary
-    metabolic functions.
+    Combining Lysinibacillus sphaericus A1, Bacillus cereus A2, and
+    Lactococcus lactis A4 in equal volumes supplied a complementary
+    electroactive inoculum for the poultry-wastewater microbial fuel cell.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Consortium-Enhanced Anode Power Output
+    description: The mixed electroactive inoculum increased the microbial fuel cell's power-density
+      output beyond the power densities produced by each strain in pure culture.
+  - target: Consortium-Enhanced Chemical Oxygen Demand Removal
+    description: The mixed electroactive inoculum also improved organic-wastewater removal, producing
+      the highest chemical oxygen demand removal among the tested inocula.
   evidence:
   - reference: PMID:41594859
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: selecting complementary strains with diverse metabolic functions can substantially improve system performance
     explanation: Supports metabolic complementarity as the proposed basis for the consortium-level improvement.
+- name: Consortium-Enhanced Anode Power Output
+  description: The three-strain consortium produced a higher microbial fuel-cell power density than
+    L. sphaericus A1, B. cereus A2, or L. lactis A4 pure cultures over 30 days.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
   - reference: PMID:41594859
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Compared with single cultures, the consortium produced approximately 15% higher power density than L. sphericus A1, about 29% higher than B. cereus A2, and more than threefold higher than L. lactis A4.
     explanation: Quantifies the emergent power-density improvement over each pure culture.
+- name: Consortium-Enhanced Chemical Oxygen Demand Removal
+  description: The three-strain consortium removed chemical oxygen demand from amended poultry wastewater
+    more effectively than the tested pure cultures.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:41594859
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest COD removal (84.4%) was also recorded
+    explanation: Supports the consortium's maximum reported chemical oxygen demand removal.
 environmental_factors:
 - name: Operation duration
   value: '30'

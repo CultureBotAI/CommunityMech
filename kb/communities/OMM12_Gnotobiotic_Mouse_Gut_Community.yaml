@@ -59,8 +59,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Defined 12-strain bacterial community containing Firmicutes/Bacillota, Bacteroidota, Actinomycetota,
       Verrucomicrobiota, and Proteobacteria/Pseudomonadota representatives from the mouse intestine.
-  functional_role:
-  - CROSS_FEEDER
   abundance_value: Twelve defined bacterial strains monitored with strain-specific assays.
   evidence:
   - reference: PMID:29051233
@@ -71,9 +69,35 @@ taxonomy:
   - reference: PMID:31998276
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Lactobacillus reuteri I49, Enterococcus faecalis KB1, Blautia coccoides YL58
-    explanation: Provides direct evidence for named OMM12 member strains.
+    snippet: Bacteroides caecimuris I48 DSM 26085 1 Lactobacillus reuteri I49 DSM 32035
+      1 Bifidobacterium longum subsp. animalis YL2 DSM 26074 1 Muribaculum intestinale
+      YL27 DSM 28989 1
+    explanation: Provides direct evidence from Table 2 for named OMM12 member strains.
 ecological_interactions:
+- name: Double-Dose OMM12 Engraftment
+  description: A standardized frozen mixture of the 12 OMM strains can be
+    gavaged into germ-free mice, and repeating the application 72 h after the
+    initial inoculation improves stable community composition and engraftment.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Reproducible Multi-Strain Intestinal Colonization
+    description: The optimized double-dose frozen inoculum protocol enables
+      reproducible de novo association of germ-free mice with the full OMM12
+      synthetic community.
+  evidence:
+  - reference: PMID:31998276
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We show that a second application of the OMM12 strains after 72 h leads to a
+      more stable community composition than a single application.
+    explanation: Supports the 72 h repeat-dose protocol as an OMM12 engraftment
+      improvement.
 - name: Colonization Resistance Against Salmonella
   description: OMM12 was designed to provide conventional-like colonization resistance against Salmonella
     enterica serovar Typhimurium in gnotobiotic mice, making it useful for dissecting microbe-microbe and
@@ -102,6 +126,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Colonization Resistance Against Salmonella
+    description: Stable multi-strain Oligo-MM12 colonization supplies the
+      defined community context in which the consortium resists expansion of
+      Salmonella enterica serovar Typhimurium.
   evidence:
   - reference: PMID:31998276
     supports: SUPPORT

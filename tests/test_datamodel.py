@@ -32,12 +32,12 @@ def test_load_synechococcus_ecoli():
 
     # Check second organism (E. coli)
     ecoli = community["taxonomy"][1]
-    assert ecoli["taxon_term"]["preferred_term"] == "Escherichia coli K-12"
-    assert ecoli["taxon_term"]["term"]["id"] == "NCBITaxon:83333"
+    assert ecoli["taxon_term"]["preferred_term"] == "Escherichia coli W delta-cscR"
+    assert ecoli["taxon_term"]["term"]["id"] == "NCBITaxon:562"
     assert "CROSS_FEEDER" in ecoli["functional_role"]
 
-    # Verify interactions (2)
-    assert len(community["ecological_interactions"]) == 2
+    # Verify interactions (3)
+    assert len(community["ecological_interactions"]) == 3
 
     # Check first interaction
     interaction1 = community["ecological_interactions"][0]

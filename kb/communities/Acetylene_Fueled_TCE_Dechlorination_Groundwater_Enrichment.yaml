@@ -111,6 +111,7 @@ ecological_interactions:
     reductant and organic carbon that support reductive dechlorination of TCE
     and PCE by the community.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
     term:
@@ -146,16 +147,59 @@ ecological_interactions:
     snippet: the coupling of acetylenotrophy and reductive dechlorination can
       occur in the environment with native bacteria
     explanation: Supports the curated syntrophic coupling.
+  downstream:
+  - target: Reductive Dechlorination of TCE and PCE
+    description: Acetylenotrophy supplies the reductant that supports
+      TCE and PCE reduction in the native groundwater enrichment.
+- name: Reductive Dechlorination of TCE and PCE
+  description: >
+    Reductive dechlorinating community members use acetylenotrophy-derived
+    reductant to reduce trichloroethene and perchloroethene in the stable
+    groundwater enrichment.
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  - preferred_term: tetrachloroethene
+    term:
+      id: CHEBI:17300
+      label: tetrachloroethene
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  evidence:
+  - reference: PMID:33531396
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TCE and perchloroethene (PCE) reductive dechlorination by a
+      microbial community enriched from contaminated groundwater
+    explanation: Supports reductive dechlorination of TCE and PCE by the
+      groundwater-derived enrichment community.
 - name: Acetylene as Sole Electron Donor and Carbon Source
   description: C2H2 alone supports the stable enrichment as the sole electron
     donor and organic carbon source.
-  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: novel anaerobic acetylenotroph (Actinobacteria)
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
   metabolites:
   - preferred_term: acetylene
     term:
       id: CHEBI:27518
       label: acetylene
+  downstream:
+  - target: Acetylenotrophy Provides Reductant for Dechlorination
+    description: Acetylene-fed growth of the stable enrichment supplies the
+      acetylenotrophic metabolism that couples to TCE and PCE reductive
+      dechlorination in the groundwater-derived community.
   evidence:
   - reference: PMID:33531396
     supports: SUPPORT

@@ -139,6 +139,15 @@ ecological_interactions:
     carbon cycling.
   interaction_type: PREDATION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: 13C-labeled rhizosphere bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: 13C-labeled rhizosphere bacteriophages
+    term:
+      id: NCBITaxon:10239
+      label: Viruses
   metabolites:
   - preferred_term: carbon dioxide
     term:
@@ -154,6 +163,7 @@ ecological_interactions:
   description: CRISPR spacer targeting connected one phage to a Burkholderiales
     host predicted to be a plant pathogen.
   interaction_type: PREDATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: 13C-labeled rhizosphere bacteriophages
     term:
@@ -164,6 +174,17 @@ ecological_interactions:
     term:
       id: NCBITaxon:80840
       label: Burkholderiales
+  biological_processes:
+  - preferred_term: symbiont-mediated perturbation of host process
+    term:
+      id: GO:0044003
+      label: symbiont-mediated perturbation of host process
+  downstream:
+  - target: Phage Lysis Turns Over Plant-Derived Carbon
+    description: CRISPR spacer targeting links this highly labeled phage to a
+      Burkholderiales host predicted to consume plant-derived carbon directly,
+      so infection of that host contributes to phage-mediated rhizosphere
+      carbon turnover.
   evidence:
   - reference: PMID:34468166
     supports: SUPPORT
@@ -175,6 +196,7 @@ ecological_interactions:
   description: Another highly labeled phage is predicted to replicate in a
     Catenulispora sp. predicted to be a plant growth-promoting bacterium.
   interaction_type: PREDATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: 13C-labeled rhizosphere bacteriophages
     term:
@@ -185,6 +207,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:414878
       label: Catenulispora
+  biological_processes:
+  - preferred_term: symbiont-mediated perturbation of host process
+    term:
+      id: GO:0044003
+      label: symbiont-mediated perturbation of host process
+  downstream:
+  - target: Phage Lysis Turns Over Plant-Derived Carbon
+    description: Replication in a 13C-labeled Catenulispora host ties this
+      phage-host interaction to recycling of plant-derived carbon through
+      active rhizosphere bacterial populations.
   evidence:
   - reference: PMID:34468166
     supports: SUPPORT
@@ -196,8 +228,25 @@ ecological_interactions:
   description: 13C-labeled bacterial genomes encode genes involved in
     modulating plant signaling hormones, plant pathogenicity, and defense
     against microeukaryote grazing.
-  interaction_type: COMMENSALISM
+  interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: 13C-labeled rhizosphere bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  - preferred_term: 13C-labeled rhizosphere microeukaryotic bacterivores and
+      fungi
+    term:
+      id: NCBITaxon:2759
+      label: Eukaryota
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+      between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between
+        organisms
   evidence:
   - reference: PMID:34468166
     supports: SUPPORT

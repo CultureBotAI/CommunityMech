@@ -52,8 +52,8 @@ engineering_design:
     evidence_source: IN_VITRO
     snippet: propane-enriched mixed cultures (derived from agricultural soils
       and an impacted site sediment) which previously degraded 1,4-dioxane, were
-      evaluated for their capacity to also degrade trichloroethene (TCE), cis-1,2-dichloroethene
-      (cDCE), and 1,1-dichloroethene (1,1-DCE) over successive transfers
+      evaluated for their capacity to also degrade trichloroethene (TCE), cis
+      -1,2-dichloroethene (cDCE), and 1,1-dichloroethene (1,1-DCE) over successive transfers
     explanation: Supports the propane-enrichment assembly strategy and the
       three-chlorinated-ethene cometabolism scope of the study.
 environment_term:
@@ -201,7 +201,7 @@ taxonomy:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: PARTIAL
     evidence_source: COMPUTATIONAL
-    snippet: 1,1-DCE degrading cultures were dominated by Pseudonocardia, although
+    snippet: 1,1-DCE degrading cultures were dominated by Pseudonocardia , although
       the associated MAGs contained a truncated propane monooxygenase alpha
       subunit, suggesting other enzymes were responsible for 1,1-DCE transformation
     explanation: Establishes Pseudonocardia dominance in 1,1-DCE enrichments
@@ -261,7 +261,7 @@ taxonomy:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Two MAGs, from soil T3 and T4 cDCE amended enrichments, classified
-      within the phylum Proteobacteria (Methylibium and an unclassified Burkholderiaceae)
+      within the phylum Proteobacteria ( Methylibium and an unclassified Burkholderiaceae )
     explanation: Establishes Methylibium as a non-Actinobacteria propane-
       monooxygenase-carrying MAG recovered from cDCE enrichments.
 - taxon_term:
@@ -291,7 +291,7 @@ taxonomy:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: Two MAGs, from soil T3 and T4 cDCE amended enrichments, classified
-      within the phylum Proteobacteria (Methylibium and an unclassified Burkholderiaceae)
+      within the phylum Proteobacteria ( Methylibium and an unclassified Burkholderiaceae )
     explanation: Establishes an unclassified Burkholderiaceae as a second
       Proteobacterial propane-monooxygenase MAG recovered from cDCE enrichments.
 ecological_interactions:
@@ -304,6 +304,16 @@ ecological_interactions:
     but expression was not examined, so the specific enzyme responsible for
     TCE oxidation in vivo is not directly demonstrated.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhodococcus opacus
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+  - preferred_term: Rhodococcus wratislaviensis
+    term:
+      id: NCBITaxon:44752
+      label: Rhodococcus wratislaviensis
   source_taxon:
     preferred_term: Rhodococcus opacus
     term:
@@ -333,7 +343,7 @@ ecological_interactions:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Functional gene analysis identified both group 5 (prmABCD) and
+    snippet: Functional gene analysis identified both group 5 ( prmABCD ) and
       putative group 6 propane monooxygenases
     explanation: Supports group-5 propane monooxygenase as the operon present
       in the Rhodococcus MAGs driving propane-cometabolic TCE oxidation.
@@ -344,6 +354,16 @@ ecological_interactions:
     group-6 SDIMOs) that drive cometabolic cDCE oxidation while propane is
     the growth substrate.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Mycolicibacterium
+    term:
+      id: NCBITaxon:1866885
+      label: Mycolicibacterium
+  - preferred_term: Mycobacterium
+    term:
+      id: NCBITaxon:1763
+      label: Mycobacterium
   source_taxon:
     preferred_term: Mycolicibacterium
     term:
@@ -406,6 +426,17 @@ ecological_interactions:
     term:
       id: GO:0009410
       label: response to xenobiotic stimulus
+  downstream:
+  - target: Propane-Cometabolic TCE Degradation by Rhodococcus
+    description: >
+      TCE-specific pressure selected Rhodococcus-dominated enrichments that
+      carried group-5 propane monooxygenase operons and sustained
+      propane-driven TCE cometabolism.
+  - target: Propane-Cometabolic cDCE Degradation by Mycolicibacterium and Mycobacterium
+    description: >
+      cDCE-specific pressure selected Mycolicibacterium/Mycobacterium
+      enrichments that dominated the cDCE-amended transfers and carried
+      propane monooxygenase operons.
   evidence:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
@@ -445,6 +476,11 @@ ecological_interactions:
     term:
       id: GO:0009410
       label: response to xenobiotic stimulus
+  downstream:
+  - target: Substrate-Specific Selection Across Chlorinated Ethenes
+    description: 1,1-DCE toxicity restricted which propanotrophic cultures
+      persisted, contributing to the broader chlorinated-ethene-specific
+      selection of distinct actinobacterial genera.
   evidence:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
@@ -477,7 +513,7 @@ environmental_factors:
   - reference: doi:10.1016/j.jenvman.2026.129957
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: TCE (4 to 5 mg/L), cDCE (4 to 5 mg/L) and 1,1-DCE (0.5 to 1 mg/L)
+    snippet: TCE (4 to 5 mg/L), cDCE (4 to 5 mg/ L) and 1,1-DCE (0.5 to 1 mg/L)
       were added to the active microcosms and abiotic controls
     explanation: Documents the concentration ranges used for each chlorinated
       ethene in the microcosms.

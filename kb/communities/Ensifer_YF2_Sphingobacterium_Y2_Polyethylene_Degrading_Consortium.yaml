@@ -1,8 +1,8 @@
 id: CommunityMech:000299
 name: Ensifer YF2 + Sphingobacterium Y2 Polyethylene-degrading Consortium
-description: Synthetic bacterial consortium for polyethylene (PE) biodegradation, built from three
-  strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium sp. MF1-isolated from
-  plastic-contaminated agricultural soils. A dual-strain consortium of YF2 and Y2 degraded PE more
+description: Synthetic two-strain consortium for polyethylene (PE) biodegradation, constructed after
+  screening Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium sp. MF1 isolates from
+  plastic-contaminated agricultural soils. The dual-strain consortium of YF2 and Y2 degraded PE more
   efficiently than individual strains or the full three-strain combination, using PE as the sole
   carbon source and inducing oxidative modifications and physical erosion of the polymer. Genomic
   analysis showed a complementary enzymatic division of labor - YF2 (oxidases LadA, AlkB, CYP450)
@@ -70,34 +70,6 @@ taxonomy:
     snippet: Three bacterial strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium
       sp. MF1-were isolated from plastic-contaminated soils.
     explanation: Identifies Sphingobacterium sp. Y2 as an isolated consortium member.
-- taxon_term:
-    preferred_term: Chryseobacterium sp. MF1
-    term:
-      id: NCBITaxon:59732
-      label: Chryseobacterium
-    gtdb_grounding_status: GROUNDED
-    notes: Strain MF1 identified only to genus Chryseobacterium; grounded at genus rank. Isolated and
-      tested in the three-strain combination, but the effective consortium was the dual-strain YF2+Y2.
-    gtdb_classification:
-      gtdb_id: GTDB:g__Chryseobacterium
-      gtdb_taxon: Chryseobacterium
-      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Weeksellaceae;g__Chryseobacterium
-      ncbi_source_id: NCBITaxon:59732
-      majority_fraction: 0.828
-      support_genomes: 361
-      total_genomes: 436
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 5 GTDB taxa under the NCBI taxon]
-  strain_designation:
-    strain_name: MF1
-  abundance_value: Isolated candidate member; part of the three-strain combination only.
-  evidence:
-  - reference: PMID:41996795
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Three bacterial strains-Ensifer sp. YF2, Sphingobacterium sp. Y2, and Chryseobacterium
-      sp. MF1-were isolated from plastic-contaminated soils.
-    explanation: Identifies Chryseobacterium sp. MF1 as an isolated consortium candidate.
 ecological_interactions:
 - name: Metabolic division of labor in polyethylene degradation
   description: Complementary enzymatic repertoire drives synergistic PE degradation. Ensifer YF2, the
@@ -116,6 +88,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:28453
       label: Sphingobacterium
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  downstream:
+  - target: Synergistic enhancement of PE degradation in the dual-strain consortium
+    description: Ensifer backbone cleavage and Sphingobacterium intermediate
+      metabolism combine into the YF2/Y2 dual consortium's enhanced PE
+      degradation phenotype.
   evidence:
   - reference: PMID:41996795
     supports: SUPPORT
@@ -140,6 +122,15 @@ ecological_interactions:
     term:
       id: NCBITaxon:28453
       label: Sphingobacterium
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  downstream:
+  - target: Polyethylene Oxidation and Surface Erosion
+    description: The enhanced dual-strain consortium grows with PE as the sole
+      carbon source and induces oxidative and physical damage to the polymer.
   evidence:
   - reference: PMID:41996795
     supports: SUPPORT
@@ -148,6 +139,34 @@ ecological_interactions:
       individual strains and the three-strain combination, indicating that functional compatibility
       rather than taxonomic richness drives consortium performance.
     explanation: Measured emergent synergy of the YF2+Y2 co-culture over monocultures and the 3-strain mix.
+- name: Polyethylene Oxidation and Surface Erosion
+  description: The Ensifer YF2 and Sphingobacterium Y2 consortium utilizes
+    polyethylene as sole carbon source while oxidizing and eroding the polymer
+    surface.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ensifer sp. YF2
+    term:
+      id: NCBITaxon:106591
+      label: Ensifer
+  - preferred_term: Sphingobacterium sp. Y2
+    term:
+      id: NCBITaxon:28453
+      label: Sphingobacterium
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  evidence:
+  - reference: PMID:41996795
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium utilized PE as the sole carbon source, inducing oxidative
+      modifications and physical erosion of the polymer surface.
+    explanation: Supports the terminal polyethylene degradation phenotype of the
+      effective YF2/Y2 consortium.
 growth_media:
 - name: polyethylene as sole carbon source (medium composition not specified in abstract)
   preparation_notes: Consortium cultivated with polyethylene (PE) provided as the sole carbon source;

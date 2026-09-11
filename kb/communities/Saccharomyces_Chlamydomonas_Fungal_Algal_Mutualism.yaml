@@ -75,6 +75,7 @@ ecological_interactions:
   description: S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated
     photosynthetically by C. reinhardtii under carbon-limited coculture conditions.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae
     term:
@@ -103,6 +104,11 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Algal Reduced Nitrogen Provisioning
+    description: Yeast-derived carbon dioxide is fixed photosynthetically by
+      C. reinhardtii, sustaining the algal partner that reduces nitrite to
+      ammonia for S. cerevisiae.
   evidence:
   - reference: PMID:24994654
     supports: SUPPORT
@@ -118,6 +124,7 @@ ecological_interactions:
   description: C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in
     the sealed coculture.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlamydomonas reinhardtii
     term:
@@ -148,6 +155,7 @@ ecological_interactions:
   description: C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that
     supports S. cerevisiae growth.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlamydomonas reinhardtii
     term:
@@ -172,6 +180,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Yeast Carbon Dioxide Provisioning
+    description: Algal reduction of nitrite to ammonia supplies the nitrogen
+      source that lets S. cerevisiae proliferate and keep producing carbon
+      dioxide from glucose.
   evidence:
   - reference: PMID:24994654
     supports: SUPPORT

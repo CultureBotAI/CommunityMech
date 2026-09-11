@@ -44,7 +44,6 @@ taxonomy:
       exogenous iron amendment.
   functional_role:
   - PRIMARY_DEGRADER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:34050180
     supports: SUPPORT
@@ -57,8 +56,12 @@ ecological_interactions:
   description: Drought stress enriches rhizosphere taxa whose genomes are
     enriched in carbohydrate transport, secondary-metabolite transport, and
     iron transport and metabolism functions.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: drought-enriched rhizosphere Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
   metabolites:
   - preferred_term: iron
     term:
@@ -91,8 +94,26 @@ ecological_interactions:
   description: Loss of a plant phytosiderophore iron transporter alters root
     iron homeostasis under drought stress and reshapes the microbiome,
     increasing Actinobacteria abundance.
-  interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: drought-enriched rhizosphere Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  metabolites:
+  - preferred_term: phytosiderophore
+    term:
+      id: CHEBI:38155
+      label: phytosiderophore
+  - preferred_term: iron
+    term:
+      id: CHEBI:24875
+      label: iron cation
+  downstream:
+  - target: Drought Selection on Iron- and Carbohydrate-Transport Functions
+    description: Disrupting host phytosiderophore iron transport perturbs root
+      iron homeostasis and increases the drought-enriched Actinobacteria
+      lineage, reinforcing the iron-dependent selection axis in the rhizosphere.
   evidence:
   - reference: PMID:34050180
     supports: SUPPORT
@@ -105,13 +126,22 @@ ecological_interactions:
   description: Exogenous application of iron disrupts the drought-induced
     enrichment of Actinobacteria and abolishes their improvement of host
     phenotype during drought stress.
-  interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: drought-enriched rhizosphere Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
   metabolites:
   - preferred_term: iron
     term:
       id: CHEBI:24875
       label: iron cation
+  downstream:
+  - target: Drought Selection on Iron- and Carbohydrate-Transport Functions
+    description: Exogenous iron suppresses drought-driven Actinobacteria
+      enrichment and its host-phenotype effect, showing that available iron
+      controls the same drought-selected microbial function.
   evidence:
   - reference: PMID:34050180
     supports: SUPPORT

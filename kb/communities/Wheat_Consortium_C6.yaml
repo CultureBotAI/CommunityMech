@@ -1,32 +1,37 @@
 id: CommunityMech:000077
 name: Wheat Synthetic Consortium C6
-description: 'A synthetic 4-member rhizosphere consortium (C6) for biocontrol of Rhizoctonia solani in
-  wheat. The consortium includes Janthinobacterium lividum BJ, Pseudomonas sp. P25, and two additional
-  rhizosphere bacteria. Together, they provide effective suppression of R. solani AG8, a major soilborne
-  pathogen causing root disease in wheat, through synergistic antimicrobial activity and plant growth
-  promotion.
+description: 'A four-member mixed-genus wheat-rhizosphere synthetic consortium
+  (SynCom 6/C6) composed of Streptomyces sp. B6, Chryseobacterium sp. B7,
+  Pseudomonas sp. B12, and Sphingomonas sp. B17. Yin et al. reported that C6
+  inhibited Rhizoctonia solani AG8 radial growth in dual culture and produced
+  auxin in vitro as a whole consortium.
 
   '
 ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: RHIZOSPHERE
 engineering_design:
-  objective: Study biocontrol of Rhizoctonia solani AG8 with the C6 wheat-rhizosphere synthetic consortium;
-    this record currently captures three named members from the reported four-member design.
-  assembly_strategy: Bottom-up assembly from wheat rhizosphere isolates selected for antifungal compatibility;
-    the reported C6 design is four members, with three explicitly curated here.
+  objective: Test whether a four-member mixed-genus wheat-rhizosphere SynCom could
+    inhibit Rhizoctonia solani AG8 and express plant-growth-promotion traits.
+  assembly_strategy: Bottom-up assembly of Streptomyces sp. B6, Chryseobacterium
+    sp. B7, Pseudomonas sp. B12, and Sphingomonas sp. B17 as SynCom 6.
   measurement_endpoints:
-  - Interaction-level mechanistic characterization
-  - Member-level abundance and persistence tracking
-  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters
-    when available.
-  perturbation_design: 'Designed condition space included: Target pathogen, Biocontrol mechanism.'
+  - In vitro Rhizoctonia solani AG8 radial-growth inhibition by dual culture
+  - Wheat root rot score and fresh root weight under AG8 challenge
+  - Auxin production by SynCom culture supernatants
+  - Volatile, hydrogen cyanide, and cell-free supernatant effects on AG8
+  notes: SynCom 6 was one of the mixed-genus consortia assembled from the
+    14-member wheat-rhizosphere strain panel.
+  perturbation_design: The designed assay panel compared water controls, 14 single
+    wheat-rhizosphere isolates, and 10 SynCom mixtures across AG8 inhibition,
+    auxin, volatile, hydrogen cyanide, and cell-free supernatant phenotypes.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Further, the mechanisms of interaction of the tested bacteria with each other and plants
-      were explored
+    snippet: SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Table 1 names the four bacterial isolates that make up SynCom 6.
 environment_term:
   preferred_term: rhizosphere
   term:
@@ -34,102 +39,291 @@ environment_term:
     label: rhizosphere
 taxonomy:
 - taxon_term:
-    preferred_term: Janthinobacterium lividum BJ
+    preferred_term: Streptomyces sp. B6
     term:
-      id: NCBITaxon:29581
-      label: Janthinobacterium lividum
-    gtdb_grounding_status: AMBIGUOUS
-    gtdb_candidates:
-    - GTDB:s__Janthinobacterium_lividum
-    - GTDB:s__Janthinobacterium_lividum_D
+      id: NCBITaxon:1883
+      label: Streptomyces
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Streptomyces
+      gtdb_taxon: Streptomyces
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces
+      ncbi_source_id: NCBITaxon:1883
+      majority_fraction: 0.99
+      support_genomes: 3010
+      total_genomes: 3040
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 7 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B6
+    isolation_source: wheat rhizosphere
   abundance_level: DOMINANT
   functional_role:
-  - SYNTROPHIC_PARTNER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Nine bacteria and four SynComs significantly inhibited the growth of AG8 by producing volatiles
+    snippet: SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Identifies Streptomyces sp. B6 as a C6 member.
 - taxon_term:
-    preferred_term: Pseudomonas sp. P25
+    preferred_term: Chryseobacterium sp. B7
     term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-    gtdb_grounding_status: UNRESOLVED
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Chryseobacterium
+      gtdb_taxon: Chryseobacterium
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Weeksellaceae;g__Chryseobacterium
+      ncbi_source_id: NCBITaxon:59732
+      majority_fraction: 0.828
+      support_genomes: 361
+      total_genomes: 436
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 5 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B7
+    isolation_source: wheat rhizosphere
   abundance_level: DOMINANT
   functional_role:
-  - SYNTROPHIC_PARTNER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Identifies Chryseobacterium sp. B7 as a C6 member.
 - taxon_term:
-    preferred_term: Triticum aestivum
+    preferred_term: Pseudomonas sp. B12
     term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
-    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B12
+    isolation_source: wheat rhizosphere
+  abundance_level: DOMINANT
   functional_role:
-  - PRIMARY_PRODUCER
+  - PATHOGEN_ANTAGONIST
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Identifies Pseudomonas sp. B12 as a C6 member.
+- taxon_term:
+    preferred_term: Sphingomonas sp. B17
+    term:
+      id: NCBITaxon:13687
+      label: Sphingomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingomonas
+      gtdb_taxon: Sphingomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingomonas
+      ncbi_source_id: NCBITaxon:13687
+      majority_fraction: 0.736
+      support_genomes: 449
+      total_genomes: 610
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 19 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: B17
+    isolation_source: wheat rhizosphere
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Identifies Sphingomonas sp. B17 as a C6 member.
 ecological_interactions:
-- name: Antimicrobial Compound Production
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Janthinobacterium lividum BJ
-    term:
-      id: NCBITaxon:29581
-      label: Janthinobacterium lividum
-  target_taxon:
-    preferred_term: Triticum aestivum
-    term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
-  metabolites:
-  - preferred_term: violacein
-    term:
-      id: CHEBI:131914
-      label: violacein
+- name: Equal-Ratio Mixed-Genus C6 Assembly
+  description: >
+    Streptomyces sp. B6, Chryseobacterium sp. B7, Pseudomonas sp. B12,
+    and Sphingomonas sp. B17 were combined at equal ratios as the random
+    mixed-genus C6 consortium within a broader ten-SynCom wheat-rhizosphere
+    design.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
   biological_processes:
-  - preferred_term: antibiotic biosynthetic process
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0017000
-      label: antibiotic biosynthetic process
-  - preferred_term: defense response to fungus
-    term:
-      id: GO:0050832
-      label: defense response to fungus
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: C6 Dual-Culture AG8 Radial Inhibition
+    description: >
+      The assembled four-member C6 inoculum was tested directly against
+      Rhizoctonia solani AG8 mycelial growth.
+  - target: C6 Auxin Production
+    description: >
+      The assembled four-member C6 inoculum was tested for aggregate
+      indole-3-acetic acid production in culture supernatant.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Further, the mechanisms of interaction of the tested bacteria with each other and plants
-      were explored
-- name: Synergistic Pathogen Suppression
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Pseudomonas sp. P25
+    snippet: >
+      SynCom 6(C6) Streptomyces sp. B6, Chryseobacterium sp. B7,
+      Pseudomonas sp. B12, Sphingomonas sp. B17
+    explanation: Table 1 names the four bacterial isolates that make up SynCom 6.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      SynComs were obtained by mixing the individuals in equal ratios
+    explanation: >
+      Supports the mixed inoculum construction used for C6 and the other
+      wheat-rhizosphere SynComs.
+- name: C6 Dual-Culture AG8 Radial Inhibition
+  description: >
+    C6 inhibited Rhizoctonia solani AG8 radial growth in the direct
+    dual-culture agar assay, placing it among the eight inhibitory SynComs in
+    the ten-consortium panel.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces sp. B6
     term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Triticum aestivum
+      id: NCBITaxon:1883
+      label: Streptomyces
+  - preferred_term: Chryseobacterium sp. B7
     term:
-      id: NCBITaxon:4565
-      label: Triticum aestivum
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+  - preferred_term: Pseudomonas sp. B12
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Sphingomonas sp. B17
+    term:
+      id: NCBITaxon:13687
+      label: Sphingomonas
   biological_processes:
-  - preferred_term: defense response
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0006952
-      label: defense response
-  - preferred_term: interspecies interaction
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: C6-Member Cell-Free AG8 Antagonism
+    description: >
+      Cell-free supernatants from all four C6 members were then assayed as
+      possible secreted contributors to antifungal activity.
+  - target: C6-Member Volatile AG8 Antagonism
+    description: >
+      Volatile emissions from the C6 members were also assayed as possible
+      non-contact contributors to antifungal activity.
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In vitro dual-culture assay showed eight SynComs, including C1-C4, C6-C8,
+      and C10, inhibited the growth of R. solani AG8 to varying degrees
+    explanation: Places C6 among the SynComs with significant AG8 radial-growth
+      inhibition.
+- name: C6 Auxin Production
+  description: >
+    C6 culture supernatant contained indole-3-acetic acid in the whole-SynCom
+    auxin assay, one of the plant-growth-modulating phenotypes measured across
+    all ten consortia.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: SynCom Arabidopsis Root-Length Response
+    description: >
+      The SynCom auxin measurements were compared with Arabidopsis root-length
+      outcomes to evaluate bacterial effects on plant root development.
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      including 10 single strains and all 10 SynComs, produced auxin at various
+      concentrations
+    explanation: >
+      Supports IAA production by C6 in the whole-SynCom auxin panel.
+- name: SynCom Arabidopsis Root-Length Response
+  description: >
+    The SynCom panel, including C6, altered primary root length in a controlled
+    Arabidopsis plate assay used to connect bacterial auxin production with
+    plant-root phenotypes.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Similar reductions in the primary root length of Arabidopsis seedlings
+      were observed in all SynComs except C5
+    explanation: >
+      Supports C6 as one of the SynComs with a measured Arabidopsis primary
+      root-length effect.
+- name: C6-Member Cell-Free AG8 Antagonism
+  description: >
+    Cell-free supernatants from Streptomyces B6, Chryseobacterium B7,
+    Pseudomonas B12, and Sphingomonas B17 all inhibited AG8 growth, implicating
+    secreted products from each C6 member in contact-independent pathogen
+    antagonism.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces sp. B6
+    term:
+      id: NCBITaxon:1883
+      label: Streptomyces
+  - preferred_term: Chryseobacterium sp. B7
+    term:
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+  - preferred_term: Pseudomonas sp. B12
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Sphingomonas sp. B17
+    term:
+      id: NCBITaxon:13687
+      label: Sphingomonas
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
@@ -137,24 +331,83 @@ ecological_interactions:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Here, we characterized a collection of bacteria, previously isolated from the wheat rhizosphere,
-      for their antifungal activity against soilborne fungal pathogens
+    snippet: >
+      three Pseudomonas sp. strains (B5, B11, and B12), Streptomyces sp. B6,
+      Chryseobacterium sp. B7, and Sphingomonas sp. B17 became irregular shaped
+      and creamy colored
+    explanation: >
+      Identifies Pseudomonas B12, Streptomyces B6, Chryseobacterium B7, and
+      Sphingomonas B17 among the strains whose cell-free supernatants visibly
+      altered AG8 margins.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The growth of AG8 treated with these bacterial strains was significantly
+      inhibited
+    explanation: >
+      Supports significant AG8 inhibition by the C6-member cell-free
+      supernatants.
+- name: C6-Member Volatile AG8 Antagonism
+  description: >
+    Streptomyces B6, Chryseobacterium B7, Pseudomonas B12, and Sphingomonas B17
+    emitted volatile products that significantly inhibited AG8 in a physically
+    separated Petri-dish assay.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces sp. B6
+    term:
+      id: NCBITaxon:1883
+      label: Streptomyces
+  - preferred_term: Chryseobacterium sp. B7
+    term:
+      id: NCBITaxon:59732
+      label: Chryseobacterium
+  - preferred_term: Pseudomonas sp. B12
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Sphingomonas sp. B17
+    term:
+      id: NCBITaxon:13687
+      label: Sphingomonas
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the volatiles emitted by nine single strains and four SynComs
+      significantly inhibited the growth of AG8
+    explanation: >
+      Supports volatile-mediated AG8 growth inhibition in the assay panel.
+  - reference: PMID:36118206
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      They included four Pseudomonas spp. B5, B11, B12, and P25,
+      Streptomyces sp. B6, Chryseobacterium sp. B7, Sphingomonas sp. B17
+    explanation: >
+      Identifies all four C6 member genera or strains in the volatile-producing
+      strain set.
 environmental_factors:
+- name: Host plant
+  value: Triticum aestivum
+  description: Wheat was the crop host challenged with Rhizoctonia solani AG8 in
+    the greenhouse root-rot assay.
 - name: Target pathogen
   value: Rhizoctonia solani AG8
-  description: Major soilborne fungal pathogen causing root rot and damping-off in wheat
-- name: Biocontrol mechanism
-  value: antimicrobial and induced resistance
-  description: 'Multiple mechanisms including violacein production, volatile organic compounds, and induced
-    systemic resistance in wheat plants
-
-    '
-- name: Agricultural application
-  value: sustainable crop protection
-  description: 'Biological alternative to chemical fungicides for wheat disease management in sustainable
-    agriculture systems
-
-    '
+  description: Soilborne fungal pathogen used for dual-culture and wheat root-rot
+    biocontrol assays.
+- name: Application
+  value: biological control
+  description: C6 was tested as a synthetic bacterial consortium for suppressing
+    AG8-caused wheat root rot.
 metals_present: []
 metal_relevance: INCIDENTAL
 metal_notes: Metal/REE detected via environmental factor measurements
@@ -163,32 +416,16 @@ related_ingredients:
   chebi_term:
     id: CHEBI:16411
     label: indole-3-acetic acid
-  relevance: Bacterial auxin produced by all 10 SynComs (including C6) in Yin et al. 2022 — IAA
-    concentration correlates negatively with Arabidopsis primary root length, evidencing IAA-mediated
-    root growth modulation across the SynCom panel.
+  relevance: C6 culture supernatant contained bacterial auxin in the SynCom panel
+    assay.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: a large proportion of the tested bacteria, including 10 single strains and all 10 SynComs,
-      produced auxin at various concentrations
-    explanation: Names auxin (IAA) production as a SynCom-wide trait of the SynCom panel that
-      includes C6.
-- preferred_term: hydrogen cyanide
-  chebi_term:
-    id: CHEBI:18407
-    label: hydrogen cyanide
-  relevance: Antifungal volatile produced by Pseudomonas sp. P25 in the wheat-rhizosphere strain
-    collection from which C6 was assembled — one of the tested antagonistic mechanisms against
-    Rhizoctonia solani AG8.
-  evidence:
-  - reference: PMID:36118206
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Some bacteria can produce hydrogen cyanide, an inorganic compound, that showed antagonistic
-      activity against pathogens
-    explanation: Establishes hydrogen cyanide as a tested antifungal mechanism in the strain collection
-      assembled into SynCom C6.
+    snippet: including 10 single strains and all 10 SynComs, produced auxin at various
+      concentrations
+    explanation: Supports indole-3-acetic acid as a measured metabolite produced
+      by C6 in the SynCom panel.
 growth_media:
 - name: 1/4 x tryptic soy agar (TSA)
   temperature: '25'
@@ -196,17 +433,21 @@ growth_media:
   incubation_time: '48'
   incubation_time_unit: h
   vessel_type: Petri dish
-  preparation_notes: Wheat-rhizosphere strains maintained on 1/4x TSA / 1x TSB at 25°C; SynCom members
-    grown on 1/4x TSA plates before assembly. Liquid TSB cultures grown shaking at 250 rpm, 25°C.
+  preparation_notes: Wheat-rhizosphere strains were maintained on 1/4x TSA / 1x
+    TSB at 25°C; SynCom members were grown on 1/4x TSA plates before assembly.
+    Liquid TSB cultures were grown shaking at 250 rpm, 25°C.
   evidence:
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Each bacterium was grown in a Petri dish with 1/4 x TSA medium at 25°C for 48 h
-    explanation: Reports the medium, temperature and incubation time for SynCom member cultivation.
+    snippet: Each bacterium was grown in a Petri dish with 1/4 x TSA medium at 25°C
+      for 48 h
+    explanation: Reports the medium, temperature and incubation time for SynCom
+      member cultivation.
   - reference: PMID:36118206
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: were grown on 1/4 x tryptic soy agar/1 x tryptic soy broth (TSA/TSB, BD, Franklin Lakes,
-      NJ) at 25°C
-    explanation: Confirms the TSA/TSB medium and 25°C maintenance temperature for the strains.
+    snippet: were grown on 1/4 x tryptic soy agar/1 x tryptic soy broth (TSA/TSB,
+      BD, Franklin Lakes, NJ) at 25°C
+    explanation: Confirms the TSA/TSB medium and 25°C maintenance temperature for
+      the strains.

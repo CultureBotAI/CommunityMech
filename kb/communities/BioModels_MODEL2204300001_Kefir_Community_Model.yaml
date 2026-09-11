@@ -180,6 +180,7 @@ ecological_interactions:
     mesenteroides to thrive during early fermentation (Stage II-III) despite being poorly suited for milk
     alone.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Lactobacillus kefiranofaciens
     term:
@@ -201,6 +202,11 @@ ecological_interactions:
       id: CHEBI:33709
       label: amino acid
     concentration: Accumulates throughout fermentation via proteolysis
+  downstream:
+  - target: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
+    description: Proteolytic growth support lets L. mesenteroides produce the
+      lactate that feeds back to L. kefiranofaciens in the reciprocal pairwise
+      mutualism.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
@@ -212,6 +218,36 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: casein peptides as well as free amino acids restore the growth of L. mesenteroides
     explanation: Shows that peptides and amino acids from proteolysis enable L. mesenteroides growth.
+- name: L. kefiranofaciens Suppression of L. kefiri
+  description: >
+    Among the abundant kefir species, Lactobacillus kefiranofaciens directly
+    suppresses its apparent competitor Lactobacillus kefiri while promoting L.
+    mesenteroides, exposing an antagonistic branch in the otherwise cooperative
+    kefir succession.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Lactobacillus kefiranofaciens
+    term:
+      id: NCBITaxon:267818
+      label: Lactobacillus kefiranofaciens
+  target_taxon:
+    preferred_term: Lactobacillus kefiri
+    term:
+      id: NCBITaxon:33962
+      label: Lentilactobacillus kefiri
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:33398099
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: L. kefiranofaciens suppressed its seemingly direct competitor L. kefiri
+    explanation: Supports a pairwise inhibitory interaction between the two
+      abundant Lactobacillus species.
 - name: L. mesenteroides Lactate Provisioning to L. kefiranofaciens
   description: 'Leuconostoc mesenteroides produces lactate as a major fermentation by-product, which boosts
     the growth of L. kefiranofaciens approximately three-fold. Lactate supplementation considerably enhances
@@ -219,6 +255,7 @@ ecological_interactions:
     This metabolic cooperation between the two species involves bidirectional exchange: amino acids/peptides
     from L. kefiranofaciens to L. mesenteroides, and lactate from L. mesenteroides to L. kefiranofaciens.'
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Leuconostoc mesenteroides
     term:
@@ -235,6 +272,13 @@ ecological_interactions:
       id: CHEBI:422
       label: (S)-lactic acid
     concentration: Major fermentation by-product, 7-12 mg/ml optimal
+  downstream:
+  - target: Acetobacter Lactate Cross-Feeding
+    description: Lactate-producing early bacteria accumulate the lactate pool
+      that later supports Acetobacter growth.
+  - target: Kazachstania Lactate-Promoted Growth
+    description: The same lactate buildup creates the concentration window that
+      promotes Kazachstania exigua growth during kefir succession.
   evidence:
   - reference: PMID:33398099
     supports: SUPPORT
@@ -256,8 +300,17 @@ ecological_interactions:
     between 7-12 mg/ml, explaining its late onset during fermentation (Stage VI) when lactate accumulates.
     This cross-feeding enables A. fabarum to thrive despite poor growth in plain milk whey.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Acetobacter fabarum
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Lactococcus lactis
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Leuconostoc mesenteroides
+    term:
+      id: NCBITaxon:1245
+      label: Leuconostoc mesenteroides
+  - preferred_term: Acetobacter fabarum
     term:
       id: NCBITaxon:483199
       label: Acetobacter fabarum
@@ -286,11 +339,20 @@ ecological_interactions:
     during fermentation. This cross-feeding on lactate produced by bacterial community members enables
     the yeast to thrive in the kefir ecosystem despite limited ability to utilize milk whey alone.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Kazachstania exigua
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Kazachstania exigua
     term:
       id: NCBITaxon:34358
       label: Maudiozyma exigua
+  - preferred_term: Lactococcus lactis
+    term:
+      id: NCBITaxon:1358
+      label: Lactococcus lactis
+  - preferred_term: Leuconostoc mesenteroides
+    term:
+      id: NCBITaxon:1245
+      label: Leuconostoc mesenteroides
   metabolites:
   - preferred_term: L-lactate
     term:

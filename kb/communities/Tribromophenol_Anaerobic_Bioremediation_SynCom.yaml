@@ -122,12 +122,129 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Clostridial Hydrogen Supply for Reductive Debromination
+  description: Clostridium strain Ma13 ferments glucose to supply hydrogen for
+    the Dehalobacter FTH1 reductive debromination step in the anaerobic
+    2,4,6-tribromophenol consortium.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Clostridium sp.
+    term:
+      id: NCBITaxon:1485
+      label: Clostridium
+  target_taxon:
+    preferred_term: Dehalobacter sp.
+    term:
+      id: NCBITaxon:56112
+      label: Dehalobacter
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: hydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  downstream:
+  - target: Dehalobacter Reductive Debromination of Tribromophenol
+    description: >
+      Hydrogen generated from Clostridium glucose fermentation supplies the
+      reductive Dehalobacter activity that converts 2,4,6-TBP toward phenol.
+  evidence:
+  - *id001
+- name: Dehalobacter Reductive Debromination of Tribromophenol
+  description: Dehalobacter phylotype FTH1 works with the Clostridium hydrogen
+    supplier to debrominate 2,4,6-tribromophenol to phenol.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Dehalobacter sp.
+    term:
+      id: NCBITaxon:56112
+      label: Dehalobacter
+  target_taxon:
+    preferred_term: Desulfatiglans parachlorophenolica
+    term:
+      id: NCBITaxon:1261393
+      label: Desulfatiglans parachlorophenolica
+  metabolites:
+  - preferred_term: 2,4,6-tribromophenol
+    term:
+      id: CHEBI:47696
+      label: 2,4,6-tribromophenol
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  downstream:
+  - target: Desulfatiglans Phenol Degradation
+    description: >
+      Dehalobacter-mediated formation of phenol supplies the aromatic
+      intermediate consumed by D. parachlorophenolica before final
+      mineralization.
+  evidence:
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1
+    explanation: Supports the Clostridium- and Dehalobacter-dependent conversion of tribromophenol
+      to phenol.
+- name: Desulfatiglans Phenol Degradation
+  description: Desulfatiglans parachlorophenolica strain DS consumes the
+    debromination product phenol, completing the downstream aromatic
+    degradation step needed for anaerobic mineralization.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Desulfatiglans parachlorophenolica
+    term:
+      id: NCBITaxon:1261393
+      label: Desulfatiglans parachlorophenolica
+  target_taxon:
+    preferred_term: Dehalobacter sp.
+    term:
+      id: NCBITaxon:56112
+      label: Dehalobacter
+  metabolites:
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  downstream:
+  - target: Anaerobic Halophenol Mineralization
+    description: >
+      Phenol degradation by strain DS is the final member-specialized function
+      before the three-member consortium mineralizes 2,4,6-TBP to carbon
+      dioxide.
+  evidence:
+  - *id001
 - name: Anaerobic Halophenol Mineralization
   description: Debromination, hydrogen supply, and phenol degradation are partitioned among members.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: 2,4,6-tribromophenol
+    term:
+      id: CHEBI:47696
+      label: 2,4,6-tribromophenol
+  - preferred_term: phenol
+    term:
+      id: CHEBI:15882
+      label: phenol
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
   evidence:
   - *id001
+  - reference: PMID:25461007
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4,6-TBP was debrominated to phenol by the combined action of Ma13 and FTH1
+    explanation: Supports phenol as the intermediate formed from the target
+      halophenol before mineralization by the sequentially assembled community.
 environmental_factors:
 - name: defined synthetic community design
   value: Dehalobacter phylotype FTH1, Clostridium strain Ma13, and Desulfatiglans parachlorophenolica

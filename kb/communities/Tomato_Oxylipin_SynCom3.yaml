@@ -92,13 +92,85 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Simplified Community Synergistic Protection
+  description: The three-species tomato rhizosphere community combines one
+    phytopathogen-inducible Asticcacaulis member that triggers plant defense
+    responses with two stably colonizing Arachidicoccus and Phenylobacterium
+    members that promote biofilm formation.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Oxylipin-Mediated Disease Resistance
+    description: The synergistic three-species community intensifies oxylipin
+      pathway activation in phytopathogen-infected tomato leaves.
+  evidence:
+  - reference: PMID:37549573
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the phytopathogen-inducible species triggering plant defense responses and the
+      stably-colonizing species promoting biofilm formation
+    explanation: Supports the two complementary functions that make the
+      simplified rhizosphere community protective.
 - name: Oxylipin-Mediated Disease Resistance
   description: Inducible and stable colonizers synergize to trigger host defense and biofilm-mediated
     protection.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: oxylipin
+    term:
+      id: CHEBI:61121
+      label: oxylipin
+  - preferred_term: colneleic acid
+    term:
+      id: CHEBI:60956
+      label: colneleic acid
+  - preferred_term: colnelenic acid
+    term:
+      id: CHEBI:60959
+      label: colnelenic acid
+  downstream:
+  - target: Divinyl Ether-Dependent Botrytis Protection
+    description: Intensified oxylipin-pathway activation feeds production of
+      antimicrobial divinyl ethers required for community-induced protection
+      against Botrytis cinerea.
   evidence:
   - *id001
+  - reference: PMID:37549573
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the activation of oxylipin pathways in the phytopathogen-infected leaves was significantly
+      intensified by the simplified community
+    explanation: Supports oxylipin-pathway activation as the plant defense
+      mechanism intensified by the simplified tomato rhizosphere community.
+- name: Divinyl Ether-Dependent Botrytis Protection
+  description: The community-induced tomato defense requires biosynthesis of
+    the antimicrobial divinyl ethers colneleic acid and colnelenic acid; when
+    this branch is blocked, the SynCom no longer protects against Botrytis.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: colneleic acid
+    term:
+      id: CHEBI:60956
+      label: colneleic acid
+  - preferred_term: colnelenic acid
+    term:
+      id: CHEBI:60959
+      label: colnelenic acid
+  evidence:
+  - reference: PMID:37549573
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the inhibited biosynthesis of antimicrobial divinyl ethers, including colneleic
+      and colnelenic acid, fully abolished the community-induced plant disease resistance
+    explanation: Supports colneleic and colnelenic acid biosynthesis as
+      required downstream chemistry for SynCom-induced gray mold resistance.
 environmental_factors:
 - name: defined synthetic community design
   value: A 38-species community was simplified to Asticcacaulis, Arachidicoccus, and Phenylobacterium

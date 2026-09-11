@@ -96,12 +96,14 @@ taxonomy:
       parvula.
     explanation: Establishes Veillonella parvula as the adult severe caries-associated pathobiont.
 ecological_interactions:
-- name: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+- name: Veillonella parvula Boost of Streptococcus mutans Glucosyltransferase-EPS Output
   description: >-
-    Veillonella parvula promotes mature Streptococcus mutans biofilm formation
-    and increases stress tolerance and virulence traits in the dual-species
-    consortium.
+    Veillonella parvula coculture increases Streptococcus mutans gtfB, gtfC,
+    and gtfD expression and raises the EPS/bacteria ratio in sucrose-grown
+    dual-species biofilms, increasing the extracellular matrix component of the
+    mixed biofilm.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Veillonella parvula
     term:
@@ -112,6 +114,72 @@ ecological_interactions:
     term:
       id: NCBITaxon:1309
       label: Streptococcus mutans
+  metabolites:
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  - preferred_term: exopolysaccharide
+    term:
+      id: CHEBI:72813
+      label: exopolysaccharide
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+    description: Increased S. mutans glucosyltransferase expression and EPS
+      production strengthen the sucrose-grown mixed biofilm matrix that V.
+      parvula makes denser and more viable.
+  evidence:
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      V. parvula enhances the glucosyltransferase activities of S. mutans and
+      boosts S. mutans to produce more EPS
+    explanation: Supports Veillonella-driven induction of S. mutans
+      glucosyltransferase activity and EPS production.
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: gtfb, gtfc, and gtfd in dual-strains biofilm dramatically increased
+    explanation: Supports the measured increase in S. mutans gtf expression in
+      dual-species biofilms.
+  - reference: PMID:39345197
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: increased the EPS/bacteria ratio
+    explanation: Supports a higher EPS load in S. mutans/V. parvula mixed
+      biofilms than in S. mutans biofilms.
+- name: Veillonella parvula Promotion of Streptococcus mutans Biofilm Virulence
+  description: >-
+    Veillonella parvula promotes mature Streptococcus mutans biofilm formation
+    and increases stress tolerance and virulence traits in the dual-species
+    consortium.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Veillonella parvula
+    term:
+      id: NCBITaxon:29466
+      label: Veillonella parvula
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Pathobiont-Driven Adult Severe Caries Exacerbation
+    description: Veillonella-driven mature biofilm formation and stress tolerance
+      set up the dual-species biofilm virulence measured as worsened rodent caries.
   evidence:
   - reference: PMID:39345197
     supports: SUPPORT
@@ -127,6 +195,7 @@ ecological_interactions:
     significantly worsens disease progression when coinfected with
     Streptococcus mutans.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Veillonella parvula
     term:
@@ -137,6 +206,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:1309
       label: Streptococcus mutans
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
   evidence:
   - reference: PMID:39345197
     supports: SUPPORT

@@ -83,35 +83,12 @@ taxonomy:
     evidence_source: IN_VIVO
     snippet: B. thetaiotaomicron-derived formate is used by M. smithii for methanogenesis
     explanation: Supports the formate-consuming methanogenic role of M. smithii.
-- taxon_term:
-    preferred_term: Desulfovibrio piger comparator
-    term:
-      id: NCBITaxon:901
-      label: Desulfovibrio piger
-    gtdb_grounding_status: GROUNDED
-    gtdb_classification:
-      gtdb_id: GTDB:s__Desulfovibrio_piger
-      gtdb_taxon: Desulfovibrio piger
-      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Desulfovibrio;s__Desulfovibrio piger
-      ncbi_source_id: NCBITaxon:901
-      majority_fraction: 1.0
-      total_genomes: 156
-      is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
-    notes: Sulfate-reducing comparator organism used to distinguish M. smithii-specific effects.
-  functional_role:
-  - SYNTROPHIC_PARTNER
-  evidence:
-  - reference: PMID:16782812
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: or the sulfate-reducing bacterium Desulfovibrio piger
-    explanation: Supports inclusion of D. piger as the comparator biassociation member.
 ecological_interactions:
 - name: Formate Transfer To Methanogenesis
   description: Bacteroides thetaiotaomicron produces formate that is consumed by Methanobrevibacter smithii
     for methanogenesis, creating an archaeal-bacterial cross-feeding interaction.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacteroides thetaiotaomicron
     term:
@@ -138,6 +115,12 @@ ecological_interactions:
     term:
       id: GO:0015948
       label: methanogenesis
+  downstream:
+  - target: Biassociation Enhances Colonization Density
+    description: >
+      M. smithii consumption of B. thetaiotaomicron-derived formate provides a
+      syntrophic methanogenic sink that helps explain the improved distal-gut
+      representation of both organisms.
   evidence:
   - reference: PMID:16782812
     supports: SUPPORT
@@ -147,14 +130,14 @@ ecological_interactions:
 - name: Methanogen-Directed Fructan Fermentation
   description: Methanobrevibacter smithii redirects B. thetaiotaomicron metabolism toward dietary fructan
     fermentation and acetate production, unlike the D. piger comparator.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Methanobrevibacter smithii
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methanobrevibacter smithii
     term:
       id: NCBITaxon:2173
       label: Methanobrevibacter smithii
-  target_taxon:
-    preferred_term: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides thetaiotaomicron
     term:
       id: NCBITaxon:818
       label: Bacteroides thetaiotaomicron
@@ -164,6 +147,12 @@ ecological_interactions:
       id: CHEBI:30089
       label: acetate
     concentration: Product increased during B. thetaiotaomicron-M. smithii biassociation
+  downstream:
+  - target: Biassociation Enhances Colonization Density
+    description: >
+      The M. smithii-specific shift toward dietary fructan fermentation and
+      acetate production is the bacterial metabolic response associated with
+      enhanced biassociation fitness.
   evidence:
   - reference: PMID:16782812
     supports: SUPPORT
@@ -174,16 +163,21 @@ ecological_interactions:
   description: Cocolonization with M. smithii and B. thetaiotaomicron increased representation of both
     species in the distal intestines of gnotobiotic mice relative to monoassociated controls.
   interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Methanobrevibacter smithii
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methanobrevibacter smithii
     term:
       id: NCBITaxon:2173
       label: Methanobrevibacter smithii
-  target_taxon:
-    preferred_term: Bacteroides thetaiotaomicron
+  - preferred_term: Bacteroides thetaiotaomicron
     term:
       id: NCBITaxon:818
       label: Bacteroides thetaiotaomicron
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:16782812
     supports: SUPPORT

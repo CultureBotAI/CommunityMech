@@ -1,60 +1,282 @@
 id: CommunityMech:000011
 name: BioModels MODEL2310020001 Mouse Metaorganism Model
-description: BioModels record MODEL2310020001 is a host-microbiota metaorganism model that links a merged
-  microbiota model to host organ models (brain, liver, and colon) through a shared bloodstream compartment.
-ecological_state: ENGINEERED
-community_origin: ENGINEERED
+description: >-
+  BioModels record MODEL2310020001 contains an integrated metabolic
+  metaorganism model of aging mice that connects a merged mouse gut microbiome
+  metabolic model to colon, liver, and brain host-tissue models through gut
+  lumen and bloodstream exchange compartments.
+ecological_state: STABLE
+community_origin: NATURAL
 community_category: OTHER
-engineering_design:
-  objective: BioModels record MODEL2310020001 is a host-microbiota metaorganism model that links a merged
-    microbiota model to host organ models (brain, liver, and colon) through a shared bloodstream compartment.
-  assembly_strategy: Engineered community configuration represented from published model and experimental
-    context.
-  measurement_endpoints:
-  - Community composition and functional performance readouts
-  notes: Backfilled engineering-design metadata from existing curation; refine with protocol-level parameters
-    when available.
-  evidence:
-  - reference: doi:10.1101/2024.03.28.587009
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: Here, we combined multi-omics with metabolic modeling in mice to comprehensively characterize
-      host-microbiome interactions and how they are affected by aging.
-    explanation: Supports host-microbiome metaorganism modeling in mice.
 environment_term:
   preferred_term: laboratory environment
   term:
     id: ENVO:01001405
     label: laboratory environment
-  notes: Computational host-microbiota modeling framework.
+  notes: >-
+    Male C57BL/6J/Ukj mice were bred and housed in a laboratory mouse facility
+    for the aging cohort that supplied fecal metagenomes and host tissue
+    transcriptomes.
 modeled_environment:
 - preferred_term: intestine environment
   term:
     id: ENVO:2100002
     label: intestine environment
+  notes: >-
+    Fecal metagenomes from colon contents were used to reconstruct the gut
+    microbiome component of the host-microbiome metamodel.
+taxonomy:
+- taxon_term:
+    preferred_term: mouse gut Bacillota MAGs
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:p__Bacillota_A
+      gtdb_taxon: Bacillota_A
+      gtdb_lineage: d__Bacteria;p__Bacillota_A
+      ncbi_source_id: NCBITaxon:1239
+      majority_fraction: 0.501
+      support_genomes: 226306
+      total_genomes: 451729
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 12 GTDB taxa under the NCBI taxon]
+    notes: >-
+      Phylum-level aggregate for the 97 Bacillota MAGs reconstructed from the
+      mouse gut metagenomes and incorporated into the metabolic metamodel.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Most of the MAGs were attributed to the phyla Bacillota
+    explanation: Identifies Bacillota as the largest phylum-level group among the reconstructed mouse gut MAGs.
+- taxon_term:
+    preferred_term: mouse gut Bacteroidota MAGs
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:p__Bacteroidota
+      gtdb_taxon: Bacteroidota
+      gtdb_lineage: d__Bacteria;p__Bacteroidota
+      ncbi_source_id: NCBITaxon:976
+      majority_fraction: 0.999
+      support_genomes: 151365
+      total_genomes: 151454
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 5 GTDB taxa under the NCBI taxon]
+    notes: >-
+      Phylum-level aggregate for the Bacteroidota MAGs reconstructed from the
+      mouse gut metagenomes; Bacteroidota dominated the 60 most abundant MAGs in
+      the aging cohort.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroidota predominated in the cohort
+    explanation: Supports Bacteroidota as a dominant mouse gut MAG group in the aging cohort.
+ecological_interactions:
+- name: Model-Predicted Beneficial Gut Interactions
+  description: >-
+    Community FBA over genome-scale models from 181 mouse gut MAGs inferred
+    pairwise growth effects among bacterial species. Aging was associated with
+    a loss of beneficial bacterial interactions, linking within-microbiome
+    ecological decline to lower microbiome metabolic output.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+    notes: Community FBA compared single and paired bacterial growth rates to infer beneficial interactions.
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+    notes: Butyrate was a beneficial microbial metabolite reduced in aging-associated microbiome change.
+  downstream:
+  - target: Aging Shift Toward Competitive Gut Interactions
+    description: >-
+      Loss of beneficial growth interactions accompanied an aging-associated
+      increase in competitive pairwise interaction frequencies.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Growth was estimated by FBA for single growth and community FBA for combined growth.
+    explanation: Describes the FBA comparison used to infer pairwise bacterial ecological relationships.
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: We observed a pronounced reduction in metabolic activity within the aging microbiome
+      accompanied by reduced beneficial interactions between bacterial species.
+    explanation: Supports the aging-associated decline in beneficial bacterial interactions.
+- name: Aging Shift Toward Competitive Gut Interactions
+  description: >-
+    Community FBA predicted every pairwise relationship in each mouse gut
+    microbiome by comparing single-bacterium growth with two-species growth.
+    Aging shifted the inferred interaction frequencies away from amensal,
+    commensal, and neutral outcomes and toward competition, consistent with a
+    loss of beneficial metabolic interactions among bacterial members.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+    notes: FBA compared single and combined bacterial growth rates to call ecological relationships.
+  metabolites:
+  - preferred_term: succinate
+    term:
+      id: CHEBI:30031
+      label: succinate(2-)
+    notes: Succinate was a model-predicted pro-inflammatory product that increased with aging.
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+    notes: Butyrate was a beneficial microbial metabolite reduced in aging-associated microbiome change.
+  downstream:
+  - target: Microbiota-Dependent Host Nucleotide Support
+    description: >-
+      Reduced beneficial bacterial interactions and microbiome metabolic output
+      are upstream of model-predicted declines in host pathways that depend on
+      microbiome-derived metabolism.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: We observed a significant decrease in amensal, commensal and neutral interactions at the
+      expense of increased competitive interactions
+    explanation: Supports the predicted aging-associated shift toward competitive bacterial interactions.
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Aging-related microbiome changes led to the accumulation of pro-aging
+      metabolites (D-galactose, succinate) and a decline in beneficial
+      metabolites (nucleotides, butyrate).
+    explanation: Links the modeled ecological shift to aging-associated changes in microbial metabolic output.
+- name: Microbiota-Dependent Host Nucleotide Support
+  description: >-
+    The integrated host-microbiome metamodel linked gut microbial reactions with
+    host colon, liver, and brain reactions through lumen and bloodstream
+    exchanges. Aging reduced microbial nucleotide synthesis and other microbial
+    metabolic activities correlated with host expression, tying community
+    metabolic decline to model-predicted loss of microbiota-supported host
+    nucleotide pathways.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nucleotide
+    term:
+      id: CHEBI:36976
+      label: nucleotide
+    notes: Nucleotide co-metabolism was highlighted as a microbiome-linked host pathway affected by aging.
+  biological_processes:
+  - preferred_term: nucleotide metabolic process
+    term:
+      id: GO:0009117
+      label: nucleotide metabolic process
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      In this metamodel, the host is represented by three different tissues
+      (colon, liver and brain) connected through the bloodstream and interacting
+      with the microbiome through the gut lumen
+    explanation: Describes the host and microbiome compartments used to model gut-lumen and bloodstream exchange.
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: An aging-associated decline in nucleotide co-metabolism could underlie diminished intestinal
+      barrier integrity
+    explanation: Supports nucleotide co-metabolism as an aging-affected host-microbiome pathway.
+related_ingredients:
+- preferred_term: nucleotide
+  chebi_term:
+    id: CHEBI:36976
+    label: nucleotide
+  relevance: >-
+    Nucleotides are central predicted exchange metabolites in the mouse
+    metaorganism model; aging was associated with a decline in nucleotide
+    co-metabolism that may affect intestinal barrier and cellular homeostatic
+    processes.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: An aging-associated decline in nucleotide co-metabolism could underlie diminished intestinal
+      barrier integrity
+    explanation: Links nucleotide co-metabolism to microbiome-associated host aging pathways.
+- preferred_term: succinate
+  chebi_term:
+    id: CHEBI:30031
+    label: succinate(2-)
+  relevance: >-
+    Succinate was part of the aging-associated microbial metabolite shift,
+    accumulating with D-galactose while beneficial microbiome-linked metabolites
+    declined.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Aging-related microbiome changes led to the accumulation of pro-aging
+      metabolites (D-galactose, succinate) and a decline in beneficial
+      metabolites (nucleotides, butyrate).
+    explanation: Names succinate among pro-aging metabolites that accumulated in the aging microbiome analysis.
+- preferred_term: butyrate
+  chebi_term:
+    id: CHEBI:17968
+    label: butyrate
+  relevance: >-
+    Butyrate was one of the beneficial microbial metabolites reduced in the
+    aging-associated decline of microbiome metabolic activity.
+  evidence:
+  - reference: PMID:40140706
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Aging-related microbiome changes led to the accumulation of pro-aging
+      metabolites (D-galactose, succinate) and a decline in beneficial
+      metabolites (nucleotides, butyrate).
+    explanation: Names butyrate among the beneficial microbial metabolites that declined with aging.
 associated_datasets:
-- title: BioModels model file
+- title: BioModels metamodel SBML
   dataset_type: OTHER
-  repository: OTHER
+  repository: BIOMODELS
   accession: metamodel_20230510.xml
   url: https://www.ebi.ac.uk/biomodels/MODEL2310020001
-  description: SBML metaorganism model submitted to BioModels.
-- title: Primary publication
+  description: Integrated metabolic metaorganism SBML model submitted to BioModels.
+- title: Peer-reviewed primary publication
   dataset_type: OTHER
   repository: OTHER
-  accession: doi:10.1101/2024.03.28.587009
-  url: https://doi.org/10.1101/2024.03.28.587009
-  description: Preprint describing the metabolic metaorganism model of mice and microbiota.
+  accession: PMID:40140706
+  url: https://pubmed.ncbi.nlm.nih.gov/40140706/
+  description: Nature Microbiology article describing the mouse host-microbiome metabolic metamodel.
+- title: Fecal metagenomic reads and MAG assemblies
+  dataset_type: METAGENOMICS
+  repository: ENA
+  accession: PRJEB73981
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB73981
+  description: European Nucleotide Archive BioProject containing metagenomic reads and MAG assembly data.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS
   resource_id: MODEL2310020001
   url: https://www.ebi.ac.uk/biomodels/MODEL2310020001
-  description: Metabolic metaorganism model of mice and their microbiota.
+  description: Integrated metabolic metaorganism model of mice and their microbiome.
   evidence:
-  - reference: doi:10.1101/2024.03.28.587009
+  - reference: PMID:40140706
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: Here, we combined multi-omics with metabolic modeling in mice to comprehensively characterize
-      host-microbiome interactions and how they are affected by aging.
-    explanation: Supports host-microbiome metaorganism modeling in mice.
+    snippet: The metamodel can be found under accession MODEL2310020001 in the EBI BioModels
+      database
+    explanation: Confirms the peer-reviewed article's BioModels accession for the host-microbiome metamodel.

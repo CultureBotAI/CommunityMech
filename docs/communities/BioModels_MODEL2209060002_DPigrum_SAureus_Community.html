@@ -396,7 +396,7 @@
                     </span>
                 </div>
 
-                
+
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
@@ -408,20 +408,20 @@
                         </a>
                     </span>
                 </div>
-                
-                
+
+
             </div>
         </section>
 
         <!-- Description -->
-        
+
         <section class="description">
             <p>BioModels record MODEL2209060002 is a community GEM combining Dolosigranulum pigrum and Staphylococcus aureus to emulate interactions in a human nasal-like environment.</p>
         </section>
-        
+
 
         <!-- Taxonomy -->
-        
+
         <section>
             <h2>Taxonomy</h2>
             <table>
@@ -434,7 +434,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td>
                             <strong>Dolosigranulum pigrum</strong>
@@ -446,18 +446,18 @@
                             </a>
                         </td>
                         <td>
-                            
+
                             <div class="roles-list">
-                                
+
                                 <span class="role-badge">CROSS_FEEDER</span>
-                                
+
                             </div>
-                            
+
                         </td>
                         <td>N/A</td>
                     </tr>
-                    
-                    
+
+
                     <tr>
                         <td>
                             <strong>Staphylococcus aureus</strong>
@@ -469,32 +469,32 @@
                             </a>
                         </td>
                         <td>
-                            
+
                             <div class="roles-list">
-                                
+
                                 <span class="role-badge">CROSS_FEEDER</span>
-                                
+
                             </div>
-                            
+
                         </td>
                         <td>N/A</td>
                     </tr>
-                    
-                    
+
+
                 </tbody>
             </table>
         </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
-        
+
 
             <!-- Network Diagram -->
             <div class="network-container" id="network-container">
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for BioModels MODEL2209060002 D pigrum - S aureus Community</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (cross-feeding, competition, niche partitioning).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -502,93 +502,325 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolDiamond"
+                             data-color="#57c7ab"></svg> Cross-feeding
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
                              aria-hidden="true" data-symbol="symbolTimes"
                              data-color="#a91919"></svg> Competition
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolSquare2"
+                             data-color="#1212ed"></svg> Niche partitioning
                     </div>
                 </div>
             </div>
 
-            
+
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>D. pigrum Competitive Exclusion of S. aureus</h3>
+                    <h3>Curated Two-Species Nasal GEM Assembly</h3>
+                    <span class="interaction-type">CROSS_FEEDING</span>
+                </div>
+
+
+
+
+
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> SNM3 Nasal Medium Exchange Constraints
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fcimb.2022.925215"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The resulting community model combines the latest available curated GEMs of D. pigrum and S. aureus."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>SNM3 Nasal Medium Exchange Constraints</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+
+
+
+
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> COMPM and COOPM Nutrient Perturbations
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fcimb.2022.925215"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"The main medium applied herein is SNM3"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>COMPM and COOPM Nutrient Perturbations</h3>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
+                </div>
+
+
+
+
+
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> D. pigrum-S. aureus Exchange-Factor Prediction
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fcimb.2022.925215"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"one medium as rich in the nutrients of the human nose and the other one as poor in the nutrients"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>D. pigrum-S. aureus Exchange-Factor Prediction</h3>
                     <span class="interaction-type">COMPETITION</span>
                 </div>
 
-                
+
                 <p><strong>Source Taxon:</strong> Dolosigranulum pigrum</p>
-                
 
-                
+
+
                 <p><strong>Target Taxon:</strong> Staphylococcus aureus</p>
-                
 
-                
-                <p><strong>Metabolites:</strong>
-                    
-                    lactate
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=422"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:422</a>)
-                    
-                </p>
-                
 
-                
 
-                
 
-                
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> In Silico S. aureus Growth-Inhibition Hypothesis
+                    </div>
+
+                </div>
+
+
+
                 <h4>Evidence</h4>
                 <ul class="evidence-list">
-                    
+
                     <li class="evidence-item">
                         <div>
-                            
+
                             <a href="https://doi.org/10.3389/fcimb.2022.925215"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
-                            
+
                             - SUPPORT (COMPUTATIONAL)
                         </div>
-                        
-                        <div class="snippet">"Multiple epidemiological studies identify Dolosigranulum pigrum as a likely beneficial bacterium based on its positive association with health, including negative associations with S. aureus."</div>
-                        
-                    </li>
-                    
-                    <li class="evidence-item">
-                        <div>
-                            
-                            <a href="https://doi.org/10.3389/fcimb.2022.925215"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
-                            
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-                        
+
                         <div class="snippet">"By this, we identify and characterize metabolic exchange factors involved in a specific interaction between D. pigrum and S. aureus as an in silico candidate factor for a deep insight into the associated species."</div>
-                        
+
                     </li>
-                    
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>In Silico S. aureus Growth-Inhibition Hypothesis</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+
+                <p><strong>Source Taxon:</strong> Dolosigranulum pigrum</p>
+
+
+
+                <p><strong>Target Taxon:</strong> Staphylococcus aureus</p>
+
+
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        interspecies interaction between organisms
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0044419"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0044419</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
                     <li class="evidence-item">
                         <div>
-                            
+
                             <a href="https://doi.org/10.3389/fcimb.2022.925215"
                                class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
-                            
+
                             - SUPPORT (COMPUTATIONAL)
                         </div>
-                        
-                        <div class="snippet">"Its direct application suggests new ways to prevent disease-causing infections by inhibiting the growth of pathogens such as S. aureus through microbe–microbe interactions."</div>
-                        
+
+                        <div class="snippet">"Multiple epidemiological studies identify Dolosigranulum pigrum as a likely beneficial bacterium based on its positive association with health, including negative associations with S. aureus."</div>
+
                     </li>
-                    
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://doi.org/10.3389/fcimb.2022.925215"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Its direct application suggests new ways to prevent disease-causing infections by inhibiting the growth of pathogens such as S. aureus through microbe–microbe interactions."</div>
+
+                    </li>
+
                 </ul>
-                
+
             </div>
-            
-        
+
+
         </section>
 
         <!-- Associated Datasets -->
-        
+
         <section>
             <h2>Associated Datasets</h2>
             <table>
@@ -601,46 +833,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td>
                             <strong>BioModels model file</strong>
-                            
+
                             <br><span class="dataset-description">SBML community model combining D. pigrum and S. aureus.</span>
-                            
+
                         </td>
                         <td><span class="role-badge">OTHER</span></td>
                         <td>OTHER</td>
                         <td>
-                            
+
                             <a href="https://www.ebi.ac.uk/biomodels/MODEL2209060002" class="term-link" target="_blank" rel="noopener noreferrer">SA_DP_community.xml</a>
-                            
+
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>
                             <strong>Primary publication</strong>
-                            
+
                             <br><span class="dataset-description">Community GEM and use-case for nasal microbiome-relevant interaction modeling.</span>
-                            
+
                         </td>
                         <td><span class="role-badge">OTHER</span></td>
                         <td>OTHER</td>
                         <td>
-                            
+
                             <a href="https://doi.org/10.3389/fcimb.2022.925215" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
-                            
+
                         </td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </section>
-        
+
 
         <!-- Environmental Factors -->
-        
+
         <section>
             <h2>External Resources</h2>
             <table>
@@ -652,71 +884,71 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td>
                             <strong>BioModels entry</strong>
-                            
+
                             <br><span class="dataset-description">D. pigrum and S. aureus community model.</span>
-                            
+
                         </td>
                         <td>BIOMODELS</td>
                         <td>
-                            
+
                             <a href="https://www.ebi.ac.uk/biomodels/MODEL2209060002" class="term-link" target="_blank" rel="noopener noreferrer">MODEL2209060002</a>
-                            
+
                         </td>
                     </tr>
-                    
+
                     <tr class="evidence-row-container">
                         <td colspan="3">
                             <ul class="evidence-list">
-                                
+
                                 <li class="evidence-item">
-                                    
+
                                     <a href="https://doi.org/10.3389/fcimb.2022.925215"
                                        class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.3389/fcimb.2022.925215</a>
-                                    
+
                                     - SUPPORT (COMPUTATIONAL)
-                                    
+
                                     <div class="snippet">"The resulting community model combines the latest available curated GEMs of D. pigrum and S. aureus."</div>
-                                    
+
                                 </li>
-                                
+
                             </ul>
                         </td>
                     </tr>
-                    
-                    
+
+
                 </tbody>
             </table>
         </section>
-        
 
-        
+
+
 
         <!-- Growth Media -->
-        
+
         <section>
             <h2>Growth Media</h2>
-            
+
             <div class="metadata">
                 <h3>
                     SNM3 (synthetic nasal medium, in silico)
-                    
+
                 </h3>
 
-                
+
 
                 <div class="metadata-grid" style="margin-top: 1rem;">
-                    
 
-                    
 
-                    
+
+
+
                 </div>
 
-                
+
                 <h4 style="margin-top: 1rem; color: var(--text);">Composition</h4>
                 <table>
                     <thead>
@@ -728,127 +960,127 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+
                         <tr>
                             <td><strong>oxygen</strong></td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td>
-                                
+
                                 N/A
-                                
+
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <td><strong>iron</strong></td>
                             <td>N/A</td>
                             <td>N/A</td>
                             <td>
-                                
+
                                 N/A
-                                
+
                             </td>
                         </tr>
-                        
+
                     </tbody>
                 </table>
-                
 
-                
+
+
                 <p style="margin-top: 1rem; padding: 0.75rem; background: var(--background); color: var(--text); border: 1px solid var(--border); border-radius: 4px;">
                     <strong>Preparation notes:</strong> In silico constraint-based (FBA/FVA) medium, not a bench culture. Main medium is SNM3, a defined synthetic medium developed to mimic the human nose environment; exchange-reaction lower bounds for metabolites present in SNM3 were set to -10 mmol/(gDW*h), except -20 (oxygen) and -0.1 (iron); all other exchanges set to 0. Two additional derived media were also used - a rich medium (COMPM) and a poor medium (COOPM). No temperature, pH, or physical cultivation parameters are reported because the study is purely computational.
                 </p>
-                
 
-                
+
+
                 <div style="margin-top: 1rem;">
                     <h4 style="color: var(--text);">Evidence</h4>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"The main medium applied herein is SNM3"</p>
-                        
+
                     </div>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"a unique SNM3 has been developed"</p>
-                        
+
                     </div>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"to mimic the human nose environment"</p>
-                        
+
                     </div>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"except oxygen and iron"</p>
-                        
+
                     </div>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"provides both aerobic and anaerobic living conditions"</p>
-                        
+
                     </div>
-                    
+
                     <div class="evidence-item">
-                        
+
                         <a href="https://doi.org/10.3389/fcimb.2022.925215"
                            class="pmid-link" target="_blank" rel="noopener">
                             doi:10.3389/fcimb.2022.925215
                         </a>
-                        
 
-                        
+
+
                         <p class="snippet">"one medium as rich in the nutrients of the human nose and the other one as poor in the nutrients"</p>
-                        
+
                     </div>
-                    
+
                 </div>
-                
+
             </div>
-            
+
         </section>
-        
+
     </main>
 
     <footer>
@@ -857,7 +1089,7 @@
         </div>
     </footer>
 
-    
+
     <script src="../d3.v7.min.js"></script>
     <script>
     (function() {
@@ -893,21 +1125,21 @@
 
         // Build taxon lookup keyed by preferred_term
         var taxonData = {};
-        
+
         taxonData["Dolosigranulum pigrum"] = {
             id: "NCBITaxon:29394",
             label: "Dolosigranulum pigrum",
             abundance: "UNKNOWN",
             roles: ["CROSS_FEEDER"]
         };
-        
+
         taxonData["Staphylococcus aureus"] = {
             id: "NCBITaxon:1280",
             label: "Staphylococcus aureus",
             abundance: "UNKNOWN",
             roles: ["CROSS_FEEDER"]
         };
-        
+
 
         // Build nodes and links
         var nodes = [];
@@ -930,23 +1162,23 @@
         });
 
         // Add interaction nodes and edges
-        
+
         (function() {
             var intId = "interaction:0";
-            var intType = "COMPETITION";
+            var intType = "CROSS_FEEDING";
             var metabolites = [];
-            
-            
-            metabolites.push("lactate");
-            
-            
+
             var processes = [];
-            
-            var evidenceCount = 3;
+
+
+            processes.push("interspecies interaction between organisms");
+
+
+            var evidenceCount = 1;
 
             nodes.push({
                 id: intId,
-                label: "D. pigrum Competitive Exclusion of S. aureus",
+                label: "Curated Two-Species Nasal GEM Assembly",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -954,21 +1186,143 @@
                 evidenceCount: evidenceCount
             });
 
-            
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:1";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+
+            var processes = [];
+
+
+            processes.push("interspecies interaction between organisms");
+
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "SNM3 Nasal Medium Exchange Constraints",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:2";
+            var intType = "NICHE_PARTITIONING";
+            var metabolites = [];
+
+            var processes = [];
+
+
+            processes.push("interspecies interaction between organisms");
+
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "COMPM and COOPM Nutrient Perturbations",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:3";
+            var intType = "COMPETITION";
+            var metabolites = [];
+
+            var processes = [];
+
+
+            processes.push("interspecies interaction between organisms");
+
+
+            var evidenceCount = 1;
+
+            nodes.push({
+                id: intId,
+                label: "D. pigrum-S. aureus Exchange-Factor Prediction",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
             var srcKey = "Dolosigranulum pigrum";
             if (taxonNodeIds[srcKey]) {
                 links.push({ source: taxonNodeIds[srcKey], target: intId });
             }
-            
 
-            
+
+
             var tgtKey = "Staphylococcus aureus";
             if (taxonNodeIds[tgtKey]) {
                 links.push({ source: intId, target: taxonNodeIds[tgtKey] });
             }
-            
+
         })();
-        
+
+        (function() {
+            var intId = "interaction:4";
+            var intType = "COMPETITION";
+            var metabolites = [];
+
+            var processes = [];
+
+
+            processes.push("interspecies interaction between organisms");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "In Silico S. aureus Growth-Inhibition Hypothesis",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+            var srcKey = "Dolosigranulum pigrum";
+            if (taxonNodeIds[srcKey]) {
+                links.push({ source: taxonNodeIds[srcKey], target: intId });
+            }
+
+
+
+            var tgtKey = "Staphylococcus aureus";
+            if (taxonNodeIds[tgtKey]) {
+                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
+            }
+
+        })();
+
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -985,7 +1339,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 3;
+        var nodeCount = 7;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
@@ -1195,7 +1549,7 @@
         node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
     })();
     </script>
-    
+
     <script src="../theme-toggle.js"></script>
 </body>
 </html>

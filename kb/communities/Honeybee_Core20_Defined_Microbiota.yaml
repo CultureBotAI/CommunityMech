@@ -48,18 +48,86 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Immune-Mediated Pathogen Protection
-  description: The defined Core-20 community primes host immune gene expression and reduces Hafnia alvei
-    prevalence.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Core-20 Gut Colonization
+  description: The defined Core-20 community colonizes the honeybee gut in vivo; most member strains
+    remained detectable through the serial-passage experiment, with G. sp. W8131 falling below
+    detection or failing to colonize.
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: honeybee gut bacterial Core-20 members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Core-20 Immune Priming
+    description: In vivo Core-20 gut colonization provides the defined community context that stimulates
+      antimicrobial peptide expression before Hafnia alvei challenge.
   evidence:
-  - *id001
+  - reference: PMID:36532452
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: All strains except G. sp. W8131 were detected individually in bee gut samples
+      among passages
+    explanation: Establishes in vivo persistence for most Core-20 strains during the serial honeybee-gut
+      passaging experiment and prevents the record from implying perfect detection of all 20 members.
+- name: Core-20 Immune Priming
+  description: The stably established Core-20 community triggers up-regulation of honeybee innate immune
+    genes, including antimicrobial peptide genes, that the authors link to microbiota-mediated pathogen
+    protection.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: honeybee gut bacterial Core-20 members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: regulation of innate immune response
+    term:
+      id: GO:0045088
+      label: regulation of innate immune response
+  downstream:
+  - target: Immune-Mediated Hafnia alvei Reduction
+    description: Core-20 immune-gene induction coincided with reduced H. alvei loads after oral challenge
+      and was interpreted as part of the protective mechanism.
+  evidence:
+  - reference: PMID:36532452
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bees with the Core-20 showed a significant increase of AMPs abaecin,
+      apidaecin, hymenoptaecin, and defensin-1
+    explanation: Supports the Core-20-induced antimicrobial peptide response measured before H. alvei
+      inoculation.
+- name: Immune-Mediated Hafnia alvei Reduction
+  description: Host immune regulation by the Core-20 gut community reduces Hafnia alvei prevalence in
+    orally challenged honeybees.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: honeybee gut bacterial Core-20 members
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:36532452
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: bees treated with the Core-6, including all these strains demonstrating the ability
+      to inhibit pathogens, did not show a significant reduction of H. alvei, while
+      the Core-20 reduced the H. alvei loads by 78 times
+    explanation: 'Supports the endpoint: the high-diversity Core-20 inoculum reduced H. alvei burden
+      in vivo after oral challenge.'
 environmental_factors:
 - name: stably transmitted defined microbiota
   value: The Core-20 community was passaged through honeybee guts and evaluated for stable colonization
@@ -73,9 +141,10 @@ related_ingredients:
   chebi_term:
     id: CHEBI:16646
     label: carbohydrate
-  relevance: Carbohydrate utilization is a defining functional capacity of the Core-20 community,
-    enriched in the genomic analysis of the defined microbiota and likely central to its colonization
-    and immune-priming activity in the honeybee gut.
+  relevance: Carbohydrate utilization is a represented genomic capacity of the Core-20 community
+    and a plausible contributor to nutrient-niche occupation in the honeybee gut, but this record
+    treats the link to immune priming and Hafnia alvei exclusion as a hypothesis rather than a tested
+    metabolite edge.
   evidence:
   - reference: PMID:36532452
     supports: SUPPORT
@@ -89,8 +158,8 @@ related_ingredients:
     id: CHEBI:18021
     label: phosphoenolpyruvate
   relevance: The phosphoenolpyruvate-dependent sugar phosphotransferase system (PTS) is represented in
-    the Core-20 genomes, implicating phosphoenolpyruvate as the central phosphoryl donor driving sugar
-    uptake in this gut community.
+    Core-20 genome annotations, implicating PTS-linked sugar uptake as a possible community function
+    without proving that phosphoenolpyruvate flux regulates the host immune response in vivo.
   evidence:
   - reference: PMID:36532452
     supports: SUPPORT

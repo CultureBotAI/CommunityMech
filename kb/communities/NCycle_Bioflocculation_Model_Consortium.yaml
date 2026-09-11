@@ -52,13 +52,72 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Nitrifier-Denitrifier Aggregate Formation
-  description: Nitrifier microcolonies and denitrifier flocs formed larger aggregate structures under
-    reactor cycling.
+- name: Alginate-Entrapped Nitrifier Microcolony Formation
+  description: Alginate entrapment and oxic/anoxic sequencing-batch-reactor cycles
+    generated strong nitrifier microcolonies before the entrapped aggregates were
+    released into denitrifier flocs.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Nitrifier-Denitrifier Macrocluster Formation
+    description: Release of the nitrifier microcolonies into suspension seeded larger
+      macroclusters with the denitrifier flocs.
   evidence:
-  - *id001
+  - reference: PMID:40536564
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strong nitrifier microcolonies were formed during oxic/anoxic cycles in sequencing batch reactors,
+      using alginate entrapment as a cell retention system.
+    explanation: Supports the aggregate-formation process in the defined N-cycle
+      consortium under sequencing-batch-reactor cultivation.
+- name: Nitrifier-Denitrifier Macrocluster Formation
+  description: Released nitrifier aggregates formed macroclusters with denitrifier
+    flocs, yielding a bottom-up living model of a full-scale activated-sludge floc.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Bottom-Up Activated Sludge Floc Model
+    description: Macrocluster formation with denitrifier flocs builds the
+      bottom-up living model used to study full-scale activated-sludge
+      bioflocculation.
+  evidence:
+  - reference: PMID:40536564
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After the release of these aggregates into suspension, macroclusters with flocs
+      of the denitrifier were observed
+    explanation: Supports macrocluster formation by released nitrifier aggregates
+      and denitrifier flocs.
+- name: Bottom-Up Activated Sludge Floc Model
+  description: >
+    The reduced N-cycle consortium uses released nitrifier microcolonies and
+    denitrifier flocs as a bottom-up living model of full-scale activated-sludge
+    flocs for mechanistic bioflocculation studies.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:40536564
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a living model of a full-scale activated sludge floc can be built through the use of this bottom-up approach
+    explanation: >
+      Supports the bottom-up full-scale floc model as the community-level
+      outcome of released aggregate macrocluster formation.
 related_ingredients:
 - preferred_term: alginate
   chebi_term:

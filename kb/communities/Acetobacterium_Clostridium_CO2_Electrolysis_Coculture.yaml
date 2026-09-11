@@ -113,6 +113,7 @@ ecological_interactions:
   description: Recombinant A. woodii fixes CO2 with H2 and is engineered to route carbon toward
     lactate, creating the intermediate consumed by C. drakei.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Acetobacterium woodii
     term:
@@ -145,6 +146,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Lactate-Mediated Chain Elongation to Caproic Acid
+    description: >
+      A. woodii converts CO2 and H2 into lactate, the intermediate that C.
+      drakei consumes for chain elongation to caproic acid in the coculture.
   evidence:
   - reference: PMID:36619880
     supports: SUPPORT
@@ -160,9 +166,14 @@ ecological_interactions:
 - name: Lactate-Mediated Chain Elongation to Caproic Acid
   description: C. drakei consumes lactate-derived carbon in the coculture and carries out chain
     elongation to caproic acid.
+  scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Clostridium drakei
+  participating_taxa:
+  - preferred_term: Acetobacterium woodii
+    term:
+      id: NCBITaxon:33952
+      label: Acetobacterium woodii
+  - preferred_term: Clostridium drakei
     term:
       id: NCBITaxon:332101
       label: Clostridium drakei
@@ -194,10 +205,10 @@ ecological_interactions:
 - name: Electrolysis-Generated Hydrogen Supply
   description: In situ water electrolysis supplies H2 to support autotrophic coculture operation,
     with hydrogen limitation identified as a process constraint.
-  interaction_type: COMMENSALISM
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Acetobacterium woodii
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Acetobacterium woodii
     term:
       id: NCBITaxon:33952
       label: Acetobacterium woodii
@@ -206,6 +217,12 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
+  downstream:
+  - target: Acetogenic Lactate Production from CO2 and H2
+    description: >
+      In situ electrolysis supplies the H2 electron donor used with CO2 by the
+      recombinant A. woodii strain to form lactate for the chain-elongating
+      partner.
   evidence:
   - reference: PMID:36619880
     supports: SUPPORT

@@ -107,11 +107,74 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Soil Available Phosphorus Activation
+  description: Intercropping-derived SynCom members directly activate the
+    plant-accessible soil phosphorus pool, increasing the phosphate available
+    for rice roots in pot experiments.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:26020
+      label: phosphate
+  downstream:
+  - target: Phosphorus Acquisition Promotion
+    description: SynCom-driven phosphate activation contributes to the
+      belowground phosphorus-acquisition program that also changes root
+      morphology and up-regulates rice Pi transporter genes.
+  evidence:
+  - reference: PMID:39684532
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: including the direct activation of soil available P, increased root surface area
+      and root tip number
+    explanation: Supports the SynCom activation of soil available phosphorus as
+      an upstream route to improved rice phosphorus uptake.
 - name: Phosphorus Acquisition Promotion
   description: SynCom members increase soil available phosphorus and support root-to-shoot phosphorus
     transport.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphate ion
+    term:
+      id: CHEBI:35780
+      label: phosphate ion
+  biological_processes:
+  - preferred_term: phosphate ion transport
+    term:
+      id: GO:0006817
+      label: phosphate ion transport
+  downstream:
+  - target: Rice Biomass and Phosphorus Uptake Increase
+    description: Better available-phosphorus access, larger root absorptive
+      surface, and higher root-to-shoot Pi transporter expression drive the
+      measured increases in potted rice biomass and phosphorus uptake.
+  evidence:
+  - *id001
+  - reference: PMID:39684532
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: promotion of root-to-shoot P translocation through up-regulation of Pi transporter
+      genes (OsPht1;1, OsPht1;2, OsPht1;4, OsPht1;6)
+    explanation: Links the SynCom response to inorganic-phosphate transport into and
+      through rice.
+- name: Rice Biomass and Phosphorus Uptake Increase
+  description: The synthetic community significantly enhances rice biomass and
+    phosphorus uptake in the pot assays, tying the soil-phosphorus and
+    root-translocation effects to the plant-growth endpoint.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphorus
+    term:
+      id: CHEBI:28659
+      label: phosphorus atom
+  - preferred_term: phosphate ion
+    term:
+      id: CHEBI:35780
+      label: phosphate ion
   evidence:
   - *id001
 environmental_factors:

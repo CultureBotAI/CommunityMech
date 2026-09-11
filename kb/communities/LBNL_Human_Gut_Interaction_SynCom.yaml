@@ -53,12 +53,78 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Pairwise Gut Community Interactions
-  description: Pairwise positive and negative interactions structure multi-species community dynamics.
+- name: Pairwise Interaction-Dominated Community Dynamics
+  description: Time-resolved measurements of lower-order assemblages showed that pairwise interactions,
+    rather than higher-order interactions, are major drivers of the synthetic gut community dynamics.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Positive-Negative Ecological Network Topology
+    description: Pairwise inference resolved both negative and positive interactions that together
+      define the ecological network topology of the synthetic gut community.
   evidence:
   - *id001
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: pairwise interactions are major drivers of multi-species community dynamics
+    explanation: Supports pairwise interactions, rather than only higher-order terms, as the principal
+      drivers of the modeled synthetic gut community.
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cross‐feeding of metabolic by‐products such as acetate in the gut microbiota is a prevalent
+      mechanism that could alter environmental pH
+    explanation: Names acetate as a representative cross-fed byproduct in the
+      gut interactions modeled for the SynCom.
+- name: Positive-Negative Ecological Network Topology
+  description: The inferred human-gut SynCom network contains many negative interactions and frequent
+    positive interactions that form the interaction topology of the community.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Robust Coexistence Feedback
+    description: The mixed positive and negative topology enables feedback that balances differences
+      in monospecies fitness and supports robust coexistence.
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The inferred ecological network exhibits a high proportion of negative and frequent
+      positive interactions.
+    explanation: Supports the topology inferred from lower-order synthetic gut assemblages.
+- name: Robust Coexistence Feedback
+  description: Positive and negative interactions implement a stabilizing negative feedback loop that
+    balances monospecies fitness differences and enables robust coexistence.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:29930200
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: positive and negative interaction topology enables robust coexistence by implementing
+      a negative feedback loop
+    explanation: Supports coexistence as an emergent property of the inferred interaction topology.
 environmental_factors:
 - name: model-guided synthetic community design
   value: Lower-order assemblages were used to predict higher-dimensional human gut SynCom dynamics.
@@ -78,7 +144,7 @@ related_ingredients:
   - reference: PMID:29930200
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: cross-feeding of metabolic by-products such as acetate in the gut microbiota is a prevalent
+    snippet: cross‐feeding of metabolic by‐products such as acetate in the gut microbiota is a prevalent
       mechanism that could alter environmental pH
     explanation: Names acetate as the exemplar cross-fed metabolite mediating pairwise interactions
       in the gut SynCom.
@@ -106,7 +172,7 @@ growth_media:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Cells were cultured in an anaerobic chamber (Coy Lab Products) using mixed
-      gas tanks containing 85% N2 , 5% H2 , and 10% CO2 .
+      gas tanks containing 85% N2, 5% H2, and 10% CO2.
     explanation: Gives the anaerobic chamber gas mix (85% N2, 5% H2, 10% CO2).
 cultivation_setup:
 - cultivation_mode: BATCH

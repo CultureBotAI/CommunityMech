@@ -125,6 +125,7 @@ ecological_interactions:
     intermediates through partial reduction and acetylation, supplying compounds that the
     Rhodococcus partner can further degrade.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas putida HS12
     term:
@@ -149,6 +150,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Rhodococcus Intermediate Degradation
+    description: >
+      P. putida HS12 partial reduction and acetylation generate
+      chlorohydroxyacetanilide intermediates that Rhodococcus sp. strain HS51
+      further degrades in the sequential two-strain pathway.
   evidence:
   - reference: PMID:10049867
     supports: SUPPORT
@@ -164,6 +171,7 @@ ecological_interactions:
   description: Rhodococcus sp. strain HS51 degrades the chlorohydroxyacetanilide intermediates generated
     by P. putida HS12, completing the sequential catabolic design.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Rhodococcus sp. strain HS51
     term:
@@ -179,6 +187,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Coculture Chloronitrobenzene Mineralization
+    description: >
+      Rhodococcus degradation of the Pseudomonas-derived
+      chlorohydroxyacetanilide intermediates completes the sequential pathway
+      needed for 3- and 4-chloronitrobenzene mineralization by the coculture.
   evidence:
   - reference: PMID:10049867
     supports: SUPPORT
@@ -194,11 +208,16 @@ ecological_interactions:
   description: The two-member coculture mineralizes 3- and 4-chloronitrobenzene in the presence
     of an additional carbon source.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Pseudomonas putida HS12
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas putida HS12
     term:
       id: NCBITaxon:303
       label: Pseudomonas putida
+  - preferred_term: Rhodococcus sp. strain HS51
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
   metabolites:
   - preferred_term: 3-chloronitrobenzene
     term:

@@ -23,3 +23,7 @@ content_type: abstract_only
 ## Content
 
 We describe an assembled marine bacterial consortium designed for bioremediation of oil-contaminated seawater, based on a statistical method using a Plackett-Burman (PB) experimental approach. The final consortium consists of four bacteria isolated from the Gulf of Mexico, from four genera: Pseudomonas, Halopseudomonas, Paenarthrobacter, and Alcanivorax. Individually, bacterial oil removal by these microorganisms was evaluated by gravimetry, reaching 39% at maximum after 75 days, whereas in consortium it was ~62%. We also measured biodegradation levels by Gas Chromatography/Mass Spectrometry (GC-MS) observing 12 polyaromatic hydrocarbons (PAHs) degradation analyzed and n-alkanes degradation with a preference for specific chain length. Consortium population analysis using the V3-V4 region of 16S rRNA showed a stable community, suggesting that the metabolic load was distributed among bacteria and that stable dynamic interactions were achieved. In this work, we show that the use of a factorial method for synthetic consortium design offers the possibility of improving oil degradation efficiency with stable bacterial populations.
+
+===== OPEN-ACCESS FULL TEXT (Frontiers 10.3389/fmars.2022.962071) =====
+
+Glass flasks containing 20 mL of marine medium were inoculated with each consortium and incubated for 75 days at 30°C, 180 RPM.

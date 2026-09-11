@@ -174,6 +174,16 @@ ecological_interactions:
     protein-encapsulated spherical elemental sulfur granules consistent with
     sulfur-oxidizing chemolithotrophy.
   interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Thiothrix
+    term:
+      id: NCBITaxon:1031
+      label: Thiothrix nivea
+  - preferred_term: Beggiatoa
+    term:
+      id: NCBITaxon:1021
+      label: Beggiatoa
   source_taxon:
     preferred_term: Thiothrix
     term:
@@ -193,6 +203,11 @@ ecological_interactions:
     term:
       id: GO:0006790
       label: sulfur compound metabolic process
+  downstream:
+  - target: CPR Episymbiosis with Filamentous Hosts
+    description: The chemolithotrophic Thiothrix- and Beggiatoa-like filaments
+      are the sulfur-oxidizing biofilm structures near which ultra-small
+      CPR-like episymbionts were imaged.
   evidence:
   - reference: PMID:38273328
     supports: SUPPORT
@@ -207,6 +222,7 @@ ecological_interactions:
     filamentous bacteria, suggesting CPR bacterial episymbionts attached to the
     sulfur-oxidizing hosts.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Candidate Phyla Radiation (CPR) bacteria
     term:
@@ -222,6 +238,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: CPR Sulfur-Hydrogen Coupling
+    description: CPR attachment to sulfur-oxidizing filament surfaces places
+      the CPR bacteria in the same cryptic sulfur-cycling biofilm where
+      CPR hydrogenase and thiosulfate-conversion genes were predicted.
   evidence:
   - reference: PMID:38273328
     supports: SUPPORT
@@ -229,6 +250,50 @@ ecological_interactions:
     snippet: STXM imaging revealed ultra-small cells near the surfaces of
       filamentous bacteria that may be CPR bacterial episymbionts
     explanation: Supports the proposed CPR episymbiotic association.
+- name: CPR Sulfur-Hydrogen Coupling
+  description: Genome-resolved metagenomics predicts that CPR bacteria in the
+    sulfide-spring biofilm contribute to cryptic sulfur and hydrogen cycling
+    through Berkelbacteria and Moranbacteria electron-bifurcating group 3b
+    [NiFe]-hydrogenases and Doudnabacteria thiosulfate-to-sulfite genes.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Candidate Phyla Radiation (CPR) bacteria
+    term:
+      id: NCBITaxon:1783273
+      label: Patescibacteria group
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: thiosulfate
+    term:
+      id: CHEBI:26977
+      label: thiosulfate
+  - preferred_term: sulfite
+    term:
+      id: CHEBI:17359
+      label: sulfite
+  biological_processes:
+  - preferred_term: sulfur compound metabolic process
+    term:
+      id: GO:0006790
+      label: sulfur compound metabolic process
+  evidence:
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Berkelbacteria and Moranbacteria in the same biofilm sample are predicted
+      to have a novel electron bifurcating group 3b
+    explanation: Supports predicted CPR hydrogenases linked to sulfur metabolism.
+  - reference: PMID:38273328
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: One Doudnabacteria genome encodes adjacent sulfur dioxygenase and rhodanese genes that
+      may convert thiosulfate to sulfite.
+    explanation: Supports a predicted thiosulfate-to-sulfite conversion route in
+      the CPR sulfur cycle.
 environmental_factors:
 - name: Sulfide-rich groundwater
   value: deeply sourced sulfide-rich spring water

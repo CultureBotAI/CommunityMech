@@ -89,12 +89,119 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: AHL-Mediated Aerobic Denitrification
-  description: AHL signaling and quorum quenching coordinate electron transfer and nitrate reduction.
+- name: Aeromonas quorum quenching of 3OC12-HSL
+  description: Quorum quenching by Aeromonas hydrophila lowers the Pseudomonas-associated
+    3OC12-HSL pool in the three-member aerobic-denitrification SMC.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  metabolites:
+  - preferred_term: N-(3-oxododecanoyl)-L-homoserine lactone
+    term:
+      id: CHEBI:44534
+      label: N-(3-oxododecanoyl)-L-homoserine lactone
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  downstream:
+  - target: Pyocyanine-stimulated electron transfer
+    description: The 3OC12-HSL decline caused by quorum quenching stimulates
+      pyocyanine excretion and downstream electron transfer.
+  evidence:
+  - reference: PMID:38277828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: quorum quenching (QQ) by AH, stimulated the excretion of pyocyanin, which could
+      improve the electron transfer from complex III to downstream denitrifying enzymes
+    explanation: Links Aeromonas-driven quorum quenching to the redox response of
+      the denitrifying SMC.
+- name: Pyocyanine-stimulated electron transfer
+  description: The quorum-quenching response stimulates Pseudomonas pyocyanine
+    excretion, improving electron transfer from complex III to downstream denitrifying
+    enzymes for nitrite reduction.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  metabolites:
+  - preferred_term: pyocyanine
+    term:
+      id: CHEBI:8653
+      label: pyocyanine
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Efficient nitrate reduction by the three-member SMC
+    description: Pyocyanine-enhanced electron transfer supports efficient nitrate
+      and nitrite reduction by the full synthetic community.
   evidence:
-  - *id001
+  - reference: PMID:38277828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: stimulated the excretion of pyocyanin, which could improve the electron transfer
+      from complex III to downstream denitrifying enzymes for NO2--N reduction
+    explanation: Names the redox mediator and connects it to denitrifying electron
+      transfer.
+- name: Efficient nitrate reduction by the three-member SMC
+  description: The Acinetobacter-Pseudomonas-Aeromonas SMC reached high nitrate
+    reduction efficiency with little nitrite accumulation during aerobic denitrification.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:38277828
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The nitrate (NO3--N) reduction efficiency of the SMC reached 97 % with little
+      nitrite (NO2--N) accumulation
+    explanation: Supports efficient nitrate reduction as the whole-SMC denitrification
+      phenotype.
 related_ingredients:
 - preferred_term: nitrate
   chebi_term:

@@ -63,7 +63,7 @@ taxonomy:
   - reference: PMID:25692519
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Acetobacter pomorum DmelCS_004, A. tropicalis DmelCS_006
+    snippet: Acetobacter pomorum DmelCS_004, Acetobacter tropicalis DmelCS_006
     explanation: Supports the two Acetobacter members and their strain identifiers in the exact-composition follow-up study.
   - reference: PMID:21631690
     supports: SUPPORT
@@ -96,7 +96,7 @@ taxonomy:
   - reference: PMID:25692519
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Lactobacillus brevis DmelCS_003, L. fructivorans DmelCS_002 and L. plantarum DmelCS_001
+    snippet: Lactobacillus brevis DmelCS_003, Lactobacillus fructivorans DmelCS_002 and Lactobacillus plantarum DmelCS_001
     explanation: Supports the three Lactobacillus members and their strain identifiers in the exact-composition follow-up study.
   - reference: PMID:21631690
     supports: SUPPORT
@@ -122,6 +122,7 @@ ecological_interactions:
   description: Acetobacter and Lactobacillus members jointly restore host triglyceride phenotypes that
     are not restored by Lactobacillus alone, linking interspecies effects to host nutrient allocation.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Drosophila gut Lactobacillus isolates
     term:
@@ -141,6 +142,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Microbiota-Dependent Host Nutrition
+    description: >
+      Joint Acetobacter-Lactobacillus colonization restores the host
+      triglyceride phenotype measured in the five-species Drosophila nutrition
+      model.
   evidence:
   - reference: PMID:24242251
     supports: SUPPORT
@@ -151,6 +158,7 @@ ecological_interactions:
   description: Lactobacillus cocolonization increases Acetobacter abundance in flies, explaining a
     nonmodular microbiota effect on host triglyceride content.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Drosophila gut Lactobacillus isolates
     term:
@@ -170,6 +178,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Acetobacter-Lactobacillus Nutrient Allocation Interaction
+    description: >
+      Lactobacillus-mediated promotion of Acetobacter abundance explains the
+      nonmodular Acetobacter-Lactobacillus effect on host triglyceride
+      allocation.
   evidence:
   - reference: PMID:24242251
     supports: SUPPORT
@@ -181,11 +195,6 @@ ecological_interactions:
     phenotypes including development, glucose, triglyceride, glycogen, protein, and weight.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: Drosophila five-species bacterial microbiota
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   target_taxon:
     preferred_term: Drosophila melanogaster
     term:
@@ -209,7 +218,7 @@ ecological_interactions:
   - reference: PMID:25692519
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Gnotobiotic Drosophila associated with a defined five-species microbiota
+    snippet: effects of eliminating the gut microbiota on five host nutritional indices
     explanation: Supports reuse of the same defined community to measure microbiota-dependent host nutritional traits.
 environmental_factors:
 - name: Drosophila yeast-glucose diet
@@ -220,7 +229,7 @@ environmental_factors:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Wolbachia-free Drosophila melanogaster Canton S flies were reared at 25
+    snippet: were reared at 25°C in a 12-h-light/12-h-dark cycle on a Y-G
     explanation: Supports controlled Drosophila host-rearing conditions.
 - name: five-species inoculum density
   value: 5 x 10^6 total bacterial cells per vial, equal parts for multispecies inocula
@@ -230,7 +239,7 @@ environmental_factors:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: For microbiota of >1 species, each component was added in equal parts to make up the total inoculum
+    snippet: was added in equal parts to make up the total inoculum
     explanation: Supports equal-part inoculum assembly for the five-member community.
 growth_media:
 - name: modified MRS for bacterial maintenance
@@ -284,7 +293,7 @@ associated_datasets:
   - reference: PMID:24242251
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: To assess the performance of gnotobiotic flies colonized with our gut microbiota isolates
+    snippet: Gnotobiotic flies were constructed with one or a set of five of the Acetobacter and Lactobacillus species
     explanation: Lists the primary publication for the exact five-species gnotobiotic community.
 - title: Exact-composition publication - host genotype and microbiota-dependent nutrition
   dataset_type: PHENOTYPE

@@ -75,11 +75,10 @@ taxonomy:
       accepting partner)
     explanation: Identifies R. palustris as the electron-accepting member of the co-culture.
 ecological_interactions:
-- name: Engineered interspecies electron transfer (MIET-to-DIET shift)
-  description: A conductive, adhesive polydopamine interface on S. oneidensis MR-1 drives stable
-    coaggregation with R. palustris and shifts the dominant IET mode from H2-mediated MIET toward
-    contact-dependent direct electron transfer via outer-membrane c-type cytochromes, increasing
-    nitrogenase-derived CH4 (an IET-efficiency indicator) by ~380%.
+- name: Polydopamine-Driven Cell-to-Cell Coaggregation
+  description: In-situ polydopamine nano-encapsulation of S. oneidensis MR-1 surfaces
+    creates a conductive, adhesive interface that promotes stable coaggregation with
+    R. palustris.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -92,6 +91,53 @@ ecological_interactions:
     term:
       id: NCBITaxon:1076
       label: Rhodopseudomonas palustris
+  biological_processes:
+  - preferred_term: cell aggregation
+    term:
+      id: GO:0098743
+      label: cell aggregation
+  downstream:
+  - target: Engineered interspecies electron transfer (MIET-to-DIET shift)
+    description: The stable conductive PDA cell-to-cell interface precedes the shift from
+      diffusible H2-mediated IET toward contact-dependent electron transfer.
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coating promoted stable and intimate coaggregation of SW with Rhodopseudomonas
+      palustris (RP, electron accepting partner).
+    explanation: Supports PDA-driven cell-to-cell coaggregation between the engineered
+      electron-donating S. oneidensis partner and R. palustris.
+- name: Engineered interspecies electron transfer (MIET-to-DIET shift)
+  description: The PDA-stabilized cell-to-cell interface shifts the dominant IET mode from
+    H2-mediated MIET toward contact-dependent direct electron transfer involving
+    outer-membrane c-type cytochromes.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  target_taxon:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  metabolites:
+  - preferred_term: hydrogen (H2)
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Enhanced Nitrogenase-Derived CH4 Indicator
+    description: Contact-dependent electron transfer increases the nitrogenase-derived
+      methane readout used to quantify IET efficiency.
   evidence:
   - reference: PMID:42285537
     supports: SUPPORT
@@ -101,3 +147,31 @@ ecological_interactions:
     explanation: Documents engineered electron transfer from the donor S. oneidensis to the acceptor
       R. palustris, shifting from mediated to direct IET.
     confidence_score: 0.9
+- name: Enhanced Nitrogenase-Derived CH4 Indicator
+  description: The engineered two-species community shows roughly 380% more
+    nitrogenase-derived methane, the quantitative indicator used for IET efficiency in this
+    system.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  evidence:
+  - reference: PMID:42285537
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nitrogenase-derived CH4, used as a quantitative indicator of IET efficiency,
+      increased by ∼380 % in the engineered two-species community.
+    explanation: Supports enhanced methane formation as the measured downstream outcome
+      of the PDA-enhanced interspecies electron transfer design.

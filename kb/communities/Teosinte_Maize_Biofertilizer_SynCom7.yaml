@@ -49,8 +49,6 @@ taxonomy:
     - GTDB:g__Serratia_K
     - GTDB:g__Serratia_G
     - GTDB:g__Serratia_D
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -68,8 +66,6 @@ taxonomy:
       total_genomes: 1719
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -93,8 +89,6 @@ taxonomy:
     - GTDB:s__Bacillus_A_toyonensis
     - GTDB:s__Bacillus_A_tropicus
     - GTDB:s__Bacillus_A_wiedmannii
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -112,18 +106,233 @@ taxonomy:
       total_genomes: 280
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Teosinte-Maize Biofertilization
-  description: Teosinte-associated SynCom members reshape maize-associated microbial communities and enrich
-    beneficial taxa.
-  interaction_type: MUTUALISM
+- name: PGP-Trait SynCom7 Formulation
+  description: >
+    Seven teosinte-seed bacterial isolates with plant-growth-promoting,
+    nutrient-cycling, and pathogen-suppression phenotypes were selected to form
+    the maize biofertilizer SynCom.
   scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  metabolites:
+  - preferred_term: phosphate ion
+    term:
+      id: CHEBI:35780
+      label: phosphate ion
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Equal-Volume Field Inoculum
+    description: >
+      The seven functionally screened strains were grown separately and then
+      mixed in equal volumes for field application.
   evidence:
   - *id001
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: screening bacterial isolates for nitrogen fixation, phosphate solubilization, and production
+      of phytohormones such as indole-3-acetic acid (IAA)
+    explanation: Names nitrogen fixation, phosphate solubilization, and IAA
+      production as screened traits used to select the teosinte-derived
+      SynCom.
+- name: Equal-Volume Field Inoculum
+  description: >
+    Independently grown R2A cultures were centrifuged, resuspended to a common
+    cell density in saline, mixed in equal volumes, and checked for strain
+    viability before the final SynCom was applied to maize field plots.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Four-Stage Maize Biofertilization
+    description: >
+      The viable mixed bacterial suspension was the biofertilizer used in
+      backpack and drone delivery treatments.
+  evidence:
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The SynCom was prepared for field application by mixing equal volumes of
+      each bacterial suspension
+    explanation: >
+      Supports the final equal-volume mixing step used to formulate the
+      seven-strain SynCom inoculum.
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The viability of each strain in the final mixture was confirmed through
+      colony-forming unit (CFU) counts on selective media
+    explanation: >
+      Supports viability checking after SynCom formulation.
+- name: Four-Stage Maize Biofertilization
+  description: >
+    Manual and drone-assisted delivery applied the SynCom to maize plants at
+    four crop stages, using a 50 mL per-plant dose that matched the conventional
+    fertilization comparison arms.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Biofertilizer-Linked Soil and Yield Response
+    description: >
+      Repeated SynCom application was compared against no-application and
+      chemical-fertilization controls for soil properties, maize physiology,
+      yield, and disease.
+  - target: Beneficial-Taxon Soil Microbiome Shift
+    description: >
+      The same repeated treatments were sampled through the season to measure
+      bacterial and fungal community restructuring.
+  evidence:
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The drone was calibrated to deliver 50 mL of treatment solution per plant
+    explanation: >
+      Supports the per-plant dose used in drone-assisted biofertilizer delivery.
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Applications were carried out at four key growth stages: pre-treatment at
+      0 days after sowing (DAS), mid-season at 25 DAS, early reproductive stage
+      at 55 DAS, and harvest at 85 DAS
+    explanation: >
+      Documents the four maize growth stages used for treatment applications.
+- name: Biofertilizer-Linked Soil and Yield Response
+  description: >
+    Biofertilization, especially by drone delivery, was associated with higher
+    soil microbial biomass, aggregate stability, nutrient uptake, chlorophyll,
+    maize yield, and disease protection than the conventional and untreated
+    comparison arms.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: phosphate ion
+    term:
+      id: CHEBI:35780
+      label: phosphate ion
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Biofertilization treatments, mainly when applied via drone technology,
+      demonstrated the most pronounced positive impacts on soil microbial
+      diversity, nutrient availability, crop yield, and disease resistance
+    explanation: >
+      Supports the positive agronomic and soil responses to the teosinte-derived
+      biofertilizer treatments.
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Biofertilization also enhanced plant nutrient uptake and physiological
+      performance
+    explanation: >
+      Supports improved maize nutrient uptake and host physiology after
+      SynCom-based biofertilization.
+- name: Beneficial-Taxon Soil Microbiome Shift
+  description: >
+    Biofertilization most strongly restructured the soil community, decreasing
+    Enterobacteriaceae dominance while enriching beneficial Bacillus, Pantoea,
+    Serratia, Rhizobium, Pseudomonas, and Bradyrhizobium populations over
+    consecutive sampling points.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Bacillus-Centered Nutrient-Cycling Network
+    description: >
+      The taxonomic shifts were analyzed as co-occurrence networks to identify
+      correlated plant-growth-promoting, nitrogen-fixing, and biocontrol guilds.
+  evidence:
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Biofertilization treatments produced the most pronounced shifts, reducing
+      Enterobacteriaceae below 50% while significantly increasing beneficial
+      taxa like Bacillus, Pantoea, and Serratia
+    explanation: >
+      Supports beneficial-taxon enrichment and Enterobacteriaceae reduction
+      after SynCom biofertilization.
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Bacterial communities exhibited complementary patterns, with plant
+      growth-promoting rhizobacteria showing significant enrichment in
+      biofertilization treatments
+    explanation: >
+      Supports enrichment of plant-growth-promoting rhizobacteria in the
+      biofertilized soil community.
+- name: Bacillus-Centered Nutrient-Cycling Network
+  description: >
+    Co-occurrence analysis resolved increasingly complex biofertilizer-associated
+    microbial networks, including Bacillus as a central node and positive
+    correlations linking plant-growth-promoting, nitrogen-fixing,
+    organic-matter-degrading, and biocontrol guilds.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Network analysis demonstrated that microbial interaction complexity
+      increased across treatments, with Bacillus emerging as a keystone species
+    explanation: >
+      Supports Bacillus centrality and increased microbial network complexity
+      in treatment-associated soils.
+  - reference: PMID:40270813
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Drone-assisted biofertilization fostered particularly intricate microbial
+      networks, enhancing synergistic relationships involved in nutrient cycling
+      and biocontrol
+    explanation: >
+      Supports correlated nutrient-cycling and biocontrol guild responses in
+      the drone-assisted biofertilization network.
 environmental_factors:
 - name: defined synthetic community design
   value: Seven bacterial strains from teosinte-associated microbes were formulated as a SynCom.

@@ -91,11 +91,80 @@ taxonomy:
       synergistic activity across all lignocellulosic substrates
     explanation: Identifies R. albus as the third member of the synergistic three-membered consortium.
 ecological_interactions:
+- name: PMA-PGSI Compatible-Pair Screen
+  description: >
+    Genome-scale community models used pairwise metabolic assistance and
+    growth-support-index flux metrics across six bovine rumen strains to score
+    coculture growth compatibility and metabolic synergy and to prioritize
+    compatible communities for experimental growth.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  downstream:
+  - target: PMA-Correlated Coculture Validation
+    description: >
+      The PMA/PGSI screen nominated compatible communities that were then grown
+      experimentally and compared by enzymatic synergism.
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Flux-based parameters, such as pairwise metabolic assistance (PMA) and
+      growth support index (PGSI), were employed to investigate the
+      coculture-based growth and metabolic synergies.
+    explanation: >
+      Identifies the flux-based metrics used to screen pairwise rumen-strain
+      compatibility.
+    confidence_score: 0.85
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      The pairwise in silico assessments helped to predict 11 compatible
+      microbial communities, which were subsequently validated by experimentally
+      grown coculture systems.
+    explanation: >
+      Supports the computational-to-experimental screening workflow.
+    confidence_score: 0.9
+- name: PMA-Correlated Coculture Validation
+  description: >
+    Experimentally grown compatible pairs were compared against the model
+    predictions using their degree of enzymatic synergism, and those measured
+    DES values correlated with model-derived PMA.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  downstream:
+  - target: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
+    description: >
+      The validated compatible pairs included the B. fibrisolvens and
+      S. ruminantium coculture that gave the strongest endoglucanase synergy.
+  evidence:
+  - reference: PMID:42343824
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The enzymatic synergism (DES) of some experimentally grown pairs showed a
+      higher correlation with the model-derived PMA, demonstrating the
+      consistency of the overall prediction.
+    explanation: >
+      Supports experimental validation of the in silico PMA predictions.
+    confidence_score: 0.9
 - name: Enzymatic synergism in the B. fibrisolvens + S. ruminantium coculture
-  description: Pairwise coculture of Butyrivibrio fibrisolvens and Selenomonas ruminantium produced the
-    highest degree of enzymatic synergism among the screened rumen strains, yielding a 41% increase in
-    endoglucanase activity relative to monocultures. Compatibility and metabolic synergy were predicted
-    in silico (PMA/PGSI) and validated experimentally.
+  description: >
+    Pairwise coculture of Butyrivibrio fibrisolvens and Selenomonas
+    ruminantium gave the strongest experimentally detected enzymatic synergism,
+    yielding a 41% increase in endoglucanase activity relative to monoculture
+    expectations.
   interaction_type: MUTUALISM
   scope: PAIRWISE
   source_taxon:
@@ -108,6 +177,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:971
       label: Selenomonas ruminantium
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  downstream:
+  - target: Three-membered lignocellulolytic synergy
+    description: >
+      This strongest pairwise coculture was retained in the synergistic
+      three-membered consortium with R. albus.
   evidence:
   - reference: PMID:42343824
     supports: SUPPORT
@@ -119,11 +198,31 @@ ecological_interactions:
       strains.
     confidence_score: 0.9
 - name: Three-membered lignocellulolytic synergy
-  description: A three-membered community of B. fibrisolvens, S. ruminantium, and Ruminococcus albus
-    exhibited synergistic lignocellulolytic activity across all tested lignocellulosic substrates,
-    indicating strong metabolic interplay among the compatible species (community-level, emergent).
+  description: >
+    A three-membered community of B. fibrisolvens, S. ruminantium, and
+    Ruminococcus albus exhibited synergistic lignocellulolytic activity across
+    all tested lignocellulosic substrates, indicating emergent metabolic
+    interplay among compatible species.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Butyrivibrio fibrisolvens
+    term:
+      id: NCBITaxon:831
+      label: Butyrivibrio fibrisolvens
+  - preferred_term: Selenomonas ruminantium
+    term:
+      id: NCBITaxon:971
+      label: Selenomonas ruminantium
+  - preferred_term: Ruminococcus albus
+    term:
+      id: NCBITaxon:1264
+      label: Hominimerdicola alba
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
   evidence:
   - reference: PMID:42343824
     supports: SUPPORT

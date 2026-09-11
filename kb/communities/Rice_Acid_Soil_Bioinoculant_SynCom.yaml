@@ -47,17 +47,127 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Rice Acid-Soil Stress Mitigation
-  description: Rhizosphere competent bacteria improve rice growth and yield under acid soil stress.
-  interaction_type: MUTUALISM
+- name: Al-Resistant Rice Rhizosphere SynCom Assembly
+  description: >
+    Highly aluminium-resistant bacterial strains isolated from the rice rhizosphere were assembled
+    into a synthetic community for acidic-soil bioinoculation tests.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Rhizodeposited Carbon-Fueled SynCom Proliferation
+    description: >
+      The assembled Al-resistant SynCom entered the rice rhizosphere, where host rhizodeposition
+      supported its successful proliferation.
+  evidence:
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a synthetic community composed of highly Al-resistant bacterial strains isolated
+      from the rice rhizosphere
+    explanation: >
+      Identifies the acidic-soil bioinoculant as a SynCom assembled from highly aluminium-resistant
+      bacteria isolated from the rice rhizosphere.
+- name: Rhizodeposited Carbon-Fueled SynCom Proliferation
+  description: >
+    The rice SynCom used rhizodeposited carbon from the host plant to proliferate successfully in
+    the rhizosphere under acidic-soil conditions.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Extracellular Al-Toxicity Mitigation
+    description: >
+      SynCom proliferation in the rice rhizosphere preceded community-level mitigation of soil
+      acidification and aluminium toxicity.
+  evidence:
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The synthetic community harvested rhizodeposited carbon for successful proliferation
+    explanation: >
+      Links rice root carbon deposition to successful proliferation of the introduced SynCom.
+- name: Extracellular Al-Toxicity Mitigation
+  description: >
+    The proliferating rice SynCom mitigated soil acidification and aluminium toxicity through an
+    extracellular protonation mechanism.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: aluminium(3+)
+    term:
+      id: CHEBI:49470
+      label: aluminium(3+)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Topsoil Legacy Phosphorus Usage
+    description: >
+      Relief of acidic-soil aluminium stress was part of the plant-microbe coordination that
+      enabled greater use of legacy phosphorus in topsoil.
+  - target: Acidic-Field Rice Yield Increase
+    description: >
+      Reduced soil acidification and aluminium toxicity contributed to the SynCom-mediated rice
+      yield increase measured in acidic fields.
+  evidence:
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: mitigated soil acidification and Al toxicity through extracellular protonation
+    explanation: >
+      Supports the acid-soil and aluminium-toxicity mitigation step in the rice SynCom mechanism.
+- name: Topsoil Legacy Phosphorus Usage
+  description: >
+    Functional coordination between rice and the SynCom increased access to topsoil legacy
+    phosphorus under acidic field conditions.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phosphorus
+    term:
+      id: CHEBI:28659
+      label: phosphorus atom
+  downstream:
+  - target: Acidic-Field Rice Yield Increase
+    description: >
+      Improved use of legacy topsoil phosphorus helped connect Al-toxicity resistance to the
+      observed acidic-field yield response.
+  evidence:
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The functional coordination between plants and microbes offers a promising way
+      to increase the usage of legacy phosphorus in topsoil.
+    explanation: >
+      Links the rice-SynCom coordination mechanism to enhanced use of legacy phosphorus in topsoil.
+- name: Acidic-Field Rice Yield Increase
+  description: >
+    The Al-resistant rhizosphere SynCom increased rice yield in acidic fields and improved growth,
+    yield, soil-acidity resistance, and aluminium-toxicity resistance.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
   evidence:
   - *id001
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increased rice yield by 26.36% in acidic fields
+    explanation: >
+      Quantifies the field-scale yield response to inoculation with the Al-resistant rice SynCom.
 environmental_factors:
 - name: defined synthetic community design
   value: Carefully selected rhizosphere-competent bacterial strains composed the rice bioinoculant SynCom.
@@ -77,3 +187,19 @@ related_ingredients:
     evidence_source: IN_VIVO
     snippet: improved rice growth, yield and resistance to soil acidity and Al toxicity
     explanation: Identifies Al toxicity as the central stress the SynCom alleviates in acid soils.
+- preferred_term: phosphorus
+  chebi_term:
+    id: CHEBI:28659
+    label: phosphorus atom
+  relevance: >
+    Legacy phosphorus in acidic topsoil is the nutrient pool whose use was increased by
+    rice-SynCom functional coordination.
+  evidence:
+  - reference: PMID:37783790
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The functional coordination between plants and microbes offers a promising way
+      to increase the usage of legacy phosphorus in topsoil.
+    explanation: >
+      Identifies topsoil legacy phosphorus as a nutrient pool made more usable by rice-SynCom
+      functional coordination.

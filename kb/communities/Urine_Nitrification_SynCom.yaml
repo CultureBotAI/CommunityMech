@@ -127,12 +127,129 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Nitrifier-Heterotroph Urine Conversion
-  description: Ureolytic heterotrophs and nitrifiers cooperate to convert urine nitrogen to nitrate.
+- name: Ureolytic Heterotroph Ammonium Release
+  description: Pseudomonas fluorescens, Acidovorax delafieldii, and Delftia
+    acidovorans provide the ureolytic heterotroph stage of the synthetic community,
+    hydrolyzing urine urea into ammonium for the nitrifiers.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas fluorescens
+    term:
+      id: NCBITaxon:294
+      label: Pseudomonas fluorescens
+  - preferred_term: Acidovorax delafieldii
+    term:
+      id: NCBITaxon:47920
+      label: Acidovorax delafieldii
+  - preferred_term: Delftia acidovorans
+    term:
+      id: NCBITaxon:80866
+      label: Delftia acidovorans
+  metabolites:
+  - preferred_term: urea
+    term:
+      id: CHEBI:16199
+      label: urea
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  downstream:
+  - target: Ammonium-Fed Nitrifier Coculture
+    description: Ammonium released by the ureolytic heterotrophs feeds the
+      Nitrosomonas-Nitrobacter nitrifier stage that performs salt-adapted
+      nitrification.
+  evidence:
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: three ureolytic heterotrophs (Pseudomonas fluorescens, Acidovorax delafieldii,
+      and Delftia acidovorans)
+    explanation: Identifies the three ureolytic heterotrophs in the urine-fed
+      synthetic microbial community.
+- name: Ammonium-Fed Nitrifier Coculture
+  description: The Nitrosomonas europaea ammonia oxidizer and Nitrobacter
+    winogradskyi nitrite oxidizer form the inorganic nitrifier stage, removing
+    ammonium under urine-like salinity and generating nitrate fertilizer.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Nitrosomonas europaea
+    term:
+      id: NCBITaxon:915
+      label: Nitrosomonas europaea
+  - preferred_term: Nitrobacter winogradskyi
+    term:
+      id: NCBITaxon:913
+      label: Nitrobacter winogradskyi
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  downstream:
+  - target: Nitrifier-Heterotroph Urine Conversion
+    description: Salt-adapted Nitrosomonas and Nitrobacter convert ammonium
+      supplied by urine hydrolysis into the nitrate output of the full
+      five-member community.
+  evidence:
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: salt adaptation of the ammonium-fed AOB and NOB co-culture was possible up to
+      45mScm-1
+    explanation: Supports the ammonium-fed ammonia-oxidizer/nitrite-oxidizer
+      coculture as the nitrifying stage of the engineered urine community.
+- name: Nitrifier-Heterotroph Urine Conversion
+  description: The complete five-member synthetic community links ureolysis with
+    nitrification to convert urine nitrogen into liquid nitrate fertilizer for
+    regenerative life-support applications.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: urea
+    term:
+      id: CHEBI:16199
+      label: urea
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
   evidence:
   - *id001
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Astronauts' urine can, for instance, be nitrified by micro-organisms into a liquid nitrate
+      fertilizer for plant growth in space.
+    explanation: Supports nitrification of urine nitrogen to nitrate as the
+      terminal product of the synthetic microbial community.
+  - reference: PMID:31623889
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the nitrifiers and ureolytic heterotrophs were fed with urine and achieved a
+      15±6mg NO3--NL-1d-1 production rate
+    explanation: Quantifies nitrate production by the full urine-fed nitrifier
+      and ureolytic heterotroph community.
 environmental_factors:
 - name: defined synthetic community design
   value: Nitrosomonas europaea, Nitrobacter winogradskyi, Pseudomonas fluorescens, Acidovorax delafieldii,
