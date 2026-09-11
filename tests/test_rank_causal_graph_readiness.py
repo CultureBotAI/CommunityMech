@@ -76,9 +76,10 @@ def test_downstream_edges_raise_readiness():
         "ecological_interactions": [_interaction("first"), _interaction("second")],
     }
 
-    assert ranker.score_document(document)["score"] > ranker.score_document(without_downstream)[
-        "score"
-    ]
+    assert (
+        ranker.score_document(document)["score"]
+        > ranker.score_document(without_downstream)["score"]
+    )
     assert "downstream" not in ranker.score_document(document)["missing"]
 
 
@@ -276,16 +277,12 @@ def test_pairwise_id_fallback_only_credits_unique_taxon_ids():
                 {
                     "name": "ambiguous shared id",
                     "scope": "PAIRWISE",
-                    "source_taxon": {
-                        "term": {"id": "NCBITaxon:1", "label": "paper shorthand"}
-                    },
+                    "source_taxon": {"term": {"id": "NCBITaxon:1", "label": "paper shorthand"}},
                 },
                 {
                     "name": "unique id fallback",
                     "scope": "PAIRWISE",
-                    "source_taxon": {
-                        "term": {"id": "NCBITaxon:2", "label": "paper shorthand"}
-                    },
+                    "source_taxon": {"term": {"id": "NCBITaxon:2", "label": "paper shorthand"}},
                 },
             ],
         }
@@ -333,9 +330,7 @@ def test_community_level_participating_taxa_prefer_names_to_shared_ids():
                     "description": "community description",
                     "interaction_type": "CROSS_FEEDING",
                     "scope": "COMMUNITY_LEVEL",
-                    "participating_taxa": [
-                        _participant("included", "NCBITaxon:1", "Variovorax")
-                    ],
+                    "participating_taxa": [_participant("included", "NCBITaxon:1", "Variovorax")],
                     "metabolites": [_participant("acetate", "CHEBI:30089")],
                     "evidence": [{"reference": "PMID:1", "snippet": "evidence"}],
                 }
@@ -377,9 +372,7 @@ def test_single_taxon_graphs_do_not_require_interaction_type():
                 "participating_taxa": [_participant("source", "NCBITaxon:1")],
                 "metabolites": [_participant("acetate", "CHEBI:30089")],
                 "evidence": [{"reference": "PMID:1", "snippet": "evidence"}],
-                "downstream": [
-                    {"target": "second", "description": "first drives second"}
-                ],
+                "downstream": [{"target": "second", "description": "first drives second"}],
             },
             {
                 "name": "second",
@@ -388,9 +381,7 @@ def test_single_taxon_graphs_do_not_require_interaction_type():
                 "participating_taxa": [_participant("source", "NCBITaxon:1")],
                 "metabolites": [_participant("lactate", "CHEBI:24996")],
                 "evidence": [{"reference": "PMID:1", "snippet": "evidence"}],
-                "downstream": [
-                    {"target": "third", "description": "second drives third"}
-                ],
+                "downstream": [{"target": "third", "description": "second drives third"}],
             },
             {
                 "name": "third",

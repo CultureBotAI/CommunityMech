@@ -30,8 +30,8 @@ loose enough to hide the defect this audit exists to find, so
 
 from __future__ import annotations
 
-import io
 import importlib.util
+import io
 import pathlib
 import sys
 

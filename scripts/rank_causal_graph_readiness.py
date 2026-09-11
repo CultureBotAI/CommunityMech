@@ -144,9 +144,7 @@ def _resolve_pairwise_member(member: dict[str, Any], lookup: TaxonomyLookup) -> 
     return None
 
 
-def _connected_taxa(
-    interactions: list[dict[str, Any]], taxonomy: list[dict[str, Any]]
-) -> set[str]:
+def _connected_taxa(interactions: list[dict[str, Any]], taxonomy: list[dict[str, Any]]) -> set[str]:
     lookup = _taxonomy_lookup(taxonomy)
     connected = set()
 
@@ -205,7 +203,9 @@ def score_document(document: dict[str, Any]) -> dict[str, Any]:
         }
 
     interaction_names = {
-        interaction.get("name") for interaction in interactions if _has_text(interaction.get("name"))
+        interaction.get("name")
+        for interaction in interactions
+        if _has_text(interaction.get("name"))
     }
     downstream_edges = []
     self_edges = []
@@ -243,12 +243,7 @@ def score_document(document: dict[str, Any]) -> dict[str, Any]:
         + _score_cap(len(downstream_edges), TARGET_DOWNSTREAM_EDGES, 20)
         + _fraction(with_descriptions, interaction_count) * 10
         + _fraction(with_evidence, interaction_count) * 20
-        + (
-            _fraction(with_type, interaction_count)
-            if requires_interaction_types
-            else 1.0
-        )
-        * 10
+        + (_fraction(with_type, interaction_count) if requires_interaction_types else 1.0) * 10
         + _fraction(with_scope, interaction_count) * 5
         + _fraction_or_full(pairwise_with_source, len(pairwise)) * 5
         + _fraction(len(connected_taxa), taxonomy_count) * 5
@@ -307,9 +302,9 @@ def score_document(document: dict[str, Any]) -> dict[str, Any]:
 
 def score_path(path: Path) -> dict[str, Any]:
     try:
-        document = yaml.load(
-            path.read_text(encoding="utf-8"), Loader=CSafeLoader  # noqa: S506
-        ) or {}
+        document = (
+            yaml.load(path.read_text(encoding="utf-8"), Loader=CSafeLoader) or {}  # noqa: S506
+        )
     except (OSError, yaml.YAMLError) as exc:
         return {
             "path": display_path(path),

@@ -313,9 +313,7 @@ def audit_records(paths: list[Path]) -> AuditReport:
                 file_mismatch[label].append((path, ref, round(cov, 2), snip[:70], "WEAK"))
             else:
                 stats["MISMATCH"] += 1
-                file_mismatch[label].append(
-                    (path, ref, round(cov, 2), snip[:70], "MISMATCH")
-                )
+                file_mismatch[label].append((path, ref, round(cov, 2), snip[:70], "MISMATCH"))
 
     return AuditReport(
         record_count=len(sorted_paths),
