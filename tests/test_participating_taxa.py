@@ -245,6 +245,7 @@ USERS = {
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
     "Soybean_Chlorophyll_Selected_Biofertilizer_SynCom.yaml",
+    "Space_Habitat_SevenMember_Stress_Tolerance_SynCom.yaml",
     "Sulfide_Spring_Autotrophic_CPR_Biofilm.yaml",
     "SynComBac10_Chicken_Intestinal_SynCom.yaml",
     "SynCom_Pseudomonas_Rahnella_Artemisia_Phytoremediation.yaml",
