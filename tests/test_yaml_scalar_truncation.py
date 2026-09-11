@@ -76,6 +76,21 @@ def test_a_truncating_scalar_is_reported(tmp_path, name, text, lost):
     assert lost not in str(parsed), f"{name}: YAML kept the tail, nothing to report"
 
 
+def test_a_governed_file_is_skipped_and_the_same_text_ungoverned_is_not(tmp_path):
+    """A file vendored from culturebotai-claw carries `# vN` comments one
+    space after its action pins -- the exact shape this scanner calls a
+    truncation -- and may not be edited here. Driven by identical content
+    with and without the banner, so a scanner that skipped nothing, or
+    skipped every file with a leading comment, goes red.
+    """
+    body = "steps:\n  - uses: actions/checkout@3d3c42e5 # v7.0.1\n"
+    governed = _write(tmp_path, "# Governed by culturebotai-claw: vendored\n" + body, "g.yml")
+    plain = _write(tmp_path, "# an ordinary comment\n" + body, "p.yml")
+
+    assert find_truncated_scalars(governed) == []
+    assert len(find_truncated_scalars(plain)) == 1
+
+
 @pytest.mark.parametrize(
     ("name", "text"),
     [
