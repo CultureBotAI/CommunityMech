@@ -1,0 +1,406 @@
+id: CommunityMech:000340
+name: Pelagerythrobacter-Salinicola PES Pyrene-Degradation SynCom
+description: >-
+  A defined two-member halophilic synthetic consortium, PES, assembled from
+  Pelagerythrobacter sp. N7 and Salinicola sp. A11, which were isolated from a
+  PAH-degrading consortium enriched from saline PAH-polluted soil in Shanxi
+  Province, China. Washed suspensions of the two isolates were mixed 1:1 and
+  assayed in 5% sea-salt defined medium with 50 mg/L pyrene as the sole carbon
+  source. N7 alone initiated pyrene oxidation but incompletely removed pyrene
+  and accumulated 4,5-dicarboxyphenanthrene, whereas A11 alone had no detectable
+  direct pyrene-degrading capability. In the PES consortium, A11 supplied a
+  proposed hphtC-5-encoded aromatic-acid decarboxylase/downstream C12O arm and
+  extracellular emulsan-like bioemulsifier activity, together enabling complete
+  removal of 50 mg/L pyrene within 10 days at 5% salinity.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: >-
+    Construct a two-member moderate-halophile SynCom that couples upstream pyrene
+    oxidation with downstream intermediate transformation and extracellular
+    bioemulsification to degrade pyrene under saline conditions.
+  assembly_strategy: >-
+    Isolate Pelagerythrobacter sp. N7 and Salinicola sp. A11 from a
+    phenanthrene-enriched halophilic PAH-degrading community and combine washed
+    suspensions of the two pure cultures at a 1:1 volume ratio.
+  inoculation_strategy: >-
+    N7 and A11 were each resuspended in fresh 5% SSDM to OD600 0.2, mixed 1:1,
+    and inoculated into 200 mL pyrene-amended 5% salinity SSDM at initial OD600
+    0.015.
+  perturbation_design: >-
+    Compare N7 monoculture, A11 monoculture, PES coculture, and abiotic controls;
+    assay PES pyrene removal across 1%, 3%, 5%, 8%, and 10% salinity and across
+    pH 5.0, 6.0, 7.0, 8.0, 9.0, and 10.0.
+  measurement_endpoints:
+  - HPLC quantification of residual pyrene and accumulated 4,5-dicarboxyphenanthrene
+  - GC-MS identification of pyrene-degradation intermediates
+  - RT-qPCR for RHD, G12O, C12O, and hphtC-5 transcripts
+  - A11 genome annotation and candidate decarboxylase structural modeling
+  - Cell-free-supernatant bioemulsifier assay and FTIR characterization
+  notes: >-
+    The curated syntrophic network follows the authors' integrated model from
+    metabolite detection, genomic annotation, gene expression, and
+    bioemulsifier assays. The hphtC-5 step in A11 was proposed as a candidate
+    activity rather than validated by purified-enzyme or knockout experiments.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In this study, a halophilic synthetic consortium, PES, comprising
+      Pelagerythrobacter sp. N7 and Salinicola sp. A11, was constructed on the
+      basis of the bottom-up strategy.
+    explanation: Supports the exact two-member bottom-up synthetic consortium.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 2 cell resuspensions were mixed at 1:1 volume ratio to construct the synthetic consortium PES
+    explanation: Supports the 1:1 OD-adjusted assembly strategy for PES.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Consortium PES completely degraded 50 mg/L pyrene at 5% salinity in 10
+      days.
+    explanation: Supports the pyrene-removal objective under the main saline assay condition.
+environment_term:
+  preferred_term: halophilic laboratory pyrene-degradation consortium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Controlled aerobic flask assays of a defined two-isolate consortium in
+    pyrene-amended sea-salt defined medium, not a direct environmental community
+    sample.
+taxonomy:
+- taxon_term:
+    preferred_term: Pelagerythrobacter sp. N7
+    term:
+      id: NCBITaxon:2800685
+      label: Pelagerythrobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      The article identifies strain N7 to genus level; NCBI Taxonomy has a
+      genus-level Pelagerythrobacter term but no exact N7 strain taxon was
+      curated here.
+  strain_designation:
+    strain_name: N7
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Strain N7 was selected from SSDM-P plate with clear degradation zone
+      around the colony.
+    explanation: Supports N7 as the PAH-degrading isolate recovered for PES construction.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      the core degrading strain N7 clustered within the same core branch as
+      Pelagerythrobacter sp. Ery1
+    explanation: Supports genus-level identification of the core degrading strain as Pelagerythrobacter.
+- taxon_term:
+    preferred_term: Salinicola sp. A11
+    term:
+      id: NCBITaxon:404432
+      label: Salinicola
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      The article identifies strain A11 to genus level; NCBI Taxonomy has a
+      genus-level Salinicola term but no exact A11 strain taxon was curated here.
+  strain_designation:
+    strain_name: A11
+  abundance_level: DOMINANT
+  functional_role:
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain A11 was selected from SSDM-Y plate.
+    explanation: Supports A11 as the non-PAH-plate isolate recovered for PES construction.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Strain A11 exhibited extremely high phylogenetic relatedness with
+      Salinicola sp. N4
+    explanation: Supports genus-level identification of strain A11 as Salinicola.
+ecological_interactions:
+- name: N7-A11 4,5-dicarboxyphenanthrene handoff
+  description: >-
+    Pelagerythrobacter sp. N7 initiated pyrene oxidation but accumulated
+    4,5-dicarboxyphenanthrene as a bottleneck product in monoculture. PES
+    additionally accumulated downstream products including 4-carboxyphenanthrene,
+    phthalate, salicylic acid, and gentisate, leading the authors to propose
+    that Salinicola sp. A11 assists N7 by decarboxylating
+    4,5-dicarboxyphenanthrene through an hphtC-5-encoded candidate aromatic-acid
+    decarboxylase.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Pelagerythrobacter sp. N7
+    term:
+      id: NCBITaxon:2800685
+      label: Pelagerythrobacter
+  target_taxon:
+    preferred_term: Salinicola sp. A11
+    term:
+      id: NCBITaxon:404432
+      label: Salinicola
+  metabolites:
+  - preferred_term: pyrene
+    term:
+      id: CHEBI:39106
+      label: pyrene
+  downstream:
+  - target: Complete 5%-salinity pyrene removal by PES
+    description: >-
+      The proposed N7-to-A11 intermediate handoff relieves the
+      4,5-dicarboxyphenanthrene bottleneck observed in N7 monoculture and helps
+      PES degrade the supplied pyrene completely within the main 10-day assay.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Owing to the inability to further transfer 4,5-dicarboxyphenanthrene, the
+      metabolic pathway was disrupted, leading to the significant accumulation
+      of 4,5-dicarboxyphenanthrene during pyrene degradation by the pure culture
+      of strain N7.
+    explanation: Supports 4,5-dicarboxyphenanthrene as the N7 monoculture bottleneck.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      enzyme encoded by hphtC-5 was proposed to be the candidate decarboxylase
+      for the decarboxylation process of 4,5-dicarboxyphenanthrene.
+    explanation: Supports hphtC-5 as the expressed A11 candidate for the decarboxylation step.
+- name: A11 extracellular bioemulsification of hydrophobic pyrene
+  description: >-
+    Salinicola sp. A11 secreted extracellular emulsan-like material detected in
+    A11 and PES cell-free supernatants, but not N7 cell-free supernatant. The
+    extracellular emulsifier was modeled as increasing hydrophobic pyrene
+    bioavailability for the N7-centered upstream oxidation arm.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Salinicola sp. A11
+    term:
+      id: NCBITaxon:404432
+      label: Salinicola
+  target_taxon:
+    preferred_term: Pelagerythrobacter sp. N7
+    term:
+      id: NCBITaxon:2800685
+      label: Pelagerythrobacter
+  metabolites:
+  - preferred_term: pyrene
+    term:
+      id: CHEBI:39106
+      label: pyrene
+  downstream:
+  - target: Complete 5%-salinity pyrene removal by PES
+    description: >-
+      A11 extracellular bioemulsifier production is proposed to reduce the mass
+      transfer limitation of hydrophobic pyrene and thereby increase PES pyrene
+      degradation efficiency.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Distinct and persistent emulsion layers were observed only in the
+      cell-free supernatants of strain A11 and consortium PES
+    explanation: Supports A11 and PES, but not N7 alone, as sources of extracellular emulsifying activity.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: In the genome of strain A11, wza, wzb, and wzc related genes were identified
+    explanation: Supports the A11 genomic capacity for an emulsan-like export system.
+- name: Complete 5%-salinity pyrene removal by PES
+  description: >-
+    In 200 mL 5%-salinity SSDM batch flasks with 50 mg/L pyrene as the sole
+    carbon source, the two-member PES consortium approached complete pyrene
+    removal within 10 days, whereas neither pure culture completely degraded
+    pyrene by itself under the tested conditions.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: pyrene
+    term:
+      id: CHEBI:39106
+      label: pyrene
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Within a 10-day cultivation period, the removal rate of 50 mg/L pyrene by
+      the consortium PES approached 100%
+    explanation: Supports the measured complete-pyrene-removal endpoint of the two-member consortium.
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain A11 was detected to be unable to degrade PAHs
+    explanation: Supports that A11 did not remove PAHs as an axenic culture.
+environmental_factors:
+- name: Sodium-chloride-dominated salinity
+  value: 1%, 3%, 5%, 8%, and 10%
+  description: >-
+    PES pyrene degradation was tested over five salinity levels created by
+    proportionally changing NaCl, MgCl2 and MgSO4 in SSDM while holding other
+    medium components constant.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The adaptability of the synthetic consortium to environmental factors was
+      evaluated by monitoring pyrene degradation under various salinity levels
+      (1%, 3%, 5%, 8%, and 10%)
+    explanation: Supports the salinity gradient tested for PES pyrene degradation.
+- name: Initial pH
+  value: 5.0, 6.0, 7.0, 8.0, 9.0, and 10.0
+  description: PES degraded pyrene fastest near neutral pH and was inhibited at pH 5 and 10.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      As shown in Figure 3B , the degradation efficiency approached 100% after
+      10 days of incubation at both pH 7 and pH 8, with the most rapid
+      degradation occurring at pH 7.
+    explanation: Supports the pH-dependent pyrene-removal phenotype.
+growth_media:
+- name: Sea salt-defined medium with pyrene
+  composition:
+  - name: pyrene
+    concentration: '50'
+    unit: mg/L
+    chebi_term:
+      preferred_term: pyrene
+      term:
+        id: CHEBI:39106
+        label: pyrene
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  shaking_speed: '120'
+  shaking_speed_unit: rpm
+  incubation_time: '10'
+  incubation_time_unit: d
+  inoculum_size: '0.015'
+  inoculum_unit: OD600
+  vessel_type: flask
+  inoculum_source: 1:1 mixture of washed Pelagerythrobacter sp. N7 and Salinicola sp. A11 pure cultures.
+  preparation_notes: >-
+    Biodegradation assays used 200 mL 5% salinity SSDM amended with 50 mg/L
+    pyrene as the sole carbon source. Abiotic SSDM plus pyrene controls were
+    included, and three independent flasks were prepared per treatment.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Biodegradation assays of consortium PES were conducted in 200 mL of 5%
+      salinity SSDM with 50 mg/L pyrene as the sole carbon source, with initial
+      OD600 value of 0.015.
+    explanation: Supports the medium, pyrene loading, volume, and inoculum optical density.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 200
+  working_volume_unit: mL
+  operating_temperature: 30
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: >-
+    N7, A11, PES and abiotic SSDM-plus-pyrene controls were assayed in triplicate
+    batch flasks; monoculture N7 was run for 14 days and PES for 10 days.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Abiotic controls containing only SSDM and pyrene were also included to
+      assess abiotic loss. Three independent flasks were prepared for each
+      treatment and incubated at 30°C with shaking at 120 rpm in darkness.
+    explanation: Supports the abiotic controls, replication, dark shaking batch setup, temperature and agitation.
+associated_datasets:
+- title: Salinicola sp. A11 whole-genome shotgun sequencing reads
+  dataset_type: GENOMICS
+  repository: NCBI_SRA
+  accession: SRR38848454
+  url: https://www.ncbi.nlm.nih.gov/sra/?term=SRR38848454
+  description: NCBI SRA read accession for the A11 draft-genome sequencing reported in the primary PES article.
+external_resources:
+- name: Primary publication - PES halophilic pyrene-degradation SynCom
+  repository: OTHER
+  resource_id: PMID:42666409
+  url: https://pubmed.ncbi.nlm.nih.gov/42666409/
+  description: >-
+    Frontiers in Microbiology 2026 primary article describing the
+    Pelagerythrobacter sp. N7 and Salinicola sp. A11 halophilic PES SynCom.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The syntrophic network of pyrene degradation by the synthetic halophilic
+      consortium PES
+    explanation: Lists the exact primary publication for this synthetic PES pyrene-degradation consortium.
+related_ingredients:
+- preferred_term: pyrene
+  chebi_term:
+    id: CHEBI:39106
+    label: pyrene
+  relevance: Pyrene was the sole supplied carbon source and the high-molecular-weight PAH target transformed by PES.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 50 mg/L pyrene as the sole carbon source
+    explanation: Names pyrene as the sole supplied carbon source in the PES biodegradation assay.
+- preferred_term: polycyclic aromatic hydrocarbons
+  chebi_term:
+    id: CHEBI:33848
+    label: polycyclic arene
+  relevance: >-
+    PES was constructed as a halophilic synthetic consortium for degradation of
+    polycyclic aromatic hydrocarbon pollutants in saline environments.
+  evidence:
+  - reference: PMID:42666409
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      PAHs accumulate in saline and hypersaline environments, including
+      estuaries, coastal soils, marine sediments, and intertidal zones
+    explanation: Supports PAHs as the contaminant class motivating the halophilic degradation assay.
+discussions:
+- discussion_id: hphtc5_decarboxylase_candidate_unresolved
+  prompt: >-
+    Is the A11 hphtC-5 candidate sufficient and necessary for
+    4,5-dicarboxyphenanthrene decarboxylation inside PES?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#N7-A11 4,5-dicarboxyphenanthrene handoff
+  rationale: >-
+    The source detected downstream pyrene metabolites in PES, annotated
+    hphtC-5 in the A11 genome, modeled a compatible active site, and measured
+    hphtC-5 expression by RT-PCR. It did not purify HphtC-5 or perturb hphtC-5
+    genetically, so the specific enzyme assignment remains a candidate step.
+  posed_by: codex
+  posed_date: '2026-09-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for this halophilic PES pyrene-degradation consortium.
