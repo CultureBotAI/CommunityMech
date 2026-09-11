@@ -86,7 +86,6 @@ taxonomy:
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:41365368
     supports: SUPPORT
@@ -101,6 +100,15 @@ taxonomy:
     explanation: >-
       Supports CW-D3T as the downstream mineralization specialist in the KZ
       division of labor.
+  - reference: PMID:41365368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      CW-D3T utilized high-expression efflux pumps (ZntA/zinT) and antioxidant
+      genes (yhcN) to mitigate cadmium toxicity
+    explanation: >-
+      Supports the metagenome-inferred cadmium-stress response assigned to
+      CW-D3T.
 - taxon_term:
     preferred_term: Arthrobacter sp. SZ-3
     term:
@@ -116,7 +124,6 @@ taxonomy:
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: PMID:41365368
     supports: SUPPORT
@@ -133,6 +140,15 @@ taxonomy:
     explanation: >-
       Supports SZ-3 as the upstream phenanthrene-catabolism specialist in the
       KZ division of labor.
+  - reference: PMID:41365368
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      SZ-3 employed the frnE-mediated oxidative stress response and limited
+      Cd2+ uptake via mntH
+    explanation: >-
+      Supports the metagenome-inferred cadmium-stress response assigned to
+      SZ-3.
 ecological_interactions:
 - name: SZ-3 to CW-D3T phenanthrene-mineralization division of labor
   description: >-
@@ -175,46 +191,6 @@ ecological_interactions:
     explanation: >-
       Supports complementary upstream and downstream phenanthrene-catabolism
       roles for the two KZ members.
-- name: Complementary KZ cadmium-stress responses
-  description: >-
-    Metagenomic analysis associated Klebsiella sp. CW-D3T cadmium tolerance
-    with high-expression ZntA/zinT efflux-pump and yhcN antioxidant genes,
-    whereas Arthrobacter sp. SZ-3 was associated with frnE-mediated oxidative
-    stress response and limited Cd2+ uptake through mntH.
-  interaction_type: NICHE_PARTITIONING
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Klebsiella sp. CW-D3T
-    term:
-      id: NCBITaxon:570
-      label: Klebsiella
-  target_taxon:
-    preferred_term: Arthrobacter sp. SZ-3
-    term:
-      id: NCBITaxon:1663
-      label: Arthrobacter
-  metabolites:
-  - preferred_term: cadmium(2+)
-    term:
-      id: CHEBI:48775
-      label: cadmium(2+)
-  downstream:
-  - target: Heavy-metal stress tolerance during PAH degradation
-    description: >-
-      Complementary cadmium-response strategies were proposed to support
-      phenanthrene degradation by KZ under 25 mg/L Cd2+ stress.
-  evidence:
-  - reference: PMID:41365368
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: >-
-      Mechanistic investigations via metagenomics revealed that CW-D3T utilized
-      high-expression efflux pumps (ZntA/zinT) and antioxidant genes (yhcN) to
-      mitigate cadmium toxicity, whereas SZ-3 employed the frnE-mediated
-      oxidative stress response and limited Cd2+ uptake via mntH.
-    explanation: >-
-      Supports strain-distinct cadmium-stress response mechanisms in the KZ
-      consortium.
 environmental_factors:
 - name: Cadmium co-contamination stress
   value: '25'

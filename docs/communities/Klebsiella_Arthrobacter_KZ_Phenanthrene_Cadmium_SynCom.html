@@ -451,8 +451,6 @@
 
                                 <span class="role-badge">PRIMARY_DEGRADER</span>
 
-                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
-
                             </div>
 
                         </td>
@@ -485,6 +483,17 @@
 
                                 </li>
 
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41365368/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41365368</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"CW-D3T utilized high-expression efflux pumps (ZntA/zinT) and antioxidant genes (yhcN) to mitigate cadmium toxicity"</div>
+
+                                </li>
+
                             </ul>
                         </td>
                     </tr>
@@ -505,8 +514,6 @@
                             <div class="roles-list">
 
                                 <span class="role-badge">PRIMARY_DEGRADER</span>
-
-                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
 
                             </div>
 
@@ -537,6 +544,17 @@
                                     - SUPPORT (IN_VITRO)
 
                                     <div class="snippet">"SZ-3 exhibited superior upstream catalytic activity (50 % higher 2H1N conversion)"</div>
+
+                                </li>
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/41365368/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41365368</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"SZ-3 employed the frnE-mediated oxidative stress response and limited Cd2+ uptake via mntH"</div>
 
                                 </li>
 
@@ -624,64 +642,6 @@
                         </div>
 
                         <div class="snippet">"Through biomass-normalized enzyme activity assays, we uncovered a structured division of labor: SZ-3 exhibited superior upstream catalytic activity (50 % higher 2H1N conversion), while CW-D3T dominated downstream mineralization (&gt;80 % contribution)."</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Complementary KZ cadmium-stress responses</h3>
-                    <span class="interaction-type">NICHE_PARTITIONING</span>
-                </div>
-
-
-                <p><strong>Source Taxon:</strong> Klebsiella sp. CW-D3T</p>
-
-
-
-                <p><strong>Target Taxon:</strong> Arthrobacter sp. SZ-3</p>
-
-
-
-                <p><strong>Metabolites:</strong>
-
-                    cadmium(2+)
-                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=48775"
-                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:48775</a>)
-
-                </p>
-
-
-
-
-
-                <div class="interaction-flow">
-                    <strong>Downstream Effects:</strong>
-
-                    <div class="flow-item">
-                        <span class="flow-arrow">→</span> Heavy-metal stress tolerance during PAH degradation
-                    </div>
-
-                </div>
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/41365368/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:41365368</a>
-
-                            - SUPPORT (COMPUTATIONAL)
-                        </div>
-
-                        <div class="snippet">"Mechanistic investigations via metagenomics revealed that CW-D3T utilized high-expression efflux pumps (ZntA/zinT) and antioxidant genes (yhcN) to mitigate cadmium toxicity, whereas SZ-3 employed the frnE-mediated oxidative stress response and limited Cd2+ uptake via mntH."</div>
 
                     </li>
 
@@ -913,14 +873,14 @@
             id: "NCBITaxon:570",
             label: "Klebsiella sp. CW-D3T",
             abundance: "DOMINANT",
-            roles: ["PRIMARY_DEGRADER", "SYNTROPHIC_PARTNER"]
+            roles: ["PRIMARY_DEGRADER"]
         };
 
         taxonData["Arthrobacter sp. SZ-3"] = {
             id: "NCBITaxon:1663",
             label: "Arthrobacter sp. SZ-3",
             abundance: "DOMINANT",
-            roles: ["PRIMARY_DEGRADER", "SYNTROPHIC_PARTNER"]
+            roles: ["PRIMARY_DEGRADER"]
         };
 
 
@@ -984,44 +944,6 @@
 
         })();
 
-        (function() {
-            var intId = "interaction:1";
-            var intType = "NICHE_PARTITIONING";
-            var metabolites = [];
-
-
-            metabolites.push("cadmium(2+)");
-
-
-            var processes = [];
-
-            var evidenceCount = 1;
-
-            nodes.push({
-                id: intId,
-                label: "Complementary KZ cadmium-stress responses",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-            var srcKey = "Klebsiella sp. CW-D3T";
-            if (taxonNodeIds[srcKey]) {
-                links.push({ source: taxonNodeIds[srcKey], target: intId });
-            }
-
-
-
-            var tgtKey = "Arthrobacter sp. SZ-3";
-            if (taxonNodeIds[tgtKey]) {
-                links.push({ source: intId, target: taxonNodeIds[tgtKey] });
-            }
-
-        })();
-
 
         // Remove taxon nodes with no connections
         var connectedIds = new Set();
@@ -1038,7 +960,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 4;
+        var nodeCount = 3;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
