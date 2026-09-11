@@ -243,6 +243,58 @@ def test_pairwise_source_and_target_taxa_are_counted_as_connected():
     assert "disconnected_taxa" in score["missing"]
 
 
+def test_pairwise_preferred_term_beats_shared_taxon_id():
+    score = ranker.score_document(
+        {
+            "taxonomy": [
+                _taxon("strain A", "NCBITaxon:1", "Variovorax"),
+                _taxon("strain B", "NCBITaxon:1", "Variovorax"),
+            ],
+            "ecological_interactions": [
+                {
+                    "name": "specific strain edge",
+                    "scope": "PAIRWISE",
+                    "source_taxon": _participant("strain A", "NCBITaxon:1", "Variovorax"),
+                }
+            ],
+        }
+    )
+
+    assert score["connected_taxa"] == 1
+    assert score["disconnected_taxa"] == 1
+
+
+def test_pairwise_id_fallback_only_credits_unique_taxon_ids():
+    score = ranker.score_document(
+        {
+            "taxonomy": [
+                _taxon("strain A", "NCBITaxon:1", "Variovorax"),
+                _taxon("strain B", "NCBITaxon:1", "Variovorax"),
+                _taxon("unique", "NCBITaxon:2", "Unique"),
+            ],
+            "ecological_interactions": [
+                {
+                    "name": "ambiguous shared id",
+                    "scope": "PAIRWISE",
+                    "source_taxon": {
+                        "term": {"id": "NCBITaxon:1", "label": "paper shorthand"}
+                    },
+                },
+                {
+                    "name": "unique id fallback",
+                    "scope": "PAIRWISE",
+                    "source_taxon": {
+                        "term": {"id": "NCBITaxon:2", "label": "paper shorthand"}
+                    },
+                },
+            ],
+        }
+    )
+
+    assert score["connected_taxa"] == 1
+    assert score["disconnected_taxa"] == 2
+
+
 def test_community_level_participating_taxa_narrows_connectivity():
     score = ranker.score_document(
         {
@@ -257,6 +309,33 @@ def test_community_level_participating_taxa_narrows_connectivity():
                     "interaction_type": "CROSS_FEEDING",
                     "scope": "COMMUNITY_LEVEL",
                     "participating_taxa": [_participant("included", "NCBITaxon:1")],
+                    "metabolites": [_participant("acetate", "CHEBI:30089")],
+                    "evidence": [{"reference": "PMID:1", "snippet": "evidence"}],
+                }
+            ],
+        }
+    )
+
+    assert score["connected_taxa"] == 1
+    assert score["disconnected_taxa"] == 1
+
+
+def test_community_level_participating_taxa_prefer_names_to_shared_ids():
+    score = ranker.score_document(
+        {
+            "taxonomy": [
+                _taxon("included", "NCBITaxon:1", "Variovorax"),
+                _taxon("excluded", "NCBITaxon:1", "Variovorax"),
+            ],
+            "ecological_interactions": [
+                {
+                    "name": "community",
+                    "description": "community description",
+                    "interaction_type": "CROSS_FEEDING",
+                    "scope": "COMMUNITY_LEVEL",
+                    "participating_taxa": [
+                        _participant("included", "NCBITaxon:1", "Variovorax")
+                    ],
                     "metabolites": [_participant("acetate", "CHEBI:30089")],
                     "evidence": [{"reference": "PMID:1", "snippet": "evidence"}],
                 }

@@ -89,35 +89,65 @@ def display_path(path: Path) -> str:
         return str(path)
 
 
-def _taxon_tokens(taxon: dict[str, Any]) -> set[str]:
-    tokens = set()
-    if _has_text(taxon.get("preferred_term")):
-        tokens.add(taxon["preferred_term"])
-    term = _as_mapping(taxon.get("term"))
-    for key in ("id", "label"):
-        if _has_text(term.get(key)):
-            tokens.add(term[key])
-    return tokens
+class TaxonomyLookup:
+    def __init__(self) -> None:
+        self.by_name: dict[str, str] = {}
+        self.by_id: dict[str, set[str]] = {}
+
+    @property
+    def all_taxa(self) -> set[str]:
+        return set(self.by_name.values()) | {
+            taxon for taxa in self.by_id.values() for taxon in taxa
+        }
 
 
-def _taxonomy_lookup(taxonomy: list[dict[str, Any]]) -> dict[str, set[str]]:
-    lookup: dict[str, set[str]] = {}
+def _taxonomy_lookup(taxonomy: list[dict[str, Any]]) -> TaxonomyLookup:
+    lookup = TaxonomyLookup()
     for entry in taxonomy:
         taxon = _as_mapping(entry.get("taxon_term"))
         term = _as_mapping(taxon.get("term"))
         key = taxon.get("preferred_term") or term.get("label") or term.get("id")
         if not _has_text(key):
             continue
-        for token in _taxon_tokens(taxon):
-            lookup.setdefault(token, set()).add(key)
+        name = taxon.get("preferred_term") or term.get("label")
+        if _has_text(name):
+            lookup.by_name[name] = key
+        if _has_text(term.get("id")):
+            lookup.by_id.setdefault(term["id"], set()).add(key)
     return lookup
+
+
+def _matched_name(member: dict[str, Any], lookup: TaxonomyLookup) -> str | None:
+    term = _as_mapping(member.get("term"))
+    for token in (member.get("preferred_term"), term.get("label")):
+        if _has_text(token) and token in lookup.by_name:
+            return lookup.by_name[token]
+    return None
+
+
+def _candidate_ids(member: dict[str, Any], lookup: TaxonomyLookup) -> set[str]:
+    term = _as_mapping(member.get("term"))
+    taxon_id = term.get("id")
+    if _has_text(taxon_id):
+        return lookup.by_id.get(taxon_id, set())
+    return set()
+
+
+def _resolve_pairwise_member(member: dict[str, Any], lookup: TaxonomyLookup) -> str | None:
+    match = _matched_name(member, lookup)
+    if match:
+        return match
+
+    candidates = _candidate_ids(member, lookup)
+    if len(candidates) == 1:
+        return next(iter(candidates))
+    return None
 
 
 def _connected_taxa(
     interactions: list[dict[str, Any]], taxonomy: list[dict[str, Any]]
 ) -> set[str]:
     lookup = _taxonomy_lookup(taxonomy)
-    all_taxa = {taxon for taxa in lookup.values() for taxon in taxa}
     connected = set()
 
     for interaction in interactions:
@@ -125,14 +155,19 @@ def _connected_taxa(
             participants = _as_list(interaction.get("participating_taxa"))
             if participants:
                 for participant in participants:
-                    for token in _taxon_tokens(_as_mapping(participant)):
-                        connected.update(lookup.get(token, set()))
+                    member = _as_mapping(participant)
+                    named = _matched_name(member, lookup)
+                    if named:
+                        connected.add(named)
+                    else:
+                        connected.update(_candidate_ids(member, lookup))
             else:
-                connected.update(all_taxa)
+                connected.update(lookup.all_taxa)
 
         for slot in ("source_taxon", "target_taxon"):
-            for token in _taxon_tokens(_as_mapping(interaction.get(slot))):
-                connected.update(lookup.get(token, set()))
+            taxon = _resolve_pairwise_member(_as_mapping(interaction.get(slot)), lookup)
+            if taxon:
+                connected.add(taxon)
 
     return connected
 
