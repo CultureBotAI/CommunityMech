@@ -1,0 +1,607 @@
+id: CommunityMech:000348
+name: Sorghum SRC2v4 Root Colonization SynCom
+description: >-
+  A 15-member reduced-complexity Sorghum bicolor synthetic root community
+  rationally derived from the 57-member Sorghum Root Consortium 1 (SRC1).
+  SRC2v4 was designed by ranking SRC1 strains by cumulative root abundance in a
+  prior permutational membership experiment, prioritizing known sorghum
+  root-exudate users when abundance rankings were highly similar, and selecting
+  15 high-colonization isolates with unique 16S rRNA gene sequences in the
+  V3-V4 region.
+  In gnotobiotic 5-l sterile microboxes, SRC2v4 showed exceptional
+  compositional fidelity relative to its inoculum, stably colonized roots and
+  rhizospheres, promoted plant growth as a live community but not as a
+  heat-killed inoculum, and induced coordinated S. bicolor transcriptional and
+  metabolomic responses centered on flavonoid biosynthesis.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >-
+    Reduce the parent 57-isolate SRC1 sorghum SynCom to a 15-member community
+    that retained gnotobiotic root colonization, compositional stability, and
+    plant growth promotion.
+  assembly_strategy: >-
+    Generate four 15-isolate SRC2 variants with distinct reduction strategies,
+    then define SRC2v4 by choosing the most abundant root colonizers from a
+    prior SRC1 permutational membership experiment while prioritizing
+    sorghum-root-exudate users when isolate abundance rankings were closely
+    tied.
+  perturbation_design: >-
+    Compare SRC2v1, SRC2v2, SRC2v3, SRC2v4, and mock treatments for 1-month
+    gnotobiotic colonization and plant phenotypes; then benchmark live SRC2v4
+    against heat-killed SRC2v4, mock, and the 57-member parent SRC1.
+  measurement_endpoints:
+  - 16S rRNA amplicon tracking of root and rhizosphere colonization
+  - Sorghum shoot and root biomass phenotypes
+  - Live versus heat-killed SRC2v4 growth promotion
+  - One-month, six-timepoint host RNA-seq
+  - Root and rhizosphere LC-MS metabolomics
+  - Rhizosphere metatranscriptomics
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Four distinct strategies were employed to reduce the complexity of the 57
+      member SynCom SRC1
+    explanation: >-
+      Supports the parent community and four-variant rational reduction design.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Finally, the fourth variant, SRC2v4, was designed specifically to
+      optimize root colonization efficiency.
+    explanation: >-
+      Identifies the curated 15-member variant as the formulation selected for
+      root-colonization capacity.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      For strains that exhibited highly similar abundance rankings, priority
+      was given to isolates previously characterized as capable of utilizing S.
+      bicolor root exudates as a sole carbon source
+    explanation: >-
+      Documents the root-exudate-use tie breaker in the SRC2v4 design.
+environment_term:
+  preferred_term: Sorghum bicolor rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: >-
+    SRC2v4 was evaluated as a gnotobiotic sorghum root and rhizosphere SynCom.
+modeled_environment:
+- preferred_term: Sorghum bicolor rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+taxonomy:
+- taxon_term:
+    preferred_term: Burkholderia anthina SO8-2
+    term:
+      id: NCBITaxon:179879
+      label: Burkholderia anthina
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the SO8-2 isolate; GTDB grounding was not resolved
+      from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: SO8-2
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SO8-2 1 1 1 1 1 Burkholderia anthina
+    explanation: >-
+      Dataset S1 assigns Burkholderia anthina isolate SO8-2 to SRC2v4.
+- taxon_term:
+    preferred_term: Chryseobacterium proteolyticum TBS_027
+    term:
+      id: NCBITaxon:118127
+      label: Chryseobacterium proteolyticum
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the TBS_027 isolate; GTDB grounding was not
+      resolved from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: TBS_027
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: TBS_027 1 1 0 1 1 Chryseobacterium proteolyticum
+    explanation: >-
+      Dataset S1 assigns Chryseobacterium proteolyticum isolate TBS_027 to
+      SRC2v4.
+- taxon_term:
+    preferred_term: Pseudomonas sp. TBS_028
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: TBS_028
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: TBS_028 1 1 0 1 1 Pseudomonas
+    explanation: Dataset S1 assigns Pseudomonas isolate TBS_028 to SRC2v4.
+- taxon_term:
+    preferred_term: Enterobacter ludwigii PH2
+    term:
+      id: NCBITaxon:299767
+      label: Enterobacter ludwigii
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the PH2 isolate; GTDB grounding was not resolved
+      from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: PH2
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: PH2 1 1 0 0 1 Enterobacter ludwigii
+    explanation: >-
+      Dataset S1 assigns Enterobacter ludwigii isolate PH2 to SRC2v4.
+- taxon_term:
+    preferred_term: Sphingobium sp. Sin1
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingobium
+      gtdb_taxon: Sphingobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingobium
+      ncbi_source_id: NCBITaxon:165695
+      majority_fraction: 0.987
+      support_genomes: 222
+      total_genomes: 225
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: Sin1
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Sin1 1 1 0 0 1 Sphingobium
+    explanation: Dataset S1 assigns Sphingobium isolate Sin1 to SRC2v4.
+- taxon_term:
+    preferred_term: Flavobacterium sp. SO6b
+    term:
+      id: NCBITaxon:237
+      label: Flavobacterium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Flavobacterium
+      gtdb_taxon: Flavobacterium
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Flavobacteriaceae;g__Flavobacterium
+      ncbi_source_id: NCBITaxon:237
+      majority_fraction: 0.999
+      support_genomes: 859
+      total_genomes: 860
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: SO6b
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SO6b 1 1 0 0 1 Flavobacterium
+    explanation: Dataset S1 assigns Flavobacterium isolate SO6b to SRC2v4.
+- taxon_term:
+    preferred_term: Kribbella shirazensis SAI_226
+    term:
+      id: NCBITaxon:1105143
+      label: Kribbella shirazensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the SAI_226 isolate; GTDB grounding was not
+      resolved from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: SAI_226
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SAI_226 1 0 1 0 1 Kribbella shirazensis
+    explanation: >-
+      Dataset S1 assigns Kribbella shirazensis isolate SAI_226 to SRC2v4.
+- taxon_term:
+    preferred_term: Streptomyces ambofaciens SAI_104
+    term:
+      id: NCBITaxon:1889
+      label: Streptomyces ambofaciens
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Streptomyces_ambofaciens
+      gtdb_taxon: Streptomyces ambofaciens
+      gtdb_lineage: d__Bacteria;p__Actinomycetota;c__Actinomycetes;o__Streptomycetales;f__Streptomycetaceae;g__Streptomyces;s__Streptomyces ambofaciens
+      ncbi_source_id: NCBITaxon:1889
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
+  strain_designation:
+    strain_name: SAI_104
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SAI_104 1 0 0 0 1 Streptomyces ambofaciens
+    explanation: >-
+      Dataset S1 assigns Streptomyces ambofaciens isolate SAI_104 to SRC2v4.
+- taxon_term:
+    preferred_term: Rhizobium pusense TBS_045
+    term:
+      id: NCBITaxon:648995
+      label: Agrobacterium pusense
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Agrobacterium_pusense
+      gtdb_taxon: Agrobacterium pusense
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Rhizobiaceae;g__Agrobacterium;s__Agrobacterium pusense
+      ncbi_source_id: NCBITaxon:648995
+      majority_fraction: 1.0
+      total_genomes: 93
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: NCBI Taxonomy now labels this species Agrobacterium pusense.
+  strain_designation:
+    strain_name: TBS_045
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: TBS_045 1 0 0 0 1 Rhizobium pusense
+    explanation: Dataset S1 assigns Rhizobium pusense isolate TBS_045 to SRC2v4.
+- taxon_term:
+    preferred_term: Paraburkholderia sp. CO4
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Paraburkholderia
+      gtdb_taxon: Paraburkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia
+      ncbi_source_id: NCBITaxon:1822464
+      majority_fraction: 0.993
+      support_genomes: 680
+      total_genomes: 685
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: CO4
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: CO4 1 0 0 0 1 Paraburkholderia
+    explanation: Dataset S1 assigns Paraburkholderia isolate CO4 to SRC2v4.
+- taxon_term:
+    preferred_term: Pseudomonas sp. NA2a
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: NA2a
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: NA2a 1 0 0 0 1 Pseudomonas
+    explanation: Dataset S1 assigns Pseudomonas isolate NA2a to SRC2v4.
+- taxon_term:
+    preferred_term: Acinetobacter sp. SO6a
+    term:
+      id: NCBITaxon:469
+      label: Acinetobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Genus-level NCBI term for isolate SO6a; GTDB grounding was not resolved
+      from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: SO6a
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SO6a 1 0 0 0 1 Acinetobacter
+    explanation: Dataset S1 assigns Acinetobacter isolate SO6a to SRC2v4.
+- taxon_term:
+    preferred_term: Pseudomonas sp. SO8-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: SO8-1
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SO8-1 1 0 0 0 1 Pseudomonas
+    explanation: Dataset S1 assigns Pseudomonas isolate SO8-1 to SRC2v4.
+- taxon_term:
+    preferred_term: Pseudomonas entomophila NA8
+    term:
+      id: NCBITaxon:312306
+      label: Pseudomonas entomophila
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the NA8 isolate; GTDB grounding was not resolved
+      from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: NA8
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: NA8 1 0 0 0 1 Pseudomonas entomophila
+    explanation: >-
+      Dataset S1 assigns Pseudomonas entomophila isolate NA8 to SRC2v4.
+- taxon_term:
+    preferred_term: Chryseobacterium gleum TBS_030
+    term:
+      id: NCBITaxon:250
+      label: Chryseobacterium gleum
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      Exact NCBI species for the TBS_030 isolate; GTDB grounding was not
+      resolved from an existing vetted CommunityMech block.
+  strain_designation:
+    strain_name: TBS_030
+  abundance_level: COMMON
+  evidence:
+  - reference: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: TBS_030 1 0 0 0 1 Chryseobacterium gleum
+    explanation: >-
+      Dataset S1 assigns Chryseobacterium gleum isolate TBS_030 to SRC2v4.
+ecological_interactions:
+- name: Root-Colonization-Selected SRC2v4 Stability
+  description: >-
+    SRC2v4, the 15-member variant selected for root colonization efficiency,
+    was the most compositionally representative of its inoculum among the four
+    SRC2 variants and shifted no members in the differential-abundance test
+    against the starting inoculum.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Differential abundance testing reinforced SRC2v4's exceptional stability
+    explanation: >-
+      Supports the community-level colonization-stability phenotype of SRC2v4.
+- name: Live SRC2v4 Plant Growth Promotion
+  description: >-
+    Live SRC2v4 promoted above- and below-ground S. bicolor growth in 1-month
+    gnotobiotic microboxes, whereas heat-killed SRC2v4 failed to significantly
+    induce plant growth promotion.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: plant growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Live SRC2v4 treatment increased shoot fresh weight, shoot dry weight, and
+      root fresh weight.
+    explanation: >-
+      Documents plant growth promotion by live SRC2v4 relative to the
+      heat-killed and mock controls.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: host interaction with live SRC2v4 was required for PGP
+    explanation: >-
+      Shows that the plant growth promotion required live SRC2v4 rather than
+      heat-killed microbial material.
+- name: SRC2v4 Host Flavonoid Response
+  description: >-
+    Colonization by SRC2v4 induced a dynamic root and shoot host transcriptomic
+    response that upregulated flavonoid biosynthesis genes and was corroborated
+    by LC-MS/MS detection of enriched flavones in root and rhizosphere samples.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      functional enrichment analysis confirmed that the flavonoid biosynthetic
+      pathway was strongly regulated
+    explanation: >-
+      Supports host transcriptional regulation of flavonoid biosynthesis after
+      SRC2v4 inoculation.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Notably, five enriched flavones in the root in addition to Flavone +1O;
+      OMe in the rhizosphere
+    explanation: >-
+      Supports metabolomic flavone enrichment in SRC2v4-treated roots and
+      rhizosphere samples.
+growth_media:
+- name: Sterile Hoagland microbox seedling system
+  composition:
+  - name: calcined clay
+    concentration: 1
+    unit: kg per 5-l microbox
+    from_source: community_curated
+  - name: Hoagland's solution
+    concentration: 400
+    unit: ml per 5-l microbox
+    from_source: community_curated
+  temperature_range: 26-28
+  temperature_unit: C
+  light_regime: '16 h : 8 h light : dark'
+  vessel_type: 5-l sterile microboxes
+  preparation_notes: >-
+    Pregerminated seeds were incubated for 10 min in SRC2v4, heat-killed
+    SRC2v4, or mock inoculum before planting 5 cm below the surface and dosing
+    each seed with an additional 1-ml inoculum.
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Seedling assays were conducted in 5-l sterile microboxes (Combiness,
+      Belgium) containing 1 kg of autoclaved calcined clay (Sierra Pacific
+      Supply, Campbell, CA, USA) mixed with 400 ml of sterile Hoagland's
+      solution
+    explanation: >-
+      Supports the gnotobiotic microbox vessel, calcined-clay matrix, and
+      Hoagland solution used for the SRC2v4 plant assays.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Growth conditions were maintained at 26-28C, 16 h : 8 h, light : dark,
+      and 50% relative humidity.
+    explanation: Supports the temperature, photoperiod, and humidity settings.
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Pregerminated seeds were incubated for 10 min in the respective inoculum
+      (SRC2v4, HK, or Mock (1x PBS)) before planting 5 cm below the surface,
+      followed by an additional 1-ml inoculum applied to each seed
+    explanation: >-
+      Supports the pregerminated-seed inoculation, 5 cm planting depth, and
+      additional per-seed inoculum used in the microbox assays.
+associated_datasets:
+- title: SRC2 raw sequencing datasets
+  accession: PRJNA1404338
+  dataset_type: MULTI_OMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1404338
+  description: >-
+    NCBI BioProject containing the SRC2 isolate genomes, 16S rRNA amplicon
+    sequencing, host plant RNA-seq, and rhizosphere metatranscriptomics raw
+    files.
+  publication: PMID:42454401
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      All genomes, 16S rRNA amplicon sequencing, plant RNA-seq, and rhizosphere
+      metatranscriptomics raw data files can be accessed through NCBI
+      BioProject PRJNA1404338.
+    explanation: >-
+      Links the raw sequencing datasets for SRC2 to NCBI BioProject
+      PRJNA1404338.
+- title: SRC2 LC-MS raw data
+  accession: MSV000100573
+  dataset_type: METABOLOMICS
+  repository: MASSIVE
+  url: https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?accession=MSV000100573
+  description: LC-MS raw data files for SRC2 root and rhizosphere metabolomics.
+  publication: PMID:42454401
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      Liquid chromatography-mass spectrometry (LC-MS) raw data files are openly
+      accessible at the Mass Spectrometry Interactive Virtual Environment
+      (MassIVE) community repository (http://massive.ucsd.edu) under the
+      accession MSV000100573.
+    explanation: >-
+      Links the LC-MS metabolomics raw files to MassIVE accession MSV000100573.
+external_resources:
+- name: SRC2 paper analysis repository
+  repository: GITHUB
+  resource_id: deanpettinga/src2_paper
+  url: https://github.com/deanpettinga/src2_paper
+  description: >-
+    Paper-linked repository containing analysis scripts and formulation tables
+    for the SRC2 rational-reduction study.
+  evidence:
+  - reference: PMID:42454401
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      All scripts used are accessible on GitHub
+      (https://github.com/deanpettinga/src2_paper).
+    explanation: >-
+      Documents the paper-linked GitHub repository used to cross-check Dataset
+      S1 formulation rows.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth cycling was curated for this Sorghum bicolor
+  root-colonization SynCom.

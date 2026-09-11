@@ -33,6 +33,7 @@ CHEBI = CurieNamespace("CHEBI", "http://purl.obolibrary.org/obo/CHEBI_")
 CL = CurieNamespace("CL", "http://purl.obolibrary.org/obo/CL_")
 ENVO = CurieNamespace("ENVO", "http://purl.obolibrary.org/obo/ENVO_")
 GO = CurieNamespace("GO", "http://purl.obolibrary.org/obo/GO_")
+GITHUB = CurieNamespace("GITHUB", "https://github.com/")
 NCBITAXON = CurieNamespace("NCBITaxon", "http://purl.obolibrary.org/obo/NCBITaxon_")
 OBI = CurieNamespace("OBI", "http://purl.obolibrary.org/obo/OBI_")
 PMID = CurieNamespace("PMID", "http://www.ncbi.nlm.nih.gov/pubmed/")
@@ -3276,7 +3277,9 @@ slots.evidenceItem__reference = Slot(
     model_uri=COMMUNITYMECH.evidenceItem__reference,
     domain=None,
     range=str,
-    pattern=re.compile(r"^(PMID:|doi:|bioproject:).*"),
+    pattern=re.compile(
+        r"^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$"
+    ),
 )
 
 slots.evidenceItem__supports = Slot(
@@ -3421,7 +3424,9 @@ slots.computationalTool__tool_reference = Slot(
     model_uri=COMMUNITYMECH.computationalTool__tool_reference,
     domain=None,
     range=Optional[str],
-    pattern=re.compile(r"^(PMID:|doi:|bioproject:).*"),
+    pattern=re.compile(
+        r"^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$"
+    ),
 )
 
 slots.computationalTool__role = Slot(

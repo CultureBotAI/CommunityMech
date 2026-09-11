@@ -41,9 +41,8 @@ KB_TAXA = REPO_ROOT / "kb" / "taxa"
 
 # The prefix casing a cache filename must use, keyed by the lowercase form.
 # DERIVED from the citations, not chosen: a `doi:` reference makes the stem
-# `doi_`, a `PMID:` reference `PMID_`. Those are the only two prefixes any
-# record cites (1096 and 4716 occurrences; zero of anything else), so those are
-# the only two whose casing a reader can be wrong about.
+# `doi_`, a `PMID:` reference `PMID_`, and an article-linked `GITHUB:` reference
+# makes `GITHUB_`.
 #
 # Defined here because two things need it and must not disagree --
 # `scripts/normalize_cache_names.py`, which renames, and
@@ -52,6 +51,7 @@ KB_TAXA = REPO_ROOT / "kb" / "taxa"
 # the upstream one, which nobody had listed, went on producing `DOI_*` (#697).
 CANONICAL_CACHE_PREFIXES: dict[str, str] = {
     "doi": "doi",
+    "github": "GITHUB",
     "pmid": "PMID",
 }
 
