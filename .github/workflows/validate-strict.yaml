@@ -1,53 +1,29 @@
 name: validate-strict
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths: &trigger_paths
-      - "kb/communities/**"
-      # A prompt-only edit is the one change class that can breach the /goal size
-      # budget, and it matched no workflow filter — so the guard added in #358
-      # would not have run on it. Same shape as the data/isolates gap below.
-      - "prompts/**"
-      # Provider ranking is executable configuration covered by pytest. A
-      # config-only PR must run the same tests as its Python implementation.
-      - "conf/deep_research_provider.yaml"
-      # data/isolates carries CommunityMech ids too. It was outside every
-      # workflow's paths filter, which is half of why four ids ended up used
-      # twice (#310) — editing an isolate has to re-run the uniqueness gate.
-      - "data/isolates/**"
-      # kb/taxa carries CommunityMech:taxon:* ids for exactly the same reason,
-      # and `test_id_uniqueness.py` reads it — as do 7 other test modules. It was
-      # in no workflow's filter at all, so none of them ran when a taxon record
-      # changed (#471). The isolates note above describes this defect one
-      # directory over; this is the directory it was still true of.
-      - "kb/taxa/**"
-      # .claude/ was the third instance of the defect the two notes above
-      # describe. `tests/test_skill_frontmatter.py` reads .claude/skills and
-      # .claude/commands, but neither was in any workflow's filter, so a
-      # skill-only PR ran exactly one check — vendored-sync, which is
-      # deliberately unfiltered and runs no pytest (#687). The trigger guard in
-      # tests/test_ci_triggers_cover_what_the_gates_read.py is scoped to
-      # DATA_ROOTS and is blind to a non-data directory.
-      - ".claude/skills/**"
-      - ".claude/commands/**"
-      - "src/communitymech/schema/**"
-      - "src/communitymech/**/*.py"
-      - "scripts/**/*.py"
-      - "tests/**/*.py"
-      - "justfile"
-      - "pyproject.toml"
-      - "uv.lock"
-      # Every workflow file, not just this one. Six test modules READ these
-      # files -- the CI-trigger guard, the generated-input guard, the cache-key
-      # guard, the justfile-trigger guard -- so a workflow is a data surface
-      # this lane checks. #731 changed only label-correspondence.yaml, that
-      # matched no path here, the suite never ran, and three tests broke on main
-      # unnoticed. Same shape as #717, one level up: there the gate did not
-      # trigger on its own recipe, here it did not trigger on its own subject.
-      - ".github/workflows/**"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - kb/communities/**
+    - prompts/**
+    - conf/deep_research_provider.yaml
+    - data/isolates/**
+    - kb/taxa/**
+    - .claude/skills/**
+    - .claude/commands/**
+    - src/communitymech/schema/**
+    - src/communitymech/**/*.py
+    - scripts/**/*.py
+    - tests/**/*.py
+    - justfile
+    - pyproject.toml
+    - uv.lock
+    - .github/workflows/**
   workflow_dispatch:
 
 permissions:

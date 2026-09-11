@@ -4,18 +4,21 @@ name: lint
 # only ever run locally, so formatting/type debt accumulated unnoticed; this
 # job keeps it from regressing.
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths: &trigger_paths
-      - "src/**/*.py"
-      - "tests/**/*.py"
-      - "scripts/**/*.py"
-      - "pyproject.toml"
-      - "uv.lock"
-      - ".github/workflows/lint.yaml"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - src/**/*.py
+    - tests/**/*.py
+    - scripts/**/*.py
+    - pyproject.toml
+    - uv.lock
+    - .github/workflows/lint.yaml
   workflow_dispatch:
 
 permissions:
