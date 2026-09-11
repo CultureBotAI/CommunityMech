@@ -6,14 +6,14 @@ several real interactions are not describable that way.
 
 | id | label | parent | issue |
 |---|---|---|---|
-| METPO:1007200 | obligate syntrophy interaction | METPO:1007127 | #752 |
-| METPO:1007201 | facultative syntrophy interaction | METPO:1007127 | #752 |
-| METPO:1007210 | material transfer interaction | METPO:1007120 | #749 |
-| METPO:1007211 | interspecies cell fusion | METPO:1007210 | #749 |
-| METPO:1007212 | interspecies cytoplasmic material exchange | METPO:1007210 | #749 |
-| METPO:1007213 | interspecies horizontal gene transfer | METPO:1007210 | #749 |
-| METPO:1007214 | interspecies electron transfer | METPO:1007210 | #751 |
-| METPO:1007215 | direct interspecies electron transfer | METPO:1007214 | #751 |
+| METPO:1008200 | obligate syntrophy interaction | METPO:1007127 | #752 |
+| METPO:1008201 | facultative syntrophy interaction | METPO:1007127 | #752 |
+| METPO:1008210 | material transfer interaction | METPO:1007120 | #749 |
+| METPO:1008211 | interspecies cell fusion | METPO:1008210 | #749 |
+| METPO:1008212 | interspecies cytoplasmic material exchange | METPO:1008210 | #749 |
+| METPO:1008213 | interspecies horizontal gene transfer | METPO:1008210 | #749 |
+| METPO:1008214 | interspecies electron transfer | METPO:1008210 | #751 |
+| METPO:1008215 | direct interspecies electron transfer | METPO:1008214 | #751 |
 
 ## Why these, and not a widened enum
 
@@ -58,7 +58,7 @@ paper establishes. CommunityMech:000336 and :000338 therefore leave
 is optional, but conspicuous: exactly **1** of the corpus's other 899
 interactions does so.
 
-`METPO:1007210 material transfer interaction` is deliberately a **sibling** of the
+`METPO:1008210 material transfer interaction` is deliberately a **sibling** of the
 sign types under `METPO:1007120 ecological interaction type`, not a subtype. An
 interaction can be both a fusion and a mutualism; those are answers to different
 questions, and forcing one slot to carry both is what ran the enum out of room.
