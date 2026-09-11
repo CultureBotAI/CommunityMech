@@ -447,16 +447,8 @@
                         </td>
                         <td>
 
-                            <div class="roles-list">
-
-                                <span class="role-badge">PRIMARY_DEGRADER</span>
-
-                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
-
-                            </div>
-
                         </td>
-                        <td>DOMINANT</td>
+                        <td>N/A</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -491,16 +483,8 @@
                         </td>
                         <td>
 
-                            <div class="roles-list">
-
-                                <span class="role-badge">PRIMARY_DEGRADER</span>
-
-                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
-
-                            </div>
-
                         </td>
-                        <td>DOMINANT</td>
+                        <td>N/A</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -535,16 +519,8 @@
                         </td>
                         <td>
 
-                            <div class="roles-list">
-
-                                <span class="role-badge">PRIMARY_DEGRADER</span>
-
-                                <span class="role-badge">SYNTROPHIC_PARTNER</span>
-
-                            </div>
-
                         </td>
-                        <td>DOMINANT</td>
+                        <td>N/A</td>
                     </tr>
 
                     <tr class="evidence-row-container">
@@ -580,7 +556,7 @@
                 <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
                 <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
                     <title id="network-svg-title">Ecological interaction network for Nitratireductor-Gordonia Z123 LDPE-Degradation SynCom</title>
-                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (syntrophy).</desc>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (niche partitioning).</desc>
                 </svg>
                 <div class="network-legend">
                     <div class="legend-item">
@@ -588,8 +564,8 @@
                     </div>
                     <div class="legend-item">
                         <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
-                             aria-hidden="true" data-symbol="symbolTriangle"
-                             data-color="#7f30cf"></svg> Syntrophy
+                             aria-hidden="true" data-symbol="symbolSquare2"
+                             data-color="#1212ed"></svg> Niche partitioning
                     </div>
                 </div>
             </div>
@@ -598,7 +574,7 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Z123 LDPE functional differentiation</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
+                    <span class="interaction-type">NICHE_PARTITIONING</span>
                 </div>
 
 
@@ -636,67 +612,6 @@
                         </div>
 
                         <div class="snippet">"Integrated genomic and proteomic analyses suggested functional differentiation among consortium members involving oxidative activation, chain scission, and downstream metabolism."</div>
-
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <div class="interaction-card">
-                <div class="interaction-header">
-                    <h3>Z123 pristine LDPE depolymerization</h3>
-                    <span class="interaction-type">SYNTROPHY</span>
-                </div>
-
-
-
-
-
-
-
-
-                <p><strong>Biological Processes:</strong></p>
-                <ul>
-
-                    <li>
-                        alkane catabolic process
-                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0043448"
-                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0043448</a>)
-                    </li>
-
-                </ul>
-
-
-
-
-
-                <h4>Evidence</h4>
-                <ul class="evidence-list">
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42641428/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42641428</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Z123 achieved 9.98% weight loss and 50.88% molecular weight reduction within 30 days"</div>
-
-                    </li>
-
-                    <li class="evidence-item">
-                        <div>
-
-                            <a href="https://pubmed.ncbi.nlm.nih.gov/42641428/"
-                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:42641428</a>
-
-                            - SUPPORT (IN_VITRO)
-                        </div>
-
-                        <div class="snippet">"Gas chromatography-mass spectrometry (GC-MS) analysis further detected putative LDPE-associated extracellular compounds consistent with oxidative polymer modification."</div>
 
                     </li>
 
@@ -927,22 +842,22 @@
         taxonData["Nitratireductor sp. Z-1"] = {
             id: "NCBITaxon:245876",
             label: "Nitratireductor sp. Z-1",
-            abundance: "DOMINANT",
-            roles: ["PRIMARY_DEGRADER", "SYNTROPHIC_PARTNER"]
+            abundance: "UNKNOWN",
+            roles: []
         };
 
         taxonData["Gordonia sp. Z-2"] = {
             id: "NCBITaxon:2053",
             label: "Gordonia sp. Z-2",
-            abundance: "DOMINANT",
-            roles: ["PRIMARY_DEGRADER", "SYNTROPHIC_PARTNER"]
+            abundance: "UNKNOWN",
+            roles: []
         };
 
         taxonData["Gordonia sp. Z-3"] = {
             id: "NCBITaxon:2053",
             label: "Gordonia sp. Z-3",
-            abundance: "DOMINANT",
-            roles: ["PRIMARY_DEGRADER", "SYNTROPHIC_PARTNER"]
+            abundance: "UNKNOWN",
+            roles: []
         };
 
 
@@ -970,7 +885,7 @@
 
         (function() {
             var intId = "interaction:0";
-            var intType = "SYNTROPHY";
+            var intType = "NICHE_PARTITIONING";
             var metabolites = [];
 
             var processes = [];
@@ -984,34 +899,6 @@
             nodes.push({
                 id: intId,
                 label: "Z123 LDPE functional differentiation",
-                type: "interaction",
-                interactionType: intType,
-                metabolites: metabolites,
-                processes: processes,
-                evidenceCount: evidenceCount
-            });
-
-
-
-
-        })();
-
-        (function() {
-            var intId = "interaction:1";
-            var intType = "SYNTROPHY";
-            var metabolites = [];
-
-            var processes = [];
-
-
-            processes.push("alkane catabolic process");
-
-
-            var evidenceCount = 2;
-
-            nodes.push({
-                id: intId,
-                label: "Z123 pristine LDPE depolymerization",
                 type: "interaction",
                 interactionType: intType,
                 metabolites: metabolites,
@@ -1040,7 +927,7 @@
         var svg = d3.select("#network-svg");
         var width = container.clientWidth - 32;
         // Dynamic height based on node count: minimum 500px, add 40px per node
-        var nodeCount = 5;
+        var nodeCount = 4;
         var height = Math.max(500, 400 + nodeCount * 20);
         svg.attr("width", width).attr("height", height);
 
