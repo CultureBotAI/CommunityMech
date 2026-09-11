@@ -64,6 +64,18 @@ def test_parse_first_author_medline_basic():
     assert format_citation(text) == "(Luo et al. 2024)"
 
 
+def test_parse_first_author_medline_equal_contributor_marker():
+    text = (
+        "1. New Phytol. 2026 Sep;251(6):3507-3521. doi: 10.1111/nph.71425.\n\n"
+        "Rational reduction of a sorghum SynCom.\n\n"
+        "Pettinga D(#)(1)(2), Fonseca-García C(#)(1)(2), Krause G(3).\n\n"
+        "Author information:\n(#)Contributed equally\nPMID: 42454401"
+    )
+
+    assert parse_first_author_from_medline(text) == "Pettinga"
+    assert format_citation(text) == "(Pettinga et al. 2026)"
+
+
 def test_single_author_drops_et_al():
     text = (
         "1. Some J. 2021 Jan;1(1):1. doi: 10.1/x.\n\n"

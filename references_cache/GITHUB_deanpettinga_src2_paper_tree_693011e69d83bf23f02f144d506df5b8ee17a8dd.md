@@ -1,13 +1,13 @@
 ---
-reference_id: GITHUB:deanpettinga/src2_paper
+reference_id: GITHUB:deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
 content_type: full
 source: article-linked analysis tables
-url: https://github.com/deanpettinga/src2_paper
+url: https://github.com/deanpettinga/src2_paper/tree/693011e69d83bf23f02f144d506df5b8ee17a8dd
 ---
 
 ## Content
 
-Dataset S1 Synthetic community variant formulations; normalized rows from SRC2_formulations.tsv in the article-linked deanpettinga/src2_paper repository:
+Dataset S1 Synthetic community variant formulations; normalized rows from SRC2_formulations.tsv in the article-linked deanpettinga/src2_paper repository at commit 693011e69d83bf23f02f144d506df5b8ee17a8dd:
 
 isolate SRC1 SRC2v1 SRC2v2 SRC2v3 SRC2v4 Genus Species
 SO8-2 1 1 1 1 1 Burkholderia anthina
