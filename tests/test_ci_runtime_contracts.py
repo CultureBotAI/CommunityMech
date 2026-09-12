@@ -70,8 +70,16 @@ def test_every_workflow_sync_is_frozen():
 
 
 def test_provider_profile_alone_triggers_its_test_workflow():
-    workflow = (WORKFLOWS / "validate-strict.yaml").read_text(encoding="utf-8")
-    assert '"conf/deep_research_provider.yaml"' in workflow
+    document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
+    events = document.get("on", document.get(True, {}))
+    # Unfiltered PRs include a provider-profile-only edit. Parse event coverage
+    # rather than requiring one YAML quoting style or a removed PR filter (#809).
+    assert "pull_request" in events, "provider-profile PRs do not trigger tests"
+    assert events["pull_request"] in (None, {}), "required PR tests must be unfiltered"
+    assert events.get("merge_group") == {"types": ["checks_requested"]}
+    assert "main" in events["push"]["branches"]
+    assert "paths-ignore" not in events["push"]
+    assert "conf/deep_research_provider.yaml" in events["push"]["paths"]
 
 
 def test_ci_exercises_minimum_and_modern_supported_python():

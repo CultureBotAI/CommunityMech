@@ -26,37 +26,24 @@ name: label-correspondence
 # it was deferred in the first place. Fixing the term is the only remedy.
 # validate-products survives that case via its `exceptions:` list; this cannot.
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths: &trigger_paths
-      # The justfile defines every recipe the steps below run, so a change to
-      # one of them changes what this gate DOES. Without this entry the gate
-      # that would have judged that change is the one that does not run (#717).
-      - "justfile"
-      - "scripts/ontology_preflight.py"
-      - "kb/communities/**"
-      # Isolates carry ids too, and were outside every
-      # validation glob until #350.
-      - "data/isolates/**"
-      # Taxa were outside every *trigger* until #471 — a subtler version of the
-      # same defect. This workflow runs `just validate-terms-taxa`, whose entire
-      # input is kb/taxa/*.yaml, and Engine B carries a `taxa_yaml` target; but
-      # kb/taxa appeared in NO workflow's paths filter, so a PR touching only a
-      # taxon record triggered exactly one check (vendored-sync, the unfiltered
-      # one) and nothing validated the record. Verified by opening such a PR
-      # (#629, closed unmerged): 1 check, and it read no YAML.
-      - "kb/taxa/**"
-      # `output/kgx/**` used to be listed here and could never match: the
-      # directory is gitignored, so no file under it appears in a pull request.
-      # It advertised a trigger that could not fire. The export is now BUILT by
-      # this workflow (#686), so the records above are the real trigger for it.
-      - "src/communitymech/schema/**"
-      - "scripts/validate_id_label_correspondence.py"
-      - "conf/id_label_targets.yaml"
-      - ".github/workflows/label-correspondence.yaml"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - justfile
+    - scripts/ontology_preflight.py
+    - kb/communities/**
+    - data/isolates/**
+    - kb/taxa/**
+    - src/communitymech/schema/**
+    - scripts/validate_id_label_correspondence.py
+    - conf/id_label_targets.yaml
+    - .github/workflows/label-correspondence.yaml
   workflow_dispatch:
 
 permissions:
@@ -83,7 +70,7 @@ permissions:
 # therefore pays for the report only on failure. Restating a default here would
 # imply a decision this repository has not made.
 #
-# What stays here is the trigger filter above, with the reasons recorded in it.
+# This repository owns the trigger events and domain inputs above/below.
 jobs:
   label-correspondence:
     # Pinned to a claw commit, not a branch: a moving ref would change this

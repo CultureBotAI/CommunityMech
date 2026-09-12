@@ -137,7 +137,12 @@ def test_the_workflow_fires_on_every_root(roots):
     # `on` is parsed as the boolean True by YAML 1.1, which is why this reads
     # the key rather than the attribute.
     triggers = workflow.get("on") or workflow.get(True)
-    patterns = triggers["pull_request"]["paths"]
+    assert "pull_request" in triggers
+    config = triggers["pull_request"] or {}
+    assert "paths-ignore" not in config
+    patterns = config.get("paths")
+    if patterns is None:
+        return  # An unconditional PR event covers every record root.
     missing = [
         str(root.relative_to(REPO))
         for root in roots

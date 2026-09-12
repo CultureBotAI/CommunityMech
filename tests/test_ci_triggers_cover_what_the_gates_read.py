@@ -58,8 +58,9 @@ def _workflow_paths(document: dict) -> list[str] | None:
     """
     triggers = document.get("on", document.get(True)) or {}
     if not isinstance(triggers, dict) or "pull_request" not in triggers:
-        return None
+        return []  # No PR event covers no PR changes.
     config = triggers["pull_request"] or {}
+    assert "paths-ignore" not in config, "coverage of paths-ignore needs explicit analysis"
     return config.get("paths")
 
 
@@ -286,6 +287,9 @@ def test_every_data_surface_a_workflow_reads_can_also_trigger_it(workflow: str):
     the weaker backstop for that case; #636 holds the decision.
     """
     document = yaml.safe_load((WORKFLOWS / workflow).read_text(encoding="utf-8"))
+    events = document.get("on", document.get(True, {}))
+    if "pull_request" not in events:
+        return  # Release/deployment workflows are outside this PR-gate check.
     patterns = _workflow_paths(document)
     if patterns is None:
         return  # no filter: everything triggers it, nothing to check
@@ -372,11 +376,21 @@ def test_a_data_directory_is_not_invisible_to_every_workflow():
     filters = []
     for path in _workflow_files():
         patterns = _workflow_paths(yaml.safe_load(path.read_text()))
-        if patterns:
-            filters.extend(patterns)
+        if patterns is None:
+            return  # A real, unconditional PR event covers every surface.
+        filters.extend(patterns)
 
     orphans = [s for s in surfaces if not _covered(f"{s}/probe.yaml", filters)]
     assert not orphans, (
         f"these data directories hold YAML records but match no workflow's paths "
         f"filter, so changing one of them runs no validation at all (#471): {orphans}"
     )
+
+
+@pytest.mark.parametrize("on_key", ["on", True])
+def test_unfiltered_pr_is_distinct_from_a_workflow_without_pr_events(on_key):
+    assert _workflow_paths({on_key: {"pull_request": None}}) is None
+    assert _workflow_paths({on_key: {"workflow_dispatch": None}}) == []
+    assert _workflow_paths({on_key: {"pull_request": {"paths": ["kb/**"]}}}) == ["kb/**"]
+    with pytest.raises(AssertionError, match="paths-ignore"):
+        _workflow_paths({on_key: {"pull_request": {"paths-ignore": ["kb/**"]}}})
