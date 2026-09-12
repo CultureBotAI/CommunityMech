@@ -55,15 +55,16 @@ def _oak_cache_steps() -> list[tuple[str, str, dict]]:
 def test_there_are_oak_cache_steps_to_check():
     """A finder that found nothing would make the gate below vacuous.
 
-    Two, not three: `label-correspondence` moved to a reusable workflow in claw
-    (#731), so its cache step is no longer in this repository. That is fine --
-    the rotation went upstream with it, and claw's copy carries the same month
-    stamp and the same reason ("not saving cache" in every run) plus an
-    `oak-cache-key` input as a manual bust. What is left here are
-    `validate-strict`'s two jobs, and this still has to hold for them.
+    The consolidated `validate-strict` job retains the local cache. The
+    `label-correspondence` cache lives in claw's reusable workflow (#731),
+    where it retains the same rotating month stamp and `oak-cache-key` input
+    for a manual refresh.
     """
     steps = _oak_cache_steps()
-    assert len(steps) >= 2, f"expected several OAK cache steps, found {len(steps)}"
+    assert any(
+        workflow == "validate-strict.yaml" and job == "validate-strict"
+        for workflow, job, _ in steps
+    ), "validate-strict must retain its OAK cache"
 
 
 @pytest.mark.parametrize(
