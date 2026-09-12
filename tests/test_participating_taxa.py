@@ -263,6 +263,7 @@ USERS = {
     "Urine_Nitrification_SynCom.yaml",
     "Wheat_Consortium_C1.yaml",
     "Wheat_Consortium_C6.yaml",
+    "Yarrowia_lipolytica_Division_of_Labor_Lipid_Consortium.yaml",
     "mCAFEs_Brachypodium_RCC.yaml",
 }
 

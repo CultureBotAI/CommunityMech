@@ -1,0 +1,390 @@
+id: CommunityMech:000354
+name: Yarrowia lipolytica Division-of-Labor Lipid Consortium
+description: >-
+  A defined two-strain Yarrowia lipolytica consortium engineered to convert
+  lignocellulose-derived oligosaccharides into lipids through metabolic
+  division of labor. The system partitions hydrolysis and assimilation between
+  a cellobiose-specialized YBGL3/YBGL1 lineage and a
+  xylooligosaccharide-specialized YBXT-XR lineage, then benchmarks the
+  consortium against a single multifunctional YBXT-XR-BGL3 strain. In mixed
+  glucose, cellobiose, and
+  xylooligosaccharide coculture, the division-of-labor consortium raised lipid
+  accumulation above the monoculture benchmark and shifted toward the YBXT-XR
+  partner after cellobiose depletion.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >-
+    Build a Y. lipolytica division-of-labor consortium that can simultaneously
+    use cellulose- and hemicellulose-derived oligosaccharides for microbial
+    lipid production.
+  assembly_strategy: >-
+    Pair a cellobiose-specialized Y. lipolytica strain carrying the BGL3 or
+    BGL1 activity with a xylooligosaccharide-specialized Y. lipolytica
+    YBXT-XR strain that hydrolyzes xylooligosaccharides and assimilates the
+    resulting xylose.
+  perturbation_design: >-
+    Benchmark the two-strain division-of-labor consortium against an engineered
+    single multifunctional strain, YBXT-XR-BGL3, in mixed glucose, cellobiose,
+    and xylooligosaccharide substrate.
+  measurement_endpoints:
+  - Cellobiose and xylooligosaccharide saccharification
+  - Lipid accumulation from cellobiose and xylooligosaccharides
+  - Lipid production in mixed-substrate co-culture
+  - Population shift after cellobiose depletion
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Overall, this study provides the first demonstration of a Y. lipolytica
+      system capable of simultaneously utilizing cellulose- and
+      hemicellulose-derived oligosaccharides.
+    explanation: >-
+      Supports the engineering objective of a Y. lipolytica system for
+      simultaneous cellulose- and hemicellulose-oligosaccharide utilization.
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Because the construction of a single multifunctional strain may impose a
+      significant metabolic burden and reduce fitness, we benchmarked this
+      strain against a division-of-labor strategy.
+    explanation: >-
+      Supports the division-of-labor benchmarking against a single engineered
+      multifunctional strain.
+environment_term:
+  preferred_term: engineered oleaginous yeast oligosaccharide coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    Laboratory Y. lipolytica co-culture in mixed glucose, cellobiose, and
+    xylooligosaccharide substrate.
+taxonomy:
+- taxon_term:
+    preferred_term: cellobiose-specialized Yarrowia lipolytica strain
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Engineered eukaryotic yeast strain, reported as YBGL3 or YBGL1, specialized
+      for cellobiose hydrolysis and use in the division-of-labor consortium.
+  strain_designation:
+    strain_name: YBGL3 or YBGL1
+    genetic_modification: >-
+      Engineered Y. lipolytica lineage carrying a cellobiose-hydrolyzing fungal
+      beta-glucosidase activity.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      we also developed a cellobiose-specialized strain (YBGL3 or YBGL1)
+    explanation: >-
+      Supports the cellobiose-specialized Y. lipolytica member and its strain
+      labels.
+- taxon_term:
+    preferred_term: xylooligosaccharide-specialized Yarrowia lipolytica YBXT-XR
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >-
+      Engineered eukaryotic yeast strain specialized for xylooligosaccharide
+      hydrolysis and xylose assimilation.
+  strain_designation:
+    strain_name: YBXT-XR
+    genetic_modification: >-
+      Engineered Y. lipolytica lineage carrying the BxTw1 xylooligosaccharide
+      hydrolysis function and an introduced xylose reductase pathway.
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  abundance_level: COMMON
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      a xylooligosaccharide-specialized strain (YBXT-XR)
+    explanation: >-
+      Supports the YBXT-XR strain as the xylooligosaccharide-specialized member.
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a xylose reductase pathway was introduced to confer xylose assimilation
+    explanation: >-
+      Supports the xylose-assimilation engineering in the YBXT-XR lineage.
+related_ingredients:
+- preferred_term: glucose
+  chebi_term:
+    id: CHEBI:17234
+    label: glucose
+  relevance: >-
+    Glucose was one of the carbon substrates in the mixed-substrate co-culture
+    assay used to benchmark the consortium.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In co-culture experiments using a mixed substrate (glucose, cellobiose,
+      and xylooligosaccharides)
+    explanation: Supports glucose as a substrate in the mixed co-culture assay.
+- preferred_term: cellobiose
+  chebi_term:
+    id: CHEBI:17057
+    label: cellobiose
+  relevance: >-
+    Cellobiose is the cellulose-derived disaccharide consumed by the
+    cellobiose-specialist lineage and supplied in the mixed-substrate
+    co-culture assay.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      developed a cellobiose-specialized strain (YBGL3 or YBGL1)
+    explanation: Supports cellobiose as the substrate assigned to YBGL3 or YBGL1.
+- preferred_term: xylose
+  chebi_term:
+    id: CHEBI:18222
+    label: xylose
+  relevance: >-
+    Xylose is the inferred monomer made available from xylooligosaccharides by
+    the YBXT-XR lineage and assimilated through the introduced xylose reductase
+    pathway.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a xylose reductase pathway was introduced to confer xylose assimilation
+    explanation: >-
+      Supports xylose as the hemicellulose-derived sugar assimilated by the
+      engineered YBXT-XR lineage.
+- preferred_term: lipid
+  chebi_term:
+    id: CHEBI:18059
+    label: lipid
+  relevance: >-
+    Lipids were the target product and accumulation endpoint for the
+    oligosaccharide-consuming Y. lipolytica consortium.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      higher lipid accumulation (34% versus 26.3% in the monoculture)
+    explanation: >-
+      Supports lipid as the enhanced target product of the division-of-labor
+      consortium relative to the multifunctional monoculture.
+ecological_interactions:
+- name: Cellobiose-Xylooligosaccharide Division of Labor
+  description: >-
+    The two engineered Y. lipolytica members partition lignocellulose
+    oligosaccharide use between a cellobiose-specialized YBGL3 or YBGL1 strain
+    and a xylooligosaccharide-specialized YBXT-XR strain, creating a
+    mixed-substrate consortium rather than burdening one strain with every
+    hydrolysis and assimilation function.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: cellobiose-specialized Yarrowia lipolytica strain
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  - preferred_term: xylooligosaccharide-specialized Yarrowia lipolytica YBXT-XR
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  downstream:
+  - target: Population Shift to YBXT-XR
+    description: >-
+      Cellobiose depletion precedes enrichment of YBXT-XR and preferential use
+      of the remaining xylooligosaccharides for lipid synthesis.
+  - target: Enhanced Lipid Accumulation
+    description: >-
+      Distributed oligosaccharide hydrolysis and assimilation yielded higher
+      lipid accumulation than the multifunctional monoculture benchmark.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      we also developed a cellobiose-specialized strain (YBGL3 or YBGL1) and a
+      xylooligosaccharide-specialized strain (YBXT-XR)
+    explanation: >-
+      Supports assignment of cellulose- and hemicellulose-derived
+      oligosaccharides to distinct engineered Y. lipolytica specialists.
+- name: Population Shift to YBXT-XR
+  description: >-
+    After the consortium depleted cellobiose, the YBXT-XR member became
+    predominant and consumed the remaining xylooligosaccharides mostly for lipid
+    synthesis.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: cellobiose-specialized Yarrowia lipolytica strain
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  - preferred_term: xylooligosaccharide-specialized Yarrowia lipolytica YBXT-XR
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  biological_processes:
+  - preferred_term: lipid biosynthetic process
+    term:
+      id: GO:0008610
+      label: lipid biosynthetic process
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      following cellobiose depletion (after 72 h), YBXT-XR became predominant
+      and utilized the remaining xylooligosaccharides almost exclusively for
+      lipid synthesis
+    explanation: >-
+      Supports the observed population shift and YBXT-XR lipid-production role
+      after depletion of the cellobiose niche.
+- name: Enhanced Lipid Accumulation
+  description: >-
+    The distributed, two-strain consortium accumulated a greater lipid fraction
+    than the single multifunctional YBXT-XR-BGL3 monoculture under comparable
+    mixed-oligosaccharide conditions.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: cellobiose-specialized Yarrowia lipolytica strain
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  - preferred_term: xylooligosaccharide-specialized Yarrowia lipolytica YBXT-XR
+    term:
+      id: NCBITaxon:4952
+      label: Yarrowia lipolytica
+  metabolites:
+  - preferred_term: lipid
+    term:
+      id: CHEBI:18059
+      label: lipid
+  biological_processes:
+  - preferred_term: lipid biosynthetic process
+    term:
+      id: GO:0008610
+      label: lipid biosynthetic process
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      the division-of-labor approach led to higher lipid accumulation (34%
+      versus 26.3% in the monoculture)
+    explanation: >-
+      Supports the improved lipid-accumulation endpoint for the consortium
+      relative to the multifunctional Y. lipolytica monoculture.
+environmental_factors:
+- name: Mixed lignocellulose-derived oligosaccharide substrate
+  value: glucose, cellobiose, and xylooligosaccharides
+  description: >-
+    Co-culture experiments supplied a mixture of free glucose, the
+    cellulose-derived disaccharide cellobiose, and hemicellulose-derived
+    xylooligosaccharides.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In co-culture experiments using a mixed substrate (glucose, cellobiose,
+      and xylooligosaccharides)
+    explanation: >-
+      Supports the carbon-substrate mixture used to test the Y. lipolytica
+      consortium.
+growth_media:
+- name: Mixed glucose-cellobiose-xylooligosaccharide co-culture medium
+  composition:
+  - name: glucose
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+  - name: cellobiose
+    chebi_term:
+      preferred_term: cellobiose
+      term:
+        id: CHEBI:17057
+        label: cellobiose
+  preparation_notes: >-
+    The abstract reports glucose, cellobiose, and xylooligosaccharides as the
+    mixed co-culture substrate, but not their concentrations, the basal medium,
+    culture pH, temperature, inoculation ratio, or oxygenation.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      mixed substrate (glucose, cellobiose, and xylooligosaccharides)
+    explanation: >-
+      Supports the identifiable components of the mixed oligosaccharide
+      co-culture medium.
+external_resources:
+- name: Primary preprint - Y. lipolytica division-of-labor lipid consortium
+  repository: OTHER
+  resource_id: doi:10.64898/2025.12.19.695487
+  url: https://doi.org/10.64898/2025.12.19.695487
+  description: >-
+    bioRxiv preprint describing the engineered Y. lipolytica
+    oligosaccharide-to-lipid consortium.
+  evidence:
+  - reference: doi:10.64898/2025.12.19.695487
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Overall, this study provides the first demonstration of a Y. lipolytica
+      system capable of simultaneously utilizing cellulose- and
+      hemicellulose-derived oligosaccharides.
+    explanation: >-
+      Identifies the primary preprint for the engineered Y. lipolytica
+      consortium.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >-
+  No metal or rare-earth processing role is reported for the engineered
+  Y. lipolytica lipid-production consortium.
