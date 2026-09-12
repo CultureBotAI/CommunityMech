@@ -218,6 +218,7 @@ USERS = {
     "Ferroplasma_Leptospirillum_Syntrophy.yaml",
     "Geobacter_Methanosarcina_DIET.yaml",
     "Honeybee_Core20_Defined_Microbiota.yaml",
+    "Hualgayoc_Acidic_Sulfate_Reducing_AMD_Consortium.yaml",
     "Iberian_Pit_Lake_Stratified_Community.yaml",
     "Industrial_Bioreactor_Consortium.yaml",
     "Infant_Gut_Strain_Persistence_Maternal_Community.yaml",
