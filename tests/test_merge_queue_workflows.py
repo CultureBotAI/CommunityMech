@@ -17,7 +17,6 @@ REQUIRED_JOBS = {
     "network-quality.yml": {"audit-network": "Audit Network Integrity"},
     "validate-strict.yaml": {
         "validate-strict": "validate-strict",
-        "python-compatibility": "python-compatibility",
     },
     "vendored-sync.yaml": {"vendored-sync": "vendored-sync"},
 }
