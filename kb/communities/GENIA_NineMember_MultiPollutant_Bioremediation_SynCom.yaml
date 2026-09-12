@@ -1,0 +1,560 @@
+id: CommunityMech:000352
+name: GENIA Nine-Member Multi-Pollutant Bioremediation SynCom
+description: >
+  A nine-member bacterial synthetic community selected by the GENIA genome-informed
+  machine-learning framework for simultaneous degradation of lignin, atrazine,
+  and perfluoroalkyl substances. The SynCom combines Atlantibacter hermannii,
+  Bacillus cabrialesii, Bacillus licheniformis, Bacillus pseudomycoides,
+  Micrococcus luteus, Paenibacillus polymyxa, Pantoea dispersa, Pseudomonas
+  fulva, and Pseudomonas pergaminensis isolates from xenobiotic-enriched cotton
+  detritusphere material. In controlled M9 minimal-medium flask assays, the
+  assembled consortium removed more PFOS, atrazine, and lignin than any single
+  member and retained all nine strains during full-length 16S rRNA tracking.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: >
+    Design a defined bacterial SynCom with complementary genome-encoded pathways
+    for degradation of lignin, atrazine, and perfluoroalkyl substances.
+  assembly_strategy: >
+    Screen cotton-detritusphere isolates for growth on target pollutants,
+    sequence 45 prioritized strains, and use the GENIA graph-neural-network and
+    genetic-algorithm workflow to choose nine strains with predicted
+    multipollutant degradation and reduced functional redundancy.
+  inoculation_strategy: >
+    Grow the nine predicted members separately to mid-exponential phase in M9
+    plus glucose, normalize each to 9 x 10^6 CFU/mL, and assemble the SynCom by
+    mixing equal volumes to target 10^6 CFU/mL per strain.
+  measurement_endpoints:
+  - Lignin, atrazine, PFOS, and PFOA removal
+  - Fluoride liberation and PFBS accumulation during PFOS degradation
+  - Ammonium release during atrazine mineralization
+  - Vanillin and syringaldehyde accumulation during lignin degradation
+  - Full-length 16S rRNA community composition dynamics
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Nine strains predicted by GENIA to form an optimal community were
+      systematically validated through controlled coculture experiments.
+    explanation: >
+      Establishes that the GENIA-selected nine-strain community was assembled
+      and experimentally validated.
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Community selection by genetic algorithm maximizing degradation while
+      minimizing redundancy
+    explanation: >
+      Supports the predicted functional-complementarity and redundancy
+      minimization criteria used to select the final nine-member SynCom.
+environment_term:
+  preferred_term: aerobic M9 minimal-medium pollutant-degradation flask culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled aerobic M9 flask assays seeded by a defined equal-volume bacterial
+    SynCom and supplied with lignin, atrazine, or a PFOA/PFOS mixture.
+modeled_environment:
+- preferred_term: soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: Agricultural-soil microcosms were used as environmental validation.
+taxonomy:
+- taxon_term:
+    preferred_term: Atlantibacter hermannii
+    term:
+      id: NCBITaxon:565
+      label: Atlantibacter hermannii
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - &member_roster
+    reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The resulting nine-member community, comprising Atlantibacter hermannii,
+      Bacillus cabrialesii, Bacillus licheniformis, Bacillus pseudomycoides,
+      Micrococcus luteus, Paenibacillus polymyxa, Pantoea dispersa, Pseudomonas
+      fulva, and Pseudomonas pergaminensis, demonstrated broad catabolic
+      capacity.
+    explanation: >
+      Names Atlantibacter hermannii as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Bacillus cabrialesii
+    term:
+      id: NCBITaxon:2487276
+      label: Bacillus cabrialesii
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Bacillus cabrialesii as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Bacillus licheniformis
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Bacillus licheniformis as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Bacillus pseudomycoides
+    term:
+      id: NCBITaxon:64104
+      label: Bacillus pseudomycoides
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Bacillus pseudomycoides as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Micrococcus luteus
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Micrococcus luteus as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Paenibacillus polymyxa
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Paenibacillus polymyxa as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Pantoea dispersa
+    term:
+      id: NCBITaxon:59814
+      label: Pantoea dispersa
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Pantoea dispersa as one of the nine members of the GENIA-designed
+      multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Pseudomonas fulva
+    term:
+      id: NCBITaxon:47880
+      label: Pseudomonas fulva
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Pseudomonas fulva as one of the nine members of the GENIA-designed
+      multipollutant-degrading community.
+- taxon_term:
+    preferred_term: Pseudomonas pergaminensis
+    term:
+      id: NCBITaxon:2853159
+      label: Pseudomonas pergaminensis
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - <<: *member_roster
+    explanation: >
+      Names Pseudomonas pergaminensis as one of the nine members of the
+      GENIA-designed multipollutant-degrading community.
+ecological_interactions:
+- name: GENIA Multipollutant Assembly
+  description: >
+    GENIA integrated pollutant-growth phenotypes and whole-genome annotations to
+    assemble a community with complementary lignin, atrazine, and PFAS
+    degradation potential across hub and specialist strains.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  - preferred_term: perfluorooctane-1-sulfonic acid
+    term:
+      id: CHEBI:39421
+      label: perfluorooctane-1-sulfonic acid
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: Liquid Multipollutant Degradation
+    description: >
+      The genome-informed community architecture yielded synergistic PFOS,
+      atrazine, and lignin removal in minimal medium.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Functional classification based on genomic capacity identified two
+      ecological roles: 5 generalist strains (55.6% of consortium) possessing
+      enzymatic capacity across all three pollutant classes
+    explanation: >
+      Supports role partitioning across generalist and specialist members of the
+      GENIA community.
+- name: Liquid Multipollutant Degradation
+  description: >
+    The assembled nine-member SynCom degraded lignin, atrazine, and PFOS in M9
+    minimal-medium assays at levels greater than the best individually assayed
+    member.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  - preferred_term: perfluorooctane-1-sulfonic acid
+    term:
+      id: CHEBI:39421
+      label: perfluorooctane-1-sulfonic acid
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The 9-member consortium achieved 93.1% PFOS removal (2.23-fold improvement
+      over best individual), 91.4% atrazine removal (1.47-fold), and 91.6% lignin
+      removal (1.46-fold).
+    explanation: >
+      Quantifies emergent community-scale pollutant removal beyond the
+      strongest monoculture benchmarks.
+- name: Community Stability During Degradation
+  description: >
+    Full-length 16S rRNA tracking over the seven-day degradation assay showed
+    that all nine inoculated strains persisted, with the predicted Paenibacillus
+    polymyxa and Pseudomonas pergaminensis hub strains increasing in relative
+    abundance while specialist strains remained detectable.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  downstream:
+  - target: Liquid Multipollutant Degradation
+    description: >
+      Persistence of the complete inoculated roster maintained the multispecies
+      degradation network during the pollutant-removal time course.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Hub strains showed predicted expansion: P. polymyxa increased from 11.1%
+      (day 0) to 14.2% (day 3) to 15.6% (day 7), representing a 40.5% relative
+      increase
+    explanation: >
+      Supports molecular tracking of predicted hub-strain dynamics during the
+      degradation assay.
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Critically, no invasive taxa (noninoculated strains) exceeded 1% relative
+      abundance at any time point
+    explanation: >
+      Supports persistence of the defined community without takeover by
+      contaminating noninoculated strains.
+environmental_factors:
+- name: Liquid-culture PFOS removal
+  value: 93.1% removal within 7 days
+  description: >
+    The assembled consortium removed PFOS in the M9 minimal-medium liquid assay.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      PFOS degradation follows sigmoid kinetics with a distinct lag phase (days
+      0-1, < 5% removal), exponential degradation (days 2-5), and an asymptotic
+      approach (93.1% final).
+    explanation: Supports the seven-day PFOS removal endpoint.
+- name: Liquid-culture atrazine removal
+  value: 91.4% removal by day 3
+  description: >
+    Atrazine was rapidly removed by the assembled consortium in M9 minimal
+    medium.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Atrazine degradation exhibits the fastest kinetics among pollutants: 91.4%
+      removal by day 3
+    explanation: Supports the atrazine removal endpoint.
+- name: Liquid-culture lignin removal
+  value: 91.6% removal by day 5
+  description: >
+    Kraft lignin was removed by the assembled consortium in M9 minimal medium.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Lignin degradation ( Figure b) proceeded from an initial concentration of
+      490.7 +/- 12.1 mg/L to a final concentration of 41.6 +/- 1.0 mg/L,
+      representing 91.6% removal after 5 days.
+    explanation: Supports the lignin removal endpoint.
+- name: Soil-microcosm PFOS and atrazine removal
+  value: 68.7% PFOS removal and 73.2% atrazine removal
+  description: >
+    The defined SynCom also improved PFOS and atrazine removal after inoculation
+    into agricultural-soil microcosms.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Atrazine removal achieved 73.2 +/- 5.1% by day 7 compared to 18.4 +/- 3.2%
+      in noninoculated controls
+    explanation: Supports the soil atrazine bioaugmentation endpoint.
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      PFOS degradation reached 68.7 +/- 6.8% vs 12.1 +/- 2.9% in controls
+    explanation: Supports the soil PFOS bioaugmentation endpoint.
+growth_media:
+- name: M9 minimal medium with lignin, atrazine, or PFAS pollutants
+  composition:
+  - name: disodium hydrogen phosphate
+    concentration: '6.78'
+    unit: g/L
+  - name: monopotassium phosphate
+    concentration: '3.0'
+    unit: g/L
+  - name: ammonium chloride
+    concentration: '1.0'
+    unit: g/L
+  - name: sodium chloride
+    concentration: '0.5'
+    unit: g/L
+  - name: magnesium sulfate
+    concentration: '1'
+    unit: mM
+  - name: calcium chloride
+    concentration: '0.1'
+    unit: mM
+  - name: kraft lignin
+    concentration: '500'
+    unit: mg/L
+    chebi_term:
+      preferred_term: lignin
+      term:
+        id: CHEBI:6457
+        label: lignin
+  - name: atrazine
+    concentration: '30'
+    unit: mg/L
+    chebi_term:
+      preferred_term: atrazine
+      term:
+        id: CHEBI:15930
+        label: atrazine
+  - name: perfluorooctane-1-sulfonic acid
+    concentration: '20'
+    unit: mg/L
+    chebi_term:
+      preferred_term: perfluorooctane-1-sulfonic acid
+      term:
+        id: CHEBI:39421
+        label: perfluorooctane-1-sulfonic acid
+  - name: perfluorooctanoic acid
+    concentration: '20'
+    unit: mg/L
+    chebi_term:
+      preferred_term: perfluorooctanoic acid
+      term:
+        id: CHEBI:35549
+        label: perfluorooctanoic acid
+  temperature: '27'
+  temperature_unit: degrees Celsius
+  incubation_time: '7'
+  incubation_time_unit: d
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: 250 mL baffled Erlenmeyer flask
+  inoculum_size: 10^6 CFU/mL per strain
+  preparation_notes: >
+    Individual-pollutant assays used kraft lignin, atrazine, or a PFAS mixture
+    of PFOA and PFOS in the M9 formulation; the nine normalized member
+    suspensions were mixed in equal volumes before inoculation.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The assembled synthetic communities were inoculated into fresh M9 minimal
+      medium (Na2HPO4, 6.78 g L-1; KH2PO4, 3.0 g L-1; NH4Cl, 1.0 g L-1; NaCl,
+      0.5 g L-1; MgSO4, 1 mM; CaCl2, 0.1 mM) containing one of the three target
+      pollutants as the sole carbon source.
+    explanation: >
+      Supports the M9 salt formulation and use of a target pollutant as the sole
+      carbon source.
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Treatment conditions included kraft lignin (500 mg L-1), atrazine (30 mg
+      L-1), or PFAS mixture (20 mg L-1 each of PFOA and PFOS).
+    explanation: >
+      Supports pollutant concentrations used in the individual substrate assays.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  working_volume: 50.0
+  working_volume_unit: mL
+  instrument_detail: >
+    250 mL baffled Erlenmeyer flasks incubated at 27 C with orbital shaking at
+    150 rpm for seven-day liquid-culture validation.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Incubations were performed in 250 mL baffled Erlenmeyer flasks, with a
+      working volume of 50 mL, in 6 biological replicates per treatment at 27 C
+      with orbital shaking at 150 rpm for 7 days.
+    explanation: >
+      Supports the vessel, working volume, replication, temperature, agitation,
+      and duration of the liquid-culture validation assays.
+related_ingredients:
+- preferred_term: lignin
+  chebi_term:
+    id: CHEBI:6457
+    label: lignin
+  relevance: >
+    Kraft lignin was one of the three target pollutant/substrate classes used to
+    select and validate the GENIA SynCom.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Kinetic experiments in minimal medium showed simultaneous multipollutant
+      degradation: lignin (91.6% by day 5), atrazine (91.4% by day 3), and PFOS
+      (93.1% within 7 days)
+    explanation: Names lignin as one of the three pollutants degraded by the SynCom.
+- preferred_term: atrazine
+  chebi_term:
+    id: CHEBI:15930
+    label: atrazine
+  relevance: >
+    Atrazine was one of the three target pollutant/substrate classes used to
+    select and validate the GENIA SynCom.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Kinetic experiments in minimal medium showed simultaneous multipollutant
+      degradation: lignin (91.6% by day 5), atrazine (91.4% by day 3), and PFOS
+      (93.1% within 7 days)
+    explanation: Names atrazine as one of the three pollutants degraded by the SynCom.
+- preferred_term: perfluorooctane-1-sulfonic acid
+  chebi_term:
+    id: CHEBI:39421
+    label: perfluorooctane-1-sulfonic acid
+  relevance: >
+    PFOS was the measured perfluoroalkyl sulfonate degraded by the consortium in
+    liquid culture and soil microcosms.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Kinetic experiments in minimal medium showed simultaneous multipollutant
+      degradation: lignin (91.6% by day 5), atrazine (91.4% by day 3), and PFOS
+      (93.1% within 7 days)
+    explanation: Names PFOS as one of the pollutants degraded by the SynCom.
+- preferred_term: perfluorooctanoic acid
+  chebi_term:
+    id: CHEBI:35549
+    label: perfluorooctanoic acid
+  relevance: >
+    PFOA was paired with PFOS in the PFAS mixture supplied during growth
+    screening and PFAS validation.
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PFAS mixture (20 mg L-1 each of PFOA and PFOS)
+    explanation: Names PFOA as part of the PFAS mixture used in validation assays.
+associated_datasets:
+- title: GENIA biodegradation strain genomes and 16S data
+  accession: PRJNA1370521
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1370521
+  description: >
+    NCBI BioProject for the 45 whole-genome assemblies and SRA reads generated
+    from GENIA candidate isolates, plus the full-length 16S rRNA data used for
+    community-composition tracking.
+  publication: PMID:42036878
+  evidence:
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: >
+      All 45 whole-genome sequences were deposited in NCBI GenBank under
+      BioProject PRJNA1370521. Raw sequencing reads in SRA. Full-length 16S rRNA
+      sequencing data in SRA.
+    explanation: >
+      Links the published genome and 16S sequence data to BioProject
+      PRJNA1370521.
