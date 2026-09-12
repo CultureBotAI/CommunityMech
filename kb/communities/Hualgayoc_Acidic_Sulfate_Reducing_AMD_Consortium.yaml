@@ -1,0 +1,628 @@
+id: CommunityMech:000353
+name: Hualgayoc Acidic Sulfate-Reducing AMD Consortium
+description: >-
+  An engineered acidophilic sulfate-reducing bacterial enrichment derived from
+  acidic sediments of the abandoned BSA-100 mining tunnel in Hualgayoc,
+  Cajamarca, Peru, and assayed for bioremediation of synthetic acid mine
+  drainage at pH 2.9. The glycerol-fed, sulfate-amended enrichment raised the
+  synthetic AMD pH to 6.1 and removed 100% of Zn2+, more than 99% of Fe2+, and
+  more than 94% of Al3+ after 160-200 days. Genome-resolved metagenomics
+  recovered two high-quality dominant sulfate-reducing MAGs, Desulfosporosinus
+  sp. MAG003 and Acididesulfobacillus sp. MAG013, whose inferred carbon
+  metabolisms suggest a cooperative route in which Desulfosporosinus starts
+  sulfate reduction on glycerol at pH around 3.0 and Acididesulfobacillus
+  continues sulfate reduction on acetate once the culture rises to pH around
+  4.0.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: AMD
+engineering_design:
+  objective: >-
+    Enrich indigenous acidophilic sulfate-reducing bacteria from acidic BSA-100
+    mine-tunnel sediments and test whether the consortium can neutralize
+    pH-2.9 synthetic AMD while removing high dissolved Fe, Al, and Zn.
+  assembly_strategy: >-
+    Acidic sediment from BSA-100 was used as a 10% inoculum into anoxic pH-2.5
+    mineral salts medium containing yeast extract, L-cysteine, sulfate, and
+    glycerol. Three serial transfers selected the aSRB-containing enrichment
+    before 10% transfer to a glycerol-amended synthetic AMD medium.
+  passaging_regimen: >-
+    Three pH-2.5 enrichment transfers were followed by a 160- to 200-day batch
+    synthetic-AMD treatment in which additional enrichment inoculum was supplied
+    on days 32 and 86 to restart or reinforce sulfate-reducing activity.
+  perturbation_design: >-
+    The synthetic AMD challenge started at pH 2.9 and included 50.53 mM sulfate
+    with Fe2+, Al3+, and Zn2+ as the main dissolved metals.
+  measurement_endpoints:
+  - pH, oxidation-reduction potential, sulfide, sulfate, glycerol, and acetate
+  - Dissolved Fe, Al, Zn, and minor metal concentrations
+  - Mineral formation by X-ray diffraction and microscopy
+  - 16S rRNA amplicon profiles and day-160 metagenome-assembled genomes
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Here, we used an indigenous aSRB-containing consortium to remove metals
+      and neutralize a synthetic AMD (sAMD) system starting at pH 2.9
+    explanation: >-
+      Establishes the design goal of applying an indigenous acidophilic
+      sulfate-reducing enrichment to pH-2.9 synthetic acid mine drainage.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Subsequently, more inoculum was added at days 32 and 86 to enhance
+      sulfate reduction activity.
+    explanation: Supports the reinoculation schedule during the AMD batch run.
+environment_term:
+  preferred_term: acidophilic sulfate-reducing synthetic AMD enrichment
+  term:
+    id: ENVO:01001825
+    label: active anaerobic enrichment culturing unit
+  notes: >-
+    Laboratory, anoxic, glycerol-fed enrichment culture challenged with
+    synthetic acid mine drainage at pH 2.9.
+modeled_environment:
+- preferred_term: acid mine drainage
+  term:
+    id: ENVO:00001997
+    label: acid mine drainage
+  notes: >-
+    The synthetic AMD recipe was designed from the average metal composition of
+    natural AMD in the BSA-100 tunnel.
+taxonomy:
+- taxon_term:
+    preferred_term: Desulfosporosinus sp. MAG003
+    term:
+      id: NCBITaxon:79206
+      label: Desulfosporosinus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      High-quality sulfate-reducing MAG003 was assigned only to
+      Desulfosporosinus sp.; the study reported no species-level close
+      relative.
+  strain_designation:
+    strain_name: MAG003
+    isolation_source: day-160 Hualgayoc synthetic-AMD enrichment metagenome
+  abundance_level: DOMINANT
+  abundance_value: >-
+    68.3% of the aSRB inoculum by 16S rRNA profiling; 20% of classified
+    day-160 metagenomic reads at genus level
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Taxonomic classification based on 115 bacterial marker genes showed
+      affiliation of MAG003 to Desulfosporosinus sp. and MAG013 to
+      Acididesulfobacillus sp.
+    explanation: Supports the genus-level assignment of MAG003.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Regarding the sulfur cycle, the occurrence of sat, aprAB, and dsrAB genes
+      confirmed the presence of the whole dissimilatory sulfate reduction
+      pathway in both MAGs.
+    explanation: >-
+      Supports MAG003 as a sulfate-reducing member because both curated MAGs
+      encoded the complete dissimilatory sulfate-reduction pathway.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Desulfosporosinus (68.3%) is able to oxidize glycerol to acetate
+    explanation: >-
+      Supports Desulfosporosinus as the dominant glycerol-oxidizing aSRB in the
+      inoculum for the synthetic-AMD experiment.
+- taxon_term:
+    preferred_term: Acididesulfobacillus sp. MAG013
+    term:
+      id: NCBITaxon:2924872
+      label: Acididesulfobacillus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >-
+      High-quality sulfate-reducing MAG013 was assigned to
+      Acididesulfobacillus sp.; the 16S and metagenomic profiles support this
+      genus as a dominant later-stage sulfate reducer in the sAMD treatment.
+  strain_designation:
+    strain_name: MAG013
+    isolation_source: day-160 Hualgayoc synthetic-AMD enrichment metagenome
+  abundance_level: DOMINANT
+  abundance_value: >-
+    6.5% of the aSRB inoculum by 16S rRNA profiling; 81.7% of stage-2 16S rRNA
+    reads; 58% of classified day-160 metagenomic reads at genus level
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Taxonomic classification based on 115 bacterial marker genes showed
+      affiliation of MAG003 to Desulfosporosinus sp. and MAG013 to
+      Acididesulfobacillus sp.
+    explanation: Supports the genus-level assignment of MAG013.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Regarding the sulfur cycle, the occurrence of sat, aprAB, and dsrAB genes
+      confirmed the presence of the whole dissimilatory sulfate reduction
+      pathway in both MAGs.
+    explanation: >-
+      Supports MAG013 as a sulfate-reducing member because both curated MAGs
+      encoded the complete dissimilatory sulfate-reduction pathway.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Genes involved in acetate oxidation via the tricarboxylic acid (TCA)
+      pathway (icd, korABCD, sucCD, sdhABCD, and fumAB) were found in
+      Acididesulfobacillus-MAG
+    explanation: >-
+      Supports Acididesulfobacillus sp. MAG013 as the inferred acetate
+      oxidizer in the AMD enrichment.
+ecological_interactions:
+- name: Glycerol-to-Acetate Sulfate Reduction
+  description: >-
+    Desulfosporosinus sp. MAG003 and possibly other early enrichment members
+    initiated sulfate reduction at roughly pH 3.0 with glycerol as the supplied
+    carbon and electron source, producing acetate that could inhibit cells
+    unless consumed by a downstream partner.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Desulfosporosinus sp. MAG003
+    term:
+      id: NCBITaxon:79206
+      label: Desulfosporosinus
+  metabolites:
+  - preferred_term: glycerol
+    term:
+      id: CHEBI:17754
+      label: glycerol
+    concentration: 25 mM
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  biological_processes:
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  downstream:
+  - target: Acetate-Fed Acididesulfobacillus Sulfate Reduction
+    description: >-
+      Acididesulfobacillus sp. MAG013 is inferred to consume acetate produced
+      during glycerol oxidation after the consortium raises the pH.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Desulfosporosinus initiated sulfate reduction at pH ~3.0 with glycerol
+      as the carbon source and acetate as the waste product.
+    explanation: >-
+      Supports the first inferred phase of sulfate reduction and acetate
+      production from glycerol.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      While genes coding for glycerol, pyruvate, and acetyl-CoA oxidation (from
+      glycerol to acetate) were found in both MAGs
+    explanation: >-
+      Supports genomic capacity for glycerol oxidation to acetate in the two
+      dominant sulfate-reducing MAGs.
+- name: Acetate-Fed Acididesulfobacillus Sulfate Reduction
+  description: >-
+    Once pH increased to about 4.0, Acididesulfobacillus sp. MAG013 was
+    inferred to oxidize acetate fully to CO2 while continuing sulfate reduction,
+    creating a carbon-flow network that removed acetate and limited organic-acid
+    toxicity in the acidic enrichment.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Desulfosporosinus sp. MAG003
+    term:
+      id: NCBITaxon:79206
+      label: Desulfosporosinus
+  - preferred_term: Acididesulfobacillus sp. MAG013
+    term:
+      id: NCBITaxon:2924872
+      label: Acididesulfobacillus
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  biological_processes:
+  - preferred_term: acetate catabolic process
+    term:
+      id: GO:0045733
+      label: acetate catabolic process
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Once pH rose to ~4.0, Acididesulfobacillus continued with sulfate
+      reduction with acetate as a carbon source
+    explanation: >-
+      Supports the second inferred sulfate-reduction phase in which
+      Acididesulfobacillus used acetate after pH rose.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      genes for the TCA cycle (from acetate to CO2) were mainly found in
+      Acididesulfobacillus-MAG
+    explanation: >-
+      Supports the genome-based inference that Acididesulfobacillus oxidized
+      acetate to CO2.
+environmental_factors:
+- name: Synthetic AMD acidity and sulfate
+  value: pH 2.9; 50.53 mM sulfate
+  description: >-
+    The main AMD bioremediation batch used a pH-2.9 synthetic AMD with 50.53 mM
+    sulfate.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The final sAMD mixture contained a theoretical value of 50.53 mM sulfate
+      and a pH of 2.9.
+    explanation: Supports the starting pH and sulfate concentration.
+- name: Main dissolved metals in synthetic AMD
+  value: Fe2+ 40.25 mM; Al3+ 5.39 mM; Zn2+ 3.97 mM
+  description: >-
+    The pH-2.9 synthetic AMD challenge contained high ferrous iron, aluminum,
+    and zinc concentrations based on the average chemistry of AMD sampled from
+    BSA-100.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      with Fe2+ (40.25 mM), Al3+ (5.39 mM), and Zn2+ (3.97 mM) as the main
+      dissolved metals.
+    explanation: Supports the main dissolved-metal composition.
+- name: Metal removal and pH endpoint
+  value: pH 6.1; 100% Zn2+, >99% Fe2+, >94% Al3+ removed
+  description: >-
+    The consortium neutralized the initially pH-2.9 sAMD and removed nearly all
+    of the three principal dissolved metals over 160-200 days.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      At the end of the incubation, the final pH reached 6.1 and 100% of Zn2+,
+      >99% of Fe2+, and >94% of Al3+ were removed by the aSRB consortium
+    explanation: Supports the final neutralization and metal-removal endpoints.
+growth_media:
+- name: pH-2.5 glycerol sulfate aSRB enrichment medium
+  ph: 2.5
+  temperature: 30
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: N2/CO2 80:20
+  light_regime: dark
+  inoculum_source: BSA-100 acidic sediment mixture
+  inoculum_size: 10
+  inoculum_unit: percent w/v
+  vessel_type: 100 mL serum bottle with 50 mL medium
+  composition:
+  - name: glycerol
+    concentration: 5
+    unit: mM
+    chebi_term:
+      preferred_term: glycerol
+      term:
+        id: CHEBI:17754
+        label: glycerol
+  - name: sodium sulfate
+    concentration: 10
+    unit: mM
+  - name: yeast extract
+    concentration: 0.1
+    unit: g/L
+  - name: L-cysteine
+    concentration: 0.5
+    unit: g/L
+  preparation_notes: >-
+    Mineral salts medium was adjusted to pH 2.5, degassed with N2, sealed under
+    an N2/CO2 headspace, supplied with sediment at 10% w/v, and transferred
+    three times under the same static, anoxic, dark 30 C conditions.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      100 mL glass serum bottles were filled with 50 mL of mineral salts medium
+      (MSM)
+    explanation: Supports the initial enrichment vessel and working volume.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The medium was supplemented with 0.1 g L−1 of yeast extract, 0.5 g L−1 of
+      L-cysteine, and 1.42 g L−1 (10 mM) of Na2SO4 as an electron acceptor.
+    explanation: Supports the yeast extract, L-cysteine, and sulfate amendments.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      glycerol was added to the medium as an electron donor and carbon source
+      from a 1 M autoclaved anoxic stock to obtain a final concentration of 5
+      mM.
+    explanation: Supports the glycerol enrichment amendment.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Three transfers were performed in total.
+    explanation: Supports the serial-transfer count for the aSRB enrichment.
+- name: glycerol synthetic acid mine drainage medium
+  ph: 2.9
+  temperature: 30
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: N2/CO2 80:20
+  light_regime: dark
+  inoculum_source: previously enriched Hualgayoc aSRB consortium
+  inoculum_size: 10
+  inoculum_unit: percent v/v
+  incubation_time: 160
+  incubation_time_unit: days
+  vessel_type: 1,000 mL Schott bottle with 500 mL synthetic AMD
+  composition:
+  - name: sulfate
+    concentration: 50.53
+    unit: mM
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+  - name: glycerol
+    concentration: 25
+    unit: mM
+    chebi_term:
+      preferred_term: glycerol
+      term:
+        id: CHEBI:17754
+        label: glycerol
+  preparation_notes: >-
+    Synthetic AMD was formulated from metal and iron stocks to mimic average
+    BSA-100 AMD chemistry. The pH-2.9 medium was supplemented with vitamins,
+    25 mM glycerol, and 10% enriched aSRB inoculum, with more inoculum added on
+    days 32 and 86.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The experiment was performed in 1,000 mL Schott bottles containing 500 mL
+      of sAMD.
+    explanation: Supports the AMD treatment vessel and working volume.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The final sAMD mixture contained a theoretical value of 50.53 mM sulfate
+      and a pH of 2.9.
+    explanation: Supports the synthetic AMD sulfate concentration and pH.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The bottles were then supplemented with vitamins, glycerol as a carbon
+      source (25 mM), and with the previously enriched aSRB consortium (10%).
+    explanation: >-
+      Supports the glycerol concentration and 10% enrichment inoculum in the
+      AMD experiment.
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Bottles were incubated in the dark at 30°C and monitored for 160 days for
+      physicochemical parameters
+    explanation: Supports the dark 30 C incubation and monitoring period.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  working_volume: 50.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: "°C"
+  temperature_controlled: true
+  ph_controlled: false
+  controls_notes: >-
+    Static anoxic microcosms under an N2/CO2 80:20 headspace selected
+    sulfate-reducing activity from the acidic tunnel-sediment inoculum.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      An aSRB-containing consortium was enriched in microcosms
+    explanation: Supports the initial microcosm-based enrichment setup.
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: Schott bottle
+  working_volume: 500.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: "°C"
+  temperature_controlled: true
+  ph_controlled: false
+  controls_notes: >-
+    Closed 1 L bottles containing 500 mL synthetic AMD were kept anoxic under an
+    N2/CO2 80:20 headspace and sampled over 160-200 days after inoculation on
+    days 0, 32, and 86.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The experiment was performed in 1,000 mL Schott bottles containing 500 mL
+      of sAMD.
+    explanation: Supports the main synthetic-AMD batch setup.
+related_ingredients:
+- preferred_term: glycerol
+  chebi_term:
+    id: CHEBI:17754
+    label: glycerol
+  relevance: >-
+    Glycerol was the primary carbon source and electron donor supplied to the
+    pH-2.5 enrichment and to the pH-2.9 synthetic AMD bioremediation bottles.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Glycerol and yeast extract were used as carbon sources.
+    explanation: Supports glycerol as a carbon source in the AMD treatment.
+- preferred_term: sulfate
+  chebi_term:
+    id: CHEBI:16189
+    label: sulfate
+  relevance: >-
+    Sulfate was the electron acceptor reduced by the aSRB consortium during AMD
+    neutralization and metal removal.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >-
+      Regarding the sulfur cycle, the occurrence of sat, aprAB, and dsrAB genes
+      confirmed the presence of the whole dissimilatory sulfate reduction
+      pathway in both MAGs.
+    explanation: Supports sulfate as the terminal electron acceptor used by the
+      two MAGs.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: >-
+    Acetate was produced from glycerol oxidation and inferred to be consumed by
+    Acididesulfobacillus after pH neutralization progressed.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Once pH rose to ~4.0, Acididesulfobacillus continued with sulfate
+      reduction with acetate as a carbon source
+    explanation: Supports acetate as the later carbon source for
+      Acididesulfobacillus.
+- preferred_term: hydrogen sulfide
+  chebi_term:
+    id: CHEBI:16136
+    label: hydrogen sulfide
+  relevance: >-
+    Hydrogen sulfide is the sulfate-reduction product that reacts with metals
+    in AMD systems and contributes to metal precipitation and neutralization.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Both hydrogen sulfide and bicarbonate react with toxic metals and
+      increase the pH in the AMD systems
+    explanation: Supports sulfide as an aSRB product that contributes to metal
+      precipitation and acidity neutralization.
+metals_present:
+- IRON
+- ZINC
+metal_relevance: PRIMARY
+metal_notes: >-
+  The sAMD experiment tracked Fe2+, Al3+, and Zn2+ as the main metals and
+  removed 100% of Zn2+, 99.8% of Fe2+, and 94.4% of Al3+ from solution by day
+  200. Aluminum was central to the experiment but is not yet a permissible value
+  in MetalElementEnum.
+associated_datasets:
+- title: Hualgayoc aSRB synthetic AMD amplicons and metagenomes
+  accession: PRJNA1217137
+  dataset_type: METAGENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1217137
+  description: >-
+    NCBI BioProject containing 16S rRNA amplicon and metagenomic sequencing
+    data from the Hualgayoc acidophilic sulfate-reducing enrichment assayed for
+    synthetic AMD bioremediation.
+  publication: PMID:42029028
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      Raw sequencing data have been deposited at NCBI in the Sequence Read
+      Archive (SRA) under BioProject accession number PRJNA1217137
+    explanation: Links the AMD enrichment sequence data to BioProject PRJNA1217137.
+external_resources:
+- name: Primary publication - Hualgayoc acidophilic sulfate-reducing AMD consortium
+  repository: OTHER
+  resource_id: PMID:42029028
+  url: https://pubmed.ncbi.nlm.nih.gov/42029028/
+  description: >-
+    Open-access Applied and Environmental Microbiology study combining acidic
+    sediment enrichment, synthetic AMD bioremediation, geochemistry, amplicon
+    profiling, and metagenomics to resolve a Desulfosporosinus- and
+    Acididesulfobacillus-dominated aSRB consortium.
+  evidence:
+  - reference: PMID:42029028
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Desulfosporosinus and Acididesulfobacillus dominate an acidophilic
+      sulfate-reducing bacteria consortium during acid mine drainage
+      bioremediation.
+    explanation: Identifies the seed publication for the curated community.
+discussions:
+- discussion_id: HUALGAYOC_MINOR_ACIDOGENS
+  prompt: >-
+    Stage-1 Negativicutes and Clostridiaceae may have fermented glycerol to
+    acetate before sulfate reduction became active, but they were not resolved
+    as named MAG members in the source; this record therefore keeps the
+    high-quality aSRB MAGs as members and treats the minor fermenters as an
+    open compositional detail.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: >-
+    Resolving the acidogenic fermenters with MAGs would clarify how much of the
+    early glycerol-to-acetate flux was performed by Desulfosporosinus versus
+    non-aSRB community members.
