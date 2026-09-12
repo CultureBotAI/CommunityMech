@@ -27,7 +27,8 @@ engineering_design:
     plus glucose, normalize each to 9 x 10^6 CFU/mL, and assemble the SynCom by
     mixing equal volumes to target 10^6 CFU/mL per strain.
   measurement_endpoints:
-  - Lignin, atrazine, PFOS, and PFOA removal
+  - Lignin, atrazine, and PFOS removal from target-pollutant treatments
+  - PFOA/PFOS mixture response
   - Fluoride liberation and PFBS accumulation during PFOS degradation
   - Ammonium release during atrazine mineralization
   - Vanillin and syringaldehyde accumulation during lignin degradation
@@ -71,6 +72,7 @@ taxonomy:
     term:
       id: NCBITaxon:565
       label: Atlantibacter hermannii
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -93,6 +95,7 @@ taxonomy:
     term:
       id: NCBITaxon:2487276
       label: Bacillus cabrialesii
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -106,6 +109,7 @@ taxonomy:
     term:
       id: NCBITaxon:1402
       label: Bacillus licheniformis
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -119,6 +123,7 @@ taxonomy:
     term:
       id: NCBITaxon:64104
       label: Bacillus pseudomycoides
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -132,6 +137,7 @@ taxonomy:
     term:
       id: NCBITaxon:1270
       label: Micrococcus luteus
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -145,6 +151,7 @@ taxonomy:
     term:
       id: NCBITaxon:1406
       label: Paenibacillus polymyxa
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -158,6 +165,7 @@ taxonomy:
     term:
       id: NCBITaxon:59814
       label: Pantoea dispersa
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -171,6 +179,7 @@ taxonomy:
     term:
       id: NCBITaxon:47880
       label: Pseudomonas fulva
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -184,6 +193,7 @@ taxonomy:
     term:
       id: NCBITaxon:2853159
       label: Pseudomonas pergaminensis
+    gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
   functional_role:
   - PRIMARY_DEGRADER
@@ -351,11 +361,11 @@ environmental_factors:
       490.7 +/- 12.1 mg/L to a final concentration of 41.6 +/- 1.0 mg/L,
       representing 91.6% removal after 5 days.
     explanation: Supports the lignin removal endpoint.
-- name: Soil-microcosm PFOS and atrazine removal
-  value: 68.7% PFOS removal and 73.2% atrazine removal
+- name: Soil-microcosm PFOS, PFOA, and atrazine removal
+  value: 68.7% PFOS removal, 64.3% PFOA removal, and 73.2% atrazine removal
   description: >
-    The defined SynCom also improved PFOS and atrazine removal after inoculation
-    into agricultural-soil microcosms.
+    The defined SynCom also improved PFOS, PFOA, and atrazine removal after
+    inoculation into agricultural-soil microcosms.
   evidence:
   - reference: PMID:42036878
     supports: SUPPORT
@@ -370,6 +380,13 @@ environmental_factors:
     snippet: >
       PFOS degradation reached 68.7 +/- 6.8% vs 12.1 +/- 2.9% in controls
     explanation: Supports the soil PFOS bioaugmentation endpoint.
+  - reference: PMID:42036878
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      PFOA showed a similar pattern (64.3 +/- 7.2% removal; data not shown in
+      the main text but included in the Supporting Information).
+    explanation: Supports the soil PFOA bioaugmentation endpoint.
 growth_media:
 - name: M9 minimal medium with lignin, atrazine, or PFAS pollutants
   composition:
@@ -528,8 +545,8 @@ related_ingredients:
     id: CHEBI:35549
     label: perfluorooctanoic acid
   relevance: >
-    PFOA was paired with PFOS in the PFAS mixture supplied during growth
-    screening and PFAS validation.
+    PFOA was paired with PFOS in the PFAS mixtures supplied during growth
+    screening, flask validation, and agricultural-soil microcosm validation.
   evidence:
   - reference: PMID:42036878
     supports: SUPPORT
@@ -550,7 +567,7 @@ associated_datasets:
   evidence:
   - reference: PMID:42036878
     supports: SUPPORT
-    evidence_source: full_text
+    evidence_source: OTHER
     snippet: >
       All 45 whole-genome sequences were deposited in NCBI GenBank under
       BioProject PRJNA1370521. Raw sequencing reads in SRA. Full-length 16S rRNA
