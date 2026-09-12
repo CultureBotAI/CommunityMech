@@ -23,11 +23,16 @@ on:
     - justfile
     - pyproject.toml
     - uv.lock
+    - .python-version
     - .github/workflows/**
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   validate-strict:
@@ -40,7 +45,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0
@@ -102,53 +107,3 @@ jobs:
             reports/instance_validation_failures.tsv
             reports/pipeline_writers_audit.tsv
           if-no-files-found: warn
-
-  # The primary gate above stays on the minimum supported Python because it also
-  # runs the expensive corpus validators. This lane runs the complete test suite
-  # on a modern interpreter without doubling those sweeps (#667).
-  python-compatibility:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # The full suite includes repository-contract tests that inspect recipes
-      # through `just --show`; keep this lane equivalent to validate-strict.
-      - uses: extractions/setup-just@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Install uv
-        # setup-uv v9.0.0
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
-        with:
-          version: "0.12.5"
-          enable-cache: true
-
-      - name: Install dependencies
-        run: uv sync --frozen --all-extras
-
-      # Same reasoning as the lane above: this one runs the suite too (#704).
-      # The month stamp is the whole point. With a FIXED key the post-step says
-      # "Cache hit occurred on the primary key oaklib-Linux-v1, not saving
-      # cache" -- verbatim, in every run -- so whatever was first stored is
-      # frozen for good and no later download can ever reach the cache (#707).
-      # A rotating primary key with a prefix restore-key keeps the hit rate
-      # (each month restores the previous month's copy as its base) while
-      # letting the entry be re-saved with anything newly fetched.
-      - name: Ontology cache stamp
-        id: oak-cache-stamp
-        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache OAK ontologies
-        uses: actions/cache@v4
-        with:
-          path: ~/.data/oaklib
-          key: oaklib-${{ runner.os }}-${{ steps.oak-cache-stamp.outputs.month }}
-          restore-keys: |
-            oaklib-${{ runner.os }}-
-
-      - name: Run tests
-        run: uv run pytest tests/ -q --no-cov

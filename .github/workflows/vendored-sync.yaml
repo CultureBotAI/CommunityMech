@@ -47,6 +47,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
       # Preserve the fleet retry contract at the workflow boundary: checker
       # exit 1 is retryable (including public claw fetch failures), while exit 2
       # is a non-retryable local precondition failure.

@@ -82,24 +82,19 @@ def test_provider_profile_alone_triggers_its_test_workflow():
     assert "conf/deep_research_provider.yaml" in events["push"]["paths"]
 
 
-def test_ci_exercises_minimum_and_modern_supported_python():
+def test_ci_runs_the_full_suite_once_on_the_fleet_python():
     document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
-
-    def python_version(job: str) -> str | None:
-        for step in document["jobs"][job]["steps"]:
-            if str(step.get("uses", "")).startswith("actions/setup-python@"):
-                return step.get("with", {}).get("python-version")
-        return None
-
-    assert python_version("validate-strict") == "3.10"
-    assert python_version("python-compatibility") == "3.13"
-
-
-def test_modern_python_lane_installs_just_for_repository_contract_tests():
-    document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
-    uses = {str(step.get("uses", "")) for step in document["jobs"]["python-compatibility"]["steps"]}
-
-    assert "extractions/setup-just@v3" in uses
+    assert set(document["jobs"]) == {"validate-strict"}
+    job = document["jobs"]["validate-strict"]
+    setup = next(
+        step
+        for step in job["steps"]
+        if str(step.get("uses", "")).startswith("actions/setup-python@")
+    )
+    assert setup["with"]["python-version"] == "3.13"
+    assert document["env"]["UV_PYTHON"] == "3.13"
+    assert any(step.get("run") == "uv run pytest tests/ -q --no-cov" for step in job["steps"])
+    assert any(step.get("uses") == "extractions/setup-just@v3" for step in job["steps"])
 
 
 def test_commands_that_invoke_research_dependencies_have_a_python_preflight():

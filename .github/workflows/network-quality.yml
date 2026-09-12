@@ -46,6 +46,10 @@ permissions:
   contents: read
   pull-requests: write
 
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
+
 jobs:
   audit-network:
     runs-on: ubuntu-latest
@@ -58,7 +62,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0
@@ -295,7 +299,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0

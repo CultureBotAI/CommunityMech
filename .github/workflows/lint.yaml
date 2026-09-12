@@ -18,11 +18,16 @@ on:
     - scripts/**/*.py
     - pyproject.toml
     - uv.lock
+    - .python-version
     - .github/workflows/lint.yaml
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   lint:
@@ -38,7 +43,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
       - name: Install dependencies
         run: uv sync --frozen --all-extras
       - name: black + ruff + mypy
