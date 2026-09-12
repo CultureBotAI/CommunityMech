@@ -46,20 +46,92 @@ class _DuplicateDetectingLoader(yaml.SafeLoader):
 def _find_duplicates(text: str) -> list[tuple[str, int]]:
     """Return (key, 1-based line) for every duplicated mapping key in ``text``."""
     found: list[tuple[str, int]] = []
+    checked_nodes: set[int] = set()
+    merge_key = object()
 
-    def construct_mapping(loader, node, deep=False):
-        seen: collections.Counter = collections.Counter()
-        for key_node, _ in node.value:
-            key = loader.construct_object(key_node, deep=True)
-            seen[key] += 1
-            if seen[key] == 2:
-                found.append((str(key), key_node.start_mark.line + 1))
-        return yaml.SafeLoader.construct_mapping(loader, node, deep)
+    class _Loader(_DuplicateDetectingLoader):
+        def flatten_mapping(self, node):
+            # Inspect literal keys before expansion: inherited overrides are
+            # legal, and merge-only sources never reach construct_mapping.
+            # Shared aliases may already have been flattened on a prior visit.
+            if id(node) not in checked_nodes:
+                checked_nodes.add(id(node))
+                seen: collections.Counter = collections.Counter()
+                for key_node, _ in node.value:
+                    if key_node.tag == "tag:yaml.org,2002:merge":
+                        key = merge_key  # Distinct from a quoted literal "<<".
+                    elif key_node.tag == "tag:yaml.org,2002:value":
+                        key = key_node.value  # SafeLoader normalizes this to str.
+                    else:
+                        key = self.construct_object(key_node, deep=True)
+                    seen[key] += 1
+                    if seen[key] == 2:
+                        label = "<<" if key is merge_key else str(key)
+                        found.append((label, key_node.start_mark.line + 1))
+            # Recurse through every merge source with SafeLoader's semantics.
+            super().flatten_mapping(node)
 
-    loader = type("_Loader", (_DuplicateDetectingLoader,), {})
-    loader.add_constructor(yaml.resolver.BaseResolver.DEFAULT_MAPPING_TAG, construct_mapping)
-    yaml.load(text, loader)  # noqa: S506 — subclass of SafeLoader
+    yaml.load(text, _Loader)  # noqa: S506 — subclass of SafeLoader
     return found
+
+
+@pytest.mark.parametrize(
+    "text",
+    [
+        "key: value\n",
+        "base: &base {x: source}\nmerged: {<<: *base, x: local}\n",
+        "base: &base {x: source}\nmerged: {x: local, <<: *base}\n",
+        "merged: {<<: [{x: first}, {x: second}]}\n",
+        "base: &base {x: source}\nmerged: &merged {<<: *base, x: local}\nagain: {<<: *merged}\n",
+        "first: {<<: &source {<<: {x: source}, x: local}}\nagain: *source\n",
+        "base: &base {x: source}\nmerged: {'<<': literal, <<: *base}\n",
+        "=: value\n",
+    ],
+    ids=[
+        "plain",
+        "override-after-merge",
+        "override-before-merge",
+        "merge-source-precedence",
+        "alias-chain",
+        "merge-source-constructed-later",
+        "literal-merge-key",
+        "value-tag-key",
+    ],
+)
+def test_legal_yaml_merges_do_not_report_duplicate_keys(text: str):
+    """Inherited keys do not become literal duplicates when aliases expand."""
+    assert _find_duplicates(text) == []
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("nested:\n  key: first\n  key: second\n", [("key", 3)]),
+        ("merged: {<<: {key: source}, key: first, key: second}\n", [("key", 1)]),
+        ("merged: {<<: [{x: first, x: second}, {y: other}]}\n", [("x", 1)]),
+        (
+            "first: {<<: &source {x: first, x: second}}\nagain: {<<: *source}\n",
+            [("x", 1)],
+        ),
+        ("merged: {<<: {x: first}, <<: {y: second}}\n", [("<<", 1)]),
+        ("merged: {'<<': first, '<<': second}\n", [("<<", 1)]),
+        ("true: first\n1: second\n", [("1", 2)]),
+        ("=: first\n'=': second\n", [("=", 2)]),
+    ],
+    ids=[
+        "nested-explicit-duplicate",
+        "explicit-duplicate-with-merge",
+        "inline-merge-source-duplicate",
+        "reused-source-counted-once",
+        "repeated-merge-operator",
+        "repeated-literal-merge-key",
+        "constructed-key-equality",
+        "normalized-value-key",
+    ],
+)
+def test_literal_duplicate_keys_are_reported_before_merge_expansion(text, expected):
+    """Merge handling must not hide actual overwrites or lose source lines."""
+    assert _find_duplicates(text) == expected
 
 
 def _community_files() -> list[Path]:
