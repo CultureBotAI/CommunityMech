@@ -1,0 +1,443 @@
+id: CommunityMech:000358
+name: Bacillus A1-A3 Naphthalene Biofilm Consortium
+description: 'A defined two-isolate Bacillus consortium, Consortium 3, assembled from Bacillus paranthracis isolate A1 and
+  Bacillus licheniformis isolate A3 after enrichment of petroleum-contaminated soil from Ras Gharib, Egypt on polycyclic aromatic
+  hydrocarbons. The A1/A3 pair was one of four consortia built from the three strongest phenanthrene- and naphthalene-degrading
+  isolates. Consortium 3 was induced to grow as a glass-attached biofilm, showed the highest reported synergistic interaction
+  during planktonic naphthalene degradation, reached 94.69% naphthalene degradation as a biofilm culture, and its preformed
+  biofilm degraded 81.47% of naphthalene in artificially contaminated soil. Phenanthrene behaved differently: individual isolates
+  outperformed the consortia, and the authors attributed the lower consortium rates to antagonistic interactions under the
+  more complex PAH substrate.'
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Combine high-performing indigenous PAH-degrading Bacillus isolates from petroleum-contaminated soil to test whether
+    planktonic and biofilm consortia improve phenanthrene or naphthalene degradation.
+  assembly_strategy: Select isolates A1, A3, and B8-1 after enrichment on phenanthrene or naphthalene as sole carbon sources,
+    standardize each isolate by OD600, and construct Consortium 3 from A1 plus A3.
+  inoculation_strategy: Consortium 3 was assembled from Bacillus paranthracis A1 and Bacillus licheniformis A3; the publication
+    reports 3458 uL of A1 plus 1560 uL of A3 after OD600 standardization.
+  perturbation_design: Compare the three selected isolates and four derived consortia in planktonic and biofilm forms for
+    7-day phenanthrene and naphthalene degradation, then test a preformed Consortium 3 biofilm in soil artificially contaminated
+    with naphthalene.
+  measurement_endpoints:
+  - biofilm formation by crystal violet OD595 assay
+  - HPLC quantification of phenanthrene and naphthalene degradation
+  - naphthalene degradation in artificially contaminated soil
+  - 16S rRNA identification of the selected isolates
+  notes: B8-1 was identified as Bacillus paramycoides and used in Consortia 1, 2, and 4, but it is not a member of the curated
+    A1/A3 Consortium 3. The article lists three GenBank accessions for the selected 16S rRNA sequences but the accessible
+    flattened full text does not unambiguously map PV848451, PV848453, and PV848454 onto A1, A3, and B8-1.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three isolates (A1, A3, and B8-1) were selected as the most potent phenanthrene and naphthalene degraders.
+    explanation: Supports the screen that selected the source isolate set used to construct the consortia.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The consortia were composed as follows: Consortium 1 (B8-1 and A1), Consortium 2 (B8-1 and A3), Consortium 3
+      (A1 and A3), and Consortium 4 (B8-1, A1, and A3).'
+    explanation: Identifies Consortium 3 as the two-member A1/A3 consortium and places it among the four constructed consortia.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both the individual isolates and the consortia were able to form biofilm on the glass surface.
+    explanation: Supports biofilm induction as a tested phenotype of the developed consortia.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The HPLC results exhibited that the biofilm of isolate A1 degraded 60.98% of phenanthrene, and the biofilm of
+      the consortium 3 degraded 81.47% of naphthalene in soil samples
+    explanation: Supports the artificially contaminated soil test of a preformed Consortium 3 naphthalene-degrading biofilm.
+environment_term:
+  preferred_term: laboratory PAH-degradation biofilm assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Consortium 3 was assembled and tested in controlled MSM liquid cultures, glass-tube biofilm assays, and artificial
+    soil contamination microcosms.
+modeled_environment:
+- preferred_term: petroleum-contaminated soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The Bacillus isolates were enriched from petroleum-contaminated subsurface soil and Consortium 3 biofilms were later
+    assayed in artificially contaminated soil.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus paranthracis A1
+    term:
+      id: NCBITaxon:2026186
+      label: Bacillus paranthracis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The isolate was identified by 16S rRNA as Bacillus paranthracis; no exact A1 strain NCBITaxon was curated.
+  strain_designation:
+    strain_name: A1
+    isolation_source: petroleum-contaminated subsurface soil
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A1(Bacillus paranthracis), and A3(Bacillus licheniformis)
+    explanation: Identifies Bacillus paranthracis A1 as one of the three sequenced PAH-degrading isolates.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Consortium 3 (A1 and A3)
+    explanation: Identifies isolate A1 as a member of Consortium 3.
+- taxon_term:
+    preferred_term: Bacillus licheniformis A3
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The isolate was identified by 16S rRNA as Bacillus licheniformis; no exact A3 strain NCBITaxon was curated.
+  strain_designation:
+    strain_name: A3
+    isolation_source: petroleum-contaminated subsurface soil
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A1(Bacillus paranthracis), and A3(Bacillus licheniformis)
+    explanation: Identifies Bacillus licheniformis A3 as one of the three sequenced PAH-degrading isolates.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Consortium 3 (A1 and A3)
+    explanation: Identifies isolate A3 as a member of Consortium 3.
+ecological_interactions:
+- name: Consortium 3 naphthalene synergy
+  description: The A1/A3 Consortium 3 improved naphthalene degradation relative to the A1 and A3 monocultures in both planktonic
+    and biofilm growth modes, including 92.43% planktonic and 94.69% biofilm naphthalene biodegradation in the seven-day HPLC
+    assay.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus paranthracis A1
+    term:
+      id: NCBITaxon:2026186
+      label: Bacillus paranthracis
+  - preferred_term: Bacillus licheniformis A3
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  metabolites:
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  downstream:
+  - target: Consortium 3 soil naphthalene removal
+    description: The A1/A3 Consortium 3 biofilm was selected for a follow-up naphthalene-removal assay in artificially contaminated
+      soil.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The result demonstrated that the naphthalene biodegradation rates of 41.01, 38.92, 75.54, 44.71, 92.43, and 64.47%
+      for the planktonic cultures
+    explanation: Supports the 92.43% planktonic naphthalene degradation reported for Consortium 3 and the lower A1 and A3
+      monoculture values.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: whereas were 87.72, 64.57, 77.45, 86.88, 94.69, and 79.74% for the biofilm cultures of isolates A1, A3, consortium
+      1, consortium 2, consortium 3, and consortium 4, respectively.
+    explanation: Supports the 94.69% biofilm naphthalene degradation reported for Consortium 3.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This finding demonstrated the synergistic interaction between the consortia`s members, with the highest synergistic
+      interaction between the planktonic isolates (A1 and A3) in the consortium 3
+    explanation: Supports the authors' interpretation that A1 and A3 interacted synergistically during naphthalene degradation.
+- name: Consortium phenanthrene antagonism
+  description: 'The same isolate combinations were less effective on phenanthrene: individual isolates degraded more phenanthrene
+    than the developed consortia in the planktonic and biofilm assays, and the authors interpreted the lower consortium performance
+    as antagonism caused by nutrient stress and competition.'
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus paranthracis A1
+    term:
+      id: NCBITaxon:2026186
+      label: Bacillus paranthracis
+  - preferred_term: Bacillus licheniformis A3
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  metabolites:
+  - preferred_term: phenanthrene
+    term:
+      id: CHEBI:28851
+      label: phenanthrene
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Surprisingly, the biodegradation rates by the individual isolates were higher than those of the consortium. This
+      observation may relate to an antagonistic effect of the consortium isolates
+    explanation: Supports phenanthrene antagonism among the developed consortia rather than a positive phenanthrene interaction.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In the case of phenanthrene, a complex substrate, it promotes antagonistic interactions and negative growth
+    explanation: Supports the substrate-dependent interpretation that phenanthrene promoted a negative consortium interaction.
+- name: Consortium 3 soil naphthalene removal
+  description: A preformed Consortium 3 biofilm degraded 81.47% of naphthalene from artificially contaminated soil after seven
+    days in sealed flasks.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus paranthracis A1
+    term:
+      id: NCBITaxon:2026186
+      label: Bacillus paranthracis
+  - preferred_term: Bacillus licheniformis A3
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+  metabolites:
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The HPLC results exhibited that the biofilm of isolate A1 degraded 60.98% of phenanthrene, and the biofilm of
+      the consortium 3 degraded 81.47% of naphthalene in soil samples
+    explanation: Supports 81.47% naphthalene degradation by Consortium 3 biofilms in artificially contaminated soil.
+environmental_factors:
+- name: Neutral MSM enrichment pH
+  value: 7.0 +/- 0.2
+  description: The mineral salt medium used to enrich PAH degraders from petroleum-contaminated soil was adjusted to neutral
+    pH before sterilization.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The broth media was prepared, and the pH value was adjusted to 7.0 ± 0.2 using 1 N HCl or 1 N NaOH before sterilization.
+    explanation: Supports the pH used for the MSM enrichment medium.
+- name: Naphthalene in artificially contaminated soil
+  value: '200'
+  unit: mg/g
+  description: A 5 g soil sample was artificially contaminated with naphthalene before testing Consortium 3 biofilm degradation.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A 5 g sample of the soil was artificially contaminated with 200 mg/g of phenanthrene or naphthalene.
+    explanation: Supports the PAH loading used in the artificial-soil biofilm test.
+- name: Optimized PAH degradation temperature and pH
+  value: 37 deg C and pH 7
+  description: Phenanthrene and naphthalene degradation by the selected isolates was maximal at 37 deg C and pH 7.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results showed that the highest growth and degradation rate of phenanthrene and naphthalene were achieved
+      at 37 °C and pH 7.
+    explanation: Supports the temperature and pH used as optimized PAH degradation conditions.
+growth_media:
+- name: Mineral salt medium PAH degradation assay
+  composition: []
+  ph: '7.0'
+  temperature: '37'
+  temperature_unit: °C
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  incubation_time: '7'
+  incubation_time_unit: d
+  vessel_type: sealed glass tubes for biofilm-mediated degradation; tubes for planktonic degradation
+  preparation_notes: Overnight individual isolates and consortia were inoculated into 7 mL MSM with 200 mg/L phenanthrene
+    or naphthalene for planktonic assays. For biofilm-mediated assays, each isolate or consortium was first grown as a static
+    biofilm in TSB on the walls of glass tubes, washed, overlaid with 7 mL MSM plus 200 mg/L PAH, sealed, and incubated for
+    seven days.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Degradation of the PAHs, phenanthrene or naphthalene, was analysed using High Performance Liquid Chromatography
+    explanation: Supports HPLC quantification for both phenanthrene and naphthalene degradation assays.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The analysis was conducted to determine the degradation efficiency at an initial concentration of 200 mg L⁻¹.
+    explanation: Supports the 200 mg/L starting PAH concentration for HPLC-quantified degradation.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For planktonic–mediated biodegradation, individual isolates and consortia were grown overnight and inoculated
+      in tubes containing 7 mL MSM medium supplemented with 200 mg L⁻¹phenanthrene.
+    explanation: Supports the tube-based planktonic MSM PAH degradation setup.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 48 h, free planktonic cells were carefully removed from the glass tube, and the biofilm formed inside the
+      walls was rinsed once with sterile water. Afterwards, 7 mL of MSM medium containing 200 mg L⁻¹ phenanthrene was added
+      to each tube.
+    explanation: Supports the washed, preformed biofilm setup before addition of MSM plus PAH.
+- name: Trypticase soy broth static biofilm induction medium
+  composition: []
+  temperature: '37'
+  temperature_unit: °C
+  inoculum_size: '0.2'
+  inoculum_unit: OD550
+  incubation_time: '48'
+  incubation_time_unit: h
+  vessel_type: glass tubes
+  preparation_notes: Fresh-grown cell cultures were diluted in TSB, transferred to glass tubes, and incubated statically for
+    48 h to form crystal-violet-stained biofilms on the tube walls.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fresh-grown cell cultures were diluted to OD550 = 0.2 in Trypticase soy broth (TSB) medium. One mL of this suspension
+      was transferred to a glass tube containing 1 mL of TSB medium. Then the tubes were incubated at 37 °C under static conditions
+      for 48 h.
+    explanation: Supports the OD550, TSB, glass-tube, temperature, and static-incubation details of the biofilm induction
+      step.
+- name: Artificial naphthalene-contaminated soil biofilm assay
+  composition:
+  - name: naphthalene
+    concentration: '200'
+    unit: mg/g soil
+    chebi_term:
+      preferred_term: naphthalene
+      term:
+        id: CHEBI:16482
+        label: naphthalene
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: °C
+  incubation_time: '7'
+  incubation_time_unit: d
+  vessel_type: 100 mL conical flasks with preformed biofilms
+  preparation_notes: Consortium 3 biofilms were preformed for 48 h in static 100 mL conical flasks with 50 mL TSB. The planktonic
+    culture was removed, 5 g of uncontaminated soil was added and artificially contaminated with naphthalene, and the closed
+    flasks were incubated for seven days before HPLC analysis.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The selected isolate-developed biofilm was developed in advance at 37 °C for 48 h under static conditions in
+      100 mL conical flasks containing 50 mL of TSB medium.
+    explanation: Supports the preformed flask-biofilm step used before the soil degradation assay.
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A 5 g sample of the soil was artificially contaminated with 200 mg/g of phenanthrene or naphthalene. Then the
+      flasks were tightly closed and incubated at 37 °C for 7 days.
+    explanation: Supports the soil mass, artificial naphthalene contamination, temperature, closure, and incubation length
+      of the soil assay.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: Static 100 mL conical flasks with wall-attached Consortium 3 biofilm and artificially contaminated soil.
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Biofilms were developed statically in TSB and soil assays were run in tightly closed flasks; the article
+    did not report pH or dissolved-oxygen control during the soil degradation assay.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The selected isolate-developed biofilm was developed in advance at 37 °C for 48 h under static conditions in
+      100 mL conical flasks containing 50 mL of TSB medium.
+    explanation: Supports the static flask cultivation system, working volume, and temperature of the soil biofilm assay.
+external_resources:
+- name: Primary publication - Bacillus A1-A3 naphthalene biofilm consortium
+  repository: OTHER
+  resource_id: PMID:42587276
+  url: https://pubmed.ncbi.nlm.nih.gov/42587276/
+  description: BMC Microbiology 2026 open-access article describing Bacillus paranthracis A1 plus Bacillus licheniformis A3
+    Consortium 3 and its PAH-degrading biofilms.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enhancing biodegradation of polycyclic aromatic hydrocarbons using bacterial consortia and biofilm
+    explanation: Identifies the primary publication for the Bacillus A1/A3 PAH-degrading biofilm consortium.
+discussions:
+- discussion_id: consortium_3_genbank_accession_mapping
+  prompt: Which GenBank 16S rRNA accession corresponds to Bacillus paranthracis A1 and which corresponds to Bacillus licheniformis
+    A3?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Bacillus paranthracis A1
+  - taxonomy#Bacillus licheniformis A3
+  rationale: The article reports the three accessions PV848451, PV848453, and PV848454 for the selected isolates, but the
+    flattened OA text does not map those accessions to the A1 and A3 isolate records without relying on figure interpretation.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The 16SrRNA gene sequences of the three most efficient isolates have been submitted to NCBI GenBank under the
+      accession numbers PV848451 , PV848453 , and PV848454 , respectively.
+    explanation: Shows that three accessions exist but does not map each accession onto Consortium 3's A1 and A3 isolates
+      in the flattened OA text.
+  posed_by: codex
+  posed_date: '2026-09-13'
+- discussion_id: consortium_3_naphthalene_exchange_mechanism
+  prompt: Which metabolite or enzymatic step mediates the observed naphthalene synergy between A1 and A3?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Consortium 3 naphthalene synergy
+  rationale: The study measured enhanced naphthalene disappearance by the A1/A3 consortium, but it did not sequence the isolates'
+    naphthalene pathways or experimentally identify a transferred intermediate. The current record therefore treats synergy
+    as a community-level observation and does not assert a directional cross-feeding edge.
+  evidence:
+  - reference: PMID:42587276
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: One possible reason that makes the bacterial consortia have a superior naphthalene biodegradation efficiency
+      is that, during the process of biotransformation, the product of one bacterium can be employed as the foundation for
+      the catabolism and growth of another.
+    explanation: Records the paper's proposed but untested metabolite exchange explanation for Consortium 3's naphthalene
+      synergy.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-09-13T07:39:28Z'
+  curator: codex
+  action: CURATE_NEW_COMMUNITY
+  changes: Curated CommunityMech:000358 from PMID:42587276 / doi:10.1186/s12866-026-05144-y, including the A1/A3 Consortium
+    3 membership, planktonic and biofilm naphthalene synergy, phenanthrene antagonism, artificial-soil naphthalene degradation,
+    cultivation conditions, and unresolved GenBank accession mapping.
+  llm_assisted: true
+- timestamp: '2026-09-13T07:42:16Z'
+  curator: codex
+  action: FIX_NETWORK_INTEGRITY
+  changes: Pointed the Consortium 3 naphthalene synergy downstream edge at the named soil-removal interaction and removed
+    the terminal dangling downstream target from the soil-removal node.
+  llm_assisted: true
+- timestamp: '2026-09-13T07:50:21Z'
+  curator: codex
+  action: CLARIFY_CULTIVATION_SETUP
+  changes: 'Resolved #832 by removing the 50 mL TSB pre-biofilm volume from cultivation_setup. The artificial-soil flask assay
+    removed the planktonic liquid culture before adding soil, so the 50 mL volume is recorded only in the growth-media preparation
+    notes.'
+  llm_assisted: true
+- timestamp: '2026-09-13T07:57:27Z'
+  curator: codex
+  action: REMOVE_OBSOLETE_GO_TERMS
+  changes: 'Resolved #833 by removing obsolete GO:0018931 and GO:0018932 biological_processes links. PAH specificity remains
+    captured by the naphthalene and phenanthrene CHEBI metabolite terms.'
+  llm_assisted: true
