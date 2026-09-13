@@ -62,8 +62,6 @@ taxonomy:
       label: Pseudomonas sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1038/nature16192
     supports: SUPPORT
@@ -72,14 +70,27 @@ taxonomy:
       collections representing the majority of bacterial species that are reproducibly
       detectable by culture-independent community sequencing
 - taxon_term:
+    preferred_term: Pseudomonas brassicacearum Root401
+    term:
+      id: NCBITaxon:930166
+      label: Pseudomonas brassicacearum
+    gtdb_grounding_status: UNRESOLVED
+    notes: Root401 is an At-RSPHERE opportunistic challenge strain rather than
+      a designed SynCom commensal.
+  evidence:
+  - reference: PMID:40663585
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. brassicacearum R401 was originally isolated from At Col-0
+      plants growing in agricultural soil and is part of the At-RSPHERE culture
+      collection
+- taxon_term:
     preferred_term: Variovorax sp.
     term:
       id: NCBITaxon:1871043
       label: Variovorax sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: DOMINANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1038/nature16192
     supports: SUPPORT
@@ -104,8 +115,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1038/nature16192
     supports: SUPPORT
@@ -120,8 +129,6 @@ taxonomy:
       label: Streptomyces sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1038/nature16192
     supports: SUPPORT
@@ -136,8 +143,6 @@ taxonomy:
       label: Flavobacterium sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1038/nature16192
     supports: SUPPORT
@@ -146,13 +151,38 @@ taxonomy:
       collections representing the majority of bacterial species that are reproducibly
       detectable by culture-independent community sequencing
 ecological_interactions:
-- name: Plant-Microbe Mutualism
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudomonas sp.
+- name: At-RSPHERE Root SynCom Recolonization
+  description: Arabidopsis root-derived At-RSPHERE isolates can be recombined as
+    defined bacterial communities in a gnotobiotic Arabidopsis system, where they
+    reassemble root communities resembling the natural microbiota on their cognate
+    host organ.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
+  - preferred_term: Pseudomonas sp.
     term:
       id: NCBITaxon:306
       label: Pseudomonas sp.
+  - preferred_term: Variovorax sp.
+    term:
+      id: NCBITaxon:1871043
+      label: Variovorax sp.
+  - preferred_term: Rhodococcus sp.
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Streptomyces sp.
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Flavobacterium sp.
+    term:
+      id: NCBITaxon:239
+      label: Flavobacterium sp.
   target_taxon:
     preferred_term: Arabidopsis thaliana
     term:
@@ -174,118 +204,185 @@ ecological_interactions:
     snippet: Using defined bacterial communities and a gnotobiotic Arabidopsis plant
       system we show that the isolates form assemblies resembling natural microbiota
       on their cognate host organs, but are also capable of ectopic leaf or root colonization
-- name: Carbon Cycling and Nutrient Exchange
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Variovorax sp.
+- name: R401 Exometabolite Antagonism of At-SynCom Members
+  description: Pseudomonas brassicacearum Root401 releases the antimicrobial DAPG
+    and the siderophore pyoverdine; together these exometabolites explain most
+    of the R401 in-vitro inhibition of AtSC5 and AtSC6 commensals.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas brassicacearum Root401
+    term:
+      id: NCBITaxon:930166
+      label: Pseudomonas brassicacearum
+  - preferred_term: Pseudomonas sp.
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Variovorax sp.
     term:
       id: NCBITaxon:1871043
       label: Variovorax sp.
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
-    term:
-      id: NCBITaxon:3702
-      label: Arabidopsis thaliana
-  biological_processes:
-  - preferred_term: carbon utilization
-    term:
-      id: GO:0015976
-      label: carbon utilization
-  - preferred_term: nutrient acquisition
-    term:
-      id: GO:0006810
-      label: transport
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: doi:10.1038/nature16192
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We established Arabidopsis leaf- and root-derived microbiota culture
-      collections representing the majority of bacterial species that are reproducibly
-      detectable by culture-independent community sequencing
-- name: Root Colonization and Microbiota Assembly
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Rhodococcus sp.
+  - preferred_term: Rhodococcus sp.
     term:
       id: NCBITaxon:1827
       label: Rhodococcus <high G+C Gram-positive bacteria>
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
-    term:
-      id: NCBITaxon:3702
-      label: Arabidopsis thaliana
-  biological_processes:
-  - preferred_term: interspecies interaction between organisms
-    term:
-      id: GO:0044419
-      label: biological process involved in interspecies interaction between organisms
-  - preferred_term: biofilm formation
-    term:
-      id: GO:0042710
-      label: biofilm formation
-  evidence:
-  - reference: doi:10.1038/nature16192
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Using defined bacterial communities and a gnotobiotic Arabidopsis plant
-      system we show that the isolates form assemblies resembling natural microbiota
-      on their cognate host organs, but are also capable of ectopic leaf or root colonization
-- name: Bioactive Metabolite Production and Plant Growth Promotion
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Streptomyces sp.
+  - preferred_term: Streptomyces sp.
     term:
       id: NCBITaxon:1931
       label: Streptomyces sp.
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
-    term:
-      id: NCBITaxon:3702
-      label: Arabidopsis thaliana
-  biological_processes:
-  - preferred_term: secondary metabolite biosynthetic process
-    term:
-      id: GO:0044550
-      label: secondary metabolite biosynthetic process
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: doi:10.1038/nature16192
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We established Arabidopsis leaf- and root-derived microbiota culture
-      collections representing the majority of bacterial species that are reproducibly
-      detectable by culture-independent community sequencing
-- name: Organic Matter Degradation and Nutrient Cycling
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Flavobacterium sp.
+  - preferred_term: Flavobacterium sp.
     term:
       id: NCBITaxon:239
       label: Flavobacterium sp.
-  target_taxon:
-    preferred_term: Arabidopsis thaliana
+  metabolites:
+  - preferred_term: 2,4-diacetylphloroglucinol
+    term:
+      id: CHEBI:78688
+      label: 2,4-diacetylphloroglucinol
+  - preferred_term: pyoverdine
+    term:
+      id: CHEBI:84046
+      label: pyoverdine
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+    description: DAPG and pyoverdine production by R401 weakens At-derived SynCom
+      commensals and drives the downstream composition shift of AtSC6 on Col-0
+      roots.
+  evidence:
+  - reference: PMID:40663585
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: '>70% of R401 inhibitory activity in vitro was explained by the production of two
+      molecules, namely the antimicrobial 2,4-diacetylphloroglucinol (DAPG) and the iron-chelating
+      molecule pyoverdine that restrict the growth of other bacteria via direct antimicrobial activity
+      and competition for available iron'
+    explanation: Names DAPG and pyoverdine as the paired exometabolites that
+      account for most R401 antagonism.
+- name: DAPG/Pyoverdine-Dependent AtSC6 Remodeling
+  description: Wild-type R401 remodels AtSC6 composition on Arabidopsis Col-0 roots
+    through a process requiring DAPG and pyoverdine, while the pvdY phlD mutant
+    no longer produces the same AtSC6-specific community shift.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
     term:
       id: NCBITaxon:3702
       label: Arabidopsis thaliana
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
+  - preferred_term: Pseudomonas sp.
     term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Pseudomonas brassicacearum Root401
+    term:
+      id: NCBITaxon:930166
+      label: Pseudomonas brassicacearum
+  - preferred_term: Variovorax sp.
+    term:
+      id: NCBITaxon:1871043
+      label: Variovorax sp.
+  - preferred_term: Rhodococcus sp.
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Streptomyces sp.
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Flavobacterium sp.
+    term:
+      id: NCBITaxon:239
+      label: Flavobacterium sp.
+  metabolites:
+  - preferred_term: 2,4-diacetylphloroglucinol
+    term:
+      id: CHEBI:78688
+      label: 2,4-diacetylphloroglucinol
+  - preferred_term: pyoverdine
+    term:
+      id: CHEBI:84046
+      label: pyoverdine
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+    description: R401-induced AtSC6 remodeling is the community shift required
+      for R401 to invade and dominate Arabidopsis roots.
   evidence:
-  - reference: doi:10.1038/nature16192
+  - reference: PMID:40663585
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We established Arabidopsis leaf- and root-derived microbiota culture
-      collections representing the majority of bacterial species that are reproducibly
-      detectable by culture-independent community sequencing
+    snippet: R401wt-induced remodeling of AtSC6 composition was directly linked to
+      both invasion and disease and requires production of pyoverdine and DAPG
+    explanation: Links the AtSC6 abundance shift to the R401 exometabolites
+      and the downstream invasion phenotype.
+- name: R401 Root Invasion of AtSC6-Precolonized Arabidopsis
+  description: When the AtSC6 community fails to exclude wild-type Root401, the
+    opportunist invades precolonized Arabidopsis Col-0 roots; loss of DAPG and
+    pyoverdine production partially impairs this colonization and lets At-derived
+    SynComs rescue the plant phenotype.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
+  - preferred_term: Pseudomonas brassicacearum Root401
+    term:
+      id: NCBITaxon:930166
+      label: Pseudomonas brassicacearum
+  - preferred_term: Pseudomonas sp.
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  - preferred_term: Variovorax sp.
+    term:
+      id: NCBITaxon:1871043
+      label: Variovorax sp.
+  - preferred_term: Rhodococcus sp.
+    term:
+      id: NCBITaxon:1827
+      label: Rhodococcus <high G+C Gram-positive bacteria>
+  - preferred_term: Streptomyces sp.
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+  - preferred_term: Flavobacterium sp.
+    term:
+      id: NCBITaxon:239
+      label: Flavobacterium sp.
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:40663585
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Inspection of R401 levels based on RA in root samples revealed that
+      R401wt efficiently invaded roots pre-colonized by AtSC6, and this colonization
+      phenotype was partially impaired for R401mut
+    explanation: Supports the downstream root-invasion outcome of R401-driven
+      AtSC6 remodeling.
+  - reference: PMID:40663585
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At SynCom inability to protect against wild-type R401 (R401wt)
+      reported above (Fig 1A) was causally linked to R401 exometabolite-mediated
+      inhibition of AtSC5 and AtSC6 members
+    explanation: Confirms that R401's exometabolites causally suppress the
+      protective activity of At-derived SynComs.
 growth_media:
 - name: R2A Agar for bacterial isolation and maintenance
   ph: '7.2'

@@ -73,6 +73,74 @@ taxonomy:
     snippet: CP intensified electron transport activity, enhanced carbon fixation capacity, and released lipid-associated metabolites
     explanation: Supports the electron-transport, carbon-fixation, and metabolite-release role of C. pyrenoidosa.
 ecological_interactions:
+- name: Euglena Light Harvesting and Antioxidative Secretion
+  description: >
+    Euglena gracilis contributed the light-harvesting and antioxidative
+    metabolite-secretion side of the optimized coculture's metabolic division of
+    labor, supplying photosynthetic and antioxidant functions that complemented
+    Chlorella pyrenoidosa carbon fixation and lipid-metabolite release.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Euglena gracilis
+    term:
+      id: NCBITaxon:3039
+      label: Euglena gracilis
+  metabolites:
+  - preferred_term: alpha-tocopherol
+    term:
+      id: CHEBI:22470
+      label: alpha-tocopherol
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  downstream:
+  - target: Complementary Microalgal Metabolic Division of Labor
+    description: Euglena light harvesting and antioxidative secretion form one side of the coculture division of labor
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: EG primarily enhanced light-harvesting capacity and antioxidative metabolite secretion
+    explanation: Supports the Euglena-specific light-harvesting and antioxidative-secretion role.
+- name: Chlorella Electron Transport and Lipid Metabolite Release
+  description: >
+    Chlorella pyrenoidosa contributed increased electron-transport activity,
+    enhanced carbon fixation, and lipid-associated metabolite release, supplying
+    the carbon-assimilation and lipid-production functions that complemented
+    E. gracilis light harvesting and antioxidative metabolite secretion.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Chlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+  metabolites:
+  - preferred_term: lipid
+    term:
+      id: CHEBI:18059
+      label: lipid
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  - preferred_term: lipid biosynthetic process
+    term:
+      id: GO:0008610
+      label: lipid biosynthetic process
+  downstream:
+  - target: Complementary Microalgal Metabolic Division of Labor
+    description: Chlorella carbon fixation and lipid-associated metabolite release form the other side of the coculture division of labor
+  evidence:
+  - reference: PMID:42248260
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: CP intensified electron transport activity, enhanced carbon fixation capacity, and released lipid-associated metabolites
+    explanation: Supports the Chlorella-specific electron-transport, carbon-fixation, and lipid-metabolite role.
 - name: Complementary Microalgal Metabolic Division of Labor
   description: >
     E. gracilis enhances light harvesting and antioxidative metabolite secretion,
@@ -80,6 +148,26 @@ ecological_interactions:
     of lipid-associated metabolites.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Euglena gracilis
+    term:
+      id: NCBITaxon:3039
+      label: Euglena gracilis
+  - preferred_term: Chlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  downstream:
+  - target: Synergistic Biorefinery Production
+    description: >
+      Complementary light-harvesting, antioxidative secretion, electron
+      transport, carbon-fixation, and lipid-metabolite roles jointly drive the
+      coculture biomass, lipid, and alpha-tocopherol production gains.
   evidence:
   - reference: PMID:42248260
     supports: SUPPORT
@@ -97,6 +185,20 @@ ecological_interactions:
     yield relative to monocultures and shortened the logarithmic growth phase.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Euglena gracilis
+    term:
+      id: NCBITaxon:3039
+      label: Euglena gracilis
+  - preferred_term: Chlorella pyrenoidosa
+    term:
+      id: NCBITaxon:3078
+      label: Auxenochlorella pyrenoidosa
+  metabolites:
+  - preferred_term: alpha-tocopherol
+    term:
+      id: CHEBI:22470
+      label: alpha-tocopherol
   evidence:
   - reference: PMID:42248260
     supports: SUPPORT

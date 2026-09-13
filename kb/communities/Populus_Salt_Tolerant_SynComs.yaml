@@ -48,18 +48,147 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Salt Stress Protection
-  description: Selected rhizosphere bacteria improve plant salt tolerance through oxidative stress, osmolyte,
-    and ion-balance mechanisms.
-  interaction_type: MUTUALISM
+- name: High-Salt Populus Rhizosphere Isolation
+  description: >
+    A high-throughput cultivation campaign isolated hundreds of bacteria from the high-salt
+    Populus euphratica rhizosphere and selected nine salt-tolerant, growth-promoting strains for
+    synthetic-community design.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: response to salt stress
+    term:
+      id: GO:0009651
+      label: response to salt stress
+  downstream:
+  - target: Function-Driven Poplar SynCom Construction
+    description: >
+      The nine selected isolates provided the salt-tolerant, growth-promoting strain pool for five
+      function-driven Populus SynCom formulations.
   evidence:
-  - *id001
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a total of 512 strains were isolated from the high-salt rhizosphere soil of Populus
+      euphratica through high-throughput cultivation
+    explanation: >
+      Names the high-salt P. euphratica rhizosphere as the isolate source for the Populus SynCom
+      design campaign.
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: nine strains were further selected for their salt-tolerant and growth-promoting
+      abilities, with three isolates identified as key microbes
+    explanation: >
+      Shows that the broad isolate collection was reduced to a salt-tolerant, growth-promoting
+      SynCom design set.
+- name: Function-Driven Poplar SynCom Construction
+  description: >
+    Five function-driven SynComs were assembled from the selected Populus rhizosphere isolates;
+    SynCom5, SynCom7, and SynCom9 produced the strongest hybrid Poplar 84K growth improvements
+    under salt stress.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: response to salt stress
+    term:
+      id: GO:0009651
+      label: response to salt stress
+  downstream:
+  - target: Physiological Salt-Stress Resistance
+    description: >
+      The best Populus SynCom formulations were carried into mechanistic assays of oxidative
+      stress, osmolyte adjustment, and ion balance under salt exposure.
+  - target: Salt-Adapted Root-Associated Consortia
+    description: >
+      The same SynCom treatments were also tested for recruitment of root-associated bacteria that
+      contribute to poplar adaptation during salt stress.
+  evidence:
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Guided by a function-driven strategy, we constructed five distinct SynComs, with
+      SynCom5, SynCom7 and SynCom9 showing the most significant improvement in the
+      growth of hybrid Poplar 84K (Populus alba × Populus glandulosa).
+    explanation: >
+      Links function-driven SynCom formulation to the salt-stress growth assay that prioritized
+      three Populus SynComs.
+- name: Physiological Salt-Stress Resistance
+  description: >
+    Populus SynComs increased salt-stress resistance by reducing oxidative stress, adjusting
+    osmolytes, and balancing ions in the salt-challenged host.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: response to salt stress
+    term:
+      id: GO:0009651
+      label: response to salt stress
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Salt Stress Growth Protection
+    description: >
+      Reduced oxidative stress, osmolyte adjustment, and ion balance explain part of the SynCom-
+      mediated growth improvement in salt-stressed hybrid Poplar 84K.
+  evidence:
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these SynComs can increase resistance to salt stress by directly reducing oxidative
+      stress, adjusting osmolytes and balancing ions.
+    explanation: >
+      Summarizes the measured physiological routes through which the best SynComs increased
+      Populus salt resistance.
+- name: Salt-Adapted Root-Associated Consortia
+  description: >
+    The salt-tolerant Populus SynComs recruited root-associated bacterial consortia that were linked
+    to improved host adaptation under salt stress.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Salt Stress Growth Protection
+    description: >
+      Recruitment of root-associated bacteria complemented the direct physiological effects of the
+      introduced SynComs during poplar salt-stress adaptation.
+  evidence:
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: these SynComs were observed to recruit specific root-associated bacterial consortia
+      that enhance the adaptability of poplar to salt stress
+    explanation: >
+      Reports the downstream native root-microbiome recruitment associated with salt-stress
+      adaptation after SynCom inoculation.
+- name: Salt Stress Growth Protection
+  description: >
+    SynCom5, SynCom7, and SynCom9 were the Populus rhizosphere SynCom formulations that most
+    improved hybrid Poplar 84K growth during high-salinity challenge.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: response to salt stress
+    term:
+      id: GO:0009651
+      label: response to salt stress
+  evidence:
+  - reference: PMID:40904019
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom5, SynCom7 and SynCom9 showing the most significant improvement in the growth
+      of hybrid Poplar 84K (Populus alba × Populus glandulosa)
+    explanation: >
+      Identifies the three SynCom formulations with the strongest measured growth protection under
+      salt stress.
 environmental_factors:
 - name: defined synthetic community design
   value: Isolate-select-construct workflow from 512 high-salt rhizosphere isolates, with nine growth-promoting

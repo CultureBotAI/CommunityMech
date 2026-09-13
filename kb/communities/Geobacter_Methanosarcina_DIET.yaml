@@ -108,11 +108,17 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Geobacter metallireducens
     term:
       id: NCBITaxon:28232
       label: Geobacter metallireducens
+  target_taxon:
+    preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
   metabolites:
   - preferred_term: ethanol
     term:
@@ -136,10 +142,10 @@ ecological_interactions:
   - reference: PMID:24837373
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Amendments of granular activated carbon permitted the pilin-deficient
-      G
-    explanation: Demonstrates ethanol oxidation coupled to direct electron transfer
-      in aggregates
+    snippet: Cocultures formed aggregates that shared electrons via DIET during the
+      stoichiometric conversion of ethanol to methane
+    explanation: Demonstrates that the G. metallireducens-M. barkeri coculture coupled
+      ethanol conversion to aggregate-mediated DIET.
   - reference: PMID:24837373
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -164,9 +170,14 @@ ecological_interactions:
     of ethanol to methane in the coculture.
 
     '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Methanosarcina barkeri
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
+  participating_taxa:
+  - preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  - preferred_term: Methanosarcina barkeri
     term:
       id: NCBITaxon:2208
       label: Methanosarcina barkeri
@@ -190,16 +201,11 @@ ecological_interactions:
   - reference: PMID:24837373
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: barkeri is genetically tractable,making it a model organism for elucidating
-      mechanisms by which methanogens make biological electrical connections with
-      other cells.
+    snippet: M. barkeri is the second methanogen found to accept electrons via DIET
+      and the first methanogen known to be capable of using either H2 or electrons
+      derived from DIET for CO2 reduction
     explanation: Establishes M. barkeri's ability to use DIET-derived electrons for
       methanogenesis
-  - reference: PMID:24837373
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Direct interspecies electron transfer (DIET) is potentially an effective
-      form of syntrophy in methanogenic communities, but little is known about the
 - name: T6SS-Associated Delay of DIET Establishment
   description: 'Geobacter metallireducens expresses a type VI secretion system (T6SS) during
     the initiation of DIET cocultures, and this is associated with a long delay before the
@@ -215,7 +221,17 @@ ecological_interactions:
     predation, killing, or toxin delivery to M. barkeri.
 
     '
-  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Geobacter metallireducens
+    term:
+      id: NCBITaxon:28232
+      label: Geobacter metallireducens
+  - preferred_term: Methanosarcina barkeri
+    term:
+      id: NCBITaxon:2208
+      label: Methanosarcina barkeri
   source_taxon:
     preferred_term: Geobacter metallireducens
     term:
@@ -297,7 +313,9 @@ environmental_factors:
   - reference: PMID:24837373
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cocultures could not be initiated with a pilin-deficient G
+    snippet: Cocultures could not be initiated with a pilin-deficient G. metallireducens
+      strain, suggesting that long-range electron transfer along pili was important
+      for DIET
     explanation: Establishes pili as essential for DIET
 - name: Conductive Material Substitution
   value: Granular activated carbon can replace pili
@@ -311,7 +329,8 @@ environmental_factors:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Amendments of granular activated carbon permitted the pilin-deficient
-      G
+      G. metallireducens isolates to share electrons with M. barkeri, demonstrating
+      that this conductive material could substitute for pili in promoting DIET
     explanation: Demonstrates abiotic conductors can mediate DIET
 growth_media:
 - name: Modified DSM 120 Medium for DIET Coculture

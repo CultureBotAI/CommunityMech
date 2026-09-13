@@ -209,33 +209,252 @@ taxonomy:
     snippet: enhanced antifungal effects against Fusarium oxysporum in both strawberry and tomato
     explanation: Names tomato as one of the two host plants used for the suppression assay.
 ecological_interactions:
+- name: Chlorella-Substance Microbiome Restructuring
+  description: >
+    Chlorella, Chlorella methanol extract, and D-mannitol were applied to
+    strawberry rhizosphere microbiome fractions to perturb microbial diversity
+    and keystone-taxon abundance, tying the alga and an algal-associated carbon
+    source to the rhizosphere taxa later recombined as a SynCom.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
+  participating_taxa:
+  - preferred_term: Chlorella fusca CHK0059
+    term:
+      id: NCBITaxon:3073
+      label: Scenedesmus fuscus
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: D-mannitol
+    term:
+      id: CHEBI:16899
+      label: D-mannitol
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
+    description: >
+      Among the applied Chlorella-related substances, 2% D-mannitol yielded a
+      prominent Pseudomonas response by 36 h.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      By applying various substances, including Chlorella, Chlorella methanol
+      extract (methanol extract), and D-mannitol, we observed changes in
+      microbial distribution and diversity
+    explanation: >
+      Supports testing Chlorella-associated substance perturbations against the
+      microbial fraction to resolve keystone-taxon responses.
 - name: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
   description: >
-    The recombined three-member SynCom (Pseudomonas, Duganella, Brevibacterium) antagonises the
-    soilborne pathogen Fusarium oxysporum on strawberry and tomato more strongly than any single
-    constituent strain, indicating an emergent community-level antifungal activity.
+    The recombined three-member SynCom (Pseudomonas, Duganella,
+    Brevibacterium) antagonises the soilborne pathogen Fusarium oxysporum on
+    strawberry and tomato more strongly than any single constituent strain,
+    indicating an emergent community-level antifungal activity.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Duganella
+    term:
+      id: NCBITaxon:75654
+      label: Duganella
+  - preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+  - preferred_term: Fusarium oxysporum
+    term:
+      id: NCBITaxon:5507
+      label: Fusarium oxysporum
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  downstream:
+  - target: Strawberry Fusarium Wilt Disease-Index Reduction
+    description: >
+      The SynCom-only strawberry treatment arm had much lower Fusarium wilt
+      disease severity than the pathogen-only arm.
+  - target: Tomato Fusarium Wilt Disease-Index Reduction
+    description: >
+      The full SynCom tomato treatment arm also reduced Fusarium wilt disease
+      severity relative to pathogen-only controls.
   evidence:
   - reference: PMID:41937467
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: a synthetic community (SynCom) of keystone taxa exhibited enhanced antifungal effects
       against Fusarium oxysporum in both strawberry and tomato, compared to individual strains
-    explanation: States both the antagonism and that the community effect exceeds the sum of its
-      individual members, which is what makes this a community-level interaction.
+    explanation: >
+      States both the Fusarium antagonism and that the community outperformed
+      individual members.
+- name: Keystone Plant-Growth-Promoting Trait Pool
+  description: >
+    Before in-planta challenge, the four SynCom isolates were screened for
+    complementary plant-growth-promoting activities: Pseudomonas 8C3D12 had
+    protease activity, Brevibacterium REN4 produced siderophore and
+    indole-3-acetic acid, and FT92W plus Pseudomonas 6C7F4 carried multiple
+    PGP activities including nitrogen fixation.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  participating_taxa:
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Duganella
+    term:
+      id: NCBITaxon:75654
+      label: Duganella
+  - preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Keystone-Taxa SynCom Suppression of Fusarium oxysporum
+    description: >
+      The functionally distinct keystone isolates were then tested as single,
+      partial-SynCom, and full-SynCom disease-suppression treatments.
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The FT92W and the 6C7F4 strains showed multiple PGP activities
+    explanation: >
+      Supports functional differentiation among two keystone taxa selected for
+      the SynCom panel.
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      REN4 strain demonstrated siderophore production and indole-3-acetic acid
+      (IAA) production abilities
+    explanation: >
+      Supports Brevibacterium REN4 as a third keystone member with a measured
+      plant-growth-promoting activity distinct from the Pseudomonas strains.
+- name: Strawberry Fusarium Wilt Disease-Index Reduction
+  description: >
+    In strawberries challenged with F. oxysporum f. sp. fragariae, the full
+    SynCom lowered the Fusarium wilt disease-index percentage at week 5 and
+    also increased shoot biomass under pathogen pressure.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Duganella
+    term:
+      id: NCBITaxon:75654
+      label: Duganella
+  - preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+  - preferred_term: Fusarium oxysporum
+    term:
+      id: NCBITaxon:5507
+      label: Fusarium oxysporum
+  - preferred_term: strawberry
+    term:
+      id: NCBITaxon:3747
+      label: Fragaria x ananassa
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the SynCom treatment group showed a disease index 20% percentage
+    explanation: >
+      Supports lower strawberry Fusarium wilt severity in the SynCom-treated
+      group.
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      The only SynCom treatment (Treat8) had an average shoot weight of 1.47 g
+    explanation: >
+      Supports a strawberry growth endpoint for the full SynCom under Fusarium
+      challenge.
+- name: Tomato Fusarium Wilt Disease-Index Reduction
+  description: >
+    In tomatoes challenged with F. oxysporum f. sp. lycopersici, the full
+    SynCom and several SynCom combinations had lower week-4 disease-index
+    percentages than the pathogen-only treatment, extending the keystone
+    community's antifungal effect beyond strawberry.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: Pseudomonas
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  - preferred_term: Duganella
+    term:
+      id: NCBITaxon:75654
+      label: Duganella
+  - preferred_term: Brevibacterium
+    term:
+      id: NCBITaxon:1696
+      label: Brevibacterium
+  - preferred_term: Fusarium oxysporum
+    term:
+      id: NCBITaxon:5507
+      label: Fusarium oxysporum
+  - preferred_term: tomato
+    term:
+      id: NCBITaxon:4081
+      label: Solanum lycopersicum
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:41937467
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      Treat1, Treat2, Treat6, Treat7, Treat8, and Treat9 had lower disease
+      index percentages
+    explanation: >
+      Supports reduced tomato Fusarium wilt severity in treatments that include
+      several SynCom members or the full SynCom.
 - name: D-mannitol Enrichment of Pseudomonas in the Chlorella Phytomicrobiome
   description: >
-    Applying 2% D-mannitol — a polyol associated with the microalga and its methanol extract —
-    shifted the plant-associated microbiota and markedly increased Pseudomonas abundance,
-    implicating an algal-derived compound as a recruitment signal for a keystone member.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: PAIRWISE
-  source_taxon:
-    preferred_term: Chlorella fusca CHK0059
-    term:
-      id: NCBITaxon:3073
-      label: Scenedesmus fuscus
+    Applying 2% D-mannitol, a polyol associated with the microalga and its
+    methanol extract, shifted the plant-associated microbiota and markedly
+    increased Pseudomonas abundance, implicating an algal-associated compound
+    as a recruitment signal for a keystone member.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
   target_taxon:
     preferred_term: Pseudomonas
     term:
@@ -247,6 +466,16 @@ ecological_interactions:
       id: CHEBI:16899
       label: D-mannitol
     notes: Applied at 2%; the treatment under which Pseudomonas enrichment was observed.
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Keystone Plant-Growth-Promoting Trait Pool
+    description: >
+      D-mannitol-enriched Pseudomonas was one component of the keystone set
+      that was functionally screened before SynCom plant inoculation.
   evidence:
   - reference: PMID:41937467
     supports: PARTIAL

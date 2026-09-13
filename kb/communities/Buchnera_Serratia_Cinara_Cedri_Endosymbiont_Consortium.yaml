@@ -67,6 +67,7 @@ ecological_interactions:
   description: Tryptophan biosynthesis is partitioned across Buchnera aphidicola BCc and Serratia symbiotica
     SCc, creating a metabolic dependency between the two endosymbionts.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Buchnera aphidicola BCc
     term:
@@ -95,25 +96,24 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc
     explanation: Supports partitioning of tryptophan biosynthesis between Buchnera and Serratia.
-  - reference: doi:10.1371/journal.pgen.1002357
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: the biosynthesis of tryptophan is shared with the endosymbiont Serratia symbiotica SCc
-    explanation: Supports both endosymbionts contributing to the tryptophan pathway.
+  downstream:
+  - target: Stable Co-obligate Metabolic Complementation
+    description: Tryptophan-pathway partitioning is one of the shared biosynthetic dependencies
+      that stabilizes the Buchnera-Serratia nutritional consortium in the aphid host.
 - name: Serratia Takeover of Lost Buchnera Functions
   description: Genome-based metabolic inference indicates that functions carried out by Buchnera in other
     aphids are either retained in Buchnera BCc or taken over by Serratia SCc in Cinara cedri.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Serratia symbiotica SCc
-    term:
-      id: NCBITaxon:138074
-      label: Serratia symbiotica
-  target_taxon:
-    preferred_term: Buchnera aphidicola BCc
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Buchnera aphidicola BCc
     term:
       id: NCBITaxon:372461
       label: Buchnera aphidicola BCc
+  - preferred_term: Serratia symbiotica SCc
+    term:
+      id: NCBITaxon:138074
+      label: Serratia symbiotica
   metabolites:
   - preferred_term: riboflavin
     term:
@@ -131,20 +131,35 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: not able to synthesize tryptophan and riboflavin
     explanation: Supports loss of Buchnera nutritional functions that require consortium complementation.
+  downstream:
+  - target: Stable Co-obligate Metabolic Complementation
+    description: Serratia takeover of biosynthetic functions lost by Buchnera is another inferred
+      complementing dependency that contributes to stable co-obligate symbiosis.
 - name: Stable Co-obligate Metabolic Complementation
   description: The paired endosymbionts form a stable consortium through multiple cases of metabolic
     complementation, preserving both bacterial partners in the aphid host context.
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Buchnera aphidicola BCc
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Buchnera aphidicola BCc
     term:
       id: NCBITaxon:372461
       label: Buchnera aphidicola BCc
-  target_taxon:
-    preferred_term: Serratia symbiotica SCc
+  - preferred_term: Serratia symbiotica SCc
     term:
       id: NCBITaxon:138074
       label: Serratia symbiotica
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+    notes: Essential amino acid synthesized by a pathway partitioned across the two endosymbionts.
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+    notes: Vitamin whose inferred synthesis requires Serratia complementation of Buchnera BCc.
   evidence:
   - reference: doi:10.1371/journal.pgen.1002357
     supports: SUPPORT
@@ -181,4 +196,3 @@ associated_datasets:
   url: https://www.ncbi.nlm.nih.gov/bioproject/32211
   description: NCBI BioProject for Serratia symbiotica from Cinara cedri.
 metal_relevance: NOT_APPLICABLE
-

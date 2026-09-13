@@ -24,10 +24,10 @@ engineering_design:
     when available.
   perturbation_design: 'Designed condition space included: Light, Glucose concentration.'
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: enhancing microalgae harvesting and lipid content
+    snippet: enhance C. vulgaris harvesting and lipid content
     explanation: Demonstrates photosynthetic biomass and lipid production by C. vulgaris
 environment_term:
   preferred_term: wastewater treatment plant
@@ -55,11 +55,11 @@ taxonomy:
   - PRIMARY_PRODUCER
   abundance_value: Primary photosynthetic organism producing biomass and lipids
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Axenic Chlorella vulgaris microalgae exhibit poor harvesting, as expressed by a flocculation
-      efficiency of 0.2%
+      efficiency of 0·2%
     explanation: Establishes C. vulgaris as the primary producer requiring bioflocculation assistance
 - taxon_term:
     preferred_term: Rhizobium radiobacter F2
@@ -80,7 +80,7 @@ taxonomy:
   - PRIMARY_DEGRADER
   abundance_value: Helper bacterium optimized at specific bacteria-to-algae inoculation ratios
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: the co-culture conditions of microalgae (C. vulgaris) and bioflocculant-producing bacteria
@@ -94,11 +94,17 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlorella vulgaris
     term:
       id: NCBITaxon:3077
       label: Chlorella vulgaris
+  target_taxon:
+    preferred_term: Rhizobium radiobacter F2
+    term:
+      id: NCBITaxon:358
+      label: Agrobacterium tumefaciens
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -112,10 +118,10 @@ ecological_interactions:
   - target: Bioflocculant Production and Cell Aggregation
     description: Algal biomass provides substrate for bacterial growth and bioflocculant production
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: enhancing microalgae harvesting and lipid content
+    snippet: enhance C. vulgaris harvesting and lipid content
     explanation: Demonstrates photosynthetic biomass and lipid production by C. vulgaris
 - name: Bioflocculant Production and Cell Aggregation
   description: 'Rhizobium radiobacter F2 produces extracellular polysaccharide bioflocculants that induce
@@ -126,11 +132,17 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Rhizobium radiobacter F2
     term:
       id: NCBITaxon:358
       label: Agrobacterium tumefaciens
+  target_taxon:
+    preferred_term: Chlorella vulgaris
+    term:
+      id: NCBITaxon:3077
+      label: Chlorella vulgaris
   metabolites:
   - preferred_term: polysaccharide
     term:
@@ -155,10 +167,10 @@ ecological_interactions:
   - target: Algal Biomass Harvesting
     description: Bioflocculation enables efficient separation and recovery of algal biomass
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Bioflocculant-producing microbes are environmentally friendly functional materials that avoid
+    snippet: Bioflocculant-producing microbes are environmentally friendly functional materials. They avoid
       the negative effects of traditional chemical flocculants
     explanation: Describes the bacterial bioflocculation mechanism and environmental benefits
 - name: Algal Biomass Harvesting
@@ -169,18 +181,23 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Chlorella vulgaris
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Chlorella vulgaris
     term:
       id: NCBITaxon:3077
       label: Chlorella vulgaris
+  - preferred_term: Rhizobium radiobacter F2
+    term:
+      id: NCBITaxon:358
+      label: Agrobacterium tumefaciens
   biological_processes:
   - preferred_term: cell aggregation
     term:
       id: GO:0098743
       label: cell aggregation
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: provided new insights into microalgae harvesting and cost-effective production of microalgal
@@ -191,7 +208,7 @@ environmental_factors:
   value: Required for photosynthesis
   description: Continuous or cyclic illumination needed for algal growth and biomass production
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Chlorella vulgaris microalgae
@@ -204,11 +221,11 @@ environmental_factors:
 
     '
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'three significant process variables: inoculation ratio of bacteria and microalgae, initial
-      glucose concentration, and co-culture time'
+    snippet: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture
+      time
     explanation: Glucose concentration critically affects bioflocculant production
 - name: Bacteria-to-algae inoculation ratio
   value: Optimized ratio
@@ -218,11 +235,11 @@ environmental_factors:
 
     '
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'three significant process variables: inoculation ratio of bacteria and microalgae, initial
-      glucose concentration, and co-culture time'
+    snippet: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture
+      time
     explanation: Inoculation ratio is critical for optimal bioflocculation
 - name: Co-culture time
   value: Optimized duration
@@ -233,11 +250,11 @@ environmental_factors:
 
     '
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'three significant process variables: inoculation ratio of bacteria and microalgae, initial
-      glucose concentration, and co-culture time'
+    snippet: inoculation ratio of bacteria and microalgae, initial glucose concentration, and co-culture
+      time
     explanation: Co-culture timing optimized for maximum harvesting efficiency
 metals_present:
 - IRON
@@ -255,16 +272,16 @@ growth_media:
     inoculation ratio 0.20-0.25, initial glucose concentration <1.5 kg/m3, co-culture time 9-14
     days); illumination required for algal photosynthesis.
   evidence:
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: the co-culture conditions of C. vulgaris and bioflocculant-producing bacteria in synthetic
       wastewater
     explanation: Names synthetic wastewater as the co-culture medium for the algal-bacterial community.
-  - reference: doi:10.1111/jbm.12334
+  - reference: doi:10.1111/lam.12403
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: inoculation ratio of bacteria and microalgae of 0·20-0·25, initial glucose concentration
-      of <1·5 kg m(-3) and co-culture time of 9-14 days
+    snippet: inoculation ratio of bacteria and microalgae of 0·20–0·25, initial glucose concentration
+      of <1·5 kg m^{−3} and co-culture time of 9–14 days
     explanation: Gives the optimized inoculation ratio, glucose concentration, and 9-14 day co-culture
       time.

@@ -121,6 +121,7 @@ ecological_interactions:
   description: M. marinum S8 oxidizes methane and releases methane-derived carbon that supports growth
     of the non-methanotrophic methylotroph M. caenitepidi Gela4 in coculture.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
     term:
@@ -149,6 +150,15 @@ ecological_interactions:
     term:
       id: GO:0006083
       label: acetate metabolic process
+  downstream:
+  - target: Methanol-Independent Methylotroph Response
+    description: Methane-derived carbon cross-feeding induces the Gela4 expression
+      profile that points away from methanol and toward an acetate-linked cross-fed
+      substrate.
+  - target: Methylotroph Growth in Methane-Fed Coculture
+    description: >
+      Methane-derived carbon released by M. marinum S8 supports syntrophic growth
+      of the facultative methylotroph in methane-fed coculture.
   evidence:
   - reference: PMID:30870453
     supports: SUPPORT
@@ -160,11 +170,60 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: organic compound other than methanol, possibly acetate
     explanation: Supports acetate as the likely cross-fed carbon compound.
+- name: Methylotroph Growth in Methane-Fed Coculture
+  description: >
+    Methyloceanibacter caenitepidi Gela4 grows syntrophically with M. marinum S8
+    when methane is supplied as the methanotroph substrate. Chemical and RNA-seq
+    evidence ruled out accumulated methanol as the dominant cross-fed product and
+    implicated acetate as the likely methane-derived carbon source supporting
+    Gela4 growth.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Methyloceanibacter caenitepidi Gela4
+    term:
+      id: NCBITaxon:1384459
+      label: Methyloceanibacter caenitepidi
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: PMID:30870453
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methyloceanibacter caenitepidi Gela4, which grows syntrophically with the
+      methanotroph, Methylocaldum marinum S8
+    explanation: Shows that the Gela4 methylotroph grows syntrophically with
+      M. marinum S8.
+  - reference: PMID:30870453
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: organic compound other than methanol, possibly acetate, might be the major
+      carbon source for M. caenitepidi Gela4 cross-fed by M. marinum S8
+    explanation: PARTIAL - identifies acetate as the likely, but not definitively
+      proven, methane-derived carbon source that supports Gela4 in coculture.
 - name: Methanol-Independent Methylotroph Response
   description: Under coculture conditions, M. caenitepidi Gela4 downregulated serine-pathway genes while
     upregulating TCA-cycle and acetyl-CoA synthetase genes, consistent with use of acetate-linked carbon
     rather than methanol as the dominant cross-fed substrate.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
     term:

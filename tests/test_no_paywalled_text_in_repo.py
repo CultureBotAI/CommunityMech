@@ -10,9 +10,10 @@ anywhere and no statement of provenance; a **14 MB Elsevier publication PDF** in
 `references_pdfs/`; and three cache files holding non-open-access article bodies,
 two of them carrying the publisher's own copyright line.
 
-`scripts/cache_fulltext.py` already refuses non-OA papers. These arrived by the
-curator-supplied-file route, which cannot enforce what its docstring assumes.
-These tests are that enforcement.
+`scripts/cache_fulltext.py` filters on Europe PMC's OA flag. That does not
+verify permission for a particular curator-supplied publication version. These
+tests detect PDFs and a rights-marker/body-size pattern; they are regression
+heuristics, not an exhaustive license audit.
 """
 
 from __future__ import annotations
@@ -32,10 +33,10 @@ RIGHTS = re.compile(
     re.I,
 )
 
-# A Creative Commons marker settles it: the text is redistributable whatever
-# boilerplate sits beside it. `PMID_39111313.txt` is CC BY-NC and still contains
-# the string "All rights reserved" in publisher furniture, which is exactly the
-# false positive this exemption exists for.
+# A Creative Commons marker bypasses this heuristic to avoid known false
+# positives; it does not prove permission for the version or use. Check the
+# actual terms separately. `PMID_39111313.txt` carries a CC BY-NC marker and
+# "All rights reserved" in publisher furniture, motivating this exemption.
 CC = re.compile(r"creativecommons\.org|CC[- ]BY", re.I)
 
 # Size is the crude proxy for "this is a body, not an abstract". A PubMed

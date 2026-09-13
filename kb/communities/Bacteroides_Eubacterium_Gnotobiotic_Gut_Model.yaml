@@ -120,6 +120,7 @@ ecological_interactions:
   description: B. thetaiotaomicron responds to E. rectale by increasing expression of polysaccharide utilization
     loci and broadening glycan foraging, including host-derived mucin glycans that E. rectale cannot use.
   interaction_type: NICHE_PARTITIONING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Eubacterium rectale ATCC 33656
     term:
@@ -139,6 +140,10 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Cecal Short-Chain Fatty Acid Remodeling
+    description: B. thetaiotaomicron glycan foraging supplies fermentation products
+      to E. rectale, which couples that carbon flow to acetate use and butyrate production.
   evidence:
   - reference: PMID:19321416
     supports: SUPPORT
@@ -149,6 +154,7 @@ ecological_interactions:
   description: E. rectale responds to B. thetaiotaomicron by reducing glycan-degrading enzyme production,
     increasing transport functions, and supporting glycolysis through butyrate generation from acetate.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacteroides thetaiotaomicron VPI-5482
     term:
@@ -177,6 +183,10 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Cecal Short-Chain Fatty Acid Remodeling
+    description: E. rectale butyrate generation from acetate is the cross-feeding
+      step that remodels acetate and butyrate pools during biassociation.
   evidence:
   - reference: PMID:19321416
     supports: SUPPORT
@@ -193,6 +203,15 @@ ecological_interactions:
     to B. thetaiotaomicron monoassociation while maintaining butyrate output associated with E. rectale.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacteroides thetaiotaomicron VPI-5482
+    term:
+      id: NCBITaxon:226186
+      label: Bacteroides thetaiotaomicron VPI-5482
+  - preferred_term: Eubacterium rectale ATCC 33656
+    term:
+      id: NCBITaxon:515619
+      label: Agathobacter rectalis ATCC 33656
   metabolites:
   - preferred_term: acetate
     term:
@@ -319,7 +338,7 @@ associated_datasets:
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: accession nos. GSE14686, 14709, 14737
+    snippet: accession nos. GSE14686 , 14709 , 14737
     explanation: Links the reported GEO accessions to the curated community record.
 - title: Eubacterium rectale ATCC 33656 complete genome project
   dataset_type: GENOMICS
@@ -331,7 +350,7 @@ associated_datasets:
   - reference: PMID:19321416
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: CP001107 (ATCC 33656, Eubacterium rectale)
+    snippet: CP001107 (ATCC 33656, Eubacterium rectale )
     explanation: Supports the E. rectale ATCC 33656 genome accession linked to this community.
 metal_relevance: NOT_APPLICABLE
 growth_media:

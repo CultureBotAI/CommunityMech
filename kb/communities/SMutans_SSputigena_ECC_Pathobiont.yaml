@@ -100,6 +100,7 @@ ecological_interactions:
     Streptococcus mutans exoglucans trap Selenomonas sputigena, suppress its
     motility, and create a structured mixed-species biofilm.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus mutans
     term:
@@ -110,6 +111,21 @@ ecological_interactions:
     term:
       id: NCBITaxon:69823
       label: Selenomonas sputigena
+  metabolites:
+  - preferred_term: glucan
+    term:
+      id: CHEBI:37163
+      label: glucan
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Honeycomb Biofilm Acidogenesis
+    description: Exoglucan entrapment immobilizes and supports S. sputigena in
+      the mixed biofilm, leading to a honeycomb-like superstructure around S.
+      mutans that enhances acidogenesis.
   evidence:
   - reference: PMID:37217495
     supports: SUPPORT
@@ -121,11 +137,14 @@ ecological_interactions:
       honeycomb-like multicellular-superstructure encapsulating S. mutans,
       enhancing acidogenesis.
     explanation: Documents matrix-mediated trapping and structured coassembly with S. mutans.
-- name: Pathobiont-Enhanced Cariogenicity
+- name: Honeycomb Biofilm Acidogenesis
   description: >-
-    Selenomonas sputigena is non-cariogenic alone but markedly worsens enamel
-    lesion formation when coinfected with Streptococcus mutans.
+    Entrapped Selenomonas sputigena actively proliferates into a
+    honeycomb-like multicellular superstructure that encapsulates
+    Streptococcus mutans and enhances acidogenesis in the mixed-species
+    biofilm.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Selenomonas sputigena
     term:
@@ -136,6 +155,54 @@ ecological_interactions:
     term:
       id: NCBITaxon:1309
       label: Streptococcus mutans
+  metabolites:
+  - preferred_term: glucan
+    term:
+      id: CHEBI:37163
+      label: glucan
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Pathobiont-Enhanced Cariogenicity
+    description: The structured S. mutans-S. sputigena biofilm intensifies
+      acidogenesis, providing the local virulence context for the extensive
+      enamel lesions observed during coinfection.
+  evidence:
+  - reference: PMID:37217495
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      We show that S. sputigena, a flagellated anaerobe with previously unknown
+      role in supragingival biofilm, becomes trapped in streptococcal
+      exoglucans, loses motility but actively proliferates to build a
+      honeycomb-like multicellular-superstructure encapsulating S. mutans,
+      enhancing acidogenesis.
+    explanation: Documents S. sputigena proliferation and S. mutans encapsulation
+      as the mixed-biofilm architecture that heightens acidogenesis.
+- name: Pathobiont-Enhanced Cariogenicity
+  description: >-
+    Selenomonas sputigena is non-cariogenic alone but markedly worsens enamel
+    lesion formation when coinfected with Streptococcus mutans.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Selenomonas sputigena
+    term:
+      id: NCBITaxon:69823
+      label: Selenomonas sputigena
+  target_taxon:
+    preferred_term: Streptococcus mutans
+    term:
+      id: NCBITaxon:1309
+      label: Streptococcus mutans
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:37217495
     supports: SUPPORT

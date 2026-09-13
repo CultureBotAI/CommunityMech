@@ -10,9 +10,12 @@ ecological_state: ENGINEERED
 community_origin: ENGINEERED
 community_category: BIOTECHNOLOGY
 engineering_design:
-  objective: Use naturally aged cheese rinds as a manipulable model system for mechanisms of microbial community assembly, succession, and bacterial-fungal interactions.
-  assembly_strategy: Culture dominant rind-associated bacteria and fungi from representative cheeses and inoculate simplified communities onto cheese curd agar under controlled rind-style treatments.
-  perturbation_design: Manipulate fungal inoculum, washing with salt solution, and moisture to mimic bloomy, washed, natural, and control rind environments.
+  objective: Use naturally aged cheese rinds as a manipulable model system for mechanisms of microbial
+    community assembly, succession, and bacterial-fungal interactions.
+  assembly_strategy: Culture dominant rind-associated bacteria and fungi from representative cheeses and
+    inoculate simplified communities onto cheese curd agar under controlled rind-style treatments.
+  perturbation_design: Manipulate fungal inoculum, washing with salt solution, and moisture to mimic
+    bloomy, washed, natural, and control rind environments.
   measurement_endpoints:
   - 16S rDNA and ITS community composition
   - whole-community shotgun metagenomic functional profiles
@@ -30,7 +33,8 @@ environment_term:
   term:
     id: ENVO:01001405
     label: laboratory environment
-  notes: The source communities are naturally aged cheese rind biofilms; this curated record emphasizes the controlled in vitro reconstruction on cheese curd agar.
+  notes: The source communities are naturally aged cheese rind biofilms; this curated record emphasizes
+    the controlled in vitro reconstruction on cheese curd agar.
 modeled_environment:
 - preferred_term: dairy
   term:
@@ -53,7 +57,8 @@ taxonomy:
       total_genomes: 60204
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
-    notes: Genus-level taxon used because the source record reports community members primarily at genus level in amplicon and reconstruction analyses.
+    notes: Genus-level taxon used because the source record reports community members primarily at genus
+      level in amplicon and reconstruction analyses.
   abundance_level: DOMINANT
 - taxon_term:
     preferred_term: Brevibacterium
@@ -71,7 +76,8 @@ taxonomy:
       total_genomes: 469
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-    notes: Genus-level taxon used because the source reports Brevibacterium as a mature-rind genus in the natural-rind succession and in vitro reconstruction.
+    notes: Genus-level taxon used because the source reports Brevibacterium as a mature-rind genus in
+      the natural-rind succession and in vitro reconstruction.
   abundance_level: ABUNDANT
 - taxon_term:
     preferred_term: Debaryomyces
@@ -79,7 +85,8 @@ taxonomy:
       id: NCBITaxon:4958
       label: Debaryomyces
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Genus-level yeast member enriched under low-moisture natural-rind conditions in the in vitro treatment.
+    notes: Genus-level yeast member enriched under low-moisture natural-rind conditions in the in vitro
+      treatment.
   abundance_level: ABUNDANT
 - taxon_term:
     preferred_term: Penicillium
@@ -87,11 +94,13 @@ taxonomy:
       id: NCBITaxon:5073
       label: Penicillium
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
-    notes: Filamentous fungal genus detected in mature natural-rind succession and reconstructed in vitro communities.
+    notes: Filamentous fungal genus detected in mature natural-rind succession and reconstructed in vitro
+      communities.
   abundance_level: ABUNDANT
 ecological_interactions:
 - name: Moisture-Structured Rind Community Assembly
-  description: Moisture and rind-style manipulations selected different bacterial and fungal assemblages, with drier natural-rind conditions enriching Debaryomyces, Staphylococcus, and Penicillium.
+  description: Moisture and rind-style manipulations selected different bacterial and fungal assemblages,
+    with drier natural-rind conditions enriching Debaryomyces, Staphylococcus, and Penicillium.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -99,8 +108,13 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Reproducible Natural-Rind Succession
+    description: Moisture and rind-style manipulations impose the abiotic context in which
+      reconstructed rind communities diverge into reproducible bacterial-fungal successions.
 - name: Fungal Deacidification Facilitates Bacterial Growth
-  description: Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this deacidification to positive growth responses of multiple bacterial genera in fungal coculture.
+  description: Yeasts and filamentous fungi increased cheese-curd-medium pH, and the study linked this
+    deacidification to positive growth responses of multiple bacterial genera in fungal coculture.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -108,8 +122,14 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Reproducible Natural-Rind Succession
+    description: Fungal deacidification raises cheese-curd pH and facilitates bacterial
+      growth during the reconstructed natural-rind succession.
 - name: Reproducible Natural-Rind Succession
-  description: A six-genus natural-rind subset recapitulated key features of in situ succession on cheese curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium, Penicillium, and Scopulariopsis.
+  description: A six-genus natural-rind subset recapitulated key features of in situ succession on cheese
+    curd agar, with early Staphylococcus and Candida followed by later Brevibacterium, Brachybacterium,
+    Penicillium, and Scopulariopsis.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
   biological_processes:
@@ -143,24 +163,28 @@ cultivation_setup:
 environmental_factors:
 - name: rind moisture
   value: natural-rind treatment drier than undried plates
-  description: Moisture was measured across rind styles and experimentally manipulated in vitro; the dry natural-rind treatment enriched taxa associated with low moisture and higher salt concentration.
+  description: Moisture was measured across rind styles and experimentally manipulated in vitro; the dry
+    natural-rind treatment enriched taxa associated with low moisture and higher salt concentration.
 - name: cheese curd medium pH
   value: initial low pH near 5, with fungal deacidification
-  description: The study tested pH as a mechanism for bacterial responses to fungal growth on cheese curd agar.
+  description: The study tested pH as a mechanism for bacterial responses to fungal growth on cheese curd
+    agar.
 growth_media:
 - name: cheese curd agar
   temperature: '12'
   temperature_unit: C
   incubation_time: '4'
   incubation_time_unit: weeks
-  preparation_notes: Simplified rind communities were inoculated onto cheese curd agar and subjected to bloomy, washed, natural, or unmanipulated control treatments.
+  preparation_notes: Simplified rind communities were inoculated onto cheese curd agar and subjected to
+    bloomy, washed, natural, or unmanipulated control treatments.
 associated_datasets:
 - title: Cheese rind amplicon and metagenomic survey
   dataset_type: AMPLICON_16S
   repository: OTHER
   accession: PMID:25036636
   url: https://pubmed.ncbi.nlm.nih.gov/25036636/
-  description: Primary study reporting 16S rDNA, ITS, metagenomic, culturing, and in vitro reconstruction data for cheese rind microbial communities.
+  description: Primary study reporting 16S rDNA, ITS, metagenomic, culturing, and in vitro reconstruction
+    data for cheese rind microbial communities.
   evidence:
   - reference: PMID:25036636
     supports: SUPPORT
@@ -207,3 +231,11 @@ related_ingredients:
   relevance: >
     Volatile sulfur compound enriched in these rind communities, a key cheese aroma product.
 metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-09-13T00:56:49Z'
+  curator: codex
+  action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
+  changes: "Reapplied PR #766's 21 unsupported evidence removals onto current main, preserving its newer
+    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
+    #765."
+  llm_assisted: true

@@ -63,13 +63,98 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Synergistic Watermelon Disease Suppression
-  description: Pseudomonas and partner bacteria act synergistically to improve plant growth and disease
-    resistance.
+- name: Pseudomonas-Centered Metabolic Facilitation
+  description: Seven simplified-SynCom partners with low substrate-use overlap
+    promote Pseudomonas aeruginosa Q6 growth through spent-medium metabolites,
+    including N-acetyl-L-serine among compounds enriched in mutually
+    interacting strains.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: N-acetyl-L-serine
+    term:
+      id: CHEBI:45441
+      label: N-acetyl-L-serine
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Pseudomonas Biofilm Pathway Enrichment
+    description: Metabolic facilitation by the seven helper strains supports the
+      Pseudomonas-centered simplified community whose inoculation enriches
+      Pseudomonas biofilm-formation functions in the rhizosphere.
   evidence:
   - *id001
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We identified compounds such as n-acetyl serine and lysine-hydroxyproline
+    explanation: Names N-acetyl-L-serine as a spent-medium compound in strains with
+      mutualistic effects on Pseudomonas aeruginosa Q6.
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: increase in the relative abundance and biofilm-forming pathways of Pseudomonas
+      post-SynCom inoculation
+    explanation: Links the simplified SynCom phenotype to Pseudomonas biofilm-forming
+      pathways in the inoculated rhizosphere.
+- name: Pseudomonas Biofilm Pathway Enrichment
+  description: SynCom inoculation increases Pseudomonas abundance and enriches
+    Pseudomonas biofilm-synthesis pathway genes in the watermelon rhizosphere.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Watermelon Growth and Disease-Resistance Increase
+    description: Pseudomonas biofilm-formation enrichment and rhizosphere
+      colonization are linked to the SynCom's improved watermelon growth and
+      Fusarium oxysporum resistance.
+  evidence:
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: SynCom inoculation was found to substantially increase the abundance of rhizosphere
+      Pseudomonas
+    explanation: Supports Pseudomonas enrichment after SynCom inoculation in the
+      watermelon rhizosphere.
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: metagenomics analysis highlighted a significant enrichment of the Pseudomonas
+      biofilm synthesis pathway in SynCom-treated groups
+    explanation: Supports enrichment of Pseudomonas biofilm-formation functions
+      in SynCom-inoculated rhizospheres.
+- name: Watermelon Growth and Disease-Resistance Increase
+  description: The grafted-rhizosphere SynCom increases ungrafted-watermelon
+    growth and reduces Fusarium oxysporum disease pressure in non-sterile
+    greenhouse soil.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom promoted ungrafted watermelon growth and alleviated disease
+    explanation: Supports the SynCom plant-growth and Fusarium-wilt protection
+      endpoint in non-sterile greenhouse soil.
+  - reference: PMID:38840214
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: significantly lower disease index (with a 55.6% reduction) and F. oxysporum
+      abundance
+    explanation: Quantifies the disease-resistance endpoint for SynCom-treated,
+      Fusarium-challenged watermelon plants.
 environmental_factors:
 - name: defined synthetic community design
   value: Initial 16 core bacterial strains from grafted watermelon rhizosphere were refined to eight synergistic
@@ -89,8 +174,7 @@ related_ingredients:
   - reference: PMID:38840214
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We identified compounds such as n-acetyl serine and lysine-hydroxyproline (Fig. 3f) in
-      the SM of these strains, indicating metabolic cross-feeding potential among these species
+    snippet: We identified compounds such as n-acetyl serine and lysine-hydroxyproline
     explanation: Names N-acetyl-L-serine as a verified cross-feeding metabolite in the simplified
       SynCom centered on Pseudomonas aeruginosa Q6.
 growth_media:

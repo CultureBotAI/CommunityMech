@@ -137,10 +137,129 @@ taxonomy:
     evidence_source: IN_VITRO
     snippet: a green microalga (Chlorella vulgaris)
     explanation: Names Chlorella vulgaris as the green-microalga member of the panel.
-# No ecological_interactions block: the four members were assayed individually in the
-# regolith extract (never co-cultured), so no interspecies interaction was measured. The
-# biofertilizer effect on Lemna minor is a downstream application of end-of-life biomass,
-# captured in the description and environmental_factors rather than as an interaction.
+ecological_interactions:
+- name: MGS-1 Regolith Extract Nutrient Supply
+  description: >-
+    Mars Global Simulant MGS-1 was extracted with water to make the poor
+    martian-resource medium whose sulfur, potassium, and calcium content
+    supplied a subset of the nutrients needed by the photosynthetic panel.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: water
+    term:
+      id: CHEBI:15377
+      label: water
+  - preferred_term: potassium(1+)
+    term:
+      id: CHEBI:29103
+      label: potassium(1+)
+  - preferred_term: calcium(2+)
+    term:
+      id: CHEBI:29108
+      label: calcium(2+)
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  downstream:
+  - target: Diazotrophic Mars Extract Growth Advantage
+    description: >-
+      The MGS-1 aqueous extract provided the mineral and water resource base
+      on which the nitrogen-fixing cyanobacteria outperformed the
+      non-diazotrophic panel members.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Mars regolith extract was rich in S, K, and Ca and contained smaller
+      concentrations of Mn, Fe, and Sr, and trace concentrations of Cu, Zn, Br,
+      and Rb
+    explanation: >-
+      Names the main elements measured in the Mars regolith extract used as the
+      test growth medium.
+- name: Diazotrophic Mars Extract Growth Advantage
+  description: >-
+    The diazotrophic cyanobacteria Nostoc muscorum and Anabaena cylindrica
+    thrived in short-term Mars regolith extract culture, whereas the
+    non-nitrogen-fixing Arthrospira platensis and Chlorella vulgaris did not.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: End-of-Life Biomass Biofertilization
+    description: >-
+      The 25-day phototroph cultures produced the cyanobacterial and microalgal
+      biomass subsequently supplied to Lemna minor as filtered or sonicated
+      biofertilizer treatments.
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      N. muscorum showed the best growth performance when compared to the other
+      species, while A. platensis and C. vulgaris were not able to thrive on
+      Mars regolith extract.
+    explanation: >-
+      Supports differential growth of the phototroph panel on Mars regolith
+      extract.
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      C. vulgaris was unable to grow, while N. muscorum and A. cylindrica
+      thrived in Mars regolith extract.
+    explanation: >-
+      Supports the growth advantage of the two diazotrophic cyanobacteria in
+      the Mars regolith extract treatment.
+- name: End-of-Life Biomass Biofertilization
+  description: >-
+    Biomass from the Mars-regolith-grown phototroph cultures acted as a
+    biofertilizer for Lemna minor, with Arthrospira- and Chlorella-derived
+    treatments stimulating duckweed dry weight to levels comparable to standard
+    synthetic medium.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: phosphate
+    term:
+      id: CHEBI:18367
+      label: phosphate(3-)
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:35865930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Cyanobacteria and microalgae (A. platensis and C. vulgaris) showed good
+      abilities as biofertilizing agents, i.e., they stimulated biomass (i.e.,
+      dry weight) production at levels comparable to the plants that grew on
+      standard synthetic medium.
+    explanation: >-
+      Supports the biofertilizing effect of end-of-life phototroph biomass on
+      Lemna minor dry-weight production.
 environmental_factors:
 - name: Mars regolith simulant (MGS-1) extract as sole nutrient resource
   value: MGS-1 regolith extract culture medium

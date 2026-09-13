@@ -7,11 +7,11 @@ description: 'An industrial-scale moderately thermophilic acidophilic microbial 
   and Thermoplasmatales archaeon. The community operates at moderate thermophilic temperatures (40-50°C)
   and extremely low pH (1.5-2.0), oxidizing ferrous iron and reduced sulfur compounds to generate ferric
   iron (Fe³⁺) and sulfuric acid for dissolving chalcopyrite (CuFeS₂) and other metal sulfides. Comparative
-  analysis across batch versus continuous reactor modes reveals distinct population dynamics, with Acidithiobacillus
-  caldus dominating early stages (up to 60% at pH >2), Sulfobacillus benefaciens in mid-stages (62-66%),
-  and Ferroplasma thermophilum in late stages (66% under acidic, metal-rich conditions). The adapted consortium
-  achieves exceptional copper extraction of 60.4% from 20% pulp density chalcopyrite concentrate in 25
-  days, producing 22.90 g/L dissolved copper. Operating under controlled carbon sources (CO₂, molasses)
+  analysis across reactor modes reveals distinct population dynamics, with Acidithiobacillus caldus
+  predominating early, Sulfobacillus acidophilus predominating in the middle stage, and Ferroplasma
+  thermophilum accounting for the greatest proportion in the final stage. The adapted consortium achieves
+  exceptional copper extraction of 60.4% from 20% pulp density chalcopyrite concentrate in 25
+  days. Operating under controlled carbon sources (CO₂, molasses)
   and temperature gradients (40-50°C), this system demonstrates how operational parameters shape microbial
   community structure and metal recovery efficiency. The availability of six complete reference genomes
   (PRJNA976529) enables genomic-level investigation of biooxidation mechanisms, making this the most comprehensively
@@ -48,13 +48,13 @@ environment_term:
   notes: 'Industrial-scale continuous and batch bioreactor system for chalcopyrite and sulfide ore bioleaching.
     Reactors operate at controlled moderate thermophilic temperatures (40-50°C) with pH maintained at
     1.5-2.0 through microbial sulfuric acid generation. Pulp density ranges from low (1-4%) to high (20%
-    w/v) after multi-year adaptation through serial subculturing. Aeration provides oxygen (200 ml/h/L)
-    with optional CO₂ enrichment (1%) for autotrophic carbon fixation. Reactor configurations include
-    batch shake flasks (200 rpm agitation) and continuous flow systems with retention time control. Carbon
+    w/v) after multi-year adaptation through serial subculturing. Aeration provides oxygen
+    with optional CO₂ enrichment for autotrophic carbon fixation. Reactor configurations include
+    different bioreactor operating modes. Carbon
     source variations (CO₂, molasses, organic matter) create distinct selective pressures shaping community
     composition. Temperature treatments span 40°C, 45°C, and 50°C to optimize moderate thermophile activity.
-    The system supports temporal succession across operational phases (start, mid, end) with changing
-    pH (3.79 to <2.0), Fe³⁺ accumulation, and metal concentrations creating dynamic ecological niches.
+    The system supports temporal succession across operational phases as pH, iron redox chemistry,
+    and metal concentrations create dynamic ecological niches.
 
     '
 taxonomy:
@@ -76,8 +76,9 @@ taxonomy:
     notes: 'Moderately thermophilic chemolithoautotrophic bacterium that oxidizes ferrous iron (Fe²⁺)
       and reduced inorganic sulfur compounds (RISCs) including elemental sulfur, thiosulfate, tetrathionate,
       and sulfide. Optimum temperature 40-50°C with activity up to 52°C, significantly higher than mesophilic
-      At. ferrooxidans (30°C). Dominates early reactor stages at higher pH (>2) and ambient RISC availability,
-      reaching approximately 60% of culture composition. As the primary sulfur oxidizer in moderate thermophilic
+      At. ferrooxidans (30°C). Acidithiobacillus is among the dominant bacterial groups in bio-oxidation
+      reactor communities and A. caldus predominated in the initial stage of the adapted chalcopyrite
+      culture. As the primary sulfur oxidizer in moderate thermophilic
       consortia, At. caldus generates sulfuric acid to maintain pH 1.5-2.0 essential for metal solubilization
       while oxidizing sulfur compounds released from chalcopyrite dissolution. Genome analysis reveals
       complete pathways for sulfur oxidation (Sox system, sulfide-quinone reductase, heterodisulfide reductase)
@@ -90,7 +91,7 @@ taxonomy:
   - PRIMARY_PRODUCER
   - PRIMARY_DEGRADER
   abundance_level: DOMINANT
-  abundance_value: ~60% in early reactor stages (pH >2); declines as pH drops below 2.0
+  abundance_value: Predominant in the initial stage of the 20% pulp-density chalcopyrite culture
   evidence:
   - reference: doi:10.3390/biology12111411
     supports: SUPPORT
@@ -130,8 +131,9 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
     notes: 'Extremely acidophilic, cell wall-lacking archaeon (Thermoplasmatales, Ferroplasmaceae) that
-      oxidizes ferrous iron at pH as low as 1.0-1.5. This pleomorphic organism thrives in late-stage reactor
-      conditions when pH drops below 2.0 and Fe³⁺ concentrations increase to >15 g/L. Ferroplasma species
+      oxidizes ferrous iron at pH as low as 1.0-1.5. This pleomorphic organism thrives in acidic bioleaching
+      reactors and the related F. thermophilum accounted for the greatest proportion in the final stage
+      of the adapted chalcopyrite culture. Ferroplasma species
       utilize blue copper-containing sulfocyanin proteins for iron oxidation electron transfer, distinct
       from bacterial rusticyanin systems. Facultatively aerobic with mixotrophic capability, growing on
       both inorganic iron oxidation and organic compounds (yeast extract, peptone) released from cell
@@ -145,7 +147,7 @@ taxonomy:
   - PRIMARY_PRODUCER
   - SYNTROPHIC_PARTNER
   abundance_level: DOMINANT
-  abundance_value: Dominant in late stages (pH <2.0, Fe³⁺ >15 g/L); up to 66% in metal-rich conditions
+  abundance_value: Thermoplasmataceae detected in the 2023 reactors; F. thermophilum greatest in the final stage of the 20% chalcopyrite culture
   evidence:
   - reference: doi:10.3390/biology12111411
     supports: SUPPORT
@@ -308,28 +310,28 @@ taxonomy:
       an important role in the bio-oxidation process
     explanation: Documents genome assembly from industrial reactor
 - taxon_term:
-    preferred_term: Sulfobacillus benefaciens
+    preferred_term: Sulfobacillus acidophilus
     term:
-      id: NCBITaxon:453960
-      label: Sulfobacillus benefaciens
+      id: NCBITaxon:53633
+      label: Sulfobacillus acidophilus
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:s__Sulfobacillus_benefaciens
-      gtdb_taxon: Sulfobacillus benefaciens
-      gtdb_lineage: d__Bacteria;p__Bacillota_E;c__Sulfobacillia;o__Sulfobacillales;f__Sulfobacillaceae;g__Sulfobacillus;s__Sulfobacillus benefaciens
-      ncbi_source_id: NCBITaxon:453960
-      majority_fraction: 0.96
-      total_genomes: 45
+      gtdb_id: GTDB:s__Sulfobacillus_acidophilus
+      gtdb_taxon: Sulfobacillus acidophilus
+      gtdb_lineage: d__Bacteria;p__Bacillota_E;c__Sulfobacillia;o__Sulfobacillales;f__Sulfobacillaceae;g__Sulfobacillus;s__Sulfobacillus acidophilus
+      ncbi_source_id: NCBITaxon:53633
+      majority_fraction: 1.0
+      total_genomes: 1
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
     notes: 'Gram-positive, moderately thermophilic (optimum 45-50°C), facultatively autotrophic bacterium
       that oxidizes both ferrous iron and reduced sulfur compounds. Spore-forming capability provides
       resilience to environmental stress, toxic metals, and nutrient limitation. Grows mixotrophically
-      on organic compounds (yeast extract, glucose, molasses) plus Fe²⁺ or S⁰, bridging autotrophic and
-      heterotrophic niches. Dominates mid-stage reactor operation (days 10-15), reaching 62-66% of culture
-      when conditions shift from high pH/RISC-rich (favoring At. caldus) to acidic/metal-rich (favoring
-      Ferroplasma). Enhanced ferrous iron oxidation capacity maintains Fe³⁺ supply for chalcopyrite dissolution
-      during this transition. Metal tolerance enables activity in copper, zinc, and nickel-rich leachates.
+      on organic compounds plus Fe²⁺ or S⁰, bridging autotrophic and heterotrophic niches. Sulfobacillus
+      was one of the dominant bacterial groups in 2023 bio-oxidation reactors and the related
+      S. acidophilus rather than A. caldus predominated in the middle stage of the adapted chalcopyrite
+      culture. Enhanced ferrous iron oxidation capacity maintains Fe³⁺ supply for chalcopyrite dissolution
+      during these transitions. Metal tolerance enables activity in copper, zinc, and nickel-rich leachates.
       Sulfobacillus species are critical for industrial thermophilic bioleaching (50-60°C) where elevated
       temperatures from exothermic sulfide oxidation favor this organism over mesophilic Acidithiobacillus.
 
@@ -338,7 +340,7 @@ taxonomy:
   - PRIMARY_DEGRADER
   - SYNTROPHIC_PARTNER
   abundance_level: DOMINANT
-  abundance_value: 62-66% in mid-stage reactor operation (days 10-15)
+  abundance_value: Sulfobacillus dominant in 2023 reactors; S. acidophilus predominated in the middle stage of the 20% chalcopyrite culture
   evidence:
   - reference: PMID:24242252
     supports: SUPPORT
@@ -390,16 +392,22 @@ ecological_interactions:
   description: 'Acidithiobacillus caldus oxidizes ferrous iron (Fe²⁺) to ferric iron (Fe³⁺) during early
     reactor operation when pH remains above 2.0 and reduced inorganic sulfur compounds are readily available
     from chalcopyrite feed. Operating at 40-50°C with optimum near 45°C, At. caldus dominates early stages,
-    reaching approximately 60% of consortium composition. This obligate autotroph uses rusticyanin-based
+    and A. caldus predominated in the initial stage of the adapted chalcopyrite culture. This obligate autotroph uses rusticyanin-based
     electron transport to oxidize Fe²⁺, fixing CO₂ via Calvin cycle and generating reducing equivalents.
     The produced Fe³⁺ serves as primary oxidant for chalcopyrite dissolution: CuFeS₂ + 4Fe³⁺ → Cu²⁺ +
     5Fe²⁺ + 2S⁰. This reaction releases copper ions for recovery and regenerates Fe²⁺ substrate, creating
-    a closed iron redox cycle. As reactor operation progresses, declining pH (<2.0), Fe³⁺ accumulation
-    (>15 g/L), and depletion of accessible RISCs favor succession to Sulfobacillus and Ferroplasma species
+    a closed iron redox cycle. As reactor operation progresses, changing pH, Fe³⁺ accumulation,
+    and depletion of accessible RISCs favor succession to Sulfobacillus and Ferroplasma species
     with greater acid tolerance and mixotrophic capability.
 
     '
-  interaction_type: CROSS_FEEDING
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
   source_taxon:
     preferred_term: Acidithiobacillus caldus
     term:
@@ -415,7 +423,7 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: Generated oxidant; increases to >15 g/L in late stages
+    concentration: Microbially generated oxidant
   biological_processes:
   - preferred_term: iron ion transport
     term:
@@ -457,7 +465,13 @@ ecological_interactions:
     specialized thermophilic consortium.
 
     '
-  interaction_type: MUTUALISM
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
   source_taxon:
     preferred_term: Acidithiobacillus caldus
     term:
@@ -489,25 +503,31 @@ ecological_interactions:
       thermophilic chalcopyrite bioleaching, supporting its role as a sulfur-oxidizing
       acidophile in the reactor consortium.
 - name: Mid-Stage Mixotrophic Iron Oxidation
-  description: 'During mid-stage reactor operation (days 10-15), Sulfobacillus benefaciens becomes predominant,
-    reaching 62-66% of consortium composition. This facultatively autotrophic organism bridges the ecological
-    transition from early-stage autotrophy (At. caldus) to late-stage mixotrophy (Ferroplasma). S. benefaciens
+  description: 'During middle-stage reactor operation, Sulfobacillus acidophilus becomes predominant.
+    This facultatively autotrophic organism bridges the ecological
+    transition from early-stage autotrophy (At. caldus) to late-stage mixotrophy (Ferroplasma). S. acidophilus
     oxidizes Fe²⁺ with enhanced efficiency compared to At. caldus while simultaneously utilizing organic
     compounds (cell lysate, molasses, dissolved organics from mineral processing) for heterotrophic growth.
     The mixotrophic metabolism provides competitive advantage when RISC substrates decline but dissolved
     organic carbon increases from cell turnover and concentrate additives. Spore-forming capability confers
-    resilience to fluctuating metal concentrations, pH stress, and nutrient limitation. S. benefaciens
+    resilience to fluctuating metal concentrations, pH stress, and nutrient limitation. S. acidophilus
     maintains robust Fe³⁺ generation during the critical transition period, ensuring continuous copper
     dissolution as conditions become too acidic and Fe³⁺-rich for obligate autotrophs but not yet optimal
     for extreme acidophiles like Ferroplasma.
 
     '
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Sulfobacillus benefaciens
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sulfobacillus acidophilus
     term:
-      id: NCBITaxon:453960
-      label: Sulfobacillus benefaciens
+      id: NCBITaxon:53633
+      label: Sulfobacillus acidophilus
+  source_taxon:
+    preferred_term: Sulfobacillus acidophilus
+    term:
+      id: NCBITaxon:53633
+      label: Sulfobacillus acidophilus
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -529,10 +549,10 @@ ecological_interactions:
     snippet: caldus became the predominant species in the middle stage
     explanation: Quantifies mid-stage dominance and metabolic role
 - name: Late-Stage Extreme Acidophile Iron Oxidation
-  description: 'In late-stage reactor operation (day 20+), Ferroplasma species (F. thermophilum, F. acidiphilum,
-    Ferroplasma sp., Acidiplasma sp.) dominate the consortium, reaching up to 66% abundance. These cell
-    wall-lacking archaea thrive under extreme conditions: pH approaching 1.5, Fe³⁺ concentrations exceeding
-    15 g/L, and elevated dissolved metal concentrations (Cu²⁺, Zn²⁺, Ni²⁺). Ferroplasma oxidizes Fe²⁺
+  description: 'In late-stage reactor operation, Ferroplasma species (F. thermophilum, F. acidiphilum,
+    Ferroplasma sp., Acidiplasma sp.) dominate the consortium. These cell
+    wall-lacking archaea thrive under extreme conditions: low pH and elevated dissolved
+    metal concentrations (Cu²⁺, Zn²⁺, Ni²⁺). Ferroplasma oxidizes Fe²⁺
     using sulfocyanin-based electron transport, distinct from bacterial rusticyanin systems. Facultatively
     aerobic and mixotrophic, these archaea utilize both iron oxidation and accumulated dissolved organic
     matter for energy and carbon. Their extreme metal tolerance (growth at 1000 mM heavy metals) and pleomorphic
@@ -543,17 +563,22 @@ ecological_interactions:
     in industrial reactors.
 
     '
-  interaction_type: CROSS_FEEDING
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
+  - preferred_term: Acidiplasma sp.
+    term:
+      id: NCBITaxon:1872114
+      label: Acidiplasma sp.
   source_taxon:
     preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
-  target_taxon:
-    preferred_term: Acidiplasma sp.
-    term:
-      id: NCBITaxon:1872114
-      label: Acidiplasma sp.
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -563,7 +588,7 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: '>15 g/L in late stages'
+    concentration: Accumulates in late stages
   biological_processes:
   - preferred_term: iron ion transport
     term:
@@ -584,27 +609,31 @@ ecological_interactions:
   description: 'Ferric iron generated by the microbial consortium oxidizes chalcopyrite (CuFeS₂) concentrate,
     releasing copper ions for industrial recovery. The primary reaction is: CuFeS₂ + 4Fe³⁺ → Cu²⁺ + 5Fe²⁺
     + 2S⁰. Operating at 45°C and pH 1.5-2.0, the adapted consortium achieves 60.4% copper extraction from
-    20% pulp density chalcopyrite in 25 days, producing 22.90 g/L dissolved Cu²⁺. This exceptional performance
+    20% pulp density chalcopyrite in 25 days. This exceptional performance
     results from multi-year adaptation through serial subculturing, gradually increasing pulp density
     from 1% to 20%. The released Fe²⁺ is re-oxidized by iron-oxidizing bacteria and archaea, closing the
-    iron cycle. Elemental sulfur (S⁰) is oxidized by At. caldus to sulfuric acid. Higher pulp densities
-    increase metal recovery per batch but reduce daily extraction rates from 15.1% at 1% to <4% at >8%
-    due to metabolic stress and mass transfer limitations. The process operates continuously in industrial
-    reactors or in batch mode with 200 ml/h/L aeration and 200 rpm agitation, demonstrating versatility
-    for commercial applications.
+    iron cycle. Elemental sulfur (S⁰) is oxidized by At. caldus to sulfuric acid.
+    Higher pulp densities increase substrate load and can create metabolic stress
+    and mass transfer limitations; long-term adaptation was required before the
+    mixed culture efficiently leached chalcopyrite at 20% pulp density.
 
     '
-  interaction_type: MUTUALISM
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
+  - preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
   source_taxon:
     preferred_term: Acidithiobacillus caldus
     term:
       id: NCBITaxon:33059
       label: Acidithiobacillus caldus
-  target_taxon:
-    preferred_term: Ferroplasma acidiphilum
-    term:
-      id: NCBITaxon:74969
-      label: Ferroplasma acidiphilum
   metabolites:
   - preferred_term: chalcopyrite
     term:
@@ -615,7 +644,7 @@ ecological_interactions:
     term:
       id: CHEBI:29036
       label: copper(2+)
-    concentration: 22.90 g/L at 60.4% extraction from 20% pulp density
+    concentration: Solubilized during 60.4% copper extraction from 20% pulp density
   - preferred_term: Fe(III)
     term:
       id: CHEBI:29034
@@ -658,6 +687,12 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Cuniculiplasma divulgatum
+    term:
+      id: NCBITaxon:1673428
+      label: Cuniculiplasma divulgatum
   source_taxon:
     preferred_term: Cuniculiplasma divulgatum
     term:
@@ -695,17 +730,22 @@ ecological_interactions:
     densities, organic matter accumulation, and flotation reagent residues, becoming absent above 4% pulp
     density. As the reactor adapts to higher densities through serial subculturing, L. ferriphilum is
     replaced by more tolerant iron oxidizers like Ferroplasma species and Acidiplasma.
-  interaction_type: SYNTROPHY
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
+    term:
+      id: NCBITaxon:178606
+      label: Leptospirillum ferriphilum
+  - preferred_term: Acidithiobacillus caldus
+    term:
+      id: NCBITaxon:33059
+      label: Acidithiobacillus caldus
   source_taxon:
     preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Acidithiobacillus caldus
-    term:
-      id: NCBITaxon:33059
-      label: Acidithiobacillus caldus
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -732,17 +772,22 @@ ecological_interactions:
     carbon. The presence of multiple related species may provide functional redundancy and metabolic diversity,
     enabling the consortium to maintain performance across varying conditions (batch vs. continuous reactors,
     pulp density gradients, pH fluctuations).
-  interaction_type: CROSS_FEEDING
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Ferroplasma sp.
+    term:
+      id: NCBITaxon:2591003
+      label: Ferroplasma sp.
+  - preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
   source_taxon:
     preferred_term: Ferroplasma sp.
     term:
       id: NCBITaxon:2591003
       label: Ferroplasma sp.
-  target_taxon:
-    preferred_term: Ferroplasma acidiphilum
-    term:
-      id: NCBITaxon:74969
-      label: Ferroplasma acidiphilum
   metabolites:
   - preferred_term: Fe(II)
     term:
@@ -753,31 +798,52 @@ ecological_interactions:
   - reference: doi:10.3390/biology12111411
     supports: PARTIAL
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus
-    explanation: Documents Ferroplasma species diversity
-- name: Thermoplasmatales Archaeal Community Structure
-  description: Unclassified Thermoplasmatales archaeon represents additional archaeal diversity beyond
-    characterized Ferroplasma, Acidiplasma, and Cuniculiplasma members. This organism may represent a
-    novel lineage within the order Thermoplasmatales or a strain variant of known species. The Thermoplasmatales
-    archaea collectively dominate late-stage bioreactors, tolerating extreme acidity (pH <1.5), high metal
-    concentrations, and elevated pulp densities that inhibit bacterial members.
-  interaction_type: MUTUALISM
+    snippet: 16S rRNA gene profiling revealed archaea of the family Thermoplasmataceae (Acidiplasma,
+      Ferroplasma, Cuniculiplasma, and A-plasma group)
+    explanation: Documents co-occurring Ferroplasma and related Thermoplasmatales in the studied reactors
+- name: Temperature-Structured A-Plasma and Acidiplasma Populations
+  description: 'A-plasma and Acidiplasma populations respond differently to the reactor temperature
+    regime: Acidiplasma increased from 40°C to 50°C, while A-plasma was more abundant at 45°C. This
+    is an operationally structured community shift, not a demonstrated pairwise niche-partitioning
+    interaction.'
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Thermoplasmatales archaeon
+    term:
+      id: NCBITaxon:2268204
+      label: Thermoplasmatales archaeon
+  - preferred_term: Acidiplasma sp.
+    term:
+      id: NCBITaxon:1872114
+      label: Acidiplasma sp.
   source_taxon:
     preferred_term: Thermoplasmatales archaeon
     term:
       id: NCBITaxon:2268204
       label: Thermoplasmatales archaeon
-  target_taxon:
-    preferred_term: Acidiplasma sp.
+  biological_processes:
+  - preferred_term: response to temperature stimulus
     term:
-      id: NCBITaxon:1872114
-      label: Acidiplasma sp.
+      id: GO:0009266
+      label: response to temperature stimulus
   evidence:
   - reference: doi:10.3390/biology12111411
-    supports: PARTIAL
+    supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Acidithiobacillus
-    explanation: Documents archaeal diversity in adapted consortium
+    snippet: A metagenomic analysis of the studied population made it possible to characterize novel archaea
+      belonging to an uncultivated, poorly-studied group of Thermoplasmatales which potentially plays
+      an important role in the bio-oxidation process
+    explanation: Links the novel A-plasma representative to the biooxidation process
+  - reference: doi:10.3390/biology12111411
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Elevating the temperature from 40 °C to 50 °C resulted in increases in the shares
+      of Acidiplasma and Sulfobacillus and decreases in the relative abundances of Ferroplasma,
+      Leptospirillum, and Acidithiobacillus, while Cuniculiplasma and A-plasma were more abundant
+      at 45 °C.
+    explanation: Documents temperature partitioning between Acidiplasma and A-plasma in the
+      biooxidation reactors
 environmental_factors:
 - name: Moderate Thermophilic Temperature Range
   value: 40-50
@@ -808,15 +874,15 @@ environmental_factors:
       due to an increase in the temperature
     explanation: Documents temperature gradient experimental design
 - name: Extreme Acidity and pH Succession
-  value: 1.5-2.0 (final); 3.79 (initial)
+  value: low pH
   unit: pH units
-  description: 'Reactor pH undergoes dramatic decline from initial ~3.79 to final <2.0 as microbial sulfur
-    oxidation generates sulfuric acid. Early stages (pH >2) favor At. caldus dominance, while late stages
-    (pH 1.5-1.8) favor Ferroplasma and Acidiplasma. The pH gradient structures community composition through
+  description: 'Reactor pH can decline as microbial sulfur
+    oxidation generates sulfuric acid. Early stages favor At. caldus dominance, while late stages
+    favor Ferroplasma and Acidiplasma. The pH gradient structures community composition through
     differential acid tolerance, with successive waves of specialists adapted to progressively more extreme
     acidity. Extremely low pH (1.5-2.0) prevents metal hydroxide precipitation, maintains Fe³⁺ solubility,
     protonates mineral surfaces for enhanced oxidant attack, and creates selective pressure excluding
-    non-acidophiles. pH is controlled by balance between sulfuric acid generation (At. caldus, S. benefaciens)
+    non-acidophiles. pH is controlled by balance between sulfuric acid generation (At. caldus, S. acidophilus)
     and acid consumption by mineral dissolution and Fe²⁺ oxidation.
 
     '
@@ -836,9 +902,8 @@ environmental_factors:
     (1-4%) support robust growth of all consortium members including sensitive L. ferriphilum. Above 4%,
     organic matter accumulation, flotation reagent residues, and elevated metal concentrations eliminate
     L. ferriphilum while selecting for tolerant Ferroplasma, Acidiplasma, Sulfobacillus, and At. caldus.
-    At 20% pulp density, adapted culture achieves 60.4% copper extraction in 25 days but with reduced
-    daily rates (<4% vs 15.1% at 1%) due to mass transfer limitations, substrate accessibility constraints,
-    and metabolic stress. High pulp density operations maximize metal recovery per batch, critical for
+    At 20% pulp density, the adapted culture achieved 60.4% copper extraction in 25 days.
+    High pulp density operations maximize metal recovery per batch, critical for
     industrial economics, but require adapted consortia with evolved tolerance to toxic organics and metals.
 
     '
@@ -855,27 +920,16 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: L. ferriphilum could not be detected when the pulp density was greater than 4%
     explanation: Identifies pulp density threshold beyond which L. ferriphilum is lost.
-- name: Aeration and CO2 Enrichment
-  value: 200 ml/h/L with 1% CO2
-  unit: ml/h/L
-  description: 'High aeration rate (200 ml/h/L) supplies oxygen as terminal electron acceptor for iron
-    and sulfur oxidation by chemolithoautotrophs. Oxygen consumption rates are substantial due to Fe²⁺
-    oxidation (4Fe²⁺ + O₂ + 4H⁺ → 4Fe³⁺ + 2H₂O) and sulfur oxidation (S⁰ + 1.5O₂ + H₂O → H₂SO₄). CO₂ enrichment
-    (1% in air) provides inorganic carbon for autotrophic fixation via Calvin cycle (At. caldus) and reductive
-    TCA cycle variants, reducing requirements for organic carbon supplements. Adequate aeration prevents
-    oxygen limitation in dense chalcopyrite pulps (20% w/v) where diffusion constraints can create anoxic
-    zones. Continuous gas flow also strips volatile sulfur compounds and regulates dissolved CO₂ concentration
-    for optimal autotrophic growth.
+- name: CO2 Enrichment
+  value: additional carbon dioxide
+  unit: qualitative
+  description: 'Additional carbon dioxide altered bio-oxidation performance in
+    temperature-dependent fashion in the 2023 pyrite-arsenopyrite reactors:
+    it did not affect bio-oxidation efficiency at 40 °C, but improved performance
+    at 45 and 50 °C and helped avoid temperature-associated inhibition.
 
     '
   evidence:
-  - reference: PMID:24242252
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Thereafter, these samples were combined and then inoculated into a basal salts solution in
-      which different substrates (ferrous sulfate, elemental sulfur, and chalcopyrite) served as energy
-      sources
-    explanation: Quantifies aeration conditions
   - reference: doi:10.3390/biology12111411
     supports: SUPPORT
     evidence_source: IN_VIVO
@@ -909,19 +963,16 @@ environmental_factors:
     snippet: The results show that the culture consisted mainly of four species, including Leptospirillum
       ferriphilum, Acidithiobacillus caldus, Sulfobacillus acidophilus, and Ferroplasma thermophilum,
       before adapting to a pulp density of 4%
-    explanation: Demonstrates organic carbon utilization by late-stage dominants
+    explanation: Documents the four-member acidophile consortium before high-pulp-density adaptation.
 - name: Reactor Configuration and Operational Mode
-  value: Batch and continuous modes
+  value: bioreactor operating mode
   unit: qualitative
-  description: 'Comparative analysis across batch versus continuous reactor operations reveals distinct
-    population dynamics under identical temperature and carbon source conditions. Batch mode (shake flasks,
-    200 rpm agitation) exhibits temporal succession with clear early/mid/late stage dominance patterns
-    (At. caldus → Sulfobacillus → Ferroplasma). Continuous mode with controlled retention time maintains
-    steady-state populations or promotes different competitive outcomes based on washout kinetics. Slow-growing
-    obligate autotrophs may be washed out in short retention times, favoring faster-growing mixotrophs.
-    Industrial reactors utilize stirred-tank configurations with 60 L/h aeration and controlled pH, temperature,
-    and feed rate. Understanding operational mode effects on microbial ecology optimizes reactor design
-    for maximum copper recovery and stable long-term performance.
+  description: 'The mode of bioreactor operation was varied along with temperature
+    and carbon source in the 2023 pyrite-arsenopyrite bio-oxidation study, but
+    temperature influenced community composition more strongly than operating
+    mode or additional carbon sources. Understanding operational mode effects
+    on microbial ecology optimizes reactor design for maximum metal recovery
+    and stable long-term performance.
 
     '
   evidence:
@@ -936,15 +987,15 @@ environmental_factors:
     evidence_source: IN_VITRO
     snippet: After that, the mixed cultures growing on different substrates were pooled equally, resulting
       in a final mixed culture
-    explanation: Quantifies batch operational parameters
+    explanation: Documents the pooled enrichment that was used for serial adaptation.
 - name: Leaching Time and Succession Phases
   value: 0-25+ days with distinct phases
   unit: days
-  description: 'Bioleaching timecourse exhibits distinct operational phases: pre-oxidation/lag (days 0-5),
-    exponential copper extraction (days 5-20), and stationary (days 20-25+). Early phase (day 5) shows
-    At. caldus dominance (~60%), mid-phase (days 10-15) Sulfobacillus dominance (62-66%), and late phase
-    (day 20+) Ferroplasma dominance (66%). Copper extraction rate is highest early (15.1% daily at 1%
-    pulp) and declines with time and pulp density (<4% daily at >8% pulp). Total extraction reaches 60.4%
+  description: 'Bioleaching timecourses exhibit distinct operational phases.
+    In the 20% pulp-density chalcopyrite culture, A. caldus was predominant
+    initially, S. acidophilus rather than A. caldus was predominant in the
+    middle stage, and F. thermophilum accounted for the greatest proportion in
+    the final stage. Total extraction reached 60.4%
     at 25 days for 20% pulp density. Extended operation enables continued metal recovery as long as Fe³⁺
     generation and acid production are sustained. The predictable succession pattern enables process optimization
     through targeted bioaugmentation or operational parameter adjustments (pH, temperature, aeration)
@@ -959,24 +1010,16 @@ environmental_factors:
       ferriphilum, Acidithiobacillus caldus, Sulfobacillus acidophilus, and Ferroplasma thermophilum,
       before adapting to a pulp density of 4%
     explanation: Quantifies temporal succession and copper extraction timeline
-  - reference: doi:10.3390/biology12111411
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: At the same time, the application of additional carbon dioxide improved the bio-oxidation
-      performance at temperatures of 45 and 50 °C and made it possible to avoid the inhibition of bio-oxidation
-      due to an increase in the temperature
-    explanation: Documents sampling of operational phase transitions
 - name: Ferric Iron Concentration Gradient
-  value: '>15 g/L in late stages'
+  value: ferric iron accumulation
   unit: g/L
-  description: 'Fe³⁺ concentration increases progressively during reactor operation as iron oxidizers
-    accumulate ferric iron from continuous Fe²⁺ oxidation. Late-stage reactors reach >15 g/L Fe³⁺, creating
-    conditions favoring extreme acidophiles Ferroplasma and Acidiplasma over less acid-tolerant At. caldus
+  description: 'Fe³⁺ concentration increases during reactor operation as iron oxidizers
+    accumulate ferric iron from continuous Fe²⁺ oxidation. Late-stage chemical conditions favor
+    extreme acidophiles Ferroplasma and Acidiplasma over less acid-tolerant At. caldus
     and Sulfobacillus. High Fe³⁺ is essential for sustained chalcopyrite oxidation but creates toxicity
     stress for some organisms. The Fe³⁺/Fe²⁺ ratio influences redox potential, microbial energetics, and
-    competitive outcomes. Continuous reactors may maintain intermediate Fe³⁺ through controlled feed rate
-    and retention time, while batch systems accumulate Fe³⁺ to high levels. Industrial operations balance
-    Fe³⁺ concentration to optimize both microbial activity and mineral dissolution kinetics.
+    competitive outcomes. Industrial operations balance Fe³⁺ concentration to optimize both
+    microbial activity and mineral dissolution kinetics.
 
     '
   evidence:
@@ -1089,75 +1132,43 @@ metal_relevance: PRIMARY
 metal_notes: Metal/REE detected via CHEBI terms in metabolites; Metal/REE detected via environmental factor
   measurements; Metal/REE detected via keyword matching in description (context-validated)
 growth_media:
-- name: basal salts solution (moderately thermophilic acidophile medium)
-  ph: '2.0'
-  temperature: '45'
-  temperature_unit: °C
-  atmosphere: AEROBIC
-  shaking_speed: '200'
-  shaking_speed_unit: rpm
-  inoculum_size: 1 × 10^9
-  inoculum_unit: cells/mL
-  incubation_time: '5-28'
-  incubation_time_unit: d
-  vessel_type: 500-ml batch shake flask (low pulp density) / 8-L stirred tank reactor
-    (high pulp density)
-  preparation_notes: 'Basal salts solution ((NH4)2SO4 3 g/L, KCl 0.1 g/L, K2HPO4 0.5
-    g/L, MgSO4·7H2O 0.5 g/L, Ca(NO3)2 0.01 g/L), pH adjusted to 2.0 with 9 M sulfuric
-    acid; ferrous sulfate, elemental sulfur, and chalcopyrite supplied as energy sources;
-    reactor aerated at 200 ml/h/L; culture adapted to 20% (wt/vol) chalcopyrite pulp
-    density by serial subculturing over >2 years.'
+- name: basal salts solution with bioleaching energy sources
+  preparation_notes: >
+    Mixed environmental samples were enriched in basal salts solution with
+    ferrous sulfate, elemental sulfur, or chalcopyrite as energy sources; the
+    substrate-grown cultures were pooled into a final mixed culture before
+    serial adaptation to gradually increasing chalcopyrite pulp density.
   evidence:
   - reference: PMID:24242252
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: All four media consisted of a basal salts solution containing (NH4)2SO4
-      (3 g/liter), KCl (0.1 g/liter), K2HPO4 (0.5 g/liter), MgSO4·7H2O (0.5 g/liter),
-      and Ca(NO3)2 (0.01 g/liter).
-    explanation: Names the basal salts medium composition used to cultivate the consortium.
+    snippet: inoculated into a basal salts solution in which different substrates
+      (ferrous sulfate, elemental sulfur, and chalcopyrite) served as energy sources
+    explanation: Establishes the basal salts solution and inorganic energy
+      sources used for initial enrichment.
   - reference: PMID:24242252
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The pH of the solution was adjusted to 2.0 with 9 M sulfuric acid.
-    explanation: Medium pH was set to 2.0.
-  - reference: PMID:24242252
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 'work volume, 8 liters; pulp density, 20% (wt/vol); agitation rate, 200
-      rpm; temperature, 45°C; airflow, 200 ml/h/liter; inoculum size, 80 ml.'
-    explanation: Gives 45°C, 200 rpm agitation, aeration, and inoculum for the 20% pulp-density
-      reactor.
-  - reference: PMID:24242252
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Depending on the pulp density, the duration of incubation of each subculture
-      ranged from 5 to 28 days.
-    explanation: Incubation duration ranged 5 to 28 days depending on pulp density.
+    snippet: the mixed cultures growing on different substrates were pooled equally,
+      resulting in a final mixed culture
+    explanation: Shows that substrate-adapted enrichments were pooled before
+      high-pulp-density adaptation.
 cultivation_setup:
-- cultivation_mode: BATCH
-  system_type: STIRRED_TANK_BIOREACTOR
-  working_volume: 8.0
-  working_volume_unit: L
-  operating_temperature: 45.0
-  operating_temperature_unit: °C
-  instrument_detail: 8-L stirred tank reactor operated at 20% pulp density, 200 rpm
-    agitation, 200 ml/h/L airflow; low-pulp-density (<6%) adaptation performed in 500-ml
-    batch shake flasks.
-  notes: High-pulp-density (>6%) bioleaching was performed in a stirred tank reactor;
-    the culture was adapted to 20% (wt/vol) chalcopyrite by batch serial subculturing.
+- notes: >
+    The pooled mixed culture was serially subcultured against gradually
+    increasing chalcopyrite concentrate pulp density for more than two years
+    until it could leach chalcopyrite efficiently at 20% (wt/vol) pulp density.
   evidence:
   - reference: PMID:24242252
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The adaptation experiments were carried out in a 500-ml batch shake flask
-      containing 150 ml medium at low (<6%) pulp density or in a stirred tank reactor
-      at high (>6%) pulp density
-    explanation: Establishes batch shake flask (low density) and stirred tank reactor
-      (high density) as the cultivation systems.
+    snippet: adapted to gradually increasing pulp densities of chalcopyrite concentrate
+      by serial subculturing for more than 2 years
+    explanation: Establishes serial subculturing as the long-term adaptation
+      approach.
   - reference: PMID:24242252
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'work volume, 8 liters; pulp density, 20% (wt/vol); agitation rate, 200
-      rpm; temperature, 45°C; airflow, 200 ml/h/liter; inoculum size, 80 ml.'
-    explanation: Gives the stirred tank reactor working volume (8 L) and 45°C operating
-      temperature.
+    snippet: efficiently leach the chalcopyrite at a pulp density of 20% (wt/vol)
+    explanation: Establishes the high-pulp-density endpoint of the adaptation
+      campaign.

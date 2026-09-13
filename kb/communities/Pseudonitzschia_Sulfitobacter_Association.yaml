@@ -1,10 +1,10 @@
 id: CommunityMech:000056
 name: Pseudo-nitzschia-Sulfitobacter Marine Association
 description: 'A mutualistic marine diatom-bacteria association between Pseudo-nitzschia multiseries and
-  Sulfitobacter sp. SA11, mediated by auxin and tryptophan signaling. The diatom produces tryptophan and
-  taurine, which the bacterium uses to synthesize indole-3-acetic acid (IAA) auxin that promotes diatom
-  growth. The bacterium also secretes ammonia as a nitrogen source. This interaction is widespread in
-  ocean ecosystems and plays a significant role in carbon cycling and primary production.
+  Sulfitobacter sp. SA11, mediated by auxin and tryptophan signaling. The bacterium synthesizes the
+  auxin indole-3-acetic acid (IAA) from diatom-secreted and endogenous tryptophan, promoting diatom
+  cell division as part of a complex nutrient exchange that also includes diatom organosulfur compounds
+  and bacterial ammonia.
 
   '
 ecological_state: STABLE
@@ -41,61 +41,62 @@ taxonomy:
   functional_role:
   - SYNTROPHIC_PARTNER
   evidence:
-  - reference: PMID:25278561
+  - reference: PMID:30228381
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: 16S rRNA gene sequence comparison showed that strain H3(T) was related most closely to Sulfitobacter
-      donghicola DSW-25(T) (97.3% similarity) and levels of similarity with other species of the genus
-      Sulfitobacter were 95.1-96.9%
+    evidence_source: OTHER
+    snippet: a Sulfitobacter species named SA11
+    explanation: >
+      Names Sulfitobacter sp. SA11 as a Pseudo-nitzschia symbiont described in
+      the Amin et al. 2015 study.
 ecological_interactions:
-- name: Tryptophan Biosynthesis and Secretion
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudo-nitzschia multiseries
-    term:
-      id: NCBITaxon:37319
-      label: Pseudo-nitzschia multiseries
-  metabolites:
-  - preferred_term: tryptophan
-    term:
-      id: CHEBI:16828
-      label: L-tryptophan
-  - preferred_term: taurine
-    term:
-      id: CHEBI:15891
-      label: taurine
+- name: Diatom-Associated Bacterial Consortium Resolution
+  description: >
+    The Pseudo-nitzschia study decomposed a diatom-associated bacterial
+    consortium to identify a Sulfitobacter species that participates in a
+    nutrient and signaling exchange with the phytoplankton host.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
   biological_processes:
-  - preferred_term: tryptophan biosynthetic process
+  - preferred_term: interspecies interaction
     term:
-      id: GO:0000162
-      label: L-tryptophan biosynthetic process
-  - preferred_term: photosynthesis
-    term:
-      id: GO:0015979
-      label: photosynthesis
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   downstream:
-  - target: IAA Biosynthesis and Growth Promotion
+  - target: Tryptophan-Supported Sulfitobacter IAA Synthesis
+    description: >
+      Teasing apart the associated bacterial consortium identified a
+      Sulfitobacter-mediated auxin mechanism tied to bacterial tryptophan use.
   evidence:
-  - reference: PMID:25278561
+  - reference: PMID:26017307
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Growth was observed at NaCl concentrations of 1-9%, pH 6-12 and 10-37 °C
-- name: IAA Biosynthesis and Growth Promotion
+    snippet: >
+      Here we tease apart a bacterial consortium associated with a globally
+      distributed diatom
+    explanation: >
+      Supports resolving the diatom-associated bacterial consortium into
+      interaction mechanisms.
+- name: Tryptophan-Supported Sulfitobacter IAA Synthesis
+  description: >
+    Sulfitobacter synthesizes indole-3-acetic acid using tryptophan supplied
+    both by Pseudo-nitzschia and by endogenous bacterial metabolism.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Sulfitobacter sp. SA11
     term:
       id: NCBITaxon:1546519
       label: Sulfitobacter sp. SA11
+  target_taxon:
+    preferred_term: Pseudo-nitzschia multiseries
+    term:
+      id: NCBITaxon:37319
+      label: Pseudo-nitzschia multiseries
   metabolites:
   - preferred_term: indole-3-acetic acid
     term:
       id: CHEBI:16411
       label: indole-3-acetic acid
-  - preferred_term: ammonia
-    term:
-      id: CHEBI:16134
-      label: ammonia
   - preferred_term: tryptophan
     term:
       id: CHEBI:16828
@@ -113,13 +114,131 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Auxin-Mediated Diatom Cell Division
+    description: >
+      Bacterial indole-3-acetic acid secretion was the hormone signal that
+      promoted Pseudo-nitzschia cell division.
   evidence:
-  - reference: PMID:25278561
+  - reference: PMID:26017307
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 16S rRNA gene sequence comparison showed that strain H3(T) was related most closely to Sulfitobacter
-      donghicola DSW-25(T) (97.3% similarity) and levels of similarity with other species of the genus
-      Sulfitobacter were 95.1-96.9%
+    snippet: >
+      indole-3-acetic acid, synthesized by the bacterium using both
+      diatom-secreted and endogenous tryptophan
+    explanation: >
+      Supports bacterial IAA biosynthesis from both diatom-secreted and
+      endogenous tryptophan.
+- name: Auxin-Mediated Diatom Cell Division
+  description: >
+    Sulfitobacter-secreted indole-3-acetic acid promoted Pseudo-nitzschia cell
+    division, establishing auxin as a growth-promoting bacterial signal in this
+    diatom association.
+  interaction_type: MUTUALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Sulfitobacter sp. SA11
+    term:
+      id: NCBITaxon:1546519
+      label: Sulfitobacter sp. SA11
+  target_taxon:
+    preferred_term: Pseudo-nitzschia multiseries
+    term:
+      id: NCBITaxon:37319
+      label: Pseudo-nitzschia multiseries
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: response to auxin
+    term:
+      id: GO:0009733
+      label: response to auxin
+  downstream:
+  - target: Infochemical Nutrient Exchange
+    description: >
+      IAA-promoted diatom cell division occurred inside a wider exchange of
+      signaling molecules and nutrients between the partners.
+  evidence:
+  - reference: PMID:26017307
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      a Sulfitobacter species promotes diatom cell division via secretion of
+      the hormone indole-3-acetic acid
+    explanation: >
+      Supports IAA secretion as the Sulfitobacter-mediated cue promoting
+      diatom cell division.
+- name: Infochemical Nutrient Exchange
+  description: >
+    Indole-3-acetic acid and tryptophan functioned as signaling molecules
+    within a nutrient exchange that included diatom organosulfur compounds and
+    bacterial-excreted ammonia.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+  - preferred_term: tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+  biological_processes:
+  - preferred_term: interspecies interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Coastal Sulfitobacter IAA Prevalence
+    description: >
+      The model interaction motivated environmental metabolite and
+      metatranscriptome analyses of IAA production by Sulfitobacter-related
+      bacteria.
+  evidence:
+  - reference: PMID:26017307
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Indole-3-acetic acid and tryptophan serve as signalling molecules that
+      are part of a complex exchange of nutrients, including diatom-excreted
+      organosulfur molecules and bacterial-excreted ammonia
+    explanation: >
+      Supports IAA and tryptophan signaling inside a broader nutrient exchange.
+- name: Coastal Sulfitobacter IAA Prevalence
+  description: >
+    Metabolite and metatranscriptome analyses detected widespread
+    indole-3-acetic acid production by Sulfitobacter-related bacteria,
+    especially in coastal environments.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indoleacetic acid biosynthetic process
+  evidence:
+  - reference: PMID:26017307
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >
+      widespread indole-3-acetic acid production by Sulfitobacter-related
+      bacteria, particularly in coastal environments
+    explanation: >
+      Supports environmental prevalence of Sulfitobacter-related bacterial IAA
+      production.
 environmental_factors:
 - name: Auxin signaling
   value: widespread
@@ -127,17 +246,32 @@ environmental_factors:
     these interactions are widespread in marine ecosystems
 
     '
+  evidence:
+  - reference: PMID:26017307
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >
+      metabolite and metatranscriptome analyses that show widespread
+      indole-3-acetic acid production by Sulfitobacter-related bacteria
+    explanation: >
+      Supports IAA detection and transcript evidence for widespread auxin
+      biosynthesis in Sulfitobacter-related bacteria.
 - name: Nutrient exchange
   value: bidirectional
   description: 'The diatom and bacterium use auxin and tryptophan as signaling molecules that drive nutrient
     exchange, including ammonia provision by the bacterium
 
     '
-- name: Species-specificity
-  value: high
-  description: 'The beneficial effect of Sulfitobacter on diatom growth is both species-specific and strain-specific
-
-    '
+  evidence:
+  - reference: PMID:26017307
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Indole-3-acetic acid and tryptophan serve as signalling molecules that
+      are part of a complex exchange of nutrients
+    explanation: >
+      Supports bidirectional signaling and nutrient exchange in the
+      Pseudo-nitzschia/Sulfitobacter association.
 growth_media:
 - name: f/2 medium with silicate for Pseudo-nitzschia cultivation
   ph: '8.0'

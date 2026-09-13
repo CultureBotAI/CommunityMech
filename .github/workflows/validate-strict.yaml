@@ -1,57 +1,38 @@
 name: validate-strict
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths: &trigger_paths
-      - "kb/communities/**"
-      # A prompt-only edit is the one change class that can breach the /goal size
-      # budget, and it matched no workflow filter — so the guard added in #358
-      # would not have run on it. Same shape as the data/isolates gap below.
-      - "prompts/**"
-      # Provider ranking is executable configuration covered by pytest. A
-      # config-only PR must run the same tests as its Python implementation.
-      - "conf/deep_research_provider.yaml"
-      # data/isolates carries CommunityMech ids too. It was outside every
-      # workflow's paths filter, which is half of why four ids ended up used
-      # twice (#310) — editing an isolate has to re-run the uniqueness gate.
-      - "data/isolates/**"
-      # kb/taxa carries CommunityMech:taxon:* ids for exactly the same reason,
-      # and `test_id_uniqueness.py` reads it — as do 7 other test modules. It was
-      # in no workflow's filter at all, so none of them ran when a taxon record
-      # changed (#471). The isolates note above describes this defect one
-      # directory over; this is the directory it was still true of.
-      - "kb/taxa/**"
-      # .claude/ was the third instance of the defect the two notes above
-      # describe. `tests/test_skill_frontmatter.py` reads .claude/skills and
-      # .claude/commands, but neither was in any workflow's filter, so a
-      # skill-only PR ran exactly one check — vendored-sync, which is
-      # deliberately unfiltered and runs no pytest (#687). The trigger guard in
-      # tests/test_ci_triggers_cover_what_the_gates_read.py is scoped to
-      # DATA_ROOTS and is blind to a non-data directory.
-      - ".claude/skills/**"
-      - ".claude/commands/**"
-      - "src/communitymech/schema/**"
-      - "src/communitymech/**/*.py"
-      - "scripts/**/*.py"
-      - "tests/**/*.py"
-      - "justfile"
-      - "pyproject.toml"
-      - "uv.lock"
-      # Every workflow file, not just this one. Six test modules READ these
-      # files -- the CI-trigger guard, the generated-input guard, the cache-key
-      # guard, the justfile-trigger guard -- so a workflow is a data surface
-      # this lane checks. #731 changed only label-correspondence.yaml, that
-      # matched no path here, the suite never ran, and three tests broke on main
-      # unnoticed. Same shape as #717, one level up: there the gate did not
-      # trigger on its own recipe, here it did not trigger on its own subject.
-      - ".github/workflows/**"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - kb/communities/**
+    - prompts/**
+    - conf/deep_research_provider.yaml
+    - data/isolates/**
+    - kb/taxa/**
+    - .claude/skills/**
+    - .claude/commands/**
+    - src/communitymech/schema/**
+    - src/communitymech/**/*.py
+    - scripts/**/*.py
+    - tests/**/*.py
+    - justfile
+    - pyproject.toml
+    - uv.lock
+    - .python-version
+    - .github/workflows/**
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   validate-strict:
@@ -64,7 +45,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0
@@ -126,53 +107,3 @@ jobs:
             reports/instance_validation_failures.tsv
             reports/pipeline_writers_audit.tsv
           if-no-files-found: warn
-
-  # The primary gate above stays on the minimum supported Python because it also
-  # runs the expensive corpus validators. This lane runs the complete test suite
-  # on a modern interpreter without doubling those sweeps (#667).
-  python-compatibility:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      # The full suite includes repository-contract tests that inspect recipes
-      # through `just --show`; keep this lane equivalent to validate-strict.
-      - uses: extractions/setup-just@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-
-      - name: Install uv
-        # setup-uv v9.0.0
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9
-        with:
-          version: "0.12.5"
-          enable-cache: true
-
-      - name: Install dependencies
-        run: uv sync --frozen --all-extras
-
-      # Same reasoning as the lane above: this one runs the suite too (#704).
-      # The month stamp is the whole point. With a FIXED key the post-step says
-      # "Cache hit occurred on the primary key oaklib-Linux-v1, not saving
-      # cache" -- verbatim, in every run -- so whatever was first stored is
-      # frozen for good and no later download can ever reach the cache (#707).
-      # A rotating primary key with a prefix restore-key keeps the hit rate
-      # (each month restores the previous month's copy as its base) while
-      # letting the entry be re-saved with anything newly fetched.
-      - name: Ontology cache stamp
-        id: oak-cache-stamp
-        run: echo "month=$(date -u +%Y-%m)" >> "$GITHUB_OUTPUT"
-
-      - name: Cache OAK ontologies
-        uses: actions/cache@v4
-        with:
-          path: ~/.data/oaklib
-          key: oaklib-${{ runner.os }}-${{ steps.oak-cache-stamp.outputs.month }}
-          restore-keys: |
-            oaklib-${{ runner.os }}-
-
-      - name: Run tests
-        run: uv run pytest tests/ -q --no-cov

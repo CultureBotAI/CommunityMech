@@ -73,13 +73,207 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Successional Periphyton Biofilm Assembly
-  description: Phototrophic species assemble into a diverse, stable, reproducible biofilm with trackable
-    species dynamics.
+- name: EPS-Conditioned Colonization Surface
+  description: >
+    Sphingomonas elodea was used to coat the glass growth chambers with an
+    extracellular-polymeric-substance layer that enabled subsequently inoculated
+    phototrophs to attach during staged periphyton assembly.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Growth-Balanced Phototroph Grouping
+    description: >
+      The EPS-conditioned substrate was the attachment context for the selected
+      phototrophs that were sorted into staged inoculation groups.
+  evidence:
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Groups were added sequentially onto growth chambers covered with the
+      EPS-producing bacteria Sphingomonas elodea
+    explanation: >
+      Supports using Sphingomonas-conditioned growth chambers as the surface for
+      sequential periphyton assembly.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      This bacterium provided a solid and sticky attachment layer for the
+      subsequently introduced phototrophic species
+    explanation: >
+      Supports the EPS matrix as a colonization aid for later phototrophic
+      members.
+- name: Growth-Balanced Phototroph Grouping
+  description: >
+    Twenty-six freshwater phototrophs were divided into successional groups and
+    given cell densities that compensated for each species' suspension growth
+    rate and final biomass, limiting dominance by fast high-biomass members.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Four-Day Pioneer-Diatom Colonization
+    description: >
+      The group design produced an initial low-profile diatom inoculum that was
+      given an empirically chosen four-day surface-colonization window.
   evidence:
   - *id001
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The selected species were then assigned to three groups
+    explanation: >
+      Supports the division of the phototrophic SynCom members into staged
+      groups.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      we added the least number of cells for species that grew fast and reached
+      high biomasses
+    explanation: >
+      Supports balancing the starting inoculum against single-species growth
+      behavior.
+- name: Four-Day Pioneer-Diatom Colonization
+  description: >
+    Group A low-profile pioneer diatoms colonized the EPS-covered substrate for
+    four days, attaching to the glass surface while leaving most of the chamber
+    area available for subsequent high-profile and motile phototrophs.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Fourteen-Day High-Profile Diatom Colonization
+    description: >
+      The four-day group A foundation enabled the next diatom group to be added
+      onto an attached pioneer biofilm.
+  evidence:
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      we selected 4 days as the optimal colonization duration for group A
+    explanation: >
+      Supports four days as the experimentally selected group A colonization
+      duration.
+- name: Fourteen-Day High-Profile Diatom Colonization
+  description: >
+    Group B high-profile diatoms were layered onto the four-day group A biofilm
+    for another fourteen days, expanding surface coverage and structural
+    maturity before the final group was introduced.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: Thirty-Day ABC Periphyton Maturity
+    description: >
+      Fourteen days of group B development set the eighteen-day handoff point
+      for adding group C and completing the mature ABC periphyton.
+  evidence:
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      14 days is the optimal colonization duration for group B, when added on
+      top of group A
+    explanation: >
+      Supports the experimentally chosen group B colonization interval.
+- name: Thirty-Day ABC Periphyton Maturity
+  description: >
+    After group C was added to the eighteen-day AB biofilm, a final twelve-day
+    colonization interval generated a stable thirty-day benthic periphyton with
+    broad surface attachment and high photosystem II quantum yield.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  - preferred_term: photosynthesis, light reaction
+    term:
+      id: GO:0019684
+      label: photosynthesis, light reaction
+  downstream:
+  - target: Reproducible 3D Biofilm Stressor Response
+    description: >
+      The assembled ABC biofilm was reproducible enough for single-species and
+      whole-community responses to be measured under herbicide and warming
+      stressors.
+  evidence:
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Twelve days after group C was added, most of the cells were attached to
+      the colonization surface
+    explanation: >
+      Supports group C as the final colonization stage after the eighteen-day
+      AB biofilm.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      we obtained a stable benthic community after a total colonization
+      duration of 30 days
+    explanation: >
+      Supports the thirty-day endpoint as mature synthetic periphyton.
+- name: Reproducible 3D Biofilm Stressor Response
+  description: >
+    The mature synthetic periphyton produced reproducible microbial
+    composition, photosystem-II activity, and three-dimensional biofilm
+    structure, allowing species-resolved responses to terbuthylazine and
+    warming to be measured across the whole consortium.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  - preferred_term: photosynthesis, light reaction
+    term:
+      id: GO:0019684
+      label: photosynthesis, light reaction
+  evidence:
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      we were able to obtain a reproducible and diverse synthetic community
+    explanation: >
+      Supports the reproducibility and diversity of the assembled synthetic
+      periphyton.
+  - reference: PMID:35869094
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      increased temperature and exposure to the herbicide terbuthylazine
+      affected negatively the 3D-structure and biomass but not the PSII quantum
+      yield
+    explanation: >
+      Supports the use of the mature community to resolve whole-biofilm
+      structural and photosystem-II responses to warming and herbicide
+      perturbations.
 environmental_factors:
 - name: successional inoculation on glass slides
   value: Phototrophic species were inoculated sequentially to construct a synthetic periphytic biofilm.
@@ -106,7 +300,7 @@ growth_media:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: to grow in the same freshwater medium COMBO (see Supplementary Table 2 for the detailed
-      composition) 77 at 17 °C and photon irradiance of 40 to 60 µmol s −1
+      composition) 77 at 17 °C and photon irradiance of 40 to 60 µmol s−1
     explanation: Names COMBO medium, 17 °C, and 40-60 µmol s-1 photon irradiance for the phototrophic
       community.
   - reference: PMID:35869094

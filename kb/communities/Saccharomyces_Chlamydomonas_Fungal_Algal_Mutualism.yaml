@@ -10,8 +10,11 @@ ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOTECHNOLOGY
 engineering_design:
-  objective: Engineer a tractable two-species fungal-algal mutualism by imposing reciprocal carbon and nitrogen dependencies between model eukaryotes.
-  assembly_strategy: Pair S. cerevisiae with C. reinhardtii in sealed illuminated cocultures containing glucose and oxidized nitrogen sources so that each partner supplies a limiting metabolite to the other.
+  objective: Engineer a tractable two-species fungal-algal mutualism by imposing reciprocal carbon and
+    nitrogen dependencies between model eukaryotes.
+  assembly_strategy: Pair S. cerevisiae with C. reinhardtii in sealed illuminated cocultures containing
+    glucose and oxidized nitrogen sources so that each partner supplies a limiting metabolite to the
+    other.
   measurement_endpoints:
   - yeast and algal cell density
   - coculture productivity
@@ -57,8 +60,10 @@ taxonomy:
   - CROSS_FEEDER
 ecological_interactions:
 - name: Yeast Carbon Dioxide Provisioning
-  description: S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated photosynthetically by C. reinhardtii under carbon-limited coculture conditions.
+  description: S. cerevisiae metabolizes glucose and releases carbon dioxide that is assimilated
+    photosynthetically by C. reinhardtii under carbon-limited coculture conditions.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae
     term:
@@ -87,9 +92,16 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Algal Reduced Nitrogen Provisioning
+    description: Yeast-derived carbon dioxide is fixed photosynthetically by
+      C. reinhardtii, sustaining the algal partner that reduces nitrite to
+      ammonia for S. cerevisiae.
 - name: Algal Oxygen Provisioning
-  description: C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in the sealed coculture.
+  description: C. reinhardtii releases photosynthetic oxygen that supports aerobic yeast metabolism in
+    the sealed coculture.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlamydomonas reinhardtii
     term:
@@ -111,8 +123,10 @@ ecological_interactions:
       id: GO:0015979
       label: photosynthesis
 - name: Algal Reduced Nitrogen Provisioning
-  description: C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that supports S. cerevisiae growth.
+  description: C. reinhardtii metabolizes nitrite and releases ammonia, providing reduced nitrogen that
+    supports S. cerevisiae growth.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlamydomonas reinhardtii
     term:
@@ -137,11 +151,18 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Yeast Carbon Dioxide Provisioning
+    description: Algal reduction of nitrite to ammonia supplies the nitrogen
+      source that lets S. cerevisiae proliferate and keep producing carbon
+      dioxide from glucose.
 environmental_factors:
 - name: atmospheric carbon dioxide exclusion
-  description: Preventing access to atmospheric carbon dioxide makes the alga depend on yeast-derived carbon dioxide and helps force obligate mutualism.
+  description: Preventing access to atmospheric carbon dioxide makes the alga depend on yeast-derived
+    carbon dioxide and helps force obligate mutualism.
 - name: glucose and nitrite availability
-  description: Glucose and nitrite availability define the reciprocal carbon and nitrogen exchange environment; omitting either substrate prevents the designed mutualism.
+  description: Glucose and nitrite availability define the reciprocal carbon and nitrogen exchange
+    environment; omitting either substrate prevents the designed mutualism.
 related_ingredients:
 - preferred_term: glucose
   chebi_term:
@@ -196,14 +217,16 @@ growth_media:
 - name: glucose and oxidized-nitrogen synthetic coculture medium
   atmosphere: AEROBIC
   light_regime: illuminated
-  preparation_notes: Sealed illuminated cocultures used glucose as the yeast carbon source and oxidized nitrogen sources to impose reciprocal carbon and nitrogen dependencies.
+  preparation_notes: Sealed illuminated cocultures used glucose as the yeast carbon source and oxidized
+    nitrogen sources to impose reciprocal carbon and nitrogen dependencies.
 associated_datasets:
 - title: Yeast-alga early adaptation sequencing data
   dataset_type: GENOMICS
   repository: NCBI_BIOPROJECT
   accession: PRJNA735257
   url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA735257
-  description: Raw sequencing data for the later exact-composition S. cerevisiae-C. reinhardtii experimental-evolution study.
+  description: Raw sequencing data for the later exact-composition S. cerevisiae-C. reinhardtii
+    experimental-evolution study.
 external_resources:
 - name: Exact-composition publication - fungal-algal obligate mutualism
   repository: OTHER
@@ -220,4 +243,13 @@ external_resources:
   repository: OTHER
   resource_id: doi:10.1038/s41559-022-01923-8
   url: https://doi.org/10.1038/s41559-022-01923-8
-  description: Later experimental-evolution study using the same two-species S. cerevisiae-C. reinhardtii composition.
+  description: Later experimental-evolution study using the same two-species S. cerevisiae-C. reinhardtii
+    composition.
+curation_history:
+- timestamp: '2026-09-13T00:56:50Z'
+  curator: codex
+  action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
+  changes: "Reapplied PR #766's 17 unsupported evidence removals onto current main, preserving its newer
+    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
+    #765."
+  llm_assisted: true

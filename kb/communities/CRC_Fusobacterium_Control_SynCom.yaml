@@ -54,13 +54,96 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Fusobacterium Ecological Suppression
-  description: The designed SynCom inhibits F. nucleatum growth and promotes decolonization through ecological
-    and metabolic control.
-  interaction_type: COMPETITION
+- name: Low-Competition Commensal SynCom Colonization
+  description: A seven-species commensal SynCom was designed by metabolic network reconstruction for low
+    competitive interrelationships and then shown to colonize in vivo.
+  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Fusobacterium nucleatum Ecological Suppression
+    description: Low-competition commensal colonization lets the designed SynCom occupy the gut model
+      while suppressing Fusobacterium nucleatum growth.
   evidence:
   - *id001
+- name: Fusobacterium nucleatum Ecological Suppression
+  description: The colonizing designed SynCom inhibits Fusobacterium nucleatum growth in vitro and promotes
+    F. nucleatum decolonization in the AOM-DSS colorectal cancer model.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+  biological_processes:
+  - preferred_term: L-tryptophan metabolic process
+    term:
+      id: GO:0006568
+      label: L-tryptophan metabolic process
+  downstream:
+  - target: Tryptophan and Secondary Bile Acid Restoration
+    description: Fusobacterium nucleatum decolonization is accompanied by recovery of tryptophan metabolism
+      and secondary bile acid conversion in SynCom-treated mice.
+  evidence:
+  - *id001
+  - reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: it promotes F. nucleatum decolonization, and enhances tryptophan metabolism and secondary
+      bile acid conversion
+    explanation: Supports the tryptophan metabolic axis associated with SynCom-driven F.
+      nucleatum decolonization and tumor suppression in the mouse CRC model.
+- name: Tryptophan and Secondary Bile Acid Restoration
+  description: SynCom treatment enhances tryptophan metabolism and secondary bile acid conversion, producing
+    downstream reductions in lipid accumulation and inflammatory reaction.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: L-tryptophan
+    term:
+      id: CHEBI:16828
+      label: L-tryptophan
+  - preferred_term: bile acid
+    term:
+      id: CHEBI:3098
+      label: bile acid
+  biological_processes:
+  - preferred_term: L-tryptophan metabolic process
+    term:
+      id: GO:0006568
+      label: L-tryptophan metabolic process
+  downstream:
+  - target: Reduced Inflammation and Tumor Burden
+    description: Restored tryptophan and bile-acid metabolism contributes to lower inflammation and
+      enhanced tumor inhibition in the F. nucleatum-positive colorectal cancer model.
+  evidence:
+  - reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: enhances tryptophan metabolism and secondary bile acid conversion, leading to reduced
+      lipid accumulation, decreased inflammatory reaction, and enhanced tumor inhibition effect
+    explanation: Supports restored tryptophan and bile-acid metabolism as an upstream metabolic axis
+      for inflammation reduction and tumor inhibition.
+- name: Reduced Inflammation and Tumor Burden
+  description: The bottom-up designed SynCom reduces lipid accumulation, decreases inflammatory reaction,
+    and enhances tumor inhibition in Fusobacterium nucleatum-positive colorectal cancer.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40433987
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: leading to reduced lipid accumulation, decreased inflammatory reaction, and enhanced
+      tumor inhibition effect
+    explanation: Supports the disease-model endpoint improved by the designed SynCom.
 environmental_factors:
 - name: metabolic network reconstruction design
   value: A seven-species SynCom with low competitive interrelationships was designed from human metagenome

@@ -92,6 +92,45 @@ taxonomy:
     snippet: digest the biomass of Anabaena sp. in minimal medium,
     explanation: Names Anabaena sp. biomass as the feedstock digested by the communities.
 ecological_interactions:
+- name: Anabaena Biomass Anaerobic Digestion
+  description: >
+    Three anaerobic-digestion communities were supplied with Anabaena sp.
+    cyanobacterial biomass in minimal medium, 200 g/L MGS-1 Mars regolith
+    simulant, or water to test whether the feedstock could be converted into
+    fertilizer-relevant ammonium and removed organic carbon.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
+    description: >
+      In the minimal-medium branch, biomass digestion supported a syntrophic
+      fermentative community with hydrogenotrophic methanogens.
+  - target: Sulfate-reducer outcompetition of methanogens in MGS-1 regolith
+    description: >
+      In the MGS-1 branch, sulfate-reducing bacteria outcompeted the
+      methanogens seen in minimal medium.
+  - target: Ammonium Production and Organic Carbon Removal
+    description: >
+      All three tested communities produced ammonium and removed organic
+      carbon from the cyanobacterial biomass.
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      tested the abilities of three microbial communities to digest the biomass
+      of Anabaena sp. in minimal medium
+    explanation: >
+      Supports the community-level anaerobic digestion of Anabaena biomass.
 - name: Fermenter-to-methanogen syntrophy (interspecies H2/CO2 transfer)
   description: >
     In minimal medium, fermentative bacteria degrade the Anabaena biomass and their
@@ -128,6 +167,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Ammonium Production and Organic Carbon Removal
+    description: >
+      The syntrophic fermenter-to-hydrogenotrophic-methanogen community is the
+      minimal-medium route coupled to ammonium production and organic carbon
+      removal.
   evidence:
   - reference: PMID:40089033
     supports: SUPPORT
@@ -162,6 +207,11 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
+  downstream:
+  - target: MGS-1 Nutrient Recovery Penalty
+    description: >
+      Sulfate-reducer outcompetition occurred in the MGS-1 matrix that also
+      adsorbed organics and lowered phosphate and ammonium recovery efficiency.
   evidence:
   - reference: PMID:40089033
     supports: SUPPORT
@@ -173,6 +223,56 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: hydrogenotrophic methanogens in minimal medium, but methanogens were outcompeted
     explanation: States that methanogens were outcompeted in MGS-1, the basis for the competition interaction.
+- name: Ammonium Production and Organic Carbon Removal
+  description: >
+    Across all tested matrices, the digesting communities produced ammonium and
+    removed organic carbon, establishing that Anabaena biomass could be
+    mobilized by anaerobic digestion even outside the best-performing minimal
+    medium.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All communities produced ammonium and removed organic carbon in all
+    explanation: >
+      Supports ammonium production and organic-carbon removal as outputs of all
+      three anaerobic digestion communities.
+- name: MGS-1 Nutrient Recovery Penalty
+  description: >
+    The 200 g/L MGS-1 Mars regolith-simulant matrix adsorbed organics and
+    lowered both phosphate and ammonium recovery efficiency, constraining the
+    useful fertilizer output despite continued ammonium production and organic
+    carbon removal.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40089033
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: adsorbed organics and reduced the phosphate and ammonium recovery efficiency
+    explanation: >
+      Supports MGS-1 as the matrix that reduced nutrient recovery from the
+      digestion process.
 environmental_factors:
 - name: MGS-1 Mars regolith simulant matrix
   value: 200 g/L MGS-1 Mars global simulant

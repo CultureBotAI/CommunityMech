@@ -13,6 +13,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from communitymech.paths import DOCS
 
 
+def _strip_trailing_whitespace(html: str) -> str:
+    return "\n".join(line.rstrip() for line in html.split("\n"))
+
+
 class CommunityRenderer:
     """Render community YAML files to HTML pages."""
 
@@ -64,7 +68,7 @@ class CommunityRenderer:
         if output_path:
             output_path.parent.mkdir(parents=True, exist_ok=True)
             with open(output_path, "w") as f:
-                f.write(html)
+                f.write(_strip_trailing_whitespace(html))
             print(f"  ✓ {yaml_path.name} → {output_path}")
 
         return html
@@ -157,7 +161,7 @@ class CommunityRenderer:
         browser_path = output_dir.parent / "browser.html"  # docs/browser.html
         browser_path.parent.mkdir(parents=True, exist_ok=True)
         with open(browser_path, "w") as f:
-            f.write(browser_html)
+            f.write(_strip_trailing_whitespace(browser_html))
 
         print(f"  ✓ Generated browser at {browser_path}")
 
@@ -167,7 +171,7 @@ class CommunityRenderer:
 
         index_path = output_dir.parent / "index.html"  # docs/index.html
         with open(index_path, "w") as f:
-            f.write(landing_html)
+            f.write(_strip_trailing_whitespace(landing_html))
 
         print(f"  ✓ Generated landing at {index_path}")
 

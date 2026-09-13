@@ -137,6 +137,7 @@ ecological_interactions:
     changing the starting abundance of P. koreensis increases F. johnsoniae populations, indicating that
     the antibiotic is a major regulatory and competitive mechanism in this model community.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas koreensis CI12
     term:
@@ -159,6 +160,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Koreenceine-Driven Transcriptional Regulation
+    description: >
+      Pseudomonas koreensis koreenceine production drives most Flavobacterium
+      johnsoniae and part of the Bacillus cereus transcriptional response to
+      pairwise encounter with P. koreensis.
   evidence:
   - reference: PMID:30837345
     supports: SUPPORT
@@ -170,11 +177,38 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: mediated either directly or indirectly by its production of the antibiotic koreenceine
     explanation: Supports koreenceine as a major driver of community transcriptional response.
+- name: Koreenceine-Driven Transcriptional Regulation
+  description: Comparative metatranscriptomics showed that the P. koreensis koreenceine biosynthetic
+    locus accounts for much of the pairwise transcriptional response in THOR, including most
+    differentially regulated F. johnsoniae genes and a smaller B. cereus response.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: koreenceine
+    term:
+      id: CHEBI:22315
+      label: alkaloid
+    notes: Chemical-class placeholder for the koreenceine family.
+  biological_processes:
+  - preferred_term: regulation of gene expression
+    term:
+      id: GO:0010468
+      label: regulation of gene expression
+  evidence:
+  - reference: PMID:35435700
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In pairwise interactions, the koreenceine biosynthetic cluster is responsible for 85 and
+      22% of differentially regulated genes in F. johnsoniae and B. cereus, respectively.
+    explanation: Quantifies koreenceine-dependent gene-expression changes in the two strains responding
+      to P. koreensis in pairwise cocultures.
+    confidence_score: 0.9
 - name: Bacillus Modulation of Pseudomonas Antibiotic Production
   description: Bacillus cereus modulates the inhibitory interaction between P. koreensis and F. johnsoniae
     by suppressing production of the P. koreensis alkaloid antibiotic family. This creates a higher-order
     interaction where the effect of P. koreensis on F. johnsoniae changes in the presence of B. cereus.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus cereus UW85
     term:
@@ -196,6 +230,10 @@ ecological_interactions:
     term:
       id: GO:0048519
       label: negative regulation of biological process
+  downstream:
+  - target: Koreenceine-Mediated Inhibition
+    description: Bacillus suppression of Pseudomonas koreenceine production changes the
+      antibiotic-mediated inhibition that P. koreensis exerts on F. johnsoniae.
   evidence:
   - reference: PMID:30837345
     supports: SUPPORT

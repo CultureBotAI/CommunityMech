@@ -162,6 +162,102 @@ taxonomy:
       resolve which of its members entered the purified consortium. The taxon records the
       consortium's origin rather than a member with a characterised role.
 ecological_interactions:
+- name: Microcystis-Bloom Selection into Syn7002 Epibionts
+  description: >
+    Syn7002 was co-cultured with algal sediment from a Lake Taihu Microcystis
+    bloom and then passaged through a rising salinity gradient, an assembly
+    pressure that removed Microcystis while retaining Microcystis-associated
+    epibionts able to persist with the cyanobacterium.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  - preferred_term: bloom-forming Microcystis community (source inoculum)
+    term:
+      id: NCBITaxon:1125
+      label: Microcystis <cyanobacteria>
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Syn7002-MesTH-PseTH Community Sorting
+    description: >
+      The selected consortium was dominated at early passages by Syn7002,
+      MesTH, and PseTH before PseTH fell out of the stabilized community.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Syn7002 was co-cultured with algal sediment collected from a
+      cyanobacterial bloom in Lake TaiHu
+    explanation: >
+      Supports the Microcystis-bloom source inoculum used to seed the Syn7002
+      synthetic community.
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the salinity gradient was gradually increased, leading to the
+      disappearance of Microcystis
+    explanation: >
+      Supports salinity passaging as the pressure that removed the original
+      Microcystis source while epibionts persisted.
+- name: Syn7002-MesTH-PseTH Community Sorting
+  description: >
+    Consecutive streak-plate purifications resolved a three-member early
+    community of Syn7002, MesTH, and PseTH; Syn7002 initially dominated, PseTH
+    declined through the second purification set, and MesTH became the dominant
+    persistent epibiont once the consortium stabilized.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  - preferred_term: Mesorhizobium sp. TaiHu (MesTH)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  - preferred_term: Pseudomonas sp. TaiHu (PseTH)
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Close Spatial Association of Partner Bacteria with Syn7002 Cells
+    description: >
+      Stabilization yielded partner bacteria close enough to Syn7002 cells to
+      be visualized as surface-associated rods by electron microscopy.
+  - target: MesTH Vitamin B12 Biosynthesis and Transport Response
+    description: >
+      Persistence of MesTH focused the downstream metatranscriptomic analysis
+      on B12 biosynthesis and transport in that partner.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Syn7002, PseTH and MesTH constituted the major components of the community
+    explanation: >
+      Supports the three dominant early members resolved during Syn7002
+      synthetic-community assembly.
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MesTH became the dominant component after the second round
+    explanation: >
+      Supports MesTH replacing PseTH as the dominant partner as the consortium
+      stabilized.
 - name: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
   description: >
     Syn7002 lacks the vitamin B12 biosynthesis gene cluster, and MesTH significantly upregulates
@@ -187,6 +283,16 @@ ecological_interactions:
       label: vitamin B12
     notes: The cyanobacterium cannot synthesise it; the paper reports MesTH supplying the small
       amount required.
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  downstream:
+  - target: MesTH Growth Rescue of B12-Limited Syn7002
+    description: >
+      In vitamin-B12-free BG11, MesTH increased Syn7002 growth relative to the
+      no-B12 condition and reduced B12-deficiency-driven extinction.
   evidence:
   - reference: PMID:41790499
     supports: PARTIAL
@@ -201,17 +307,112 @@ ecological_interactions:
     Electron microscopy found numerous rod-shaped bacteria clustered around Syn7002 cells,
     indicating a physical association between the cyanobacterium and its partner bacteria rather
     than mere co-occurrence in the medium.
-  interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  participating_taxa:
+  - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+    description: >
+      Physical clustering provided spatial context for B12 complementarity,
+      while leaving whether B12 moved extracellularly or through direct contact
+      unresolved.
   evidence:
   - reference: PMID:41790499
-    supports: PARTIAL
+    supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Electron microscopy revealed numerous rod-shaped bacteria clustered around Syn7002
       cells, indicating close spatial associations between species
-    explanation: PARTIAL - microscopy establishes spatial association but does not identify which
-      taxon the rod-shaped cells belong to, nor whether the association is required for the
-      exchange, so it is recorded at community level without a named partner.
+    explanation: >
+      Supports physical clustering of rod-shaped partner bacteria around
+      Syn7002 cells without assigning those cells to a specific bacterial
+      taxon.
+- name: MesTH Vitamin B12 Biosynthesis and Transport Response
+  description: >
+    Metatranscriptomics linked the persistent MesTH partner to the B12 axis:
+    vitamin B12 biosynthesis and transport genes were more highly expressed in
+    MesTH than in Syn7002 across community formation, while Syn7002 maintained
+    only low-level B12 transporter expression.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  - preferred_term: Mesorhizobium sp. TaiHu (MesTH)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  metabolites:
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  downstream:
+  - target: Vitamin B12 Provision from Mesorhizobium TaiHu to Synechococcus PCC 7002
+    description: >
+      Higher MesTH B12 synthesis and transport expression was the expression
+      signal supporting the inferred vitamin handoff to Syn7002.
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      vitamin B12 biosynthesis and transport-related genes were more highly
+      expressed in MesTH compared to Syn7002
+    explanation: >
+      Supports MesTH as the partner with the strongest B12 biosynthesis and
+      transport transcriptional response during community formation.
+- name: MesTH Growth Rescue of B12-Limited Syn7002
+  description: >
+    When washed Syn7002 and MesTH were combined in vitamin-B12-free BG11, MesTH
+    increased Syn7002 growth relative to the B12-free alga-only treatment,
+    placing the inferred B12 provision in a culture condition where the
+    cyanobacterium otherwise approaches B12-deficiency-driven extinction.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Synechococcus sp. PCC 7002 (Syn7002)
+    term:
+      id: NCBITaxon:32049
+      label: Picosynechococcus sp. PCC 7002
+  - preferred_term: Mesorhizobium sp. TaiHu (MesTH)
+    term:
+      id: NCBITaxon:68287
+      label: Mesorhizobium
+  metabolites:
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:41790499
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the presence of MesTH promoted the growth of Syn7002 compared to the
+      group without vitamin B12 supplementation
+    explanation: >
+      Supports MesTH-mediated growth rescue of B12-limited Syn7002.
 growth_media:
 - name: Vitamin B12-supplemented BG11, Syn7002 culture
   composition:

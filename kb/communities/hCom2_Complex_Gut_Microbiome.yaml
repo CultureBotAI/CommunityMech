@@ -1,13 +1,17 @@
 id: CommunityMech:000123
 name: hCom2 Complex Gut Microbiome
-description: A complex defined human gut microbiome assembled from hCom1 and iteratively augmented after fecal challenge to improve stability and colonization resistance in gnotobiotic mice.
+description: A complex defined human gut microbiome assembled from hCom1 and iteratively augmented after
+  fecal challenge to improve stability and colonization resistance in gnotobiotic mice.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: OTHER
 engineering_design:
-  objective: Construct a defined but complex gut microbiome that models human gut community functions in vivo.
-  assembly_strategy: A 104-species hCom1 community was challenged with fecal microbiota in germ-free mice and augmented with engrafting species to yield hCom2.
-  perturbation_design: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability and colonization resistance.
+  objective: Construct a defined but complex gut microbiome that models human gut community functions
+    in vivo.
+  assembly_strategy: A 104-species hCom1 community was challenged with fecal microbiota in germ-free mice
+    and augmented with engrafting species to yield hCom2.
+  perturbation_design: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability
+    and colonization resistance.
   measurement_endpoints:
   - engraftment
   - community stability
@@ -18,7 +22,8 @@ engineering_design:
     reference: PMID:36070752
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We identified new species that engrafted following fecal challenge and added them to hCom1, yielding hCom2.
+    snippet: We identified new species that engrafted following fecal challenge and added them to hCom1,
+      yielding hCom2.
     explanation: Supports the defined synthetic community design and represented community context.
 environment_term:
   preferred_term: human gut
@@ -48,10 +53,47 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Gut Niche Filling and Colonization Resistance
-  description: Iterative niche filling improved stability to fecal challenge and resistance to pathogenic Escherichia coli.
+- name: Fecal-Challenge Open Niche Filling
+  description: Species that engrafted after hCom1 fecal challenge were added to the defined gut consortium,
+    filling open ecological niches to yield hCom2.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: hCom2 Fecal-Challenge Stability
+    description: Filling hCom1's open niches with engrafting gut species produced hCom2's higher stability
+      when challenged again with human fecal microbiota.
+  - target: hCom2 Escherichia coli Colonization Resistance
+    description: Occupying the open gut niches left in hCom1 produced a more complete hCom2 consortium
+      that resisted pathogenic Escherichia coli colonization.
+  evidence:
+  - *id001
+- name: hCom2 Fecal-Challenge Stability
+  description: The augmented hCom2 community remains more stable than hCom1 when challenged with a human
+    fecal community in gnotobiotic mice.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: multi-organism process
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - *id001
+- name: hCom2 Escherichia coli Colonization Resistance
+  description: The niche-filled hCom2 consortium provides robust colonization resistance against pathogenic
+    Escherichia coli in gnotobiotic mice.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
   evidence:
   - *id001
 cultivation_setup:
@@ -86,8 +128,10 @@ cultivation_setup:
     should be treated as discarded rather than partly true.
 environmental_factors:
 - name: gnotobiotic fecal challenge
-  value: Germ-free mice colonized with hCom1 were challenged with a human fecal sample to identify additional engrafting species.
-  description: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability and colonization resistance.
+  value: Germ-free mice colonized with hCom1 were challenged with a human fecal sample to identify additional
+    engrafting species.
+  description: Fecal challenge and pathogenic Escherichia coli challenge were used to test stability and
+    colonization resistance.
   evidence:
   - *id001
 related_ingredients:
@@ -161,4 +205,14 @@ growth_media:
   vessel_type: 2.2-mL 96-well deep well plate
   inoculum_size: '10'
   inoculum_unit: '% (1:10 dilution)'
-  preparation_notes: Individual strains were propagated in Mega Medium (MM) or Chopped Meat Medium (CMM) and diluted 1:10 every 24 h before assembly; the assembled community was propagated in vitro in SAAC complete defined medium.
+  preparation_notes: Individual strains were propagated in Mega Medium (MM) or Chopped
+    Meat Medium (CMM) and diluted 1:10 every 24 h before assembly; the assembled community
+    was propagated in vitro in SAAC complete defined medium.
+curation_history:
+- timestamp: '2026-09-13T00:56:50Z'
+  curator: codex
+  action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
+  changes: "Reapplied PR #766's 17 unsupported evidence removals onto current main, preserving its newer
+    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
+    #765."
+  llm_assisted: true

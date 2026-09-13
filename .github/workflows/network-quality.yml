@@ -24,35 +24,31 @@ name: Network Quality Check
 # hidden marker and updated in place (#285). It also triggers on changes to
 # itself, so an edit here is exercised by the run it produces.
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths:
-      - 'kb/communities/*.yaml'
-      # Isolates are audited too, since #350. Without this an isolate
-      # could gain a dangling interaction and no run would look at it.
-      - 'data/isolates/*.yaml'
-      - 'src/communitymech/network/**'
-      - 'src/communitymech/schema/**'
-      # Self-triggering, so a change to this workflow is exercised by the
-      # workflow itself rather than shipped untested. The sibling
-      # label-correspondence.yaml already does this.
-      - '.github/workflows/network-quality.yml'
+  merge_group:
+    types: [checks_requested]
   push:
     branches:
-      - main
-      - manual-network-curation
+    - main
+    - manual-network-curation
     paths:
-      - 'kb/communities/*.yaml'
+    - kb/communities/*.yaml
   workflow_dispatch:
     inputs:
       suggest_repairs:
-        description: 'Also generate LLM repair suggestions (calls the Anthropic API — incurs cost)'
+        description: Also generate LLM repair suggestions (calls the Anthropic API — incurs cost)
         type: boolean
         default: false
 
 permissions:
   contents: read
   pull-requests: write
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   audit-network:
@@ -66,7 +62,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0
@@ -303,7 +299,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.13"
 
       - name: Install uv
         # setup-uv v9.0.0

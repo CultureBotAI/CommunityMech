@@ -106,12 +106,76 @@ ecological_interactions:
     term:
       id: CHEBI:19904
       label: 3,5-dichloroaniline
+  downstream:
+  - target: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+    description: The S6-to-KH-1 intermediate handoff supports complete removal
+      of both the parent fungicide and its toxic 3,5-dichloroaniline intermediate
+      in contaminated soil.
   evidence:
   - reference: PMID:41326129
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Bosea sp. S6, which transforms dimethachlon to 3,5-dichloroaniline, and Pseudomonas sp. KH-1, which degrades 3,5-dichloroaniline
     explanation: Directly supports production and consumption of the shared intermediate by the two strains.
+- name: Complete soil removal of dimethachlon and 3,5-dichloroaniline
+  description: The reconstructed Bosea-Pseudomonas consortium removed both dimethachlon
+    and 3,5-dichloroaniline during contaminated-soil bioaugmentation.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bosea sp. S6
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Pseudomonas sp. KH-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: 3,5-dichloroaniline
+    term:
+      id: CHEBI:19904
+      label: 3,5-dichloroaniline
+  downstream:
+  - target: Detoxified dimethachlon transformation products
+    description: Complete paired transformation of the fungicide and toxic aniline
+      intermediate yields products that lacked detectable zebrafish toxicity in
+      the consortium assay.
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioaugmentation with the synthetic consortium led to the complete removal of dimethachlon
+      and its highly toxic metabolite 3,5-dichloroaniline from contaminated soil.
+    explanation: Supports the community-level soil-remediation endpoint after the
+      sequential two-strain degradation handoff.
+- name: Detoxified dimethachlon transformation products
+  description: Sequential transformation by S6 and KH-1 converted dimethachlon into
+    products reported as non-toxic in the zebrafish assay.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bosea sp. S6
+    term:
+      id: NCBITaxon:85413
+      label: Allobosea
+  - preferred_term: Pseudomonas sp. KH-1
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: 3,5-dichloroaniline
+    term:
+      id: CHEBI:19904
+      label: 3,5-dichloroaniline
+  evidence:
+  - reference: PMID:41326129
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Toxicity assays using the zebrafish showed that dimethachlon is converted into
+      non-toxic products by the synthetic consortium (strains S6 and KH-1).
+    explanation: Supports detoxification downstream of the complete S6/KH-1
+      dimethachlon-degradation pathway.
 environmental_factors:
 - name: Complete contaminant and metabolite removal in soil
   value: complete removal

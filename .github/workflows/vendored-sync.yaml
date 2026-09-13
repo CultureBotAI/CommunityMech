@@ -17,15 +17,18 @@ name: vendored-sync
 # the drift this guard exists to prevent.
 # Running unconditionally removes the failure class instead of re-syncing two
 # lists. The job is a thin Bash launcher plus Python's standard library, with no
-# uv/OAK, so there is nothing to save by filtering it; the expensive
-# label-correspondence gate keeps its filter.
+# uv/OAK, so there is nothing to save by filtering it. All required gates
+# now also run for every pull request and merge queue candidate.
 #
 # Authority contract: CultureBotAI/culturebotai-claw/docs/guides/VENDORED_GOVERNANCE.md.
 
 on:
   pull_request:
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
+    branches:
+    - main
   workflow_dispatch:
 
 permissions:
@@ -43,6 +46,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
 
       # Preserve the fleet retry contract at the workflow boundary: checker
       # exit 1 is retryable (including public claw fetch failures), while exit 2

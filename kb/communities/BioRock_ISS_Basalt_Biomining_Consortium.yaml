@@ -196,9 +196,10 @@ ecological_interactions:
     the final yields, demonstrating that microbe-mineral REE bioleaching proceeds with
     comparable efficacy across gravitational conditions. The basalt substrate contained
     all measured lanthanides (La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu).
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Sphingomonas desiccabilis CP1D
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sphingomonas desiccabilis CP1D
     term:
       id: NCBITaxon:429134
       label: Sphingomonas desiccabilis
@@ -242,9 +243,14 @@ ecological_interactions:
     simulated Mars gravity, and simulated Earth gravity. Vanadium is a valuable steel
     additive, and its microbial mobilisation from basalt without a significant gravity
     effect supports biomining and bioremediation on other Solar System bodies.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Bacillus subtilis NCIB 3610
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sphingomonas desiccabilis CP1D
+    term:
+      id: NCBITaxon:429134
+      label: Sphingomonas desiccabilis
+  - preferred_term: Bacillus subtilis NCIB 3610
     term:
       id: NCBITaxon:1423
       label: Bacillus subtilis
@@ -269,19 +275,38 @@ ecological_interactions:
     The three panel members differed in bioleaching outcome: Sphingomonas desiccabilis
     enhanced REE leaching, Bacillus subtilis reduced REE bioleaching efficacy, and
     Cupriavidus metallidurans showed no difference from non-biological controls. This
-    species-dependent partitioning of bioleaching activity mirrors the microbial
-    specificity of the process observed on Earth.
+    species-dependent bioleaching pattern mirrors the microbial specificity of
+    the process observed on Earth.
   interaction_type: NICHE_PARTITIONING
-  source_taxon:
-    preferred_term: Sphingomonas desiccabilis CP1D
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Sphingomonas desiccabilis CP1D
     term:
       id: NCBITaxon:429134
       label: Sphingomonas desiccabilis
-  target_taxon:
-    preferred_term: Cupriavidus metallidurans CH34
+  - preferred_term: Bacillus subtilis NCIB 3610
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  - preferred_term: Cupriavidus metallidurans CH34
     term:
       id: NCBITaxon:119219
       label: Cupriavidus metallidurans
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Sphingomonas desiccabilis rare-earth-element bioleaching from basalt
+    description: >
+      Species-specific BioRock panel behavior identified S. desiccabilis as the
+      member that reproducibly enhanced REE bioleaching from basalt.
+  - target: Vanadium bioleaching by Sphingomonas desiccabilis and Bacillus subtilis
+    description: >
+      The vanadium follow-up showed that S. desiccabilis and B. subtilis,
+      but not C. metallidurans, enhanced V leaching relative to sterile
+      controls.
   evidence:
   - reference: PMID:33173035
     supports: SUPPORT
@@ -292,7 +317,9 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: showing the microbial specificity of the process, as on Earth
-    explanation: States that bioleaching is microbially specific, supporting niche partitioning among members.
+    explanation: >
+      States that basalt bioleaching is microbially specific across the three
+      assayed panel members.
 environmental_factors:
 - name: Gravity regime
   value: microgravity, simulated Mars gravity, and simulated Earth gravity (plus ground 1 x g controls)

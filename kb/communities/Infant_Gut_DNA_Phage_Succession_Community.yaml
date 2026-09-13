@@ -70,6 +70,7 @@ ecological_interactions:
     Bacteroides, with about 9 percent of these early colonizers persisting for
     3 years and reaching adult-like phageome complexity.
   interaction_type: PREDATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: maternally transmitted DNA bacteriophages
     term:
@@ -85,6 +86,11 @@ ecological_interactions:
     term:
       id: GO:0044003
       label: symbiont-mediated perturbation of host process
+  downstream:
+  - target: Stable Infant Viral Colonization
+    description: Maternal transfer of Bacteroides-infecting early phages is
+      one of the determinants that lets a subset of infant gut phages colonize
+      stably across early life.
   evidence:
   - reference: PMID:38096814
     supports: SUPPORT
@@ -98,6 +104,15 @@ ecological_interactions:
     3 years.
   interaction_type: PREDATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Stable Infant Viral Colonization
+    description: Stop-codon reassignment marks phages that persist more often
+      than non-recoded phages across the first 3 years of life.
   evidence:
   - reference: PMID:38096814
     supports: SUPPORT
@@ -116,6 +131,15 @@ ecological_interactions:
     adult-like complexity by age 3.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  downstream:
+  - target: Stable Infant Viral Colonization
+    description: Increasing early-life phageome richness supplies the diverse
+      phage populations associated with stable infant gut viral colonization.
   evidence:
   - reference: PMID:38096814
     supports: SUPPORT
@@ -123,6 +147,26 @@ ecological_interactions:
     snippet: early-life phageome richness increases over time and reaches
       adult-like complexity by age 3
     explanation: Supports the developmental trajectory of the infant phageome.
+- name: Stable Infant Viral Colonization
+  description: Maternal seeding, stop-codon reassignment, host CRISPR-Cas locus
+    prevalence, and diverse phage populations jointly explain stable viral
+    colonization in the infant gut during the first 3 years of life.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: viral process
+    term:
+      id: GO:0016032
+      label: viral process
+  evidence:
+  - reference: PMID:38096814
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: maternal seeding, stop codon reassignment, host CRISPR-Cas locus
+      prevalence, and diverse phage populations contribute to stable viral
+      colonization
+    explanation: Supports stable infant gut viral colonization as the combined
+      downstream outcome.
 environmental_factors:
 - name: Birth status
   value: full-term versus preterm infants

@@ -97,6 +97,7 @@ ecological_interactions:
   description: Trichodesmium colonies provide nutrient-rich physical substrates that are colonized by
     heterotrophic bacteria, linking diazotrophic primary production to associated heterotrophic metabolism.
   interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Trichodesmium erythraeum IMS101
     term:
@@ -113,6 +114,11 @@ ecological_interactions:
       id: GO:0009399
       label: nitrogen fixation
     notes: Trichodesmium fixes nitrogen in oligotrophic marine environments.
+  downstream:
+  - target: Diel Coordinated Resource Cycling
+    description: Trichodesmium colony colonization provides the host-microbiome
+      setting in which diel nitrogen, carbon, iron, and B12 expression patterns
+      were observed.
   evidence:
   - reference: PMID:28440800
     supports: SUPPORT
@@ -124,6 +130,7 @@ ecological_interactions:
     support Trichodesmium-associated community maintenance, including nutrient acquisition, vitamin exchange,
     catabolism of small carbon compounds, and reactive oxygen detoxification.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii Trichodesmium associate
     term:
@@ -146,6 +153,12 @@ ecological_interactions:
       label: iron(2+)
     notes: Iron acquisition was one inferred interaction axis; ferrous iron is used as a conservative
       CHEBI grounding for iron availability.
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+    notes: Cobalamin exchange was an inferred interaction axis and later a
+      detected diel co-expression dependency.
   - preferred_term: reactive oxygen species
     term:
       id: CHEBI:26523
@@ -167,6 +180,11 @@ ecological_interactions:
       relation this consortium does not have, and over GO:0061692, which is hydrogen
       peroxide only. Inherits the interaction''s COMPUTATIONAL evidence: this is the
       inferred axis the source names, not a measured one (#297).'
+  downstream:
+  - target: Diel Coordinated Resource Cycling
+    description: Alteromonas Fe, P, B12, carbon-catabolism, and
+      ROS-detoxification gene complements are candidate mechanisms for
+      resource-linked diel coordination in Trichodesmium colonies.
   evidence:
   - reference: PMID:28440800
     supports: SUPPORT
@@ -182,6 +200,7 @@ ecological_interactions:
   description: Field metatranscriptomes show coordinated day-night gene expression between Trichodesmium
     and its microbiome, with co-expressed functions linked to nitrogen, carbon, iron, and vitamin B12 cycling.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Trichodesmium erythraeum IMS101
     term:
@@ -295,6 +314,24 @@ related_ingredients:
     snippet: iron and phosphorus acquisition, vitamin B12 exchange
     explanation: Names phosphorus acquisition as an inferred interaction axis, anchoring phosphate
       as a central shared nutrient.
+- preferred_term: vitamin B12
+  chebi_term:
+    id: CHEBI:176843
+    label: vitamin B12
+  relevance: Vitamin B12 exchange is an inferred genomic interaction axis and
+    metatranscriptomic co-expression patterns support a Trichodesmium-derived
+    cobalamin dependency in the associated microbiome.
+  evidence:
+  - reference: PMID:28440800
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: iron and phosphorus acquisition, vitamin B12 exchange
+    explanation: Names vitamin B12 exchange as an inferred interaction axis.
+  - reference: PMID:29382945
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Trichodesmium-derived vitamin B12 was also detected in co-expression patterns
+    explanation: Supports microbiome reliance on Trichodesmium-derived vitamin B12.
 - preferred_term: reactive oxygen species
   chebi_term:
     id: CHEBI:26523
@@ -324,13 +361,12 @@ growth_media:
     1996). Trichodesmium erythraeum IMS101 consortium enrichments grown with continuous shaking under
     fluorescent light to avoid cell sedimentation; associated Alteromonas macleodii epibionts were
     isolated from these Trichodesmium cultures on soft-agar RMP medium.
-  evidence:
-  - reference: PMID:28440800
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Enrichments were grown in 1 l of YBC-II media (Chen et al., 1996) in 2 l polycarbonate
-      baffled flasks at 26 °C under a 14:10 light:dark cycle (150 μM m−2 s−1) with fluorescent
-      light. Enrichments were continuously shaken to avoid cell sedimentation.
-    explanation: Reports the seawater medium, temperature, light regime/intensity, vessel, and
-      shaking used to grow the Trichodesmium consortium enrichment.
-
+curation_history:
+- timestamp: '2026-09-13T01:01:48Z'
+  curator: codex
+  action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
+  changes: "Removed 1 evidence items that no longer match the retained abstracts after PR #766's publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
+    these claims require re-evidencing where support was removed. See the linked publication-text-removal
+    history for license/version uncertainty."
+  llm_assisted: true

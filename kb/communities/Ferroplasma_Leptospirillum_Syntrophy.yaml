@@ -2,20 +2,12 @@ id: CommunityMech:000027
 name: Ferroplasma-Leptospirillum Iron-Cycling Syntrophy
 description: 'A synergistic two-member consortium consisting of the cell wall-lacking archaeon Ferroplasma
   acidiphilum and the iron-oxidizing bacterium Leptospirillum ferriphilum, found in extremely acidic,
-  metal-rich environments including acid mine drainage and biomining operations. This partnership demonstrates
-  mutualistic metabolic cooperation where both organisms oxidize ferrous iron but occupy complementary
-  ecological niches. Ferroplasma grows chemomixotrophically, oxidizing Fe²⁺ while consuming organic matter
-  secreted by Leptospirillum, thereby maintaining low organic compound concentrations that would otherwise
-  inhibit Leptospirillum through toxic effects. In return, Leptospirillum provides organic carbon that
-  Ferroplasma requires for mixotrophic growth. Recent transcriptomic studies show F. acidiphilum upregulates
-  energy and stress resistance genes in L. ferriphilum under organic matter stress. The co-culture outperforms
-  pure cultures in chalcopyrite and pyrite bioleaching, achieving 31.5% higher copper extraction and 31.7%
-  higher ferric iron generation compared to monocultures under yeast extract stress (0.5 g/L). Cell growth
-  is favorably affected by filtered medium from the partner organism, confirming synergistic interaction.
-  This archaeal-bacterial partnership thrives at extremely low pH (pH <2), temperatures 30-50°C, and high
-  metal concentrations, representing a model system for understanding cross-domain syntrophy in extreme
-  environments. The consortium plays major roles in biogeochemical cycling of sulfur and sulfide metals
-  in highly acidic habitats.
+  metal-rich environments including acid mine drainage and biomining operations. The partnership is
+  centered on reciprocal soluble-metabolite effects: F. acidiphilum can use organic matter secreted by
+  L. ferriphilum for growth, keeping low organic compound concentrations that would otherwise inhibit
+  L. ferriphilum, and filtered medium from either partner favors growth of the other organism. This
+  archaeal-bacterial partnership thrives at extremely low pH and represents a model system for studying
+  cross-domain syntrophy in biomining acidophiles.
 
   '
 ecological_state: STABLE
@@ -50,13 +42,10 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
     notes: 'Chemolithoautotrophic iron-oxidizing bacterium (Nitrospirae phylum) that oxidizes Fe²⁺ to
-      Fe³⁺ as sole energy source while fixing CO₂. Secretes organic matter during growth (cell lysis products,
-      extracellular polymeric substances, metabolic byproducts) that accumulates to toxic levels in pure
-      culture but is consumed by Ferroplasma in co-culture, relieving organic matter stress. One representative
-      example of iron-oxidizing bacteria that play crucial roles in bioleaching systems. Growth and activity
-      are enhanced by Ferroplasma through upregulation of oxidative phosphorylation and stress resistance
-      genes. Thrives at pH 1.2-2.0, temperature 30-40°C. Obligate aerobe using O₂ as terminal electron
-      acceptor.
+      Fe³⁺ as sole energy source while fixing CO₂. Secretes organic matter during growth that Ferroplasma
+      acidiphilum was hypothesized to consume in co-culture, relieving organic matter stress. One representative
+      example of iron-oxidizing bacteria that play crucial roles in bioleaching systems. Thrives at pH
+      1.2-2.0, temperature 30-40°C. Obligate aerobe using O₂ as terminal electron acceptor.
 
       '
   functional_role:
@@ -72,18 +61,6 @@ taxonomy:
       acid environments and have great use in bioleaching applications; however, the role of each species
       in this consortia is still a subject of research
     explanation: Establishes syntrophic co-culture system
-  - reference: PMID:40722006
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: Several GIs were identified to carry genes involved in iron oxidation,
-      mercury reduction, and various toxin-antitoxin systems, which enhance the
-      adaptability of the strains to highly acidic environments
-    explanation: Qiu et al. 2025 is a genomic/bioinformatic study (genomic-island
-      and gene-content analysis), so evidence_source is COMPUTATIONAL rather than
-      IN_VIVO. The genomic-island-borne genes (iron oxidation, mercury reduction,
-      toxin-antitoxin) describe single-organism adaptation of Ferroplasma acidiphilum
-      to the acidic environment; the abstract does not demonstrate a community-level
-      enhancement, so the prior "community enhancement" wording is removed.
 - taxon_term:
     preferred_term: Ferroplasma acidiphilum
     term:
@@ -137,15 +114,14 @@ ecological_interactions:
     energy source, using the electrons to fix CO₂ through the Calvin-Benson-Bassham cycle. This obligate
     chemolithoautotroph oxidizes iron from pyrite and chalcopyrite mineral dissolution. The Fe³⁺ generated
     attacks sulfide minerals, perpetuating the iron redox cycle. During growth, Leptospirillum releases
-    organic matter (cell lysis products, extracellular polymeric substances, amino acids, organic acids)
-    that can accumulate to toxic concentrations in pure culture. In co-culture with Ferroplasma, this
-    organic matter is consumed, relieving stress and enhancing Leptospirillum growth and activity through
-    upregulation of oxidative phosphorylation and stress resistance genes.
+    organic matter that can accumulate to toxic concentrations in pure culture. In co-culture with
+    Ferroplasma, this organic matter is consumed, relieving organic-compound stress.
 
     '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
@@ -159,7 +135,7 @@ ecological_interactions:
     term:
       id: CHEBI:29034
       label: iron(3+)
-    concentration: Product; 31.7% higher in co-culture than monoculture
+    concentration: Product of ferrous-iron oxidation
   - preferred_term: organic molecular entity
     term:
       id: CHEBI:50860
@@ -187,15 +163,6 @@ ecological_interactions:
     explanation: Merino et al. 2016 frame L. ferriphilum and F. acidiphilum as the
       co-dominant bioleaching consortium, establishing L. ferriphilum's iron oxidation
       role in the syntrophy.
-  - reference: doi:10.1016/j.ibiod.2025.106190
-    supports: WRONG_STATEMENT
-    evidence_source: IN_VITRO
-    snippet: Ferroplasma acidiphilum enhance the growth and activity of Leptospirillum ferriphilum by
-      affecting the genes expression of oxidative phosphorylation and stress resistance
-    explanation: The quoted snippet could not be verified against this reference; the
-      cached record for this DOI has no retrievable full text, so the attributed
-      statement cannot be substantiated from the source. Marked WRONG_STATEMENT pending
-      a verifiable replacement reference.
 - name: Organic Matter Consumption by Ferroplasma
   description: 'Ferroplasma acidiphilum grows chemomixotrophically, consuming organic matter secreted
     by Leptospirillum ferriphilum while oxidizing ferrous iron for energy. F. acidiphilum uses the organic
@@ -207,17 +174,18 @@ ecological_interactions:
     benefits from carbon supply while Leptospirillum benefits from detoxification.
 
     '
-  interaction_type: MUTUALISM
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
-    preferred_term: Ferroplasma acidiphilum
-    term:
-      id: NCBITaxon:74969
-      label: Ferroplasma acidiphilum
-  target_taxon:
     preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
+  target_taxon:
+    preferred_term: Ferroplasma acidiphilum
+    term:
+      id: NCBITaxon:74969
+      label: Ferroplasma acidiphilum
   metabolites:
   - preferred_term: organic molecular entity
     term:
@@ -230,8 +198,8 @@ ecological_interactions:
       label: iron(2+)
     notes: Also oxidized by Ferroplasma for energy
   downstream:
-  - target: Enhanced Chalcopyrite Bioleaching
-    description: Detoxification and enhanced growth improve mineral dissolution
+  - target: Filtered Medium Cross-Feeding
+    description: Soluble organic compounds contribute to the reciprocal filtered-medium growth response
   evidence:
   - reference: PMID:27535541
     supports: SUPPORT
@@ -258,9 +226,10 @@ ecological_interactions:
     vs. microaerobic, autotrophic vs. mixotrophic), reducing direct competition and enabling stable coexistence.
 
     '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Ferroplasma acidiphilum
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
@@ -294,89 +263,20 @@ ecological_interactions:
     snippet: acidiphilum therefore has a currently unique iron-protein-dominated cellular machinery and
       biochemical phylogeny.
     explanation: Establishes iron-centric metabolism
-- name: Enhanced Chalcopyrite Bioleaching
-  description: 'The syntrophic consortium outperforms pure cultures in bioleaching chalcopyrite (CuFeS₂)
-    and pyrite (FeS₂). Under organic matter stress (0.5 g/L yeast extract), the co-culture achieves 31.5%
-    higher copper extraction and 31.7% higher ferric iron generation compared to pure cultures of either
-    organism. The improvement results from: (1) Ferroplasma consuming organic matter that would inhibit
-    Leptospirillum, (2) enhanced Leptospirillum stress resistance and oxidative phosphorylation gene expression,
-    (3) complementary oxygen niches (aerobic Leptospirillum + microaerobic Ferroplasma), and (4) sustained
-    high Fe³⁺ generation from both organisms. Cell growth is favorably affected by filtered medium from
-    the partner, confirming synergistic interaction. This makes the consortium valuable for industrial
-    biomining where organic matter contamination is common.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
-    term:
-      id: NCBITaxon:178606
-      label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Ferroplasma acidiphilum
-    term:
-      id: NCBITaxon:74969
-      label: Ferroplasma acidiphilum
-  metabolites:
-  - preferred_term: chalcopyrite
-    term:
-      id: CHEBI:86202
-      label: chalcopyrite
-    notes: CuFeS₂ mineral substrate
-  - preferred_term: copper(2+)
-    term:
-      id: CHEBI:29036
-      label: copper(2+)
-    concentration: 31.5% higher extraction in co-culture vs. monoculture
-  - preferred_term: Fe(III)
-    term:
-      id: CHEBI:29034
-      label: iron(3+)
-    concentration: 31.7% higher generation in co-culture vs. monoculture
-  - preferred_term: pyrite
-    term:
-      id: CHEBI:86471
-      label: pyrite
-    notes: FeS₂ mineral substrate
-  evidence:
-  - reference: PMID:27535541
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: cell growth is favorably affected by the presence of the filtered medium
-      of the other microorganism, proving a synergistic interaction between these
-      species
-    explanation: Merino et al. 2016 quantify the synergistic growth boost in the
-      mixed F. acidiphilum × L. ferriphilum culture — the bioleaching enhancement
-      from syntrophy.
-  - reference: doi:10.1016/j.ibiod.2025.106190
-    supports: WRONG_STATEMENT
-    evidence_source: IN_VITRO
-    snippet: The bioleaching of chalcopyrite and pyrite by the co-culture systems of L. ferriphilum and
-      F. acidiphilum under the stress of 0.5 g/L yeast extract led to better performance than the pure
-      culture
-    explanation: The quoted snippet could not be verified against this reference; the
-      cached record for this DOI has no retrievable full text, so the attributed
-      statement cannot be substantiated from the source. Marked WRONG_STATEMENT pending
-      a verifiable replacement reference.
 - name: Filtered Medium Cross-Feeding
-  description: 'Cell growth is favorably affected by the presence of filtered medium of the partner organism,
-    proving synergistic interaction. Leptospirillum-conditioned medium contains organic secretions that
-    stimulate Ferroplasma growth. Ferroplasma-conditioned medium contains factors (possibly growth factors,
-    vitamins, or signaling molecules) that enhance Leptospirillum activity. This demonstrates that the
-    partnership involves exchange of multiple metabolites beyond simple organic carbon transfer, potentially
-    including vitamins, cofactors, or quorum sensing molecules. The positive effects of filtered medium
-    (which excludes direct cell contact) prove the interaction is mediated by soluble factors rather than
-    physical contact.
+  description: 'Cell growth is favorably affected by the presence of filtered medium of the partner organism.
+    The reciprocal supernatant response shows that the partnership involves soluble factors beyond direct
+    cell contact.
 
     '
+  scope: COMMUNITY_LEVEL
   interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Leptospirillum ferriphilum
+  participating_taxa:
+  - preferred_term: Leptospirillum ferriphilum
     term:
       id: NCBITaxon:178606
       label: Leptospirillum ferriphilum
-  target_taxon:
-    preferred_term: Ferroplasma acidiphilum
+  - preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
@@ -476,12 +376,11 @@ environmental_factors:
       biochemical phylogeny.
     explanation: Reflects adaptation to high-iron environments
 - name: Organic Matter Stress
-  value: 0.5 g/L yeast extract
-  unit: g/L
-  description: 'Presence of organic matter (0.5 g/L yeast extract) creates stress for Leptospirillum but
-    is mitigated by Ferroplasma consumption. In pure Leptospirillum cultures, organic matter inhibits
-    growth. In co-culture, Ferroplasma maintains organic compounds below toxic levels, enabling the consortium
-    to tolerate environments contaminated with organic carbon sources.
+  value: Organic compounds secreted by Leptospirillum
+  unit: qualitative
+  description: 'Organic matter secreted by Leptospirillum can support Ferroplasma growth, and the consumption
+    of those compounds by Ferroplasma is hypothesized to keep the mixed culture below concentrations
+    that are toxic to Leptospirillum.
 
     '
   evidence:
@@ -653,9 +552,7 @@ growth_media:
   atmosphere: AEROBIC
   preparation_notes: 'Medium adjusted to initial pH ~1.7 with H2SO4. For syntrophy experiments, yeast
     extract concentration is critical: 0.04% wt/vol (0.4 g/L) is optimal for F. acidiphilum growth. Higher
-    concentrations (0.5 g/L) create organic matter stress that demonstrates the syntrophic benefit of
-    co-culture. Co-culture achieves 31.5% higher copper extraction and 31.7% higher Fe3+ generation compared
-    to monocultures under organic stress conditions. Leptospirillum is an obligate aerobe requiring oxygen,
+    Leptospirillum is an obligate aerobe requiring oxygen,
     while Ferroplasma is microaerophilic and tolerates lower O2. Cultures maintained with aeration but
     not vigorous sparging to accommodate both organisms.'
   evidence:

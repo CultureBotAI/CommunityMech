@@ -76,24 +76,143 @@ taxonomy:
       and growth rates of flagellar motile microorganisms
     explanation: Supports the motile-microbe membership and rainfall response.
 ecological_interactions:
-- name: Rainfall-Driven Selection for Motility
-  description: Historic precipitation level acts as an important factor
-    controlling trait selection, with higher precipitation favoring flagellar
-    motile microorganisms.
-  interaction_type: NICHE_PARTITIONING
+- name: H218O qSIP Active-Growth Labeling
+  description: >
+    Mediterranean-climate grassland soils were amended with H218O so newly
+    replicated microbial DNA incorporated the stable isotope, enabling
+    population-specific growth to be inferred from isotope shifts.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: qSIP-Informed Active Community Resolution
+    description: >
+      The H218O labeling experiment supplied the isotopically shifted DNA used
+      to identify actively growing soil microorganisms and their genomes.
   evidence:
   - reference: PMID:36300946
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: historic precipitation levels are an important factor controlling
-      trait selection
-    explanation: Supports rainfall history as a selective filter.
+    snippet: genome-resolved metagenomic implementation of quantitative stable isotope
+      probing (qSIP) with an H218O labeling experiment
+    explanation: >
+      Supports H218O qSIP as the activity-labeling method for this soil
+      community.
+  - reference: PMID:36300946
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: isotopic incorporation into microbial DNA requires production of new genome
+      copies
+    explanation: >
+      Supports the link between isotope incorporation and new microbial genome
+      replication.
+- name: qSIP-Informed Active Community Resolution
+  description: >
+    qSIP-informed genome-resolved metagenomics distinguished active grassland
+    soil community members from inactive ones and assigned genomic capacities to
+    growing microorganisms.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Rainfall-Gradient Trait Selection
+    description: >
+      Active genome recovery across three soils provided the data needed to
+      evaluate historical rainfall as a microbial trait-selection filter.
+  - target: Broad Carbon-Catabolism Capacity Distribution
+    description: >
+      The same active-versus-inactive genome comparison tested whether soil
+      organic carbon decomposition traits were specifically enriched in active
+      bacteria.
+  evidence:
+  - reference: PMID:36300946
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: qSIP-informed genome-resolved metagenomics to resolve the active subset of soil
+      community members and identify their characteristic ecophysiological traits
+    explanation: >
+      Supports active-member resolution and genomic trait assignment by the
+      qSIP-informed metagenomic workflow.
+- name: Rainfall-Gradient Trait Selection
+  description: >
+    Three Mediterranean grassland soils spanning a rainfall gradient were used
+    to test whether historic precipitation controls microbial trait selection
+    among actively growing soil bacteria.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Wet-Site Flagellar Motile Growth
+    description: >
+      Comparing active genomes across the rainfall gradient linked wetter
+      historical conditions to more active flagellar motile microorganisms.
+  evidence:
+  - reference: PMID:36300946
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: three Mediterranean grassland soils across a rainfall gradient
+    explanation: >
+      Supports the natural rainfall-gradient design.
+  - reference: PMID:36300946
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: historic precipitation levels are an important factor controlling trait
+      selection
+    explanation: >
+      Supports historical rainfall as the tested and inferred selection factor.
+- name: Wet-Site Flagellar Motile Growth
+  description: >
+    Higher year-round precipitation correlated with higher activity and growth
+    rates among flagellar motile microorganisms, indicating selection for a
+    motile active guild in wetter grassland soils.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: bacterial-type flagellum-dependent cell motility
+    term:
+      id: GO:0071973
+      label: bacterial-type flagellum-dependent cell motility
+  evidence:
   - reference: PMID:36300946
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: higher activity and growth rates of flagellar motile microorganisms
     explanation: Supports the specific motility-related trait selection.
+- name: Broad Carbon-Catabolism Capacity Distribution
+  description: >
+    Genome-resolved trait analysis showed that capacities for decomposing
+    complex soil organic carbon, oxidizing methanol, and oxidizing carbon
+    monoxide were broadly distributed across active and inactive bacteria rather
+    than tightly selected by historical rainfall.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:36300946
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the capacity to decompose the diverse complex carbohydrates common in soil
+      organic matter or oxidize methanol and carbon monoxide were broadly
+      distributed across active and inactive bacteria
+    explanation: >
+      Supports the negative qSIP finding that these soil carbon-cycling
+      capacities were not restricted to active rainfall-selected taxa.
 environmental_factors:
 - name: Rainfall gradient across grassland sites
   value: three grassland soils along a precipitation gradient

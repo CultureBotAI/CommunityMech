@@ -158,6 +158,7 @@ ecological_interactions:
   description: C. phytofermentans hydrolyzes alpha-cellulose and releases soluble sugars
     that can be fermented by S. cerevisiae cdt-1.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium phytofermentans ISDg
     term:
@@ -190,6 +191,12 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Long-Term Symbiotic Population Maintenance
+    description: >
+      C. phytofermentans cellulose hydrolysis supplies soluble sugars that
+      support yeast fermentation during the maintained bacterium-yeast
+      population pairing.
   evidence:
   - reference: PMID:23628342
     supports: SUPPORT
@@ -206,6 +213,7 @@ ecological_interactions:
     C. phytofermentans and allowing the coculture to persist under controlled oxygen
     delivery.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae cdt-1
     term:
@@ -226,11 +234,17 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Long-Term Symbiotic Population Maintenance
+    description: >
+      Yeast oxygen removal protects the anaerobic cellulolytic partner under
+      controlled oxygen transfer, allowing both populations to persist in the
+      long-term symbiosis.
   evidence:
   - reference: PMID:23628342
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: protect C. phytofermentans from introduced oxygen
+    snippet: “protect” C. phytofermentans from introduced oxygen
     explanation: Supports oxygen removal by yeast as the protective interaction.
   - reference: PMID:23628342
     supports: SUPPORT
@@ -241,6 +255,7 @@ ecological_interactions:
   description: Controlled diffusive oxygen transfer supported maintenance of both
     C. phytofermentans and S. cerevisiae cdt-1 populations for 50 days.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Saccharomyces cerevisiae cdt-1
     term:

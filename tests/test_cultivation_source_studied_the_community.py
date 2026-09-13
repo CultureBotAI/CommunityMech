@@ -151,6 +151,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "LBNL_Brachypodium_Drought_SynCom15.yaml",
         "LBNL_Human_Gut_Interaction_SynCom.yaml",
         "Maize_Benzoxazinoid_Metabolizing_SynComs.yaml",
+        "Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml",
         "NCycle_Bioflocculation_Model_Consortium.yaml",
         "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
         "SkinCom_Synthetic_Skin_Community.yaml",
@@ -158,7 +159,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "Wetland_Oxygen_Sulfate_GHG_Microcosm_Community.yaml",
         "hCom2_Complex_Gut_Microbiome.yaml",
     ),
-    _NO_MEMBERS: ("Multi_stage_Anaerobic_Digestion_SynCom_YSJ_and_SynCom_J.yaml",),
+    _NO_MEMBERS: (),
     # #754 removed the paywalled article bodies these two cultivation_setup
     # blocks were evidenced from, and the evidence items went with them. The
     # message above says to prefer removing the blindness by caching the cited
@@ -182,8 +183,6 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "Defined_Multispecies_Enamel_Caries_Model.yaml",
         "Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml",
         "Industrial_Bioreactor_Consortium.yaml",
-        "Lunar_Martian_Simulant_PGPB_Lettuce_SynCom.yaml",
-        "Ostreococcus_Dinoroseobacter_BVitamin_Mutualism.yaml",
         "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml",
         "Rammelsberg_Cobalt_Nickel_Tailings.yaml",
         "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",

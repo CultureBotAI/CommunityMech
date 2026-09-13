@@ -112,6 +112,7 @@ ecological_interactions:
   description: S. bovis 148 metabolizes starch and produces lactic acid, converting
     a polymeric substrate into an electron-donor intermediate usable by S. oneidensis MR-1.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus bovis 148
     term:
@@ -136,6 +137,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Lactate-Fed Current Generation
+    description: Lactic acid produced from starch by S. bovis is the
+      electron-donor intermediate that S. oneidensis oxidizes for current
+      production in the microbial fuel cell.
   evidence:
   - reference: PMID:28434977
     supports: SUPPORT
@@ -151,6 +157,7 @@ ecological_interactions:
   description: S. oneidensis MR-1 uses lactic acid produced from starch fermentation
     to generate electrical current in the microbial fuel cell.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Shewanella oneidensis MR-1
     term:
@@ -182,6 +189,7 @@ ecological_interactions:
     S. oneidensis MR-1 were cultivated simultaneously so starch conversion,
     lactic acid production, and electricity generation occurred in one workflow.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Streptococcus bovis 148
     term:
@@ -206,6 +214,15 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  - preferred_term: electron transport chain
+    term:
+      id: GO:0022900
+      label: electron transport chain
+  downstream:
+  - target: Lactate-Fed Current Generation
+    description: In the parallel method, S. bovis starch fermentation occurs
+      while S. oneidensis oxidizes the resulting lactic acid for current
+      generation rather than after a separate S. bovis conversion step.
   evidence:
   - reference: PMID:28434977
     supports: SUPPORT

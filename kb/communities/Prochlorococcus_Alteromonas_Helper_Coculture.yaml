@@ -138,6 +138,7 @@ ecological_interactions:
     species. This detoxification service reduces oxidative stress for Prochlorococcus, which lacks catalase,
     and increases its growth under otherwise inhibitory peroxide and temperature conditions.
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii EZ55
     term:
@@ -159,6 +160,11 @@ ecological_interactions:
     term:
       id: GO:0006979
       label: response to oxidative stress
+  downstream:
+  - target: Helper-Dependent Prochlorococcus Growth
+    description: >
+      Alteromonas hydrogen-peroxide removal relieves oxidative stress enough to
+      support helper-dependent Prochlorococcus growth.
   evidence:
   - reference: PMID:29087377
     supports: SUPPORT
@@ -175,6 +181,7 @@ ecological_interactions:
     catalase gene expression and reducing the rate at which cocultures remove hydrogen peroxide. This
     makes Prochlorococcus more vulnerable to oxidative stress under projected high-CO2 conditions.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Alteromonas macleodii EZ55
     term:
@@ -199,6 +206,12 @@ ecological_interactions:
     term:
       id: GO:0006979
       label: response to oxidative stress
+  downstream:
+  - target: Hydrogen Peroxide Cross-Protection
+    description: >
+      Elevated carbon dioxide lowers Alteromonas catalase expression and
+      hydrogen-peroxide removal, weakening the helper detoxification service
+      that protects Prochlorococcus from oxidative stress.
   evidence:
   - reference: doi:10.1038/ismej.2017.189
     supports: SUPPORT
@@ -210,6 +223,46 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: decrease in removal rates of hydrogen peroxide
     explanation: Supports reduced peroxide detoxification under elevated CO2.
+- name: Helper-Dependent Prochlorococcus Growth
+  description: >
+    Peroxide scavenging by A. macleodii EZ55 lowers oxidative stress and
+    facilitates the growth of Prochlorococcus MIT9312 at ecologically relevant
+    cell concentrations.
+  interaction_type: COMMENSALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Alteromonas macleodii EZ55
+    term:
+      id: NCBITaxon:28108
+      label: Alteromonas macleodii
+  target_taxon:
+    preferred_term: Prochlorococcus marinus MIT9312
+    term:
+      id: NCBITaxon:1219
+      label: Prochlorococcus marinus
+  metabolites:
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+    notes: Reactive oxygen species removed by helper bacteria.
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:29087377
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Alteromonas facilitate the growth of Prochlorococcus by scavenging HOOH
+    explanation: >
+      Supports helper-bacterium peroxide scavenging as a mechanism that
+      facilitates Prochlorococcus growth.
 environmental_factors:
 - name: Hydrogen peroxide stress
   value: Ambient to elevated HOOH treatments

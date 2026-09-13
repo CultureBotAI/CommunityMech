@@ -37,14 +37,19 @@ def test_every_path_in_the_canonical_files_table_exists(declared: str):
     ).exists(), f"CLAUDE.md names {declared!r}, which does not exist in the repository"
 
 
-def test_the_core_python_target_matches_pyproject():
-    claimed = re.search(r"Core package and validation: Python (\d+\.\d+)\+", _text())
-    assert claimed, "the core Python support statement moved or disappeared"
+def test_python_runtime_and_metadata_floor_match_configuration():
+    claimed = re.search(
+        r"Maintained development and CI runtime: Python (\d+\.\d+); "
+        r"package metadata floor: Python (\d+\.\d+)\+",
+        _text(),
+    )
+    assert claimed, "the Python runtime and package support statement moved or disappeared"
+    assert claimed.group(1) == (REPO / ".python-version").read_text().strip()
 
     pyproject = (REPO / "pyproject.toml").read_text(encoding="utf-8")
     required = re.search(r'requires-python\s*=\s*">=(\d+\.\d+)"', pyproject)
     assert required, "could not read requires-python from pyproject.toml"
-    assert claimed.group(1) == required.group(1)
+    assert claimed.group(2) == required.group(1)
 
 
 def test_the_guide_does_not_publish_a_volatile_community_count():

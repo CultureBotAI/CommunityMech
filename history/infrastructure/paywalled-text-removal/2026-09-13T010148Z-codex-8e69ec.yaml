@@ -1,0 +1,48 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: references_cache
+  slug: paywalled-text-removal
+session:
+  id: 2026-09-13T010148Z-codex-8e69ec
+  timestamp: '2026-09-13T01:01:48Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: Codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/765
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/766
+  urls:
+  - https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:24242251%20AND%20SRC:MED&format=json&resultType=core
+  - https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:25692519%20AND%20SRC:MED&format=json&resultType=core
+  - https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:26323627%20AND%20SRC:MED&format=json&resultType=core
+  - https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:28440800%20AND%20SRC:MED&format=json&resultType=core
+  - https://api.crossref.org/works/10.1038/ncomms7312
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  - references_cache
+  - curation_history
+  - generated_pages
+  summary: Apply publication-body policy to four newer main caches
+  details: 'The unchanged publication-body gate detected four local-file bodies added on main
+    after PR #766 was opened. Public Europe PMC core metadata checked on 2026-09-13 reports
+    PMID24242251, PMID26323627 and PMID28440800 as not open access. PMID25692519 is marked
+    open access but refers to an NIH author manuscript; the committed extraction is the publisher
+    version and asserts all rights reserved. Publisher-deposited Crossref metadata provides
+    only text/data-mining terms. A redistribution license for that cached version was not
+    verified; this is version/license uncertainty, not a legal determination. Retained each
+    already committed PubMed abstract and removed only 12 EvidenceItems that passed against
+    the former bodies but fail against those abstracts: Drosophila_FiveSpecies_Gnotobiotic_Gut_Microbiota6,
+    Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community5, Trichodesmium_Alteromonas_Marine_Consortium1.
+    Preserved every other scientific field, including taxonomy, claims, newer interaction
+    nodes and causal edges. Remaining unsupported claims need re-evidencing; no gate was relaxed.
+    This adds to the original78 removals for90 in8records and9abstract-only caches, plus the
+    original PDF deletion. Only affected community pages were regenerated. Ordinary public
+    metadata lookups were read-only; no paid/model provider calls were made.'

@@ -180,6 +180,7 @@ ecological_interactions:
   description: DvH ferments lactate in the defined consortium and supplies hydrogen
     needed by Dhc195 for reductive dechlorination.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio vulgaris Hildenborough
     term:
@@ -212,6 +213,12 @@ ecological_interactions:
     term:
       id: GO:0009061
       label: anaerobic respiration
+  downstream:
+  - target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: >
+      DvH-supplied hydrogen provides the electron donor input that Dhc195 needs,
+      together with PfR7-derived corrinoids, for sustainable reductive
+      dechlorination in the defined triculture.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -227,6 +234,7 @@ ecological_interactions:
   description: PfR7 provides corrinoids that allow Dhc195 to sustain dechlorination
     and cell growth when cobalamin is not supplied exogenously.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pelosinus fermentans R7
     term:
@@ -255,6 +263,11 @@ ecological_interactions:
     term:
       id: GO:0015889
       label: cobalamin transport
+  downstream:
+  - target: Dhc195 Corrinoid Salvaging And Remodeling
+    description: >
+      PfR7 corrinoid production supplies the phenolic corrinoids that Dhc195
+      imports and remodels into cobalamin when DMB is present.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -271,6 +284,7 @@ ecological_interactions:
     into cobalamin in the presence of DMB, inducing corrinoid-remodeling and
     corrinoid-transport genes.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pelosinus fermentans R7
     term:
@@ -299,6 +313,12 @@ ecological_interactions:
     term:
       id: GO:0015889
       label: cobalamin transport
+  downstream:
+  - target: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+    description: >
+      Dhc195 corrinoid salvaging and remodeling turns PfR7-produced corrinoids
+      into cobalamin cofactors that support sustainable TCE dechlorination when
+      DvH also supplies hydrogen.
   evidence:
   - reference: PMID:24463969
     supports: SUPPORT
@@ -310,6 +330,50 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: CbiZ-dependent corrinoid-remodeling pathway and BtuFCD corrinoid ABC transporter genes
     explanation: Supports the transcriptomic response associated with corrinoid salvaging and transport.
+- name: Hydrogen- and Corrinoid-Supported TCE Dechlorination
+  description: >
+    The three-member consortium combines DvH hydrogen provisioning with
+    PfR7-to-Dhc195 corrinoid transfer and Dhc195 cobalamin remodeling to sustain
+    TCE dechlorination and Dehalococcoides growth without exogenous cobalamin.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  - preferred_term: 5,6-dimethylbenzimidazole
+    term:
+      id: CHEBI:15890
+      label: 5,6-dimethylbenzimidazole
+  - preferred_term: trichloroethene
+    term:
+      id: CHEBI:16602
+      label: trichloroethene
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  - preferred_term: cobalamin transport
+    term:
+      id: GO:0015889
+      label: cobalamin transport
+  evidence:
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only the triculture exhibited sustainable dechlorination and cell growth
+    explanation: Supports the full Dhc195/DvH/PfR7 triculture as the sustainable TCE-dechlorinating state.
+  - reference: PMID:24463969
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DvH provided hydrogen while PfR7 provided corrinoids to Dhc195
+    explanation: Supports the combined hydrogen and corrinoid inputs needed for the triculture output.
 environmental_factors:
 - name: Cobalamin-free medium
   value: no exogenous cobalamin

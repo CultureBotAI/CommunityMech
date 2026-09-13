@@ -32,33 +32,153 @@ environment_term:
   notes: Pepper seedling rhizosphere SynCom inoculation system.
 taxonomy:
 - taxon_term:
-    preferred_term: pepper rhizosphere SynCom bacteria
+    preferred_term: Bacillus subtilis GDMCC 64986
     term:
-      id: NCBITaxon:2
-      label: Bacteria
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
     gtdb_grounding_status: GROUNDED
     gtdb_classification:
-      gtdb_id: GTDB:d__Bacteria
-      gtdb_taxon: Bacteria
-      gtdb_lineage: d__Bacteria
-      ncbi_source_id: NCBITaxon:2
-      majority_fraction: 1.0
-      support_genomes: 1603049
-      total_genomes: 1603049
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
       is_reclassified: false
-      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   evidence:
-  - *id001
+  - &id002
+    reference: PMID:39858916
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynCom consist of Bacillus subtilis, Trichoderma harzianum, Trichoderma
+      asperellum and Aspergillus spp.
+    explanation: >
+      Names Bacillus subtilis as one of the four deposited strains used to prepare the pepper
+      seedling SynCom.
+- taxon_term:
+    preferred_term: Trichoderma harzianum GDMCC 64988
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal member of the pepper seedling SynCom.
+  evidence:
+  - *id002
+- taxon_term:
+    preferred_term: Trichoderma asperellum GDMCC 65053
+    term:
+      id: NCBITaxon:101201
+      label: Trichoderma asperellum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal member of the pepper seedling SynCom.
+  evidence:
+  - *id002
+- taxon_term:
+    preferred_term: Aspergillus sp. GDMCC 65054
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus <genus>
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: The source resolved this deposited fungal member only as Aspergillus spp.
+  evidence:
+  - *id002
 ecological_interactions:
-- name: Pepper Rhizosphere Growth Promotion
-  description: SynCom inoculation enriches growth-associated rhizosphere taxa and improves pepper root
-    traits.
-  interaction_type: MUTUALISM
+- name: Four-Member Pepper SynCom Inoculation
+  description: >
+    Bacillus subtilis, Trichoderma harzianum, Trichoderma asperellum, and Aspergillus sp.
+    fermentation liquids were normalized and mixed in equal proportions before soil inoculation.
   scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: SynCom-Shifted Rhizosphere Diversity
+    description: >
+      The prepared four-member SynCom was inoculated into pepper seedling substrate before
+      rhizosphere fungi and bacteria were profiled after 45 days.
   evidence:
-  - *id001
+  - reference: PMID:39858916
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The fermentation liquids of the four strains were adjusted to a concentration of
+      1 × 108 CFU/mL, and then mixed in equal proportions to create the SynCom.
+    explanation: >
+      Defines the four-member inoculum and the equal-proportion mixing step used to make the pepper
+      SynCom.
+- name: SynCom-Shifted Rhizosphere Diversity
+  description: >
+    SynCom inoculation increased fungal richness and fungal Bray-Curtis dissimilarity while
+    decreasing bacterial Bray-Curtis dissimilarity in the pepper seedling rhizosphere.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Key Native Taxa Enrichment
+    description: >
+      The SynCom-driven rhizosphere shift included increases in native fungal and bacterial OTUs
+      that were correlated with pepper growth and root morphology readouts.
+  evidence:
+  - reference: PMID:39858916
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The Chao index of the rhizosphere microbial community and Bray–Curtis dissimilarity
+      of the fungal community significantly increased, while Bray–Curtis dissimilarity
+      of the bacterial community significantly decreased by SynCom inoculation.
+    explanation: >
+      Reports the measured alpha- and beta-diversity shifts in the SynCom-inoculated pepper
+      rhizosphere.
+- name: Key Native Taxa Enrichment
+  description: >
+    SynCom inoculation enriched native Sordariomycetes, Pseudarthrobacter, SBR1031, and A4b OTUs
+    whose abundances tracked pepper growth and root morphology.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Pepper Rhizosphere Growth Promotion
+    description: >
+      Random-forest and correlation analyses nominated the enriched native taxa as contributors to
+      the shoot-height, dry-weight, chlorophyll, and root-vigor responses.
+  evidence:
+  - reference: PMID:39858916
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The abundance of Sordariomycetes, Pseudarthrobacter, norank SBR1031, and norank
+      A4b were significantly correlated with pepper growth and root morphology
+    explanation: >
+      Links SynCom-enriched native taxa to the pepper growth and root-architecture phenotypes.
+- name: Pepper Rhizosphere Growth Promotion
+  description: >
+    The four-member SynCom increased pepper seedling shoot, biomass, chlorophyll, root-vigor, and
+    root-morphology measurements relative to uninoculated controls.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:39858916
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom inoculation significantly increased shoot height, stem diameter, fresh weight,
+      dry weight, chlorophyll content, leaf number, root vigor, root tips, total root
+      length, and root-specific surface area of pepper
+    explanation: >
+      Reports the growth and root-morphology increases measured after SynCom inoculation.
 environmental_factors:
 - name: defined synthetic community design
   value: Synthetic microbial community applied during pepper seedling establishment.

@@ -101,6 +101,7 @@ ecological_interactions:
 - name: Diatom Recognition of Ruegeria
   description: T. pseudonana changes gene expression in response to R. pomeroyi DSS-3, indicating a
     recognition response in the two-member model system.
+  scope: PAIRWISE
   interaction_type: COLONIZATION_FACILITATION
   source_taxon:
     preferred_term: Ruegeria pomeroyi DSS-3
@@ -121,6 +122,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Diatom Chitin and Lipid Response During Coculture
+    description: >
+      Ruegeria-triggered diatom recognition is reflected in the downstream
+      T. pseudonana transcriptional response affecting chitin metabolism and
+      lipid biosynthesis during coculture.
   evidence:
   - reference: PMID:28631440
     supports: SUPPORT
@@ -131,6 +138,7 @@ ecological_interactions:
   description: T. pseudonana provides organic substrates that support R. pomeroyi growth, including
     sulfonates, sugar derivatives, and organic nitrogen compounds inferred from multi-omics measurements.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Thalassiosira pseudonana CCMP1335
     term:
@@ -141,6 +149,23 @@ ecological_interactions:
     term:
       id: NCBITaxon:246200
       label: Ruegeria pomeroyi DSS-3
+  metabolites:
+  - preferred_term: dimethylsulfoniopropionate
+    term:
+      id: CHEBI:16457
+      label: S,S-dimethyl-beta-propiothetin
+  - preferred_term: N-acetyl-D-glucosamine
+    term:
+      id: CHEBI:506227
+      label: N-acetyl-D-glucosamine
+  - preferred_term: proline
+    term:
+      id: CHEBI:26271
+      label: proline
+  - preferred_term: guanosine
+    term:
+      id: CHEBI:16750
+      label: guanosine
   biological_processes:
   - preferred_term: photosynthesis
     term:
@@ -158,6 +183,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Diatom Chitin and Lipid Response During Coculture
+    description: >
+      Diatom-derived substrates consumed by Ruegeria include chitin-related
+      sugar derivatives, linking the transfer node to the chitin-metabolism
+      component of the diatom transcriptional response.
   evidence:
   - reference: PMID:28631440
     supports: SUPPORT
@@ -173,6 +204,7 @@ ecological_interactions:
   description: Coculture with R. pomeroyi is associated with T. pseudonana transcriptional shifts in
     lipid biosynthesis and chitin metabolism, linking the interaction to diatom cell-surface and carbon
     allocation processes.
+  scope: PAIRWISE
   interaction_type: CROSS_FEEDING
   source_taxon:
     preferred_term: Ruegeria pomeroyi DSS-3

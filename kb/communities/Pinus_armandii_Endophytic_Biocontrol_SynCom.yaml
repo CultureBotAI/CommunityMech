@@ -145,6 +145,27 @@ ecological_interactions:
     functionally complementary and stable synthetic community rather than any single-strain effect.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+    notes: IAA was among the plant growth-promoting traits screened in the endophytic isolates.
+  - preferred_term: ammonia
+    term:
+      id: CHEBI:16134
+      label: ammonia
+    notes: Nitrogen-fixing potential was among the screened plant growth-promoting traits.
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Pinus Seedling Growth Promotion
+    description: Pairwise-compatible strains with complementary plant growth-promoting
+      traits form the optimized SynCom that increases Pinus armandii seedling
+      height and biomass.
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
@@ -160,6 +181,16 @@ ecological_interactions:
     assembled SynCom enhanced blister rust-associated host defense responses.
   interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  downstream:
+  - target: Blister Rust-Associated Defense Enzyme Induction
+    description: Antagonistic endophytic strains assembled into the optimized SynCom
+      enhance polyphenol oxidase and peroxidase defense responses associated with
+      Pinus armandii blister rust resistance.
   evidence:
   - reference: PMID:42322490
     supports: SUPPORT
@@ -167,3 +198,43 @@ ecological_interactions:
     snippet: antagonistic potential using dual-culture assays and inhibition of urediniospore germination.
     explanation: Members were screened for antagonism (dual-culture inhibition, urediniospore germination
       suppression) against the rust pathogen.
+- name: Pinus Seedling Growth Promotion
+  description: The optimized five-strain SynCom significantly increases Pinus
+    armandii seedling height and biomass accumulation in pot experiments.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  evidence:
+  - reference: PMID:42322490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: significantly increased seedling height and biomass accumulation.
+    explanation: Supports the seedling-growth effect of the optimized five-strain SynCom.
+- name: Blister Rust-Associated Defense Enzyme Induction
+  description: SynCom treatment raises defense-related polyphenol oxidase and
+    peroxidase activities relative to uninoculated Pinus armandii controls,
+    consistent with priming blister rust-associated defense responses.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  evidence:
+  - reference: PMID:42322490
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom treatment enhanced defense-related enzyme activities, increasing polyphenol
+      oxidase (PPO) and peroxidase (POD) activities by 19.1% and 157.3% relative to the
+      control
+    explanation: Supports the enhanced defense-enzyme endpoint of the optimized SynCom.

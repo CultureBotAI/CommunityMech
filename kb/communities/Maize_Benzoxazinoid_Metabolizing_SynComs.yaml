@@ -50,13 +50,83 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Benzoxazinoid-Mediated Niche Partitioning
-  description: Community members differ in benzoxazinoid tolerance and metabolism, redirecting metabolite
-    fate.
+- name: Community-Dependent MBOA Redirection
+  description: Interacting maize-root bacteria redirect MBOA degradation away from the aminophenoxazinone
+    produced by individual strains and toward a SynCom-specific acetamide product.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: MBOA (6-methoxybenzoxazolin-2(3H)-one)
+    term:
+      id: CHEBI:195240
+      label: 6-methoxy-2-benzoxazolinone
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: MBOA-Enhanced Metabolizing SynCom Performance
+    description: Community-scale redirection of MBOA metabolization contributes to the metabolizing
+      SynCom's higher tolerance and growth on MBOA as its sole carbon source.
   evidence:
   - *id001
+  - reference: PMID:40853002
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We exposed both communities to the benzoxazinoid MBOA (6-methoxybenzoxazolin-2(3H)-one)
+      in vitro
+    explanation: Supports MBOA as the benzoxazinoid substrate whose metabolism
+      was redirected by interacting maize-root bacteria.
+- name: MBOA-Tolerant Strain Enrichment
+  description: Exposure to the antimicrobial benzoxazinoid MBOA shaped both synthetic communities and
+    increased the fraction of MBOA-tolerant strains.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: MBOA (6-methoxybenzoxazolin-2(3H)-one)
+    term:
+      id: CHEBI:195240
+      label: 6-methoxy-2-benzoxazolinone
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: MBOA-Enhanced Metabolizing SynCom Performance
+    description: MBOA-driven enrichment of tolerant strains supplies the community-composition component
+      of better SynCom performance in the presence of the antimicrobial compound.
+  evidence:
+  - reference: PMID:40853002
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: MBOA shaped the differential compositions of both communities and increased the fraction
+      of MBOA-tolerant strains.
+    explanation: Supports MBOA selection for tolerant maize-root bacteria in the SynComs.
+- name: MBOA-Enhanced Metabolizing SynCom Performance
+  description: The benzoxazinoid-metabolizing community showed higher MBOA tolerance and could use MBOA
+    as its sole carbon source for growth.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: MBOA (6-methoxybenzoxazolin-2(3H)-one)
+    term:
+      id: CHEBI:195240
+      label: 6-methoxy-2-benzoxazolinone
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40853002
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacterial interaction results in alternative benzoxazinoid metabolization and increases
+      community performance in the presence of these antimicrobial compounds.
+    explanation: Supports enhanced metSC performance as a community-scale product of bacterial
+      interaction during MBOA exposure.
 environmental_factors:
 - name: defined synthetic community design
   value: Two seven-strain synthetic communities of maize root bacteria with shared core strains and alternate

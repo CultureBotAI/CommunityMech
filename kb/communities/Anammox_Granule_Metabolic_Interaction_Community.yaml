@@ -135,9 +135,10 @@ ecological_interactions:
 - name: Anammox Ammonium-Nitrite Conversion
   description: Brocadia-affiliated AMX1 oxidizes ammonium anaerobically using nitrite as the terminal
     electron acceptor, producing nitrogen gas and nitrate-linked byproducts that structure the granule.
+  scope: COMMUNITY_LEVEL
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+  participating_taxa:
+  - preferred_term: Brocadia-affiliated anammox bacterium AMX1
     term:
       id: NCBITaxon:795830
       label: Candidatus Brocadia sinica
@@ -150,6 +151,19 @@ ecological_interactions:
     term:
       id: CHEBI:16301
       label: nitrite
+  downstream:
+  - target: Heterotrophic Nitrite Loop
+    description: Nitrate-linked products of Brocadia anammox metabolism provide
+      the oxidized nitrogen pool that heterotrophic flanking bacteria can
+      reduce back to nitrite.
+  - target: EPS Peptide Scavenging by Chlorobi
+    description: Dominant anammox growth supplies the EPS matrix whose
+      proteinaceous material is scavenged by Chlorobi-affiliated
+      heterotrophs.
+  - target: Detritus and Small-Donor Scavenging
+    description: Biomass turnover from the dominant anammox population supplies
+      detrital organic matter and small donors for heterotrophic scavengers in
+      the granule.
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -160,13 +174,13 @@ ecological_interactions:
   description: Heterotrophic anammox-granule members respire nitrate to nitrite, potentially recycling nitrate
     produced by anammox growth back into nitrite for anammox bacteria.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: anammox-granule heterotrophic flanking bacteria
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: anammox-granule heterotrophic flanking bacteria
     term:
       id: NCBITaxon:2
       label: Bacteria
-  target_taxon:
-    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+  - preferred_term: Brocadia-affiliated anammox bacterium AMX1
     term:
       id: NCBITaxon:795830
       label: Candidatus Brocadia sinica
@@ -194,16 +208,21 @@ ecological_interactions:
   description: Chlorobi-affiliated heterotrophs degrade extracellular proteinaceous material in the granule
     matrix, releasing amino acids and peptides that can support themselves and other community members.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Brocadia-affiliated anammox bacterium AMX1
     term:
       id: NCBITaxon:795830
       label: Candidatus Brocadia sinica
-  target_taxon:
-    preferred_term: Chlorobi-affiliated heterotrophic bacteria
+  - preferred_term: Chlorobi-affiliated heterotrophic bacteria
     term:
       id: NCBITaxon:1090
       label: Chlorobiota
+  biological_processes:
+  - preferred_term: proteolysis
+    term:
+      id: GO:0006508
+      label: proteolysis
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT
@@ -218,17 +237,26 @@ ecological_interactions:
 - name: Detritus and Small-Donor Scavenging
   description: Other heterotrophic members scavenge detritus, peptides, hydrogen, acetate, and formate,
     broadening carbon and electron flow in the granule.
-  interaction_type: COMMENSALISM
-  source_taxon:
-    preferred_term: Brocadia-affiliated anammox bacterium AMX1
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: Brocadia-affiliated anammox bacterium AMX1
     term:
       id: NCBITaxon:795830
       label: Candidatus Brocadia sinica
-  target_taxon:
-    preferred_term: anammox-granule heterotrophic flanking bacteria
+  - preferred_term: anammox-granule heterotrophic flanking bacteria
     term:
       id: NCBITaxon:2
       label: Bacteria
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: formate
+    term:
+      id: CHEBI:15740
+      label: formate
   evidence:
   - reference: doi:10.1038/ncomms15416
     supports: SUPPORT

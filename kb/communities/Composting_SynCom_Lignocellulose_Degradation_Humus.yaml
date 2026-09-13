@@ -76,10 +76,28 @@ taxonomy:
 ecological_interactions:
 - name: SynCom-driven restructuring and enrichment of native degraders
   description: SynCom inoculation restructures the indigenous composting microbiome, enriching key
-    lignocellulose-degrading functional genera (Thermobifida, Actinomadura) and increasing the abundance
-    of carbohydrate-active enzymes, thereby accelerating lignocellulose degradation.
+    lignocellulose-degrading functional genera (Thermobifida, Actinomadura) that carry an enriched
+    carbohydrate-active enzyme repertoire in the SynCom-treated compost.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  downstream:
+  - target: Carbohydrate-active enzyme repertoire expansion
+    description: Enrichment of native Thermobifida and Actinomadura is linked to a
+      larger cellulase, hemicellulase, and lignin-modifying auxiliary-activity
+      enzyme repertoire in SynCom-treated compost.
   evidence:
   - reference: PMID:41297400
     supports: SUPPORT
@@ -88,6 +106,75 @@ ecological_interactions:
       such as Thermobifida and Actinomadura
     explanation: Community-level facilitation in which the engineered SynCom enriches native functional
       degraders.
+- name: Carbohydrate-active enzyme repertoire expansion
+  description: SynCom-treated compost showed greater abundance of cellulases
+    (GH5 and GH12), hemicellulases (CE1 and CE3), and lignin-modifying
+    auxiliary-activity enzymes (AA1 and AA6), linking the
+    Thermobifida/Actinomadura-rich native microbiome to faster polymer
+    deconstruction.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  downstream:
+  - target: Enriched lignocellulose degradation and humus accumulation
+    description: The expanded cellulase, hemicellulase, and lignin-modifying
+      enzyme repertoire enables higher lignin, cellulose, and hemicellulose
+      degradation in SynCom-treated compost.
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: crucial carbohydrate-active enzymes (CAZymes), including cellulases (GH5, GH12), hemicellulases
+      (CE1, CE3), and lignin-modifying auxiliary activity enzymes (AA1, AA6)
+    explanation: Supports enrichment of cellulose-, hemicellulose-, and lignin-active
+      enzyme families in the SynCom-treated compost microbiome.
+- name: Enriched lignocellulose degradation and humus accumulation
+  description: The SynCom-treated compost showed higher overall degradation of lignin,
+    cellulose, and hemicellulose, plus a higher humus content, consistent with the
+    SynCom-enriched CAZyme and lignin-modifying enzyme repertoire.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the SynCom treatment enhanced the overall degradation rates of lignin, cellulose,
+      and hemicellulose by 19.3 %, 7.9 %, and 12.0 %, respectively, and boosted
+      humus content by 34.4 %
+    explanation: Supports the downstream composting output of faster lignocellulose
+      degradation and greater humus accumulation.
+  - reference: PMID:41297400
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: crucial carbohydrate-active enzymes (CAZymes), including cellulases (GH5, GH12), hemicellulases
+      (CE1, CE3), and lignin-modifying auxiliary activity enzymes (AA1, AA6)
+    explanation: Supports the cellulose, hemicellulose, and lignin degradation
+      processes encoded by the enriched native compost microbiome after SynCom inoculation.
 growth_media:
 - name: "co-composting substrate (cattle manure and mulberry branches)"
   preparation_notes: "Thermophilic solid-state co-composting; SynCom bioaugmentation significantly elevated pile temperatures and shortened the maturation period by ~7 days."

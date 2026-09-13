@@ -48,8 +48,10 @@ full curation context and remains the source of truth.
 
 ## Requirements and installation
 
-Core development supports Python 3.10 and newer. Deep-research and Edison
-commands require Python 3.12 or newer because their optional dependencies do.
+Development and CI use Python 3.13, pinned in `.python-version`. Package metadata
+still permits Python 3.10 and newer; CI runs the complete suite once on 3.13.
+Deep-research and Edison commands require Python 3.12 or newer because their
+optional dependencies do.
 
 Install [uv](https://docs.astral.sh/uv/) and
 [just](https://github.com/casey/just), then run:

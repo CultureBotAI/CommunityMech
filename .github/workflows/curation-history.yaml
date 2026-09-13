@@ -13,28 +13,32 @@ name: Curation history
 # so this job has no dependency on a culturebotai-claw checkout. Only the
 # `just new-history` scaffolder needs claw, and that is a dev-time tool.
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    paths: &trigger_paths
-      # The justfile defines every recipe the steps below run, so a change to
-      # one of them changes what this gate DOES. Without this entry the gate
-      # that would have judged that change is the one that does not run (#717).
-      - "justfile"
-      - "kb/communities/**"
-      - "history/**"
-      - "src/communitymech/schema/history.yaml"
-      - ".github/workflows/curation-history.yaml"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - justfile
+    - kb/communities/**
+    - history/**
+    - src/communitymech/schema/history.yaml
+    - .github/workflows/curation-history.yaml
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: curation-history-${{ github.ref }}
-  cancel-in-progress: true
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.run_id }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   history:

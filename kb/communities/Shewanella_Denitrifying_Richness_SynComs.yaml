@@ -1,7 +1,8 @@
 id: CommunityMech:000114
 name: Shewanella Denitrifying Richness SynComs
 description: A panel of synthetic denitrifying communities assembled from 12 Shewanella denitrifiers with
-  richness spanning one to twelve species.
+  richness spanning one to twelve species and evolved for 180 days to measure how biodiversity-ecosystem
+  functioning relationships changed for productivity and nitrate-reduction activity.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOREMEDIATION
@@ -9,7 +10,9 @@ engineering_design:
   objective: Measure biodiversity-ecosystem functioning relationships during microbial experimental evolution.
   assembly_strategy: Random selection from a 12-member Shewanella denitrifier candidate pool to create
     richness-gradient communities.
-  perturbation_design: Approximately 180 days of experimental evolution with 60 transfers.
+  passaging_regimen: Serial propagation in modified marine broth 2216 for 180 days with 60 transfers.
+  perturbation_design: Richness-gradient experimental evolution with community functions tracked through
+    repeated serial transfer.
   measurement_endpoints:
   - productivity
   - denitrification rate
@@ -46,23 +49,189 @@ taxonomy:
       total_genomes: 827
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Richness-Dependent Denitrification
-  description: Shewanella richness gradients produce dynamic biodiversity-function relationships during
-    evolution.
-  interaction_type: NICHE_PARTITIONING
+- name: Twelve-Shewanella Richness-Gradient SDC Construction
+  description: >
+    Twelve nitrate-respiring Shewanella strains were selected to seed defined
+    synthetic denitrifying communities across 1-, 2-, 4-, 8-, and 12-species
+    richness levels.
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: 180-Day Serial Transfer Evolution
+    description: >
+      The richness-gradient Shewanella SDCs were propagated through a defined
+      60-transfer evolution experiment.
   evidence:
   - *id001
+- name: 180-Day Serial Transfer Evolution
+  description: >
+    The Shewanella SDCs were transferred every 72 hours in nitrate-supplemented
+    modified marine broth to follow productivity and denitrification across 180
+    days of experimental evolution.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Early Richness-Function Correlation
+    description: >
+      Repeated function measurements showed that richer SDCs had higher
+      productivity and nitrate reduction early in the transfer series.
+  - target: Lower-Richness Functional Catch-Up
+    description: >
+      Long-term propagation revealed stronger functional increases in the
+      lower-richness SDCs than in the richer communities.
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      This evolution experiment has been conducted for 180 days with 60
+      transfers
+    explanation: >
+      Supports the 180-day, 60-transfer serial-evolution design.
+- name: Early Richness-Function Correlation
+  description: >
+    Species richness was initially positively correlated with Shewanella SDC
+    productivity and denitrification rate, most clearly during the first 60 days
+    of the evolution experiment.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Complementarity-Dominated BEF Partitioning
+    description: >
+      The initial richness-function trend motivated partitioning of the
+      observed productivity gains into complementarity and selection effects.
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      A significant positive correlation was observed between community
+      richness and functions, represented by productivity (biomass) and
+      denitrification rate
+    explanation: >
+      Supports productivity and nitrate-reduction rate as richness-dependent
+      SDC outcomes.
+- name: Lower-Richness Functional Catch-Up
+  description: >
+    Lower-richness Shewanella SDCs showed larger evolutionary gains in
+    productivity and denitrification than high-richness SDCs, flattening the
+    positive richness-function relationship by the later transfers.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Complementarity-Dominated BEF Partitioning
+    description: >
+      The larger low-richness functional gains were associated with an
+      asymmetric increase in complementarity and net biodiversity effects.
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      microbial community functions with lower richness exhibited greater
+      increases than those with higher richness
+    explanation: >
+      Supports the stronger productivity and denitrification increases in
+      lower-richness communities.
+- name: Complementarity-Dominated BEF Partitioning
+  description: >
+    Additive partitioning showed that the positive Shewanella SDC
+    biodiversity-ecosystem functioning relationship was driven more by
+    complementarity than by selection, with complementarity changing over the
+    transfer series.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Relative-Yield Interaction Inference
+    description: >
+      The same mixture-versus-monoculture yields used for biodiversity-effect
+      partitioning were used to infer how species interactions contributed to
+      BEF dynamics.
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Biodiversity effect analysis revealed positive BEF relationships largely
+      attributable to complementary effects
+    explanation: >
+      Supports complementarity as the dominant biodiversity effect in the SDC
+      BEF relationship.
+- name: Relative-Yield Interaction Inference
+  description: >
+    Relative yields from mixtures and corresponding monocultures were compared
+    to infer different species-interaction contributions to the positive and
+    dynamic Shewanella BEF relationship.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37154752
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      inferred species interactions by comparing the contribution of each
+      species in their mix-cultures and their corresponding monocultures
+    explanation: >
+      Supports using mix-culture and monoculture comparisons to infer SDC
+      species-interaction effects.
 environmental_factors:
-- name: defined synthetic community design
-  value: Random selection from a 12-member Shewanella denitrifier candidate pool to create richness-gradient
-    communities.
-  description: Approximately 180 days of experimental evolution with 60 transfers.
+- name: Serial nitrate-richness gradient
+  value: 1, 2, 4, 8, and 12 species across 180 days
+  description: >
+    The Shewanella design varied initial richness while holding nitrate medium
+    and serial transfer conditions fixed for the experimental-evolution run.
   evidence:
   - *id001
 related_ingredients:

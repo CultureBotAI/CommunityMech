@@ -154,6 +154,11 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
+  downstream:
+  - target: DIET-Driven CO2 Reduction to Methane
+    description: >
+      Electron transfer from S. globosa to M. mazei contributes reducing power
+      for methanogenic CO2 reduction in the DIETsimp consortia.
   evidence:
   - reference: PMID:42229598
     supports: SUPPORT
@@ -202,6 +207,11 @@ ecological_interactions:
     term:
       id: CHEBI:16183
       label: methane
+  downstream:
+  - target: DIET-Driven CO2 Reduction to Methane
+    description: >
+      Electron transfer from C. aceticum to M. mazei contributes reducing power
+      for methanogenic CO2 reduction in the DIETsimp consortia.
   evidence:
   - reference: PMID:42229598
     supports: SUPPORT
@@ -209,6 +219,35 @@ ecological_interactions:
     snippet: S. globosa and C. aceticum metabolized intermediates (e.g. xylose, glucose, pyruvate
       and acetate) and transferred electrons to M. mazei for the reduction of CO2 to methane
     explanation: Proposed DIET pathway with C. aceticum as electron/substrate donor to M. mazei.
+- name: DIET-Driven CO2 Reduction to Methane
+  description: >
+    Methanosarcina mazei accepts electrons transferred from the dominant
+    electroactive bacteria and uses them to reduce carbon dioxide to methane in
+    the simplified lignocellulose-degrading DIET consortia.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:42229598
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transferred electrons to M. mazei for the reduction of CO2 to methane
+    explanation: >
+      Supports DIET-fed reduction of carbon dioxide to methane by
+      Methanosarcina mazei.
 growth_media:
 - name: unspecified anaerobic digestion medium (lignocellulose substrate)
   atmosphere: ANAEROBIC

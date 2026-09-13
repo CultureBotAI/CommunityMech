@@ -15,9 +15,23 @@ SETUP_UV_ACTION = "astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9"
 UV_VERSION = "0.12.5"
 
 
+# A workflow vendored byte-identical from culturebotai-claw carries this banner
+# on its first line. Its action pins and uv version are claw's decision, and
+# check_vendored_sync.sh fails on any local edit, so a repository-local pin
+# contract cannot bind it -- it can only report a drift nobody here may fix
+# (culturebotai-claw#391; same shape as CultureMech#437).
+GOVERNED_BANNER = "# Governed by culturebotai-claw"
+
+
 def _workflow_documents() -> list[tuple[Path, dict]]:
     paths = sorted([*WORKFLOWS.glob("*.yaml"), *WORKFLOWS.glob("*.yml")])
-    return [(path, yaml.safe_load(path.read_text(encoding="utf-8"))) for path in paths]
+    documents = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8")
+        if text.startswith(GOVERNED_BANNER):
+            continue
+        documents.append((path, yaml.safe_load(text)))
+    return documents
 
 
 def _steps(document: dict):
@@ -56,28 +70,31 @@ def test_every_workflow_sync_is_frozen():
 
 
 def test_provider_profile_alone_triggers_its_test_workflow():
-    workflow = (WORKFLOWS / "validate-strict.yaml").read_text(encoding="utf-8")
-    assert '"conf/deep_research_provider.yaml"' in workflow
-
-
-def test_ci_exercises_minimum_and_modern_supported_python():
     document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
+    events = document.get("on", document.get(True, {}))
+    # Unfiltered PRs include a provider-profile-only edit. Parse event coverage
+    # rather than requiring one YAML quoting style or a removed PR filter (#809).
+    assert "pull_request" in events, "provider-profile PRs do not trigger tests"
+    assert events["pull_request"] in (None, {}), "required PR tests must be unfiltered"
+    assert events.get("merge_group") == {"types": ["checks_requested"]}
+    assert "main" in events["push"]["branches"]
+    assert "paths-ignore" not in events["push"]
+    assert "conf/deep_research_provider.yaml" in events["push"]["paths"]
 
-    def python_version(job: str) -> str | None:
-        for step in document["jobs"][job]["steps"]:
-            if str(step.get("uses", "")).startswith("actions/setup-python@"):
-                return step.get("with", {}).get("python-version")
-        return None
 
-    assert python_version("validate-strict") == "3.10"
-    assert python_version("python-compatibility") == "3.13"
-
-
-def test_modern_python_lane_installs_just_for_repository_contract_tests():
+def test_ci_runs_the_full_suite_once_on_the_fleet_python():
     document = yaml.safe_load((WORKFLOWS / "validate-strict.yaml").read_text())
-    uses = {str(step.get("uses", "")) for step in document["jobs"]["python-compatibility"]["steps"]}
-
-    assert "extractions/setup-just@v3" in uses
+    assert set(document["jobs"]) == {"validate-strict"}
+    job = document["jobs"]["validate-strict"]
+    setup = next(
+        step
+        for step in job["steps"]
+        if str(step.get("uses", "")).startswith("actions/setup-python@")
+    )
+    assert setup["with"]["python-version"] == "3.13"
+    assert document["env"]["UV_PYTHON"] == "3.13"
+    assert any(step.get("run") == "uv run pytest tests/ -q --no-cov" for step in job["steps"])
+    assert any(step.get("uses") == "extractions/setup-just@v3" for step in job["steps"])
 
 
 def test_commands_that_invoke_research_dependencies_have_a_python_preflight():

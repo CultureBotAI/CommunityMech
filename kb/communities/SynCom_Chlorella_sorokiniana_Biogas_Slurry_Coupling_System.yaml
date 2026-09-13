@@ -54,8 +54,6 @@ taxonomy:
     notes: The abstract describes a "synthetic microbial community (SynCom)" pretreatment stage but
       does not name its constituent bacterial taxa; grounded only at the domain rank (Bacteria) as
       a placeholder for the unnamed SynCom.
-  functional_role:
-  - PRIMARY_DEGRADER
   abundance_value: SynCom pretreatment stage; individual members not reported.
   evidence:
   - reference: PMID:41794300
@@ -65,17 +63,105 @@ taxonomy:
       system
     explanation: Identifies an unnamed constructed SynCom as the bacterial pretreatment component.
 ecological_interactions:
-- name: SynCom pretreatment facilitates Chlorella sorokiniana growth
-  description: SynCom pretreatment of the biogas slurry enhances the microalga's growth, increasing
-    C. sorokiniana biomass and soluble protein content relative to the BG11 control, consistent with
-    the SynCom conditioning the medium to benefit the downstream microalga.
-  interaction_type: COMMENSALISM
+- name: Sequential SynCom-Microalga Coupling Construction
+  description: >
+    A synthetic bacterial pretreatment community was coupled sequentially to an
+    autochthonous Chlorella sorokiniana isolate to improve resource utilization
+    from livestock biogas slurry.
   scope: COMMUNITY_LEVEL
-  target_taxon:
-    preferred_term: Chlorella sorokiniana
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: nitrate
     term:
-      id: NCBITaxon:3076
-      label: Chlorella sorokiniana
+      id: CHEBI:17632
+      label: nitrate
+  downstream:
+  - target: Sixty-Day Stable Slurry Operation
+    description: >
+      The constructed SynCom-microalga system was run long enough to evaluate
+      stable slurry nutrient and organic-load removal.
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      this study constructed a sequential synthetic microbial community
+      (SynCom)-microalgae coupling system
+    explanation: >
+      Supports construction of the sequential SynCom-microalga system.
+- name: Sixty-Day Stable Slurry Operation
+  description: >
+    The sequential coupling system remained stable for 60 days while treating
+    livestock biogas slurry.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  downstream:
+  - target: Nitrate-Nitrogen and Phosphorus Removal
+    description: >
+      Stable operation was measured by nitrate-nitrogen, total-phosphorus, and
+      chemical-oxygen-demand removal from biogas slurry.
+  - target: SynCom Pretreatment Facilitates Chlorella Growth
+    description: >
+      The same SynCom pretreatment condition increased downstream Chlorella
+      biomass and soluble protein relative to a BG11 control.
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The system operated stably for 60 days and achieved 94.41% removal of
+      nitrate nitrogen
+    explanation: >
+      Supports stable 60-day operation and nitrate-nitrogen removal.
+- name: Nitrate-Nitrogen and Phosphorus Removal
+  description: >
+    During 60 days of operation, the coupling system removed most
+    nitrate-nitrogen, most total phosphorus, and a smaller chemical oxygen
+    demand fraction from livestock biogas slurry.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  downstream:
+  - target: Rubisco and Glutamine-Synthetase Up-Regulation
+    description: >
+      Nutrient removal and biomass production coincided with upregulation of
+      Chlorella carbon- and nitrogen-assimilation genes.
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      94.41% removal of nitrate nitrogen, 81.84% removal of total phosphorus,
+      and 6.31% removal of chemical oxygen demand
+    explanation: >
+      Supports the reported nitrate-nitrogen, phosphorus, and COD removal
+      endpoints.
+- name: SynCom Pretreatment Facilitates Chlorella Growth
+  description: >
+    SynCom pretreatment of the biogas slurry enhanced the microalga's growth,
+    increasing C. sorokiniana biomass and soluble protein content relative to
+    the BG11 control.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  downstream:
+  - target: Rubisco and Glutamine-Synthetase Up-Regulation
+    description: >
+      The Chlorella growth response was accompanied by increased expression of
+      Rubisco and glutamine synthetase genes.
   evidence:
   - reference: PMID:41794300
     supports: SUPPORT
@@ -83,6 +169,28 @@ ecological_interactions:
     snippet: SynCom pretreatment increased the biomass and soluble protein content of C. sorokiniana
       by 27.15% and 488.10%, respectively
     explanation: Measured facilitation of C. sorokiniana biomass and protein by SynCom pretreatment.
+- name: Rubisco and Glutamine-Synthetase Up-Regulation
+  description: >
+    Chlorella sorokiniana in the SynCom-pretreated system upregulated key genes
+    for carbon fixation and nitrogen assimilation, linking the pretreatment to
+    algal biomass and protein gains.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMMENSALISM
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:41794300
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Transcriptomic analysis showed that the expression levels of key genes
+      Rubisco and glutamine synthetase were upregulated
+    explanation: >
+      Supports the carbon- and nitrogen-assimilation transcriptional response
+      in the coupled system.
 growth_media:
 - name: livestock biogas slurry (SynCom-pretreated); BG11 (control)
   incubation_time: '60'

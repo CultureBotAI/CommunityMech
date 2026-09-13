@@ -167,6 +167,11 @@ ecological_interactions:
     term:
       id: GO:0019329
       label: ammonia oxidation
+  downstream:
+  - target: Nitrate-to-Nitrogen Gas Denitrification
+    description: >
+      Coupled archaeal and bacterial nitrification produces nitrate that feeds
+      the downstream Steroidobacteraceae denitrifiers.
   evidence:
   - reference: PMID:34726691
     supports: SUPPORT
@@ -179,8 +184,8 @@ ecological_interactions:
     reduce it through denitrification to nitrogen gas. This terminal step in the nitrogen cycle completes
     the transformation of fixed nitrogen back to atmospheric N2. The denitrifiers depend on upstream nitrification
     to provide nitrate substrate, demonstrating sequential metabolic coupling across the community. Genome-scale
-    models revealed that denitrifiers utilize 15 to 23 unique carbon sources including betaine, leucine,
-    and choline, enabling precise identification of biogeochemical limiting factors.
+    models also connected the denitrifier reactions to metabolome-derived carbon sources, enabling precise
+    identification of biogeochemical limiting factors.
   interaction_type: SYNTROPHY
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -227,6 +232,44 @@ ecological_interactions:
     snippet: predict nitrogen cycling patterns with site-specific insight into the chemical and biological
       drivers of nitrification and denitrification processes
     explanation: Establishes denitrification as a key process coupled to nitrification in the community.
+- name: Metabolome-Informed Carbon Source Utilization
+  description: The ORT site model incorporated additional organic carbon compounds
+    detected in the bulk Columbia River sediment metabolome. This allowed
+    Steroidobacteraceae denitrifier models to use 15-23 unique carbon sources,
+    including glycine betaine, leucine, and choline, instead of restricting
+    denitrification to acetate as in the generalized literature-based model.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glycine betaine
+    term:
+      id: CHEBI:17750
+      label: glycine betaine
+  - preferred_term: leucine
+    term:
+      id: CHEBI:15603
+      label: L-leucine
+  - preferred_term: choline
+    term:
+      id: CHEBI:15354
+      label: choline
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0009056
+      label: catabolic process
+  downstream:
+  - target: Nitrate-to-Nitrogen Gas Denitrification
+    description: Metabolome-derived organic carbon sources constrain the
+      denitrifier reactions that reduce nitrate through the modeled nitrogen cycle.
+  evidence:
+  - reference: PMID:34726691
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: site models used 15–23 unique additional carbon sources, such as betaine,
+      leucine and choline
+    explanation: Supports the metabolome-informed carbon substrates used by the
+      genome-scale models.
 external_resources:
 - name: KBase narrative
   repository: KBASE

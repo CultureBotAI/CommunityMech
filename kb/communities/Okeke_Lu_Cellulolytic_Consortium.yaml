@@ -98,17 +98,11 @@ taxonomy:
       Ochrobactrum anthropi (98%), and Klebsiella trevisanii (99%)
 ecological_interactions:
 - name: Cellulose Degradation
+  description: The defined consortium expressed filter-paper cellulase and beta-glucosidase
+    activities, led by DB1 and DB2 filter-paper cellulases and DB1 beta-glucosidase,
+    to support cellulose hydrolysis.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Pseudoxanthomonas byssovorax DB1
-    term:
-      id: NCBITaxon:324747
-      label: Pseudoxanthomonas byssovorax
-  target_taxon:
-    preferred_term: Bacillus sp. DB7
-    term:
-      id: NCBITaxon:870529
-      label: Bacillus sp. DB7
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: cellulose
     term:
@@ -124,7 +118,9 @@ ecological_interactions:
       id: GO:0030245
       label: cellulose catabolic process
   downstream:
-  - target: Hemicellulose Degradation
+  - target: Synergistic Lignocellulose Degradation
+    description: Cellulase and beta-glucosidase activities provide the cellulose-hydrolysis
+      branch of the combined cellulolytic-xylanolytic consortium.
   evidence:
   - reference: PMID:20859703
     supports: SUPPORT
@@ -133,17 +129,11 @@ ecological_interactions:
       as incomplete synergistic enzymes, end-product inhibition, adsorption, and requirement for high
       amounts of enzymes in direct use of enzymes.
 - name: Hemicellulose Degradation
+  description: The defined consortium expressed xylanase and beta-xylosidase activities,
+    with DB2 producing the strongest xylanase activity and DB13 producing the strongest
+    beta-xylosidase activity, to support hemicellulose hydrolysis.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Microbacterium oxydans DB2
-    term:
-      id: NCBITaxon:82380
-      label: Microbacterium oxydans
-  target_taxon:
-    preferred_term: Klebsiella sp. DB13
-    term:
-      id: NCBITaxon:870530
-      label: Klebsiella sp. DB13
+  scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: xylan
     term:
@@ -158,6 +148,10 @@ ecological_interactions:
     term:
       id: GO:0045493
       label: xylan catabolic process
+  downstream:
+  - target: Synergistic Lignocellulose Degradation
+    description: Xylanase and beta-xylosidase activities provide the hemicellulose-hydrolysis
+      branch of the combined cellulolytic-xylanolytic consortium.
   evidence:
   - reference: PMID:20859703
     supports: SUPPORT
@@ -165,17 +159,16 @@ ecological_interactions:
     snippet: Isolate DB2 produced the highest xylanase activity (103.05 U mg⁻¹), while the highest β-xylosidase
       activity (7.72 U mg⁻¹) was observed with DB13
 - name: Synergistic Lignocellulose Degradation
+  description: The five-isolate consortium combines cellulolytic and xylanolytic enzymes
+    to process cellulose and hemicellulose together, reducing the incomplete-enzyme
+    limitation of enzyme-only lignocellulose bioprocessing.
   interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Bacillus sp. DB7
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignocellulose
     term:
-      id: NCBITaxon:870529
-      label: Bacillus sp. DB7
-  target_taxon:
-    preferred_term: Ochrobactrum sp. DB8
-    term:
-      id: NCBITaxon:870532
-      label: Ochrobactrum sp. DB8
+      id: CHEBI:180683
+      label: lignocellulose
   biological_processes:
   - preferred_term: polysaccharide catabolic process
     term:
@@ -186,6 +179,13 @@ ecological_interactions:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
   evidence:
+  - reference: PMID:20859703
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Five selected isolates (DB1, DB2, DB7, DB8, and DB13) were used to compose a defined
+      consortium and characterized by 16S ribosomal RNA gene sequence analysis.
+    explanation: Supports the five-isolate defined consortium assembled from the
+      cellulolytic-xylanolytic enrichment.
   - reference: PMID:20859703
     supports: SUPPORT
     evidence_source: IN_VITRO

@@ -97,7 +97,10 @@ taxonomy:
       was then replaced by a collection strain of Methanobacterium formicicum
 ecological_interactions:
 - name: Cinnamate β-Oxidation to Benzoate
+  description: Papillibacter cinnamivorans initiates anaerobic cinnamate degradation
+    by producing benzoate through beta-oxidation.
   interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Papillibacter cinnamivorans
     term:
@@ -119,6 +122,8 @@ ecological_interactions:
       label: fatty acid beta-oxidation
   downstream:
   - target: Syntrophic Benzoate Degradation
+    description: Benzoate produced from cinnamate becomes the substrate for
+      downstream Syntrophus-methanogen degradation.
   evidence:
   - reference: PMID:12432464
     supports: SUPPORT
@@ -127,12 +132,20 @@ ecological_interactions:
       whereas under methanogenic conditions without BESA, cinnamate was first transformed to benzoate
       via beta-oxidation and subsequently completely degraded into acetate, CH(4), and CO(2)
 - name: Syntrophic Benzoate Degradation
+  description: Syntrophus sp. syntrophically degrades the benzoate intermediate
+    to acetate, H2, and CO2 with the hydrogen-scavenging methanogen.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophus sp.
     term:
       id: NCBITaxon:43773
       label: Syntrophus <bacteria>
+  target_taxon:
+    preferred_term: Methanobacterium formicicum
+    term:
+      id: NCBITaxon:2162
+      label: Methanobacterium formicicum
   metabolites:
   - preferred_term: benzoate
     term:
@@ -157,6 +170,8 @@ ecological_interactions:
       label: benzoate metabolic process
   downstream:
   - target: Methanogenesis
+    description: H2 and CO2 from benzoate degradation feed Methanobacterium
+      methanogenesis.
   evidence:
   - reference: PMID:12432464
     supports: SUPPORT
@@ -165,7 +180,10 @@ ecological_interactions:
       a syntrophic association between Syntrophus sp. and the methanogen degraded benzoate to acetate,
       CH(4), and CO(2)
 - name: Methanogenesis
+  description: Methanobacterium formicicum consumes syntrophy-derived H2 and CO2
+    to produce methane during complete cinnamate mineralization.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Methanobacterium formicicum
     term:

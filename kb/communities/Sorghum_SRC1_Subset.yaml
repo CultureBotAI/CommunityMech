@@ -44,8 +44,6 @@ taxonomy:
       label: Pseudomonas sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: ABUNDANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -70,8 +68,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa under the NCBI taxon]
   abundance_level: ABUNDANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -85,8 +81,6 @@ taxonomy:
       label: Arthrobacter sp.
     gtdb_grounding_status: UNRESOLVED
   abundance_level: ABUNDANT
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -110,8 +104,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -135,8 +127,6 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -160,8 +150,6 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
   abundance_level: COMMON
-  functional_role:
-  - SYNTROPHIC_PARTNER
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
@@ -169,89 +157,85 @@ taxonomy:
     snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
       community cohesion through network analysis or for their ability to benefit from host-specific exudate
       compounds
-- taxon_term:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
-    gtdb_grounding_status: NO_GTDB_EQUIVALENT
-  functional_role:
-  - PRIMARY_PRODUCER
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Here, we engineered a synthetic rhizosphere community (SRC1) with the anticipation that it
-      would exhibit a selective advantage in colonizing the host Sorghum bicolor, thereby potentially
-      fostering its growth
 ecological_interactions:
-- name: Rhizosphere Colonization and Root Association
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudomonas sp.
-    term:
-      id: NCBITaxon:306
-      label: Pseudomonas sp.
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
+- name: Network and Exudate Guided SRC1 Assembly
+  description: >
+    SRC1 was assembled from sorghum bacterial isolates selected either for network-predicted
+    community cohesion or for growth on host-specific root-exudate compounds.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
   biological_processes:
   - preferred_term: symbiotic process
     term:
       id: GO:0044403
       label: biological process involved in symbiotic interaction
-  - preferred_term: root colonization
-    term:
-      id: GO:0044010
-      label: single-species biofilm formation
+  downstream:
+  - target: Host-Associated SRC1 Cohesion
+    description: >
+      The cohesion- and exudate-guided isolate set was then tested across solid-medium,
+      gnotobiotic sorghum, and native-field growth contexts.
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Here, we engineered a synthetic rhizosphere community (SRC1) with the anticipation that it
-      would exhibit a selective advantage in colonizing the host Sorghum bicolor, thereby potentially
-      fostering its growth
-- name: Plant Growth Promotion and Biomass Enhancement
+    snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
+      community cohesion through network analysis or for their ability to benefit from host-specific exudate
+      compounds
+- name: Host-Associated SRC1 Cohesion
+  description: >
+    SRC1 community cohesion was most robust with the sorghum host in laboratory conditions, while
+    some lineages were lost during growth on solid medium or in the native field.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: Above- and Below-Ground Sorghum Growth Promotion
+    description: >
+      Sorghum-associated SRC1 growth connected the designed isolate mixture to above- and
+      below-ground host growth phenotypes.
+  evidence:
+  - reference: doi:10.1093/ismejo/wrae126
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SRC1 cohesion is most robust when cultivated in the presence of the plant host
+      under laboratory conditions
+    explanation: >
+      Anchors the host-associated community cohesion that distinguished the gnotobiotic sorghum
+      condition from in-vitro or native-field SRC1 growth.
+- name: Above- and Below-Ground Sorghum Growth Promotion
+  description: >
+    The SRC1 SynCom promoted both above-ground and below-ground sorghum growth phenotypes in
+    laboratory and native-field contexts.
+  scope: COMMUNITY_LEVEL
   interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Bacillus sp.
-    term:
-      id: NCBITaxon:1386
-      label: Bacillus <firmicutes>
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
   biological_processes:
   - preferred_term: plant growth
     term:
       id: GO:0040007
       label: growth
-  - preferred_term: regulation of cell wall biogenesis
-    term:
-      id: GO:1903338
-      label: regulation of cell wall organization or biogenesis
+  downstream:
+  - target: Host Lignin Biosynthesis Dampening
+    description: >
+      Under laboratory conditions, the sorghum growth improvements were correlated with
+      transcriptional dampening of host lignin biosynthesis.
   evidence:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: We establish that SRC1 effectively promotes the growth of both above- and below-ground plant
-      phenotypes in both laboratory and native field contexts
-- name: Lignin Biosynthesis Regulation
+    snippet: SRC1 effectively promotes the growth of both above- and below-ground plant phenotypes
+      in both laboratory and native field contexts
+    explanation: >
+      Reports the main plant-growth phenotype measured after SRC1 inoculation.
+- name: Host Lignin Biosynthesis Dampening
+  description: >
+    In the laboratory sorghum host, SRC1-driven growth enhancement correlated with dampened
+    transcription of lignin-biosynthesis genes.
+  scope: COMMUNITY_LEVEL
   interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Arthrobacter sp.
-    term:
-      id: NCBITaxon:1667
-      label: Arthrobacter sp.
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
   biological_processes:
   - preferred_term: lignin biosynthetic process
     term:
@@ -265,80 +249,10 @@ ecological_interactions:
   - reference: doi:10.1093/ismejo/wrae126
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Furthermore, in laboratory conditions, these growth enhancements correlate with the transcriptional
-      dampening of lignin biosynthesis in the host
-- name: Secondary Metabolite Production
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Streptomyces ambofaciens
-    term:
-      id: NCBITaxon:1889
-      label: Streptomyces ambofaciens
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
-      community cohesion through network analysis or for their ability to benefit from host-specific exudate
-      compounds
-- name: Rhizosphere Nutrient Mobilization
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Paenibacillus lautus
-    term:
-      id: NCBITaxon:1401
-      label: Paenibacillus lautus
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
-      community cohesion through network analysis or for their ability to benefit from host-specific exudate
-      compounds
-- name: Exudate Utilization and Root Colonization
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Pseudomonas pudica
-    term:
-      id: NCBITaxon:272772
-      label: Pseudomonas pudica
-  target_taxon:
-    preferred_term: Sorghum bicolor
-    term:
-      id: NCBITaxon:4558
-      label: Sorghum bicolor
-  biological_processes:
-  - preferred_term: plant-bacterium mutualism
-    term:
-      id: GO:0044403
-      label: biological process involved in symbiotic interaction
-  evidence:
-  - reference: doi:10.1093/ismejo/wrae126
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: SRC1 was assembled from bacterial isolates identified either for their potential role in
-      community cohesion through network analysis or for their ability to benefit from host-specific exudate
-      compounds
+    snippet: these growth enhancements correlate with the transcriptional dampening of lignin
+      biosynthesis in the host
+    explanation: >
+      Links the SRC1 growth phenotype to the host lignin-biosynthesis transcriptional response.
 environmental_factors:
 - name: Community design strategy
   value: network-based and exudate-responsive selection

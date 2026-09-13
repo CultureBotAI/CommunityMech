@@ -70,6 +70,21 @@ ecological_interactions:
   description: The two S. cerevisiae strains occupy distinct metabolic niches as glucose and arabinose specialists during mixed-substrate fermentation.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Selective Sedimentation Accelerates Mixed-Sugar Conversion
+    description: Assigning arabinose conversion to a specialist makes that slow
+      pentose-fermenting population the rate-limiting target for selective retention
+      between batch cycles.
   evidence:
   - reference: PMID:42461012
     supports: SUPPORT
@@ -80,6 +95,21 @@ ecological_interactions:
   description: Retention of the fast-sedimenting arabinose specialist raises its biomass concentration across cycles, shortening coculture batch time and approaching simultaneous sugar depletion.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Near-Simultaneous Mixed-Sugar Depletion
+    description: Extending biomass settling to one hour further retains the slow
+      arabinose specialist and moves the culture toward matched glucose and arabinose
+      depletion.
   evidence:
   - reference: PMID:42461012
     supports: SUPPORT
@@ -91,6 +121,29 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted in near-simultaneous depletion of both sugars
     explanation: Supports the effect of longer settling on batch duration and depletion timing.
+- name: Near-Simultaneous Mixed-Sugar Depletion
+  description: Increasing the settling period to one hour reduced the batch time to
+    8.1 h and produced near-simultaneous depletion of glucose and arabinose in the
+    two-specialist coculture.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42461012
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Increasing the biomass settling period to 1 h further reduced the batch time to 8.1 ± 0.1 h and resulted in near-simultaneous depletion of both sugars
+    explanation: Supports matched glucose and arabinose depletion as the downstream
+      process outcome of extending selective sedimentation.
 environmental_factors:
 - name: Mixed-sugar substrate
   value: glucose 10 g/L and arabinose 10 g/L

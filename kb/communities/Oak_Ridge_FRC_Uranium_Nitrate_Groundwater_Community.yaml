@@ -128,6 +128,70 @@ taxonomy:
     explanation: Supports Stenotrophomonas membership and iron-reduction potential in the contaminated
       well.
 ecological_interactions:
+- name: Low-pH Mixed-Ion Rhodanobacter Tolerance
+  description: Low pH plus U(VI), Mn(II), Al(III), Cd(II), Zn(II), Co(II), and Ni(II)
+    form a mixed-ion stress regime that Rhodanobacter isolates from contaminated Oak Ridge
+    FRC wells tolerate better than most non-Rhodanobacter isolates from the site.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: uranium(VI)
+    term:
+      id: CHEBI:32992
+      label: uranium(6+)
+  - preferred_term: manganese(2+)
+    term:
+      id: CHEBI:29035
+      label: manganese(2+)
+  - preferred_term: aluminium(3+)
+    term:
+      id: CHEBI:49470
+      label: aluminium(3+)
+  - preferred_term: cadmium(2+)
+    term:
+      id: CHEBI:48775
+      label: cadmium(2+)
+  - preferred_term: zinc(2+)
+    term:
+      id: CHEBI:29105
+      label: zinc(2+)
+  - preferred_term: cobalt(2+)
+    term:
+      id: CHEBI:48828
+      label: cobalt(2+)
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  downstream:
+  - target: Contaminant-Selected Rhodanobacter Dominance
+    description: Rhodanobacter tolerance to the low-pH U(VI)-Mn(II)-Al(III)-Cd(II)-
+      Zn(II)-Co(II)-Ni(II) ion mixture identifies a selective mechanism for the
+      Rhodanobacter enrichment observed in the most contaminated FRC wells.
+  - target: Mixed Metal and Nitrate Reduction Potential
+    description: Mixed metal tolerance defines the contaminated groundwater guilds
+      that retain uranium, nitrate, and iron reduction potential under the high-stress
+      conditions of well FW113-47.
+  evidence:
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: low pH and high UO_{2}^{2+}, Mn^{2+}, Al^{3+}, Cd^{2+}, Zn^{2+}, Co^{2+},
+      and Ni^{2+} are both (a) selectively inhibitory of a Pseudomonas isolate from an uncontaminated
+      well vs. a Rhodanobacter isolate from a contaminated well
+    explanation: Supports low pH and mixed metal ions as selective pressures favoring
+      Rhodanobacter over less tolerant Oak Ridge groundwater isolates.
+  - reference: PMID:30523276
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: few isolates aside from Rhodanobacter can tolerate these eight ions.
+    explanation: Supports the site-wide rarity of mixed-ion tolerance outside
+      Rhodanobacter isolates.
 - name: Contaminant-Selected Rhodanobacter Dominance
   description: Low pH and high concentrations of uranium and other ions select for Rhodanobacter enrichment
     in the most contaminated Oak Ridge FRC groundwater wells, while inhibiting many other isolates.
@@ -138,11 +202,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:666685
       label: Rhodanobacter denitrificans
-  target_taxon:
-    preferred_term: other groundwater bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   metabolites:
   - preferred_term: uranium(VI)
     term:

@@ -235,43 +235,36 @@ taxonomy:
       ammonia-oxidizing archaea (AOA), ammonia-oxidizing bacteria (AOB), and nitrite-oxidizing bacteria (NOB)'
 ecological_interactions:
 - name: Archaeal Ammonia Oxidation to Nitrite
-  description: 'Candidatus Nitrosotalea and Nitrososphaera-like archaea oxidize ammonia to nitrite as
-    the first step of nitrification in acidic AMD environments. The process begins with NH4+ transport
-    via Amt-type ammonium transporters across the cytoplasmic membrane, bypassing the need for NH3 diffusion
-    that is limiting at low pH due to >99.9% protonation of ammonia. Alternatively, AOA hydrolyze urea
-    (CO(NH2)2) through urease enzymes, generating localized ammonia (2NH3 + CO2) that is immediately oxidized.
-    The copper-containing ammonia monooxygenase (AMO) catalyzes: NH3 + O2 + 2H+ + 2e- → NH2OH + H2O (ammonia
-    to hydroxylamine). Hydroxylamine oxidoreductase then converts: NH2OH + H2O → HNO2 + 4H+ + 4e- (hydroxylamine
-    to nitrite). The 4 electrons are returned to AMO and respiratory chain, generating ATP through chemiosmotic
-    coupling. CO2 is fixed through the 3-hydroxypropionate/4-hydroxybutyrate (3HP/4HB) pathway. Archaeal
-    ammonia oxidation proceeds at pH 2.5-5.5 where bacterial AOB are inactive, with maximum rates at pH
-    4.0-4.5. The high substrate affinity (Km 0.6-2.8 nM NH3) enables activity at nanomolar free ammonia
-    concentrations despite millimolar ammonium levels. Nitrite production rate: 5-20 nmol NO2-/10^7 cells/day.
-    This process initiates the nitrogen cycle in acidic AMD, providing nitrite substrate for nitrite oxidizers.
-
-    '
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Candidatus Nitrosotalea devanaterra
+  description: >
+    Acidophilic ammonia-oxidizing archaea related to Candidatus Nitrosotalea
+    oxidize ammonia to nitrite at low pH, and AMD-impacted sediments contain
+    AOA genes together with Nitrospira-related nitrite-oxidizer genes. This
+    makes AOA nitrite production the upstream nitrogen-oxidation step that can
+    feed nitrite-oxidizing community members.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Candidatus Nitrosotalea devanaterra
     term:
       id: NCBITaxon:1078905
       label: Nitrosotalea devaniterrae
+  - preferred_term: Nitrospira-like nitrite oxidizer
+    term:
+      id: NCBITaxon:1234
+      label: Nitrospira
   metabolites:
   - preferred_term: ammonium
     term:
       id: CHEBI:28938
       label: ammonium
-    concentration: 50-380 mg/L NH4+-N in AMD sediments
   - preferred_term: ammonia
     term:
       id: CHEBI:16134
       label: ammonia
-    concentration: 0.1-10 nM free NH3 at pH 3.5-4.5
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
-    concentration: 0.5-5 mg/L NO2--N produced; rapidly consumed by NOB
   - preferred_term: urea
     term:
       id: CHEBI:16199
@@ -288,7 +281,7 @@ ecological_interactions:
       label: carbon fixation
   downstream:
   - target: Nitrite Oxidation to Nitrate by Nitrospira
-    description: Nitrite produced by AOA is consumed by nitrite-oxidizing bacteria
+    description: Nitrite produced by AOA can be consumed by nitrite-oxidizing bacteria.
   evidence:
   - reference: PMID:21896746
     supports: SUPPORT
@@ -310,47 +303,31 @@ ecological_interactions:
     snippet: Analysis of the sequenced genome, transcriptional activity, and lipid content of "Ca Nitrosotalea
       devanaterra" reveals that previously proposed mechanisms used by AOB for growth at low pH are not
       essential for archaeal ammonia oxidation in acidic environments
-    explanation: Explains mechanism of substrate acquisition at low pH
+    explanation: Supports genome and transcriptome analysis of acidophilic archaeal
+      ammonia oxidation mechanisms.
 - name: Nitrite Oxidation to Nitrate by Nitrospira
-  description: 'Nitrospira-like nitrite-oxidizing bacteria oxidize nitrite produced by archaeal ammonia
-    oxidizers to nitrate, completing the nitrification pathway in acidic AMD. Nitrite oxidoreductase (NXR)
-    catalyzes: NO2- + H2O → NO3- + 2H+ + 2e-. The two electrons are transferred to the quinone pool and
-    used to generate ATP through oxidative phosphorylation. Some electrons are used in reverse electron
-    transport to generate NADH for CO2 fixation via the reverse TCA (rTCA) cycle. This syntrophic partnership
-    is critical because: (1) Nitrospira provides a sink for nitrite, preventing toxic accumulation (>10
-    mg/L NO2-) that would inhibit AOA activity, (2) rapid nitrite consumption maintains concentration
-    gradients favoring continued ammonia oxidation, (3) complete oxidation to nitrate prevents buildup
-    of reactive nitrogen intermediates, and (4) nitrate is more stable and less toxic than nitrite in
-    AMD. Comammox Nitrospira strains can independently oxidize both ammonia and nitrite, competing with
-    AOA for ammonia substrate in some environments but also providing functional redundancy. Nitrospira
-    operates at pH 3.2-5.0, matching the pH range of acidophilic AOA. The stoichiometry links AOA and
-    Nitrospira: 2 mol NH3 oxidized by AOA produces 2 mol NO2- consumed by Nitrospira to generate 2 mol
-    NO3-. In high-ammonium AMD sediments, comammox Nitrospira and AOA co-dominate, both contributing to
-    nitrogen oxidation.
-
-    '
-  interaction_type: MUTUALISM
+  description: >
+    AMD-impacted sediments harbor nitrite-oxidizing bacteria, including
+    Nitrospira-related nxrB genes, alongside archaeal and bacterial ammonia
+    oxidizers. These NOB can consume nitrite downstream of AOA ammonia
+    oxidation, completing a community nitrification sequence from reduced
+    nitrogen to nitrate.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Nitrospira-like nitrite oxidizer
     term:
       id: NCBITaxon:1234
       label: Nitrospira
-  target_taxon:
-    preferred_term: Candidatus Nitrosotalea devanaterra
-    term:
-      id: NCBITaxon:1078905
-      label: Nitrosotalea devaniterrae
   metabolites:
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
-    concentration: Maintained at <5 mg/L through consumption
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
-    concentration: 10-50 mg/L NO3--N accumulated in sediments
   biological_processes:
   - preferred_term: nitrification
     term:
@@ -370,46 +347,28 @@ ecological_interactions:
     snippet: 'We evaluated the gene abundance and diversity of nitrifying microbes in AMD-impacted sediments:
       ammonia-oxidizing archaea (AOA), ammonia-oxidizing bacteria (AOB), and nitrite-oxidizing bacteria
       (NOB)'
-    explanation: Confirms Nitrospira activity at extremely low pH
-  - reference: PMID:29209281
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: 'We evaluated the gene abundance and diversity of nitrifying microbes in AMD-impacted sediments:
-      ammonia-oxidizing archaea (AOA), ammonia-oxidizing bacteria (AOB), and nitrite-oxidizing bacteria (NOB)'
+    explanation: Documents the AMD-impacted sediment survey of AOA, AOB, and
+      NOB gene diversity.
 - name: Organic Matter Detoxification by Ferroplasma
-  description: 'Ferroplasma acidiphilum scavenges organic matter in AMD sediments, maintaining low organic
-    carbon concentrations that enable optimal AOA activity. Archaeal ammonia oxidizers can be inhibited
-    by elevated organic compounds (amino acids, sugars, organic acids) at concentrations >50 mg/L dissolved
-    organic carbon. Ferroplasma consumes: (1) cell lysis products from dead AOA and other microorganisms
-    (amino acids, nucleotides, lipids), (2) extracellular polymeric substances (EPS) secreted by biofilm-forming
-    archaea, (3) dissolved organic matter from surrounding soils, and (4) low-molecular-weight organic
-    acids generated by fermentation. Organic compounds are oxidized for carbon assimilation while Ferroplasma
-    simultaneously oxidizes ferrous iron for energy (chemomixotrophic metabolism). This dual metabolism
-    maintains organic carbon <20 mg/L, below inhibitory thresholds for AOA. Additionally, Ferroplasma''s
-    iron oxidation activity complements AOA metabolism by: (1) mobilizing phosphate from ferric iron precipitates,
-    making it available to AOA, (2) consuming oxygen at depth in sediments, creating microaerobic zones,
-    (3) providing trace metals (Cu, Mo) released from mineral dissolution for AOA metalloenzymes. The
-    syntrophy is unidirectional (Ferroplasma benefits from organic matter, AOA benefit from detoxification)
-    but mutually beneficial for community stability.
-
-    '
-  interaction_type: MUTUALISM
+  description: >
+    Thermoplasmata and Nitrososphaeria dominated one acidic archaeal community,
+    and Ferroplasma acidiphilum has been characterized as a chemomixotrophic
+    AMD archaeon in pure and mixed culture. The record keeps this as an
+    organic-matter turnover support process rather than a demonstrated
+    Ferroplasma-to-AOA mutualism.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Ferroplasma acidiphilum
     term:
       id: NCBITaxon:74969
       label: Ferroplasma acidiphilum
-  target_taxon:
-    preferred_term: Candidatus Nitrosotalea devanaterra
-    term:
-      id: NCBITaxon:1078905
-      label: Nitrosotalea devaniterrae
   metabolites:
   - preferred_term: organic molecular entity
     term:
       id: CHEBI:50860
       label: organic molecular entity
-    notes: Amino acids, cell debris, EPS, organic acids
+    notes: Organic matter consumed during Ferroplasma chemomixotrophic growth.
   - preferred_term: Fe(II)
     term:
       id: CHEBI:29033
@@ -422,7 +381,8 @@ ecological_interactions:
     snippet: Archaea specific V6-16S rRNA gene amplicon data showed a predominance of Thermoplasmata (BSLdp215,
       uncultured Thermoplasmata, and Thermoplasmataceae) and Nitrososphaeria (Nitrosotaleaceae) members
       constituting ~ 95% of the archaeal community
-    explanation: Documents coexistence suggesting ecological interactions
+    explanation: Documents co-occurrence of Thermoplasmata and Nitrososphaeria
+      in an acidic archaeal community.
   - reference: PMID:27535541
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -430,30 +390,21 @@ ecological_interactions:
       preventing their toxic effects on L
     explanation: Demonstrates organic matter detoxification function
 - name: Complementary Archaeal Nitrification Across pH Gradient
-  description: 'Candidatus Nitrosotalea and Nitrososphaera-like archaea partition the nitrification niche
-    across the AMD pH gradient (2.5-5.0), providing functional redundancy and metabolic complementarity.
-    Ca. Nitrosotalea dominates the more acidic zones (pH 4.0-5.0) with optimal growth at pH 4.0-5.5, while
-    Nitrososphaera-like archaea contribute significantly at moderately acidic pH (3.5-4.5). This pH-based
-    niche partitioning ensures continuous ammonia oxidation across the full acidic gradient of AMD sediments
-    despite spatial pH heterogeneity. Both archaea oxidize ammonia via copper-containing ammonia monooxygenase
-    (amoA genes) and fix CO2 through the 3HP/4HB pathway, but differ in acid tolerance mechanisms. Ca.
-    Nitrosotalea exhibits the highest known substrate affinity (Km 0.6-2.8 nM NH3) and specialized Amt-type
-    ammonium transporters for ultra-low pH environments. Nitrososphaera-like archaea possess enhanced
-    membrane lipid modifications and possibly alternative proton homeostasis systems enabling growth at
-    pH 3.5-4.0 where Ca. Nitrosotalea activity declines. Together they maintain 3-10 fold higher nitrification
-    rates than bacterial AOB across pH 3.5-5.0, with combined amoA gene abundance 10⁴-10⁶ copies/g sediment.
-    This archaeal partnership provides ecosystem stability: if microenvironmental pH shifts favor one
-    species, the other compensates, preventing nitrification failure.
-
-    '
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Nitrososphaera-like archaeon
+  description: >
+    AMD-impacted sediments contained AOA genes related to Nitrososphaera,
+    Nitrosotalea, and Nitrosoarchaeum, and acidophilic Nitrosotalea strains
+    from a separate characterization differed in growth rate, temperature
+    preference, and response to organic compounds. The evidence supports
+    co-occurring ammonia-oxidizer diversity, not a reciprocal pairwise benefit
+    between Nitrososphaera-like and Nitrosotalea-like archaea.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Nitrososphaera-like archaeon
     term:
       id: NCBITaxon:497726
       label: Nitrososphaera
-  target_taxon:
-    preferred_term: Candidatus Nitrosotalea devanaterra
+  - preferred_term: Candidatus Nitrosotalea devanaterra
     term:
       id: NCBITaxon:1078905
       label: Nitrosotalea devaniterrae
@@ -462,17 +413,14 @@ ecological_interactions:
     term:
       id: CHEBI:28938
       label: ammonium
-    concentration: 50-380 mg/L NH4+-N substrate pool
   - preferred_term: ammonia
     term:
       id: CHEBI:16134
       label: ammonia
-    concentration: 0.1-10 nM free NH3 at pH 3.5-4.5
   - preferred_term: nitrite
     term:
       id: CHEBI:16301
       label: nitrite
-    notes: Combined nitrite production from both AOA species
   biological_processes:
   - preferred_term: nitrification
     term:
@@ -484,34 +432,23 @@ ecological_interactions:
     evidence_source: IN_VIVO
     snippet: Sequence analyses revealed AOA genes related to Nitrososphaera, Nitrosotalea, and Nitrosoarchaeum;
       AOB genes related to Nitrosomonas and Nitrosospira; and NOB genes related to Nitrospira
-    explanation: Documents co-occurrence of Nitrososphaera and Nitrosotalea in AMD
+    explanation: Documents co-occurrence of Nitrososphaera and Nitrosotalea in AMD.
   - reference: PMID:24909965
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Interestingly, despite their close phylogenetic relatedness, the two Nitrosotalea strains
       exhibited differences in physiological features, including specific growth rate, temperature preference
       and to an extent, response to organic compounds
-    explanation: Demonstrates physiological differentiation enabling niche partitioning
+    explanation: Supports physiological differentiation among acidophilic Nitrosotalea strains.
 - name: Urea-Mediated Ammonia Provision
-  description: 'Archaeal ammonia oxidizers hydrolyze urea to generate localized ammonia, overcoming substrate
-    limitation at low pH. In acidic AMD environments (pH 2.5-4.5), >99.9% of ammonia exists as protonated
-    ammonium (NH4+), reducing free ammonia to nanomolar concentrations insufficient for diffusion-based
-    uptake. Urea (CO(NH2)2) from organic matter decomposition, animal excretion, or fertilizer runoff
-    provides an alternative nitrogen source. Archaeal urease (ureC gene) catalyzes: CO(NH2)2 + H2O → 2NH3
-    + CO2. The ammonia is generated within the periplasmic space or at the cell surface, creating high
-    local concentrations (μM range) before protonation to ammonium. This ammonia is immediately oxidized
-    by ammonia monooxygenase before diffusion away from the cell. The process enables AOA to function
-    in environments where free ammonia is thermodynamically limiting. Urea concentrations in AMD sediments
-    range 0.5-5 mg/L depending on organic matter inputs. Urea addition experiments show 2-5 fold stimulation
-    of archaeal nitrification in acidic soils compared to ammonium additions, demonstrating the importance
-    of this pathway. The urease pathway provides metabolic flexibility: AOA can use either NH4+ (via Amt
-    transporters) or urea (via urease) depending on substrate availability. CO2 generated from urea hydrolysis
-    is incorporated into biomass through the 3HP/4HB carbon fixation pathway.
-
-    '
+  description: >
+    Urea fertilization significantly stimulated nitrification and tracked with
+    archaeal amoA abundance changes in acidic soils, supporting urea hydrolysis
+    as an ammonia source for acidic archaeal nitrification.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Candidatus Nitrosotalea devanaterra
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Candidatus Nitrosotalea devanaterra
     term:
       id: NCBITaxon:1078905
       label: Nitrosotalea devaniterrae
@@ -520,17 +457,15 @@ ecological_interactions:
     term:
       id: CHEBI:16199
       label: urea
-    concentration: 0.5-5 mg/L in AMD sediments
   - preferred_term: ammonia
     term:
       id: CHEBI:16134
       label: ammonia
-    notes: Generated locally from urea hydrolysis
+    notes: Generated by urea hydrolysis.
   - preferred_term: carbon dioxide
     term:
       id: CHEBI:16526
       label: carbon dioxide
-    notes: Byproduct used for carbon fixation
   biological_processes:
   - preferred_term: urea catabolism
     term:
@@ -540,19 +475,23 @@ ecological_interactions:
     term:
       id: GO:0019329
       label: ammonia oxidation
+  downstream:
+  - target: Archaeal Ammonia Oxidation to Nitrite
+    description: Urea hydrolysis can supply ammonia for downstream archaeal
+      ammonia oxidation.
   evidence:
   - reference: PMID:22592820
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: Nitrification activity was significantly stimulated by urea fertilization and coupled well
       with abundance changes in archaeal amoA genes in acidic soils
-    explanation: Demonstrates urea as critical substrate for acidic nitrification
+    explanation: Demonstrates urea stimulation of acidic archaeal nitrification.
   - reference: PMID:22592820
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: Nitrification activity was significantly stimulated by urea fertilization and coupled well
       with abundance changes in archaeal amoA genes
-    explanation: Confirms urea stimulation of archaeal nitrification
+    explanation: Confirms that the urea response tracked archaeal amoA abundance.
 environmental_factors:
 - name: Acidic pH
   value: 2.5-4.5

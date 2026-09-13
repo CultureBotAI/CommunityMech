@@ -67,8 +67,6 @@ taxonomy:
     notes: Anaerobic ammonium-oxidizing bacterium that drives nitrogen removal
       in the bioreactor; outcompeted during destabilization.
   abundance_level: DOMINANT
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:31980038
     supports: SUPPORT
@@ -95,9 +93,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Core community bacteria capable of dissimilatory nitrate reduction
       to ammonium; their replication outcompetes anammox during destabilization.
-  functional_role:
-  - PRIMARY_DEGRADER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:31980038
     supports: SUPPORT
@@ -137,11 +132,183 @@ related_ingredients:
       leads to
     explanation: Names nitrate as the substrate of the competing DNRA bacteria.
 ecological_interactions:
-- name: DNRA Competes with Anammox for Nitrogen Removal
-  description: Dissimilatory nitrate reduction to ammonium (DNRA) is the
-    primary nitrogen-removal pathway competing with anammox, and increased
-    replication of DNRA bacteria leads to out-competition of anammox bacteria.
+- name: Nutrient-Acquisition Core Selection
+  description: >
+    Genome-centric metagenomics separated the mature anammox-associated core
+    from source-associated bacteria and showed that bacteria retained in the
+    anammox community were selected for transporter-rich nutrient acquisition
+    from the reactor environment.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Brocadia Ammonium-Nitrite Anammox
+    description: >
+      Defining the mature anammox-associated core established Brocadia as the
+      dominant autotrophic nitrogen-removal population in the stable reactor.
+  - target: Core DNRA Nitrite Reduction Capacity
+    description: >
+      The same genome set was interrogated for nitrogen-metabolism KOs,
+      resolving DNRA encoded by bacteria retained in the anammox-associated
+      core.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      nutrient acquisition from the environment is selected for in the anammox
+      community
+    explanation: >
+      Supports transporter-rich nutrient acquisition as a selected feature of
+      the anammox-associated core community.
+- name: Brocadia Ammonium-Nitrite Anammox
+  description: >
+    Brocadia was the only anammox genome in the reactor, coupling ammonium and
+    nitrite under anaerobic conditions to produce molecular nitrogen and drive
+    the high nitrogen-removal rate during robust bioreactor performance.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: anammox bacterium
+    term:
+      id: NCBITaxon:203682
+      label: Planctomycetota
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  downstream:
+  - target: DNRA Outcompetition of Anammox
+    description: >
+      The anammox pathway depends on nitrite availability, making the Brocadia
+      population vulnerable to a DNRA guild that also consumes nitrite but
+      reduces it back to ammonium.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      conversion of ammonium and nitrite to molecular nitrogen
+    explanation: >
+      Supports Brocadia-driven ammonium and nitrite conversion as the core
+      nitrogen-removal metabolism in the reactor.
+- name: Core DNRA Nitrite Reduction Capacity
+  description: >
+    KEGG/HMM inspection called DNRA genomes by their capacity to reduce nitrite
+    to ammonium with nrfAH, resolving the potential for an anammox-associated
+    bacterial guild to divert oxidized nitrogen away from the anammox route.
+  scope: COMMUNITY_LEVEL
   interaction_type: COMPETITION
+  participating_taxa:
+  - preferred_term: dissimilatory nitrate reducing (DNRA) bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  metabolites:
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen cycle metabolic process
+    term:
+      id: GO:0071941
+      label: nitrogen cycle metabolic process
+  downstream:
+  - target: Pre-Crash DNRA Bacterial Replication
+    description: >
+      DNRA annotation of the core bacterial genomes let the replication and
+      abundance analysis test whether DNRA-capable organisms expanded before
+      the biological destabilization event.
+  - target: DNRA Outcompetition of Anammox
+    description: >
+      Nitrite-to-ammonium DNRA provided the nitrogen-removal pathway that
+      competed directly with Brocadia-catalyzed anammox.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      DNRA bacteria were considered to be bacteria capable of conversion of
+      nitrite to ammonium using the nrfAH enzymes
+    explanation: >
+      Supports the nrfAH-based functional definition used to annotate the
+      DNRA-capable bacterial guild.
+- name: Pre-Crash DNRA Bacterial Replication
+  description: >
+    iRep replication-rate shifts from Day 166 to Day 284, coupled with
+    significant Day 284 to Day 328 log-ratio increases, identified DNRA-capable
+    bacterial genomes that were actively replicating before the biological
+    performance collapse while Brocadia replication fell.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: dissimilatory nitrate reducing (DNRA) bacteria
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+  target_taxon:
+    preferred_term: anammox bacterium
+    term:
+      id: NCBITaxon:203682
+      label: Planctomycetota
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: DNRA Outcompetition of Anammox
+    description: >
+      The actively replicating destabilizers were DNRA bacteria, placing their
+      pre-crash growth upstream of the loss of anammox nitrogen-removal
+      performance.
+  evidence:
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      A bacterium was considered to influence the destabilization if it both
+      increased in replication prior to the event and had a positive and
+      significantly high LR
+    explanation: >
+      Supports the joint iRep and log-ratio criterion used to identify
+      organisms that likely influenced the destabilization.
+  - reference: PMID:31980038
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      All bacteria that were shown to affect the destabilization event were
+      DNRA bacteria
+    explanation: >
+      Supports DNRA capacity in the bacterial genomes that expanded before the
+      biological performance collapse.
+- name: DNRA Outcompetition of Anammox
+  description: >
+    DNRA was the dominant competing nitrogen route during the biological
+    destabilization: DNRA-capable bacterial replication increased before the
+    Day 300 crash, Brocadia replication decreased, and anammox nitrogen-removal
+    capacity was lost until the reactor recovered later in the time series.
+  interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: dissimilatory nitrate reducing (DNRA) bacteria
     term:
@@ -157,12 +324,16 @@ ecological_interactions:
     term:
       id: CHEBI:17632
       label: nitrate
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
   - preferred_term: ammonium
     term:
       id: CHEBI:28938
       label: ammonium
   biological_processes:
-  - preferred_term: nitrogen compound metabolic process
+  - preferred_term: nitrogen cycle metabolic process
     term:
       id: GO:0071941
       label: nitrogen cycle metabolic process
@@ -170,21 +341,22 @@ ecological_interactions:
   - reference: PMID:31980038
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Dissimilatory nitrate reduction to ammonium (DNRA) was the primary
-      nitrogen removal pathway that competed with anammox
-    explanation: Supports DNRA as the curated competitive pathway.
-- name: Nutrient Acquisition Selects Core Community Members
-  description: Metabolic analyses revealed that nutrient acquisition from the
-    environment is selected for in the anammox community.
-  interaction_type: COMMENSALISM
-  scope: COMMUNITY_LEVEL
-  evidence:
+    snippet: >
+      Under this assumption, DNRA was clearly revealed as the dominant process
+      occurring in the bioreactor during the anammox performance
+      destabilization event
+    explanation: >
+      Supports DNRA as the dominant nitrogen pathway among destabilizing
+      bacteria during the Day 284 to Day 328 performance collapse.
   - reference: PMID:31980038
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: nutrient acquisition from the environment is selected for in the
-      anammox community
-    explanation: Supports nutrient-acquisition selection of core members.
+    snippet: >
+      Increased replication of bacteria capable of DNRA led to the
+      out-competition of anammox bacteria
+    explanation: >
+      Supports the competitive outcome of DNRA bacterial replication against
+      anammox nitrogen removal.
 environmental_factors:
 - name: Bioreactor performance state
   value: stable -> destabilized -> recovered

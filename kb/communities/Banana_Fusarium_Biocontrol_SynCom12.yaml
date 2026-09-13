@@ -75,12 +75,138 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Coordinated Pathogen Suppression
-  description: Bacterial and fungal antagonists suppress Fusarium wilt while avoiding detrimental cross-inhibition.
-  interaction_type: MUTUALISM
+- name: Banana-Rhizosphere Antagonist Screening
+  description: >
+    Ninety-six Pseudomonas, Bacillus, Streptomyces, and Trichoderma isolates from
+    banana rhizosphere soil were screened in vitro for antagonism against Fusarium
+    oxysporum f. sp. cubense tropical race 4.
+  interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: SynCom1.0 and SynCom1.1 Pot Biocontrol
+    description: >
+      The Foc-antagonist isolate collection was subsetted into a 44-isolate SynCom
+      and a seven-isolate SynCom for banana pot trials.
+  evidence:
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ninety-six isolates of Pseudomonas spp., Bacillus spp., Streptomyces spp., and
+      Trichoderma spp. were obtained from the banana rhizosphere and selected in vitro for
+      the antagonism against Foc TR4
+    explanation: >
+      Anchors the banana-rhizosphere antagonist screen that supplied the pool for
+      synthetic-community design.
+- name: SynCom1.0 and SynCom1.1 Pot Biocontrol
+  description: >
+    A 44-member community of moderately to highly antagonistic isolates and a smaller
+    seven-member community of highly effective isolates each reduced Fusarium wilt of
+    banana symptom severity by 35% in pot experiments.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  downstream:
+  - target: SynCom1.1 Cross-Inhibition Mapping
+    description: >
+      The seven-member SynCom1.1 was small enough for direct interaction assays among
+      beneficial isolates and between the beneficial isolates and Foc TR4.
+  evidence:
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: a small one such as SynCom 1.1 (seven highly effective isolates) provided similar
+      disease control (35% symptom severity reduction)
+    explanation: >
+      Supports the intermediate seven-isolate consortium whose biocontrol activity
+      and cross-inhibition profile informed SynCom 1.2.
+- name: SynCom1.1 Cross-Inhibition Mapping
+  description: >
+    In vitro interaction tests among SynCom1.1 isolates and with Foc TR4 showed that
+    selected biocontrol agents inhibited the pathogen but could also inhibit one
+    another, while the pathogen antagonized beneficial isolates in return.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: fusaric acid
+    term:
+      id: CHEBI:5199
+      label: Fusaric acid
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Three-Isolate SynCom1.2 Redesign
+    description: >
+      Mapping undesirable cross-inhibition narrowed the next SynCom version to three
+      isolates and led to a non-simultaneous application strategy.
+  evidence:
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: revealed that beneficial microorganisms not only antagonized the pathogen but also some
+      of the SynCom constituents
+    explanation: >
+      Shows why explicit compatibility mapping was needed before reducing the
+      biocontrol community to SynCom 1.2.
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: fusaric acid, known as one of the secondary metabolites of Fusarium species, might
+      be involved in such an interaction
+    explanation: >
+      Supports fusaric acid as a candidate Fusarium-derived mediator in the
+      bidirectional antagonism that informed the SynCom 1.2 redesign.
+- name: Three-Isolate SynCom1.2 Redesign
+  description: >
+    The SynCom was redesigned as a three-isolate community containing Pseudomonas
+    chlororaphis subsp. piscium PS5, Bacillus velezensis BN8.2, and Trichoderma
+    virens T2C1.4.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Staggered SynCom1.2 Soil Biocontrol
+    description: >
+      The three-isolate redesign was applied to Foc-infested banana soil with a
+      staggered timing intended to reduce cross-inhibition among its members.
   evidence:
   - *id001
+- name: Staggered SynCom1.2 Soil Biocontrol
+  description: >
+    Non-simultaneous soil application of the three SynCom 1.2 members reduced
+    cross-inhibition during the pot trial and significantly delayed Fusarium wilt of
+    banana disease progress, incidence, and severity.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:35992653
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: A non-simultaneous soil application of these isolates (to diminish cross-inhibition)
+      delayed FWB progress over time
+    explanation: >
+      Reports the SynCom 1.2 application strategy and the resulting Fusarium wilt
+      biocontrol phenotype in banana pot trials.
 environmental_factors:
 - name: defined synthetic community design
   value: SynCom 1.2 combined Pseudomonas chlororaphis subsp. piscium PS5, Bacillus velezensis BN8.2, and

@@ -150,37 +150,127 @@ taxonomy:
 ecological_interactions:
 - name: Stable Defined Murine Gut Colonization
   description: The ASF members are mouse-derived, culturable bacteria that can be stably maintained across
-    generations in gnotobiotic mice.
-  interaction_type: COLONIZATION_FACILITATION
+    generations in gnotobiotic mice, establishing a reduced-consortium context in which each member's
+    abundance and GI-region distribution can be tracked by strain-specific PCR.
   scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  participating_taxa:
+  - preferred_term: ASF Firmicutes members
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  - preferred_term: ASF Lactobacillus members
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Mucispirillum schaedleri ASF457
+    term:
+      id: NCBITaxon:1379858
+      label: Mucispirillum schaedleri ASF457
+  - preferred_term: Parabacteroides ASF519
+    term:
+      id: NCBITaxon:375288
+      label: Parabacteroides
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Oxygen-Sensitive ASF GI Niche Partitioning
+    description: Long-term maintenance of the eight-member defined flora allows strain-resolved abundance
+      measurements that reveal oxygen-linked dominance patterns along the upper and lower gut.
   evidence:
   - reference: PMID:26323627
     supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: stably passed through multiple generations
     explanation: Supports stable colonization and transmission in gnotobiotic mouse facilities.
-- name: Host-Microbiota Mutualistic Model
-  description: ASF provides a reduced-complexity model for studying mutualistic host-GI microbiota
-    relationships while preserving a known consortium rather than a single isolate.
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  evidence:
-  - reference: PMID:26323627
-    supports: SUPPORT
-    evidence_source: REVIEW
-    snippet: The gastrointestinal (GI) microbiota forms a mutualistic relationship with the host
-    explanation: Supports the host-microbiota relationship represented by ASF mice.
-- name: Genome-Enabled Member Interaction Model
-  description: Draft genomes for all eight ASF members enable community-level study of member functions
-    and interactions in a controlled murine gut setting.
+- name: Oxygen-Sensitive ASF GI Niche Partitioning
+  description: ASF strain abundance in gnotobiotic mice is structured by gut oxygen availability, with
+    microaerotolerant Lactobacillus murinus ASF361 occupying the upper GI tract and obligate anaerobic
+    ASF members predominating in the cecal and colonic flora.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: ASF Firmicutes members
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  - preferred_term: ASF Lactobacillus members
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Mucispirillum schaedleri ASF457
+    term:
+      id: NCBITaxon:1379858
+      label: Mucispirillum schaedleri ASF457
+  - preferred_term: Parabacteroides ASF519
+    term:
+      id: NCBITaxon:375288
+      label: Parabacteroides
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: ASF356/ASF492 Short-Chain Fatty Acid Fermentation
+    description: Lower-gut dominance by obligate anaerobic members, including ASF356 and ASF492, positions
+      fermentative Firmicutes to contribute short-chain fatty acids in the cecal and colonic community.
   evidence:
-  - reference: PMID:24723722
+  - reference: PMID:15128534
     supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: We report here the draft genome sequences of the 8 bacteria that comprise the ASF
-    explanation: Supports genome-enabled analysis of all ASF members.
+    evidence_source: IN_VIVO
+    snippet: Individual strain abundance was dependent on oxygen sensitivity, with microaerotolerant
+      Lactobacillus murinus ASF361 present at 10(5) to 10(7) cells/g of tissue in the upper
+      GI tract and obligate anaerobic ASF strains being predominant in the cecal and colonic flora
+    explanation: Quantifies oxygen-linked partitioning of ASF Lactobacillus and obligate-anaerobe
+      members across mouse GI compartments.
+- name: ASF356/ASF492 Short-Chain Fatty Acid Fermentation
+  description: The clostridial ASF356 and eubacterial ASF492 members are major short-chain-fatty-acid
+    producers in the ASF, linking stable lower-gut colonization by anaerobic Firmicutes to fermentative
+    metabolite output.
+  scope: COMMUNITY_LEVEL
+  interaction_type: CROSS_FEEDING
+  participating_taxa:
+  - preferred_term: ASF Firmicutes members
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: SCFA-Linked Colonic Treg Homeostasis
+    description: SCFAs produced by gut bacteria provide a mechanistic metabolite axis for regulatory
+      T-cell pool size and function in the colon.
+- name: SCFA-Linked Colonic Treg Homeostasis
+  description: Gut microbiota-derived short-chain fatty acids regulate the size and function of the colonic
+    Foxp3-positive regulatory T-cell pool and connect ASF fermentation potential to host mucosal
+    homeostasis.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  participating_taxa:
+  - preferred_term: ASF Firmicutes members
+    term:
+      id: NCBITaxon:1239
+      label: Bacillota
+  biological_processes:
+  - preferred_term: immune response
+    term:
+      id: GO:0006955
+      label: immune response
+  evidence:
+  - reference: PMID:23828891
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: short-chain fatty acids, gut microbiota-derived bacterial fermentation products,
+      regulate the size and function of the colonic Treg pool and protect against colitis
+    explanation: Establishes the microbial fermentation product-to-colonic Treg mechanism linked
+      downstream of ASF SCFA production.
 environmental_factors:
 - name: gnotobiotic mouse gastrointestinal tract
   value: Defined flora maintained in gnotobiotic mice
@@ -227,27 +317,16 @@ growth_media:
   evidence:
   - reference: PMID:26323627
     supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: each of the ASF is cultivable in complex media including brain heart infusion medium
-      or Schaedler's medium supplemented with bovine serum
-    explanation: Names the complex media (BHI and Schaedler's medium, serum-supplemented) used to
-      culture the ASF members in vitro.
-  - reference: PMID:26323627
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: consisted of eight anaerobic bacteria of which only the two lactobacilli could grow
-      aerobically
-    explanation: Supports the anaerobic cultivation atmosphere for the ASF members.
-  - reference: PMID:26323627
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: all members of the ASF community can be cultivated in vitro (e.g., BHI plus serum or
-      Schaedler's medium plus serum)
-    explanation: Confirms all members are serum-supplemented complex-media cultivable with no defined
-      medium for the EOS members.
-  - reference: PMID:26323627
-    supports: SUPPORT
     evidence_source: IN_VIVO
     snippet: stably passed through multiple generations (at least 15 years or more by the authors)
       in gnotobiotic mice continually bred in isolator facilities
     explanation: Supports gnotobiotic isolator husbandry of the host that maintains the community.
+curation_history:
+- timestamp: '2026-09-13T01:01:47Z'
+  curator: codex
+  action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
+  changes: "Removed 5 evidence items that no longer match the retained abstracts after PR #766's publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
+    these claims require re-evidencing where support was removed. See the linked publication-text-removal
+    history for license/version uncertainty."
+  llm_assisted: true

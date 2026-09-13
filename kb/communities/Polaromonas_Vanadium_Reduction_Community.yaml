@@ -224,11 +224,6 @@ taxonomy:
     snippet: Further, VV-reducing enrichments indicated that bacteria associated with Polaromonas, a genus
       belonging to the family Burkholderiaceae, were potentially responsible for VV reduction
     explanation: Documents presence and enrichment under H₂ amendment
-  - reference: doi:10.1128/AEM.02635-07
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Desulfitobacterium frappieri reduces V(V) to V(IV) using hydrogen as electron donor
-    explanation: Establishes V(V) reduction capability in this genus
 ecological_interactions:
 - name: Dissimilatory V(V) Reduction by Polaromonas
   description: 'Polaromonas species perform dissimilatory vanadate [V(V)] reduction to vanadyl [V(IV)]
@@ -246,6 +241,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Polaromonas species
     term:
@@ -316,6 +312,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Polaromonas species
     term:
@@ -362,6 +359,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Desulfovibrio species
     term:
@@ -400,6 +398,10 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
+  downstream:
+  - target: Vanadium Immobilization via V(IV) Precipitation
+    description: Sulfide-mediated V(V) reduction feeds the same insoluble V(IV)
+      product pool as direct enzymatic V(V) reduction.
   evidence:
   - reference: PMID:33125214
     supports: SUPPORT
@@ -430,6 +432,7 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Geobacter species
     term:

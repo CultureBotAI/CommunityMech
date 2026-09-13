@@ -124,6 +124,7 @@ ecological_interactions:
   description: M. marinum S8 oxidizes methane and excretes acetate; C. necator NBRC 102504 grows in the
     methane-fed coculture, supporting methanol-independent transfer of methanotroph-derived carbon.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
     term:
@@ -152,6 +153,12 @@ ecological_interactions:
     term:
       id: GO:0006083
       label: acetate metabolic process
+  downstream:
+  - target: Cupriavidus Growth on Methane-Derived Acetate
+    description: >
+      Acetate excreted from methane-oxidizing M. marinum S8 provides the likely
+      methanotroph-derived carbon source that lets nonmethylotrophic C. necator
+      grow in the methane-fed coculture.
   evidence:
   - reference: doi:10.1093/bbb/zbab150
     supports: SUPPORT
@@ -163,10 +170,55 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: possibly utilizes acetate rather than methanol
     explanation: Supports acetate as the likely cross-fed compound.
+- name: Cupriavidus Growth on Methane-Derived Acetate
+  description: >
+    Cupriavidus necator NBRC 102504 is a nonmethylotrophic partner that cannot
+    use methane or methanol as the conventional methanotroph excretion product.
+    Its growth in coculture with M. marinum S8 under aerobic, methane-oxidizing
+    conditions supports acetate-based transfer of methane-derived carbon into a
+    bioproduction-relevant heterotroph.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Methylocaldum marinum S8
+    term:
+      id: NCBITaxon:1432792
+      label: Methylocaldum marinum
+  target_taxon:
+    preferred_term: Cupriavidus necator NBRC 102504
+    term:
+      id: NCBITaxon:1218105
+      label: Cupriavidus necator NBRC 102504
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cupriavidus necator NBRC 102504, could grow when cocultured with M.
+      marinum S8
+    explanation: Shows that the nonmethylotrophic Cupriavidus partner grows in
+      the M. marinum S8 coculture.
+  - reference: doi:10.1093/bbb/zbab150
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supporting the existence of methanol-independent cross-feeding from M. marinum
+      S8 under aerobic conditions
+    explanation: Links Cupriavidus growth to methanol-independent carbon transfer
+      from the methanotroph under aerobic conditions.
 - name: Oxygen-Dependent Acetate Excretion Window
   description: M. marinum S8 excretes acetate across microaerobic and aerobic conditions, creating a
     cross-feeding window compatible with aerobic methane oxidation and C. necator growth.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methylocaldum marinum S8
     term:
@@ -191,6 +243,12 @@ ecological_interactions:
     term:
       id: GO:0015947
       label: methane metabolic process
+  downstream:
+  - target: Methane-Derived Acetate Cross-Feeding To Cupriavidus
+    description: >
+      Acetate excretion by M. marinum S8 across low- and high-oxygen methane
+      oxidation regimes creates the acetate supply that can sustain
+      C. necator in the methane-fed coculture.
   evidence:
   - reference: doi:10.1093/bbb/zbab150
     supports: SUPPORT

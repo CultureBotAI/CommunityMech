@@ -18,6 +18,7 @@ journal: Microbiology Spectrum
 year: '2023'
 doi: 10.1128/spectrum.04528-22
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Synthetic Denitrifying Communities Reveal a Positive and Dynamic Biodiversity-Ecosystem Functioning Relationship during Experimental Evolution

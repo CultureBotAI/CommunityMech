@@ -122,14 +122,14 @@ ecological_interactions:
 - name: Stable Chemostat Coexistence
   description: The two Caldicellulosiruptor strains stably coexisted in continuous
     culture over multiple dilution rates despite competing for glucose and xylose.
-  interaction_type: MUTUALISM
-  source_taxon:
-    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  participating_taxa:
+  - preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
     term:
       id: NCBITaxon:351627
       label: Caldicellulosiruptor saccharolyticus DSM 8903
-  target_taxon:
-    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+  - preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
     term:
       id: NCBITaxon:632335
       label: Caldicellulosiruptor acetigenus I77R1B
@@ -147,6 +147,11 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Synergistic Biohydrogen Production
+    description: >
+      Stable coexistence of the two sugar-fermenting Caldicellulosiruptor strains maintains the continuous
+      mixed-sugar conversion regime that yielded more hydrogen than either monoculture under glucose limitation.
   evidence:
   - reference: PMID:21192828
     supports: SUPPORT
@@ -163,6 +168,7 @@ ecological_interactions:
     increased maximum biomass concentration of C. kristjanssonii, supporting a
     stimulatory interaction rather than simple substrate competition.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
     term:
@@ -178,6 +184,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Stable Chemostat Coexistence
+    description: >
+      Growth enhancement of C. kristjanssonii by C. saccharolyticus
+      conditioned supernatant provides a facilitative interaction that helps
+      explain stable coexistence instead of simple shared-sugar competition.
   evidence:
   - reference: PMID:21192828
     supports: SUPPORT
@@ -193,14 +205,14 @@ ecological_interactions:
   description: The coculture converted glucose and xylose to hydrogen-rich fermentation
     products and achieved higher glucose-limited hydrogen yields than either pure
     culture under the same conditions.
-  interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  participating_taxa:
+  - preferred_term: Caldicellulosiruptor saccharolyticus DSM 8903
     term:
       id: NCBITaxon:351627
       label: Caldicellulosiruptor saccharolyticus DSM 8903
-  target_taxon:
-    preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
+  - preferred_term: Caldicellulosiruptor kristjanssonii DSM 12137
     term:
       id: NCBITaxon:632335
       label: Caldicellulosiruptor acetigenus I77R1B

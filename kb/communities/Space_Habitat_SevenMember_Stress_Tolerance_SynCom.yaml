@@ -1,0 +1,369 @@
+id: CommunityMech:000339
+name: Space Habitat Seven-Member Stress-Tolerance SynCom
+description: >-
+  A defined seven-member bacterial consortium assembled as a tractable space-habitat
+  microbiome model from ISS-derived, spacecraft-associated, and biosafety-level-1
+  strains of genera commonly detected in spacecraft. The consortium contained
+  Staphylococcus capitis K1-2-2-23, Bacillus subtilis W2-B1-K4, Pseudomonas
+  antarctica CMS 35T, Streptococcus halotolerans HTS9T, Propionibacterium
+  cyclohexanicum TA-12T, Micrococcus luteus W4-Al-K1, and Acinetobacter
+  radioresistens 50V1. Equal OD-adjusted suspensions of the seven species were
+  pooled to OD600 0.125 and used for static co-cultivation, early biofilm biomass,
+  desiccation, X-ray irradiation, hydrogen peroxide, and pilot 16S rRNA gene
+  sequencing assays. The study quantified stress survival of B. subtilis and S.
+  capitis as single species and inside the full consortium; consortium context
+  increased B. subtilis survival after 500 Gy X-ray irradiation but lowered
+  recoverable B. subtilis CFU after 24 h co-cultivation in the full community.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: EXTREME_ENVIRONMENT
+engineering_design:
+  objective: >-
+    Build a representative low-complexity bacterial space-habitat consortium and
+    compare the stress tolerance of Bacillus subtilis and Staphylococcus capitis
+    as isolated species versus embedded in the full consortium.
+  assembly_strategy: >-
+    Seven isolates were selected from ISS surfaces, spacecraft-associated
+    facilities, or biosafety-level-1 representatives of commonly observed ISS
+    genera, then combined in equal amounts from OD600-adjusted suspensions.
+  inoculation_strategy: >-
+    PBS-washed single-species suspensions were adjusted by OD600; equal amounts
+    were pooled in one tube to create a final consortium OD600 of 0.125.
+  perturbation_design: >-
+    B. subtilis and S. capitis were exposed either alone or in the seven-member
+    consortium to desiccation, cumulative X-ray irradiation, and hydrogen peroxide.
+  measurement_endpoints:
+  - Pairwise and whole-consortium growth by oCelloScope optical-density tracking
+  - B. subtilis and S. capitis CFU after 24 h co-cultivation
+  - Crystal-violet early biofilm biomass after static co-cultivation
+  - CFU-derived B. subtilis and S. capitis survival fractions after desiccation, X-ray irradiation,
+    and hydrogen peroxide
+  - 16S rRNA gene sequencing of consortium composition before and after stress exposure or incubation
+  notes: >-
+    The authors intentionally tested vegetative B. subtilis cells rather than
+    spores so putative metabolic interactions could occur during co-exposure.
+    Stress-survival readouts were restricted to B. subtilis and S. capitis.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      To design a bacterial space habitat consortium, isolates obtained from the
+      ISS or spacecraft-associated facilities, which are among commonly isolated
+      and detected genera on the ISS as well as representative biosafety level 1
+      strains from commonly observed genera were selected
+    explanation: Supports the source habitat and representative-genus assembly strategy.
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To create the synthetic bacterial consortium, equal amounts of adjusted bacterial suspensions were added together in one tube for a final OD 600nm of 0.125.
+    explanation: Supports equal OD-based assembly of the defined consortium.
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      In order to test this, a straight-forward approach was started to determine
+      how the presence of a synthetic bacterial consortium influences the survival
+      of two species, namely B. subtilis and S. capitis , when co-exposed to
+      different space-relevant stressors such as desiccation, X-ray irradiation,
+      and oxidative stress.
+    explanation: Supports the comparison of single-species and consortium stress responses.
+environment_term:
+  preferred_term: static laboratory space-habitat SynCom culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >-
+    The record represents a laboratory-defined consortium assembled to model
+    spacecraft microbiome members, not a direct sample from the ISS or a flown
+    spaceflight culture.
+taxonomy:
+- taxon_term:
+    preferred_term: Staphylococcus capitis K1-2-2-23
+    term:
+      id: NCBITaxon:29388
+      label: Staphylococcus capitis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The isolate was recovered from ISS V2A steel; ontology grounding is at species level.
+  strain_designation:
+    strain_name: K1-2-2-23
+    genome_accession: GCA_025272695
+    culture_collections:
+    - collection: DSM
+      accession: '111179'
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Staphylococcus capitis | K1-2-2-23 | ISS, V2A Steel | DSM 111179 | Sobisch et al., 2019 | GCA_025272695 | TSYB/TSYA | 37 °C | 16–24 h'
+    explanation: Identifies S. capitis K1-2-2-23 as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Bacillus subtilis W2-B1-K4
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The isolate was recovered from an ISS brass touch array; ontology grounding is at species level.
+  strain_designation:
+    strain_name: W2-B1-K4
+    genome_accession: GCA_057654875.1
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Bacillus subtilis | W2-B1-K4 | ISS, Touch Array Brass (CuZn37) | – | Krämer et al., 2025 | GCA_057654875.1 | TSYB/TSYA | 37 °C | 12–16 h'
+    explanation: Identifies B. subtilis W2-B1-K4 as a consortium member and gives its ISS source, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Pseudomonas antarctica CMS 35T
+    term:
+      id: NCBITaxon:219572
+      label: Pseudomonas antarctica
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source used the P. antarctica type strain as a biosafety-level-1 Pseudomonas surrogate.
+  strain_designation:
+    strain_name: CMS 35T
+    genome_accession: GCA_010634845
+    culture_collections:
+    - collection: DSM
+      accession: '15318'
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Pseudomonas antarctica | CMS 35 T | Antarctica | DSM 15318 T | Reddy et al., 2004 | GCA_010634845 | TSYB/TSYA | Ambient | 12–16 h'
+    explanation: Identifies P. antarctica CMS 35T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Streptococcus halotolerans HTS9T
+    term:
+      id: NCBITaxon:1814128
+      label: Streptococcus halotolerans
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source used the S. halotolerans type strain as a biosafety-level-1 representative.
+  strain_designation:
+    strain_name: HTS9T
+    genome_accession: GCA_001598035
+    culture_collections:
+    - collection: DSM
+      accession: '101996'
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Streptococcus halotolerans | HTS9 T | Respiratory Tract of Marmota himalayana | DSM 101996 T | Niu et al., 2016 | GCA_001598035 | 2xLB, TSYB/TSYA | 37 °C | 24 h'
+    explanation: Identifies S. halotolerans HTS9T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Propionibacterium cyclohexanicum TA-12T
+    term:
+      id: NCBITaxon:64702
+      label: Propionibacterium cyclohexanicum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The source used the P. cyclohexanicum type strain as a biosafety-level-1 representative.
+  strain_designation:
+    strain_name: TA-12T
+    genome_accession: GCA_900111365
+    culture_collections:
+    - collection: DSM
+      accession: '16859'
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Propionibacterium cyclohexanicum | TA-12 T | Spoilt Orange Juice | DSM 16859 T | Kusano et al., 1997 | GCA_900111365 | BHI, TSYB/TSYA | 37 °C | 24 h'
+    explanation: Identifies P. cyclohexanicum TA-12T as a consortium member and gives its source, DSM number, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Micrococcus luteus W4-Al-K1
+    term:
+      id: NCBITaxon:1270
+      label: Micrococcus luteus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The isolate was recovered from an ISS aluminum-case touch array; ontology grounding is at species level.
+  strain_designation:
+    strain_name: W4-Al-K1
+    genome_accession: GCA_057816565.1
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Micrococcus luteus | W4-Al-K1 | ISS, Touch Array Aluminum Case | - | Krämer et al., 2025 | GCA_057816565.1 | NB, TSYB/TSYA | 37 °C | 24 h'
+    explanation: Identifies M. luteus W4-Al-K1 as a consortium member and gives its ISS source, genome accession and cultivation conditions.
+- taxon_term:
+    preferred_term: Acinetobacter radioresistens 50V1
+    term:
+      id: NCBITaxon:40216
+      label: Acinetobacter radioresistens
+    gtdb_grounding_status: UNRESOLVED
+    notes: The isolate came from the preflight Mars Odyssey Orbiter; ontology grounding is at species level.
+  strain_designation:
+    strain_name: 50V1
+    genome_accession: GCA_002834555.1
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Acinetobacter radioresistens | 50V1 | Preflight Mars Odyssey Orbiter | – | Mccoy et al., 2012 | GCA_002834555.1 | TSYB/TSYA | 37 °C | 16–18 h'
+    explanation: Identifies A. radioresistens 50V1 as a consortium member and gives its spacecraft-associated source, genome accession and cultivation conditions.
+ecological_interactions:
+- name: Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
+  description: >-
+    After 24 h co-cultivation, culturable B. subtilis CFU were significantly
+    lower in the whole seven-member consortium than in B. subtilis single culture
+    under the tested recovery conditions. The source discusses possible
+    antimicrobial competition but does not resolve which partner, metabolite or
+    mechanism drove this effect.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus subtilis W2-B1-K4
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Quantification of viable cells of B. subtilis revealed an increase of
+      CFU/mL when co-cultivated with A. radioresistens and M. luteus ,
+      respectively, and decrease of CFU/mL when co-cultivated with S. capitis
+      and P. antarctica , and a statistically significant decrease of CFU/mL when
+      co-cultivated with the whole consortium ( p = 0.008)
+    explanation: Supports the whole-consortium decrease in culturable B. subtilis recovery.
+environmental_factors:
+- name: Desiccation stress
+  value: 1, 7, 14, 21 and 28 days
+  description: >-
+    B. subtilis and S. capitis were dried overnight in 96-well plates, resuspended
+    after each time point, and assayed by CFU and regrowth in TSYB.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      After 1, 7, 14, 21, and 28 days, respectively, dried cells were resuspended
+      in 200 μL TSYB and survival fractions were determined as described previously.
+    explanation: Supports the desiccation time course.
+- name: X-ray irradiation
+  value: 50, 100, 250 and 500 Gy
+  description: >-
+    Prepared single-species and consortium cell suspensions were irradiated in a
+    closed X-ray system before CFU-derived survival fractions were calculated.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Samples were irradiated with X-rays (200 kV, 15 mA) with cumulative doses
+      of 50, 100, 250 and 500 Gy using a closed X-ray system (RS225, Gulmay,
+      Germany) with an average dose rate of 15.3 Gy/min ± 1.7 Gy/min.
+    explanation: Supports the X-ray irradiation doses and apparatus.
+- name: Hydrogen peroxide exposure
+  value: 1.5% and 3% for 45 and 90 min
+  description: >-
+    Prepared cell suspensions were challenged with 1.5% or 3% hydrogen peroxide,
+    neutralized with catalase, and assayed for B. subtilis and S. capitis survival.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      To determine hydrogen peroxide tolerance, we exposed both B. subtilis and
+      S. capitis as single species and within the bacterial consortium to 1.5%
+      and 3% hydrogen peroxide for 45 min and 90 min, respectively
+    explanation: Supports the peroxide concentrations and exposure durations.
+growth_media:
+- name: Tryptic soy yeast broth and agar
+  ph: 7.3
+  temperature: 37
+  temperature_unit: °C
+  incubation_time: 24
+  incubation_time_unit: h
+  vessel_type: 48-well plate
+  inoculum_size: 0.00005
+  inoculum_unit: OD600
+  preparation_notes: >-
+    TSYB and TSYA contained casein peptone, soy peptone, NaCl, yeast extract,
+    K2HPO4 and glucose; agar plates were supplemented with 15 g/L bacteriological agar.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      For determination of growth in co-cultivation, 500 μL TSYB were added per
+      well of a 48-well plate and the respective single species or combinations
+      of the consortium was added in a 1:1,000 dilution of a previously prepared
+      bacterial suspension with an OD 600nm of 0.05 to reach a final OD 600nm of
+      0.00005.
+    explanation: Supports the TSYB 48-well-plate co-cultivation condition.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: Static multiwell-plate co-cultivation
+  working_volume: 500
+  working_volume_unit: uL
+  operating_temperature: 37
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: >-
+    Growth and early biofilm assays were run statically in 48-well or 24-well
+    plates for 24 h; stress-recovery incubation used the same 37 °C TSYB/TSYA
+    culture conditions.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All co-cultivation approaches were performed as three independent experiments with three biological replicates each.
+    explanation: Supports the replicated batch co-cultivation setup.
+associated_datasets:
+- title: Space-habitat SynCom 16S rRNA amplicon sequencing
+  dataset_type: AMPLICON_16S
+  repository: ENA
+  accession: PRJEB112301
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB112301
+  description: 16S rRNA gene sequencing data from consortium dynamics after stress exposure.
+external_resources:
+- name: Primary publication - synthetic space-habitat consortium
+  repository: OTHER
+  resource_id: PMID:42577390
+  url: https://pubmed.ncbi.nlm.nih.gov/42577390/
+  description: >-
+    Frontiers in Microbiology 2026 primary article describing the seven-member
+    synthetic space-habitat consortium.
+  evidence:
+  - reference: PMID:42577390
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Community matters: stress tolerance and survival of Bacillus subtilis and
+      Staphylococcus capitis in a synthetic space habitat consortium
+    explanation: Lists the exact primary publication for this synthetic space-habitat consortium.
+discussions:
+- discussion_id: stress_protection_mechanisms_unresolved
+  prompt: >-
+    Which consortium members or metabolites drive the stressor-specific changes
+    in B. subtilis and S. capitis survival inside the full consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Whole-consortium reduction of recoverable Bacillus subtilis after co-cultivation
+  rationale: >-
+    The study showed stressor-specific differences between single-species and
+    consortium survival, and it discusses candidate explanations including
+    nutrient release, protective dead-cell material, catalase usage, antimicrobial
+    peptides and biosynthetic gene clusters. The experiments did not identify a
+    causal partner or measured metabolite, so no pairwise protective edge is
+    asserted here.
+  posed_by: codex
+  posed_date: '2026-09-11'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is curated for this synthetic space-habitat stress-tolerance consortium.

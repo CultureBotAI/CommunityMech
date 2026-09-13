@@ -135,18 +135,12 @@ taxonomy:
       Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading
       synthetic community.
 ecological_interactions:
-- name: Synergistic Lignocellulose Degradation
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Stenotrophomonas maltophilia JN40
-    term:
-      id: NCBITaxon:40324
-      label: Stenotrophomonas maltophilia
-  target_taxon:
-    preferred_term: Paenibacillus sp. PALXIL05
-    term:
-      id: NCBITaxon:375486
-      label: Paenibacillus sp. PALXIL05
+- name: Sugarcane Lignocellulose Enrichment
+  description: >
+    Soil bacteria were enriched on sugarcane lignocellulose, dereplicated and phenotyped to yield
+    18 degraders spanning four metabolic functional groups for downstream MAMC construction.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: cellulose
     term:
@@ -169,24 +163,34 @@ ecological_interactions:
     term:
       id: GO:0045493
       label: xylan catabolic process
+  downstream:
+  - target: Functional-Group Reductive MAMC Screening
+    description: >
+      The 18 sugarcane-enriched, metabolically classified strains seeded the 65 five-member
+      synthetic communities used to screen functional diversity against lignocellulose degradation.
   evidence:
   - reference: PMID:29392382
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Enriched microbial communities, obtained from environmental samples through selective processes,
-      can effectively contribute to lignocellulose degradation
-- name: Cellulose Hydrolysis Partnership
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Microbacterium sp. UYFA68
+    snippet: Following an enrichment of soil bacteria capable of degrading lignocellulose material
+      from sugarcane origin, we applied a reductive-screening approach based on molecular
+      phenotyping, identification, and metabolic characterization to obtain a selection
+      of 18 lignocellulose-degrading strains representing four metabolic functional groups.
+    explanation: >
+      Defines the enriched strain pool and metabolic grouping that preceded five-member MAMC
+      assembly.
+- name: Functional-Group Reductive MAMC Screening
+  description: >
+    Sixty-five five-species synthetic communities were assembled from the 18 enriched strains while
+    varying the number of metabolic functional groups, metabolic potential, and degradation
+    capacity.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: lignocellulose
     term:
-      id: NCBITaxon:1605331
-      label: Microbacterium sp. UYFA68
-  target_taxon:
-    preferred_term: Chryseobacterium taiwanense DUCC3723
-    term:
-      id: NCBITaxon:363331
-      label: Chryseobacterium taiwanense
+      id: CHEBI:180683
+      label: lignocellulose
   biological_processes:
   - preferred_term: cellulose catabolic process
     term:
@@ -196,26 +200,47 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: MAMC-M48 Lignocellulose Degradation
+    description: >
+      Screening five-member, functionally varied MAMCs identified a subset of effective
+      communities, including the Stenotrophomonas-Paenibacillus-Microbacterium-Chryseobacterium-
+      Brevundimonas consortium curated here.
   evidence:
   - reference: PMID:29392382
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp.,
-      Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading
-      synthetic community.
-- name: Hemicellulose Degradation Partnership
-  interaction_type: SYNTROPHY
-  source_taxon:
-    preferred_term: Paenibacillus sp. PALXIL05
+    snippet: We then generated 65 compositional replicates of MAMC containing five species each,
+      which vary in the number of functional groups, metabolic potential, and degradation
+      capacity.
+    explanation: >
+      Shows that the five-member consortia were systematically assembled and screened across
+      functional-group combinations.
+- name: MAMC-M48 Lignocellulose Degradation
+  description: >
+    The Stenotrophomonas, Paenibacillus, Microbacterium, Chryseobacterium, and Brevundimonas
+    MAMC-M48 consortium was selected as the strongest five-member degrader, while the specific
+    partner interaction routes remain unresolved by this screen.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: cellulose
     term:
-      id: NCBITaxon:375486
-      label: Paenibacillus sp. PALXIL05
-  target_taxon:
-    preferred_term: Brevundimonas sp. R3
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: xylan
     term:
-      id: NCBITaxon:1501972
-      label: Brevundimonas sp. R3
+      id: CHEBI:37166
+      label: xylan
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
   biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
   - preferred_term: xylan catabolic process
     term:
       id: GO:0045493
@@ -231,6 +256,17 @@ ecological_interactions:
     snippet: A consortium containing Stenotrophomonas maltophilia, Paenibacillus sp., Microbacterium sp.,
       Chryseobacterium taiwanense, and Brevundimonas sp. was found to be the most effective degrading
       synthetic community.
+    explanation: >
+      Names the five genera in MAMC-M48 and reports that this composition was the most effective
+      degrading synthetic community in the reductive screen.
+  - reference: PMID:29392382
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further work would be needed to understand the interactive relationship and metabolic
+      pathways of these consortium partners.
+    explanation: >
+      Keeps the graph at community level because the source identifies the winning consortium but
+      does not resolve pairwise cross-feeding or syntrophic routes among its members.
 environmental_factors:
 - name: Substrate
   value: sugarcane waste

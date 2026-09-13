@@ -9,8 +9,9 @@ description: >
   carbon fixation, amino acid metabolism, anaerobic aldehyde oxidation,
   hydrogen peroxide detoxification, and carbohydrate breakdown to acetate and
   formate. Soil-associated Asgard archaea are predicted to act as
-  non-methanogenic acetogens, suggesting they compete with methanogens for
-  shared substrates (H2, acetate, formate) and shape terrestrial carbon cycling.
+  non-methanogenic acetogens, suggesting that they modulate wetland-soil
+  methanogenesis substrate pools (H2, acetate, formate) and shape terrestrial
+  carbon cycling.
 ecological_state: STABLE
 community_origin: NATURAL
 community_category: METHANOGENESIS
@@ -73,8 +74,8 @@ taxonomy:
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 2 GTDB taxa under the NCBI taxon]
     notes: Co-resident methanogenic archaea whose substrate availability is
-      modulated by the Asgard-mediated metabolic activity inferred from this
-      study.
+      shaped by the potential Asgard-mediated substrate production and
+      consumption inferred from this study.
   functional_role:
   - PRIMARY_PRODUCER
   evidence:
@@ -86,18 +87,23 @@ taxonomy:
     explanation: Supports the methanogenic neighbours implied by substrate
       modulation.
 ecological_interactions:
-- name: Asgard Acetogenesis Competes for Methanogenic Substrates
+- name: Asgard Acetogenesis Modulates Methanogenic Substrates
   description: Soil-associated Asgard archaea are predicted to include
-    non-methanogenic acetogens that draw on H2, formate, and acetate, thereby
-    modulating substrate availability for methanogens.
-  interaction_type: COMPETITION
-  source_taxon:
-    preferred_term: Atabeyarchaeia (Asgard)
+    non-methanogenic acetogens that produce and consume acetate, formate, and
+    H2-linked carbon pools known to serve as substrates for methanogenesis in
+    wetland soil.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Atabeyarchaeia (Asgard)
     term:
       id: NCBITaxon:1935183
       label: Promethearchaeati
-  target_taxon:
-    preferred_term: wetland soil methanogens
+  - preferred_term: Freyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1935183
+      label: Promethearchaeati
+  - preferred_term: wetland soil methanogens
     term:
       id: NCBITaxon:2157
       label: Archaea
@@ -132,6 +138,15 @@ ecological_interactions:
     pathway, indicating active H2 cycling and CO2 fixation in wetland soil.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Atabeyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1935183
+      label: Promethearchaeati
+  - preferred_term: Freyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1935183
+      label: Promethearchaeati
   metabolites:
   - preferred_term: dihydrogen
     term:
@@ -146,6 +161,11 @@ ecological_interactions:
     term:
       id: GO:0015977
       label: carbon fixation
+  downstream:
+  - target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: Wood-Ljungdahl carbon fixation and H2 cycling are expressed
+      components of the non-methanogenic acetogenic metabolism that can alter
+      substrate pools relevant to co-resident methanogens.
   evidence:
   - reference: PMID:39085194
     supports: SUPPORT
@@ -158,6 +178,15 @@ ecological_interactions:
     organisms can also consume acetogenically.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Atabeyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1935183
+      label: Promethearchaeati
+  - preferred_term: Freyarchaeia (Asgard)
+    term:
+      id: NCBITaxon:1935183
+      label: Promethearchaeati
   metabolites:
   - preferred_term: acetate
     term:
@@ -172,6 +201,11 @@ ecological_interactions:
     term:
       id: GO:0005975
       label: carbohydrate metabolic process
+  downstream:
+  - target: Asgard Acetogenesis Modulates Methanogenic Substrates
+    description: Carbohydrate breakdown produces acetate and formate, two of
+      the substrate pools through which Asgard archaea can modulate potential
+      methanogenesis in wetland soil.
   evidence:
   - reference: PMID:39085194
     supports: SUPPORT

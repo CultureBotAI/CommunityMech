@@ -105,12 +105,14 @@ taxonomy:
     snippet: thermophilic and acidophilic archaea
     explanation: Supports the archaeal members.
 ecological_interactions:
-- name: Mercury Methylation, Demethylation, and Reduction
-  description: Genome-resolved analysis identifies microorganisms genetically
-    equipped for mercury methylation, demethylation, or Hg(II) reduction to
-    volatile Hg(0).
-  interaction_type: CROSS_FEEDING
+- name: Acidic Warm-Spring Mercury Speciation Regime
+  description: >
+    Adjacent acidic warm springs in the Ngawha Geothermal Field had pH below
+    4.5, temperatures below 55 C, and exceptionally high dissolved total and
+    methylated mercury, defining the geochemical regime constraining microbial
+    Hg transformations.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
   metabolites:
   - preferred_term: mercury(2+)
     term:
@@ -125,6 +127,58 @@ ecological_interactions:
     term:
       id: GO:0015694
       label: mercury ion transport
+  downstream:
+  - target: Diverse Acidophile Guilds Under Ultrahigh Mercury
+    description: >
+      The high-Hg acidic spring regime was inhabited by unexpectedly diverse
+      sulfur-, iron-, Hg/As-resistance, and archaeal guilds.
+  - target: Genome-Resolved Mercury Transformation Potential
+    description: >
+      Genome-resolved metagenomics was interpreted against the springs'
+      mercury-speciation measurements to infer Hg methylation, demethylation,
+      and reduction potential.
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      acidic warm springs in the Ngawha Geothermal Field (<55°C, pH <4.5),
+      Northland Region, Aotearoa New Zealand
+    explanation: >
+      Supports the acidic warm-spring geochemical setting of the Hg-cycling
+      community.
+- name: Genome-Resolved Mercury Transformation Potential
+  description: >
+    Genome-resolved analysis identified members genetically equipped for the
+    three central Hg transformations in the springs: mercury methylation,
+    methylmercury demethylation, and Hg(II) reduction to volatile elemental
+    Hg(0).
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: mercury(2+)
+    term:
+      id: CHEBI:16793
+      label: mercury(2+)
+  - preferred_term: methylmercury
+    term:
+      id: CHEBI:49747
+      label: methylmercury(1+)
+  biological_processes:
+  - preferred_term: mercury ion transport
+    term:
+      id: GO:0015694
+      label: mercury ion transport
+  downstream:
+  - target: Volatile Hg(0) Geothermal Mercury Emission
+    description: >
+      The metagenomic potential included Hg(II) reduction to volatile elemental
+      Hg(0), one route by which springs can emit mercury.
+  - target: Sulfur-Iron-Coupled Mercury Cycle Model
+    description: >
+      The methylation, demethylation, and reduction potential was integrated
+      into a conceptual model coupling mercury with sulfur and iron
+      biogeochemistry.
   evidence:
   - reference: PMID:32414793
     supports: SUPPORT
@@ -132,11 +186,33 @@ ecological_interactions:
     snippet: microorganisms genetically equipped for mercury methylation,
       demethylation, or Hg(II) reduction to volatile Hg(0)
     explanation: Supports the three curated Hg-cycling activities.
-- name: Diverse Community Despite Ultrahigh Hg
-  description: Despite ultrahigh dissolved and solid mercury concentrations,
-    the geothermal microbiome is unexpectedly diverse.
-  interaction_type: NICHE_PARTITIONING
+- name: Diverse Acidophile Guilds Under Ultrahigh Mercury
+  description: >
+    Despite ultrahigh dissolved and solid mercury concentrations, the geothermal
+    microbiome stayed unexpectedly diverse and was dominated by sulfur- and
+    iron-cycling bacteria, Hg/As-resistant bacteria, and thermophilic
+    acidophilic archaea.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: mercury(2+)
+    term:
+      id: CHEBI:16793
+      label: mercury(2+)
+  - preferred_term: sulfur atom
+    term:
+      id: CHEBI:26833
+      label: sulfur atom
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Genome-Resolved Mercury Transformation Potential
+    description: >
+      The diverse acidophile guilds encoded the methylation, demethylation, and
+      reduction potential used to construct the Hg-cycling model.
   evidence:
   - reference: PMID:32414793
     supports: SUPPORT
@@ -144,6 +220,68 @@ ecological_interactions:
     snippet: In the context of such ultrahigh mercury levels, the geothermal
       microbiome was unexpectedly diverse
     explanation: Supports the curated high-diversity-under-high-Hg observation.
+- name: Volatile Hg(0) Geothermal Mercury Emission
+  description: >
+    Hg- and As-resistant spring bacteria carried the genetic potential to
+    reduce inorganic Hg(II) to volatile Hg(0), connecting microbial detoxifying
+    potential to the aqueous and gaseous mercury emissions characteristic of
+    geothermal systems.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  metabolites:
+  - preferred_term: mercury(2+)
+    term:
+      id: CHEBI:16793
+      label: mercury(2+)
+  - preferred_term: mercury(0)
+    term:
+      id: CHEBI:16170
+      label: mercury(0)
+  biological_processes:
+  - preferred_term: mercury ion transport
+    term:
+      id: GO:0015694
+      label: mercury ion transport
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Hg(II) reduction to volatile Hg(0)
+    explanation: >
+      Supports reduction of inorganic Hg(II) to volatile elemental mercury as
+      one inferred spring-community transformation.
+- name: Sulfur-Iron-Coupled Mercury Cycle Model
+  description: >
+    The study integrated spring-community metagenomic potential with abiotic
+    geochemical controls to produce a model in which mercury speciation is
+    linked to microbial community dynamics and to sulfur and iron
+    biogeochemistry.
+  scope: COMMUNITY_LEVEL
+  interaction_type: SYNTROPHY
+  metabolites:
+  - preferred_term: mercury(2+)
+    term:
+      id: CHEBI:16793
+      label: mercury(2+)
+  - preferred_term: sulfur atom
+    term:
+      id: CHEBI:26833
+      label: sulfur atom
+  biological_processes:
+  - preferred_term: mercury ion transport
+    term:
+      id: GO:0015694
+      label: mercury ion transport
+  evidence:
+  - reference: PMID:32414793
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      illustrates how geothermal mercury cycling may couple to microbial
+      community dynamics and sulfur and iron biogeochemistry
+    explanation: >
+      Supports the conceptual connection among Hg transformations, the
+      microbial community, and sulfur and iron cycles.
 environmental_factors:
 - name: Mercury concentration
   value: ultrahigh dissolved and solid Hg

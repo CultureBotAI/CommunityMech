@@ -93,6 +93,7 @@ ecological_interactions:
   description: Engineered S. elongatus fixes carbon dioxide under illumination and secretes sucrose that
     supports heterotrophic yeast growth.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Synechococcus elongatus PCC 7942 cscB+
     term:
@@ -123,6 +124,10 @@ ecological_interactions:
     term:
       id: GO:0005986
       label: sucrose biosynthetic process
+  downstream:
+  - target: Lipid Production Enhancement
+    description: Cyanobacterial sucrose provisioning supplies the yeast carbon
+      source that is routed into coculture biomass and lipid production.
   evidence:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
@@ -133,6 +138,7 @@ ecological_interactions:
   description: R. glutinis improves cyanobacterial growth and survival at low inoculum density by alleviating
     accumulated reactive oxygen stress.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Rhodotorula glutinis
     term:
@@ -154,6 +160,11 @@ ecological_interactions:
     term:
       id: GO:0006979
       label: response to oxidative stress
+  downstream:
+  - target: Lipid Production Enhancement
+    description: Yeast relief of low-density cyanobacterial oxidative stress helps
+      stabilize the artificial lichen coculture that produces the increased biomass
+      and lipid yield.
   evidence:
   - reference: doi:10.1186/s13068-017-0736-x
     supports: SUPPORT
@@ -169,8 +180,13 @@ ecological_interactions:
   description: Stable S. elongatus-R. glutinis cocultures increased biomass and overall lipid yield relative
     to cyanobacterial monocultures.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Rhodotorula glutinis
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Synechococcus elongatus PCC 7942 cscB+
+    term:
+      id: NCBITaxon:32046
+      label: Synechococcus elongatus
+  - preferred_term: Rhodotorula glutinis
     term:
       id: NCBITaxon:5535
       label: Rhodotorula glutinis

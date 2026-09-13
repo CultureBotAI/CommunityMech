@@ -139,21 +139,17 @@ ecological_interactions:
     causing temporal turnover in aquifer microbial community composition, especially in shallow wells.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: intrusion-associated Actinobacteria
-    term:
-      id: NCBITaxon:201174
-      label: Actinomycetota
-  target_taxon:
-    preferred_term: Hanford groundwater bacteria
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
   metabolites:
   - preferred_term: nitrate
     term:
       id: CHEBI:17632
       label: nitrate
+  downstream:
+  - target: Annual Electron Donor and Acceptor Flux Dynamics
+    description: Nitrate-tracked intrusion and seasonal hydrologic change
+      restructure groundwater clades over the annual cycle, shifting the
+      electron-donor and electron-acceptor regimes available to functional
+      redox guilds.
   evidence:
   - reference: PMID:22456444
     supports: SUPPORT
@@ -168,22 +164,38 @@ ecological_interactions:
     snippet: Here, we demonstrate that Columbia River water intrusion affects microbial community composition
       in the aquifer, 250 m from the shoreline.
     explanation: Supports hydrologic intrusion as a structuring mechanism for the aquifer community.
+- name: Annual Electron Donor and Acceptor Flux Dynamics
+  description: Spatial and temporal changes in 16S rRNA gene operational
+    taxonomic units assigned to methane-oxidizing and metal-reducing guilds
+    indicate annual shifts in groundwater electron donor and acceptor fluxes.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  downstream:
+  - target: Depth-Structured Redox Guilds
+    description: Annual donor and acceptor fluxes are reflected in vertical
+      enrichment of putative ammonia oxidizers, methane oxidizers, and metal
+      reducers near the Hanford-Ringold redox transition zone.
+  evidence:
+  - reference: PMID:22456444
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Spatial and temporal patterns for several 16S rRNA gene operational taxonomic
+      units associated with particular physiological functions (for example, methane
+      oxidizers and metal reducers) suggests dynamic changes in fluxes of electron
+      donors and acceptors over an annual cycle.
+    explanation: Supports representing the annual redox-guild patterns as
+      changing electron donor and acceptor fluxes.
 - name: Depth-Structured Redox Guilds
   description: Deeper groundwater near the Hanford-Ringold formation boundary and redox transition zone
     had higher proportions of putative ammonia oxidizers, methane oxidizers, and metal reducers, indicating
     spatial niche partitioning by electron-donor and electron-acceptor availability.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
-  source_taxon:
-    preferred_term: aquifer redox guild bacteria and archaea
-    term:
-      id: NCBITaxon:2
-      label: Bacteria
-  target_taxon:
-    preferred_term: aquifer archaea, including ammonia-oxidizing archaea
-    term:
-      id: NCBITaxon:2157
-      label: Archaea
   metabolites:
   - preferred_term: nitrate
     term:

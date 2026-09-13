@@ -12,9 +12,13 @@ ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOREMEDIATION
 engineering_design:
-  objective: Test whether an acetylene-fermenting partner can support reductive dechlorination by D. mccartyi under TCE and acetylene co-exposure.
-  assembly_strategy: Combine Pelobacter strain SFB93 with D. mccartyi strain 195 in a defined anaerobic coculture and provide acetylene plus TCE.
-  perturbation_design: Compare low and high acetylene exposures and test whether acetylene can act as electron donor and carbon source while chlorinated ethenes serve as electron acceptors.
+  objective: Test whether an acetylene-fermenting partner can support reductive
+    dechlorination by D. mccartyi under TCE and acetylene co-exposure.
+  assembly_strategy: Combine Pelobacter strain SFB93 with D. mccartyi strain 195
+    in a defined anaerobic coculture and provide acetylene plus TCE.
+  perturbation_design: Compare low and high acetylene exposures and test whether
+    acetylene can act as electron donor and carbon source while chlorinated ethenes
+    serve as electron acceptors.
   measurement_endpoints:
   - Acetylene consumption
   - TCE reductive dechlorination
@@ -54,7 +58,8 @@ taxonomy:
       total_genomes: 5
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
-    notes: Organohalide-respiring partner used for TCE reductive dechlorination in the defined SFB93 coculture.
+    notes: Organohalide-respiring partner used for TCE reductive dechlorination in the defined
+      SFB93 coculture.
   strain_designation:
     strain_name: 195
     genome_accession: GCA_000011905.1
@@ -89,7 +94,8 @@ taxonomy:
       majority_fraction: 0.5
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-06-19) [grounded at g__ rank; 3 GTDB taxa under the NCBI taxon]
-    notes: Source literature identifies the acetylene-fermenting partner as Pelobacter strain SFB93; current resources also associate SFB93 with Syntrophotalea acetylenivorans.
+    notes: Source literature identifies the acetylene-fermenting partner as Pelobacter strain
+      SFB93; current resources also associate SFB93 with Syntrophotalea acetylenivorans.
   strain_designation:
     strain_name: SFB93
     genome_accession: CP015519
@@ -110,8 +116,11 @@ taxonomy:
     explanation: Supports SFB93 as the organism added to relieve acetylene inhibition in the dechlorinating consortium.
 ecological_interactions:
 - name: Acetylene-Fueled Dechlorinating Coculture
-  description: Pelobacter strain SFB93 enables a defined coculture in which acetylene is supplied as electron donor and carbon source while D. mccartyi strain 195 uses TCE as the electron acceptor for reductive dechlorination.
+  description: Pelobacter strain SFB93 enables a defined coculture in which acetylene is
+    supplied as electron donor and carbon source while D. mccartyi strain 195 uses
+    TCE as the electron acceptor for reductive dechlorination.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pelobacter strain SFB93
     term:
@@ -136,6 +145,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: D. mccartyi Reductive Dechlorination
+    description: >
+      Pelobacter fermentation lets acetylene serve as the reduced substrate that
+      fuels D. mccartyi organohalide respiration of TCE in the defined
+      coculture.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -148,8 +163,11 @@ ecological_interactions:
     snippet: TCE or cis-DCE served as the electron acceptor
     explanation: Supports chlorinated ethenes as electron acceptors in the defined cocultures.
 - name: D. mccartyi Reductive Dechlorination
-  description: D. mccartyi strain 195 performs reductive dechlorination of TCE in the coculture; transcriptomic observations indicate that reductive dehalogenase genes such as tceA were monitored during acetylene inhibition.
+  description: D. mccartyi strain 195 performs reductive dechlorination of TCE in the coculture;
+    transcriptomic observations indicate that reductive dehalogenase genes such as
+    tceA were monitored during acetylene inhibition.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dehalococcoides mccartyi strain 195
     term:
@@ -187,8 +205,11 @@ ecological_interactions:
     snippet: genes encoding for reductive dehalogenases
     explanation: Supports the reductive dehalogenase mechanism monitored during the experiment.
 - name: SFB93-Mediated Relief of Acetylene Inhibition
-  description: Addition of the acetylene-fermenting SFB93 partner removed acetylene inhibition of reductive dechlorination and methanogenesis in the ANAS enrichment, supporting the functional relevance of pairing acetylene metabolism with dechlorinating organisms.
+  description: Addition of the acetylene-fermenting SFB93 partner removed acetylene inhibition
+    of reductive dechlorination and methanogenesis in the ANAS enrichment, supporting
+    the functional relevance of pairing acetylene metabolism with dechlorinating organisms.
   interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Pelobacter strain SFB93
     term:
@@ -204,6 +225,12 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: D. mccartyi Reductive Dechlorination
+    description: >
+      Acetylene fermentation by SFB93 relieves acetylene inhibition of
+      organohalide respiration, allowing D. mccartyi to resume reductive
+      dechlorination in acetylene-fed cultures.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -238,7 +265,8 @@ cultivation_setup:
 environmental_factors:
 - name: Acetylene co-contaminant
   value: acetylene generated during TCE degradation
-  description: Acetylene can occur in contaminated groundwater because of chemical TCE degradation by in situ minerals.
+  description: Acetylene can occur in contaminated groundwater because of chemical TCE degradation
+    by in situ minerals.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -248,7 +276,8 @@ environmental_factors:
 - name: High acetylene inhibition
   value: 1.3
   unit: mM
-  description: High acetylene concentrations reversibly inhibited TCE dechlorination in D. mccartyi isolates and enrichments.
+  description: High acetylene concentrations reversibly inhibited TCE dechlorination in D. mccartyi
+    isolates and enrichments.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -258,7 +287,8 @@ environmental_factors:
 - name: Low acetylene compatibility
   value: 0.4
   unit: mM
-  description: Low acetylene concentrations did not inhibit D. mccartyi growth or metabolism in the reported experiments.
+  description: Low acetylene concentrations did not inhibit D. mccartyi growth or metabolism
+    in the reported experiments.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -282,7 +312,8 @@ growth_media:
         label: trichloroethene
   - name: cis-dichloroethene
   atmosphere: ANAEROBIC
-  preparation_notes: The abstract supports acetylene-fed anaerobic cocultures with TCE or cis-DCE as electron acceptor; detailed medium salts are not asserted here.
+  preparation_notes: The abstract supports acetylene-fed anaerobic cocultures with TCE
+    or cis-DCE as electron acceptor; detailed medium salts are not asserted here.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -312,7 +343,8 @@ external_resources:
   repository: OTHER
   resource_id: PMID:28075122
   url: https://pubmed.ncbi.nlm.nih.gov/28075122/
-  description: Primary publication describing acetylene-fed defined Dehalococcoides/Pelobacter consortia for TCE reductive dechlorination, including D. mccartyi strain 195 with SFB93.
+  description: Primary publication describing acetylene-fed defined Dehalococcoides/Pelobacter
+    consortia for TCE reductive dechlorination, including D. mccartyi strain 195 with SFB93.
   evidence:
   - reference: PMID:28075122
     supports: SUPPORT
@@ -400,3 +432,11 @@ metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this chlorinated-solvent
   bioremediation coculture.
+curation_history:
+- timestamp: '2026-09-13T00:56:49Z'
+  curator: codex
+  action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
+  changes: "Reapplied PR #766's 10 unsupported evidence removals onto current main, preserving its newer
+    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
+    #765."
+  llm_assisted: true

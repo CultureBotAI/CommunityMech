@@ -51,13 +51,127 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Corn Straw Lignocellulose Degradation
-  description: A multi-strain community partitions enzymatic roles for cellulose, hemicellulose, and lignin
-    conversion.
+- name: Cellulose Hydrolysis During Solid-State Fermentation
+  description: The eight-strain synthetic community enzymatically degrades the cellulose fraction of
+    corn straw during optimized solid-state fermentation.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  downstream:
+  - target: Core Corn Straw Lignocellulose Decomposition
+    description: Cellulose hydrolysis converts one of the three major corn-straw fractions targeted by
+      the SynCom's solid-state degradation process.
   evidence:
   - *id001
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
+      45.94%, and 23.34%, respectively.
+    explanation: Quantifies cellulose degradation by the synthetic microbial community.
+- name: Hemicellulose Xylan Hydrolysis
+  description: The synthetic community degrades corn-straw hemicellulose, with proteomics implicating
+    xylanases and beta-xylosidase in lignocellulose breakdown.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: hemicellulose
+    term:
+      id: CHEBI:61266
+      label: hemicellulose
+  biological_processes:
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  downstream:
+  - target: Core Corn Straw Lignocellulose Decomposition
+    description: Hemicellulose xylan hydrolysis contributes a second measured corn-straw fraction to
+      whole-lignocellulose conversion.
+  evidence:
+  - *id001
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Proteomic analysis revealed that lignin 1,4-β-xylanase, β-xylosidase and
+      endo-1,4-β-xylanase were closely related to lignocellulose degradation.
+    explanation: Supports a proteome-resolved xylanase arm of hemicellulose degradation.
+- name: Lignin Breakdown During Solid-State Fermentation
+  description: The SynCom degrades the lignin fraction of corn straw alongside its cellulose and
+    hemicellulose conversion activity.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  downstream:
+  - target: Core Corn Straw Lignocellulose Decomposition
+    description: Lignin breakdown opens the recalcitrant aromatic fraction that limits integrated
+      corn-straw lignocellulose utilization.
+  evidence:
+  - *id001
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
+      45.94%, and 23.34%, respectively.
+    explanation: Quantifies lignin degradation by the synthetic microbial community.
+- name: Core Corn Straw Lignocellulose Decomposition
+  description: Cellulose, hemicellulose, and lignin conversion by the synthetic microbial community
+    jointly decomposes corn straw under optimized solid-state fermentation.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cellulose
+    term:
+      id: CHEBI:18246
+      label: (1->4)-beta-D-glucan
+  - preferred_term: hemicellulose
+    term:
+      id: CHEBI:61266
+      label: hemicellulose
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: xylan catabolic process
+    term:
+      id: GO:0045493
+      label: xylan catabolic process
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - *id001
+  - reference: PMID:37774801
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the degradation rates of cellulose, hemicellulose, and lignin were 34.91%,
+      45.94%, and 23.34%, respectively.
+    explanation: Quantifies degradation of all three major corn-straw
+      lignocellulose fractions by the synthetic microbial community.
 environmental_factors:
 - name: defined synthetic community design
   value: Species analysis and functional predictions across ecosystems were coupled to construct a core

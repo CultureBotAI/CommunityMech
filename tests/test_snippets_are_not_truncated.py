@@ -46,6 +46,11 @@ _CACHE_RUN_TOGETHER = {
         "parvus",
         "cocultivated",
     ),
+    (
+        "Streptomyces_A2_A5_A11_M7_Pesticide_Consortium.yaml",
+        "spp.A2-A5-A11-M7",
+        "and",
+    ),
 }
 
 

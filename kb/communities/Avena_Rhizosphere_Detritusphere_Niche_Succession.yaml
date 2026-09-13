@@ -51,7 +51,6 @@ taxonomy:
       community-level interactions below.
   functional_role:
   - PRIMARY_DEGRADER
-  - CROSS_FEEDER
   evidence:
   - reference: PMID:31953507
     supports: SUPPORT
@@ -66,8 +65,17 @@ ecological_interactions:
   description: While soil habitat significantly affected both community
     composition and overall gene expression, the succession of microbial
     functions occurred at a faster time scale than compositional changes.
-  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  downstream:
+  - target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Faster functional turnover makes the metatranscriptome-defined
+      guilds a framework for modeling rhizosphere succession and its carbon
+      cycling consequences.
   evidence:
   - reference: PMID:31953507
     supports: SUPPORT
@@ -75,12 +83,34 @@ ecological_interactions:
     snippet: the succession of microbial functions occurred at a faster time
       scale than compositional changes
     explanation: Supports the faster functional-succession dynamic.
+  - reference: PMID:31953507
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: soil habitat significantly affected both community composition and
+      overall gene expression
+    explanation: Supports habitat as the spatial driver of expression-level
+      succession.
 - name: Four Guilds with Substrate-Specific Specialization
   description: Hierarchical clustering of upregulated decomposition genes
     resolved four microbial guilds whose functional succession patterns
     suggest substrate-specific specialization.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: polysaccharide
+    term:
+      id: CHEBI:18154
+      label: polysaccharide
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  downstream:
+  - target: Rhizosphere Guild Coexistence by Niche Differentiation
+    description: Substrate-specialized guilds partition fresh-root, detrital,
+      mixed-root, and aging-root resources, allowing multiple decomposer
+      guilds to coexist across the paired habitats.
   evidence:
   - reference: PMID:31953507
     supports: SUPPORT
@@ -91,8 +121,63 @@ ecological_interactions:
 - name: Rhizosphere Upregulates Carbohydrate Depolymerization
   description: Carbohydrate depolymerization genes were consistently
     upregulated in the rhizosphere relative to other habitats.
-  interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  downstream:
+  - target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Consistent rhizosphere carbohydrate depolymerization acts on
+      plant polymer inputs that are precursors of soil organic matter.
+  evidence:
+  - reference: PMID:31953507
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Carbohydrate depolymerization genes were consistently upregulated
+      in the rhizosphere
+    explanation: Supports the rhizosphere carbohydrate-depolymerization signal.
+- name: Rhizosphere Guild Coexistence by Niche Differentiation
+  description: The combined rhizosphere-detritusphere habitat showed the
+    greatest taxonomic and functional diversity, consistent with coexistence of
+    substrate-specialized rhizosphere guilds through niche differentiation.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Soil Carbon Cycling Consequences of Guild Succession
+    description: Niche-differentiated coexistence connects habitat-specific
+      decomposer guilds to rhizosphere succession models.
+  evidence:
+  - reference: PMID:31953507
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: both taxonomic and functional diversity were highest in the
+      combined rhizosphere-detritusphere
+    explanation: Supports the diversity maximum in the combined live-root and
+      detrital habitat.
+  - reference: PMID:31953507
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: suggesting coexistence of rhizosphere guilds is facilitated by
+      niche differentiation
+    explanation: Supports niche differentiation as the mechanism facilitating
+      guild coexistence.
+- name: Soil Carbon Cycling Consequences of Guild Succession
+  description: Metatranscriptome-defined decomposer guilds link root-derived
+    polysaccharide processing, rhizosphere functional succession, and microbial
+    soil-carbon transformation.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: polysaccharide
+    term:
+      id: CHEBI:18154
+      label: polysaccharide
   biological_processes:
   - preferred_term: carbohydrate metabolic process
     term:
@@ -102,9 +187,10 @@ ecological_interactions:
   - reference: PMID:31953507
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Carbohydrate depolymerization genes were consistently upregulated
-      in the rhizosphere
-    explanation: Supports the rhizosphere carbohydrate-depolymerization signal.
+    snippet: Metatranscriptome-defined guilds provide a framework to model
+      rhizosphere succession and its consequences for soil carbon cycling
+    explanation: Supports the link between the guild model and soil carbon
+      cycling consequences.
 environmental_factors:
 - name: Habitat type
   value: rhizosphere vs detritusphere vs combined

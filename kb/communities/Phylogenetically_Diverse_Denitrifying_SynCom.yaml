@@ -47,8 +47,6 @@ taxonomy:
       total_genomes: 827
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 - taxon_term:
@@ -60,18 +58,136 @@ taxonomy:
     gtdb_candidates:
     - GTDB:s__Paracoccus_denitrificans
     - GTDB:s__Paracoccus_sp030388245
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Phylogenetic Complementarity in Denitrification
-  description: Distantly related denitrifiers improve function and stability through complementarity and
-    asynchronous fluctuations.
-  interaction_type: NICHE_PARTITIONING
+- name: CR and DR Denitrifying SynCom Design
+  description: >
+    Synthetic denitrifying communities were assembled by phylogenetic distance
+    into a closely related group made only from Shewanella strains and a
+    distantly related group whose members came from different genera.
   scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Two-Hundred-Generation SDC Evolution
+    description: >
+      The phylogenetic-distance-based CR and DR SynComs seeded a
+      200-generation laboratory evolution experiment.
   evidence:
   - *id001
+- name: Two-Hundred-Generation SDC Evolution
+  description: >
+    All synthetic denitrifying communities were subjected to experimental
+    evolution for 200 generations before evolved community function and
+    stability were compared across the phylogenetic-diversity designs.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: High-Phylogenetic-Diversity Function and Stability
+    description: >
+      Experimental evolution exposed the functional and temporal-stability
+      advantage of the high-phylogenetic-diversity DR communities.
+  evidence:
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      All synthetic denitrifying communities (SDCs) were experimentally evolved
+      for 200 generations
+    explanation: >
+      Supports the 200-generation experimental-evolution treatment applied to
+      all CR and DR synthetic denitrifying communities.
+- name: High-Phylogenetic-Diversity Function and Stability
+  description: >
+    High phylogenetic diversity followed by experimental evolution improved
+    synthetic denitrifying community productivity, denitrification rate, and
+    temporal stability.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Paracoccus-Dominated DR Denitrification
+    description: >
+      Evolved, distantly related communities had higher productivity and
+      denitrification rates when Paracoccus denitrificans dominated them.
+  - target: DR Overyielding and Asynchronous Stability
+    description: >
+      Evolved DR stability was decomposed into overyielding, asynchronous
+      species fluctuations, and higher complementarity than the CR group.
+  evidence:
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      high phylogenetic diversity followed by experimental evolution promoted
+      the function and stability of synthetic denitrifying communities
+    explanation: >
+      Supports improved function and stability in evolved
+      phylogenetically diverse denitrifying SynComs.
+- name: Paracoccus-Dominated DR Denitrification
+  description: >
+    In the evolved distantly related communities, Paracoccus denitrificans
+    dominance from the 50th generation onward coincided with significantly
+    higher productivity and denitrification rates than in the closely related
+    Shewanella-only communities.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: productivity and denitrification rates were significantly
+    explanation: Supports denitrification as the process whose rate improved in
+      the experimentally evolved, phylogenetically diverse synthetic community.
+- name: DR Overyielding and Asynchronous Stability
+  description: >
+    The evolved distantly related communities were more stable than the closely
+    related Shewanella communities through overyielding and asynchronous
+    fluctuations, and showed stronger complementarity across experimental
+    evolution.
+  scope: COMMUNITY_LEVEL
+  interaction_type: NICHE_PARTITIONING
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      higher stability through overyielding and asynchrony of species
+      fluctuations
+    explanation: >
+      Supports overyielding and asynchronous species fluctuations as the
+      stability basis in the distantly related community.
+  - reference: PMID:37207729
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: showed more complementarity than the CR group during the experimental evolution
+    explanation: >
+      Supports higher complementarity in DR than CR communities during the
+      evolution experiment.
 environmental_factors:
 - name: defined synthetic community design
   value: Closely related communities used Shewanella strains; distantly related communities used constituents

@@ -39,8 +39,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa under the NCBI taxon]
     notes: Native carboxydotrophic Carboxydocella whose relative abundance
       decreased post-scCO2 injection.
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:32633030
     supports: SUPPORT
@@ -50,26 +48,21 @@ taxonomy:
     explanation: Supports the Carboxydocella member and its post-injection
       decline.
 ecological_interactions:
-- name: CODH-Mediated Subsurface CO Oxidation
-  description: Carboxydocella performs CO oxidation in the deep aquifer via
-    its carbon monoxide dehydrogenase (CODH) gene, with the CODH activity
-    switching after the scCO2 injection experiment.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  evidence:
-  - reference: PMID:32633030
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: a switch in CO-oxidation potential by Carboxydocella through
-      analysis of its carbon monoxide dehydrogenase (CODH) gene before and
-      after the geosequestration experiment
-    explanation: Supports the CODH-driven CO-oxidation function and its switch.
 - name: scCO2 Injection Reshapes Subsurface Community
-  description: Injection of 150 tons of supercritical CO2 in a geosequestration
-    experiment changed the microbial community structure of the deep aquifer,
-    with Carboxydocella playing a key role.
-  interaction_type: NICHE_PARTITIONING
+  description: >
+    Injection of 150 tons of supercritical carbon dioxide into a 1.4 km deep
+    aquifer perturbed the native subsurface microbiome.
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  downstream:
+  - target: Post-Injection Carboxydocella Decline
+    description: >
+      Community restructuring after supercritical carbon dioxide injection was
+      associated with a decline in native carboxydotrophic Carboxydocella.
   evidence:
   - reference: PMID:32633030
     supports: SUPPORT
@@ -77,6 +70,103 @@ ecological_interactions:
     snippet: changes to the microbial community structure of a deep aquifer
       (1.4 km) receiving 150 tons of injected supercritical CO2
     explanation: Supports the scCO2 injection effect on community structure.
+- name: Post-Injection Carboxydocella Decline
+  description: >
+    The aquifer perturbation reduced the relative abundance of the native,
+    thermophilic, carbon-monoxide-utilizing anaerobe Carboxydocella.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  downstream:
+  - target: Native Carboxydocella Genome Resolution
+    description: >
+      Carboxydocella's post-injection abundance response motivated
+      genome-resolved metagenomic profiling of this carboxydotroph.
+  evidence:
+  - reference: PMID:32633030
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      the thermophilic CO-utilizing anaerobe Carboxydocella, which decreased
+      in relative abundance post-scCO2 injection
+    explanation: >
+      Supports the Carboxydocella decline after supercritical carbon dioxide
+      injection.
+- name: Native Carboxydocella Genome Resolution
+  description: >
+    Detailed metagenomic profiling recovered genome-level information for the
+    native carboxydotrophic Carboxydocella population before and after the
+    geosequestration experiment.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  downstream:
+  - target: CODH-Mediated CO-Oxidation Switch
+    description: >
+      The resolved Carboxydocella genome allowed before-versus-after analysis
+      of its carbon monoxide dehydrogenase gene.
+  evidence:
+  - reference: PMID:32633030
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      detailed metagenomic profiling of this experiment, with genome resolution
+      of the native carboxydotrophic Carboxydocella
+    explanation: >
+      Supports genome-resolved analysis of the native Carboxydocella
+      carboxydotroph.
+- name: CODH-Mediated CO-Oxidation Switch
+  description: >
+    Carbon monoxide dehydrogenase analysis showed that Carboxydocella changed
+    its potential for carbon monoxide oxidation across the scCO2 perturbation.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  downstream:
+  - target: Subsurface Carbon-Electron Flow Through CO
+    description: >
+      A CODH-mediated change in carbon monoxide oxidation can alter subsurface
+      carbon and electron transfer through the CO intermediate.
+  evidence:
+  - reference: PMID:32633030
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      a switch in CO-oxidation potential by Carboxydocella through analysis of
+      its carbon monoxide dehydrogenase (CODH) gene before and after the
+      geosequestration experiment
+    explanation: >
+      Supports the CODH-driven CO-oxidation function and its switch.
+- name: Subsurface Carbon-Electron Flow Through CO
+  description: >
+    The Carboxydocella CODH switch has implications for the movement of carbon
+    and electrons through the metabolic intermediate carbon monoxide in
+    geosequestration-perturbed deep aquifers.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon monoxide
+    term:
+      id: CHEBI:17245
+      label: carbon monoxide
+  evidence:
+  - reference: PMID:32633030
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >
+      subsurface flow of carbon and electrons from oxidation of the metabolic
+      intermediate carbon monoxide (CO)
+    explanation: >
+      Supports carbon monoxide oxidation as a route for subsurface carbon and
+      electron flow.
 environmental_factors:
 - name: Supercritical CO2 injection
   value: 150 tons of injected scCO2

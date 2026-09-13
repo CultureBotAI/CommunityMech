@@ -88,11 +88,17 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Syntrophomonas wolfei
     term:
       id: NCBITaxon:863
       label: Syntrophomonas wolfei
+  target_taxon:
+    preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
   metabolites:
   - preferred_term: butyrate
     term:
@@ -141,11 +147,17 @@ ecological_interactions:
 
     '
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Methanospirillum hungatei
     term:
       id: NCBITaxon:2203
       label: Methanospirillum hungatei
+  target_taxon:
+    preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
   metabolites:
   - preferred_term: dihydrogen
     term:
@@ -168,6 +180,10 @@ ecological_interactions:
       butyrate β-oxidation to remain thermodynamically feasible; S. wolfei grows and degrades
       butyrate only in association with an H2-using partner, and adding H2 back to the medium
       stops both. Reciprocal (feedback) arm of the syntrophic loop.
+  - target: Syntrophic Butyrate-to-Methane Conversion
+    description: >
+      Hydrogen transfer links S. wolfei butyrate oxidation to M. hungatei
+      hydrogenotrophic methanogenesis.
   evidence:
   - reference: PMID:16345745
     supports: SUPPORT
@@ -193,6 +209,53 @@ ecological_interactions:
     snippet: Common electron acceptors are not utilized with butyrate as the electron donor
     explanation: Confirms that S. wolfei cannot use alternative electron acceptors, making it obligately
       dependent on syntrophic H2 removal
+- name: Syntrophic Butyrate-to-Methane Conversion
+  description: >
+    S. wolfei oxidizes butyrate only when a hydrogen-consuming partner such as
+    M. hungatei removes the produced H2, coupling fatty-acid beta-oxidation to
+    hydrogenotrophic methanogenesis in the two-member consortium.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Syntrophomonas wolfei
+    term:
+      id: NCBITaxon:863
+      label: Syntrophomonas wolfei
+  - preferred_term: Methanospirillum hungatei
+    term:
+      id: NCBITaxon:2203
+      label: Methanospirillum hungatei
+  metabolites:
+  - preferred_term: butyrate
+    term:
+      id: CHEBI:17968
+      label: butyrate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: fatty acid beta-oxidation
+    term:
+      id: GO:0006635
+      label: fatty acid beta-oxidation
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:16345745
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Growth and degradation of fatty acids occur only in syntrophic association with
+      H(2)-using bacteria
+    explanation: >
+      Establishes the obligate syntrophic H2-removal requirement for
+      S. wolfei fatty-acid degradation.
 environmental_factors:
 - name: Anaerobic Conditions
   value: Strict anaerobic

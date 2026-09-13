@@ -214,6 +214,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Leptospirillum ferrooxidans
     term:
@@ -246,11 +247,30 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Acidiphilium
     term:
       id: NCBITaxon:522
       label: Acidiphilium
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  - preferred_term: Fe(II)
+    term:
+      id: CHEBI:29033
+      label: iron(2+)
+  - preferred_term: Fe(III)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  biological_processes:
+  - preferred_term: organic substance catabolic process
+    term:
+      id: GO:0009056
+      label: catabolic process
   evidence:
   - reference: doi:10.1128/aem.69.8.4853-4865.2003
     supports: PARTIAL
@@ -266,6 +286,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Bacillariophyceae
     term:
@@ -281,6 +302,12 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Heterotrophic Carbon-Iron Coupling
+    description: >
+      Photosynthetic eukaryotes provide organic carbon that supports
+      Acidiphilium and other heterotrophic acidophiles in the iron-rich river
+      community.
   evidence:
   - reference: PMID:25369810
     supports: SUPPORT
@@ -301,6 +328,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Acidithiobacillus ferrooxidans
     term:
@@ -357,6 +385,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Basidiomycota
     term:
@@ -373,6 +402,12 @@ ecological_interactions:
       id: CHEBI:50860
       label: organic molecular entity
     notes: Complex organic polymers from algae and microbial biomass
+  downstream:
+  - target: Heterotrophic Carbon-Iron Coupling
+    description: >
+      Fungal organic-matter degradation releases simpler organic substrates that
+      feed Acidiphilium and other heterotrophic bacteria linking carbon turnover
+      to the acidic iron cycle.
   evidence:
   - reference: PMID:25369810
     supports: SUPPORT

@@ -137,6 +137,7 @@ ecological_interactions:
     E. coli consumes the released glucose, reducing product inhibition and creating a positive feedback
     loop that enhances cellulose-derived sugar catabolism.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium phytofermentans ISDg
     term:
@@ -165,6 +166,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: Glucose scavenging by E. coli relieves feedback inhibition
+      of C. phytofermentans cellulolytic-enzyme synthesis and increases
+      cellulose-derived sugar flux through the consortium.
   evidence:
   - reference: PMID:33268782
     supports: SUPPORT
@@ -182,6 +188,7 @@ ecological_interactions:
     supports E. coli growth, while E. coli necromass provides peptides or biomass-derived nutrients that
     promote C. phytofermentans growth and viability.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium phytofermentans ISDg
     term:
@@ -202,6 +209,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: Reciprocal necromass catabolism transfers nutrients and energy
+      between the two trophic levels, increasing C. phytofermentans and E. coli
+      biomass accumulation.
   evidence:
   - reference: PMID:33268782
     supports: SUPPORT
@@ -218,6 +230,7 @@ ecological_interactions:
     the obligate anaerobe C. phytofermentans to persist during oxic perturbation, while E. coli occupies
     the more oxic upper biofilm region.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Escherichia coli K-12 MG1655
     term:
@@ -238,6 +251,11 @@ ecological_interactions:
     term:
       id: GO:0042710
       label: biofilm formation
+  downstream:
+  - target: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+    description: E. coli oxygen consumption maintains an anoxic biofilm zone
+      that lets the obligate anaerobe C. phytofermentans persist during oxic
+      perturbation.
   evidence:
   - reference: PMID:33268782
     supports: SUPPORT
@@ -249,6 +267,52 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: C. phytofermentans resided primarily in the anoxic bottom of the biofilm
     explanation: Supports spatial oxygen niche partitioning in the consortium biofilm.
+- name: Enhanced Cellulosic-Sugar Conversion and Biofilm Productivity
+  description: >-
+    Cross-feeding, positive feedback, necromass catabolism, and oxygen partitioning
+    let the C. phytofermentans-E. coli consortium deplete more cellobiose, produce
+    more ethanol, and accumulate more planktonic and biofilm biomass than the summed
+    monocultures.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Clostridium phytofermentans ISDg
+    term:
+      id: NCBITaxon:357809
+      label: Lachnoclostridium phytofermentans ISDg
+  - preferred_term: Escherichia coli K-12 MG1655
+    term:
+      id: NCBITaxon:511145
+      label: Escherichia coli str. K-12 substr. MG1655
+  metabolites:
+  - preferred_term: cellobiose
+    term:
+      id: CHEBI:17057
+      label: cellobiose
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: PMID:33268782
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: enhanced substrate depletion, enhanced ethanol secretion, and enhanced biomass
+      production as compared to monocultures
+    explanation: Supports the emergent cellobiose, ethanol, and biomass endpoint.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE

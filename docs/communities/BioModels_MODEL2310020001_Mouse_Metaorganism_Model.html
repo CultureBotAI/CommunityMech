@@ -390,13 +390,13 @@
                 <div class="metadata-item">
                     <span class="metadata-label">Ecological State</span>
                     <span class="metadata-value">
-                        <span class="badge badge-engineered">
-                            ENGINEERED
+                        <span class="badge badge-natural">
+                            STABLE
                         </span>
                     </span>
                 </div>
 
-                
+
                 <div class="metadata-item">
                     <span class="metadata-label">Environment</span>
                     <span class="metadata-value">
@@ -408,47 +408,387 @@
                         </a>
                     </span>
                 </div>
-                
-                
+
+
                 <div class="metadata-item">
                     <span class="metadata-label">Modeled Environment</span>
                     <span class="metadata-value">
-                        
+
                         intestine environment
                         <br>
                         <a href="https://www.ebi.ac.uk/ols/ontologies/envo/terms?iri=http://purl.obolibrary.org/obo/ENVO_2100002"
                            class="term-link" target="_blank" rel="noopener noreferrer">
                             ENVO:2100002
                         </a>
-                        
-                        
+
+
                     </span>
                 </div>
-                
+
             </div>
         </section>
 
         <!-- Description -->
-        
+
         <section class="description">
-            <p>BioModels record MODEL2310020001 is a host-microbiota metaorganism model that links a merged microbiota model to host organ models (brain, liver, and colon) through a shared bloodstream compartment.</p>
+            <p>BioModels record MODEL2310020001 contains an integrated metabolic metaorganism model of aging mice that connects a merged mouse gut microbiome metabolic model to colon, liver, and brain host-tissue models through gut lumen and bloodstream exchange compartments.</p>
         </section>
-        
+
 
         <!-- Taxonomy -->
+
+        <section>
+            <h2>Taxonomy</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Taxon</th>
+                        <th>Ontology ID</th>
+                        <th>Functional Roles</th>
+                        <th>Abundance</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>
+                            <strong>mouse gut Bacillota MAGs</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=1239"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:1239
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"Most of the MAGs were attributed to the phyla Bacillota"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <strong>mouse gut Bacteroidota MAGs</strong>
+                        </td>
+                        <td>
+                            <a href="https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=976"
+                               class="term-link" target="_blank" rel="noopener noreferrer">
+                                NCBITaxon:976
+                            </a>
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>N/A</td>
+                    </tr>
+
+                    <tr class="evidence-row-container">
+                        <td colspan="4">
+                            <ul class="evidence-list">
+
+                                <li class="evidence-item">
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                                    - SUPPORT (COMPUTATIONAL)
+
+                                    <div class="snippet">"Bacteroidota predominated in the cohort"</div>
+
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </section>
         <!-- Ecological Interactions -->
         <section>
             <h2>Ecological Interactions</h2>
-        
-            <div class="empty-state">
-                <p>ℹ️ No detailed ecological interaction data is available for this community.</p>
-                <p class="empty-state-note">This record may be a metabolic model or minimal entry containing only taxonomy and external resource links.</p>
+
+
+            <!-- Network Diagram -->
+            <div class="network-container" id="network-container">
+                <div class="network-tooltip" id="network-tooltip" role="status" aria-live="polite"></div>
+                <svg id="network-svg" role="img" aria-labelledby="network-svg-title network-svg-desc">
+                    <title id="network-svg-title">Ecological interaction network for BioModels MODEL2310020001 Mouse Metaorganism Model</title>
+                    <desc id="network-svg-desc">Bipartite graph where circle nodes represent taxa and each ecological interaction is drawn as a distinct non-circular symbol, with colour repeating the same distinction (competition, commensalism).</desc>
+                </svg>
+                <div class="network-legend">
+                    <div class="legend-item">
+                        <span class="legend-swatch legend-circle" style="background: #7a7a7a;"></span> Taxon
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolTimes"
+                             data-color="#a91919"></svg> Competition
+                    </div>
+                    <div class="legend-item">
+                        <svg class="legend-symbol" width="14" height="14" viewBox="-9 -9 18 18"
+                             aria-hidden="true" data-symbol="symbolWye"
+                             data-color="#cf7830"></svg> Commensalism
+                    </div>
+                </div>
             </div>
-        
+
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Model-Predicted Beneficial Gut Interactions</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    butyrate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        growth
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Aging Shift Toward Competitive Gut Interactions
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Growth was estimated by FBA for single growth and community FBA for combined growth."</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"We observed a pronounced reduction in metabolic activity within the aging microbiome accompanied by reduced beneficial interactions between bacterial species."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Aging Shift Toward Competitive Gut Interactions</h3>
+                    <span class="interaction-type">COMPETITION</span>
+                </div>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    succinate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=30031"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:30031</a>),
+
+                    butyrate
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=17968"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:17968</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        growth
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0040007"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0040007</a>)
+                    </li>
+
+                </ul>
+
+
+
+                <div class="interaction-flow">
+                    <strong>Downstream Effects:</strong>
+
+                    <div class="flow-item">
+                        <span class="flow-arrow">→</span> Microbiota-Dependent Host Nucleotide Support
+                    </div>
+
+                </div>
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"We observed a significant decrease in amensal, commensal and neutral interactions at the expense of increased competitive interactions"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"Aging-related microbiome changes led to the accumulation of pro-aging metabolites (D-galactose, succinate) and a decline in beneficial metabolites (nucleotides, butyrate)."</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="interaction-card">
+                <div class="interaction-header">
+                    <h3>Microbiota-Dependent Host Nucleotide Support</h3>
+                    <span class="interaction-type">COMMENSALISM</span>
+                </div>
+
+
+
+
+
+
+                <p><strong>Metabolites:</strong>
+
+                    nucleotide
+                    (<a href="https://www.ebi.ac.uk/chebi/searchId.do?chebiId=36976"
+                        class="term-link" target="_blank" rel="noopener noreferrer">CHEBI:36976</a>)
+
+                </p>
+
+
+
+                <p><strong>Biological Processes:</strong></p>
+                <ul>
+
+                    <li>
+                        nucleotide metabolic process
+                        (<a href="http://amigo.geneontology.org/amigo/term/GO:0009117"
+                            class="term-link" target="_blank" rel="noopener noreferrer">GO:0009117</a>)
+                    </li>
+
+                </ul>
+
+
+
+
+
+                <h4>Evidence</h4>
+                <ul class="evidence-list">
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"In this metamodel, the host is represented by three different tissues (colon, liver and brain) connected through the bloodstream and interacting with the microbiome through the gut lumen"</div>
+
+                    </li>
+
+                    <li class="evidence-item">
+                        <div>
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                               class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
+                            - SUPPORT (COMPUTATIONAL)
+                        </div>
+
+                        <div class="snippet">"An aging-associated decline in nucleotide co-metabolism could underlie diminished intestinal barrier integrity"</div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+
         </section>
 
         <!-- Associated Datasets -->
-        
+
         <section>
             <h2>Associated Datasets</h2>
             <table>
@@ -461,46 +801,62 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td>
-                            <strong>BioModels model file</strong>
-                            
-                            <br><span class="dataset-description">SBML metaorganism model submitted to BioModels.</span>
-                            
+                            <strong>BioModels metamodel SBML</strong>
+
+                            <br><span class="dataset-description">Integrated metabolic metaorganism SBML model submitted to BioModels.</span>
+
                         </td>
                         <td><span class="role-badge">OTHER</span></td>
-                        <td>OTHER</td>
+                        <td>BIOMODELS</td>
                         <td>
-                            
+
                             <a href="https://www.ebi.ac.uk/biomodels/MODEL2310020001" class="term-link" target="_blank" rel="noopener noreferrer">metamodel_20230510.xml</a>
-                            
+
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <td>
-                            <strong>Primary publication</strong>
-                            
-                            <br><span class="dataset-description">Preprint describing the metabolic metaorganism model of mice and microbiota.</span>
-                            
+                            <strong>Peer-reviewed primary publication</strong>
+
+                            <br><span class="dataset-description">Nature Microbiology article describing the mouse host-microbiome metabolic metamodel.</span>
+
                         </td>
                         <td><span class="role-badge">OTHER</span></td>
                         <td>OTHER</td>
                         <td>
-                            
-                            <a href="https://doi.org/10.1101/2024.03.28.587009" class="term-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2024.03.28.587009</a>
-                            
+
+                            <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/" class="term-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
                         </td>
                     </tr>
-                    
+
+                    <tr>
+                        <td>
+                            <strong>Fecal metagenomic reads and MAG assemblies</strong>
+
+                            <br><span class="dataset-description">European Nucleotide Archive BioProject containing metagenomic reads and MAG assembly data.</span>
+
+                        </td>
+                        <td><span class="role-badge">METAGENOMICS</span></td>
+                        <td>ENA</td>
+                        <td>
+
+                            <a href="https://www.ebi.ac.uk/ena/browser/view/PRJEB73981" class="term-link" target="_blank" rel="noopener noreferrer">PRJEB73981</a>
+
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </section>
-        
+
 
         <!-- Environmental Factors -->
-        
+
         <section>
             <h2>External Resources</h2>
             <table>
@@ -512,51 +868,51 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <td>
                             <strong>BioModels entry</strong>
-                            
-                            <br><span class="dataset-description">Metabolic metaorganism model of mice and their microbiota.</span>
-                            
+
+                            <br><span class="dataset-description">Integrated metabolic metaorganism model of mice and their microbiome.</span>
+
                         </td>
                         <td>BIOMODELS</td>
                         <td>
-                            
+
                             <a href="https://www.ebi.ac.uk/biomodels/MODEL2310020001" class="term-link" target="_blank" rel="noopener noreferrer">MODEL2310020001</a>
-                            
+
                         </td>
                     </tr>
-                    
+
                     <tr class="evidence-row-container">
                         <td colspan="3">
                             <ul class="evidence-list">
-                                
+
                                 <li class="evidence-item">
-                                    
-                                    <a href="https://doi.org/10.1101/2024.03.28.587009"
-                                       class="pmid-link" target="_blank" rel="noopener noreferrer">doi:10.1101/2024.03.28.587009</a>
-                                    
+
+                                    <a href="https://pubmed.ncbi.nlm.nih.gov/40140706/"
+                                       class="pmid-link" target="_blank" rel="noopener noreferrer">PMID:40140706</a>
+
                                     - SUPPORT (COMPUTATIONAL)
-                                    
-                                    <div class="snippet">"Here, we combined multi-omics with metabolic modeling in mice to comprehensively characterize host-microbiome interactions and how they are affected by aging."</div>
-                                    
+
+                                    <div class="snippet">"The metamodel can be found under accession MODEL2310020001 in the EBI BioModels database"</div>
+
                                 </li>
-                                
+
                             </ul>
                         </td>
                     </tr>
-                    
-                    
+
+
                 </tbody>
             </table>
         </section>
-        
 
-        
+
+
 
         <!-- Growth Media -->
-        
+
     </main>
 
     <footer>
@@ -565,7 +921,405 @@
         </div>
     </footer>
 
-    
+
+    <script src="../d3.v7.min.js"></script>
+    <script>
+    (function() {
+        var interactionColors = {
+            "CROSS_FEEDING": "#57c7ab",
+            "MUTUALISM": "#9f2ebb",
+            "SYNTROPHY": "#7f30cf",
+            "COMPETITION": "#a91919",
+            "COMMENSALISM": "#cf7830",
+            "NICHE_PARTITIONING": "#1212ed",
+            "COLONIZATION_FACILITATION": "#edab12"
+        };
+        var unmappedColor = "#929caa";
+
+        // The redundant channel for interaction type (#270). Names are resolved
+        // against d3 at use, so an unknown name falls back rather than throwing.
+        var interactionSymbols = {
+            "CROSS_FEEDING": "symbolDiamond",
+            "MUTUALISM": "symbolSquare",
+            "SYNTROPHY": "symbolTriangle",
+            "COMPETITION": "symbolTimes",
+            "COMMENSALISM": "symbolWye",
+            "NICHE_PARTITIONING": "symbolSquare2",
+            "COLONIZATION_FACILITATION": "symbolPlus"
+        };
+        var unmappedSymbol = "symbolTriangle2";
+
+        function symbolPathFor(type, size) {
+            var name = interactionSymbols[type] || unmappedSymbol;
+            var shape = d3[name] || d3[unmappedSymbol] || d3.symbolSquare;
+            return d3.symbol().type(shape).size(size)();
+        }
+
+        // Build taxon lookup keyed by preferred_term
+        var taxonData = {};
+
+        taxonData["mouse gut Bacillota MAGs"] = {
+            id: "NCBITaxon:1239",
+            label: "mouse gut Bacillota MAGs",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+
+        taxonData["mouse gut Bacteroidota MAGs"] = {
+            id: "NCBITaxon:976",
+            label: "mouse gut Bacteroidota MAGs",
+            abundance: "UNKNOWN",
+            roles: []
+        };
+
+
+        // Build nodes and links
+        var nodes = [];
+        var links = [];
+        var taxonNodeIds = {};
+
+        // Add taxon nodes
+        Object.keys(taxonData).forEach(function(key) {
+            var t = taxonData[key];
+            var nodeId = "taxon:" + key;
+            taxonNodeIds[key] = nodeId;
+            nodes.push({
+                id: nodeId,
+                label: t.label,
+                type: "taxon",
+                abundance: t.abundance,
+                roles: t.roles,
+                ontologyId: t.id
+            });
+        });
+
+        // Add interaction nodes and edges
+
+        (function() {
+            var intId = "interaction:0";
+            var intType = "COMMENSALISM";
+            var metabolites = [];
+
+
+            metabolites.push("butyrate");
+
+
+            var processes = [];
+
+
+            processes.push("growth");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Model-Predicted Beneficial Gut Interactions",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:1";
+            var intType = "COMPETITION";
+            var metabolites = [];
+
+
+            metabolites.push("succinate");
+
+            metabolites.push("butyrate");
+
+
+            var processes = [];
+
+
+            processes.push("growth");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Aging Shift Toward Competitive Gut Interactions",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+        (function() {
+            var intId = "interaction:2";
+            var intType = "COMMENSALISM";
+            var metabolites = [];
+
+
+            metabolites.push("nucleotide");
+
+
+            var processes = [];
+
+
+            processes.push("nucleotide metabolic process");
+
+
+            var evidenceCount = 2;
+
+            nodes.push({
+                id: intId,
+                label: "Microbiota-Dependent Host Nucleotide Support",
+                type: "interaction",
+                interactionType: intType,
+                metabolites: metabolites,
+                processes: processes,
+                evidenceCount: evidenceCount
+            });
+
+
+
+
+        })();
+
+
+        // Remove taxon nodes with no connections
+        var connectedIds = new Set();
+        links.forEach(function(l) {
+            connectedIds.add(typeof l.source === "object" ? l.source.id : l.source);
+            connectedIds.add(typeof l.target === "object" ? l.target.id : l.target);
+        });
+        nodes = nodes.filter(function(n) {
+            return n.type === "interaction" || connectedIds.has(n.id);
+        });
+
+        // D3 setup
+        var container = document.getElementById("network-container");
+        var svg = d3.select("#network-svg");
+        var width = container.clientWidth - 32;
+        // Dynamic height based on node count: minimum 500px, add 40px per node
+        var nodeCount = 5;
+        var height = Math.max(500, 400 + nodeCount * 20);
+        svg.attr("width", width).attr("height", height);
+
+        // Arrow marker
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .attr("orient", "auto")
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#94a3b8");
+
+        var simulation = d3.forceSimulation(nodes)
+            .force("link", d3.forceLink(links).id(function(d) { return d.id; }).distance(100))
+            .force("charge", d3.forceManyBody().strength(-400))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collision", d3.forceCollide().radius(40))
+            .force("x", d3.forceX(width / 2).strength(0.05))
+            .force("y", d3.forceY(height / 2).strength(0.05));
+
+        var link = svg.append("g")
+            .selectAll("line")
+            .data(links)
+            .join("line")
+            .attr("stroke", "#94a3b8")
+            .attr("stroke-width", 1.5)
+            .attr("marker-end", "url(#arrowhead)");
+
+        var node = svg.append("g")
+            .selectAll("g")
+            .data(nodes)
+            .join("g")
+            .style("cursor", "pointer");
+
+        // Taxon nodes: circles
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("circle")
+            .attr("r", function(d) { return d.abundance === "DOMINANT" ? 18 : 12; })
+            .attr("fill", "#7a7a7a")
+            .attr("stroke", "#4a4a4a")
+            .attr("stroke-width", 1.5);
+
+        // Paint the legend swatches with the same paths the nodes use, so the
+        // legend cannot drift from the graph (#270).
+        d3.selectAll("svg.legend-symbol").each(function() {
+            var el = d3.select(this);
+            var name = el.attr("data-symbol");
+            var colour = el.attr("data-color");
+            var shape = d3[name] || d3.symbolSquare;
+            var c = d3.color(colour);
+            el.append("path")
+                .attr("d", d3.symbol().type(shape).size(90)())
+                .attr("fill", colour)
+                .attr("stroke", c ? c.darker(0.5) : "#4b5563")
+                .attr("stroke-width", 1.2);
+        });
+
+        // Interaction nodes: rounded rects
+        // One shape per interaction type, not one rect in nine colours (#270).
+        // Sized to roughly the 28x18 rect it replaces so the layout is unchanged.
+        node.filter(function(d) { return d.type === "interaction"; })
+            .append("path")
+            .attr("d", function(d) { return symbolPathFor(d.interactionType, 320); })
+            .attr("fill", function(d) { return interactionColors[d.interactionType] || unmappedColor; })
+            .attr("stroke", function(d) {
+                var c = d3.color(interactionColors[d.interactionType] || unmappedColor);
+                return c ? c.darker(0.5) : "#4b5563";
+            })
+            .attr("stroke-width", 1.5);
+
+        // Labels for taxa (positioned below circle)
+        node.filter(function(d) { return d.type === "taxon"; })
+            .append("text")
+            .text(function(d) {
+                var parts = d.label.split(" ");
+                return parts.length >= 2 ? parts[0][0] + ". " + parts.slice(1).join(" ") : d.label;
+            })
+            .attr("text-anchor", "middle")
+            .attr("dy", function(d) { return d.abundance === "DOMINANT" ? 30 : 24; })
+            .attr("font-size", "10px")
+            .style("fill", "var(--net-label, #475569)");
+
+        // Labels for interactions (multi-line, centered in rectangle)
+        node.filter(function(d) { return d.type === "interaction"; })
+            .each(function(d) {
+                var textElem = d3.select(this).append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "9px")
+                    .style("fill", "var(--net-label, #475569)")
+                    .style("pointer-events", "none");
+
+                // Word-wrap text to fit in rectangle (max ~24 chars per line)
+                var words = d.label.split(/\s+/);
+                var line = "";
+                var lines = [];
+                var maxWidth = 24;
+
+                for (var i = 0; i < words.length; i++) {
+                    var testLine = line + (line ? " " : "") + words[i];
+                    if (testLine.length > maxWidth && line.length > 0) {
+                        lines.push(line);
+                        line = words[i];
+                    } else {
+                        line = testLine;
+                    }
+                }
+                if (line) lines.push(line);
+
+                // Limit to 3 lines maximum
+                if (lines.length > 3) {
+                    lines = lines.slice(0, 3);
+                    lines[2] = lines[2].substring(0, 21) + "...";
+                }
+
+                // Add tspan for each line
+                var lineHeight = 11;
+                var startY = -(lines.length - 1) * lineHeight / 2;
+                lines.forEach(function(lineText, i) {
+                    textElem.append("tspan")
+                        .attr("x", 0)
+                        .attr("dy", i === 0 ? startY : lineHeight)
+                        .text(lineText);
+                });
+            });
+
+        // Tooltip
+        var tooltip = d3.select("#network-tooltip");
+
+        node.on("mouseenter", function(event, d) {
+            tooltip.selectAll("*").remove();
+            if (d.type === "taxon") {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.ontologyId);
+                tooltip.append("br");
+                tooltip.append("span").text("Abundance: " + d.abundance);
+                if (d.roles.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Roles: " + d.roles.join(", "));
+                }
+            } else {
+                tooltip.append("strong").text(d.label);
+                tooltip.append("br");
+                tooltip.append("span").text(d.interactionType);
+                if (d.metabolites.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Metabolites: " + d.metabolites.join(", "));
+                }
+                if (d.processes.length) {
+                    tooltip.append("br");
+                    tooltip.append("span").text("Processes: " + d.processes.join(", "));
+                }
+                tooltip.append("br");
+                tooltip.append("span").text("Evidence items: " + d.evidenceCount);
+            }
+            tooltip.style("opacity", 1)
+                .style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mousemove", function(event) {
+            tooltip.style("left", (event.offsetX + 12) + "px")
+                .style("top", (event.offsetY - 12) + "px");
+        })
+        .on("mouseleave", function() {
+            tooltip.style("opacity", 0);
+        });
+
+        // Tick
+        simulation.on("tick", function() {
+            link.attr("x1", function(d) { return d.source.x; })
+                .attr("y1", function(d) { return d.source.y; })
+                .attr("x2", function(d) { return d.target.x; })
+                .attr("y2", function(d) { return d.target.y; });
+
+            node.attr("transform", function(d) {
+                // Constrain nodes within safe boundaries
+                // Account for: node size, label text, and extra padding
+                var nodeRadius = (d.type === "taxon" && d.abundance === "DOMINANT") ? 18 :
+                                (d.type === "taxon") ? 12 : 14; // interaction nodes
+                var labelOffset = d.type === "taxon" ? 35 : 0; // taxon labels below node
+
+                var marginTop = 40;
+                var marginBottom = 60; // extra space for labels
+                var marginSide = 80; // space for long names
+
+                d.x = Math.max(marginSide, Math.min(width - marginSide, d.x));
+                d.y = Math.max(marginTop, Math.min(height - marginBottom, d.y));
+                return "translate(" + d.x + "," + d.y + ")";
+            });
+        });
+
+        // Stabilize after 300 ticks then stop
+        simulation.alpha(1).alphaDecay(0.02);
+        for (var i = 0; i < 300; i++) simulation.tick();
+        simulation.stop();
+
+        // Apply final positions
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    })();
+    </script>
+
     <script src="../theme-toggle.js"></script>
 </body>
 </html>

@@ -230,6 +230,7 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dyella japonica MF79
     term:
@@ -253,6 +254,11 @@ ecological_interactions:
     term:
       id: GO:0045088
       label: regulation of innate immune response
+  downstream:
+  - target: Enhanced Colonization Through Community Cooperation
+    description: Suppression of MAMP-triggered immunity gates microbial access
+      to Arabidopsis roots, allowing robust suppressors to improve the root
+      colonization capacity of otherwise nonsuppressive commensals.
   evidence:
   - reference: doi:10.1073/pnas.2100678118
     supports: SUPPORT
@@ -271,6 +277,7 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dyella japonica MF79
     term:
@@ -303,11 +310,17 @@ ecological_interactions:
 
     '
   interaction_type: COMMENSALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dyella japonica MF79
     term:
       id: NCBITaxon:231455
       label: Dyella japonica
+  target_taxon:
+    preferred_term: Arabidopsis thaliana
+    term:
+      id: NCBITaxon:3702
+      label: Arabidopsis thaliana
   biological_processes:
   - preferred_term: protein secretion
     term:
@@ -317,18 +330,25 @@ ecological_interactions:
     term:
       id: GO:0052031
       label: symbiont-mediated perturbation of host defense response
+  downstream:
+  - target: MAMP-Triggered Immunity Suppression
+    description: Type II secretion provides an extracellular suppressor
+      mechanism that prevents full activation of Arabidopsis MAMP-triggered
+      immunity.
   evidence:
-  - reference: doi:10.1073/pnas.2100678118
+  - reference: PMID:33879573
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: We highlight the role of a specific sector of the plant immune system
-      and its suppression in gating microbial access to the roots.
+    snippet: We highlight the importance of extracellular strategies for MTI suppression by
+      showing that the type 2, not the type 3, secretion system is required for
+      the immunomodulatory activity of one robust MTI suppressor
 - name: Enhanced Colonization Through Community Cooperation
   description: 'Suppressor strains enhance colonization capacity of non-suppressor
     bacteria through cooperative immunomodulation, demonstrating community-level benefits.
 
     '
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Dyella japonica MF79
     term:
@@ -366,6 +386,7 @@ ecological_interactions:
 
     '
   interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Xanthomonadales members
     term:
@@ -401,6 +422,7 @@ ecological_interactions:
 
     '
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Microbacterium species
     term:
@@ -444,6 +466,7 @@ ecological_interactions:
 
     '
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Escherichia coli DH5α
     term:

@@ -135,7 +135,7 @@ taxonomy:
   strain_designation:
     strain_name: ATCC8482
   functional_role:
-  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
 - taxon_term:
     preferred_term: Bacteroides ovatus
     term:
@@ -154,7 +154,7 @@ taxonomy:
   strain_designation:
     strain_name: DSM1896
   functional_role:
-  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
 - taxon_term:
     preferred_term: Veillonella parvula
     term:
@@ -192,7 +192,7 @@ taxonomy:
   strain_designation:
     strain_name: ATCC29149
   functional_role:
-  - CROSS_FEEDER
+  - PRIMARY_DEGRADER
 - taxon_term:
     preferred_term: Escherichia coli K-12
     term:
@@ -297,11 +297,20 @@ ecological_interactions:
     mixes favoring B. infantis dominance and five-HMO mixes supporting B. bifidum dominance. This resource-sharing
     mechanism enables complete HMO degradation through teamwork.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Bifidobacterium longum subsp. infantis
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bifidobacterium longum subsp. infantis
     term:
       id: NCBITaxon:1682
       label: Bifidobacterium longum subsp. infantis
+  - preferred_term: Bifidobacterium bifidum
+    term:
+      id: NCBITaxon:1681
+      label: Bifidobacterium bifidum
+  - preferred_term: Bifidobacterium breve
+    term:
+      id: NCBITaxon:1685
+      label: Bifidobacterium breve
   metabolites:
   - preferred_term: oligosaccharide
     term:
@@ -313,6 +322,10 @@ ecological_interactions:
       id: CHEBI:64709
       label: organic acid
     concentration: Released by HMO degraders for cross-feeders
+  downstream:
+  - target: Cross-Feeder Utilization of HMO Degradation Products
+    description: Bifidobacterial HMO degradation releases simpler carbohydrates,
+      organic acids, and gases that cross-feeding BIG-Syc members can consume.
   evidence:
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
@@ -327,18 +340,47 @@ ecological_interactions:
     snippet: Bifidobacterium infantis and Bifidobacterium bifidum suppressing one another
     explanation: Shows competitive dynamics between the two main Bifidobacterium HMO degraders.
 - name: Cross-Feeder Utilization of HMO Degradation Products
-  description: Cross-feeding community members (Veillonella, Ruminococcus, E. coli, Lactobacillus, Enterococcus,
-    Streptococcus) utilize simpler carbohydrates, organic acids, and gases released from HMO degradation
-    by Bifidobacterium and Bacteroides species. This resource-sharing enables complete degradation of
-    human milk oligosaccharides through metabolic cooperation. The cross-feeders depend on primary degraders
-    to break down complex HMOs into accessible metabolites, demonstrating syntrophic teamwork in the infant
-    gut ecosystem.
+  description: B. ovatus, B. vulgatus, L. rhamnosus, E. faecalis, S. salivarius, and
+    E. coli proliferate on simple sugars released during HMO degradation, while
+    V. parvula scavenges lactate and B. producta consumes simple carbohydrates
+    plus H2 and CO2. These cross-feeding routes consume HMO-derived products
+    released by the primary HMO degraders and sustain the broader BIG-Syc
+    community.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Veillonella parvula
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacteroides ovatus
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+  - preferred_term: Bacteroides vulgatus
+    term:
+      id: NCBITaxon:821
+      label: Phocaeicola vulgatus
+  - preferred_term: Veillonella parvula
     term:
       id: NCBITaxon:29466
       label: Veillonella parvula
+  - preferred_term: Escherichia coli K-12
+    term:
+      id: NCBITaxon:83333
+      label: Escherichia coli K-12
+  - preferred_term: Lacticaseibacillus rhamnosus
+    term:
+      id: NCBITaxon:47715
+      label: Lacticaseibacillus rhamnosus
+  - preferred_term: Enterococcus faecalis
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+  - preferred_term: Streptococcus thermophilus
+    term:
+      id: NCBITaxon:1308
+      label: Streptococcus thermophilus
+  - preferred_term: Blautia producta
+    term:
+      id: NCBITaxon:33035
+      label: Blautia producta
   metabolites:
   - preferred_term: monosaccharide
     term:
@@ -360,35 +402,53 @@ ecological_interactions:
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO
+    snippet: B. ovatus, B. vulgatus, L. rhamnosus, S. salivarius, E. faecalis,
+      and E. coli proliferated via cross-feeding of simple sugars
+    explanation: Names the BIG-Syc members that proliferated by consuming
+      simple sugars released during HMO degradation.
+  - reference: doi:10.1093/ismejo/wrae209
+    supports: SUPPORT
+    evidence_source: IN_VITRO
     snippet: human milk oligosaccharides prompt resource-sharing for their complete degradation while
       leading to a different compositional and functional profile in the community
     explanation: Shows that HMOs drive resource-sharing dynamics in the community.
-- name: Bacteroides HMO Degradation
-  description: Bacteroides species (B. fragilis, B. vulgatus, B. ovatus) complement Bifidobacterium as
-    primary HMO degraders in BIG-Syc. These species contribute to the degradation of human milk oligosaccharides
-    and release metabolites that support cross-feeding community members. Their combined activity with
-    Bifidobacterium species enables comprehensive HMO utilization and shapes the compositional and functional
-    profile of the infant gut community.
+- name: Non-Bifidobacterial HMO Degradation
+  description: B. fragilis and R. gnavus act as the non-bifidobacterial HMO
+    degraders in BIG-Syc. B. fragilis consumes fucosyllactoses,
+    siallyllactoses, and LNT, while R. gnavus utilizes fucosyllactoses and
+    3'-SL through extracellular enzymes that release fucose and lactose for
+    other members. These routes complement the bifidobacterial HMO-degradation
+    module and feed simpler substrates into the cross-feeding community.
   interaction_type: CROSS_FEEDING
-  source_taxon:
-    preferred_term: Bacteroides fragilis
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacteroides fragilis
     term:
       id: NCBITaxon:817
       label: Bacteroides fragilis
+  - preferred_term: Ruminococcus gnavus
+    term:
+      id: NCBITaxon:33038
+      label: Mediterraneibacter gnavus
   metabolites:
   - preferred_term: oligosaccharide
     term:
       id: CHEBI:50699
       label: oligosaccharide
     concentration: Human milk oligosaccharides degraded
+  downstream:
+  - target: Cross-Feeder Utilization of HMO Degradation Products
+    description: B. fragilis and R. gnavus HMO degradation releases
+      HMO-derived simple substrates for BIG-Syc cross-feeders.
   evidence:
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: BIG-Syc replicated key compositional, metabolic, and proteomic characteristics of the gut
-      microbiota of infants.
-    explanation: Supports that Bacteroides species contribute to authentic infant gut microbiota characteristics
-      including HMO degradation.
+    snippet: >-
+      The HMO degraders, namely B. infantis, B. bifidum, B. breve,
+      B. fragilis, and R. gnavus were able to fully degrade the HMOs present
+    explanation: Identifies B. fragilis and R. gnavus among the HMO degraders
+      reconstructed from BIG-Syc carbon utilization.
 related_ingredients:
 - preferred_term: human milk oligosaccharide
   chebi_term:
@@ -468,7 +528,7 @@ growth_media:
   temperature_unit: °C
   ph: '6'
   atmosphere: ANAEROBIC
-  headspace_gas: '80% N2 : 20% CO2'
+  headspace_gas: '80% N2: 20% CO2'
   redox_potential: '-300'
   redox_potential_unit: mV
   inoculum_size: '1'
@@ -488,8 +548,8 @@ growth_media:
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: "A mixed gas of 80% N2 : 20% CO2 was introduced at a 6 sl/h rate."
-    explanation: 'States the anaerobic headspace gas mixture (80% N2 : 20% CO2).'
+    snippet: "A mixed gas of 80% N2: 20% CO2 was introduced at a 6 sl/h rate."
+    explanation: 'States the anaerobic headspace gas mixture (80% N2: 20% CO2).'
   - reference: doi:10.1093/ismejo/wrae209
     supports: SUPPORT
     evidence_source: IN_VITRO

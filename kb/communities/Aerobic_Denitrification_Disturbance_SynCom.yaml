@@ -90,12 +90,122 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Disturbance-Stable Division of Labor
-  description: Members redistribute functional dominance and metabolic pathways to maintain denitrification.
+- name: AHL-mediated interspecific communication under disturbance
+  description: The disturbed aerobic-denitrification SMC primarily uses C4-HSL
+    and 3OC12-HSL acyl-homoserine-lactones for interspecific communication.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  metabolites:
+  - preferred_term: N-butyryl-L-homoserine lactone
+    term:
+      id: CHEBI:29643
+      label: N-butyryl-L-homoserine lactone
+  - preferred_term: N-(3-oxododecanoyl)-L-homoserine lactone
+    term:
+      id: CHEBI:44534
+      label: N-(3-oxododecanoyl)-L-homoserine lactone
+  biological_processes:
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  downstream:
+  - target: Disturbance-stable aerobic denitrification
+    description: AHL-mediated communication is part of the disturbed SMC state
+      that maintains high aerobic denitrification efficiency.
+  evidence:
+  - reference: PMID:40020349
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: interspecific communication was mainly carried out through N-butyryl-L-homoserine
+      lactone (C4-HSL) and N-(3-oxododecanoyl)-L-homoserine lactone (3OC12-HSL)
+    explanation: Supports the two AHL signals that mediate interspecific communication
+      in the disturbed SMC.
+- name: DBP-stimulated phenazine electron transfer
+  description: Under dibutyl phthalate disturbance, phenazine-1-carboxylic acid
+    production accelerates electron transfer from the quinone pool to complex III
+    in the aerobic-denitrification SMC.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  metabolites:
+  - preferred_term: phenazine-1-carboxylic acid
+    term:
+      id: CHEBI:62412
+      label: phenazine-1-carboxylic acid
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Disturbance-stable aerobic denitrification
+    description: Phenazine-stimulated electron transfer is a redox route into
+      the maintained denitrification phenotype.
   evidence:
-  - *id001
+  - reference: PMID:40020349
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: DBP stimulated phenazine-1-carboxylic acid production to accelerate electron transfer
+      from the quinone pool to complex III
+    explanation: Supports phenazine-1-carboxylic acid as a DBP-induced redox metabolite
+      in the disturbance response.
+- name: Disturbance-stable aerobic denitrification
+  description: Division of labor and redistributed metabolic activity allow the
+    three-member SMC to maintain approximately 93% aerobic denitrification efficiency
+    under dibutyl phthalate and levofloxacin disturbances.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+  - preferred_term: Acinetobacter baumannii
+    term:
+      id: NCBITaxon:470
+      label: Acinetobacter baumannii
+  - preferred_term: Aeromonas hydrophila
+    term:
+      id: NCBITaxon:644
+      label: Aeromonas hydrophila
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  evidence:
+  - reference: PMID:40020349
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: aerobic denitrification efficiency could be maintained at about 93 %
+    explanation: Supports the maintained denitrification endpoint under DBP and
+      LOFX disturbances.
 environmental_factors:
 - name: defined synthetic community design
   value: Pseudomonas aeruginosa N2, Acinetobacter baumannii N1, and Aeromonas hydrophila were assembled

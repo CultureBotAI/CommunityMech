@@ -101,6 +101,7 @@ ecological_interactions:
     enabling utilization of diverse nutrients in the complex medium. Metaproteomics confirms high representation
     of enzymes involved in these metabolic pathways, supporting the cross-feeding mechanism.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Pantoea sp. YR343
     term:
@@ -117,6 +118,11 @@ ecological_interactions:
       id: CHEBI:26401
       label: purines
     concentration: Purine derivatives excreted by Pantoea
+  downstream:
+  - target: Variovorax Cross-Feeding on Community Metabolites
+    description: Pantoea exports organic acids, purine derivatives, and
+      biogenic amines into the shared extracellular environment that
+      lower-abundance Variovorax uses for persistence in the R2A community.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -138,6 +144,7 @@ ecological_interactions:
     antagonistic effects. Fast growth rate and metabolic cooperation enable Pseudomonas to maintain presence
     as a secondary dominant member.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Pseudomonas sp. GM17
     term:
@@ -148,6 +155,17 @@ ecological_interactions:
     term:
       id: NCBITaxon:34072
       label: Variovorax
+  biological_processes:
+  - preferred_term: interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Variovorax Cross-Feeding on Community Metabolites
+    description: >
+      GM17 antagonism is the pairwise inhibitory pressure that Variovorax CF313
+      overcomes in the liquid community when beneficial shared metabolites
+      outweigh agar-plate antagonism.
   evidence:
   - reference: PMID:33995895
     supports: SUPPORT
@@ -171,6 +189,7 @@ ecological_interactions:
     acids, purine derivatives, and other metabolites from the shared extracellular environment. This metabolic
     cooperation enables coexistence with faster-growing competitors.
   interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Variovorax sp. CF313
     term:

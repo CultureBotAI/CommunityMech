@@ -149,6 +149,7 @@ ecological_interactions:
   description: Indigenous deep-sea bacteria degraded plume hydrocarbons under cold deep-water conditions,
     creating potential for intrinsic bioremediation without substantial oxygen drawdown.
   interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: DWH Oceanospirillales-like bacteria
     term:
@@ -168,6 +169,11 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
+  downstream:
+  - target: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
+    description: Fast cold-water hydrocarbon biodegradation by indigenous
+      Gammaproteobacteria supports natural plume attenuation without a
+      substantial loss of dissolved oxygen.
   evidence:
   - reference: PMID:20736401
     supports: SUPPORT
@@ -183,6 +189,7 @@ ecological_interactions:
   description: Colwellia-dominated flocs formed with oil and biomass in cold incubations, linking cell
     aggregation to hydrocarbon degradation in deep marine habitats.
   interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
   source_taxon:
     preferred_term: Colwellia
     term:
@@ -193,6 +200,10 @@ ecological_interactions:
     term:
       id: CHEBI:24632
       label: hydrocarbon
+  downstream:
+  - target: Intrinsic Hydrocarbon Bioremediation
+    description: Oil-associated Colwellia biomass flocs contribute a
+      particle-associated route into cold deep-water oil degradation.
   evidence:
   - reference: PMID:22616650
     supports: SUPPORT
@@ -224,6 +235,10 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
+  downstream:
+  - target: Intrinsic Hydrocarbon Bioremediation
+    description: Partitioning alkane and PAH metabolism among non-redundant
+      plume guilds lets the community degrade complex petroleum mixtures.
   evidence:
   - reference: PMID:27572965
     supports: SUPPORT
@@ -235,6 +250,41 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: degradation of complex hydrocarbon mixtures requires the non-redundant capabilities of a complex oil-degrading community
     explanation: Supports niche partitioning among hydrocarbon-degrading taxa.
+- name: Oxygen-Conserving Deep-Plume Hydrocarbon Attenuation
+  description: Indigenous, cold-adapted Deepwater Horizon plume bacteria
+    carried out faster-than-expected hydrocarbon biodegradation in the deep
+    water column, supporting intrinsic oil-plume bioremediation without
+    substantial oxygen drawdown.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: hydrocarbon
+    term:
+      id: CHEBI:24632
+      label: hydrocarbon
+  - preferred_term: dioxygen
+    term:
+      id: CHEBI:15379
+      label: dioxygen
+  biological_processes:
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  evidence:
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: faster-than-expected hydrocarbon biodegradation rates at 5°C
+    explanation: Supports rapid hydrocarbon biodegradation under cold
+      deep-water plume conditions.
+  - reference: PMID:20736401
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: intrinsic bioremediation of the oil plume in the deep-water column
+      without substantial oxygen drawdown
+    explanation: Supports oxygen-conserving intrinsic attenuation as the
+      community-level plume outcome.
 environmental_factors:
 - name: Deepwater Horizon hydrocarbon plume
   value: Deepwater Horizon blowout, Gulf of Mexico

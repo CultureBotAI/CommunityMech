@@ -99,6 +99,48 @@ taxonomy:
       and bacterial phyla Thermoproteota, Actinobacteria, and Proteobacteria
     explanation: Supports Proteobacteria as a corrinoid supplier.
 ecological_interactions:
+- name: Archaeal and Bacterial Corrinoid Supply
+  description: >
+    Thermoproteota, Actinobacteria, and Proteobacteria encode the principal corrinoid-supply capacity
+    in grassland soil, supplying structurally diverse vitamin B12-related cofactors to the surrounding
+    microbial community.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: corrinoid-supplying Thermoproteota
+    term:
+      id: NCBITaxon:28889
+      label: Thermoproteota
+  - preferred_term: corrinoid-supplying Actinobacteria
+    term:
+      id: NCBITaxon:201174
+      label: Actinomycetota
+  - preferred_term: corrinoid-supplying Proteobacteria
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  metabolites:
+  - preferred_term: corrinoid
+    term:
+      id: CHEBI:33913
+      label: corrinoid
+  biological_processes:
+  - preferred_term: cobalamin metabolic process
+    term:
+      id: GO:0009235
+      label: cobalamin metabolic process
+  downstream:
+  - target: Soil-Matrix Corrinoid Reservoir Supports Stability
+    description: >
+      Archaeal and bacterial corrinoid supply replenishes the B12-related
+      micronutrient pool that accumulates on the grassland soil matrix.
+  evidence:
+  - reference: PMID:38832716
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: corrinoids are supplied to the community by members of the archaeal and bacterial phyla Thermoproteota, Actinobacteria, and Proteobacteria
+    explanation: Supports the predicted archaeal and bacterial phyla that supply corrinoids to the soil
+      microbial community.
 - name: Corrinoid Structure Shapes Bacterial Community Composition
   description: Enrichment cultures and soil microcosms seeded with different
     corrinoid structures show distinct community composition shifts, indicating
@@ -134,6 +176,21 @@ ecological_interactions:
     reservoir that promotes community stability.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: corrinoid
+    term:
+      id: CHEBI:33913
+      label: corrinoid
+  biological_processes:
+  - preferred_term: cobalamin metabolic process
+    term:
+      id: GO:0009235
+      label: cobalamin metabolic process
+  downstream:
+  - target: Corrinoid Structure Shapes Bacterial Community Composition
+    description: >
+      The soil-matrix corrinoid reservoir exposes bacteria to structurally diverse
+      B12-related cofactors whose identities shape community composition.
   evidence:
   - reference: PMID:38832716
     supports: SUPPORT

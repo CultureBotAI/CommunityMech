@@ -103,6 +103,20 @@ ecological_interactions:
     and exchanged metabolites were not resolved.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: chlorpyrifos
+    term:
+      id: CHEBI:34631
+      label: chlorpyrifos
+  - preferred_term: pentachlorophenol
+    term:
+      id: CHEBI:17642
+      label: pentachlorophenol
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
   evidence:
   - reference: PMID:23865051
     supports: SUPPORT
@@ -114,6 +128,85 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: revealing their metabolic versatility and potential cooperative work, fundamental for the degradation of xenobiotic compounds.
     explanation: Supports the authors' interpretation that cooperative activity contributes to the consortium phenotype.
+- name: C1 Distributed Atrazine Catabolism
+  description: >
+    Every Streptomyces member of C1 carried at least one gene encoding an
+    herbicide-degradation enzyme, supporting atrazine catabolic capacity
+    distributed across the exact A2-A5-A11-M7 consortium.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: C1 Atrazine Growth and Removal
+    description: >
+      Distributed herbicide-catabolism genes provide the mechanistic basis for
+      C1 growth on and removal of atrazine as a sole carbon or nitrogen source.
+  evidence:
+  - reference: PMID:41678860
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the presence of at least one of the genes that encode enzymes involved in the herbicide degradation was detected in all C1 members.
+    explanation: Supports distribution of herbicide-catabolic potential across all four consortium members.
+- name: C1 Atrazine Growth and Removal
+  description: >
+    The exact A2-A5-A11-M7 consortium grew on atrazine supplied as either the
+    sole carbon source or sole nitrogen source while removing the herbicide from
+    liquid cultures.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: C1 Atrazine Phytotoxicity Reversal
+    description: >
+      Atrazine growth and removal by C1 reduces the herbicide toxicity of the
+      treated liquid system.
+  evidence:
+  - reference: PMID:41678860
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These results demonstrated the ability of C1 to remove atrazine and use it as a carbon or nitrogen source
+    explanation: Supports C1 atrazine removal under both nutrient-role treatments.
+- name: C1 Atrazine Phytotoxicity Reversal
+  description: >
+    Liquid cultures treated with the C1 consortium were detoxified enough to
+    reverse the measured phytotoxicity of atrazine, especially when atrazine was
+    supplied as the carbon source.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: atrazine
+    term:
+      id: CHEBI:15930
+      label: atrazine
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:41678860
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phytotoxicity tests demonstrated the ability of C1 to reverse the herbicide toxicity, especially with atrazine as a carbon source.
+    explanation: Supports detoxification as a downstream C1 community output.
 environmental_factors:
 - name: Atrazine concentration
   value: 25 and 50
@@ -132,8 +225,8 @@ environmental_factors:
   - reference: PMID:41678860
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: no statistically significant differences (p > 0.05) were observed between the growth values detected with atrazine as a carbon (2.98 +/- 0.13 g L-1) or nitrogen source (2.88 +/- 0.18 g L-1).
-    explanation: Supports growth under both nutrient-role treatments; symbols are ASCII-normalized from the source.
+    snippet: no statistically significant differences (p > 0.05) were observed between the growth values detected with atrazine as a carbon (2.98 ± 0.13 g L-1) or nitrogen source (2.88 ± 0.18 g L-1).
+    explanation: Supports growth under both nutrient-role treatments.
 - name: Atrazine phytotoxicity reversal
   value: strongest with atrazine as carbon source
   description: Treated liquid systems showed reduced herbicide phytotoxicity.
@@ -180,13 +273,13 @@ growth_media:
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 'Tryptic Soy Broth (TSB), containing (g L-1): trypticase, 15.0; soy peptone, 3.0; NaCl, 5.0; K2HPO4, 2.5; glucose, 2.5'
+    snippet: 'Tryptic Soy Broth (TSB), containing (gL−1): trypticase, 15.0; soy peptone, 3.0; NaCl, 5.0; K2HPO4,2 . 5 ;g l u c o s e ,2 . 5'
     explanation: Supports the inoculum-medium formulation.
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Cultures were incubated at 30 C for 72 h on a rotary shaker at 200 rpm
-    explanation: Supports incubation temperature, duration, and agitation.
+    snippet: AllStreptomyces spp.strainswereindividuallyculturedinTSBfor72hat30 ∘C and 200rpm
+    explanation: Supports incubation temperature, duration, and agitation for TSB-grown inocula.
 - name: Chlorpyrifos-pentachlorophenol minimal-medium consortium assay
   composition:
   - name: chlorpyrifos
@@ -215,12 +308,12 @@ growth_media:
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 2 g L-1 of biomass (wet weight) of the microbial consortia Streptomyces spp. A2-A5-A11-M7
+    snippet: 2gL−1 of biomass(wetweight)ofthemicrobialconsortia Streptomyces spp.A2-A5-A11-M7
     explanation: Supports the exact consortium and inoculum biomass.
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: containing 30 mL MM spiked with the pesticides mixture (1.66 mg L-1 of each one). Cultures were incubated at 30 C for 72 h on a rotary shaker at 200 rpm
+    snippet: containing 30mL MM spiked with the pesticides mixture (1.66mgL−1 of each one). Cultures were incubatedat30∘Cf o r7 2ho nar o ta rys hak era t200rp ma nd
     explanation: Supports volume, pesticide concentration, and culture conditions.
 external_resources:
 - name: 2011 defined lindane consortium study
@@ -249,7 +342,7 @@ external_resources:
   - reference: PMID:23865051
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The first mixed culture was an Argentinian microbial consortium (Streptomyces spp. A2-A5-A11-M7)
+    snippet: The first mixed culture was an Argentinianmicrobialconsortium( Streptomycesspp.A2-A5- A11-M7)
     explanation: Explicitly identifies the exact composition examined in this publication.
 - name: 2014 immobilized soil-slurry study
   repository: OTHER

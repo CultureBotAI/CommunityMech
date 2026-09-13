@@ -49,17 +49,125 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
 ecological_interactions:
-- name: Reproducible Rhizosphere Assembly
-  description: Defined members reproducibly assemble under low-nutrient and EcoFAB conditions.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Automated Soil SynCom Assembly
+  description: >
+    A CellenONE liquid-handling printer dispensed normalized switchgrass soil isolates into
+    SynComs with less between-assembler variation than the manually pipetted communities.
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Low-Nutrient Alpha-Diversity Enrichment
+    description: >
+      Machine assembly produced the replicated communities used to test whether diluted R2A medium
+      retained more members during in vitro community growth.
   evidence:
-  - *id001
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom assembly with the automated printer will, on average, result in less variability
+      than will SynCom assembly by different people
+    explanation: >
+      The direct hand-versus-machine comparison showed that the automated assembly workflow made
+      replicate synthetic communities more compositionally reproducible.
+- name: Low-Nutrient Alpha-Diversity Enrichment
+  description: >
+    Diluting R2A to low nutrient strength lowered total biomass but retained a broader and more even
+    mixture of soil isolates during three days of SynCom growth.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Starting-Ratio Diversity Maximization
+    description: >
+      The low-nutrient screen motivated start-ratio designs that counterweighted fast and slow
+      growers to improve the final community alpha diversity beyond equal mixing.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the Shannon diversity index and Pielou’s evenness, two α-diversity metrics, were
+      lowest in the 1× medium and increased as the medium dilution increased
+    explanation: >
+      Shows that low-nutrient R2A reduced dominance in the synthetic soil community and increased
+      alpha diversity during growth.
+- name: Starting-Ratio Diversity Maximization
+  description: >
+    The 3× cutoff composition used orders-of-magnitude more slow-grower inoculum than fast-grower
+    inoculum, yielding a high-diversity final SynCom that persisted after two and six days of growth.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Glycerol-Preserved SynCom Regrowth
+    description: >
+      The tuned SynCom was preserved, thawed, and regrown to test whether a stock-based workflow
+      could recover the viable community without rebuilding it from separate isolates.
+  - target: EcoFAB Brachypodium Rhizosphere Colonization
+    description: >
+      The soil-isolate SynCom design was moved from plate culture into EcoFABs to test whether
+      Brachypodium roots could be colonized by the assembled community.
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Starting ratios containing orders of magnitude more of slower-growing organisms
+      (2× cutoff and 3× cutoff) resulted in higher Shannon diversity and evenness
+      values than did the 4 equally mixed conditions
+    explanation: >
+      Establishes that the starting-ratio perturbation produced a more even, higher-diversity
+      synthetic soil community than equal-ratio assembly.
+- name: Glycerol-Preserved SynCom Regrowth
+  description: >
+    Glycerol stocks frozen at -80°C and revived into 0.1× R2A recapitulated both OD600 growth and
+    16S community composition of an unfrozen synthetic soil community.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glycerol preservation and regrowth in 0.1× an R2A medium resulted in SynCom regrowth
+      that closely recapitulated the unfrozen community in terms of both OD600 and
+      community composition
+    explanation: >
+      Identifies the glycerol-freezing and 0.1× R2A regrowth condition as the storage workflow that
+      best recovered the mixed SynCom.
+- name: EcoFAB Brachypodium Rhizosphere Colonization
+  description: >
+    An equally mixed switchgrass soil-isolate SynCom colonized sterile Brachypodium distachyon in
+    EcoFAB devices and shifted into a root-associated composition over seven days on the plant.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:36472419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynComs grown on plants were significantly different from the original inoculant,
+      as determined by the Bray-Curtis distance
+    explanation: >
+      Demonstrates that the inoculated soil-isolate community colonized Brachypodium roots in EcoFAB
+      devices and changed composition after growth on the host.
 environmental_factors:
 - name: defined synthetic community design
   value: Bottom-up assembly of 16 culturable soil microorganisms commonly found in plant rhizospheres,

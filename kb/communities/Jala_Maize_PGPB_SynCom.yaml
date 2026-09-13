@@ -108,12 +108,201 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
-- name: Maize Growth Promotion
-  description: PGPB members contribute growth-promotion, biocontrol, and induced systemic resistance traits.
-  interaction_type: MUTUALISM
+- name: Compatibility-Constrained SynCom 3 Assembly
+  description: >
+    Jala maize PGPB isolates were screened for mutual antagonism and then
+    assembled as SynCom 3 by combining compatible strains with complementary
+    nitrogen-fixation, phosphate-solubilization, metallophore, IAA, ACC
+    deaminase, and antifungal traits.
   scope: COMMUNITY_LEVEL
+  interaction_type: COLONIZATION_FACILITATION
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: SynCom 3 Multi-Trait PGP Activity
+    description: >
+      Compatibility filtering retained a SynCom that could be assayed for
+      complementary nutrient-mobilization and hormone-related plant-growth
+      promoting activities.
+  - target: SynCom 3 Antifungal and PAL Induction
+    description: >
+      The compatible SynCom 3 formulation also carried candidate antifungal and
+      induced systemic resistance traits.
   evidence:
   - *id001
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The SynCom design included bacterial strains with partially redundant and
+      complementary PGP features, but antagonistic strains were not included
+    explanation: >
+      Supports the compatibility criterion used when the Jala isolates were
+      assembled into SynComs.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'SynCom 3: A. xylosoxidans Z2K8, Burkholderia sp. Z1AL11, K. variicola R3J3HD7'
+    explanation: >
+      Anchors SynCom 3 as one of the final compatible formulations.
+- name: SynCom 3 Multi-Trait PGP Activity
+  description: >
+    The SynCom 3 mixed inoculant expressed the plant-growth promoting trait set
+    prioritized by design, including soluble orthophosphate accumulation, IAA
+    production, ACC deaminase activity, metallophore production, and biological
+    nitrogen fixation.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  metabolites:
+  - preferred_term: phosphate ion
+    term:
+      id: CHEBI:35780
+      label: phosphate ion
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  - preferred_term: 1-aminocyclopropanecarboxylic acid
+    term:
+      id: CHEBI:18053
+      label: 1-aminocyclopropanecarboxylic acid
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Conejo Maize Seedling Growth Promotion
+    description: >
+      SynCom 3's measured nutrient and hormone traits preceded gnotobiotic and
+      greenhouse maize growth-promotion assays.
+  evidence:
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Phosphate solubilization, IAA, BNF, metallophores, biocontrol against Fusarium oxysporum,
+      Pestalotia sp., Curvularia sp.
+    explanation: Names phosphate solubilization, IAA production, and biological
+      nitrogen fixation among the screened plant-growth-promoting traits of the
+      Jala-derived SynCom members.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 3 accumulated more soluble orthophosphate
+    explanation: >
+      Supports high soluble-orthophosphate accumulation by the mixed SynCom 3
+      inoculant.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Aminocyclopropane-1-carboxylate (ACC) deaminase production
+    explanation: Names ACC deaminase, acting on the ethylene precursor ACC, as a
+      screened plant-growth-promoting trait.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: only SynCom 3 exhibited evident growth in the BMGM media and reduced acetylene
+    explanation: >
+      Supports the biological nitrogen fixation phenotype measured in the
+      SynCom-level acetylene reduction assay.
+- name: SynCom 3 Antifungal and PAL Induction
+  description: >
+    SynCom 3 inhibited phytopathogenic fungi in vitro and significantly
+    increased maize-root phenylalanine ammonia-lyase activity, connecting
+    antagonistic isolates with induced systemic resistance in the plant host.
+  scope: COMMUNITY_LEVEL
+  interaction_type: COMPETITION
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Field Yield Increase and Rust Reduction
+    description: >
+      In vitro fungal inhibition and the PAL response were candidate mechanisms
+      for reduced fungal rust incidence in the open-field SynCom 3 treatment.
+  evidence:
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom 3 exhibited the highest inhibition percentages reaching 80% of inhibition
+    explanation: >
+      Supports SynCom 3 as a high-performing inhibitor of fungal
+      phytopathogens.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: only the effect of SynCom 3 was statistically significant as it tripled the
+      activity of the enzyme
+    explanation: >
+      Supports significant induction of maize-root PAL activity by SynCom 3.
+- name: Conejo Maize Seedling Growth Promotion
+  description: >
+    SynCom 3 inoculation increased Conejo maize root and shoot growth in
+    gnotobiotic tubes and greenhouse pots after its constituent PGP activities
+    were expressed in vitro.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  downstream:
+  - target: Field Yield Increase and Rust Reduction
+    description: >
+      Seedling growth promotion in controlled systems supported the choice to
+      test SynCom 3 on hybrid maize in the field.
+  evidence:
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: promoted the growth of the roots and shoots to sizes 4.2 and 3.0 times greater
+    explanation: >
+      Supports SynCom 3-mediated maize root and shoot growth promotion in the
+      gnotobiotic assay.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: increases of 3.3 and 1.4 times the roots and shoot length and 2.3 and 3 times
+      the dry weights
+    explanation: >
+      Supports the SynCom 3 growth phenotype in the greenhouse assay.
+- name: Field Yield Increase and Rust Reduction
+  description: >
+    In open-field hybrid maize tests, SynCom 3 increased grain yield relative
+    to the untreated control and significantly reduced fungal rust incidence.
+  scope: COMMUNITY_LEVEL
+  interaction_type: MUTUALISM
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the yield increased from 11 tons/ha for the control to 16 tons/ha inoculated
+      with SynCom 3
+    explanation: >
+      Supports the open-field grain-yield increase observed after SynCom 3
+      inoculation.
+  - reference: PMID:37275168
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: incidence of rust fungal infections decreased significantly from 12.5% in the
+      control to 8% in the treatment with SynCom 3
+    explanation: >
+      Supports the field-level reduction in maize fungal rust incidence after
+      SynCom 3 treatment.
 environmental_factors:
 - name: defined synthetic community design
   value: Multiple SynComs were assembled from PGPB with growth promotion, biocontrol, and induced systemic

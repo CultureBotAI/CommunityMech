@@ -1,14 +1,19 @@
 id: CommunityMech:000094
 name: Arabidopsis Coumarin Root SynCom
-description: A reduced Arabidopsis root-isolate SynCom used to detect rhizosphere community shifts caused
-  by phytoalexin, flavonoid, and coumarin exudates.
+description: >
+  A hydroponic 22-member Arabidopsis root-isolate SynCom used to detect
+  strain-level rhizosphere community shifts caused by phytoalexin, flavonoid,
+  and coumarin exudates. Under iron deficiency, F6'H1-dependent catecholic
+  coumarins suppress the coumarin-sensitive isolate Pseudomonas sp. Root329
+  through a peroxide-linked mechanism that contributes to the overall
+  wild-type-like community profile.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: RHIZOSPHERE
 engineering_design:
   objective: Determine how Arabidopsis specialized metabolites shape root-associated bacterial community
     composition.
-  assembly_strategy: Reduced synthetic community of Arabidopsis thaliana root-isolated bacteria.
+  assembly_strategy: 22-member synthetic community of Arabidopsis thaliana root endophyte isolates.
   perturbation_design: Plant mutants deficient in secreted phytoalexins, flavonoids, and coumarins.
   measurement_endpoints:
   - community shifts
@@ -23,6 +28,12 @@ engineering_design:
       bacteria to detect community shifts that occur in the absence of the secreted small-molecule phytoalexins,
       flavonoids, and coumarins.
     explanation: Supports the defined synthetic community design and represented community context.
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We designed a 22-member SynCom from A. thaliana root endophyte isolates collected
+      from loamy soil in Cologne
+    explanation: Confirms the member count and isolate source for the hydroponic root SynCom.
 environment_term:
   preferred_term: rhizosphere
   term:
@@ -46,23 +57,203 @@ taxonomy:
       total_genomes: 1603049
       is_reclassified: false
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
-  functional_role:
-  - CROSS_FEEDER
   evidence:
   - *id001
+- taxon_term:
+    preferred_term: Pseudomonas sp. Root329
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Pseudomonas
+      gtdb_taxon: Pseudomonas
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas
+      ncbi_source_id: NCBITaxon:286
+      majority_fraction: 0.699
+      support_genomes: 17956
+      total_genomes: 25706
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 11 GTDB taxa under the NCBI taxon]
+  strain_designation:
+    strain_name: Root329
+    isolation_source: Arabidopsis thaliana root endophyte from Cologne loamy soil
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas sp. Root329 was found to consistently respond positively to lines
+      that lack biosynthesis and release of oxidized coumarins
+    explanation: Identifies Pseudomonas sp. Root329 as the SynCom member that
+      reproducibly expands when plant roots lack oxidized coumarin production.
 ecological_interactions:
-- name: Coumarin-Dependent Recruitment
-  description: Plant exuded specialized metabolites structure which bacteria persist in the rhizosphere.
-  interaction_type: COLONIZATION_FACILITATION
+- name: Iron-Limited Catecholic Coumarin Exudation
+  description: >
+    Arabidopsis wild-type roots exude the catecholic coumarins sideretin,
+    fraxetin, and esculetin under iron deficiency, while f6'h1 and pdr9 mutants
+    deplete coumarin biosynthesis or release and shift the root SynCom profile.
+  interaction_type: COMPETITION
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: coumarin
+    term:
+      id: CHEBI:28794
+      label: coumarin
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  downstream:
+  - target: Catecholic Coumarin Peroxide Generation
+    description: Exuded catecholic coumarins provide the redox-active compounds
+      that generate hydrogen peroxide in iron-deficient medium.
   evidence:
-  - *id001
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Sideretin, fraxetin, and esculetin are confirmed major coumarins exuded by
+      wild-type roots under iron deficiency
+    explanation: Names the wild-type, iron-deficiency coumarins upstream of
+      the SynCom community shift.
+- name: Catecholic Coumarin Peroxide Generation
+  description: >
+    Sideretin, fraxetin, and esculetin generate hydrogen peroxide in
+    iron-deficient Murashige and Skoog medium, creating a peroxide-linked
+    antimicrobial mechanism that can be quenched by catalase.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: coumarin
+    term:
+      id: CHEBI:28794
+      label: coumarin
+  - preferred_term: iron(3+)
+    term:
+      id: CHEBI:29034
+      label: iron(3+)
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Pseudomonas Root329 Coumarin Sensitivity
+    description: Hydrogen peroxide generation by catecholic coumarins explains
+      the sideretin inhibition phenotype of the sensitive Pseudomonas isolate.
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen peroxide was generated by the catecholic coumarins sideretin, fraxetin,
+      and esculetin in iron-deficient Murashige and Skoog media over a 24-h period
+    explanation: Links the catecholic coumarins to peroxide production in the
+      same iron-deficient medium context.
+- name: Pseudomonas Root329 Coumarin Sensitivity
+  description: >
+    Purified sideretin and fraxetin directly inhibit Pseudomonas sp. Root329,
+    with sideretin inhibition relieved by catalase and soluble iron, showing
+    that this SynCom member is selectively sensitive to the catecholic coumarin
+    redox chemistry.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. Root329
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: coumarin
+    term:
+      id: CHEBI:28794
+      label: coumarin
+  - preferred_term: hydrogen peroxide
+    term:
+      id: CHEBI:16240
+      label: hydrogen peroxide
+  biological_processes:
+  - preferred_term: response to oxidative stress
+    term:
+      id: GO:0006979
+      label: response to oxidative stress
+  downstream:
+  - target: Pseudomonas-Weighted Coumarin Community Shift
+    description: Selective inhibition of Pseudomonas sp. Root329 is the
+      strain-level effect that explains much of the f6'h1 versus wild-type
+      community-profile difference.
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: severe growth inhibition of Pseudomonas sp. Root329 by the predominant wild-type
+      coumarin sideretin, and moderate inhibition by fraxetin
+    explanation: Supports direct inhibition of the focal Pseudomonas isolate by
+      purified oxidized coumarins.
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: inhibitory activity of sideretin on Pseudomonas sp. Root329 could be abolished
+      with addition of catalase
+    explanation: Supports peroxide involvement in the sideretin-mediated inhibition.
+- name: Pseudomonas-Weighted Coumarin Community Shift
+  description: >
+    Pseudomonas sp. Root329 expands in f6'h1 mutant roots that lack oxidized
+    coumarin biosynthesis and becomes less abundant when oxidized coumarins are
+    supplied back to the iron-deficient f6'h1 growth medium, making Root329 a
+    major driver of the mutant community profile.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pseudomonas sp. Root329
+    term:
+      id: NCBITaxon:286
+      label: Pseudomonas
+  metabolites:
+  - preferred_term: coumarin
+    term:
+      id: CHEBI:28794
+      label: coumarin
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas sp. Root329 became less abundant at the f6 ′ h1 root with the addition
+      of either coumarin
+    explanation: Supports chemical complementation of the mutant community shift
+      through reduced Pseudomonas sp. Root329 abundance.
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Removing Pseudomonas sp. Root329 by in silico rescaling substantially diminished
+      the community profile shift between wild type and f6 ′ h1
+    explanation: Supports Pseudomonas sp. Root329 as a major contributor to the
+      observed wild-type versus f6'h1 community-profile difference.
 environmental_factors:
 - name: defined synthetic community design
-  value: Reduced synthetic community of Arabidopsis thaliana root-isolated bacteria.
-  description: Plant mutants deficient in secreted phytoalexins, flavonoids, and coumarins.
+  value: 22-member synthetic community of Arabidopsis thaliana root endophyte isolates.
+  description: >
+    Plant mutants deficient in secreted phytoalexins, flavonoids, and coumarins
+    were screened with a hydroponic root-isolate SynCom whose members could be
+    tracked by 16S rRNA gene amplicon sequencing.
   evidence:
   - *id001
+- name: iron-deficient Murashige and Skoog medium
+  value: iron-deficient hydroponic medium
+  description: >
+    The f6'h1 and wild-type SynCom comparison and the coumarin chemical
+    complementation assay were performed under iron deficiency, the condition
+    that induces root production and exudation of oxidized coumarins.
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: lack of coumarin biosynthesis in f6'h1 mutant plant lines causes a shift in
+      the root microbial community specifically under iron deficiency
+    explanation: Establishes iron deficiency as the environmental condition
+      gating the coumarin-dependent SynCom profile shift.
 related_ingredients:
 - preferred_term: coumarin
   chebi_term:
@@ -94,6 +285,22 @@ related_ingredients:
       community
     explanation: Links iron mobilization by coumarins to community structuring, anchoring
       ferric iron as a central species in this iron-deficiency-dependent system.
+- preferred_term: hydrogen peroxide
+  chebi_term:
+    id: CHEBI:16240
+    label: hydrogen peroxide
+  relevance: >
+    Hydrogen peroxide is the reactive oxygen species generated by catecholic
+    coumarins in iron-deficient Murashige and Skoog medium and implicated by
+    catalase rescue in sideretin-mediated inhibition of Pseudomonas sp. Root329.
+  evidence:
+  - reference: PMID:31152139
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Hydrogen peroxide was generated by the catecholic coumarins sideretin, fraxetin,
+      and esculetin in iron-deficient Murashige and Skoog media
+    explanation: Names hydrogen peroxide as the ROS produced by iron-mobilizing
+      coumarins in the iron-deficient assay medium.
 growth_media:
 - name: quarter-strength tryptic soy broth (root-isolate SynCom inoculum); hydroponic Murashige and
     Skoog medium for the Arabidopsis host

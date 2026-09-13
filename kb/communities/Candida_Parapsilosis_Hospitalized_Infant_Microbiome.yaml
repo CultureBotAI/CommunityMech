@@ -1,14 +1,14 @@
 id: CommunityMech:000248
 name: Candida parapsilosis Hospitalized Infant Gut Microbiome Community
 description: >
-  An in situ infant gut microbiome study of Candida parapsilosis colonization
-  in hospitalized infants, combining genomics, transcriptomics, and proteomics.
-  Five unique C. parapsilosis genomes were assembled from infant gut samples
-  and compared, providing the first multi-omics characterization of how this
-  common cause of invasive candidiasis adapts genetically and behaviorally to
-  the developing infant microbiome context. The work fills a gap left by
-  pure-culture studies and informs understanding of how C. parapsilosis
-  functions in a microbiome rather than in isolation.
+  An in situ infant gut microbiome study of Candida parapsilosis colonization in
+  hospitalized infants, combining metagenomics, metatranscriptomics, and
+  metaproteomics. Infant-06 fecal samples recovered C. parapsilosis alongside
+  Enterococcus faecalis, Lactobacillus gasseri, and Staphylococcus epidermidis;
+  the time series placed Candida in an early low-complexity gut community,
+  followed its replacement or outnumbering largely by E. faecalis, and linked
+  Candida-positive samples to shifts in Enterococcus ribosomal and mannitol
+  phosphotransferase-system transcript features.
 ecological_state: STABLE
 community_origin: NATURAL
 community_category: OTHER
@@ -29,8 +29,6 @@ taxonomy:
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
     notes: A common cause of invasive candidiasis, especially in newborn
       infants, with five unique genomes assembled from this cohort.
-  functional_role:
-  - PRIMARY_DEGRADER
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
@@ -43,34 +41,206 @@ taxonomy:
     evidence_source: IN_VIVO
     snippet: we compare five unique C. parapsilosis genomes assembled from
     explanation: Supports the five-genome strain-resolved analysis.
+- taxon_term:
+    preferred_term: Enterococcus faecalis
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Enterococcus_faecalis
+      gtdb_taxon: Enterococcus faecalis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Lactobacillales;f__Enterococcaceae;g__Enterococcus;s__Enterococcus faecalis
+      ncbi_source_id: NCBITaxon:1351
+      majority_fraction: 1.0
+      total_genomes: 9081
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  evidence:
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: E. faecalis was also present (N = 7)
+    explanation: Supports E. faecalis as repeatedly co-detected with Candida in
+      the hospitalized-infant metagenomic samples.
 ecological_interactions:
-- name: Genetic and Behavioral Adaptation in Microbiome Context
-  description: C. parapsilosis exhibits genetic and behavioral adaptation
-    revealed by in situ genomics, transcriptomics, and proteomics that pure-
-    culture work has missed, indicating microbiome-specific functions.
-  interaction_type: COMMENSALISM
+- name: Infant 06 Candida-Bacterial Genome Recovery
+  description: Metagenomic reconstruction from infant-06 fecal samples recovered
+    C. parapsilosis strain C1_006 together with E. faecalis, L. gasseri, and
+    S. epidermidis, defining a low-complexity community for in situ
+    transcriptomic and proteomic analysis.
+  interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+      between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between
+        organisms
+  downstream:
+  - target: Repeated Candida-Enterococcus Co-Detection
+    description: The recovered infant-06 members anchor the broader observation
+      that E. faecalis accompanied every Candida-containing infant sample set.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Genetic and behavioral adaptation of Candida parapsilosis to the
-      microbiome of hospitalized infants revealed by in situ genomics,
-      transcriptomics, and proteomics
-    explanation: Supports the multi-omics-based adaptation finding.
-- name: Microbiome Context Versus Pure Culture
-  description: Pure-culture studies leave gaps about how C. parapsilosis
-    behaves in a microbiome context; this study addresses those gaps with
-    in situ data.
-  interaction_type: COMMENSALISM
+    snippet: genomes were recovered for three bacterial species in infant 06
+    explanation: Supports recovery of bacterial genomes alongside C.
+      parapsilosis in the infant-06 gut community.
+- name: Repeated Candida-Enterococcus Co-Detection
+  description: E. faecalis was present in each infant in which Candida was
+    assembled or detected by read mapping, making Enterococcus the recurring
+    bacterial partner across the Candida-positive infant gut samples.
+  interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+      between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between
+        organisms
+  downstream:
+  - target: Enterococcus Replacement of Early Candida Dominance
+    description: Repeated co-detection led into the infant-06 time course in
+      which E. faecalis later outnumbered the initially abundant Candida
+      population.
   evidence:
   - reference: PMID:34154658
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: C. parapsilosis has been primarily studied in pure culture,
-      leaving gaps in understanding of its function in a microbiome context
-    explanation: Supports the curated gap-and-fill rationale.
+    snippet: in every infant where a Candida genome was assembled or detected
+      through read mapping, E. faecalis was also present
+    explanation: Supports repeated E. faecalis co-detection in
+      Candida-positive infant gut datasets.
+- name: Enterococcus Replacement of Early Candida Dominance
+  description: In infant 06, C. parapsilosis was the dominant early community
+    member during the first 20 days of life before being replaced or outnumbered
+    largely by E. faecalis.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+      between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between
+        organisms
+  downstream:
+  - target: Candida-Positive Enterococcus Mannitol-PTS Response
+    description: The abundance shift motivated Candida-positive versus
+      Candida-negative transcriptome comparisons that identified
+      E. faecalis transport and growth-response features.
+  evidence:
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: C. parapsilosis is highly abundant relative to other organisms in
+      the first 20 days of life
+    explanation: Supports early Candida dominance in the infant-06 gut time
+      series.
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: before quickly being replaced or outnumbered, largely by E.
+      faecalis
+    explanation: Supports later Enterococcus outnumbering of C. parapsilosis.
+- name: Candida-Positive Enterococcus Mannitol-PTS Response
+  description: E. faecalis transcriptomes from Candida-positive gut samples had
+    higher ribosomal-protein expression and upregulated mannitol-specific PTS
+    transport and D-mannitol-to-fructose conversion, consistent with a putative
+    Enterococcus substrate switch in the presence of C. parapsilosis.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candida parapsilosis
+    term:
+      id: NCBITaxon:5480
+      label: Candida parapsilosis
+  target_taxon:
+    preferred_term: Enterococcus faecalis
+    term:
+      id: NCBITaxon:1351
+      label: Enterococcus faecalis
+  metabolites:
+  - preferred_term: D-mannitol
+    term:
+      id: CHEBI:16899
+      label: D-mannitol
+  biological_processes:
+  - preferred_term: carbohydrate transport
+    term:
+      id: GO:0008643
+      label: carbohydrate transport
+  downstream:
+  - target: In Situ Candida Biofilm Downshift and Aerobic Enrichment
+    description: Candida-associated bacterial transcript changes coincided with
+      a distinct in situ Candida expression profile enriched in aerobic
+      respiration and depleted in biofilm-matrix functions.
+  evidence:
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: ribosomal proteins all showed higher expression in situ,
+      suggesting increased E. faecalis growth rate in the presence of C.
+      parapsilosis
+    explanation: Supports the Candida-positive E. faecalis ribosomal response.
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: mannitol-specific phosphotransferase system (PTS) transporters
+      upregulated in Candida-positive samples
+    explanation: Supports upregulation of Enterococcus mannitol transport in
+      Candida-positive samples.
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mannitol-1-phosphate 5-dehydrogenase, an enzyme responsible for
+      the conversion of D-mannitol to fructose
+    explanation: Supports increased E. faecalis capacity for D-mannitol
+      degradation in Candida-positive samples.
+- name: In Situ Candida Biofilm Downshift and Aerobic Enrichment
+  description: Compared with diverse pure-culture transcriptomes, in situ C.
+    parapsilosis expression in the infant gut showed lower biofilm and
+    polysaccharide-synthase expression but enrichment of aerobic-respiration
+    features, including cytochrome c oxidase and bc1-complex genes.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Candida parapsilosis
+    term:
+      id: NCBITaxon:5480
+      label: Candida parapsilosis
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  - preferred_term: cellular respiration
+    term:
+      id: GO:0045333
+      label: cellular respiration
+  evidence:
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Biofilm formation showed lower expression overall in situ
+    explanation: Supports lower Candida biofilm-gene expression in situ than in
+      culture.
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Up in situ was enriched for KEGG families for LSM
+    explanation: Anchors the functional-enrichment comparison of Candida in situ
+      versus culture transcriptomes.
+  - reference: PMID:34154658
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Cytochrome c oxidase and bc1 complex
+    explanation: Supports enrichment of aerobic-respiration features in
+      Candida's in situ gut expression profile.
 environmental_factors:
 - name: Clinical setting
   value: hospitalized infants

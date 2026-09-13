@@ -76,12 +76,10 @@ taxonomy:
     snippet: an obligate energetic dependency on a hydrogenotrophic methanogen, Methanoculleus sp.
     explanation: Identifies Methanoculleus sp. as the hydrogenotrophic methanogenic member.
 ecological_interactions:
-- name: Lithosyntrophic interspecies H2 transfer
-  description: Obligate syntrophy in which phosphite-derived electrons drive H2 production in Phox-21
-    via an electron-confurcating hydrogenase; the hydrogenotrophic methanogen Methanoculleus sp.
-    consumes the H2, keeping phosphite oxidation thermodynamically favorable. This "lithosyntrophy"
-    sources the reducing equivalents for methanogenesis from an inorganic compound rather than
-    canonical organic substrates.
+- name: Phox-21 Phosphite-Driven Hydrogenogenesis
+  description: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite to
+    phosphate, sending phosphite-derived electrons into H2 production via an
+    electron-confurcating hydrogenase.
   interaction_type: SYNTROPHY
   scope: PAIRWISE
   source_taxon:
@@ -99,6 +97,10 @@ ecological_interactions:
     term:
       id: CHEBI:18276
       label: dihydrogen
+  downstream:
+  - target: Lithosyntrophic interspecies H2 transfer
+    description: Phox-21 hydrogenogenesis supplies the H2 carrier that is consumed by
+      the hydrogenotrophic Methanoculleus partner.
   evidence:
   - reference: PMID:41811448
     supports: SUPPORT
@@ -113,6 +115,79 @@ ecological_interactions:
     snippet: In this pathway, electrons derived from phosphite drive H2 production via an electron-confurcating
       hydrogenase.
     explanation: H2 is the interspecies electron carrier produced by Phox-21 and consumed by the methanogen.
+- name: Lithosyntrophic interspecies H2 transfer
+  description: Phox-21 transfers phosphite-derived reducing equivalents to Methanoculleus sp.
+    as H2, establishing an obligate lithosyntrophic dependency in which H2 consumption by
+    the methanogen keeps phosphite oxidation thermodynamically favorable.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
+    term:
+      id: NCBITaxon:1918507
+      label: Candidatus Phosphitivorax anaerolimi
+  target_taxon:
+    preferred_term: Methanoculleus sp.
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+  metabolites:
+  - preferred_term: hydrogen (H2)
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  downstream:
+  - target: Methanoculleus Hydrogenotrophic Methanogenesis
+    description: Consumption of lithosyntrophic H2 by Methanoculleus sp. drives the
+      hydrogenotrophic methanogenesis endpoint.
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candidatus Phosphitivorax anaerolimi Phox-21 oxidizes phosphite (HPO32-, oxidation
+      state +3) to phosphate coupled to hydrogenogenesis in an obligate energetic
+      dependency on a hydrogenotrophic methanogen, Methanoculleus sp.
+    explanation: Supports H2-mediated syntrophy between the phosphite oxidizer and
+      the hydrogenotrophic Methanoculleus partner.
+- name: Methanoculleus Hydrogenotrophic Methanogenesis
+  description: Methanoculleus sp. consumes the H2 generated from phosphite-derived
+    electrons, driving methane formation and keeping the partner phosphite-oxidation
+    reaction near a favorable low-H2 state.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Candidatus Phosphitivorax anaerolimi Phox-21
+    term:
+      id: NCBITaxon:1918507
+      label: Candidatus Phosphitivorax anaerolimi
+  target_taxon:
+    preferred_term: Methanoculleus sp.
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+  metabolites:
+  - preferred_term: hydrogen (H2)
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:41811448
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a mode of syntrophic interaction in which electrons that drive hydrogenotrophic
+      methanogenesis originate from an inorganic compound rather than from the canonical
+      organic substrates
+    explanation: Supports hydrogenotrophic methanogenesis as the terminal reaction
+      fueled by phosphite-derived electrons in this lithosyntrophic culture.
 growth_media:
 - name: anoxic phosphite-oxidizing methanogenic enrichment medium
   atmosphere: ANAEROBIC

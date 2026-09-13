@@ -109,6 +109,7 @@ ecological_interactions:
   description: C. autoethanogenum converts CO or syngas into acetate and ethanol, producing the
     substrates that support chain elongation by C. kluyveri.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium autoethanogenum
     term:
@@ -141,6 +142,11 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Ethanol-Driven Chain Elongation
+    description: >
+      C. autoethanogenum supplies ethanol and acetate that C. kluyveri consumes
+      for chain elongation to C4 and C6 products.
   evidence:
   - reference: PMID:27042211
     supports: SUPPORT
@@ -157,6 +163,7 @@ ecological_interactions:
   description: C. kluyveri consumes ethanol and acetate produced by C. autoethanogenum, enabling
     formation of butyrate, caproate, butanol, and hexanol from CO or syngas.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium kluyveri
     term:
@@ -200,6 +207,7 @@ ecological_interactions:
   description: C. kluyveri removal of ethanol during co-cultivation shifts C. autoethanogenum metabolism
     toward solventogenesis, improving the electron flow into chain-elongated products.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Clostridium kluyveri
     term:
@@ -220,6 +228,12 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
+  downstream:
+  - target: Acetogenic CO and Syngas Fermentation
+    description: >
+      Continuous ethanol removal by C. kluyveri pulls C. autoethanogenum
+      metabolism toward solventogenesis and improves electron flow from CO or
+      syngas into chain-elongated products.
   evidence:
   - reference: PMID:31792266
     supports: SUPPORT

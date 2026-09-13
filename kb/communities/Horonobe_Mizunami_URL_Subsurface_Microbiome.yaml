@@ -71,6 +71,20 @@ ecological_interactions:
     as a primary structuring factor.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  downstream:
+  - target: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
+    description: The sedimentary Horonobe URL is organic- and CO2-rich and
+      methane-biased, providing the geochemical context for sulfate reducers
+      predicted to produce H2 that supports methanogenesis.
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
@@ -107,6 +121,11 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
+  downstream:
+  - target: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
+    description: Hydrogen metabolism and sulfate reduction are represented in
+      both URLs and include Horonobe Syntrophobacterales predicted to produce
+      H2 while reducing sulfate, feeding abundant Methanospirillum.
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
@@ -115,6 +134,50 @@ ecological_interactions:
       nitrogen compounds and sulfate reduction are well represented functions
       in microbiomes from both URLs
     explanation: Supports the shared deep-subsurface functional repertoire.
+- name: Horonobe Sulfate-Reducer Hydrogen Support of Methanogenesis
+  description: In Horonobe communities farther from the tunnels, abundant
+    Syntrophobacterales are predicted to be autotrophic sulfate reducers that
+    may produce H2 supporting methanogenesis by abundant Methanospirillum,
+    linking the shared hydrogen and sulfate functional core to Horonobe-biased
+    methane metabolism.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  evidence:
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: predicted to be autotrophic sulfate-reducers that may also produce H2,
+      supporting methanogenesis by abundant Methanospirillum
+    explanation: Supports predicted hydrogen transfer from Horonobe sulfate
+      reducers to methanogens.
+  - reference: PMID:39696556
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: methane metabolism is more prevalent at the organic- and CO2-rich Horonobe URL
+    explanation: Supports the Horonobe-specific methane-metabolism context for
+      the predicted sulfate-reducer to methanogen coupling.
 - name: Genotypic Homogeneity Across Depths in Horonobe
   description: Near-identical genotypes for approximately one third of detected
     organisms recur at multiple Horonobe depths with detectable but slow in
@@ -122,6 +185,11 @@ ecological_interactions:
     regimes.
   interaction_type: COLONIZATION_FACILITATION
   scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
   evidence:
   - reference: PMID:39696556
     supports: SUPPORT
@@ -135,20 +203,12 @@ ecological_interactions:
     snippet: the Horonobe URL microbiome homogeneity may be explained by higher
       groundwater mobility during the last glacial period
     explanation: Supports paleo-hydrological dispersal as the proposed mechanism.
-- name: Trans-Continental Genotypic Overlap
-  description: Species closely related to those detected in the URLs are
-    identified in three other USA subsurface environments, suggesting dispersal
-    rates fast enough relative to mutation rates to preclude substantial
-    divergence.
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  evidence:
   - reference: PMID:39696556
     supports: SUPPORT
     evidence_source: IN_VIVO
-    snippet: Genotypically-defined species closely related to those detected in
-      the URLs were identified in three other subsurface environments in the USA
-    explanation: Supports trans-continental subsurface species overlap.
+    snippet: in situ growth was detected for some bacteria, albeit at slow rates
+    explanation: Supports slow ongoing growth by Horonobe genotypes despite
+      their cross-depth genomic similarity.
 environmental_factors:
 - name: Depth interval
   value: 140 to 400 m below surface

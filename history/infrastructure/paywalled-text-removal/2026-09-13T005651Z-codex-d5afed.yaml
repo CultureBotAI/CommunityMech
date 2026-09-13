@@ -1,0 +1,36 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: kb/communities
+  slug: paywalled-text-removal
+session:
+  id: 2026-09-13T005651Z-codex-d5afed
+  timestamp: '2026-09-13T00:56:51Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-6
+    agent_tool: Codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/765
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/766
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - evidence
+  - ecological_interactions
+  - curation_history
+  - generated_pages
+  summary: Reconcile the publication-text removal with current main curation
+  details: 'Merged current main into PR #766 without rebasing. Reapplied exactly 78 original
+    unsupported EvidenceItem removals across the same five records, preserving main''s newer
+    interaction scopes, participating taxa, downstream edges and three hCom2 interaction nodes.
+    Restored original abstract spacing for three retained Propanotrophic snippets because
+    the removed body had different extraction spacing. Preserved five abstract-only caches
+    and publication PDF deletion, the original history, and main''s Python 3.13/merge-queue
+    workflows. The existing claim-level evidence debt remains in #765; this refresh does not
+    claim to re-evidence it. No publication, paid-model, or provider calls were made. Regenerated
+    only the five affected community pages using the current renderer.'

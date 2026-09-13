@@ -22,39 +22,31 @@ name: docs-current
 # byte-identical tree — so gating costs nothing and the alternative (remember to
 # run `just gen-html`) is what produced the drift.
 
+# Required checks must report for every PR and merge queue candidate.
 on:
   pull_request:
-    # Two ways to get this wrong, both hit while writing it:
-    #
-    #   * `src/communitymech/render/**` matches nothing — render is a module,
-    #     not a package — and a filter matching nothing is a gate that never
-    #     fires (CultureBotAI/TraitMech#198 is the same mistake).
-    #   * naming only the .py files still missed the templates, which are the
-    #     renderer's largest input: a one-line edit to community.html rewrites
-    #     all 312 pages, and matched no filter in any workflow, so it ran
-    #     neither this gate nor pytest.
-    #
-    # Verifying that the listed paths exist is not the same as verifying they
-    # cover what changes the output. Both were checked against the tree.
-    paths: &trigger_paths
-      # The justfile defines every recipe the steps below run, so a change to
-      # one of them changes what this gate DOES. Without this entry the gate
-      # that would have judged that change is the one that does not run (#717).
-      - "justfile"
-      - "kb/communities/**"
-      - "src/communitymech/templates/**"
-      - "src/communitymech/render.py"
-      - "src/communitymech/render_community_pages.py"
-      - "src/communitymech/paths.py"
-      - "docs/**"
-      - ".github/workflows/docs-current.yaml"
+  merge_group:
+    types: [checks_requested]
   push:
-    branches: [main]
-    paths: *trigger_paths
+    branches:
+    - main
+    paths:
+    - justfile
+    - kb/communities/**
+    - src/communitymech/templates/**
+    - src/communitymech/render.py
+    - src/communitymech/render_community_pages.py
+    - src/communitymech/paths.py
+    - docs/**
+    - .github/workflows/docs-current.yaml
   workflow_dispatch:
 
 permissions:
   contents: read
+
+# Keep uv commands on the fleet runtime, including --no-project invocations.
+env:
+  UV_PYTHON: "3.13"
 
 jobs:
   docs-current:
@@ -71,7 +63,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.10"
+          python-version: "3.13"
       - name: Install dependencies
         run: uv sync --frozen
       - name: docs/ matches the KB

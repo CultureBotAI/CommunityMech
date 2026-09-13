@@ -108,6 +108,7 @@ ecological_interactions:
   description: The two-member SynCom completes denitrification through metabolite exchange, coupling the
     denitrification pathway across both partners.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Rhodanobacter thiooxydans FW510-R12
     term:
@@ -118,6 +119,15 @@ ecological_interactions:
     term:
       id: NCBITaxon:1872122
       label: Acidovorax sp.
+  metabolites:
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: nitric oxide
+    term:
+      id: CHEBI:16480
+      label: nitric oxide
   biological_processes:
   - preferred_term: denitrification
     term:
@@ -139,6 +149,7 @@ ecological_interactions:
   description: Under high nitrate conditions, growth becomes imbalanced and nitrite accumulates, disrupting
     cooperative denitrification and increasing N2O release.
   interaction_type: COMPETITION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Acidovorax sp. GW101-3H11
     term:
@@ -154,6 +165,12 @@ ecological_interactions:
     term:
       id: GO:0019333
       label: denitrification pathway
+  downstream:
+  - target: Toxic Nitrite Accumulation and N2O Off-Gassing
+    description: >
+      High nitrate unbalances the two-member exchange, drives toxic nitrite
+      accumulation, and disrupts cooperative denitrification with increased
+      N2O off-gassing.
   evidence:
   - reference: PMID:40349173
     supports: SUPPORT
@@ -167,6 +184,38 @@ ecological_interactions:
     snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-,
       which disrupts denitrification causing N2O off gassing
     explanation: Links growth imbalance to nitrite toxicity and increased N2O release
+- name: Toxic Nitrite Accumulation and N2O Off-Gassing
+  description: High-nitrate growth imbalance drives accumulation of toxic nitrite
+    in the two-member SynCom, disrupting cooperative denitrification and causing
+    nitrous oxide off-gassing.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: dinitrogen oxide
+    term:
+      id: CHEBI:17045
+      label: dinitrogen oxide
+  biological_processes:
+  - preferred_term: denitrification
+    term:
+      id: GO:0019333
+      label: denitrification pathway
+  downstream:
+  - target: Pathway-Partitioned Denitrification Cooperation
+    description: Toxic NO2- accumulation disrupts the nitrite and nitric oxide
+      exchange that normally completes denitrification across the two partners.
+  evidence:
+  - reference: PMID:40349173
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The altered growth characteristics of community members drives accumulation of toxic NO2-,
+      which disrupts denitrification causing N2O off gassing
+    explanation: Supports nitrite accumulation and N2O off-gassing as the downstream
+      outcome of high-nitrate growth imbalance.
 environmental_factors:
 - name: Nitrate loading context
   value: high NO3-
@@ -286,7 +335,7 @@ growth_media:
   - reference: PMID:40349173
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: NO3- reduction growth studies were performed in Balch tubes (10-ml culture volume) at 30°C in a defined minimal medium as described previously containing 20 mM sodium acetate and 10 mM sodium NO3- at pH 7.2 with a 80:20 N2-CO2 headspace
+    snippet: NO3− reduction growth studies were performed in Balch tubes (10-ml culture volume) at 30°C in a defined minimal medium as described previously containing 20 mM sodium acetate and 10 mM sodium NO3− at pH 7.2 with a 80:20 N2-CO2 headspace
     explanation: Names the Balch-tube anaerobic minimal medium, 30 °C, pH 7.2, 80:20 N2-CO2 headspace, acetate and nitrate.
   - reference: PMID:40349173
     supports: SUPPORT

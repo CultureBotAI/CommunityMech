@@ -67,12 +67,104 @@ taxonomy:
   evidence:
   - *id001
 ecological_interactions:
+- name: Ammonium Cross-Feeding By Nitrogen-Fixing R. palustris
+  description: >
+    Rhodopseudomonas palustris fixes dinitrogen and excretes ammonium as the
+    essential nitrogen source for E. coli in the anaerobic synthetic
+    mutualism.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  target_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: dinitrogen
+    term:
+      id: CHEBI:17997
+      label: dinitrogen
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
+  downstream:
+  - target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: >
+      Ammonium excreted by nitrogen-fixing R. palustris supplies the nitrogen
+      currency needed by E. coli in the reciprocal coculture.
+  evidence:
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. palustris fixes dinitrogen gas (N2) via the enzyme nitrogenase and excretes ammonium (NH4+)
+    explanation: Supports R. palustris as the nitrogen-fixing ammonium donor.
+- name: E. coli Fermentation Product Cross-Feeding
+  description: >
+    E. coli ferments glucose and excretes organic acids that serve as essential
+    carbon sources for R. palustris, forming the carbon-transfer half of the
+    reciprocal exchange.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Escherichia coli
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  target_taxon:
+    preferred_term: Rhodopseudomonas palustris
+    term:
+      id: NCBITaxon:1076
+      label: Rhodopseudomonas palustris
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Reciprocal Carbon-Nitrogen Cross-Feeding
+    description: >
+      E. coli fermentation products provide the essential carbon flow to
+      R. palustris that balances R. palustris ammonium transfer back to E. coli.
+  evidence:
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E. coli ferments glucose, a carbon source that R. palustris cannot consume, and excretes ethanol and organic acids
+    explanation: Supports E. coli fermentation-product excretion for R. palustris.
 - name: Reciprocal Carbon-Nitrogen Cross-Feeding
   description: R. palustris supplies ammonium while E. coli supplies fermentation products.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  biological_processes:
+  - preferred_term: nitrogen fixation
+    term:
+      id: GO:0009399
+      label: nitrogen fixation
   evidence:
   - *id001
+  - reference: PMID:32788711
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Engineered R. palustris excretes essential nitrogen as NH4+ to E. coli, while E. coli excretes
+      essential carbon as fermentation products to R. palustris.
+    explanation: Supports ammonium transfer from the nitrogen-fixing R. palustris
+      partner as one leg of the reciprocal cross-feeding interaction.
 environmental_factors:
 - name: defined synthetic community design
   value: Two-member coculture based on nitrogen transfer from R. palustris and carbon-rich fermentation

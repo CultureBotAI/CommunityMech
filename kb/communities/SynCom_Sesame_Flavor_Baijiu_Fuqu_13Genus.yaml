@@ -306,11 +306,97 @@ taxonomy:
       core microbiota involved in the production of those flavor compounds
     explanation: Identifies Wickerhamomyces as a core member genus of the Fuqu SynCom.
 ecological_interactions:
+- name: Fuqu Starch Ethanol and Flavor Base Guild
+  description: Pichia, Bacillus, Aspergillus, Saccharomyces, and Wickerhamomyces
+    formed the five-genus SC1 base consortium because they are commonly used
+    in Fuqu preparation and contribute to starch degradation, ethanol production,
+    and flavor-compound formation.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Pichia
+    term:
+      id: NCBITaxon:4919
+      label: Pichia
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus <genus>
+  - preferred_term: Saccharomyces
+    term:
+      id: NCBITaxon:4930
+      label: Saccharomyces
+  - preferred_term: Wickerhamomyces
+    term:
+      id: NCBITaxon:599737
+      label: Wickerhamomyces
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Emergent flavor-compound co-production by the assembled SynCom
+    description: The Fuqu base guild supplies starch, ethanol, and flavor-production
+      functions used as the SC1 foundation for the higher-performing SC3 SynCom.
+  evidence:
+  - reference: PMID:42121419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pichia, Bacillus, Aspergillus, Saccharomyces, and Wickerhamomyces
+      are microorganisms commonly used in the preparation of Fuqu
+    explanation: Supports the five core Fuqu genera as a functional base guild.
+- name: Lactic-Acid Bacteria Flavor-Precursor Guild
+  description: Lactobacillus, Leuconostoc, Weissella, and Pediococcus were added
+    to the five-member SC1 base to test whether lactic-acid bacteria that make
+    flavor compounds and precursors could enhance flavor-compound formation.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Lactobacillus
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+  - preferred_term: Leuconostoc
+    term:
+      id: NCBITaxon:1243
+      label: Leuconostoc
+  - preferred_term: Weissella
+    term:
+      id: NCBITaxon:46255
+      label: Weissella
+  - preferred_term: Pediococcus
+    term:
+      id: NCBITaxon:1253
+      label: Pediococcus
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Emergent flavor-compound co-production by the assembled SynCom
+    description: The lactic-acid bacterial subguild expands the SC2 consortium
+      with precursor-forming taxa that feed flavor-compound formation.
+  evidence:
+  - reference: PMID:42121419
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SC2 was constructed by adding four lactic acid bacteria genera to
+      the five microorganisms present in SC1, with the aim of enhancing the
+      formation of flavor compounds.
+    explanation: Supports the four lactic-acid bacterial genera as a flavor-precursor
+      expansion of the SC1 Fuqu guild.
 - name: Emergent flavor-compound co-production by the assembled SynCom
   description: When the 13 core genera are assembled into a SynCom, the community exhibits emergent,
     community-level enhancement of flavor-compound production - the highest flavor-compound diversity and
     3-(methylthio)-1-propanal (a key sulfur-containing flavor compound) content in simulative fermentation,
     exceeding commercial Fuqu at large scale.
+  interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: 3-(methylthio)-1-propanal
@@ -321,8 +407,9 @@ ecological_interactions:
   - reference: PMID:42121419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: The resulting SynCom exhibited the highest flavor compound diversity (0.64) and
-      3-(methylthio)-1-propanal content (618.14
+    snippet: The resulting SynCom exhibited the highest flavor compound diversity
+      (0.64) and 3-(methylthio)-1-propanal content (618.14 μg/kg) in simulative
+      fermentation.
     explanation: Community-level emergent enhancement of flavor-compound diversity and the key sulfur
       flavor compound 3-(methylthio)-1-propanal by the assembled SynCom.
 growth_media:
@@ -348,7 +435,8 @@ growth_media:
   - reference: PMID:42121419
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Each strain in the SynComs was mixed at an equal concentration of 1 × 10 5 CFU/mL.
+    snippet: Each strain in the SynComs was mixed at an equal concentration of
+      1 × 105 CFU/mL.
     explanation: Inoculum composition for the assembled SynCom.
 cultivation_setup:
 - cultivation_mode: BATCH

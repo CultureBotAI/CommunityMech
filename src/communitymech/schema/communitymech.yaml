@@ -25,6 +25,7 @@ prefixes:
   OBI: http://purl.obolibrary.org/obo/OBI_
   PMID: http://www.ncbi.nlm.nih.gov/pubmed/
   doi: https://doi.org/
+  GITHUB: https://github.com/
   xsd: http://www.w3.org/2001/XMLSchema#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
 
@@ -765,9 +766,10 @@ classes:
     description: An evidence item linking a claim to a publication
     attributes:
       reference:
-        description: The publication reference (PMID:12345678 or doi:10.1038/... format required)
+        description: The publication or article-linked repository reference.
         required: true
-        pattern: "^(PMID:|doi:|bioproject:).*"
+        pattern: >-
+          ^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$
         implements:
           - linkml:authoritative_reference
       supports:
@@ -847,8 +849,9 @@ classes:
           Version string if reported (e.g. "3.0"). Leave empty when the source
           does not report a version — do not infer one.
       tool_reference:
-        description: "Citation for the tool itself (PMID:/doi:/bioproject: format)."
-        pattern: "^(PMID:|doi:|bioproject:).*"
+        description: "Citation for the tool itself (PMID:/doi:/bioproject:/GITHUB: format)."
+        pattern: >-
+          ^(PMID:.*|doi:.*|bioproject:.*|GITHUB:[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+/(?:tree/[0-9a-fA-F]{40}(?:/.*)?|blob/[0-9a-fA-F]{40}/.+|commit/[0-9a-fA-F]{40}))$
       role:
         description: >-
           What this tool did in the chain (e.g. "GEM reconstruction", "model
@@ -1018,26 +1021,26 @@ classes:
           the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
-          half held. Of the 121 blocks currently true, 35 are grounded above
+          half held. Of the 122 blocks currently true, 36 are grounded above
           species — through genus, family, order, class and phylum — so the rank
           is wrong for nearly a third of them. And it does not mean GTDB
-          reclassified anything. Partitioning the 121 by why the names differ
+          reclassified anything. Partitioning the 122 by why the names differ
           (#441):
 
           * 0 dropped strain designations. There were 40 — `Escherichia coli
             K-12` -> `Escherichia coli` — and #480 removed them: GTDB carries no
             strain suffixes, so the names differed while the placement did not.
             `name_differs` now treats that as no difference.
-          * 26 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
+          * 27 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
             marker on the same name, not a rename.
           * 13 that are both at once — `Buchnera aphidicola BCc` ->
             `Buchnera aphidicola_F`.
-          * 5 GTDB placeholders for an unnamed species within the same genus —
+          * 3 GTDB placeholders for an unnamed species within the same genus —
             `Dyadobacter sp.` -> `Dyadobacter sp017744695`.
           * 3 rank-appropriate nomenclatural endings on one stem —
             `Chlorobiota` -> `Chlorobiia`, `Nitrososphaerota` ->
             `Nitrososphaeria`.
-          * 74 genuinely different names, and only some of those are GTDB
+          * 76 genuinely different names, and only some of those are GTDB
             reclassifications. `Allobosea` -> `Bosea` is an *NCBI* rename: both
             databases place the organism in the same genus concept, and NCBI
             moved its label because the bacterial name was a later homonym of
@@ -1045,8 +1048,8 @@ classes:
             `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
             `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So 47 of 121 — 39% — are not reclassifications under any reading, and
-          that is a floor: the 74 "genuinely different" include an unknown
+          So 46 of 122 — 38% — are not reclassifications under any reading, and
+          that is a floor: the 76 "genuinely different" include an unknown
           number of NCBI renames and spelling variants. Filter on this slot to
           find "the two labels are not identical", which is what it computes.
           Do not read it as provenance.
@@ -1342,8 +1345,8 @@ classes:
           Exists because the connectivity audit credits a COMMUNITY_LEVEL interaction
           as connecting every member of the record, which is unavoidably coarse - in a
           record carrying both kinds of edge, a taxon in no pairwise edge is credited
-          by an unrelated community-level one. 407 of 522 taxa were credited solely
-          that way. Naming participants narrows the credit to them (#312).
+          by an unrelated community-level one. Naming participants narrows the credit
+          to them (#312).
 
           Not a second way to write a pairwise edge. If an interaction is between two
           named organisms it wants `source_taxon`/`target_taxon` and PAIRWISE scope;
@@ -1811,17 +1814,8 @@ classes:
 
           A host and an antagonist are **not** members (#319). The community
           lives on or in its host and is applied against its antagonist; both
-          appear as `ecological_interactions` participants without appearing
-          here, which is why the network auditor reports them as
-          `UNKNOWN_SOURCE`/`UNKNOWN_TARGET` at warning severity rather than
-          gating on them (#326).
-
-          Of the 25 interaction participants currently outside this slot, 14 are
-          aggregate names for members that *are* present — `Variovorax` where
-          the record lists `Variovorax sp. CF313`, `YR634` and the rest — so
-          they are a naming coarseness rather than a membership question. The
-          remaining 11 are 6 hosts, 3 antagonists and 2 abiotic
-          (`anode`), and none of them belongs here.
+          can be named in `ecological_interactions` as outside-community
+          participants without appearing here.
 
           The mirror-image question is #307: candidates deliberately screened
           *out* are likewise not members, and live in
@@ -1829,10 +1823,6 @@ classes:
           the same reason — this slot records what the community is made of, and
           an edge to something outside it is not evidence that it should be
           inside it.
-
-          `tests/test_interaction_participants_outside_taxonomy.py` holds the
-          population to those four groups, so a new host or antagonist has to be
-          classified rather than absorbed.
         range: TaxonomicComposition
         multivalued: true
       ecological_interactions:

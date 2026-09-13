@@ -85,6 +85,28 @@ ecological_interactions:
     term:
       id: NCBITaxon:4547
       label: Saccharum officinarum
+  biological_processes:
+  - preferred_term: bacterial-type flagellum assembly
+    term:
+      id: GO:0044780
+      label: bacterial-type flagellum assembly
+  - preferred_term: chemotaxis
+    term:
+      id: GO:0006935
+      label: chemotaxis
+  - preferred_term: quorum sensing
+    term:
+      id: GO:0009372
+      label: quorum sensing
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  downstream:
+  - target: SynCom-stimulated enhancement of sugarcane stress resilience
+    description: Root-surface movement and biofilm formation provide the
+      colonization context for MetG2-associated nutrient, hormone, siderophore,
+      and VOC functions that stimulate sugarcane stress-resistance responses.
   evidence:
   - reference: doi:10.1016/j.rhisph.2025.101142
     supports: SUPPORT
@@ -111,6 +133,16 @@ ecological_interactions:
     term:
       id: NCBITaxon:4547
       label: Saccharum officinarum
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Sugarcane hormone and nutrient-transporter response
+    description: Enriched rhizosphere nutrient-acquisition, hormone, siderophore, and VOC functions
+      precede the host response in which sugarcane up-regulates hormone-related and nutrient-transporter
+      genes.
   evidence:
   - reference: doi:10.1016/j.rhisph.2025.101142
     supports: SUPPORT
@@ -127,3 +159,32 @@ ecological_interactions:
       hormone-related genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
     explanation: Plant-side response (hormone and nutrient-transporter genes) to the SynCom completes the
       mutualistic modulation.
+- name: Sugarcane hormone and nutrient-transporter response
+  description: After MetG2 inoculation, sugarcane up-regulates genes for auxin, cytokinin, and
+    salicylic-acid signaling as well as nitrate, phosphate, potassium, and sulfur transport, linking the
+    stimulated rhizosphere functions to a host transcriptional response.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Proteobacteria (rhizosphere community members)
+    term:
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+  target_taxon:
+    preferred_term: sugarcane (Saccharum officinarum)
+    term:
+      id: NCBITaxon:4547
+      label: Saccharum officinarum
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: doi:10.1016/j.rhisph.2025.101142
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Sugarcane plants also exhibited dynamic responses, including the up-regulation of
+      hormone-related genes (auxin, cytokinin, salicylic acid) and nutrient transporter genes
+    explanation: Supports the sugarcane hormone and nutrient-transporter gene response after MetG2
+      inoculation.

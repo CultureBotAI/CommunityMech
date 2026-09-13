@@ -102,6 +102,49 @@ taxonomy:
       resulting in the highest concentrations of acetate in the deep peat
     explanation: Supports an acetogenic bacterial guild in deeper SPRUCE peat.
 ecological_interactions:
+- name: Soil Organic Matter-Derived Terminal Electron Acceptors
+  description: Cleavage of peat soil organic matter supplies terminal electron
+    acceptors for anaerobic carbon decomposition, allowing sulfate/sulfite
+    reduction, denitrification, and acetogenesis to predominate over
+    methanogenesis by gene abundance even in an acidic, anoxic,
+    inorganic-electron-acceptor-limited peatland.
+  interaction_type: COMMENSALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: organic molecular entity
+    term:
+      id: CHEBI:50860
+      label: organic molecular entity
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  downstream:
+  - target: Depth-Stratified Anaerobic Peat Metabolism
+    description: Soil organic matter electron-acceptor availability varies
+      along the peat profile and helps structure depth-specific anaerobic
+      terminal carbon pathways.
+  evidence:
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Multi-omics data suggest that organic matter cleavage provides terminal electron acceptors,
+      which together with methanogen metabolic flexibility, may explain peat microbiome composition resistance
+      to warming.
+    explanation: Supports soil organic matter cleavage as a source of terminal
+      electron acceptors in the warming-manipulated SPRUCE peat.
+  - reference: PMID:40715043
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the predominant pathways for anaerobic carbon decomposition include sulfate/sulfite reduction,
+      denitrification, and acetogenesis, rather than methanogenesis based on gene abundances
+    explanation: Supports sulfate/sulfite reduction, denitrification, and
+      acetogenesis as the major modeled anaerobic terminal pathways.
 - name: Acetate-Fueled Methanogenesis Under Warming
   description: Elevated temperatures increase substrate availability, including acetate, which supports
     methanogenic activity in anaerobic peat. The inferred interaction links acetogenic production of acetate
@@ -117,6 +160,7 @@ ecological_interactions:
     term:
       id: NCBITaxon:2157
       label: Archaea
+  scope: PAIRWISE
   metabolites:
   - preferred_term: acetate
     term:
@@ -153,6 +197,26 @@ ecological_interactions:
     terminal anaerobic carbon turnover across surface and deep peat zones.
   interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: anaerobic respiration
+    term:
+      id: GO:0009061
+      label: anaerobic respiration
+  - preferred_term: methane biosynthetic process
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  downstream:
+  - target: Acetate-Fueled Methanogenesis Under Warming
+    description: Depth-stratified anaerobic metabolism includes increasing
+      Wood-Ljungdahl acetogenesis potential and the highest acetate
+      concentrations in deep peat, providing acetate that can feed active
+      archaeal methanogenesis in the bog.
   evidence:
   - reference: PMID:40715043
     supports: SUPPORT

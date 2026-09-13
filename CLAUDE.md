@@ -3,6 +3,15 @@
 Operational guidance for Claude Code and other coding agents working in this
 repository.
 
+## Python runtime
+
+Python 3.13 is the maintained development and GitHub Actions runtime, selected
+by `.python-version`. CI runs each test tier on this one minor version to
+avoid duplicate environment installation and test runs. The broader
+`requires-python` metadata remains the package installation compatibility
+floor; it is not a promise of a CI matrix. Add another CI version only for a
+documented dependency or consumer requirement.
+
 ## Project model
 
 CommunityMech is a LinkML knowledge base for microbial community composition,
@@ -69,7 +78,7 @@ delete them.
 
 ## Environment
 
-- Core package and validation: Python 3.10+.
+- Maintained development and CI runtime: Python 3.13; package metadata floor: Python 3.10+.
 - Deep research and Edison: Python 3.12+.
 - Package/environment manager: `uv`; do not add `requirements.txt`.
 - Task runner: `just`.

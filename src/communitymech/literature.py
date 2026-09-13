@@ -33,14 +33,14 @@ from communitymech.paths import REFERENCES_CACHE
 # A MEDLINE author line looks like:
 #   "Luo DL(1), Huang SY(1), Ma CY(1), ..., Dai CC(1)."
 # i.e. "Surname INITIALS" tokens (initials are 1-3 uppercase letters,
-# optionally with parenthetical affiliation markers) separated by commas. A
-# single-author paper has no comma. Collective/consortium authors appear as a
-# capitalized phrase ending in a keyword like "Group"/"Consortium" and have
-# no initials token.
+# optionally with parenthetical affiliation or equal-contribution markers)
+# separated by commas. A single-author paper has no comma.
+# Collective/consortium authors appear as a capitalized phrase ending in a
+# keyword like "Group"/"Consortium" and have no initials token.
 _AUTHOR_TOKEN_RE = re.compile(
     r"^([A-Z][\w'\-]+(?:\s+[A-Z][\w'\-]+)*)"  # surname (may be multi-word, e.g. "Van Dyk")
     r"\s+([A-Z][A-Za-z]{0,2}(?:\s+[A-Z][A-Za-z]{0,2})*)"  # given-name initials
-    r"(?:\([\d,\s]+\))*$"  # optional affiliation markers like "(1)(2)"
+    r"(?:\([#\d,\s]+\))*$"  # optional markers like "(1)(2)" or "(#)(1)"
 )
 _COLLECTIVE_KEYWORDS = (
     "group",
@@ -54,8 +54,8 @@ _COLLECTIVE_KEYWORDS = (
 
 
 def _strip_affiliation_markers(token: str) -> str:
-    """Remove trailing "(1)(2)" affiliation superscripts from a name token."""
-    return re.sub(r"\([\d,\s]+\)", "", token).strip()
+    """Remove trailing "(1)(2)" / "(#)" superscripts from a name token."""
+    return re.sub(r"\([#\d,\s]+\)", "", token).strip()
 
 
 def parse_first_author_from_author_string(author_string: str) -> str | None:

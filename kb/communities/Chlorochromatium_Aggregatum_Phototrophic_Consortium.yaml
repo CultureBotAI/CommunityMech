@@ -87,6 +87,7 @@ ecological_interactions:
   description: Chlorobium chlorochromatii epibionts are inferred to supply carbon, nitrogen, sulfur sources,
     and vitamins to the metabolically reduced central bacterium.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlorobium chlorochromatii CaD3 epibiont
     term:
@@ -113,6 +114,12 @@ ecological_interactions:
     term:
       id: GO:0015979
       label: photosynthesis
+  downstream:
+  - target: Possible Quinone-Mediated Electron Exchange
+    description: >
+      Epibiont-to-central-bacterium transfer of menaquinone-7 or a soluble
+      quinone intermediate would supply the quinone pool needed for the
+      proposed bidirectional electron shuttle and shared proton-motive force.
   evidence:
   - reference: PMID:24267588
     supports: SUPPORT
@@ -123,6 +130,7 @@ ecological_interactions:
   description: The central bacterium contributes motility and sensing, including movement toward light
     and sulfide that directly benefit the attached phototrophic epibionts.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Candidatus Symbiobacter mobilis central bacterium
     term:
@@ -139,6 +147,12 @@ ecological_interactions:
       id: CHEBI:16136
       label: hydrogen sulfide
     concentration: Attractant/resource for the consortium
+  downstream:
+  - target: Phototroph To Central Bacterium Metabolite Exchange
+    description: Motility toward sulfide and light positions the attached
+      epibionts at resources for anoxygenic photosynthesis, sustaining the
+      carbon-, nitrogen-, sulfur-, and vitamin-exchange economy of the
+      consortium.
   evidence:
   - reference: PMID:24267588
     supports: SUPPORT
@@ -150,6 +164,7 @@ ecological_interactions:
     central bacterium and epibiont, potentially coupling central-bacterium ATP synthesis to phototrophic
     energy conversion.
   interaction_type: SYNTROPHY
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Chlorobium chlorochromatii CaD3 epibiont
     term:
@@ -171,6 +186,12 @@ ecological_interactions:
     evidence_source: COMPUTATIONAL
     snippet: electron cycling mechanisms, particularly those mediated by quinones
     explanation: Supports the proposed electron-transfer mechanism.
+  - reference: PMID:24267588
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: we hypothesize that menaquinone-7, or a soluble quinone intermediate synthesized
+      by Chl. chlorochromatii
+    explanation: Supports epibiont-derived quinones as candidate shuttles between the two partners.
 environmental_factors:
 - name: anoxic sulfide-reduced medium
   value: Anaerobic sulfide-containing culture conditions
@@ -214,7 +235,7 @@ associated_datasets:
   - reference: PMID:24267588
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: has also been deposited in GenBank (accession number CP004885)
+    snippet: GenBank accession number CP004885
     explanation: Links the central-bacterium genome accession to this community record.
 - title: Chlorobium chlorochromatii CaD3 genome
   dataset_type: GENOMICS
@@ -226,7 +247,7 @@ associated_datasets:
   - reference: PMID:24267588
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
-    snippet: deposited in GenBank (accession number CP000108)
+    snippet: GenBank accession number CP000108
     explanation: Links the epibiont genome accession to this community record.
 related_ingredients:
 - preferred_term: sulfide

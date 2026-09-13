@@ -71,6 +71,7 @@ ecological_interactions:
     Sulcia and the host, with the host providing carbon/energy substrates and Sulcia synthesizing amino
     acids the host cannot produce.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Sulcia
     term:
@@ -97,6 +98,12 @@ ecological_interactions:
       id: CHEBI:25555
       label: nitrogen atom
     concentration: 30-80% recycled from host to essential amino acids
+  downstream:
+  - target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: >
+      Sulcia recycles most host-derived nitrogen to essential amino acids, one
+      half of the complementary endosymbiont metabolism coordinated through the
+      sharpshooter host.
   evidence:
   - reference: PMID:30254121
     supports: SUPPORT
@@ -119,6 +126,7 @@ ecological_interactions:
     metabolite exchange occurring primarily through host-mediated pathways rather than direct cross-feeding
     between symbionts.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Baumannia cicadellinicola
     term:
@@ -135,6 +143,12 @@ ecological_interactions:
       id: CHEBI:25555
       label: nitrogen atom
     concentration: 10-15% recycled from host
+  downstream:
+  - target: Host-Mediated Complementary Endosymbiont Metabolism
+    description: >
+      Baumannia supplies larger-genome coprimary symbiont functions that
+      complement Sulcia through host-mediated, rather than symbiont-to-symbiont,
+      exchange.
   evidence:
   - reference: PMID:30254121
     supports: SUPPORT
@@ -149,6 +163,41 @@ ecological_interactions:
       the two symbionts, a likely mode of host control over symbiont metabolism
     explanation: Demonstrates that Baumannia and Sulcia exchange metabolites primarily with the host rather
       than directly with each other.
+- name: Host-Mediated Complementary Endosymbiont Metabolism
+  description: >
+    Sulcia and Baumannia provide complementary metabolic functions to the
+    sharpshooter host while remaining nearly metabolically segregated from each
+    other, yielding a host-controlled nutritional symbiosis rather than direct
+    cross-feeding between the bacterial symbionts.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: nitrogen
+    term:
+      id: CHEBI:25555
+      label: nitrogen atom
+    notes: Host-derived nitrogen is recycled by the two modeled bacterial endosymbionts.
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Our simulations reveal extensive bidirectional flux of multiple metabolites between each
+      symbiont and the host
+    explanation: >
+      Supports the host-symbiont exchange through which the two bacterial
+      partners provision the sharpshooter.
+  - reference: PMID:30254121
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: near-complete metabolic segregation (i.e., near absence of metabolic cross-feeding) between
+      the two symbionts, a likely mode of host control over symbiont metabolism
+    explanation: >
+      Supports the host-mediated organization of the Sulcia-Baumannia partnership.
 external_resources:
 - name: BioModels entry
   repository: BIOMODELS

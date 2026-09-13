@@ -28,10 +28,9 @@ from communitymech.paths import REPO_ROOT, record_files
 SCHEMA = REPO_ROOT / "src" / "communitymech" / "schema" / "communitymech.yaml"
 ORDER = ["RARE", "COMMON", "ABUNDANT", "DOMINANT"]
 
-# 0 as of #748. Not a ceiling — a tripwire. The consistency check below is
-# vacuous while this is 0, and saying so here is the honest form of a test that
-# cannot yet exercise its own subject.
-TAXA_WITH_A_NUMBER = 0
+# Not a ceiling — a tripwire. When this changes, the consistency check below has
+# a new measured-abundance case worth auditing.
+TAXA_WITH_A_NUMBER = 5
 
 
 def _enum() -> dict:

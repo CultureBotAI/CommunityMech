@@ -125,6 +125,7 @@ ecological_interactions:
   description: Suillus clintonianus secretes ureidosuccinic acid and pregnenolone that recruit
     Bacillus altitudinis B4 to the fungal mycelial surface, establishing the association.
   interaction_type: COLONIZATION_FACILITATION
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Suillus clintonianus
     term:
@@ -144,6 +145,12 @@ ecological_interactions:
     term:
       id: CHEBI:16581
       label: pregnenolone
+  downstream:
+  - target: Ureidosuccinic acid stimulation of bacterial thiamine production
+    description: >
+      Recruitment of B. altitudinis B4 to the S. clintonianus mycelial surface
+      precedes ureidosuccinic-acid stimulation of the recruited bacterium's
+      thiamine biosynthesis.
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
@@ -156,6 +163,7 @@ ecological_interactions:
   description: Ureidosuccinic acid secreted by S. clintonianus stimulates B. altitudinis B4 to
     increase biomass and upregulate thiamine biosynthesis genes, enhancing thiamine production.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Suillus clintonianus
     term:
@@ -176,6 +184,12 @@ ecological_interactions:
     term:
       id: GO:0009228
       label: thiamine biosynthetic process
+  downstream:
+  - target: Thiamine provisioning fulfilling the fungal requirement
+    description: >
+      Ureidosuccinic acid-induced biomass increase and thiamine-gene
+      upregulation in B. altitudinis B4 enhance the thiamine pool supplied to
+      the thiamine-limited fungus.
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
@@ -188,6 +202,7 @@ ecological_interactions:
   description: Bacillus altitudinis B4 supplies thiamine that Suillus clintonianus absorbs, promoting
     fungal growth; the fungus cannot effectively obtain or synthesize thiamine on its own.
   interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Bacillus altitudinis B4
     term:
@@ -208,6 +223,11 @@ ecological_interactions:
     term:
       id: GO:0009228
       label: thiamine biosynthetic process
+  downstream:
+  - target: Enhanced ectomycorrhizal colonization of the pine host
+    description: >
+      Bacterially produced thiamine is absorbed by S. clintonianus to promote
+      fungal growth, increasing ectomycorrhizal colonization of P. massoniana.
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
@@ -221,6 +241,7 @@ ecological_interactions:
     colonization rate of Suillus clintonianus in association with the host pine Pinus massoniana,
     completing a vitamin-mediated tripartite symbiosis.
   interaction_type: MUTUALISM
+  scope: PAIRWISE
   source_taxon:
     preferred_term: Suillus clintonianus
     term:
@@ -231,6 +252,11 @@ ecological_interactions:
     term:
       id: NCBITaxon:88730
       label: Pinus massoniana
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   evidence:
   - reference: PMID:41454778
     supports: SUPPORT
