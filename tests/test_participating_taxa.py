@@ -175,6 +175,7 @@ USERS = {
     "Avena_Rhizosphere_CrossKingdom_SIP_Community.yaml",
     "BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.yaml",
     "Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml",
+    "Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.yaml",
     "Bacteroides_Eubacterium_Gnotobiotic_Gut_Model.yaml",
     "Bacteroides_Methanobrevibacter_Gnotobiotic_Mouse_Mutualism.yaml",
     "Bayan_Obo_REE_Tailings_Consortium.yaml",
