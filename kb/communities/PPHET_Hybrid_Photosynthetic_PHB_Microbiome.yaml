@@ -1,0 +1,461 @@
+id: CommunityMech:000359
+name: PPHET Hybrid Photosynthetic PHB Microbiome
+description: 'A hybrid photosynthetic microbiome that combines the engineered polyhydroxybutyrate-producing cyanobacterium
+  Synechocystis sp. PCC 6803 PPT1 with the non-cyanobacterial fraction of a wild cyanobacteria-rich microbiome (WCRM). The
+  engineered phototroph replaced the native cyanobacterial component of WCRM while retaining a heterotrophic community dominated
+  by Proteobacteria/Pseudomonadota and Bacteroidota. PPHET accumulated up to 48% PHB per cell dry weight in nitrogen-limited
+  small-scale photoautotrophic cultures, continued to accumulate PHB under dark acetate-fed conditions in which PHB granules
+  localized primarily to heterotrophic members, and retained PHB production in non-sterile 4 L flat-panel and 8 L dark scaled
+  reactors.
+
+  '
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: 'Replace native phototrophs from a stable cyanobacteria-rich natural microbiome with a genetically engineered
+    Synechocystis PCC 6803 strain to combine natural microbiome robustness with synthetic PHB production.
+
+    '
+  assembly_strategy: 'Selectively isolate the non-cyanobacterial WCRM fraction on BG11 agar-agar, resuspend colonies in BG11,
+    serially dilute the heterotroph pool, and use it to inoculate exponentially growing axenic PPT1 cultures.
+
+    '
+  perturbation_design: 'Compare axenic PPT1, PPHET, and WCRM under nitrogen-limited photoautotrophic PHB production, non-sterile
+    cultivation, elevated light, heat shock, dark acetate-fed induction, and larger flat-panel or glass-vessel reactor conditions.
+
+    '
+  measurement_endpoints:
+  - OD750 growth
+  - Chlorophyll a accumulation
+  - Polyhydroxybutyrate titer and percent PHB per cell dry weight
+  - 16S rRNA amplicon community composition
+  - BODIPY-stained PHB granule localization
+  - pH and oxygen under stress conditions
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: creating what we term a hybrid microbiome
+    explanation: 'Supports the strategy of replacing native phototrophs in the source microbiome with the engineered Synechocystis
+      strain.
+
+      '
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We refer to the new hybrid culture with PPT1 as core species as PPHET consortia
+    explanation: Names the engineered hybrid culture as PPHET.
+environment_term:
+  preferred_term: laboratory photobioreactor culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: 'Constructed and tested in BG11/BG11_0 laboratory flasks, a 4 L flat-panel photobioreactor, and 8-10 L glass vessels.
+
+    '
+taxonomy:
+- taxon_term:
+    preferred_term: Synechocystis sp. PCC 6803 PPT1
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+    gtdb_grounding_status: UNRESOLVED
+    notes: 'Engineered Synechocystis sp. PCC 6803 derivative optimized for PHB production and used as the introduced core
+      phototroph; no GTDB classification block is asserted for this engineered strain-level cyanobacterial member.
+
+      '
+  strain_designation:
+    strain_name: PCC 6803 PPT1
+    genetic_modification: 'Engineered Synechocystis sp. PCC 6803 PPT1 PHB-production genotype; construct-level details were
+      not curated from the PPHET study.
+
+      '
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: genetically engineered cyanobacterial strain Synechocystis sp. PCC 6803 PPT1
+    explanation: Identifies the engineered cyanobacterial member.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PPHET contained only Cyanobacteriales
+    explanation: 'Supports PPT1 as the only resolved cyanobacterial order in the hybrid PPHET community.
+
+      '
+- taxon_term:
+    preferred_term: non-cyanobacterial WCRM heterotrophs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: 'Heterotrophic fraction retained from WCRM after selective depletion of native cyanobacteria. The 16S profile remained
+      mostly shared with WCRM and the major broad groups included Pseudomonadota and Bacteroidota.
+
+      '
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: non‐cyanobacterial fraction from WCRM
+    explanation: Identifies the retained heterotrophic fraction.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both were dominated by Cyanobacteria, Proteobacteria, and Bacteroidota
+    explanation: 'Supports Proteobacteria/Pseudomonadota and Bacteroidota as major broad groups in the heterotrophic fraction
+      after PPHET assembly.
+
+      '
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: other members of the community stained positive for BODIPY
+    explanation: 'Supports PHB accumulation by non-Synechocystis community members in PPHET.
+
+      '
+ecological_interactions:
+- name: Engineered Phototroph Substitution
+  description: 'PPHET was assembled by replacing the native cyanobacterial component of WCRM with the engineered Synechocystis
+    sp. PCC 6803 PPT1 strain while retaining a non-cyanobacterial heterotrophic fraction.
+
+    '
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  downstream:
+  - target: Nitrate-Limited Photoautotrophic PHB Production
+    description: 'The introduced PPT1 phototroph gave the hybrid community high PHB production capacity under nitrogen-limited
+      light conditions.
+
+      '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We refer to the new hybrid culture with PPT1 as core species as PPHET consortia
+    explanation: Supports PPHET as a hybrid culture centered on engineered PPT1.
+- name: Nitrate-Limited Photoautotrophic PHB Production
+  description: 'Under BG11_0 plus nitrate and bicarbonate in the light, PPHET entered chlorosis after nitrate depletion and
+    accumulated PHB to a yield similar to axenic PPT1 and higher than wild-type WCRM, with BODIPY-positive PHB granules
+    detected in PPT1 and other community members.
+
+    '
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: hydrogencarbonate
+    term:
+      id: CHEBI:17544
+      label: hydrogencarbonate
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  - preferred_term: poly(3-hydroxybutyrate)
+    term:
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PPHET reached similar PHB levels, up to 48% PHB/CDW
+    explanation: Supports high PHB accumulation by the hybrid microbiome.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: other members of the community stained positive for BODIPY
+    explanation: Supports PHB granule localization to non-Synechocystis cells during photoautotrophic PHB production.
+- name: Dark Acetate PHB Accumulation
+  description: 'After photoautotrophic growth, acetate-supplemented BG11_0 enabled PPHET, but not axenic PPT1, to keep accumulating
+    PHB in the dark; microscopy showed condition-specific PHB granule localization primarily in heterotrophic cells.
+
+    '
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: poly(3-hydroxybutyrate)
+    term:
+      id: CHEBI:53389
+      label: poly(3-hydroxybutyrate)
+  downstream:
+  - target: Non-Sterile Scaled Reactor Production
+    description: 'Acetate-supported heterotrophic PHB accumulation motivated the dark scaled-production mode tested in foil-wrapped
+      glass vessels.
+
+      '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Production was also achieved under dark conditions with acetate supplementation
+    explanation: Supports acetate-fed dark PHB production by PPHET.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PHB granules localised primarily in heterotrophic members
+    explanation: 'Supports heterotrophic PPHET members as the dominant PHB-accumulating cells in darkness.
+
+      '
+- name: Non-Sterile Scaled Reactor Production
+  description: 'PPHET tolerated non-sterile scaled cultivation better than axenic PPT1 and retained PHB production after transfer
+    to either a 4 L flat-panel photobioreactor with high light or an 8 L non-aerated dark reactor with acetate.
+
+    '
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  downstream:
+  - target: Dark Acetate PHB Accumulation
+    description: 'The scaled dark reactor used acetate supplementation to test PHB accumulation by heterotrophic community
+      members.
+
+      '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PPHET reached 33% PHB/CDW
+    explanation: Supports scaled photoautotrophic PHB production in PPHET.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A separate dark‐scale fermentation
+    explanation: Supports the separate dark scaled-production mode.
+environmental_factors:
+- name: Nitrate limitation
+  value: 4-8 mM NaNO3
+  description: 'One-step PHB production used nitrate-limited BG11_0 to trigger chlorosis and initiate PHB biosynthesis after
+    nitrate became limiting.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were directly inoculated into BG110 supplemented with 4–8 mM NaNO3
+    explanation: Supports the nitrate range used in one-step production medium.
+- name: Light and temperature stress
+  value: elevated light and 38 C heat shock
+  description: 'PPHET was tested against axenic PPT1 under elevated light and a transient 38 C heat shock as industrially
+    relevant abiotic perturbations.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: both systems were tested under various biotic and abiotic stress conditions
+    explanation: Supports the abiotic and biotic stress testing design.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light intensity was gradually increased to 400 μmol m−2 s−1
+    explanation: Supports the elevated-light perturbation.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: transient heat shock (38°C)
+    explanation: Supports the transient 38 C temperature perturbation.
+growth_media:
+- name: PPHET BG11/BG11_0 one-step PHB medium
+  composition:
+  - name: nitrate
+    chebi_term:
+      preferred_term: nitrate
+      term:
+        id: CHEBI:17632
+        label: nitrate
+  - name: hydrogencarbonate
+    chebi_term:
+      preferred_term: hydrogencarbonate
+      term:
+        id: CHEBI:17544
+        label: hydrogencarbonate
+  temperature: '28'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  light_regime: continuous illumination
+  light_intensity: ~50-60
+  light_intensity_unit: umol m-2 s-1
+  inoculum_source: 'Synechocystis sp. PCC 6803 PPT1 and the non-cyanobacterial fraction selectively isolated from WCRM.
+
+    '
+  inoculum_size: '0.2'
+  inoculum_unit: OD750
+  shaking_speed: '120'
+  shaking_speed_unit: rpm
+  vessel_type: 100 mL Erlenmeyer flasks with 50 mL culture
+  incubation_time: '19'
+  incubation_time_unit: d
+  preparation_notes: 'Cyanobacteria and community cultures were precultured in BG11 plus 5 mM NaHCO3, harvested, and moved
+    into BG11_0 lacking NaNO3. The comparative small-scale PHB test used BG11_0 with 5 mM NaNO3 and 10 mM NaHCO3 and added
+    50 mM NaHCO3 upon nitrogen depletion; broader one-step experiments varied NaNO3 from 4 to 8 mM.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cultures were inoculated in BG110 medium supplemented with 5 mM of NaNO3
+    explanation: Supports the small-scale nitrate-limited PHB medium.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Upon nitrogen depletion, 50 mM of NaHCO3 were added
+    explanation: Supports bicarbonate addition during the 19-day PHB test.
+- name: PPHET acetate-fed dark PHB medium
+  composition:
+  - name: acetate
+    chebi_term:
+      preferred_term: acetate
+      term:
+        id: CHEBI:30089
+        label: acetate
+  - name: hydrogencarbonate
+    chebi_term:
+      preferred_term: hydrogencarbonate
+      term:
+        id: CHEBI:17544
+        label: hydrogencarbonate
+  atmosphere: AEROBIC
+  light_regime: complete darkness after photoautotrophic growth
+  preparation_notes: 'After a photoautotrophic growth phase, PPHET cultures were transferred to BG11_0 supplemented with 30
+    mM acetate and 10 mM NaHCO3 and incubated under complete darkness or continuous light as a control.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following photoautotrophic growth, cultures were transferred to BG110 supplemented with 30 mM acetate
+    explanation: Supports the acetate-fed dark PHB induction medium.
+associated_datasets:
+- accession: PRJEB98235
+  title: PPHET and WCRM 16S rRNA amplicon sequencing
+  description: 'European Nucleotide Archive deposition for the 16S rRNA amplicon data used to compare PPHET and WCRM community
+    structure.
+
+    '
+  organism: PPHET and WCRM cyanobacteria-rich microbiomes
+  dataset_type: AMPLICON_16S
+  repository: ENA
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB98235
+  publication: PMID:41559821
+  findings: 'The dataset supported 16S comparison of the hybrid PPHET and source WCRM communities one week after inoculation
+    in BG11.
+
+    '
+external_resources:
+- name: Primary publication DOI
+  repository: OTHER
+  resource_id: doi:10.1111/1751-7915.70302
+  url: https://doi.org/10.1111/1751-7915.70302
+  description: 'DOI landing page for the Microbial Biotechnology article that constructed and characterized the PPHET hybrid
+    photosynthetic PHB microbiome.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultivation in a Natural Microbial Community Enhances the Industrial Performance
+    explanation: Supports the primary article as the source for this record.
+related_ingredients:
+- preferred_term: poly(3-hydroxybutyrate)
+  chebi_term:
+    id: CHEBI:53389
+    label: poly(3-hydroxybutyrate)
+  relevance: 'PHB is the target biodegradable polymer accumulated by engineered PPT1 and by non-cyanobacterial PPHET members
+    under acetate-fed dark conditions.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: PPHET reached similar PHB levels, up to 48% PHB/CDW
+    explanation: Supports PHB as the main product measured in PPHET.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: 'Acetate was supplied to induce heterotrophic PHB production in darkness after PPHET had grown photoautotrophically.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Production was also achieved under dark conditions with acetate supplementation
+    explanation: Supports acetate as the dark-mode organic substrate.
+discussions:
+- discussion_id: DISCUSSION-PPHET-OXYGEN-SCAVENGING
+  prompt: 'Do PPHET heterotrophs directly protect Synechocystis PPT1 by consuming photosynthetically produced oxygen and lowering
+    reactive-oxygen stress, or does the stress tolerance come from another community function?
+
+    '
+  kind: EMERGING_HYPOTHESIS
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Non-Sterile Scaled Reactor Production
+  rationale: 'Zini et al. propose heterotrophic oxygen scavenging as a possible mechanism for high-light tolerance but report
+    it as qualitative support rather than a direct pairwise mechanism, so the record tracks it as a hypothesis instead of
+    an asserted interaction.
+
+    '
+  evidence:
+  - reference: PMID:41559821
+    supports: NO_EVIDENCE
+    evidence_source: full_text
+    snippet: A possible explanation for this robustness is the presence of heterotrophic partners
+    explanation: 'The paper discusses oxygen scavenging as a possible explanation, not as a directly resolved causal edge.
+
+      '
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: 'No metal or rare earth element processing role is curated for this photosynthetic PHB-production microbiome.
+
+  '
+curation_history:
+- timestamp: '2026-09-13T08:52:52Z'
+  curator: codex
+  action: CREATE_PPHET_HYBRID_PHB_MICROBIOME
+  changes: Created CommunityMech:000359 for the PPHET hybrid photosynthetic PHB microbiome from PMID:41559821, including engineered
+    PPT1 membership, WCRM-derived heterotrophs, 16S-derived broad composition, photoautotrophic and dark acetate-fed PHB modes,
+    scaled non-sterile reactor cultivation, ENA PRJEB98235, DOI metadata, and evidence snippets from the cached open-access
+    full text.
+  llm_assisted: true
