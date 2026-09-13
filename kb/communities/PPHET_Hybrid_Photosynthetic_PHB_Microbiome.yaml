@@ -67,8 +67,8 @@ taxonomy:
       '
   strain_designation:
     strain_name: PCC 6803 PPT1
-    genetic_modification: 'Synechocystis PCC 6803 carrying a PHB-production plasmid based on the Synechocystis psbA2 promoter
-      and the Cupriavidus necator H16 phaAB gene cassette.
+    genetic_modification: 'Engineered Synechocystis sp. PCC 6803 PPT1 PHB-production genotype; construct-level details were
+      not curated from the PPHET study.
 
       '
   abundance_level: DOMINANT
@@ -158,10 +158,11 @@ ecological_interactions:
     explanation: Supports PPHET as a hybrid culture centered on engineered PPT1.
 - name: Nitrate-Limited Photoautotrophic PHB Production
   description: 'Under BG11_0 plus nitrate and bicarbonate in the light, PPHET entered chlorosis after nitrate depletion and
-    accumulated PHB to a yield similar to axenic PPT1 and higher than wild-type WCRM.
+    accumulated PHB to a yield similar to axenic PPT1 and higher than wild-type WCRM, with BODIPY-positive PHB granules
+    detected in PPT1 and other community members.
 
     '
-  interaction_type: CROSS_FEEDING
+  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: hydrogencarbonate
@@ -187,12 +188,17 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: PPHET reached similar PHB levels, up to 48% PHB/CDW
     explanation: Supports high PHB accumulation by the hybrid microbiome.
+  - reference: PMID:41559821
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: other members of the community stained positive for BODIPY
+    explanation: Supports PHB granule localization to non-Synechocystis cells during photoautotrophic PHB production.
 - name: Dark Acetate PHB Accumulation
   description: 'After photoautotrophic growth, acetate-supplemented BG11_0 enabled PPHET, but not axenic PPT1, to keep accumulating
-    PHB in the dark; microscopy showed PHB granules primarily in heterotrophic cells under the dark condition.
+    PHB in the dark; microscopy showed condition-specific PHB granule localization primarily in heterotrophic cells.
 
     '
-  interaction_type: CROSS_FEEDING
+  interaction_type: NICHE_PARTITIONING
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: acetate
@@ -309,7 +315,7 @@ growth_media:
   inoculum_unit: OD750
   shaking_speed: '120'
   shaking_speed_unit: rpm
-  vessel_type: 100 mL Erlenmeyer flasks with 50 mL culture; 4 L flat-panel photobioreactor; 8-10 L borosilicate glass vessels
+  vessel_type: 100 mL Erlenmeyer flasks with 50 mL culture
   incubation_time: '19'
   incubation_time_unit: d
   preparation_notes: 'Cyanobacteria and community cultures were precultured in BG11 plus 5 mM NaHCO3, harvested, and moved
