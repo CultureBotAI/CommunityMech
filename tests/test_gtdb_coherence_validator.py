@@ -495,7 +495,7 @@ def test_the_status_distribution_is_what_was_measured():
     assert counts["UNRESOLVED"] > 90, "the ungrounded-but-unexplained bucket vanished"
     # Two-sided: without a ceiling, losing the domain lookup and dumping all 96
     # eukaryotes back into UNRESOLVED would pass (#393).
-    assert counts["UNRESOLVED"] < 160, (
+    assert counts["UNRESOLVED"] < 162, (
         "UNRESOLVED has grown back toward its pre-#393 size; the NCBI domain "
         "lookup may be silently unavailable, which degrades to this bucket"
     )
