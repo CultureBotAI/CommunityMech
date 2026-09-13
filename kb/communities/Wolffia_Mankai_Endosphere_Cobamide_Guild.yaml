@@ -1,0 +1,278 @@
+id: CommunityMech:000360
+name: Wolffia Mankai Endosphere Cobamide Guild
+description: A host-filtered bacterial endosphere community from the edible aquatic plant Wolffia globosa Mankai, sampled
+  from industrial rotating raceway cultivation. Amplicon and shotgun metagenomic analyses showed that Mankai medium, phyllosphere,
+  and surface-sterilized internal-tissue fractions formed distinct communities; downstream MAG analysis of the endosphere
+  found a low-diversity Proteobacteria/Pseudomonadota-dominated consortium in which Alphaproteobacterial members encoded near-complete
+  cobamide biosynthesis pathways, while many Gammaproteobacteria and Bacteroidota lineages carried incomplete pathways enriched
+  for cobamide salvage and remodeling. A MAG-derived functional-complementarity network placed Hyphomicrobium zavarzinii,
+  Methylobacterium, and Devosia among the inferred producer hubs, supporting a producer-salvager model for cobamide metabolism
+  in the plant-associated niche.
+community_origin: NATURAL
+community_category: OTHER
+environment_term:
+  preferred_term: Wolffia globosa Mankai endosphere
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: Surface-sterilized W. globosa Mankai fronds from the Hinoman industrial greenhouse system; grounded to the broader
+    plant-associated environment because ENVO has no specific endosphere term.
+taxonomy:
+- taxon_term:
+    preferred_term: Hyphomicrobium zavarzinii
+    term:
+      id: NCBITaxon:48292
+      label: Hyphomicrobium zavarzinii
+    notes: Endosphere MAG assigned to H. zavarzinii; the paper identified this taxon as a central cobamide-network hub.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Within the network, H. zavarzinii emerged as a central hub, sharing the highest number of intermediates with
+      M. ginsengisoli
+    explanation: Supports Hyphomicrobium zavarzinii as a member of the Mankai endosphere cobamide network.
+- taxon_term:
+    preferred_term: Methylobacterium sp. Mankai endosphere
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+    notes: Genus-level Methylobacterium member of the Mankai endosphere network with most cobamide-biosynthesis steps encoded
+      in MAG annotations.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Additional highly connected taxa, including Methylobacterium sp., M. purpurogeneiscleroticus, Devosia sp., and
+      Ferrovibrionaceae, encoded most cobamide biosynthesis steps
+    explanation: Supports Methylobacterium sp. Mankai endosphere as a member of the Mankai endosphere cobamide network.
+- taxon_term:
+    preferred_term: Devosia sp. Mankai endosphere
+    term:
+      id: NCBITaxon:46913
+      label: Devosia
+    notes: Genus-level Devosia member of the Mankai endosphere network with most cobamide-biosynthesis steps encoded in MAG
+      annotations.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Additional highly connected taxa, including Methylobacterium sp., M. purpurogeneiscleroticus, Devosia sp., and
+      Ferrovibrionaceae, encoded most cobamide biosynthesis steps
+    explanation: Supports Devosia sp. Mankai endosphere as a member of the Mankai endosphere cobamide network.
+- taxon_term:
+    preferred_term: Gammaproteobacteria cobamide salvagers
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+    notes: Broad endosphere clade used for multiple gammaproteobacterial MAG lineages whose incomplete cobamide pathways imply
+      salvager-dominated strategies rather than autonomous de novo synthesis.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous
+      cobamide intermediates
+    explanation: Supports Gammaproteobacteria cobamide salvagers as a member of the Mankai endosphere cobamide network.
+- taxon_term:
+    preferred_term: Bacteroidota cobamide salvagers
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+    notes: Broad endosphere clade used for multiple Bacteroidota MAG lineages whose incomplete cobamide pathways imply salvager-dominated
+      strategies rather than autonomous de novo synthesis.
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous
+      cobamide intermediates
+    explanation: Supports Bacteroidota cobamide salvagers as a member of the Mankai endosphere cobamide network.
+ecological_interactions:
+- name: Mankai Compartment Host Filtering
+  description: Bacterial assemblages from cultivation medium, washed fronds, and surface-sterilized tissue clustered separately;
+    the endosphere retained a lower-diversity, distinct subset of the broader plant-associated and medium-associated pool.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The pronounced differences in richness and composition between the medium, phyllosphere and endosphere (Fig. 
+      2 ) indicate strong environmental and host filtering along the plant-water interface
+    explanation: Supports compartment filtering across medium, phyllosphere, and endosphere fractions.
+- name: MAG-Inferred Cobamide Producer-Salvager Guild
+  description: 'Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium zavarzinii,
+    Methylobacterium, Devosia, and other Alphaproteobacteria encoded most biosynthetic steps, while many Gammaproteobacteria
+    and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous intermediates.'
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Hyphomicrobium zavarzinii
+    term:
+      id: NCBITaxon:48292
+      label: Hyphomicrobium zavarzinii
+  - preferred_term: Methylobacterium sp. Mankai endosphere
+    term:
+      id: NCBITaxon:407
+      label: Methylobacterium
+  - preferred_term: Devosia sp. Mankai endosphere
+    term:
+      id: NCBITaxon:46913
+      label: Devosia
+  - preferred_term: Gammaproteobacteria cobamide salvagers
+    term:
+      id: NCBITaxon:1236
+      label: Gammaproteobacteria
+  - preferred_term: Bacteroidota cobamide salvagers
+    term:
+      id: NCBITaxon:976
+      label: Bacteroidota
+  metabolites:
+  - preferred_term: cobamide
+    term:
+      id: CHEBI:33913
+      label: corrinoid
+    notes: Curated as the broader corrinoid/cobamide family.
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+    notes: Canonical cobalamin form considered within the cobamide pathway.
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  - preferred_term: cobalamin metabolic process
+    term:
+      id: GO:0009235
+      label: cobalamin metabolic process
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The functional complementarity network identified a small set of taxa with near-complete cobamide biosynthetic
+      capacity as highly connected hub nodes
+    explanation: Supports the MAG-inferred hub structure of the cobamide network.
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous
+      cobamide intermediates
+    explanation: Supports the broad salvager clades in the inferred network.
+environmental_factors:
+- name: industrial rotating greenhouse raceway
+  value: Mankai from Hinoman rotating raceway basins
+  description: W. globosa Mankai host plants were collected from separate basins in a controlled greenhouse industrial cultivation
+    system.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mankai was collected from Hinoman’s industrial cultivation site utilizing a fully automated, hands-free system
+      with rotating raceway basins
+    explanation: Supports the industrial rotating-raceway cultivation context.
+- name: operational endosphere fraction
+  value: surface-sterilized W. globosa Mankai tissue-associated fraction
+  description: The curated endosphere is the paper's surface-sterilized tissue-associated fraction; the authors state that
+    it is an operational definition rather than culture-validated proof of strictly internal viable bacteria.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: In this study, “endosphere” is used operationally to describe the sterilized-tissue-associated fraction recovered
+      after surface sterilization and washing
+    explanation: Supports the operational definition and caveat for the endosphere sample fraction.
+cultivation_setup:
+- cultivation_mode: OTHER
+  system_type: OTHER
+  instrument_detail: Fully automated, hands-free rotating raceway basin system under closed-controlled greenhouse conditions
+    at Kibbutz Be'eri.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Mankai was collected from Hinoman’s industrial cultivation site utilizing a fully automated, hands-free system
+      with rotating raceway basins
+    explanation: Supports the greenhouse raceway system used to cultivate the host plants before microbiome sampling.
+associated_datasets:
+- accession: PRJNA1356720
+  title: Wolffia globosa Mankai endosphere amplicon and metagenomic reads
+  description: NCBI BioProject carrying the raw amplicon and metagenomic reads used to profile medium, phyllosphere, and endosphere
+    communities and to reconstruct endosphere MAGs.
+  dataset_type: MULTI_OMICS
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - cultivation medium
+  - Mankai phyllosphere fraction
+  - Mankai endosphere fraction
+  conditions:
+  - 16S rRNA amplicon profiling
+  - shotgun metagenomic sequencing
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1356720
+  publication: PMID:42304541
+  findings: The deposited reads underlie the compartment-resolved community profiles and endosphere MAG-based cobamide-pathway
+    analysis.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'The raw data were deposited in NCBI under BioProject PRJNA1356720 (SRA Study: SRP645794).'
+    explanation: Links the sequencing data to BioProject PRJNA1356720.
+external_resources:
+- name: Primary publication - Mankai endosphere cobamide guild
+  repository: OTHER
+  resource_id: PMID:42304541
+  url: https://pubmed.ncbi.nlm.nih.gov/42304541/
+  description: Open-access Environmental Microbiome study that combined 16S amplicon sequencing, endosphere metagenomics,
+    MAG annotation, cobamide functional-complementarity networks, and comparator isolate genomics.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: A cooperative cobalamide biosynthesis guild in the endosphere of the edible aquatic plant Wolffia globosa Mankai
+    explanation: Identifies the seed paper curated into this record.
+discussions:
+- discussion_id: direct_cobamide_exchange_not_measured
+  prompt: The cobamide producer-salvager structure is inferred from MAG annotations and network complementarity; direct exchange
+    of cobamide intermediates among endosphere members remains unmeasured.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#MAG-Inferred Cobamide Producer-Salvager Guild
+  rationale: Resolving this would distinguish true metabolite handoff from shared niche preference or correlated cobamide
+    pathway potential.
+  proposed_experiments:
+  - experiment_id: mankai_cobamide_flux
+    name: Trace cobamide exchange in controlled Mankai endosphere microcosms
+    approach: stable-isotope tracing with metatranscriptomics
+    model_systems:
+    - Mankai-associated producer and salvager taxa
+    perturbations:
+    - producer depletion or inhibition
+    - labeled cobamide-precursor pulse
+    readouts:
+    - cobamide intermediate incorporation
+    - cob/cbi and salvage-gene expression
+    decision_criterion: Labeled intermediates move from predicted producers into predicted salvagers in a producer-dependent
+      manner.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Future work integrating transcriptomics, metabolite flux measurements, and controlled manipulation of key producer
+      and salvager taxa will be essential to move from genomic potential and inferred interactions to directly measured cobamide
+      exchange
+    explanation: The primary source explicitly frames direct cobamide exchange as a future measurement need.
+curation_history:
+- timestamp: '2026-09-13T10:27:13Z'
+  curator: claude
+  action: ADD_MANKAI_ENDOSPHERE_RECORD
+  changes: Added a new Mankai endosphere cobamide-guild community from PMID:42304541, including evidence-backed taxa, MAG-inferred
+    cobamide interactions, the BioProject accession, industrial raceway context, and an open discussion for unmeasured direct
+    cobamide exchange.
+  llm_assisted: true
