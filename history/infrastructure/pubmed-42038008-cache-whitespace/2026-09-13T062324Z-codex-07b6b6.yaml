@@ -1,0 +1,26 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: references_cache
+  slug: pubmed-42038008-cache-whitespace
+session:
+  id: 2026-09-13T062324Z-codex-07b6b6
+  timestamp: '2026-09-13T06:23:24Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/828
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - references_cache
+  summary: Strip PMID 42038008 cache trailing whitespace
+  details: Adversarial review found git diff --check failures in the newly cached PMID 42038008
+    article and supplement files. Removed only trailing horizontal whitespace from references_cache/PMID_42038008.txt
+    and references_cache/PMID_42038008.supplement.md so the cache contents keep their wording
+    while satisfying the repository whitespace gate.

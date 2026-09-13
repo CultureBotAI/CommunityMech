@@ -1,0 +1,28 @@
+history_version: 1
+target:
+  kind: infrastructure
+  path: references_cache
+  slug: supplement-cache-separation
+session:
+  id: 2026-09-13T062140Z-codex-1f3c5f
+  timestamp: '2026-09-13T06:21:40Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/827
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - references_cache
+  summary: Separate PMID 42038008 supplement cache
+  details: Adversarial review found a duplicate SUPPLEMENTARY FILE TEXT block appended to
+    references_cache/PMID_42038008.txt even though the same supplement text is already cached
+    in references_cache/PMID_42038008.supplement.md. Removed the appended block to keep article
+    and supplement provenance separate per the cache-supplements contract; the exact Table
+    S2 supplement quote remains in the .supplement.md sidecar and is intentionally not duplicated
+    in the article cache.
