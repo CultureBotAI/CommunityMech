@@ -63,13 +63,13 @@ EXPECTED = {
     # 0 since #480: a dropped strain designation is no longer a difference.
     # The key stays, with its reason, so the bucket cannot silently repopulate.
     "strain_dropped": 0,
-    "polyphyly_only": 28,
+    "polyphyly_only": 29,
     "strain_dropped_and_polyphyly": 13,
     "gtdb_placeholder_same_genus": 3,
     "nomenclatural_ending": 3,
 }
-NOT_A_RECLASSIFICATION = 47
-TOTAL_TRUE = 127
+NOT_A_RECLASSIFICATION = 48
+TOTAL_TRUE = 128
 ABOVE_SPECIES = 40
 
 

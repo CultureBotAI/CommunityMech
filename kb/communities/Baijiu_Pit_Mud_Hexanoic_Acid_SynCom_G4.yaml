@@ -1,0 +1,228 @@
+id: CommunityMech:000365
+name: Baijiu Pit Mud Hexanoic Acid SynCom G4
+description: An ethanol-fed, hexanoic-acid-producing synthetic community constructed from Chinese baijiu fermentation pit
+  mud using a top-down strategy. The G4 SynCom was dominated by Clostridium sensu stricto 12, described as primarily Clostridium
+  kluyveri with an 86% value, with Clostridium sensu stricto 18 and Pseudoclavibacter also reported among dominant prokaryotes.
+  Functional predictions and fermentation profiling suggested a potential association between G4 hexanoic acid production
+  and reverse beta-oxidation; under optimized pH 7.9, 37.6 C, 8.2% inoculum, and 77% loading-volume conditions, SynCom G4
+  reached 4.69 g/L hexanoic acid.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct an ethanol-based hexanoic-acid-producing SynCom from Chinese baijiu fermentation pit mud and use it
+    as a simplified model to study prokaryotic succession, community assembly, and core synthetic pathways during hexanoic
+    acid production.
+  assembly_strategy: Build the G4 hexanoic-acid-producing SynCom from pit mud using a top-down strategy.
+  measurement_endpoints:
+  - prokaryotic community diversity and enrichment succession
+  - ecological assembly process
+  - functional-prediction links to the reverse beta-oxidation pathway
+  - hexanoic acid yield
+  evidence:
+  - &id001
+    reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, an ethanol-based HA-producing synthetic community (SynCom) was constructed from the pit mud using
+      a top-down strategy, and dominated by Clostridium sensu stricto 12 (primarily Clostridium kluyveri, 86%), Clostridium
+      sensu stricto 18 and Pseudoclavibacter.
+    explanation: Supports the ethanol-based SynCom, top-down pit-mud construction strategy, and dominant prokaryotes in the
+      G4 community.
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Ecological analysis revealed that community assembly exhibited significant diversity dynamics during enrichment.
+    explanation: Supports the community-assembly analysis endpoint.
+environment_term:
+  preferred_term: laboratory ethanol-fed hexanoic acid SynCom
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The paper studied an ethanol-based, hexanoic-acid-producing synthetic community under controlled optimized conditions.
+modeled_environment:
+- preferred_term: Chinese baijiu fermentation pit mud
+  term:
+    id: ENVO:01000001
+    label: mud
+  notes: Pit mud from Chinese baijiu fermentation was the source material used for top-down SynCom construction.
+taxonomy:
+- taxon_term:
+    preferred_term: Clostridium kluyveri
+    term:
+      id: NCBITaxon:1534
+      label: Clostridium kluyveri
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Clostridium_B_kluyveri
+      gtdb_taxon: Clostridium_B kluyveri
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Clostridiales;f__Clostridiaceae;g__Clostridium_B;s__Clostridium_B
+        kluyveri
+      ncbi_source_id: NCBITaxon:1534
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name -
+        no species-level NCBI id in table]
+    notes: The PubMed abstract resolves the dominant Clostridium sensu stricto 12 signal primarily to C. kluyveri with an
+      86% value, but the abstract alone does not make that value's denominator or strain designation explicit.
+  abundance_level: DOMINANT
+  evidence:
+  - *id001
+  - reference: PMID:42442429
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: A highly significant positive correlation (P < 0.01) was observed between Clostridium sensu stricto 12 and HA
+      biosynthesis.
+    explanation: Supports the hexanoic-acid-biosynthesis association for the Clostridium sensu stricto 12 lineage that was
+      primarily resolved as C. kluyveri, but does not by itself prove species-isolate catalysis.
+- taxon_term:
+    preferred_term: Pseudoclavibacter
+    term:
+      id: NCBITaxon:255204
+      label: Pseudoclavibacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The PubMed abstract names Pseudoclavibacter among the dominant G4 SynCom prokaryotes but does not report a species
+      or strain.
+  abundance_level: ABUNDANT
+  evidence:
+  - *id001
+ecological_interactions:
+- name: G4 SynCom Reverse Beta-Oxidation Association
+  description: Functional prediction and fermentation profiling associated hexanoic acid production by SynCom G4 with the
+    reverse beta-oxidation pathway; the abstract does not resolve the complete organism-level pathway wiring.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: hexanoic acid
+    term:
+      id: CHEBI:30776
+      label: hexanoic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Functional predictions and fermentation profiling suggested a potential associationbetween HA production by SynCom
+      (G4) and the reverse β-oxidation pathway.
+    explanation: Supports a G4 community-level association between hexanoic acid production and the reverse beta-oxidation
+      pathway.
+environmental_factors:
+- name: Ethanol feedstock
+  value: ethanol-based hexanoic acid production
+  description: The G4 SynCom was built and assayed in an ethanol-fed production context.
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ethanol-based HA-producing synthetic community
+    explanation: Supports ethanol as the named feedstock context for the SynCom.
+- name: Optimized G4 process condition
+  value: pH 7.9; 37.6 C; 8.2% inoculum; 77% loading volume
+  description: The PubMed abstract reports these as the optimized operating conditions under which G4 achieved its highest
+    reported hexanoic acid yield.
+  evidence:
+  - &id002
+    reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Under optimized conditions (pH 7.9, 37.6°C, 8.2% inoculum, 77% loading volume), SynCom (G4) achieved a HA yield
+      of 4.69 g/L.
+    explanation: Supports the optimized pH, temperature, inoculum fraction, loading volume, and G4 yield.
+- name: Hexanoic acid yield
+  value: 4.69 g/L
+  description: SynCom G4 produced 4.69 g/L hexanoic acid under the reported optimized conditions.
+  evidence:
+  - *id002
+related_ingredients:
+- preferred_term: ethanol
+  chebi_term:
+    id: CHEBI:16236
+    label: ethanol
+  relevance: Ethanol was the named feedstock for constructing and enriching the hexanoic-acid-producing SynCom.
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: ethanol-based HA-producing synthetic community
+    explanation: Supports ethanol as the SynCom's feedstock context.
+- preferred_term: hexanoic acid
+  chebi_term:
+    id: CHEBI:30776
+    label: hexanoic acid
+  relevance: Hexanoic acid was the target medium-chain fatty acid product of the G4 baijiu pit-mud SynCom.
+  evidence:
+  - *id002
+external_resources:
+- name: DOI landing page - Bioresource Technology article
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2026.135395
+  url: https://doi.org/10.1016/j.biortech.2026.135395
+  description: DOI for the Bioresource Technology article describing the G4 baijiu pit-mud SynCom.
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.biortech.2026.135395'
+    explanation: Gives the DOI of the primary publication.
+discussions:
+- discussion_id: baijiu_g4_clostridium_sensu_stricto_18_gap
+  prompt: Which exact NCBITaxon-resolvable organism or sequence variant corresponds to the dominant Clostridium sensu stricto
+    18 signal in the G4 hexanoic-acid SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: The PubMed abstract names Clostridium sensu stricto 18 as a dominant G4 taxon, but OAK/OLS did not resolve that
+    SILVA-style lineage as an NCBITaxon label on 2026-09-13. The full text, supplements, or deposited amplicon sequence table
+    are needed before that lineage can be grounded without over-broadly mapping it to NCBI Clostridium.
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: abstract
+    snippet: Clostridium sensu stricto 12 (primarily Clostridium kluyveri, 86%), Clostridium sensu stricto 18 and Pseudoclavibacter
+    explanation: Names Clostridium sensu stricto 18 as a dominant lineage in the G4 SynCom.
+  posed_by: codex
+  posed_date: '2026-09-13'
+- discussion_id: baijiu_g4_abstract_bounded_cultivation
+  prompt: What full medium composition, enrichment transfers, and vessel geometry produced G4 from Chinese baijiu pit mud?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - environmental_factors#Optimized G4 process condition
+  rationale: The PubMed abstract gives the ethanol-based source, the top-down strategy, the optimized pH, temperature, inoculum
+    and loading volume, and the final hexanoic acid yield, but not enough method-level detail to curate a growth_media or
+    cultivation_setup block.
+  evidence:
+  - reference: PMID:42442429
+    supports: SUPPORT
+    evidence_source: abstract
+    snippet: Under optimized conditions (pH 7.9, 37.6°C, 8.2% inoculum, 77% loading volume), SynCom (G4) achieved a HA yield
+      of 4.69 g/L.
+    explanation: Captures the abstract's quantitative optimized condition while leaving full cultivation details open.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for the G4 baijiu pit-mud SynCom.
+curation_history:
+- timestamp: '2026-09-13T18:30:52Z'
+  curator: codex
+  action: ADD_BAIJIU_HEXANOIC_ACID_SYNCOM
+  changes: Added baijiu pit-mud SynCom G4 from PMID:42442429.
+  llm_assisted: true
+- timestamp: '2026-09-13T18:42:51Z'
+  curator: codex
+  action: SOFTEN_BAIJIU_ABSTRACT_CLAIMS
+  changes: Removed a typed C. kluyveri relative abundance and inferred functional roles, and softened the reverse beta-oxidation
+    pathway description to stay within the abstract-level evidence reviewed in issues 855 and 856.
+  llm_assisted: true
