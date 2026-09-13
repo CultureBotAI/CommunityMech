@@ -1021,17 +1021,17 @@ classes:
           the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
-          half held. Of the 127 blocks currently true, 40 are grounded above
+          half held. Of the 128 blocks currently true, 40 are grounded above
           species — through genus, family, order, class and phylum — so the rank
           is wrong for nearly a third of them. And it does not mean GTDB
-          reclassified anything. Partitioning the 127 by why the names differ
+          reclassified anything. Partitioning the 128 by why the names differ
           (#441):
 
           * 0 dropped strain designations. There were 40 — `Escherichia coli
             K-12` -> `Escherichia coli` — and #480 removed them: GTDB carries no
             strain suffixes, so the names differed while the placement did not.
             `name_differs` now treats that as no difference.
-          * 28 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
+          * 29 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
             marker on the same name, not a rename.
           * 13 that are both at once — `Buchnera aphidicola BCc` ->
             `Buchnera aphidicola_F`.
@@ -1048,7 +1048,7 @@ classes:
             `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
             `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So 47 of 127 — 37% — are not reclassifications under any reading, and
+          So 48 of 128 — 38% — are not reclassifications under any reading, and
           that is a floor: the 80 "genuinely different" include an unknown
           number of NCBI renames and spelling variants. Filter on this slot to
           find "the two labels are not identical", which is what it computes.
@@ -1056,13 +1056,12 @@ classes:
 
           #480 narrowed it: dropping the 40 strain-designation cases took the
           non-reclassification share from 54% to 38% at that time, and the
-          genuinely-different share from 46% to 62%. Both have drifted a point
-          since as curation added blocks; the current values are the ones
-          counted above, not these. Polyphyly suffixes are deliberately still
-          reported — `Bacillota` -> `Bacillota_A` is a real GTDB distinction, and
-          #480 records that folding it in here is the arguable middle rather than
-          the obvious next step. An enum (#480 option 3) is where this wants to
-          end up.
+          genuinely-different share from 46% to 62%. The current block counts
+          are the ones counted above, not these historical rounded percentages.
+          Polyphyly suffixes are deliberately still reported — `Bacillota` ->
+          `Bacillota_A` is a real GTDB distinction, and #480 records that
+          folding it in here is the arguable middle rather than the obvious
+          next step. An enum (#480 option 3) is where this wants to end up.
 
           ONE call site computes it now, `name_differs` (#482). Two used to:
           `bool(sp and ref and sp != ref)` on the species path, which produced
