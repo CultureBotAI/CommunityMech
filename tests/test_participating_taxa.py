@@ -246,6 +246,7 @@ USERS = {
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
+    "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
     "Shewanella_Pseudomonas_Fe0_Electrosyntrophic_Denitrifying_Consortium.yaml",
     "Shewanella_oneidensis_Rhodopseudomonas_palustris_Electrosyntrophic_Coculture.yaml",
     "Soil_Corrinoid_B12_Reservoir_Community.yaml",
