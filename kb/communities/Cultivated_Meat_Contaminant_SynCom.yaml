@@ -1,0 +1,220 @@
+id: CommunityMech:000366
+name: Cultivated Meat Contaminant SynCom
+description: A six-isolate synthetic microbial community assembled from microbial contaminants that originated in the cultivated-meat
+  cell-culture environment. Whole-genome functional mapping suggested potential metabolic complementarity and ecological
+  robustness among the contaminants, and the SynCom was used as a severe cell-cultured-meat contamination model for
+  antimicrobial-peptide intervention tests. In a screen of 11 antimicrobial peptides and proteins, the synthetic peptide
+  1018-k6 was the most effective agent, with a 37.5 μg/mL minimum inhibitory concentration against the SynCom and complete
+  microbial inhibition across a 14-day production-cycle assay challenged with 10^6 CFU/mL bacteria.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a multi-contaminant cultivated-meat SynCom as a worst-case cell-culture contamination model and identify
+    antimicrobial peptides or proteins able to suppress the whole SynCom without harming the cultured animal-cell readouts.
+  assembly_strategy: Identify six microbial contaminants originating from the cell-culture environment, use WGS-based functional
+    mapping to inspect potential metabolic complementarity and ecological robustness among them, and assemble the isolates into
+    a SynCom to simulate multi-strain contamination during cell-cultured meat production.
+  perturbation_design: Screen 11 antimicrobial peptides and proteins against the SynCom, then test the top synthetic peptide
+    1018-k6 in a 14-day long-term suppression assay under a high bacterial-load challenge.
+  measurement_endpoints:
+  - WGS-based functional mapping
+  - SynCom minimum inhibitory concentration for antimicrobial peptides and proteins
+  - 14-day long-term microbial suppression
+  - Real-time cell-growth monitoring
+  - Resazurin metabolic-activity assay
+  evidence:
+  - &syncom_assembly
+    reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: These isolates were assembled into a synthetic microbial community (SynCom) to simulate a "worse-case" contamination
+      scenario during the production of cell cultured meat in contrast to single strain contamination.
+    explanation: Supports the assembly of the six contaminants into a SynCom for a cultivated-meat contamination model.
+  - &peptide_screen
+    reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Within 11 tested antimicrobial peptides and proteins, the synthetic peptide 1018-k6 was identified as the most effective
+      antimicrobial agent, showing a minimum inhibitory concentration (MIC) of 37.5 μg/mL against the SynCom.
+    explanation: Supports the 11-agent screen, the selection of 1018-k6, and its MIC against the SynCom.
+environment_term:
+  preferred_term: cultivated-meat cell-culture production system
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The SynCom models a controlled cell-culture production environment for cultivated meat; the PubMed abstract does not
+    identify a narrower ENVO-resolvable culture system.
+taxonomy:
+- taxon_term:
+    preferred_term: six cultivated-meat bacterial contaminants
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB
+        taxa under the NCBI taxon]
+    notes: The PubMed abstract states that the SynCom was assembled from six microbial contaminants from the cell-culture
+      environment and reports the 14-day challenge in bacterial-load units, but does not name the exact species or strains.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, six microbial contaminants originating from the cell culture environment were identified
+    explanation: Supports the six-contaminant starting set before SynCom assembly.
+  - *syncom_assembly
+ecological_interactions:
+- name: Six-Contaminant Potential Metabolic Complementarity
+  description: WGS-based functional mapping suggested that the six cell-culture-environment contaminants had potential metabolic
+    complementarity and ecological robustness before they were assembled into a cultivated-meat contamination SynCom; the PubMed
+    abstract does not identify the pairwise topology, exact metabolites, or exact contaminant taxa.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: 1018-k6 SynCom Antimicrobial Suppression
+    description: The multi-contaminant SynCom was then used to test antimicrobial peptide and protein interventions.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: WGS-based functional mapping suggested potential metabolic complementarity and ecological robustness among them.
+    explanation: Supports the WGS-predicted potential complementarity and robustness of the six-contaminant assembly.
+- name: 1018-k6 SynCom Antimicrobial Suppression
+  description: The synthetic peptide 1018-k6 was selected from an 11-agent antimicrobial-peptide/protein screen because it was
+    the most effective agent against the assembled SynCom, and it completely inhibited the microbial community across a 14-day
+    production-cycle assay under 10^6 CFU/mL bacterial-load challenge conditions.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - *peptide_screen
+  - &long_term_suppression
+    reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The long-term suppression assay demonstrated that 1018-k6 maintained complete microbial inhibition over a 14-day
+      production cycle, even under exposure to high bacterial loads of 10^6 CFU/mL.
+    explanation: Supports complete 14-day SynCom inhibition by 1018-k6 at the reported high bacterial load.
+environmental_factors:
+- name: 1018-k6 minimum inhibitory concentration
+  value: 37.5 μg/mL
+  description: 1018-k6 had a 37.5 μg/mL MIC against the six-contaminant SynCom.
+  evidence:
+  - *peptide_screen
+- name: Long-term high-load suppression assay
+  value: 14 days; 10^6 CFU/mL bacterial load
+  description: 1018-k6 completely inhibited the SynCom across a 14-day production-cycle assay under a high bacterial-load
+    challenge.
+  evidence:
+  - *long_term_suppression
+- name: 1018-k6 effective-dose cell compatibility
+  description: The effective SynCom-suppressing dose did not adversely affect the monitored cultured animal-cell proliferation
+    or metabolic-activity readouts.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: real-time monitoring of cell growth and resazurin assay confirmed that the effective dose exerted no adverse effects
+      on cell proliferation or metabolic activity.
+    explanation: Supports the non-adverse cell-growth and resazurin results at the effective 1018-k6 dose.
+external_resources:
+- name: PubMed record for Lin et al. 2026
+  repository: OTHER
+  resource_id: PMID:42425643
+  url: https://pubmed.ncbi.nlm.nih.gov/42425643/
+  description: PubMed record for the Food Microbiology article describing the six-contaminant cultivated-meat SynCom and 1018-k6
+    antimicrobial intervention.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'PMID: 42425643'
+    explanation: Gives the PubMed identifier of the primary publication.
+- name: DOI landing page for the cultivated-meat SynCom article
+  repository: OTHER
+  resource_id: doi:10.1016/j.fm.2026.105164
+  url: https://doi.org/10.1016/j.fm.2026.105164
+  description: DOI landing page for the Food Microbiology article describing the six-contaminant cultivated-meat SynCom and
+    1018-k6 antimicrobial intervention.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'DOI: 10.1016/j.fm.2026.105164'
+    explanation: Gives the DOI of the primary publication.
+discussions:
+- discussion_id: cultivated_meat_syncom_exact_contaminants
+  prompt: Which six microbial contaminants, exact taxonomic identities, and strain designations made up the cultivated-meat
+    contamination SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  - engineering_design
+  rationale: The PubMed abstract reports six microbial contaminants from the cell-culture environment and states that the isolates
+    were assembled into the SynCom, but it does not name the six species or strains. Resolving those identities is required
+    before adding NCBITaxon-grounded taxonomy members.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, six microbial contaminants originating from the cell culture environment were identified
+    explanation: Supports the existence of six identified contaminants while illustrating that the abstract omits their names.
+  posed_by: codex
+  posed_date: '2026-09-13'
+- discussion_id: cultivated_meat_syncom_culture_protocol
+  prompt: What animal cell type, animal component-free medium composition, vessel format, and dosing regimen were used in the
+    14-day cultivated-meat production-cycle challenge assay?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media
+  - cultivation_setup
+  - environmental_factors#Long-term high-load suppression assay
+  rationale: The PubMed abstract gives the SynCom MIC, the 1018-k6 long-term inhibition result, the 14-day duration, and the
+    10^6 CFU/mL bacterial-load challenge, but not the complete cell-culture medium, vessel geometry, cell-line identity, or
+    peptide dosing schedule.
+  evidence:
+  - reference: PMID:42425643
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1018-k6 maintained complete microbial inhibition over a 14-day production cycle, even under exposure to high bacterial
+      loads of 10^6 CFU/mL.
+    explanation: Captures the abstract's quantitative suppression-assay values while leaving the full protocol details open.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The six-contaminant cultivated-meat SynCom was not reported in a metal or rare earth element processing context.
+curation_history:
+- timestamp: '2026-09-13T19:33:51Z'
+  curator: codex
+  action: ADD_CULTIVATED_MEAT_CONTAMINANT_SYNCOM
+  changes: Added the six-contaminant cultivated-meat SynCom from PMID:42425643 with abstract-bounded evidence for the
+    multi-contaminant assembly, 1018-k6 peptide screen and long-term suppression assay, cell compatibility readouts, DOI, and
+    open gaps for exact strain identities and full cultivation details.
+  llm_assisted: true
+- timestamp: '2026-09-13T19:38:57Z'
+  curator: codex
+  action: ADDRESS_CULTIVATED_MEAT_REVIEW
+  changes: Addressed adversarial review issues 858, 859, and 860 by adding a broad bacterial aggregate taxonomy entry for the
+    six unresolved contaminants, keeping 1018-k6 modeled as an antimicrobial intervention rather than a generic
+    related-ingredient/metabolite, and repairing the PubMed cache rendering of 10^6 CFU/mL.
+  llm_assisted: true
