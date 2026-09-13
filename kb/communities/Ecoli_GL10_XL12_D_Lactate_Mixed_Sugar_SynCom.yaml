@@ -1,0 +1,492 @@
+id: CommunityMech:000357
+name: E. coli GL10-XL12 D-Lactate Mixed-Sugar SynCom
+description: A defined same-species Escherichia coli synthetic consortium in which two BL21 (DE3)-derived knockout strains
+  partition glucose and xylose fermentation for optically pure D-lactate production. GL10 was engineered as the glucose-specialized
+  strain, XL12 was engineered with glk and ptsI deletions to redirect it away from glucose toward xylose, and a 1:1 GL10:XL12
+  coculture in M9 medium containing 5 g/L glucose plus 5 g/L xylose produced 3.76 g/L D-lactate after 36 h. Agitation and
+  inoculation-ratio perturbations identified a higher 4.53 g/L D-lactate titer at a 1:5 GL10:XL12 ratio, and the same consortium
+  was also tested on detoxified corn straw hydrolysate supplemented into M9 medium.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Alleviate carbon catabolite repression during mixed glucose/xylose fermentation and improve D-lactate production
+    by separating glucose and xylose utilization into complementary engineered E. coli strains.
+  assembly_strategy: Construct BL21 (DE3)-derived knockout strains GL10 and XL12 by CRISPR/Cas9, knock out D-lactate and byproduct-consuming
+    pathways in both strains, disable glucose phosphorylation and phosphotransferase-system glucose uptake in XL12, and combine
+    GL10 with XL12 for mixed-sugar co-fermentation.
+  perturbation_design: Assay the synthetic consortium in M9 medium with 5 g/L glucose and 5 g/L xylose, then perturb shaking
+    speed at 50, 150, and 250 rpm and GL10:XL12 inoculation ratio at 1:1, 1:5, and 1:15 before testing detoxified corn straw
+    hydrolysate.
+  measurement_endpoints:
+  - glucose depletion and xylose utilization
+  - bacterial growth by OD600
+  - D-lactate titer at 36 h
+  - D-lactate conversion yield and productivity
+  - D-lactate optical purity
+  notes: E. coli DH5alpha was used only as the plasmid-construction host, while E. coli BL21 (DE3) was the parental strain
+    for knockout mutants. The paper reports carbon-source specialization of GL10 and XL12 but does not identify a direct metabolite
+    transferred between the two engineered strains, so no pairwise cross-feeding edge is asserted.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Two division-of-labor engineered E. coli strains, XL12 and GL10, were constructed and characterized in terms
+      of sugar utilization and D-lactate synthesis capabilities.
+    explanation: Supports the two engineered strains and the design focus on sugar utilization plus D-lactate synthesis.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A co-culture strategy was implemented to improve metabolic orthogonality toward specific carbon sources within
+      mixed sugars.
+    explanation: Supports the mixed-sugar metabolic division-of-labor strategy.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The effects of shaking speed and inoculum ratio on D-lactate production from mixed sugar by the microbial consortium
+      were investigated.
+    explanation: Supports the agitation and inoculation-ratio perturbations curated for the consortium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: E coli DH5α was used as a host for plasmid construction. E coli BL21 (DE3) was used as a parental strain for
+      generating knockout mutants.
+    explanation: Distinguishes the BL21-derived curated strains from the DH5alpha cloning host.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To redirect carbon flux, the ptsI gene (disabling the phosphotransferase system for glucose uptake) and glk gene
+      (eliminating glucose phosphorylation) were deleted.
+    explanation: Supports the glucose-uptake knockouts that bias XL12 toward the xylose-utilization role.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the bacterial consortium achieved 0.376 g/g sugar of D-lactate with 100% optical purity
+    explanation: Supports optical purity as a measured consortium fermentation endpoint.
+environment_term:
+  preferred_term: engineered E. coli mixed-sugar D-lactate fermentation
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled laboratory batch co-fermentation of engineered E. coli strains in defined and hydrolysate-supplemented
+    M9 media.
+taxonomy:
+- taxon_term:
+    preferred_term: Escherichia coli GL10
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: BL21 (DE3)-derived glucose-specialized knockout strain used as the glucose-consuming member of the SynCom.
+  strain_designation:
+    strain_name: GL10
+    genetic_modification: BL21 (DE3) derivative with pps, poxB, pflB, pta, frdABC, adhE, dld, and mgsA deleted.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a glucose-specialized strain, designated GL10, was constructed by deleting pps, poxB, pflB, pta, frdABC, adhE,
+      dld, and mgsA genes
+    explanation: Identifies GL10 as the glucose-specialized engineered E. coli member and names its deleted genes.
+- taxon_term:
+    preferred_term: Escherichia coli XL12
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Escherichia_coli
+      gtdb_taxon: Escherichia coli
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Escherichia;s__Escherichia
+        coli
+      ncbi_source_id: NCBITaxon:562
+      majority_fraction: 1.0
+      total_genomes: 166397
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: BL21 (DE3)-derived xylose-utilizing knockout strain with glucose-uptake deletions used as the xylose-consuming
+      member of the SynCom.
+  strain_designation:
+    strain_name: XL12
+    genetic_modification: BL21 (DE3) derivative with glk, ptsI, pps, poxB, pflB, pta, frdABC, adhE, dld, and mgsA deleted.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Further knockout of pta, frdABC, adhE, dld, and mgsA in XL5 generated strain XL12
+    explanation: Identifies XL12 as the engineered E. coli member produced from the XL5 intermediate.
+ecological_interactions:
+- name: GL10-XL12 glucose-xylose niche partitioning
+  description: GL10 and XL12 partition mixed glucose and xylose utilization as two E. coli metabolic specialists, enabling
+    simultaneous hexose and pentose consumption and D-lactate accumulation in the synthetic consortium.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Escherichia coli GL10
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  - preferred_term: Escherichia coli XL12
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+  metabolites:
+  - preferred_term: glucose
+    term:
+      id: CHEBI:17234
+      label: glucose
+  - preferred_term: xylose
+    term:
+      id: CHEBI:18222
+      label: xylose
+  - preferred_term: D-lactic acid
+    term:
+      id: CHEBI:42111
+      label: (R)-lactic acid
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A co-culture strategy was implemented to improve metabolic orthogonality toward specific carbon sources within
+      mixed sugars.
+    explanation: Supports niche partitioning over the supplied glucose and xylose carbon sources.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microbial consortium using GL10 and XL12 with the inoculation ratio of 1:1 achieved complete glucose depletion
+      and 53.21% xylose utilization simultaneously.
+    explanation: Supports simultaneous mixed-sugar utilization by the 1:1 GL10/XL12 consortium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugar fermentation, the consortium produced 3.76 g/L of D-lactate, achieving a 37.6% conversion yield
+      and a productivity of 0.10 g/L/h
+    explanation: Quantifies D-lactate production from the baseline 1:1 consortium.
+environmental_factors:
+- name: Mixed glucose-xylose feed
+  value: 5 g/L glucose and 5 g/L xylose
+  description: The baseline co-fermentation medium supplied equal glucose and xylose concentrations.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-fermentation was performed in M9 medium containing 5 g/L glucose and 5 g/L xylose.
+    explanation: Supports the mixed glucose/xylose feed and concentrations used for SynCom fermentation.
+- name: Shaking speed
+  value: 50, 150, and 250 rpm
+  description: The 150 rpm baseline was compared with 50 rpm and 250 rpm agitation treatments.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The incubation was performed at 37 °C and 150 rpm.
+    explanation: Supports 150 rpm as the baseline agitation condition.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The fermentation was conducted at two different shaking speeds, including 50 rpm and 250 rpm.
+    explanation: Supports the lower and higher shaking-speed perturbations.
+- name: GL10:XL12 inoculation ratio
+  value: 1:1, 1:5, and 1:15
+  description: The 1:1 baseline consortium was compared with XL12-enriched 1:5 and 1:15 GL10:XL12 inoculation ratios for 36
+    h mixed-sugar fermentation.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The initial OD600 was adjust to 0.2, with the inoculation ratio of GL10 and XL12 was 1:1.
+    explanation: Supports the baseline GL10:XL12 ratio and initial OD600.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The fermentation was also tested with the inoculation ratio of GL10 and XL12 at 1:5 and 1:15, respectively.
+    explanation: Supports the XL12-enriched inoculation-ratio perturbations.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The titer of D-lactate reached 4.53 g/L with a conversion rate of 45.3%, and a production rate of 0.13 g/L/h
+      at an inoculation ratio of 1:5
+    explanation: Supports the higher D-lactate titer at the 1:5 GL10:XL12 ratio.
+- name: Corn straw hydrolysate
+  value: activated-carbon detoxified hydrolysate in M9 medium, pH 7.0
+  description: Actual corn straw hydrolysate was detoxified with powdered activated carbon and diluted into M9 medium for
+    the hydrolysate D-lactate fermentation test.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the pretreated and diluted corn straw hydrolysate was used as the fermentation medium
+    explanation: Supports actual corn straw hydrolysate as an additional fermentation condition.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At 36 h of fermentation, the D-lactate titer reached 5.15 ± 0.22 g/L, which was 41.87% higher than that of WT
+    explanation: Supports measured D-lactate production in detoxified corn straw hydrolysate.
+growth_media:
+- name: M9 glucose-xylose D-lactate co-fermentation medium
+  composition:
+  - name: glucose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: glucose
+      term:
+        id: CHEBI:17234
+        label: glucose
+    from_source: community_curated
+  - name: xylose
+    concentration: '5'
+    unit: g/L
+    chebi_term:
+      preferred_term: xylose
+      term:
+        id: CHEBI:18222
+        label: xylose
+    from_source: community_curated
+  - name: Na2HPO4
+    concentration: '6.8'
+    unit: g/L
+    from_source: community_curated
+  - name: KH2PO4
+    concentration: '3.4'
+    unit: g/L
+    from_source: community_curated
+  - name: NH4Cl
+    concentration: '1'
+    unit: g/L
+    from_source: community_curated
+  - name: NaCl
+    concentration: '0.5'
+    unit: g/L
+    from_source: community_curated
+  - name: MgSO4
+    concentration: '0.24'
+    unit: g/L
+    from_source: community_curated
+  - name: CaCl2
+    concentration: '0.011'
+    unit: g/L
+    from_source: community_curated
+  temperature: '37'
+  temperature_unit: °C
+  inoculum_source: E. coli GL10 and E. coli XL12 at a GL10:XL12 inoculation ratio of 1:1.
+  inoculum_size: '0.2'
+  inoculum_unit: initial OD600
+  incubation_time: '36'
+  incubation_time_unit: h
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  vessel_type: unspecified shaking liquid culture
+  preparation_notes: The consortium was grown in M9 medium containing 5 g/L glucose and 5 g/L xylose from an initial OD600
+    of 0.2 at a 1:1 GL10:XL12 ratio; the parental E. coli BL21 (DE3) strain was run as the equivalent control.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M9 medium consisted of 6.8 g/L Na2HPO4, 3.4 g/L KH2PO4, 1 g/L NH4Cl, 0.5 g/L NaCl to which a 0.24 g/L MgSO4、0.011
+      g/L CaCl2
+    explanation: Supports the basal M9 salts captured for the co-fermentation medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-fermentation was performed in M9 medium containing 5 g/L glucose and 5 g/L xylose.
+    explanation: Supports the glucose and xylose amendments used in the baseline co-fermentation medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The initial OD600 was adjust to 0.2, with the inoculation ratio of GL10 and XL12 was 1:1.
+    explanation: Supports the inoculation density and strain ratio.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The incubation was performed at 37 °C and 150 rpm.
+    explanation: Supports the incubation temperature and agitation speed.
+- name: Detoxified corn straw hydrolysate M9 medium
+  composition: []
+  ph: '7.0'
+  inoculum_source: E. coli GL10 and E. coli XL12 bacterial consortium.
+  vessel_type: unspecified shaking liquid culture
+  preparation_notes: Corn straw hydrolysate supplied by Wuhan SunHY Biology Co., Ltd. was mixed with powdered activated carbon
+    at 3% w/w, shaken at 50 °C and 220 rpm for 15 h, centrifuged and filtered, supplemented into M9 medium at an appropriate
+    dilution, and adjusted to pH 7.0.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To evaluate the production of D-lactate by the bacterial consortium in actual hydrolysate, the pretreated and
+      diluted corn straw hydrolysate was used as the fermentation medium.
+    explanation: Supports the actual hydrolysate fermentation medium for the bacterial consortium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The corn straw hydrolysate is provided by Wuhan SunHY Biology Co., Ltd.
+    explanation: Supports the supplier of the actual corn straw hydrolysate used in the hydrolysate fermentation medium.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the hydrolysate was mixed homogeneously with powdered AC at a ratio of 3% (w/w), followed by incubation with
+      constant temperature shaking at 50 °C and 220 rpm for 15 h.
+    explanation: Supports the activated-carbon detoxification conditions.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The hydrolysate was supplemented to M9 medium with an appropriate dilution ( Table S2 ) and the pH was adjusted
+      to 7.0.
+    explanation: Supports M9 supplementation and pH adjustment for the hydrolysate medium.
+cultivation_setup:
+- cultivation_mode: BATCH
+  instrument_detail: Shaking batch culture for mixed-sugar E. coli consortium fermentation.
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Baseline co-fermentation used 150 rpm shaking; perturbation cultures compared 50 rpm and 250 rpm against
+    the 150 rpm baseline.
+  notes: The article reports shaking liquid fermentation and sampling every 12 h, but does not identify a flask size, working
+    volume, or actively controlled pH/DO system.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The incubation was performed at 37 °C and 150 rpm.
+    explanation: Supports the controlled temperature and baseline agitation for the batch co-fermentation.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The fermentation was conducted at two different shaking speeds, including 50 rpm and 250 rpm.
+    explanation: Supports the non-baseline agitation treatments in the same mixed-sugar fermentation system.
+related_ingredients:
+- preferred_term: glucose
+  chebi_term:
+    id: CHEBI:17234
+    label: glucose
+  relevance: Glucose was the hexose substrate assigned to the GL10 specialist in the mixed-sugar D-lactate SynCom.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-fermentation was performed in M9 medium containing 5 g/L glucose and 5 g/L xylose.
+    explanation: Names glucose as one of the two supplied carbon sources in the co-fermentation.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed two engineered E. coli strains that utilized glucose (E. coli GL10) and xylose (E. coli XL12)
+      simultaneously via division of labor
+    explanation: Supports assignment of glucose utilization to GL10 and xylose utilization to XL12.
+- preferred_term: xylose
+  chebi_term:
+    id: CHEBI:18222
+    label: xylose
+  relevance: Xylose was the pentose substrate assigned to the XL12 specialist in the mixed-sugar D-lactate SynCom.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Co-fermentation was performed in M9 medium containing 5 g/L glucose and 5 g/L xylose.
+    explanation: Names xylose as one of the two supplied carbon sources in the co-fermentation.
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed two engineered E. coli strains that utilized glucose (E. coli GL10) and xylose (E. coli XL12)
+      simultaneously via division of labor
+    explanation: Supports assignment of glucose utilization to GL10 and xylose utilization to XL12.
+- preferred_term: D-lactate
+  chebi_term:
+    id: CHEBI:42111
+    label: (R)-lactic acid
+  relevance: D-lactate was the target fermentation product accumulated by the GL10/XL12 engineered E. coli consortium.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In mixed sugar fermentation, the consortium produced 3.76 g/L of D-lactate, achieving a 37.6% conversion yield
+      and a productivity of 0.10 g/L/h
+    explanation: Names D-lactate as the target product quantified from mixed-sugar consortium fermentation.
+external_resources:
+- name: PubMed - E. coli GL10-XL12 D-lactate SynCom
+  repository: OTHER
+  resource_id: PMID:42038008
+  url: https://pubmed.ncbi.nlm.nih.gov/42038008/
+  description: PubMed record for the Biodesign Research primary article describing the GL10/XL12 E. coli D-lactate SynCom.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Efficient synthesis of optically pure D-lactate from mixed sugars by engineered E. coli consortium.
+    explanation: Lists the exact primary publication for this engineered E. coli consortium.
+- name: DOI - E. coli GL10-XL12 D-lactate SynCom
+  repository: OTHER
+  resource_id: doi:10.1016/j.bidere.2026.100072
+  url: https://doi.org/10.1016/j.bidere.2026.100072
+  description: DOI landing page for the Biodesign Research article describing optically pure D-lactate production by GL10
+    and XL12.
+  evidence:
+  - reference: PMID:42038008
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.bidere.2026.100072'
+    explanation: Lists the DOI for the primary publication.
+discussions:
+- discussion_id: gl10_xl12_direct_cross_feeding
+  prompt: Which metabolites, if any, are directly exchanged between E. coli GL10 and E. coli XL12 during mixed-sugar D-lactate
+    fermentation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#GL10-XL12 glucose-xylose niche partitioning
+  rationale: The primary article supports carbon-source niche partitioning by glucose- and xylose-specialized E. coli strains,
+    but this curation did not find evidence for a named GL10-to-XL12 or XL12-to-GL10 cross-fed metabolite.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The primary article reports mixed-sugar D-lactate fermentation, not metal stress, metal transformation, biomining,
+  or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-13T06:10:36Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000357 for the E. coli GL10/XL12 mixed-sugar D-lactate SynCom with evidence-backed membership,
+    carbon-source niche partitioning, M9 and corn-straw-hydrolysate growth media, glucose/xylose/D-lactate ingredient links,
+    PubMed/DOI resources, and no asserted pairwise cross-feeding edge.
+  llm_assisted: true
+- timestamp: '2026-09-13T06:14:43Z'
+  curator: codex
+  action: TIGHTEN_EVIDENCE
+  changes: Added exact evidence for the GL10/XL12 glucose-xylose assignment, XL12 glk/ptsI glucose-uptake knockouts, consortium
+    optical purity, and Wuhan SunHY corn straw hydrolysate provenance.
+  llm_assisted: true
+- timestamp: '2026-09-13T06:15:10Z'
+  curator: codex
+  action: REMOVE_UNSUPPORTED_VESSEL_ASSERTION
+  changes: Removed the FLASK cultivation-system assertion and narrowed growth_media vessel text because PMID:42038008 reports
+    shaking liquid incubation but does not name the vessel type.
+  llm_assisted: true
+- timestamp: '2026-09-13T06:18:42Z'
+  curator: codex
+  action: FIX_DANGLING_DOWNSTREAM_EDGES
+  changes: 'Removed two downstream outcome labels flagged in #826 from GL10-XL12 glucose-xylose niche partitioning because
+    InteractionDownstream.target must name another curated interaction, not a fermentation endpoint.'
+  llm_assisted: true
+- timestamp: '2026-09-13T06:21:54Z'
+  curator: codex
+  action: DROP_SUPPLEMENT_ONLY_MEDIUM_COMPONENTS
+  changes: 'Removed the Table S2-only corn straw hydrolysate component concentrations flagged in #827 because PMID:42038008
+    supplement text is kept in a separate sidecar and is not reference-validator-visible for PMID snippets; retained the article-supported
+    hydrolysate source, detoxification, M9 dilution, and pH.'
+  llm_assisted: true

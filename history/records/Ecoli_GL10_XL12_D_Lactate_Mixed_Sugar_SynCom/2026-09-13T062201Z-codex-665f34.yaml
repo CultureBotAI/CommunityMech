@@ -1,0 +1,28 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
+  slug: Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom
+session:
+  id: 2026-09-13T062201Z-codex-665f34
+  timestamp: '2026-09-13T06:22:01Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/827
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - growth_media
+  summary: Remove supplement-only hydrolysate concentrations
+  details: Adversarial review found that the exact corn straw hydrolysate component concentrations
+    came only from supplementary Table S2. Because the supplement text now stays in references_cache/PMID_42038008.supplement.md
+    and PMID:42038008 evidence snippets are validated against the article cache, removed those
+    six component rows and their Table S2 evidence item from the hydrolysate growth medium.
+    Left the source-supported actual-hydrolysate condition, Wuhan SunHY provenance, activated-carbon
+    detoxification, M9 dilution, and pH claims in place.

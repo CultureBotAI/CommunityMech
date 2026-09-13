@@ -1,0 +1,27 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom.yaml
+  slug: Ecoli_GL10_XL12_D_Lactate_Mixed_Sugar_SynCom
+session:
+  id: 2026-09-13T062015Z-codex-4daab2
+  timestamp: '2026-09-13T06:20:15Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5-codex
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/826
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  summary: Remove dangling GL10/XL12 downstream edges
+  details: Adversarial review found two downstream.target values that described fermentation
+    outcomes instead of naming another ecological_interactions entry. Removed the downstream
+    block from GL10-XL12 glucose-xylose niche partitioning; the measured 36 h D-lactate endpoints
+    remain in the interaction description and evidence. Validated with the guarded MicrobialCommunity
+    writer, LinkML, and a focused NetworkIntegrityAuditor pass.
