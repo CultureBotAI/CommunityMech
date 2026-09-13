@@ -8,8 +8,9 @@ description: >
   Bacillus pumilus AZFS5, Bacillus mojavensis AZFS15, Bacillus paramycoides
   AZFS18, Pseudomonas aeruginosa KZFS4, and Alcaligenes aquatilis KZFS11. In
   20-day, 30 C simulated-water microcosms seeded with standardized bacterial
-  inocula, T4 achieved the highest tested cyantraniliprole removal, reducing an
-  initial 60 mg/L dose to 1.00 mg/L with 98.27% removal by HPLC.
+  inocula, T4 achieved the highest tested cyantraniliprole removal: HPLC
+  measured 98.27% removal from the 57.79 mg/L zero-day residue and a 1.00 mg/L
+  residue after 20 days in the nominal 60 mg/L treatment.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOREMEDIATION
@@ -231,8 +232,9 @@ ecological_interactions:
 - name: HPLC-confirmed cyantraniliprole removal
   description: >
     In simulated contaminated water amended with NPK and incubated at 30 C, T4
-    removed 98.27% of the initial 60 mg/L cyantraniliprole dose and left the
-    lowest 20-day residual concentration among the tested consortia.
+    removed 98.27% of the 57.79 mg/L zero-day cyantraniliprole residue from the
+    nominal 60 mg/L dose and left the lowest 20-day residual concentration among
+    the tested consortia.
   interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -250,8 +252,6 @@ ecological_interactions:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: >
-      In simulated contaminated water (60 mg/L cyantraniliprole), bacterial
-      inoculants standardized to 107 CFU/mL achieved substantial degradation
       after 20 days of incubation at 30 °C, as confirmed by HPLC analysis, with
       the six-strain consortium (T4), comprising Bacillus subtilis subsp.
       subtilis AZFS3, Bacillus pumilus AZFS5, Bacillus mojavensis AZFS15,
@@ -259,8 +259,8 @@ ecological_interactions:
       Alcaligenes aquatilis KZFS11, demonstrating the highest removal efficiency
       (98.27%) and reducing the pesticide concentration to 1.00 mg/L
     explanation: >
-      Supports the exact T4 composition and the HPLC-confirmed cyantraniliprole
-      removal endpoint in 20-day simulated contaminated water.
+      Supports the exact T4 composition, the 20-day HPLC assay, and the
+      98.27%/1.00 mg/L HPLC endpoint in simulated contaminated water.
 environmental_factors:
 - name: Simulated-water cyantraniliprole removal
   value: '98.27'
@@ -534,4 +534,13 @@ curation_history:
     growth assays, EAWAG-BBD pathway prediction evidence, microcosm culture
     conditions, and an explicit open question for strain-specific expressed
     enzymes.
+  llm_assisted: true
+- timestamp: '2026-09-13T23:22:59Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: >
+    Resolved adversarial-review issues #869 and #870 by shortening a cached HPLC
+    snippet that flattened 10^7 CFU/mL to 107 CFU/mL in rendered evidence and by
+    clarifying that the 98.27% T4 removal value is calculated from the 57.79
+    mg/L zero-day residue in the nominal 60 mg/L microcosm.
   llm_assisted: true
