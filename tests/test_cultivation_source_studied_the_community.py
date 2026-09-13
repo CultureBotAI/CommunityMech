@@ -126,12 +126,12 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 #   with new records rather than from neglect: the sources for Methane_MFC,
 #   Sedimenting_Arabinose and Waste_Sludge are not open access.
 #   `just cache-fulltext` was run on PMID:42551599, PMID:41793807,
-#   PMID:30010916 and PMID:42461012 and refused all four -- "not open-access in
-#   Europe PMC (pmcid=None, oa=False)". Listing them is the honest outcome, not
-#   a shortcut past caching.
+#   PMID:30010916, PMID:42461012, and PMID:42661004 and refused all five -- "not
+#   open-access in Europe PMC (pmcid=None, oa=False)". Listing them is the
+#   honest outcome, not a shortcut past caching.
 # * `the cultivation_setup cites no reference at all` -- no record is in this
-#   state, so the entry exists to keep the branch honest rather than to excuse
-#   anything (see `_classify`).
+#   state in new records, so the entry keeps the branch honest rather than
+#   excusing anything by default (see `_classify`).
 #
 # An exact-set assertion, not a bound: a record that BECOMES checkable has to
 # leave, or the list rots into a permanent excuse the way `_ACCEPTED`'s ten
@@ -185,6 +185,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "Defined_Multispecies_Enamel_Caries_Model.yaml",
         "Electrostimulated_Mixotrophic_VFA_Producing_Enrichment_Consortium.yaml",
         "Industrial_Bioreactor_Consortium.yaml",
+        "Mediterranean_AM_Fungal_SixSpecies_SynCom.yaml",
         "Pseudomonas_stutzeri_Rhodococcus_Naphthalene_Biochar_Engineered_Consortium.yaml",
         "Rammelsberg_Cobalt_Nickel_Tailings.yaml",
         "Shewanella_Geobacter_Exoelectrogenic_Biofilm_Community.yaml",
