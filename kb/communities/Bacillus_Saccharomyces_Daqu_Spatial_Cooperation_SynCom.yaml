@@ -1,0 +1,328 @@
+id: CommunityMech:000355
+name: Bacillus-Saccharomyces Daqu Spatial-Cooperation SynCom
+description: A Bacillus-Saccharomyces synthetic consortium used as a representative Daqu solid-state fermentation model for
+  starch-mediated spatial cooperation. Temporal transcriptomics connected Bacillus-dominated starch hydrolysis with Saccharomyces-driven
+  ethanol production across fermentation stages, fluorescently labeled synthetic consortia showed that starch availability
+  governed colony expansion and spatial cooperation, and an engineered consortium carrying an IPTG-inducible alpha-amylase
+  expression system was applied in Daqu fermentation to improve starch conversion efficiency and flavor compound formation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Use a Bacillus-Saccharomyces defined consortium to study and program starch-mediated spatial cooperation during
+    structured Daqu solid-state fermentation.
+  assembly_strategy: Assemble fluorescently labeled Bacillus-Saccharomyces synthetic consortia as a model for Daqu fermentation
+    and construct an IPTG-inducible alpha-amylase expression system to regulate starch hydrolysis kinetics, metabolic productivity,
+    and consortium spatial organization.
+  perturbation_design: Vary starch availability and use inducible alpha-amylase control to tune starch degradation within
+    a spatially structured solid-state fermentation system.
+  measurement_endpoints:
+  - temporal transcriptomic metabolic succession
+  - Bacillus-dominated starch hydrolysis
+  - Saccharomyces-driven ethanol production
+  - fluorescent colony expansion and spatial cooperation
+  - starch conversion efficiency
+  - flavor compound formation
+  notes: The PubMed abstract supports genus-level Bacillus-Saccharomyces membership, fluorescent labeling, starch-availability
+    perturbation, an IPTG-inducible alpha-amylase expression system, and application of the engineered consortium in Daqu
+    fermentation. It does not identify the exact Bacillus or Saccharomyces species or strains, the labeled derivatives, which
+    host carried the alpha-amylase construct, or the Daqu fermentation matrix and incubation parameters.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fluorescently labeled Bacillus-Saccharomyces synthetic consortia further demonstrated that starch availability
+      critically governs colony expansion and spatial cooperation.
+    explanation: Supports assembly of Bacillus-Saccharomyces synthetic consortia and a starch-availability perturbation used
+      to measure spatial organization.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: an isopropyl β-D-1-thiogalactopyranoside-inducible α-amylase expression system was constructed, enabling precise
+      regulation of starch hydrolysis kinetics, metabolic productivity, and the spatial organization of the consortium.
+    explanation: Supports the engineered alpha-amylase control module and the starch-hydrolysis, productivity, and spatial
+      organization endpoints.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Application of the engineered consortium in Daqu fermentation significantly improved starch conversion efficiency
+      and flavor compound formation
+    explanation: Supports the application of the engineered consortium in Daqu fermentation and its measured starch-conversion
+      and flavor-production outcomes.
+environment_term:
+  preferred_term: Daqu solid-state fermentation model
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: Daqu is represented here as a solid-state fermentation starter model in which a Bacillus-Saccharomyces SynCom was
+    used to probe and engineer starch-mediated spatial cooperation.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa
+        under the NCBI taxon]
+    notes: Bacterial member identified at genus level in the PubMed abstract; NCBITaxon disambiguates the bacterial genus
+      as "Bacillus <firmicutes>".
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: temporal transcriptomic analyses revealed a distinct metabolic succession pattern, characterized by Bacillus-dominated
+      starch hydrolysis during the liquefaction stage
+    explanation: Identifies Bacillus as the genus associated with starch hydrolysis in the Daqu fermentation model.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fluorescently labeled Bacillus-Saccharomyces synthetic consortia
+    explanation: Identifies Bacillus as a member genus of the synthetic consortia.
+- taxon_term:
+    preferred_term: Saccharomyces
+    term:
+      id: NCBITaxon:4930
+      label: Saccharomyces
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Yeast member identified at genus level in the PubMed abstract; GTDB classifies bacteria and archaea, not fungi.
+  functional_role:
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces-driven ethanol production during the subsequent fermentation stage
+    explanation: Identifies Saccharomyces as the genus associated with ethanol production in the Daqu fermentation model.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fluorescently labeled Bacillus-Saccharomyces synthetic consortia
+    explanation: Identifies Saccharomyces as a member genus of the synthetic consortia.
+ecological_interactions:
+- name: Bacillus-dominated starch hydrolysis
+  description: Bacillus-dominated starch hydrolysis characterized the liquefaction stage of the Daqu fermentation succession.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  metabolites:
+  - preferred_term: starch
+    term:
+      id: CHEBI:28017
+      label: starch
+  biological_processes:
+  - preferred_term: starch catabolic process
+    term:
+      id: GO:0005983
+      label: starch catabolic process
+  downstream:
+  - target: Saccharomyces-driven ethanol production
+    description: Starch hydrolysis occurred during the Bacillus-dominated liquefaction stage before the subsequent Saccharomyces-driven
+      ethanol-production stage.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus-dominated starch hydrolysis during the liquefaction stage and Saccharomyces-driven ethanol production
+      during the subsequent fermentation stage.
+    explanation: Supports a temporally ordered Bacillus-associated starch-hydrolysis phase followed by Saccharomyces-associated
+      ethanol production.
+- name: Saccharomyces-driven ethanol production
+  description: Saccharomyces drove ethanol production during the fermentation stage following Bacillus-dominated starch hydrolysis.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Saccharomyces
+    term:
+      id: NCBITaxon:4930
+      label: Saccharomyces
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Daqu flavor compound formation
+    description: Stage-specific ethanol production was one endpoint of the Bacillus-Saccharomyces Daqu fermentation model
+      that linked labor division to product biosynthesis.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces-driven ethanol production during the subsequent fermentation stage
+    explanation: Supports Saccharomyces-associated ethanol production during the later Daqu fermentation stage.
+- name: Starch-mediated Bacillus-Saccharomyces spatial cooperation
+  description: Starch availability governed colony expansion and spatial cooperation in fluorescently labeled Bacillus-Saccharomyces
+    synthetic consortia.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus
+    term:
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+  - preferred_term: Saccharomyces
+    term:
+      id: NCBITaxon:4930
+      label: Saccharomyces
+  metabolites:
+  - preferred_term: starch
+    term:
+      id: CHEBI:28017
+      label: starch
+  biological_processes:
+  - preferred_term: starch catabolic process
+    term:
+      id: GO:0005983
+      label: starch catabolic process
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Daqu flavor compound formation
+    description: Engineered control of starch degradation improved both starch conversion efficiency and flavor compound formation
+      when the consortium was applied to Daqu fermentation.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fluorescently labeled Bacillus-Saccharomyces synthetic consortia further demonstrated that starch availability
+      critically governs colony expansion and spatial cooperation.
+    explanation: Supports starch availability as a determinant of Bacillus-Saccharomyces spatial cooperation.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: spatial cooperation between Bacillus and Saccharomyces on starch substrates is a key mechanism linking efficient
+      starch utilization to enhanced flavor production
+    explanation: Supports the curated Bacillus-Saccharomyces cooperation on starch substrates and its connection to flavor
+      production.
+related_ingredients:
+- preferred_term: starch
+  chebi_term:
+    id: CHEBI:28017
+    label: starch
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: Starch is the structured fermentation substrate whose availability governed Bacillus-Saccharomyces colony expansion
+    and spatial cooperation.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: starch availability critically governs colony expansion and spatial cooperation
+    explanation: Names starch as the substrate controlling spatial cooperation in the Bacillus-Saccharomyces SynCom.
+- preferred_term: ethanol
+  chebi_term:
+    id: CHEBI:16236
+    label: ethanol
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: Ethanol is a Saccharomyces-associated fermentation product reported in the Daqu metabolic succession.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Saccharomyces-driven ethanol production during the subsequent fermentation stage
+    explanation: Names ethanol as a product associated with the Saccharomyces-driven stage of the succession.
+growth_media:
+- name: Daqu starch solid-state fermentation
+  composition:
+  - name: starch
+    chebi_term:
+      preferred_term: starch
+      term:
+        id: CHEBI:28017
+        label: starch
+    from_source: community_curated
+  inoculum_source: Bacillus-Saccharomyces synthetic consortia and an engineered consortium carrying an IPTG-inducible alpha-amylase
+    expression system.
+  preparation_notes: The PubMed abstract identifies Daqu fermentation, a spatially heterogeneous starch substrate, and engineered
+    control of starch hydrolysis, but it does not expose the Daqu matrix recipe, inoculation ratio, humidity, incubation temperature,
+    or fermentation duration.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: using Daqu fermentation as a representative model
+    explanation: Supports the Daqu solid-state fermentation context for the model consortium.
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Application of the engineered consortium in Daqu fermentation
+    explanation: Supports applying the engineered consortium in Daqu fermentation.
+external_resources:
+- name: PubMed - Bacillus-Saccharomyces Daqu spatial-cooperation SynCom
+  repository: OTHER
+  resource_id: PMID:42679964
+  url: https://pubmed.ncbi.nlm.nih.gov/42679964/
+  description: PubMed record for the Bioresource Technology 2026 primary article describing Bacillus-Saccharomyces spatial
+    cooperation during Daqu solid-state fermentation.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Substrate-mediated spatial cooperation in Bacillus-Saccharomyces consortia enhance starch hydrolysis and flavor
+      formation during solid-state fermentation.
+    explanation: Lists the exact primary-publication title.
+- name: DOI - Bacillus-Saccharomyces Daqu spatial-cooperation SynCom
+  repository: OTHER
+  resource_id: doi:10.1016/j.biortech.2026.135755
+  url: https://doi.org/10.1016/j.biortech.2026.135755
+  description: DOI landing page for the Bioresource Technology primary article describing the Bacillus-Saccharomyces Daqu
+    engineered consortium.
+  evidence:
+  - reference: PMID:42679964
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.biortech.2026.135755'
+    explanation: Lists the DOI for the primary publication.
+discussions:
+- discussion_id: bacillus_saccharomyces_daqu_strains_and_conditions
+  prompt: Which Bacillus and Saccharomyces strains, fluorescent labels, alpha-amylase construct host, inoculation ratio, Daqu
+    matrix, humidity, temperature, and fermentation duration were used for the engineered Daqu spatial-cooperation consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media#Daqu starch solid-state fermentation
+  - engineering_design#assembly_strategy
+  rationale: The PubMed abstract identifies a Bacillus-Saccharomyces synthetic consortium, fluorescent labeling, Daqu fermentation,
+    starch-availability control, and an IPTG-inducible alpha-amylase expression system, but it does not expose the exact species
+    or strains, construct host, or reproducible solid-state cultivation recipe.
+  posed_by: codex
+  posed_date: '2026-09-12'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The PubMed abstract describes starch-mediated Bacillus-Saccharomyces spatial cooperation during Daqu fermentation,
+  not metal stress, metal transformation, biomining, or rare-earth-element cycling.
+curation_history:
+- timestamp: '2026-09-13T03:37:08Z'
+  curator: codex
+  action: CREATE_COMMUNITY_RECORD
+  changes: Curated CommunityMech:000355 from PMID:42679964 / doi:10.1016/j.biortech.2026.135755 at genus level, with Daqu
+    solid-state fermentation context, starch and ethanol interactions, related ingredients, DOI/PubMed resources, and an open
+    discussion for strain, construct, and cultivation details absent from the abstract.
+  llm_assisted: true
