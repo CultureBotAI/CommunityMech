@@ -1,10 +1,11 @@
 id: CommunityMech:000365
 name: Baijiu Pit Mud Hexanoic Acid SynCom G4
 description: An ethanol-fed, hexanoic-acid-producing synthetic community constructed from Chinese baijiu fermentation pit
-  mud using a top-down strategy. The G4 SynCom was dominated by Clostridium sensu stricto 12, primarily Clostridium kluyveri
-  at 86%, with Clostridium sensu stricto 18 and Pseudoclavibacter also reported among dominant prokaryotes. Functional predictions
-  and fermentation profiling linked the G4 community to reverse beta-oxidation-mediated hexanoic acid formation; under optimized
-  pH 7.9, 37.6 C, 8.2% inoculum, and 77% loading-volume conditions, SynCom G4 reached 4.69 g/L hexanoic acid.
+  mud using a top-down strategy. The G4 SynCom was dominated by Clostridium sensu stricto 12, described as primarily Clostridium
+  kluyveri with an 86% value, with Clostridium sensu stricto 18 and Pseudoclavibacter also reported among dominant prokaryotes.
+  Functional predictions and fermentation profiling suggested a potential association between G4 hexanoic acid production
+  and reverse beta-oxidation; under optimized pH 7.9, 37.6 C, 8.2% inoculum, and 77% loading-volume conditions, SynCom G4
+  reached 4.69 g/L hexanoic acid.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOTECHNOLOGY
@@ -63,14 +64,9 @@ taxonomy:
       is_reclassified: true
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name -
         no species-level NCBI id in table]
-    notes: The PubMed abstract resolves the dominant Clostridium sensu stricto 12 signal primarily to C. kluyveri at 86%;
-      it does not list a strain designation.
+    notes: The PubMed abstract resolves the dominant Clostridium sensu stricto 12 signal primarily to C. kluyveri with an
+      86% value, but the abstract alone does not make that value's denominator or strain designation explicit.
   abundance_level: DOMINANT
-  relative_abundance: 0.86
-  relative_abundance_unit: fraction
-  functional_role:
-  - SECONDARY_FERMENTER
-  - CROSS_FEEDER
   evidence:
   - *id001
   - reference: PMID:42442429
@@ -223,4 +219,10 @@ curation_history:
   curator: codex
   action: ADD_BAIJIU_HEXANOIC_ACID_SYNCOM
   changes: Added baijiu pit-mud SynCom G4 from PMID:42442429.
+  llm_assisted: true
+- timestamp: '2026-09-13T18:42:51Z'
+  curator: codex
+  action: SOFTEN_BAIJIU_ABSTRACT_CLAIMS
+  changes: Removed a typed C. kluyveri relative abundance and inferred functional roles, and softened the reverse beta-oxidation
+    pathway description to stay within the abstract-level evidence reviewed in issues 855 and 856.
   llm_assisted: true
