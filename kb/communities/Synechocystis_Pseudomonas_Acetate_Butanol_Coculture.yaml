@@ -1,0 +1,417 @@
+id: CommunityMech:000363
+name: Synechocystis-Pseudomonas Acetate-Butanol Coculture
+description: >
+  A two-member photosynthetic synthetic consortium pairing acetate-secreting
+  Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs with a Pseudomonas
+  taiwanensis VLB120 derivative engineered with the TPC4 1-butanol pathway
+  under the Pem7 promoter. The coculture was grown for 42 days in illuminated
+  CoBG11 with repeated medium replacement, added bicarbonate, and pH adjustment.
+  The system tests whether Synechocystis can route light- and CO2-derived carbon
+  through extracellular acetate toward heterotrophic production of the bulk
+  chemical 1-butanol.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: >
+    Couple photosynthetic CO2 fixation and acetate secretion by engineered
+    Synechocystis to 1-butanol formation by an acetate-adapted engineered
+    Pseudomonas taiwanensis VLB120 heterotroph.
+  assembly_strategy: >
+    Pair the acetate-producing WT_PKPa_RBS_BsPta_Δacs Synechocystis farmer with
+    P. taiwanensis_Pem7_ButOH, a VLB120 derivative carrying the oxygen-tolerant
+    TPC4 1-butanol pathway.
+  perturbation_design: >
+    Compare the P. taiwanensis and E. coli acetate-to-butanol cocultures against
+    an axenic Synechocystis culture while periodically replacing 10% of the
+    medium during a 42-day illuminated closed-flask experiment.
+  measurement_endpoints:
+  - Pseudomonas CFU per mL
+  - Synechocystis chlorophyll a concentration
+  - acetate titer
+  - 1-butanol titer
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: forming two distinct consortia
+    explanation: Supports curating one of the two reported synthetic consortia.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. taiwanensis_Pem7_ButOH
+    explanation: Supports the engineered Pseudomonas strain used in this consortium.
+environment_term:
+  preferred_term: illuminated cyanobacterium-heterotroph coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Controlled plug-sealed tissue-culture flask experiment using an optimized
+    BG11 medium, bicarbonate feeding, and illumination.
+taxonomy:
+- taxon_term:
+    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      Engineered Synechocystis sp. PCC 6803 derivative carrying the acetate-
+      production genotype named WT_PKPa_RBS_BsPta_Δacs in the publication.
+  strain_designation:
+    strain_name: WT_PKPa_RBS_BsPta_Δacs
+    genetic_modification: >
+      Engineered for high acetate secretion by introducing phosphoketolase and
+      overexpressing phosphotransacetylase.
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: WT_PKPa_RBS_BsPta_Δacs
+    explanation: Identifies the engineered Synechocystis member.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: capable of secreting significant levels of acetate into the medium
+    explanation: Supports the acetate-secreting farmer role.
+- taxon_term:
+    preferred_term: Pseudomonas taiwanensis VLB120 Pem7_ButOH
+    term:
+      id: NCBITaxon:470150
+      label: Pseudomonas taiwanensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      Pseudomonas taiwanensis VLB120 derivative adapted for growth on acetate in
+      CoBG11 and engineered to carry the Pem7-driven 1-butanol pathway.
+  strain_designation:
+    strain_name: VLB120 Pem7_ButOH
+    genetic_modification: >
+      The VLB120 background was transformed with the pPMQAK1 self-replicating
+      vector expressing the oxygen-tolerant TPC4 1-butanol pathway from the Pem7
+      promoter.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Pseudomonas taiwanensis VLB120
+    explanation: Identifies the Pseudomonas strain used in the study.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a synthetic O2-tolerant butanol pathway was used, TPC4
+    explanation: Supports the engineered 1-butanol producer role.
+ecological_interactions:
+- name: Photosynthetic Acetate Supply To Pseudomonas
+  description: >
+    The engineered Synechocystis farmer fixes CO2 under illumination and
+    secretes acetate into the CoBG11 medium; the P. taiwanensis_Pem7_ButOH
+    partner was adapted to consume acetate in CoBG11 and grew in coculture with
+    lower acetate accumulation than the matched axenic Synechocystis culture.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+  target_taxon:
+    preferred_term: Pseudomonas taiwanensis VLB120 Pem7_ButOH
+    term:
+      id: NCBITaxon:470150
+      label: Pseudomonas taiwanensis
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  downstream:
+  - target: Acetate-Coupled 1-Butanol Production
+    description: >
+      Photosynthetically derived acetate was the intended extracellular carbon
+      source routed from Synechocystis toward Pseudomonas 1-butanol production.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: where no additional carbon source was used
+    explanation: Supports Synechocystis-derived carbon as the designed carbon input in coculture.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate levels remained lower than in the axenic Synechocystis culture
+    explanation: Supports acetate consumption in the Pseudomonas coculture.
+- name: Acetate-Coupled 1-Butanol Production
+  description: >
+    The engineered two-member consortium coupled Synechocystis-derived organic
+    carbon to measurable 1-butanol formation by P. taiwanensis_Pem7_ButOH during
+    the 42-day coculture.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Synechocystis sp. PCC 6803 WT_PKPa_RBS_BsPta_Δacs
+    term:
+      id: NCBITaxon:1148
+      label: Synechocystis sp. PCC 6803
+  target_taxon:
+    preferred_term: Pseudomonas taiwanensis VLB120 Pem7_ButOH
+    term:
+      id: NCBITaxon:470150
+      label: Pseudomonas taiwanensis
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: butan-1-ol
+    term:
+      id: CHEBI:28885
+      label: butan-1-ol
+  biological_processes:
+  - preferred_term: acetate metabolic process
+    term:
+      id: GO:0006083
+      label: acetate metabolic process
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 1-butanol production was detected in the two co-cultures
+    explanation: Supports detectable 1-butanol production from both synthetic consortia.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. taiwanensis_Pem7_ButOH showed high production
+    explanation: Supports the Pseudomonas member as the engineered 1-butanol-producing heterotroph.
+environmental_factors:
+- name: Illumination
+  value: 65 umol photons m^-2 s^-1
+  description: The coculture was illuminated to drive photosynthetic carbon fixation by Synechocystis.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: light intensity was set at 65
+    explanation: Supports the illumination setpoint.
+- name: Temperature
+  value: '30'
+  unit: C
+  description: The synthetic consortium was cultivated at 30 C.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The temperature was 30
+    explanation: Supports the coculture temperature.
+- name: Periodic pH adjustment
+  value: pH 7 at 10% medium replacement
+  description: >
+    During the long-running coculture, 10% of the culture volume was removed and
+    replaced with fresh bicarbonate-containing CoBG11, and pH was adjusted to 7.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the pH adjusted to 7 with the addition of 37% HCl
+    explanation: Supports pH adjustment during medium replacement.
+growth_media:
+- name: CoBG11 bicarbonate-fed Synechocystis-Pseudomonas coculture
+  composition:
+  - name: hydrogencarbonate
+    concentration: '50'
+    unit: mM
+    chebi_term:
+      preferred_term: hydrogencarbonate
+      term:
+        id: CHEBI:17544
+        label: hydrogencarbonate
+  - name: ammonium chloride
+    concentration: '4'
+    unit: mM
+    chebi_term:
+      preferred_term: ammonium chloride
+      term:
+        id: CHEBI:31206
+        label: ammonium chloride
+  - name: sodium chloride
+    concentration: '150'
+    unit: mM
+    chebi_term:
+      preferred_term: sodium chloride
+      term:
+        id: CHEBI:26710
+        label: sodium chloride
+  - name: TES
+    concentration: '13.1'
+    unit: mM
+  - name: kanamycin
+    concentration: '50'
+    unit: ug/mL
+  ph: '8.0'
+  temperature: '30'
+  temperature_unit: C
+  light_regime: illuminated
+  light_intensity: '65'
+  light_intensity_unit: umol photons m^-2 s^-1
+  inoculum_source: >
+    BG11/CoBG11 precultures of Synechocystis WT_PKPa_RBS_BsPta_Δacs and
+    acetate-adapted P. taiwanensis_Pem7_ButOH.
+  inoculum_size: Synechocystis OD750 2.5 and Pseudomonas OD600 0.5 at coculture day 0
+  incubation_time: '42'
+  incubation_time_unit: d
+  vessel_type: Biolite 25 cm2 plug-sealed tissue culture flasks
+  preparation_notes: >
+    CoBG11 was prepared as BG11 supplemented with TES adjusted to pH 8.0,
+    ammonium chloride, sodium chloride, kanamycin, and 50 mM bicarbonate. The
+    synthetic consortium used 25 mL of CoBG11 in a closed flask because
+    1-butanol is volatile. From day 0 to day 30, 2.5 mL of culture was removed
+    every second day and replaced with fresh CoBG11 containing kanamycin and
+    bicarbonate; after day 30, the refresh interval was every 4 days.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a triplicate of Synechocystis and P. taiwanensis VLB120
+    explanation: Supports the exact member pair in the synthetic-consortium experiment.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: BG11 supplied with 4 mM NH4Cl, 13.1 mM
+    explanation: Supports the CoBG11 base medium and ammonium chloride/TES supplementation.
+cultivation_setup:
+- cultivation_mode: SEMI_CONTINUOUS
+  system_type: FLASK
+  instrument_detail: Plug-sealed 25 cm2 tissue-culture flask under illumination
+  working_volume: 25.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  ph_controlled: true
+  controls_notes: >
+    Illumination, partial medium replacement, bicarbonate addition, and pH
+    adjustment were controlled by the protocol. Cultures were sampled every
+    2 days through day 30 and every 4 days through day 42.
+  notes: >
+    The experiment sampled and replenished 2.5 mL of a 25 mL culture each cycle,
+    with bicarbonate supplementation and HCl pH adjustment at each refresh.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 25 mL and closed system was applied
+    explanation: Supports the closed-flask system and working volume.
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After day 30, the sampling and replacement took place every 4th day
+    explanation: Supports the semi-continuous long-culture refresh schedule.
+external_resources:
+- name: Primary publication DOI
+  repository: OTHER
+  resource_id: doi:10.1007/s00253-026-14029-z
+  url: https://doi.org/10.1007/s00253-026-14029-z
+  description: >
+    Version-of-record publication describing two acetate-based Synechocystis
+    synthetic consortia, including the P. taiwanensis VLB120 acetate-to-
+    1-butanol coculture curated here.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Synthetic consortia towards photosynthetically derived acetate
+    explanation: Supports the primary paper DOI as the source for this engineered coculture.
+related_ingredients:
+- preferred_term: carbon dioxide
+  chebi_term:
+    id: CHEBI:16526
+    label: carbon dioxide
+  relevance: >
+    CO2 is the inorganic carbon substrate fixed by Synechocystis and routed
+    toward extracellular acetate in the designed farmer/producer consortium.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate generated from CO2 by photosynthetic Synechocystis cells
+    explanation: Links CO2 fixation by Synechocystis to the acetate-feeding design.
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: >
+    Acetate was the intended extracellular organic-carbon carrier from
+    Synechocystis to the engineered P. taiwanensis 1-butanol producer.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: acetate-producing Synechocystis strain was used as the provider
+    explanation: Names acetate as the intended provided carbon source.
+- preferred_term: butan-1-ol
+  chebi_term:
+    id: CHEBI:28885
+    label: butan-1-ol
+  relevance: >
+    1-butanol is the value-added chemical produced by the engineered
+    heterotrophic partner from the Synechocystis coculture.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: generate an industrially valuable chemical such as 1-butanol
+    explanation: Supports 1-butanol as the target bioproduct.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  No metal or rare earth element processing role is curated for this
+  acetate-to-1-butanol synthetic coculture.
+discussions:
+- discussion_id: pseudomonas_butanol_coculture_carbon_specificity
+  prompt: >
+    What fraction of Pseudomonas carbon in the coculture came from
+    Synechocystis-derived acetate rather than extracellular polysaccharides or
+    other cyanobacterial exudates?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Photosynthetic Acetate Supply To Pseudomonas
+  rationale: >
+    The paper reports lower acetate levels in the P. taiwanensis coculture than
+    in axenic Synechocystis and uses acetate as the designed exchange
+    metabolite, but it did not isotope-resolve Pseudomonas carbon uptake.
+  evidence:
+  - reference: PMID:42726284
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we cannot conclude that the heterotrophic bacteria used acetate as the only source of carbon
+    explanation: >
+      Records the authors' caveat that other cyanobacterial carbon pools may
+      have contributed to heterotroph growth.
+curation_history:
+- timestamp: '2026-09-13T15:23:26Z'
+  curator: codex
+  action: CREATE_SYNECHOCYSTIS_PSEUDOMONAS_BUTANOL_COCULTURE
+  changes: >
+    Created the Synechocystis-Pseudomonas Acetate-Butanol Coculture record from
+    PMID:42726284 / doi:10.1007/s00253-026-14029-z.
+  llm_assisted: true
