@@ -37,10 +37,19 @@ engineering_design:
     explanation: Supports the phenanthrene-removal and lettuce-transfer endpoints in pot experiments.
   - reference: PMID:41967346
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: COMPUTATIONAL
     snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance of soil
       carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
     explanation: Supports the modeled link between SynCom addition and enriched carbon-fixing/PHE-degrading guilds.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      tools:
+      - tool_name: random forest model
+        role: ranked inferred drivers of SynCom-associated phenanthrene and carbon outcomes
+      - tool_name: partial least-squares path modeling
+        role: modeled paths linking SynCom addition, microbial absolute abundances, and carbon/PHE outcomes
+      parameters: Combined random forest and PLS-PM over the pot experiment to infer that carbon-fixing and PHE-degrading
+        microorganism abundances primarily drove the reported SynCom effects.
 environment_term:
   preferred_term: phenanthrene-contaminated lettuce pot experiment
   term:
@@ -110,7 +119,6 @@ ecological_interactions:
   description: As a two-member synthetic community, Sphingobium sp. RS2 and Nitrososphaera viennensis EN76 were associated
     with 90.02% PHE removal from soil and an 81.07% reduction of PHE transfer to lettuce. Pairwise exchange metabolites were
     not resolved in the accessible abstract.
-  interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: phenanthrene
@@ -133,7 +141,6 @@ ecological_interactions:
   description: SynCom addition increased soil organic carbon, microbial carbon, and total carbon, and random-forest/PLS-PM
     modeling linked those effects to a sustained increase in the absolute abundance of soil carbon-fixing and PHE-degrading
     microorganisms.
-  interaction_type: MUTUALISM
   scope: COMMUNITY_LEVEL
   metabolites:
   - preferred_term: carbon dioxide
@@ -153,11 +160,20 @@ ecological_interactions:
     explanation: Supports increased soil organic, microbial, and total carbon after SynCom addition.
   - reference: PMID:41967346
     supports: SUPPORT
-    evidence_source: IN_VITRO
+    evidence_source: COMPUTATIONAL
     snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance of soil
       carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
     explanation: Supports the modeled association between SynCom addition and increased absolute abundances of carbon-fixing
       and PHE-degrading microorganisms.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      tools:
+      - tool_name: random forest model
+        role: ranked inferred drivers of SynCom-associated phenanthrene and carbon outcomes
+      - tool_name: partial least-squares path modeling
+        role: modeled paths linking SynCom addition, microbial absolute abundances, and carbon/PHE outcomes
+      parameters: Combined random forest and PLS-PM over the pot experiment to infer that carbon-fixing and PHE-degrading
+        microorganism abundances primarily drove the reported SynCom effects.
 environmental_factors:
 - name: Phenanthrene contamination
   value: phenanthrene-contaminated soil
@@ -268,4 +284,10 @@ curation_history:
   curator: claude
   action: CREATE_PHENANTHRENE_CARBON_SYNCOM
   changes: Created the Sphingobium-Nitrososphaera Phenanthrene-Carbon SynCom record from PMID:41967346.
+  llm_assisted: true
+- timestamp: '2026-09-13T14:31:47Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: Narrowed abstract-supported community-level effects to untyped interactions and marked RF/PLS-PM driver evidence
+    as COMPUTATIONAL with provenance for issues 847 and 848.
   llm_assisted: true
