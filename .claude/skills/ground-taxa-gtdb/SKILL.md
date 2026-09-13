@@ -134,12 +134,12 @@ withholding four with a reason apiece (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 731 | a `gtdb_classification` is present |
-| `UNRESOLVED` | 115 | the tool produced no grounding; **why is not established** |
-| `AMBIGUOUS` | 85 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender, as ranked `GTDB:` CURIEs (#415) |
+| `GROUNDED` | 800 | a `gtdb_classification` is present |
+| `UNRESOLVED` | 167 | the tool produced no grounding; **why is not established** |
+| `AMBIGUOUS` | 95 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender, as ranked `GTDB:` CURIEs (#415) |
 | `NOT_ATTEMPTED` | 0 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
-| `WITHHELD` | 5 | the tool can ground it and a curator decided it must not (#292) |
-| `NO_GTDB_EQUIVALENT` | 96 | **curator-assigned only** — the tool cannot establish it (#393) |
+| `WITHHELD` | 6 | the tool can ground it and a curator decided it must not (#292) |
+| `NO_GTDB_EQUIVALENT` | 110 | **curator-assigned only** — the tool cannot establish it (#393) |
 
 `UNRESOLVED` deliberately does not claim finality. Some of it is final (viruses,
 eukaryotes — GTDB is bacteria/archaea only) and some is this tool's limits, e.g.
@@ -163,15 +163,15 @@ prose:
 informative = [b for b in blocks if not b["gtdb_id"].startswith("GTDB:d__")]
 ```
 
-By rank, the 715 grounded blocks are 336 `s__`, 225 `g__`, 72 `d__`, 51 `p__`,
-13 `c__`, 11 `o__`, 7 `f__` (#403). Against the 1028 `taxon_term`s in
-`kb/communities`, that is 69.6% grounded, or **62.5% once `d__` is excluded — a
-7.0 pp difference.**
+By rank, the 800 grounded blocks are 360 `s__`, 275 `g__`, 75 `d__`, 52 `p__`,
+13 `c__`, 15 `o__`, 10 `f__` (#403). Against the 1178 `taxon_term`s in
+`kb/communities` and `data/isolates`, that is 67.9% grounded, or **61.5% once
+`d__` is excluded — a 6.4 pp difference.**
 
 `d__` is not the whole tautological population, though. A higher-rank grounding
 whose GTDB name equals the NCBI name at the same rank says exactly as little:
-*Actinomycetota* → `p__Actinomycetota`. There are **64** of those (44 `p__`,
-9 `c__`, 7 `o__`, 4 `f__`), and they are `is_reclassified: false` by
+*Actinomycetota* → `p__Actinomycetota`. There are **68** of those (45 `p__`,
+8 `c__`, 7 `o__`, 8 `f__`), and they are `is_reclassified: false` by
 construction, so the stricter filter is:
 
 ```python
@@ -181,7 +181,7 @@ informative = [
 ]
 ```
 
-which puts coverage at **56.3%, 13.2 pp below the headline figure.** Which of the
+which puts coverage at **55.8%, 12.1 pp below the headline figure.** Which of the
 two filters is right depends on the question — a `p__` grounding that *renames*
 is informative — but quoting 69.6% is wrong under either.
 

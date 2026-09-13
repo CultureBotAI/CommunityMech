@@ -1,0 +1,362 @@
+id: CommunityMech:000361
+name: RH1 Glyphosate Streptomyces Consortium
+description: A defined four-member actinobacterial consortium assembled from Streptomyces sp. SPA2, Streptomyces rochei IT,
+  Streptomyces variabilis Herb, and Streptomyces griseoincarnatus SC for laboratory glyphosate biodegradation. The strains
+  were mixed at a 1:1:1:1 ratio after separate ISP2 pre-culture and OD590 normalization, then incubated in mineral salt medium
+  with glyphosate as the only carbon source. In 15-day 30 C shake-flask assays, RH1 removed glyphosate across 1-200 mg/L initial
+  concentrations, reached 92.06% glyphosate removal and 91.03% total organic carbon reduction at 50 mg/L, and outperformed
+  the matching single-strain treatments at that concentration. Higher glyphosate doses inhibited consortium growth and degradation,
+  and the Haldane-Andrews model was the best fit to the initial-concentration growth-rate response.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Combine four compatible glyphosate-degrading Streptomyces isolates into actinobacterial consortium RH1 and quantify
+    glyphosate degradation and substrate-inhibition kinetics.
+  assembly_strategy: Use Streptomyces sp. SPA2, Streptomyces rochei IT, Streptomyces variabilis Herb, and Streptomyces griseoincarnatus
+    SC, each previously validated for glyphosate degradation, after confirming the absence of visible antagonism among the
+    tested actinobacteria on ISP2 agar.
+  inoculation_strategy: Pre-culture each member separately in liquid ISP2 medium, normalize washed cell suspensions to OD590
+    1.0, and mix the four strains in a 1:1:1:1 ratio for 4% inoculation into mineral salt medium containing glyphosate.
+  perturbation_design: Expose RH1 to glyphosate supplied as the sole carbon source at 1, 10, 25, 50, 100, and 200 mg/L to
+    measure concentration-dependent growth inhibition and biodegradation.
+  measurement_endpoints:
+  - dry-weight growth kinetics
+  - colorimetric residual glyphosate quantification
+  - total organic carbon reduction at 50 mg/L glyphosate
+  - ATR-FTIR spectra of glyphosate before and after RH1 incubation
+  - Haldane-Andrews, Yano and Koga, Tseng and Wayman, Webb, and Levenspiel model fits
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strains Streptomyces sp. strain SPA2 (accession number pp413753), Streptomyces rochei. strain IT
+      (accession number pp413751), Streptomyces variabilis. strain Herb (accession number pp413750), and Streptomyces griseoincarnatus.
+      strain SC (accession number PP413754 ) previously isolated and tested for the degradation of glyphosate
+    explanation: Names the four actinobacterial strains assembled into RH1 and links them to prior glyphosate-degradation
+      assays.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results showed an absence of antagonistic interactions among the tested actinobacteria, which indicates their
+      potential compatibility for co-cultivation as a defined microbial consortium
+    explanation: Supports the compatibility screen used before cultivating the four strains together.
+environment_term:
+  preferred_term: glyphosate-degradation shake-flask assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: RH1 was tested in controlled 250 mL Erlenmeyer flasks containing 100 mL mineral salt medium and glyphosate as the
+    sole carbon source.
+modeled_environment:
+- preferred_term: glyphosate-contaminated soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: The study evaluated RH1 in a liquid MSM assay and framed the consortium as a candidate for future glyphosate-contaminated
+    soil bioremediation.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptomyces sp. SPA2
+    term:
+      id: NCBITaxon:1931
+      label: Streptomyces sp.
+    gtdb_grounding_status: UNRESOLVED
+    notes: 16S accession PP413753 in the source paper; no species-level name was reported for SPA2.
+  strain_designation:
+    strain_name: SPA2
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strains Streptomyces sp. strain SPA2 (accession number pp413753), Streptomyces rochei. strain IT
+      (accession number pp413751), Streptomyces variabilis. strain Herb (accession number pp413750), and Streptomyces griseoincarnatus.
+      strain SC (accession number PP413754 ) previously isolated and tested for the degradation of glyphosate
+    explanation: Identifies Streptomyces sp. SPA2 as an RH1 member.
+- taxon_term:
+    preferred_term: Streptomyces rochei IT
+    term:
+      id: NCBITaxon:1928
+      label: Streptomyces rochei
+    gtdb_grounding_status: UNRESOLVED
+    notes: 16S accession PP413751 in the source paper.
+  strain_designation:
+    strain_name: IT
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strains Streptomyces sp. strain SPA2 (accession number pp413753), Streptomyces rochei. strain IT
+      (accession number pp413751), Streptomyces variabilis. strain Herb (accession number pp413750), and Streptomyces griseoincarnatus.
+      strain SC (accession number PP413754 ) previously isolated and tested for the degradation of glyphosate
+    explanation: Identifies Streptomyces rochei IT as an RH1 member.
+- taxon_term:
+    preferred_term: Streptomyces variabilis Herb
+    term:
+      id: NCBITaxon:67372
+      label: Streptomyces variabilis
+    gtdb_grounding_status: UNRESOLVED
+    notes: 16S accession PP413750 in the source paper.
+  strain_designation:
+    strain_name: Herb
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strains Streptomyces sp. strain SPA2 (accession number pp413753), Streptomyces rochei. strain IT
+      (accession number pp413751), Streptomyces variabilis. strain Herb (accession number pp413750), and Streptomyces griseoincarnatus.
+      strain SC (accession number PP413754 ) previously isolated and tested for the degradation of glyphosate
+    explanation: Identifies Streptomyces variabilis Herb as an RH1 member.
+- taxon_term:
+    preferred_term: Streptomyces griseoincarnatus SC
+    term:
+      id: NCBITaxon:29305
+      label: Streptomyces griseoincarnatus
+    gtdb_grounding_status: UNRESOLVED
+    notes: 16S accession PP413754 in the source paper.
+  strain_designation:
+    strain_name: SC
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The bacterial strains Streptomyces sp. strain SPA2 (accession number pp413753), Streptomyces rochei. strain IT
+      (accession number pp413751), Streptomyces variabilis. strain Herb (accession number pp413750), and Streptomyces griseoincarnatus.
+      strain SC (accession number PP413754 ) previously isolated and tested for the degradation of glyphosate
+    explanation: Identifies Streptomyces griseoincarnatus SC as an RH1 member.
+ecological_interactions:
+- name: RH1 glyphosate biodegradation
+  description: The four Streptomyces members were compatible in the antagonism assay and, as the RH1 mixed culture, degraded
+    glyphosate at all tested initial concentrations. At 50 mg/L glyphosate, RH1 exceeded the previously reported single-strain
+    removal and TOC-reduction rates. Pairwise exchange metabolites and glyphosate-catabolic genes were not directly resolved.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glyphosate
+    term:
+      id: CHEBI:27744
+      label: glyphosate
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: RH1 total organic carbon reduction
+    description: Glyphosate transformation by the mixed RH1 culture reduced TOC after 15 days at 50 mg/L initial glyphosate.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The antagonism test of strains Herb, IT, SC, and SPA2 showed a negative result, which explains that these actinobacterial
+      strains could be cultured together to form the consortium RH1.
+    explanation: Supports compatibility among the four Streptomyces members before glyphosate-degradation testing.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium RH1 degraded 92.06% of the initial glyphosate concentration (50 mg/L) within 15 days under optimal
+      conditions (Temperature 30 °C, pH 7.2, and inoculum volume 4%).
+    explanation: Supports the RH1 degradation endpoint and its comparison concentration.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This rate of biodegradation is maximal compared to the single strains Herb, IT, SC, and SPA2, which degraded
+      78.36%, 48.82%, 73.56%, and 68.22% respectively, at the same conditions
+    explanation: Supports the consortium-level improvement over the four individual members.
+- name: RH1 total organic carbon reduction
+  description: At 50 mg/L initial glyphosate, the RH1 consortium removed 91.03% of measured total organic carbon over the
+    15-day incubation, supporting substantial transformation of glyphosate-derived organic carbon.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: glyphosate
+    term:
+      id: CHEBI:27744
+      label: glyphosate
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the reduction of total organic carbon by the actinobacteria consortium RH1, using glyphosate as
+      the sole carbon source at a concentration of 50 mg/L, showed that the consortium was able to eliminate 91.03% of the
+      total organic carbon during a 15-day incubation period.
+    explanation: Supports TOC reduction by RH1 at the 50 mg/L glyphosate comparison point.
+environmental_factors:
+- name: Initial glyphosate concentration range
+  value: 1, 10, 25, 50, 100, and 200
+  unit: mg/L
+  description: RH1 was challenged with a 1-200 mg/L initial glyphosate series.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: glyphosate at different concentrations (1 mg/L, 10 mg/L, 25 mg/L, 50 mg/L, 100 mg/L, and 200 mg/L)
+    explanation: Supports the tested initial glyphosate concentration range.
+- name: High-glyphosate substrate inhibition
+  value: 54.11% at 100 mg/L; 37.08% at 200 mg/L
+  description: The two highest tested initial glyphosate concentrations inhibited RH1 growth and biodegradation relative to
+    lower-dose cultures.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At the highest tested concentration, 200 mg/L, a low percentage of biodegradation was observed (37.08%), as well
+      as a moderate percentage (54.11%) at the concentration 100 mg/L.
+    explanation: Supports reduced glyphosate degradation at the two highest tested concentrations.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The highest glyphosate concentrations inhibit its own biodegradation by the consortium RH1.
+    explanation: Supports substrate inhibition as the paper's interpretation of the high-concentration response.
+- name: Maximum tested 50 mg/L glyphosate removal
+  value: '92.06'
+  unit: percent
+  description: The RH1 consortium removed the reported fraction of 50 mg/L glyphosate in the 15-day assay.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The consortium RH1 degraded 92.06% of the initial glyphosate concentration (50 mg/L) within 15 days under optimal
+      conditions
+    explanation: Supports the 50 mg/L glyphosate-removal endpoint.
+- name: Haldane-Andrews growth model fit
+  value: R2 0.976, F 65.49, P 0.00074
+  description: The Haldane-Andrews substrate-inhibition model best fit RH1 growth-rate data.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "The experimental data best fit the Haldane-Andrews kinetic model, having F, P, and R\n\n2\n values of 65.49,\
+      \ 0.00074, and 0.976, respectively"
+    explanation: Supports the selected growth-inhibition kinetic model.
+growth_media:
+- name: Liquid ISP2 Streptomyces pre-culture
+  composition:
+  - name: International Streptomyces Project 2 medium
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  incubation_time: '3'
+  incubation_time_unit: days
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  preparation_notes: Each RH1 member was pre-cultured separately before washed pellets were normalized and mixed.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Single strains were individually pre-cultured in liquid ISP2 medium (30 mL), and then incubated at 30 °C with
+      200 rpm agitation for 3 days.
+    explanation: Supports the Streptomyces pre-culture medium, volume, temperature, agitation, and duration.
+- name: Mineral salt medium glyphosate batch assay
+  composition:
+  - name: mineral salt medium
+  - name: glyphosate
+    concentration: 1-200
+    unit: mg/L
+    chebi_term:
+      preferred_term: glyphosate
+      term:
+        id: CHEBI:27744
+        label: glyphosate
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  incubation_time: '15'
+  incubation_time_unit: days
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  inoculum_size: 4% RH1 inoculum, assembled as a 1:1:1:1 strain mixture from OD590 1.0 suspensions
+  vessel_type: 250 mL Erlenmeyer flask with 100 mL working volume
+  preparation_notes: Glyphosate was supplied as the only carbon source and each condition was sampled every 3 days for dry-weight
+    growth and residual glyphosate.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After centrifugation at 6,000 g for 10 min at room temperature, the pellets were washed and suspended in sterile
+      saline (0.85% NaCl) to set an optical density (OD) of 1.0 at 590 nm
+    explanation: Supports the OD590 normalization step before constructing RH1 inocula.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Then, 4.0 mg/L of the mixed strains (in a 1:1:1:1 proportion) was added to 250 mL Erlenmeyer flasks containing
+      100 mL of Mineral salt medium (MSM) with glyphosate at different concentrations (1 mg/L, 10 mg/L, 25 mg/L, 50 mg/L,
+      100 mg/L, and 200 mg/L)
+    explanation: Supports the strain ratio, vessel, working volume, basal medium, and glyphosate dose series.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The flasks were incubated at 30 °C under agitation at 200 rpm for 15 days.
+    explanation: Supports the incubation temperature, agitation speed, and assay duration.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: 250 mL Erlenmeyer flasks incubated with rotary shaking
+  working_volume: 100.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: The paper reports controlled temperature and agitation but does not report pH control during the 15-day
+    flask incubations.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 250 mL Erlenmeyer flasks containing 100 mL of Mineral salt medium (MSM)
+    explanation: Supports the vessel type and working volume.
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The flasks were incubated at 30 °C under agitation at 200 rpm for 15 days.
+    explanation: Supports the controlled 30 C shake-flask incubation.
+external_resources:
+- name: Primary publication - RH1 glyphosate biodegradation
+  repository: OTHER
+  resource_id: PMID:42582159
+  url: https://pubmed.ncbi.nlm.nih.gov/42582159/
+  description: Primary open-access Frontiers study of RH1 glyphosate biodegradation and kinetics.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The study investigated glyphosate biodegradation by the RH1 consortium and identified suitable kinetic models
+      to support bioremediation.
+    explanation: Links the primary publication to the RH1 consortium and kinetic biodegradation phenotype.
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for the RH1 glyphosate-bioremediation consortium.
+discussions:
+- discussion_id: rh1_glyphosate_pathway_genes
+  prompt: Which genes and intermediate metabolites mediate glyphosate catabolism by the RH1 consortium?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#RH1 glyphosate biodegradation
+  rationale: The paper explains that glyphosate degradation can proceed through the AMPA and sarcosine pathways and proposes
+    phnJ, dadA, and soxA as future molecular targets; the authors state that functional genes were not directly characterized
+    in this study. The RH1 record therefore asserts only the observed degradation, TOC, ATR-FTIR, and kinetic endpoints.
+  evidence:
+  - reference: PMID:42582159
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although functional genes were not directly characterized in this study, the observed biodegradation behavior
+      strongly indicates the involvement of conserved phosphonate-degrading genetic systems, warranting future molecular analyses
+      targeting genes such as phnJ, dadA, and soxA.
+    explanation: Supports leaving the proposed glyphosate-pathway genes as an open mechanistic gap.
+curation_history:
+- timestamp: '2026-09-13T12:33:33Z'
+  curator: claude
+  action: CREATE_RH1_GLYPHOSATE_CONSORTIUM
+  changes: Created the RH1 Glyphosate Streptomyces Consortium record from PMID:42582159.
+  llm_assisted: true
