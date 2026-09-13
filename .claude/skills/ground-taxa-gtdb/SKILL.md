@@ -134,8 +134,8 @@ withholding four with a reason apiece (#276).
 
 | status | count | meaning |
 |---|---|---|
-| `GROUNDED` | 800 | a `gtdb_classification` is present |
-| `UNRESOLVED` | 167 | the tool produced no grounding; **why is not established** |
+| `GROUNDED` | 801 | a `gtdb_classification` is present |
+| `UNRESOLVED` | 168 | the tool produced no grounding; **why is not established** |
 | `AMBIGUOUS` | 95 | GTDB splits the NCBI taxon with no majority; `gtdb_candidates` carries every contender, as ranked `GTDB:` CURIEs (#415) |
 | `NOT_ATTEMPTED` | 0 | the tool *would* ground it and the KB does not — unambiguously outstanding work |
 | `WITHHELD` | 6 | the tool can ground it and a curator decided it must not (#292) |
@@ -163,8 +163,8 @@ prose:
 informative = [b for b in blocks if not b["gtdb_id"].startswith("GTDB:d__")]
 ```
 
-By rank, the 800 grounded blocks are 360 `s__`, 275 `g__`, 75 `d__`, 52 `p__`,
-13 `c__`, 15 `o__`, 10 `f__` (#403). Against the 1178 `taxon_term`s in
+By rank, the 801 grounded blocks are 360 `s__`, 276 `g__`, 75 `d__`, 52 `p__`,
+13 `c__`, 15 `o__`, 10 `f__` (#403). Against the 1180 `taxon_term`s in
 `kb/communities` and `data/isolates`, that is 67.9% grounded, or **61.5% once
 `d__` is excluded — a 6.4 pp difference.**
 

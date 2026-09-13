@@ -1,0 +1,293 @@
+id: CommunityMech:000362
+name: Sphingobium-Nitrososphaera Phenanthrene-Carbon SynCom
+description: A defined two-member synthetic community consisting of the PHE-degrading bacterium Sphingobium sp. RS2 and the
+  carbon-sequestering archaeon Nitrososphaera viennensis EN76. The SynCom was added to phenanthrene-contaminated lettuce-soil
+  pot experiments, where the accessible abstract reports 90.02% PHE removal from soil, an 81.07% reduction in PHE transferred
+  to lettuce, and increases in soil organic carbon, microbial carbon, and total carbon.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Combine a PHE-degrading Sphingobium bacterium with a carbon-sequestering Nitrososphaera archaeon to mitigate
+    the suppression of soil carbon synthesis in phenanthrene-contaminated soil.
+  assembly_strategy: Construct a two-member SynCom from Sphingobium sp. RS2 and Nitrososphaera viennensis EN76.
+  perturbation_design: Add the Sphingobium-Nitrososphaera SynCom to phenanthrene-contaminated lettuce pot experiments and
+    measure soil/plant PHE and soil carbon responses.
+  measurement_endpoints:
+  - phenanthrene removal from soil
+  - phenanthrene transferred to lettuce
+  - soil organic carbon
+  - microbial carbon
+  - total carbon
+  - modeled abundance of soil carbon-fixing and PHE-degrading microorganisms
+  notes: The accessible PubMed abstract gives the exact SynCom members and high-level pot-experiment outcomes, but not the
+    inoculation ratio, soil PHE dose, pot conditions, or assay timing.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a synthetic community (SynCom) consisting of PHE-degrading bacterium Sphingobium sp. RS2 and carbon-sequestering
+      archaeon Nitrososphaera viennensis EN76
+    explanation: Supports the exact two-member synthetic assembly.
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Supports the phenanthrene-removal and lettuce-transfer endpoints in pot experiments.
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance of soil
+      carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
+    explanation: Supports the modeled link between SynCom addition and enriched carbon-fixing/PHE-degrading guilds.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      tools:
+      - tool_name: random forest model
+        role: ranked inferred drivers of SynCom-associated phenanthrene and carbon outcomes
+      - tool_name: partial least-squares path modeling
+        role: modeled paths linking SynCom addition, microbial absolute abundances, and carbon/PHE outcomes
+      parameters: Combined random forest and PLS-PM over the pot experiment to infer that carbon-fixing and PHE-degrading
+        microorganism abundances primarily drove the reported SynCom effects.
+environment_term:
+  preferred_term: phenanthrene-contaminated lettuce pot experiment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The defined SynCom was evaluated after addition to controlled phenanthrene-contaminated soil pot experiments with
+    lettuce.
+modeled_environment:
+- preferred_term: phenanthrene-contaminated soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: The system models organic-pollutant remediation in phenanthrene-contaminated soil while tracking carbon synthesis.
+taxonomy:
+- taxon_term:
+    preferred_term: Sphingobium sp. RS2
+    term:
+      id: NCBITaxon:165695
+      label: Sphingobium
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Sphingobium
+      gtdb_taxon: Sphingobium
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Sphingomonadales;f__Sphingomonadaceae;g__Sphingobium
+      ncbi_source_id: NCBITaxon:165695
+      majority_fraction: 0.987
+      support_genomes: 222
+      total_genomes: 225
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: The accessible abstract identifies strain RS2 only as Sphingobium sp.; the genus-level NCBITaxon term is used.
+  strain_designation:
+    strain_name: RS2
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a synthetic community (SynCom) consisting of PHE-degrading bacterium Sphingobium sp. RS2 and carbon-sequestering
+      archaeon Nitrososphaera viennensis EN76
+    explanation: Identifies Sphingobium sp. RS2 as the PHE-degrading SynCom member.
+- taxon_term:
+    preferred_term: Nitrososphaera viennensis EN76
+    term:
+      id: NCBITaxon:1034015
+      label: Nitrososphaera viennensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The accessible abstract identifies strain EN76 at species level; GTDB grounding was not resolved in the local kg-microbe
+      crosswalk available during curation.
+  strain_designation:
+    strain_name: EN76
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_PRODUCER
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a synthetic community (SynCom) consisting of PHE-degrading bacterium Sphingobium sp. RS2 and carbon-sequestering
+      archaeon Nitrososphaera viennensis EN76
+    explanation: Identifies Nitrososphaera viennensis EN76 as the carbon-sequestering archaeal SynCom member.
+ecological_interactions:
+- name: SynCom phenanthrene removal in lettuce pots
+  description: As a two-member synthetic community, Sphingobium sp. RS2 and Nitrososphaera viennensis EN76 were associated
+    with 90.02% PHE removal from soil and an 81.07% reduction of PHE transfer to lettuce. Pairwise exchange metabolites were
+    not resolved in the accessible abstract.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: phenanthrene
+    term:
+      id: CHEBI:28851
+      label: phenanthrene
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Supports consortium-linked phenanthrene removal from soil and reduced transfer to lettuce.
+- name: SynCom soil carbon restoration
+  description: SynCom addition increased soil organic carbon, microbial carbon, and total carbon, and random-forest/PLS-PM
+    modeling linked those effects to a sustained increase in the absolute abundance of soil carbon-fixing and PHE-degrading
+    microorganisms.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  biological_processes:
+  - preferred_term: carbon fixation
+    term:
+      id: GO:0015977
+      label: carbon fixation
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Soil organic carbon, microbial carbon, and total carbon content were also significantly increased.
+    explanation: Supports increased soil organic, microbial, and total carbon after SynCom addition.
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: demonstrated that these effects were primarily driven by a continuous increase in the absolute abundance of soil
+      carbon-fixing microorganisms and PHE-degrading microorganisms after SynCom addition.
+    explanation: Supports the modeled association between SynCom addition and increased absolute abundances of carbon-fixing
+      and PHE-degrading microorganisms.
+    computational_provenance:
+      prediction_type: STATISTICAL_INFERENCE
+      tools:
+      - tool_name: random forest model
+        role: ranked inferred drivers of SynCom-associated phenanthrene and carbon outcomes
+      - tool_name: partial least-squares path modeling
+        role: modeled paths linking SynCom addition, microbial absolute abundances, and carbon/PHE outcomes
+      parameters: Combined random forest and PLS-PM over the pot experiment to infer that carbon-fixing and PHE-degrading
+        microorganism abundances primarily drove the reported SynCom effects.
+environmental_factors:
+- name: Phenanthrene contamination
+  value: phenanthrene-contaminated soil
+  description: Phenanthrene was the organic-pollutant stressor the SynCom was designed to mitigate in soil.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: phenanthrene (PHE) was found to significantly reduce soil carbon synthesis
+    explanation: Supports phenanthrene as the soil organic pollutant affecting carbon synthesis.
+- name: Soil phenanthrene removal
+  value: '90.02'
+  unit: percent
+  description: The SynCom-treated pot experiment effectively removed 90.02% of PHE from the soil.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Supports the reported soil PHE removal percentage.
+- name: Lettuce PHE-transfer reduction
+  value: '81.07'
+  unit: percent
+  description: SynCom addition reduced the amount of PHE transferred to lettuce in the pot experiment.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Supports the reported reduction in PHE transfer to lettuce.
+growth_media:
+- name: Phenanthrene-contaminated lettuce pot soil
+  composition:
+  - name: phenanthrene
+    chebi_term:
+      preferred_term: phenanthrene
+      term:
+        id: CHEBI:28851
+        label: phenanthrene
+  inoculum_source: Sphingobium sp. RS2 and Nitrososphaera viennensis EN76.
+  vessel_type: lettuce pot experiment
+  preparation_notes: The accessible PubMed abstract reports a phenanthrene-contaminated soil pot experiment with lettuce and
+    SynCom addition, but not the inoculation ratio, soil PHE dose, pot conditions, or carbon-assay timing.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a synthetic community (SynCom) consisting of PHE-degrading bacterium Sphingobium sp. RS2 and carbon-sequestering
+      archaeon Nitrososphaera viennensis EN76
+    explanation: Supports the two strains used as the SynCom inoculum for phenanthrene-contaminated soil.
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Supports the lettuce pot-experiment assay context.
+external_resources:
+- name: Primary publication - phenanthrene-carbon SynCom
+  repository: OTHER
+  resource_id: PMID:41967346
+  url: https://pubmed.ncbi.nlm.nih.gov/41967346/
+  description: PubMed record for the 2026 Journal of Environmental Management study of the Sphingobium-Nitrososphaera SynCom.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we constructed a synthetic community (SynCom) consisting of PHE-degrading bacterium Sphingobium sp. RS2 and carbon-sequestering
+      archaeon Nitrososphaera viennensis EN76
+    explanation: Links the primary publication to the exact SynCom composition.
+- name: Primary publication DOI - phenanthrene-carbon SynCom
+  repository: OTHER
+  resource_id: doi:10.1016/j.jenvman.2026.129643
+  url: https://doi.org/10.1016/j.jenvman.2026.129643
+  description: DOI landing page for the 2026 Journal of Environmental Management study of the Sphingobium-Nitrososphaera SynCom.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.1016/j.jenvman.2026.129643'
+    explanation: Supports the DOI assigned to the primary publication.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The accessible abstract reports organic-pollutant bioremediation of phenanthrene-contaminated soil, not metal
+  or rare-earth processing.
+discussions:
+- discussion_id: phenanthrene_carbon_syncom_cultivation_details
+  prompt: What phenanthrene soil dose, SynCom inoculation amounts, strain ratio, pot conditions, and carbon-assay timing were
+    used for the Sphingobium-Nitrososphaera SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - growth_media#Phenanthrene-contaminated lettuce pot soil
+  rationale: The PubMed abstract names the exact members and reports PHE, lettuce-transfer, and carbon endpoints, but Elsevier
+    full text was not open-access through Europe PMC during curation, leaving exact cultivation parameters unresolved.
+  evidence:
+  - reference: PMID:41967346
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The results of the pot experiment indicated that 90.02% of the PHE was effectively removed from the soil and
+      81.07% of the PHE transferred to the lettuce was reduced by the addition of SynCom.
+    explanation: Shows that the abstract reports pot-level outcomes without exposing the pot setup or inoculation details.
+curation_history:
+- timestamp: '2026-09-13T13:42:30Z'
+  curator: claude
+  action: CREATE_PHENANTHRENE_CARBON_SYNCOM
+  changes: Created the Sphingobium-Nitrososphaera Phenanthrene-Carbon SynCom record from PMID:41967346.
+  llm_assisted: true
+- timestamp: '2026-09-13T14:31:47Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: Narrowed abstract-supported community-level effects to untyped interactions and marked RF/PLS-PM driver evidence
+    as COMPUTATIONAL with provenance for issues 847 and 848.
+  llm_assisted: true
