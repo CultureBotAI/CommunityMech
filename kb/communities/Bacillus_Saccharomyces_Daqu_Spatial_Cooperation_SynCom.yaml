@@ -161,10 +161,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Daqu flavor compound formation
-    description: Stage-specific ethanol production was one endpoint of the Bacillus-Saccharomyces Daqu fermentation model
-      that linked labor division to product biosynthesis.
   evidence:
   - reference: PMID:42679964
     supports: SUPPORT
@@ -199,10 +195,6 @@ ecological_interactions:
     term:
       id: GO:0006113
       label: fermentation
-  downstream:
-  - target: Daqu flavor compound formation
-    description: Engineered control of starch degradation improved both starch conversion efficiency and flavor compound formation
-      when the consortium was applied to Daqu fermentation.
   evidence:
   - reference: PMID:42679964
     supports: SUPPORT
@@ -325,4 +317,10 @@ curation_history:
   changes: Curated CommunityMech:000355 from PMID:42679964 / doi:10.1016/j.biortech.2026.135755 at genus level, with Daqu
     solid-state fermentation context, starch and ethanol interactions, related ingredients, DOI/PubMed resources, and an open
     discussion for strain, construct, and cultivation details absent from the abstract.
+  llm_assisted: true
+- timestamp: '2026-09-13T03:46:04Z'
+  curator: codex
+  action: FIX_DANGLING_DOWNSTREAM_TARGETS
+  changes: Removed Daqu flavor compound formation downstream targets that did not name a curated ecological interaction; flavor
+    formation remains a measured fermentation outcome in the record prose and evidence.
   llm_assisted: true
