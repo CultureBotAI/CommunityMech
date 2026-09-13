@@ -6,8 +6,8 @@ description: A host-filtered bacterial endosphere community from the edible aqua
   found a low-diversity Proteobacteria/Pseudomonadota-dominated consortium in which Alphaproteobacterial members encoded near-complete
   cobamide biosynthesis pathways, while many Gammaproteobacteria and Bacteroidota lineages carried incomplete pathways enriched
   for cobamide salvage and remodeling. A MAG-derived functional-complementarity network placed Hyphomicrobium zavarzinii,
-  Methylobacterium, and Devosia among the inferred producer hubs, supporting a producer-salvager model for cobamide metabolism
-  in the plant-associated niche.
+  Methylobacterium, Devosia, Labrys, and Ferrovibrionaceae among the inferred producer-side taxa, supporting a producer-salvager
+  model for cobamide metabolism in the plant-associated niche.
 community_origin: NATURAL
 community_category: OTHER
 environment_term:
@@ -60,6 +60,35 @@ taxonomy:
       Ferrovibrionaceae, encoded most cobamide biosynthesis steps
     explanation: Supports Devosia sp. Mankai endosphere as a member of the Mankai endosphere cobamide network.
 - taxon_term:
+    preferred_term: Labrys sp. Mankai endosphere
+    term:
+      id: NCBITaxon:204476
+      label: Labrys <a-proteobacteria>
+    notes: Genus-level Labrys member of the Mankai endosphere with a near-complete cobamide-biosynthesis gene set in MAG
+      annotations.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Members of the Alphaproteobacteria, including H. zavarzinii, Hyphomicrobium sp., Devosia spp., Methylobacterium
+      sp., and Labrys sp., carried near-complete gene sets
+    explanation: Supports Labrys sp. Mankai endosphere as a producer-side member of the cobamide network.
+- taxon_term:
+    preferred_term: Ferrovibrionaceae Mankai endosphere
+    term:
+      id: NCBITaxon:3120696
+      label: Ferrovibrionaceae
+    notes: Family-level Ferrovibrionaceae member of the Mankai endosphere network with most cobamide-biosynthesis steps encoded
+      in MAG annotations.
+  evidence:
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Additional highly connected taxa, including Methylobacterium sp., M. purpurogeneiscleroticus, Devosia sp., and
+      Ferrovibrionaceae, encoded most cobamide biosynthesis steps
+    explanation: Supports Ferrovibrionaceae Mankai endosphere as a highly connected producer-side member of the cobamide
+      network.
+- taxon_term:
     preferred_term: Gammaproteobacteria cobamide salvagers
     term:
       id: NCBITaxon:1236
@@ -106,8 +135,10 @@ ecological_interactions:
     explanation: Supports compartment filtering across medium, phyllosphere, and endosphere fractions.
 - name: MAG-Inferred Cobamide Producer-Salvager Guild
   description: 'Genome-resolved endosphere analysis predicted an uneven cobamide pathway architecture: Hyphomicrobium zavarzinii,
-    Methylobacterium, Devosia, and other Alphaproteobacteria encoded most biosynthetic steps, while many Gammaproteobacteria
-    and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous intermediates.'
+    Methylobacterium, Devosia, Labrys, Ferrovibrionaceae, and other Alphaproteobacteria encoded most biosynthetic steps, while
+    many Gammaproteobacteria and Bacteroidota lineages had incomplete pathways and were inferred to salvage or remodel exogenous
+    intermediates. The network edges represent MAG-derived metabolic compatibility, not direct metabolite-flux or abundance-correlation
+    evidence.'
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   participating_taxa:
@@ -123,6 +154,14 @@ ecological_interactions:
     term:
       id: NCBITaxon:46913
       label: Devosia
+  - preferred_term: Labrys sp. Mankai endosphere
+    term:
+      id: NCBITaxon:204476
+      label: Labrys <a-proteobacteria>
+  - preferred_term: Ferrovibrionaceae Mankai endosphere
+    term:
+      id: NCBITaxon:3120696
+      label: Ferrovibrionaceae
   - preferred_term: Gammaproteobacteria cobamide salvagers
     term:
       id: NCBITaxon:1236
@@ -164,6 +203,14 @@ ecological_interactions:
     snippet: many Gammaproteobacteria and Bacteroidota lineages harbored incomplete pathways, implying reliance on exogenous
       cobamide intermediates
     explanation: Supports the broad salvager clades in the inferred network.
+  - reference: PMID:42304541
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: edges represent the number of cobamide pathway intermediates that could be supplied by one taxon and utilized by
+      another based on complementary gene content, thereby capturing putative exchange relationships inferred from pathway annotation
+      rather than abundance correlations
+    explanation: Documents that the network edges are inferred from MAG-derived pathway complementarity rather than direct
+      exchange or abundance-correlation evidence.
 environmental_factors:
 - name: industrial rotating greenhouse raceway
   value: Mankai from Hinoman rotating raceway basins
@@ -204,7 +251,7 @@ associated_datasets:
   title: Wolffia globosa Mankai endosphere amplicon and metagenomic reads
   description: NCBI BioProject carrying the raw amplicon and metagenomic reads used to profile medium, phyllosphere, and endosphere
     communities and to reconstruct endosphere MAGs.
-  dataset_type: MULTI_OMICS
+  dataset_type: METAGENOMICS
   repository: NCBI_BIOPROJECT
   sample_types:
   - cultivation medium
@@ -272,7 +319,7 @@ curation_history:
 - timestamp: '2026-09-13T10:27:13Z'
   curator: claude
   action: ADD_MANKAI_ENDOSPHERE_RECORD
-  changes: Added a new Mankai endosphere cobamide-guild community from PMID:42304541, including evidence-backed taxa, MAG-inferred
-    cobamide interactions, the BioProject accession, industrial raceway context, and an open discussion for unmeasured direct
-    cobamide exchange.
+  changes: Added a new Mankai endosphere cobamide-guild community from PMID:42304541, including seven evidence-backed taxa
+    and clades, MAG-inferred cobamide interactions, the BioProject accession, industrial raceway context, and an open discussion
+    for unmeasured direct cobamide exchange.
   llm_assisted: true
