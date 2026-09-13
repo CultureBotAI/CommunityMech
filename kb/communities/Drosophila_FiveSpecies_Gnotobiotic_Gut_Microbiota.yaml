@@ -60,11 +60,6 @@ taxonomy:
   - SECONDARY_FERMENTER
   abundance_value: Two of five bacterial species in the defined gnotobiotic community.
   evidence:
-  - reference: PMID:25692519
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Acetobacter pomorum DmelCS_004, Acetobacter tropicalis DmelCS_006
-    explanation: Supports the two Acetobacter members and their strain identifiers in the exact-composition follow-up study.
   - reference: PMID:21631690
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -93,11 +88,6 @@ taxonomy:
   - SECONDARY_FERMENTER
   abundance_value: Three of five bacterial species in the defined gnotobiotic community.
   evidence:
-  - reference: PMID:25692519
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: Lactobacillus brevis DmelCS_003, Lactobacillus fructivorans DmelCS_002 and Lactobacillus plantarum DmelCS_001
-    explanation: Supports the three Lactobacillus members and their strain identifiers in the exact-composition follow-up study.
   - reference: PMID:21631690
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
@@ -225,22 +215,10 @@ environmental_factors:
   value: Yeast-glucose agar diet at 25 C with a 12-hour light/dark cycle
   description: Fly hosts were reared on a yeast-glucose diet under controlled incubator conditions before
     and during gnotobiotic community assays.
-  evidence:
-  - reference: PMID:24242251
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: were reared at 25°C in a 12-h-light/12-h-dark cycle on a Y-G
-    explanation: Supports controlled Drosophila host-rearing conditions.
 - name: five-species inoculum density
   value: 5 x 10^6 total bacterial cells per vial, equal parts for multispecies inocula
   description: The five bacterial members were normalized by optical density, resuspended, and mixed in
     equal parts before introduction to sterile food.
-  evidence:
-  - reference: PMID:24242251
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: was added in equal parts to make up the total inoculum
-    explanation: Supports equal-part inoculum assembly for the five-member community.
 growth_media:
 - name: modified MRS for bacterial maintenance
   temperature: '30'
@@ -248,12 +226,6 @@ growth_media:
   atmosphere: FACULTATIVE_ANAEROBIC
   preparation_notes: Acetobacter members were maintained aerobically, while Lactobacillus plates were kept
     under carbon dioxide-enriched conditions.
-  evidence:
-  - reference: PMID:24242251
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: All bacteria were maintained on MMRS medium at 30
-    explanation: Supports modified MRS and incubation temperature for bacterial propagation.
 related_ingredients:
 - preferred_term: glucose
   chebi_term:
@@ -302,12 +274,6 @@ associated_datasets:
   url: https://pubmed.ncbi.nlm.nih.gov/25692519/
   description: Follow-up genome-wide association study using the same five-species bacterial suspension
     to measure host-genotype-dependent nutritional responses.
-  evidence:
-  - reference: PMID:25692519
-    supports: SUPPORT
-    evidence_source: IN_VIVO
-    snippet: The bacterial suspension comprised equal proportions of Acetobacter pomorum DmelCS_004
-    explanation: Lists a second publication using the same exact five-species community composition.
 - title: Source community publication - low-diversity Drosophila gut microbiota
   dataset_type: AMPLICON_16S
   repository: OTHER
@@ -322,3 +288,12 @@ associated_datasets:
     snippet: The sequence reads were dominated by 5 operational taxonomic units (OTUs)
     explanation: Supports the five dominant source taxa for the defined community.
 metal_relevance: NOT_APPLICABLE
+curation_history:
+- timestamp: '2026-09-13T01:01:47Z'
+  curator: codex
+  action: REMOVE_UNVERIFIABLE_PUBLICATION_EVIDENCE
+  changes: "Removed 6 evidence items that no longer match the retained abstracts after PR #766's publication-body
+    policy caught newer main caches. Preserved all scientific claims, taxonomy and interaction topology;
+    these claims require re-evidencing where support was removed. See the linked publication-text-removal
+    history for license/version uncertainty."
+  llm_assisted: true

@@ -160,6 +160,17 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "hCom2_Complex_Gut_Microbiome.yaml",
     ),
     _NO_MEMBERS: (),
+    # #754 removed the paywalled article bodies these two cultivation_setup
+    # blocks were evidenced from, and the evidence items went with them. The
+    # message above says to prefer removing the blindness by caching the cited
+    # source's full text -- which is exactly what #754 forbids for these: the
+    # sources are subscription-access and this repository holds no such text.
+    # Re-evidencing from the abstracts is possible where the abstract says
+    # anything about cultivation, and is tracked rather than done here.
+    _NO_REFERENCES: (
+        "Cheese_Rind_InSitu_InVitro_Model_Community.yaml",
+        "Dehalococcoides_Pelobacter_Acetylene_TCE_Coculture.yaml",
+    ),
     _NO_FULL_TEXT: (
         "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
         "Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml",

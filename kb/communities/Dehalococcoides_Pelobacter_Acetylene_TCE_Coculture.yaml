@@ -29,11 +29,6 @@ engineering_design:
   - reference: PMID:28075122
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Acetylene Fuels TCE Reductive Dechlorination by Defined Dehalococcoides/Pelobacter Consortia
-    explanation: Supports the defined Dehalococcoides/Pelobacter coculture objective.
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
     snippet: Cocultures of Pelobacter SFB93
     explanation: Supports use of Pelobacter strain SFB93 in the defined coculture design.
   - reference: PMID:28075122
@@ -267,17 +262,6 @@ cultivation_setup:
 
     The monoculture conditions in the same paper - strain 195 and BAV1 on defined medium
     under H2/CO2 (80:20), SFB93 alone on ABW - are not recorded here (#529).
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Bacterial cocultures of strains 195 and SFB93 (10% vol/vol inoculation of each bacterium)
-      were initially established in 60 mL serum bottles containing 25 mL ABW medium with TCE supplied
-      at a liquid concentration of 0.1 mM (corresponding to 3 μmol TCE per bottle), 0.1 mM acetylene
-      (corresponding to 0.15 mL gas), and N2 headspace incubated at 34 °C without agitation
-    explanation: Vessel, working volume, medium, amendments, headspace, temperature and static
-      operation - stated for the coculture itself.
-
 environmental_factors:
 - name: Acetylene co-contaminant
   value: acetylene generated during TCE degradation
@@ -393,12 +377,6 @@ related_ingredients:
   relevance: >
     cis-Dichloroethene (cis-DCE) serves as a terminal electron acceptor for
     D. mccartyi and appears as a trace product during TCE dechlorination.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: cis-dichloroethene (cis-DCE) as terminal electron acceptors
-    explanation: cis-DCE is used as a terminal electron acceptor by strain 195.
 - preferred_term: chloroethene
   chebi_term:
     id: CHEBI:28509
@@ -406,12 +384,6 @@ related_ingredients:
   relevance: >
     Vinyl chloride (chloroethene, VC) is the major reduction product accumulating
     from TCE dechlorination in the SFB93/195 coculture before further reduction to ethene.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: to form VC, but VC is further reduced to ethene
-    explanation: VC is the dechlorination product reduced further to ethene.
 - preferred_term: ethene
   chebi_term:
     id: CHEBI:18153
@@ -419,12 +391,6 @@ related_ingredients:
   relevance: >
     Ethene is the benign final product of complete TCE dechlorination by
     D. mccartyi.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: completely dechlorinate TCE to the benign product ethene (C2H4)
-    explanation: Ethene is the innocuous end product of complete dechlorination.
 - preferred_term: acetylene
   chebi_term:
     id: CHEBI:27518
@@ -432,12 +398,6 @@ related_ingredients:
   relevance: >
     Acetylene is fermented by Pelobacter strain SFB93 to provide electron donor
     and carbon source sustaining the dechlorinating coculture.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: strain SFB93 ferments acetylene to ethanol, acetate, and H2
-    explanation: Acetylene is the fermentation substrate metabolized by SFB93.
 - preferred_term: dihydrogen
   chebi_term:
     id: CHEBI:18276
@@ -445,12 +405,6 @@ related_ingredients:
   relevance: >
     Hydrogen generated from acetylene fermentation is transferred to D. mccartyi
     as the electron donor for reductive dechlorination via interspecies H2 transfer.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Aqueous H2 concentrations ranged from 114 to 217 nM during TCE-dechlorination
-    explanation: H2 from acetylene fermentation fuels dechlorination by strain 195.
 - preferred_term: acetate
   chebi_term:
     id: CHEBI:30089
@@ -458,12 +412,6 @@ related_ingredients:
   relevance: >
     Acetate produced from acetylene fermentation by SFB93 supplies the carbon
     source required for growth of D. mccartyi.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: strain SFB93 ferments acetylene to ethanol, acetate, and H2
-    explanation: Acetate is a fermentation product providing carbon to dechlorinators.
 - preferred_term: ethanol
   chebi_term:
     id: CHEBI:16236
@@ -471,12 +419,6 @@ related_ingredients:
   relevance: >
     Ethanol is an acetylene fermentation product of SFB93 that is rapidly oxidized
     to acetate and H2 in dechlorinating communities.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: strain SFB93 ferments acetylene to ethanol, acetate, and H2
-    explanation: Ethanol is a fermentation product of acetylene metabolism by SFB93.
 - preferred_term: chloride
   chebi_term:
     id: CHEBI:17996
@@ -484,15 +426,17 @@ related_ingredients:
   relevance: >
     Chloride is released during reductive dechlorination and was tracked as a
     measure of D. mccartyi cell yield in the coculture.
-  evidence:
-  - reference: PMID:28075122
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: cells μmol−1 Cl− released
-    explanation: Chloride release quantifies dechlorination and cell yield.
 metals_present: []
 rare_earth_elements_present: []
 metal_relevance: NOT_APPLICABLE
 metal_notes: >
   No metal or rare earth element processing role is curated for this chlorinated-solvent
   bioremediation coculture.
+curation_history:
+- timestamp: '2026-09-13T00:56:49Z'
+  curator: codex
+  action: RECONCILE_PAYWALLED_EVIDENCE_REMOVAL
+  changes: "Reapplied PR #766's 10 unsupported evidence removals onto current main, preserving its newer
+    interaction curation; retained abstract-supported evidence. Re-evidencing debt remains tracked in
+    #765."
+  llm_assisted: true
