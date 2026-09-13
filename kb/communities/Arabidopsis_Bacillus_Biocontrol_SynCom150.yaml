@@ -1,0 +1,441 @@
+id: CommunityMech:000368
+name: Arabidopsis Bacillus Biocontrol SynCom150
+description: A 150-member bacterial synthetic community assembled from genome-sequenced isolates recovered from surface-sterilized
+  Brassicaceae roots, nearly all Arabidopsis thaliana, and applied to Arabidopsis Col-0 plants in gamma-irradiated coconut-coir
+  and MS-agar microcosms. The study used top-down dropout and add-in deconstruction to test SynCom subsets against the leaf
+  pathogen Pseudomonas syringae pv. tomato DC3000, resolving Bacillus and Pseudomonadota as protective components; follow-up
+  halo assays, Bacillus-only inocula, leaf-recovery CFU assays, and Arabidopsis RNA-seq supported a model in which diverse
+  rhizospheric Bacillus suppress Pto without requiring host immune activation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Identify which components of a complex Arabidopsis root-derived bacterial SynCom protect leaves against Pseudomonas
+    syringae pv. tomato DC3000.
+  assembly_strategy: Assemble 150 genome-sequenced bacterial isolates from surface-sterilized Brassicaceae roots into a defined
+    SynCom, then deconstruct it into phylum-, class-, and genus-level add-in and dropout communities.
+  inoculation_strategy: Revive frozen SynCom members in LB in 96-deep-well plates at 28°C with shaking, combine isolates after
+    OD600 measurement into phylum-specific pools, normalize before and after pooling to OD600 0.1, centrifuge and resuspend
+    the mixed cells in liquid Murashige-Skoog medium for inoculation.
+  perturbation_design: First remove or individually add the four bacterial phyla in the full SynCom, then run second-round
+    dropout and add-in tests for Alpha-, Beta-, and Gammaproteobacteria within Pseudomonadota and for Bacillus versus Paenibacillus
+    within Bacillota.
+  measurement_endpoints:
+  - Pseudomonas syringae pv. tomato DC3000 luminescent CFU per milligram of Arabidopsis leaf tissue
+  - SynCom colonization by 16S rRNA gene amplicon sequencing of rhizosphere, roots and shoots
+  - plant shoot area and diseased-area image analysis
+  - in vitro Pto halo inhibition by individual SynCom members
+  - Arabidopsis leaf RNA-seq after full-SynCom and Bacillus-dropout treatments
+  - Bacillus biosynthetic gene clusters predicted by antiSMASH
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 150-member bacterial synthetic community (SynCom) used here contains genome-sequenced isolates
+    explanation: Identifies the defined 150-member genome-sequenced bacterial SynCom used for the study.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Here, we tested a new screening strategy for ecologically relevant traits within the microbiome, that we term
+      “top-down community deconstruction.”
+    explanation: Names the top-down deconstruction strategy used to perturb the synthetic community.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The SynCom contains four bacterial phyla: Actinomycetota, Bacillota, Bacteroidota, and Pseudomonadota'
+    explanation: Supports the first deconstruction level across the four phyla in the complete bacterial SynCom.
+environment_term:
+  preferred_term: closed Arabidopsis gnotobiotic SynCom microcosm
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The primary plant-protection screen used Arabidopsis grown on gamma-irradiated coconut coir in Magenta GA-7 boxes
+    covered with a breathable membrane; validation experiments also used MS agar and open unsterilized-coir systems.
+modeled_environment:
+- preferred_term: Arabidopsis rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The inoculum was composed of Brassicaceae-root isolates and used to reconstruct Arabidopsis root-associated microbiota
+    in controlled plant-growth systems.
+taxonomy:
+- taxon_term:
+    preferred_term: 150-member Brassicaceae-root bacterial SynCom
+    term: &id001
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+    notes: Aggregate membership for the complete 150-member genome-sequenced bacterial SynCom; the source grouped members
+      by phylum before final OD600-normalized pooling.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 150-member bacterial synthetic community (SynCom) used here contains genome-sequenced isolates
+    explanation: Supports the complete bacterial SynCom as the top-level member aggregate.
+- taxon_term:
+    preferred_term: protective Bacillus subset
+    term: &id002
+      id: NCBITaxon:1386
+      label: Bacillus <firmicutes>
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Bacillus
+      gtdb_taxon: Bacillus
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus
+      ncbi_source_id: NCBITaxon:1386
+      majority_fraction: 0.57
+      support_genomes: 4981
+      total_genomes: 8737
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 44 GTDB taxa
+        under the NCBI taxon]
+    notes: Functionally resolved genus-level subset of the 150-member SynCom; the source reports that the Bacillus-only follow-up
+      used the 22 Bacillus strains included in the SynCom.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using this system, we infected plants with Pto in the presence of each of the 22 Bacillus strains separately
+      or in combination.
+    explanation: Identifies the Bacillus strains from the SynCom as the subset tested alone and together against Pto.
+- taxon_term:
+    preferred_term: protective Pseudomonadota subset
+    term: &id005
+      id: NCBITaxon:1224
+      label: Pseudomonadota
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:p__Pseudomonadota
+      gtdb_taxon: Pseudomonadota
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota
+      ncbi_source_id: NCBITaxon:1224
+      majority_fraction: 1.0
+      support_genomes: 806030
+      total_genomes: 806033
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at p__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: Protective phylum-level subset. The source uses Proteobacteria-class names for Alpha-, Beta- and Gammaproteobacteria
+      while its SynCom table and NCBI Taxonomy use Pseudomonadota for the phylum.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the plant microbiota requires the presence of populations from within the Bacillota and Pseudomonadota phyla
+      to completely suppress leaf infection
+    explanation: Supports Pseudomonadota as one of the phylum-level protective SynCom subsets.
+ecological_interactions:
+- name: Closed Coir Arabidopsis Microbiota Reconstruction
+  description: The full 150-member bacterial SynCom replaced microbes destroyed by gamma irradiation, colonized Arabidopsis
+    rhizosphere, root and shoot compartments, and partially rescued the poor growth phenotype of plants raised on irradiated
+    coconut coir.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: 150-member Brassicaceae-root bacterial SynCom
+    term: *id001
+  biological_processes:
+  - preferred_term: plant-bacterium symbiotic process
+    term:
+      id: GO:0044403
+      label: biological process involved in symbiotic interaction
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We replaced the destroyed microbiota with a 150-member SynCom composed of bacterial isolates previously retrieved
+      from Arabidopsis roots
+    explanation: Supports use of the 150-member root-derived SynCom to reconstruct the irradiated plant-growth microcosm.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We found that 100% of the 16S rRNA gene reads in our data originated from the inoculum
+    explanation: Supports successful replacement of the resident microbiota by the inoculated SynCom.
+- name: Bacillus-Dependent Pto Leaf-Pathogen Suppression
+  description: 'Bacillus was the focal genus in the top-down Bacillota deconstruction: Bacillus-only add-ins protected Arabidopsis
+    leaves from Pto colonization and Bacillus dropouts lost protection, whereas Paenibacillus-only and Paenibacillus-dropout
+    comparisons did not show the same focal protective requirement.'
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - &id003
+    preferred_term: protective Bacillus subset
+    term: *id002
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  downstream:
+  - target: Diverse Bacillus In Vitro Pto Antagonism
+    description: Individual Bacillus isolates inhibited luminescent Pto lawns, supporting direct antagonism as a candidate
+      mechanism for the plant-protection phenotype.
+  - target: Immune-Independent Bacillus Protection
+    description: Bacillus protected Arabidopsis even when the bbc1 receptor mutant reduced bacterial pattern-triggered immune
+      recognition.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This process of community deconstruction revealed a critical role for the genus Bacillus in protecting the plant
+      from infection.
+    explanation: Supports the top-down deconstruction result assigning Pto protection to Bacillus.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Only when multiple Bacillus strains were present together were the leaves protected from infection.
+    explanation: Supports the diversity dependence of the Bacillus protection phenotype.
+- name: Diverse Bacillus In Vitro Pto Antagonism
+  description: Each Bacillus isolate in the screened set inhibited luminescent Pto on LB agar, producing an inhibition halo
+    consistent with secreted diffusible antagonists; antiSMASH did not identify one BGC shared by all Bacillus strains and
+    absent from the rest of the SynCom.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - *id003
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To scan the SynCom members for inhibition of the pathogenic bacterium Pto, we co-cultured each one of the SynCom
+      bacteria with a Pto lawn on agar plates.
+    explanation: Supports the direct Bacillus-Pto co-culture halo-assay design.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: As the Bacillus strains all inhibited Pto in vitro and produced an inhibition halo indicative of a diffusible
+      compound
+    explanation: Supports the direct in vitro Pto antagonism detected for the Bacillus strains.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we could not identify any BGCs that were common to all Bacillus strains and absent in the other strains in the
+      collection
+    explanation: Records that the in vitro phenotype could not be reduced to one Bacillus-specific biosynthetic gene cluster.
+- name: Pseudomonadota Multi-Class Pto Protection
+  description: Pseudomonadota members also contributed to Pto suppression at phylum scale, but second-round Alpha-, Beta-
+    and Gammaproteobacteria add-in and dropout tests did not resolve the effect to one protective class.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: protective Pseudomonadota subset
+    term: *id005
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: we separately dropped out each of the three classes Alpha-, Beta-, and Gamma-proteobacteria. None of these drop-outs
+      compromised the protection provided by the SynCom
+    explanation: Supports the finding that Pseudomonadota protection was not attributable to one class-level dropout.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: in the case of Pseudomonadota, we could not identify a focal taxon
+    explanation: Supports keeping this protective component at phylum level rather than over-resolving a class or genus.
+- name: Immune-Independent Bacillus Protection
+  description: The Bacillus subset suppressed Pto colonization in wild-type Arabidopsis and in the bbc1 pattern-recognition
+    receptor co-receptor mutant, indicating that the protective outcome did not require fully functional plant bacterial pattern-triggered
+    immunity.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - *id003
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacillus-inoculated plants from both genotypes were infection free
+    explanation: Supports Bacillus-mediated protection in both wild-type and bbc1 Arabidopsis after Pto challenge.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We concluded that inoculating the rhizosphere with a consortium of Bacillus strains compensates for the lack
+      of a fully functional immune system, protecting the plant from a leaf pathogen.
+    explanation: Supports the conclusion that Bacillus protection can compensate for the bbc1 immune deficit.
+environmental_factors:
+- name: closed gamma-irradiated coir microcosm
+  value: 250 ml coconut coir, three 25 kGy gamma-irradiation rounds, 30 ml sterile liquid MS medium, 5 ml bacterial suspension
+  description: The closed gnotobiotic screen grew Arabidopsis seedlings in Magenta GA-7 boxes containing sterilized coconut
+    coir and introduced the OD-normalized bacterial suspension into the coir.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Coconut coir was placed in Magenta GA-7 culture boxes (plantMedia) and subjected to three rounds of gamma irradiation,
+      25 kGy each.
+    explanation: Supports the coir substrate, Magenta-box vessel, and gamma-sterilization dose.
+- name: Pto-lux leaf challenge endpoint
+  value: 6 days post-infection
+  description: The deconstruction screen challenged SynCom-inoculated Arabidopsis leaves with luminescent Pto and quantified
+    luminescent colony counts per milligram of leaf tissue six days later.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: measured the resulting population size of Pto per milligram of leaf tissue, 6 days post-infection
+    explanation: Supports the pathogen-challenge readout and six-day post-infection endpoint.
+growth_media:
+- name: Luria Bertani medium
+  temperature: '28'
+  temperature_unit: degrees Celsius
+  atmosphere: AEROBIC
+  incubation_time: '6'
+  incubation_time_unit: days
+  shaking_speed: '250'
+  shaking_speed_unit: rpm
+  vessel_type: 96-deep-well plate
+  preparation_notes: SynCom members were revived from 50% glycerol stocks for 4 days in 500 ul LB, transferred to fresh LB
+    for another 48 h to produce aged and nonstationary cultures, OD-normalized into phylum pools, centrifuged and resuspended
+    in liquid Murashige-Skoog medium.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: bacteria were inoculated from 50% glycerol stocks at −80°C into 500 μl Luria Bertani (LB) medium in a 96-deep-well
+      plate
+    explanation: Supports the LB revival medium, glycerol-stock source, culture volume, and 96-deep-well format.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterial cultures were grown at 28°C, shaking at 250 rpm
+    explanation: Supports the aerobic shaking incubation temperature and agitation rate.
+- name: Murashige-Skoog Arabidopsis inoculation medium
+  ph: '5.7'
+  inoculum_size: '0.1'
+  inoculum_unit: OD600
+  vessel_type: Magenta GA-7 culture box or 12-well plate
+  preparation_notes: The bacterial pellet was resuspended in liquid MS medium made from 2.2 g/l MS and 0.5 g/l MES, pH adjusted
+    to 5.7 with KOH, then diluted for closed coir, MS agar, or open coir inoculation.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'MS medium was prepared according the following formula: 2.2 g MS (plantMedia), 0.5 g MES, 1 l double-distilled
+      water, pH adjusted to 5.7 with 1 M KOH.'
+    explanation: Supports the Murashige-Skoog inoculation-medium composition and pH.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The resuspended solution was then diluted to OD600 = 0.1
+    explanation: Supports the closed-system OD600 used for inoculation after LB-grown cells were resuspended in MS.
+cultivation_setup:
+- system_type: OTHER
+  instrument_detail: Closed plant microcosm built from Magenta GA-7 boxes with gamma-irradiated coconut coir and a Breathe-Easy
+    transparent breathable sealing membrane.
+  temperature_controlled: true
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The boxes were then covered with a transparent breathable membrane (Breathe-Easy sealing membrane).
+    explanation: Supports the sealed breathable Magenta-box microcosm used for the closed coir screen.
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Plates were kept in a vertical position for 7 days in a growth chamber under a 16-h light/8-h dark regime at
+      21°C day/18°C night.
+    explanation: Supports temperature-controlled Arabidopsis seedling growth before SynCom inoculation.
+external_resources:
+- name: NCBI BioProject PRJNA1175571
+  repository: OTHER
+  resource_id: PRJNA1175571
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1175571/
+  description: NCBI BioProject holding the 16S rRNA gene amplicon sequencing data from the SynCom compartments.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The 16S rRNA gene amplicon sequencing data associated with this study have been deposited in the NCBI Sequence
+      Read Archive under the project accession PRJNA1175571.
+    explanation: Links the BioProject accession to the amplicon data generated for the SynCom study.
+- name: GEO transcriptomic series GSE285599
+  repository: OTHER
+  resource_id: GSE285599
+  url: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE285599
+  description: Gene Expression Omnibus series for raw Arabidopsis RNA-seq data from SynCom and Pto treatments.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The raw transcriptomic data have been deposited in the Gene Expression Omnibus under the accession GSE285599.
+    explanation: Links the GEO accession to the raw transcriptomic data generated for the SynCom study.
+discussions:
+- discussion_id: arabidopsis_bacillus_direct_vs_systemic_protection
+  prompt: How much of the Bacillus-mediated leaf protection comes from direct leaf-level antagonism versus induced systemic
+    resistance from the root compartment?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Bacillus-Dependent Pto Leaf-Pathogen Suppression
+  - ecological_interactions#Immune-Independent Bacillus Protection
+  rationale: Bacillus strains could be recovered from leaves and protected immune-impaired bbc1 plants, but the study leaves
+    induced-resistance contributions unresolved.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: further research into the involvement of induced resistance is needed in order to fully tease apart induced immunity
+      from direct pathogen inhibition
+    explanation: Records the authors' stated uncertainty about the relative contribution of direct Bacillus-Pto antagonism
+      and systemic host immunity.
+  posed_by: codex
+  posed_date: '2026-09-13'
+- discussion_id: arabidopsis_pseudomonadota_focal_taxon_gap
+  prompt: Which Pseudomonadota class or lower-resolution taxon combinations are sufficient to suppress Pto in this SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pseudomonadota Multi-Class Pto Protection
+  rationale: The first-round screen implicated the Pseudomonadota phylum, but second-round class add-ins and dropouts did
+    not resolve a single focal class or genus.
+  evidence:
+  - reference: PMID:40590505
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In contrast to Bacillus, in the case of Pseudomonadota, we could not identify a focal taxon
+    explanation: Supports an explicit gap rather than inventing a Pseudomonadota class-level driver.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for the Arabidopsis Bacillus biocontrol SynCom.
+curation_history:
+- timestamp: '2026-09-13T21:52:55Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000368 for the 150-member Arabidopsis Brassicaceae-root SynCom from PMID:40590505 / doi:10.1093/ismejo/wraf134,
+    preserving the full bacterial SynCom at aggregate rank plus Bacillus and Pseudomonadota protective subsets resolved by
+    top-down deconstruction, MS/LB cultivation details, BioProject and GEO resources, and two explicit knowledge gaps.
+  llm_assisted: true
