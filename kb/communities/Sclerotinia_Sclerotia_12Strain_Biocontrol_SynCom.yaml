@@ -1,0 +1,556 @@
+id: CommunityMech:000364
+name: Sclerotinia Sclerotia 12-Strain Biocontrol SynCom
+description: A twelve-strain bacterial synthetic community assembled from isolates recovered from Sclerotinia sclerotiorum
+  sclerotia after 5 days in flooded non-autoclaved soil. The SynCom spans Caballeronia, Cupriavidus, Massilia, Paraburkholderia,
+  Ralstonia and Trinickia isolates, was co-cultured with mature fungal sclerotia in 10 mL tubes, and was resolved spatiotemporally
+  by a 10x Genomics Xenium panel targeting all twelve members. Sclerotia inoculated with the full SynCom reached 100% mortality
+  by day 14, and the dropout design identified Trinickia sp. MC, proposed in the paper as Trinickia sclerotiorum sp. nov.
+  type strain MC, as the apparent key bacterial contributor.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Assemble a twelve-strain synthetic community from enriched sclerotium-associated flooded-soil bacteria to test
+    whether the 5-day Sclerotinia sclerotiorum sclerotium microbiome causally promotes sclerotia mortality.
+  assembly_strategy: Isolate morphologically distinct colonies from 5-day SF sclerotia on Nutrient agar, 10% TSA, R2A and
+    modified Pseudomonas cepacia azelaic acid tryptamine medium; Sanger-sequence full-length 16S rRNA genes; then select twelve
+    strains matching 5-day enriched ASVs across six bacterial genera.
+  inoculation_strategy: Harvest each member at OD600 0.5, dilute to 10⁶ CFU/mL in double-distilled water, and assemble the
+    full SynCom from equal volumes of the twelve suspensions.
+  perturbation_design: Co-culture ten mature S. sclerotiorum sclerotia with the full twelve-strain SynCom or 2^3 dropout designs
+    removing Trinickia sp. MC, Massilia sp. R20 plus Massilia sp. TB221, or the other nine SynCom members, then score sclerotia
+    survival over 1, 3, 5, 7 and 14 days.
+  measurement_endpoints:
+  - sclerotia mortality
+  - 'four antagonistic phenotypes: mycelia inhibition, germination inhibition, sclerotia-derived mycelia inhibition, and mycophagy'
+  - Xenium spatial signal density across five concentric sclerotium layers
+  - Trinickia sp. MC whole-genome ANI and dDDH
+  evidence:
+  - &id001
+    reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Among these strains, 12 strains matching 9 enriched ASVs (>97.0% identity) based on the ANCOM-BC2 and DESeq2
+      at 5-day were selected for SynCom assembly, including Caballeronia zhejiangensis N8 (ASV75), Cupriavidus sp. N4 (ASV113),
+      Massilia sp. R20 (ASV249), Massilia sp. TB221 (ASV49), Massilia sp. RB201 (ASV249), Massilia sp. RB202 (ASV249), Paraburkholderia
+      sp. I59 (ASV2), Paraburkholderia phenoliruptrix TB211 (ASV2), Paraburkholderia phymatum R7 (ASV51), Paraburkholderia
+      sp. T17 (ASV178), Ralstonia sp. R4 (ASV55), and Trinickia sp. MC (ASV69)
+    explanation: Names the complete twelve-strain bacterial SynCom and the enriched amplicon sequence variants represented
+      by each strain.
+  - &id004
+    reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The full SynCom was composed of equal volume of 12 bacteria members (12 ×10⁶ CFU/mL)
+    explanation: Supports equal-volume assembly of the full twelve-member inoculum.
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacterial suspensions of each SynCom member were harvested at OD₆₀₀ = 0.5 and adjusted to 10⁶ CFU/mL
+      with ddH₂O
+    explanation: Supports the density-normalized bacterial suspensions used to assemble the SynCom and dropout inocula.
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The panel comprises 28 specific bacterial padlock probes targeting the 16S rRNA, gyrB, recA, and lepA
+      gene transcripts across 12 SynCom members
+    explanation: Supports spatial profiling by a custom Xenium probe panel spanning all twelve SynCom members.
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The coordinates of these stratified zones were imported back into Xenium Explorer to extract the signal
+      density (transcripts /mm²) for each target bacteria or fungal gene
+    explanation: Supports Xenium signal-density measurements across stratified sclerotium zones.
+environment_term:
+  preferred_term: laboratory Sclerotinia sclerotiorum sclerotia co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The assembled SynCom was tested by co-culturing mature S. sclerotiorum sclerotia with bacterial suspensions at 25°C
+    in static 10 mL laboratory culture tubes.
+modeled_environment:
+- preferred_term: flooded agricultural soil
+  term:
+    id: ENVO:00001998
+    label: soil
+  notes: The source microbiome was recovered from fungal sclerotia buried in flooded non-autoclaved soil collected from a
+    rice-soybean rotation field at Taoyuan, Taiwan.
+taxonomy:
+- taxon_term:
+    preferred_term: Caballeronia zhejiangensis N8
+    term:
+      id: NCBITaxon:871203
+      label: Caballeronia zhejiangensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: Sclerotia-associated strain N8, matching ASV75 in the 5-day flooded-soil sclerotium microbiome.
+  strain_designation:
+    strain_name: N8
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Cupriavidus sp. N4
+    term:
+      id: NCBITaxon:106589
+      label: Cupriavidus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Sclerotia-associated strain N4, resolved only to genus here because the paper reports Cupriavidus sp. N4.
+  strain_designation:
+    strain_name: N4
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Massilia sp. R20
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain R20, one of the two early Massilia colonizers dropped as the 2-Massilia group.
+    gtdb_classification: &id002
+      gtdb_id: GTDB:g__Telluria
+      gtdb_taxon: Telluria
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Telluria
+      ncbi_source_id: NCBITaxon:149698
+      majority_fraction: 1.0
+      support_genomes: 140
+      total_genomes: 140
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 1 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: R20
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: ABUNDANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Massilia sp. TB221
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain TB221, one of the two early Massilia colonizers dropped as the 2-Massilia group.
+    gtdb_classification: *id002
+  strain_designation:
+    strain_name: TB221
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: ABUNDANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Massilia sp. RB201
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain RB201, resolved only to genus here because the paper reports Massilia sp. RB201.
+    gtdb_classification: *id002
+  strain_designation:
+    strain_name: RB201
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Massilia sp. RB202
+    term:
+      id: NCBITaxon:149698
+      label: Massilia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain RB202, resolved only to genus here because the paper reports Massilia sp. RB202.
+    gtdb_classification: *id002
+  strain_designation:
+    strain_name: RB202
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paraburkholderia sp. I59
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain I59, resolved only to genus here because the paper reports Paraburkholderia sp. I59.
+    gtdb_classification: &id003
+      gtdb_id: GTDB:g__Paraburkholderia
+      gtdb_taxon: Paraburkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Paraburkholderia
+      ncbi_source_id: NCBITaxon:1822464
+      majority_fraction: 0.993
+      support_genomes: 680
+      total_genomes: 685
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+  strain_designation:
+    strain_name: I59
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paraburkholderia phenoliruptrix TB211
+    term:
+      id: NCBITaxon:252970
+      label: Paraburkholderia phenoliruptrix
+    gtdb_grounding_status: UNRESOLVED
+    notes: Sclerotia-associated P. phenoliruptrix strain TB211, matching ASV2 in the 5-day flooded-soil sclerotium microbiome.
+  strain_designation:
+    strain_name: TB211
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paraburkholderia phymatum R7
+    term:
+      id: NCBITaxon:148447
+      label: Paraburkholderia phymatum
+    gtdb_grounding_status: UNRESOLVED
+    notes: Sclerotia-associated P. phymatum strain R7, matching ASV51 in the 5-day flooded-soil sclerotium microbiome.
+  strain_designation:
+    strain_name: R7
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Paraburkholderia sp. T17
+    term:
+      id: NCBITaxon:1822464
+      label: Paraburkholderia
+    gtdb_grounding_status: GROUNDED
+    notes: Sclerotia-associated strain T17, resolved only to genus here because the paper reports Paraburkholderia sp. T17.
+    gtdb_classification: *id003
+  strain_designation:
+    strain_name: T17
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Ralstonia sp. R4
+    term:
+      id: NCBITaxon:48736
+      label: Ralstonia
+    gtdb_grounding_status: UNRESOLVED
+    notes: Sclerotia-associated strain R4, resolved only to genus here because the paper reports Ralstonia sp. R4.
+  strain_designation:
+    strain_name: R4
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+  abundance_level: COMMON
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Trinickia sclerotiorum sp. nov. MC
+    term:
+      id: NCBITaxon:2571160
+      label: Trinickia
+    gtdb_grounding_status: UNRESOLVED
+    notes: Novel strain MC, reported as Trinickia sp. MC in the SynCom roster and described by the paper as Trinickia sclerotiorum
+      sp. nov. type strain MC. The local NCBITaxon snapshot has the genus but not the proposed 2026 species.
+  strain_designation:
+    strain_name: MC
+    isolation_source: 5-day flooded Sclerotinia sclerotiorum sclerotia microbiome
+    type_strain: true
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - *id001
+ecological_interactions:
+- name: Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+  description: The full twelve-strain bacterial SynCom antagonizes mature Sclerotinia sclerotiorum sclerotia in static tube
+    co-culture, increasing mortality after 1 day and reaching complete sclerotia mortality by 14 days.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  target_taxon:
+    preferred_term: Sclerotinia sclerotiorum
+    term:
+      id: NCBITaxon:5180
+      label: Sclerotinia sclerotiorum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When sclerotia were inoculated with the SynCom, sclerotia mortality was significantly increased after 1-day co-culture
+      with the SynCom, gradually reaching 100.0% mortality by 14-day co-culture
+    explanation: Supports full-SynCom causality for the sclerotium mortality phenotype.
+- name: Trinickia MC Key Contribution to Sclerotia Mortality
+  description: 'The dropout experiment identified Trinickia sp. MC as the dominant single contributor: removing MC reduced
+    sclerotia mortality, and MC mono-inoculation alone accelerated sclerotia mortality.'
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Trinickia sclerotiorum sp. nov. MC
+    term:
+      id: NCBITaxon:2571160
+      label: Trinickia
+  target_taxon:
+    preferred_term: Sclerotinia sclerotiorum
+    term:
+      id: NCBITaxon:5180
+      label: Sclerotinia sclerotiorum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  downstream:
+  - target: Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+    description: Trinickia sp. MC is the strongest member-level contributor resolved by the dropout series.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: dropping TsMC significantly decreased mortality and its mono-inoculation alone could accelerate sclerotia mortality
+    explanation: Supports Trinickia sp. MC as the dominant dropout-validated contributor to sclerotia mortality.
+- name: Spatial Invasion of Sclerotia by SynCom Members
+  description: Xenium spatial profiling of inoculated sclerotia showed that Massilia sp. TB221 and R20 were early interior
+    colonizers by day 3, while Ralstonia sp. R4 and Trinickia sp. MC progressively increased in interior layers at days 5
+    to 7 and MC exceeded every other member across all five layers by day 14.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By 3-day co-culture, Massilia sp. TB221 and Massilia sp. R20 had reached the interior sclerotia
+      (layer 1 to 4)
+    explanation: Supports Massilia sp. TB221 and Massilia sp. R20 as early interior sclerotium colonizers.
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: At 5- to 7-day co-culture, the relative abundance of Ralstonia sp. R4 and Trinickia sp. MC increased
+      progressively in the interior layers
+    explanation: Supports later interior enrichment of Ralstonia sp. R4 and Trinickia sp. MC.
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: By 14-day co-culture, when sclerotia viability was completely suppressed, the relative abundance of Trinickia
+      sp. MC exceeded all other SynCom members simultaneously across layer 1 to 5
+    explanation: Supports Trinickia sp. MC dominance across all five sclerotium layers at day 14.
+environmental_factors:
+- name: flooded non-autoclaved soil source condition
+  value: 5-day burial under flooding
+  description: Members were selected from S. sclerotiorum sclerotia retrieved after 5 days in the non-autoclaved soil with
+    flooding treatment.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The flooding treatment was supplemented with 50 mL of ddH₂O to achieve maximum water capacity
+    explanation: Defines the flooded-soil treatment from which the 5-day SynCom isolates were recovered.
+- name: SynCom co-culture incubation temperature
+  value: '25'
+  unit: °C
+  description: Static sclerotium co-cultures were incubated at 25°C before mortality scoring.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ten sclerotia were co-cultured in 5 mL of these eight drop-out designs at 25°C in a 10 mL culture tube without
+      shaking
+    explanation: Supports the 25°C static culture-tube condition for full and dropout SynCom mortality assays.
+growth_media:
+- name: SynCom member isolation agar panel
+  temperature: '25'
+  temperature_unit: °C
+  incubation_time: '7'
+  incubation_time_unit: days
+  inoculum_source: ground 5-day SF sclerotia
+  preparation_notes: Ground aliquots from 5-day SF sclerotia were spread on Nutrient agar, 10% tryptic soy agar, R2A agar
+    and modified Pseudomonas cepacia azelaic acid tryptamine medium.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After culturing at 25°C for 7 days, morphologically distinct colonies were isolated
+    explanation: Supports the incubation condition used to recover candidate SynCom members.
+- name: Sclerotinia sclerotiorum sclerotia co-culture
+  temperature: '25'
+  temperature_unit: °C
+  incubation_time: '14'
+  incubation_time_unit: days
+  inoculum_source: equal-volume twelve-member bacterial suspension in double-distilled water
+  inoculum_size: 12 ×10⁶
+  inoculum_unit: CFU/mL
+  vessel_type: 10 mL culture tube
+  preparation_notes: Ten mature S. sclerotiorum sclerotia were co-cultured without shaking in 5 mL water-based bacterial suspension.
+  evidence:
+  - *id004
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: static 10 mL culture tube
+  working_volume: 5.0
+  working_volume_unit: mL
+  operating_temperature: 25.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Static tube co-culture without shaking.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ten sclerotia were co-cultured in 5 mL of these eight drop-out designs at 25°C in a 10 mL culture tube without
+      shaking
+    explanation: Names the static 5 mL, 10 mL-tube sclerotium co-culture setup.
+associated_datasets:
+- accession: PRJNA1475221
+  title: Sclerotinia sclerotia microbiome and Trinickia MC genome
+  description: NCBI BioProject carrying the PacBio sclerotia microbiome reads and the whole-genome sequence data for Trinickia
+    sclerotiorum sp. nov. MC.
+  dataset_type: MULTI_OMICS
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - Sclerotinia sclerotiorum sclerotia
+  - Trinickia sp. MC genomic DNA
+  conditions:
+  - PacBio full-length 16S rRNA sclerotia microbiome sequencing
+  - Oxford Nanopore Trinickia MC whole-genome sequencing
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1475221
+  publication: PMID:42523014
+  findings: The deposited sequence data underpin the SF sclerotia microbiome analysis and the genome-enabled species description
+    of Trinickia sp. MC.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: All sequence data, including the PacBio sequencing data of the sclerotia microbiome, and the whole-genome sequence
+      of Trinickia sclerotiorum sp. nov. MC, are available in the NCBI database under BioProject PRJNA1475221
+    explanation: Links the deposited PacBio and Trinickia MC genome sequence data to BioProject PRJNA1475221.
+- accession: doi:10.7910/DVN/DEERTV
+  title: Sclerotinia sclerotia SynCom spatial microbiome Dataverse
+  description: Harvard Dataverse deposit associated with the spatial microbiome and SynCom analysis.
+  dataset_type: OTHER
+  repository: OTHER
+  sample_types:
+  - SynCom-inoculated sclerotia
+  conditions:
+  - 10x Genomics Xenium spatial profiling of SynCom-treated sclerotia
+  url: https://doi.org/10.7910/DVN/DEERTV
+  publication: PMID:42523014
+  findings: The Dataverse DOI was listed with the BioProject as a primary public data location for the study.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: BioProject PRJNA1475221 and Harvard Dataverse doi:10.7910/DVN/DEERTV
+    explanation: Links the Harvard Dataverse DOI to the spatial SynCom study's data-availability statement.
+external_resources:
+- name: PubMed - Sclerotinia sclerotia 12-strain biocontrol SynCom
+  repository: OTHER
+  resource_id: PMID:42523014
+  url: https://pubmed.ncbi.nlm.nih.gov/42523014/
+  description: PubMed record for the ISME Journal article describing the Sclerotinia sclerotia spatial microbiome and SynCom.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Spatial microbiome and synthetic community analyses reveal Trinickia sclerotiorum sp. nov. promotes sclerotia
+      mortality of Sclerotinia sclerotiorum
+    explanation: Lists the primary publication for the sclerotia SynCom system.
+- name: DOI - Sclerotinia sclerotia 12-strain biocontrol SynCom
+  repository: OTHER
+  resource_id: doi:10.1093/ismejo/wrag201
+  url: https://doi.org/10.1093/ismejo/wrag201
+  description: DOI for the ISME Journal article describing the Sclerotinia sclerotia spatial microbiome and SynCom.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'doi: 10.1093/ismejo/wrag201'
+    explanation: Gives the DOI of the primary publication.
+discussions:
+- discussion_id: trinickia_mc_species_ncbitaxon_gap
+  prompt: Has Trinickia sclerotiorum sp. nov. MC been assigned an NCBITaxon species identifier or stable strain genome assembly
+    accession that should replace the current genus-level grounding?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Trinickia sclerotiorum sp. nov. MC
+  rationale: The 2026 paper describes MC as a novel Trinickia species using core-gene phylogeny, ANI and dDDH, but the local
+    NCBITaxon snapshot resolves Trinickia and not the proposed species name.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: These results indicate TsMC does not belong to any known Trinickia species and thus we describe this strain as
+      a new species, Trinickia sclerotiorum sp. nov. type strain MC
+    explanation: Supports the novel-species status that is not yet available as a species-level local NCBITaxon term.
+  posed_by: codex
+  posed_date: '2026-09-13'
+- discussion_id: sclerotia_syncom_partial_abundance_coverage
+  prompt: Which additional bacteria in the 5-day flooded-soil sclerotium microbiome account for the abundance not captured
+    by the twelve-strain SynCom?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design
+  - ecological_interactions#Twelve-Strain SynCom Suppression of Sclerotinia Sclerotia
+  rationale: The SynCom covered most of the 5-day SF microbiome at genus level but only 56.3% at species level, so the full
+    flooded-soil sclerotium microbiome may include interaction complexity absent from the defined assembly.
+  evidence:
+  - reference: PMID:42523014
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: As our SynCom represents only 56.3% bacterial abundance of 5-day SF microbiome, higher level of the complexity
+      in the bacteria-bacteria interaction may not be captured in this study
+    explanation: Records the authors' caveat about the partial species-level coverage of the defined SynCom.
+  posed_by: codex
+  posed_date: '2026-09-13'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare earth element processing role is reported for the Sclerotinia sclerotia biocontrol SynCom.
+curation_history:
+- timestamp: '2026-09-13T17:00:42Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000364 for the twelve-strain Sclerotinia sclerotiorum sclerotia biocontrol SynCom from PMID:42523014
+    / doi:10.1093/ismejo/wrag201, preserving all strain designations, exact PubMed and open-access manuscript snippets, genus-level
+    Massilia and Paraburkholderia GTDB groundings, and explicit unresolved statuses for the remaining bacterial taxa.
+  llm_assisted: true
+- timestamp: '2026-09-13T17:07:17Z'
+  curator: codex
+  action: RESOLVE_REVIEW_ISSUE
+  changes: >-
+    Replaced the broad Xenium spatial summary evidence with exact day-3, day-5-to-7
+    and day-14 layer-level snippets from PMID:42523014, and added exact method
+    snippets for SynCom OD600 normalization, the 28-probe Xenium panel and
+    Xenium signal-density extraction to resolve adversarial-review issue #852.
+  llm_assisted: true

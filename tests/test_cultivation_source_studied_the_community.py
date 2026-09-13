@@ -99,7 +99,8 @@ _ACCEPTED: dict[tuple[str, str], str] = {}
 # assertion passes on what remains. Measured when this list was written: **30 of
 # the 93 records carrying a `cultivation_setup` are blind, 32%.** A gate that
 # silently omits a third of its subject is the "green by blindness" shape that
-# produced #471 and #686 elsewhere in this repo.
+# produced #471 and #686 elsewhere in this repo. The Sclerotinia SynCom added
+# the 31st blind record out of 94.
 #
 # Four reasons, which fail differently:
 #
@@ -174,6 +175,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
     _NO_FULL_TEXT: (
         "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
         "Sedimenting_Arabinose_Glucose_Saccharomyces_Coculture.yaml",
+        "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",
         "Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml",
         "Aalborg_East_Full_Scale_EBPR_Community.yaml",
         "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml",
