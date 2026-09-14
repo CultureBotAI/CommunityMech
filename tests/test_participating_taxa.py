@@ -245,6 +245,7 @@ USERS = {
     "Phenol_Carboxylation_Consortium.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
+    "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
     "Sclerotinia_Sclerotia_12Strain_Biocontrol_SynCom.yaml",

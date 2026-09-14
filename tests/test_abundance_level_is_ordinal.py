@@ -30,7 +30,7 @@ ORDER = ["RARE", "COMMON", "ABUNDANT", "DOMINANT"]
 
 # Not a ceiling — a tripwire. When this changes, the consistency check below has
 # a new measured-abundance case worth auditing.
-TAXA_WITH_A_NUMBER = 5
+TAXA_WITH_A_NUMBER = 8
 
 
 def _enum() -> dict:
