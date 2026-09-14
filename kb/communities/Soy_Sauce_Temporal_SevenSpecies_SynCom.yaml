@@ -1,0 +1,503 @@
+id: CommunityMech:000378
+name: Soy Sauce Temporal Seven-Species SynCom
+description: A laboratory-scale temporal synthetic microbial community for soy sauce moromi fermentation. Chen et al. 2026
+  distilled a nine-member candidate set to seven core species and tested delayed inoculation schemes in which Aspergillus
+  oryzae 3.042 made koji, Weissella paramesenteroides WP-8 was added at day 0, Lactiplantibacillus plantarum JL-20 at day
+  5, Pediococcus pentosaceus PP-11 plus Tetragenococcus halophilus R44 at day 10, and Zygosaccharomyces rouxii ZQ-01 plus
+  Candida orthopsilosis CV-13 at day 25. The best W->L->P+T->Z+C formulation raised glutamic acid, 4-ethylguaiacol, and total
+  volatile production relative to the traditional-fermentation control under homogeneous 40-day laboratory conditions.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Construct a temporal seven-species SynCom from core soy-sauce moromi microbes to improve glutamate and volatile
+    flavor-compound production during controlled soy sauce fermentation.
+  assembly_strategy: Select soy-sauce taxa by dominance, co-occurrence, volatile-association, and omission assays, retain
+    seven species for the functional core, use Aspergillus oryzae for koji-making, and compare temporal lactic-acid bacterial
+    inoculation orders before adding the two yeasts in late fermentation.
+  inoculation_strategy: 'Use the W->L->P+T->Z+C temporal order: W. paramesenteroides on day 0, L. plantarum on day 5, P. pentosaceus
+    plus T. halophilus on day 10, LAB at 1.0 x 10^8 CFU/g on their assigned days, and Z. rouxii plus C. orthopsilosis
+    on day 25.'
+  perturbation_design: Use omission fermentations to test candidate core-strain function and compare seven temporal inoculation
+    orders for the retained lactic-acid bacteria against a traditional soy-sauce fermentation control.
+  measurement_endpoints:
+  - moromi pH, amino acid nitrogen, total acid, total nitrogen, and reducing sugar
+  - glutamic acid content
+  - 4-ethylguaiacol content
+  - volatile alcohol, ester, and phenolic compound production
+  - sensory umami, sweetness, and smoky-taste scores
+  counter_selection:
+  - criterion: The omission assay left Pediococcus acidilactici PP-7 and Staphylococcus epidermidis HC-1 out of the final
+      seven-species core after integrating umami-amino-acid and 4-EG indicator results.
+    excluded_count: 2
+    evidence:
+    - reference: PMID:42195939
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: Omissions of microorganisms other than P. acidilactici or S. epidermidis significantly reduced production of
+        4-EG, which was decreased by 42.8%, 45.6%, and 56.5% with the omissions of L. plantarum, Z. rouxii, or C. orthopsilosis
+        compared to the control group
+      explanation: Supports P. acidilactici and S. epidermidis as candidates that were not carried into the final seven-species
+        core.
+    - reference: PMID:42195939
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+        as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+        and C. orthopsilosis.'
+      explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+        omission assays.
+  notes: The article also nominated P. acidilactici PP-7 and S. epidermidis HC-1 during the initial nine-member core screen;
+    they are intentionally omitted from this record because the indicator-integrated core named seven microbial species.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study identified seven functionally important core microbes, including Weissella paramesenteroides, Lactiplantibacillus
+      plantarum, Tetragenococcus halophilus, Pediococcus pentosaceus, Zygosaccharomyces rouxii, Candida orthopsilosis, and
+      Aspergillus oryzae for soy sauce fermentation, based on dominant taxa, co-occurrence relationships, and volatile-associated
+      taxa analysis.
+    explanation: Summarizes the study's seven-species core and its correlation-guided selection logic.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The synthetic microbial community was assembled with inoculation of dominant lactic acid bacteria (LAB) in the
+      immediate early phase, other LAB in early and middle phases, and yeasts in the late phase.
+    explanation: Supports the staged temporal assembly principle for the soy-sauce SynCom.
+environment_term:
+  preferred_term: controlled soy sauce moromi fermentation
+  term:
+    id: ENVO:03600040
+    label: fermentation starter
+  notes: The seven-species SynCom is an engineered starter community for laboratory soy sauce moromi fermentation.
+taxonomy:
+- taxon_term:
+    preferred_term: Weissella paramesenteroides WP-8
+    term:
+      id: NCBITaxon:1249
+      label: Weissella paramesenteroides
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: WP-8
+    isolation_source: soy sauce moromi
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added on day 0 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida orthopsilosis (CV-13), Pediococcus acidilactici (PP-7), Pediococcus pentosaceus (PP-11), and W. paramesenteroides
+      (WP-8) were isolated from soy sauce moromi by plating of severely diluted soy sauce moromi on isolating plates in this
+      work.
+    explanation: Names the moromi-isolated strains used in the soy-sauce SynCom work.
+- taxon_term:
+    preferred_term: Lactiplantibacillus plantarum JL-20
+    term:
+      id: NCBITaxon:1590
+      label: Lactiplantibacillus plantarum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: JL-20
+    isolation_source: laboratory stock
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added on day 5 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Z. rouxii (ZQ-01), A. oryzae (3.042), T. halophilus (R44), Staphylococcus epidermidis (HC-1), and Lactiplantibacillus
+      plantarum (JL-20) used in this study are obtained from the lab stocks.
+    explanation: Names the lab-stock strain designations used in the soy-sauce SynCom work.
+- taxon_term:
+    preferred_term: Pediococcus pentosaceus PP-11
+    term:
+      id: NCBITaxon:1255
+      label: Pediococcus pentosaceus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: PP-11
+    isolation_source: soy sauce moromi
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added with T. halophilus on day 10 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida orthopsilosis (CV-13), Pediococcus acidilactici (PP-7), Pediococcus pentosaceus (PP-11), and W. paramesenteroides
+      (WP-8) were isolated from soy sauce moromi by plating of severely diluted soy sauce moromi on isolating plates in this
+      work.
+    explanation: Names the moromi-isolated strains used in the soy-sauce SynCom work.
+- taxon_term:
+    preferred_term: Tetragenococcus halophilus R44
+    term:
+      id: NCBITaxon:51669
+      label: Tetragenococcus halophilus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: R44
+    isolation_source: laboratory stock
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added with P. pentosaceus on day 10 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Z. rouxii (ZQ-01), A. oryzae (3.042), T. halophilus (R44), Staphylococcus epidermidis (HC-1), and Lactiplantibacillus
+      plantarum (JL-20) used in this study are obtained from the lab stocks.
+    explanation: Names the lab-stock strain designations used in the soy-sauce SynCom work.
+- taxon_term:
+    preferred_term: Aspergillus oryzae 3.042
+    term:
+      id: NCBITaxon:5062
+      label: Aspergillus oryzae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal species; GTDB covers Bacteria and Archaea.
+  strain_designation:
+    strain_name: '3.042'
+    isolation_source: laboratory stock
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Used to make koji for every assayed temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Z. rouxii (ZQ-01), A. oryzae (3.042), T. halophilus (R44), Staphylococcus epidermidis (HC-1), and Lactiplantibacillus
+      plantarum (JL-20) used in this study are obtained from the lab stocks.
+    explanation: Names the lab-stock strain designations used in the soy-sauce SynCom work.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both groups employed A. oryzae to make the koji and added yeasts in late fermentation phase
+    explanation: Supports A. oryzae as the mold member used for koji-making in the temporal SynComs.
+- taxon_term:
+    preferred_term: Zygosaccharomyces rouxii ZQ-01
+    term:
+      id: NCBITaxon:4956
+      label: Zygosaccharomyces rouxii
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal species; GTDB covers Bacteria and Archaea.
+  strain_designation:
+    strain_name: ZQ-01
+    isolation_source: laboratory stock
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added with C. orthopsilosis on day 25 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Z. rouxii (ZQ-01), A. oryzae (3.042), T. halophilus (R44), Staphylococcus epidermidis (HC-1), and Lactiplantibacillus
+      plantarum (JL-20) used in this study are obtained from the lab stocks.
+    explanation: Names the lab-stock strain designations used in the soy-sauce SynCom work.
+- taxon_term:
+    preferred_term: Candida orthopsilosis CV-13
+    term:
+      id: NCBITaxon:273371
+      label: Candida orthopsilosis
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal species; GTDB covers Bacteria and Archaea.
+  strain_designation:
+    strain_name: CV-13
+    isolation_source: soy sauce moromi
+  functional_role:
+  - SECONDARY_FERMENTER
+  abundance_value: Added with Z. rouxii on day 25 in the best W->L->P+T->Z+C temporal SynCom.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Integrating both soy sauce fermentation indicators, the core microbes for soy sauce fermentation were identified
+      as seven microbial species: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, A. oryzae, Z. rouxii,
+      and C. orthopsilosis.'
+    explanation: Identifies the seven microbial species retained as the soy-sauce fermentation core after indicator-based
+      omission assays.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Candida orthopsilosis (CV-13), Pediococcus acidilactici (PP-7), Pediococcus pentosaceus (PP-11), and W. paramesenteroides
+      (WP-8) were isolated from soy sauce moromi by plating of severely diluted soy sauce moromi on isolating plates in this
+      work.
+    explanation: Names the moromi-isolated strains used in the soy-sauce SynCom work.
+ecological_interactions:
+- name: Four-phase temporal soy sauce inoculation
+  description: The final seven-species community was assembled by separating dominant LAB, other LAB, and yeasts across the
+    immediate-early, early/middle, and late moromi phases while A. oryzae made the koji substrate.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: W->L->P+T->Z+C soy-sauce flavor output
+    description: The four-stage ordering led to the W->L->P+T->Z+C group that outperformed other temporal LAB orderings in
+      the 40-day assay.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on the identified core microbes, soy sauce fermentation conducted with different synthetic communities
+      was performed to optimize the assembly of SynCom.
+    explanation: Supports testing multiple temporal SynComs to optimize assembly.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: W → L → P+T → Z+C +W. paramesenteroides +L. plantarum +P. pentosaceus +T. halophilus
+    explanation: Names the best temporal LAB order from Table 1.
+- name: W->L->P+T->Z+C soy-sauce flavor output
+  description: The W->L->P+T->Z+C SynCom increased 40-day glutamic acid, 4-ethylguaiacol, and total volatile output relative
+    to the traditional fermentation control and had higher alcohol, ester, and phenolic compound levels than the other tested
+    SynComs.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  metabolites:
+  - preferred_term: glutamic acid
+    term:
+      id: CHEBI:18237
+      label: glutamic acid
+  - preferred_term: 4-ethylguaiacol
+    term:
+      id: CHEBI:179252
+      label: 4-Ethyl-2-methoxyphenol
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After 40 days of fermentation, glutamic acid content in SynCom group W→L→P+T→Z+C reached 8.5 g/L, which was 1.06
+      times higher than that of the control group.
+    explanation: Supports elevated glutamic acid after 40 days in the best temporal SynCom.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Concurrently, the 4-EG content and total volatiles reached 71.32 μg/L ( Figure 6 b) and 2855.44 μg/L ( Figure
+      6 c) in SynCom group W→L→P+T→Z+C, respectively, representing increases of 1.11 times and 1.25 times compared to the
+      control group.
+    explanation: Supports elevated 4-ethylguaiacol and total volatiles after 40 days in the best temporal SynCom.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In terms of volatiles, SynCom group W→L→P+T→Z+C exhibited significantly higher levels of alcohols, esters, and
+      phenolic compounds than those in other SynCom groups
+    explanation: Supports the volatile-class improvement of the best temporal SynCom relative to other SynCom orderings.
+environmental_factors:
+- name: moromi salt concentration
+  value: '18'
+  unit: '% w/w salt'
+  description: The laboratory moromi mash for SynCom fermentation used the same mature-koji and brine preparation as the traditional
+    soy-sauce fermentation, yielding 18% salt.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: One kilogram of the mature koji was combined with 2 L of brine to make a moromi mash containing 18% (w/w) salt.
+    explanation: Specifies the salt concentration of the soy-sauce moromi mash.
+growth_media:
+- name: soy sauce moromi mash with temporal SynCom inoculation
+  temperature: '30'
+  temperature_unit: °C
+  salinity: '18'
+  salinity_unit: '% w/w salt'
+  inoculum_size: LAB strains at 1.0 x 10^8 CFU/g on days 0, 5, and 10
+  inoculum_unit: CFU/g
+  incubation_time: '40'
+  incubation_time_unit: days
+  vessel_type: sterile beaker or tray for koji; 5 L gauze-covered beaker for moromi
+  preparation_notes: Koji was prepared in a sterile beaker and tray for the SynCom assay; mature koji was combined with brine
+    for 40 days of 30 C soy-sauce moromi fermentation with LAB added on days 0, 5, and 10 and yeasts added 25 days after
+    brine-fermentation initiation.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Preparation of soy sauce moromi mash was the same as traditional soy sauce fermentation. Fermentation was performed
+      at 30 °C for 40 d.
+    explanation: Connects the synthetic-community moromi preparation to the 30 C, 40-day fermentation condition.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: W. paramesenteroides, L. plantarum, T. halophilus, P. pentosaceus, P. acidilactici, and S. epidermidis were inoculated
+      at the assigned time (0 d, 5 d, or 10 d) with the same concentration (1.0 × 108 CFU/g). Z. rouxii and C. orthopsilosis
+      were added on 25 days after initiation of brine fermentation.
+    explanation: Specifies the LAB inoculation concentration and late yeast addition time used in SynCom fermentations.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Briefly, in 0–24 h, koji was prepared in a sterile beaker at 30 °C and 90% relative humidity. Then the koji was
+      crushed and transferred to a sterile tray and incubated under the same conditions.
+    explanation: Describes the sterile beaker and tray conditions used for SynCom koji-making before moromi assembly.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: Laboratory solid-state koji preparation followed by 5 L beaker moromi fermentation under gauze.
+  operating_temperature: 30
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Each soy-sauce SynCom fermentation group used three identical containers in parallel.
+  notes: This was a homogeneous 40-day laboratory moromi assay; the source explicitly reserved transfer of the temporal strategy
+    to industrial soy-sauce systems for future pilot-scale validation.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mash was transferred to a 5 L beaker covered with a gauze layer.
+    explanation: Specifies the moromi fermentation vessel.
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For each group, fermentation is conducted in three identical containers in parallel.
+    explanation: Specifies the replicate container setup for each SynCom group.
+related_ingredients:
+- preferred_term: glutamic acid
+  chebi_term:
+    id: CHEBI:18237
+    label: glutamic acid
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: Glutamic acid was one of the soy-sauce fermentation indicators used to rank the temporal SynCom formulations.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Glutamate and 4-ethylguaiacol were identified as soy sauce fermentation indicators for early to middle and late
+      fermentation phases, respectively.
+    explanation: Names glutamate as an indicator for soy-sauce fermentation.
+- preferred_term: 4-ethylguaiacol
+  chebi_term:
+    id: CHEBI:179252
+    label: 4-Ethyl-2-methoxyphenol
+  shared_environment_term:
+    id: ENVO:03600040
+    label: fermentation starter
+  relevance: 4-ethylguaiacol was the late-fermentation indicator used to evaluate temporal SynCom performance.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Glutamate and 4-ethylguaiacol were identified as soy sauce fermentation indicators for early to middle and late
+      fermentation phases, respectively.
+    explanation: Names 4-ethylguaiacol as an indicator for soy-sauce fermentation.
+external_resources:
+- name: PubMed - Soy sauce temporal seven-species SynCom
+  repository: OTHER
+  resource_id: PMID:42195939
+  url: https://pubmed.ncbi.nlm.nih.gov/42195939/
+  description: PubMed record for the 2026 Foods article describing construction of a seven-species temporal SynCom for soy
+    sauce fermentation.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Construction of Synthetic Microbial Community with Core Microorganisms for Soy Sauce Fermentation.
+    explanation: Identifies the PMID-linked primary SynCom publication.
+- name: DOI - Soy sauce temporal seven-species SynCom
+  repository: OTHER
+  resource_id: doi:10.3390/foods15101736
+  url: https://doi.org/10.3390/foods15101736
+  description: DOI for the 2026 Foods article describing construction of a temporal seven-species SynCom for soy sauce fermentation.
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'DOI: 10.3390/foods15101736'
+    explanation: Names the DOI assigned to the primary soy-sauce SynCom publication.
+discussions:
+- discussion_id: soy_sauce_temporal_syncom_industrial_transfer
+  prompt: Which temporal inoculation times, ratios, and process controls make the seven-species soy-sauce SynCom robust in
+    industrial moromi systems?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - engineering_design#Soy Sauce Temporal Seven-Species SynCom
+  - cultivation_setup#soy sauce moromi mash with temporal SynCom inoculation
+  rationale: The source reports homogeneous laboratory fermentations and explicitly states that oxygen gradients, uneven salt
+    distribution, and differing aeration regimes in industrial moromi could alter SynCom behavior.
+  posed_by: codex
+  posed_date: '2026-09-14'
+  evidence:
+  - reference: PMID:42195939
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Moreover, soy sauce fermentations in this work were performed under homogeneous lab conditions. Industrial production
+      of soy sauce moromi systems features oxygen gradients, uneven salt distribution, and different aeration regimes, which
+      likely alter SynCom behaviors.
+    explanation: Names the laboratory-scale limitation and the industrial gradients that could alter temporal SynCom behavior.
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: The cited paper reports food-fermentation flavor indicators and volatile production, not metal stress, metal
+  transformation, or rare-earth cycling.
+curation_history:
+- timestamp: '2026-09-14T23:24:09Z'
+  curator: codex
+  action: CREATE_SOY_SAUCE_TEMPORAL_SYNCOM
+  changes: Added the seven-species temporal soy-sauce SynCom from PMID:42195939 with species-level membership, strain designations,
+    staged W->L->P+T->Z+C inoculation, 40-day moromi growth conditions, glutamate and 4-ethylguaiacol flavor endpoints, DOI/PubMed
+    resources, and an open pilot-scale transfer gap.
+  llm_assisted: true
