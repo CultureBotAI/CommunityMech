@@ -288,10 +288,10 @@ ecological_interactions:
       id: NCBITaxon:1079257
       label: Ilyonectria robusta
   biological_processes:
-  - preferred_term: defense response to fungus
+  - preferred_term: biological process involved in interspecies interaction between organisms
     term:
-      id: GO:0050832
-      label: defense response to fungus
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
   downstream:
   - target: CL95 plant growth promotion
     description: >-
@@ -345,11 +345,6 @@ ecological_interactions:
     term:
       id: NCBITaxon:4054
       label: Panax ginseng
-  metabolites:
-  - preferred_term: phosphate
-    term:
-      id: CHEBI:26020
-      label: phosphate
   biological_processes:
   - preferred_term: plant growth
     term:
@@ -570,4 +565,13 @@ curation_history:
     species grounding, Ilyonectria robusta suppression, ginseng growth
     promotion, colonization, rhizosphere enzyme, growth-media, and unresolved
     member-level mechanism context.
+  llm_assisted: true
+- timestamp: '2026-09-14T20:41:22Z'
+  curator: codex
+  action: ADDRESS_GINSENG_CL95_PR_REVIEW
+  changes: >-
+    Addressed PR #891 adversarial review by replacing the CL95 pathogen edge's
+    host-defense GO term with GO:0044419, removing phosphate as a direct
+    plant-growth interaction metabolite, and removing a local NCBITaxon cache
+    file from version control.
   llm_assisted: true
