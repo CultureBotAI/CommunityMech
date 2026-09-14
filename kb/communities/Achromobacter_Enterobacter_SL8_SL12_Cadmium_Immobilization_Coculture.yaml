@@ -68,7 +68,7 @@ modeled_environment:
 taxonomy:
 - taxon_term:
     preferred_term: Achromobacter sp. SL8
-    term: &id001
+    term:
       id: NCBITaxon:222
       label: Achromobacter
     gtdb_grounding_status: GROUNDED
@@ -105,7 +105,7 @@ taxonomy:
     explanation: Supports the contaminated mine-area soil isolation context for the Cd-resistant isolates.
 - taxon_term:
     preferred_term: Enterobacter sp. SL12
-    term: &id002
+    term:
       id: NCBITaxon:547
       label: Enterobacter
     gtdb_grounding_status: GROUNDED
@@ -146,11 +146,6 @@ ecological_interactions:
     and surface aggregation with possible EPS involvement under 100 mg/L Cd2+, removing 80.9% of Cd after 7 days and
     outperforming both monocultures at the high Cd dose.
   scope: COMMUNITY_LEVEL
-  participating_taxa:
-  - preferred_term: Achromobacter sp. SL8
-    term: *id001
-  - preferred_term: Enterobacter sp. SL12
-    term: *id002
   metabolites:
   - preferred_term: cadmium(2+)
     term:
@@ -455,4 +450,14 @@ curation_history:
     Addressed CI network-audit issue #885 on PR #882 by removing two dangling
     downstream entries that named measured outcomes rather than
     ecological_interactions targets.
+  llm_assisted: true
+- timestamp: '2026-09-14T15:42:55Z'
+  curator: codex
+  action: ADDRESS_PARTICIPATING_TAXA_AUDIT
+  changes: >
+    Addressed CI issue #886 on PR #882 by removing a redundant
+    participating_taxa block from the community-level SL8-SL12 Cd
+    immobilization interaction; the record has only the two listed members, so
+    the absent slot already credits Achromobacter sp. SL8 and Enterobacter sp.
+    SL12 without expanding the corpus of narrowed community-level interactions.
   llm_assisted: true
