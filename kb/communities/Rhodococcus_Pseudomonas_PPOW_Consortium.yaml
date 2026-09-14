@@ -215,10 +215,6 @@ ecological_interactions:
     term:
       id: GO:0043448
       label: alkane catabolic process
-  downstream:
-  - target: Seven-day optimized PPOW component removal
-    description: The optimized 1:1:2 consortium removed more than half of most relatively abundant PPOW compounds and removed
-      several target compounds completely after 7 days of biphasic treatment.
   evidence:
   - reference: PMID:42491060
     supports: SUPPORT
@@ -241,7 +237,7 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: With the exception of toluol, the removal rates for more than a dozen substances with relatively high concentrations
       in the waste all exceeded 50%
-    explanation: Supports the seven-day optimized PPOW-removal downstream outcome.
+    explanation: Supports the seven-day optimized PPOW-removal outcome associated with the inferred division-of-labor model.
 environmental_factors:
 - name: Optimized incubation temperature
   value: '30'
@@ -468,4 +464,10 @@ curation_history:
   action: UPDATE_COMMUNITY
   changes: 'Addressed adversarial-review issues #875 and #876 on PR #874 by adding exact full-text evidence for the modified-MSM
     component recipe, the BP neural-network O2 model endpoint, and the seven-day PPOW component-removal outcome.'
+  llm_assisted: true
+- timestamp: '2026-09-14T01:35:00Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: Removed a causal-graph downstream pointer from the PPOW division-of-labor interaction because it described a measured
+    removal outcome rather than another named ecological interaction in the same record.
   llm_assisted: true
