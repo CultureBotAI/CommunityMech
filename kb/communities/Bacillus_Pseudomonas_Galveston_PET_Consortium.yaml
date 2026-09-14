@@ -193,35 +193,6 @@ taxonomy:
     snippet: SAMN41232462
     explanation: Links Pseudomonas sp. 13.2 to its NCBI BioSample accession.
 ecological_interactions:
-- name: Full-consortium PET transformation
-  description: The intact five-member consortium shows the most complete PET-associated transformation, whereas individual
-    isolates retain only partial, strain-specific PET and MHET activities.
-  interaction_type: MUTUALISM
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: poly(ethylene terephthalate) macromolecule
-    term:
-      id: CHEBI:53259
-      label: poly(ethylene terephthalate) macromolecule
-  biological_processes:
-  - preferred_term: xenobiotic metabolic process
-    term:
-      id: GO:0006805
-      label: xenobiotic metabolic process
-  downstream:
-  - target: Bacillus-Pseudomonas PET division of labor
-    description: Complete PET-associated transformation depends on unevenly distributed Bacillus and Pseudomonas functions.
-  evidence:
-  - reference: PMID:42627158
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: the full consortium showed the most complete PET-associated transformation
-    explanation: Supports the full consortium as the strongest PET-transforming unit.
-  - reference: PMID:42627158
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: individual isolates retained partial and strain-specific activities
-    explanation: Supports treating monoculture activity as partial rather than complete.
 - name: Bacillus-Pseudomonas PET division of labor
   description: 'Bacillus and Pseudomonas members have overlapping but unevenly distributed capacities: Bacillus strains are
     associated more strongly with PET surface colonization and extracellular hydrolysis, while Pseudomonas strains are associated
@@ -255,33 +226,16 @@ ecological_interactions:
     snippet: Bacillus contributing more strongly to extracellular hydrolysis, surface association, and persistence, while
       Pseudomonas are more strongly associated with aromatic transport, redox balancing, and downstream assimilation
     explanation: Supports the reported Bacillus/Pseudomonas functional partitioning.
-- name: MHET hydrolysis and methylation
-  description: In 0.2% MHET cultures, the consortium depleted MHET while forming terephthalic acid and a tentatively assigned
-    methylated MHET product, indicating both canonical hydrolysis and a secondary modification route for PET oligomers.
-  interaction_type: CROSS_FEEDING
-  scope: COMMUNITY_LEVEL
-  metabolites:
-  - preferred_term: terephthalic acid
-    term:
-      id: CHEBI:15702
-      label: terephthalic acid
-  biological_processes:
-  - preferred_term: xenobiotic metabolic process
-    term:
-      id: GO:0006805
-      label: xenobiotic metabolic process
-  evidence:
   - reference: PMID:42627158
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: MHET turnover proceeds through both canonical hydrolysis to TPA and a secondary modification pathway involving
-      the formation of the MMHET product
-    explanation: Supports the two observed fates of MHET in the consortium assays.
+    snippet: the full consortium showed the most complete PET-associated transformation
+    explanation: Supports keeping the strongest PET-transforming unit at community scope.
   - reference: PMID:42627158
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: retention time and fragmentation patterns consistent with a methylated MHET derivative
-    explanation: Supports the tentative LC-MS assignment of the secondary aromatic product.
+    snippet: individual isolates retained partial and strain-specific activities
+    explanation: Supports treating monoculture PET activity as partial rather than complete.
 environmental_factors:
 - name: PET granule substrate loading
   value: '1'
@@ -462,4 +416,14 @@ curation_history:
   changes: Created CommunityMech:000370 for the five-member Galveston Bacillus-Pseudomonas PET-degrading consortium from PMID:42627158,
     including exact BioSample-backed strain membership, PET and MHET LCFBM cultivation assays, a community-level Bacillus/Pseudomonas
     division of labor model, the PRJNA517285 genome dataset, and explicit HGT and Pseudomonas 10/13.2 interpretation gaps.
+  llm_assisted: true
+- timestamp: '2026-09-14T00:26:56Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: >
+    Addressed adversarial-review issues #872 and #873 on PR #871 by removing
+    unsupported MUTUALISM and CROSS_FEEDING interaction_type assertions from the
+    full-consortium PET and MHET chemical-transformation summaries, preserving
+    the article-supported Bacillus/Pseudomonas division-of-labor edge and
+    keeping MHET as assay context rather than an organism-exchange claim.
   llm_assisted: true
