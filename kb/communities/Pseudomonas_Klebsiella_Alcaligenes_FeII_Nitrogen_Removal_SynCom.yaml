@@ -87,18 +87,10 @@ taxonomy:
     term:
       id: NCBITaxon:570
       label: Klebsiella
-    gtdb_grounding_status: GROUNDED
+    gtdb_grounding_status: UNRESOLVED
     notes: The PubMed abstract identifies this member only at genus rank as Klebsiella sp.; NCBITaxon:570 is the genus-level
-      Klebsiella taxon.
-    gtdb_classification:
-      gtdb_id: GTDB:g__Klebsiella
-      gtdb_taxon: Klebsiella
-      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella
-      ncbi_source_id: NCBITaxon:570
-      majority_fraction: 1.0
-      support_genomes: 44527
-      total_genomes: 44529
-      is_reclassified: false
+      Klebsiella taxon; the local NCBI2GTDB crosswalk was unavailable during curation, so no reproducible GTDB grounding
+      was stored.
   abundance_value: One of three members of the Fe2+-regulated nitrogen-removal SynCom; reported as a facultative anaerobic
     denitrifier.
   evidence:
@@ -254,6 +246,12 @@ curation_history:
 - timestamp: '2026-09-14T03:23:07Z'
   curator: codex
   action: ADD_FE2_GTDB_STATUSES
-  changes: Replaced provisional NOT_ATTEMPTED GTDB states with same-taxon stored outcomes for Pseudomonas stutzeri and Klebsiella,
-    and marked the genus-level Alcaligenes member unresolved.
+  changes: Replaced the provisional NOT_ATTEMPTED GTDB state for Pseudomonas stutzeri with the same-taxon stored ambiguous
+    outcome, and marked the genus-level Klebsiella and Alcaligenes members unresolved.
+  llm_assisted: true
+- timestamp: '2026-09-14T03:30:25Z'
+  curator: codex
+  action: ADDRESS_REVIEW_878
+  changes: Removed the manually copied Klebsiella GTDB classification so genus-level Klebsiella remains UNRESOLVED until
+    gtdb_ground.py can derive a reproducible current grounding.
   llm_assisted: true
