@@ -105,8 +105,8 @@ def test_the_survey_sees_the_corpus(survey):
 
 
 def test_most_records_carry_a_community_level_interaction(survey):
-    """The rule's reach. #312 measured 156; the causal-graph pass reached 268."""
-    assert 130 <= survey["with_community_level"] <= 300, survey
+    """The rule's reach. #312 measured 156; ongoing curation reached 301."""
+    assert 130 <= survey["with_community_level"] <= 320, survey
 
 
 def test_the_mixed_records_are_where_the_coarseness_bites(survey):
