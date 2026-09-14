@@ -1,0 +1,536 @@
+id: CommunityMech:000377
+name: Apple Fire Blight A+N+P SynCom
+description: 'A nine-member bacterial synthetic community assembled from three apple fire-blight biocontrol design groups:
+  Streptomyces recifensis SN1E1 and Paenibacillus polymyxa AF2927 as direct anti-Erwinia amylovora strains, Labrys miyagiensis
+  NBRC101365, Labrys okinawensis DSM18385, Novosphingobium mathurense SM117, Novosphingobium endophyticum EGI60015, and Terriglobus
+  aquaticus 03SUJ4 as healthy apple network taxa, and Kitasatospora papulosa AF6313 plus Pseudomonas lundensis AB23 as pathway-associated
+  strains. The full A+N+P mixture eliminated visible disease in Fuji apple fruit wounds, matched oxytetracycline at 1.67%
+  disease severity in rose flowers, and reduced Erwinia amylovora TS3128 density in apple flower exudate during follow-up
+  co-cultivation assays.'
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Construct a defined SynCom that suppresses apple fire blight by combining direct anti-Erwinia amylovora activity,
+    healthy-apple network taxa, and strains aligned to metabolic pathways enriched in non-infected apples.
+  assembly_strategy: Assemble two antibacterial strains, five strains representing healthy-apple keystone network taxa, and
+    two pathway-associated strains into A, N, and P groups; assay A, N, P, two-group combinations, and the full A+N+P nine-member
+    community against Erwinia amylovora.
+  inoculation_strategy: Normalize strains to OD600 0.2 for apple-fruit and rose-flower biocontrol assays or OD600 0.5 for
+    apple-flower-exudate competition assays, combine equal amounts within each SynCom group, and combine group mixtures equally
+    when multiple A/N/P groups are treated together.
+  perturbation_design: Challenge untreated, Erwinia-only, single-group, two-group, and A+N+P SynCom treatments in Fuji apple
+    fruit wounds, rose flower ovaries, two apple-plant inoculation protocols, and apple flower exudate co-cultures with rifampicin-resistant
+    E. amylovora TS3128.
+  measurement_endpoints:
+  - Erwinia amylovora TS3128 inhibition zones
+  - Fuji apple fruit fire-blight disease severity
+  - rose flower fire-blight disease severity
+  - apple plant fire-blight disease severity
+  - apple root and stem endosphere bacterial composition
+  - network/pathway strain genome features
+  - Biolog PM1 and PM2A carbon source use
+  - E. amylovora density in apple flower exudate
+  notes: This record represents the full A+N+P formulation. Lee et al. 2025 reported 33.4% disease severity for EA+A+N+P in
+    the apple-plant assay; the 5.4% apple-plant value cited in the abstract belongs to EA+P, not to the full nine-member community.
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In this study, a total of nine individual strains were employed to evaluate the suppression of fire blight. Two
+      of the nine were selected for their antibacterial activity, five were nominated keystone taxa based on the apple microbiome
+      network, and two were obtained as microbiota community metabolite-responsible agents. Table 1 presents the SynCom members
+      and references.
+    explanation: Defines the three antibacterial/network/pathway strain classes used to build the nine-member apple SynCom.
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'In planta biological control assay for fire blight disease suppression in apple fruits involved nine experimental
+      groups: untreated, EA (E. Amylovora), EA+each single group (A, N, P) inoculation, EA+combinations of two groups (A+N,
+      N+P, A+P), and EA+three-groups combination (A+N+P).'
+    explanation: Shows that the full A+N+P SynCom was directly tested against Erwinia amylovora in the apple-fruit challenge.
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom consists of nine strains in total, including five keystone taxa (N group) within the microbiota network.
+      Two strains were selected based on differences in metabolic pathways (P group), and two were antibacterial strains (A
+      group) ( Lee et al., 2025 ).
+    explanation: Confirms that the follow-up genomic and nutrient-competition paper studied the same nine-strain A/N/P SynCom
+      design.
+environment_term:
+  preferred_term: apple flower and apple-plant host tissue
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: The SynCom was designed from apple endosphere and pathway analyses and challenged in apple fruits, rose flowers,
+    apple plants, and apple flower exudate.
+modeled_environment:
+- preferred_term: plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: The model system represents fire-blight suppression on aboveground Rosaceae host tissue rather than a rhizosphere
+    or bulk-soil SynCom.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptomyces recifensis SN1E1
+    term:
+      id: NCBITaxon:67355
+      label: Streptomyces recifensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: SN1E1
+    isolation_source: soil; antibacterial group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Streptomyces recifensis\n Soil 98.62 SN1E1"
+    explanation: Identifies Streptomyces recifensis SN1E1 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Paenibacillus polymyxa AF2927
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: AF2927
+    isolation_source: apple flower bud; antibacterial group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Paenibacillus polymyxa\n Apple flower bud 99.66 AF2927"
+    explanation: Identifies Paenibacillus polymyxa AF2927 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Labrys miyagiensis NBRC101365
+    term:
+      id: NCBITaxon:346912
+      label: Labrys miyagiensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: NBRC101365
+    isolation_source: grassland soil of an experimental farm; network group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Labrys miyagiensis\n Grassland soil of an experimental farm 99.92 NBRC101365"
+    explanation: Identifies Labrys miyagiensis NBRC101365 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Labrys okinawensis DSM18385
+    term:
+      id: NCBITaxon:346911
+      label: Labrys okinawensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: DSM18385
+    isolation_source: root nodule of Entada phaseoloides; network group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Labrys okinawensis\n Root-nodule of Entada phaseoloides 97.40 DSM18385"
+    explanation: Identifies Labrys okinawensis DSM18385 as one of the nine strains in the A+N+P fire-blight-suppressive SynCom.
+- taxon_term:
+    preferred_term: Novosphingobium mathurense SM117
+    term:
+      id: NCBITaxon:428990
+      label: Novosphingobium mathurense
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: SM117
+    isolation_source: sea sand soil; network group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Novosphingobium mathurense\n Sea sand soil 100 SM117"
+    explanation: Identifies Novosphingobium mathurense SM117 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Novosphingobium endophyticum EGI60015
+    term:
+      id: NCBITaxon:1955250
+      label: Novosphingobium endophyticum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: EGI60015
+    isolation_source: roots of Glycyrrhiza uralensis; network group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Novosphingobium endophyticum\n Roots of Glycyrrhiza uralensis 99.92 EGI60015"
+    explanation: Identifies Novosphingobium endophyticum EGI60015 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Terriglobus aquaticus 03SUJ4
+    term:
+      id: NCBITaxon:940139
+      label: Terriglobus aquaticus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The construction paper lists this strain as 03SUJ4, while the follow-up genome paper reports the corresponding
+      Terriglobus aquaticus genome as TAH1. The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py
+      with --apply once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: 03SUJ4
+    isolation_source: freshwater; network group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Terriglobus aquaticus\n Freshwater 99.88 03SUJ4"
+    explanation: Identifies Terriglobus aquaticus 03SUJ4 as one of the nine strains in the A+N+P fire-blight-suppressive SynCom.
+- taxon_term:
+    preferred_term: Kitasatospora papulosa AF6313
+    term:
+      id: NCBITaxon:1464011
+      label: Kitasatospora papulosa
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: AF6313
+    isolation_source: apple flower; pathway group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Kitasatospora papulosa\n Apple flower 100 AF6313"
+    explanation: Identifies Kitasatospora papulosa AF6313 as one of the nine strains in the A+N+P fire-blight-suppressive
+      SynCom.
+- taxon_term:
+    preferred_term: Pseudomonas lundensis AB23
+    term:
+      id: NCBITaxon:86185
+      label: Pseudomonas lundensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local GTDB grounding crosswalk was not available during curation; rerun scripts/gtdb_ground.py with --apply
+      once NCBI2GTDB.tsv.gz is available.
+  strain_designation:
+    strain_name: AB23
+    isolation_source: bee gut in an apple orchard; pathway group
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: "Pseudomonas lundensis\n Bee gut 99.93 AB23"
+    explanation: Identifies Pseudomonas lundensis AB23 as one of the nine strains in the A+N+P fire-blight-suppressive SynCom.
+ecological_interactions:
+- name: A+N+P Erwinia amylovora suppression in Rosaceae tissue
+  description: The full A+N+P nine-member SynCom suppressed Erwinia amylovora in Fuji apple fruit wounds and rose flower ovaries,
+    achieving 0% apple-fruit severity and 1.67% rose-flower severity.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces recifensis SN1E1
+    term:
+      id: NCBITaxon:67355
+      label: Streptomyces recifensis
+  - preferred_term: Paenibacillus polymyxa AF2927
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  - preferred_term: Labrys miyagiensis NBRC101365
+    term:
+      id: NCBITaxon:346912
+      label: Labrys miyagiensis
+  - preferred_term: Labrys okinawensis DSM18385
+    term:
+      id: NCBITaxon:346911
+      label: Labrys okinawensis
+  - preferred_term: Novosphingobium mathurense SM117
+    term:
+      id: NCBITaxon:428990
+      label: Novosphingobium mathurense
+  - preferred_term: Novosphingobium endophyticum EGI60015
+    term:
+      id: NCBITaxon:1955250
+      label: Novosphingobium endophyticum
+  - preferred_term: Terriglobus aquaticus 03SUJ4
+    term:
+      id: NCBITaxon:940139
+      label: Terriglobus aquaticus
+  - preferred_term: Kitasatospora papulosa AF6313
+    term:
+      id: NCBITaxon:1464011
+      label: Kitasatospora papulosa
+  - preferred_term: Pseudomonas lundensis AB23
+    term:
+      id: NCBITaxon:86185
+      label: Pseudomonas lundensis
+  - preferred_term: Erwinia amylovora TS3128
+    term:
+      id: NCBITaxon:552
+      label: Erwinia amylovora
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: A+N+P nutrient competition with Erwinia amylovora
+    description: The follow-up apple-flower-exudate assay directly tested whether the same A/N/P SynCom design reduces Erwinia
+      amylovora density under limited flower nutrients.
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: EA+A+P at 9.33%, EA+N+P at 2.67%, EA+A+N+P at 0% severity, and control at 0%, in descending order.
+    explanation: Reports that the full A+N+P SynCom eliminated measured fire-blight severity in the Fuji apple-fruit wound
+      assay.
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: EA+P at 6.67%, EA+A+P at 6.67%, EA+N at 3.33%, EA+A+N+P at 1.67%, EA+oxytetracycline at 1.67%, and control at
+      0%, in descending order.
+    explanation: Reports that the full A+N+P SynCom reduced rose-flower fire-blight severity to the same 1.67% value as the
+      oxytetracycline positive control.
+- name: A+N+P nutrient competition with Erwinia amylovora
+  description: In apple flower exudate, the A+N+P community was mixed with rifampicin-resistant E. amylovora TS3128 and reduced
+    the pathogen density over 72 h, supporting nutrient competition in the flower-exudate niche.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Streptomyces recifensis SN1E1
+    term:
+      id: NCBITaxon:67355
+      label: Streptomyces recifensis
+  - preferred_term: Paenibacillus polymyxa AF2927
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+  - preferred_term: Labrys miyagiensis NBRC101365
+    term:
+      id: NCBITaxon:346912
+      label: Labrys miyagiensis
+  - preferred_term: Labrys okinawensis DSM18385
+    term:
+      id: NCBITaxon:346911
+      label: Labrys okinawensis
+  - preferred_term: Novosphingobium mathurense SM117
+    term:
+      id: NCBITaxon:428990
+      label: Novosphingobium mathurense
+  - preferred_term: Novosphingobium endophyticum EGI60015
+    term:
+      id: NCBITaxon:1955250
+      label: Novosphingobium endophyticum
+  - preferred_term: Terriglobus aquaticus 03SUJ4
+    term:
+      id: NCBITaxon:940139
+      label: Terriglobus aquaticus
+  - preferred_term: Kitasatospora papulosa AF6313
+    term:
+      id: NCBITaxon:1464011
+      label: Kitasatospora papulosa
+  - preferred_term: Pseudomonas lundensis AB23
+    term:
+      id: NCBITaxon:86185
+      label: Pseudomonas lundensis
+  - preferred_term: Erwinia amylovora TS3128
+    term:
+      id: NCBITaxon:552
+      label: Erwinia amylovora
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The R2 values of the linear regression equations over time for each treatment are as follows: A was 0.7639 (P
+      < 0.001), N was 0.52 (P < 0.001), ANP was 0.506 (P < 0.001), P was 0.354 (P < 0.01), AP was 0.2563 (P < 0.05), NP was
+      0.0141 (P > 0.05), A+N was 0.0326 (P > 0.05).'
+    explanation: Shows that the full ANP treatment produced a significant negative Erwinia density trajectory in apple flower
+      exudate.
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When SynCom was co-cultivated with E. amylovora in extracts of apple flowers, a decrease in E. amylovora density
+      was observed compared to its monoculture.
+    explanation: Interprets the apple-flower-exudate co-culture as a nutrient-limited pathogen-density suppression assay.
+environmental_factors:
+- name: Fuji apple flower exudate nutrient limitation
+  description: The nutrient-competition assay used disinfected Fuji apple flowers sonicated in water and filtered to produce
+    the flower-exudate medium mixed with A+N+P SynCom cells and rifampicin-resistant E. amylovora TS3128.
+  evidence:
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Apple flowers (cv. Fuji) were disinfected with 0.5 g in 70% ethanol for 30 s and then washed twice with ddH2O.
+      The washed flowers were dried and then sonicated in 5 mL of ddH2O for 30 min.
+    explanation: Describes the Fuji apple flower extraction used to generate the limited-nutrient assay medium.
+growth_media:
+- name: R2A agar or broth with 0.5% mannitol
+  temperature: '28'
+  temperature_unit: °C
+  incubation_time: 2-4
+  incubation_time_unit: days
+  preparation_notes: The follow-up genome analysis cultured SynCom strains on R2A agar or in broth supplemented with 0.5%
+    mannitol before genome sequencing and nutrient utilization assays.
+  evidence:
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All strains were cultured at 28°C for 2–4 days on R2A agar (0.5 g casamino acid hydrolysate, 0.5 g yeast extract,
+      0.5 g proteose peptone, 0.5 g dextrose, 0.5 g soluble starch, 0.3 g dipotassium phosphate, 0.05 g magnesium sulfate,
+      0.3 g sodium pyruvate and 15 g agar per L, pH 7.0–7.4) or broth media supplemented with 0.5% mannitol.
+    explanation: Gives the R2A recipe and culture temperature/time used for the analyzed SynCom strains.
+- name: Fuji apple flower exudate co-culture
+  temperature: '28'
+  temperature_unit: °C
+  inoculum_size: 0.5 SynCom; 0.1 E. amylovora TS3128
+  inoculum_unit: OD600
+  inoculum_source: Equalized A, N, P, and A+N+P SynCom groups plus rifampicin-resistant Erwinia amylovora TS3128
+  incubation_time: '72'
+  incubation_time_unit: h
+  preparation_notes: SynCom groups were mixed at OD600 0.5, combined 1:1:1 with OD600 0.1 Erwinia amylovora TS3128 and Fuji
+    apple flower exudate, incubated shaking at 28 °C, and enumerated on 1/5 TSA with 50 micrograms/mL rifampicin at
+    0, 24, 48, and 72 h.
+  evidence:
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The E. amylovora suspension was adjusted to OD600 0.1, and the flower extract and SynCom mixture, containing
+      the pathogen in a 1:1:1 ratio, were cultured at 28°C in a shaking incubator.
+    explanation: Specifies the pathogen inoculum, flower-exudate/SynCom mixing ratio, and 28 °C shaking incubation.
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: SynCom strains were adjusted to an OD600 0.5 and mixed according to their respective groups. These mixtures were
+      combined with OD600 0.1 E. amylovora and flower extracts in proportion.
+    explanation: Gives the SynCom OD600 and confirms proportional combination with Erwinia and apple flower extracts.
+associated_datasets:
+- title: Apple fire blight SynCom BioProject
+  dataset_type: OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1144217
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1144217
+  description: NCBI BioProject accession cited by the primary SynCom paper for the apple fire blight SynCom project.
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    snippet: All data are incorporated into the article and its online supplementary materials. The project has been deposited
+      at NCBI under the BioProject (PRJNA1144217).
+    explanation: Links the primary SynCom paper to BioProject PRJNA1144217.
+external_resources:
+- name: Primary publication - Apple fire blight ANP SynCom
+  repository: OTHER
+  resource_id: PMID:40223277
+  url: https://pubmed.ncbi.nlm.nih.gov/40223277/
+  description: Journal of Microbiology and Biotechnology 2025 open-access article, doi:10.4014/jmb.2501.01047, describing
+    construction of the nine-member A+N+P apple fire-blight biocontrol SynCom.
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Design and Evaluation of Synthetic Microbial Communities for Effective Fire Blight Disease Control in Apples
+    explanation: Identifies the PMID-linked primary SynCom design publication.
+- name: Follow-up publication - Apple fire blight SynCom mechanisms
+  repository: OTHER
+  resource_id: PMID:40468884
+  url: https://pubmed.ncbi.nlm.nih.gov/40468884/
+  description: Plant Pathology Journal 2025 open-access article, doi:10.5423/PPJ.OA.03.2025.0040, describing genome analysis
+    and apple-flower-exudate nutrient competition for the SynCom.
+  evidence:
+  - reference: PMID:40468884
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Genetic and Nutritional Dynamics of SynCom in Suppressing Apple Fire Blight
+    explanation: Identifies the PMID-linked follow-up mechanism publication.
+- name: NCBI BioProject PRJNA1144217
+  repository: OTHER
+  resource_id: PRJNA1144217
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1144217
+  description: NCBI BioProject accession cited by the primary SynCom paper for the apple fire blight SynCom project.
+  evidence:
+  - reference: PMID:40223277
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The project has been deposited at NCBI under the BioProject (PRJNA1144217).
+    explanation: Gives the stable BioProject identifier associated with the source paper.
+discussions:
+- discussion_id: apple_fire_blight_03suj4_tah1_alias
+  prompt: Does Terriglobus aquaticus TAH1 in the follow-up genome paper represent the same strain as Terriglobus aquaticus
+    03SUJ4 in the SynCom construction paper?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy#Terriglobus aquaticus 03SUJ4
+  rationale: The construction paper's membership table names Terriglobus aquaticus strain 03SUJ4, but the genome table in
+    the follow-up paper names the analyzed Terriglobus aquaticus strain TAH1.
+  posed_by: codex
+  posed_date: '2026-09-14'
+- discussion_id: apple_fire_blight_secondary_metabolite_agents
+  prompt: Which predicted secondary-metabolite clusters are experimentally responsible for Erwinia amylovora suppression by
+    the non-A network and pathway SynCom members?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#A+N+P Erwinia amylovora suppression in Rosaceae tissue
+  - ecological_interactions#A+N+P nutrient competition with Erwinia amylovora
+  rationale: The follow-up paper predicted secondary-metabolite clusters from the network and pathway strain genomes, but
+    Supplementary Table 1 was available only as a PDF/image supplement during curation and the publication does not chemically
+    validate member-level effectors for the full A+N+P community.
+  posed_by: codex
+  posed_date: '2026-09-14'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: Siderophore, phosphate-solubilization, and genome-mined Ni-siderophore assays or predictions were peripheral
+  plant-growth and biocontrol screens; no metal or rare-earth extraction, cycling, or stress mechanism is curated for this
+  record.
+curation_history:
+- timestamp: '2026-09-14T21:45:00Z'
+  curator: codex
+  action: CURATE_APPLE_FIRE_BLIGHT_ANP_SYNCOM
+  changes: Added the nine-member apple fire blight A+N+P SynCom from PMID:40223277 and PMID:40468884 with exact strain membership,
+    apple/rose host-tissue suppression, apple flower exudate nutrient competition, growth medium, BioProject linkage, and
+    open knowledge gaps for the Terriglobus alias and unresolved secondary-metabolite effectors.
+  llm_assisted: true
