@@ -1,0 +1,440 @@
+id: CommunityMech:000371
+name: Rhodococcus-Pseudomonas Plastic Pyrolysis Oil Waste Consortium
+description: A defined three-member synthetic bacterial consortium composed of Rhodococcus opacus DSM 43250, Pseudomonas putida
+  KT2440, and Pseudomonas sp. VLB120 for aerobic degradation of CARBOLIQ-derived plastic pyrolysis oil waste in a 2-nonanone
+  organic-aqueous biphasic system. The consortium was rationally assembled to couple long-chain alkane degradation with aromatic-catabolism
+  and solvent-tolerance functions, and its highest measured activity used an initial R. opacus:P. putida:VLB120 ratio of 1:1:2
+  at 30 C, 1:5 organic-to-aqueous phase ratio, and 20% v/v PPOW in the organic phase.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Assemble and optimize a synthetic bacterial consortium that can tolerate the heterogeneity of plastic pyrolysis
+    oil waste and use its aliphatic and aromatic organic pollutants as carbon and energy sources in a biphasic treatment system.
+  assembly_strategy: Combine Rhodococcus opacus DSM 43250 with two pseudomonads, Pseudomonas putida KT2440 and Pseudomonas
+    sp. VLB120, to test a rational division of labor between alkane degradation, aromatic catabolism, and solvent-stress tolerance.
+  inoculation_strategy: Prepare the inoculum by mixing OD600-standardized cultures of the three strains at a specified ratio,
+    washing pellets twice with sterile mineral salt medium to remove benzoate, adjusting the final cell density to OD600 1.0,
+    and transferring a 10% v/v inoculum into the biphasic reaction.
+  perturbation_design: Compare 2-nonanone against ethyl decanoate as the second organic phase and optimize temperature, organic-to-aqueous
+    phase ratio, PPOW loading in the organic phase, and the relative R. opacus:P. putida:VLB120 inoculation ratio.
+  measurement_endpoints:
+  - O2 consumption during PPOW degradation
+  - CO2 release during second-organic-phase selection
+  - GC-FID removal rates for major PPOW compounds
+  - Back-propagation neural-network prediction of O2 consumption
+  notes: The article explicitly reports that the member-level mechanism was inferred after process optimization; this record
+    therefore keeps the alkane, aromatic, and solvent-tolerance split as a community-level niche-partitioning model rather
+    than individual pairwise cross-feeding edges.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To reduce this molecular heterogeneity, we artificially compounded, monitored, and optimized a bacterial consortium
+      capable of tolerating organic pollutants and utilizing them as carbon and energy sources.
+    explanation: Supports the engineered PPOW-removal objective.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation of PPOW by a synthetic bacterial community composed of Rhodococcus opacus DSM 43250, Pseudomonas
+      putida KT2440 and Pseudomonas sp. VLB120 was investigated in an organic-aqueous two-phase system
+    explanation: Supports the exact three-strain synthetic consortium and biphasic assay design.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although the specific mechanism remains unclear, we infer that the high degradation efficiency achieved in this
+      study stems from rational functional complementarity among the consortium members
+    explanation: Supports treating the division of labor as the authors' inferred design model.
+environment_term:
+  preferred_term: PPOW biphasic laboratory biodegradation culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The three-member SynCom was grown in controlled modified-MSM organic-aqueous two-phase assays containing CARBOLIQ
+    plastic pyrolysis oil waste.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhodococcus opacus DSM 43250
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Rhodococcus_opacus
+    - GTDB:s__Rhodococcus_opacus_C
+    notes: The source reports the strain as Rhodococcus opacus DSM 43250 and does not resolve the GTDB split between the R.
+      opacus candidate species.
+  strain_designation:
+    strain_name: DSM 43250
+    notes: DSM 43250 is retained as the article's strain designation; the cells came from the RWTH Aachen University Institute
+      of Applied Microbiology strain collection.
+  relative_abundance: 0.25
+  relative_abundance_unit: optimized initial OD600-normalized inoculum fraction
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus DSM 43250, Pseudomonas putida KT2440, and Pseudomonas sp. VLB120 were stored in the strain
+      collection of the Institute of Applied Microbiology
+    explanation: Identifies R. opacus DSM 43250 as one of the three stored consortium members.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus DSM 43250 serves as the principal driver for long-chain alkane (C10-C28) degradation
+    explanation: Supports the inferred long-chain alkane-degradation role.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the microbial community displayed maximum metabolic activity when the ratio of R. opacus DSM 43250, P. putida
+      KT2440, Pseudomonas sp. VLB120 was 1:1:2
+    explanation: Supports the 1:1:2 optimized inoculation ratio and the 0.25 starting fraction.
+- taxon_term:
+    preferred_term: Pseudomonas putida KT2440
+    term:
+      id: NCBITaxon:160488
+      label: Pseudomonas putida KT2440
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_E_alloputida
+      gtdb_taxon: Pseudomonas_E alloputida
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas_E;s__Pseudomonas_E
+        alloputida
+      ncbi_source_id: NCBITaxon:160488
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Wild-type P. putida KT2440 was selected as an aromatic catabolism member in the plastic-pyrolysis-oil SynCom.
+  strain_designation:
+    strain_name: KT2440
+    notes: KT2440 is retained as the article's strain designation; the cells came from the RWTH Aachen University Institute
+      of Applied Microbiology strain collection.
+  relative_abundance: 0.25
+  relative_abundance_unit: optimized initial OD600-normalized inoculum fraction
+  functional_role:
+  - PRIMARY_DEGRADER
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus DSM 43250, Pseudomonas putida KT2440, and Pseudomonas sp. VLB120 were stored in the strain
+      collection of the Institute of Applied Microbiology
+    explanation: Identifies P. putida KT2440 as one of the three stored consortium members.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida KT2440 targets aromatic fractions, while Pseudomonas sp. VLB120 confers significant solvent tolerance
+    explanation: Supports the inferred aromatic-fraction role.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the microbial community displayed maximum metabolic activity when the ratio of R. opacus DSM 43250, P. putida
+      KT2440, Pseudomonas sp. VLB120 was 1:1:2
+    explanation: Supports the 1:1:2 optimized inoculation ratio and the 0.25 starting fraction.
+- taxon_term:
+    preferred_term: Pseudomonas sp. VLB120
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports the VLB120 member only as Pseudomonas sp. VLB120, so this row keeps the genus-level NCBI placement
+      and does not infer a species assignment from related VLB120 studies.
+  strain_designation:
+    strain_name: VLB120
+    notes: VLB120 is retained as the article's strain designation; the cells came from the RWTH Aachen University Institute
+      of Applied Microbiology strain collection.
+  relative_abundance: 0.5
+  relative_abundance_unit: optimized initial OD600-normalized inoculum fraction
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus DSM 43250, Pseudomonas putida KT2440, and Pseudomonas sp. VLB120 were stored in the strain
+      collection of the Institute of Applied Microbiology
+    explanation: Identifies Pseudomonas sp. VLB120 as one of the three stored consortium members.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida KT2440 targets aromatic fractions, while Pseudomonas sp. VLB120 confers significant solvent tolerance
+    explanation: Supports the inferred VLB120 solvent-tolerance role.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the microbial community displayed maximum metabolic activity when the ratio of R. opacus DSM 43250, P. putida
+      KT2440, Pseudomonas sp. VLB120 was 1:1:2
+    explanation: Supports the 1:1:2 optimized inoculation ratio and the 0.5 starting fraction.
+ecological_interactions:
+- name: PPOW aliphatic-aromatic division of labor
+  description: The PPOW SynCom was interpreted as a functionally complementary consortium in which R. opacus DSM 43250 drives
+    long-chain C10-C28 alkane degradation while the two Pseudomonas members contribute aromatic catabolism and solvent-stress
+    tolerance. The source leaves the exact mechanism unresolved, so this is modeled at community scope.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhodococcus opacus DSM 43250
+    term:
+      id: NCBITaxon:37919
+      label: Rhodococcus opacus
+  - preferred_term: Pseudomonas putida KT2440
+    term:
+      id: NCBITaxon:160488
+      label: Pseudomonas putida KT2440
+  - preferred_term: Pseudomonas sp. VLB120
+    term:
+      id: NCBITaxon:306
+      label: Pseudomonas sp.
+  metabolites:
+  - preferred_term: alkane
+    term:
+      id: CHEBI:18310
+      label: alkane
+  - preferred_term: naphthalene
+    term:
+      id: CHEBI:16482
+      label: naphthalene
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  - preferred_term: alkane catabolic process
+    term:
+      id: GO:0043448
+      label: alkane catabolic process
+  downstream:
+  - target: Seven-day optimized PPOW component removal
+    description: The optimized 1:1:2 consortium removed more than half of most relatively abundant PPOW compounds and removed
+      several target compounds completely after 7 days of biphasic treatment.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhodococcus opacus DSM 43250 serves as the principal driver for long-chain alkane (C10-C28) degradation
+    explanation: Supports the R. opacus alkane-degradation half of the inferred division of labor.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. putida KT2440 targets aromatic fractions, while Pseudomonas sp. VLB120 confers significant solvent tolerance
+    explanation: Supports the inferred Pseudomonas aromatic-catabolism and stress-tolerance functions.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Although the specific mechanism remains unclear, we infer that the high degradation efficiency achieved in this
+      study stems from rational functional complementarity among the consortium members
+    explanation: Supports keeping the member-level mechanism caveated.
+environmental_factors:
+- name: Optimized incubation temperature
+  value: '30'
+  unit: C
+  description: Temperature selected during optimization for the three-member PPOW SynCom.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The optimal growth temperature for the three strains in the bacterial consortium was found to be 30°C
+    explanation: Supports the optimized 30 C incubation temperature.
+- name: Optimized organic-to-aqueous phase ratio
+  value: '1:5'
+  unit: organic:aqueous phase ratio
+  description: Organic-to-aqueous phase ratio selected for follow-up PPOW degradation after O2-depletion optimization.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Maximum degradation was achieved at an organic-to-aqueous ratio of 1:5
+    explanation: Supports the selected organic-to-aqueous phase ratio.
+- name: Optimized PPOW organic-phase loading
+  value: '20'
+  unit: '% vol/vol of organic phase'
+  description: Plastic pyrolysis oil waste loading in the 2-nonanone organic phase selected during process optimization.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: when PPOW constitutes 20% (v/v) of the second phase, O2 depletion in the closed system occurs most rapidly
+    explanation: Supports the optimized 20% v/v PPOW concentration in the organic phase.
+- name: Optimized R. opacus:P. putida:VLB120 inoculum ratio
+  value: '1:1:2'
+  unit: OD600-normalized strain ratio
+  description: Initial strain ratio that maximized metabolic activity during PPOW-removal optimization.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the microbial community displayed maximum metabolic activity when the ratio of R. opacus DSM 43250, P. putida
+      KT2440, Pseudomonas sp. VLB120 was 1:1:2
+    explanation: Supports the optimized 1:1:2 strain ratio.
+growth_media:
+- name: Modified MSM with 2-nonanone and PPOW
+  composition:
+  - name: dipotassium hydrogen phosphate
+    concentration: '11.64'
+    unit: g/L
+  - name: sodium dihydrogen phosphate
+    concentration: '4.89'
+    unit: g/L
+  - name: ammonium sulfate
+    concentration: '2.00'
+    unit: g/L
+  - name: magnesium chloride hexahydrate
+    concentration: '0.1'
+    unit: g/L
+  - name: EDTA
+    concentration: '10'
+    unit: mg/L
+  - name: zinc sulfate heptahydrate
+    concentration: '2'
+    unit: mg/L
+  - name: calcium chloride dihydrate
+    concentration: '1'
+    unit: mg/L
+  - name: ferrous sulfate heptahydrate
+    concentration: '5'
+    unit: mg/L
+  - name: sodium molybdate dihydrate
+    concentration: '0.2'
+    unit: mg/L
+  - name: copper sulfate pentahydrate
+    concentration: '0.2'
+    unit: mg/L
+  - name: cobalt chloride hexahydrate
+    concentration: '0.4'
+    unit: mg/L
+  - name: manganese chloride dihydrate
+    concentration: '1'
+    unit: mg/L
+  - name: yeast extract
+    concentration: '0.05'
+    unit: '% wt/vol'
+  - name: 2-nonanone
+  - name: plastic pyrolysis oil waste
+    concentration: '20'
+    unit: '% vol/vol of organic phase'
+  temperature: '30'
+  temperature_unit: C
+  incubation_time: '7'
+  incubation_time_unit: days
+  inoculum_size: '10'
+  inoculum_unit: '% vol/vol'
+  vessel_type: 200 mL anaerobic serum bottle
+  preparation_notes: Cells were mixed at specified OD600-normalized strain ratios, centrifuged, washed twice with sterile
+    mineral salt medium to remove benzoate carryover, and resuspended to OD600 1.0 before 10% v/v inoculation of 20 mL biphasic
+    modified MSM.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For the two-phase reaction, cells were cultured at the specified temperature in a modified MSM
+    explanation: Supports modified MSM as the aqueous medium for the biphasic reaction.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Ethyl decanoate or 2-nonanone was selected as the organic phase in the reaction system, which contains PPOW as
+      the main carbon and energy source
+    explanation: Supports using 2-nonanone or ethyl decanoate as the organic phase containing PPOW.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with 0.05% (w/v) yeast extract added to promote cell growth
+    explanation: Supports the yeast-extract amendment.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The total volume of the biphasic medium was 20 mL and aeration was provided solely via the headspace
+    explanation: Supports the 20 mL biphasic volume and sealed-headspace aeration.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The final cell density was adjusted to an OD600 of 1.0 using sterile medium and a 10% (v/v) inoculum was transferred
+      into the biphasic reaction system
+    explanation: Supports the prepared inoculum density and 10% v/v transfer.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  instrument_detail: 200 mL anaerobic serum bottles with aluminum caps for O2 depletion assays in 20 mL biphasic medium.
+  working_volume: 20.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  do_controlled: false
+  temperature_controlled: true
+  controls_notes: Aeration was provided solely via the bottle headspace.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 200 mL anaerobic serum bottles with aluminum caps were used
+    explanation: Supports the sealed serum-bottle O2 depletion setup.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The total volume of the biphasic medium was 20 mL and aeration was provided solely via the headspace
+    explanation: Supports the working volume and headspace-aerated configuration.
+external_resources:
+- name: Primary publication - PPOW SynCom
+  repository: OTHER
+  resource_id: PMID:42491060
+  url: https://pubmed.ncbi.nlm.nih.gov/42491060/
+  description: Primary Frontiers in Microbiology article, doi:10.3389/fmicb.2026.1817874, reporting the optimized Rhodococcus-Pseudomonas
+    synthetic consortium for plastic pyrolysis oil waste biodegradation.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Synthetic bacterial consortium for degradation of plastic pyrolysis oil waste: experimental optimization and
+      neural network modeling'
+    explanation: Links the cached primary publication to the PPOW SynCom record.
+discussions:
+- discussion_id: ppow_syncom_member_mechanism
+  prompt: Which direct substrates and intermediates are consumed by each of R. opacus DSM 43250, P. putida KT2440, and Pseudomonas
+    sp. VLB120 during optimized PPOW degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#PPOW aliphatic-aromatic division of labor
+  rationale: The source proposes an alkane, aromatic, and solvent-tolerance division of labor after process optimization but
+    explicitly says the specific mechanism remains unclear; resolving the gap could turn the community-level niche-partitioning
+    model into direct member-metabolite assertions.
+  proposed_experiments:
+  - name: Strain-resolved PPOW metabolite tracking
+    approach: isotope-assisted metabolomics with monoculture and leave-one-out SynCom controls
+    model_systems:
+    - R. opacus DSM 43250 monoculture
+    - P. putida KT2440 monoculture
+    - Pseudomonas sp. VLB120 monoculture
+    - optimized 1:1:2 PPOW SynCom
+    readouts:
+    - compound-resolved PPOW depletion
+    - strain abundance over time
+    - labeled intermediate accumulation
+    decision_criterion: Compound-specific uptake or intermediate buildup is assigned reproducibly to one member or a member
+      pair under the same biphasic PPOW conditions.
+  evidence:
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Although the specific mechanism remains unclear, we infer that the high degradation efficiency achieved in this
+      study stems from rational functional complementarity among the consortium members
+    explanation: Supports leaving the exact interaction mechanism as a knowledge gap.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Further studies should aim to understand the mechanisms of synergistic interactions within the bacterial consortium
+    explanation: Confirms that the publication leaves the strain-resolved mechanism unresolved.
+  posed_by: codex
+  posed_date: '2026-09-14'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for the Rhodococcus-Pseudomonas PPOW degradation consortium.
+curation_history:
+- timestamp: '2026-09-14T01:27:02Z'
+  curator: codex
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000371 for the three-member Rhodococcus-Pseudomonas plastic pyrolysis oil waste consortium
+    from PMID:42491060 / doi:10.3389/fmicb.2026.1817874, including strain-resolved membership, GTDB grounding status, optimized
+    2-nonanone biphasic modified-MSM conditions, a caveated community-level aliphatic/aromatic division-of-labor model, and
+    an open question for member-level mechanism.
+  llm_assisted: true
