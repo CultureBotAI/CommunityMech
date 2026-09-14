@@ -231,6 +231,7 @@ USERS = {
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
     "Maize_Root_Simplified_Community.yaml",
+    "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
     "Medicago_Nodule_Biofertilizer_SynCom.yaml",
     "Mesorhizobium_Synechococcus_B12_Synthetic_Consortium.yaml",
     "Methane_MFC_Electrogenesis_Nitrogen_Fixation_Consortium.yaml",
