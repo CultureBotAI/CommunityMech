@@ -45,6 +45,18 @@ engineering_design:
     snippet: Although the specific mechanism remains unclear, we infer that the high degradation efficiency achieved in this
       study stems from rational functional complementarity among the consortium members
     explanation: Supports treating the division of labor as the authors' inferred design model.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Additionally, a back-propagation (BP) neural network was applied to evaluate O2 consumption as an indicator of
+      microbial activity and to build a predictive model for process optimization.
+    explanation: Supports the O2-consumption neural-network optimization endpoint.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Within 7 days, the bacterial community demonstrated remarkable efficacy, degrading alkanes (C10–C28) at rates
+      of 71–100% and achieving complete removal of ε-caprolactam (8,032 mg/mL) and naphthalene.
+    explanation: Supports the seven-day PPOW component-removal endpoint.
 environment_term:
   preferred_term: PPOW biphasic laboratory biodegradation culture
   term:
@@ -224,6 +236,12 @@ ecological_interactions:
     snippet: Although the specific mechanism remains unclear, we infer that the high degradation efficiency achieved in this
       study stems from rational functional complementarity among the consortium members
     explanation: Supports keeping the member-level mechanism caveated.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: With the exception of toluol, the removal rates for more than a dozen substances with relatively high concentrations
+      in the waste all exceeded 50%
+    explanation: Supports the seven-day optimized PPOW-removal downstream outcome.
 environmental_factors:
 - name: Optimized incubation temperature
   value: '30'
@@ -328,6 +346,13 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: For the two-phase reaction, cells were cultured at the specified temperature in a modified MSM
     explanation: Supports modified MSM as the aqueous medium for the biphasic reaction.
+  - reference: PMID:42491060
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'The final aqueous culture medium composition per liter was: 11.64 g of K2HPO4, 4.89 g of NaH2PO4, 2.00 g of
+      (NH4)2SO4, 0.1 g of MgCl2 ⋅ 6H2O, 10 mg of EDTA, 2 mg of ZnSO4 ⋅ 7H2O, 1 mg of CaCl2 ⋅ 2H2O, 5 mg of FeSO4 ⋅ 7H2O, 0.2
+      mg of Na2MoO4 ⋅ 2H2O, 0.2 mg of CuSO4 ⋅ 5H2O, 0.4 mg of CoCl2 ⋅ 6H2O, and 1 mg of MnCl2 ⋅ 2H2O'
+    explanation: Supports the modified-MSM aqueous-phase salt and trace-metal recipe.
   - reference: PMID:42491060
     supports: SUPPORT
     evidence_source: IN_VITRO
@@ -437,4 +462,10 @@ curation_history:
     from PMID:42491060 / doi:10.3389/fmicb.2026.1817874, including strain-resolved membership, GTDB grounding status, optimized
     2-nonanone biphasic modified-MSM conditions, a caveated community-level aliphatic/aromatic division-of-labor model, and
     an open question for member-level mechanism.
+  llm_assisted: true
+- timestamp: '2026-09-14T01:31:08Z'
+  curator: codex
+  action: UPDATE_COMMUNITY
+  changes: 'Addressed adversarial-review issues #875 and #876 on PR #874 by adding exact full-text evidence for the modified-MSM
+    component recipe, the BP neural-network O2 model endpoint, and the seven-day PPOW component-removal outcome.'
   llm_assisted: true
