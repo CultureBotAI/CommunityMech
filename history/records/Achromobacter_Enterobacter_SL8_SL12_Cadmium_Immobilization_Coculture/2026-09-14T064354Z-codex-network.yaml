@@ -1,0 +1,32 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture.yaml
+  slug: Achromobacter_Enterobacter_SL8_SL12_Cadmium_Immobilization_Coculture
+session:
+  id: 2026-09-14T064354Z-codex-network
+  timestamp: '2026-09-14T06:43:54Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/885
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/882
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  - curation_history
+  summary: Remove dangling SL8-SL12 downstream edges
+  details: >
+    Addressed CI network-audit issue #885 on PR #882 by removing two downstream
+    entries from the SL8-SL12 Cd-immobilization interaction that pointed at
+    measured outcomes rather than other ecological_interactions entries. The
+    100 mg/L Cd-removal, CdS-bioprecipitation, and intracellular-Cd assertions
+    remain represented by the interaction description, environmental_factors,
+    and direct PMID:42307251 evidence.

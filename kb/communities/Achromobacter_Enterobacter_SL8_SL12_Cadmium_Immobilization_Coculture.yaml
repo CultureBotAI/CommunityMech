@@ -1,0 +1,463 @@
+id: CommunityMech:000374
+name: Achromobacter-Enterobacter SL8-SL12 Cadmium Immobilization Coculture
+description: A defined two-member bacterial coculture assembled from the Cd-contaminated mine-area soil isolates Achromobacter
+  sp. SL8 and Enterobacter sp. SL12 to immobilize cadmium. In 100 mg/L Cd2+ LB assays the SL8-SL12 coculture removed 80.9%
+  of dissolved Cd after 7 days, exceeding both monocultures at the same Cd dose; Cd partitioning, microscopy, and spectroscopy
+  associated this performance with CdS bioprecipitation, intracellular Cd accumulation, surface aggregation with possible
+  EPS involvement, and phosphate-, amino-, and hydroxyl-bearing surface groups. In greenhouse Chinese-cabbage pots the
+  inoculated coculture decreased bioavailable soil Cd fractions and lowered Cd in aboveground cabbage tissue under high
+  Cd stress.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Test whether a deliberately combined Achromobacter sp. SL8 and Enterobacter sp. SL12 bacterial consortium improves
+    Cd immobilization relative to monocultures and can reduce cadmium phytoavailability in soil-cabbage pot experiments.
+  assembly_strategy: Isolate Cd-resistant bacteria from Cd-contaminated mine-area soil by LB enrichment and Cd2+-supplemented
+    LB agar selection, identify SL8 and SL12 by 16S rRNA gene sequencing, and assay the two strains alone or as an SL8-SL12
+    coculture.
+  inoculation_strategy: Grow purified strains in LB at 30 C and 200 rpm to OD600 0.8, then transfer a 1% vol/vol inoculum
+    into Cd2+-supplemented LB for liquid removal assays; greenhouse pots received the strains at 2 x 10^7 CFU/g soil before
+    planting.
+  perturbation_design: Compare SL8, SL12, and the SL8-SL12 coculture at 0, 50, or 100 mg/L Cd2+ in LB; profile the two monocultures
+    and the coculture with or without 100 mg/L Cd2+ for extracellular metabolomics and proteomics; and test the coculture
+    in soil spiked with 0, 5, or 10 mg/kg CdCl2.
+  measurement_endpoints:
+  - minimum inhibitory Cd concentration and Cd2+ removal efficiency
+  - extracellular adsorption, intracellular accumulation, and bioprecipitation fractions
+  - SEM, TEM, EDS, FTIR, and XPS characterization of Cd-associated precipitates
+  - extracellular metabolomics and proteomics in monoculture and coculture
+  - Chinese cabbage biomass and Cd content in greenhouse pots
+  - rhizosphere soil Cd speciation and 16S rRNA amplicon profiles
+  notes: The article title and GenBank accessions use the species assignments Achromobacter insuavis and Enterobacter cancerogenus,
+    but the reported identification result was 16S rRNA gene sequence support for Achromobacter sp. SL8 and Enterobacter sp.
+    SL12. No genome-backed species assignment was curated.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Building on this premise, our study investigates the combined effects of Achromobacter insuavis SL8 and Enterobacter
+      cancerogenus SL12, two strains with documented Cd resistance and bioremediation potential
+    explanation: Supports the deliberate two-strain Cd-bioremediation design.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When the bacterial suspension reached an OD600 of 0.8, 1% (vol/vol) of the culture was transferred into liquid
+      LB medium supplemented with 50 mg/L or 100 mg/L Cd 2+ , followed by incubation under identical conditions (30℃, 200
+      rpm).
+    explanation: Supports the 1% inoculum, LB medium, Cd2+ doses, and 30 C/200 rpm liquid assay design.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Bacterial inoculation was performed by introducing the bacterial strains at a concentration of 2 × 10 7 CFU/g
+      soil to each pot.
+    explanation: Supports the greenhouse pot inoculation density.
+environment_term:
+  preferred_term: Cd-supplemented LB laboratory coculture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: SL8, SL12, and the SL8-SL12 coculture were assayed in controlled LB batch cultures supplemented with Cd2+.
+modeled_environment:
+- preferred_term: Cd-contaminated mine-area soil
+  term:
+    id: ENVO:00002116
+    label: contaminated soil
+  notes: SL8 and SL12 were isolated from Cd-contaminated soil near a mine in Liuyang, Hunan, and then evaluated in Cd-spiked
+    soil planted with Chinese cabbage.
+taxonomy:
+- taxon_term:
+    preferred_term: Achromobacter sp. SL8
+    term:
+      id: NCBITaxon:222
+      label: Achromobacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Achromobacter
+      gtdb_taxon: Achromobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Achromobacter
+      ncbi_source_id: NCBITaxon:222
+      majority_fraction: 0.991
+      support_genomes: 325
+      total_genomes: 328
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: The paper identifies SL8 as Achromobacter sp. by 16S rRNA gene analysis with 99.79% sequence homology. GenBank
+      accession PZ429300 uses the Achromobacter insuavis species assignment, but genus-level grounding is curated here.
+  strain_designation:
+    strain_name: SL8
+    isolation_source: Cd-contaminated mine-area soil from Liuyang, Hunan Province, China
+    notes: 16S rRNA GenBank accession PZ429300; submitted as Achromobacter insuavis strain SL8.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on 16S rRNA gene sequence analysis, SL8 was identified as Achromobacter sp., and SL12 as Enterobacter sp.,
+      with sequence homologies of 99.79% and 99.31%
+    explanation: Identifies SL8 as an Achromobacter member of the SL8-SL12 coculture.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Soil samples were collected from Cd-contaminated areas around a mine in Liuyang, Hunan Province, China (28°2′N,
+      113°64′E).
+    explanation: Supports the contaminated mine-area soil isolation context for the Cd-resistant isolates.
+- taxon_term:
+    preferred_term: Enterobacter sp. SL12
+    term:
+      id: NCBITaxon:547
+      label: Enterobacter
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Enterobacter
+      gtdb_taxon: Enterobacter
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Enterobacter
+      ncbi_source_id: NCBITaxon:547
+      majority_fraction: 0.999
+      support_genomes: 2761
+      total_genomes: 2763
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+    notes: The paper identifies SL12 as Enterobacter sp. by 16S rRNA gene analysis with 99.31% sequence homology. GenBank
+      accession PZ429301 uses the Enterobacter cancerogenus species assignment, but genus-level grounding is curated here.
+  strain_designation:
+    strain_name: SL12
+    isolation_source: Cd-contaminated mine-area soil from Liuyang, Hunan Province, China
+    notes: 16S rRNA GenBank accession PZ429301; submitted as Enterobacter cancerogenus strain SL12.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Based on 16S rRNA gene sequence analysis, SL8 was identified as Achromobacter sp., and SL12 as Enterobacter sp.,
+      with sequence homologies of 99.79% and 99.31%
+    explanation: Identifies SL12 as an Enterobacter member of the SL8-SL12 coculture.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Soil samples were collected from Cd-contaminated areas around a mine in Liuyang, Hunan Province, China (28°2′N,
+      113°64′E).
+    explanation: Supports the contaminated mine-area soil isolation context for the Cd-resistant isolates.
+ecological_interactions:
+- name: SL8-SL12 cooperative cadmium immobilization
+  description: The SL8-SL12 coculture combined alkalinization, increased intracellular Cd accumulation, CdS bioprecipitation,
+    and surface aggregation with possible EPS involvement under 100 mg/L Cd2+, removing 80.9% of Cd after 7 days and
+    outperforming both monocultures at the high Cd dose.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: cadmium(2+)
+    term:
+      id: CHEBI:48775
+      label: cadmium(2+)
+  biological_processes:
+  - preferred_term: response to metal ion
+    term:
+      id: GO:0010038
+      label: response to metal ion
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and
+      82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.
+    explanation: Supports the coculture advantage at 100 mg/L Cd2+ after 7 days.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: co-culturing enhanced intracellular Cd accumulation ( Fig. 2C ), potentially by improving cellular membrane fluidity,
+      thus offering a robust barrier against Cd ion penetration
+    explanation: Supports increased intracellular Cd accumulation in the coculture.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The detection of the Cd 3d peak confirmed the presence of CdS and further supported a multi-faceted response
+      to Cd stress.
+    explanation: Supports CdS formation as a detected coculture Cd-immobilization product.
+environmental_factors:
+- name: Initial Cd2+ in LB removal assays
+  value: 50; 100
+  unit: mg/L Cd2+
+  description: Liquid Cd-removal assays tested SL8, SL12, and the SL8-SL12 coculture in LB with 50 or 100 mg/L Cd2+.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When the bacterial suspension reached an OD600 of 0.8, 1% (vol/vol) of the culture was transferred into liquid
+      LB medium supplemented with 50 mg/L or 100 mg/L Cd 2+ , followed by incubation under identical conditions (30℃, 200
+      rpm).
+    explanation: Supports the Cd2+ concentrations used for the liquid Cd-removal assay.
+- name: SL8-SL12 100 mg/L Cd2+ removal after 7 days
+  value: '80.9'
+  unit: '% removal'
+  description: The SL8-SL12 coculture removed 80.9% of Cd2+ at an initial LB concentration of 100 mg/L after 7 days.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After a 7-day incubation period, RE-Cd values reached 82.6% and 69.55% for SL8, 63.4% and 70.8% for SL12, and
+      82.6% and 80.9% for the co-cultured strains at initial Cd concentrations of 50 mg/L and 100 mg/L, respectively.
+    explanation: Supports the 80.9% removal endpoint for the coculture at 100 mg/L Cd2+.
+- name: LB pH alkalinization during Cd removal
+  value: 6.5 to 8.0-8.5
+  unit: pH
+  description: Culture pH increased from approximately 6.5 to 8.0-8.5 during the first two days and then stabilized.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The pH increased sharply from approximately 6.5 to 8.0–8.5 within the first 2 days of incubation and then stabilized
+    explanation: Supports alkalinization as a measured condition during Cd removal.
+- name: Bioavailable Cd decrease in cabbage-pot soil
+  value: '13'
+  unit: '% decrease versus control'
+  description: The SL8-SL12 treatment decreased exchangeable, carbonate-bound, and Fe-Mn oxidized bioavailable Cd fractions
+    in greenhouse pot soil relative to the untreated control.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The results revealed a discernible decrease of 13% in the bioavailable Cd fractions (exchangeable, carbonate-bound,
+      and Fe-Mn oxidized forms) in the co-cultured strains treatment compared to the control treatment.
+    explanation: Supports the reported soil Cd-immobilization endpoint in cabbage pots.
+- name: Aboveground Chinese cabbage Cd decrease
+  value: '20'
+  unit: '% decrease under high Cd stress'
+  description: SL8-SL12 inoculation lowered Cd accumulation in aboveground cabbage tissue under high Cd stress.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: the application of SL8 and SL12 strains under high Cd stress conditions significantly reduced Cd accumulation
+      in the aboveground parts by 20%
+    explanation: Supports reduced aboveground Cd accumulation in Chinese cabbage.
+growth_media:
+- name: Cd2+-supplemented liquid LB medium
+  composition:
+  - name: tryptone
+    concentration: '10'
+    unit: g/L
+  - name: NaCl
+    concentration: '10'
+    unit: g/L
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  - name: Cd2+
+    concentration: 50 or 100
+    unit: mg/L
+  ph: 7.0
+  temperature: 30
+  temperature_unit: C
+  atmosphere: AEROBIC
+  inoculum_source: SL8 and SL12 LB cultures at OD600 0.8
+  inoculum_size: '1'
+  inoculum_unit: '% vol/vol'
+  incubation_time: '7'
+  incubation_time_unit: days
+  shaking_speed: 200
+  shaking_speed_unit: rpm
+  preparation_notes: LB cultures of SL8, SL12, and SL8 plus SL12 were challenged with 50 or 100 mg/L Cd2+ for the 7-day atomic-absorption
+    Cd-removal assay.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Microbial enrichment was carried out in LB liquid medium consisting of 10 g tryptone, 10 g NaCl, and 5 g yeast
+      extract per liter of water, adjusted to pH of 7.0.
+    explanation: Supports the LB composition and starting pH.
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When the bacterial suspension reached an OD600 of 0.8, 1% (vol/vol) of the culture was transferred into liquid
+      LB medium supplemented with 50 mg/L or 100 mg/L Cd 2+ , followed by incubation under identical conditions (30℃, 200
+      rpm).
+    explanation: Supports the inoculum size, Cd2+ supplementation, and 30 C/200 rpm incubation.
+associated_datasets:
+- accession: PZ429300; PZ429301
+  title: SL8 and SL12 16S rRNA GenBank accessions
+  description: Partial 16S rRNA gene sequences for the two Cd-resistant isolates used in the SL8-SL12 coculture.
+  organism: Achromobacter sp. SL8; Enterobacter sp. SL12
+  dataset_type: AMPLICON_16S
+  repository: OTHER
+  publication: PMID:42307251
+  findings: 16S rRNA sequence analysis identified SL8 as Achromobacter sp. and SL12 as Enterobacter sp.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 16S rRNA gene sequences of strains SL8 and SL12 have been deposited in the NCBI GenBank database under accession
+      numbers PZ429300 and PZ429301 . The proteomic data have been deposited in the iProX partner reposity under accession
+      number IPX0017179000 . The metabolomic data have been deposited in the Metabolights database under the accession number
+      MTBLS14477 .
+    explanation: Links the SL8 and SL12 16S rRNA gene sequences to GenBank accessions PZ429300 and PZ429301.
+- accession: IPX0017179000
+  title: SL8-SL12 cadmium-response proteomic dataset
+  description: iProX proteomic data for SL8, SL12, and the SL8-SL12 coculture under 100 mg/L Cd2+ stress.
+  organism: SL8-SL12 bacterial coculture
+  dataset_type: METAPROTEOMICS
+  repository: OTHER
+  conditions:
+  - SL8 with 100 mg/L Cd2+
+  - SL12 with 100 mg/L Cd2+
+  - SL8-SL12 coculture without Cd2+
+  - SL8-SL12 coculture with 100 mg/L Cd2+
+  publication: PMID:42307251
+  findings: Proteomics associated Cd stress in the coculture with altered metal transport and antioxidant responses.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 16S rRNA gene sequences of strains SL8 and SL12 have been deposited in the NCBI GenBank database under accession
+      numbers PZ429300 and PZ429301 . The proteomic data have been deposited in the iProX partner reposity under accession
+      number IPX0017179000 . The metabolomic data have been deposited in the Metabolights database under the accession number
+      MTBLS14477 .
+    explanation: Links the proteomic data to iProX accession IPX0017179000.
+- accession: MTBLS14477
+  title: SL8-SL12 cadmium-response metabolomic dataset
+  description: MetaboLights metabolomic data for extracellular metabolites from SL8, SL12, and SL8-SL12 cultures.
+  organism: SL8-SL12 bacterial coculture
+  dataset_type: METABOLOMICS
+  repository: METABOLIGHTS
+  conditions:
+  - SL8 with 100 mg/L Cd2+
+  - SL12 with 100 mg/L Cd2+
+  - SL8-SL12 coculture without Cd2+
+  - SL8-SL12 coculture with 100 mg/L Cd2+
+  url: https://www.ebi.ac.uk/metabolights/MTBLS14477
+  publication: PMID:42307251
+  findings: Metabolomics associated Cd stress in the coculture with altered peptide and transporter-linked pathways.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The 16S rRNA gene sequences of strains SL8 and SL12 have been deposited in the NCBI GenBank database under accession
+      numbers PZ429300 and PZ429301 . The proteomic data have been deposited in the iProX partner reposity under accession
+      number IPX0017179000 . The metabolomic data have been deposited in the Metabolights database under the accession number
+      MTBLS14477 .
+    explanation: Links the metabolomic data to MetaboLights accession MTBLS14477.
+external_resources:
+- name: PubMed record for the SL8-SL12 cadmium-immobilization article
+  repository: OTHER
+  resource_id: PMID:42307251
+  url: https://pubmed.ncbi.nlm.nih.gov/42307251/
+  description: PubMed metadata for the 2026 Microbiology Spectrum article defining the SL8-SL12 coculture.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: This study employed an integrated approach combining spectroscopy, metabolomics, and proteomics to elucidate the
+      molecular mechanisms underlying Cd detoxification in Achromobacter insuavis SL8 and Enterobacter cancerogenus
+      SL12.
+    explanation: Identifies the primary publication.
+- name: DOI for the SL8-SL12 cadmium-immobilization article
+  repository: OTHER
+  resource_id: doi:10.1128/spectrum.01081-26
+  url: https://doi.org/10.1128/spectrum.01081-26
+  description: Publisher DOI for the primary Microbiology Spectrum article.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: This multi-omics investigation not only deepens the understanding of microbial adaptive responses to Cd stress,
+      but also provides insights for developing novel microbial consortia for efficient and eco-friendly bioremediation
+      of Cd-contaminated environments.
+    explanation: Links the DOI resource to the primary SL8-SL12 cadmium-immobilization publication.
+- name: PubMed Central full text for the SL8-SL12 cadmium-immobilization article
+  repository: OTHER
+  resource_id: PMC13340288
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13340288/
+  description: Open-access PubMed Central full text used for the curated evidence snippets.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'PMCID: PMC13340288'
+    explanation: Identifies the PubMed Central full-text record.
+- name: Zenodo supplemental material for the SL8-SL12 cadmium-immobilization article
+  repository: OTHER
+  resource_id: doi:10.5281/zenodo.20263325
+  url: https://zenodo.org/records/20263325
+  description: Zenodo-hosted supplemental PDF with detailed isolation and omics tables for the primary article.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: SI available at https://zenodo.org/records/20263325
+    explanation: Links the primary article to the Zenodo-hosted supplementary information.
+discussions:
+- discussion_id: sl8_sl12_omics_causality
+  prompt: Which transporter, antioxidant, or peptide changes are causally required for the SL8-SL12 coculture's improved cadmium
+    immobilization?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#SL8-SL12 cooperative cadmium immobilization
+  rationale: The primary article reported significant proteomic and metabolomic changes in the Cd-stressed coculture, but
+    explicitly framed ABC transporters and Ohr-family peroxiredoxin as hypotheses rather than validated causal factors.
+  proposed_experiments:
+  - name: Targeted transporter and antioxidant knockouts in SL8-SL12 coculture
+    approach: gene knockout or complementation in defined coculture Cd-removal assays
+    model_systems:
+    - Achromobacter sp. SL8
+    - Enterobacter sp. SL12
+    perturbations:
+    - ABC transporter knockout
+    - Ohr family peroxiredoxin knockout
+    readouts:
+    - Cd2+ removal efficiency
+    - intracellular Cd accumulation
+    - CdS precipitation
+    decision_criterion: Loss and rescue of coculture Cd immobilization would identify an omics-inferred candidate as causal
+      rather than correlative.
+  evidence:
+  - reference: PMID:42307251
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: While our proteomic and metabolomic analyses provide strong correlative evidence for the proposed molecular mechanisms,
+      direct causal validation (e.g., gene knockout) was not performed.
+    explanation: Records the authors' explicit limitation around mechanistic causality.
+  posed_by: codex
+  posed_date: '2026-09-14'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: SIGNIFICANT
+metal_notes: Cadmium is the target ion immobilized by the coculture. It is represented as CHEBI:48775 in the interaction metabolites
+  because MetalElementEnum does not yet include Cd.
+curation_history:
+- timestamp: '2026-09-14T06:34:11Z'
+  curator: codex
+  action: CREATE_ACHROMOBACTER_ENTEROBACTER_CADMIUM_COCULTURE
+  changes: Created CommunityMech:000374 for the Achromobacter sp. SL8 and Enterobacter sp. SL12 cadmium-immobilizing coculture
+    from PMID:42307251; cached the open PubMed Central article and Zenodo supplemental text; reused validated genus-rank GTDB
+    grounding blocks for Achromobacter and Enterobacter; and curated evidence for membership, isolation source, LB Cd2+ assays,
+    Cd-removal performance, spectroscopy, greenhouse pot outcomes, and public omics/16S accessions.
+  llm_assisted: true
+- timestamp: '2026-09-14T06:39:44Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: >
+    Addressed PR #882 adversarial-review issues #883 and #884 by qualifying
+    possible EPS involvement in SL8-SL12 cell aggregation and removing the
+    unsupported NICHE_PARTITIONING type from the community-level Cd
+    immobilization summary.
+  llm_assisted: true
+- timestamp: '2026-09-14T06:43:54Z'
+  curator: codex
+  action: ADDRESS_NETWORK_AUDIT
+  changes: >
+    Addressed CI network-audit issue #885 on PR #882 by removing two dangling
+    downstream entries that named measured outcomes rather than
+    ecological_interactions targets.
+  llm_assisted: true
+- timestamp: '2026-09-14T15:42:55Z'
+  curator: codex
+  action: ADDRESS_PARTICIPATING_TAXA_AUDIT
+  changes: >
+    Addressed CI issue #886 on PR #882 by removing a redundant
+    participating_taxa block from the community-level SL8-SL12 Cd
+    immobilization interaction; the record has only the two listed members, so
+    the absent slot already credits Achromobacter sp. SL8 and Enterobacter sp.
+    SL12 without expanding the corpus of narrowed community-level interactions.
+  llm_assisted: true
