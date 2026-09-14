@@ -1,0 +1,506 @@
+id: CommunityMech:000375
+name: Maize SC2 Root-Rot Biocontrol SynCom
+description: >-
+  A three-member maize-root synthetic microbial community refined from the C7
+  corn root consortium to improve Pythium torulosum biocontrol while preserving
+  plant growth promotion. Kaki et al. selected SC2 as S4, S1, and S5:
+  Enterobacter cloacae S4, Stenotrophomonas maltophilia S1, and Chryseobacterium
+  indologenes S5. Plate assays showed P. torulosum inhibition comparable to C7,
+  growth-chamber pot assays showed stronger maize protection and growth than C7
+  under P. torulosum challenge, and metabolite assays showed that SC2 had the
+  highest measured indole-3-acetic acid production among C7, SC1, SC2, and SC3
+  together with significant siderophore activity on CAS agar.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >-
+    Refine the seven-member C7 maize root consortium into a smaller
+    Pythium-suppressive bacterial SynCom that retains complementary biocontrol
+    and plant growth-promoting traits.
+  assembly_strategy: >-
+    Construct SC2 by combining S4, S1, and S5 from the Kolter-laboratory
+    seven-strain maize root community after comparing individual members and C7
+    in plate inhibition, maize growth-chamber, cell-free supernatant,
+    indole-3-acetic acid, and siderophore screens.
+  inoculation_strategy: >-
+    Expand C7-derived bacterial strains from 0.1x TSA colonies in Tryptic Soy
+    Broth at 30 degrees C, resuspend cells in PBS, and use inocula adjusted to
+    approximately 10^8 CFU/mL for pathogen plate assays and maize seed soaking.
+  perturbation_design: >-
+    Compare the rationally reduced SC1, SC2, and SC3 consortia with the parent
+    C7 community against Pythium torulosum in PDA dual-culture assays, then
+    assay their effects on B73 maize height and fresh root biomass 14 days after
+    sowing under P. torulosum-infested sorghum-seed challenge.
+  measurement_endpoints:
+  - Pythium torulosum radial growth after bacterial challenge
+  - maize plant height and fresh root biomass at 14 days post-inoculation
+  - indole-3-acetic acid production at 2 and 7 days
+  - CAS-agar siderophore activity at 7 days
+  notes: >-
+    SC2 is a deliberately simplified derivative of C7 rather than a renamed C7:
+    Kaki et al. 2026 defined SC1, SC2, and SC3 as separate subcommunities after
+    single-member and whole-community screens. The publication's Figure 4 maps
+    S1 to Stenotrophomonas maltophilia, S4 to Enterobacter cloacae, and S5 to
+    Chryseobacterium indologenes; Niu and Kolter's 2018 Bio-protocol anchors the
+    same species in the originating maize C7 strain set as ZK5342, ZK5345, and
+    ZK5346.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      These sub-communities are composed as follows: SC1 (S4, S6, S7), SC2 (S4,
+      S1, S5), and SC3 (S1, S4, S5, S6, S7).
+    explanation: >-
+      Names S4, S1, and S5 as the three members of the SC2 subcommunity.
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      SC2 (S4, S1, and S5) was chosen to represent functionally complementary
+      strains with moderate antagonism and improved root biomass responses.
+    explanation: Supports function-guided selection of the S4/S1/S5 SC2 design.
+environment_term:
+  preferred_term: maize rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: >-
+    SC2 was derived from maize-root C7 isolates and evaluated by soaking surface
+    sterilized maize seed before growth in pathogen-infested potting mix.
+modeled_environment:
+- preferred_term: maize plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: >-
+    The SynCom models maize-root biocontrol against the corn root-rot oomycete
+    Pythium torulosum.
+taxonomy:
+- taxon_term:
+    preferred_term: Enterobacter cloacae S4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Enterobacter_chengduensis
+    - GTDB:s__Enterobacter_cloacae
+    - GTDB:s__Enterobacter_cloacae_I
+    - GTDB:s__Enterobacter_dissolvens
+    - GTDB:s__Enterobacter_hormaechei_B
+    - GTDB:s__Enterobacter_hormaechei_C
+    - GTDB:s__Enterobacter_kobei
+    - GTDB:s__Enterobacter_roggenkampii
+    - GTDB:s__Enterobacter_sichuanensis
+    - GTDB:s__Kosakonia_cowanii
+    notes: >-
+      Kaki et al. 2026 designated this SC2 member as S4. Figure 4 maps S4 to
+      Enterobacter cloacae; Niu and Kolter 2018 place Enterobacter cloacae
+      ZK5345 in the same seven-strain maize C7 stock set.
+  strain_designation:
+    strain_name: ZK5345
+    isolation_source: maize root host-mediated SynCom selection
+    notes: >-
+      Used as S4 in Kaki et al. 2026 and as legacy alias AA4 in the parent C7
+      CommunityMech record.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      SC2 (S4, S1, and S5) was chosen to represent functionally complementary
+      strains with moderate antagonism and improved root biomass responses.
+    explanation: Identifies S4 as one of the three SC2 member strains.
+  - reference: doi:10.21769/BioProtoc.2885
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enterobacter cloacae ZK5345 0.17
+    explanation: >-
+      Anchors Enterobacter cloacae ZK5345 as a member of the original maize root
+      seven-strain consortium from which Kaki et al. selected SC2.
+- taxon_term:
+    preferred_term: Stenotrophomonas maltophilia S1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Stenotrophomonas_bentonitica_A
+    - GTDB:s__Stenotrophomonas_geniculata
+    - GTDB:s__Stenotrophomonas_hibiscicola
+    - GTDB:s__Stenotrophomonas_indicatrix
+    - GTDB:s__Stenotrophomonas_maltophilia
+    - GTDB:s__Stenotrophomonas_maltophilia_AJ
+    - GTDB:s__Stenotrophomonas_maltophilia_L
+    - GTDB:s__Stenotrophomonas_muris
+    - GTDB:s__Stenotrophomonas_nematodicola
+    - GTDB:s__Stenotrophomonas_sepilia
+    - GTDB:s__Stenotrophomonas_sp002192255
+    notes: >-
+      Kaki et al. 2026 designated this SC2 member as S1. Figure 4 maps S1 to
+      Stenotrophomonas maltophilia; Niu and Kolter 2018 place Stenotrophomonas
+      maltophilia ZK5342 in the same seven-strain maize C7 stock set.
+  strain_designation:
+    strain_name: ZK5342
+    isolation_source: maize root host-mediated SynCom selection
+    notes: >-
+      Used as S1 in Kaki et al. 2026 and as legacy alias AA1 in the parent C7
+      CommunityMech record.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      SC2 (S4, S1, and S5) was chosen to represent functionally complementary
+      strains with moderate antagonism and improved root biomass responses.
+    explanation: Identifies S1 as one of the three SC2 member strains.
+  - reference: doi:10.21769/BioProtoc.2885
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Stenotrophomonas maltophilia ZK5342 0.13
+    explanation: >-
+      Anchors Stenotrophomonas maltophilia ZK5342 as a member of the original
+      maize root seven-strain consortium from which Kaki et al. selected SC2.
+- taxon_term:
+    preferred_term: Chryseobacterium indologenes S5
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Chryseobacterium_indologenes
+      gtdb_taxon: Chryseobacterium indologenes
+      gtdb_lineage: d__Bacteria;p__Bacteroidota;c__Bacteroidia;o__Flavobacteriales;f__Weeksellaceae;g__Chryseobacterium;s__Chryseobacterium indologenes
+      ncbi_source_id: NCBITaxon:253
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name — no species-level NCBI id in table]
+    notes: >-
+      Kaki et al. 2026 designated this SC2 member as S5. Figure 4 maps S5 to
+      Chryseobacterium indologenes; Niu and Kolter 2018 place Chryseobacterium
+      indologenes ZK5346 in the same seven-strain maize C7 stock set.
+  strain_designation:
+    strain_name: ZK5346
+    isolation_source: maize root host-mediated SynCom selection
+    notes: Used as S5 in Kaki et al. 2026.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      SC2 (S4, S1, and S5) was chosen to represent functionally complementary
+      strains with moderate antagonism and improved root biomass responses.
+    explanation: Identifies S5 as one of the three SC2 member strains.
+  - reference: doi:10.21769/BioProtoc.2885
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Chryseobacterium indologenes ZK5346 0.13
+    explanation: >-
+      Anchors Chryseobacterium indologenes ZK5346 as a member of the original
+      maize root seven-strain consortium from which Kaki et al. selected SC2.
+ecological_interactions:
+- name: Pythium torulosum suppression by SC2
+  description: >-
+    SC2 inhibited the oomycete pathogen Pythium torulosum in PDA dual-culture
+    assays at a level comparable to C7 and, in maize growth-chamber assays,
+    protected B73 seedlings from P. torulosum while improving plant height and
+    root biomass more than either a pathogen-only challenge or the parent C7
+    community.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae S4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  - preferred_term: Stenotrophomonas maltophilia S1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Chryseobacterium indologenes S5
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
+  - preferred_term: Pythium torulosum
+    term:
+      id: NCBITaxon:4799
+      label: Pythium torulosum
+  biological_processes:
+  - preferred_term: defense response
+    term:
+      id: GO:0006952
+      label: defense response
+  downstream:
+  - target: Maize growth promotion under Pythium challenge
+    description: >-
+      Reduced pathogen pressure in the SC2 plus P. torulosum treatment was
+      accompanied by higher maize plant height and fresh root biomass than the
+      C7 plus P. torulosum treatment.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      All sub-communities displayed inhibition comparable to that of the
+      established biocontrol community C7
+    explanation: >-
+      Supports SC2 inhibition of Pythium torulosum in the plate assay.
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7)
+      and SC2 (comprising strains S4, S1, and S5) consistently showed enhanced
+      protection from the pathogen and promoted plant growth traits
+      significantly more than both the non-inoculated control and the C7
+      community.
+    explanation: >-
+      Supports the Pythium-challenge growth-chamber phenotype of SC2 relative
+      to uninoculated and C7 controls.
+- name: Maize growth promotion under Pythium challenge
+  description: >-
+    Maize seeds soaked with SC2 before growth in P. torulosum-infested potting
+    mix developed greater 14-day plant height and fresh root biomass than C7- or
+    pathogen-only treatments, linking the reduced community to a plant-beneficial
+    outcome under oomycete stress.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Enterobacter cloacae S4
+    term:
+      id: NCBITaxon:550
+      label: Enterobacter cloacae
+  - preferred_term: Stenotrophomonas maltophilia S1
+    term:
+      id: NCBITaxon:40324
+      label: Stenotrophomonas maltophilia
+  - preferred_term: Chryseobacterium indologenes S5
+    term:
+      id: NCBITaxon:253
+      label: Chryseobacterium indologenes
+  - preferred_term: Zea mays
+    term:
+      id: NCBITaxon:4577
+      label: Zea mays
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  biological_processes:
+  - preferred_term: plant growth
+    term:
+      id: GO:0040007
+      label: growth
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Among the sub-communities tested, SC1 (comprising strains S4, S6, and S7)
+      and SC2 (comprising strains S4, S1, and S5) consistently showed enhanced
+      protection from the pathogen and promoted plant growth traits
+      significantly more than both the non-inoculated control and the C7
+      community.
+    explanation: >-
+      Supports plant growth promotion by SC2 under Pythium torulosum challenge.
+- name: SC2 auxin and siderophore output
+  description: >-
+    As a whole consortium, SC2 accumulated about 45 ug/mL
+    indole-3-acetic acid by day 2 and about 65 ug/mL by day 7, the highest
+    measured IAA output among the assayed C7-derived communities; SC2 also
+    produced a significant 0.50 cm CAS-agar siderophore halo at day 7.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: indole-3-acetic acid
+    term:
+      id: CHEBI:16411
+      label: indole-3-acetic acid
+  - preferred_term: siderophore
+    term:
+      id: CHEBI:26672
+      label: siderophore
+  biological_processes:
+  - preferred_term: indole-3-acetic acid biosynthetic process
+    term:
+      id: GO:0009684
+      label: indoleacetic acid biosynthetic process
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      SC2 exhibited the highest IAA levels, reaching ∼45 μg/mL by day 2 and ∼65
+      μg/mL by day 7, indicating strong and sustained auxin synthesis.
+    explanation: Supports SC2 as the strongest measured IAA producer.
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      siderophore activity ( Figure 7B ) was most pronounced in SC1 (0.55 cm, p
+      = 0.01) and SC2 (0.50 cm, p = 0.015), followed by C7 (0.45 cm, p = 0.02).
+    explanation: Supports significant CAS-agar siderophore production by SC2.
+environmental_factors:
+- name: controlled maize growth-chamber regime
+  value: 25/20
+  unit: degrees C day/night
+  description: >-
+    SC2 was evaluated on B73 maize in a growth chamber with a 16 h 25 degrees C
+    day, 8 h 20 degrees C night, 50% relative humidity, and potting mix amended
+    with 20 g Pythium torulosum-colonized sorghum seed.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Growth chamber conditions were set to 25 °C during the day for 16 h and
+      20°C at night for 8 h with 50% relative humidity.
+    explanation: Supports the controlled growth-chamber temperature and humidity.
+related_ingredients:
+- preferred_term: indole-3-acetic acid
+  chebi_term:
+    id: CHEBI:16411
+    label: indole-3-acetic acid
+  relevance: >-
+    SC2 was the strongest IAA producer among the C7-derived subcommunities,
+    supporting a community-level auxin output associated with improved maize
+    plant height and root biomass under Pythium challenge.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      SC2 exhibited the highest IAA levels, reaching ∼45 μg/mL by day 2 and ∼65
+      μg/mL by day 7, indicating strong and sustained auxin synthesis.
+    explanation: Identifies IAA as the principal quantified SC2 auxin output.
+- preferred_term: siderophore
+  chebi_term:
+    id: CHEBI:26672
+    label: siderophore
+  relevance: >-
+    SC2 produced a significant siderophore halo on CAS agar, a measured
+    iron-chelation trait consistent with function-guided plant-growth-promoting
+    and biocontrol screening.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      siderophore activity ( Figure 7B ) was most pronounced in SC1 (0.55 cm, p
+      = 0.01) and SC2 (0.50 cm, p = 0.015), followed by C7 (0.45 cm, p = 0.02).
+    explanation: Identifies siderophore production as a measured SC2 phenotype.
+growth_media:
+- name: Tryptic Soy Broth SC2 preculture
+  temperature: '30'
+  temperature_unit: C
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  inoculum_source: >-
+    Enterobacter cloacae S4, Stenotrophomonas maltophilia S1, and
+    Chryseobacterium indologenes S5 0.1x TSA colony cultures
+  preparation_notes: >-
+    The C7-derived bacterial members were streaked on 0.1x TSA for 24-48 h,
+    expanded from single colonies in 5 mL TSB overnight at 30 degrees C and
+    200 rpm, re-inoculated into fresh TSB for 8 h at 30 degrees C, harvested,
+    resuspended in PBS, and adjusted to approximately 10^8 CFU/mL before assay
+    use.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The seven bacterial species (labeled S1–S7) collected from Roberto
+      Kolter’s laboratory ( Niu et al., 2017 ) were cultured on Tryptic Soy Agar
+      (TSA) medium and incubated at 30 °C for 24–48 h.
+    explanation: >-
+      Supports TSA cultivation of the S1-S7 members inherited from the C7
+      maize-root consortium.
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Following incubation, a single colony from each bacterial strain was
+      inoculated into 5 mL of Tryptic Soy Broth (TSB) and incubated overnight at
+      30°C with shaking at 200 rpm.
+    explanation: Supports TSB preculture at 30 degrees C and 200 rpm.
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were adjusted to OD600 ≈ 0.1, corresponding to ∼108 CFU/mL.
+    explanation: Supports the approximately 10^8 CFU/mL bacterial inoculum density.
+external_resources:
+- name: Primary publication - Maize SC2 root-rot biocontrol SynCom
+  repository: OTHER
+  resource_id: PMID:42039819
+  url: https://pubmed.ncbi.nlm.nih.gov/42039819/
+  description: >-
+    Frontiers in Microbiology 2026 open-access primary article,
+    doi:10.3389/fmicb.2026.1714069, describing C7 refinement into SC1, SC2, and
+    SC3 subcommunities and their Pythium torulosum biocontrol phenotypes.
+  evidence:
+  - reference: PMID:42039819
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      Plant assays showed that inoculation with SC1 and SC2 not only restored
+      but also enhanced plant height and root biomass.
+    explanation: The primary PMID-linked article reports the SC2 SynCom assays.
+discussions:
+- discussion_id: maize_sc2_secreted_biocontrol_mechanism
+  prompt: >-
+    Which SC2 member metabolites or community-level interactions directly
+    suppress Pythium torulosum and connect the strong IAA and siderophore
+    phenotypes to maize protection?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Pythium torulosum suppression by SC2
+  - ecological_interactions#SC2 auxin and siderophore output
+  rationale: >-
+    Kaki et al. 2026 showed that the S4/S1/S5 subcommunity inhibited Pythium in
+    plate assays, protected maize in growth-chamber assays, and produced high
+    IAA plus significant siderophore activity, but the specific antimicrobials,
+    responsible members, and causal links among siderophores, auxin, root growth,
+    and oomycete suppression remain unresolved.
+  posed_by: codex
+  posed_date: '2026-09-14'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: INCIDENTAL
+metal_notes: >-
+  SC2 produces iron-chelating siderophores in CAS agar assays, but no metal or
+  rare-earth extraction, cycling, or stress mechanism is curated for this record.
+curation_history:
+- timestamp: '2026-09-14T18:41:32Z'
+  curator: codex
+  action: CURATE_MAIZE_SC2_ROOTROT_BIOCONTROL_SYNCOM
+  changes: >-
+    Added the S4/S1/S5 maize SC2 root-rot biocontrol SynCom from PMID:42039819
+    with Pythium torulosum suppression, maize growth-chamber biocontrol,
+    indole-3-acetic acid, siderophore, C7-derived strain-alias, growth-medium,
+    and unresolved-causality context.
+  llm_assisted: true
+- timestamp: '2026-09-14T18:48:04Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: >-
+    Addressed adversarial-review issues #887, #888, and #889 by marking the
+    siderophore-positive SC2 record as incidentally metal-relevant, replacing
+    host/pathogen target_taxon links with participating_taxa lists that keep Zea
+    mays and Pythium torulosum out of top-level SynCom membership, and removing
+    a design-rationale pseudo-interaction that had been typed as unsupported
+    niche partitioning.
+  llm_assisted: true
