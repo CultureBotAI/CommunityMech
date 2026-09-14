@@ -161,12 +161,6 @@ ecological_interactions:
     term:
       id: GO:0010038
       label: response to metal ion
-  downstream:
-  - target: increased 100 mg/L Cd removal
-    description: The coculture reached 80.9% Cd removal at 100 mg/L Cd2+, compared with 69.55% for SL8 and 70.8% for SL12.
-  - target: CdS bioprecipitation and intracellular Cd accumulation
-    description: Spectroscopy and Cd-removal partitioning associated the coculture with CdS precipitate formation and enhanced
-      intracellular Cd accumulation.
   evidence:
   - reference: PMID:42307251
     supports: SUPPORT
@@ -453,4 +447,12 @@ curation_history:
     possible EPS involvement in SL8-SL12 cell aggregation and removing the
     unsupported NICHE_PARTITIONING type from the community-level Cd
     immobilization summary.
+  llm_assisted: true
+- timestamp: '2026-09-14T06:43:54Z'
+  curator: codex
+  action: ADDRESS_NETWORK_AUDIT
+  changes: >
+    Addressed CI network-audit issue #885 on PR #882 by removing two dangling
+    downstream entries that named measured outcomes rather than
+    ecological_interactions targets.
   llm_assisted: true
