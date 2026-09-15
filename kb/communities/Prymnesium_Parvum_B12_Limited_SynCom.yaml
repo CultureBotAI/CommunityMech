@@ -1,0 +1,964 @@
+id: CommunityMech:000381
+name: Prymnesium parvum B12-Limited SynCom
+description: >
+  A defined 16-member marine algal-bacterial holobiont in which
+  Prymnesium parvum CCAP 646/6 was cocultured in L1 medium with a
+  15-strain synthetic bacterial community and monitored under nitrogen,
+  phosphorus, or vitamin B12 limitation. Patron et al. (2026) inoculated all
+  SynCom bacteria in equal proportions and compared photobioreactor cultures
+  with and without the SynCom for 14 days. Nitrogen and phosphorus limitation
+  did not reveal a major growth benefit from the SynCom, whereas B12 limitation
+  triggered a mutualistic state in which bacterial cobalamin provisioning
+  rescued algal growth, B12-producing bacteria upregulated cobalamin
+  biosynthesis, and B12-auxotrophic bacteria induced vitamin transport and
+  B12-dependent enzymes.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: PHYTOPLANKTON
+engineering_design:
+  objective: >
+    Test how controlled nitrogen, phosphorus, and vitamin B12 limitation
+    restructure physiology, metabolism, transcription, and B12-mediated
+    exchange in a synthetic P. parvum holobiont.
+  assembly_strategy: >
+    Combine fifteen ecologically diverse marine bacterial strains with
+    P. parvum CCAP 646/6 to create a defined algal-bacterial SynCom containing
+    B12 producers, non-producers, and diazotrophs.
+  inoculation_strategy: >
+    Inoculate P. parvum at 1 x 10^5 cells/mL and add the 15-strain bacterial
+    SynCom at 1 x 10^5 total bacterial cells/mL, with every bacterial strain
+    initially represented equally.
+  perturbation_design: >
+    Acclimate and grow the holobiont in modified L1 medium under N-limited,
+    P-limited, or B12-limited conditions, with four SynCom biological
+    replicates and three axenic controls monitored for 14 days.
+  measurement_endpoints:
+  - algal cell density and particulate organic carbon
+  - bacterial cell density
+  - dissolved nitrogen and phosphorus
+  - prymnesin toxin production
+  - intracellular and extracellular metabolomics
+  - 16S rRNA metabarcoding
+  - P. parvum RNA-seq and bacterial metatranscriptomics
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Fifteen bacterial strains were selected for their ecological relevance
+      and functional diversity, including vitamin B12 production and
+      diazotrophy
+    explanation: Supports the SynCom strain-selection logic.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      All the strains were inoculated in equal proportional representation
+      within the SynCom.
+    explanation: Supports equal representation of bacterial strains in the inoculum.
+environment_term:
+  preferred_term: laboratory marine algal-bacterial SynCom
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    P. parvum and its 15 bacterial partners were assembled and compared in
+    defined photobioreactors supplied with nutrient-limited L1 medium and run
+    under continuous light at 20 C and pH 8.2.
+modeled_environment:
+- preferred_term: marine environment
+  term:
+    id: ENVO:01000320
+    label: marine environment
+taxonomy:
+- taxon_term:
+    preferred_term: Prymnesium parvum CCAP 646/6
+    term:
+      id: NCBITaxon:97485
+      label: Prymnesium parvum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: >
+      Eukaryotic haptophyte algal host of the synthetic holobiont; GTDB covers
+      bacteria and archaea only.
+  strain_designation:
+    strain_name: CCAP 646/6
+  abundance_level: COMMON
+  absolute_abundance: 100000
+  absolute_abundance_unit: cells/mL at inoculation
+  functional_role:
+  - PRIMARY_PRODUCER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. parvum (CCAP 646/6) was acclimated for two weeks in L1 medium
+    explanation: Identifies the P. parvum strain used as the algal partner.
+- taxon_term:
+    preferred_term: Cyclobacterium sp. 09-022
+    term:
+      id: NCBITaxon:68288
+      label: Cyclobacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 09-022
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11621
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Rhodella violacea
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      09-022
+      Cyclobacterium sp.
+    explanation: Identifies the Cyclobacterium member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Maribacter sp. 09-009
+    term:
+      id: NCBITaxon:252356
+      label: Maribacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 09-009
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11620
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Odontella aurita
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      09-009
+      Maribacter sp.
+    explanation: Identifies the Maribacter member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Muricauda sp. 10-244
+    term:
+      id: NCBITaxon:111500
+      label: Allomuricauda
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source names the member as Muricauda sp.; the local NCBI lookup
+      resolves the Muricauda synonym to Allomuricauda.
+  strain_designation:
+    strain_name: 10-244
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11625
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Thalassiosira sp.
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      10-244
+      Muricauda sp.
+    explanation: Identifies the Muricauda member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Marinovum algicola 19-037
+    term:
+      id: NCBITaxon:42444
+      label: Marinovum algicola
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 19-037
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11912
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Alexandrium minutum
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      19-037
+      Marinovum algicola
+      B12 producer
+    explanation: >
+      Identifies Marinovum algicola 19-037 as a B12-producing member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Marivita cryptomonadis 10-255
+    term:
+      id: NCBITaxon:505252
+      label: Marivita cryptomonadis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 10-255
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11913
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Chaetoceros calcitrans
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      10-255
+      Marivita cryptomonadis
+    explanation: Identifies the Marivita cryptomonadis member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Roseobacter sp. 09-029
+    term:
+      id: NCBITaxon:2433
+      label: Roseobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 09-029
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11623
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Odontella aurita
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      09-029
+      Roseobacter sp.
+      B12 producer
+    explanation: >
+      Identifies Roseobacter sp. 09-029 as a B12-producing member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Thalassospira sp. 19-025
+    term:
+      id: NCBITaxon:168934
+      label: Thalassospira
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 19-025
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11628
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Prymnesium parvum
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      19-025
+      Thalassospira sp.
+      B12 producer
+    explanation: >
+      Identifies Thalassospira sp. 19-025 as a B12-producing member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Alteromonas sp. 002 19-002
+    term:
+      id: NCBITaxon:226
+      label: Alteromonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 19-002
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11626
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Tisochrysis lutea
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      19-002
+      Alteromonas sp. 002
+    explanation: Identifies the Alteromonas 002 member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Alteromonas sp. 005 19-005
+    term:
+      id: NCBITaxon:226
+      label: Alteromonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 19-005
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11627
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Tisochrysis lutea
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      19-005
+      Alteromonas sp. 005
+    explanation: Identifies the Alteromonas 005 member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Halomonas alkaliphila 09-027
+    term:
+      id: NCBITaxon:272774
+      label: Vreelandella alkaliphila
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source names the member as Halomonas alkaliphila; the local NCBI
+      lookup resolves that synonym to Vreelandella alkaliphila.
+  strain_designation:
+    strain_name: 09-027
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11622
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Odontella aurita
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      09-027
+      Halomonas alkaliphila
+      B12 producer
+    explanation: >
+      Identifies Halomonas alkaliphila 09-027 as a B12-producing member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Halomonas sp. 19-001
+    term:
+      id: NCBITaxon:2745
+      label: Halomonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 19-001
+    isolation_source: Amphidinium operculatum
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      19-001
+      Halomonas sp.
+      B12 producer
+    explanation: >
+      Identifies Halomonas sp. 19-001 as a B12-producing member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Marinobacter sp. 10-113
+    term:
+      id: NCBITaxon:2742
+      label: Marinobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 10-113
+    culture_collections:
+    - collection: OTHER
+      accession: RCC 11624
+      notes: Roscoff Culture Collection deposit number reported in Supplementary Table S1.
+    isolation_source: Skeletonema marinoi
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      10-113
+      Marinobacter sp.
+    explanation: Identifies the Marinobacter member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Vibrio aestuarianus 23-001
+    term:
+      id: NCBITaxon:28171
+      label: Vibrio aestuarianus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation.
+  strain_designation:
+    strain_name: 23-001
+    isolation_source: Magallana gigas
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      23-001
+      Vibrio aestuarianus
+    explanation: Identifies the Vibrio aestuarianus member and strain number in Supplementary Table S1.
+- taxon_term:
+    preferred_term: Vibrio diazotrophicus 23-002
+    term:
+      id: NCBITaxon:685
+      label: Vibrio diazotrophicus
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      Table S1 classifies this strain as a diazotroph, but the paper notes that
+      aerobic batch conditions may constrain non-cyanobacterial diazotrophy.
+  strain_designation:
+    strain_name: 23-002
+    isolation_source: Gastrointestinal tract of sea urchins
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      23-002
+      Vibrio diazotrophicus
+      Diazotroph
+    explanation: >
+      Identifies Vibrio diazotrophicus 23-002 as a diazotroph member in
+      Supplementary Table S1.
+- taxon_term:
+    preferred_term: Pseudomonas stutzeri 23-003
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+    gtdb_grounding_status: UNRESOLVED
+    notes: >
+      The source names the member as Pseudomonas stutzeri; the local NCBI
+      lookup resolves that synonym to Stutzerimonas stutzeri. Table S1
+      classifies this strain as a diazotroph.
+  strain_designation:
+    strain_name: 23-003
+    isolation_source: Baltic sea surface waters
+  abundance_level: COMMON
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: |
+      23-003
+      Pseudomonas stutzeri
+      Diazotroph
+    explanation: >
+      Identifies Pseudomonas stutzeri 23-003 as a diazotroph member in
+      Supplementary Table S1.
+ecological_interactions:
+- name: B12-limited holobiont mutualism
+  description: >
+    Under vitamin B12 limitation, the bacterial SynCom rescued P. parvum growth
+    and benefited from the algal coculture, indicating a nutrient-contextual
+    mutualism rather than constitutive growth stimulation under every nutrient
+    stress.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: vitamin B12
+    term:
+      id: CHEBI:176843
+      label: vitamin B12
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Cobalamin biosynthesis by B12-producing SynCom members
+    description: >
+      The B12-limited rescue corresponded to B12-producing bacteria
+      upregulating the cobalamin biosynthetic pathway under B12 limitation.
+  - target: Auxotrophic SynCom B12 acquisition
+    description: >
+      B12 exchanged in the holobiont also fed non-producing bacterial partners
+      that induced B12 transport and B12-dependent functions.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      B12-limitation triggered a strong mutualistic interaction in which the
+      SynCom enabled a three-fold increase in algal biomass
+    explanation: Supports the nutrient-contextual mutualism and algal growth rescue.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      bacterial B12 production alleviated the limitation
+    explanation: Links the B12-limited growth rescue to bacterial B12 production.
+- name: Cobalamin biosynthesis by B12-producing SynCom members
+  description: >
+    Metabarcoding and metatranscriptomics linked B12-limited rescue to
+    enrichment of B12-producing taxa and cobalamin-biosynthesis upregulation by
+    Marinovum algicola, Roseobacter sp., and Halomonas sp.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Marinovum algicola 19-037
+    term:
+      id: NCBITaxon:42444
+      label: Marinovum algicola
+  - preferred_term: Roseobacter sp. 09-029
+    term:
+      id: NCBITaxon:2433
+      label: Roseobacter
+  - preferred_term: Halomonas sp. 19-001
+    term:
+      id: NCBITaxon:2745
+      label: Halomonas
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: cobalamin biosynthetic process
+    term:
+      id: GO:0009236
+      label: cobalamin biosynthetic process
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      B12-producers (Marinovum algicola, Roseobacter sp., Halomonas sp.)
+      upregulated cobalamin biosynthesis exclusively under B12-limitation
+    explanation: >
+      Supports B12-limited cobalamin pathway upregulation in three producing
+      bacterial members.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Enrichment of B12-producing taxa (i.e. Marinovum algicola, Roseobacter
+      sp., Halomonas sp.) under B12-lim coincided with the upregulation of
+      cobalamin biosynthesis pathways
+    explanation: >
+      Supports concurrent enrichment and cobalamin-pathway activation by the
+      B12-producing bacterial subset.
+- name: Auxotrophic SynCom B12 acquisition
+  description: >
+    Several non-producer strains lacked B12 biosynthesis but expressed
+    B12-dependent functions and strongly induced cobalamin transporters under
+    B12 limitation, implying that the released vitamin was competed for by
+    P. parvum and bacterial auxotrophs.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Cyclobacterium sp. 09-022
+    term:
+      id: NCBITaxon:68288
+      label: Cyclobacterium
+  - preferred_term: Marivita cryptomonadis 10-255
+    term:
+      id: NCBITaxon:505252
+      label: Marivita cryptomonadis
+  - preferred_term: Marinobacter sp. 10-113
+    term:
+      id: NCBITaxon:2742
+      label: Marinobacter
+  - preferred_term: Pseudomonas stutzeri 23-003
+    term:
+      id: NCBITaxon:316
+      label: Stutzerimonas stutzeri
+  metabolites:
+  - preferred_term: cobalamin
+    term:
+      id: CHEBI:30411
+      label: cobalamin
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      several B12-auxotrophic taxa induced B12-transport and B12-requiring
+      enzymes, indicating active vitamin exchange within the holobiont
+    explanation: >
+      Supports B12 uptake and B12-dependent activity by non-producing bacterial
+      partners.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      non-B12 producers Cyclobacterium qasimii, Marivita cryptomonadis,
+      Marinobacter sp., and Pseudomonas stutzeri, which also upregulated
+      B12-dependent genes, strongly induced most of their B12 transporters
+      under B12-lim conditions
+    explanation: >
+      Names the non-producing B12-dependent strains that induced B12
+      transporters under B12 limitation.
+- name: Algal organic-matter support of heterotrophic bacteria
+  description: >
+    The heterotrophic SynCom depended on algal organic matter from P. parvum,
+    while those bacterial partners synthesized and mobilized B12 under nutrient
+    stress, completing a reciprocal exchange between the algal host and
+    bacterial community.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Prymnesium parvum CCAP 646/6
+    term:
+      id: NCBITaxon:97485
+      label: Prymnesium parvum
+  biological_processes:
+  - preferred_term: photosynthesis
+    term:
+      id: GO:0015979
+      label: photosynthesis
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: B12-limited holobiont mutualism
+    description: >
+      Bacterial dependence on algal organic matter made B12 biosynthesis part
+      of a reciprocal holobiont interaction rather than one-way vitamin rescue.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Heterotrophic bacteria dependent on algal organic matter synthesize and
+      mobilize B12 under nutrient stress, and both partners utilize it.
+    explanation: >
+      Supports reciprocal carbon-for-vitamin coupling between P. parvum and
+      heterotrophic bacterial members.
+environmental_factors:
+- name: vitamin B12 limitation
+  value: 7.4 x 10^-6 uM vitamin B12
+  description: >
+    B12 was supplied at a limiting concentration to reveal algal vitamin
+    auxotrophy and the SynCom's ability to alleviate B12 limitation.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      vitamin B12-limited (B12-lim; B12 adjusted to 7.4 × 10−6 μM) conditions
+    explanation: Supports the B12-limited treatment concentration.
+- name: nitrogen limitation
+  value: 62 uM N
+  description: Nitrogen was reduced in the L1 medium to impose N-limited growth.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      N- (N-lim; N adjusted to 62 μM), P- (P-lim; P adjusted to 2.2 μM)
+    explanation: Supports the N-limited treatment concentration.
+- name: phosphorus limitation
+  value: 2.2 uM P
+  description: Phosphorus was reduced in the L1 medium to impose P-limited growth.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P- (P-lim; P adjusted to 2.2 μM)
+    explanation: Supports the P-limited treatment concentration.
+- name: oxic continuous-light phenotyping
+  value: 100 umol photons m-2 s-1 at pH 8.2 and 20 C
+  description: >
+    Batch photobioreactors were run under continuous light to support the
+    photosynthetic algal partner while the oxic setup likely constrained
+    non-cyanobacterial diazotrophy.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Cultures were grown in photobioreactors under continuous light
+      (100 μmol photons m−2 s−1), at 20°C, and pH 8.2
+    explanation: Supports the light intensity, temperature, pH, and photobioreactor conditions.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the oxygen sensitivity of the nitrogenase complex may have constrained
+      activity in our oxic batch cultures
+    explanation: >
+      Supports interpreting the aerobic batch photobioreactors as oxic enough
+      to constrain non-cyanobacterial diazotrophy.
+growth_media:
+- name: nutrient-limited L1 marine algal medium
+  composition:
+  - name: L1 medium
+  - name: vitamin B12
+    concentration: 7.4 x 10^-6
+    unit: uM in B12-limited treatment
+    chebi_term:
+      preferred_term: vitamin B12
+      term:
+        id: CHEBI:176843
+        label: vitamin B12
+  - name: dissolved nitrogen
+    concentration: 62
+    unit: uM N in N-limited treatment
+  - name: dissolved phosphorus
+    concentration: 2.2
+    unit: uM P in P-limited treatment
+  ph: 8.2
+  temperature: '20'
+  temperature_unit: C
+  atmosphere: AEROBIC
+  light_regime: continuous light
+  light_intensity: '100'
+  light_intensity_unit: umol photons m-2 s-1
+  inoculum_size: 1 x 10^5 P. parvum cells/mL plus 1 x 10^5 total SynCom cells/mL
+  inoculum_unit: cells/mL
+  incubation_time: 14
+  incubation_time_unit: days
+  vessel_type: photobioreactor phenotyping bench
+  preparation_notes: >
+    P. parvum was acclimated to N-, P-, or B12-limited L1 medium for two weeks
+    before the 15-strain bacterial SynCom was added to the coculture
+    treatments.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      P. parvum (CCAP 646/6) was acclimated for two weeks in L1 medium
+    explanation: Supports the base L1 medium and acclimation step.
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      In co-cultures treatments, the defined SynCom was added at a total
+      density of 1 × 105 cells ml−1.
+    explanation: Supports the bacterial SynCom inoculum density.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: PHOTOBIOREACTOR
+  instrument_detail: >
+    Photobioreactors run under continuous light at 100 umol photons m-2 s-1,
+    20 C, and pH 8.2 on a phenotyping bench.
+  operating_temperature: 20
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: >
+    The study reports pH 8.2 in the photobioreactors but does not state whether
+    the value was actively controlled or simply maintained by the phenotyping
+    bench.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Cultures were grown in photobioreactors under continuous light
+      (100 μmol photons m−2 s−1), at 20°C, and pH 8.2
+    explanation: Supports the photobioreactor setup and operating conditions.
+associated_datasets:
+- accession: PRJEB106332
+  title: P. parvum SynCom metabarcoding, RNA-seq, and bacterial genome sequencing
+  description: >
+    European Nucleotide Archive project containing metabarcoding, RNA-seq, and
+    bacterial genome sequencing data for the nutrient-limited P. parvum SynCom.
+  dataset_type: MULTI_OMICS
+  repository: ENA
+  sample_types:
+  - 16S metabarcodes
+  - bacterial metatranscriptomes
+  - P. parvum RNA-seq
+  - bacterial genome sequences
+  url: https://doi.org/10.12770/cc2788fb-2915-411a-82d6-f832884835c7
+  publication: PMID:42549325
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      The sequencing dataset was deposited in the European Nucleotide Archive
+      (ENA) under the project number PRJEB106332
+    explanation: Identifies the ENA project accession for sequencing data.
+- title: P. parvum SynCom metabolomics and prymnesin mass-spectrometry data
+  description: >
+    Full-scan and MS/MS metabolomics data for intracellular and extracellular
+    extracts from the nutrient-limited P. parvum SynCom experiment.
+  dataset_type: METABOLOMICS
+  repository: OTHER
+  sample_types:
+  - intracellular extracts
+  - extracellular extracts
+  url: https://doi.org/10.12770/22b6f4c5-efc1-446c-903d-cc2729cac9ad
+  publication: PMID:42549325
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      All metabolomic data (full scan, MS/MS) are available at
+      https://doi.org/10.12770/22b6f4c5-efc1-446c-903d-cc2729cac9ad
+    explanation: Identifies the stable metabolomics-data DOI.
+- title: Prymnesium parvum genome assembly used for RNA-seq mapping
+  description: P. parvum genome assembly used for host transcriptome mapping.
+  dataset_type: GENOMICS
+  repository: OTHER
+  organism: Prymnesium parvum
+  url: https://doi.org/10.12770/90ecb6f5-e981-4192-a653-72576bfd50c1
+  publication: PMID:42549325
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      P. parvum genome
+      ( https://doi.org/10.12770/90ecb6f5-e981-4192-a653-72576bfd50c1 )
+      and to the 15 bacterial genomes sequenced in this study
+    explanation: Identifies the stable P. parvum genome DOI used in RNA-seq mapping.
+related_ingredients:
+- preferred_term: vitamin B12
+  chebi_term:
+    id: CHEBI:176843
+    label: vitamin B12
+  relevance: >
+    Vitamin B12 is the micronutrient whose depletion revealed reciprocal
+    algal-bacterial rescue, cobalamin biosynthesis by producing bacteria, and
+    B12 transporter induction by non-producing bacterial auxotrophs.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      vitamin B12 limitation constitutes the key context triggering strong
+      reciprocal interactions with P. parvum
+    explanation: Supports B12 limitation as the central exchanged-nutrient context.
+- preferred_term: cobalamin
+  chebi_term:
+    id: CHEBI:30411
+    label: cobalamin
+  relevance: >
+    Cobalamin biosynthesis and cobalamin-transporter expression were the
+    bacterial functions used to infer B12 production, competition, and exchange
+    within the holobiont.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: cobalamin biosynthesis pathways, enabling algal growth recovery
+    explanation: Links cobalamin biosynthesis to P. parvum growth rescue.
+discussions:
+- discussion_id: b12-transfer-route
+  prompt: >
+    Does P. parvum acquire bacterial B12 primarily from passive extracellular
+    release, bacterial lysis, prophage- or phage-mediated release, or
+    bacterivory of the SynCom partners?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#B12-limited holobiont mutualism
+  - ecological_interactions#Cobalamin biosynthesis by B12-producing SynCom members
+  rationale: >
+    The source supports bacterial B12 production and auxotrophic acquisition
+    but explicitly leaves the cellular route of vitamin release and transfer
+    unresolved.
+  proposed_experiments:
+  - experiment_id: b12_exporter_mutants
+    name: Test B12 exporter and lysis routes in producing strains
+    description: >
+      Knock out or silence candidate B12 export, prophage, or lysis mechanisms
+      in Marinovum algicola, Roseobacter sp., and Halomonas sp., then ask
+      whether mutant producers still rescue B12-limited P. parvum.
+    approach: defined-coculture growth assay with targeted bacterial genetics
+    model_systems:
+    - P. parvum CCAP 646/6 plus individual B12-producing isolates
+    - P. parvum CCAP 646/6 plus the 15-strain SynCom
+    perturbations:
+    - candidate transporter inactivation
+    - prophage or lysis inhibition
+    - exogenous B12 rescue
+    readouts:
+    - dissolved and intracellular B12 pools
+    - P. parvum growth recovery
+    - SynCom B12 transporter expression
+    decision_criterion: >
+      Loss of algal rescue in a specific mutant background, restored by
+      exogenous B12, would prioritize that release route.
+  evidence:
+  - reference: PMID:42549325
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: >
+      The precise mechanism of B12 transfer remains unresolved. Not only are
+      the potential acquisition routes unclear, but the identity of bacterial
+      exporters mediating vitamin release is also unknown.
+    explanation: >
+      States the open mechanistic question around B12 export and acquisition.
+  posed_by: codex
+  posed_date: '2026-09-15'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: >
+  The curated study manipulates nitrogen, phosphorus, and vitamin B12
+  availability in a marine algal-bacterial SynCom; it does not test metal or
+  rare-earth stress, transformation, uptake, or recovery.
+curation_history:
+- timestamp: '2026-09-15T05:01:43Z'
+  curator: codex
+  action: ADDRESS_STRICT_VALIDATION_FAILURES
+  changes: >
+    Replaced a discussion-derived environmental evidence source with IN_VITRO
+    and quoted the B12 transfer-route posed_date so YAML keeps it as a string.
+  llm_assisted: true
+- timestamp: '2026-09-15T04:45:00Z'
+  curator: codex
+  action: ADDRESS_LOCAL_ADVERSARIAL_REVIEW
+  changes: >
+    Tightened the environment note to avoid implying active pH control and
+    added a direct source snippet for the oxic batch-culture interpretation.
+  llm_assisted: true
+- timestamp: '2026-09-15T04:40:40Z'
+  curator: codex
+  action: CREATE_PRYMNESIUM_PARVUM_B12_LIMITED_SYNCOM
+  changes: >
+    Added the P. parvum CCAP 646/6 plus 15-strain bacterial SynCom from
+    PMID:42549325, with membership grounded from Supplementary Table S1,
+    B12-limited mutualism and cobalamin-exchange interactions, nutrient-limited
+    L1 photobioreactor conditions, ENA and stable DOI datasets, and an open B12
+    transfer-route knowledge gap.
+  llm_assisted: true

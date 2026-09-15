@@ -42,6 +42,21 @@ def _docx(paragraphs: list[str]) -> bytes:
     return buffer.getvalue()
 
 
+def _xlsx(rows: list[list[str]]) -> bytes:
+    """Minimal workbook for testing spreadsheet supplements."""
+    import openpyxl
+
+    workbook = openpyxl.Workbook()
+    worksheet = workbook.active
+    worksheet.title = "Table_S1"
+    for row in rows:
+        worksheet.append(row)
+
+    buffer = io.BytesIO()
+    workbook.save(buffer)
+    return buffer.getvalue()
+
+
 def test_docx_text_reads_paragraphs_and_separates_them(module):
     """Run-together paragraphs would create sentences the source never had.
 
@@ -82,12 +97,33 @@ def test_member_types_are_classified_with_a_stated_reason(module):
     assert pdf_text == ""
     assert "PDF not extracted" in pdf_note
 
-    table_text, table_note = module._member_text("tables.xlsx", b"PK\x03\x04")
-    assert table_text == ""
-    assert "unhandled type .xlsx" in table_note
+    table_text, table_note = module._member_text(
+        "tables.xlsx", _xlsx([["strain", "species"], ["09-022", "Cyclobacterium sp."]])
+    )
+    assert "### Table_S1" in table_text
+    assert "09-022\nCyclobacterium sp." in table_text
+    assert table_note == ""
 
     plain, _ = module._member_text("readme.txt", b"medium: LB")
     assert "medium: LB" in plain
+
+
+def test_nested_zip_members_are_extracted(module):
+    """Publishers often serve the useful supplement inside a top-level archive."""
+    buffer = io.BytesIO()
+    with zipfile.ZipFile(buffer, "w") as archive:
+        archive.writestr("methods.docx", _docx(["Grown in L1 medium."]))
+        archive.writestr(
+            "tables.xlsx",
+            _xlsx([["strain", "species"], ["19-037", "Marinovum algicola"]]),
+        )
+        archive.writestr("figure.jpg", b"\xff\xd8")
+
+    text, note = module._member_text("supplementary.zip", buffer.getvalue())
+
+    assert "Grown in L1 medium." in text
+    assert "19-037\nMarinovum algicola" in text
+    assert "figure.jpg: SKIPPED (binary/image, no prose)" in note
 
 
 def test_the_supplement_marker_cannot_be_confused_with_the_full_text_markers(module):
@@ -155,6 +191,23 @@ def test_nothing_is_written_when_there_is_no_extractable_text(module, tmp_path, 
 
     assert message.startswith("[none]")
     assert list(tmp_path.iterdir()) == [], "a file was written for an empty supplement"
+
+
+def test_cache_one_strips_trailing_whitespace(module, tmp_path, monkeypatch):
+    """Generated caches must pass git's whitespace check."""
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    monkeypatch.setattr(
+        module,
+        "fetch_supplement",
+        lambda ref: ("Method one. \n\nMethod two.\t\n", ["methods.docx: 28 chars"]),
+    )
+
+    message = module.cache_one("PMID:1")
+    text = (tmp_path / "PMID_1.supplement.md").read_text(encoding="utf-8")
+
+    assert message.startswith("[ok]")
+    assert not any(line.endswith((" ", "\t")) for line in text.splitlines())
+    assert "Method one.\n\nMethod two." in text
 
 
 def test_an_existing_cache_is_not_refetched_unless_forced(module, tmp_path, monkeypatch):
