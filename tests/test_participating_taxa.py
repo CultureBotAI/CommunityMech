@@ -248,6 +248,7 @@ USERS = {
     "PSY_Transgenic_Rice_Rhizosphere_Methane_Community.yaml",
     "Phenol_Carboxylation_Consortium.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
+    "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
