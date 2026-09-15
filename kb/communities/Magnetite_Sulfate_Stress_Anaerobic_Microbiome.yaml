@@ -161,6 +161,18 @@ taxonomy:
       preventing definitive SRB classification
     explanation: >
       Captures the evidence boundary around SRB assignment in the recovered MAGs.
+  - reference: PMID:42231497
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Myxococcota sp. DTU51, which exhibited a tenfold increase (Fig. 3 ), has
+      also been reported to perform dissimilatory sulfate reduction [ 49 ], and
+      although it lacked genes directly associated with this pathway, it may
+      still be considered a putative SRB.
+    explanation: >
+      Supports the third sulfate-responsive MAG in the guild note while
+      preserving the paper's caveat that this MAG itself lacked dissimilatory
+      sulfate-reduction genes.
 - taxon_term:
     preferred_term: Limnochordia homoacetogenic MAGs
     term:
@@ -279,11 +291,6 @@ ecological_interactions:
     term:
       id: GO:0019420
       label: dissimilatory sulfate reduction
-  downstream:
-  - target: Acetate-centered four-guild redox cycling
-    description: >
-      The methanogenesis rescue co-occurred with retained SRB and SAOB activity
-      and expanded methanogenic and homoacetogenic populations under magnetite.
   evidence:
   - reference: PMID:42231497
     supports: SUPPORT
@@ -451,11 +458,11 @@ environmental_factors:
       Supports the hydrogen and carbon dioxide gas feed supplied to the batch
       bottles.
 growth_media:
-- name: H2/CO2-fed basal anaerobic medium with sulfate and magnetite
+- name: MAGN_0.6 H2/CO2-fed basal anaerobic medium with magnetite
   composition:
   - name: basal anaerobic medium
   - name: sodium sulfate
-    concentration: 0.6 or 1.2
+    concentration: 0.6
     unit: g/L sulfate
     chebi_term:
       preferred_term: sulfate
@@ -626,4 +633,14 @@ curation_history:
     PMID:42231497 with four genome-resolved guilds, H2/CO2-fed serum-bottle
     batch cultivation, the PRJNA1242289 metagenomic BioProject, and
     evidence-backed experimental and GEM-supported interactions.
+  llm_assisted: true
+- timestamp: '2026-09-15T02:53:10Z'
+  curator: codex
+  action: ADDRESS_MAGNETITE_SULFATE_STRESS_REVIEW
+  changes: >
+    Addressed adversarial review issues #913, #914, and #915 by backing the
+    Myxococcota putative SRB inclusion with direct evidence, limiting the
+    curated medium composition to the MAGN_0.6 bottle condition, and removing a
+    backward causal edge from the methane-rescue observation to the modeled
+    acetate cycle.
   llm_assisted: true
