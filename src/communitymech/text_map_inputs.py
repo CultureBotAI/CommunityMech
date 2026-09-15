@@ -99,8 +99,11 @@ def build_context(paths: list[Path]) -> dict:
 
 
 def record_details(record: dict, path: Path) -> tuple[str, str, str, str]:
+    identifier = record.get("id")
+    if not isinstance(identifier, str) or not identifier.strip():
+        raise ValueError(f"missing record identity, label, category or page: {path}")
     return (
-        record.get("id"),
+        identifier,
         clean(record.get("name")),
         clean(record.get("community_category")) or "UNKNOWN",
         ("isolates/" if path.parent.name == "isolates" else "communities/")
@@ -110,7 +113,7 @@ def record_details(record: dict, path: Path) -> tuple[str, str, str, str]:
 
 
 def semantic_text(record: dict, context: dict | None = None) -> str:
-    lines = []
+    lines: list[str] = []
     add(lines, "name", record.get("name"))
     add(lines, "description", record.get("description"))
     for field in ("community_category", "ecological_state", "community_origin"):
@@ -140,7 +143,7 @@ def iter_inputs(
     root = root.resolve()
     if limit is not None and limit < 1:
         raise ValueError("limit must be a positive integer")
-    paths = []
+    paths: list[Path] = []
     for directory in RECORD_ROOTS:
         corpus = root / directory
         if not corpus.is_dir() or any(
@@ -217,6 +220,7 @@ def export_inputs(
         if not count:
             raise ValueError("selection contains no eligible corpus records")
         if temporary is not None:
+            assert destination is not None
             temporary.replace(destination)
         return {
             "mode": "export" if destination else "preview",

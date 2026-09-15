@@ -68,7 +68,7 @@ class UMAPReducer:
         print(f"   Input shape: {vectors_matrix.shape}")
 
         if self.method == "pacmap":
-            import pacmap
+            import pacmap  # type: ignore[import-untyped]
 
             parameters = {
                 "n_components": self.n_components,
