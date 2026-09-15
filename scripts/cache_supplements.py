@@ -135,6 +135,10 @@ def _docx_text(blob: bytes) -> str:
     return re.sub(r"[ \t]+", " ", re.sub(r"<[^>]+>", "", xml)).strip()
 
 
+def _strip_trailing_whitespace(text: str) -> str:
+    return "\n".join(line.rstrip() for line in text.splitlines())
+
+
 def _xlsx_text(blob: bytes) -> str:
     """Tabular text from every worksheet in a .xlsx supplement."""
     import openpyxl
@@ -281,6 +285,7 @@ def cache_one(reference: str, *, force: bool = False) -> str:
     if path.is_file() and not force:
         return f"[skip] {reference}: {path.name} already cached ({path.stat().st_size} bytes)"
     text, notes = fetch_supplement(reference)
+    text = _strip_trailing_whitespace(text)
     if not text.strip():
         return f"[none] {reference}: supplement holds no extractable text -- " + "; ".join(notes)
     header = [

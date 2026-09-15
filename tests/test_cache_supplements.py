@@ -193,6 +193,23 @@ def test_nothing_is_written_when_there_is_no_extractable_text(module, tmp_path, 
     assert list(tmp_path.iterdir()) == [], "a file was written for an empty supplement"
 
 
+def test_cache_one_strips_trailing_whitespace(module, tmp_path, monkeypatch):
+    """Generated caches must pass git's whitespace check."""
+    monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
+    monkeypatch.setattr(
+        module,
+        "fetch_supplement",
+        lambda ref: ("Method one. \n\nMethod two.\t\n", ["methods.docx: 28 chars"]),
+    )
+
+    message = module.cache_one("PMID:1")
+    text = (tmp_path / "PMID_1.supplement.md").read_text(encoding="utf-8")
+
+    assert message.startswith("[ok]")
+    assert not any(line.endswith((" ", "\t")) for line in text.splitlines())
+    assert "Method one.\n\nMethod two." in text
+
+
 def test_an_existing_cache_is_not_refetched_unless_forced(module, tmp_path, monkeypatch):
     monkeypatch.setattr(module, "CACHE_DIR", tmp_path)
     (tmp_path / "PMID_1.supplement.md").write_text("already here", encoding="utf-8")
