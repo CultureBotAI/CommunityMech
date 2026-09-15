@@ -232,6 +232,7 @@ USERS = {
     "Lunar_Simulant_Phosphate_Solubilizing_Bacteria_Nicotiana.yaml",
     "MSC1_Dominant_Core.yaml",
     "MSC2_Model_Soil_Consortium.yaml",
+    "Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml",
     "Maize_Root_Simplified_Community.yaml",
     "Maize_SC2_RootRot_Biocontrol_SynCom.yaml",
     "Medicago_Nodule_Biofertilizer_SynCom.yaml",

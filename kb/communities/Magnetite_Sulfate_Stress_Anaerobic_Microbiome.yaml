@@ -166,13 +166,19 @@ taxonomy:
     evidence_source: COMPUTATIONAL
     snippet: >
       Myxococcota sp. DTU51, which exhibited a tenfold increase (Fig. 3 ), has
-      also been reported to perform dissimilatory sulfate reduction [ 49 ], and
+      also been reported to perform dissimilatory sulfate reduction
+    explanation: >
+      Supports the reported dissimilatory sulfate-reduction link for the third
+      sulfate-responsive MAG in the guild note.
+  - reference: PMID:42231497
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >
       although it lacked genes directly associated with this pathway, it may
       still be considered a putative SRB.
     explanation: >
-      Supports the third sulfate-responsive MAG in the guild note while
-      preserving the paper's caveat that this MAG itself lacked dissimilatory
-      sulfate-reduction genes.
+      Captures the paper's caveat that the Myxococcota MAG itself lacked
+      dissimilatory sulfate-reduction genes.
 - taxon_term:
     preferred_term: Limnochordia homoacetogenic MAGs
     term:
@@ -201,8 +207,8 @@ taxonomy:
     supports: SUPPORT
     evidence_source: COMPUTATIONAL
     snippet: >
-      Limnochordia sp. DTU31, DTU18, and DTU38, species previously linked to WL
-      pathway activity [ 51 , 52 ], showed notable changes.
+      Among them, Limnochordia sp. DTU31, DTU18, and DTU38, species previously
+      linked to WL pathway activity
     explanation: >
       Identifies Limnochordia MAGs as Wood-Ljungdahl-associated community
       members.
@@ -674,4 +680,12 @@ curation_history:
   changes: >
     Added required term identifiers to the two computed interaction participant
     lists so their guild references remain closed-schema-valid.
+  llm_assisted: true
+- timestamp: '2026-09-15T03:31:05Z'
+  curator: codex
+  action: FIX_MAGNETITE_SULFATE_STRESS_PYTEST_GATES
+  changes: >
+    Replaced two citation-marker-bearing snippets with bracket-free exact
+    spans from the same source sentence and kept the Myxococcota caveat as a
+    separate evidence item.
   llm_assisted: true
