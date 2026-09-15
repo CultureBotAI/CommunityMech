@@ -1,0 +1,588 @@
+id: CommunityMech:000379
+name: Diclofenac Activated Sludge Microbial Consortium
+description: A laboratory microbial consortium enriched from activated sludge sampled at the San Jerónimo WWTP in Seville,
+  Spain, by diclofenac selection and a glucose-supplemented MSM subculture. The MC degraded all 10 mg/L diclofenac in a glucose-amended
+  mineral-salts flask assay within 5 days, producing extracellular 4'-hydroxy-diclofenac, 5-hydroxy-diclofenac, and putative
+  nitro-DCF. 16S and ITS metabarcoding at the beginning and after 28 days showed a shift from Burkholderia-, Klebsiella-,
+  Ochrobactrum-, Chthoniobacter-, and Malassezia-rich starting profiles to final bacterial and fungal profiles dominated by
+  Burkholderia and Talaromyces, respectively.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Select a DCF-degrading microbial consortium from WWTP activated sludge and evaluate DCF removal, transformation
+    products, toxicity, and bacterial/fungal community dynamics under glucose-amended batch-culture conditions.
+  assembly_strategy: Inoculate activated sludge from the San Jerónimo WWTP into MSM amended with 24 mg/L DCF, incubate for
+    21 days at 30 °C with shaking, and recover the MC after 7 additional days in the DCF plus 3 g/L glucose subculture.
+  perturbation_design: Revive the stored MC, wash it with MSM, and inoculate triplicate 50 mL MSM cultures containing 3 g/L
+    glucose and 10 mg/L DCF sodium salt to an initial OD600 of approximately 1.0, with abiotic controls and CSWD.1/CSWD.2
+    isolate cultures run in parallel.
+  measurement_endpoints:
+  - DCF dissipation by HPLC
+  - 4'-OH-DCF, 5-OH-DCF, and NO2-DCF transformation products
+  - Aliivibrio fischeri ecotoxicity after 28 days
+  - 16S rRNA V3/V4 bacterial metabarcoding
+  - ITS2 fungal metabarcoding
+  notes: CSWD.1 and CSWD.2 were Pseudomonas isolate controls selected in parallel with the MC and are not curated as MC members.
+    The paper detected persistent 4'-OH-DCF and tentatively identified NO2-DCF after 28 days, so complete parent-DCF disappearance
+    did not equal complete detoxification.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A microbial consortium, along with individual strains capable of degrading DCF, was obtained through enrichment
+      cultures using activated sludge from the San Jerónimo WWTP
+    explanation: Supports the activated-sludge origin and diclofenac enrichment strategy used to obtain the microbial consortium.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A degrading MC and 4 isolates were obtained after 7 days of enrichment in the presence of DCF and glucose.
+    explanation: Supports the glucose-supplemented subculture that yielded the DCF-degrading MC.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2 and
+      the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
+    explanation: Supports complete 10 mg/L DCF removal by the MC within 5 days in the glucose-supplemented biodegradation
+      assay.
+environment_term:
+  preferred_term: glucose-amended diclofenac activated-sludge enrichment
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled MSM batch enrichment and biodegradation cultures inoculated with activated sludge from the San Jerónimo
+    WWTP.
+modeled_environment:
+- preferred_term: activated sludge
+  term:
+    id: ENVO:00002046
+    label: activated sludge
+  notes: The source inoculum was activated sludge from a municipal WWTP in Seville.
+- preferred_term: wastewater treatment plant
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: San Jerónimo WWTP receives hospital and municipal wastewater in the Seville region.
+taxonomy:
+- taxon_term:
+    preferred_term: Burkholderia
+    term:
+      id: NCBITaxon:32008
+      label: Burkholderia
+    gtdb_grounding_status: GROUNDED
+    notes: The genus increased from 26.9% of 16S reads at the start of the biodegradation assay to 88.9% after 28 days; the
+      source treats this as abundance under DCF selection, not as proof of direct DCF cleavage by a Burkholderia isolate.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Burkholderia
+      gtdb_taxon: Burkholderia
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Burkholderiaceae;g__Burkholderia
+      ncbi_source_id: NCBITaxon:32008
+      majority_fraction: 0.999
+      support_genomes: 8896
+      total_genomes: 8908
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: After 28 days of incubation in the presence of DCF, Burkholderia represented 88.9% of the community
+    explanation: Supports Burkholderia dominance after the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Klebsiella
+    term:
+      id: NCBITaxon:570
+      label: Klebsiella
+    gtdb_grounding_status: GROUNDED
+    notes: Initially 20.1% of 16S reads and later declined to 0.6% after 28 days in DCF.
+    gtdb_classification:
+      gtdb_id: GTDB:g__Klebsiella
+      gtdb_taxon: Klebsiella
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Enterobacteriaceae;g__Klebsiella
+      ncbi_source_id: NCBITaxon:570
+      majority_fraction: 1.0
+      support_genomes: 44527
+      total_genomes: 44529
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
+        under the NCBI taxon]
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance), Klebsiella
+      (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
+    explanation: Supports the 16S bacterial profile at the start of the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Ochrobactrum
+    term:
+      id: NCBITaxon:528
+      label: Ochrobactrum
+    gtdb_grounding_status: UNRESOLVED
+    notes: Initially 16.8% of 16S reads in the MC before the DCF biodegradation assay.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance), Klebsiella
+      (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
+    explanation: Supports the 16S bacterial profile at the start of the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Chthoniobacter
+    term:
+      id: NCBITaxon:295577
+      label: Chthoniobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: Initially 14.1% of 16S reads in the MC before the DCF biodegradation assay.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance), Klebsiella
+      (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
+    explanation: Supports the 16S bacterial profile at the start of the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Parachlamydia
+    term:
+      id: NCBITaxon:83551
+      label: Parachlamydia
+    gtdb_grounding_status: UNRESOLVED
+    notes: Increased from 0.7% to 6.6% of 16S reads during the 28-day DCF biodegradation assay.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Parachlamydia (from 0.7% to 6.6%) and Legionella (from 0.02% to 1.2%)
+    explanation: Supports increased relative abundance of these genera after 28 days of DCF exposure.
+- taxon_term:
+    preferred_term: Talaromyces
+    term:
+      id: NCBITaxon:5094
+      label: Talaromyces
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: A minor initial fungal genus at 0.9% of ITS reads that dominated at 80.1% after complete DCF degradation; GTDB
+      classifies bacteria and archaea, not fungi.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genus Talaromyces dominated the community after complete DCF degradation (80.1%), followed by Aspergillus
+      (15.1%) and a member of the Debaryomycetaceae family (4.8%).
+    explanation: Supports the ITS fungal profile after the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Aspergillus
+    term:
+      id: NCBITaxon:5052
+      label: Aspergillus <genus>
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Represented 15.1% of ITS reads after complete DCF degradation; GTDB classifies bacteria and archaea, not fungi.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genus Talaromyces dominated the community after complete DCF degradation (80.1%), followed by Aspergillus
+      (15.1%) and a member of the Debaryomycetaceae family (4.8%).
+    explanation: Supports the ITS fungal profile after the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Debaryomycetaceae
+    term:
+      id: NCBITaxon:766764
+      label: Debaryomycetaceae
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: A family-level fungal assignment that represented 4.8% of ITS reads after complete DCF degradation; GTDB classifies
+      bacteria and archaea, not fungi.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genus Talaromyces dominated the community after complete DCF degradation (80.1%), followed by Aspergillus
+      (15.1%) and a member of the Debaryomycetaceae family (4.8%).
+    explanation: Supports the ITS fungal profile after the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Malassezia
+    term:
+      id: NCBITaxon:55193
+      label: Malassezia
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Initially 97.6% of ITS fungal reads before the DCF biodegradation assay; GTDB classifies bacteria and archaea,
+      not fungi.
+  abundance_level: DOMINANT
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The rare fungal community before exposure to DCF was represented by the genera Malassezia (97.6%), Cladosporium
+      (1.4%), and Talaromyces (0.9%).
+    explanation: Supports the ITS fungal profile at the start of the MC biodegradation assay.
+- taxon_term:
+    preferred_term: Cladosporium
+    term:
+      id: NCBITaxon:5498
+      label: Cladosporium
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Initially 1.4% of ITS fungal reads before the DCF biodegradation assay; GTDB classifies bacteria and archaea,
+      not fungi.
+  abundance_level: COMMON
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The rare fungal community before exposure to DCF was represented by the genera Malassezia (97.6%), Cladosporium
+      (1.4%), and Talaromyces (0.9%).
+    explanation: Supports the ITS fungal profile at the start of the MC biodegradation assay.
+ecological_interactions:
+- name: Glucose-Amended Diclofenac Dissipation by MC
+  description: The activated-sludge MC eliminated the 10 mg/L parent DCF spike within 5 days in MSM supplemented with 3 g/L
+    glucose, while extracellular 4'-hydroxy-diclofenac, 5-hydroxy-diclofenac, and putative nitro-DCF transformation products
+    accumulated.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: diclofenac
+    term:
+      id: CHEBI:47381
+      label: diclofenac
+  - preferred_term: D-glucose
+    term:
+      id: CHEBI:4167
+      label: D-glucopyranose
+  - preferred_term: 4'-hydroxydiclofenac
+    term:
+      id: CHEBI:59613
+      label: 4'-hydroxydiclofenac
+  - preferred_term: 5-hydroxydiclofenac
+    term:
+      id: CHEBI:59612
+      label: 5-hydroxydiclofenac
+  biological_processes:
+  - preferred_term: xenobiotic catabolic process
+    term:
+      id: GO:0042178
+      label: xenobiotic catabolic process
+  - preferred_term: glucose metabolic process
+    term:
+      id: GO:0006006
+      label: glucose metabolic process
+  downstream:
+  - target: DCF-Selected Community Shift
+    description: The glucose-amended DCF exposure was the selective assay whose start and 28-day MC pellets were profiled
+      by 16S and ITS metabarcoding.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2 and
+      the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
+    explanation: Supports complete 10 mg/L DCF removal by the MC within 5 days in the glucose-supplemented biodegradation
+      assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Three extracellular metabolites, 4'-hydroxy-diclofenac (4'-OH-DCF), 5-hydroxy-diclofenac (5-OH-DCF), and putative
+      NO2-DCF, were detected
+    explanation: Supports the detected DCF transformation products in the MC biodegradation assay.
+- name: DCF-Selected Community Shift
+  description: Twenty-eight days of DCF exposure reshaped the MC from initially Burkholderia-, Klebsiella-, Ochrobactrum-,
+    Chthoniobacter-, and Malassezia-rich bacterial/fungal profiles toward final profiles dominated by Burkholderia among bacteria
+    and Talaromyces among fungi.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: diclofenac
+    term:
+      id: CHEBI:47381
+      label: diclofenac
+  biological_processes:
+  - preferred_term: xenobiotic catabolic process
+    term:
+      id: GO:0042178
+      label: xenobiotic catabolic process
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: DNA was extracted from microbial pellet samples collected at the beginning (“before”) and the end (“after” 28
+      days) of the DCF biodegradation experiment using the DNeasy PowerSoil Pro Kit
+    explanation: Supports the before/after metabarcoding design used to compare the consortium before and after 28 days of
+      DCF exposure.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Initially, the bacterial community was dominated by the genera Burkholderia (26.9% in relative abundance), Klebsiella
+      (20.1%), Ochrobactrum (16.8%), and Chthoniobacter (14.1%)
+    explanation: Supports the 16S bacterial profile at the start of the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: After 28 days of incubation in the presence of DCF, Burkholderia represented 88.9% of the community
+    explanation: Supports Burkholderia dominance after the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Parachlamydia (from 0.7% to 6.6%) and Legionella (from 0.02% to 1.2%)
+    explanation: Supports increased relative abundance of these genera after 28 days of DCF exposure.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the striking decline of Klebsiella (from 20.1% to 0.6%)
+    explanation: Supports the decline of Klebsiella during the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The rare fungal community before exposure to DCF was represented by the genera Malassezia (97.6%), Cladosporium
+      (1.4%), and Talaromyces (0.9%).
+    explanation: Supports the ITS fungal profile at the start of the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The genus Talaromyces dominated the community after complete DCF degradation (80.1%), followed by Aspergillus
+      (15.1%) and a member of the Debaryomycetaceae family (4.8%).
+    explanation: Supports the ITS fungal profile after the MC biodegradation assay.
+environmental_factors:
+- name: DCF enrichment concentration
+  value: '24'
+  unit: mg/L
+  description: Activated sludge was initially selected in MSM containing 24 mg/L DCF before the glucose-amended subculture
+    that yielded the MC.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sterile 250 mL Erlenmeyer flasks (autoclave Auster-G, P-Selecta with one cycle at 120 °C, inlet pressure of 103
+      kPa, for 20 min) were inoculated with 10 mL of activated sludge and 150 mL of MSM, supplemented with DCF at an initial
+      concentration of 24 mg L−1
+    explanation: Supports the initial activated-sludge enrichment volume, vessel, sterilization setup, and 24 mg/L DCF selective
+      pressure.
+- name: DCF biodegradation assay concentration
+  value: '10'
+  unit: mg/L
+  description: The triplicate MC biodegradation assay was spiked with 10 mg/L DCF sodium salt.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays were conducted in sterile 250 mL Erlenmeyer flasks covered with a cotton plug containing
+      50 mL of MSM solution supplemented with glucose (3 g L−1), spiked with 10 mg L−1 DCF sodium salt
+    explanation: Supports the flask vessel, working volume, MSM medium, glucose concentration, and DCF sodium-salt dose used
+      for the MC biodegradation assay.
+growth_media:
+- name: glucose-amended diclofenac MSM
+  composition:
+  - name: diclofenac sodium salt
+    concentration: '10'
+    unit: mg/L
+    chebi_term:
+      preferred_term: diclofenac sodium
+      term:
+        id: CHEBI:4509
+        label: diclofenac sodium
+  - name: glucose
+    concentration: '3'
+    unit: g/L
+    chebi_term:
+      preferred_term: D-glucose
+      term:
+        id: CHEBI:4167
+        label: D-glucopyranose
+  ph: 7.0 +/- 0.2
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  inoculum_source: DCF-degrading MC revived from -80 °C cryovials and washed twice with MSM
+  inoculum_size: ~1.0
+  inoculum_unit: OD600
+  incubation_time: '28'
+  incubation_time_unit: days
+  shaking_speed: '180'
+  shaking_speed_unit: rpm
+  vessel_type: sterile 250 mL Erlenmeyer flask with a 50 mL working volume
+  preparation_notes: MSM in the biodegradation assay was supplemented with 3 g/L glucose and spiked with 10 mg/L DCF sodium
+    salt. The original enrichment used 10 mL of activated sludge plus 150 mL MSM with 24 mg/L DCF at pH 7.0 +/- 0.2, 30 °C,
+    and 150 rpm.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A microbial consortium, along with individual strains capable of degrading DCF, was obtained through enrichment
+      cultures using activated sludge from the San Jerónimo WWTP
+    explanation: Supports the activated-sludge origin and diclofenac enrichment strategy used to obtain the microbial consortium.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: sterile 250 mL Erlenmeyer flasks (autoclave Auster-G, P-Selecta with one cycle at 120 °C, inlet pressure of 103
+      kPa, for 20 min) were inoculated with 10 mL of activated sludge and 150 mL of MSM, supplemented with DCF at an initial
+      concentration of 24 mg L−1
+    explanation: Supports the initial activated-sludge enrichment volume, vessel, sterilization setup, and 24 mg/L DCF selective
+      pressure.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays were conducted in sterile 250 mL Erlenmeyer flasks covered with a cotton plug containing
+      50 mL of MSM solution supplemented with glucose (3 g L−1), spiked with 10 mg L−1 DCF sodium salt
+    explanation: Supports the flask vessel, working volume, MSM medium, glucose concentration, and DCF sodium-salt dose used
+      for the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbial consortium (MC), and (iv) abiotic control, all in triplicate. Treatments were incubated at 30 °C with
+      orbital shaking at 180 rpm.
+    explanation: Supports triplicate MC flasks and the incubation temperature and shaking speed.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: Sterile 250 mL Erlenmeyer flasks covered with cotton plugs and containing 50 mL glucose-amended MSM spiked
+    with DCF sodium salt.
+  working_volume: 50.0
+  working_volume_unit: mL
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  do_controlled: false
+  controls_notes: The MC biodegradation cultures were shaken at 180 rpm and exposed to air through cotton plugs; the source
+    did not report active pH or dissolved-oxygen control.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays were conducted in sterile 250 mL Erlenmeyer flasks covered with a cotton plug containing
+      50 mL of MSM solution supplemented with glucose (3 g L−1), spiked with 10 mg L−1 DCF sodium salt
+    explanation: Supports the flask vessel, working volume, MSM medium, glucose concentration, and DCF sodium-salt dose used
+      for the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: microbial consortium (MC), and (iv) abiotic control, all in triplicate. Treatments were incubated at 30 °C with
+      orbital shaking at 180 rpm.
+    explanation: Supports triplicate MC flasks and the incubation temperature and shaking speed.
+related_ingredients:
+- preferred_term: diclofenac sodium
+  chebi_term:
+    id: CHEBI:4509
+    label: diclofenac sodium
+  shared_environment_term:
+    id: ENVO:00002046
+    label: activated sludge
+  relevance: DCF sodium salt was the pharmaceutical selective pressure and parent compound removed by the MC.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays were conducted in sterile 250 mL Erlenmeyer flasks covered with a cotton plug containing
+      50 mL of MSM solution supplemented with glucose (3 g L−1), spiked with 10 mg L−1 DCF sodium salt
+    explanation: Supports the flask vessel, working volume, MSM medium, glucose concentration, and DCF sodium-salt dose used
+      for the MC biodegradation assay.
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2 and
+      the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
+    explanation: Supports complete 10 mg/L DCF removal by the MC within 5 days in the glucose-supplemented biodegradation
+      assay.
+associated_datasets:
+- accession: PRJEB98466
+  title: Diclofenac MC 16S metabarcoding reads
+  description: ENA deposition for raw bacterial 16S rRNA V3/V4 amplicon reads collected from the microbial consortium at
+    the beginning and after 28 days of the DCF biodegradation assay.
+  organism: diclofenac-degrading activated-sludge microbial consortium
+  dataset_type: AMPLICON_16S
+  repository: ENA
+  conditions:
+  - before DCF biodegradation
+  - after 28 days of DCF biodegradation
+  platform: Illumina MiSeq 2x300
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB98466
+  publication: PMID:41718267
+  findings: The 16S reads supported before/after bacterial community profiling that showed Burkholderia dominance after
+    the DCF exposure.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The resulting raw sequencing data are available at the European Nucleotide Archive (ENA), EMBL-EBI, under accession
+      no. PRJEB98466
+    explanation: Supports the ENA accession for the raw 16S metabarcoding reads.
+- accession: PRJEB98466
+  title: Diclofenac MC ITS2 metabarcoding reads
+  description: ENA deposition for raw fungal ITS2 amplicon reads collected from the microbial consortium at the beginning
+    and after 28 days of the DCF biodegradation assay.
+  organism: diclofenac-degrading activated-sludge microbial consortium
+  dataset_type: AMPLICON_ITS
+  repository: ENA
+  conditions:
+  - before DCF biodegradation
+  - after 28 days of DCF biodegradation
+  platform: Illumina MiSeq 2x300
+  url: https://www.ebi.ac.uk/ena/browser/view/PRJEB98466
+  publication: PMID:41718267
+  findings: The ITS2 reads supported before/after fungal community profiling that showed Talaromyces dominance after the
+    DCF exposure.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The resulting raw sequencing data are available at the European Nucleotide Archive (ENA), EMBL-EBI, under accession
+      no. PRJEB98466
+    explanation: Supports the ENA accession for the raw ITS2 metabarcoding reads.
+external_resources:
+- name: Primary publication DOI
+  repository: OTHER
+  resource_id: doi:10.3390/jox16010024
+  url: https://doi.org/10.3390/jox16010024
+  description: Journal of Xenobiotics 2026 open-access article describing the activated-sludge MC and its DCF biodegradation
+    activity.
+  evidence:
+  - reference: PMID:41718267
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Biodegradation assays supplemented with glucose showed limited removal (45.5%) by CSWD.1, whereas CSWD.2 and
+      the MC achieved complete elimination (100%) of 10 mg L-1 DCF in 21 and 5 days, respectively.
+    explanation: Supports complete 10 mg/L DCF removal by the MC within 5 days in the glucose-supplemented biodegradation
+      assay.
+metal_relevance: NOT_APPLICABLE
+discussions:
+- discussion_id: diclofenac_mc_direct_degrader_assignment
+  prompt: Which bacteria or fungi in the MC directly transform DCF, and which members instead bloom through indirect tolerance,
+    glucose use, metabolite use, or release from competition?
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - taxonomy#Burkholderia
+  - taxonomy#Talaromyces
+  - ecological_interactions#Glucose-Amended Diclofenac Dissipation by MC
+  rationale: The paper reports dominance shifts after DCF exposure but does not isolate MC members or run member-removal experiments
+    that would assign parent-DCF cleavage to Burkholderia, Talaromyces, or the other taxa detected by amplicon sequencing.
+  posed_by: codex
+  posed_date: '2026-09-15'
+curation_history:
+- timestamp: '2026-09-15T00:39:29Z'
+  curator: codex
+  action: CREATE_DICLOFENAC_SLUDGE_CONSORTIUM
+  changes: Created the Diclofenac Activated Sludge Microbial Consortium record from PMID:41718267.
+  llm_assisted: true
+- timestamp: '2026-09-15T00:45:36Z'
+  curator: codex
+  action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_REVIEW
+  changes: 'Corrected the Aspergillus NCBITaxon label, marked fungal taxa as no-GTDB equivalents, and split the ENA associated
+    dataset into 16S and ITS2 amplicon entries for issues #901-#903.'
+  llm_assisted: true
+- timestamp: '2026-09-15T01:13:20Z'
+  curator: codex
+  action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_CI
+  changes: 'Removed the low-abundance Legionella taxon entry while retaining its reported increase in the Parachlamydia
+    community-shift evidence snippet, keeping the repository-wide unresolved GTDB count below the issue #906 ceiling.'
+  llm_assisted: true
+- timestamp: '2026-09-15T01:35:50Z'
+  curator: codex
+  action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_NUMERIC_ABUNDANCE
+  changes: 'Removed numeric relative_abundance values from the diclofenac MC taxonomy entries so the record keeps article
+    percentages in notes and evidence snippets without expanding measured-abundance slot use while issue #908 is addressed.'
+  llm_assisted: true

@@ -1,0 +1,32 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Diclofenac_Activated_Sludge_Microbial_Consortium.yaml
+  slug: Diclofenac_Activated_Sludge_Microbial_Consortium
+session:
+  id: 2026-09-15T004548Z-codex-9e2763
+  timestamp: '2026-09-15T00:45:48Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/901
+  - https://github.com/CultureBotAI/CommunityMech/issues/902
+  - https://github.com/CultureBotAI/CommunityMech/issues/903
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - taxonomy
+  - associated_datasets
+  - curation_history
+  summary: Address diclofenac MC adversarial-review findings
+  details: 'Fixed the adversarial-review findings filed as issues #901-#903: corrected NCBITaxon:5052
+    to the canonical Aspergillus <genus> label, marked fungal taxa as NO_GTDB_EQUIVALENT because
+    GTDB has no fungal counterpart, split ENA PRJEB98466 from a generic MULTI_OMICS associated
+    dataset into explicit AMPLICON_16S and AMPLICON_ITS entries, and recorded the review fix
+    in the record curation_history. Bacterial unresolved GTDB states and the open direct-degrader
+    assignment discussion were left intact because only amplicon shifts support those taxa.'
