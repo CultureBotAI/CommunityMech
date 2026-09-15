@@ -1,0 +1,629 @@
+id: CommunityMech:000380
+name: Magnetite Sulfate-Stress Anaerobic Microbiome
+description: >
+  A H2/CO2-fed methanogenic mixed culture, inoculated from mesophilic
+  anaerobic-digester sludge and cultivated in anoxic serum bottles, that was
+  perturbed with sulfate and magnetite to test how a conductive Fe(II)/Fe(III)
+  oxide reshapes sulfate-stressed anaerobic digestion. Vayena et al. (2026)
+  compared a sulfate-free control with 0.6 and 1.2 g/L sulfate, with and
+  without 10 g/L magnetite. At the moderate sulfate dose, magnetite increased
+  methane production by 19% while retaining sulfate reduction and supporting a
+  genome-resolved cooperative network among Methanoculleus methanogens,
+  putative sulfate-reducing bacteria, Limnochordia homoacetogens, and
+  Dethiobacteria syntrophic acetate oxidizers. Community genome-scale
+  metabolic models for representative MAGs supported acetate, amino-acid, and
+  carboxylate exchange among these guilds, but the paper explicitly leaves
+  direct DIET validation for future experiments.
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: METHANOGENESIS
+engineering_design:
+  objective: >
+    Test whether magnetite can improve methanogenesis under elevated sulfate by
+    scavenging H2S and modulating syntrophic interactions in a H2/CO2-fed mixed
+    anaerobic-digestion culture.
+  perturbation_design: >
+    Compare sulfate-free controls with 0.6 and 1.2 g/L sulfate treatments in
+    the presence or absence of 10 g/L magnetite.
+  measurement_endpoints:
+  - CH4 production
+  - CO2 and H2 consumption
+  - acetate accumulation
+  - sulfate consumption
+  - dissolved sulfide species
+  - genome-centric metagenomic MAG abundances
+  - community genome-scale metabolic model fluxes
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      hydrogenotrophic methanogenesis by a mixed microbial culture fed with
+      H2:CO2 was tested under two sulfate concentrations, with and without the
+      addition of magnetite
+    explanation: >
+      Defines the mixed-culture sulfate-plus-magnetite experimental design.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      interplay with dissolved H2S was also examined in a dedicated abiotic
+      experiment
+    explanation: >
+      Shows that the design separated magnetite's chemical H2S scavenging
+      behavior from the live-community assays.
+environment_term:
+  preferred_term: H2/CO2-fed anoxic serum-bottle anaerobic-digestion culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: >
+    Laboratory batch bottles inoculated with mesophilic sludge from a Danish
+    biogas plant and cultivated in basal anaerobic medium under H2/CO2.
+modeled_environment:
+- preferred_term: anaerobic digester sludge
+  term:
+    id: ENVO:00003965
+    label: anaerobic digester sludge
+taxonomy:
+- taxon_term:
+    preferred_term: Methanoculleus methanogenic MAGs
+    term:
+      id: NCBITaxon:45989
+      label: Methanoculleus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:g__Methanoculleus
+      gtdb_taxon: Methanoculleus
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanomicrobia;o__Methanomicrobiales;f__Methanoculleaceae;g__Methanoculleus
+      ncbi_source_id: NCBITaxon:45989
+      majority_fraction: 0.951
+      support_genomes: 78
+      total_genomes: 82
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa under the NCBI taxon]
+    notes: >
+      The source resolved three methanogen MAGs to Methanoculleus: Candidatus
+      Methanoculleus thermohydrogenotrophicum sp. DTU8, Methanoculleus
+      bourgensis sp. DTU41, and Methanoculleus sp. DTU48. DTU8 was used as the
+      representative methanogen in the four-guild community GEM.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_ACCEPTOR
+  - CROSS_FEEDER
+  abundance_value: >
+    Methanoculleus methanogen MAGs increased from 1.6% relative abundance in
+    the sulfate-free control to 3.5% with 0.6 g/L sulfate and to 5.4% with 0.6
+    g/L sulfate plus magnetite.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      The detected methanogens were assigned to the Methanoculleus genus, with
+      Candidatus Methanoculleus thermohydrogenotrophicum sp. DTU8,
+      Methanoculleus bourgensis sp. DTU41, and Methanoculleus sp. DTU48.
+    explanation: >
+      Identifies the methanogenic MAGs as members of the Methanoculleus genus.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Sulfate, in SULF_0.6, increased the relative abundance of methanogens
+      from 1.6 to 3.5% (Fig. 3 ), while magnetite led to a more extensive
+      increase up to 5.4%.
+    explanation: >
+      Supports the methanogen abundance increase in the sulfate-plus-magnetite
+      condition.
+- taxon_term:
+    preferred_term: putative sulfate-reducing MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >
+      Sulfate-responsive putative SRB included Halopseudomonas formosensis sp.
+      DTU25, Sulfurospirillaceae sp. DTU53, and Myxococcota sp. DTU51. The
+      record stays at the bacterial guild level because the source explicitly
+      says incomplete pathway recovery prevented definitive SRB classification
+      from MAG content alone.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      taxonomic profiling showed 3.2- and 2.9-fold increases in the relative
+      abundance of Halopseudomonas formosensis sp. DTU25 and
+      Sulfurospirillaceae sp. DTU53 after sulfate addition
+    explanation: >
+      Identifies two sulfate-responsive MAGs interpreted as putative
+      sulfate-reducing bacteria.
+  - reference: PMID:42231497
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      functional annotation identified only partial coverage of the
+      dissimilatory sulfate reduction pathway, with six MAGs carrying at least
+      one related gene but none encoding more than half of the pathway,
+      preventing definitive SRB classification
+    explanation: >
+      Captures the evidence boundary around SRB assignment in the recovered MAGs.
+- taxon_term:
+    preferred_term: Limnochordia homoacetogenic MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >
+      The source discusses Limnochordia sp. DTU31, DTU18, and DTU38 as MAGs
+      previously linked to Wood-Ljungdahl pathway activity; DTU38 was used as
+      the representative homoacetogen in the community GEM.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Limnochordia sp. DTU31, DTU18, and DTU38, species previously linked to WL
+      pathway activity [ 51 , 52 ], showed notable changes.
+    explanation: >
+      Identifies Limnochordia MAGs as Wood-Ljungdahl-associated community
+      members.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      The combination of sulfate and magnetite favored the Limnochordia
+      population, particularly Limnochordia sp. DTU31 and Limnochordia sp.
+      DTU38, which increased to relative abundances of 7.8% and 18.9%.
+    explanation: >
+      Supports enrichment of the Limnochordia population in the magnetite plus
+      0.6 g/L sulfate condition.
+- taxon_term:
+    preferred_term: Dethiobacteria syntrophic acetate-oxidizing MAGs
+    term:
+      id: NCBITaxon:2
+      label: Bacteria
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:d__Bacteria
+      gtdb_taxon: Bacteria
+      gtdb_lineage: d__Bacteria
+      ncbi_source_id: NCBITaxon:2
+      majority_fraction: 1.0
+      support_genomes: 1603049
+      total_genomes: 1603049
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at d__ rank; 1 GTDB taxa under the NCBI taxon]
+    notes: >
+      The source recovered Dethiobacteria sp. DTU36 and Dethiobacteria sp.
+      DTU56 as Wood-Ljungdahl-harboring MAGs; DTU36 was used as the
+      representative syntrophic acetate oxidizer in the community GEM.
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - ELECTRON_DONOR
+  - CROSS_FEEDER
+  - SECONDARY_FERMENTER
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Dethiobacteria sp. DTU36, abundant in all conditions, and Dethiobacteria
+      sp. DTU56, also harbored WL pathway genes.
+    explanation: >
+      Identifies Dethiobacteria MAGs as abundant Wood-Ljungdahl-bearing members
+      of the community.
+  - reference: PMID:42231497
+    supports: PARTIAL
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      These species have been identified as potential syntrophic
+      acetate-oxidizing bacteria (SAOB)
+    explanation: >
+      Supports the SAOB assignment as a potential role rather than a directly
+      measured acetate-oxidation phenotype.
+ecological_interactions:
+- name: Magnetite-enhanced methanogenesis under sulfate stress
+  description: >
+    Adding 10 g/L magnetite to the 0.6 g/L sulfate condition relieved the
+    sulfate-associated methane-production penalty, reduced sulfide stress
+    through precipitation, and increased CH4 production by 19% relative to the
+    sulfate-only treatment without eliminating sulfate-reducer activity.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: hydrogen sulfide
+    term:
+      id: CHEBI:16136
+      label: hydrogen sulfide
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  downstream:
+  - target: Acetate-centered four-guild redox cycling
+    description: >
+      The methanogenesis rescue co-occurred with retained SRB and SAOB activity
+      and expanded methanogenic and homoacetogenic populations under magnetite.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      the presence of magnetite reversed the sulfate-induced inhibition at 0.6
+      g/L sulfate, resulting in a 19% increase in CH4 production in MAGN_0.6
+      compared to SULF_0.6
+    explanation: >
+      Supports the 19% methane-production rescue by magnetite at moderate
+      sulfate stress.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Magnetite reduced dissolved sulfide species accumulation via
+      precipitation and increased methane production by 19% at 0.6 g/L sulfate
+      addition without limiting sulfate utilization.
+    explanation: >
+      Supports the combined sulfide-scavenging and methane-enhancing outcome.
+- name: Acetate-centered four-guild redox cycling
+  description: >
+    Genome-scale metabolic models for the representative methanogen, SRB,
+    homoacetogen, and SAOB MAGs supported acetate turnover in which the
+    homoacetogen consumes H2 and CO2 to secrete acetate, and acetate is then
+    oxidized back to H2 and CO2 by SAOB or used by SRB as an electron donor for
+    sulfate reduction.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methanoculleus methanogenic MAGs
+  - preferred_term: putative sulfate-reducing MAGs
+  - preferred_term: Limnochordia homoacetogenic MAGs
+  - preferred_term: Dethiobacteria syntrophic acetate-oxidizing MAGs
+  metabolites:
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  - preferred_term: carbon dioxide
+    term:
+      id: CHEBI:16526
+      label: carbon dioxide
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  - preferred_term: sulfate
+    term:
+      id: CHEBI:16189
+      label: sulfate
+  - preferred_term: methane
+    term:
+      id: CHEBI:16183
+      label: methane
+  biological_processes:
+  - preferred_term: methanogenesis
+    term:
+      id: GO:0015948
+      label: methanogenesis
+  - preferred_term: dissimilatory sulfate reduction
+    term:
+      id: GO:0019420
+      label: dissimilatory sulfate reduction
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      The curated GEMs of the individual species were then integrated into
+      multispecies community networks, one per condition, i.e., for CTRL,
+      SULF_0.6, and MAGN_0.6.
+    explanation: >
+      Identifies the condition-specific four-member community GEMs behind the
+      flux predictions.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Solution-space sampling further identified acetate as a central
+      intermediate, produced and consumed by multiple guilds, with its turnover
+      redistributing carbon and reducing equivalents across the community and
+      thereby influencing methane formation.
+    explanation: >
+      Supports acetate as the shared intermediate in the modeled four-guild
+      redox cycle.
+- name: Model-predicted amino-acid and organic-acid exchange
+  description: >
+    Flux-space sampling of the community GEMs predicted exchange of glucogenic
+    amino acids and short-chain organic acids among the four modeled guilds,
+    with the homoacetogen, SAOB, and methanogen acting as major exchange hubs
+    and the SRB predicted to import several amino acids.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Methanoculleus methanogenic MAGs
+  - preferred_term: putative sulfate-reducing MAGs
+  - preferred_term: Limnochordia homoacetogenic MAGs
+  - preferred_term: Dethiobacteria syntrophic acetate-oxidizing MAGs
+  metabolites:
+  - preferred_term: amino acid
+    term:
+      id: CHEBI:33709
+      label: amino acid
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Flux-space sampling of the community model further provided a
+      comprehensive view of feasible interspecies exchange patterns, not easily
+      measurable in vivo (Supplementary material 3), suggesting extensive
+      exchange of amino acids and short-chain organic acids among the four
+      functional groups
+    explanation: >
+      Supports predicted amino-acid and organic-acid exchange among the modeled
+      methanogen, SRB, homoacetogen, and SAOB guilds.
+environmental_factors:
+- name: moderate sulfate stress
+  value: 0.6
+  unit: g/L sulfate
+  description: >
+    The magnetite-rescued treatment combined 0.6 g/L sulfate with the 10 g/L
+    magnetite amendment.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      four treatments with 0.6 or 1.2 g/L sulfate
+    explanation: >
+      Supports the paired sulfate doses tested with and without magnetite.
+- name: magnetite conductive-material amendment
+  value: 10
+  unit: g/L magnetite
+  description: >
+    Magnetite was added as the conductive Fe(II)/Fe(III) oxide and H2S
+    scavenging amendment.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      was added as conductive material at 10 g/L
+    explanation: >
+      Supports magnetite identity and concentration as a controlled amendment.
+- name: H2/CO2 gas feed
+  value: 4:1
+  unit: H2/CO2 ratio
+  description: >
+    H2/CO2 was supplied as the gas feed for hydrogenotrophic methanogenesis.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Five conditions were tested using H2/CO2 gas (4:1, Air Liquide, Danmark
+      A/S) as feed
+    explanation: >
+      Supports the hydrogen and carbon dioxide gas feed supplied to the batch
+      bottles.
+growth_media:
+- name: H2/CO2-fed basal anaerobic medium with sulfate and magnetite
+  composition:
+  - name: basal anaerobic medium
+  - name: sodium sulfate
+    concentration: 0.6 or 1.2
+    unit: g/L sulfate
+    chebi_term:
+      preferred_term: sulfate
+      term:
+        id: CHEBI:16189
+        label: sulfate
+  - name: magnetite
+    concentration: 10
+    unit: g/L
+    chebi_term:
+      preferred_term: magnetite
+      term:
+        id: CHEBI:46726
+        label: magnetite
+  atmosphere: ANAEROBIC
+  headspace_gas: H2/CO2 4:1
+  inoculum_source: Mesophilic inoculum from Hashøj biogas plant, Zealand, Denmark
+  inoculum_size: 20
+  inoculum_unit: percent v/v
+  incubation_time: 5
+  incubation_time_unit: days until stationary phase
+  vessel_type: 250 mL anoxic serum bottle
+  shaking_speed: 100
+  shaking_speed_unit: rpm
+  preparation_notes: >
+    Each serum bottle contained 80 mL basal anaerobic medium and 20 mL inoculum.
+    The record focuses on the 0.6 g/L sulfate plus magnetite condition with
+    genome-centric metagenomic sampling, while the paper also tested a
+    sulfate-free control and 1.2 g/L sulfate with and without magnetite.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Anoxic serum bottles (250 mL; working volume 100 mL) were purged with
+      pure N2 (Air Liquide, Danmark A/S), each containing 80 mL basal anaerobic
+      (BA) medium and 20 mL inoculum
+    explanation: >
+      Supports the anoxic serum-bottle vessel, working volume, basal anaerobic
+      medium volume, and inoculum volume.
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      All conditions were prepared in triplicate, incubated under mesophilic
+      conditions at 100 rpm, and monitored until the stationary phase.
+    explanation: >
+      Supports triplicate incubations under mesophilic shaking conditions.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  instrument_detail: 250 mL anoxic serum bottles purged with N2 and supplied with H2/CO2 gas.
+  working_volume: 100.0
+  working_volume_unit: mL
+  controls_notes: >
+    Bottles were run as closed, shaken batch cultures; the source reports
+    mesophilic incubation at 100 rpm and does not report active pH, dissolved
+    oxygen, or online gas-flow control.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Anoxic serum bottles (250 mL; working volume 100 mL) were purged with
+      pure N2
+    explanation: >
+      Supports the use of sealed anoxic serum bottles as the batch cultivation
+      vessel.
+associated_datasets:
+- title: Sulfate-stressed magnetite anaerobic microbiome metagenomes
+  accession: PRJNA1242289
+  dataset_type: METAGENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1242289
+  conditions:
+  - CTRL
+  - SULF_0.6
+  - MAGN_0.6
+  platform: Illumina
+  description: >
+    Genome-centric metagenomic reads and recovered MAGs from the sulfate-free
+    control, 0.6 g/L sulfate treatment, and 0.6 g/L sulfate plus 10 g/L
+    magnetite treatment.
+  publication: PMID:42231497
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >
+      Sequence data reported in this study have been submitted to the National
+      Centre for Biotechnology Information under the BioProject PRJNA1242289.
+    explanation: >
+      Supports the NCBI BioProject accession for the genome-centric metagenomic
+      sequence data.
+external_resources:
+- name: Primary publication DOI
+  repository: OTHER
+  resource_id: doi:10.1186/s40168-026-02443-4
+  url: https://doi.org/10.1186/s40168-026-02443-4
+  description: >
+    Open-access Microbiome article reporting magnetite-enhanced methanogenesis,
+    genome-centric metagenomics, and four-guild community genome-scale metabolic
+    modeling under sulfate stress.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Ecological and metabolic restructuring of anaerobic microbiomes under
+      sulfate stress via magnetite-enhanced cooperative networks
+    explanation: >
+      Identifies the exact primary publication curated for this record.
+related_ingredients:
+- preferred_term: magnetite
+  chebi_term:
+    id: CHEBI:46726
+    label: magnetite
+  relevance: >
+    Magnetite was supplied as a conductive Fe(II)/Fe(III) oxide that both
+    precipitated sulfide and was associated with a more cooperative syntrophic
+    network under sulfate stress.
+  evidence:
+  - reference: PMID:42231497
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      This study demonstrates the role of magnetite not only as a hydrogen
+      sulfide scavenger but also as a community modulator
+    explanation: >
+      Supports magnetite as both a chemical and community-level modulator.
+metals_present:
+- IRON
+rare_earth_elements_present: []
+metal_relevance: PRIMARY
+metal_notes: >
+  Magnetite was the iron-containing conductive material supplied to restructure
+  electron flow in sulfate-stressed anaerobic-digestion cultures; the community
+  was not cultivated for iron recovery or biomining.
+discussions:
+- discussion_id: kg-magnetite-sulfate-diet-validation
+  prompt: >
+    Which members directly exchange electrons through magnetite or biological
+    conductive structures in the sulfate-stressed anaerobic microbiome?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Acetate-centered four-guild redox cycling
+  rationale: >
+    The Microbiome study links magnetite addition to a cooperative four-guild
+    network and model-feasible metabolite exchange, but direct DIET validation
+    was outside the experiment.
+  evidence:
+  - reference: PMID:42231497
+    supports: PARTIAL
+    evidence_source: IN_VITRO
+    snippet: >
+      Direct validation of DIET requires additional targeted experimental
+      approaches beyond the scope of this study.
+    explanation: >
+      Records the source paper's own boundary around direct electron-transfer
+      validation.
+curation_history:
+- timestamp: '2026-09-15T02:41:25Z'
+  curator: codex
+  action: CREATE_MAGNETITE_SULFATE_STRESS_ANAEROBIC_MICROBIOME
+  changes: >
+    Added the magnetite-amended sulfate-stressed anaerobic microbiome from
+    PMID:42231497 with four genome-resolved guilds, H2/CO2-fed serum-bottle
+    batch cultivation, the PRJNA1242289 metagenomic BioProject, and
+    evidence-backed experimental and GEM-supported interactions.
+  llm_assisted: true
