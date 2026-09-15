@@ -179,6 +179,7 @@ _BLIND_BY_REASON: dict[str, tuple[str, ...]] = {
         "Waste_Sludge_Electrofermentation_Biofilm_Suspension_Community.yaml",
         "Aalborg_East_Full_Scale_EBPR_Community.yaml",
         "Acetobacterium_Clostridium_CO2_Electrolysis_Coculture.yaml",
+        "Bacillales_Lignin_Degrading_LDSynCom.yaml",
         "Caldicellulosiruptor_TwoSpecies_Hydrogen_Coculture.yaml",
         "Clostridium_Cellulolyticum_Geobacter_Cellulose_MFC_Coculture.yaml",
         "Clostridium_Thermocellum_Saccharoperbutylacetonicum_Cellulosic_Butanol_Coculture.yaml",
