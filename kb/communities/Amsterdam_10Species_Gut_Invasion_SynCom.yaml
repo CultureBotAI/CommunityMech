@@ -247,9 +247,6 @@ ecological_interactions:
     term:
       id: GO:0044419
       label: biological process involved in interspecies interaction between organisms
-  downstream:
-  - target: GLV Co-culture Assembly Prediction
-    description: The conditioned-medium final-population-density interactions parameterized GLV equations for co-culture equilibria.
   evidence:
   - reference: PMID:41960919
     supports: SUPPORT
@@ -262,66 +259,6 @@ ecological_interactions:
     evidence_source: IN_VITRO
     snippet: We then prepared conditioned medium by mixing 60% fresh YCFA medium with 40% of spent medium.
     explanation: Supports the spent- plus fresh-YCFA conditioned-medium design.
-- name: GLV Co-culture Assembly Prediction
-  description: A generalized Lotka-Volterra model parameterized from conditioned media predicted qPCR-measured relative frequencies
-    across two-species and selected three- or four-species co-cultures, showing that soluble pairwise interaction terms carried
-    assembly signal beyond monoculture growth.
-  interaction_type: NICHE_PARTITIONING
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: regulation of multi-organism process
-    term:
-      id: GO:0043900
-      label: regulation of multi-organism process
-  downstream:
-  - target: Resident-to-Invader Growth Control
-    description: The same conditioned-medium interaction matrix was used to simulate E. coli and B. ovatus invasions into
-      model-predicted stable resident communities.
-  evidence:
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: To validate the predictions, we grew the 36 combinations of two species and measured their final relative frequencies
-      with qPCR.
-    explanation: Supports experimental validation across all two-member combinations.
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We grew 11 co-cultures of three and four species for 24 h and compared the final fraction with model predictions
-    explanation: Supports validation of the model against three- and four-species co-cultures.
-- name: Resident-to-Invader Growth Control
-  description: 'Model-predicted resident assemblages differed strongly in whether they admitted E. coli or B. ovatus invaders:
-    simulated B. ovatus invasions succeeded in most stable communities, simulated E. coli invasions succeeded in a minority,
-    and 13 in-vitro invasion experiments matched the predicted successes and failures.'
-  interaction_type: COLONIZATION_FACILITATION
-  scope: COMMUNITY_LEVEL
-  biological_processes:
-  - preferred_term: regulation of biological quality
-    term:
-      id: GO:0065008
-      label: regulation of biological quality
-    notes: Broad GO proxy for resident control of invader growth.
-  evidence:
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: E. coli can only invade 24.1% of the stable communities in which it is not present
-    explanation: Supports a lower simulated invasion-success fraction for E. coli.
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: B. ovatus can invade 97.6% of the stable communities
-    explanation: Supports a higher simulated invasion-success fraction for B. ovatus.
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: Relative growth of the invader was measured for 13 different communities.
-    explanation: Supports the in-vitro invasion validation set size.
-  - reference: PMID:41960919
-    supports: SUPPORT
-    evidence_source: IN_VITRO
-    snippet: We predicted invasions using a 5% population threshold at 24 h and successfully predicted all observed invasions.
-    explanation: Supports agreement between predicted and observed invasion outcomes.
 environmental_factors:
 - name: 40 percent spent YCFA conditioned medium
   value: 60% fresh YCFA medium plus 40% spent medium
@@ -383,7 +320,43 @@ cultivation_setup:
     evidence_source: IN_VITRO
     snippet: The washed invading species was then introduced into the resuspended initial consortia at a final OD600 of 0.05.
     explanation: Supports the invader inoculation density.
+associated_datasets:
+- title: Amsterdam gut SynCom data and code repository
+  dataset_type: OTHER
+  repository: OTHER
+  accession: github:WortelLab/SynCom
+  url: https://github.com/WortelLab/SynCom
+  description: Paper-linked repository containing conditioned-medium growth, co-culture, and invasion assay data and analysis
+    code for the ten-species gut SynCom.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'All data and code are available in the GitHub repository: https://github.com/WortelLab/SynCom'
+    explanation: Identifies the paper-linked GitHub repository hosting the source data and code.
+external_resources:
+- name: Amsterdam gut SynCom mSystems article
+  repository: OTHER
+  resource_id: doi:10.1128/msystems.00113-26
+  url: https://doi.org/10.1128/msystems.00113-26
+  description: DOI landing page for the article reporting environmentally mediated interaction assays, generalized Lotka-Volterra
+    co-culture predictions, and invasion validation in the ten-species gut SynCom.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Environmentally mediated interactions predict community assembly and invasion success in a gut microbiota synthetic community
+    explanation: Links the DOI landing page to the curated Amsterdam gut SynCom study.
 curation_history:
+- timestamp: '2026-09-15T06:45:53Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: >
+    Removed gLV prediction and invasion-outcome summaries from
+    ecological_interactions where they were over-typed as niche partitioning and
+    colonization facilitation, and added DOI/GitHub resource metadata for the
+    article and its paper-linked data/code repository.
+  llm_assisted: true
 - timestamp: '2026-09-15T06:34:11Z'
   curator: codex
   action: ADD_COMMUNITY_RECORD
