@@ -176,6 +176,7 @@ USERS = {
     "Australian_Lead_Zinc_Polymetallic.yaml",
     "Avena_Rhizosphere_CrossKingdom_SIP_Community.yaml",
     "BSFL_Gut_SynCom_Bacillus_Lactobacillus_Issatchenkia.yaml",
+    "Bacillales_Lignin_Degrading_LDSynCom.yaml",
     "Bacillus_A1_A3_Naphthalene_Biofilm_Consortium.yaml",
     "Bacillus_Bradyrhizobium_Straw_Humification_SynCom.yaml",
     "Bacillus_Saccharomyces_Daqu_Spatial_Cooperation_SynCom.yaml",

@@ -1,0 +1,545 @@
+id: CommunityMech:000383
+name: Bacillales Lignin-Degrading LDSynCom
+description: An engineered eleven-strain Bacillales synthetic community assembled for aerobic beechwood-lignin degradation
+  in M9 minimal medium. Zhou et al. 2026 screened a 121-strain Bacillales collection with a bottom-up clear-halo lignin-utilization
+  assay and a top-down M9-lignin enrichment, distilled 15 candidates with crystal-violet biofilm and methylene-blue/Azure-B
+  dye-decolorization assays, and retained 11 strains for the lignin-degrading SynCom. The final LDSynCom formed biofilms on
+  lignin particles, accumulated more Folin-Ciocalteu-reactive phenolics than uninoculated and 11B-dropout controls, and produced
+  extracellular proteomes whose lignin-induced proteins included Paenibacillus sp. 11B ring-cleaving dioxygenase candidates.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Construct a Bacillales synthetic community that combines ligninolytic capacity with biofilm-forming members for
+    beechwood-lignin transformation under controlled M9 minimal-medium conditions.
+  assembly_strategy: Screen 121 Bacillales strains with a bottom-up M9 agar clear-halo assay on kraft and beechwood lignin,
+    enrich the complete 121-strain library in M9-lignin shake flasks as a top-down biofilm-forming screen, reduce the resulting
+    15 candidates with crystal-violet biofilm and lignin-like dye-decolorization assays, and retain the 11 strains that formed
+    biofilm or decolorized lignin-like dyes.
+  inoculation_strategy: Grow each retained strain overnight in LB, adjust to OD600 0.8, and inoculate M9-lignin shake flasks
+    with 100 uL of each culture for the SynCom lignin-degradation assay.
+  perturbation_design: Compare full LDSynCom, LDSynCom lacking Paenibacillus sp. 11B, 11B alone, and an uninoculated M9 medium
+    control supplemented with 0.2% glucose and 0.1% lignin over the 41- to 42-day dropout assay.
+  measurement_endpoints:
+  - single-strain clear-halo growth on M9 agar with glucose, kraft lignin, or beechwood lignin
+  - crystal-violet biofilm staining
+  - methylene blue and Azure B lignin-like dye decolorization
+  - shake-flask OD measurements and A280 lignin absorbance
+  - Folin-Ciocalteu A750 total released phenolic signal
+  - lignin-particle scanning electron microscopy
+  - extracellular diaPASEF LC-MS/MS proteomics after 7 days in M9 with or without lignin
+  counter_selection:
+  - criterion: Excluded after the 15-candidate stage because the strains had poor biofilm formation and/or low lignin-like
+      dye decolorization.
+    excluded_count: 4
+    evidence:
+    - reference: doi:10.64898/2026.08.24.746789
+      supports: SUPPORT
+      evidence_source: IN_VITRO
+      snippet: ACCC04323, LY18, YX13 and DX1.1 showed poor biofilm formation and/or low dye decolorization
+      explanation: Supports the four-candidate exclusion set that was not retained in the final LDSynCom.
+  notes: Counter-selection is recorded as design logic rather than a taxon-to-taxon interaction because the rejected strains
+    are not final LDSynCom members.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 121 strains used in this work are from the order Bacillales
+    explanation: Supports the Bacillales starting collection used for SynCom assembly.
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a total 11 strains were shown to produce biofilm or decolorize lignin-like dyes
+    explanation: Supports the final 11-strain SynCom selection criterion.
+environment_term:
+  preferred_term: M9 beechwood-lignin laboratory medium
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: LDSynCom was assembled and assayed in controlled aerobic M9-lignin shake flasks supplemented with organosolv beechwood
+    lignin and glucose.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus safensis CEW-AP100
+    term:
+      id: NCBITaxon:561879
+      label: Bacillus safensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374920 and RefSeq assembly GCF_030122965.1 are linked to BioProject PRJNA960711.
+  strain_designation:
+    strain_name: CEW-AP100
+    genome_accession: GCF_030122965.1
+    notes: NCBI BioSample SAMN34374920 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S01": "B.safensis_CEW-AP100"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus safensis CEW-AP100.
+- taxon_term:
+    preferred_term: Bacillus paralicheniformis CEW_1W
+    term:
+      id: NCBITaxon:1648923
+      label: Bacillus paralicheniformis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374924 and RefSeq assembly GCF_030123025.1 are linked to BioProject PRJNA960711.
+      The paper writes CEW_1W, the BioSample strain attribute writes CEW 1W, and the paper-linked STRAIN_MAP writes CEW1W.
+  strain_designation:
+    strain_name: CEW_1W
+    genome_accession: GCF_030123025.1
+    notes: NCBI BioSample SAMN34374924 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S02": "B.paralicheniformis_CEW1W"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus paralicheniformis CEW_1W.
+- taxon_term:
+    preferred_term: Bacillus altitudinis G6S2
+    term:
+      id: NCBITaxon:293387
+      label: Bacillus altitudinis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374888 and RefSeq assembly GCF_030123125.1 are linked to BioProject PRJNA960711.
+  strain_designation:
+    strain_name: G6S2
+    genome_accession: GCF_030123125.1
+    notes: NCBI BioSample SAMN34374888 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S03": "B.altitudinis_G6S2"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus altitudinis G6S2.
+- taxon_term:
+    preferred_term: Bacillus subtilis KF24
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34375013 and RefSeq assembly GCF_030123145.1 are linked to BioProject PRJNA960711.
+  strain_designation:
+    strain_name: KF24
+    genome_accession: GCF_030123145.1
+    notes: NCBI BioSample SAMN34375013 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S04": "B.subtilis_KF24"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus subtilis KF24.
+- taxon_term:
+    preferred_term: Lysinibacillus pakistanensis LY92
+    term:
+      id: NCBITaxon:759811
+      label: Lysinibacillus pakistanensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374975 and RefSeq assembly GCF_030123265.1 are linked to BioProject PRJNA960711.
+  strain_designation:
+    strain_name: LY92
+    genome_accession: GCF_030123265.1
+    notes: NCBI BioSample SAMN34374975 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S05": "L.pakistanensis_LY92"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Lysinibacillus pakistanensis LY92.
+- taxon_term:
+    preferred_term: Bacillus velezensis MB7_B11
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374909 and RefSeq assembly GCF_030123285.1 are linked to BioProject PRJNA960711.
+      The paper uses MB7_B11 and the paper-linked STRAIN_MAP writes MB7B11 without the underscore.
+  strain_designation:
+    strain_name: MB7_B11
+    genome_accession: GCF_030123285.1
+    notes: NCBI BioSample SAMN34374909 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S06": "B.velezensis_MB7B11"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus velezensis MB7_B11.
+- taxon_term:
+    preferred_term: Bacillus toyonensis Puebla_S2
+    term:
+      id: NCBITaxon:155322
+      label: Bacillus toyonensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374896 and RefSeq assembly GCF_030167055.1 are linked to BioProject PRJNA960711.
+      The paper uses Puebla_S2 and the paper-linked STRAIN_MAP writes PueblaS2 without the underscore.
+  strain_designation:
+    strain_name: Puebla_S2
+    genome_accession: GCF_030167055.1
+    notes: NCBI BioSample SAMN34374896 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S07": "B.toyonensis_PueblaS2"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus toyonensis Puebla_S2.
+- taxon_term:
+    preferred_term: Bacillus velezensis MB7_B13
+    term:
+      id: NCBITaxon:492670
+      label: Bacillus velezensis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374910 and RefSeq assembly GCF_030348465.1 are linked to BioProject PRJNA960711.
+      The paper uses MB7_B13 and the paper-linked STRAIN_MAP writes MB7B13 without the underscore.
+  strain_designation:
+    strain_name: MB7_B13
+    genome_accession: GCF_030348465.1
+    notes: NCBI BioSample SAMN34374910 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S08": "B.velezensis_MB7B13"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus velezensis MB7_B13.
+- taxon_term:
+    preferred_term: Bacillus subtilis D9_B_56
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374878 and RefSeq assembly GCF_030348595.1 are linked to BioProject PRJNA960711.
+      The paper uses D9_B_56 and the paper-linked STRAIN_MAP writes D9B56 without underscores.
+  strain_designation:
+    strain_name: D9_B_56
+    genome_accession: GCF_030348595.1
+    notes: NCBI BioSample SAMN34374878 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S09": "B.subtilis_D9B56"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus subtilis D9_B_56.
+- taxon_term:
+    preferred_term: Bacillus licheniformis D9_B_45
+    term:
+      id: NCBITaxon:1402
+      label: Bacillus licheniformis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374874 and RefSeq assembly GCF_030348625.1 are linked to BioProject PRJNA960711.
+      The paper uses D9_B_45 and the paper-linked STRAIN_MAP writes D9B45 without underscores.
+  strain_designation:
+    strain_name: D9_B_45
+    genome_accession: GCF_030348625.1
+    notes: NCBI BioSample SAMN34374874 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S10": "B.licheniformis_D9B45"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Bacillus licheniformis D9_B_45.
+- taxon_term:
+    preferred_term: Paenibacillus sp. 11B
+    term:
+      id: NCBITaxon:3060965
+      label: Paenibacillus sp. 11B
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI label and species rank verified via E-utilities; local NCBI2GTDB.tsv.gz crosswalk was unavailable at expected
+      sibling paths during curation. BioSample SAMN34374901 and RefSeq assembly GCF_030487755.1 are linked to BioProject PRJNA960711.
+  strain_designation:
+    strain_name: 11B
+    genome_accession: GCF_030487755.1
+    notes: NCBI BioSample SAMN34374901 in BioProject PRJNA960711.
+  abundance_value: One of the eleven strains selected for the Bacillales LDSynCom.
+  evidence:
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: '"S11": "Paenibacillus_sp_11B"'
+    explanation: Maps the paper-linked S identifier used in the proteomics analysis code to Paenibacillus sp. 11B.
+ecological_interactions:
+- name: LDSynCom lignin phenolic release
+  description: The complete 11-member Bacillales LDSynCom released a higher Folin-Ciocalteu total-phenolic signal from lignin
+    than the uninoculated, Paenibacillus sp. 11B-only, and 11B-dropout controls.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+    concentration: 0.1% in the 41- to 42-day dropout assay; 1 g/L in the screening, SEM, and proteomics assays
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The LDSynCom samples produced significantly higher phenolic signals than the uninoculated control
+    explanation: Supports community-level lignin-associated phenolic release measured by the Folin-Ciocalteu assay.
+- name: Paenibacillus 11B contribution to LDSynCom phenolic accumulation
+  description: 'Paenibacillus sp. 11B contributed to, but did not alone explain, the community phenotype: removing 11B decreased
+    overall growth and phenolic accumulation relative to full LDSynCom, while 11B alone accumulated less biomass than the
+    complete consortium.'
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Paenibacillus sp. 11B
+    term:
+      id: NCBITaxon:3060965
+      label: Paenibacillus sp. 11B
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: lignin catabolic process
+    term:
+      id: GO:0046274
+      label: lignin catabolic process
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Removing strain 11B from the LDSynCom reduced the overall growth
+    explanation: Supports the 11B dropout effect without asserting that all lignin degradation is exclusive to 11B.
+- name: LDSynCom lignin-particle biofilm formation
+  description: After growth in M9 medium with beechwood lignin, LDSynCom cells formed extracellular-matrix-associated biofilm
+    structures attached to lignin particles.
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: lignin
+    term:
+      id: CHEBI:6457
+      label: lignin
+  biological_processes:
+  - preferred_term: biofilm formation
+    term:
+      id: GO:0042710
+      label: biofilm formation
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: well-developed biofilm structures could be observed attached to the surface of lignin particles
+    explanation: Supports lignin-particle biofilm formation as an observed community-level phenotype in the SEM assay.
+environmental_factors:
+- name: beechwood organosolv lignin
+  value: '1'
+  unit: g/L
+  description: Beechwood lignin was added as the nominal complex aromatic carbon substrate in the M9-lignin screening, SEM,
+    and proteomics assays.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: the final lignin concentration of 1 g/L
+    explanation: Supports the beechwood-lignin concentration in M9-lignin medium.
+- name: initial glucose supplement
+  value: '0.2'
+  unit: '% w/v'
+  description: Liquid LDSynCom M9 cultures included a small glucose supplement to support initial growth before lignin-associated
+    activity was assayed.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 0.2% of glucose was included to support initial bacterial growth
+    explanation: Supports the glucose supplement used in liquid M9-lignin cultivation.
+growth_media:
+- name: M9 minimal medium with beechwood lignin
+  composition:
+  - name: beechwood organosolv lignin
+    concentration: '1'
+    unit: g/L
+    chebi_term:
+      preferred_term: lignin
+      term:
+        id: CHEBI:6457
+        label: lignin
+    from_source: Fraunhofer CBP beechwood lignin dissolved as a 50 g/L DMSO stock
+  - name: D-glucose
+    concentration: '0.2'
+    unit: '% w/v'
+    from_source: Liquid cultivation supplement for initial growth
+  temperature: '30'
+  temperature_unit: °C
+  atmosphere: AEROBIC
+  incubation_time: '7'
+  incubation_time_unit: d
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  vessel_type: shake flask
+  preparation_notes: M9 medium contained 1 g/L beechwood lignin for screening, SEM, and proteomics; the dropout assay used
+    the same M9 background with 0.1% lignin.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M9 minimal medium was used to provide a nutrient-limited environment
+    explanation: Names M9 as the nutrient-limited medium used to promote lignin utilization.
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All cultures were incubated in flasks at 30 °C using 200 rpm shaking
+    explanation: Supports the flask temperature and shaking speed used in M9-lignin enrichment.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: aerobic M9-lignin shake flasks
+  operating_temperature: 30.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: SynCom lignin assays inoculated each overnight LB culture into M9-lignin shake flasks; SEM sampled 10-day
+    lignin cultures, and proteomics compared 7-day M9 controls with and without lignin in four biological replicates per condition.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 100 μL of each culture was inoculated into M9-lignin medium shake flasks
+    explanation: Supports the equal-volume flask inoculation format for the SynCom lignin assay.
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: LDSynCom was cultivated in M9 minimal medium containing 1 g/L lignin
+    explanation: Supports the 10-day SEM cultivation setup on lignin.
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The LDSyncom was inoculated into M9 medium and M9 supplemented with lignin, with four biological replicates per
+      condition
+    explanation: Supports the M9-plus-lignin proteomics comparison and replicate count.
+related_ingredients:
+- preferred_term: lignin
+  chebi_term:
+    id: CHEBI:6457
+    label: lignin
+  relevance: Target substrate and aromatic polymer for LDSynCom screening, biofilm imaging, dropout assays, and extracellular
+    proteomics.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: promote the utilization of lignin as the main carbon source
+    explanation: Supports lignin as the central substrate for LDSynCom assembly and assay.
+associated_datasets:
+- title: Bacillales collection complete-genome BioProject
+  description: NCBI BioProject containing complete genomes for Bacillales strains used to assemble the 11-member LDSynCom.
+  organism: Bacillales
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA960711
+  sample_count: 121
+  platform: whole-genome sequencing
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA960711
+  publication: doi:10.64898/2026.08.24.746789
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: assembled complete genomes under NCBI Bioproject PRJNA960711
+    explanation: Links the Bacillales complete genomes to BioProject PRJNA960711.
+- title: LDSynCom Oxford Nanopore tuf amplicon BioProject
+  description: NCBI BioProject containing Oxford Nanopore tuf amplicon reads used for Bacillales biofilm community profiling.
+  organism: Bacillales Lignin-Degrading LDSynCom
+  dataset_type: AMPLICON_OTHER
+  repository: NCBI_BIOPROJECT
+  accession: PRJNA1505615
+  platform: Oxford Nanopore MinION tuf amplicon sequencing
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1505615
+  publication: doi:10.64898/2026.08.24.746789
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: deposited in NCBI Bioproject under PRJNA1505615
+    explanation: Links the raw Nanopore tuf amplicon reads to BioProject PRJNA1505615.
+external_resources:
+- name: Bacillales LDSynCom bioRxiv preprint
+  repository: OTHER
+  resource_id: doi:10.64898/2026.08.24.746789
+  url: https://doi.org/10.64898/2026.08.24.746789
+  description: DOI landing page for the 2026 bioRxiv preprint reporting bottom-up and top-down Bacillales LDSynCom assembly.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Ecologically inspired assembly of a Bacillales synthetic community for lignin degradation
+    explanation: Links the DOI to the curated Bacillales lignin-degrading SynCom study.
+- name: lignin_SynCom_proteomics GitHub repository
+  repository: GITHUB
+  resource_id: github:Xinming9606/lignin_SynCom_proteomics@ed208e4d5df80c96100f2113db39698832d7b685
+  url: https://github.com/Xinming9606/lignin_SynCom_proteomics/tree/ed208e4d5df80c96100f2113db39698832d7b685
+  description: Immutable GitHub commit for the paper-linked extracellular proteomics analysis code and source spreadsheets.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'All analysis code is available at: (https://github.com/Xinming9606/lignin_SynCom_proteomics)'
+    explanation: Links the repository to the Bacillales LDSynCom preprint.
+  - reference: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: STRAIN_MAP = {
+    explanation: Identifies the paper-linked downstream-analysis file that maps S01-S11 to strain names.
+discussions:
+- discussion_id: ldsyncom_functional_partitioning
+  prompt: Which LDSynCom strains make unique versus redundant causal contributions to lignin-particle biofilm formation and
+    aromatic lignin-product metabolism?
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#LDSynCom lignin phenolic release
+  - ecological_interactions#Paenibacillus 11B contribution to LDSynCom phenolic accumulation
+  rationale: The source reports a targeted 11B dropout and community-level proteomic profiling, but explicitly cautions that
+    roles in the consortium are not strictly partitioned.
+  evidence:
+  - reference: doi:10.64898/2026.08.24.746789
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: functional roles within the consortium are not strictly partitioned
+    explanation: Supports keeping strain-specific lignin roles as a knowledge gap rather than asserting a full set of pairwise
+      or exclusive division-of-labor edges.
+  posed_by: codex
+  posed_date: '2026-09-15'
+- discussion_id: biorxiv_table1_rate_limit
+  prompt: Can the BioRxiv Table 1 and supplementary endpoints be cached directly once the article server allows follow-up
+    requests?
+  kind: CURATION_TODO
+  status: OPEN
+  rationale: During curation, BioRxiv Highwire Table 1 and supplementary material endpoints returned HTTP 429 rate-limit responses.
+    The final composition was reconstructed from paper-linked GitHub source spreadsheets, analysis code, and NCBI BioSample
+    records.
+  posed_by: codex
+  posed_date: '2026-09-15'
+metals_present: []
+rare_earth_elements_present: []
+metal_relevance: NOT_APPLICABLE
+metal_notes: No metal or rare-earth processing role is reported for the Bacillales LDSynCom.
+curation_history:
+- timestamp: '2026-09-15T07:59:50Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Created CommunityMech:000383 for the DOI:10.64898/2026.08.24.746789 eleven-member Bacillales lignin-degrading LDSynCom,
+    including BioProject-backed strain membership, cautious 11B dropout and lignin-particle biofilm interactions, M9-lignin
+    batch flask metadata, and exact evidence snippets from the selected BioRxiv and GitHub caches.
+  llm_assisted: true
