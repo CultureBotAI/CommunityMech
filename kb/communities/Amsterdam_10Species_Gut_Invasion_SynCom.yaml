@@ -1,0 +1,392 @@
+id: CommunityMech:000382
+name: Amsterdam 10-Species Gut Invasion SynCom
+description: A defined ten-strain human gut bacterial synthetic-community panel used to quantify soluble, environmentally
+  mediated interactions and predict community assembly and invasion outcomes. van Leeuwen et al. generated cell-free YCFA
+  spent media from each DSMZ strain, grew every other strain in 40% spent plus 60% fresh YCFA medium, validated generalized
+  Lotka-Volterra predictions with two- to four-member YCFA co-cultures, and tested whether Escherichia coli DSM 18039 or Bacteroides
+  ovatus DSM 1896 could invade predicted stable resident assemblages.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Measure soluble pairwise interactions among prominent gut bacteria and test whether conditioned-medium interaction
+    parameters predict co-culture assembly and invasion success.
+  assembly_strategy: Assemble a ten-strain DSMZ panel of common human-gut bacteria; conditioned-medium assays used all ten
+    species, and Roseburia intestinalis was excluded from later generalized Lotka-Volterra analyses after failing to grow
+    in most conditioned media.
+  inoculation_strategy: Combine species into co-cultures using OD-to-CFU correlations for equal CFU inputs, then dilute the
+    mixture to a final combined OD600 of 0.05.
+  perturbation_design: Assay all 90 donor-acceptor conditioned-medium pairs, grow 36 two-species combinations and 11 three-
+    or four-species co-cultures, and challenge model-predicted stable communities with washed E. coli or B. ovatus invaders.
+  measurement_endpoints:
+  - OD595 growth curves in conditioned media
+  - qPCR-derived relative frequencies in co-cultures
+  - generalized Lotka-Volterra equilibrium predictions
+  - 24 h invasion growth of Escherichia coli and Bacteroides ovatus
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study uses a 10-species synthetic community of common gut microbiota to predict stable communities and invasion
+      success.
+    explanation: Supports the defined ten-species gut SynCom scope.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All 10 bacteria were cultured in all other nine conditioned media, resulting in a total of 90 combinations.
+    explanation: Supports the exhaustive conditioned-medium donor-acceptor design.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Using OD-CFU correlations, the bacteria were combined using an equal number of CFUs and subsequently diluted
+      to a final combined OD of 0.05.
+    explanation: Supports equalized CFU inoculation of the co-cultures.
+environment_term:
+  preferred_term: anaerobic laboratory human-gut SynCom
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: DSMZ human gut strains were cultured anaerobically in phosphate-buffered YCFA medium for conditioned-medium, co-culture,
+    and invasion assays.
+modeled_environment:
+- preferred_term: human intestine environment
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The source frames the DSMZ panel as common gut microbiota and uses it to study human gut microbiome invasion.
+taxonomy:
+- taxon_term:
+    preferred_term: Akkermansia muciniphila DSM 22959
+    term:
+      id: NCBITaxon:239935
+      label: Akkermansia muciniphila
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 22959
+    culture_collections:
+    - collection: DSM
+      accession: '22959'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Akkermansia muciniphila (DSM 22959)
+    explanation: Names Akkermansia muciniphila DSM 22959 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Bacteroides ovatus DSM 1896
+    term:
+      id: NCBITaxon:28116
+      label: Bacteroides ovatus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 1896
+    culture_collections:
+    - collection: DSM
+      accession: '1896'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides ovatus (DSM 1896)
+    explanation: Names Bacteroides ovatus DSM 1896 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Bacteroides thetaiotaomicron DSM 2079
+    term:
+      id: NCBITaxon:818
+      label: Bacteroides thetaiotaomicron
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 2079
+    culture_collections:
+    - collection: DSM
+      accession: '2079'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bacteroides thetaiotaomicron (DSM 2079)
+    explanation: Names Bacteroides thetaiotaomicron DSM 2079 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Bifidobacterium adolescentis DSM 20083
+    term:
+      id: NCBITaxon:1680
+      label: Bifidobacterium adolescentis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 20083
+    culture_collections:
+    - collection: DSM
+      accession: '20083'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bifidobacterium adolescentis (DSM 20083)
+    explanation: Names Bifidobacterium adolescentis DSM 20083 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Blautia obeum DSM 25238
+    term:
+      id: NCBITaxon:40520
+      label: Blautia obeum
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 25238
+    culture_collections:
+    - collection: DSM
+      accession: '25238'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Blautia obeum (DSM 25238)
+    explanation: Names Blautia obeum DSM 25238 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Escherichia coli DSM 18039
+    term:
+      id: NCBITaxon:562
+      label: Escherichia coli
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 18039
+    culture_collections:
+    - collection: DSM
+      accession: '18039'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Escherichia coli (DSM 18039)
+    explanation: Names Escherichia coli DSM 18039 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Faecalibacterium prausnitzii DSM 107838
+    term:
+      id: NCBITaxon:853
+      label: Faecalibacterium prausnitzii
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 107838
+    culture_collections:
+    - collection: DSM
+      accession: '107838'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Faecalibacterium prausnitzii (DSM 107838)
+    explanation: Names Faecalibacterium prausnitzii DSM 107838 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Lachnospiraceae bacterium DSM 24404
+    term:
+      id: NCBITaxon:1898203
+      label: Lachnospiraceae bacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 24404
+    culture_collections:
+    - collection: DSM
+      accession: '24404'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lachnospiraceae bacterium (DSM 24404)
+    explanation: Names Lachnospiraceae bacterium DSM 24404 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Lactobacillus johnsonii DSM 10533
+    term:
+      id: NCBITaxon:33959
+      label: Lactobacillus johnsonii
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 10533
+    culture_collections:
+    - collection: DSM
+      accession: '10533'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Lactobacillus johnsonii (DSM 10533)
+    explanation: Names Lactobacillus johnsonii DSM 10533 as a member of the ten-species gut SynCom.
+- taxon_term:
+    preferred_term: Roseburia intestinalis DSM 14610
+    term:
+      id: NCBITaxon:166486
+      label: Roseburia intestinalis
+    gtdb_grounding_status: UNRESOLVED
+    notes: The local NCBI2GTDB.tsv.gz crosswalk was unavailable during curation; the strain was verified at NCBI species rank.
+  strain_designation:
+    strain_name: DSM 14610
+    culture_collections:
+    - collection: DSM
+      accession: '14610'
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Roseburia intestinalis (DSM 14610)
+    explanation: Names Roseburia intestinalis DSM 14610 as a member of the ten-species gut SynCom.
+ecological_interactions:
+- name: Negative Conditioned-Medium Interactions
+  description: Cell-free stationary-phase spent YCFA medium from each species was mixed with fresh YCFA and used to grow every
+    other species. Final-density effects were mostly negative, consistent with soluble resource depletion or inhibitory products
+    dominating the tested donor-acceptor interaction matrix.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: GLV Co-culture Assembly Prediction
+    description: The conditioned-medium final-population-density interactions parameterized GLV equations for co-culture equilibria.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: negative interactions, which could be caused by e.g., resource competition or toxin production, dominate between
+      the tested species
+    explanation: Supports mostly negative soluble interactions among the tested strains.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We then prepared conditioned medium by mixing 60% fresh YCFA medium with 40% of spent medium.
+    explanation: Supports the spent- plus fresh-YCFA conditioned-medium design.
+- name: GLV Co-culture Assembly Prediction
+  description: A generalized Lotka-Volterra model parameterized from conditioned media predicted qPCR-measured relative frequencies
+    across two-species and selected three- or four-species co-cultures, showing that soluble pairwise interaction terms carried
+    assembly signal beyond monoculture growth.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: regulation of multi-organism process
+    term:
+      id: GO:0043900
+      label: regulation of multi-organism process
+  downstream:
+  - target: Resident-to-Invader Growth Control
+    description: The same conditioned-medium interaction matrix was used to simulate E. coli and B. ovatus invasions into
+      model-predicted stable resident communities.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To validate the predictions, we grew the 36 combinations of two species and measured their final relative frequencies
+      with qPCR.
+    explanation: Supports experimental validation across all two-member combinations.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We grew 11 co-cultures of three and four species for 24 h and compared the final fraction with model predictions
+    explanation: Supports validation of the model against three- and four-species co-cultures.
+- name: Resident-to-Invader Growth Control
+  description: 'Model-predicted resident assemblages differed strongly in whether they admitted E. coli or B. ovatus invaders:
+    simulated B. ovatus invasions succeeded in most stable communities, simulated E. coli invasions succeeded in a minority,
+    and 13 in-vitro invasion experiments matched the predicted successes and failures.'
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: regulation of biological quality
+    term:
+      id: GO:0065008
+      label: regulation of biological quality
+    notes: Broad GO proxy for resident control of invader growth.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: E. coli can only invade 24.1% of the stable communities in which it is not present
+    explanation: Supports a lower simulated invasion-success fraction for E. coli.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: B. ovatus can invade 97.6% of the stable communities
+    explanation: Supports a higher simulated invasion-success fraction for B. ovatus.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Relative growth of the invader was measured for 13 different communities.
+    explanation: Supports the in-vitro invasion validation set size.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We predicted invasions using a 5% population threshold at 24 h and successfully predicted all observed invasions.
+    explanation: Supports agreement between predicted and observed invasion outcomes.
+environmental_factors:
+- name: 40 percent spent YCFA conditioned medium
+  value: 60% fresh YCFA medium plus 40% spent medium
+  description: Filtered spent medium from stationary-phase donor cultures was mixed with fresh phosphate-buffered YCFA to
+    expose acceptor strains to donor-modified soluble chemistry.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: We then prepared conditioned medium by mixing 60% fresh YCFA medium with 40% of spent medium.
+    explanation: Supports the conditioned-medium mixing ratio.
+growth_media:
+- name: Phosphate-buffered YCFA medium
+  temperature: '37'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  headspace_gas: 10% H2 / 80% N2 / 10% CO2
+  incubation_time: '24'
+  incubation_time_unit: h
+  vessel_type: anaerobic chamber and 8 mL flasks
+  preparation_notes: All DSMZ strains were grown in phosphate-buffered YCFA under anoxic gas; conditioned-medium donors grew
+    24 h before 0.2 um filtration, and co-cultures were assembled after logarithmic phase pre-cultures.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The strains were then grown in YCFA media containing a phosphate buffer under anaerobic conditions using an anaerobic
+      chamber filled with anoxic gas (10% H2, 80% N2, 10% CO2) set at 37°C
+    explanation: Names the YCFA medium, phosphate buffer, gas mix, and 37°C setpoint.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All co-cultures were grown for 24 h in 8 mL flasks
+    explanation: Supports the co-culture flask size and incubation time.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: 8 mL flasks incubated under anaerobic YCFA conditions
+  working_volume: 8.0
+  working_volume_unit: mL
+  operating_temperature: 37.0
+  operating_temperature_unit: °C
+  controls_notes: Two- to four-member co-cultures were inoculated with equal CFU contributions and grown from a final combined
+    OD600 of 0.05. Invasion assays ran resident consortia for 24 h from OD600 0.05, washed and added the invader at OD600
+    0.05, and incubated for another 24 h before qPCR.
+  evidence:
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: All co-cultures were grown for 24 h in 8 mL flasks
+    explanation: Supports the batch flask co-culture format.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Initial consortia were cultivated for 24 h starting at an OD600 of 0.05.
+    explanation: Supports the first phase of the invasion assay.
+  - reference: PMID:41960919
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The washed invading species was then introduced into the resuspended initial consortia at a final OD600 of 0.05.
+    explanation: Supports the invader inoculation density.
+curation_history:
+- timestamp: '2026-09-15T06:34:11Z'
+  curator: codex
+  action: ADD_COMMUNITY_RECORD
+  changes: Created CommunityMech:000382 for the PMID:41960919 ten-species DSMZ human gut SynCom, including verified members,
+    conditioned-medium and invasion interactions, anaerobic YCFA cultivation, and exact evidence.
+  llm_assisted: true
