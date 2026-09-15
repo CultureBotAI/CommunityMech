@@ -69,8 +69,8 @@ _TIMEOUT = 120
 # Members worth extracting. Images and archives carry no Methods prose; listing
 # what was SKIPPED matters as much as what was read, so a curator can see that a
 # PDF-only supplement was not silently treated as empty.
-_TEXT_SUFFIXES = {".docx", ".txt", ".xml", ".html", ".htm"}
-_BINARY_SUFFIXES = {".jpg", ".jpeg", ".png", ".gif", ".tif", ".tiff", ".zip", ".mov", ".avi"}
+_TEXT_SUFFIXES = {".docx", ".txt", ".xml", ".html", ".htm", ".xlsx", ".zip"}
+_BINARY_SUFFIXES = {".jpg", ".jpeg", ".png", ".gif", ".tif", ".tiff", ".mov", ".avi"}
 
 
 class _NoSupplementError(Exception):
@@ -135,12 +135,61 @@ def _docx_text(blob: bytes) -> str:
     return re.sub(r"[ \t]+", " ", re.sub(r"<[^>]+>", "", xml)).strip()
 
 
-def _member_text(name: str, blob: bytes) -> tuple[str, str]:
+def _xlsx_text(blob: bytes) -> str:
+    """Tabular text from every worksheet in a .xlsx supplement."""
+    import openpyxl
+
+    workbook = openpyxl.load_workbook(
+        io.BytesIO(blob), data_only=True, read_only=True
+    )
+    chunks = []
+    for worksheet in workbook.worksheets:
+        rows = []
+        for row in worksheet.iter_rows(values_only=True):
+            cells = ["" if cell is None else str(cell).strip() for cell in row]
+            while cells and not cells[-1]:
+                cells.pop()
+            if any(cells):
+                rows.append("\n".join(cells))
+        if rows:
+            chunks.append(f"### {worksheet.title}\n\n" + "\n\n".join(rows))
+    return "\n\n".join(chunks).strip()
+
+
+def _zip_text(name: str, blob: bytes, *, depth: int) -> tuple[str, str]:
+    """Extract text members from a nested supplementary ZIP."""
+    if depth >= 2:
+        return "", "nested ZIP depth limit reached"
+
+    chunks: list[str] = []
+    notes: list[str] = []
+    with zipfile.ZipFile(io.BytesIO(blob)) as archive:
+        for member in sorted(archive.namelist()):
+            text, note = _member_text(
+                member, archive.read(member), _depth=depth + 1
+            )
+            if text.strip():
+                chunks.append(f"----- {name}/{member} -----\n{text.strip()}")
+                notes.append(f"{member}: {len(text.strip())} chars")
+            else:
+                notes.append(f"{member}: SKIPPED ({note})")
+
+    if not chunks:
+        return "", "zip with no extractable text -- " + "; ".join(notes)
+    return "\n\n".join(chunks), "zip archive; " + "; ".join(notes)
+
+
+def _member_text(name: str, blob: bytes, *, _depth: int = 0) -> tuple[str, str]:
     """(text, note). An empty text with a note is a skip, not a failure."""
     suffix = Path(name).suffix.lower()
     if suffix == ".docx":
         text = _docx_text(blob)
         return text, "" if text else "docx with no word/document.xml"
+    if suffix == ".xlsx":
+        text = _xlsx_text(blob)
+        return text, "" if text else "xlsx with no populated worksheets"
+    if suffix == ".zip":
+        return _zip_text(name, blob, depth=_depth)
     if suffix in {".txt", ".xml", ".html", ".htm"}:
         raw = blob.decode("utf-8", "replace")
         return re.sub(r"<[^>]+>", " ", raw) if suffix != ".txt" else raw, ""
@@ -217,8 +266,14 @@ def append_to_article_cache(reference: str) -> str:
     if MARKER in existing:
         return f"[skip] {reference}: {target.name} already carries the supplement marker"
     body = supplement.read_text(encoding="utf-8", errors="replace")
-    target.write_text(existing.rstrip("\n") + "\n\n" + body.rstrip("\n") + "\n", encoding="utf-8")
-    return f"[ok] {reference}: appended supplement text to {target.name} ({target.stat().st_size} bytes)"
+    target.write_text(
+        existing.rstrip("\n") + "\n\n" + body.rstrip("\n") + "\n",
+        encoding="utf-8",
+    )
+    return (
+        f"[ok] {reference}: appended supplement text to {target.name} "
+        f"({target.stat().st_size} bytes)"
+    )
 
 
 def cache_one(reference: str, *, force: bool = False) -> str:
