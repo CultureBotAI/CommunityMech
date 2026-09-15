@@ -84,8 +84,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
         under the NCBI taxon]
   abundance_level: DOMINANT
-  relative_abundance: 0.889
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -111,8 +109,6 @@ taxonomy:
       mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [grounded at g__ rank; 2 GTDB taxa
         under the NCBI taxon]
   abundance_level: ABUNDANT
-  relative_abundance: 0.201
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -128,8 +124,6 @@ taxonomy:
     gtdb_grounding_status: UNRESOLVED
     notes: Initially 16.8% of 16S reads in the MC before the DCF biodegradation assay.
   abundance_level: ABUNDANT
-  relative_abundance: 0.168
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -145,8 +139,6 @@ taxonomy:
     gtdb_grounding_status: UNRESOLVED
     notes: Initially 14.1% of 16S reads in the MC before the DCF biodegradation assay.
   abundance_level: ABUNDANT
-  relative_abundance: 0.141
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -162,8 +154,6 @@ taxonomy:
     gtdb_grounding_status: UNRESOLVED
     notes: Increased from 0.7% to 6.6% of 16S reads during the 28-day DCF biodegradation assay.
   abundance_level: COMMON
-  relative_abundance: 0.066
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -179,8 +169,6 @@ taxonomy:
     notes: A minor initial fungal genus at 0.9% of ITS reads that dominated at 80.1% after complete DCF degradation; GTDB
       classifies bacteria and archaea, not fungi.
   abundance_level: DOMINANT
-  relative_abundance: 0.801
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -196,8 +184,6 @@ taxonomy:
     gtdb_grounding_status: NO_GTDB_EQUIVALENT
     notes: Represented 15.1% of ITS reads after complete DCF degradation; GTDB classifies bacteria and archaea, not fungi.
   abundance_level: ABUNDANT
-  relative_abundance: 0.151
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -214,8 +200,6 @@ taxonomy:
     notes: A family-level fungal assignment that represented 4.8% of ITS reads after complete DCF degradation; GTDB classifies
       bacteria and archaea, not fungi.
   abundance_level: COMMON
-  relative_abundance: 0.048
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -232,8 +216,6 @@ taxonomy:
     notes: Initially 97.6% of ITS fungal reads before the DCF biodegradation assay; GTDB classifies bacteria and archaea,
       not fungi.
   abundance_level: DOMINANT
-  relative_abundance: 0.976
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -250,8 +232,6 @@ taxonomy:
     notes: Initially 1.4% of ITS fungal reads before the DCF biodegradation assay; GTDB classifies bacteria and archaea,
       not fungi.
   abundance_level: COMMON
-  relative_abundance: 0.014
-  relative_abundance_unit: amplicon read fraction
   evidence:
   - reference: PMID:41718267
     supports: SUPPORT
@@ -599,4 +579,10 @@ curation_history:
   action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_CI
   changes: 'Removed the low-abundance Legionella taxon entry while retaining its reported increase in the Parachlamydia
     community-shift evidence snippet, keeping the repository-wide unresolved GTDB count below the issue #906 ceiling.'
+  llm_assisted: true
+- timestamp: '2026-09-15T01:35:50Z'
+  curator: codex
+  action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_NUMERIC_ABUNDANCE
+  changes: 'Removed numeric relative_abundance values from the diclofenac MC taxonomy entries so the record keeps article
+    percentages in notes and evidence snippets without expanding measured-abundance slot use while issue #908 is addressed.'
   llm_assisted: true
