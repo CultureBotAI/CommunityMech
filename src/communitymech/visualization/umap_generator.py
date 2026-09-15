@@ -33,7 +33,7 @@ class UMAPVisualizationGenerator:
         n_neighbors: int = 15,
         min_dist: float = 0.1,
         min_coverage: float = 0.5,
-        exclude_hosts: bool = True,
+        exclude_hosts: bool = False,
     ):
         """Generate interactive UMAP visualization.
 
@@ -50,7 +50,7 @@ class UMAPVisualizationGenerator:
             n_neighbors: UMAP n_neighbors parameter
             min_dist: UMAP min_dist parameter
             min_coverage: Minimum embedding coverage for communities
-            exclude_hosts: Exclude non-microbial taxa (hosts) from representation
+            exclude_hosts: Deprecated; true fails without independent host evidence.
         """
         output_path = Path(output_path) if output_path is not None else DOCS / "community_umap.html"
         print("=" * 60)
@@ -72,10 +72,7 @@ class UMAPVisualizationGenerator:
 
         print(f"\n📦 Aggregated {len(community_vectors)} communities")
         skipped = self._count_yaml_files(communities_dir) - len(community_vectors)
-        if exclude_hosts:
-            print(f"   (excluded non-microbial host taxa from {skipped} communities)")
-        else:
-            print(f"   (skipped {skipped} due to low coverage)")
+        print(f"   (skipped {skipped} due to no vectors or low taxon coverage)")
 
         # Step 3: Run dimensionality reduction (PaCMAP default, UMAP optional)
         reducer = UMAPReducer(
@@ -150,8 +147,7 @@ class UMAPVisualizationGenerator:
             # Get name
             name = yaml_data.get("name", community_id.replace("_", " "))
 
-            # Use microbial taxa count if available (when exclude_hosts=True)
-            num_taxa = metadata.get("num_microbial_taxa", metadata.get("num_taxa", 0))
+            num_taxa = metadata.get("num_taxa", 0)
 
             community_data.append(
                 {
@@ -166,6 +162,10 @@ class UMAPVisualizationGenerator:
                     "num_taxa": num_taxa,
                     "num_interactions": num_interactions,
                     "coverage_pct": metadata.get("coverage_pct", 0.0),
+                    "coverage_denominator": metadata.get("coverage_denominator", "unknown"),
+                    "num_embedded_taxa": metadata.get("num_embedded_taxa", 0),
+                    "taxa_missing": metadata.get("taxa_missing", []),
+                    "aggregation_method": metadata.get("aggregation_method", "unknown"),
                     "url": f"communities/{community_id}.html",
                 }
             )

@@ -633,8 +633,8 @@ def _apply_batch_report(report_path: Path):
 )
 @click.option(
     "--include-hosts/--exclude-hosts",
-    default=False,
-    help="Include non-microbial host taxa in representations (default: exclude)",
+    default=True,
+    help="Count all requested taxa (default); host exclusion requires independent evidence.",
 )
 def generate_umap(
     communities_dir: Path,

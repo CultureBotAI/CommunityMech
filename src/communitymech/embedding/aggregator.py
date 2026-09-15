@@ -23,7 +23,7 @@ class CommunityVectorAggregator:
         community_yaml_path: str,
         min_coverage: float = 0.5,
         aggregation_method: str = "mean",
-        exclude_hosts: bool = True,
+        exclude_hosts: bool = False,
     ) -> tuple[np.ndarray, dict[str, Any]] | None:
         """Aggregate embeddings for a community from its YAML file.
 
@@ -31,20 +31,27 @@ class CommunityVectorAggregator:
             community_yaml_path: Path to community YAML file
             min_coverage: Minimum fraction of taxa that must have embeddings
             aggregation_method: Aggregation method ("mean" or "sum")
-            exclude_hosts: If True, exclude non-microbial taxa (hosts) from coverage calculation
+            exclude_hosts: Deprecated; true fails without an independent host classifier.
 
         Returns:
             Tuple of (community_vector, metadata) or None if coverage too low
 
             Metadata includes:
                 - coverage_pct: Percentage of taxa with embeddings
-                - num_taxa: Total number of taxa in community
-                - num_microbial_taxa: Number of microbial taxa (when exclude_hosts=True)
+                - num_taxa: Number of unique requested taxa
+                - num_embedded_taxa: Number of requested taxa with vectors
                 - taxa_found: List of taxa IDs found in embeddings
                 - taxa_missing: List of taxa IDs missing from embeddings
-                - taxa_excluded: List of host taxa excluded (when exclude_hosts=True)
+                - taxa_excluded: Empty; no host classification was attempted
                 - aggregation_method: Method used for aggregation
         """
+        if exclude_hosts:
+            raise ValueError(
+                "Host exclusion requires independent taxonomy evidence; "
+                "missing vectors are not hosts"
+            )
+        if not 0 <= min_coverage <= 1:
+            raise ValueError("min_coverage must be between 0 and 1")
         # Parse YAML
         with open(community_yaml_path) as f:
             community_data = yaml.safe_load(f)
@@ -59,7 +66,6 @@ class CommunityVectorAggregator:
         found_embeddings = []
         found_ids = []
         missing_ids = []
-        excluded_ids = []
 
         for taxon_id in taxon_ids:
             if taxon_id in self.embeddings:
@@ -68,25 +74,10 @@ class CommunityVectorAggregator:
             else:
                 missing_ids.append(taxon_id)
 
-        # Determine coverage denominator based on exclude_hosts setting
-        if exclude_hosts:
-            # Only count taxa that have embeddings (microbes) in denominator
-            # Taxa without embeddings are assumed to be hosts and excluded
-            excluded_ids = missing_ids.copy()
-            missing_ids = []
-            microbial_taxa_count = len(found_ids)
-            coverage = 1.0 if microbial_taxa_count > 0 else 0.0
-        else:
-            # Traditional coverage: found / total
-            microbial_taxa_count = len(taxon_ids)
-            coverage = len(found_ids) / len(taxon_ids) if taxon_ids else 0.0
-
-        # Skip if no microbial taxa found
-        if not found_embeddings:
-            return None
-
-        # Check coverage (only relevant when exclude_hosts=False)
-        if not exclude_hosts and coverage < min_coverage:
+        # Every unique requested taxon is in the denominator. An absent
+        # graph vector is missing data, never evidence of a host classification.
+        coverage = len(found_ids) / len(taxon_ids)
+        if not found_embeddings or coverage < min_coverage:
             return None
 
         # Aggregate embeddings
@@ -101,14 +92,14 @@ class CommunityVectorAggregator:
         metadata = {
             "coverage_pct": coverage * 100,
             "num_taxa": len(taxon_ids),
-            "num_microbial_taxa": microbial_taxa_count,
+            "num_embedded_taxa": len(found_ids),
+            "coverage_denominator": "unique_requested_taxa",
             "taxa_found": found_ids,
             "taxa_missing": missing_ids,
             "aggregation_method": aggregation_method,
         }
 
-        if exclude_hosts:
-            metadata["taxa_excluded"] = excluded_ids
+        metadata["taxa_excluded"] = []
 
         return community_vector, metadata
 
@@ -135,14 +126,14 @@ class CommunityVectorAggregator:
             if taxon_id and taxon_id.startswith("NCBITaxon:"):
                 taxon_ids.append(taxon_id)
 
-        return taxon_ids
+        return list(dict.fromkeys(taxon_ids))
 
     def aggregate_communities(
         self,
         community_dir: str,
         min_coverage: float = 0.5,
         aggregation_method: str = "mean",
-        exclude_hosts: bool = True,
+        exclude_hosts: bool = False,
     ) -> tuple[dict[str, np.ndarray], dict[str, dict[str, Any]]]:
         """Aggregate all communities in a directory.
 
@@ -150,7 +141,7 @@ class CommunityVectorAggregator:
             community_dir: Directory containing community YAML files
             min_coverage: Minimum coverage threshold
             aggregation_method: Aggregation method
-            exclude_hosts: If True, exclude non-microbial taxa from coverage calculation
+            exclude_hosts: Deprecated; true requires an independent host classifier.
 
         Returns:
             Tuple of:
@@ -178,6 +169,6 @@ class CommunityVectorAggregator:
                 community_vectors[community_id] = vector
                 community_metadata[community_id] = metadata
             else:
-                print(f"⚠️  Skipping {community_id} (no microbial taxa with embeddings)")
+                print(f"⚠️  Skipping {community_id} (no vectors or below minimum taxon coverage)")
 
         return community_vectors, community_metadata
