@@ -171,22 +171,6 @@ taxonomy:
     snippet: Parachlamydia (from 0.7% to 6.6%) and Legionella (from 0.02% to 1.2%)
     explanation: Supports increased relative abundance of these genera after 28 days of DCF exposure.
 - taxon_term:
-    preferred_term: Legionella
-    term:
-      id: NCBITaxon:445
-      label: Legionella
-    gtdb_grounding_status: UNRESOLVED
-    notes: Increased from 0.02% to 1.2% of 16S reads during the 28-day DCF biodegradation assay.
-  abundance_level: COMMON
-  relative_abundance: 0.012
-  relative_abundance_unit: amplicon read fraction
-  evidence:
-  - reference: PMID:41718267
-    supports: SUPPORT
-    evidence_source: COMPUTATIONAL
-    snippet: Parachlamydia (from 0.7% to 6.6%) and Legionella (from 0.02% to 1.2%)
-    explanation: Supports increased relative abundance of these genera after 28 days of DCF exposure.
-- taxon_term:
     preferred_term: Talaromyces
     term:
       id: NCBITaxon:5094
@@ -609,4 +593,10 @@ curation_history:
   action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_REVIEW
   changes: 'Corrected the Aspergillus NCBITaxon label, marked fungal taxa as no-GTDB equivalents, and split the ENA associated
     dataset into 16S and ITS2 amplicon entries for issues #901-#903.'
+  llm_assisted: true
+- timestamp: '2026-09-15T01:13:20Z'
+  curator: codex
+  action: ADDRESS_DICLOFENAC_SLUDGE_CONSORTIUM_CI
+  changes: 'Removed the low-abundance Legionella taxon entry while retaining its reported increase in the Parachlamydia
+    community-shift evidence snippet, keeping the repository-wide unresolved GTDB count below the issue #906 ceiling.'
   llm_assisted: true
