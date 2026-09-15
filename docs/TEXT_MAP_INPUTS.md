@@ -24,23 +24,33 @@ the community browser and graph population remain communities only.
 
 ## Publish the common semantic view
 
-`conf/text_map.yaml` is explicitly disabled until a reviewed full-input bundle
-exists at `data/text_map/current.json` and the canonical CLAW runtime is vendored
-at `scripts/embedding_pipeline.py`. Enablement requires the pinned fleet BGE
-model, revision, dimension and 512-token window, actual PaCMAP, valid checksums,
-and fresh complete adapter inputs. Missing or stale enabled inputs fail loudly.
+`conf/text_map.yaml` is enabled and the shared runtime is installed. The selected
+common bundle is recorded by `data/text_map/current.json`; its `manifest.json`
+reports the complete input identity and coverage counts. The enabled build
+verifies freshness against the current corpus and refuses a stale bundle until
+the cache-backed refresh is complete.
+
+The installed CLAW runtime is `scripts/embedding_pipeline.py`; its separate
+locked environment and exact build commands are in the [maintained runtime guide](../conf/embedding-runtime/README.md).
+Normal rendering and verification do not install that model environment or run
+inference. When record membership or selected semantic fields change, export
+fresh full inputs, reuse the existing profile-bound vector cache to encode only
+new or changed text, regenerate PaCMAP, and validate the complete bundle before
+rendering. A stale bundle must be refreshed before publishing curated changes.
 
 `just stage-text-map` validates and stages the three public files at
-`docs/text-map/` without inference. It binds the exact immutable generation
-approved by preflight, refusing pointer changes or manifest substitution before
-publication. The Pages workflow performs the same validation before uploading
-`docs/`; a standalone stage does not regenerate existing browser pages.
+`docs/text-map/` without inference. It requires the pinned fleet BGE model,
+revision, 1,024 dimensions and 512-token window, actual PaCMAP, valid checksums and
+fresh full adapter inputs. It binds the exact generation approved by preflight,
+refusing pointer changes or manifest substitution before publication.
 
-The shared text map complements the existing domain graph views. Record URLs
-are relative to `docs/`, so the shared map's `../` link prefix resolves to the
-existing browser/detail routes. No legacy graph vector or model artifact is
-relabeled as BGE.
+After refreshing the validated bundle, run `just gen-html` to regenerate the
+landing/browser navigation and per-record pages. The renderer preflights the
+full bundle before writing pages. The Pages workflow validates the same inputs
+before uploading `docs/`; a standalone stage does not regenerate browser pages.
 
-After enabling the map, run `just gen-html` to regenerate the landing/browser
-links and per-record pages. Its renderer preflights the full bundle before
-writing pages; normal checks use the same path.
+The text map includes communities and isolates. Specialty graph views retain
+their separate community-only population and source/corpus/reducer receipts;
+curation that changes their corpus also requires their own verified refresh.
+Record URLs are relative to `docs/`, so the shared map's `../` prefix resolves
+to the existing browser/detail routes.
