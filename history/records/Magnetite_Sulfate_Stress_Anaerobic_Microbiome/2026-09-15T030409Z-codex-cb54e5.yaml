@@ -1,0 +1,26 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Magnetite_Sulfate_Stress_Anaerobic_Microbiome.yaml
+  slug: Magnetite_Sulfate_Stress_Anaerobic_Microbiome
+session:
+  id: 2026-09-15T030409Z-codex-cb54e5
+  timestamp: '2026-09-15T03:04:09Z'
+  actors:
+  - type: ai_agent
+    name: codex
+    model: gpt-5
+    agent_tool: codex
+links:
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/912
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - ecological_interactions
+  - curation_history
+  summary: Fix magnetite sulfate-stress participant terms
+  details: Added required NCBITaxon-backed term objects to the two computed interaction participant_taxa
+    lists so the PR branch satisfies closed-schema LinkML validation for the modeled acetate-cycle
+    and exchange interactions.
