@@ -454,15 +454,19 @@ check-docs-current:
     # writes, so the stale page stays tracked and published while the diff stays
     # empty. f8d85b1 is a rename of exactly that shape.
     orphans=""
-    for page in docs/communities/*.html; do
-        record="kb/communities/$(basename "$page" .html).yaml"
-        [ -f "$record" ] || orphans="$orphans $(basename "$page")"
+    for page in docs/communities/*.html docs/isolates/*.html; do
+        [ -e "$page" ] || continue
+        case "$page" in
+            docs/isolates/*) record="data/isolates/$(basename "$page" .html).yaml" ;;
+            *) record="kb/communities/$(basename "$page" .html).yaml" ;;
+        esac
+        [ -f "$record" ] || orphans="$orphans $page"
     done
     if [ -n "$orphans" ]; then
         echo "❌ published pages with no record (delete them):$orphans"
         exit 1
     fi
-    # That loop covers docs/communities/ only. The TOP-LEVEL pages
+    # That loop covers community and isolate detail pages. The TOP-LEVEL pages
     # (community_umap.html, community_graph.html, browser.html) embed record ids
     # and links too, and a rename left dead ones there with every gate green
     # (#714). They are checked by
@@ -795,3 +799,11 @@ validate-history target="history":
       uv run linkml-validate \
         --schema src/communitymech/schema/history.yaml --target-class HistoryRecord "$target"
     fi
+
+# Full canonical semantic text by default; --record/--limit are explicit canaries.
+text-map-inputs *args:
+    uv run python scripts/text_map_inputs.py "$@"
+
+# Validate full inputs and stage the configured common map; no model inference.
+stage-text-map *args:
+    uv run python scripts/stage_text_map.py "$@"

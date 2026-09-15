@@ -543,6 +543,15 @@
             <h1>Community Embedding Space</h1>
             <p class="subtitle">2D projection of {{ num_communities }} microbial communities based on taxonomic composition</p>
             <a href="index.html" class="nav-link">← Back to Community Index</a>
+{% if graph_receipt %}
+            <p class="subtitle">Source: {{ graph_receipt.source.filename|e }}.
+                {{ graph_receipt.coverage.projected }} of {{ graph_receipt.coverage.eligible }} communities projected;
+                {{ graph_receipt.coverage.excluded_isolate_files|length }} isolate records are outside this graph view.
+                Taxon coverage counts every unique requested taxon; missing vectors are not host classifications.
+                <a href="{{ receipt_filename|e }}">Source, coverage and projection receipt</a>.</p>
+{% else %}
+            <p class="subtitle">Legacy graph coordinates; source lineage is unverified.</p>
+{% endif %}
         </header>
 
         <div class="controls">
