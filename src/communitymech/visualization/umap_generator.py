@@ -1,6 +1,7 @@
 """Generate interactive UMAP visualization of community embedding space."""
 
 import json
+import tempfile
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +13,7 @@ from communitymech.embedding import (
     EmbeddingLoader,
     UMAPReducer,
 )
+from communitymech.graph_embedding_receipts import corpus_receipt, make_receipt, publish_artifacts
 from communitymech.paths import DOCS, REPO_ROOT
 
 
@@ -58,8 +60,20 @@ class UMAPVisualizationGenerator:
         print("=" * 60)
 
         # Step 1: Load embeddings
+        corpus_dir = Path(communities_dir)
+        corpus_paths = sorted(corpus_dir.glob("*.yaml"))
+        corpus = corpus_receipt(corpus_paths, corpus_dir)
+        required_nodes = set()
+        extractor = CommunityVectorAggregator({})
+        for path in corpus_paths:
+            record = yaml.safe_load(path.read_text())
+            if not isinstance(record, dict):
+                raise ValueError(f"Invalid community record: {path}")
+            required_nodes.update(extractor._extract_taxon_ids(record))
         loader = EmbeddingLoader(embeddings_path, cache_dir=cache_dir)
-        embeddings = loader.load_embeddings(prefixes=["NCBITaxon"], force_reload=force_reload)
+        embeddings = loader.load_embeddings(
+            prefixes=["NCBITaxon"], force_reload=force_reload, node_ids=required_nodes
+        )
 
         embedding_dim = loader.get_embedding_dim(embeddings)
         print(f"📊 Embedding dimension: {embedding_dim}")
@@ -90,7 +104,41 @@ class UMAPVisualizationGenerator:
         # UMAP vs graph-layout wording from the actual reduction method.
         projection_labels = {"pacmap": "PaCMAP", "umap": "UMAP", "sfdp": "Layout"}
         projection_label = projection_labels.get(method, method.upper())
-        self._render_html(community_data, output_path, template_dir, projection_label)
+        if len(community_data) != len(umap_df):
+            raise ValueError("Community display metadata dropped projected records")
+        isolates_dir = corpus_dir.parent.parent / "data" / "isolates"
+        coverage = {
+            "eligible": corpus["count"],
+            "projected": len(umap_df),
+            "omitted": corpus["count"] - len(umap_df),
+            "population": "communities_only",
+            "minimum_taxon_coverage": min_coverage,
+            "host_classification": "not_attempted",
+            "excluded_isolate_files": sorted(p.name for p in isolates_dir.glob("*.yaml")),
+        }
+        receipt = make_receipt(
+            source=loader.source_receipt,
+            corpus=corpus,
+            ledger=aggregator.ledger,
+            matrix=umap_df.attrs["matrix"],
+            projection=umap_df.attrs["projection"],
+            coverage=coverage,
+        )
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(
+            prefix=".community-graph-", dir=output_path.parent
+        ) as temporary:
+            staged_html = Path(temporary) / output_path.name
+            self._render_html(community_data, staged_html, template_dir, projection_label, receipt)
+            staged_points = staged_html.with_suffix(".points.json")
+            staged_points.write_text(json.dumps(community_data, indent=2))
+            if corpus_receipt(sorted(corpus_dir.glob("*.yaml")), corpus_dir) != corpus:
+                raise ValueError("Community corpus changed during graph generation")
+            publish_artifacts(
+                {output_path: staged_html, output_path.with_suffix(".points.json"): staged_points},
+                output_path.with_suffix(".metadata.json"),
+                receipt,
+            )
 
         print(f"\n✅ UMAP visualization generated: {output_path}")
         print("=" * 60)
@@ -178,6 +226,7 @@ class UMAPVisualizationGenerator:
         output_path: str | Path,
         template_dir: str | None = None,
         projection_label: str = "PaCMAP",
+        graph_receipt: dict | None = None,
     ):
         """Render HTML template with community data.
 
@@ -204,6 +253,8 @@ class UMAPVisualizationGenerator:
             community_data_json=json.dumps(community_data, indent=2),
             num_communities=len(community_data),
             projection_label=projection_label,
+            graph_receipt=graph_receipt,
+            receipt_filename=Path(output_path).with_suffix(".metadata.json").name,
         )
 
         # Write output

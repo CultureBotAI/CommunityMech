@@ -59,6 +59,17 @@ class CommunityVectorAggregator:
         # Extract NCBITaxon IDs from taxonomy section
         taxon_ids = self._extract_taxon_ids(community_data)
 
+        self.last_metadata = {
+            "record_id": community_data.get("id", Path(community_yaml_path).stem),
+            "coverage_pct": 0.0,
+            "num_taxa": len(taxon_ids),
+            "num_embedded_taxa": 0,
+            "coverage_denominator": "unique_requested_taxa",
+            "taxa_found": [],
+            "taxa_missing": [],
+            "taxa_excluded": [],
+            "aggregation_method": aggregation_method,
+        }
         if not taxon_ids:
             return None
 
@@ -77,6 +88,12 @@ class CommunityVectorAggregator:
         # Every unique requested taxon is in the denominator. An absent
         # graph vector is missing data, never evidence of a host classification.
         coverage = len(found_ids) / len(taxon_ids)
+        self.last_metadata.update(
+            coverage_pct=coverage * 100,
+            num_embedded_taxa=len(found_ids),
+            taxa_found=found_ids,
+            taxa_missing=missing_ids,
+        )
         if not found_embeddings or coverage < min_coverage:
             return None
 
@@ -100,6 +117,7 @@ class CommunityVectorAggregator:
         }
 
         metadata["taxa_excluded"] = []
+        self.last_metadata.update(metadata)
 
         return community_vector, metadata
 
@@ -151,6 +169,7 @@ class CommunityVectorAggregator:
         community_dir_path = Path(community_dir)
         community_vectors = {}
         community_metadata = {}
+        self.ledger = []
 
         yaml_files = sorted(community_dir_path.glob("*.yaml"))
 
@@ -162,6 +181,38 @@ class CommunityVectorAggregator:
                 min_coverage=min_coverage,
                 aggregation_method=aggregation_method,
                 exclude_hosts=exclude_hosts,
+            )
+
+            metadata = self.last_metadata
+            self.ledger.append(
+                {
+                    "identifier": community_id,
+                    "record_id": metadata["record_id"],
+                    "source_path": yaml_path.name,
+                    "source_nodes": metadata["taxa_found"],
+                    "missing_nodes": metadata["taxa_missing"],
+                    "match_method": "taxon_ids",
+                    "status": (
+                        "projected"
+                        if result is not None
+                        else (
+                            "no_vectors"
+                            if not metadata["taxa_found"]
+                            else "below_coverage_threshold"
+                        )
+                    ),
+                    "aggregation_method": aggregation_method,
+                    "minimum_taxon_coverage": min_coverage,
+                    "coverage_denominator": "unique_requested_taxa",
+                    "requested_taxa": metadata["num_taxa"],
+                    "found_taxa": metadata["num_embedded_taxa"],
+                    "coverage_pct": metadata["coverage_pct"],
+                    "weight_per_source": (
+                        (1 / len(metadata["taxa_found"]) if aggregation_method == "mean" else 1)
+                        if metadata["taxa_found"]
+                        else 0
+                    ),
+                }
             )
 
             if result is not None:
