@@ -143,9 +143,7 @@ def _xlsx_text(blob: bytes) -> str:
     """Tabular text from every worksheet in a .xlsx supplement."""
     import openpyxl
 
-    workbook = openpyxl.load_workbook(
-        io.BytesIO(blob), data_only=True, read_only=True
-    )
+    workbook = openpyxl.load_workbook(io.BytesIO(blob), data_only=True, read_only=True)
     chunks = []
     for worksheet in workbook.worksheets:
         rows = []
@@ -169,9 +167,7 @@ def _zip_text(name: str, blob: bytes, *, depth: int) -> tuple[str, str]:
     notes: list[str] = []
     with zipfile.ZipFile(io.BytesIO(blob)) as archive:
         for member in sorted(archive.namelist()):
-            text, note = _member_text(
-                member, archive.read(member), _depth=depth + 1
-            )
+            text, note = _member_text(member, archive.read(member), _depth=depth + 1)
             if text.strip():
                 chunks.append(f"----- {name}/{member} -----\n{text.strip()}")
                 notes.append(f"{member}: {len(text.strip())} chars")
