@@ -11,6 +11,13 @@ on:
     branches: [main]
     paths:
       - "docs/**"
+      - "kb/communities/**"
+      - "data/isolates/**"
+      - "data/text_map/**"
+      - "conf/text_map.yaml"
+      - "src/communitymech/text_map_*.py"
+      - "scripts/stage_text_map.py"
+      - "scripts/embedding_pipeline.py"
       - ".github/workflows/generate-pages.yaml"
   workflow_dispatch:
 
@@ -32,6 +39,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Python for map validation
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+
+      - name: Validate and stage the configured semantic text map
+        run: |
+          python -m pip install --quiet pyyaml
+          python scripts/stage_text_map.py
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

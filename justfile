@@ -802,4 +802,8 @@ validate-history target="history":
 
 # Full canonical semantic text by default; --record/--limit are explicit canaries.
 text-map-inputs *args:
-    uv run python scripts/text_map_inputs.py {{args}}
+    uv run python scripts/text_map_inputs.py "$@"
+
+# Validate full inputs and stage the configured common map; no model inference.
+stage-text-map *args:
+    uv run python scripts/stage_text_map.py "$@"

@@ -20,3 +20,27 @@ This repository publishes the contents of `docs/`, so the bundle is staged at
 
 Isolate detail pages are published in `docs/isolates/` by `just gen-html`;
 the community browser and graph population remain communities only.
+
+
+## Publish the common semantic view
+
+`conf/text_map.yaml` is explicitly disabled until a reviewed full-input bundle
+exists at `data/text_map/current.json` and the canonical CLAW runtime is vendored
+at `scripts/embedding_pipeline.py`. Enablement requires the pinned fleet BGE
+model, revision, dimension and 512-token window, actual PaCMAP, valid checksums,
+and fresh complete adapter inputs. Missing or stale enabled inputs fail loudly.
+
+`just stage-text-map` validates and stages the three public files at
+`docs/text-map/` without inference. It binds the exact immutable generation
+approved by preflight, refusing pointer changes or manifest substitution before
+publication. The Pages workflow performs the same validation before uploading
+`docs/`; a standalone stage does not regenerate existing browser pages.
+
+The shared text map complements the existing domain graph views. Record URLs
+are relative to `docs/`, so the shared map's `../` link prefix resolves to the
+existing browser/detail routes. No legacy graph vector or model artifact is
+relabeled as BGE.
+
+After enabling the map, run `just gen-html` to regenerate the landing/browser
+links and per-record pages. Its renderer preflights the full bundle before
+writing pages; normal checks use the same path.

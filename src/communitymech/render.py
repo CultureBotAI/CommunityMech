@@ -10,7 +10,8 @@ from pathlib import Path
 import yaml
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from communitymech.paths import DOCS
+from communitymech.paths import DOCS, REPO_ROOT
+from communitymech.text_map_site import prepare_text_map
 
 
 def _strip_trailing_whitespace(html: str) -> str:
@@ -87,6 +88,19 @@ class CommunityRenderer:
         return failed
 
     def render_all(
+        self,
+        communities_dir: Path = Path("kb/communities"),
+        output_dir: Path | None = None,
+    ) -> list[str]:
+        """Preflight and stage the common map before any generated page changes."""
+        output_dir = output_dir if output_dir is not None else DOCS / "communities"
+        with prepare_text_map(REPO_ROOT) as text_map:
+            if text_map is not None:
+                text_map.stage(output_dir.parent)
+            self.env.globals["text_map_enabled"] = text_map is not None
+            return self._render_all(communities_dir, output_dir)
+
+    def _render_all(
         self,
         communities_dir: Path = Path("kb/communities"),
         output_dir: Path | None = None,
