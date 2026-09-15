@@ -1,6 +1,6 @@
 ---
 reference_id: GITHUB:Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
-content_type: full
+content_type: selected_source_lines
 source: article-linked downstream analysis code
 url: https://github.com/Xinming9606/lignin_SynCom_proteomics/blob/ed208e4d5df80c96100f2113db39698832d7b685/downstream_analysis.py
 ---
