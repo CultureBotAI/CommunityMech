@@ -208,6 +208,7 @@ USERS = {
     "Clostridium_Acetobutylicum_Ljungdahlii_Fusion_Coculture.yaml",
     "Clostridium_Caldicellulosiruptor_Minimal_Medium_Coculture.yaml",
     "Clostridium_Phytofermentans_Ecoli_Cellobiose_Biofilm_Consortium.yaml",
+    "Community_G_GenX_Biodegradation_Consortium.yaml",
     "Coniochaeta_Sphingobacterium_Citrobacter_Wheat_Straw_Consortium.yaml",
     "Copper_Biomining_Heap_Leach.yaml",
     "Corynebacterium_glutamicum_Shewanella_oneidensis_Succinic_Acid_Coculture.yaml",
