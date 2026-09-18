@@ -185,9 +185,6 @@ ecological_interactions:
     term:
       id: GO:0006805
       label: xenobiotic metabolic process
-  downstream:
-  - target: Community G soil GenX biodegradation
-    description: Adaptive enrichment of GenX-degrading specialists coincided with 80.6% GenX removal over 3 days.
   evidence:
   - reference: PMID:42422733
     supports: SUPPORT
@@ -351,4 +348,10 @@ curation_history:
   changes: Re-grounded Stenotrophomonas sp. LM091 and Stenotrophomonas sp. MYb57 from the broad genus NCBITaxon:40323
     to the exact NCBITaxon:1904944 and NCBITaxon:1827305 strain placeholders after NCBI Taxonomy verification, preventing
     the KGX exporter from collapsing the two Community G membership assertions into one genus edge.
+  llm_assisted: true
+- timestamp: '2026-09-18T12:32:43Z'
+  curator: claude
+  action: FIX_CAUSAL_GRAPH
+  changes: Removed an invalid downstream edge from the Community G taxonomic-restructuring interaction because the GenX
+    removal endpoint is an environmental factor, not another named ecological interaction in the causal graph.
   llm_assisted: true
