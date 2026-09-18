@@ -9,7 +9,13 @@ journal: Journal of Environmental Management
 year: '2026'
 doi: 10.1016/j.jenvman.2026.129957
 content_type: abstract_only
+full_text_attempted: true
 ---
+
+# Characterization of multiple trichloroethene, cis-dichloroethene and 1,1-dichloroethene degrading propanotrophic communities
+**Authors:** Mohsen Faghihinezhad, Zohre Eshghdoostkhatami, Alison M. Cupples
+**Journal:** Journal of Environmental Management (2026)
+**DOI:** [10.1016/j.jenvman.2026.129957](https://doi.org/10.1016/j.jenvman.2026.129957)
 
 ## Content
 

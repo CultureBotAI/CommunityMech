@@ -9,6 +9,7 @@ journal: MethodsX
 year: '2022'
 doi: 10.1016/j.mex.2022.101652
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Matlab implementation of a novel semi-structured kinetic model for methanotroph-photoautotroph cocultures

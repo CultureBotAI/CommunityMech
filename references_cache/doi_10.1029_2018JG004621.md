@@ -10,6 +10,7 @@ journal: "Journal of Geophysical Research: Biogeosciences"
 year: '2018'
 doi: 10.1029/2018JG004621
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Microbial Communities From the World's Largest Lithium Reserve, Salar de Atacama, Chile: Life at High LiCl Concentrations
