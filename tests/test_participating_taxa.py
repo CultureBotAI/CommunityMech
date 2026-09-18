@@ -166,6 +166,7 @@ USERS = {
     "Aerobic_Denitrification_QQ_SynCom.yaml",
     "Alaska_Tundra_Permafrost_Iron_Redox_Community.yaml",
     "Altered_Schaedler_Flora_Gnotobiotic_Mouse_Community.yaml",
+    "Anaerobic_Indole_Degrading_Sludge_Consortium.yaml",
     "Anammox_Bioreactor_DNRA_Destabilization_Community.yaml",
     "Anammox_Granule_Metabolic_Interaction_Community.yaml",
     "Apple_Fire_Blight_ANP_SynCom.yaml",
