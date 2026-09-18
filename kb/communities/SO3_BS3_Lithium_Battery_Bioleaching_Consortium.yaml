@@ -219,8 +219,20 @@ environmental_factors:
   - reference: PMID:42733304
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: When exposed to 6 mg L−1 Ni2+ and 3 mg L−1 Co2+, the growth of strain SO2 was notably inhibited
-    explanation: Supports the nickel and cobalt stress condition used to evaluate the IrrE improvement in S. oneidensis.
+    snippet: When exposed to 6 mg L−1 Ni2+ and 3 mg L−1 Co2+, the growth of strain SO2 was notably inhibited,
+      with its maximum cell density decreasing from 1.941 (in the absence of Ni2+ and Co2+) to 1.367 (Figure 4e ).
+      In comparison, strain SO3, which overexpressed IrrE, attained higher cell density (OD600, max = 2.291) under
+      the identical conditions (Figure 4e ).
+    explanation: Supports the nickel and cobalt stress condition and S. oneidensis SO3 growth improvement used to evaluate
+      the IrrE cytotoxicity-resistance design.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Live‐dead staining also revealed that strains SO2 and BS2 exhibited more pronounced red fluorescence in the presence
+      of Ni2+ and Co2+ (Figure 4g ), indicating a higher prevalence of dead cells due to Ni2+ and Co2+ exposure. The
+      overexpression of IrrE in strains SO3 and BS3 resulted in a noticeable reduction in the abundance of dead cells
+      (Figure 4g ), consistent with the observed growth patterns.
+    explanation: Supports the IrrE-associated cell-death reduction in both SO3 and BS3 under nickel and cobalt stress.
 growth_media:
 - name: Chloramphenicol-supplemented Luria-Bertani pre-culture
   composition:
@@ -274,9 +286,17 @@ growth_media:
   - reference: PMID:42733304
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: Following a brief period of subculturing, the culture was transferred into anaerobic bottles, supplemented with
-      0.2 g L−1 of black mass
-    explanation: Supports the anaerobic-bottle NCM black-mass leaching setup.
+    snippet: Overnight cultures of each strain were subsequently inoculated into a medium formulated with brewing water collected
+      from a brewing factory in Moutai Town (Guizhou) at a 1% (v/v) ratio, induced by the isopropyl‐β‐d‐thiogalactoside
+      (IPTG, 0.5 mm, Heowns, Tianjin) for gene expression. Following a brief period of subculturing, the culture was
+      transferred into anaerobic bottles, supplemented with 0.2 g L−1 of black mass
+    explanation: Supports the overnight-culture inoculum, brewing-wastewater transfer, IPTG induction, anaerobic-bottle
+      transfer, and NCM black-mass addition.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Anaerobic fermentation was then conducted at 30°C for a period of 14 days to facilitate the dissolution of LIBs.
+    explanation: Supports the anaerobic, 30 degrees Celsius, 14-day NCM leaching conditions.
 metals_present:
 - LITHIUM
 - NICKEL
@@ -308,4 +328,9 @@ curation_history:
   curator: claude
   action: ADD_COMMUNITY
   changes: Added SO3-BS3 engineered Shewanella/Bacillus lithium-ion battery bioleaching consortium from PMID:42733304.
+  llm_assisted: true
+- timestamp: '2026-09-18T09:05:04Z'
+  curator: claude
+  action: UPDATE_COMMUNITY
+  changes: 'Addressed adversarial-review issues #941 and #942 by adding exact medium-condition and Ni/Co viability evidence.'
   llm_assisted: true
