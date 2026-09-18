@@ -18,7 +18,13 @@ authors:
 journal: PLoS ONE
 year: '2014'
 doi: 10.1371/journal.pone.0106618
-content_type: abstract_only
+content_type: full_text_pdf
+full_text_attempted: true
+full_text_provider: openalex
+full_text_url: "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0106618&type=printable"
+oa_status: gold
+license: cc-by
+local_pdf_path: files/DOI_10.1371_journal.pone.0106618.pdf
 ---
 
 # Culturable Heavy Metal-Resistant and Plant Growth Promoting Bacteria in V-Ti Magnetite Mine Tailing Soil from Panzhihua, China
@@ -214,3 +220,728 @@ BOX-A1R dendrogram for 136 isolates from V-Ti magnetite mine tailing soil in Pan
  (TIF) Click here for additional data file. Table S1 
 IAA, Siderophore production and preliminary BOX-AIR PCR identification of V-Ti magnetite mine tailing soil isolates, and similarity analysis of 16S rRNA sequence for 91 selected strains.
  (PDF) Click here for additional data file. Data Availability Statement The authors confirm that all data underlying the findings are fully available without restriction. All relevant data are within the paper and its Supporting Information files.
+
+Culturable Heavy Metal-Resistant and Plant Growth
+Promoting Bacteria in V-Ti Magnetite Mine Tailing Soil
+from Panzhihua, China
+Xiumei Yu 1*., Yanmei Li 1., Chu Zhang 1, Huiying Liu 1, Jin Liu 1, Wenwen Zheng 1, Xia Kang 1,
+Xuejun Leng 1,2, Ke Zhao 1, Yunfu Gu 1, Xiaoping Zhang 1, Quanju Xiang 1, Qiang Chen 1*
+1 Department of Microbiology, College of Resource and Environmental Sciences, Sichuan Agricultural University, Chengdu, China, 2 Environmental Monitoring Station,
+Panzhihua Municipal Environmental Protection Bureau, Panzhihua, China
+Abstract
+To provide a basis for using indigenous bacteria for bioremediation of heavy metal contaminated soil, the heavy metal
+resistance and plant growth-promoting activity of 136 isolates from V-Ti magnetite mine tailing soil were systematically
+analyzed. Among the 13 identified bacterial genera, the most abundant genus was Bacillus (79 isolates) out of which 32
+represented B. subtilis and 14 B. pumilus, followed by Rhizobium sp. (29 isolates) and Ochrobactrum intermedium (13 isolates).
+Altogether 93 isolates tolerated the highest concentration (1000 mg kg 21) of at least one of the six tested heavy metals.
+Five strains were tolerant against all the tested heavy metals, 71 strains tolerated 1,000 mg kg 21 cadmium whereas only one
+strain tolerated 1,000 mg kg 21 cobalt. Altogether 67% of the bacteria produced indoleacetic acid (IAA), a plant growth-
+promoting phytohormone. The concentration of IAA produced by 53 isolates was higher than 20 mgm l 21. In total 21% of
+the bacteria produced siderophore (5.50–167.67 mgm l21) with two Bacillus sp. producing more than 100 mgm l21. Eighteen
+isolates produced both IAA and siderophore. The results suggested that the indigenous bacteria in the soil have beneficial
+characteristics for remediating the contaminated mine tailing soil.
+Citation: Yu X, Li Y, Zhang C, Liu H, Liu J, et al. (2014) Culturable Heavy Metal-Resistant and Plant Growth Promoting Bacteria in V-Ti Magnetite Mine Tailing Soil
+from Panzhihua, China. PLoS ONE 9(9): e106618. doi:10.1371/journal.pone.0106618
+Editor: Andrew C. Singer, NERC Centre for Ecology & Hydrology, United Kingdom
+Received May 14, 2014; Accepted July 29, 2014; Published September 4, 2014
+Copyright: /C2232014 Yu et al. This is an open-access article distributed under the terms of the Creative Commons Attribution License, which permits unrestricted
+use, distribution, and reproduction in any medium, provided the original author and source are credited.
+Data Availability: The authors confirm that all data underlying the findings are fully available without restriction. All relevant data are within the paper and its
+Supporting Information files.
+Funding: This work was financially supported by National Natural Science Foundation of China (NO. 31300461), Doctoral Fund of Ministry of Education of China
+(NO. 20135103120003), and Research Foundation for the Introduction of Talent of Sichuan Agricultural University. The funders had no role in study de sign, data
+collection and analysis, decision to publish, or preparation of the manuscript.
+Competing Interests: The authors have declared that no competing interests exist.
+* Email: yuxiumeicool@163.com (XY); cqiang@sicau.edu.cn (QC)
+. These authors contributed equally to this work.
+Introduction
+Mining industry has caused extensive environmental and public
+health problems [1–3]. A wide variety of heavy metals such as
+zinc, lead, copper and cadmium have been detected in soil at
+mining sites presenting a major threat to the environment and
+population [4,5]. Heavy metals cannot be biologically degraded
+and indefinitely persist in the environment. Heavy metals
+transferred through the food chain are a serious hazard to human
+health [6]. Due to contamination by heavy metals, mining sites are
+surrounded by large barren areas. The awareness of the
+detrimental heavy metal contamination at mining sites has
+increased in recent years.
+The toxic heavy metals accumulated in soil can effectively
+impact the microbial community composition. Bacteria play an
+important role in maintaining soil fertility and structure. Because
+bacteria respond quickly and are sensitive to subtle environmental
+changes, they have been considered as efficient bio-indicators of
+soil quality [7]. Both the structural and functional bacterial
+diversity are important indicators of soil health [8]. Phytoremedia-
+tion has been effectively used to remediate heavy metal-polluted
+sites as a sustainable remediation approach [9]. Plant-microbe
+partnerships may be utilized to improve biomass production and
+remediation [10]. Plant growth-promoting rhizobacteria (PGPR)
+that solubilize phosphate and synthesize growth-promoting
+substances such as indoleacetic acid (IAA) and siderophores can
+be applied in the plant-assisted bioremediation of metal-contam-
+inated soil [11–14]. Phytoremediation utilizes heavy metal-tolerant
+plant species with metal accumulation ability. Since the addition of
+IAA to soil can enhance the uptake of metals in plant roots
+[15,16], bacteria-producing IAA have been used to assist the
+phytoremediation of soil contaminated with heavy metals [17].
+Metals such as iron, zinc, copper, manganese and nickel play
+important roles as essential or beneficial micronutrients of
+microorganisms [18,19]. However, a high concentration of metal
+ions in soil shows serious effects on microbial communities by
+changing the community structure and decreasing diversity and
+total microbial biomass [13]. Therefore, microbial communities
+are useful indicators of the effect of contamination on soil health
+[20]. To have a functional role in remediation, bacteria in heavy
+metal-contaminated soil must first overcome the heavy metal
+stress. Microorganisms tolerate heavy metals by immobilizing
+PLOS ONE | www.plosone.org 1 September 2014 | Volume 9 | Issue 9 | e106618
+
+
+metals on cell surfaces or transforming metals into less toxic forms,
+for example by precipitation, acidification and oxidation-reduction
+[21].
+Panzhihua is an industrial and mining city in Sichuan of
+Southwest China with over 109 tonnes of ore reserves deposited as
+iron-vanadium-titanium oxide (V-Ti magnetite) [22]. The world
+class magmatic deposits of V-Ti magnetite in Panzhihua provide
+20% of iron (Fe), 64% of vanadium (V) and 53% of titanium (Ti)
+supply for China [23]. Long-term mining activities have contam-
+inated soils and sediments in Panzhihua by metals, especially by V,
+Ti and Fe [24]. The redox-sensitive vanadium is toxic to soil
+microorganisms and plants [25]. Even though titanium is
+beneficial to plants at low concentrations, high concentrations of
+titanium are toxic [26]. Iron is an essential nutrient serving as a
+catalyst for many cellular reactions, in particular those involving
+redox and O 2 chemistry [27]. More than 220 million m 3 of mine
+tailing has been piled up in Zhujiabaobao, Panzhihua, creating a
+serious environmental hazard. Because the mine tailing soil
+contains heavy metals, only few plants grow on it, creating large
+barren areas. Long term exposure to contaminant allows different
+bacteria to become adapted to the contaminant, making
+autochthonous bacteria more useful in bioremediating the
+contaminated environment compared to allochthonous ones
+[28]. Therefore, this study focuses on the culturable heavy
+metal-resistant and plant growth-promoting autochthonous bac-
+teria from V-Ti magnetite mine tailing soil, with the aim of
+providing information for bioremediating the large area covered
+by the V-Ti magnetite mine tailing dam at Panzhihua.
+Materials and Methods
+Study site and soil sampling
+Panzhihua (N26 u059,27u219, E101 u089,102u159) in Sichuan,
+China, is an important industrial and mining base with abundant
+mineral resources. Panzhihua V-Ti magnetite mine is by the
+Jinsha River in the southern part of Panxi rift valley upstream of
+the Yangtze River. The mining area includes six large scale iron
+deposits, numerous medium-sized coal, clay, dolomite and
+limestone deposits, and minor graphite, manganese and barite
+deposits [23]. Our study site did not involve endangered or
+protected species and provide a specific location, so no specific
+permissions were required for the location/activity.
+Zhujiabaobao (N 26 u37920, E 101 u459560) in Panzhihua is a
+huge deposit of V-Ti magnetite. In the Zhujiabaobao mining area,
+there is more than 220 million m 3 of mine tailing and a large
+tailing dam. The ground around the tailing dam is barren and
+desert-like. Four soil samples were collected in May 2013 to a
+depth of 0–20 cm from the tailing dam by a five-point sampling
+method. Soil samples, fully mixed in sterile polyethylene bags,
+were kept at room temperature in the dark.
+Chemical analyses of soil samples
+The soil samples were dispersed and passed through a 2 mm
+sieve before measuring pH, organic matter content and the
+concentrations of available nitrogen (N), phosphorus (P) and
+potassium (K) as described [29]. Soil available N was determined
+by Aalkali N-proliferation method, whereas and available P and K
+quantified with the ASI method. Soil organic matter was
+determined by the K 2CrO72H2SO4 oxidation method. To
+extract heavy metals, air-dried soil samples were passed through
+a 2 mm nylon sieve, and digested by 1:2:2 (V:V:V) HNO 3:HCl:H-
+ClO4. Vanadium (V), titanium (Ti), iron (Fe), nickel (Ni), lead (Pb),
+zinc (Zn), manganese (Mn), copper (Cu), arsenic (As), cadmium
+(Cd) and chromium (Cr) were measured by inductively coupled
+plasma atomic emission spectroscopy (ICP-AES, IRIS Intrepid II,
+Thermo Electron corporation, USA) as described [30].
+Isolation of bacteria
+A sample of 5 grams of soil was suspended in 45 ml sterile water
+with glass beads. After shaking for 30 minutes and letting settle for
+5 minutes, 200 ml of the liquid phase was inoculated on beef
+extract-peptone agar medium (beef extract 3.0 g l 21, peptone
+10.0 g l 21, NaCl 5.0 g l 21, agar 18.0 g l 21, pH 7.0) in Petri dish
+(90 mm diameter610 mm depth). Isolates were selected based on
+differences in colony morphology and re-streaked several times on
+beef extract-peptone agar at 28 uC until 136 pure cultures were
+obtained.
+Genetic identification of isolated bacteria
+Total DNA was extracted by the phenol-chloroform method as
+described [31]. To group the 136 isolates, BOX-PCR with the
+primer BOXA1R (5 9-CTACGGCAAGGCGACGCTGACG-39)
+was carried out as described [32,33]. A dendrogram based on the
+BOXA1R-PCR fingerprints was drawn using Numerical Taxon-
+omy and Multivariate Analysis System NTSYSpc 2.2 (Exeter
+Software, USA). An isolate from each of the 91 BOXA1R-PCR
+groups was chosen for 16S rRNA gene sequencing. Almost full
+length 16S rRNA gene was amplified by polymerase chain
+reaction (PCR) with the universal primers of 27F (5 9-AGAGTTT-
+GATCCTGGCTCAG-39) and 1492R (5 9-GGTTACCTTGT-
+TACGACTT-39) [34,35] and sequenced at the Beijing Genomics
+Institute (Shenzhen, China). The sequences were submitted
+GenBank to assign accession numbers. The closest matching
+sequences were searched from GenBank with BLAST [36]. A
+neighbor joining the 16S rRNA phylogenetic tree was constructed
+using the neighbor joining method in MEGA 6.0 [37].
+Heavy metal tolerance tests
+The resistance of the 136 isolates to lead, cadmium, zinc,
+copper, cobalt and nickel was assayed by spot-inoculating 10 mlo f
+108 cells ml 21 bacterial suspension on beef extract-peptone agar
+medium with the respective metal salts. Pb(NO 3)2, CdCl2, ZnCl2,
+CuSO4, CoCl 2 and NiCl 2 were added to the medium to obtain
+200, 400, 600, 800 and 1000 mg kg21 heavy metal concentrations.
+After incubation at 28 uC for 5 days, the minimum inhibitory
+concentration (MIC) was defined as the lowest concentration of
+metal salt inhibiting bacterial growth. On the positive control
+plates without heavy metal the colonies were approximately four
+mm in diameter.
+Indoleacetic acid and siderophore production assays
+The plant growth-promoting activity of the isolates was
+evaluated by assaying the production of indole-3-acetic acid
+(IAA) and siderophores as described. In the qualitative IAA assay
+[38], isolates were grown in a beef extract-peptone liquid medium
+with 0.5 g l 21 tryptophan at 28 uC and 140 rpm for 36 hours,
+50 ml of the culture suspension was absorbed into a white
+porcelain board and, after adding 100 ml of the color reagent
+(4.5 g l21 FeCl3, 57.6% H2SO4), the board was incubated at 25uC
+for 30 min. A pink color indicated positive IAA production. A
+non-inoculated beef extract-peptone liquid medium with trypto-
+phan served as a negative control. To quantify IAA production
+[38,39], 4 ml of the color reagent was added to 2 ml of the culture
+supernatant obtained by centrifugation (8000 rpm for 5 min).
+Optical density at 550 nm was measured by spectrophotometry
+(WFJ2100, UNICO, China) after coloration for 30 min. IAA
+concentration in the supernatant was interpolated using an IAA
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 2 September 2014 | Volume 9 | Issue 9 | e106618
+
+standard curve. The distribution of IAA producers and heavy
+metal tolerant strains among the different taxa were compared
+with a Chi-square test.
+In the qualitative siderophore assay, isolates were grown on
+chrome azurol sulphonate (CAS) agar to select siderophore
+producing strains [40]. To quantify siderophore production,
+siderophore producing strains were grown in Fiss minimal
+medium (5.03 g l 21 L-asparagine, 5.03 g l 21 KH2PO4, 5.0 g l 21
+glucose, 0.5 mg l 21 ZnCl2,4 0 m gl 21 MgSO4 and 0.5 mM
+FeSO4) for two days. After centrifugation at 1000 g for 15 min,
+supernatant was mixed with CAS solution (1 vol: 1 vol) and
+incubated for 60 min. Optical density at 400 nm was measured by
+spectrophotometry (WFJ2100, UNICO, China) [41]. Siderophore
+concentration in the supernatant was interpolated using a
+deferoxamine mesylate salt (SIGMA, USA) standard curve. The
+IAA and siderophore production and heavy metal tolerance assays
+were done in triplicate.
+Results
+Basic physicochemical properties of soil samples
+To assess the quality of the V-Ti magnetite mine tailing soil, we
+first measured the soil physicochemical characteristics and heavy
+metal content in the soil (Table 1). The soil pH was low
+(5.2860.91), as was the content of organic matter
+(16.9864.45%). Of the 103.50 636.84 mg kg 21 total N, approx-
+imately 13% was plant-available N. As expected, the iron,
+titanium and vanadium concentrations were high, up to 76.15,
+28.19 and 5.58 g kg 21, respectively. The manganese concentra-
+tion was 1.42 g kg 21. The concentration of chromium, zinc,
+copper and nickel were 98.51, 87.72, 56.75 and 48.11 mg kg21.I n
+addition, lead (3.87 mg kg 21), arsenic (0.94 mg kg 21) and
+Cadmium (0.5260.25 mg kg 21) were detected in the mine tailing
+soil.
+Isolation of bacteria and genetic identification
+Based on differences in colony morphology, 136 bacterial strains
+were isolated from the V-Ti magnetite mine tailing soil. According
+to the BOX A1R-PCR fingerprint analysis, the similarities
+between the 136 isolates ranged from 0.54 to 1.00. Altogether
+there were 91 distinct fingerprint patterns. The 136 isolates were
+divided into two major groups, group I (81 isolates) and group II
+(55 isolates), at 54% similarity level (Figure S1). One strain was
+chosen from each of the 91 distinct fingerprint pattern groups for
+16S rRNA sequencing (Figure S1). The sequences were assigned
+GenBank accession numbers KJ733935–KJ734025 (Table S1).
+The16S rRNA gene sequences of the 91 representative strains
+indicated that the group I and group II in the BOX A1R-PCR
+dendrogram represented Gram-positive and Gram-negative bac-
+teria, respectively (Table S1, Figure S1). Seventy-nine isolates
+belonged to the genus Bacillus and represented eleven species
+(Table S1). Altogether 32 isolates were considered as representing
+B. subtilis and 14 as B. pumilus (Figure 1, Table S1). In addition
+to the Bacillus spp. isolates, isolates KT19 and KT84 were
+identified as Gram-positive strains displaying 99% similarity to the
+type strains of Paenibacillus tundrae and Microbacterium aero-
+latum, respectively (Figure 1, Table S1).
+The 55 Gram-negative isolates were assigned to seven families
+and ten genera (Figure 1, Table S1). Altogether 43 of them
+belonged to the Rhizobiaceae and were assigned as Rhizobium sp.
+(29 isolates), Ochrobactrum intermedium (13 isolates) and Sinorhi-
+zobium adhaerens (1 isolate).
+Heavy metal tolerance of isolated bacteria
+The heavy metal tolerance of the 136 bacterial isolates from the
+V-Ti magnetite mine tailing soil was determined as the minimum
+inhibitory concentration (MIC) (Figure 2). Most isolates showed
+MIC lower than 200 mg kg 21 for Zn (68.4%), Co (87.5%) and Ni
+(74.3%). Altogether 93 isolates tolerated the highest concentration
+(1,000 mg kg 21) of at least one tested heavy metal; 71 strains
+tolerated 1,000 mg kg 21 cadmium whereas only one strain,
+Table 1. The basic physicochemical properties and heavy metal concentrations in V-Ti magnetite mine tailing soil.
+Properties Average value Minimum value Maximum value
+pH 5.28 60.91 4.48 6.34
+Organic matter ( %) 16.98 64.45 12.72 22.29
+Total N (mg kg 21) 103.50 636.84 72.85 153.73
+Available N (mg kg 21) 13.64 68.03 8.46 25.60
+Available K (mg kg 21) 11.71 63.86 7.21 15.98
+Available P (mg kg 21) 11.08 61.82 8.87 13.15
+As (mg kg 21) 0.94 60.58 0.47 1.77
+Fe (mg kg 21) 76145.84 63715.20 70782.50 78647.50
+Ti (mg kg 21) 28185.84 63264.46 23976.67 31596.67
+V (mg kg 21) 5584.38 62457.28 2974.00 7595.00
+Cr (mg kg 21) 98.51 69.20 90.61 111.72
+Mn (mg kg 21) 1417.17 6141.02 1268.33 1543.75
+Zn (mg kg 21) 87.72 620.27 69.21 106.59
+Cu (mg kg 21) 56.75 630.65 30.05 95.58
+Ni (mg kg 21) 48.11 612.23 38.40 65.34
+Pb (mg kg 21) 6.90 61.37 5.62 8.84
+Cd (mg kg 21) 0.52 60.25 0.19 0.78
+doi:10.1371/journal.pone.0106618.t001
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 3 September 2014 | Volume 9 | Issue 9 | e106618
+
+Bacillus sp. KT-76, tolerated 1,000 mg kg 21 cobalt. Only three
+strains, the Rhizobium sp. KT27 and KT62, and the Bacillus sp.
+KT43 displayed MIC less than 200 mg kg 21 for all the six heavy
+metals tested. Five strains, the B. licheniformis KT-87 and KT-88
+and the Bacillus sp. KT-72, KT-74 and KT-76 were tolerant
+against all the tested heavy metals. B. licheniformis KT87 showed
+1000 mg kg21 MIC for Cd, Zn, Cu and Ni, 800 mg kg21 MIC for
+Pb and 600 mg kg 21 MIC for Co. The MIC of Bacillus sp. KT72
+for the six heavy metals was 1000 mg kg 21 (Pb, Cd, Ni) and
+600 mg kg 21 (Zn, Cu, Co). When comparing the percentage of
+strains tolerant to four or more heavy metals, it was noted that,
+Figure 1. Neighbor-joining tree based on 16S rRNA sequences of isolated representative bacteria strains from V-Ti magnetite mine
+tailing soil by MEGA 6. The scale bar corresponds to 0.05 substitutions per nucleotide position. The numbers at nodes indicated the levels of
+bootstrap support (%) based on 1,000 resampled data sets; only values above 50% are given. Superscript ‘‘T’’ means type stains; Number in
+parentheses represents the sequence number in GenBank. Nanoarchaeum equitans Kin4-M was used as an outgroup.
+doi:10.1371/journal.pone.0106618.g001
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 4 September 2014 | Volume 9 | Issue 9 | e106618
+
+among the Rhizobium sp., multiple tolerant strains (34.9%) were
+less abundant than among the Bacillus spp. (54.4%) (p ,0.05).
+Indoleacetic acid and siderophore production
+Most of the isolates, altogether 91 strains, produced IAA (Table
+S1) ranging from 2.2 to 83.05 mgm l 21. Eleven strains produced
+more than 60 mgm l21 IAA. Six of these were Ochrobactrum sp.,
+three were Bacillus spp., one was Providencia sp. and one
+Rhizobium sp. Ochrobactrum sp. KT80 produced highest concen-
+tration (83.05 mgm L21) of IAA among the 136 isolates, followed
+by Providencia sp. KT7 (79.02 mgm L 21) and Rhizobium sp.
+KT24 (75.82 mgm l21).
+Only 29 of the 136 isolates produced siderophore (Table S1)
+ranging from 5.50 to 167.67 mgm l 21. All the six Rhizobium sp.
+isolates that produced siderophore were IAA producers, whereas
+only half of the eighteen Bacillus spp. and two Ochrobactrum sp.
+siderophore producers produced IAA. Bacillus sp. isolates KT93
+and KT113 that did not produce IAA produced highest side-
+rophore concentrations of 167.67 mgm l 21 and 105.33 mgm l 21,
+respectively.
+Discussion
+Basic physicochemical properties of the V-Ti magnetite
+mine tailing soil
+The basic physicochemical properties are important factors for
+evaluating soil quality. The V-Ti magnetite tailing, a weakly acid
+soil, showed pH similar to that in an old Spanish Pb-Zn mine soil
+[42]. Soil pH is the best predictor of microbial diversity and
+community composition [43,44]. The bacteria in the V-Ti
+magnetite mine tailing soil may prefer acid environment. The
+organic matter content of V-Ti magnetite mine tailing soil was
+lower than in agricultural and urban ecosystem soils [29,45], but
+similar with other mine tailing area [42]. The V-Ti magnetite
+mine tailing also showed lower content of available N, P and K
+than agricultural and urban ecosystem soils [29,45], The low
+contents of available N, P, K and organic matter suggested that V-
+Ti magnetite mine tailing soil was unfertile. The iron, titanium and
+vanadium concentrations were up to three, ten and 70 times
+higher than in US soils in average [46], respectively. The
+concentrations of Cr, Zn, Cu, Ni and Mn were approximately
+1.5 to 2.5 times higher than in US soils in average [46]. The
+concentrations of Fe, Cu and Zn were above values considered
+very high by Abreu et al [47] and the chromium concentration
+was almost twice as high as needed to inhibit alfalfa germination
+[48], plausibly explaining the scarce vegetation at the Zhujiabao-
+bao V-Ti magnetite tailing dam. Therefore, phytoremediation of
+the barren V-Ti magnetite mine tailing soil should include
+increasing the content of available N, P, K and organic matter
+and lowing metal concentration.
+Genetic identification of bacterial isolates
+To assess if the heavy metal-resistance and plant growth
+promoter-producing bacteria in the Zhujiabaobao V-Ti magnetite
+tailing dam soil would support phytoremediation, we isolated 136
+bacterial strains, grouped them by BOX A1R-PCR and identified
+representative strains by 16S rRNA gene sequencing. The bacteria
+in the V-Ti magnetite mine tailing soil represented both Gram-
+negative and Gram-positive species. Bacillus spp. were the most
+abundant species, followed by Rhizobium spp. and Ochrobactrum
+spp. The spore and cyst forming capability of Bacillus spp. may
+explain why Bacillus spp. were abundant in the unfavorable
+environment of the V-Ti magnetite mine tailing soil. Autochtho-
+nous Bacillus from mine tailing in South Korea showed the ability
+to biomineralize heavy metals, such as Pb and Cr [49,50].
+Ochrobactrum spp. and Pseudomonas spp. have been used for the
+bioremediation of environmental pollutants [51–53]. These
+observations suggested that the indigenous bacteria might be
+useful for phytoremediation of the Zhujiabaobao mine tailing soil.
+The presence of multiple autochthonous Rhizobium spp. implied
+that, with compatible leguminous plants, the rhizobium-legume
+symbiosis could be used to gradually increase nitrogen content and
+overall fertility in the barren soil. The symbiosis of rhizobia and
+leguminous plants has been effectively used to remediate
+contaminated soil [54,55].
+Heavy metal tolerance of bacterial isolates
+To estimate the usefulness of the isolated bacteria in
+bioremediation, we assessed their heavy metal tolerance. Obvi-
+ously, the bacteria in V-Ti magnetite mine soil have to tolerate the
+harsh environment polluted by heavy metals. The tolerance
+mechanisms include exclusion, extrusion, accommodation, bio-
+Figure 2. The minimum inhibitory concentrations (MICs) of bacterial isolates against six heavy metals. Pb, lead; Cd, cadmium; Zn, zinc;
+Cu, copper; Co, cobalt; Ni, nickel.
+doi:10.1371/journal.pone.0106618.g002
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 5 September 2014 | Volume 9 | Issue 9 | e106618
+
+transformation and methylation or demethylation [13]. Bacteria
+can enhance metal solubility by producing acid and detoxify
+metals by removal, sequestering or immobilizing [56]. Since heavy
+metal tolerance is one of the most important factors for using an
+indigenous microorganism in bioremediation, recently the func-
+tional diversity of bacterial communities in contaminated soil has
+attracted more attention [7].
+The bacterial isolates from V-Ti magnetite mine tailing soil
+showed diverse tolerance to different heavy metals. Most of the
+isolates did not tolerate the lowest tested concentration (200 mg
+kg21) of Ni, Co and Zn. The concentrations of Ni and Zn were
+low in the mine tailing soil. A few of the V-Ti magnetite mine
+tailing isolates, e.g. Bacillus sp. KT87 and Bacillus sp. KT72,
+showed tolerance to higher metal concentrations than isolates
+from a copper mine tailing, from a mercuric salt-contaminated soil
+and from chickpea rhizosphere soil [57–59]. Interestingly, even
+though the concentration of Cd in the mine soil was not high,
+more than half the isolates tolerated a high concentration of Cd
+(1,000 mg kg21). Likewise, even though the concentration of Pb in
+the mine tailing soil was low, some isolates tolerated a high
+concentration of Pb, i.e. the tolerance to heavy metals and the
+heavy metal content of soil did not directly correlate. Many mine
+tailing sites are polluted by multiple metals. For bacteria, the
+ability to survive, including variation in strains and characteristics,
+is related to environmental conditions and length of exposure to
+those conditions [60]. Therefore, the isolates from the V-Ti
+magnetite mine tailing soil showing multi-metal resistance were
+affected by the unfavorable environment. The culturable bacteria
+included isolates with multiple heavy metal tolerance, especially
+among the Bacillus spp., suggesting that the indigenous bacteria
+are capable of assisting the bioremediation of the V-Ti magnetite
+mine tailing soil polluted by heavy metals.
+Plant growth-promoting activity of bacteria
+Plant-associated bacteria play a key role in host adaptation to
+changing environment by altering plant cell metabolism or
+promoting plant growth. Plant growth promoting rhizobacteria
+(PGPR) producing IAA and siderophore have been widely used to
+accelerate phytoremediation of metalliferous soil [13,21]. Produc-
+tion of indoleacetic acid (IAA), a phytohormone, is a key
+characteristic of PGPR [61]. The addition of IAA to soil can
+enhance the uptake of metals in plant roots [13,15,62]. Even
+though PGPR are widely studied, few studies have systematically
+analyzed PGPR in contaminated soil. About 23% and 50% of Zn-
+and Cd-accumulating isolates from a former zinc and lead mining
+and processing site in Austria produced IAA and siderophore,
+respectively [63]. In V-Ti magnetite mine tailing soil the
+percentages of culturable rhizosphere IAA and siderophore
+producers were entirely different at 67% and 21%, respectively.
+The plant growth promoting activity of the isolates from the V-Ti
+magnetite mine tailing was stronger than that reported for
+Pseudomonas putida GR12-2 (IAA: 2.01 mgm l 21) from the
+rhizosphere of an arctic plant [64], but lower than that of
+Alcaligenes faecalis BCCM IC 2374 (Siderophore: 347 mgm l 21)
+[65], suggesting that the plant growth promoting activity from
+different environments is totally different. The abundance of
+isolates producing more than 20 mgm l21 IAA suggested that the
+plant growth promoting ability of the isolates might assist in
+phytoremediating the soil.
+The bacterial and fungal siderophores facilitate iron uptake in
+soil [10]. Iron chelated by siderophores is unavailable to plant
+pathogens resulting in an increase in plant health [13]. Metal–
+resistant siderophore-producing bacteria play important role in the
+successful survival and growth of plants in contaminated soil by
+alleviating metal toxicity and supplying nutrients for plant, and
+bacterial siderophore can bind metals other than iron [66], which
+may be the reason why microorganism can survive in the mine
+tailing soil contaminated by multi-metals. Bacterial siderophore
+should be beneficial to regulate availability of the abundant iron in
+the V-Ti magnetite mine tailing soil containing high concentration
+of iron. As bioaugmentation-assisted phytoextraction technology,
+the indigenous siderophore-producing bacteria can increase the
+phytoextraction rate that usually limits the use of phytoremedia-
+tion methods [67]. Aside from their involvement in iron
+acquisition, siderophores have physiological roles of protecting
+some bacteria against the toxic effect of pyochelin by reducing
+reactive oxygen species [68], so the presence of siderophore-
+producing bacteria in the mine tailing can directly or indirectly
+promote bioremediation for the contaminated soil. Many isolates
+showed both IAA and siderophore production, implying that the
+characteristics of the indigenous bacteria are helpful in bioreme-
+diating the desert mine tailing area. Phytoremediation of metals
+was facilitated by PGPR by promoting plant growth and
+increasing the amount of metal taken up by plant [21,69].
+The heavy metal-resistance and plant growth-promoting
+activity are key characteristics for bacteria that are to be applied
+in metal phytoremediation. Therefore, analyzing these character-
+istics in an indigenous bacterial in contaminated sites is essential to
+provide significant information for developing effective bioreme-
+diation measures. Moreover, because both the structural and
+functional bacterial diversity are important indicators of soil
+health, evaluation for diversity of heavy metal-resistant bacteria
+and PGPR should be considered as the primary work for
+bioremediating soil contaminated by heavy metals. We showed
+that V-Ti magnetite mine tailing soil in Zhujiabaobao contained
+abundant bacteria that tolerate multiple heavy metals and have
+plant growth-promoting abilities. The results suggested that the
+indigenous bacteria in the soil have characteristics beneficial for
+remediating the contaminated mine tailing soil. To further study
+the phytoremediation approach, the plant growth promoting
+activity will be studied both in greenhouses and in situ in
+Zhujiabaobao.
+Supporting Information
+Figure S1 BOX-A1R dendrogram for 136 isolates from
+V-Ti magnetite mine tailing soil in Panzhihua, Sichuan,
+China.
+(TIF)
+Table S1 IAA, Siderophore production and preliminary
+BOX-AIR PCR identification of V-Ti magnetite mine
+tailing soil isolates, and similarity analysis of 16S rRNA
+sequence for 91 selected strains.
+(PDF)
+Author Contributions
+Conceived and designed the experiments: XY QC. Performed the
+experiments: XY YL CZ HL JL WZ XK XL KZ QX. Analyzed the
+data: XY GY XZ QC. Contributed reagents/materials/analysis tools: XY
+QC. Contributed to the writing of the manuscript: XY.
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 6 September 2014 | Volume 9 | Issue 9 | e106618
+
+References
+1. Neuberger JS, Mulhall M, Pomatto MC, Sheverbush J, Hassanein RS (1990)
+Health problems in Galena, Kansas: a heavy metal mining Superfund site. Sci
+Total Environ 94: 261–272.
+2. Saunders J, Jastrzembski B, Buckey J, Enriquez D, MacKenzie T, et al. (2012)
+Hearing loss and heavy metal toxicity in a Nicaraguan mining community:
+Audiological results and case reports. Audiol Neurootol 18: 101–113.
+3. Ohlander J, Huber SM, Schomaker M, Heumann C, Schierl R, et al. (2013)
+Risk Factors for Mercury Exposure of Children in a Rural Mining Town in
+Northern Chile. PloS one 8: e79756.
+4 .B o u l a r b a hA ,S c h w a r t zC ,B i t t o nG ,M o r e lJ L( 2 0 0 6 )H e a v ym e t a l
+contamination from mining sites in South Morocco: 1. Use of a biotest to
+assess metal toxicity of tailings and soils. Chemosphere 63: 802–810.
+5. Zhuang P, Lu H, Li Z, Zou B, McBride MB (2014) Multiple exposure and effects
+assessment of heavy metals in the population near mining area in South China.
+PloS one 9: e94484.
+6. Mazej Z, Al Sayegh-Petkovs ˇek S, Pokorny B (2010) Heavy metal concentrations
+in food chain of Lake Velenjsko jezero, Slovenia: an artificial lake from mining.
+Arch Environ Contam Toxicol 58: 998–1007.
+7. Valverde A, Gonza ´lez-Tirante M, Medina-Sierra M, Santa-Regina I, Garcı ´a-
+Sa´nchez A, et al. (2011) Diversity and community structure of culturable arsenic-
+resistant bacteria across a soil arsenic gradient at an abandoned tungsten–tin
+mining area. Chemosphere 85: 129–134.
+8. Nielsen MN, Winding A (2002) Microorganisms as indicators of soil health.
+National Environmental Research Institute Denmark.
+9. Gupta AK, Verma SK, Khan K, Verma RK (2013) Phytoremediation using
+aromatic plants: a sustainable approach for remediation of heavy metals polluted
+sites. Environ Sci Technol 47: 10115–10116.
+10. Weyens N, van der Lelie D, Taghavi S, Newman L, Vangronsveld J (2009)
+Exploiting plant–microbe partnerships to improve biomass production and
+remediation. Trends Biotechnol 27: 591–598.
+11. Fuentes-Ramirez LE, Jimenez-Salgado T, Abarca-Ocampo I, Caballero-
+Mellado J (1993) Acetobacter diazotrophicus , an indoleacetic acid producing
+bacterium isolated from sugarcane cultivars of Mexico. Plant Soil 154: 145–150.
+12. Jaroszuk-S´ciseł J, Kurek E, Trytek M (2014) Efficiency of indoleacetic acid,
+gibberellic acid and ethylene synthesized in vitro by Fusarium culmorum strains
+with different effects on cereal growth. Biologia 69: 281–292.
+13. Khan MS, Zaidi A, Wani PA, Oves M (2009) Role of plant growth promoting
+rhizobacteria in the remediation of metal contaminated soils. Environ Chem
+Lett 7: 1–19.
+14. Tak HI, Ahmad F, Babalola OO (2013) Advances in the application of plant
+growth-promoting rhizobacteria in phytoremediation of heavy metals. Reviews
+of Rev Environ Contam Toxicol 223: 33–52.
+15. Leinhos V, Bergmann H (1995) Influence of auxin producing rhizobacteria on
+root morphology and nutrient accumulation of crops, pt. 2: root growth
+promotion and nutrient accumulation of maize (Zea mays L.) by inoculation with
+indole-3-acetic acid (IAA) producing pseudomonas strains and by exogenously
+applied IAA under different water supply conditions. Angewandte Botanik
+(Germany).
+16. Lippmann B, Leinhos V, Bergmann H (1995) Influence of auxin producing
+rhizobacteria on root morphology and nutrient accumulation of crops, pt. 1:
+changes in root morphology and nutrient accumulation in maize ( Zea mays L.)
+caused by inoculation with indole-3-acetic acid (IAA) producing Pseudomonas
+and Acinetobacter strains or IAA applied exogenously. Angewandte Botanik
+(Germany).
+17. Rajkumar M, Freitas H (2008) Influence of metal resistant-plant growth-
+promoting bacteria on the growth of Ricinus communis in soil contaminated
+with heavy metals. Chemosphere 71: 834–842.
+18. Olson JW, Mehta NS, Maier RJ (2001) Requirement of nickel metabolism
+proteins HypA and HypB for full activity of both hydrogenase and urease in
+Helicobacter pylori . Mol Microbiol 39: 176–182.
+19. Sakamoto T, Bryant DA (2001) Requirement of nickel as an essential
+micronutrient for the utilization of urea in the marine cyanobacterium
+Synechococcus sp. PCC 7002. Plant Cell Physiol 42: 186.
+20. Mishra VK, Upadhyaya AR, Pandey SK, Tripathi B (2008) Heavy metal
+pollution induced due to coal mining effluent on surrounding aquatic ecosystem
+and its management through natural ly occurring aquatic macrophytes.
+Bioresour Technol 99: 930–936.
+21. Ma Y, Prasad M, Rajkumar M, Freitas H (2011) Plant growth promoting
+rhizobacteria and endophytes accelerate phytoremediation of metalliferous soils.
+Biotechnol Adv 29: 248–258.
+22. Zhou M-F, Robinson PT, Lesher CM, Keays RR, Zhang C-J, et al. (2005)
+Geochemistry, petrogenesis and metallogenesis of the Panzhihua gabbroic
+layered intrusion and associated Fe–Ti–V oxide deposits, Sichuan Province, SW
+China. J Petrol 46: 2253–2280.
+23. Yanguo T, Shijun N, Xianguo T, Chengjiang Z, Yuxiao M (2002) Geochemical
+baseline and trace metal pollution of soil in Panzhihua mining area.
+Chinese J Geochemistry 21: 274–281.
+24. Yanguo T, Xianguo T, Shijun N, Chengjiang Z, Zhengqi X (2003)
+Environmental geochemistry of heavy metal contaminants in soil and stream
+sediment in Panzhihua mining and smelting area, Southwestern China.
+Chinese J Geochemistry 22: 253–262.
+25. Larsson MA, Baken S, Gustafsson JP, Hadialhejazi G, Smolders E (2013)
+Vanadium bioavailability and toxicity to soil microorganisms and plants.
+Environ Toxicol Chem 32: 2266–2273.
+26. Kuzˇel S, Hruby M, Cı´gler P, Tlustosˇ P, Van Nguyen P (2003) Mechanism of
+physiological effects of titanium leaf sprays on plants grown on soil. Biol Trace
+Elem Res 91: 179–189.
+27. Eckardt NA (2012) Pumping iron: conserved iron deficiency responses in the
+plant lineage. Plant Cell 24(10): 3855.
+28. Venail PA, Vives MJ (2013) Positive effects of bacterial diversity on ecosystem
+functioning driven by complementarity effects in a bioremediation context. PloS
+one 8: e72561.
+29. Li Z, Zhang G, Liu Y, Wan K, Zhang R, et al. (2013) Soil nutrient assessment
+for urban ecosystems in Hubei, China. PloS one 8: e75856.
+30. Zhang S, Chen M, Li T, Xu X, Deng L (2010) A newly found cadmium
+accumulator– Malva sinensis Cavan. J Hazard Mater 173: 705–709.
+31. Chang S, Hsu H, Cheng J, Tseng C-P (2011) An efficient strategy for broad-
+range detection of low abundance bacteria without DNA decontamination of
+PCR reagents. PloS one 6: e20303.
+32. Martin B, Humbert O, Camara M, Guenzi E, Walker J, et al. (1992) A highly
+conserved repeated DNA element located in the chromosome of Streptococcus
+pneumoniae. Nucleic Acids Res 20: 3479–3483.
+33. Taca˜o M, Alves A, Saavedra MJ, Correia A (2005) BOX-PCR is an adequate
+tool for typing Aeromonas spp. Antonie van Leeuwenhoek 88: 173–179.
+34. Miller CS, Handley KM, Wrighton KC, Frischkorn KR, Thomas BC, et al.
+(2013) Short-read assembly of full-length 16S amplicons reveals bacterial
+diversity in subsurface sediments. PloS one 8: e56018.
+35. Wilson KH, Blitchington R, Greene R (1990) Amplification of bacterial 16S
+ribosomal DNA with polymerase chain reaction. J Clin Microbiol 28: 1942–
+1946.
+36. Benson DA, Cavanaugh M, Clark K, Karsch-Mizrachi I, Lipman DJ, et al.
+(2012) GenBank. Nucleic acids research: gks1195.
+37. Tamura K, Stecher G, Peterson D, Filipski A, Kumar S (2013) MEGA6:
+molecular evolutionary genetics analysis version 6.0. Mol Biol Evol 30: 2725–
+2729.
+38. Bric JM, Bostock RM, Silverstone SE (1991) Rapid in situ assay for indoleacetic
+acid production by bacteria immobilized on a nitrocellulose membrane. Appl
+Environ Microb 57: 535–538.
+39. Patten CL, Glick BR (2002) Role of Pseudomonas putida indoleacetic acid in
+development of the host plant root system. Appl Environ Microb 68: 3795–3801.
+40. Schwyn B, Neilands J (1987) Universal chemical assay for the detection and
+determination of siderophores. Analytical biochemistry 160: 47–56.
+41. Murugappan R, Rekha S, Thirumurugan R (2006) Characterization and
+quantification of siderophores produced by Aeromonas hydrophila isolated from
+Cyprinus carpio . Pak J Biol Sci 9: 437–440.
+42. Rodrı´guez L, Ruiz E, Alonso-Azca ´rate J, Rinco ´n J (2009) Heavy metal
+distribution and chemical speciation in tailings and soils around a Pb–Zn mine in
+Spain. J Environ Manage 90: 1106–1116.
+43. Tripathi BM, Kim M, Singh D, Lee-Cruz L, Lai-Hoe A, et al. (2012) Tropical
+soil bacterial communities in Malaysia: pH dominates in the equatorial tropics
+too. Microbial Ecol 64: 474–484.
+44. Lauber CL, Hamady M, Knight R, Fierer N (2009) Pyrosequencing-based
+assessment of soil pH as a predictor of soil bacterial community structure at the
+continental scale. Appl Environ Microb 75: 5111–5120.
+45. Brady NC, Weil RR (1996) The nature and properties of soils. Prentice-Hall Inc.
+46. Shacklette HT, Boerngen JG (1984) Element concentrations in soils and other
+surficial materials of the conterminous United States.
+47. Abreu CAd, van Raij B, Abreu MFd Gonza ´lez AP (2005) Routine soil testing to
+monitor heavy metals boron. Sci Agr 62: 564–571.
+48. Peralta-Videa J, Gardea-Torresdey J, Gomez E, Tiemann K, Parsons J, et al.
+(2002) Effect of mixed cadmium, copper, nickel and zinc at different pHs upon
+alfalfa growth and heavy metal uptake. Environ Pollut 119: 291–301.
+49. Das S, Mishra J, Das SK, Pandey S, Rao DS, et al. (2014) Investigation on
+mechanism of Cr (VI) reduction and removal by Bacillus amyloliquefaciens ,a
+novel chromate tolerant bacterium isolated from chromite mine soil. Chemo-
+sphere 96: 112–121.
+50. Govarthanan M, Lee K-J, Cho M, Kim JS, Kamala-Kannan S, et al. (2013)
+Significance of autochthonous Bacillus sp. KK1 on biomineralization of lead in
+mine tailings. Chemosphere 90: 2267–2272.
+51. Cheng Y, Yan F, Huang F, Chu W, Pan D, et al. (2010) Bioremediation of Cr
+(VI) and immobilization as Cr (III) by Ochrobactrum anthropi . Environ Sci
+Technol 44: 6357–6363.
+52. Pandey S, Ghosh PK, Ghosh S, De TK, Maiti TK (2013) Role of heavy metal
+resistant Ochrobactrum sp. and Bacillus spp. strains in bioremediation of a rice
+cultivar and their PGPR like activities. J Microbiol 51: 11–17.
+53. Wasi S, Tabrez S, Ahmad M (2013) Use of Pseudomonas spp. for the
+bioremediation of environmental pollutants: a review. Environ Monit Assess
+185: 8147–8155.
+54. Ike A, Sriprang R, Ono H, Murooka Y, Yamashita M (2007) Bioremediation of
+cadmium contaminated soil using symbiosis between leguminous plant and
+recombinant rhizobia with the MTL4 and the PCS genes. Chemosphere 66:
+1670–1676.
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 7 September 2014 | Volume 9 | Issue 9 | e106618
+
+55. Sriprang R, Hayashi M, Yamashita M, Ono H, Saeki K, et al. (2002) A novel
+bioremediation system for heavy metals using the symbiosis between leguminous
+plant and genetically engineered rhizobia. J Biotechnol 99: 279–293.
+56. Pumpel T, Paknikar KM (2001) Bioremediation technologies for metal-
+containing wastewaters using metabolically active microorganisms. Adv Appl
+microbiol 48: 135–171.
+57. Xie X, Fu J, Wang H, Liu J (2010) Heavy metal resistance by two bacteria
+strains isolated from a copper mine tailing in China. Afr J Biotechnol 9: 4056–
+4066.
+58. Bafana A, Krishnamurthi K, Patil M and Chakrabarti T (2010) Heavy metal
+resistance in Arthrobacter ramosus strain G2 isolated from mercuric salt-
+contaminated soil. J Hazard Mater 177: 481–486.
+59. Joseph B, Ranjan Patra R, Lawrence R (2012) Characterization of plant growth
+promoting rhizobacteria associated with chickpea ( Cicer arietinum L.).
+Intl J Plant Prod 1: 141–152.
+60. Roszak D, Colwell R (1987) Survival strategies of bacteria in the natural
+environment. Microbiol Rev 51: 365.
+61. Ahmad F, Ahmad I, Khan M (2008) Screening of free-living rhizospheric
+bacteria for their multiple plant growth promoting activities. Microbiol Res 163:
+173–181.
+62. Leinhos V, Bergmann H (1995) Influence of auxin producing rhizobacteria on
+root morphology and nutrient accumulation of maize ( Zea mays L.) by
+inoculation with indol-3-acetic acid (IAA) producing Pseudomonas strains and
+by exogenously applied IAA under different water supply conditions. Angew Bot
+69: 37–42.
+63. Kuffner M, De Maria S, Puschenreiter M, Fallmann K, Wieshammer G, et al.
+(2010) Culturable bacteria from Zn-and Cd-accumulating Salix caprea with
+differential effects on plant growth and heavy metal availability. J App Microbiol
+108: 1471–1484.
+64. Xie H, Pasternak J, Glick BR (1996) Isolation and characterization of mutants of
+the plant growth-promoting rhizobacterium Pseudomonas putida GR12–2 that
+overproduce indoleacetic acid. Curr Microbiol 32: 67–71.
+65. Sayyed R, Chincholkar S (2010) Growth and siderophores production in
+Alcaligenes faecalis is regulated by metal ions. Indian H Microbiol 50: 179–182.
+66. Rajkumar M, Ae N, Prasad MN, Freitas H (2010) Potential of siderophore-
+producing bacteria for improving hea vy metal phytoextraction. Trends
+Biotechnol 28: 142–149.
+67. Braud A, Jezequel K, Bazot S, Lebeau T (2009) Enhanced phytoextraction of an
+agricultural Cr- and Pb-contaminated soil by bioaugmentation with side-
+rophore-producing bacteria. Chemosphere 74: 280–286.
+68. Adler C, Corbala ´n NS, Seyedsayamdost MR, Pomares MF, de Cristo´bal RE, et
+al. (2012) Catecholate siderophores protect bacteria from pyochelin toxicity.
+PloS one 7: e46754.
+69. Glick BR (2010) Using soil bacteria to facilitate phytoremediation. Biotechnol
+Adv 28: 367–374.
+Culturable Heavy Metal-Resistant Bacteria and PGPB from Mine Tailing
+PLOS ONE | www.plosone.org 8 September 2014 | Volume 9 | Issue 9 | e106618

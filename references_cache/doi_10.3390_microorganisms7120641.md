@@ -17,6 +17,7 @@ journal: Microorganisms
 year: '2019'
 doi: 10.3390/microorganisms7120641
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # The Simplified Human Intestinal Microbiota (SIHUMIx) Shows High Structural and Functional Resistance against Changing Transit Times in In Vitro Bioreactors

@@ -1,7 +1,6 @@
 ---
 reference_id: DOI:10.1111/j.1462-2920.2005.00861.x
-title: "<i>Ferroplasma</i>
-                    and relatives, recently discovered cell wall‐lacking archaea making a living in extremely acid, heavy metal‐rich environments"
+title: "<i>Ferroplasma</i> and relatives, recently discovered cell wall‐lacking archaea making a living in extremely acid, heavy metal‐rich environments"
 authors:
 - Olga V. Golyshina
 - Kenneth N. Timmis
@@ -9,10 +8,10 @@ journal: Environmental Microbiology
 year: '2005'
 doi: 10.1111/j.1462-2920.2005.00861.x
 content_type: abstract_only
+full_text_attempted: true
 ---
 
-# <i>Ferroplasma</i>
-                    and relatives, recently discovered cell wall‐lacking archaea making a living in extremely acid, heavy metal‐rich environments
+# <i>Ferroplasma</i> and relatives, recently discovered cell wall‐lacking archaea making a living in extremely acid, heavy metal‐rich environments
 **Authors:** Olga V. Golyshina, Kenneth N. Timmis
 **Journal:** Environmental Microbiology (2005)
 **DOI:** [10.1111/j.1462-2920.2005.00861.x](https://doi.org/10.1111/j.1462-2920.2005.00861.x)

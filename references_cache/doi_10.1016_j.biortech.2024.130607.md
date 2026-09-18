@@ -14,6 +14,7 @@ journal: Bioresource Technology
 year: '2024'
 doi: 10.1016/j.biortech.2024.130607
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Unlocking synergies: Harnessing the potential of biological methane sequestration through metabolic coupling between Methylomicrobium alcaliphilum 20Z and Chlorella sp. HS2

@@ -13,6 +13,7 @@ journal: "Environmental Science &amp; Technology"
 year: '2023'
 doi: 10.1021/acs.est.3c04508
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Vanadium in the Environment: Biogeochemistry and Bioremediation

@@ -11,6 +11,7 @@ journal: Marine Ecology Progress Series
 year: '2012'
 doi: 10.3354/meps09894
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Effects of Marinobacter adhaerens HP15 on polymer exudation by Thalassiosira weissflogii at different N:P ratios

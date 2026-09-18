@@ -12,6 +12,7 @@ journal: Microorganisms
 year: '2021'
 doi: 10.3390/microorganisms9020321
 content_type: abstract_only
+full_text_attempted: true
 ---
 
 # Cross-Feeding of a Toxic Metabolite in a Synthetic Lignocellulose-Degrading Microbial Community
