@@ -1,0 +1,311 @@
+id: CommunityMech:000385
+name: SO3-BS3 Lithium-ion Battery Bioleaching Consortium
+description: A two-member engineered Shewanella oneidensis MR-1 and Bacillus subtilis 168 synthetic consortium for metal oxide
+  leaching from spent LiNixCoyMn1-x-yO2 lithium-ion battery cathode black mass using Moutai brewing wastewater as the organic
+  leaching medium. The final SO3-BS3 design pairs S. oneidensis SO3, engineered for riboflavin synthesis and Deinococcus IrrE-mediated
+  metal-ion stress resistance, with B. subtilis BS3, engineered for ethanol detoxification, riboflavin production, and IrrE-mediated
+  resistance. In anaerobic bottle cultures with 0.2 g/L black mass, the SO3-BS3 consortium increased total dissolved Li, Ni,
+  Co, and Mn to 102.4 mg/L by reducing NCM through MtrC/OmcA- and riboflavin-mediated extracellular electron transfer.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOMINING
+engineering_design:
+  objective: Recycle spent NCM lithium-ion battery cathode black mass by using brewing wastewater organics as reductants and
+    an engineered S. oneidensis/B. subtilis division of labor to catalyze metal oxide reduction and leaching.
+  assembly_strategy: Combine the SO3 S. oneidensis MR-1 derivative carrying a Ptac::ribADEHC-irrE pHG13 plasmid with the BS3
+    B. subtilis 168 derivative carrying P43::adh-aldH-irrE on pCE2 in the high-riboflavin BSG3 background. SO3 catabolizes
+    lactate and transfers electrons to NCM directly via MtrC/OmcA and indirectly through riboflavin, while BS3 removes inhibitory
+    ethanol, adds riboflavin, and uses IrrE to tolerate Ni and Co stress.
+  inoculation_strategy: Grow each member in chloramphenicol-supplemented LB, inoculate overnight cultures into brewing wastewater
+    at 1% v/v with 0.5 mM IPTG, subculture, transfer to anaerobic bottles, add 0.2 g/L NCM black mass, and ferment anaerobically
+    at 30 degrees Celsius for 14 days.
+  measurement_endpoints:
+  - Total dissolved Li, Ni, Co, and Mn after NCM black-mass leaching
+  - Ethanol depletion from brewing wastewater
+  - Riboflavin production and microbial-fuel-cell power density
+  - Ni and Co cytotoxicity resistance after irrE expression
+  - MtrC/OmcA deletion effects on extracellular electron transfer and NCM reduction
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study developed microbial consortia comprising engineered S. oneidensis and B. subtilis, which enabled efficient
+      recycling of spent LIBs utilizing brewing wastewater as the leaching agent to achieve metal oxide leaching.
+    explanation: States that the record denotes engineered S. oneidensis/B. subtilis consortia designed for spent-lithium-ion-battery
+      metal oxide leaching in brewing wastewater.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To relieve the cytotoxicity of Ni2+ and Co2+, the global transcriptional regulator IrrE was overexpressed in
+      strains SO2 and BS2, resulting in the formation of the SO3‐BS3 consortium.
+    explanation: Supports the final SO3-BS3 design as the IrrE-enhanced consortium assembled to improve metal-ion stress tolerance.
+environment_term:
+  preferred_term: anaerobic brewing-wastewater NCM bioleaching culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled anaerobic bottle cultures fed with Moutai brewing wastewater and spent NCM lithium-ion battery cathode
+    black mass; this is an engineered laboratory bioleaching system rather than a natural wastewater community.
+taxonomy:
+- taxon_term:
+    preferred_term: Shewanella oneidensis MR-1 SO3
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Shewanella_oneidensis
+      gtdb_taxon: Shewanella oneidensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Enterobacterales;f__Shewanellaceae;g__Shewanella;s__Shewanella
+        oneidensis
+      ncbi_source_id: NCBITaxon:70863
+      majority_fraction: 1.0
+      total_genomes: 3
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name —
+        no species-level NCBI id in table]
+    notes: Engineered MR-1 derivative SO3 uses the Mtr pathway for extracellular electron transfer to NCM and carries ribADEHC
+      plus Deinococcus radiodurans irrE on pHG13.
+  strain_designation:
+    strain_name: SO3
+    genetic_modification: SO1 with the Bacillus subtilis 168 Ptac::ribADEHC riboflavin operon and Deinococcus radiodurans
+      R1 irrE integrated on pHG13.
+    notes: Constructed in the Shewanella oneidensis MR-1 ATCC700550 background.
+  abundance_level: ABUNDANT
+  common_taxon: CommunityMech:taxon:000001
+  functional_role:
+  - ELECTROGEN
+  - ELECTRON_DONOR
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'SO3 SO1 with the Ptac:: ribADEHC operon from Bacillus subtilis 168 and irrE gene from Deinococcus radiodurans
+      R1 integrated at pHG13'
+    explanation: Identifies SO3 as the engineered S. oneidensis MR-1 member carrying riboflavin and IrrE modules.
+- taxon_term:
+    preferred_term: Bacillus subtilis 168 BS3
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Bacillus_subtilis
+      gtdb_taxon: Bacillus subtilis
+      gtdb_lineage: d__Bacteria;p__Bacillota;c__Bacilli;o__Bacillales;f__Bacillaceae;g__Bacillus;s__Bacillus subtilis
+      ncbi_source_id: NCBITaxon:1423
+      majority_fraction: 0.91
+      total_genomes: 1256
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Engineered B. subtilis 168 derivative BS3 removes ethanol through the Adh-AldH cascade, contributes high riboflavin
+      production from the BSG3 background, and carries Deinococcus radiodurans irrE for Ni/Co tolerance.
+  strain_designation:
+    strain_name: BS3
+    genetic_modification: BS2 with the Deinococcus radiodurans R1 P43::irrE cassette integrated on pCE2; BS2 is BSG3 with
+      P43::adh from Saccharomyces cerevisiae BY4341 and aldH from Issatchenkia terricola XJ-2 on pCE2.
+    notes: BSG3 was derived from recombinant B. subtilis 168 BS120 by mutation breeding and high-yield riboflavin screening;
+      the paper reports that its exact genotype is unknown.
+  abundance_level: ABUNDANT
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'BS3 BS2 with the P43:: irrE gene from Deinococcus radiodurans R1 integrated at pCE2'
+    explanation: Identifies BS3 as the IrrE-enhanced B. subtilis member used in the final consortium.
+ecological_interactions:
+- name: BS3 ethanol detoxification of brewing wastewater
+  description: Bacillus subtilis BS3 converts residual ethanol in brewing wastewater to acetate via heterologous alcohol dehydrogenase
+    and aldehyde dehydrogenase, removing an inhibitor of S. oneidensis extracellular electron transfer.
+  interaction_type: COMMENSALISM
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Bacillus subtilis 168 BS3
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  target_taxon:
+    preferred_term: Shewanella oneidensis MR-1 SO3
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  metabolites:
+  - preferred_term: ethanol
+    term:
+      id: CHEBI:16236
+      label: ethanol
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  downstream:
+  - target: MtrC/OmcA and riboflavin NCM reduction
+    description: Removing ethanol relieves inhibition of the S. oneidensis EET machinery that reduces NCM for metal oxide
+      leaching.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on EET of S. oneidensis by converting
+      residual ethanol in the brewing wastewater into acetate via the Adh‐AldH dual enzyme cascade reaction.
+    explanation: Directly supports the BS3-to-SO3 detoxification interaction in the final SO3-BS3 consortium.
+- name: MtrC/OmcA and riboflavin NCM reduction
+  description: Shewanella oneidensis SO3 catabolizes lactate from brewing wastewater and transfers electrons to NCM black
+    mass either directly through outer-membrane cytochromes MtrC/OmcA or indirectly through riboflavin, reducing NCM metal
+    oxides and releasing Li, Ni, Co, and Mn into solution.
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Shewanella oneidensis MR-1 SO3
+    term:
+      id: NCBITaxon:70863
+      label: Shewanella oneidensis
+  - preferred_term: Bacillus subtilis 168 BS3
+    term:
+      id: NCBITaxon:1423
+      label: Bacillus subtilis
+  metabolites:
+  - preferred_term: riboflavin
+    term:
+      id: CHEBI:17015
+      label: riboflavin
+  - preferred_term: lithium(1+)
+    term:
+      id: CHEBI:49713
+      label: lithium(1+)
+  - preferred_term: nickel(2+)
+    term:
+      id: CHEBI:49786
+      label: nickel(2+)
+  - preferred_term: cobalt(2+)
+    term:
+      id: CHEBI:48828
+      label: cobalt(2+)
+  - preferred_term: manganese(2+)
+    term:
+      id: CHEBI:29035
+      label: manganese(2+)
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The generated electrons were then used to reduce NCM via the EET mechanism. Specifically, the electrons generated
+      from strain SO3 could be either directly transferred to NCM via outer membrane c‐Cyts MtrC and OmcA, or first transferred
+      to riboflavin molecules via MtrC and OmcA.
+    explanation: Supports MtrC/OmcA- and riboflavin-mediated electron transfer from SO3 to NCM in the final SO3-BS3 consortium.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: strain BS3 in the SO3‐BS3 consortium eliminated the ethanol inhibition on EET of S. oneidensis by converting
+      residual ethanol in the brewing wastewater into acetate via the Adh‐AldH dual enzyme cascade reaction. Also, strain
+      BS3 synthesized riboflavin, which was employed as an electron shuttle for promoting the EET of S. oneidensis.
+    explanation: Supports the BS3 contribution to the riboflavin-enhanced NCM reduction phenotype.
+environmental_factors:
+- name: Total leached Li, Ni, Co, and Mn
+  value: 102.4 mg/L total dissolved metal ions after 14 days
+  description: The SO3-BS3 consortium released 80.8 mg/L Li, 8.5 mg/L Ni, 5.2 mg/L Co, and 7.9 mg/L Mn from 0.2 g/L NCM black
+    mass, corresponding to about 100%, 35.1%, 58.4%, and 61.8% leaching efficiencies, respectively.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Specifically, the total leached metal ions reached 102.4 mg L−1, which comprised 80.8, 8.5, 5.2, and 7.9 mg L−1
+      for Li, Ni, Co, and Mn, respectively
+    explanation: Quantifies the final dissolved Li, Ni, Co, and Mn concentrations in the SO3-BS3 NCM-leaching assay.
+- name: Ni and Co cytotoxicity
+  value: 6 mg/L Ni2+ and 3 mg/L Co2+ challenge
+  description: Leached Ni2+ and Co2+ inhibited predecessor strains; IrrE expression in SO3 and BS3 improved growth and reduced
+    cell death under the same Ni/Co challenge.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: When exposed to 6 mg L−1 Ni2+ and 3 mg L−1 Co2+, the growth of strain SO2 was notably inhibited
+    explanation: Supports the nickel and cobalt stress condition used to evaluate the IrrE improvement in S. oneidensis.
+growth_media:
+- name: Chloramphenicol-supplemented Luria-Bertani pre-culture
+  composition:
+  - name: sodium chloride
+    concentration: '10'
+    unit: g/L
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+  - name: peptone
+    concentration: '10'
+    unit: g/L
+  - name: chloramphenicol
+    concentration: '0.2'
+    unit: g/L
+  inoculum_source: SO3 and BS3 single-strain colonies
+  preparation_notes: Each member was first grown separately overnight in LB with chloramphenicol for plasmid maintenance before
+    transfer to the brewing-wastewater assay.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: To establish a consortium of B. subtilis and S. oneidensis, both microorganisms were initially cultured in Luria‐Bertani
+      (LB) medium containing 10 g L−1 NaCl, 5 g L−1 yeast extract, and 10 g L−1 peptone
+    explanation: Supports the LB pre-culture composition for each member before transfer to brewing wastewater.
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supplemented with 0.2 g L−1 chloramphenicol for plasmid
+    explanation: Supports chloramphenicol supplementation during the LB pre-culture.
+- name: Moutai brewing wastewater with spent NCM black mass
+  composition:
+  - name: brewing wastewater
+  - name: LiNixCoyMn1-x-yO2 black mass
+    concentration: '0.2'
+    unit: g/L
+  - name: isopropyl beta-D-thiogalactopyranoside
+    concentration: '0.5'
+    unit: mM
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: '% v/v overnight culture for each member'
+  incubation_time: '14'
+  incubation_time_unit: d
+  vessel_type: anaerobic bottle
+  preparation_notes: SO3 and BS3 overnight cultures were transferred into Moutai brewing wastewater with IPTG for gene expression,
+    then moved to anaerobic bottles with NCM black mass for leaching.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Following a brief period of subculturing, the culture was transferred into anaerobic bottles, supplemented with
+      0.2 g L−1 of black mass
+    explanation: Supports the anaerobic-bottle NCM black-mass leaching setup.
+metals_present:
+- LITHIUM
+- NICKEL
+- COBALT
+metal_relevance: PRIMARY
+metal_notes: The NCM black mass leaching target contained Li, Ni, Co, and Mn; PMID:42733304 reported final leachate concentrations
+  for all four elements.
+discussions:
+- discussion_id: SO3_BS3_SCALE_UP_STABILITY
+  prompt: The source established a 14-day laboratory proof of concept but explicitly left larger-scale, long-term stability
+    unresolved, especially under natural variation in raw brewing-wastewater composition.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media#Moutai brewing wastewater with spent NCM black mass
+  rationale: Raw brewing wastewater varied by batch and the authors identified large-scale reproducibility as a future optimization
+    target, so the current record should not assert demonstrated industrial stability.
+  evidence:
+  - reference: PMID:42733304
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: the long‐term stability and reproducibility of the microbial consortium at a larger scale needed to be thoroughly
+      considered, in particular under the condition of natural fluctuations in raw brewing wastewater compositions
+    explanation: Records the authors' stated scale-up uncertainty without asserting it as a demonstrated limitation.
+  posed_by: claude
+  posed_date: '2026-09-18'
+curation_history:
+- timestamp: '2026-09-18T08:56:51Z'
+  curator: claude
+  action: ADD_COMMUNITY
+  changes: Added SO3-BS3 engineered Shewanella/Bacillus lithium-ion battery bioleaching consortium from PMID:42733304.
+  llm_assisted: true
