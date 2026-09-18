@@ -1,0 +1,31 @@
+history_version: 1
+target:
+  kind: record
+  path: kb/communities/Community_G_GenX_Biodegradation_Consortium.yaml
+  slug: Community_G_GenX_Biodegradation_Consortium
+session:
+  id: 2026-09-18T123243Z-claude-code-f531e9
+  timestamp: '2026-09-18T12:32:43Z'
+  actors:
+  - type: ai_agent
+    name: claude-code
+    model: gpt-5
+    agent_tool: codex
+links:
+  issues:
+  - https://github.com/CultureBotAI/CommunityMech/issues/947
+  prs:
+  - https://github.com/CultureBotAI/CommunityMech/pull/945
+events:
+- type: EDIT
+  outcome: changed
+  sections:
+  - interactions
+  - curation_history
+  summary: Remove dangling Community G downstream edge
+  details: Removed the downstream target named "Community G soil GenX biodegradation"
+    from the Community G GenX-Driven Taxonomic Restructuring interaction because the
+    target was a GenX-removal endpoint, not the name of a second ecological interaction.
+    Soil GenX removal and defluorination remain modeled as evidence-backed environmental
+    factors, and the record-level edit resolved the DANGLING_EDGE that failed the PR
+    Network Quality workflow.
