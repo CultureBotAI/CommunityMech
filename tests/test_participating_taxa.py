@@ -253,6 +253,7 @@ USERS = {
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
+    "Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",
     "Rifle_Aquifer_Bioanode_EET_Community.yaml",
     "SF356_Cellulose_Degrader.yaml",
