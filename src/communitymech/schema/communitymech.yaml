@@ -1021,17 +1021,17 @@ classes:
           the name is a poor guide to what it holds.
 
           It said "species name ... (a GTDB reclassification/rename)". Neither
-          half held. Of the 132 blocks currently true, 41 are grounded above
+          half held. Of the 134 blocks currently true, 41 are grounded above
           species — through genus, family, order, class and phylum — so the rank
           is wrong for nearly a third of them. And it does not mean GTDB
-          reclassified anything. Partitioning the 132 by why the names differ
+          reclassified anything. Partitioning the 134 by why the names differ
           (#441):
 
           * 0 dropped strain designations. There were 40 — `Escherichia coli
             K-12` -> `Escherichia coli` — and #480 removed them: GTDB carries no
             strain suffixes, so the names differed while the placement did not.
             `name_differs` now treats that as no difference.
-          * 30 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
+          * 31 GTDB polyphyly suffixes — `Bacillota` -> `Bacillota_A`. A split
             marker on the same name, not a rename.
           * 13 that are both at once — `Buchnera aphidicola BCc` ->
             `Buchnera aphidicola_F`.
@@ -1040,7 +1040,7 @@ classes:
           * 3 rank-appropriate nomenclatural endings on one stem —
             `Chlorobiota` -> `Chlorobiia`, `Nitrososphaerota` ->
             `Nitrososphaeria`.
-          * 83 genuinely different names, and only some of those are GTDB
+          * 84 genuinely different names, and only some of those are GTDB
             reclassifications. `Allobosea` -> `Bosea` is an *NCBI* rename: both
             databases place the organism in the same genus concept, and NCBI
             moved its label because the bacterial name was a later homonym of
@@ -1048,8 +1048,8 @@ classes:
             `Nitrosotalea devaniterrae` -> `Nitrosotalea devanaterra`,
             `Methylocystis parvus` -> `Methylocystis parva`.
 
-          So 49 of 132 — 37% — are not reclassifications under any reading, and
-          that is a floor: the 83 "genuinely different" include an unknown
+          So 50 of 134 — 37% — are not reclassifications under any reading, and
+          that is a floor: the 84 "genuinely different" include an unknown
           number of NCBI renames and spelling variants. Filter on this slot to
           find "the two labels are not identical", which is what it computes.
           Do not read it as provenance.
