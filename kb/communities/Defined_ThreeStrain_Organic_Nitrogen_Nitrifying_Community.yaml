@@ -2,9 +2,9 @@ id: CommunityMech:000397
 name: Defined Three-Strain Organic-Nitrogen Nitrifying Community
 description: A simplified synthetic nitrifying microbial community pairing Bacillus badius NBRC 15713 with Nitrosomonas europaea
   NBRC 14298 and Nitrobacter winogradskyi NBRC 14297 for sequential ammonification and nitrification under organic nitrogen
-  conditions. The co-culture completely ammonified and nitrified selected organic nitrogen substrates, accumulated approximately
-  56 mg-N/L nitrate-nitrogen with no residual nitrite-nitrogen, and yielded RT-qPCR profiles linking N. europaea and N. winogradskyi
-  abundance changes to inorganic nitrogen concentrations during cultivation.
+  conditions. The co-culture achieved complete ammonification and nitrification under selected organic nitrogen conditions,
+  accumulated approximately 56 mg-N/L nitrate-nitrogen with no residual nitrite-nitrogen, and yielded RT-qPCR profiles linking
+  N. europaea and N. winogradskyi abundance changes to inorganic nitrogen concentrations during cultivation.
 ecological_state: ENGINEERED
 community_origin: SYNTHETIC
 community_category: BIOTECHNOLOGY
@@ -171,6 +171,15 @@ related_ingredients:
   evidence:
   - *id001
   - *id002
+- preferred_term: nitrite
+  chebi_term:
+    id: CHEBI:16301
+    label: nitrite
+  relevance: Nitrite is the transient nitrification intermediate oxidized by Nitrobacter winogradskyi, with endpoint assays
+    reporting no residual nitrite-nitrogen after complete conversion.
+  evidence:
+  - *id001
+  - *id003
 - preferred_term: nitrate
   chebi_term:
     id: CHEBI:17632
@@ -225,4 +234,10 @@ curation_history:
   curator: claude
   action: ADD_DOI_RESOURCE
   changes: Added the doi:10.1093/bbb/zbag131 external resource for the Inzali et al. 2026 article.
+  llm_assisted: true
+- timestamp: '2026-09-20T19:38:29Z'
+  curator: claude
+  action: ADDRESS_REVIEW_FINDINGS
+  changes: Tightened the organic-nitrogen wording to avoid unsupported substrate-level specificity and added nitrite as the
+    transient nitrification intermediate for review issues 977 and 978.
   llm_assisted: true
