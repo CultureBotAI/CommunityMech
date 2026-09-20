@@ -1,0 +1,559 @@
+id: CommunityMech:000393
+name: Calcium-Tomato Bacterial Wilt SynCom
+description: >-
+  A four-member tomato-root SynCom assembled from calcium-enriched antagonists
+  to suppress Ralstonia solanacearum bacterial wilt. Bi et al. isolated Dyella
+  japonica, Rhodanobacter glycinis, Paenibacillus polymyxa, and Pseudomonas
+  aeruginosa from tomato roots after calcium chloride amendment, selected them
+  because they antagonized R. solanacearum, were promoted by calcium or
+  calcium-induced root metabolites, and encoded plant-growth-promoting traits,
+  and mixed OD600-normalized LB-grown suspensions 1:1:1:1. In 96-well
+  root-exudate co-culture assays, the SynCom plus exudates from 20 mM
+  calcium-treated tomato seedlings reduced R. solanacearum density; in
+  greenhouse soil, the SynCom combined with a reduced 100 mg Ca kg-1 soil dose
+  dropped bacterial wilt incidence from 74.07% to 0%.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: >-
+    Assemble calcium-stimulated, tomato-root bacterial antagonists into a
+    synthetic community that suppresses Ralstonia solanacearum and reduces the
+    calcium fertilizer dose required for bacterial-wilt control.
+  assembly_strategy: >-
+    Select the four root-derived isolates that were significant predictors of
+    pathogen suppression, antagonized R. solanacearum on plates, were promoted
+    by calcium or calcium-induced root metabolites, and carried predicted
+    plant-growth-promoting traits; then mix Dyella japonica, Rhodanobacter
+    glycinis, Paenibacillus polymyxa, and Pseudomonas aeruginosa 1:1:1:1 after
+    OD600 normalization.
+  inoculation_strategy: >-
+    Culture each member in LB liquid medium, wash and resuspend pellets in
+    sterile double-distilled water, adjust each suspension to OD600 1, and mix
+    the four suspensions in equal volumes for soil inoculation; for
+    root-exudate co-culture, mix equal volumes of the four members to an OD600
+    of 0.1 +/- 0.05 before adding 10 uL of SynCom to 1/2 NB plus 10 uL of
+    Ralstonia solanacearum P380 suspension and 30 uL of tomato root exudate.
+  perturbation_design: >-
+    Screen CaCl2, salicylic acid, sucrose, trehalose, and calcium-treated tomato
+    root exudates for differential promotion of SynCom members versus R.
+    solanacearum; then compare no calcium/no SynCom, SynCom alone, 100 mg Ca
+    kg-1 soil alone, and 100 mg Ca kg-1 soil plus SynCom in a tomato pot
+    experiment challenged with R. solanacearum.
+  measurement_endpoints:
+  - SynCom member growth in calcium- or metabolite-supplemented medium
+  - Ralstonia solanacearum P380 growth and qPCR density in root-exudate co-culture
+  - pairwise inhibition among SynCom members
+  - bacterial wilt incidence in tomato pot trials
+  - predicted phosphorus mobilization, siderophore, IAA, and stress-resistance genes
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      We constructed a bacterial SynCom consisting of four root-derived strains
+      identified in this study: Dyella japonica, Rhodanobacter glycinis,
+      Paenibacillus polymyxa, and Pseudomonas aeruginosa.
+    explanation: Names the four calcium-stimulated root-derived strains assembled into
+      the SynCom.
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      These strains were selected for SynCom construction based on they: (1)
+      were ranked as significant predictors of pathogen suppression in the
+      Random Forest analysis
+    explanation: Supports the function-guided SynCom selection strategy.
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The four suspensions were then mixed in equal volumes (1:1:1:1) to create
+      the final synthetic bacterial inoculum.
+    explanation: Supports the equal-volume 1:1:1:1 SynCom assembly ratio.
+environment_term:
+  preferred_term: tomato rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: >-
+    The root-derived SynCom was applied to tomato soil by pouring bacterial
+    suspensions into Ralstonia-challenged pots.
+modeled_environment:
+- preferred_term: tomato plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: >-
+    Members were isolated from tomato roots and the SynCom was evaluated
+    against Ralstonia solanacearum bacterial wilt in tomato root-exudate and
+    soil-pot assays.
+taxonomy:
+- taxon_term:
+    preferred_term: Dyella japonica
+    term:
+      id: NCBITaxon:231455
+      label: Dyella japonica
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Dyella_marensis
+      gtdb_taxon: Dyella marensis
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Dyella;s__Dyella marensis
+      ncbi_source_id: NCBITaxon:231455
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name - no species-level NCBI id in table]
+  strain_designation:
+    isolation_source: tomato root
+    notes: Raw genome reads reported under SRA run SRR33220703.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      confirming their identities as Dyella japonica, Rhodanobacter glycinis,
+      Paenibacillus polymyxa, and Pseudomonas aeruginosa
+    explanation: Identifies Dyella japonica as one of the four SynCom members.
+- taxon_term:
+    preferred_term: Rhodanobacter glycinis
+    term:
+      id: NCBITaxon:582702
+      label: Rhodanobacter glycinis
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Rhodanobacter_glycinis_A
+      gtdb_taxon: Rhodanobacter glycinis_A
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter;s__Rhodanobacter glycinis_A
+      ncbi_source_id: NCBITaxon:582702
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: true
+      curated: true
+      curation_note: >-
+        Grounded directly from GTDB bac120 taxonomy because the local
+        kg-microbe NCBI2GTDB crosswalk was unavailable during curation; both
+        bac120 rows matching Rhodanobacter glycinis resolved to the GTDB
+        polyphyly-suffixed species Rhodanobacter glycinis_A.
+      mapping_source: GTDB bac120_taxonomy.tsv.gz sha256:d565d92730db443c downloaded 2026-09-20
+    notes: >-
+      NCBI ESearch resolved the Rhodanobacter glycinis scientific name to
+      TaxID 582702.
+  strain_designation:
+    isolation_source: tomato root
+    notes: Raw genome reads reported under SRA run SRR33220740.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      confirming their identities as Dyella japonica, Rhodanobacter glycinis,
+      Paenibacillus polymyxa, and Pseudomonas aeruginosa
+    explanation: Identifies Rhodanobacter glycinis as one of the four SynCom members.
+- taxon_term:
+    preferred_term: Paenibacillus polymyxa
+    term:
+      id: NCBITaxon:1406
+      label: Paenibacillus polymyxa
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Paenibacillus_polymyxa
+    - GTDB:s__Paenibacillus_polymyxa_B
+    - GTDB:s__Paenibacillus_polymyxa_C
+    - GTDB:s__Paenibacillus_polymyxa_D
+    - GTDB:s__Paenibacillus_polymyxa_E
+    notes: >-
+      The local kg-microbe NCBI2GTDB crosswalk was unavailable during curation;
+      direct inspection of the GTDB bac120 taxonomy table showed Paenibacillus
+      polymyxa split across five GTDB species clusters with no majority.
+  strain_designation:
+    isolation_source: tomato root
+    notes: Raw genome reads reported under SRA run SRR33221449.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      confirming their identities as Dyella japonica, Rhodanobacter glycinis,
+      Paenibacillus polymyxa, and Pseudomonas aeruginosa
+    explanation: Identifies Paenibacillus polymyxa as one of the four SynCom members.
+- taxon_term:
+    preferred_term: Pseudomonas aeruginosa
+    term:
+      id: NCBITaxon:287
+      label: Pseudomonas aeruginosa
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Pseudomonas_aeruginosa
+      gtdb_taxon: Pseudomonas aeruginosa
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Pseudomonadales;f__Pseudomonadaceae;g__Pseudomonas;s__Pseudomonas aeruginosa
+      ncbi_source_id: NCBITaxon:287
+      majority_fraction: 0.99
+      total_genomes: 17191
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    isolation_source: tomato root
+    notes: Raw genome reads reported under SRA run SRR33221452.
+  abundance_level: DOMINANT
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      confirming their identities as Dyella japonica, Rhodanobacter glycinis,
+      Paenibacillus polymyxa, and Pseudomonas aeruginosa
+    explanation: Identifies Pseudomonas aeruginosa as one of the four SynCom members.
+ecological_interactions:
+- name: Calcium and root-metabolite selective promotion
+  description: >-
+    Calcium chloride, salicylic acid, sucrose, and trehalose favored the four
+    SynCom members relative to Ralstonia solanacearum P380 by inhibiting the
+    pathogen while promoting beneficial isolates to varying extents.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  metabolites:
+  - preferred_term: salicylic acid
+    term:
+      id: CHEBI:16914
+      label: salicylic acid
+  - preferred_term: sucrose
+    term:
+      id: CHEBI:17992
+      label: sucrose
+  - preferred_term: trehalose
+    term:
+      id: CHEBI:27082
+      label: trehalose
+  - preferred_term: calcium chloride
+    term:
+      id: CHEBI:3312
+      label: calcium dichloride
+  downstream:
+  - target: Calcium-conditioned root-exudate pathogen suppression
+    description: >-
+      Calcium-induced root exudates carried the same selective pressure into a
+      Ralstonia/SynCom co-culture, where they reduced pathogen density.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Ca supplementation significantly (one-way ANOVA: p < 0.05) inhibited the
+      growth of R. solanacearum while enhancing the growth of the four
+      beneficial strains
+    explanation: Supports calcium as directly favoring the SynCom members over
+      R. solanacearum in vitro.
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      higher concentrations of key metabolites (SA, sucrose, and trehalose)
+      inhibited the growth of R. solanacearum and simultaneously promoted the
+      proliferation of beneficial microbes
+    explanation: >-
+      Supports calcium-induced root metabolites as additional selective
+      promoters of beneficial SynCom members over the pathogen.
+- name: Calcium-conditioned root-exudate pathogen suppression
+  description: >-
+    Whole root exudates collected from 20 mM calcium-treated tomato seedlings
+    worked with the equal-volume SynCom to reduce Ralstonia solanacearum P380
+    density in 1/2 NB co-culture.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  downstream:
+  - target: Calcium-SynCom bacterial wilt control
+    description: >-
+      The low-dose calcium plus SynCom pot treatment translated the exudate
+      co-culture antagonism into tomato bacterial-wilt suppression.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      whole root exudates from Ca-treated plants (20 mM) significantly
+      inhibited R. solanacearum growth while promoting the growth of beneficial
+      microbes such as Paenibacillus polymyxa
+    explanation: >-
+      Supports 20 mM calcium-conditioned tomato root exudates as inhibiting the
+      pathogen while promoting at least one SynCom member.
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      the addition of whole root exudates from 20 mM Ca-treated plants led to a
+      significant reduction in R. solanacearum density
+    explanation: >-
+      Supports reduced Ralstonia density when the SynCom and
+      calcium-conditioned root exudates were combined.
+- name: Calcium-SynCom bacterial wilt control
+  description: >-
+    Adding the four-member SynCom one week after Ralstonia solanacearum
+    challenge synergized with 100 mg Ca kg-1 soil, a reduced calcium chloride
+    amendment, to eliminate tomato bacterial wilt incidence in the controlled
+    pot assay.
+  interaction_type: MUTUALISM
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: defense response to bacterium
+    term:
+      id: GO:0042742
+      label: defense response to bacterium
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: with wilt incidence dropping from 74.07 to 0%
+    explanation: >-
+      Supports complete bacterial-wilt incidence control in the low-dose
+      calcium plus SynCom pot treatment.
+environmental_factors:
+- name: defined 1:1:1:1 bacterial SynCom inoculum
+  value: Dyella japonica, Rhodanobacter glycinis, Paenibacillus polymyxa, and Pseudomonas aeruginosa
+  description: >-
+    LB-grown cultures were resuspended to OD600 1 and then mixed in equal
+    volumes to create the final four-member synthetic bacterial inoculum.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Each strain was cultured in LB liquid medium, and bacterial suspensions
+      were prepared by resuspending harvested cell pellets in sterile ddH2O,
+      adjusting the OD600 to 1.
+    explanation: Supports the OD600 1 single-strain suspensions used for equal-volume assembly.
+- name: calcium-conditioned whole root exudates
+  value: 20 mM Ca as CaCl2
+  description: >-
+    Tomato seedlings were moved into Hoagland nutrient solution with 20 mM
+    calcium supplied as CaCl2 for five days before root exudates were collected
+    in deionized water for the Ralstonia/SynCom co-culture assay.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      hydroponic containers containing Hoagland nutrient solution under two
+      conditions: (1) 0 mM Ca and (2) 20 mM Ca (as CaCl2)
+    explanation: Supports the calcium concentration used to condition tomato root exudates.
+- name: low-dose calcium biocontrol pot treatment
+  value: 100 mg Ca kg-1 soil plus SynCom
+  description: >-
+    Tomato pot assays compared no calcium/no SynCom, SynCom alone, 100 mg Ca
+    kg-1 soil alone, and 100 mg Ca kg-1 soil plus SynCom after Ralstonia
+    solanacearum challenge.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: >-
+      100 mg Ca kg-1 soil with SynCom
+    explanation: Names the low-dose calcium plus SynCom treatment in the tomato pot assay.
+related_ingredients:
+- preferred_term: calcium chloride
+  chebi_term:
+    id: CHEBI:3312
+    label: calcium dichloride
+  shared_environment_term:
+    id: ENVO:00005801
+    label: rhizosphere
+  relevance: >-
+    Calcium chloride supplied the Ca input used to reshape tomato physiology,
+    condition root exudates, and combine with the SynCom for bacterial-wilt
+    suppression.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Anhydrous calcium chloride was used as Ca fertilizer.
+    explanation: Identifies calcium chloride as the inorganic Ca source used in the pot assays.
+- preferred_term: salicylic acid
+  chebi_term:
+    id: CHEBI:16914
+    label: salicylic acid
+  shared_environment_term:
+    id: ENVO:00005801
+    label: rhizosphere
+  relevance: >-
+    Salicylic acid was enriched in roots after calcium treatment and promoted
+    Ca-enriched beneficial isolates while inhibiting Ralstonia growth at higher
+    assay concentrations.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      SA, sucrose, and trehalose were selected for further verification.
+    explanation: Names salicylic acid as a calcium-enriched root metabolite tested against the
+      pathogen and SynCom members.
+- preferred_term: sucrose
+  chebi_term:
+    id: CHEBI:17992
+    label: sucrose
+  shared_environment_term:
+    id: ENVO:00005801
+    label: rhizosphere
+  relevance: >-
+    Sucrose was a calcium-enriched root metabolite tested for differential
+    growth effects on Ralstonia solanacearum and the calcium-stimulated
+    antagonists.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two concentrations of sucrose and trehalose (2.5 and 5 mM) were added to 1/10 LB liquid medium
+    explanation: Names sucrose as one of the tested root metabolites.
+- preferred_term: trehalose
+  chebi_term:
+    id: CHEBI:27082
+    label: trehalose
+  shared_environment_term:
+    id: ENVO:00005801
+    label: rhizosphere
+  relevance: >-
+    Trehalose was a calcium-enriched root metabolite tested for differential
+    growth effects on Ralstonia solanacearum and the calcium-stimulated
+    antagonists.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: two concentrations of sucrose and trehalose (2.5 and 5 mM) were added to 1/10 LB liquid medium
+    explanation: Names trehalose as one of the tested root metabolites.
+growth_media:
+- name: LB liquid medium
+  temperature: '28'
+  temperature_unit: °C
+  shaking_speed: '150'
+  shaking_speed_unit: rpm
+  inoculum_size: '1'
+  inoculum_unit: OD600
+  preparation_notes: >-
+    Four tomato-root isolates were cultured in LB, washed into sterile
+    double-distilled water, adjusted individually to OD600 1, and mixed
+    1:1:1:1 for the final SynCom inoculum; pairwise compatibility tests grew
+    the members overnight in LB at 28 degrees C and 150 rpm.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      Four strains were inoculated in 5 mL LB liquid medium and incubated
+      overnight in a rotary shaker (150 rpm) at 28℃
+    explanation: Supports the LB medium, temperature, and shaking speed for SynCom member culture.
+- name: 1/2 nutrient broth plus tomato root exudate
+  temperature: '28'
+  temperature_unit: °C
+  vessel_type: 96-well plate
+  preparation_notes: >-
+    Ralstonia/SynCom co-cultures contained 100 uL of 1/2 NB, 10 uL of R.
+    solanacearum suspension, 10 uL of equal-volume SynCom suspension, and 30 uL
+    of whole root exudate from 0 or 20 mM calcium-treated tomato seedlings.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      The system consisted of 100 µL of 1/2 NB liquid medium, 10 µL of R.
+      solanacearum suspension, 10 µL of SynCom suspension, and 30 µL of a root
+      exudate solution.
+    explanation: >-
+      Reports the Ralstonia/SynCom/root-exudate co-culture medium and working
+      volume.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 96-well plate
+  working_volume: 0.15
+  working_volume_unit: mL
+  operating_temperature: 28
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  notes: >-
+    Root-exudate co-cultures of Ralstonia solanacearum P380 with the four
+    equal-volume SynCom members were sampled over 6, 12, 24, and 48 h for qPCR
+    quantification of R. solanacearum density.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After incubation for 6, 12, 24, and 48 h, 2 µL of culture was collected for qPCR
+    explanation: Supports the batch time course used for the exudate co-culture assay.
+associated_datasets:
+- title: Bi et al. calcium-tomato root microbiome and isolate genome reads
+  accession: PRJNA1125171
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  organism: tomato root bacterial SynCom
+  sample_types:
+  - tomato root 16S rRNA amplicons
+  - tomato rhizosphere 16S rRNA amplicons
+  - raw genome reads for four SynCom isolates
+  platform: Illumina Hiseq2500
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1125171
+  publication: PMID:41387930
+  description: >-
+    BioProject holding raw 16S rRNA amplicon sequencing data for the calcium
+    gradient experiment; the same data-availability statement reports raw
+    genome reads for the four SynCom isolates under SRR33220703, SRR33220740,
+    SRR33221449, and SRR33221452.
+  evidence:
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      Raw amplicon sequencing data was deposited in the National Center for
+      Biotechnology Information (NCBI) Sequence Read Archive (SRA) under the
+      project number PRJNA1125171
+    explanation: Supports the BioProject accession for raw amplicon reads.
+  - reference: PMID:41387930
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: >-
+      Raw genome sequences of four bacterial strains in this study can be found
+      under the following accession numbers
+    explanation: Supports public raw genome-read accessions for the four SynCom isolates.
+discussions:
+- discussion_id: calcium_tomato_syncom_interstrain_mechanism
+  prompt: >-
+    Which SynCom members directly drive the Ralstonia solanacearum density drop
+    in calcium-conditioned tomato root exudate, and is suppression mediated by
+    antibiotic antagonism, calcium/root-metabolite competition, or both?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions
+  rationale: >-
+    Bi et al. showed that all four isolates antagonized Ralstonia solanacearum
+    and that the SynCom plus calcium-conditioned tomato root exudates reduced
+    Ralstonia density. The paper also reports pairwise plate assays and
+    predicted plant-growth-promoting genes, but it did not resolve
+    member-to-member metabolic exchange or show which SynCom strain directly
+    caused the Ralstonia drop in root-exudate co-culture. Barcode-tracked
+    single, triple-dropout, and full four-member SynComs in the 20 mM
+    calcium-conditioned root-exudate assay would resolve the member-level
+    contributions.
+  posed_by: codex
+  posed_date: '2026-09-20'
+curation_history:
+- timestamp: '2026-09-20T12:09:26Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: >-
+    Created CommunityMech:000393 for the four-member calcium-stimulated tomato
+    root SynCom from PMID:41387930, including exact bacterial membership,
+    calcium and root-metabolite selection evidence, root-exudate co-culture
+    suppression of Ralstonia solanacearum, the low-dose calcium pot assay, and
+    public BioProject/SRA accessions.
+  llm_assisted: true
