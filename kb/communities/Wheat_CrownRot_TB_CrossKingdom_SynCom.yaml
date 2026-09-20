@@ -1,0 +1,281 @@
+id: CommunityMech:000391
+name: Wheat Crown-Rot TB Cross-Kingdom SynCom
+description: A minimal two-member cross-kingdom wheat-rhizosphere SynCom, named TB by Zhou et al. 2026, that mixed Trichoderma
+  harzianum T19 with Bacillus rugosus PM16 and was soil-drenched onto Fusarium-pseudograminearum-challenged Triticum aestivum
+  cv. Hechun 213 seedlings. The controlled tissue-culture-chamber pot experiment tested sterile-water, Fusarium-only, SynCom-only,
+  and Fusarium-plus-SynCom treatments in non-sterile topsoil; after 45 days the authors scored wheat crown rot, profiled rhizosphere
+  16S/ITS communities, and measured rhizosphere metabolites.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: RHIZOSPHERE
+engineering_design:
+  objective: Construct a minimal fungal-bacterial wheat rhizosphere SynCom to suppress Fusarium pseudograminearum wheat crown
+    rot and promote wheat growth under pathogen pressure.
+  assembly_strategy: Combine equal volumes of a Trichoderma harzianum T19 spore suspension and a Bacillus rugosus PM16 bacterial
+    suspension immediately before wheat-pot soil drenching.
+  inoculation_strategy: Grow T19 conidia in carboxymethyl cellulose liquid medium at 28 °C for 5 days, adjust the spore suspension
+    to 10^6 spores/mL, grow PM16 in nutrient broth at 37 °C for 8 h to OD600 = 0.1, resuspend the cells in sterile water,
+    and mix the suspensions 1:1 by volume before applying 200 mL per pot on day 7.
+  perturbation_design: Compare sterile-water, Fusarium pseudograminearum, TB SynCom, and combined TB-Fusarium soil-drench
+    treatments in randomized blocks with six independent biological replicates and ten wheat plants per replicate.
+  measurement_endpoints:
+  - wheat crown rot disease index at 45 days after pathogen inoculation
+  - wheat growth, chlorophyll, root, and thousand-kernel-weight traits
+  - rhizosphere soil full-length 16S rRNA and ITS amplicon profiles
+  - rhizosphere soil LC-MS metabolomics profiles
+  - rhizosphere soil pH, nutrient availability, and enzyme activities
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: We constructed a minimal cross-kingdom synthetic community (SynCom) consisting of Trichoderma harzianum T19 and
+      Bacillus rugosus PM16, and evaluated its effects on wheat growth and WCR suppression.
+    explanation: Identifies the two-member fungal-bacterial TB SynCom design and its wheat crown-rot biocontrol objective.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: 'Wheat (Triticum aestivum L., cv. Hechun 213) was subjected to four treatments: a sterile-water control (CK),
+      inoculation with F. pseudograminearum (Fp), inoculation with the minimal cross-kingdom SynCom (TB), and co-inoculation
+      with Fp and TB (TB-Fp).'
+    explanation: Supports the four-treatment SynCom/Fusarium pot-experiment design.
+environment_term:
+  preferred_term: wheat rhizosphere
+  term:
+    id: ENVO:00005801
+    label: rhizosphere
+  notes: The TB SynCom was applied to potted non-sterile topsoil supporting wheat roots, and rhizosphere soil was sampled
+    for microbiome and metabolomics endpoints.
+modeled_environment:
+- preferred_term: wheat plant-associated environment
+  term:
+    id: ENVO:01001001
+    label: plant-associated environment
+  notes: The system models wheat rhizosphere biocontrol of the soil-borne pathogen Fusarium pseudograminearum.
+taxonomy:
+- taxon_term:
+    preferred_term: Trichoderma harzianum T19
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+    gtdb_grounding_status: NO_GTDB_EQUIVALENT
+    notes: Fungal member of the TB SynCom; GTDB does not classify eukaryotes.
+  strain_designation:
+    strain_name: T19
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Isolated from healthy wheat rhizosphere soil at the Xinjiang Normal University experimental field and identified
+      by ITS sequencing.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: PM16 and T19 were isolated from rhizosphere soil of healthy wheat plants collected from the experimental field
+      of Xinjiang Normal University (Urumqi, Xinjiang, China).
+    explanation: Reports that strain T19, like PM16, came from healthy wheat rhizosphere soil.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: PM16 was identified as Bacillus rugosus based on 16S rRNA gene sequencing (27F/1492R), and T19 was identified
+      as Trichoderma harzianum based on ITS sequencing (ITS1F/LR3) (NCBI BLAST; ≥99% identity).
+    explanation: Identifies T19 as Trichoderma harzianum.
+- taxon_term:
+    preferred_term: Bacillus rugosus PM16
+    term:
+      id: NCBITaxon:2715209
+      label: Bacillus rugosus
+    gtdb_grounding_status: UNRESOLVED
+    notes: Bacterial member of the TB SynCom. Bacillus rugosus resolves as NCBITaxon:2715209; GTDB grounding was not resolved
+      during initial curation.
+  strain_designation:
+    strain_name: PM16
+    isolation_source: healthy wheat rhizosphere soil
+    notes: Isolated from healthy wheat rhizosphere soil at the Xinjiang Normal University experimental field and identified
+      by 16S rRNA gene sequencing.
+  functional_role:
+  - PATHOGEN_ANTAGONIST
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: PM16 and T19 were isolated from rhizosphere soil of healthy wheat plants collected from the experimental field
+      of Xinjiang Normal University (Urumqi, Xinjiang, China).
+    explanation: Reports that strain PM16, like T19, came from healthy wheat rhizosphere soil.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: PM16 was identified as Bacillus rugosus based on 16S rRNA gene sequencing (27F/1492R), and T19 was identified
+      as Trichoderma harzianum based on ITS sequencing (ITS1F/LR3) (NCBI BLAST; ≥99% identity).
+    explanation: Identifies PM16 as Bacillus rugosus.
+ecological_interactions:
+- name: Fusarium pseudograminearum WCR suppression by TB
+  description: Soil drenching with the T. harzianum T19 / B. rugosus PM16 TB SynCom suppressed Fusarium-pseudograminearum-driven
+    wheat crown rot in the controlled pot experiment, alongside improved wheat biomass, chlorophyll content, and yield-related
+    traits.
+  interaction_type: COMPETITION
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Trichoderma harzianum T19
+    term:
+      id: NCBITaxon:5544
+      label: Trichoderma harzianum
+  - preferred_term: Bacillus rugosus PM16
+    term:
+      id: NCBITaxon:2715209
+      label: Bacillus rugosus
+  - preferred_term: Fusarium pseudograminearum Fp-XJ-07
+    term:
+      id: NCBITaxon:101028
+      label: Fusarium pseudograminearum
+  biological_processes:
+  - preferred_term: defense response to fungus
+    term:
+      id: GO:0050832
+      label: defense response to fungus
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The SynCom significantly suppressed WCR and promoted wheat growth under pathogen pressure, improving biomass,
+      chlorophyll content, and yield-related traits.
+    explanation: Reports the WCR suppression and growth promotion measured in the TB SynCom treatment under Fusarium pathogen
+      pressure.
+- name: TB-associated rhizosphere remodeling
+  description: TB SynCom inoculation remodeled the resident wheat rhizosphere community, including enrichment of beneficial
+    taxa and reduction of pathogen-associated fungi, during the 45-day Fusarium challenge assay.
+  interaction_type: COLONIZATION_FACILITATION
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: regulation of defense response
+    term:
+      id: GO:0031347
+      label: regulation of defense response
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: SynCom inoculation remodeled the rhizosphere microbiome by enriching beneficial taxa (e.g., Mortierella) and
+      reducing pathogen-associated fungi
+    explanation: Supports TB-driven restructuring of the wheat rhizosphere microbiome.
+growth_media:
+- name: wheat non-sterile topsoil pot assay
+  temperature: 25
+  temperature_unit: °C
+  light_regime: 16 h light / 8 h dark
+  incubation_time: 45
+  incubation_time_unit: days
+  inoculum_size: '200'
+  inoculum_unit: mL/pot
+  vessel_type: pot
+  preparation_notes: Each pot contained 1100 g air-dried non-sterile topsoil passed through a 2-mm sieve. Fusarium conidia
+    were soil-drenched on day 0, and the TB SynCom was soil-drenched on day 7; disease was scored 45 days after pathogen inoculation.
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The pot experiment was conducted in the tissue culture chamber at Xinjiang Normal University (Urumqi, Xinjiang,
+      China) under controlled conditions (25°C, 16 h light/8 h dark).
+    explanation: Reports the controlled 25 °C, 16 h light/8 h dark chamber conditions.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Fp inoculation was performed on Day 0 by soil drenching each pot with 200 mL of a conidial suspension (106 spores/mL).
+      TB was applied on Day 7 using the same soil-drenching method (200 mL per pot).
+    explanation: Supports the day-0 Fusarium challenge and day-7 200 mL TB SynCom soil-drench application.
+- name: TB inoculum liquid precultures
+  temperature_unit: °C
+  vessel_type: liquid preculture
+  preparation_notes: T19 conidia were precultured in carboxymethyl cellulose liquid medium at 28 °C for 5 days and adjusted
+    to 10^6 spores/mL; PM16 was precultured in nutrient broth at 37 °C for 8 h and adjusted to OD600 = 0.1.
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The conidia of Trichoderma strain T19 were added to carboxymethyl cellulose liquid medium and incubated at 28°C
+      for 5 days.
+    explanation: Reports the T19 liquid preculture medium and incubation.
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Strain PM16 was cultured in nutrient broth at 37°C for 8 h, and the cell density was adjusted to OD600 = 0.1
+    explanation: Reports the PM16 nutrient-broth preculture conditions.
+cultivation_setup:
+- system_type: OTHER
+  instrument_detail: tissue culture chamber with potted wheat in non-sterile topsoil
+  operating_temperature: 25
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: 16 h light / 8 h dark photoperiod.
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The pot experiment was conducted in the tissue culture chamber at Xinjiang Normal University (Urumqi, Xinjiang,
+      China) under controlled conditions (25°C, 16 h light/8 h dark).
+    explanation: Identifies the tissue-culture-chamber pot setup and its controlled temperature/light regime.
+associated_datasets:
+- title: Wheat rhizosphere bacterial amplicon BioProject
+  accession: PRJNA1320663
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1320663
+  description: NCBI BioProject for full-length 16S rRNA sequencing of wheat rhizosphere soil from the TB SynCom/Fusarium pot
+    experiment.
+  publication: PMID:41821943
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'The names of the repository/repositories and accession number(s) can be found below: https://www.ncbi.nlm.nih.gov/
+      , PRJNA1320663 https://www.ncbi.nlm.nih.gov/ , PRJNA1320686 https://www.ebi.ac.uk/ena , MTBLS12945.'
+    explanation: Lists PRJNA1320663 as one of the deposited study accessions.
+- title: Wheat rhizosphere fungal amplicon BioProject
+  accession: PRJNA1320686
+  dataset_type: AMPLICON_ITS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1320686
+  description: NCBI BioProject for full-length ITS sequencing of wheat rhizosphere soil from the TB SynCom/Fusarium pot experiment.
+  publication: PMID:41821943
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'The names of the repository/repositories and accession number(s) can be found below: https://www.ncbi.nlm.nih.gov/
+      , PRJNA1320663 https://www.ncbi.nlm.nih.gov/ , PRJNA1320686 https://www.ebi.ac.uk/ena , MTBLS12945.'
+    explanation: Lists PRJNA1320686 as one of the deposited study accessions.
+- title: Wheat rhizosphere soil metabolomics MetaboLights study
+  accession: MTBLS12945
+  dataset_type: METABOLOMICS
+  repository: METABOLIGHTS
+  url: https://www.ebi.ac.uk/metabolights/MTBLS12945
+  description: EBI MetaboLights study for soil LC-MS metabolomics profiles from the TB SynCom/Fusarium wheat rhizosphere experiment.
+  publication: PMID:41821943
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: 'The names of the repository/repositories and accession number(s) can be found below: https://www.ncbi.nlm.nih.gov/
+      , PRJNA1320663 https://www.ncbi.nlm.nih.gov/ , PRJNA1320686 https://www.ebi.ac.uk/ena , MTBLS12945.'
+    explanation: Lists MTBLS12945 as one of the deposited study accessions.
+external_resources:
+- name: Primary publication - TB wheat crown-rot SynCom
+  repository: OTHER
+  resource_id: PMID:41821943
+  url: https://pubmed.ncbi.nlm.nih.gov/41821943/
+  description: Frontiers in Plant Science study reporting the two-member TB SynCom, wheat crown-rot pot experiment, 16S/ITS
+    amplicon sequencing, and rhizosphere metabolomics.
+  evidence:
+  - reference: PMID:41821943
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: A minimal cross-kingdom SynCom promotes plant growth and suppresses wheat crown rot via coordinated rhizosphere
+      microbiome remodeling
+    explanation: Identifies the primary publication for the TB SynCom study.
+curation_history:
+- timestamp: '2026-09-20T08:58:45Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000391 for the Trichoderma harzianum T19 / Bacillus rugosus PM16 TB cross-kingdom wheat crown-rot
+    SynCom from PMID:41821943, including exact strain membership, pot-assay cultivation, Fusarium challenge design, biocontrol
+    and rhizosphere-remodeling outcomes, and linked BioProject/MetaboLights datasets.
+  llm_assisted: true
