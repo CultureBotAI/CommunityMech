@@ -1,0 +1,255 @@
+id: CommunityMech:000396
+name: Clostridial isoDCA Mini Consortium
+description: A two-member engineered Clostridia consortium pairing Peptacetobacter hiranonis with Ruminococcus gnavus VPI
+  C7-9 WT so the community converts host-derived taurocholic acid through cholic acid and deoxycholic acid to isodeoxycholic
+  acid. Ionescu et al. also built a matched P. hiranonis plus R. gnavus KO consortium with rumgna_00694 disrupted as an isoDCA-negative
+  control, enabling in vitro bile-acid conversion assays and antibiotic-treated mouse engraftment experiments that isolate
+  the host effects of isoDCA.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: OTHER
+engineering_design:
+  objective: Test how isodeoxycholic acid produced by native gut Clostridia from host-derived taurocholic acid modulates intestinal
+    immune homeostasis.
+  assembly_strategy: Pair Peptacetobacter hiranonis with either wild-type R. gnavus VPI C7-9 to form the isoDCA-positive consortium
+    or the engineered R. gnavus rumgna_00694 knockout to form an isoDCA-negative isogenic control.
+  inoculation_strategy: Grow each anaerobic member to OD600 0.800, mix equal 10 mL volumes of P. hiranonis and R. gnavus WT
+    cultures, pellet the mixed culture, and resuspend it as a glycerol stock used for the defined isoDCA-positive inoculum.
+  perturbation_design: Compare P. hiranonis plus R. gnavus WT with the matched P. hiranonis plus R. gnavus KO consortium to
+    toggle isoDCA production on or off while holding the two-member community framework constant.
+  measurement_endpoints:
+  - thin-layer chromatography of bile acids in culture supernatants
+  - fecal qPCR for Peptacetobacter hiranonis and Ruminococcus gnavus engraftment
+  - fecal bile-acid metabolomics
+  - ileal and colonic lamina propria RORgamma-t+Foxp3+ regulatory T cells
+  - adoptive T cell transfer colitis outcomes
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Combining R. gnavus (WT or KO) with Peptacetobacter hiranonis created a two-member consortium
+    explanation: Supports the two-member WT and KO consortium design.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a consortium of P. hiranonis and R. gnavus WT (isoDCA+ consortium) can produce isoDCA
+    explanation: Supports the isoDCA-positive WT consortium as the target record.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 10 mL of P. hiranonis culture (OD600 = 0.800) was mixed with 10 mL of R. gnavus WT or KO culture
+    explanation: Supports the equal-volume OD600-normalized construction of the frozen two-member inoculum.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Fecal isoDCA concentration
+    explanation: Supports fecal isoDCA metabolomics as an in vivo endpoint.
+environment_term:
+  preferred_term: anaerobic laboratory bile-acid culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The two species were cocultured under controlled anaerobic BHI-S/YCFAC conditions to assay bile-acid conversion before
+    mouse gavage.
+modeled_environment:
+- preferred_term: antibiotic-treated mouse gut
+  term:
+    id: ENVO:2100002
+    label: intestine environment
+  notes: The defined consortium was gavaged into antibiotic-treated mice to probe intestinal isoDCA production and host immunity.
+taxonomy:
+- taxon_term:
+    preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI species identity was verified locally by exact Taxonomy search; the inspected preprint did not report a strain
+      designation for the P. hiranonis member.
+  abundance_value: Defined isoDCA-positive consortium member
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a consortium of P. hiranonis and R. gnavus WT (isoDCA+ consortium) can produce isoDCA
+    explanation: Names P. hiranonis as a member of the isoDCA-positive two-member consortium.
+- taxon_term:
+    preferred_term: Ruminococcus gnavus VPI C7-9 WT
+    term:
+      id: NCBITaxon:33038
+      label: Mediterraneibacter gnavus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ruminococcus_B_gnavus
+      gtdb_taxon: Ruminococcus_B gnavus
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Ruminococcus_B;s__Ruminococcus_B
+        gnavus
+      ncbi_source_id: NCBITaxon:33038
+      majority_fraction: 0.99
+      total_genomes: 311
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source name Ruminococcus gnavus is retained; NCBI Taxonomy currently labels this species as Mediterraneibacter
+      gnavus.
+  strain_designation:
+    strain_name: VPI C7-9
+    culture_collections:
+    - collection: ATCC
+      accession: '29149'
+    notes: Wild-type parent used in the isoDCA-positive consortium.
+  abundance_value: Defined isoDCA-positive consortium member
+  functional_role:
+  - CROSS_FEEDER
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a consortium of P. hiranonis and R. gnavus WT (isoDCA+ consortium) can produce isoDCA
+    explanation: Names R. gnavus WT as a member of the isoDCA-positive two-member consortium.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. gnavus (VPI C7-9, originally acquired from ATCC (29149)
+    explanation: Supports the source strain and ATCC accession for the R. gnavus parent strain.
+ecological_interactions:
+- name: P. hiranonis and R. gnavus WT isoDCA production
+  description: Peptacetobacter hiranonis first converts taurocholic acid through cholic acid to deoxycholic acid; R. gnavus
+    WT then converts the P. hiranonis-derived bile-acid products to isoDCA, yielding an isoDCA-positive paired consortium.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Peptacetobacter hiranonis
+    term:
+      id: NCBITaxon:89152
+      label: Peptacetobacter hiranonis
+    gtdb_grounding_status: UNRESOLVED
+    notes: NCBI species identity was verified locally by exact Taxonomy search; the inspected preprint did not report a strain
+      designation for the P. hiranonis member.
+  target_taxon:
+    preferred_term: Ruminococcus gnavus VPI C7-9 WT
+    term:
+      id: NCBITaxon:33038
+      label: Mediterraneibacter gnavus
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ruminococcus_B_gnavus
+      gtdb_taxon: Ruminococcus_B gnavus
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Lachnospirales;f__Lachnospiraceae;g__Ruminococcus_B;s__Ruminococcus_B
+        gnavus
+      ncbi_source_id: NCBITaxon:33038
+      majority_fraction: 0.99
+      total_genomes: 311
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source name Ruminococcus gnavus is retained; NCBI Taxonomy currently labels this species as Mediterraneibacter
+      gnavus.
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Schematic of the conversion of TCA into CA and DCA by P. hiranonis and into isoDCA by R. gnavus
+    explanation: Supports the sequential P. hiranonis-to-R. gnavus bile-acid conversion model.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: P. hiranonis was cultured in vitro with TCA and then with either R. gnavus WT or R. gnavus KO
+    explanation: Supports the two-step culture design used to test conversion of TCA-derived products by R. gnavus.
+growth_media:
+- name: BHI-S supplemented brain heart infusion medium
+  composition:
+  - name: brain heart infusion powder
+    concentration: '37'
+    unit: g/L
+    from_source: BD Difco
+  - name: yeast extract
+    concentration: '5'
+    unit: g/L
+    from_source: BD Bacto
+  - name: L-cysteine
+    concentration: '1'
+    unit: '% v/v of 10% w/v stock'
+    from_source: Sigma
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  headspace_gas: H2 = 2.5-3.0%; O2 < 50 ppm
+  incubation_time: 12-16
+  incubation_time_unit: h
+  vessel_type: flexible vinyl anaerobic chamber
+  preparation_notes: Used for liquid culturing and OD600-normalized glycerol-stock preparation of both isoDCA+ consortium
+    members.
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: were cultured at 37 °C in an incubator inside a flexible vinyl anaerobic chamber
+    explanation: Supports anaerobic 37 degree Celsius cultivation of the consortium strains.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: flexible vinyl anaerobic chamber with concentrations of H2 = 2.5-3.0% and O2 < 50 ppm
+    explanation: Supports the anaerobic chamber headspace used for cultivation.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: supplemented brain heart infusion (BHI-S) medium consisting of 37 g/L of brain heart infusion powder (BD Difco),
+      5 g/L yeast extract (BD Bacto), and 1% (v/v) of 10% (w/v) L-cysteine (Sigma)
+    explanation: Supports the BHI-S base medium plus brain heart infusion, yeast extract, and L-cysteine concentrations.
+- name: YCFAC medium for bile-acid metabolism
+  temperature: '37'
+  temperature_unit: degrees Celsius
+  atmosphere: ANAEROBIC
+  incubation_time: overnight
+  vessel_type: flexible vinyl anaerobic chamber
+  preparation_notes: Used for in vitro bile-acid conversion assays because the source avoided BHI-S sterol compounds during
+    those assays.
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: yeast casitone fatty acids broth with carbohydrates (YCFAC) medium
+    explanation: Names the medium used for in vitro bile-acid metabolism experiments.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: avoid sterol compounds found in BHI-S medium
+    explanation: Supports the reason YCFAC was used for the bile-acid metabolism assay.
+external_resources:
+- name: Primary bioRxiv preprint - engineered Clostridial isoDCA mini consortium
+  repository: OTHER
+  resource_id: doi:10.64898/2026.08.11.743107
+  url: https://doi.org/10.64898/2026.08.11.743107
+  description: bioRxiv preprint reporting the two-member P. hiranonis and R. gnavus WT isoDCA+ consortium.
+  evidence:
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: An engineered Clostridial mini consortium modulates intestinal inflammation
+    explanation: Identifies the DOI-backed preprint that reports this mini-consortium.
+discussions:
+- discussion_id: peptacetobacter_hiranonis_strain_identity
+  prompt: Which Peptacetobacter hiranonis strain was used in the isoDCA-positive mini-consortium?
+  kind: CURATION_TODO
+  status: OPEN
+  attaches_to:
+  - taxonomy#Peptacetobacter hiranonis
+  rationale: The inspected preprint methods name the R. gnavus parent as VPI C7-9 from ATCC 29149, but only identify the consortium's
+    P. hiranonis member at species level.
+  posed_by: codex
+  posed_date: '2026-09-20'
+curation_history:
+- timestamp: '2026-09-20T17:11:25Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000396 for the P. hiranonis / R. gnavus WT isoDCA-positive Clostridial mini-consortium, including
+    the matched R. gnavus KO design context, VPI C7-9 strain provenance, anaerobic BHI-S and YCFAC growth conditions, and
+    in vitro bile-acid conversion evidence.
+  llm_assisted: true
+- timestamp: '2026-09-20T17:44:51Z'
+  curator: codex
+  action: REFINE_EVIDENCE
+  changes: Expanded the BHI-S methods snippet so the evidence covers brain heart infusion powder, yeast extract, and L-cysteine
+    concentrations.
+  llm_assisted: true
