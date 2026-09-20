@@ -1,0 +1,381 @@
+id: CommunityMech:000398
+name: Optimized Rumen Fiber-Degrading SynCom 3
+description: A five-strain synthetic rumen bacterial consortium optimized from dairy-cattle culturomics isolates to increase
+  fiber degradation of a total-mixed-ration substrate. The Streptococcus equinus 5640, Lactobacillus delbrueckii 5812, Proteiniphilum
+  acetatigenes 6076, Enterococcus lactis 6088, and Petrimonas mucosa 6360 SynCom 3 derivative was dose-optimized by a Box-Behnken
+  in vitro design and then dosed into fistulated Huaxi cattle as a mixed bacterial suspension.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Mine fiber-degrading dairy-cow rumen isolates and construct a dose-optimized five-member SynCom 3 to increase
+    total-mixed-ration fiber degradation.
+  assembly_strategy: Use 16S rRNA profiles, culturomics, cellulase and reducing-sugar screens, single-strain in vitro rumen
+    fermentation, four seven-strain SynCom designs, and a 41-run Box-Behnken design to choose and dose five key fiber-degrading
+    strains.
+  inoculation_strategy: For the in situ cattle test, centrifuge the five optimized strains, resuspend cell pellets in sterile
+    water, and administer 500 mL of mixed bacterial suspension into the rumen.
+  measurement_endpoints:
+  - 48 h in vitro dry-matter degradation, neutral-detergent-fiber degradation, acid-detergent-fiber degradation, gas production,
+    pH, microbial crude protein, NH3-N, and volatile fatty acids
+  - in situ dry-matter, neutral-detergent-fiber, and acid-detergent-fiber degradation in nylon bags
+  - rumen-fluid pH, NH3-N, total volatile fatty acids, acetate, propionate, butyrate, isobutyrate, valerate, and isovalerate
+  - whole-genome COG, CAZy, and KEGG annotation of the five fiber-degrading strains
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: four SynComs were developed based on the abundance patterns derived from sequencing data, featuring highly efficient
+      fiber degraders. Each bacterial suspension was prepared, and 1 mL of bacterial suspension from SynCom 1 to 4 was inoculated
+      into the in vitro fermentation systems as previously described. Sterile water served as the negative control (CON).
+      Rational design was employed to ensure the authenticity of SynComs. A three-factor Box–Behnken experimental design comprising
+      41 combinations was used to assess the contribution of each strain
+    explanation: Supports construction of four SynComs followed by a Box-Behnken dose-optimization design.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: which received 500 mL of sterile water, and a treatment group (TRE), which received 500 mL of mixed bacterial
+      suspension. The bacterial suspension contained S. equinus 5640 and E. lactis 6088 (1 × 109 CFU/mL each), P. mucosa 6360
+      (1 × 107 CFU/mL), and L. delbrueckii 5812 and P. acetatigenes 6076 (1 × 106 CFU/mL each). The concentrations of the
+      mixed bacterial suspension were formulated based on the results of a three-factor Box-Behnken design experiment, which
+      determined the optimal ratio for synergistic effects.
+    explanation: Supports the final 500 mL in situ rumen dosing strategy and the five strain-specific suspension concentrations.
+environment_term:
+  preferred_term: rumen-fluid in vitro fermentation and fistulated-cattle dosing assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: The strains derive from dairy-cow rumen fluid, but this record curates the constructed SynCom tested in sealed in
+    vitro fermentation bottles and in a controlled fistulated-cattle dosing experiment. ENVO has no dedicated rumen environment
+    term.
+modeled_environment:
+- preferred_term: digestive tract environment
+  term:
+    id: ENVO:01001033
+    label: digestive tract environment
+  notes: The SynCom was designed to manipulate feed-fiber degradation in the cattle rumen.
+taxonomy:
+- taxon_term:
+    preferred_term: Streptococcus equinus
+    term:
+      id: NCBITaxon:1335
+      label: Streptococcus equinus
+    gtdb_grounding_status: AMBIGUOUS
+    gtdb_candidates:
+    - GTDB:s__Streptococcus_equinus
+    - GTDB:s__Streptococcus_pasteurianus
+    - GTDB:s__Streptococcus_ruminicola
+    notes: Source strain S. equinus 5640 is retained as a strain designation; local GTDB grounding splits the NCBI species
+      across several Streptococcus species clusters.
+  strain_designation:
+    strain_name: '5640'
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Defined five-strain optimized SynCom member
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly efficient SynCom consisting of P. acetatigenes 6076, S. equinus 5640, L. delbrueckii 5812, E. lactis
+      6088, and P. mucosa 6360 was constructed, and its molecular and metabolic action mechanisms were revealed through genome
+      sequencing.
+    explanation: Names S. equinus 5640 as a member of the efficient five-strain SynCom.
+- taxon_term:
+    preferred_term: Lactobacillus delbrueckii
+    term:
+      id: NCBITaxon:1584
+      label: Lactobacillus delbrueckii
+    gtdb_grounding_status: UNRESOLVED
+    notes: Source strain L. delbrueckii 5812 is retained at strain level; GTDB was left unresolved rather than inheriting
+      a subspecies grounding from another record.
+  strain_designation:
+    strain_name: '5812'
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Defined five-strain optimized SynCom member
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly efficient SynCom consisting of P. acetatigenes 6076, S. equinus 5640, L. delbrueckii 5812, E. lactis
+      6088, and P. mucosa 6360 was constructed, and its molecular and metabolic action mechanisms were revealed through genome
+      sequencing.
+    explanation: Names L. delbrueckii 5812 as a member of the efficient five-strain SynCom.
+- taxon_term:
+    preferred_term: Proteiniphilum acetatigenes
+    term:
+      id: NCBITaxon:294710
+      label: Proteiniphilum acetatigenes
+    gtdb_grounding_status: UNRESOLVED
+    notes: Source strain P. acetatigenes 6076 is retained as a strain designation.
+  strain_designation:
+    strain_name: '6076'
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Defined five-strain optimized SynCom member
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly efficient SynCom consisting of P. acetatigenes 6076, S. equinus 5640, L. delbrueckii 5812, E. lactis
+      6088, and P. mucosa 6360 was constructed, and its molecular and metabolic action mechanisms were revealed through genome
+      sequencing.
+    explanation: Names P. acetatigenes 6076 as a member of the efficient five-strain SynCom.
+- taxon_term:
+    preferred_term: Enterococcus lactis
+    term:
+      id: NCBITaxon:357441
+      label: Enterococcus lactis
+    gtdb_grounding_status: UNRESOLVED
+    notes: Source strain E. lactis 6088 is retained as a strain designation.
+  strain_designation:
+    strain_name: '6088'
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Defined five-strain optimized SynCom member
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly efficient SynCom consisting of P. acetatigenes 6076, S. equinus 5640, L. delbrueckii 5812, E. lactis
+      6088, and P. mucosa 6360 was constructed, and its molecular and metabolic action mechanisms were revealed through genome
+      sequencing.
+    explanation: Names E. lactis 6088 as a member of the efficient five-strain SynCom.
+- taxon_term:
+    preferred_term: Petrimonas mucosa
+    term:
+      id: NCBITaxon:1642646
+      label: Petrimonas mucosa
+    gtdb_grounding_status: UNRESOLVED
+    notes: Source strain P. mucosa 6360 is retained as a strain designation.
+  strain_designation:
+    strain_name: '6360'
+  functional_role:
+  - PRIMARY_DEGRADER
+  abundance_value: Defined five-strain optimized SynCom member
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: a highly efficient SynCom consisting of P. acetatigenes 6076, S. equinus 5640, L. delbrueckii 5812, E. lactis
+      6088, and P. mucosa 6360 was constructed, and its molecular and metabolic action mechanisms were revealed through genome
+      sequencing.
+    explanation: Names P. mucosa 6360 as a member of the efficient five-strain SynCom.
+ecological_interactions:
+- name: Box-Behnken optimized in vitro fiber degradation
+  description: The five-strain Group 41 formulation of SynCom 3 produced the highest 48 h neutral-detergent-fiber degradation
+    in the Box-Behnken in vitro screen and exceeded the sterile-water control by 20.56%.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  downstream:
+  - target: In situ cattle rumen fermentation shift
+    description: The Group 41 strain ratio was carried into the fistulated-cattle dosing assay.
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Group 41, consisting of 1 × 108 CFU/mL of S. equinus 5640 and E. lactis 6088, 1 × 106 CFU/mL of P. mucosa 6360,
+      and 1 × 105 CFU/mL of L. delbrueckii 5812 and P. acetatigenes 6076, achieved the highest 48 h NDFD (66.84%), significantly
+      higher than the control group by 20.56%, but had no difference in 48 h DMD and gas production (P < 0.05, Fig.  6 C).
+      The results demonstrated that favorable concentrations and ratios of strains in SynComs are more effective in promoting
+      fermentation performance and facilitating industrial application.
+    explanation: Supports the optimized five-strain Group 41 formulation and its 48 h in vitro NDFD improvement.
+- name: Genome-annotated carbohydrate-active enzyme complement
+  description: Whole-genome sequencing of the five SynCom 3 strains supported a broad carbohydrate-degradation enzyme repertoire,
+    including glycoside hydrolases, carbohydrate-binding modules, carbohydrate esterases, and KEGG enzymes linked to cellulose,
+    hemicellulose, pectin, glucose, and volatile-fatty-acid metabolism.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: cellulose catabolic process
+    term:
+      id: GO:0030245
+      label: cellulose catabolic process
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The fiber degrading strains S. equinus 5640, L. delbrueckii 5812, P. acetatigenes 6076, E. lactis 6088, and P.
+      mucosa 6360 had whole genome sequencing at Biozeron.
+    explanation: Identifies the five SynCom strains sequenced for whole-genome functional annotation.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Genome sequence analysis revealed the synergistic and complementary actions of these five bacterial strains in
+      carbohydrate degradation processes.
+    explanation: Supports the genome-annotation inference of complementary carbohydrate-degradation processes.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Fig. 7 Fiber degradation pathways of the five strains in SynComm 3. A Number of COG genes in carbohydrate transport
+      and metabolism. B–D Venn diagram of genes in glycoside hydrolases (GHs), carbohydrate-binding modules (CBMs),
+      and carbohydrate esterases (CEs) from CAZy database. E Relative abundance of KEGG pathway on level 3. F, G Number
+      of genes involved in fiber degradation, glucose degradation, and VFA synthesis. H Metabolic profiles of fibrous
+      substrates, glucose, and VFA
+    explanation: Directly supports the CAZy GH/CBM/CE and KEGG enzyme annotations behind the inferred carbohydrate-active
+      enzyme complement.
+- name: In situ cattle rumen fermentation shift
+  description: Supplementing fistulated Huaxi cattle with the five-strain optimized SynCom altered rumen fermentation and
+    trended toward higher DM, NDF, and ADF degradation at 72 h, with significant VFA and NH3-N shifts.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: carbohydrate metabolic process
+    term:
+      id: GO:0005975
+      label: carbohydrate metabolic process
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: The in situ feeding trial demonstrated that the supplementation of the SynCom significantly altered the rumen
+      fermentation profile and enhanced feed fiber degradation in Huaxi cattle. The ruminal degradation rates of DM, NDF,
+      and ADF exhibited a positive trend in the TRE group, with increases of 2.61%, 7.81%, and 11.47%, respectively, at 72 h
+      compared to the CON group, although these differences were not statistically significant (Fig.  8 A–C, P > 0.05). SynCom
+      supplementation profoundly influenced ruminal VFA production. While the total VFA concentration in the TRE group was
+      significantly lower than in the CON group at 12 h (Fig.  8 F, P = 0.0011), it increased progressively over time, becoming
+      significantly higher in the TRE group at 24 h (P = 0.0196) and 48 h (P = 0.0001), and remaining 10.80% higher at 72 h
+      (P > 0.05). This shift was driven by a significantly elevated acetate concentration in the TRE group at 24, 48, and
+      72 h (Fig.  8 G, P < 0.05), with no significant difference observed in propionate levels. Consequently, the A:P ratio
+      was significantly elevated in the treatment group at 48 h and 72 h (Fig.  8 M, P < 0.05). The concentrations of butyrate,
+      isobutyrate, and isovalerate in the TRE group were also significantly higher than in the CON group at 24 and 48 h (Fig. 
+      8 I, J, and L, P < 0.05). In contrast, valerate concentration in the TRE group was significantly lower than in the CON
+      group at 48 h (Fig.  8 K, P = 0.0013) and 72 h (Fig.  8 K, P < 0.0001). Concomitantly, the NH3-N concentration was significantly
+      lower in the TRE group at 48 h and 72 h (Fig.  8 E, P< 0.0001 and P = 0.0034, respectively), implying improved nitrogen
+      utilization by the rumen microbiota.
+    explanation: Supports the in situ rumen response to the optimized SynCom.
+growth_media:
+- name: Total-mixed-ration rumen-fluid in vitro fermentation medium
+  temperature: 39
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  inoculum_size: '1'
+  inoculum_unit: mL mixed SynCom suspension
+  incubation_time: '48'
+  incubation_time_unit: h
+  vessel_type: 100 mL sealed glass bottle
+  preparation_notes: Each 100 mL bottle contained 0.75 g ground TMR substrate, 45 mL pre-warmed fermentation medium, 15 mL
+    filtration-sterilized rumen fluid, and 1 mL bacterial suspension or sterile-water control.
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Glass bottles (100 mL) were prepared with 0.75 g of ground TMR substrate (Table S4), 45 mL of pre-warmed fermentation
+      medium (Table S5), and 15 mL of filtration-sterilized rumen fluid. Each bottle was inoculated with 1 mL of 1 × 107 CFU/mL
+      of the following strains: B. subtilis 5632, S. equinus 5640, S. pluranimalium 5823, S. infantarius 6074, L. delbrueckii
+      5812, P. mucosa 6360, S. condimenti 5845, E. gallinarum 6392, A. glycerinitolerans 6345, E. lactis 6088, C. pasinlerensis
+      5847, L. pontis 5897, and P. acetatigenes 6076. All bacterial suspensions underwent centrifugation (12,000 × g, 10 min)
+      to remove the culture medium, after which the resulting cell pellets were resuspended in an equivalent volume of sterile
+      water. 1 mL of sterile water was utilized as the negative control (CON). All bottles were sealed with a rubber stopper
+      and aluminum crimp cap immediately after loading and were incubated at 39 °C for 48 h'
+    explanation: Supports the TMR substrate, fermentation-medium, rumen-fluid, inoculum, sealed-bottle, and 39 C incubation
+      setup.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each bacterial suspension was prepared, and 1 mL of bacterial suspension from SynCom 1 to 4 was inoculated into
+      the in vitro fermentation systems as previously described. Sterile water served as the negative control (CON).
+    explanation: Connects mixed SynCom suspensions to the previously described TMR rumen-fluid in vitro fermentation bottle
+      setup.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  instrument_detail: 100 mL glass bottles sealed with rubber stoppers and aluminum crimp caps
+  working_volume: 61
+  working_volume_unit: mL
+  operating_temperature: 39
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  controls_notes: Incubated as a closed 48 h in vitro rumen-fermentation batch after adding 1 mL of bacterial suspension.
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Glass bottles (100 mL) were prepared with 0.75 g of ground TMR substrate (Table S4), 45 mL of pre-warmed fermentation
+      medium (Table S5), and 15 mL of filtration-sterilized rumen fluid. Each bottle was inoculated with 1 mL of 1 × 107 CFU/mL
+      of the following strains: B. subtilis 5632, S. equinus 5640, S. pluranimalium 5823, S. infantarius 6074, L. delbrueckii
+      5812, P. mucosa 6360, S. condimenti 5845, E. gallinarum 6392, A. glycerinitolerans 6345, E. lactis 6088, C. pasinlerensis
+      5847, L. pontis 5897, and P. acetatigenes 6076. All bacterial suspensions underwent centrifugation (12,000 × g, 10 min)
+      to remove the culture medium, after which the resulting cell pellets were resuspended in an equivalent volume of sterile
+      water. 1 mL of sterile water was utilized as the negative control (CON). All bottles were sealed with a rubber stopper
+      and aluminum crimp cap immediately after loading and were incubated at 39 °C for 48 h'
+    explanation: Supports batch cultivation in sealed 100 mL bottles at 39 C for 48 h.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each bacterial suspension was prepared, and 1 mL of bacterial suspension from SynCom 1 to 4 was inoculated into
+      the in vitro fermentation systems as previously described. Sterile water served as the negative control (CON).
+    explanation: Connects mixed SynCom suspensions to the previously described sealed-bottle cultivation setup.
+associated_datasets:
+- accession: PRJNA1295659
+  title: Rumen 16S rRNA datasets for enrichment and SynCom engineering
+  description: BioProject carrying the 16S rRNA datasets generated for the dairy-cow rumen enrichment study.
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - fresh and enriched rumen-fluid bacterial communities
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The raw data of 16S rRNA datasets generated in this study have been deposited in the Sequence Read Archive under
+      accession number BioProject PRJNA1295659. The whole genome sequencing datasets generated in this study have been deposited
+      in the Sequence Read Archive under accession number PRJNA1297957.
+    explanation: Names BioProject PRJNA1295659 for the 16S rRNA datasets.
+- accession: PRJNA1297957
+  title: Whole genomes of the five SynCom 3 fiber-degrading strains
+  description: BioProject carrying whole-genome sequencing datasets for the five optimized SynCom 3 members.
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - SynCom 3 strain whole-genome sequences
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The raw data of 16S rRNA datasets generated in this study have been deposited in the Sequence Read Archive under
+      accession number BioProject PRJNA1295659. The whole genome sequencing datasets generated in this study have been deposited
+      in the Sequence Read Archive under accession number PRJNA1297957.
+    explanation: Names BioProject PRJNA1297957 for the whole-genome sequencing datasets.
+discussions:
+- discussion_id: cross-feeding-mechanism-unresolved
+  prompt: Which transcript-level pathways and metabolite exchanges connect the five optimized SynCom 3 strains during rumen
+    fiber degradation?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Genome-annotated carbohydrate-active enzyme complement
+  rationale: The paper annotated complementary carbohydrate-active enzyme potential from isolate genomes, but it names transcriptomics
+    and metabolic cross-feeding as future work. This record therefore does not assert directional pairwise cross-feeding edges
+    among the five strains.
+  evidence:
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: Future research should investigate the transcriptomic profiles and the metabolic cross-feeding mechanisms of
+      fiber-degrading strains in the rumen.
+    explanation: The authors explicitly leave transcriptomics and cross-feeding mechanisms to future research.
+  posed_by: claude
+curation_history:
+- timestamp: '2026-09-20T21:12:42Z'
+  curator: claude
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created DOI-backed optimized rumen SynCom 3 community with five strains, in vitro and in situ interactions, cultivation
+    conditions, BioProject datasets, and an unresolved cross-feeding discussion.
+  llm_assisted: true
+- timestamp: '2026-09-20T21:34:16Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: Added more local evidence for CAZy and KEGG genome annotations and for mixed SynCom inoculation into the in vitro
+    bottle fermentation setup.
+  llm_assisted: true
