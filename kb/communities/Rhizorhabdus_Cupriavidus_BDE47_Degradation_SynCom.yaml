@@ -1,0 +1,362 @@
+id: CommunityMech:000388
+name: Rhizorhabdus-Cupriavidus BDE-47 Degradation SynCom
+description: A defined aerobic two-isolate synthetic consortium pairing Rhizorhabdus wittichii YL-JM2C with the chloroaromatic-degrading
+  strain reported as Cupriavidus necator JMP134 for 2,2',4,4'-tetrabromodiphenyl ether (BDE-47) degradation. YL-JM2C uses
+  the dioxygenase TcsAaAb to initiate BDE-47 conversion to 2,4-dibromophenol and 3,5-dibromocatechol; JMP134 hydroxylates
+  the YL-JM2C dead-end 2,4-dibromophenol intermediate to 3,5-dibromocatechol, which can then enter an ortho-cleavage pathway
+  in either strain. The bottom-up consortium removed BDE-47 from minimal salts medium and real wastewater microcosms.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOREMEDIATION
+engineering_design:
+  objective: Assemble a bottom-up bacterial SynCom that closes the aerobic BDE-47 catabolic pathway by coupling YL-JM2C-initiated
+    ring oxidation with JMP134 hydroxylation of the 2,4-dibromophenol dead-end intermediate.
+  assembly_strategy: Grow Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134 separately to exponential phase in
+    R2A, harvest and wash the cells into pH 7 minimal salts medium, then mix equal volumes of the two suspensions before adding
+    BDE-47.
+  inoculation_strategy: Use washed resting-cell suspensions in minimal salts medium for flask BDE-47 assays and 5% v/v of
+    each OD600 1.0 strain suspension for wastewater microcosm tests.
+  measurement_endpoints:
+  - BDE-47 and 2,4-dibromophenol concentrations by HPLC
+  - BDE-47 transformation products by LC-MS and GC-MS
+  - Bromide release by ion chromatography
+  - Strain-specific 16S rRNA gene abundance by qPCR
+  - Residual BDE-47 in real wastewater microcosms
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: synthetic consortium composed of two environmental isolates, Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator
+      JMP134
+    explanation: Identifies the exact two isolate members of the bottom-up SynCom.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: A synthetic consortium was established by mixing equal volumes of both cell suspensions, followed by the addition
+      of BDE-47.
+    explanation: Supports equal-volume assembly of the two washed cell suspensions for BDE-47 assays.
+environment_term:
+  preferred_term: aerobic BDE-47 degradation laboratory culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled minimal-salts-medium and wastewater microcosm tests of a defined two-isolate aerobic consortium.
+modeled_environment:
+- preferred_term: wastewater treatment plant
+  term:
+    id: ENVO:00002043
+    label: wastewater treatment plant
+  notes: The consortium was tested as a bioaugmentation agent in BDE-47-amended wastewater collected from wastewater treatment
+    plants.
+taxonomy:
+- taxon_term:
+    preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+    gtdb_grounding_status: UNRESOLVED
+    notes: The paper identifies strain YL-JM2C as Rhizorhabdus wittichii by ANI; NCBI Taxonomy has no exact YL-JM2C strain
+      taxon in the inspected lookup.
+  strain_designation:
+    strain_name: YL-JM2C
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134
+    explanation: Names R. wittichii YL-JM2C as one member of the synthetic consortium.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Table S6. Pairwise Average Nucleotide Identity (ANI) values (%) among the genomes of strains YL-JM2C and closely
+      related species
+    explanation: Supports the species-level ANI placement of YL-JM2C in Rhizorhabdus wittichii.
+- taxon_term:
+    preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article uses the synonym Cupriavidus necator JMP134; NCBI Taxonomy resolves that name to the exact strain taxon
+      Cupriavidus pinatubonensis JMP134.
+  strain_designation:
+    strain_name: JMP134
+  abundance_level: DOMINANT
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Rhizorhabdus wittichii YL-JM2C and Cupriavidus necator JMP134
+    explanation: Names C. necator JMP134 as one member of the synthetic consortium.
+ecological_interactions:
+- name: YL-JM2C BDE-47 initiation
+  description: Rhizorhabdus wittichii YL-JM2C initiates aerobic BDE-47 oxidation through TcsAaAb, producing 2,4-dibromophenol
+    and 3,5-dibromocatechol. The 2,4-DBP branch is a dead-end for YL-JM2C and becomes the substrate for JMP134 TfdB hydroxylation.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+  target_taxon:
+    preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: JMP134 2,4-dibromophenol rescue
+    description: YL-JM2C-generated 2,4-dibromophenol is subsequently converted to 3,5-dibromocatechol by JMP134 TfdB.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: TcsAaAb from strain YL-JM2C catalyzed the initial conversion of BDE-47 into 2,4-dibromophenol (2,4-DBP) and 3,5-dibromocatechol
+      (3,5-DBC)
+    explanation: Supports YL-JM2C as the first transformer of BDE-47.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: As a dead-end intermediate in strain YL-JM2C
+    explanation: Supports 2,4-DBP as a YL-JM2C dead-end intermediate.
+- name: JMP134 2,4-dibromophenol rescue
+  description: Cupriavidus necator JMP134 hydroxylase TfdB converts the YL-JM2C dead-end 2,4-dibromophenol product to 3,5-dibromocatechol,
+    linking YL-JM2C's initial BDE-47 attack to the downstream ortho-cleavage pathway shared by both strains.
+  interaction_type: SYNTROPHY
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+  target_taxon:
+    preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  downstream:
+  - target: Consortium BDE-47 removal
+    description: Removal of the 2,4-DBP bottleneck connects the two isolate pathways and enables community-level BDE-47 degradation.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,4-DBP) was subsequently transformed into the latter (3,5-DBC) by the hydroxylase TfdB from strain JMP134
+    explanation: Supports JMP134 hydroxylation of the YL-JM2C-derived 2,4-DBP intermediate.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The resulting 3,5-DBC was catabolized through the downstream ortho-cleavage pathway present in both strains.
+    explanation: Supports 3,5-DBC as the shared downstream intermediate.
+- name: Consortium BDE-47 removal
+  description: The mixed YL-JM2C/JMP134 consortium removes BDE-47 from minimal salts medium, releases bromide during low-concentration
+    BDE-47 degradation, and fully removes BDE-47 from several amended real-wastewater microcosms.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Rhizorhabdus wittichii YL-JM2C
+    term:
+      id: NCBITaxon:160791
+      label: Rhizorhabdus wittichii
+  - preferred_term: Cupriavidus necator JMP134
+    term:
+      id: NCBITaxon:264198
+      label: Cupriavidus pinatubonensis JMP134
+  biological_processes:
+  - preferred_term: xenobiotic metabolic process
+    term:
+      id: GO:0006805
+      label: xenobiotic metabolic process
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioaugmentation with this consortium achieved complete removal of BDE-47 in real wastewater samples.
+    explanation: Supports the emergent wastewater BDE-47 removal endpoint.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: BDE-47 degradation and bromide ion release by the synthetic consortium.
+    explanation: Links BDE-47 removal by the two-strain consortium to bromide release.
+environmental_factors:
+- name: BDE-47 target pollutant
+  value: 2,2',4,4'-tetrabromodiphenyl ether
+  description: BDE-47 was the polybrominated diphenyl ether congener supplied to the synthetic consortium.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 2,2',4,4'-tetrabromodiphenyl ether (BDE-47)
+    explanation: Defines the BDE-47 substrate used throughout the study.
+- name: Environmentally relevant BDE-47 degradation rate
+  value: '0.44'
+  unit: h-1
+  description: At 0.4 uM BDE-47 in MSM, the two-member synthetic consortium followed a first-order degradation model with
+    a 0.44 h-1 rate constant.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: with a rate constant (k) of 0.44 h-1
+    explanation: Quantifies the first-order BDE-47 degradation rate from the supplemental assay.
+- name: Real-wastewater BDE-47 removal
+  value: complete removal
+  description: Bioaugmentation of BDE-47-amended real wastewater from multiple WWTPs with the YL-JM2C/JMP134 consortium completely
+    removed residual BDE-47.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Bioaugmentation with this consortium facilitated the efficient removal of BDE-47 within complex wastewater matrices.
+    explanation: Supports evaluating and removing BDE-47 in real wastewater matrices.
+growth_media:
+- name: MSM BDE-47 washed-cell assay
+  composition:
+  - name: minimal salts medium
+  - name: BDE-47
+  temperature: '30'
+  temperature_unit: degrees Celsius
+  atmosphere: AEROBIC
+  shaking_speed: '180'
+  shaking_speed_unit: rpm
+  preparation_notes: Both strains were separately pre-grown in R2A, washed into pH 7.0 MSM at OD600 4.0, mixed at equal volumes,
+    and incubated with BDE-47 in triplicate.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: R. wittichii YL-JM2C and C. necator JMP134 were grown separately in R2A to exponential phase, harvested, and
+      resuspended in MSM (pH 7.0) to an OD600 of 4.0.
+    explanation: Supports the pre-growth and MSM preparation of the two strains.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixtures were incubated at 30°C with shaking at 180 rpm in triplicate
+    explanation: Supports the temperature, shaking, and replicate count of the consortium assay.
+- name: BDE-47-amended real wastewater microcosm
+  composition:
+  - name: wastewater
+  - name: BDE-47
+    concentration: '20'
+    unit: uM
+  - name: yeast extract
+    concentration: '0.04'
+    unit: percent w/v
+  inoculum_size: 5% of each strain
+  inoculum_unit: v/v
+  preparation_notes: Five-milliliter wastewater microcosms were amended with BDE-47 and yeast extract; washed OD600 1.0 suspensions
+    of both strains were inoculated at 5% v/v each.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For each sample, a 5-mL wastewater microcosm was established and amended with 20 μM BDE-47 as the target pollutant
+      for subsequent bioremediation.
+    explanation: Supports the wastewater microcosm volume and BDE-47 amendment.
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Both strains were adjusted to an OD600 of 1.0 and inoculated at 5% (v/v, each).
+    explanation: Supports the supplemental inoculation ratio used for BDE-47 microcosm assays.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: FLASK
+  instrument_detail: Shaken minimal-salts-medium flask assay at 180 rpm
+  operating_temperature: 30
+  operating_temperature_unit: °C
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The mixtures were incubated at 30°C with shaking at 180 rpm in triplicate
+    explanation: Supports the batch flask temperature and shaking speed.
+- cultivation_mode: BATCH
+  system_type: OTHER
+  instrument_detail: 5-mL wastewater microcosm
+  working_volume: 5
+  working_volume_unit: mL
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: For each sample, a 5-mL wastewater microcosm was established and amended with 20 μM BDE-47 as the target pollutant
+      for subsequent bioremediation.
+    explanation: Supports the 5-mL batch wastewater microcosm setup.
+associated_datasets:
+- title: Rhizorhabdus wittichii YL-JM2C genome assembly
+  accession: PRJNA1397584
+  dataset_type: GENOMICS
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1397584
+  description: NCBI BioProject for the complete genome assembly of strain YL-JM2C.
+  publication: PMID:42364169
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: The complete genome assembly of Rhizorhabdus wittichii YL-JM2C is available in the NCBI database under BioProject
+      PRJNA1397584.
+    explanation: Links the YL-JM2C genome assembly to BioProject PRJNA1397584.
+- title: BDE-47 wastewater amplicon reads
+  accession: PRJNA1413899
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1413899
+  description: NCBI BioProject for raw 16S amplicon sequencing reads from the wastewater microcosms.
+  publication: PMID:42364169
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: All raw data of amplicon sequencing has been deposited in the NCBI database under the BioProject PRJNA1413899.
+    explanation: Links the wastewater amplicon reads to BioProject PRJNA1413899.
+external_resources:
+- name: Primary publication - BDE-47 aerobic degradation SynCom
+  repository: OTHER
+  resource_id: PMID:42364169
+  url: https://pubmed.ncbi.nlm.nih.gov/42364169/
+  description: Primary ISME Journal study of the YL-JM2C/JMP134 BDE-47 degradation SynCom.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: OTHER
+    snippet: Metabolic interactions enable aerobic degradation of the environmental pollutant BDE-47.
+    explanation: Identifies the primary publication that characterizes the SynCom.
+discussions:
+- discussion_id: bde47-monoculture-comparison
+  prompt: The main text reports a YL-JM2C 2,4-DBP bottleneck, a JMP134 rescue step, and complete wastewater removal by the
+    mixed consortium, but the machine-extracted supplement text did not recover every numeric point from the image-only figures.
+  kind: CURATION_TODO
+  status: OPEN
+  rationale: A future curator should inspect the PDF figures for the precise BDE-47 residual time courses in the YL-JM2C monoculture,
+    JMP134 monoculture, mixed, transwell, and wastewater panels.
+  evidence:
+  - reference: PMID:42364169
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+curation_history:
+- timestamp: '2026-09-20T04:53:21Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: Created CommunityMech:000388 for the Rhizorhabdus wittichii YL-JM2C / Cupriavidus necator JMP134 BDE-47 degradation
+    SynCom from PMID:42364169, including exact strain membership, the TcsAaAb-to-TfdB metabolic relay, minimal-salts and wastewater
+    BDE-47 assays, bromide release, and the linked NCBI BioProjects.
+  llm_assisted: true
