@@ -600,8 +600,8 @@
             {% for interaction in community.ecological_interactions %}
             <div class="interaction-card">
                 <div class="interaction-header">
-                    <h3>{{ interaction.name }}</h3>
-                    <span class="interaction-type">{{ interaction.interaction_type }}</span>
+                    <h3>{{ interaction.name }}</h3>{% if interaction.interaction_type %}
+                    <span class="interaction-type">{{ interaction.interaction_type }}</span>{% endif %}
                 </div>
 
                 {% if interaction.source_taxon %}
