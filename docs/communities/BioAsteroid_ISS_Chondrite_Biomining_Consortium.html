@@ -604,6 +604,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Penicillium simplicissimum DSM 1078
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -686,6 +692,14 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Sphingomonas desiccabilis CP1D,
+
+                    Penicillium simplicissimum DSM 1078
+
+                </p>
 
 
 
@@ -1327,6 +1341,17 @@
 
 
 
+            var participantKeys = [
+
+                "Penicillium simplicissimum DSM 1078"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1354,6 +1379,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Sphingomonas desiccabilis CP1D",
+
+                "Penicillium simplicissimum DSM 1078"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

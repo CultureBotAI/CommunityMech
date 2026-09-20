@@ -911,6 +911,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Paenibacillus sp. 11B
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1608,6 +1614,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Paenibacillus sp. 11B"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

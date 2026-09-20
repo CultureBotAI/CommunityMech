@@ -943,6 +943,16 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Tropidoatractus magnetotacticus,
+
+                    magnetotactic sulfate-reducing bacterial endosymbiont,
+
+                    endosymbiotic hydrogenotrophic methanogen
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1421,6 +1431,21 @@ The whole syntrophic network is built from gene presence and transcript expressi
 
 
 
+
+            var participantKeys = [
+
+                "Tropidoatractus magnetotacticus",
+
+                "magnetotactic sulfate-reducing bacterial endosymbiont",
+
+                "endosymbiotic hydrogenotrophic methanogen"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

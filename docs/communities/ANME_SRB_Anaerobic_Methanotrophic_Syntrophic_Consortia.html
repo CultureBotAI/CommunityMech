@@ -736,6 +736,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    ANME-1 (anaerobic methanotrophic archaea, clade 1),
+
+                    ANME-2a (anaerobic methanotrophic archaea, clade 2a),
+
+                    ANME-2c (anaerobic methanotrophic archaea, clade 2c)
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -815,6 +825,22 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    ANME-1 (anaerobic methanotrophic archaea, clade 1),
+
+                    Desulfofervidus (sulfate-reducing bacterial partner of ANME-1),
+
+                    ANME-2a (anaerobic methanotrophic archaea, clade 2a),
+
+                    ANME-2c (anaerobic methanotrophic archaea, clade 2c),
+
+                    Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a),
+
+                    Seep-SRB2 (additional sulfate-reducing bacterial partner)
+
+                </p>
 
 
 
@@ -901,6 +927,16 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Desulfofervidus (sulfate-reducing bacterial partner of ANME-1),
+
+                    Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a),
+
+                    Seep-SRB2 (additional sulfate-reducing bacterial partner)
+
+                </p>
 
 
 
@@ -1190,6 +1226,21 @@
 
 
 
+            var participantKeys = [
+
+                "ANME-1 (anaerobic methanotrophic archaea, clade 1)",
+
+                "ANME-2a (anaerobic methanotrophic archaea, clade 2a)",
+
+                "ANME-2c (anaerobic methanotrophic archaea, clade 2c)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1217,6 +1268,27 @@
 
 
 
+
+            var participantKeys = [
+
+                "ANME-1 (anaerobic methanotrophic archaea, clade 1)",
+
+                "Desulfofervidus (sulfate-reducing bacterial partner of ANME-1)",
+
+                "ANME-2a (anaerobic methanotrophic archaea, clade 2a)",
+
+                "ANME-2c (anaerobic methanotrophic archaea, clade 2c)",
+
+                "Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a)",
+
+                "Seep-SRB2 (additional sulfate-reducing bacterial partner)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
@@ -1249,6 +1321,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Desulfofervidus (sulfate-reducing bacterial partner of ANME-1)",
+
+                "Seep-SRB1 (sulfate-reducing bacterial partner of ANME-2a)",
+
+                "Seep-SRB2 (additional sulfate-reducing bacterial partner)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

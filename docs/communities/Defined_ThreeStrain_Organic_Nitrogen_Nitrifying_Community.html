@@ -602,6 +602,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus badius NBRC 15713,
+
+                    Nitrosomonas europaea NBRC 14298,
+
+                    Nitrobacter winogradskyi NBRC 14297
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -952,6 +962,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus badius NBRC 15713",
+
+                "Nitrosomonas europaea NBRC 14298",
+
+                "Nitrobacter winogradskyi NBRC 14297"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

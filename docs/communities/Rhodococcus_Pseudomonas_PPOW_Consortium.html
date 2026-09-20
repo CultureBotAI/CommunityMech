@@ -658,6 +658,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodococcus opacus DSM 43250,
+
+                    Pseudomonas putida KT2440,
+
+                    Pseudomonas sp. VLB120
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1425,6 +1435,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhodococcus opacus DSM 43250",
+
+                "Pseudomonas putida KT2440",
+
+                "Pseudomonas sp. VLB120"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -598,6 +598,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Trichoderma harzianum T19,
+
+                    Bacillus rugosus PM16,
+
+                    Fusarium pseudograminearum Fp-XJ-07
+
+                </p>
+
 
 
 
@@ -1047,6 +1057,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Trichoderma harzianum T19",
+
+                "Bacillus rugosus PM16",
+
+                "Fusarium pseudograminearum Fp-XJ-07"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

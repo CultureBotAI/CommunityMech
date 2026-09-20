@@ -663,6 +663,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus
+
+                </p>
+
 
 
 
@@ -719,6 +725,14 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactobacillus,
+
+                    Issatchenkia (yeast)
+
+                </p>
 
 
 
@@ -1206,6 +1220,17 @@
 
 
 
+            var participantKeys = [
+
+                "Bacillus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1233,6 +1258,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lactobacillus",
+
+                "Issatchenkia (yeast)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

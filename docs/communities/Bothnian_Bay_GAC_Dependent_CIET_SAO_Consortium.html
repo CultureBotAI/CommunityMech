@@ -910,6 +910,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Sedimentibacter MAG in GAC incubations,
+
+                    Desulforhopalus MAG in GAC incubations,
+
+                    Lentimicrobium sp. GAC-specific MAG
+
+                </p>
+
 
 
 
@@ -1430,6 +1440,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Sedimentibacter MAG in GAC incubations",
+
+                "Desulforhopalus MAG in GAC incubations",
+
+                "Lentimicrobium sp. GAC-specific MAG"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

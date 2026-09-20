@@ -692,6 +692,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    rhizosphere H2-oxidizing bacteria
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -762,6 +768,12 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    rhizosphere H2-producing bacteria
+
+                </p>
 
 
 
@@ -1413,6 +1425,17 @@
 
 
 
+            var participantKeys = [
+
+                "rhizosphere H2-oxidizing bacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1440,6 +1463,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "rhizosphere H2-producing bacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

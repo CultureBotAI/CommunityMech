@@ -699,6 +699,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Desulfobulbaceae cable bacteria,
+
+                    oxygenic algal biofilm
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1034,6 +1042,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Desulfobulbaceae cable bacteria",
+
+                "oxygenic algal biofilm"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

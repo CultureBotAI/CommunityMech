@@ -710,6 +710,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Chlorella vulgaris,
+
+                    Rhizobium radiobacter F2
+
+                </p>
+
 
 
 
@@ -1138,6 +1146,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Chlorella vulgaris",
+
+                "Rhizobium radiobacter F2"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

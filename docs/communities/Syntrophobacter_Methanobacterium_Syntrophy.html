@@ -803,6 +803,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophobacter fumaroxidans,
+
+                    Methanobacterium formicicum
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1385,6 +1393,19 @@ Still open: carrier apportionment between H2 and formate for the M. formicicum p
 
 
 
+
+            var participantKeys = [
+
+                "Syntrophobacter fumaroxidans",
+
+                "Methanobacterium formicicum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

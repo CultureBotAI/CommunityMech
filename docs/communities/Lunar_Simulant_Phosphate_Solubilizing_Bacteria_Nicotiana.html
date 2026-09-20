@@ -706,6 +706,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus mucilaginosus (AS1.232),
+
+                    Bacillus megaterium (AS1.217),
+
+                    Pseudomonas fluorescens (ATCC 13525)
+
+                </p>
+
 
 
 
@@ -1365,6 +1375,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus mucilaginosus (AS1.232)",
+
+                "Bacillus megaterium (AS1.217)",
+
+                "Pseudomonas fluorescens (ATCC 13525)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

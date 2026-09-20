@@ -884,6 +884,18 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhodococcus sp.,
+
+                    Streptomyces sp.,
+
+                    Ensifer sp.,
+
+                    Variovorax sp.
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1336,6 +1348,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhodococcus sp.",
+
+                "Streptomyces sp.",
+
+                "Ensifer sp.",
+
+                "Variovorax sp."
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

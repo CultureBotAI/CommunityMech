@@ -759,6 +759,26 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas aeruginosa pAOV,
+
+                    Pseudomonas aeruginosa PA14,
+
+                    Pseudomonas aeruginosa NfxB,
+
+                    Pseudomonas aeruginosa ParR-CAZ,
+
+                    Pseudomonas aeruginosa mexZ,
+
+                    Pseudomonas aeruginosa OrfN,
+
+                    Pseudomonas aeruginosa NfxB-CAZ,
+
+                    Pseudomonas aeruginosa MDR6-CAZ
+
+                </p>
+
 
 
 
@@ -807,6 +827,16 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas aeruginosa pAOV,
+
+                    Pseudomonas aeruginosa NfxB,
+
+                    Pseudomonas aeruginosa ParR-CAZ
+
+                </p>
 
 
 
@@ -1166,6 +1196,31 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas aeruginosa pAOV",
+
+                "Pseudomonas aeruginosa PA14",
+
+                "Pseudomonas aeruginosa NfxB",
+
+                "Pseudomonas aeruginosa ParR-CAZ",
+
+                "Pseudomonas aeruginosa mexZ",
+
+                "Pseudomonas aeruginosa OrfN",
+
+                "Pseudomonas aeruginosa NfxB-CAZ",
+
+                "Pseudomonas aeruginosa MDR6-CAZ"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1189,6 +1244,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas aeruginosa pAOV",
+
+                "Pseudomonas aeruginosa NfxB",
+
+                "Pseudomonas aeruginosa ParR-CAZ"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

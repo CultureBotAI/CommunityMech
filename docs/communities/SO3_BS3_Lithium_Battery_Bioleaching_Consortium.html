@@ -618,6 +618,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Shewanella oneidensis MR-1 SO3,
+
+                    Bacillus subtilis 168 BS3
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1207,6 +1215,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Shewanella oneidensis MR-1 SO3",
+
+                "Bacillus subtilis 168 BS3"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -684,6 +684,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Acetobacterium woodii,
+
+                    Clostridium drakei
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -756,6 +764,12 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Acetobacterium woodii
+
+                </p>
 
 
 
@@ -1327,6 +1341,19 @@
 
 
 
+            var participantKeys = [
+
+                "Acetobacterium woodii",
+
+                "Clostridium drakei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1354,6 +1381,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Acetobacterium woodii"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

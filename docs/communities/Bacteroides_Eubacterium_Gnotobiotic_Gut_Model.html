@@ -747,6 +747,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacteroides thetaiotaomicron VPI-5482,
+
+                    Eubacterium rectale ATCC 33656
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1206,6 +1214,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacteroides thetaiotaomicron VPI-5482",
+
+                "Eubacterium rectale ATCC 33656"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

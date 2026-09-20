@@ -778,6 +778,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophorhabdus aromaticivorans strain UI(T),
+
+                    Methanospirillum hungatei
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1266,6 +1274,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Syntrophorhabdus aromaticivorans strain UI(T)",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

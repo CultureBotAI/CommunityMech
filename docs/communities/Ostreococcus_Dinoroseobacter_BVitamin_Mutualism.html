@@ -719,6 +719,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Ostreococcus tauri,
+
+                    Dinoroseobacter shibae
+
+                </p>
+
 
 
 
@@ -1159,6 +1167,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Ostreococcus tauri",
+
+                "Dinoroseobacter shibae"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

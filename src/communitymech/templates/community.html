@@ -602,7 +602,7 @@
                 <div class="interaction-header">
                     <h3>{{ interaction.name }}</h3>{% if interaction.interaction_type %}
                     <span class="interaction-type">{{ interaction.interaction_type }}</span>{% endif %}
-                </div>
+                </div>{% set participating_taxa = interaction.participating_taxa | default([], true) %}
 
                 {% if interaction.source_taxon %}
                 <p><strong>Source Taxon:</strong> {{ interaction.source_taxon.preferred_term or interaction.source_taxon.term.label }}</p>
@@ -610,6 +610,12 @@
 
                 {% if interaction.target_taxon %}
                 <p><strong>Target Taxon:</strong> {{ interaction.target_taxon.preferred_term or interaction.target_taxon.term.label }}</p>
+                {% endif %}{%- if participating_taxa %}
+                <p><strong>Participating Taxa:</strong>
+                    {% for taxon in participating_taxa %}
+                    {{ taxon.preferred_term or taxon.term.label }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
                 {% endif %}
 
                 {% if interaction.metabolites %}
@@ -1064,7 +1070,7 @@
         {% for interaction in community.ecological_interactions %}
         (function() {
             var intId = "interaction:{{ loop.index0 }}";
-            var intType = {{ (interaction.interaction_type or "UNKNOWN")|tojson }};
+            var intType = {{ (interaction.interaction_type or "UNKNOWN")|tojson }};{% set participating_taxa = interaction.participating_taxa | default([], true) %}
             var metabolites = [];
             {% if interaction.metabolites %}
             {% for m in interaction.metabolites %}
@@ -1101,6 +1107,17 @@
             if (taxonNodeIds[tgtKey]) {
                 links.push({ source: intId, target: taxonNodeIds[tgtKey] });
             }
+            {% endif %}{%- if participating_taxa and not interaction.source_taxon and not interaction.target_taxon %}
+            var participantKeys = [
+                {% for taxon in participating_taxa %}
+                {{ (taxon.preferred_term or taxon.term.label)|tojson }}{{ "," if not loop.last }}
+                {% endfor %}
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
             {% endif %}
         })();
         {% endfor %}

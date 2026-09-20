@@ -678,6 +678,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bradyrhizobium
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1169,6 +1175,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bradyrhizobium"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

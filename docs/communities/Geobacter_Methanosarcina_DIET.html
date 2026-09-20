@@ -663,6 +663,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Geobacter metallireducens,
+
+                    Methanosarcina barkeri
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -724,6 +732,14 @@
                 <p><strong>Source Taxon:</strong> Geobacter metallireducens</p>
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Geobacter metallireducens,
+
+                    Methanosarcina barkeri
+
+                </p>
 
 
 
@@ -1276,6 +1292,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Geobacter metallireducens",
+
+                "Methanosarcina barkeri"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

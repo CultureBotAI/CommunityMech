@@ -627,6 +627,18 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacteroidota-affiliated candidate indole consortium MAGs,
+
+                    Chloroflexota-affiliated candidate indole consortium MAGs,
+
+                    Desulfobacterota-affiliated candidate indole consortium MAGs,
+
+                    Methanobacterium-affiliated candidate indole consortium MAGs
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -925,6 +937,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacteroidota-affiliated candidate indole consortium MAGs",
+
+                "Chloroflexota-affiliated candidate indole consortium MAGs",
+
+                "Desulfobacterota-affiliated candidate indole consortium MAGs",
+
+                "Methanobacterium-affiliated candidate indole consortium MAGs"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

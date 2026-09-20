@@ -695,6 +695,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium straminisolvens CSK1,
+
+                    Pseudoxanthomonas sp. M1-3,
+
+                    Brevibacillus sp. M1-5
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -767,6 +777,16 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Clostridium straminisolvens CSK1,
+
+                    Pseudoxanthomonas sp. M1-3,
+
+                    Brevibacillus sp. M1-5
+
+                </p>
 
 
 
@@ -1339,6 +1359,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Clostridium straminisolvens CSK1",
+
+                "Pseudoxanthomonas sp. M1-3",
+
+                "Brevibacillus sp. M1-5"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

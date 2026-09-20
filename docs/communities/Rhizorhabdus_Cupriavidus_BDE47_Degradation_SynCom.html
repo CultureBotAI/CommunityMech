@@ -741,6 +741,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Rhizorhabdus wittichii YL-JM2C,
+
+                    Cupriavidus necator JMP134
+
+                </p>
+
 
 
 
@@ -1436,6 +1444,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Rhizorhabdus wittichii YL-JM2C",
+
+                "Cupriavidus necator JMP134"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
