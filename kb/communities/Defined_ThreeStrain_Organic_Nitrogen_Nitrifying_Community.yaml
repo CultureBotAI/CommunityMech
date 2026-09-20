@@ -1,0 +1,243 @@
+id: CommunityMech:000397
+name: Defined Three-Strain Organic-Nitrogen Nitrifying Community
+description: A simplified synthetic nitrifying microbial community pairing Bacillus badius NBRC 15713 with Nitrosomonas europaea
+  NBRC 14298 and Nitrobacter winogradskyi NBRC 14297 for sequential ammonification and nitrification under organic nitrogen
+  conditions. The co-culture achieved complete ammonification and nitrification under selected organic nitrogen conditions,
+  accumulated approximately 56 mg-N/L nitrate-nitrogen with no residual nitrite-nitrogen, and yielded RT-qPCR profiles linking
+  N. europaea and N. winogradskyi abundance changes to inorganic nitrogen concentrations during cultivation.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: BIOTECHNOLOGY
+engineering_design:
+  objective: Build a reduced, reproducible bacterial model that links organic-nitrogen ammonification to downstream nitrification.
+  assembly_strategy: Combine the three NBRC strains Bacillus badius NBRC 15713, Nitrosomonas europaea NBRC 14298, and Nitrobacter
+    winogradskyi NBRC 14297.
+  measurement_endpoints:
+  - nitrate-nitrogen accumulation
+  - residual nitrite-nitrogen
+  - inorganic nitrogen concentrations
+  - N. europaea and N. winogradskyi relative abundance by RT-qPCR
+  evidence:
+  - &id001
+    reference: PMID:42668143
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'A simplified synthetic nitrifying microbial community capable of sequential ammonification and nitrification
+      under organic conditions was constructed using three defined strains: Bacillus badius NBRC 15713, Nitrosomonas europaea
+      NBRC 14298, and Nitrobacter winogradskyi NBRC 14297.'
+    explanation: Supports the defined three-strain construction and its sequential ammonification/nitrification function under
+      organic nitrogen conditions.
+  - &id003
+    reference: PMID:42668143
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This co-culture achieved complete ammonification and nitrification under selected organic nitrogen conditions,
+      with NO₃⁻-N accumulation of approximately 56 mg-N/L and no residual NO₂⁻-N detected.
+    explanation: Supports the measured nitrate accumulation and lack of residual nitrite after complete ammonification and
+      nitrification.
+  - &id002
+    reference: PMID:42668143
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: RT-qPCR analysis showed that changes in the relative abundance of N. europaea and N. winogradskyi were associated
+      with changes in inorganic nitrogen concentrations during cultivation
+    explanation: Supports RT-qPCR measurement of nitrifier relative abundance alongside inorganic nitrogen concentrations.
+environment_term:
+  preferred_term: organic-nitrogen laboratory co-culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined three-member co-culture grown under selected organic nitrogen conditions.
+taxonomy:
+- taxon_term:
+    preferred_term: Bacillus badius NBRC 15713
+    term:
+      id: NCBITaxon:1455
+      label: Pseudobacillus badius
+    gtdb_grounding_status: UNRESOLVED
+    notes: The primary source names this strain Bacillus badius; an NCBI Taxonomy all-names lookup resolves Bacillus badius
+      to current Pseudobacillus badius.
+  strain_designation:
+    strain_name: NBRC 15713
+    culture_collections:
+    - collection: NBRC
+      accession: '15713'
+  abundance_value: Defined organic-nitrogen co-culture member
+  evidence:
+  - *id001
+- taxon_term:
+    preferred_term: Nitrosomonas europaea NBRC 14298
+    term:
+      id: NCBITaxon:915
+      label: Nitrosomonas europaea
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Nitrosomonas_europaea
+      gtdb_taxon: Nitrosomonas europaea
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Burkholderiales;f__Nitrosomonadaceae;g__Nitrosomonas;s__Nitrosomonas
+        europaea
+      ncbi_source_id: NCBITaxon:915
+      majority_fraction: 1.0
+      total_genomes: 2
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25) [mapped via NCBI species name -
+        no species-level NCBI id in table]
+  strain_designation:
+    strain_name: NBRC 14298
+    culture_collections:
+    - collection: NBRC
+      accession: '14298'
+  abundance_value: Defined ammonia-oxidizing co-culture member
+  evidence:
+  - *id001
+  - *id002
+- taxon_term:
+    preferred_term: Nitrobacter winogradskyi NBRC 14297
+    term:
+      id: NCBITaxon:913
+      label: Nitrobacter winogradskyi
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Nitrobacter_winogradskyi_A
+      gtdb_taxon: Nitrobacter winogradskyi_A
+      gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Alphaproteobacteria;o__Rhizobiales;f__Xanthobacteraceae;g__Nitrobacter;s__Nitrobacter
+        winogradskyi_A
+      ncbi_source_id: NCBITaxon:913
+      majority_fraction: 0.88
+      total_genomes: 8
+      is_reclassified: true
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+  strain_designation:
+    strain_name: NBRC 14297
+    culture_collections:
+    - collection: NBRC
+      accession: '14297'
+  abundance_value: Defined nitrite-oxidizing co-culture member
+  evidence:
+  - *id001
+  - *id002
+ecological_interactions:
+- name: Sequential organic-nitrogen conversion
+  description: The three defined strains jointly perform complete ammonification and nitrification under selected organic
+    nitrogen conditions, with nitrate accumulation and no residual nitrite detected in the assayed co-culture.
+  interaction_type: CROSS_FEEDING
+  scope: COMMUNITY_LEVEL
+  participating_taxa:
+  - preferred_term: Bacillus badius NBRC 15713
+    term:
+      id: NCBITaxon:1455
+      label: Pseudobacillus badius
+  - preferred_term: Nitrosomonas europaea NBRC 14298
+    term:
+      id: NCBITaxon:915
+      label: Nitrosomonas europaea
+  - preferred_term: Nitrobacter winogradskyi NBRC 14297
+    term:
+      id: NCBITaxon:913
+      label: Nitrobacter winogradskyi
+  metabolites:
+  - preferred_term: ammonium
+    term:
+      id: CHEBI:28938
+      label: ammonium
+  - preferred_term: nitrite
+    term:
+      id: CHEBI:16301
+      label: nitrite
+  - preferred_term: nitrate
+    term:
+      id: CHEBI:17632
+      label: nitrate
+  biological_processes:
+  - preferred_term: nitrification
+    term:
+      id: GO:0019329
+      label: ammonia oxidation
+  evidence:
+  - *id001
+  - *id003
+environmental_factors:
+- name: selected organic nitrogen conditions
+  value: selected organic nitrogen conditions
+  description: The study evaluated complete ammonification and nitrification under selected organic nitrogen conditions.
+  evidence:
+  - *id003
+related_ingredients:
+- preferred_term: ammonium
+  chebi_term:
+    id: CHEBI:28938
+    label: ammonium
+  relevance: Ammonium is the inorganic nitrogen intermediate consumed by the ammonia-oxidizing nitrifier stage.
+  evidence:
+  - *id001
+  - *id002
+- preferred_term: nitrite
+  chebi_term:
+    id: CHEBI:16301
+    label: nitrite
+  relevance: Nitrite is the transient nitrification intermediate oxidized by Nitrobacter winogradskyi, with endpoint assays
+    reporting no residual nitrite-nitrogen after complete conversion.
+  evidence:
+  - *id001
+  - *id003
+- preferred_term: nitrate
+  chebi_term:
+    id: CHEBI:17632
+    label: nitrate
+  relevance: Nitrate was the measured product that accumulated to approximately 56 mg-N/L in the complete organic-nitrogen
+    conversion assay.
+  evidence:
+  - *id003
+external_resources:
+- name: PubMed entry for the defined three-strain nitrifying community
+  repository: OTHER
+  resource_id: PMID:42668143
+  url: https://pubmed.ncbi.nlm.nih.gov/42668143/
+  description: PubMed record for Inzali et al. 2026.
+  evidence:
+  - *id001
+- name: DOI for the defined three-strain nitrifying community article
+  repository: OTHER
+  resource_id: doi:10.1093/bbb/zbag131
+  url: https://doi.org/10.1093/bbb/zbag131
+  description: Version-of-record DOI for Inzali et al. 2026.
+  evidence:
+  - reference: PMID:42668143
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'doi: 10.1093/bbb/zbag131.'
+    explanation: PubMed metadata gives the DOI for the article.
+discussions:
+- discussion_id: organic_nitrogen_cultivation_details
+  prompt: Resolve the exact medium formulation, inoculation ratio, temperature, atmosphere, and vessel used for the defined
+    three-strain organic-nitrogen nitrifying community.
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - growth_media
+  - cultivation_setup
+  - engineering_design
+  rationale: The cached PubMed abstract identifies the three NBRC strains, the organic-nitrogen function, nitrate/nitrite
+    readouts, and RT-qPCR abundance tracking, but it does not report the exact organic nitrogen substrates, medium formulation,
+    inoculation ratio, temperature, atmosphere, or vessel. Those cultivation details should be filled from the article Methods
+    when an accessible full text is inspected.
+  posed_by: claude
+  posed_date: '2026-09-20'
+curation_history:
+- timestamp: '2026-09-20T19:18:37Z'
+  curator: claude
+  action: CREATE_COMMUNITY_RECORD
+  changes: Created CommunityMech:000397 for the three-member Bacillus badius / Nitrosomonas europaea / Nitrobacter winogradskyi
+    NBRC organic-nitrogen nitrifying community from PMID:42668143.
+  llm_assisted: true
+- timestamp: '2026-09-20T19:21:18Z'
+  curator: claude
+  action: ADD_DOI_RESOURCE
+  changes: Added the doi:10.1093/bbb/zbag131 external resource for the Inzali et al. 2026 article.
+  llm_assisted: true
+- timestamp: '2026-09-20T19:38:29Z'
+  curator: claude
+  action: ADDRESS_REVIEW_FINDINGS
+  changes: Tightened the organic-nitrogen wording to avoid unsupported substrate-level specificity and added nitrite as the
+    transient nitrification intermediate for review issues 977 and 978.
+  llm_assisted: true

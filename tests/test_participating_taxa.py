@@ -215,6 +215,7 @@ USERS = {
     "Coscinodiscus_Synthetic_Community.yaml",
     "Crucian_Carp_Gut_Disease_Resistance_SynCom.yaml",
     "DVM_Triculture.yaml",
+    "Defined_ThreeStrain_Organic_Nitrogen_Nitrifying_Community.yaml",
     "Drought_Rhizosphere_Iron_Actinobacteria_Community.yaml",
     "EcoFAB_Ring_Trial_SynCom17.yaml",
     "Ecoli_Bifidobacterium_bifidum_Infant_gut_HMO_Mutualism_Coculture.yaml",
