@@ -215,6 +215,16 @@ ecological_interactions:
     snippet: Genome sequence analysis revealed the synergistic and complementary actions of these five bacterial strains in
       carbohydrate degradation processes.
     explanation: Supports the genome-annotation inference of complementary carbohydrate-degradation processes.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Fig. 7 Fiber degradation pathways of the five strains in SynComm 3. A Number of COG genes in carbohydrate transport
+      and metabolism. B–D Venn diagram of genes in glycoside hydrolases (GHs), carbohydrate-binding modules (CBMs),
+      and carbohydrate esterases (CEs) from CAZy database. E Relative abundance of KEGG pathway on level 3. F, G Number
+      of genes involved in fiber degradation, glucose degradation, and VFA synthesis. H Metabolic profiles of fibrous
+      substrates, glucose, and VFA
+    explanation: Directly supports the CAZy GH/CBM/CE and KEGG enzyme annotations behind the inferred carbohydrate-active
+      enzyme complement.
 - name: In situ cattle rumen fermentation shift
   description: Supplementing fistulated Huaxi cattle with the five-strain optimized SynCom altered rumen fermentation and
     trended toward higher DM, NDF, and ADF degradation at 72 h, with significant VFA and NH3-N shifts.
@@ -270,6 +280,13 @@ growth_media:
       and aluminum crimp cap immediately after loading and were incubated at 39 °C for 48 h'
     explanation: Supports the TMR substrate, fermentation-medium, rumen-fluid, inoculum, sealed-bottle, and 39 C incubation
       setup.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each bacterial suspension was prepared, and 1 mL of bacterial suspension from SynCom 1 to 4 was inoculated into
+      the in vitro fermentation systems as previously described. Sterile water served as the negative control (CON).
+    explanation: Connects mixed SynCom suspensions to the previously described TMR rumen-fluid in vitro fermentation bottle
+      setup.
 cultivation_setup:
 - cultivation_mode: BATCH
   system_type: SERUM_BOTTLE
@@ -293,6 +310,12 @@ cultivation_setup:
       water. 1 mL of sterile water was utilized as the negative control (CON). All bottles were sealed with a rubber stopper
       and aluminum crimp cap immediately after loading and were incubated at 39 °C for 48 h'
     explanation: Supports batch cultivation in sealed 100 mL bottles at 39 C for 48 h.
+  - reference: doi:10.1186/s40168-025-02331-3
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Each bacterial suspension was prepared, and 1 mL of bacterial suspension from SynCom 1 to 4 was inoculated into
+      the in vitro fermentation systems as previously described. Sterile water served as the negative control (CON).
+    explanation: Connects mixed SynCom suspensions to the previously described sealed-bottle cultivation setup.
 associated_datasets:
 - accession: PRJNA1295659
   title: Rumen 16S rRNA datasets for enrichment and SynCom engineering
@@ -349,4 +372,10 @@ curation_history:
   action: CREATE_COMMUNITY_RECORD
   changes: Created DOI-backed optimized rumen SynCom 3 community with five strains, in vitro and in situ interactions, cultivation
     conditions, BioProject datasets, and an unresolved cross-feeding discussion.
+  llm_assisted: true
+- timestamp: '2026-09-20T21:34:16Z'
+  curator: codex
+  action: ADDRESS_ADVERSARIAL_REVIEW
+  changes: Added more local evidence for CAZy and KEGG genome annotations and for mixed SynCom inoculation into the in vitro
+    bottle fermentation setup.
   llm_assisted: true
