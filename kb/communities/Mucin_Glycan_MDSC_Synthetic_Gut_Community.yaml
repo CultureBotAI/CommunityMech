@@ -5,9 +5,9 @@ description: >-
   mucin glycan degraders, secondary degraders, and hydrogen consumers. The MDSC
   was assembled from Akkermansia, Bacteroides, Phocaeicola, Ruminococcus,
   Lachnospiraceae, Faecalibacterium, and Desulfovibrio type strains, grown
-  anaerobically in sequential 24 h serum-bottle batches at 37 C, and compared
+  anaerobically in sequential 24 h serum-bottle batches at 37°C, and compared
   across porcine gastric mucin, bovine submaxillary mucin, mixed PGM/BSM, and
-  PGM plus two sialylated-glycan conditions. Mucin type drove distinct
+  PGM supplemented with two sialylated glycans. Mucin type drove distinct
   stabilized community compositions, mucin glycan degradation patterns, and
   metabolite profiles after four transfers.
 ecological_state: ENGINEERED
@@ -25,7 +25,7 @@ engineering_design:
     Individually preculture each strain anoxically, combine precultures 1:1 by
     OD600, and inoculate serum bottles at 5% v/v.
   passaging_regimen: >-
-    Incubate each bottle statically for 24 h at 37 C, transfer 1% v/v into
+    Incubate each bottle statically for 24 h at 37°C, transfer 1% v/v into
     fresh medium, and repeat for four transfers to adapt the community and
     reach a stable composition by 96 to 120 h.
   perturbation_design: >-
@@ -464,10 +464,10 @@ ecological_interactions:
     explanation: Supports the substrate-dependent mucin glycan degradation and metabolic output of the MDSC.
 - name: Mucin-Type-Dependent Fermentation Profile
   description: >-
-    HPLC measurements of acetate, propionate, butyrate, formate, succinate,
-    lactate, ethanol, glucose, and 1,2-propanediol showed that PGM, BSM,
-    PGM/BSM, and PGM plus sialylated glycans yielded distinct metabolite
-    profiles.
+    HPLC measurements showed that PGM, BSM, PGM/BSM, and PGM plus sialylated
+    glycans yielded distinct extracellular metabolite profiles, including
+    condition-dependent changes in acetate, propionate, formate, and ethanol
+    after community stabilization.
   interaction_type: CROSS_FEEDING
   scope: COMMUNITY_LEVEL
   metabolites:
@@ -479,10 +479,6 @@ ecological_interactions:
     term:
       id: CHEBI:17272
       label: propionate
-  - preferred_term: butyrate
-    term:
-      id: CHEBI:17968
-      label: butyrate
   - preferred_term: formate
     term:
       id: CHEBI:15740
@@ -534,17 +530,31 @@ environmental_factors:
     snippet: a combination of both (PGM + BSM, 2 × 0.25% w/v)
     explanation: Supports the mixed PGM/BSM substrate condition.
 - name: Added sialylated glycans
-  value: 0.025 each
-  unit: '% w/v'
+  value: 0.05 then 0.03
+  unit: '% w/v combined'
   description: >-
     3'-sialylgalacto-N-biose and 6'-alpha-sialyl-N-acetyllactosamine were
-    added to PGM in the PGM plus SG condition.
+    added to PGM in the PGM plus SG condition at a combined 0.05% w/v for the
+    first three bottles and 0.03% w/v for the last two bottles.
   evidence:
   - reference: PMID:42109165
     supports: SUPPORT
     evidence_source: IN_VITRO
-    snippet: 3'-sialylgalacto-N-biose
-    explanation: Supports the added sialylated-glycan perturbation.
+    snippet: >-
+      As additive sialylated glycans (SG), 3′‐sialylgalacto‐N‐biose (sodium
+      salt, Neu5Acα2‐3Galβ1‐3GlcNAc) (0.025% w/v) and
+      6′‐α‐sialyl‐N‐acetyllactosamine (sodium salt,
+      Neu5Acα2‐6Galβ1‐4GlcNAc) (0.025% w/v) were used
+    explanation: Supports the identities and initial concentrations of both added sialylated glycans.
+  - reference: PMID:42109165
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >-
+      For the PGM + SG condition, the sialylated glycans were added at a
+      combined concentration of 0.05% (w/v) in the first three bottles, whereas
+      the last two contained the sialylated glycans at a concentration of 0.03%
+      (w/v)
+    explanation: Supports the combined sialylated-glycan concentrations across sequential-batch bottles.
 growth_media:
 - name: Anoxic bicarbonate buffered mucin medium
   composition:
@@ -680,4 +690,14 @@ curation_history:
     mucin-substrate sequential-batch cultivation, community-level
     mucin-dependent composition, glycan-degradation and metabolite responses,
     and linked ENA/Yoda datasets.
+  llm_assisted: true
+- timestamp: '2026-09-20T10:30:35Z'
+  curator: codex
+  action: FIX_MDSC_REVIEW_FINDINGS
+  changes: >-
+    Addressed adversarial review issues #957 and #958 by clarifying that PGM
+    plus SG was one condition with two added sialylated glycans, capturing the
+    sequential-batch change from 0.05% to 0.03% w/v combined sialylated glycans,
+    and narrowing the fermentation-profile description to result-level HPLC
+    outputs rather than the full standard list.
   llm_assisted: true
