@@ -1,0 +1,616 @@
+id: CommunityMech:000389
+name: Rumen Substrate-Adapted Lignocellulose Enrichment Consortia
+description: 'A laboratory panel of rumen-derived anaerobic enrichment consortia selected for 10 serial 72 h generations on
+  four lignocellulosic substrates: alfalfa, barley straw, carboxymethyl cellulose, or a 1:1 arabinoxylan/acetylated-xylan
+  mixture. The enrichments were derived from pooled rumen fluid from cannulated beef heifers in MC medium and were tracked
+  by gas production, volatile fatty acids, and 16S V1-V2 amplicon sequencing. Substrate-specific late consortia showed divergent
+  bacterial profiles, including Prevotella-dominated barley-straw enrichments, Bacteroides-rich CMC enrichments, and xylan
+  enrichments associated with Caproiciproducens, Megasphaera, Lactobacillus, and caproate accumulation; alfalfa and xylan
+  G10 cultures also retained core community structure after one month of cryopreservation and revival.'
+ecological_state: ENGINEERED
+community_origin: ENGINEERED
+community_category: LIGNOCELLULOSE
+engineering_design:
+  objective: Use ecology-guided serial enrichment of rumen fluid to assemble stable, functionally specialized consortia on
+    four structurally distinct plant-cell-wall substrates.
+  assembly_strategy: Pool rumen fluid collected from four sites within each of four cannulated beef heifers, dilute it 1:4
+    into MC medium, inoculate anaerobic serum vials supplied with alfalfa, barley straw, carboxymethyl cellulose, or xylan,
+    and serially transfer the respective substrate-adapted enrichments every 72 h through G10.
+  passaging_regimen: Initial G0 vials carried 30 mL of rumen-fluid/MC inoculum over 0.3 g substrate in 125 mL serum vials;
+    subsequent G1-G10 passages moved 6 mL from the prior culture into 24 mL fresh MC medium plus 0.3 g of the same substrate
+    in sealed 50 mL vials under CO2.
+  measurement_endpoints:
+  - gas pressure after 24 h, 48 h, and 72 h
+  - volatile fatty acid profiles by gas chromatography
+  - 16S V1-V2 amplicon sequencing across RF, G0, G3, G6, G10, and revived samples
+  - Bray-Curtis beta diversity and genus-level differential abundance
+  - post-cryopreservation gas production and VFA profiles for alfalfa and xylan enrichments
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: This study aimed to assemble substrate-adapted rumen microbial consortia using an ecology-guided enrichment approach.
+    explanation: Supports the ecology-guided enrichment objective.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'Rumen fluid collected from cannulated Angus × Hereford heifers was sequentially enriched over 10 generations
+      on four substrates with distinct cell wall characteristics: alfalfa, barley straw, carboxymethyl cellulose (CMC), and
+      xylan.'
+    explanation: Identifies the rumen-derived four-substrate serial enrichment design.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Fermentation parameters, including gas production and volatile fatty acids (VFAs), and bacterial community dynamics
+      were analyzed
+    explanation: Identifies the principal functional and community-composition readouts.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: selected consortia (alfalfa and xylan) were evaluated for stability following one month of cryopreservation.
+    explanation: Supports cryopreservation challenge testing of the alfalfa and xylan G10 consortia.
+environment_term:
+  preferred_term: anaerobic rumen-fluid enrichment culture
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Controlled in vitro anaerobic serum-vial enrichments derived from bovine rumen fluid, rather than an in vivo rumen
+    community sample.
+modeled_environment:
+- preferred_term: rumen
+  term:
+    id: ENVO:01001033
+    label: digestive tract environment
+  notes: The consortium inoculum was bovine rumen fluid; the broader ENVO digestive tract term is reused because ENVO lacks
+    a dedicated rumen environment term.
+taxonomy:
+- taxon_term:
+    preferred_term: Prevotella_1 SILVA group
+    term:
+      id: NCBITaxon:838
+      label: Prevotella
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: DOMINANT
+  abundance_value: A dominant genus-level SILVA 132 assignment in the rumen inoculum and barley-straw enrichment.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: the community became progressively dominated by Prevotella_1
+    explanation: Supports Prevotella_1 as the major bacterial genus-level bin in barley-straw enrichments.
+- taxon_term:
+    preferred_term: Prevotella_7 SILVA group
+    term:
+      id: NCBITaxon:838
+      label: Prevotella
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A dominant genus-level SILVA 132 assignment in alfalfa enrichments from G3 to G10.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Prevotella_1, Prevotellaceae_YAB2003_group and Prevotell_7 remained dominant genera from G3 to G10.
+    explanation: Supports Prevotella_7 as one of the dominant alfalfa-enrichment genus-level bins.
+- taxon_term:
+    preferred_term: Prevotellaceae_YAB2003_group
+    term:
+      id: NCBITaxon:171552
+      label: Prevotellaceae
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A dominant SILVA 132 Prevotellaceae group in alfalfa enrichments.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Prevotella_1, Prevotellaceae_YAB2003_group and Prevotell_7 remained dominant genera from G3 to G10.
+    explanation: Supports the Prevotellaceae_YAB2003_group bin as dominant in alfalfa enrichments.
+- taxon_term:
+    preferred_term: Rikenellaceae_RC9_gut_group
+    term:
+      id: NCBITaxon:171550
+      label: Rikenellaceae
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A family-level SILVA 132 group contributing to the starting rumen-fluid inoculum.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The inoculum (rumen fluid) exhibited a diverse community dominated by Prevotella_1, with substantial contributions
+      from Rikenellaceae_RC9_gut_group, and lower abundances of Anaeroplasma, Lactobacillus, and Bacteroides.
+    explanation: Supports Rikenellaceae_RC9_gut_group as a substantial inoculum taxon.
+- taxon_term:
+    preferred_term: Anaeroplasma
+    term:
+      id: NCBITaxon:2086
+      label: Anaeroplasma
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A lower-abundance rumen-fluid inoculum genus also listed among dominant genus-level bins across the substrate
+    communities.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: The dominant genera identified in the communities included Anaeroplasma, Bacteroides, Caproiciproducens, Lactobacillus,
+      Megasphaera, Prevotella_1, Prevotella_7, Prevotellaceae_YAB2003_group, Rikenellaceae_RC9_gut_group, and Selenomonas_1
+    explanation: Places Anaeroplasma among the major genera profiled across enriched communities.
+- taxon_term:
+    preferred_term: Bacteroides
+    term:
+      id: NCBITaxon:816
+      label: Bacteroides
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: DOMINANT
+  abundance_value: The dominant genus-level bin in CMC enrichments at G3, G6, and G10.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: CMC enrichments showed strong selective pressure, leading to Bacteroides dominating at G3, G6, and G10.
+    explanation: Supports Bacteroides dominance in CMC-selected communities.
+- taxon_term:
+    preferred_term: Lactobacillus
+    term:
+      id: NCBITaxon:1578
+      label: Lactobacillus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A genus that persisted in alfalfa enrichments and increased into the xylan late-generation consortium.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Caproiciproducens, Lactobacillus and Megasphaera, increased substantially across generations and became major
+      genera by G6 and G10.
+    explanation: Supports Lactobacillus as a major xylan late-generation genus.
+- taxon_term:
+    preferred_term: Caproiciproducens
+    term:
+      id: NCBITaxon:1738645
+      label: Caproiciproducens
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A xylan-enriched genus associated with the late caproate-producing phenotype.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: caproate production (6.3 mM at G10) in xylan enrichments associated with Caproiciproducens and Megasphaera.
+    explanation: Links Caproiciproducens to the xylan caproate phenotype.
+- taxon_term:
+    preferred_term: Megasphaera
+    term:
+      id: NCBITaxon:906
+      label: Megasphaera
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: ABUNDANT
+  abundance_value: A xylan-enriched genus associated with the late caproate-producing phenotype.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: caproate production (6.3 mM at G10) in xylan enrichments associated with Caproiciproducens and Megasphaera.
+    explanation: Links Megasphaera to the xylan caproate phenotype.
+- taxon_term:
+    preferred_term: Selenomonas_1 SILVA group
+    term:
+      id: NCBITaxon:970
+      label: Selenomonas
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A Selenomonas genus-level SILVA 132 bin included among the dominant profiled taxa and enriched early on
+    xylan.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Prevotella_1 and Selenomonas_1 showed their strongest signals at early generations on xylan.
+    explanation: Supports Selenomonas_1 as a xylan-enrichment genus-level bin.
+- taxon_term:
+    preferred_term: Fibrobacter
+    term:
+      id: NCBITaxon:832
+      label: Fibrobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A core genus in barley-straw enrichment.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Core taxa with BS enrichment included Rikenellaceae_RC9_gut_group, Prevotellaceae_1, and Fibrobacter.
+    explanation: Supports Fibrobacter as a core barley-straw enrichment genus.
+- taxon_term:
+    preferred_term: Sporanaerobacter
+    term:
+      id: NCBITaxon:165812
+      label: Sporanaerobacter
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A CMC core genus from G3 through G10.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core genera with
+      CMC from G3 through G10.
+    explanation: Supports Sporanaerobacter as a core CMC-enrichment genus.
+- taxon_term:
+    preferred_term: Streptococcus
+    term:
+      id: NCBITaxon:1301
+      label: Streptococcus
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A CMC core genus from G3 through G10.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core genera with
+      CMC from G3 through G10.
+    explanation: Supports Streptococcus as a core CMC-enrichment genus.
+- taxon_term:
+    preferred_term: Sphaerochaeta
+    term:
+      id: NCBITaxon:399320
+      label: Sphaerochaeta
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A CMC core genus from G3 through G10.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core genera with
+      CMC from G3 through G10.
+    explanation: Supports Sphaerochaeta as a core CMC-enrichment genus.
+- taxon_term:
+    preferred_term: Bifidobacterium
+    term:
+      id: NCBITaxon:1678
+      label: Bifidobacterium
+    gtdb_grounding_status: UNRESOLVED
+    notes: The article reports 16S V1-V2 amplicon assignments against SILVA 132; this entry is intentionally genus- or family-level
+      and does not imply an isolated strain.
+  abundance_level: COMMON
+  abundance_value: A xylan late-generation genus-level bin with sustained or increasing normalized abundance.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Megasphaera, Caproiciproducens, Bifidobacterium and Lactobacillus displayed sustained or increasing normalized
+      abundance through G3–G6 and into G10.
+    explanation: Supports Bifidobacterium as a genus sustained or increased during xylan enrichment.
+ecological_interactions:
+- name: Four-substrate rumen consortium specialization
+  description: Serial 72 h enrichment on alfalfa, barley straw, CMC, or xylan selected different late bacterial profiles from
+    the same pooled rumen-fluid inoculum, with the CMC and xylan enrichments producing the strongest Bray-Curtis separation
+    from the alfalfa and barley-straw lines.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  downstream:
+  - target: Xylan chain-elongation-associated phenotype
+    description: The xylan enrichment diverged toward a distinct late community that accumulated caproate.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Xylan- and CMC-enriched consortia exhibited the greatest compositional shifts, forming discrete clusters that
+      were distinct from BS and alfalfa communities.
+    explanation: Supports substrate-dependent compositional divergence during enrichment.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Across generations, total VFA concentrations declined on all substrates, with the sharpest decreases observed
+      for xylan and BS.
+    explanation: Supports substrate- and generation-dependent fermentation outcomes.
+- name: CMC Bacteroides core selection
+  description: The carboxymethyl-cellulose line reproducibly selected a Bacteroides-dominated core with Sporanaerobacter,
+    Streptococcus, and Sphaerochaeta across G3, G6, and G10. The record treats this as substrate enrichment of a CMC-adapted
+    guild, not as a resolved pairwise lactate-propionate exchange.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: CMC enrichments showed strong selective pressure, leading to Bacteroides dominating at G3, G6, and G10.
+    explanation: Supports strong CMC substrate selection for a Bacteroides-rich community.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Bacteroides, Sporanaerobacter, Streptococcus, and Sphaerochaeta were consistently classified as core genera with
+      CMC from G3 through G10.
+    explanation: Identifies the recurrent CMC core genera.
+- name: Xylan chain-elongation-associated phenotype
+  description: The xylan line selected a Caproiciproducens-, Lactobacillus-, and Megasphaera-rich late community and developed
+    caproate production by G10, a profile the paper interprets as consistent with reverse beta-oxidation but not yet supported
+    by direct flux measurements.
+  interaction_type: NICHE_PARTITIONING
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: fermentation
+    term:
+      id: GO:0006113
+      label: fermentation
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In xylan enrichments, caproic acid (C6) increased from negligible levels at G0 to 6.33 mM at G10
+    explanation: Supports caproate accumulation as a late xylan-enrichment phenotype.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Caproiciproducens, Lactobacillus and Megasphaera, increased substantially across generations and became major
+      genera by G6 and G10.
+    explanation: Identifies the genera that increased into the xylan G10 community.
+environmental_factors:
+- name: lignocellulosic enrichment substrates
+  value: alfalfa; barley straw; carboxymethyl cellulose; 1:1 arabinoxylan and acetylated xylan
+  description: Each enrichment line was selected on 0.3 g of one plant-cell-wall substrate in anaerobic MC medium.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Barley straw (BS), alfalfa, carboxymethyl cellulose (CMC) and xylan (mix of arabinoxylan (50%) and acetylated-xylan
+      (50%) were weighed (0.3 g)
+    explanation: Supports the four supplied substrates and the 0.3 g substrate charge per vial.
+- name: xylan G10 caproic acid
+  value: '6.33'
+  unit: mM
+  description: Caproic acid increased from near-negligible at G0 to 6.33 mM at G10 in xylan enrichments.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: In xylan enrichments, caproic acid (C6) increased from negligible levels at G0 to 6.33 mM at G10
+    explanation: Quantifies caproic-acid accumulation after 10 xylan enrichment passages.
+- name: xylan total VFA decline
+  value: 109.8 at G0 to 56.37 at G10
+  unit: mM
+  description: Total volatile fatty acids declined between G0 and G10 in the xylan enrichment.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: 'xylan: 109.8 mM (G0) to 56.37 mM (G10)'
+    explanation: Quantifies the reported total-VFA decline in the xylan line.
+- name: alfalfa and xylan cryopreservation perturbation
+  value: one month at -80 C before 72 h revival
+  description: Active G10 alfalfa and xylan cultures were cryopreserved for one month and revived in fresh MC medium with
+    their respective substrate, after which core bacterial composition and fermentation profiles were retained.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cryopreserved consortia retained core community structure and fermentation characteristics upon revival.
+    explanation: Supports structural and functional recovery after cryopreservation.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Cryopreserved samples clustered near their respective enrichments, confirming preservation of major community
+      members despite minor restructuring.
+    explanation: Supports post-revival retention of major community members in the 16S composition analysis.
+growth_media:
+- name: MC rumen enrichment medium
+  composition:
+  - name: alfalfa, barley straw, carboxymethyl cellulose, or xylan substrate
+    concentration: '0.3'
+    unit: g per vial
+    from_source: community_curated
+  temperature: '39'
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: CO2
+  inoculum_source: pooled rumen fluid from four cannulated Angus x Hereford heifers mixed 1:4 with MC medium
+  inoculum_size: 6 mL serial-transfer inoculum into 24 mL fresh MC medium
+  incubation_time: '72'
+  incubation_time_unit: h
+  shaking_speed: '125'
+  shaking_speed_unit: rpm
+  vessel_type: 125 mL serum vials for G0; sealed 50 mL vials for G1-G10 transfers
+  preparation_notes: Initial G0 cultures were inoculated with 30 mL of rumen-fluid/MC mixture in 125 mL vials; each subsequent
+    generation was inoculated with 6 mL from the previous generation into 24 mL fresh MC medium plus the respective 0.3 g
+    substrate under oxygen-free CO2.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: The inoculum was prepared by mixing rumen fluid and MC medium
+    explanation: Supports the rumen-fluid to MC-medium inoculum ratio.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Vials were sealed with rubber stoppers and placed in a rotary shaker (125 rpm) in an incubator at 39 °C for 72
+      h.
+    explanation: Supports the anaerobic sealed-vial 39 C, 125 rpm, 72 h incubation conditions.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: After completion of 72 h of incubation, a 6 mL sub-sample was collected and inoculated
+    explanation: Supports 72 h serial transfers from the previous enrichment generation.
+- name: MC-minus glycerol cryopreservation and revival medium
+  composition:
+  - name: glycerol
+    concentration: '15'
+    unit: '% v/v final'
+    from_source: community_curated
+  - name: alfalfa or xylan substrate
+    concentration: '0.3'
+    unit: g per revival vial
+    from_source: community_curated
+  temperature: '39'
+  temperature_unit: C
+  atmosphere: ANAEROBIC
+  headspace_gas: CO2
+  inoculum_source: active G10 alfalfa or xylan culture revived after one month at -80 C
+  incubation_time: '72'
+  incubation_time_unit: h
+  preparation_notes: Active G10 alfalfa and xylan cultures were mixed 1:1 with anaerobic fresh MC-minus medium plus glycerol
+    to 15% v/v final glycerol, flash-frozen in liquid nitrogen, stored at -80 C for one month, thawed under CO2, and revived
+    for 72 h into the corresponding 0.3 g substrate in fresh MC medium.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: flash-frozen in liquid nitrogen and subsequently moved to a −80 °C freezer and stored for one month.
+    explanation: Supports liquid-nitrogen freezing followed by one month at -80 C.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Once thawed, contents of the vials were inoculated into 24 mL of fresh MC medium containing 0.3 g of the respective
+      substrate (either alfalfa or xylan) and incubated at 39 °C for 72 h
+    explanation: Supports revival into fresh MC medium with the matching alfalfa or xylan substrate.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  instrument_detail: Three-replicate sealed anaerobic serum-vial enrichments; G0 used 125 mL vials and later serial-transfer
+    generations used sealed 50 mL vials.
+  working_volume: 30.0
+  working_volume_unit: mL
+  operating_temperature: 39.0
+  operating_temperature_unit: °C
+  temperature_controlled: true
+  notes: The same 30 mL working volume was used in G0 and in later passages, but the vessel decreased from 125 mL serum vials
+    to 50 mL vials after G0.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Enrichment in vitro batch cultures were set up in 3 replicate serum vials.
+    explanation: Supports batch serum-vial cultivation in three replicates.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Inoculum (30 mL) was transferred to each vial under a stream of O2-free CO2.
+    explanation: Supports the 30 mL G0 working volume and oxygen-free CO2 handling.
+associated_datasets:
+- accession: PRJNA1433565
+  title: Rumen substrate-adapted enrichment 16S amplicon BioProject
+  description: NCBI BioProject with data for the rumen-fluid substrate enrichment study.
+  dataset_type: AMPLICON_16S
+  repository: NCBI_BIOPROJECT
+  sample_types:
+  - rumen fluid
+  - G0, G3, G6, and G10 enrichment cultures
+  - cryopreserved alfalfa and xylan revivals
+  platform: Illumina NextSeq2000
+  url: https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1433565
+  publication: PMID:42197533
+  findings: 16S V1-V2 amplicons resolved substrate-specific succession and post-thaw retention of major bacterial genera.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: The data presented in this study are openly available in NCBI at https://www.ncbi.nlm.nih.gov/bioproject/1433565
+    explanation: Links the 16S enrichment data to NCBI BioProject PRJNA1433565.
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: 16S Sequencing was carried out at Biofactorial (Life Sciences Centre, UBC, BC, Canada) using Illumina NextSeq2000
+    explanation: Identifies the amplicon sequencing platform used for the BioProject data.
+external_resources:
+- name: Rumen-Derived Consortia Microorganisms article
+  repository: OTHER
+  resource_id: doi:10.3390/microorganisms14051149
+  url: https://doi.org/10.3390/microorganisms14051149
+  description: Primary open-access report for the rumen substrate enrichment consortium panel.
+metal_relevance: NOT_APPLICABLE
+metal_notes: The curated phenotype is anaerobic lignocellulose fermentation; no metal or rare-earth processing function is
+  reported.
+discussions:
+- discussion_id: hydrogen-flux-not-measured
+  prompt: Do the xylan-enriched genera directly redirect rumen fermentation electrons through reverse beta-oxidation and away
+    from methane?
+  kind: INTERPRETATION
+  status: OPEN
+  attaches_to:
+  - ecological_interactions#Xylan chain-elongation-associated phenotype
+  rationale: The VFA and 16S profiles support caproate production associated with Caproiciproducens and Megasphaera, but the
+    paper explicitly notes that hydrogen and methane fluxes were not directly measured.
+  proposed_experiments:
+  - name: Isotopic flux assay for xylan G10 enrichments
+    approach: stable-isotope tracing coupled to VFA and gas quantification
+    model_systems:
+    - xylan G10 enrichment
+    - revived xylan enrichment
+    readouts:
+    - label incorporation into caproate and butyrate
+    - hydrogen concentration
+    - methane production
+    decision_criterion: Demonstrate that carbon and reducing equivalents flow into medium-chain carboxylates under xylan enrichment
+      conditions.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: direct measurements of hydrogen or methane flux were not performed in our study.
+    explanation: Identifies the measurement gap that prevents a direct hydrogen-flux mechanism from being asserted.
+  posed_by: claude
+- discussion_id: amplicon-bacterial-scope
+  prompt: Which rumen fungi, protozoa, or genome-resolved bacteria contribute to these substrate-adapted consortia beyond
+    the bacterial 16S genus-level profile?
+  kind: KNOWLEDGE_GAP
+  status: OPEN
+  attaches_to:
+  - taxonomy
+  rationale: The record is intentionally bacterial and genus-level because the experiment used 16S V1-V2 amplicons; genome-resolved
+    or eukaryote-inclusive data would be needed to curate exact strains, MAGs, anaerobic fungi, or protozoa.
+  evidence:
+  - reference: PMID:42197533
+    supports: SUPPORT
+    evidence_source: full_text
+    snippet: shorter incubation period of in vitro batch culture and soluble substrate used (CMC and Xylan) favour bacterial
+      over fungal or protozoal growth and thus contributions of these eukaryotes were not considered.
+    explanation: Supports leaving non-bacterial rumen members unresolved.
+  posed_by: claude
+curation_history:
+- timestamp: '2026-09-20T05:56:42Z'
+  curator: claude
+  action: CREATE_COMMUNITY
+  changes: Created CommunityMech:000389 for the PMID:42197533 rumen substrate-adapted lignocellulose enrichment consortium
+    panel with substrate, 16S, VFA, cultivation, cryopreservation, BioProject, and DOI provenance.
+  llm_assisted: true
