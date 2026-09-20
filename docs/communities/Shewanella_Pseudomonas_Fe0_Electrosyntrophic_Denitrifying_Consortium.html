@@ -586,6 +586,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Shewanella oneidensis
+
+                </p>
+
 
 
 
@@ -724,6 +730,12 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas aeruginosa
+
+                </p>
 
 
 
@@ -1011,6 +1023,17 @@
 
 
 
+            var participantKeys = [
+
+                "Shewanella oneidensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1084,6 +1107,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas aeruginosa"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

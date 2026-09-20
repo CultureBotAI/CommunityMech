@@ -771,6 +771,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophomonas wolfei,
+
+                    Methanospirillum hungatei
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1557,6 +1565,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Syntrophomonas wolfei",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -806,6 +806,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Butyrivibrio fibrisolvens,
+
+                    Selenomonas ruminantium,
+
+                    Ruminococcus albus
+
+                </p>
+
 
 
 
@@ -1066,6 +1076,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Butyrivibrio fibrisolvens",
+
+                "Selenomonas ruminantium",
+
+                "Ruminococcus albus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

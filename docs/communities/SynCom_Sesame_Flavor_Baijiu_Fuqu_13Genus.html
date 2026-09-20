@@ -1028,6 +1028,20 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Pichia,
+
+                    Bacillus,
+
+                    Aspergillus,
+
+                    Saccharomyces,
+
+                    Wickerhamomyces
+
+                </p>
+
 
 
 
@@ -1084,6 +1098,18 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactobacillus,
+
+                    Leuconostoc,
+
+                    Weissella,
+
+                    Pediococcus
+
+                </p>
 
 
 
@@ -1439,6 +1465,25 @@
 
 
 
+            var participantKeys = [
+
+                "Pichia",
+
+                "Bacillus",
+
+                "Aspergillus",
+
+                "Saccharomyces",
+
+                "Wickerhamomyces"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1466,6 +1511,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Lactobacillus",
+
+                "Leuconostoc",
+
+                "Weissella",
+
+                "Pediococcus"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

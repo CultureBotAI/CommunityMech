@@ -682,6 +682,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas fluorescens,
+
+                    Acidovorax delafieldii,
+
+                    Delftia acidovorans
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -739,6 +749,14 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Nitrosomonas europaea,
+
+                    Nitrobacter winogradskyi
+
+                </p>
 
 
 
@@ -1139,6 +1157,21 @@
 
 
 
+            var participantKeys = [
+
+                "Pseudomonas fluorescens",
+
+                "Acidovorax delafieldii",
+
+                "Delftia acidovorans"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1172,6 +1205,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Nitrosomonas europaea",
+
+                "Nitrobacter winogradskyi"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

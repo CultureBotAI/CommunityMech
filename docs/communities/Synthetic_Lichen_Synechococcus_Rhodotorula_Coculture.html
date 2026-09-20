@@ -727,6 +727,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Synechococcus elongatus PCC 7942 cscB+,
+
+                    Rhodotorula glutinis
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1155,6 +1163,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Synechococcus elongatus PCC 7942 cscB+",
+
+                "Rhodotorula glutinis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

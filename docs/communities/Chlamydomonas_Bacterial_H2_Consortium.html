@@ -800,6 +800,18 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus cereus,
+
+                    Stenotrophomonas goyi,
+
+                    Microbacterium forte,
+
+                    Chlamydomonas reinhardtii
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1350,6 +1362,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus cereus",
+
+                "Stenotrophomonas goyi",
+
+                "Microbacterium forte",
+
+                "Chlamydomonas reinhardtii"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

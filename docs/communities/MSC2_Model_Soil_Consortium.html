@@ -668,6 +668,20 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Dyadobacter sp. MSC1_007,
+
+                    Ensifer adhaerens MSC1_011,
+
+                    Variovorax beijingensis MSC1_012,
+
+                    Sinorhizobium meliloti MSC1_014,
+
+                    Rhodococcus sp. MSC1_016
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -805,6 +819,12 @@
                 <p><strong>Source Taxon:</strong> Streptomyces sp. MSC1_001</p>
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Streptomyces sp. MSC1_001
+
+                </p>
 
 
 
@@ -1222,6 +1242,25 @@
 
 
 
+
+            var participantKeys = [
+
+                "Dyadobacter sp. MSC1_007",
+
+                "Ensifer adhaerens MSC1_011",
+
+                "Variovorax beijingensis MSC1_012",
+
+                "Sinorhizobium meliloti MSC1_014",
+
+                "Rhodococcus sp. MSC1_016"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

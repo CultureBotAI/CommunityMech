@@ -746,6 +746,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Pseudomonas putida HS12,
+
+                    Rhodococcus sp. strain HS51
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1305,6 +1313,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Pseudomonas putida HS12",
+
+                "Rhodococcus sp. strain HS51"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

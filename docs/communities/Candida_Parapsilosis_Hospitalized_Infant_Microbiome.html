@@ -850,6 +850,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Candida parapsilosis
+
+                </p>
+
 
 
 
@@ -1278,6 +1284,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Candida parapsilosis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

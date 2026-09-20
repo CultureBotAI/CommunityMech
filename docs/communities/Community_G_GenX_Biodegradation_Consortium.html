@@ -727,6 +727,22 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Salmonella enterica,
+
+                    Pseudomonas tolaasii,
+
+                    Stenotrophomonas sp. LM091,
+
+                    Stenotrophomonas sp. MYb57,
+
+                    Stenotrophomonas cyclobalanopsidis,
+
+                    Pseudomonas arcuscaelestis
+
+                </p>
+
 
 
 
@@ -1221,6 +1237,27 @@
 
 
 
+
+            var participantKeys = [
+
+                "Salmonella enterica",
+
+                "Pseudomonas tolaasii",
+
+                "Stenotrophomonas sp. LM091",
+
+                "Stenotrophomonas sp. MYb57",
+
+                "Stenotrophomonas cyclobalanopsidis",
+
+                "Pseudomonas arcuscaelestis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

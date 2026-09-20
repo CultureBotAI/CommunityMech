@@ -951,6 +951,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Lactococcus lactis,
+
+                    Leuconostoc mesenteroides,
+
+                    Acetobacter fabarum
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1008,6 +1018,16 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Kazachstania exigua,
+
+                    Lactococcus lactis,
+
+                    Leuconostoc mesenteroides
+
+                </p>
 
 
 
@@ -1502,6 +1522,21 @@
 
 
 
+            var participantKeys = [
+
+                "Lactococcus lactis",
+
+                "Leuconostoc mesenteroides",
+
+                "Acetobacter fabarum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1529,6 +1564,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Kazachstania exigua",
+
+                "Lactococcus lactis",
+
+                "Leuconostoc mesenteroides"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

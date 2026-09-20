@@ -743,6 +743,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophus aciditrophicus SB,
+
+                    Methanospirillum hungatei
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1195,6 +1203,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Syntrophus aciditrophicus SB",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

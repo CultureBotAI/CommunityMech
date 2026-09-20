@@ -732,6 +732,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    persistent infant Bacteroides colonizers,
+
+                    persistent infant Bifidobacterium colonizers
+
+                </p>
+
 
 
 
@@ -1114,6 +1122,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "persistent infant Bacteroides colonizers",
+
+                "persistent infant Bifidobacterium colonizers"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

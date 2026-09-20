@@ -557,6 +557,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bifidobacterium breve
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -893,6 +899,14 @@
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Ruminococcus gnavus,
+
+                    Bifidobacterium breve
+
+                </p>
 
 
 
@@ -1286,6 +1300,17 @@
 
 
 
+            var participantKeys = [
+
+                "Bifidobacterium breve"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
+
         })();
 
         (function() {
@@ -1449,6 +1474,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Ruminococcus gnavus",
+
+                "Bifidobacterium breve"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

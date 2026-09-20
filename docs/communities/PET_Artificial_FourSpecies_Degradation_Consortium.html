@@ -1008,6 +1008,18 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Bacillus subtilis 168 Bs_PETase,
+
+                    Bacillus subtilis 168 Bs_MHETase,
+
+                    Rhodococcus jostii RHA1,
+
+                    Pseudomonas putida KT2440
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1626,6 +1638,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "Bacillus subtilis 168 Bs_PETase",
+
+                "Bacillus subtilis 168 Bs_MHETase",
+
+                "Rhodococcus jostii RHA1",
+
+                "Pseudomonas putida KT2440"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

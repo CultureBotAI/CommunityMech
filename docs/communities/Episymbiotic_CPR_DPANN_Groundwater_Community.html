@@ -881,6 +881,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    groundwater CPR (Candidate Phyla Radiation) bacteria,
+
+                    groundwater CPR/DPANN host bacteria and archaea
+
+                </p>
+
 
 
 
@@ -1293,6 +1301,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "groundwater CPR (Candidate Phyla Radiation) bacteria",
+
+                "groundwater CPR/DPANN host bacteria and archaea"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

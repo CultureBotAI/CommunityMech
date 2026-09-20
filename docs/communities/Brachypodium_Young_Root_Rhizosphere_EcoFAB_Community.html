@@ -730,6 +730,18 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    rhizosphere Actinobacteria,
+
+                    rhizosphere Bacteroidetes,
+
+                    rhizosphere Firmicutes,
+
+                    rhizosphere Proteobacteria
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1265,6 +1277,23 @@
 
 
 
+
+            var participantKeys = [
+
+                "rhizosphere Actinobacteria",
+
+                "rhizosphere Bacteroidetes",
+
+                "rhizosphere Firmicutes",
+
+                "rhizosphere Proteobacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

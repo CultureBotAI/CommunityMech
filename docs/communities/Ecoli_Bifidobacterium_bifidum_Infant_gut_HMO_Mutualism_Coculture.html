@@ -689,6 +689,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli,
+
+                    Bifidobacterium bifidum
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1041,6 +1049,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Escherichia coli",
+
+                "Bifidobacterium bifidum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

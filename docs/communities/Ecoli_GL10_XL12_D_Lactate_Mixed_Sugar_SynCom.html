@@ -544,6 +544,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Escherichia coli GL10,
+
+                    Escherichia coli XL12
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1314,6 +1322,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Escherichia coli GL10",
+
+                "Escherichia coli XL12"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

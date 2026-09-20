@@ -253,6 +253,7 @@ USERS = {
     "Phenol_Carboxylation_Consortium.yaml",
     "Propanotrophic_Chlorinated_Ethene_Cometabolism_Enrichment.yaml",
     "Prymnesium_Parvum_B12_Limited_SynCom.yaml",
+    "Pseudomonas_Aeruginosa_EightStrain_Full_Factorial_SynCom.yaml",
     "Pseudomonas_Rhodococcus_Chloronitrobenzene_Coculture.yaml",
     "Rhizorhabdus_Cupriavidus_BDE47_Degradation_SynCom.yaml",
     "Rhodococcus_Pseudomonas_PPOW_Consortium.yaml",

@@ -696,6 +696,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Corynebacterium glutamicum (ldhA-deleted strain K1),
+
+                    Shewanella oneidensis
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1004,6 +1012,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Corynebacterium glutamicum (ldhA-deleted strain K1)",
+
+                "Shewanella oneidensis"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

@@ -604,6 +604,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    corrinoid-supplying Thermoproteota,
+
+                    corrinoid-supplying Actinobacteria,
+
+                    corrinoid-supplying Proteobacteria
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1047,6 +1057,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "corrinoid-supplying Thermoproteota",
+
+                "corrinoid-supplying Actinobacteria",
+
+                "corrinoid-supplying Proteobacteria"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

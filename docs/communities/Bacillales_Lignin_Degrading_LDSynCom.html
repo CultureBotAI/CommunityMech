@@ -851,7 +851,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>LDSynCom lignin phenolic release</h3>
-                    <span class="interaction-type"></span>
                 </div>
 
 
@@ -907,11 +906,16 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>Paenibacillus 11B contribution to LDSynCom phenolic accumulation</h3>
-                    <span class="interaction-type"></span>
                 </div>
 
 
 
+
+                <p><strong>Participating Taxa:</strong>
+
+                    Paenibacillus sp. 11B
+
+                </p>
 
 
 
@@ -963,7 +967,6 @@
             <div class="interaction-card">
                 <div class="interaction-header">
                     <h3>LDSynCom lignin-particle biofilm formation</h3>
-                    <span class="interaction-type"></span>
                 </div>
 
 
@@ -1611,6 +1614,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "Paenibacillus sp. 11B"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

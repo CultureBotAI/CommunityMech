@@ -744,6 +744,16 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Thaumarchaeota,
+
+                    Thermoplasmatales environmental lineage,
+
+                    Candidate Division OP3
+
+                </p>
+
 
 
 
@@ -1212,6 +1222,21 @@
 
 
 
+
+            var participantKeys = [
+
+                "Thaumarchaeota",
+
+                "Thermoplasmatales environmental lineage",
+
+                "Candidate Division OP3"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

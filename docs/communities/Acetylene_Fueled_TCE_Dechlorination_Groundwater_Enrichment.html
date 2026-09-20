@@ -716,6 +716,12 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    novel anaerobic acetylenotroph (Actinobacteria)
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1096,6 +1102,17 @@
 
 
 
+
+            var participantKeys = [
+
+                "novel anaerobic acetylenotroph (Actinobacteria)"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

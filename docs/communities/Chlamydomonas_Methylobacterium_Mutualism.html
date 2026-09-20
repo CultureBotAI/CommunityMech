@@ -711,6 +711,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Chlamydomonas reinhardtii,
+
+                    Methylobacterium aquaticum
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1268,6 +1276,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Chlamydomonas reinhardtii",
+
+                "Methylobacterium aquaticum"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

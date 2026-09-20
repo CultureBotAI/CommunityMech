@@ -778,6 +778,24 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Hyphomicrobium zavarzinii,
+
+                    Methylobacterium sp. Mankai endosphere,
+
+                    Devosia sp. Mankai endosphere,
+
+                    Labrys sp. Mankai endosphere,
+
+                    Ferrovibrionaceae Mankai endosphere,
+
+                    Gammaproteobacteria cobamide salvagers,
+
+                    Bacteroidota cobamide salvagers
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1250,6 +1268,29 @@
 
 
 
+
+            var participantKeys = [
+
+                "Hyphomicrobium zavarzinii",
+
+                "Methylobacterium sp. Mankai endosphere",
+
+                "Devosia sp. Mankai endosphere",
+
+                "Labrys sp. Mankai endosphere",
+
+                "Ferrovibrionaceae Mankai endosphere",
+
+                "Gammaproteobacteria cobamide salvagers",
+
+                "Bacteroidota cobamide salvagers"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 

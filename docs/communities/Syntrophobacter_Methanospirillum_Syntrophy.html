@@ -753,6 +753,14 @@
 
 
 
+                <p><strong>Participating Taxa:</strong>
+
+                    Syntrophobacter fumaroxidans,
+
+                    Methanospirillum hungatei
+
+                </p>
+
 
 
                 <p><strong>Metabolites:</strong>
@@ -1543,6 +1551,19 @@
 
 
 
+
+            var participantKeys = [
+
+                "Syntrophobacter fumaroxidans",
+
+                "Methanospirillum hungatei"
+
+            ];
+            participantKeys.forEach(function(key) {
+                if (taxonNodeIds[key]) {
+                    links.push({ source: taxonNodeIds[key], target: intId });
+                }
+            });
 
         })();
 
