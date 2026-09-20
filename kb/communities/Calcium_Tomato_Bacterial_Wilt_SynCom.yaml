@@ -129,16 +129,15 @@ taxonomy:
       gtdb_taxon: Rhodanobacter glycinis_A
       gtdb_lineage: d__Bacteria;p__Pseudomonadota;c__Gammaproteobacteria;o__Xanthomonadales;f__Rhodanobacteraceae;g__Rhodanobacter;s__Rhodanobacter glycinis_A
       ncbi_source_id: NCBITaxon:582702
-      majority_fraction: 1.0
-      total_genomes: 2
       is_reclassified: true
       curated: true
       curation_note: >-
-        Grounded directly from GTDB bac120 taxonomy because the local
-        kg-microbe NCBI2GTDB crosswalk was unavailable during curation; both
-        bac120 rows matching Rhodanobacter glycinis resolved to the GTDB
-        polyphyly-suffixed species Rhodanobacter glycinis_A.
-      mapping_source: GTDB bac120_taxonomy.tsv.gz sha256:d565d92730db443c downloaded 2026-09-20
+        Conservative GTDB species pin from the R226 bac120 taxonomy table after
+        the local kg-microbe NCBI2GTDB crosswalk was unavailable during
+        curation; the table contained the plausible Rhodanobacter glycinis_A
+        species-name candidate, but did not support an NCBI2GTDB
+        majority-fraction claim.
+      mapping_source: manual GTDB R226 bac120_taxonomy.tsv.gz species-name lookup
     notes: >-
       NCBI ESearch resolved the Rhodanobacter glycinis scientific name to
       TaxID 582702.
@@ -236,10 +235,6 @@ ecological_interactions:
     term:
       id: CHEBI:27082
       label: trehalose
-  - preferred_term: calcium chloride
-    term:
-      id: CHEBI:3312
-      label: calcium dichloride
   downstream:
   - target: Calcium-conditioned root-exudate pathogen suppression
     description: >-
@@ -433,28 +428,22 @@ related_ingredients:
     explanation: Names trehalose as one of the tested root metabolites.
 growth_media:
 - name: LB liquid medium
-  temperature: '28'
-  temperature_unit: °C
-  shaking_speed: '150'
-  shaking_speed_unit: rpm
   inoculum_size: '1'
   inoculum_unit: OD600
   preparation_notes: >-
     Four tomato-root isolates were cultured in LB, washed into sterile
     double-distilled water, adjusted individually to OD600 1, and mixed
-    1:1:1:1 for the final SynCom inoculum; pairwise compatibility tests grew
-    the members overnight in LB at 28 degrees C and 150 rpm.
+    1:1:1:1 for the final SynCom inoculum.
   evidence:
   - reference: PMID:41387930
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: >-
-      Four strains were inoculated in 5 mL LB liquid medium and incubated
-      overnight in a rotary shaker (150 rpm) at 28℃
-    explanation: Supports the LB medium, temperature, and shaking speed for SynCom member culture.
+      Each strain was cultured in LB liquid medium, and bacterial suspensions
+      were prepared by resuspending harvested cell pellets in sterile ddH2O,
+      adjusting the OD600 to 1.
+    explanation: Supports the LB medium and OD600 1 suspension for SynCom inoculum preparation.
 - name: 1/2 nutrient broth plus tomato root exudate
-  temperature: '28'
-  temperature_unit: °C
   vessel_type: 96-well plate
   preparation_notes: >-
     Ralstonia/SynCom co-cultures contained 100 uL of 1/2 NB, 10 uL of R.
@@ -477,9 +466,6 @@ cultivation_setup:
   instrument_detail: 96-well plate
   working_volume: 0.15
   working_volume_unit: mL
-  operating_temperature: 28
-  operating_temperature_unit: °C
-  temperature_controlled: true
   notes: >-
     Root-exudate co-cultures of Ralstonia solanacearum P380 with the four
     equal-volume SynCom members were sampled over 6, 12, 24, and 48 h for qPCR
@@ -556,4 +542,15 @@ curation_history:
     calcium and root-metabolite selection evidence, root-exudate co-culture
     suppression of Ralstonia solanacearum, the low-dose calcium pot assay, and
     public BioProject/SRA accessions.
+  llm_assisted: true
+- timestamp: '2026-09-20T12:22:42Z'
+  curator: codex
+  action: FIX_REVIEW_FINDINGS
+  changes: >-
+    Addressed PR #960 adversarial review issues #961, #962, and #963 by
+    removing unsupported incubation setpoints from the final SynCom and
+    Ralstonia/SynCom/root-exudate cultivation entries, removing inorganic CaCl2
+    from the root-metabolite list while keeping it as a related ingredient, and
+    narrowing the manual Rhodanobacter glycinis GTDB pin so a direct GTDB
+    species-name lookup no longer implies NCBI2GTDB majority support.
   llm_assisted: true
