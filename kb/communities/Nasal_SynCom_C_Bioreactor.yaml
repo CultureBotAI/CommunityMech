@@ -14,8 +14,8 @@ engineering_design:
   inoculation_strategy: Wash rich-medium precultures, resuspend each strain in a phosphate-buffered saline-glycerol solution
     to OD600 5, combine them equally into SynCom C, freeze aliquots, and inoculate 2.5 mL of OD600 1 SynCom into each bioreactor
     on Day 0.
-  perturbation_design: Operate five SynCom C bioreactors through Day 20 before adding no S. aureus, Sa C, or Sa A to duplicate
-    challenge bioreactors.
+  perturbation_design: Operate five SynCom C bioreactors through Day 20, then keep one no-addition control bioreactor and
+    add Sa C or Sa A to duplicate challenge bioreactors.
   measurement_endpoints:
   - daily optical density at 600 nm
   - total bacterial and S. aureus qPCR copy numbers
@@ -254,8 +254,8 @@ growth_media:
   incubation_time: '20'
   incubation_time_unit: d
   vessel_type: 250 mL continuously fed glass bioreactor
-  preparation_notes: Synthetic nasal medium was supplied in continuous mode at the optimized 1 d-1 dilution rate and pH 6.5.
-    SynCom C was inoculated on Day 0 and stabilized to Day 20 before S. aureus challenge.
+  preparation_notes: Synthetic nasal medium 3 was supplied at the optimized 1 d-1 dilution rate, 30 degrees Celsius, and
+    pH 6.5 in continuous mode. SynCom C was inoculated on Day 0 and stabilized to Day 20 before S. aureus challenge.
   evidence:
   - reference: doi:10.64898/2026.03.16.712028
     supports: SUPPORT
@@ -345,15 +345,21 @@ curation_history:
   changes: Removed non-targeted metabolomics as a SynCom C endpoint because Table S3 schedules OD/qPCR and sequencing, not
     metabolomics, for the decolonization experiment.
   llm_assisted: true
-- timestamp: '2026-09-20T15:48:00Z'
+- timestamp: '2026-09-20T15:35:00Z'
   curator: codex
   action: UPDATE_RECORD
   changes: Added the source-declared NCBI BioProject accession for the continuous nasal bioreactor study as an associated
     dataset.
   llm_assisted: true
-- timestamp: '2026-09-20T15:54:00Z'
+- timestamp: '2026-09-20T15:36:00Z'
   curator: codex
   action: UPDATE_RECORD
   changes: Added the optimized 30 degrees Celsius operating temperature that was reported alongside the SNM 3 and pH 6.5
     conditions.
+  llm_assisted: true
+- timestamp: '2026-09-20T15:39:16Z'
+  curator: codex
+  action: UPDATE_RECORD
+  changes: Corrected two rounded future timestamps, clarified the Day-20 S. aureus challenge/control wording, and mentioned
+    the 30 degrees Celsius operating temperature in the SNM 3 preparation notes.
   llm_assisted: true
