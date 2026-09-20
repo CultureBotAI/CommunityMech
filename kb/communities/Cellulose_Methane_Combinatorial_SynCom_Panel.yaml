@@ -1,0 +1,438 @@
+id: CommunityMech:000394
+name: Cellulose-to-Methane Combinatorial SynCom Panel
+description: >
+  A bounded anaerobic synthetic-community panel assembled from the cellulolytic
+  bacterium Ruminiclostridium cellulolyticum H10, the hydrogenotrophic methanogen
+  Methanospirillum hungatei JF-1, the acetoclastic methanogen Methanosaeta
+  concilii GP6, and the sulfate-reducing bacterium Desulfovibrio vulgaris
+  Hildenborough. The experiment co-cultured all cellulose-fed bi-, tri-, and
+  quad-species combinations containing R. cellulolyticum, plus the R.
+  cellulolyticum monoculture, and used proteogenomics, stoichiometric flux
+  modeling, and SMETANA to resolve context-dependent cross-feeding, competition,
+  and methanogenic carbon flow.
+ecological_state: ENGINEERED
+community_origin: SYNTHETIC
+community_category: METHANOGENESIS
+engineering_design:
+  objective: Quantify how species composition and richness rewire cooperative
+    and competitive metabolic interactions during anaerobic conversion of
+    cellulose to methane and carbon dioxide.
+  assembly_strategy: Assemble a fully combinatorial cellulose-fed panel from
+    R. cellulolyticum, M. hungatei, M. concilii, and D. vulgaris, including one
+    mono-culture, three bi-cultures, three tri-cultures, and the four-species
+    quad-culture.
+  perturbation_design: Pair stoichiometric flux modeling and SMETANA
+    simulations with seven-day anaerobic bottle cultures spanning the
+    R. cellulolyticum-centered species combinations.
+  measurement_endpoints:
+  - acetate, lactate, ethanol, formate, glucose, and cellobiose by HPLC
+  - H2, CH4, and CO2 by gas chromatography
+  - TMT metaproteomics searched against a custom four-species database
+  - modeled carbon and electron fluxes
+  - SMETANA metabolic interaction potential and metabolic resource overlap
+  evidence:
+  - &design_evidence
+    reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      Different combinations of R. cellulolyticum, M. hungatei, M. concilii,
+      and D. vulgaris, including one mono-culture, three bi-cultures, three
+      tri-cultures, and one quad-culture, were co-cultured in a medium with
+      cellulose as the sole carbon source
+    explanation: Supports the bounded mono-, bi-, tri-, and quad-species
+      combinatorial panel and its cellulose-fed anaerobic growth context.
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      We applied a systems biology framework combining proteogenomics,
+      stoichiometric flux modeling, and SMETANA (Species Metabolic Coupling
+      Analysis) to quantify syntrophic cooperation and competition across
+      configurations
+    explanation: Supports the modeled and proteomic endpoints for the panel.
+environment_term:
+  preferred_term: anaerobic serum-bottle cellulose conversion assay
+  term:
+    id: ENVO:01001405
+    label: laboratory environment
+  notes: Defined anaerobic bottle cultures in modified VM medium with cellulose
+    as the sole carbon source.
+taxonomy:
+- taxon_term:
+    preferred_term: Ruminiclostridium cellulolyticum H10
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Ruminiclostridium_cellulolyticum
+      gtdb_taxon: Ruminiclostridium cellulolyticum
+      gtdb_lineage: d__Bacteria;p__Bacillota_A;c__Clostridia;o__Acetivibrionales;f__DSM-27016;g__Ruminiclostridium;s__Ruminiclostridium cellulolyticum
+      ncbi_source_id: NCBITaxon:1521
+      majority_fraction: 1.0
+      total_genomes: 1
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source names R. cellulolyticum H10 (ATCC 35319) as the cellulose
+      hydrolyzer used across the combinatorial panel.
+  strain_designation:
+    strain_name: H10
+    culture_collections:
+    - collection: ATCC
+      accession: '35319'
+  functional_role:
+  - PRIMARY_DEGRADER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      We used Ruminiclostridium cellulolyticum H10 (ATCC 35319),
+      Desulfovibrio vulgaris Hildenborough (ATCC 29579), M. hungatei JF1
+      (txid323259), and Methanosaeta concilii (txid990316)
+    explanation: Supports R. cellulolyticum H10 membership and the ATCC 35319
+      strain designation.
+- taxon_term:
+    preferred_term: Methanospirillum hungatei JF-1
+    term:
+      id: NCBITaxon:323259
+      label: Methanospirillum hungatei JF-1
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanospirillum_hungatei
+      gtdb_taxon: Methanospirillum hungatei
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanomicrobia;o__Methanomicrobiales;f__Methanospirillaceae;g__Methanospirillum;s__Methanospirillum hungatei
+      ncbi_source_id: NCBITaxon:323259
+      majority_fraction: 1.0
+      total_genomes: 5
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: Hydrogenotrophic methanogen used in the pairwise, tri-culture, and
+      quad-culture configurations.
+  strain_designation:
+    strain_name: JF-1
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: M. hungatei JF1 (txid323259)
+    explanation: Supports M. hungatei JF-1 membership.
+- taxon_term:
+    preferred_term: Methanosaeta concilii GP6
+    term:
+      id: NCBITaxon:2223
+      label: Methanothrix soehngenii
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Methanothrix_soehngenii
+      gtdb_taxon: Methanothrix soehngenii
+      gtdb_lineage: d__Archaea;p__Halobacteriota;c__Methanosarcinia;o__Methanotrichales;f__Methanotrichaceae;g__Methanothrix;s__Methanothrix soehngenii
+      ncbi_source_id: NCBITaxon:2223
+      majority_fraction: 1.0
+      total_genomes: 9
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: >
+      The source uses the historical Methanosaeta concilii name and cites
+      txid990316, which NCBI resolves as strain GP6 under Methanothrix
+      soehngenii.
+  strain_designation:
+    strain_name: GP6
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Methanosaeta concilii (txid990316)
+    explanation: Supports M. concilii as the acetoclastic methanogen in the
+      panel.
+- taxon_term:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+    gtdb_grounding_status: GROUNDED
+    gtdb_classification:
+      gtdb_id: GTDB:s__Nitratidesulfovibrio_vulgaris
+      gtdb_taxon: Nitratidesulfovibrio vulgaris
+      gtdb_lineage: d__Bacteria;p__Desulfobacterota;c__Desulfovibrionia;o__Desulfovibrionales;f__Desulfovibrionaceae;g__Nitratidesulfovibrio;s__Nitratidesulfovibrio vulgaris
+      ncbi_source_id: NCBITaxon:882
+      majority_fraction: 1.0
+      total_genomes: 7
+      is_reclassified: false
+      mapping_source: kg-microbe NCBI2GTDB.tsv.gz; GTDB release latest (built 2026-07-25)
+    notes: The source uses the historical Desulfovibrio vulgaris Hildenborough
+      name for the sulfate-reducing bacterium.
+  strain_designation:
+    strain_name: Hildenborough
+    culture_collections:
+    - collection: ATCC
+      accession: '29579'
+  functional_role:
+  - SYNTROPHIC_PARTNER
+  - CROSS_FEEDER
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Desulfovibrio vulgaris Hildenborough (ATCC 29579)
+    explanation: Supports D. vulgaris Hildenborough membership and the ATCC
+      29579 strain designation.
+ecological_interactions:
+- name: Combinatorial cellulose-fed interaction rewiring
+  description: >
+    Species composition altered the modeled balance between cooperative
+    metabolite exchange and competition across the R. cellulolyticum-centered
+    bi-, tri-, and quad-species communities, with tri-cultures showing enhanced
+    cooperation and reduced competition compared with their corresponding
+    bi-cultures.
+  scope: COMMUNITY_LEVEL
+  biological_processes:
+  - preferred_term: biological process involved in interspecies interaction between organisms
+    term:
+      id: GO:0044419
+      label: biological process involved in interspecies interaction between organisms
+  downstream:
+  - target: Acetoclastic methanogenesis as dominant methane route
+    description: The higher-cooperation multi-species cultures were evaluated by
+      stoichiometric flux modeling, which identified acetoclastic methanogenesis
+      as the dominant methane-producing route.
+  evidence:
+  - *design_evidence
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: These results suggest that tri-cultures enhance cooperation and reduce competition
+    explanation: Summarizes the modeled tri-culture shift in SMETANA MIP/MRO
+      scores across the panel.
+- name: Acetoclastic methanogenesis as dominant methane route
+  description: >
+    In the multi-species panel, acetate cross-feeding to the acetoclastic
+    methanogen M. concilii was inferred as the primary route from cellulose
+    fermentation products to methane and carbon dioxide.
+  interaction_type: CROSS_FEEDING
+  scope: PAIRWISE
+  source_taxon:
+    preferred_term: Ruminiclostridium cellulolyticum H10
+    term:
+      id: NCBITaxon:1521
+      label: Ruminiclostridium cellulolyticum
+  target_taxon:
+    preferred_term: Methanosaeta concilii GP6
+    term:
+      id: NCBITaxon:2223
+      label: Methanothrix soehngenii
+  metabolites:
+  - preferred_term: acetate
+    term:
+      id: CHEBI:30089
+      label: acetate
+  biological_processes:
+  - preferred_term: acetoclastic methanogenesis
+    term:
+      id: GO:0019385
+      label: methanogenesis, from acetate
+  downstream:
+  - target: Combinatorial cellulose-fed interaction rewiring
+    description: Acetoclastic methane production was the central carbon-flow
+      route through which species composition produced non-additive tri- and
+      quad-culture behavior.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Flux analysis identified acetoclastic methanogenesis as the primary CH₄
+      and CO₂ source, especially in multi-species cultures
+    explanation: Supports M. concilii acetoclastic methanogenesis as the
+      dominant modeled methane route in the richer panel members.
+- name: D. vulgaris hydrogen turnover supports methanogenesis
+  description: >
+    D. vulgaris acted as a context-dependent syntrophic lactate oxidizer: its
+    redox and hydrogen turnover tightened interspecies hydrogen transfer and
+    improved methanogenic fluxes in the more complex cellulose-fed assemblies.
+  interaction_type: SYNTROPHY
+  scope: COMMUNITY_LEVEL
+  source_taxon:
+    preferred_term: Desulfovibrio vulgaris Hildenborough
+    term:
+      id: NCBITaxon:882
+      label: Nitratidesulfovibrio vulgaris str. Hildenborough
+  target_taxon:
+    preferred_term: Methanospirillum hungatei JF-1
+    term:
+      id: NCBITaxon:323259
+      label: Methanospirillum hungatei JF-1
+  metabolites:
+  - preferred_term: lactate
+    term:
+      id: CHEBI:24996
+      label: lactate
+  - preferred_term: dihydrogen
+    term:
+      id: CHEBI:18276
+      label: dihydrogen
+  biological_processes:
+  - preferred_term: hydrogenotrophic methanogenesis
+    term:
+      id: GO:0019386
+      label: methanogenesis, from carbon dioxide
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      Desulfovibrio vulgaris likely promotes hydrogen turnover, maintaining
+      low partial pressures that favor this pathway
+    explanation: Supports the inferred D. vulgaris hydrogen-turnover effect on
+      hydrogenotrophic methanogenesis in the modeled panel.
+environmental_factors:
+- name: fully combinatorial species composition
+  value: one R. cellulolyticum mono-culture, three bi-cultures, three tri-cultures,
+    and one quad-culture
+  description: The central experimental variable was species composition across
+    the R. cellulolyticum-centered combinatorial set.
+  evidence:
+  - *design_evidence
+- name: cellulose as the sole carbon source
+  value: 10 g/L cellulose
+  description: Cellulose was the shared carbon input for every VM-medium bottle
+    in the panel.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were grown in 160 ml anaerobic bottles with 20 ml modified VM medium plus 10 g/L cellulose
+    explanation: Supports 10 g/L cellulose as the medium carbon source.
+related_ingredients:
+- preferred_term: cellulose
+  chebi_term:
+    id: CHEBI:18246
+    label: (1->4)-beta-D-glucan
+  relevance: Cellulose was the sole carbon source used to force the
+    R. cellulolyticum-centered panel through cellulose hydrolysis, fermentation,
+    methanogenesis, and associated lactate and hydrogen cross-feeding.
+  evidence:
+  - *design_evidence
+- preferred_term: acetate
+  chebi_term:
+    id: CHEBI:30089
+    label: acetate
+  relevance: Acetate was the cross-fed substrate linking cellulolytic
+    fermentation to acetoclastic methanogenesis by M. concilii.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      In the bi-culture of R. cellulolyticum and M. concilii, the acetate
+      exchange flux remained unaffected with the addition of M. hungatei
+    explanation: Supports acetate as the modeled exchange metabolite between
+      R. cellulolyticum and M. concilii.
+- preferred_term: lactate
+  chebi_term:
+    id: CHEBI:24996
+    label: lactate
+  relevance: Lactate linked R. cellulolyticum fermentation to D. vulgaris
+    metabolism and was one of the measured HPLC intermediates.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Metabolites (acetate, lactate, ethanol, formate, glucose, cellobiose) were measured by HPLC
+    explanation: Supports lactate as a measured panel metabolite.
+- preferred_term: methane
+  chebi_term:
+    id: CHEBI:16183
+    label: methane
+  relevance: Methane output reported how each species combination routed
+    cellulose-derived carbon and electrons through hydrogenotrophic and
+    acetoclastic methanogenesis.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: >
+      carbon and electron transfers were measured
+    explanation: Supports methane as a measured terminal product in the
+      carbon- and electron-flow experiment.
+growth_media:
+- name: modified VM medium with 10 g/L cellulose
+  composition:
+  - name: cellulose
+    concentration: 10
+    unit: g/L
+  temperature: '34'
+  temperature_unit: °C
+  atmosphere: ANAEROBIC
+  headspace_gas: 3% H2 / 97% N2
+  shaking_speed: '200'
+  shaking_speed_unit: rpm
+  incubation_time: '7'
+  incubation_time_unit: d
+  vessel_type: 160 mL anaerobic serum bottle with 20 mL working volume
+  preparation_notes: >
+    R. cellulolyticum and D. vulgaris were revived in VM and LS4D media at
+    34°C; M. hungatei and M. concilii were pre-cultured in RST medium with
+    H2/CO2 and acetate at 37°C; all strains were acclimated in VM and inoculated
+    at roughly 5 x 10^7 cells per species.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were grown in 160 ml anaerobic bottles with 20 ml modified VM medium plus 10 g/L cellulose
+    explanation: Defines the serum-bottle vessel, working volume, medium, and
+      cellulose concentration.
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were incubated at 34°C, 200 rpm for 7 days under 3% H₂/97% N₂
+    explanation: Defines the incubation temperature, shaking speed, duration,
+      and anaerobic gas phase.
+cultivation_setup:
+- cultivation_mode: BATCH
+  system_type: SERUM_BOTTLE
+  working_volume: 20.0
+  working_volume_unit: mL
+  operating_temperature: 34.0
+  operating_temperature_unit: °C
+  notes: 160 mL anaerobic bottles, 20 mL modified VM medium, cellulose as the
+    sole carbon source, 34°C, 200 rpm, 7 days, 3% H2 / 97% N2 headspace.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Cultures were grown in 160 ml anaerobic bottles with 20 ml modified VM medium plus 10 g/L cellulose
+    explanation: Supports the batch serum-bottle configuration and 20 mL
+      culture volume.
+external_resources:
+- name: Primary publication - cellulose-to-methane combinatorial SynCom panel
+  repository: OTHER
+  resource_id: doi:10.1093/ismeco/ycaf142
+  url: https://doi.org/10.1093/ismeco/ycaf142
+  description: Open-access ISME Communications paper reporting proteogenomics
+    and metabolic modeling across the R. cellulolyticum-centered
+    cellulose-to-methane combinatorial panel.
+  evidence:
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Higher-order microbial interactions revealed by comparative metabolic modeling
+    explanation: Identifies the primary exact-system panel publication.
+curation_history:
+- timestamp: '2026-09-20T14:03:43Z'
+  curator: codex
+  action: CREATE_RECORD
+  changes: >
+    Created CommunityMech:000394 for the 2025 R. cellulolyticum-centered
+    cellulose-to-methane combinatorial SynCom panel from PMID:40937471,
+    including exact member strains, the mono-/bi-/tri-/quad-culture panel
+    design, modified VM cellulose medium, core acetate/lactate/hydrogen
+    cross-feeding interpretations, and a DOI-backed primary-publication
+    resource.
+  llm_assisted: true
