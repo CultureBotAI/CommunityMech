@@ -44,6 +44,28 @@ engineering_design:
     evidence_source: IN_VIVO
     snippet: Fecal isoDCA concentration
     explanation: Supports fecal isoDCA metabolomics as an in vivo endpoint.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Resulting pellet was aspirated and resuspended in 1mL sterile BHI-S medium supplemented with 15% (v/v) sterile
+      glycerol
+    explanation: Supports pelleting the equal-volume member mix and resuspending it as the frozen glycerol inoculum.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: Abundance of both P. hiranonis and R. gnavus were checked before, during, and after the colonization period by
+      qPCR with species-specific primers
+    explanation: Supports species-specific fecal qPCR as an engraftment endpoint.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: isoDCA can induce both ileal and colonic lamina propria (LP) RORγt + Foxp3 + pTregs
+    explanation: Supports ileal and colonic lamina propria RORγt+Foxp3+ regulatory T cells as measured immune endpoints.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VIVO
+    snippet: isoDCA-producing (isoDCA+) consortium protects from colitis in the CD45RB hi adoptive T cell transfer model
+    explanation: Supports the adoptive T cell transfer colitis endpoint.
 environment_term:
   preferred_term: anaerobic laboratory bile-acid culture
   term:
@@ -197,6 +219,11 @@ growth_media:
     snippet: supplemented brain heart infusion (BHI-S) medium consisting of 37 g/L of brain heart infusion powder (BD Difco),
       5 g/L yeast extract (BD Bacto), and 1% (v/v) of 10% (w/v) L-cysteine (Sigma)
     explanation: Supports the BHI-S base medium plus brain heart infusion, yeast extract, and L-cysteine concentrations.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: secondary cultures in BHI-S medium that were grown at 37 °C for 12-16 hours to OD 600 ≈ 0.800
+    explanation: Supports the 12-16 hour BHI-S secondary culture to the OD600-normalized stock-preparation target.
 - name: YCFAC medium for bile-acid metabolism
   temperature: '37'
   temperature_unit: degrees Celsius
@@ -216,6 +243,17 @@ growth_media:
     evidence_source: IN_VITRO
     snippet: avoid sterol compounds found in BHI-S medium
     explanation: Supports the reason YCFAC was used for the bile-acid metabolism assay.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: secondary YCFAC cultures were spiked with 8 μL of 100 mM bile acids prior to reduction in the anaerobic chamber
+    explanation: Supports YCFAC use for bile-acid metabolism assays under anaerobic reduction.
+  - reference: doi:10.64898/2026.08.11.743107
+    supports: SUPPORT
+    evidence_source: IN_VITRO
+    snippet: Secondary cultures spiked with bile acids were inoculated with 50 μL of P. hiranonis, R. gnavus WT, or R. gnavus
+      KO turbid primary cultures and grown at 37 °C overnight
+    explanation: Supports 37 degree Celsius overnight YCFAC bile-acid conversion cultures.
 external_resources:
 - name: Primary bioRxiv preprint - engineered Clostridial isoDCA mini consortium
   repository: OTHER
@@ -252,4 +290,10 @@ curation_history:
   action: REFINE_EVIDENCE
   changes: Expanded the BHI-S methods snippet so the evidence covers brain heart infusion powder, yeast extract, and L-cysteine
     concentrations.
+  llm_assisted: true
+- timestamp: '2026-09-20T17:49:30Z'
+  curator: codex
+  action: ADDRESS_REVIEW_ISSUES
+  changes: 'Addressed #974 and #975 by adding methods snippets for BHI-S/YCFAC cultivation, glycerol-stock construction, qPCR
+    engraftment, lamina propria pTreg, and CD45RBhi adoptive-transfer endpoints.'
   llm_assisted: true
