@@ -251,6 +251,14 @@ ecological_interactions:
       and CO₂ source, especially in multi-species cultures
     explanation: Supports M. concilii acetoclastic methanogenesis as the
       dominant modeled methane route in the richer panel members.
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: >
+      This was followed by the acetate exchange flux between R. cellulolyticum
+      and M. concilii
+    explanation: Directly supports acetate exchange between R. cellulolyticum
+      and M. concilii in the stoichiometric flux model.
 - name: D. vulgaris hydrogen turnover supports methanogenesis
   description: >
     D. vulgaris acted as a context-dependent syntrophic lactate oxidizer: its
@@ -291,6 +299,12 @@ ecological_interactions:
       low partial pressures that favor this pathway
     explanation: Supports the inferred D. vulgaris hydrogen-turnover effect on
       hydrogenotrophic methanogenesis in the modeled panel.
+  - reference: PMID:40937471
+    supports: SUPPORT
+    evidence_source: COMPUTATIONAL
+    snippet: Desulfovibrio vulgaris oxidizes lactate to acetate, CO2, and H2 in the absence of sulfate
+    explanation: Directly supports lactate oxidation to acetate and H2 as the
+      D. vulgaris pathway coupled to the hydrogen-turnover interaction.
 environmental_factors:
 - name: fully combinatorial species composition
   value: one R. cellulolyticum mono-culture, three bi-cultures, three tri-cultures,
@@ -358,8 +372,8 @@ related_ingredients:
     supports: SUPPORT
     evidence_source: IN_VITRO
     snippet: >
-      carbon and electron transfers were measured
-    explanation: Supports methane as a measured terminal product in the
+      Gases (H₂, CH₄, CO₂) were analyzed by GC with thermal conductivity detection
+    explanation: Supports methane as a directly measured headspace gas in the
       carbon- and electron-flow experiment.
 growth_media:
 - name: modified VM medium with 10 g/L cellulose
@@ -435,4 +449,14 @@ curation_history:
     design, modified VM cellulose medium, core acetate/lactate/hydrogen
     cross-feeding interpretations, and a DOI-backed primary-publication
     resource.
+  llm_assisted: true
+- timestamp: '2026-09-20T14:13:34Z'
+  curator: codex
+  action: UPDATE_RECORD
+  changes: >
+    Addressed PR review issues #965, #966, and #967 by adding direct
+    acetate-exchange evidence to the R. cellulolyticum-to-M. concilii edge,
+    replacing the methane ingredient's generic carbon-flow snippet with direct
+    gas-chromatography support, and adding direct D. vulgaris lactate-to-H2
+    evidence to the hydrogen-turnover edge.
   llm_assisted: true
